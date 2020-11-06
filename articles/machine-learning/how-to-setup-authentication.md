@@ -16,22 +16,22 @@ ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
 # Set up authentication for Azure Machine Learning resources and workflows
 
 
-Learn how to set up authentication to your Azure Machine Learning workspace, and to models deployed as web services. Authentication to Azure Machine Learning is based on __Azure Active Directory__ (AAD) for most things. Some of the services, or specific access methods, are different and are listed in the following table:
+Learn how to set up authentication to your Azure Machine Learning workspace, and to models deployed as web services. Authentication to Azure Machine Learning is based on __Azure Active Directory__ (Azure AD) for most things. Some of the services, or specific access methods, are different and are listed in the following table:
 
 | Authenticating to | Authentication type |
 | ----- | ----- |
-| Azure Machine Learning workspace | AAD |
-| Azure Machine Learning compute instance and compute cluster | AAD</br>(Optional) SSH using public/private key pairs |
-| Azure Machine Learning studio | AAD |
-| Model deployed as a web service | Key or token retrieved using AAD |
-| REST API | Token retrieved using AAD |
+| Azure Machine Learning workspace | Azure AD |
+| Azure Machine Learning compute instance and compute cluster | Azure AD</br>(Optional) SSH using public/private key pairs |
+| Azure Machine Learning studio | Azure AD |
+| Model deployed as a web service | Key or token retrieved using Azure AD |
+| REST API | Token retrieved using Azure AD |
 
 > [!IMPORTANT]
 > Regardless of the authentication used, Azure role-based access control (Azure RBAC) is used to scope the level of access (authorization) allowed to the resources. For example, an admin or automation process might have access to create a compute instance, but not use it, while a data scientist could use it, but not delete or create it. For more information, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md).
 
 In general, there are two types of authentication that you can use with Azure Machine Learning:
 
-* __Interactive__: You use your account in Azure Active Directory to either directly authenticate, or to get a token that is used for authentication. Interactive authentication is used during _experimentation and iterative development_. Interactive authentication enables you to control access to resources (such as a web service) on a per-user basis, by granting specific access/roles to the AAD accounts using RBAC.
+* __Interactive__: You use your account in Azure Active Directory to either directly authenticate, or to get a token that is used for authentication. Interactive authentication is used during _experimentation and iterative development_. Interactive authentication enables you to control access to resources (such as a web service) on a per-user basis, by granting specific access/roles to the Azure AD accounts using Azure RBAC.
 * __Service principal__: You create a service principal account in Azure Active Directory, and use it to authenticate or get a token. A service principal is used when you need an _automated process to authenticate_ to the service without requiring user interaction. For example, a continuous integration and deployment script that trains and tests a model every time the training code changes. You might also use a service principal to retrieve a token to authenticate to a web service, if you don't want to require the end user of the service to authenticate. Or where the end-user authentication isn't performed directly using Azure Active Directory.
 
 ## Prerequisites
@@ -43,7 +43,7 @@ In general, there are two types of authentication that you can use with Azure Ma
 
 ### Azure Active Directory
 
-For resources that use AAD authentication, anyone with an account in your subscription's AAD can attempt to authenticate to the workspace. For more information, see [What is Azure Active Directory authentication](..//active-directory/authentication/overview-authentication.md).
+For resources that use Azure AD authentication, anyone with an account in your subscription's Azure AD can attempt to authenticate to the workspace. For more information, see [What is Azure Active Directory authentication](..//active-directory/authentication/overview-authentication.md).
 
 To use a __service principal__ (SP), you must first create the SP and grant it access to your workspace. As mentioned earlier, Azure role-based access control (Azure RBAC) is used to control access, so you must also decide what access to grant the SP.
 
@@ -452,8 +452,8 @@ class AuthenticationBody {
 
 The preceding code would have to handle exceptions and status codes other than `200 OK`, but shows the pattern: 
 
-- Use the client id and secret to validate that your program should have access
-- Use your tenant id to specify where `login.microsoftonline.com` should be looking
+- Use the client ID and secret to validate that your program should have access
+- Use your tenant ID to specify where `login.microsoftonline.com` should be looking
 - Use Azure Resource Manager as the source of the authorization token
 
 ## Next steps
