@@ -18,28 +18,28 @@ Customer-managed keys must be created and stored in an Azure Key Vault. For more
 
 You can configure a customer-managed key when you place a Data Box order or add one after the order is processed. For information about configuring a customer-managed key when you order your Data Box, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).  
 
-This article shows how to use customer-managed keys with Azure Data Box in the [Azure portal](https://portal.azure.com/). This article applies to both Azure Data Box devices and Azure Data Box Heavy devices.
+This article shows how to use the [Azure portal](https://portal.azure.com/) to add a customer-managed key to an Azure Data Box device that is currently using a Microsoft managed key for encryption. This article applies to both Azure Data Box devices and Azure Data Box Heavy devices.
+
+> [!IMPORTANT]
+> You can disable the Microsoft managed key and move to a customer-managed key at any stage of your Data Box order. However, once you create a customer-managed key, you can't switch back to the Microsoft-managed key.
 
 ## Requirements
 
-- The key is created and stored in an Azure Key Vault. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md). 
+- The key must be created and stored in an Azure Key Vault. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md). 
 
   You can create a key vault when add a customer-managed key to a new or completed Data Box order or separately.To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
 
-- The key vault is in the same region as the storage accounts used for your data. Multiple storage accounts can be linked with your Azure Data Box resource.
+- The key vault must be in the same region as the storage accounts you use for your data. Multiple storage accounts can be linked with your Azure Data Box resource.
 
-- **Soft delete** and **Do not purge** are set on the key vault. These properties are not enabled by default. To enable these properties, see the **Enabling soft-delete** and **Enabling Purge Protection** sections in one of the following articles:
+- **Soft delete** and **Do not purge** must be set on the key vault. These properties are not enabled by default. <!--Soft delete is enabled in the new Order flow. Verify whether that has changed in the completed order. The PowerShell and CLI instructions seem out of place in a portal how-to. Should the article provide alternate methods for adding the customer-managed key to an existing Data Box device?-->To enable these properties, see the **Enabling soft-delete** and **Enabling Purge Protection** sections in one of the following articles:
    - [How to use soft-delete with PowerShell](../key-vault/general/soft-delete-powershell.md).
    - [How to use soft-delete with CLI](../key-vault/general/soft-delete-cli.md).
 
 - The key is an RSA key of 2048 size or larger.
 
-## Add a key
+## Add key to device
 
 To add a customer-managed key in the Azure portal after your Data Box order is complete, follow these steps.
-
-> [!IMPORTANT]
-> You can disable the Microsoft managed key and move to a customer-managed key at any stage of your Data Box order. However, once you create a customer-managed key, you can't switch back to the Microsoft-managed key.
 
 1. Go to the **Overview** screen for your completed Data Box order.
 
