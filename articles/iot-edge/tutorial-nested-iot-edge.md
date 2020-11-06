@@ -4,10 +4,11 @@ description: This tutorial shows you how to create a hierarchical structure of I
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 10/27/2020
+ms.date: 11/06/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
+monikerRange: ">=iotedge-2020-11"
 ---
 
 # Tutorial: Create a hierarchy of IoT Edge devices (Preview)
