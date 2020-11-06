@@ -112,15 +112,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 > [!WARNING]
 > PowerShell clients often add `\` to `"` in the settings.json which will cause akvvm_service fails with error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
-The Azure PowerShell can be used to deploy the Key Vault VM extension to an existing Arc enabled server based on the following example: 
-
-```powershell
-$Settings = @{ secretsManagementSettings = @{ observedCertificates = @( "https://ryanpu-akv.vault.azure.net/secrets/arc-demo-certificate" # Add more here, don't forget a comma on the preceding line ) certificateStoreLocation = "LocalMachine" certificateStoreName = "My" pollingIntervalInS = "60" } authenticationSettings = @{ msiEndpoint = "http://localhost:40342/metadata/identity" } } $ResourceGroup = "ryanpu-akv-demo" $ArcMachineName = "ryanpu-akv-win" $Location = "eastus2" 
-
-New-AzConnectedMachineExtension -ResourceGroupName $ResourceGroup -MachineName $ArcMachineName -Name "KeyVaultForWindows" -Location $Location -Publisher "Microsoft.Azure.KeyVault" -ExtensionType "KeyVaultForWindows" -Setting (ConvertTo-Json $Settings)
-```
-
-The Azure PowerShell can be used to deploy the Key Vault VM extension based on the following example:
+The Azure PowerShell can be used to deploy the Key Vault VM extension to an existing Arc enabled server based on the following example:
 
 ```powershell
 # Build settings
