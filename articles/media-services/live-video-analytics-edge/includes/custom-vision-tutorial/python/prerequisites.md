@@ -1,3 +1,11 @@
+---
+author: russell-cooks
+ms.service: media-services
+ms.topic: include
+ms.date: 10/05/2020
+ms.author: russellcooks
+---
+
 Prerequisites for this tutorial are:
 
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) and [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extensions.
