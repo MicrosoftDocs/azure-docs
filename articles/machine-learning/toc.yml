@@ -182,10 +182,13 @@
       items:
         - name: Identity & access management
           items:
-            - name: Set up authentication
+            - name: Workspace authentication
               displayName: authentication, auth, oauth
               href: how-to-setup-authentication.md
-            - name: Manage users and roles
+            - name: Web service authentication
+              displayName: authentication, model, web service
+              href: how-to-authenticate-web-service.md
+            - name: Manage access (authorization)
               href: how-to-assign-roles.md
             - name: Use managed identities for access control
               href: how-to-use-managed-identities.md

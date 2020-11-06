@@ -42,7 +42,7 @@ Azure Machine Learning supports two forms of authentication for web services: ke
 |Key|Keys are static and don't need to be refreshed. Keys can be regenerated manually.|Disabled by default| Enabled by default|
 |Token|Tokens expire after a specified time period and need to be refreshed.| Not available| Disabled by default |
 
-For code examples, see the [web-service authentication section](how-to-setup-authentication.md#web-service-authentication).
+For code examples, see the [web-service authentication section](how-to-authenticate-web-service.md).
 
 ## Authorization
 
