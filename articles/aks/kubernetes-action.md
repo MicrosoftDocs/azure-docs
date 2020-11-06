@@ -4,13 +4,22 @@ description:  Learn how to use GitHub Actions to deploy your container to Kubern
 services: container-service
 author: azooinmyluggage
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/06/2020
 ms.author: atulmal
 ---
 
 # GitHub Actions for deploying to Kubernetes service
 
 [GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. The Kubernetes action [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) facilitate deployments to Azure Kubernetes Service clusters. The action sets the target AKS cluster context, which could be used by other actions like [azure/k8s-deploy](https://github.com/Azure/k8s-deploy/tree/master), [azure/k8s-create-secret](https://github.com/Azure/k8s-create-secret/tree/master) etc. or run any kubectl commands.
+
+## Prerequisites 
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
+- A working Kubernetes cluster
+    - [Tutorial: Prepare an application for Azure Kubernetes Service](tutorial-kubernetes-prepare-app.md)
+
+## Workflow file overview
 
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
