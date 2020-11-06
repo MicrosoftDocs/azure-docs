@@ -64,11 +64,19 @@ If they are not already registered, follow the steps under [Register Azure resou
 
 The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine.
 
-The Key Vault VM extension does not support the following Linux operating systems:
+### Azure Key Vault VM extension (preview)
+
+The Key Vault VM extension (preview) does not support the following Linux operating systems:
 
 - CentOS Linux 7 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
+
+Before you deploy the extension, you need to complete the following:
+
+1. [Create a vault and certificate](../../key-vault/certificates/quick-create-portal.md) (self-signed or import).
+
+2. Grant the Azure Arc enabled server access to the certificate secret. If you’re using the [RBAC preview](../../key-vault/general/rbac-guide.md), search for the name of the Azure Arc resource and assign it the **Key Vault Secrets User (preview)** role. If you’re using [Key Vault access policy](../../key-vault/general/assign-access-policy-portal.md), assign Secret **Get** permissions to the Azure Arc resource’s system assigned identity.
 
 ### Connected Machine agent
 

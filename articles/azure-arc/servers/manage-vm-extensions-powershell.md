@@ -40,6 +40,37 @@ PS C:\> $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
 PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute" -TypeHandlerVersion 1.10 -Settings $Setting -ExtensionType CustomScriptExtension
 ```
 
+### Azure Key Vault VM extension (preview)
+
+> [!WARNING]
+> PowerShell clients often add `\` to `"` in the settings.json which will cause akvvm_service fails with error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
+
+The following example enables the Key Vault VM extension (preview) on an Arc enabled server:
+
+```powershell
+# Build settings
+    $settings = @{
+      secretsManagementSettings = @{
+       observedCertificates = @{
+        "observedCert1"
+       }
+      certificateStoreLocation = "myMachineName" # For Linux use "/var/lib/waagent/Microsoft.Azure.KeyVault.Store/"
+      certificateStore = "myCertificateStoreName"
+      pollingIntervalInS = "pollingInterval"
+      }
+    authenticationLocationSettings = @{
+     msiEndpoint = "http://localhost:40342/metadata/identity"
+     }
+    }
+
+    $resourceGroup = "resourceGroupName"
+    $machineName = "myMachineName"
+    $location = "regionName"
+
+    # Start the deployment
+    New-AzConnectedMachineExtension -ResourceGroupName $resourceGRoup -Location $location -MachineName $machineName -Name "KeyVaultForWindows or KeyVaultforLinux" -Publisher "Microsoft.Azure.KeyVault" -ExtensionType "KeyVaultforWindows or KeyVaultforLinux" -Setting (ConvertTo-Json $settings)
+```
+
 ## List extensions installed
 
 To get a list of the VM extensions on your Arc enabled server, use [Get-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/get-azconnectedmachineextension) with the `-MachineName` and `-ResourceGroupName` parameters.

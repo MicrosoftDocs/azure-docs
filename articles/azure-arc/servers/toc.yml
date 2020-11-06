@@ -55,8 +55,6 @@
           href: manage-vm-extensions-powershell.md
         - name: Deploy extensions using ARM template
           href: manage-vm-extensions-template.md
-        - name: Azure Key Vault extension
-          href: manage-vm-extensions-keyvault.md
     - name: Manage agent
       href: manage-agent.md
   - name: Troubleshooting
