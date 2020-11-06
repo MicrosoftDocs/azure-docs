@@ -6,7 +6,7 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 11/06/2020
 ms.author: jlian
 ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support']
 
@@ -96,6 +96,8 @@ After you've created a diagnostic setting to route IoT Hub resource logs to Azur
    ![Example of error log](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
 Once you've identified the error, follow the problem resolution guides for help with the most common errors:
+
+* [400027 ConnectionForcefullyClosedOnNewConnection](iot-hub-troubleshoot-error-400027-connectionforcefullyclosedonnewconnection.md)
 
 * [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)
 

@@ -5,7 +5,7 @@ author: robinsh
 ms.author: robinsh
 ms.topic: conceptual 
 ms.service: iot-hub
-ms.date: 10/22/2020
+ms.date: 11/06/2020
 ---
 
 # Monitoring Azure IoT Hub
