@@ -9,7 +9,7 @@ ms.author: yajin1
 ---
 # Troubleshooting Guide
 
-This guidance is to provide useful troubleshooting guide based on the common issues customers encountered and resolved in the past years.
+This guidance is to provide useful troubleshooting guide based on the common issues customers met and resolved in the past years.
 
 ## Access token too long
 
@@ -22,7 +22,7 @@ This guidance is to provide useful troubleshooting guide based on the common iss
 
 ### Root cause:
 
-For HTTP/2, the max length for a single header is **4 K**, so if you are using browser to access Azure service, you will encounter this limitation with `ERR_CONNECTION_` error.
+For HTTP/2, the max length for a single header is **4 K**, so if using browser to access Azure service, there will be an error `ERR_CONNECTION_` for this limitation.
 
 For HTTP/1.1, or C# clients, the max URI length is **12 K**, the max header length is **16 K**.
 
@@ -63,7 +63,7 @@ services.MapAzureSignalR(GetType().FullName, options =>
 
 1. ASP.NET "No server available" error [#279](https://github.com/Azure/azure-signalr/issues/279)
 2. ASP.NET "The connection is not active, data cannot be sent to the service." error [#324](https://github.com/Azure/azure-signalr/issues/324)
-3. "An error occurred while making the HTTP request to https://<API endpoint>. This could be due to the fact that the server certificate is not configured properly with HTTP.SYS in the HTTPS case. This could also be caused by a mismatch of the security binding between the client and the server."
+3. "An error occurred while making the HTTP request to https://<API endpoint>. This error could be due to the fact that the server certificate is not configured properly with HTTP.SYS in the HTTPS case. This error could also be caused by a mismatch of the security binding between the client and the server."
 
 ### Root cause:
 
@@ -71,7 +71,7 @@ Azure Service only supports TLS1.2 for security concerns. With .NET framework, i
 
 ### Troubleshooting Guide
 
-1. If this error can be repro-ed locally, uncheck *Just My Code* and throw all CLR exceptions and debug the app server locally to see what exception throws.
+1. If this error can be reproduced locally, uncheck *Just My Code* and throw all CLR exceptions and debug the app server locally to see what exception throws.
     * Uncheck *Just My Code*
 
         ![Uncheck Just My Code](./media/signalr-howto-troubleshooting-guide/uncheck_just_my_code.png)
@@ -217,7 +217,7 @@ When the client is connected to the Azure SignalR, the persistent connection bet
 
 Client connections can drop under various circumstances:
 1. When `Hub` throws exceptions with the incoming request.
-2. When the server connection the client routed to drops, see below section for details on [server connection drops](#server_connection_drop).
+2. When the server connection, which the client routed to, drops, see below section for details on [server connection drops](#server_connection_drop).
 3. When a network connectivity issue happens between client and SignalR Service.
 4. When SignalR Service has some internal errors like instance restart, failover, deployment, and so on.
 
@@ -232,9 +232,9 @@ Client connections can drop under various circumstances:
 
 It might be caused by improper usage of client connection. If someone forgets to stop/dispose SignalR client, the connection remains open.
 
-### Possible errors seen from the SignalR's metrics blade
+### Possible errors seen from the SignalR's Metrics that is in Monitoring section of Azure portal resource menu
 
-Client connections rise constantly for a long time in Azure SignalR's metrics blade.
+Client connections rise constantly for a long time in Azure SignalR's Metrics.
 ![client_connection_increasing_constantly](./media/signalr-howto-troubleshooting-guide/client_connection_increasing_constantly.jpg)
 
 ### Root cause:
@@ -271,7 +271,7 @@ finally
 
 #### Azure Function Example 
 
-This issue often occurs when someone establishes SignalR client connection in Azure Function method instead of making it a static member to your Function class. You might expect only one client connection is established, but you see client connection count increases constantly in metrics blade, all these connections drop only after the Azure Function or Azure SignalR service restarts. This is because for **each** request, Azure Function creates **one** client connection, if you don't stop client connection in Function method, the client keeps the connections alive to Azure SignalR service.
+This issue often occurs when someone establishes SignalR client connection in Azure Function method instead of making it a static member to your Function class. You might expect only one client connection is established, but you see client connection count increases constantly in Metrics that is in Monitoring section of Azure portal resource menu, all these connections drop only after the Azure Function or Azure SignalR service restarts. This is because for **each** request, Azure Function creates **one** client connection, if you don't stop client connection in Function method, the client keeps the connections alive to Azure SignalR service.
 
 #### Solution
 
@@ -287,9 +287,9 @@ When the app server starts, in the background, the Azure SDK starts to initiate 
 
 As the connections between the app server and SignalR Service are persistent connections, they may experience network connectivity issues. In the Server SDK, we have **Always Reconnect** strategy to server connections. As the best practice, we also encourage users to add continuous reconnect logic to the clients with a random delay time to avoid massive simultaneous requests to the server.
 
-On a regular basis, there are new version releases for the Azure SignalR Service, and sometimes the Azure wide OS patching or upgrades or occasionally interruption from our dependent services. These may bring in a short period of service disruption, but as long as client-side has the disconnect/reconnect mechanism, the impact is minimal like any client-side caused disconnect-reconnect.
+On a regular basis, there are new version releases for the Azure SignalR Service, and sometimes the Azure-wide OS patching or upgrades or occasionally interruption from our dependent services. These may bring in a short period of service disruption, but as long as client-side has the disconnect/reconnect mechanism, the impact is minimal like any client-side caused disconnect-reconnect.
 
-This section describes several possibilities leading to server connection drop and provides some guidance on how to identify the root cause.
+This section describes several possibilities leading to server connection drop, and provides some guidance on how to identify the root cause.
 
 ### Possible errors seen from server-side:
 
