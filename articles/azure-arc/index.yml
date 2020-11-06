@@ -38,7 +38,7 @@ highlightedContent:
     # Card
     - title: Azure Arc enabled SQL Server (preview)
       itemType: overview
-      url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+      url: /sql/sql-server/azure-arc/overview
 
 # productDirectory section (optional)
 productDirectory:
@@ -59,7 +59,7 @@ productDirectory:
         - url: ./servers/index.yml
           text: See more...
     # Card
-    - title: Azure Arc enabled Kubernetes
+    - title: Azure Arc enabled Kubernetes (preview)
       imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
       links:
         - url: ./kubernetes/connect-cluster.md
@@ -84,9 +84,9 @@ productDirectory:
     - title: Azure Arc enabled SQL Server (preview)
       imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
       links:
-        - url: https://docs.microsoft.com/sql/sql-server/azure-arc/assess
+        - url: /sql/sql-server/azure-arc/assess
           text: Assess your SQL instances
-        - url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+        - url: /sql/sql-server/azure-arc/overview
           text: See more...
 
 # conceptualContent section (optional)
@@ -104,7 +104,7 @@ conceptualContent:
         - url: ./servers/learn/tutorial-enable-vm-insights.md
           itemType: tutorial
           text: Monitor a hybrid machine with Azure Monitor for VMs
-        - url: ./servers/policy-samples.md
+        - url: ./servers/policy-reference.md
           itemType: learn
           text: Admission control policies using Azure Policy
         - url: ./servers/manage-vm-extensions.md

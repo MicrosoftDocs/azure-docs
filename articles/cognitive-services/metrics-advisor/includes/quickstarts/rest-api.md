@@ -2,12 +2,13 @@
 title: Metrics Monitor REST API quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
-ms.service: metrics-advisor
+ms.service: cognitive-services
+ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/23/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 ## Prerequisites

@@ -18,7 +18,7 @@ If you want to skip straight to sample code, see the [Python quickstart samples]
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../get-started.md).
+This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ## Install the Speech SDK
 
@@ -55,7 +55,7 @@ There are a few ways that you can initialize a [`SpeechTranslationConfig`][confi
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-Let's take a look at how a [`SpeechTranslationConfig`][config] is created using a key and region. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier.
+Let's take a look at how a [`SpeechTranslationConfig`][config] is created using a key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ```python
 from_language, to_language = 'en-US', 'de'

@@ -68,7 +68,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 1. Choose the _Networking_ tab and select **Create new** to configure a new virtual network.
 
     >[!div class="mx-imgBorder"]
-    >![Create a new virtual network for the new VM](./media/functions-create-private-site-access/create-vm-networking.png)
+    >![Screenshot that shows the "Networking" tab with the "Create new" action highlighted in the "Virtual network" section.](./media/functions-create-private-site-access/create-vm-networking.png)
 
 1. In _Create virtual network_, use the settings in the table below the image:
 
@@ -192,7 +192,7 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Command line](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
+    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. When publishing your Azure Functions project, choose the function app resource that you created earlier in this tutorial.
 1. Verify the function is deployed.

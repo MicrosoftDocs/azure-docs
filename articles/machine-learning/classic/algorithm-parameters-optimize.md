@@ -13,7 +13,7 @@ ms.date: 11/29/2017
 ---
 # Choose parameters to optimize your algorithms in Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 This topic describes how to choose the right hyperparameter set for an algorithm in Azure Machine Learning Studio (classic). Most machine learning algorithms have parameters to set. When you train a model, you need to provide values for those parameters. The efficacy of the trained model depends on the model parameters that you choose. The process of finding the optimal set of parameters is known as *model selection*.
 
@@ -68,5 +68,5 @@ The model is then evaluated on the validation dataset. The left output port of t
 You can see the exact parameters chosen by visualizing the right output port. This model can be used in scoring a test set or in an operationalized web service after saving as a trained model.
 
 <!-- Module References -->
-[partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
+[partition-and-sample]: /azure/machine-learning/studio-module-reference/partition-and-sample
+[tune-model-hyperparameters]: /azure/machine-learning/studio-module-reference/tune-model-hyperparameters

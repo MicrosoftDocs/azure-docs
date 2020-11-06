@@ -18,14 +18,18 @@ ms.date: 09/25/2019
 
 You can use Azure Database Migration Service to perform an online (minimal downtime) migration of databases from an on-premises or cloud instance of MongoDB to Azure Cosmos DB's API for MongoDB.
 
-In this tutorial, you learn how to:
+This tutorial demonstrates the steps associated with using Azure Database Migration Service to migrate MongoDB data to Azure Cosmos DB:
 > [!div class="checklist"]
->
-> * Create an instance of Azure Database Migration Service.
-> * Create a migration project by using Azure Database Migration Service.
-> * Run the migration.
-> * Monitor the migration.
-> * Complete the migration when you are ready.
+> 
+> * Create an instance of Azure Database Migration Service. 
+> * Create a migration project. 
+> * Specify the source. 
+> * Specify the target. 
+> * Map to target databases. 
+> * Run the migration. 
+> * Monitor the migration. 
+> * Verify data in Azure Cosmos DB. 
+> * Complete the migration when you are ready. 
 
 In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Machine to Azure Cosmos DB's API for MongoDB with minimal downtime by using Azure Database Migration Service. If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
@@ -228,7 +232,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 1. Make changes to your source MongoDB database.
 2. Connect to COSMOS DB to verify if the data is replicated from the source MongoDB server.
 
-    ![Activity status replaying](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
+    ![Screenshot that shows where you can verify that the data was replicated.](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
 
 ## Complete the migration
 
@@ -236,7 +240,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
     This action will finish replaying all the pending changes and complete the migration.
 
-    ![Activity status replaying](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
+    ![Screenshot that shows the Finish menu option.](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
 
 ## Post-migration optimization
 

@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 11/02/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -47,6 +47,18 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
+### Managed identities
+
+To get the ID of a managed identity, you can use [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp](/cli/azure/ad/sp) commands.
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectId --output tsv)
+```
+
 ### Application
 
 To get the ID of a service principal (identity used by an application), you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) commands. For a service principal, use the object ID and **not** the application ID.
@@ -72,7 +84,7 @@ The following template shows a basic way to add a role assignment. Some values a
 To use the template, you must do the following:
 
 - Create a new JSON file and copy the template
-- Replace `<your-principal-id>` with the ID of a user, group, or application to assign the role to
+- Replace `<your-principal-id>` with the ID of a user, group, managed identity, or application to assign the role to
 
 ```json
 {
@@ -115,7 +127,7 @@ The previous template isn't very flexible. The following template uses parameter
 
 To use the template, you must specify the following inputs:
 
-- The ID of a user, group, or application to assign the role to
+- The ID of a user, group, managed identity, or application to assign the role to
 - A unique ID that will be used for the role assignment, or you can use the default ID
 
 ```json
@@ -209,7 +221,7 @@ The following template demonstrates:
 
 To use the template, you must specify the following inputs:
 
-- The ID of a user, group, or application to assign the role to
+- The ID of a user, group, managed identity, or application to assign the role to
 
 ```json
 {
@@ -288,7 +300,9 @@ The following shows an example of the Contributor role assignment to a user for 
 
 ### New service principal
 
-If you create a new service principal and immediately try to assign a role to that service principal, that role assignment can fail in some cases. For example, if you create a new managed identity and then try to assign a role to that service principal in the same Azure Resource Manager template, the role assignment might fail. The reason for this failure is likely a replication delay. The service principal is created in one region; however, the role assignment might occur in a different region that hasn't replicated the service principal yet. To address this scenario, you should set the `principalType` property to `ServicePrincipal` when creating the role assignment.
+If you create a new service principal and immediately try to assign a role to that service principal, that role assignment can fail in some cases. For example, if you create a new managed identity and then try to assign a role to that service principal in the same Azure Resource Manager template, the role assignment might fail. The reason for this failure is likely a replication delay. The service principal is created in one region; however, the role assignment might occur in a different region that hasn't replicated the service principal yet.
+
+To address this scenario, you should set the `principalType` property to `ServicePrincipal` when creating the role assignment. You must also set the `apiVersion` of the role assignment to `2018-09-01-preview` or later.
 
 The following template demonstrates:
 
@@ -360,7 +374,7 @@ In Azure RBAC, to remove access to an Azure resource, you remove the role assign
 
 - [Azure portal](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+- [Azure CLI](role-assignments-cli.md#remove-role-assignment)
 - [REST API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## Next steps

@@ -3,8 +3,10 @@
 - name: Overview
   href: media-services-overview.md
   items:
-  - name: Scenarios and availability
+  - name: Common scenarios
     href: scenarios-and-availability.md
+  - name: Regional availability
+    href: availability-regions-v-2.md
   - name: Concepts
     href: media-services-concepts.md
 - name: Get started
@@ -302,13 +304,12 @@
         href: hybrid-design-drm-sybsystem.md
       - name: Reference multi-DRM design
         href: media-services-cenc-with-multidrm-access-control.md
-    - name: Process with Indexer
-      href: media-services-index-content.md
-      items:
-      - name: Task preset
-        href: indexer-task-preset.md
   - name: Analyze content
     items:
+    - name: Process with Indexer
+      href: media-services-index-content.md
+    - name: Task preset
+      href: indexer-task-preset.md    
     - name: Process with Face Redactor
       href: media-services-face-redaction.md
     - name: Face Redactor walkthrough

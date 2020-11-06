@@ -110,6 +110,8 @@
       href: unresponsive-vm-apply-group-policy.md
     - name: VM is unresponsive when applying security policy
       href: unresponsive-vm-apply-security-policy.md
+    - name: VM is unresponsive while waiting for local session manager
+      href: vm-unresponsive-wait-local-session-manager.md
     - name: Windows boot manager error - Status Invalid Image Hash
       href: windows-boot-error-invalid-image-hash.md
     - name: Windows stop error - Bad System Config Info
@@ -118,6 +120,8 @@
       href: troubleshoot-windows-stop-error.md
     - name: Windows stop error - System Process Terminated
       href: windows-stop-error-system-process-terminated.md
+    - name: Windows stop error - System thread exception not handled
+      href: windows-stop-error-system-thread-exception-not-handled.md
 - name: Cannot connect to my VM
   items:
   - name: RDP
@@ -225,6 +229,8 @@
       href: troubleshoot-performance-virtual-machine-linux-windows.md
     - name: Performance diagnostics
       href: performance-diagnostics.md
+    - name: Troubleshoot high CPU issues for Azure Windows Virtual Machine
+      href: troubleshoot-high-cpu-issues-azure-windows-vm.md
   - name: PerfInsights
     items:
     - name: Windows
@@ -240,9 +246,9 @@
 - name: Troubleshoot Shared Image Galleries
   items:
   - name: Troubleshoot Shared Image Gallery - Windows
-    href: ../windows/troubleshooting-shared-images.md
+    href: ../troubleshooting-shared-images.md
   - name: Troubleshoot Shared Image Gallery - Linux
-    href: ../linux/troubleshooting-shared-images.md
+    href: ../troubleshooting-shared-images.md
 - name: VM extension issues
   items:
   - name: Azure extension overview
@@ -347,4 +353,3 @@
   items:
   - name: Support for 32-bit operating systems
     href: support-32-bit-operating-systems-virtual-machines.md
-    

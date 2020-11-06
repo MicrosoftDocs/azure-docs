@@ -1,10 +1,11 @@
 ---
 title: Data warehouse collation types
-description: Collation types supported in Azure Synapse Analytics SQL pool.
+description: Collation types supported for dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: antvgski 
 manager: igorstan
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: anvang
@@ -12,9 +13,9 @@ ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Database collation support for Azure Synapse Analytics SQL pool
+# Database collation support for dedicated SQL pool in Azure Synapse Analytics 
 
-You can change the default database collation from the Azure portal when you create a new Azure Synapse SQL pool database. This capability makes it even easier to create a new database using one of the 3800 supported database collations.
+You can change the default database collation from the Azure portal when you create a new dedicated SQL pool database. This capability makes it even easier to create a new database using one of the 3800 supported database collations.
 
 Collations provide the locale, code page, sort order and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
 

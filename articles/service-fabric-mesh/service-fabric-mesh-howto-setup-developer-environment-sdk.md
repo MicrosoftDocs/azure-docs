@@ -1,8 +1,8 @@
 ---
 title: Set up a Windows dev environment for Service Fabric Mesh
 description: Set up your Windows development environment so you can create a Service Fabric Mesh application and deploy it to Azure Service Fabric Mesh.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 12/12/2018
 ms.topic: conceptual
 #Customer intent: As a developer, I need to install the prerequisites to enable service fabric mesh development in visual studio.

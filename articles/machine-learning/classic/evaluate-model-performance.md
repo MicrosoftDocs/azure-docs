@@ -13,7 +13,7 @@ ms.date: 03/20/2017
 ---
 # Evaluate model performance in Azure Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 In this article, you can learn about the metrics you can use to monitor model performance in Azure Machine Learning Studio (classic).  Evaluating the performance of a model is one of the core stages in the data science process. It indicates how successful the scoring (predictions) of a dataset has been by a trained model. Azure Machine Learning Studio (classic) supports model evaluation through two of its main machine learning modules: 
@@ -178,12 +178,12 @@ Figure 12. Cross-Validating a Multiclass Classification Model.
 Figure 13. Cross-Validation Results of a Multiclass Classification Model.
 
 <!-- Module References -->
-[cross-validate-model]: https://msdn.microsoft.com/library/azure/75fb875d-6b86-4d46-8bcc-74261ade5826/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
+[cross-validate-model]: /azure/machine-learning/studio-module-reference/cross-validate-model
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[multiclass-decision-forest]: /azure/machine-learning/studio-module-reference/multiclass-decision-forest
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-logistic-regression]: /azure/machine-learning/studio-module-reference/two-class-logistic-regression

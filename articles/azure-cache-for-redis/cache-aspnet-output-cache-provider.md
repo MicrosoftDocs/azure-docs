@@ -10,7 +10,7 @@ ms.date: 04/22/2018
 ---
 # ASP.NET Output Cache Provider for Azure Cache for Redis
 
-The Redis Output Cache Provider is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP responses (page output caching). The provider plugs into the new output cache provider extensibility point that was introduced in ASP.NET 4. For ASP.NET Core applications, read [Response caching in ASP.NET Core](https://docs.microsoft.com/aspnet/core/performance/caching/response). 
+The Redis Output Cache Provider is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP responses (page output caching). The provider plugs into the new output cache provider extensibility point that was introduced in ASP.NET 4. For ASP.NET Core applications, read [Response caching in ASP.NET Core](/aspnet/core/performance/caching/response). 
 
 To use the Redis Output Cache Provider, first configure your cache, and then configure your ASP.NET application using the Redis Output Cache Provider NuGet package. This topic provides guidance on configuring your application to use the Redis Output Cache Provider. For more information about creating and configuring an Azure Cache for Redis instance, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
@@ -188,7 +188,7 @@ Add an OutputCache directive to each page for which you wish to cache the output
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-In the previous example, the cached page data remains in the cache for 60 seconds, and a different version of the page is cached for each parameter combination. For more information about the OutputCache directive, see [@OutputCache](https://go.microsoft.com/fwlink/?linkid=320837).
+In the previous example, the cached page data remains in the cache for 60 seconds, and a different version of the page is cached for each parameter combination. For more information about the OutputCache directive, see [@OutputCache](/previous-versions/dotnet/netframework-4.0/hdxfb6cy(v=vs.100)).
 
 Once these steps are performed, your application is configured to use the Redis Output Cache Provider.
 

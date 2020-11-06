@@ -3,6 +3,8 @@ title: "Quickstart: Language Understanding (LUIS) SDK client libraries"
 description: Create and query a LUIS app with the LUIS SDK client libraries with this quickstart using C#, Python, or JavaScript.
 ms.topic: quickstart
 ms.date: 09/14/2020
+ms.service: cognitive-services
+ms.subservice: language-understanding
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-diberry-3core
@@ -13,7 +15,8 @@ Create and query an Azure LUIS artificial intelligence (AI) app with the LUIS SD
 
 Language Understanding (LUIS) enables you to apply natural language processing (NLP) to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 
-* The **authoring SDK** client library allows you to create, edit, train, and publish your LUIS app. * The **prediction runtime SDK** client library allows you to query the published app.
+* The **authoring SDK** client library allows you to create, edit, train, and publish your LUIS app.
+* The **prediction runtime SDK** client library allows you to query the published app.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [LUIS development with C# SDK](./includes/sdk-csharp.md)]
@@ -33,7 +36,7 @@ You can delete the app from the [LUIS portal](https://www.luis.ai) and delete th
 
 ## Troubleshooting
 
-* Authenticating to the client library - authentication errors usually indicate that the wrong key & endpoint were used. This quickstart uses the authoring key and endpoint for the prediction runtime, as a convenience but will only work if you haven't already used the monthly quota. If you can't use the authoring key and endpoint, you need to use the prediction runtime key and endpoint when accessing the prediction runtime SDK client library.
+* Authenticating to the client library - authentication errors usually indicate that the wrong key & endpoint were used. This quickstart uses the authoring key and endpoint for the prediction runtime as a convenience, but will only work if you haven't already used the monthly quota. If you can't use the authoring key and endpoint, you need to use the prediction runtime key and endpoint when accessing the prediction runtime SDK client library.
 * Creating entities - if you get an error creating the nested machine-learning entity used in this tutorial, make sure you copied the code and didn't alter the code to create a different entity.
 * Creating example utterances - if you get an error creating the labeled example utterance used in this tutorial, make sure you copied the code and didn't alter the code to create a different labeled example.
 * Training - if you get a training error, this usually indicates an empty app (no intents with example utterances), or an app with intents or entities that are malformed.

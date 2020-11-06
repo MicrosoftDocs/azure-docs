@@ -30,10 +30,6 @@ Review [this guide](./choose-ad-authn.md) for a comparison of the various Azure 
 
 Pass-through Authentication is a free feature. You don't need any paid editions of Azure AD to use it.
 
-## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
-
-No. Pass-through Authentication is only available in the worldwide instance of Azure AD.
-
 ## Does [Conditional Access](../conditional-access/overview.md) work with Pass-through Authentication?
 
 Yes. All Conditional Access capabilities, including Azure Multi-Factor Authentication, work with Pass-through Authentication.

@@ -12,6 +12,7 @@ ms.custom: devx-track-python
 
 ---
 # Quickstart: Build a Cassandra app with Python SDK and Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -123,7 +124,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. Download the Baltimore CyberTrust Root certificate locally from [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Rename the file using the file extension *.cer*.
 
-   The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
+   The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
 2. Open *pyquickstart.py* and change the `path\to\cert` to point to your new certificate.
 

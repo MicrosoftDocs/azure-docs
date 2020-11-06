@@ -13,14 +13,14 @@ ms.date: 02/14/2019
 ---
 # Retrain and deploy a classic Studio (classic) web service
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Green check mark.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![X indicating no.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Retraining machine learning models is one way to ensure they stay accurate and based on the most relevant data available. This article will show you how to retrain a classic Studio (classic) web service. For a guide on how to retrain a new Studio (classic) web service, [view this how-to article.](retrain-machine-learning-model.md)
 
 ## Prerequisites
 
-This article assumes you already have both a retraining experiment and a predictive experiment. These steps are explained in [Retrain and deploy a machine learning model.](/azure/machine-learning/studio/retrain-machine-learning-model) However, instead of deploying your machine learning model as a new web service, you will deploy your predictive experiment as a classic web service.
+This article assumes you already have both a retraining experiment and a predictive experiment. These steps are explained in [Retrain and deploy a machine learning model.](./retrain-machine-learning-model.md) However, instead of deploying your machine learning model as a new web service, you will deploy your predictive experiment as a classic web service.
      
 ## Add a new endpoint
 

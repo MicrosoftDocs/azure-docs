@@ -22,18 +22,18 @@ Organizations can enable diagnostic logging for their Azure Data Lake Storage Ge
 
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure Data Lake Storage Gen1 account**. Follow the instructions at [Get started with Azure Data Lake Storage Gen1 using the Azure Portal](data-lake-store-get-started-portal.md).
+* **Azure Data Lake Storage Gen1 account**. Follow the instructions at [Get started with Azure Data Lake Storage Gen1 using the Azure portal](data-lake-store-get-started-portal.md).
 
 ## Enable diagnostic logging for your Data Lake Storage Gen1 account
 1. Sign on to the new [Azure portal](https://portal.azure.com).
 2. Open your Data Lake Storage Gen1 account, and from your Data Lake Storage Gen1 account blade, click **Diagnostic settings**.
 3. In the **Diagnostics settings** blade, click **Turn on diagnostics**.
 
-	![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Enable diagnostic logs")
+	![Screenshot of the Data Lake Storage Gen 1 account with the Diagnostic setting option and the Turn on diagnostics option called out.](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Enable diagnostic logs")
 
 3. In the **Diagnostics settings** blade, make the following changes to configure diagnostic logging.
    
-    ![Enable diagnostic logging](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+    ![Screenshot of the Diagnostic setting section with the Name text box and the Save option called out.](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
    
    * For **Name**, enter a value for the diagnostic log configuration.
    * You can choose to store/process the data in different ways.
@@ -42,7 +42,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Storage Ge
 		
 		* Select the option to **Stream to an event hub** to stream log data to an Azure Event Hub. Most likely you will use this option if you have a downstream processing pipeline to analyze incoming logs at real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
 
-		* Select the option to **Send to Log Analytics** to use the Azure Monitor service to analyze the generated log data. If you select this option, you must provide the details for the Log Analytics workspace that you would use the perform log analysis. See [View or analyze data collected with Azure Monitor logs search](../azure-monitor/learn/tutorial-viewdata.md) for details on using Azure Monitor logs.
+		* Select the option to **Send to Log Analytics** to use the Azure Monitor service to analyze the generated log data. If you select this option, you must provide the details for the Log Analytics workspace that you would use the perform log analysis. See [View or analyze data collected with Azure Monitor logs search](../azure-monitor/log-query/get-started-portal.md) for details on using Azure Monitor logs.
      
    * Specify whether you want to get audit logs or request logs or both.
    * Specify the number of days for which the data must be retained. Retention is only applicable if you are using Azure storage account to archive log data.
@@ -69,13 +69,13 @@ There are two ways to view the log data for your Data Lake Storage Gen1 account.
 ### From the Azure Storage account that contains log data
 1. Open the Azure Storage account blade associated with Data Lake Storage Gen1 for logging, and then click Blobs. The **Blob service** blade lists two containers.
    
-    ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+    ![Screenshot of the Data Lake Storage Gen 1 blade the the Blobs option selected and the Blog service blade with the names of the two blob services called out.](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
    
    * The container **insights-logs-audit** contains the audit logs.
    * The container **insights-logs-requests** contains the request logs.
 2. Within these containers, the logs are stored under the following structure.
    
-    ![View diagnostic logging](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
+    ![Screenshot of the log structure as it is stored in the container.](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
    
     As an example, the complete path to an audit log could be `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
@@ -178,7 +178,7 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 | StreamName |String |The path the operation was performed on |
 
 ## Samples to process the log data
-When sending logs from Azure Data Lake Storage Gen1 to Azure Monitor logs (see [View or analyze data collected with Azure Monitor logs search](../azure-monitor/learn/tutorial-viewdata.md) for details on using Azure Monitor logs), the following query will return a table containing a list of user display names, the time of the events, and the count of events for the time of the event along with a visual chart. It can easily be modified to show user GUID or other attributes:
+When sending logs from Azure Data Lake Storage Gen1 to Azure Monitor logs (see [View or analyze data collected with Azure Monitor logs search](../azure-monitor/log-query/get-started-portal.md) for details on using Azure Monitor logs), the following query will return a table containing a list of user display names, the time of the events, and the count of events for the time of the event along with a visual chart. It can easily be modified to show user GUID or other attributes:
 
 ```
 search *
@@ -192,4 +192,3 @@ Azure Data Lake Storage Gen1 provides a sample on how to process and analyze the
 ## See also
 * [Overview of Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Secure data in Data Lake Storage Gen1](data-lake-store-secure-data.md)
-

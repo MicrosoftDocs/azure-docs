@@ -13,7 +13,7 @@ ms.date: 02/05/2018
 ---
 # Deploy Azure Machine Learning Studio (classic) Workspace Using Azure Resource Manager
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Using an Azure Resource Manager deployment template saves you time by giving you a scalable way to deploy interconnected components with a validation and retry mechanism. To set up Azure Machine Learning Studio (classic) Workspaces, for example, you need to first configure an Azure storage account and then deploy your workspace. Imagine doing this manually for hundreds of workspaces. An easier alternative is to use an Azure Resource Manager template to deploy an Studio (classic) Workspace and all its dependencies. This article takes you through this process step-by-step. For a great overview of Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
@@ -140,6 +140,6 @@ After the workspace is provisioned, you can also automate many Azure Machine Lea
 * Learn more about [authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/template-syntax.md).
 * Have a look at the [Azure Quickstart Templates Repository](https://github.com/Azure/azure-quickstart-templates).
 * Watch this video about [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
-* See the [Resource Manager template reference help](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
+* See the [Resource Manager template reference help](/azure/templates/microsoft.machinelearning/allversions)
 
 <!--Link references-->

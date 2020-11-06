@@ -28,6 +28,8 @@
       href: tutorial-discover-physical.md
     - name: Discover AWS instances
       href: tutorial-discover-aws.md
+    - name: Discover GCP instances
+      href: tutorial-discover-gcp.md
   - name: Assess 
     items:
     - name: Assess VMware VMs for migration to Azure VMs
@@ -40,6 +42,8 @@
       href: tutorial-assess-physical.md
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
+    - name: Assess GCP instances for migration to Azure
+      href: tutorial-assess-gcp.md
     - name: Assess imported servers
       href: tutorial-discover-import.md
   - name: Migrate
@@ -48,16 +52,20 @@
       items:
       - name: About migration options for VMware VMs
         href: server-migrate-overview.md
-      - name: Migrate VMware VMs with agentless migration
+      - name: Migrate VMware VMs with agentless migration - Azure portal
         href: tutorial-migrate-vmware.md
       - name: Migrate VMware VMs with agent-based migration
         href: tutorial-migrate-vmware-agent.md
+      - name: Migrate VMware VMs with agentless migration - PowerShell
+        href: tutorial-migrate-vmware-powershell.md 
     - name: Migrate Hyper-V VMs
       href: tutorial-migrate-hyper-v.md
     - name: Migrate physical servers
       href: tutorial-migrate-physical-virtual-machines.md
     - name: Migrate AWS instances
       href: tutorial-migrate-aws-virtual-machines.md
+    - name: Migrate GCP instances
+      href: tutorial-migrate-gcp-virtual-machines.md
 - name: Concepts
   items:
   - name: Build migration plan with Azure Migrate
@@ -158,6 +166,8 @@
       href: scale-physical-assessment.md
     - name: Automate migration of large number of VMs
       href: how-to-migrate-at-scale.md
+    - name: How to automate VMware migration
+      href: how-to-automate-migration.md
     - name: Migration examples (Contoso series)
       href: contoso-migration-overview.md
 - name: Troubleshoot

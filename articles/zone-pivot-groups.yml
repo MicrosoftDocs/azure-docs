@@ -22,7 +22,7 @@ groups:
     title: Postman
 #Owner: kraigb
 - id: python-frameworks-01
-  title: Web framework 
+  title: Web framework
   prompt: Choose a framework
   pivots:
   - id: python-framework-flask
@@ -201,6 +201,66 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
+- id: programming-languages-set-twenty-five
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language or CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-curl
+    title: REST
+# To be enabled later.
+#  - id: programmer-tool-spx
+#    title: CLI
+- id: programming-languages-set-twenty-three
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language or CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-curl
+    title: REST
+  - id: programmer-tool-spx
+    title: CLI
+- id: programming-languages-set-twenty-four
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language or CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-curl
+    title: REST
+  - id: programmer-tool-spx
+    title: CLI
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
@@ -394,20 +454,18 @@ groups:
   title: Programming languages
   prompt: Choose a programming language or CLI
   pivots:
-  - id: programmer-tool-spx
-    title: CLI
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-more
-    title: More languages...
+  - id: programming-language-python
+    title: Python
+  - id: programmer-tool-spx
+    title: CLI
 - id: programming-languages-set-two-with-js-go
 # Owner: erhopf
   title: Programming languages
@@ -637,7 +695,7 @@ groups:
   - id: container-linux
     title: Linux container
   - id: container-windows
-    title: Windows container  
+    title: Windows container
 - id: programming-languages-spring-cloud
 # Owner: bmitchell287
   title: Programming languages
@@ -662,6 +720,27 @@ groups:
     title: JavaScript
   - id: programming-language-go
     title: Go
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
+- id: speech-full-stack-go-objectivec-swift
+  # Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
   - id: programming-language-python
     title: Python
   - id: programming-language-spx
@@ -781,3 +860,45 @@ groups:
     title: Go
   - id: platform-powershell
     title: PowerShell
+# Owner: memildin
+- id: non-azure-machines
+  title: Non-Azure machines
+  prompt: How will you connect the non-Azure machine?
+  pivots:
+  - id: azure-arc
+    title: Azure Arc
+  - id: azure-portal
+    title: Security Center's portal pages
+# Owner: mikeray
+- id: client-operating-system-macos-and-linux-windows-powershell
+  title: Operating system / Console
+  prompt: Choose an operating system and console
+  pivots:
+  - id: client-operating-system-macos-and-linux
+    title: macOS & Linux
+  - id: client-operating-system-windows-command
+    title: Windows command shell
+  - id: client-operating-system-powershell
+    title: PowerShell
+# Owner: erhopf
+- id: ad-quickstart-one
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+- id: keyword-quickstart
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  

@@ -29,7 +29,7 @@ Data in transit (also known as data in motion) is also always encrypted in Data 
 
 Encryption for Data Lake Storage Gen1 is set up during account creation, and it is always enabled by default. You can either manage the keys yourself, or allow Data Lake Storage Gen1 to manage them for you (this is the default).
 
-For more information, see [Getting started](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+For more information, see [Getting started](./data-lake-store-get-started-portal.md).
 
 ## How encryption works in Data Lake Storage Gen1
 
@@ -101,7 +101,7 @@ The following diagram illustrates these concepts:
 
 ## Key rotation
 
-When you are using customer-managed keys, you can rotate the MEK. To learn how to set up a Data Lake Storage Gen1 account with customer-managed keys, see [Getting started](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+When you are using customer-managed keys, you can rotate the MEK. To learn how to set up a Data Lake Storage Gen1 account with customer-managed keys, see [Getting started](./data-lake-store-get-started-portal.md).
 
 ### Prerequisites
 
@@ -131,4 +131,4 @@ Note that if you use the default options for encryption, your data is always enc
 This operation should take less than two minutes, and there is no expected downtime due to key rotation. After the operation is complete, the new version of the key is in use.
 
 > [!IMPORTANT]
-> After the key rotation operation is complete, the old version of the key is no longer actively used for encrypting your data.  However, in rare instances of unexpected failure where even redundant copies of your data are impacted, data may be restored from a backup that is still using the old key. To ensure your data is accessible in these rare circumstances, keep a copy of the previous version of your encryption key. See [Disaster recovery guidance for data in Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) for best practices for your disaster recovery planning. 
+> After the key rotation operation is complete, the old version of the key is no longer actively used for encrypting your data.  However, in rare instances of unexpected failure where even redundant copies of your data are impacted, data may be restored from a backup that is still using the old key. To ensure your data is accessible in these rare circumstances, keep a copy of the previous version of your encryption key. See [Disaster recovery guidance for data in Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) for best practices for your disaster recovery planning.

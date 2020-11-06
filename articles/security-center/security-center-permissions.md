@@ -12,7 +12,7 @@ ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/02/2020
 ms.author: memildin
 
@@ -59,4 +59,4 @@ This article explained how Security Center uses RBAC to assign permissions to us
 - [Manage security recommendations in Security Center](security-center-recommendations.md)
 - [Monitor the security health of your Azure resources](security-center-monitoring.md)
 - [Manage and respond to security alerts in Security Center](security-center-managing-and-responding-alerts.md)
-- [Monitor partner security solutions](security-center-partner-solutions.md)
+- [Monitor partner security solutions](./security-center-partner-integration.md)

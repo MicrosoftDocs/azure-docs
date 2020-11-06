@@ -13,7 +13,7 @@ If you want to skip straight to sample code, see the [C++ quickstart samples](ht
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../get-started.md).
+This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ## Install the Speech SDK
 
@@ -25,68 +25,62 @@ Before you can do anything, you'll need to install the Speech SDK. Depending on 
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token. Create a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) by using your key and region. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier.
 
-> [!NOTE]
-> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
+```cpp
+using namespace std;
+using namespace Microsoft::CognitiveServices::Speech;
 
-There are a few ways that you can initialize a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig):
+auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+```
 
-* With a subscription: pass in a key and the associated region.
+There are a few other ways that you can initialize a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig):
+
 * With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-Let's take a look at how a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) is created using a key and region. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier.
+> [!NOTE]
+> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
-```cpp
-auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
+## Recognize from microphone
 
-## Initialize a recognizer
-
-After you've created a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig), the next step is to initialize a [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer). When you initialize a [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer), you'll need to pass it your `speech_config`. This provides the credentials that the speech service requires to validate your request.
-
-```cpp
-auto recognizer = SpeechRecognizer::FromConfig(config);
-```
-
-## Recognize from microphone or file
-
-If you want to specify the audio input device, you need to create an [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) and pass it as a parameter when initializing your [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer).
-
-To recognize speech using your device microphone, create an `AudioConfig` using `FromDefaultMicrophoneInput()`, then pass the audio config when creating your `SpeechRecognizer` object.
+To recognize speech using your device microphone, create an `AudioConfig` using `FromDefaultMicrophoneInput()`. Then initialize a [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer), passing your `audioConfig` and `config`.
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
 auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
+
+cout << "Speak into your microphone." << std::endl;
+auto result = recognizer->RecognizeOnceAsync().get();
+cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
-> [!TIP]
-> [Learn how to get the device ID for your audio input device](../../../how-to-select-audio-input-devices.md).
+If you want to use a *specific* audio input device, you need to specify the device ID in the `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
 
-If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig`. However, when you create the [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig), instead of calling `FromDefaultMicrophoneInput()`, you call `FromWavFileInput()` and pass the `filename` parameter.
+## Recognize from file
+
+If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig`. However, when you create the [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig), instead of calling `FromDefaultMicrophoneInput()`, you call `FromWavFileInput()` and pass the file path.
 
 ```cpp
+using namespace Microsoft::CognitiveServices::Speech::Audio;
+
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
 auto recognizer = SpeechRecognizer::FromConfig(config, audioInput);
+
+auto result = recognizer->RecognizeOnceAsync().get();
+cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
 ## Recognize speech
 
 The [Recognizer class](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) for the Speech SDK for C++ exposes a few methods that you can use for speech recognition.
 
-* Single-shot recognition (async) - Performs recognition in a non-blocking (asynchronous) mode. This will recognize a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
-* Continuous recognition (async) - Asynchronously initiates continuous recognition operation. The user has to connect to handle event to receive recognition results. To stop asynchronous continuous recognition, call [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync).
-
-> [!NOTE]
-> Learn more about how to [choose a speech recognition mode](../../../how-to-choose-recognition-mode.md).
-
 ### Single-shot recognition
 
-Here's an example of asynchronous single-shot recognition using [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync):
+Single-shot recognition asynchronously recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed. Here's an example of asynchronous single-shot recognition using [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync):
 
 ```cpp
 auto result = recognizer->RecognizeOnceAsync().get();

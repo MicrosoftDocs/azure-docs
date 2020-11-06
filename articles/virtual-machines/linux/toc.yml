@@ -36,29 +36,31 @@
     href: tutorial-virtual-network.md
   - name: 9 - Backup virtual machines
     href: tutorial-backup-vms.md
-  - name: 10 - Manage VMs
+  - name: 10 - Enable disaster recovery 
+    href: tutorial-disaster-recovery.md
+  - name: 11 - Manage VMs
     href: tutorial-govern-resources.md
-  - name: 11 - Track and update VMs
+  - name: 12 - Track and update VMs
     href: tutorial-config-management.md
-  - name: 12 - Monitor VMs
+  - name: 13 - Monitor VMs
     href: tutorial-monitor.md
-  - name: 13 - Manage VM security
+  - name: 14 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 14a - Build with Jenkins
+  - name: 15a - Build with Jenkins
     href: /azure/developer/jenkins/pipeline-with-github-and-docker
-  - name: 14b - Integrate Jenkins with Azure DevOps
+  - name: 15b - Integrate Jenkins with Azure DevOps
     href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-  - name: 15a - Configure Rolling deployment strategy
+  - name: 16a - Configure Rolling deployment strategy
     href: tutorial-devops-azure-pipelines-classic.md
-  - name: 15b - Configure Canary deployment strategy
+  - name: 16b - Configure Canary deployment strategy
     href: tutorial-azure-devops-canary-strategy.md
-  - name: 15c - Configure Blue-Green deployment strategy
+  - name: 16c - Configure Blue-Green deployment strategy
     href: tutorial-azure-devops-blue-green-strategy.md
-  - name: 15d - CI/CD with Azure Pipelines(YAML)
+  - name: 16d - CI/CD with Azure Pipelines(YAML)
     href: tutorial-build-deploy-azure-pipelines.md
-  - name: 16 - Create LAMP stack
+  - name: 17 - Create LAMP stack
     href: tutorial-lamp-stack.md
-  - name: 17 - Secure web server with SSL
+  - name: 18 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -285,7 +287,7 @@
     - name: Reserved instances
       items:
       - name: Prepay for VMs
-        href: prepay-reserved-vm-instances.md
+        href: ../prepay-reserved-vm-instances.md
       - name: Prepay for Dedicated Hosts
         href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: What are Azure reservations?
@@ -293,7 +295,7 @@
       - name: VM instance size flexibility
         href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Spot VMs
-      displayName: pre-empt, preempt
+      displayName: pre-empt, preempt, spot
       href: ../spot-vms.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Azure VMs with no temp disk
       href: ../azure-vms-no-temp-disk.md
@@ -311,8 +313,6 @@
       href: compute-benchmark-scores.md
   - name: Endorsed distros
     href: endorsed-distros.md
-  - name: Dedicated hosts
-    href: dedicated-hosts.md
   - name: Maintenance and updates
     href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Disk storage
@@ -322,7 +322,7 @@
     - name: Select a disk type for IaaS VMs
       href: ../disks-types.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Encryption
-      href: disk-encryption.md
+      href: ../disk-encryption.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Disk Storage reservations
       href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Virtual machine and disk performance
@@ -330,7 +330,7 @@
     - name: Designing for high performance
       href: ../premium-storage-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Disk bursting
-      href: disk-bursting.md
+      href: ../disk-bursting.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
@@ -356,8 +356,6 @@
       href: ../security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
       href: security-baseline.md
-    - name: Built-in security controls
-      href: virtual-machines-linux-security-controls.md
     - name: Bastion
       href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: States and lifecycle
@@ -391,17 +389,18 @@
     - name: Copy or clone a VM
       href: copy-vm.md
     - name: Use dedicated hosts
+      href: ../dedicated-hosts.md
       items:
       - name: CLI
         href: dedicated-hosts-cli.md
       - name: Portal
-        href: dedicated-hosts-portal.md
+        href: ../dedicated-hosts-portal.md
     - name: Deploy spot VMs
       items:
       - name: CLI
         href: spot-cli.md
       - name: Portal
-        href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+        href: ../spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
       - name: ARM template
         displayName: Azure Resource Manager
         href: spot-template.md
@@ -494,6 +493,8 @@
           items:
           - name: Generalized
             href: ../vm-generalized-image-version-cli.md
+          - name: Specialized
+            href: ../vm-specialized-image-version-cli.md
         - name: Update image resources
           href: ../update-image-resources-cli.md
         - name: App registration for sharing
@@ -578,10 +579,12 @@
       href: build-image-with-packer.md
     - name: Download existing disk
       href: download-vhd.md
+    - name: Managed disk from image version
+      href: ../managed-disk-from-image-version.md
   - name: Secure VMs
     items:
     - name: Recommendations
-      href: security-recommendations.md
+      href: ../security-recommendations.md
     - name: Just-in-time access
       href: ../../security-center/security-center-just-in-time.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Use Bastion
@@ -596,10 +599,6 @@
           href: ../../bastion/create-host-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Use Bastion to connect
         href: ../../bastion/bastion-connect-vm-ssh.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        items:
-        - name: Bastion SSH connection
-      - name: Bastion RDP connection
-        href: ../../bastion/bastion-connect-vm-rdp.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Encrypt
       items:
       - name: Disk encryption scenarios for Linux
@@ -626,7 +625,7 @@
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
         href: disk-encryption-faq.md
-      - name: Disk encryption - previous version (Azure AD)
+      - name: Disk encryption - previous version
         items:
         - name: Overview
           href: disk-encryption-overview-aad.md
@@ -641,6 +640,7 @@
     - name: Create a Key Vault
       href: key-vault-setup.md
     - name: Create and use SSH keys
+      displayName: ssh keys ssh openssh
       items:
       - name: On Linux or macOS
         href: mac-create-ssh-keys.md
@@ -719,7 +719,7 @@
       - name: Agent update
         href: ../extensions/update-linux-agent.md
     - name: Mitigating speculative execution
-      href: mitigate-se.md
+      href: ../mitigate-se.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
@@ -858,6 +858,7 @@
     - name: Change availability set
       href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Create a proximity placement group
+      displayName: PPG aligned colocation co-location
       items:
       - name: CLI
         href: proximity-placement-groups.md
@@ -1025,10 +1026,6 @@
         href: disks-benchmarks.md
       - name: Optimizing performance
         href: optimization.md
-      - name: Configure software RAID
-        href: configure-raid.md
-      - name: Configure LVM
-        href: configure-lvm.md
     - name: Find unattached disks - CLI
       href: find-unattached-disks.md
     - name: Find unattached disks - Portal
@@ -1050,7 +1047,7 @@
     - name: Use accelerated networking
       href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Assign public DNS name
-      href: portal-create-fqdn.md
+      href: ../create-fqdn.md
     - name: Find and delete unattached NICs
       href: find-unattached-nics.md
     - name: DNS resolution

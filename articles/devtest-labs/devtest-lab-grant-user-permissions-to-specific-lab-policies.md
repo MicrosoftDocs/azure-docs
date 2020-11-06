@@ -10,13 +10,13 @@ ms.date: 06/26/2020
 This article illustrates how to use PowerShell to grant users permissions to a particular lab policy. That way, permissions can be applied based on each user's needs. For example, you might want to grant a particular user the ability to change the VM policy settings, but not the cost policies.
 
 ## Policies as resources
-As discussed in the [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) article, RBAC enables fine-grained access management of resources for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs.
+As discussed in the [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) article, Azure RBAC enables fine-grained access management of resources for Azure. Using Azure RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs.
 
-In DevTest Labs, a policy is a resource type that enables the RBAC action **Microsoft.DevTestLab/labs/policySets/policies/**. Each lab policy is a resource in the Policy resource type, and can be assigned as a scope to an Azure role.
+In DevTest Labs, a policy is a resource type that enables the Azure RBAC action **Microsoft.DevTestLab/labs/policySets/policies/**. Each lab policy is a resource in the Policy resource type, and can be assigned as a scope to an Azure role.
 
 For example, in order to grant users read/write permission to the **Allowed VM Sizes** policy, you would create a custom role that works with the **Microsoft.DevTestLab/labs/policySets/policies/** action, and then assign the appropriate users to this custom role in the scope of **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-To learn more about custom roles in RBAC, see the [Custom roles access control](../role-based-access-control/custom-roles.md).
+To learn more about custom roles in Azure RBAC, see the [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ## Creating a lab custom role using PowerShell
 In order to get started, you’ll need to [install Azure PowerShell](/powershell/azure/install-az-ps). 

@@ -116,6 +116,8 @@
         href: microsoft-common-passwordbox.md
       - name: Section
         href: microsoft-common-section.md
+      - name: ServicePrincipalSelector
+        href: microsoft-common-serviceprincipalselector.md
       - name: Slider
         href: microsoft-common-slider.md
       - name: TagsByResource
@@ -132,6 +134,10 @@
         href: microsoft-compute-sizeselector.md
       - name: UserNameTextBox
         href: microsoft-compute-usernametextbox.md
+    - name: Key Vault
+      items:
+      - name: KeyVaultCertificateSelector
+        href: microsoft-keyvault-keyvaultcertificateselector.md
     - name: Managed Identity
       items:
       - name: IdentitySelector
@@ -154,6 +160,8 @@
         href: microsoft-storage-multistorageaccountcombo.md
       - name: StorageAccountSelector
         href: microsoft-storage-storageaccountselector.md
+      - name: StorageBlobSelector
+        href: microsoft-storage-storageblobselector.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
@@ -168,4 +176,4 @@
   - name: Resource Manager template best practices
     href: https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-managedapps
+    href: https://stackoverflow.com/questions/tagged/azure-managedapps

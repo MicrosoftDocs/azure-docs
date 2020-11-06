@@ -1,5 +1,5 @@
 - name: Azure Queue storage documentation
-  href: /azure/storage/queues/
+  href: ./index.yml
 - name: Overview
   expanded: true
   items:
@@ -70,7 +70,7 @@
     - name: Authorizing management operations
       href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Built-in security controls
-      href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/security-baseline.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json
     - name: Use Azure Private Endpoints
       href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json  
     - name: Security controls by Azure Policy
@@ -98,24 +98,20 @@
     href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Monitor and troubleshoot
     items:
-    - name: Troubleshooting tutorial
-      href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Monitor, diagnose, and troubleshoot
-      href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Monitor in Azure portal
-      href: ../common/storage-monitor-storage-account.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Metrics and logging
+    - name: Monitor Queue storage
+      href: monitor-queue-storage.md
+    - name: Transition from classic metrics
+      href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Monitoring (classic)
       items:
-      - name: Metrics in Azure Monitor
-        href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Migrate to new metrics
-        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Storage analytics
+      - name: Storage Analytics
         href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Storage analytics metrics (classic)
+      - name: Metrics
         href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Storage analytics logs
+      - name: Logs
         href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Monitor, diagnose, and troubleshoot
+        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: How to
   items:
   - name: Create and manage storage accounts
@@ -137,7 +133,7 @@
           href: authorize-active-directory-powershell.md
         - name: Azure CLI
           href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Manage access rights with RBAC
+      - name: Manage access rights with Azure RBAC
         items:
         - name: Portal
           href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
@@ -237,6 +233,10 @@
       href: storage-powershell-how-to-use-queues.md
     - name: PowerShell for China, Government, and German clouds
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Monitor (classic)
+      items:
+      - name: Monitor in the Azure portal (classic)
+        href: ../common/storage-monitor-storage-account.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Troubleshoot
     items:
     - name: Latency issues
@@ -245,6 +245,8 @@
   items:
   - name: Azure Queue storage reference
     href: ../queues/reference.md
+  - name: Monitoring Azure Queue storage reference
+    href: monitor-queue-storage-reference.md
   - name: Resource Manager template
     displayName: ARM
     href: /azure/templates/microsoft.storage/allversions
@@ -264,10 +266,10 @@
       href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Storage Explorer accessibility
       href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Azure Storage on Microsoft Q&A
-    href: https://docs.microsoft.com/answers/topics/azure-queue-storage.html
-  - name: Azure Storage on Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/windows-azure-storage
+  - name: Queue storage on Microsoft Q&A
+    href: /answers/topics/azure-queue-storage.html
+  - name: Queue storage on Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-queues
   - name: Pricing for Queue storage
     href: https://azure.microsoft.com/pricing/details/storage/queues/
   - name: Azure pricing calculator
@@ -307,7 +309,7 @@
       - name: Azure Storage client library version 12.x
         href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
       - name: Blobs, Queues, and Files (version 8)
-        href: https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy
+        href: /java/api/overview/azure/storage?view=azure-java-legacy
       - name: Azure Storage client library version 8.x and earlier
         href: https://github.com/Azure/azure-storage-java
     - name: Node.js

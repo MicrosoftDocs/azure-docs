@@ -51,7 +51,7 @@ This article provides answers to some of the most common questions about running
 
 1. **How do I generalize SQL Server on Azure VM and use it to deploy new VMs?**
 
-   You can deploy a Windows Server VM (without SQL Server installed on it) and use the [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) process to generalize SQL Server on Azure VM (Windows) with the SQL Server installation media. Customers who have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers who don't have Software Assurance can use the setup media from an Azure Marketplace SQL Server VM image that has the desired edition.
+   You can deploy a Windows Server VM (without SQL Server installed on it) and use the [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep) process to generalize SQL Server on Azure VM (Windows) with the SQL Server installation media. Customers who have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers who don't have Software Assurance can use the setup media from an Azure Marketplace SQL Server VM image that has the desired edition.
 
    Alternatively, use one of the SQL Server images from Azure Marketplace to generalize SQL Server on Azure VM. Note that you must delete the following registry key in the source image before creating your own image. Failure to do so can result in the bloating of the SQL Server setup bootstrap folder and/or SQL IaaS extension in failed state.
 
@@ -59,7 +59,7 @@ This article provides answers to some of the most common questions about running
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > SQL Server on Azure VMs, including those deployed from custom generalized images, should be [registered with the SQL VM resource provider](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) to meet compliance requirements and to utilize optional features such as automated patching and automatic backups. The resource provider also allows you to [specify the license type](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) for each SQL Server VM.
+   > SQL Server on Azure VMs, including those deployed from custom generalized images, should be [registered with the SQL VM resource provider](./sql-vm-resource-provider-register.md?tabs=azure-cli%252cbash) to meet compliance requirements and to utilize optional features such as automated patching and automatic backups. The resource provider also allows you to [specify the license type](./licensing-model-azure-hybrid-benefit-ahb-change.md?tabs=azure-portal) for each SQL Server VM.
 
 1. **Can I use my own VHD to deploy a SQL Server VM?**
 
@@ -170,17 +170,25 @@ This article provides answers to some of the most common questions about running
 
    If you do decide to uninstall the default instance, also uninstall the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md) as well. 
 
-1. **Can I use a named instance of SQL Server with the IaaS extension**?
+1. **Can I use a named instance of SQL Server with the IaaS extension?**
    
-   Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was [uninstalled properly](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). If there is no default instance and there are multiple named instances on a single SQL Server VM, the SQL Server IaaS agent extension will fail to install. 
+   Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was [uninstalled properly](sql-server-iaas-agent-extension-automate-management.md#named-instance-support). If there is no default instance and there are multiple named instances on a single SQL Server VM, the SQL Server IaaS agent extension will fail to install.  
 
-1. **Can I remove SQL Server completely from a SQL Server VM?**
+1. **Can I remove SQL Server and the associated license billing from a SQL Server VM?**
 
-   Yes, but you will continue to be charged for your SQL Server VM as described in [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md). If you no longer need SQL Server, you can deploy a new virtual machine and migrate the data and applications to the new virtual machine. Then you can remove the SQL Server virtual machine.
+   Yes, but you'll need to take additional steps to avoid being charged for your SQL Server instance as described in [Pricing guidance](pricing-guidance.md). If you want to completely remove the SQL Server instance, you can migrate to another Azure VM without SQL Server pre-installed on the VM and delete the current SQL Server VM. If you want to keep the VM but stop SQL Server billing, follow these steps: 
+
+   1. Back up all of your data, including system databases, if necessary. 
+   1. Uninstall SQL Server completely, including the SQL IaaS extension (if present).
+   1. Install the free [SQL Express edition](https://www.microsoft.com/sql-server/sql-server-downloads).
+   1. Register with the SQL VM resource provider in [lightweight mode](sql-vm-resource-provider-register.md).
+   1. (optional) Disable the Express SQL Server service by disabling service startup. 
 
 1. **Can I use the Azure portal to manage multiple instances on the same VM?**
+
    No. Portal management is provided by the SQL VM resource provider, which relies on the SQL Server IaaS Agent extension. As such, the same limitations apply to the resource provider as the extension. The portal can either only manage one default instance, or one named instance as long as its configured correctly. For more information, see [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) 
-   
+
+
 ## Updating and patching
 
 1. **How do I change to a different version/edition of SQL Server in an Azure VM?**
@@ -197,7 +205,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I upgrade my SQL Server 2008 / 2008 R2 instance after registering it with the SQL Server VM resource provider?**
 
-   Yes. You can use any setup media to upgrade the version and edition of SQL Server, and then you can upgrade your [SQL IaaS extension mode](sql-vm-resource-provider-register.md#management-modes)) from _no agent_ to _full_. Doing so will give you access to all the benefits of the SQL IaaS extension such as portal manageability, automated backups, and automated patching. 
+   If the OS is Windows Server 2008 R2 or later, yes. You can use any setup media to upgrade the version and edition of SQL Server, and then you can upgrade your [SQL IaaS extension mode](sql-server-iaas-agent-extension-automate-management.md#management-modes)) from _no agent_ to _full_. Doing so will give you access to all the benefits of the SQL IaaS extension such as portal manageability, automated backups, and automated patching. If the OS version is Windows Server 2008, only NoAgent mode is supported. 
 
 1. **How can I get free extended security updates for my end of support SQL Server 2008 and SQL Server 2008 R2 instances?**
 
@@ -242,4 +250,4 @@ This article provides answers to some of the most common questions about running
 * [Overview of SQL Server on a Linux VM](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provision SQL Server on a Linux VM](../linux/sql-vm-create-portal-quickstart.md)
 * [FAQ (Linux)](../linux/frequently-asked-questions-faq.md)
-* [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server on Linux documentation](/sql/linux/sql-server-linux-overview)

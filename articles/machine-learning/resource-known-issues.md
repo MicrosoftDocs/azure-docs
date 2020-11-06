@@ -8,9 +8,9 @@ ms.author: keli19
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/13/2020
+ms.date: 10/02/2020
 
 ---
 # Known issues and troubleshooting in Azure Machine Learning
@@ -205,6 +205,9 @@ If you are using file share for other workloads, such as data transfer, the re
 
     If you don't include the leading forward slash, '/',  you'll need to prefix the working directory e.g. `/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted.
 
+### Mount dataset
+* **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: Re-try logic has been added in `azureml-sdk >=1.12.0` to mitigate the issue. If you are on previous azureml-sdk versions, please upgrade to the latest version. If you are already on `azureml-sdk>=1.12.0`, please recreate your environment so that you have the latest patch with the fix.
+
 ### Data labeling projects
 
 |Issue  |Resolution  |
@@ -236,7 +239,7 @@ Limitations and known issues for data drift monitors:
     1. On the **Dataset Monitors** tab, select the experiment link to check run status.  This link is on the far right of the table.
     1. If run completed successfully, check driver logs to see how many metrics has been generated or if there's any warning messages.  Find driver logs in the **Output + logs** tab after you click on an experiment.
 
-* If the SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.  When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`.  Instead, use [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) such as the following to create the compute that you pass into that `backfill()` function: 
+* If the SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.  When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`.  Instead, use [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) such as the following to create the compute that you pass into that `backfill()` function: 
 
   ```python
    auth = ServicePrincipalAuthentication(
@@ -265,7 +268,7 @@ time.sleep(600)
 
 Logs of real-time endpoints are customer data. For real-time endpoint troubleshooting, you can use following code to enable logs. 
 
-See more details about monitoring web service endpoints in [this article](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models).
+See more details about monitoring web service endpoints in [this article](./how-to-enable-app-insights.md#query-logs-for-deployed-models).
 
 ```python
 from azureml.core import Workspace
@@ -291,7 +294,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     Azure ML also provides framework-specific estimators for TensorFlow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the core framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
  
     Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
-    Framework-specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py&preserve-view=true#&preserve-view=trueremarks).
+    Framework-specific dependencies  are listed in the respective framework documentation - [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks), [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks).
 
     > [!Note]
     > If you think a particular package is common enough to be added in Azure ML maintained images and environments please raise a GitHub issue in [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
@@ -300,7 +303,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Horovod has been shut down**: In most cases if you encounter "AbortedError: Horovod has been shut down" this exception means there was an underlying exception in one of the processes that caused Horovod to shut down. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easier to differentiate the logs. To find the exact error that caused Horovod to shut down, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
 
-* **Run or experiment deletion**:  Experiments can be archived by using the [Experiment.archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) 
+* **Run or experiment deletion**:  Experiments can be archived by using the [Experiment.archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) 
 method, or from the Experiment tab view in Azure Machine Learning studio client via the "Archive experiment" button. This action hides the experiment from list queries and views, but does not delete it.
 
     Permanent deletion of individual experiments or runs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](how-to-export-delete-data.md).
@@ -358,7 +361,7 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
 * **automl_setup fails**: 
-    * On Windows, run automl_setup from an Anaconda Prompt. To install Miniconda click [here](https://docs.conda.io/en/latest/miniconda.html).
+    * On Windows, run automl_setup from an Anaconda Prompt. Use this link to [install Miniconda](https://docs.conda.io/en/latest/miniconda.html).
     * Ensure that conda 64-bit is installed, rather than 32-bit by running the `conda info` command. The `platform` should be `win-64` for Windows or `osx-64` for Mac.
     * Ensure that conda 4.4.10 or later is installed. You can check the version with the command `conda -V`. If you have a previous version installed, you can update it by using the command: `conda update conda`.
     * Linux - `gcc: error trying to exec 'cc1plus'`
@@ -366,17 +369,17 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
       * Pass a new name as the first parameter to automl_setup to create a new conda environment. View existing conda environments using `conda env list` and remove them with `conda env remove -n <environmentname>`.
       
 * **automl_setup_linux.sh fails**: If automl_setup_linus.sh fails on Ubuntu Linux with the error: `unable to execute 'gcc': No such file or directory`-
-  1. Make sure that outbound ports 53 and 80 are enabled. On an Azure VM, you can do this from the Azure Portal by selecting the VM and clicking on Networking.
+  1. Make sure that outbound ports 53 and 80 are enabled. On an Azure VM, you can do this from the Azure portal by selecting the VM and clicking on Networking.
   2. Run the command: `sudo apt-get update`
   3. Run the command: `sudo apt-get install build-essential --fix-missing`
   4. Run `automl_setup_linux.sh` again
 
 * **configuration.ipynb fails**:
   * For local conda, first ensure that automl_setup has successfully run.
-  * Ensure that the subscription_id is correct. Find the subscription_id in the Azure Portal by selecting All Service and then Subscriptions. The characters "<" and ">" should not be included in the subscription_id value. For example, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` has the valid format.
+  * Ensure that the subscription_id is correct. Find the subscription_id in the Azure portal by selecting All Service and then Subscriptions. The characters "<" and ">" should not be included in the subscription_id value. For example, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` has the valid format.
   * Ensure Contributor or Owner access to the Subscription.
   * Check that the region is one of the supported regions: `eastus2`, `eastus`, `westcentralus`, `southeastasia`, `westeurope`, `australiaeast`, `westus2`, `southcentralus`.
-  * Ensure access to the region using the Azure Portal.
+  * Ensure access to the region using the Azure portal.
   
 * **import AutoMLConfig fails**: There were package changes in the automated machine learning version 1.0.76, which require the previous version to be uninstalled before updating to the new version. If the `ImportError: cannot import name AutoMLConfig` is encountered after upgrading from an SDK version before v1.0.76 to v1.0.76 or later, resolve the error by running: `pip uninstall azureml-train automl` and then `pip install azureml-train-auotml`. The automl_setup.cmd script does this automatically. 
 
@@ -443,6 +446,10 @@ kubectl get secret/azuremlfessl -o yaml
 >[!Note]
 >Kubernetes stores the secrets in base-64 encoded format. You will need to base-64 decode the `cert.pem` and `key.pem` components of the secrets prior to providing them to `attach_config.enable_ssl`. 
 
+### Detaching Azure Kubernetes Service
+
+Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster does not delete the AKS cluster. To delete the cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster).
+
 ### Webservices in Azure Kubernetes Service failures
 
 Many webservice failures in Azure Kubernetes Service can be debugged by connecting to the cluster using `kubectl`. You can get the `kubeconfig.json` for an Azure Kubernetes Service Cluster by running
@@ -471,6 +478,12 @@ Azure role-based access control can be used to restrict actions that you can per
 
 For more information, see [Manage users and roles](how-to-assign-roles.md).
 
+## Compute cluster won't resize
+
+If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0) for the node state, this may be caused by Azure resource locks.
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
+
 ## Next steps
 
 See more troubleshooting articles for Azure Machine Learning:
@@ -479,4 +492,4 @@ See more troubleshooting articles for Azure Machine Learning:
 * [Debug machine learning pipelines](how-to-debug-pipelines.md)
 * [Debug the ParallelRunStep class from the Azure Machine Learning SDK](how-to-debug-parallel-run-step.md)
 * [Interactive debugging of a machine learning compute instance with VS Code](how-to-debug-visual-studio-code.md)
-* [Use Application Insights to debug machine learning pipelines](how-to-debug-pipelines-application-insights.md)
+* [Use Application Insights to debug machine learning pipelines](./how-to-log-pipelines-application-insights.md)

@@ -18,7 +18,7 @@ Learn ways to set up and manage multiple virtual machines to ensure high availab
 ## Understand VM Reboots - maintenance vs. downtime
 There are three scenarios that can lead to virtual machine in Azure being impacted: unplanned hardware maintenance, unexpected downtime, and planned maintenance.
 
-* **Unplanned Hardware Maintenance Event** occurs when the Azure platform predicts that the hardware or any platform component associated to a physical machine, is about to fail. When the platform predicts a failure, it will issue an unplanned hardware maintenance event to reduce the impact to the virtual machines hosted on that hardware. Azure uses [Live Migration](./linux/maintenance-and-updates.md) technology to migrate the Virtual Machines from the failing hardware to a healthy physical machine. Live Migration is a VM preserving operation that only pauses the Virtual Machine for a short time. Memory, open files, and network connections are maintained, but performance might be reduced before and/or after the event. In cases where Live Migration cannot be used, the VM will experience Unexpected Downtime, as described below.
+* **Unplanned Hardware Maintenance Event** occurs when the Azure platform predicts that the hardware or any platform component associated to a physical machine, is about to fail. When the platform predicts a failure, it will issue an unplanned hardware maintenance event to reduce the impact to the virtual machines hosted on that hardware. Azure uses [Live Migration](./maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252flinux%252ftoc.json) technology to migrate the Virtual Machines from the failing hardware to a healthy physical machine. Live Migration is a VM preserving operation that only pauses the Virtual Machine for a short time. Memory, open files, and network connections are maintained, but performance might be reduced before and/or after the event. In cases where Live Migration cannot be used, the VM will experience Unexpected Downtime, as described below.
 
 
 * **An Unexpected Downtime** is when the hardware or the physical infrastructure for the virtual machine fails unexpectedly. This can include local network failures, local disk failures, or other rack level failures. When detected, the Azure platform automatically migrates (heals) your virtual machine to a healthy physical machine in the same datacenter. During the healing procedure, virtual machines experience downtime (reboot) and in some cases loss of the temporary drive. The attached OS and data disks are always preserved.
@@ -30,9 +30,9 @@ There are three scenarios that can lead to virtual machine in Azure being impact
 
 To reduce the impact of downtime due to one or more of these events, we recommend the following high availability best practices for your virtual machines:
 
-* Use Availabiilty Zones to protect from datacenter failures
+* Use Availability Zones to protect from datacenter failures
 * Configure multiple virtual machines in an availability set for redundancy
-* Use managed disks for VMs in an availability set]
+* Use managed disks for VMs in an availability set
 * Use scheduled events to proactively respond to VM impacting events
 * Configure each application tier into separate availability sets
 * Combine a load balancer with availability zones or sets
@@ -90,7 +90,7 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 >
 > Under these circumstances, the OS disk of the second VM might be created on the same fault domain as the first VM, so the two VMs will be on same fault domain. To avoid this issue, we recommend that you don't stop/deallocate VMs between deployments.
 
-If you plan to use VMs with unmanaged disks, follow below best practices for Storage accounts where virtual hard disks (VHDs) of VMs are stored as [page blobs](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
+If you plan to use VMs with unmanaged disks, follow below best practices for Storage accounts where virtual hard disks (VHDs) of VMs are stored as [page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Keep all disks (OS and data) associated with a VM in the same storage account**
 2. **Review the [limits](../storage/blobs/scalability-targets-premium-page-blobs.md) on the number of unmanaged disks in an Azure Storage account** before adding more VHDs to a storage account

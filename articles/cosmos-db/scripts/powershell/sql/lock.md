@@ -10,6 +10,7 @@ ms.date: 06/12/2020
 ---
 
 # Create a resource lock for Azure Cosmos SQL API database and container using Azure PowerShell
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -37,13 +38,11 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Resource**| |
-| [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) | Creates a resource lock. |
-| [Get-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcelock) | Gets a resource lock, or lists resource locks. |
-| [Remove-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcelock) | Removes a resource lock. |
+| [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) | Creates a resource lock. |
+| [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock) | Gets a resource lock, or lists resource locks. |
+| [Remove-AzResourceLock](/powershell/module/az.resources/remove-azresourcelock) | Removes a resource lock. |
 |||
 
 ## Next steps
 
-For more information on Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
-
-Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../../../powershell-samples.md).
+For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/).

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 11/04/2020
 ms.author: victorh
 #Customer intent: As an administrator, I want monitor Azure Firewall logs and metrics so that I can track firewall activity.
 ---
@@ -66,6 +66,50 @@ To enable diagnostic logging, use the following steps:
    -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
    -Enabled $true     
     ```
+
+> [!TIP]
+>Diagnostic logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
+
+## Enable diagnostic logging by using Azure CLI
+
+Activity logging is automatically enabled for every Resource Manager resource. Diagnostic logging must be enabled to start collecting the data available through those logs.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### Enable diagnostic logging
+
+Use the following commands to enable diagnostic logging.
+
+1. Run the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command to enable diagnostic logging:
+
+   ```azurecli
+   az monitor diagnostic-settings create –name AzureFirewallApplicationRule \
+     --resource Firewall07 --storage-account MyStorageAccount
+   ```
+
+   Run the [az monitor diagnostic-settings list](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_list) command to see diagnostics settings for a resource:
+
+   ```azurecli
+   az monitor diagnostic-settings list --resource Firewall07
+   ```
+
+   Use the [az monitor diagnostic-settings show](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_show) to see the active diagnostic settings for a resource:
+
+   ```azurecli
+   az monitor diagnostic-settings show --name AzureFirewallApplicationRule --resource Firewall07
+   ```
+
+1. Run the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command to update the settings.
+
+   ```azurecli
+   az monitor diagnostic-settings update --name AzureFirewallApplicationRule --resource Firewall07 --set retentionPolicy.days=365
+   ```
+
+   Use the [az monitor diagnostic-settings delete](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_delete) command to delete a diagnostics setting.
+
+   ```azurecli
+   az monitor diagnostic-settings delete --name AzureFirewallApplicationRule --resource Firewall07
+   ```
 
 > [!TIP]
 >Diagnostic logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.

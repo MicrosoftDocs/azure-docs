@@ -152,6 +152,9 @@ The exact number of labeled images necessary to start assisted labeling is not a
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
+> [!NOTE]
+> ML assisted data labelling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network. 
+
 ### Clustering
 
 After a certain number of labels are submitted, the machine learning model for image classification starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images. 
@@ -254,4 +257,4 @@ The COCO file is created in the default blob store of the Azure Machine Learning
 
 * [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
 * Label images for [image classification or object detection](how-to-label-images.md)
-* Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](compare-azure-ml-to-studio-classic.md)
+* Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

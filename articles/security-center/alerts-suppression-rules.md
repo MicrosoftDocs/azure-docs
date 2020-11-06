@@ -7,7 +7,7 @@ services: security-center
 ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Suppress alerts from Azure Defender
@@ -134,7 +134,7 @@ The relevant HTTP methods for suppression rules in the REST API are:
 
 - **DELETE**: Deletes an existing rule (but doesn't change the status of alerts already dismissed by it).
 
-For full details and usage examples, see the [API documentation](https://docs.microsoft.com/rest/api/securitycenter/). 
+For full details and usage examples, see the [API documentation](/rest/api/securitycenter/). 
 
 
 ## Next steps

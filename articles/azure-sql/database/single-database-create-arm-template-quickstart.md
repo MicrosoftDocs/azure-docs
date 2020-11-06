@@ -4,7 +4,7 @@ description: Create a single database in Azure SQL Database using an Azure Resou
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: subject-armqs sqldbrb=1, devx-track-azurecli
+ms.custom: subject-armqs sqldbrb=1
 ms.devlang:
 ms.topic: quickstart
 author: mumian
@@ -80,7 +80,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 - Create a server-level firewall rule to connect to the single database from on-premises or remote tools. For more information, see [Create a server-level firewall rule](firewall-create-server-level-portal-quickstart.md).
 - After you create a server-level firewall rule, [connect and query](connect-query-content-reference-guide.md) your database using several different tools and languages.
   - [Connect and query using SQL Server Management Studio](connect-query-ssms.md)
-  - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+  - [Connect and query using Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)
 - To create a single database using the Azure CLI, see [Azure CLI samples](az-cli-script-samples-content-guide.md).
 - To create a single database using Azure PowerShell, see [Azure PowerShell samples](powershell-script-content-guide.md).
 - To learn how to create ARM templates, see [Create your first template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).

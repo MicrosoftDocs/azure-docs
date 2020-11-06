@@ -6,7 +6,7 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
@@ -15,7 +15,7 @@ ms.date: 06/12/2020
 # Troubleshoot Azure SQL Database and Azure SQL Managed Instance performance issues with Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-This page provides information on Azure SQL Database and Azure SQL Managed Instance performance issues detected through the [Intelligent Insights](intelligent-insights-overview.md) resource log. Metrics and resource logs can be streamed to [Azure Monitor logs](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
+This page provides information on Azure SQL Database and Azure SQL Managed Instance performance issues detected through the [Intelligent Insights](intelligent-insights-overview.md) resource log. Metrics and resource logs can be streamed to [Azure Monitor logs](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
 
 > [!NOTE]
 > For a quick performance troubleshooting guide using Intelligent Insights, see the [Recommended troubleshooting flow](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flowchart in this document.
@@ -68,7 +68,7 @@ The diagnostics log outputs query hashes of queries that affected the performanc
 
 If you have reached the available session limits, you can optimize your applications by reducing the number of logins made to the database. If you're unable to reduce the number of logins from your applications to the database, consider increasing the pricing tier of your database subscription. Or you can split and move your database into multiple databases for a more balanced workload distribution.
 
-For more suggestions on resolving session limits, see [How to deal with the limits of maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). See [Overview of resource limits on a server](resource-limits-logical-server.md) for information about limits at the server and subscription levels.
+For more suggestions on resolving session limits, see [How to deal with the limits of maximum logins](/archive/blogs/latam/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins). See [Overview of resource limits on a server](resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 
 ## Workload increase
 
@@ -112,7 +112,7 @@ For additional troubleshooting suggestions, see [Memory grants meditation: The m
 
 This performance pattern indicates degradation in the current database performance in which excessive database locking is detected compared to the past seven-day performance baseline.
 
-In modern RDBMS, locking is essential for implementing multithreaded systems in which performance is maximized by running multiple simultaneous workers and parallel database transactions where possible. Locking in this context refers to the built-in access mechanism in which only a single transaction can exclusively access the rows, pages, tables, and files that are required and not compete with another transaction for resources. When the transaction that locked the resources for use is done with them, the lock on those resources is released, which allows other transactions to access required resources. For more information on locking, see [Lock in the database engine](https://msdn.microsoft.com/library/ms190615.aspx).
+In modern RDBMS, locking is essential for implementing multithreaded systems in which performance is maximized by running multiple simultaneous workers and parallel database transactions where possible. Locking in this context refers to the built-in access mechanism in which only a single transaction can exclusively access the rows, pages, tables, and files that are required and not compete with another transaction for resources. When the transaction that locked the resources for use is done with them, the lock on those resources is released, which allows other transactions to access required resources. For more information on locking, see [Lock in the database engine](/previous-versions/sql/sql-server-2008-r2/ms190615(v=sql.105)).
 
 If transactions executed by the SQL engine are waiting for prolonged periods of time to access resources locked for use, this wait time causes the slowdown of the workload execution performance.
 
@@ -138,7 +138,7 @@ The MAXDOP server configuration option is used to control how many CPU cores can
 
 The diagnostics log outputs query hashes related to queries for which the duration of execution increased because they were parallelized more than they should have been. The log also outputs CXP wait times. This time represents the time a single organizer/coordinator thread (thread 0) is waiting for all other threads to finish before merging the results and moving ahead. In addition, the diagnostics log outputs the wait times that the poor-performing queries were waiting in execution overall. You can use this information as the basis for troubleshooting.
 
-First, optimize or simplify complex queries. Good practice is to break up long batch jobs into smaller ones. In addition, ensure that you created indexes to support your queries. You can also manually enforce the maximum degree of parallelism (MAXDOP) for a query that was flagged as poor performing. To configure this operation by using T-SQL, see [Configure the MAXDOP server configuration option](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+First, optimize or simplify complex queries. Good practice is to break up long batch jobs into smaller ones. In addition, ensure that you created indexes to support your queries. You can also manually enforce the maximum degree of parallelism (MAXDOP) for a query that was flagged as poor performing. To configure this operation by using T-SQL, see [Configure the MAXDOP server configuration option](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Setting the MAXDOP server configuration option to zero (0) as a default value denotes that database can use all available CPU cores to parallelize threads for executing a single query. Setting MAXDOP to one (1) denotes that only one core can be used for a single query execution. In practical terms, this means that parallelism is turned off. Depending on the case-per-case basis, available cores to the database, and diagnostics log information, you can tune the MAXDOP option to the number of cores used for parallel query execution that might resolve the issue in your case.
 
@@ -190,7 +190,7 @@ The diagnostics log outputs query hashes for the queries that were identified to
 
 This performance pattern indicates that a new query is detected that is performing poorly and affecting the workload performance compared to the seven-day performance baseline.
 
-Writing a good-performing query sometimes can be a challenging task. For more information on writing queries, see [Writing SQL queries](https://msdn.microsoft.com/library/bb264565.aspx). To optimize existing query performance, see [Query tuning](https://msdn.microsoft.com/library/ms176005.aspx).
+Writing a good-performing query sometimes can be a challenging task. For more information on writing queries, see [Writing SQL queries](/previous-versions/sql/sql-server-2005/express-administrator/bb264565(v=sql.90)). To optimize existing query performance, see [Query tuning](/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105)).
 
 ### Troubleshooting
 
@@ -212,7 +212,7 @@ The diagnostics log outputs information on increased wait time details and query
 
 Because the system couldn't successfully identify the root cause for the poor-performing queries, the diagnostics information is a good starting point for manual troubleshooting. You can optimize the performance of these queries. A good practice is to fetch only data you need to use and to simplify and break down complex queries into smaller ones.
 
-For more information on optimizing query performance, see [Query tuning](https://msdn.microsoft.com/library/ms176005.aspx).
+For more information on optimizing query performance, see [Query tuning](/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105)).
 
 ## TempDB contention
 
@@ -224,7 +224,7 @@ This detectable performance pattern indicates a database performance condition i
 
 The diagnostics log outputs tempDB contention details. You can use the information as the starting point for troubleshooting. There are two things you can pursue to alleviate this kind of contention and increase the throughput of the overall workload: You can stop using the temporary tables. You also can use memory-optimized tables.
 
-For more information, see [Introduction to memory-optimized tables](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables).
+For more information, see [Introduction to memory-optimized tables](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables).
 
 ## Elastic pool DTU shortage
 
@@ -254,7 +254,7 @@ This detectable performance pattern combines three different cases of plan regre
 
 The new plan regression condition refers to a state in which the database engine starts executing a new query execution plan that isn't as efficient as the old plan. The old plan regression condition refers to the state when the database engine switches from using a new, more efficient plan to the old plan, which isn't as efficient as the new plan. The existing plans changed workload regression refers to the state in which the old and the new plans continuously alternate, with the balance going more toward the poor-performing plan.
 
-For more information on plan regressions, see [What is plan regression in SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/).
+For more information on plan regressions, see [What is plan regression in SQL Server?](/archive/blogs/sqlserverstorageengine/what-is-plan-regression-in-sql-server).
 
 ### Troubleshooting
 
@@ -262,7 +262,7 @@ The diagnostics log outputs the query hashes, good plan ID, bad plan ID, and que
 
 You can analyze which plan is better performing for your specific queries that you can identify with the query hashes provided. After you determine which plan works better for your queries, you can manually force it.
 
-For more information, see [Learn how SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
+For more information, see [Learn how SQL Server prevents plan regressions](/archive/blogs/sqlserverstorageengine/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions).
 
 > [!TIP]
 > Did you know that the built-in intelligence feature can automatically manage the best-performing query execution plans for your databases?
@@ -281,7 +281,7 @@ Database-scoped configuration changes can be set for each individual database. T
 
 The diagnostics log outputs database-scoped configuration changes that were made recently that caused performance degradation compared to the previous seven-day workload behavior. You can revert the configuration changes to the previous values. You also can tune value by value until the desired performance level is reached. You can copy database-scope configuration values from a similar database with satisfactory performance. If you're unable to troubleshoot the performance, revert to the default values and attempt to fine-tune starting from this baseline.
 
-For more information on optimizing database-scoped configuration and T-SQL syntax on changing the configuration, see [Alter database-scoped configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
+For more information on optimizing database-scoped configuration and T-SQL syntax on changing the configuration, see [Alter database-scoped configuration (Transact-SQL)](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).
 
 ## Slow client
 
@@ -320,11 +320,11 @@ Access Intelligent Insights through the Azure portal by going to Azure SQL Analy
 > [!TIP]
 > Select the flowchart to download a PDF version.
 
-Intelligent Insights usually needs one hour of time to perform the root cause analysis of the performance issue. If you can't locate your issue in Intelligent Insights and it's critical to you, use the Query Store to manually identify the root cause of the performance issue. (Typically, these issues are less than one hour old.) For more information, see [Monitor performance by using the Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent Insights usually needs one hour of time to perform the root cause analysis of the performance issue. If you can't locate your issue in Intelligent Insights and it's critical to you, use the Query Store to manually identify the root cause of the performance issue. (Typically, these issues are less than one hour old.) For more information, see [Monitor performance by using the Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## Next steps
 
 - Learn [Intelligent Insights](intelligent-insights-overview.md) concepts.
 - Use the [Intelligent Insights performance diagnostics log](intelligent-insights-use-diagnostics-log.md).
-- Monitor using [Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Monitor using [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
 - Learn to [collect and consume log data from your Azure resources](../../azure-monitor/platform/platform-logs-overview.md).
