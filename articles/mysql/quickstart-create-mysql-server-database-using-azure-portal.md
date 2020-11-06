@@ -89,45 +89,45 @@ You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Portal Full View Cloud Shell":::
 2. Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. The admin username requires '@\<servername>' as shown below for Azure Database for MySQL
 
-  ```azurecli-interactive
-  mysql --host=mydemoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p
-  ```
+      ```azurecli-interactive
+      mysql --host=mydemoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p
+      ```
 
-  Here is how the experience looks like in the Cloud Shell terminal
-  ```
-  Requesting a Cloud Shell.Succeeded.
-  Connecting terminal...
+      Here is how the experience looks like in the Cloud Shell terminal
 
-  Welcome to Azure Cloud Shell
+      ```
+      Requesting a Cloud Shell.Succeeded.
+      Connecting terminal...
 
-  Type "az" to use Azure CLI
-  Type "help" to learn about Cloud Shell
+      Welcome to Azure Cloud Shell
 
-  user@Azure:~$mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
-  Enter password:
-  Welcome to the MySQL monitor.  Commands end with ; or \g.
-  Your MySQL connection id is 64796
-  Server version: 5.6.42.0 Source distribution
+      Type "az" to use Azure CLI
+      Type "help" to learn about Cloud Shell
 
-  Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+      user@Azure:~$mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
+      Enter password:
+      Welcome to the MySQL monitor.  Commands end with ; or \g.
+      Your MySQL connection id is 64796
+      Server version: 5.6.42.0 Source distribution
 
-  Oracle is a registered trademark of Oracle Corporation and/or its
-  affiliates. Other names may be trademarks of their respective
-  owners.
+      Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+      Oracle is a registered trademark of Oracle Corporation and/or its
+      affiliates. Other names may be trademarks of their respective
+      owners.
 
-  Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-  mysql>
-  ```
+      Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+      mysql>
+      ```
 3. In the same Azure Cloud Shell terminal, create a database **guest**
-  ```
-  mysql> CREATE DATABASE guest;
-  Query OK, 1 row affected (0.27 sec)
-  ```
+      ```
+      mysql> CREATE DATABASE guest;
+      Query OK, 1 row affected (0.27 sec)
+      ```
 4. Change to database **guest**
-  ```
-  mysql> USE guest;
-  Database changed
-  ```
+      ```
+      mysql> USE guest;
+      Database changed
+      ```
 5. Type ```quit```, and then select the Enter key to quit mysql.
 
 [Having issues? Let us know](https://aka.ms/mysql-doc-feedback)

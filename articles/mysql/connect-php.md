@@ -22,8 +22,8 @@ For this quickstart you need:
     |Action| Connectivity method|How-to guide|
     |:--------- |:--------- |:--------- |
     | **Configure firewall rules** | Public | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
-    | **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)| 
-    | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | 
+    | **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)|
+    | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) |
 
 - [Create a database and non-admin user](/howto-create-users?tabs=single-server)
 - Install latest PHP version  for your operating system
@@ -51,7 +51,7 @@ You can get the database server connection information from the Azure portal by 
 ## Step 1: Connect to the server
 SSL is enabled by default. You may need to download the [DigiCertGlobalRootG2 SSL certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) to connect from your local environment. This code calls:
 - [mysqli_init](https://secure.php.net/manual/mysqli.init.php) to initialize MySQLi.
-- [mysqli_ssl_set](https://www.php.net/manual/en/mysqli.ssl-set.php) to point to the SSL certificate path. This is required for your local environment but not required for App Service Web App or Azure Virtual machines. 
+- [mysqli_ssl_set](https://www.php.net/manual/en/mysqli.ssl-set.php) to point to the SSL certificate path. This is required for your local environment but not required for App Service Web App or Azure Virtual machines.
 - [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) to connect to MySQL.
 - [mysqli_close](https://secure.php.net/manual/mysqli.close.php) to close the connection.
 
