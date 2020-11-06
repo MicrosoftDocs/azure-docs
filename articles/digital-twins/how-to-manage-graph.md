@@ -462,6 +462,14 @@ One way to get this data into Azure Digital Twins is to convert the table to a C
 In the code below, the CSV file is called *data.csv*, and there is a placeholder representing the **hostname** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
 
 ```csharp
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Azure;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+
 namespace creating_twin_graph_from_csv
 {
     class Program
@@ -473,7 +481,7 @@ namespace creating_twin_graph_from_csv
             List<List<string>> data = ReadData();
             DigitalTwinsClient client = createDTClient();
 
-            // Interpret the CSV file data, by each row
+            // Interpret the CSV file data, by each row
             foreach (List<string> row in data)
             {
                 string modelID = row.Count > 0 ? row[0].Trim() : null;
@@ -481,12 +489,12 @@ namespace creating_twin_graph_from_csv
                 string relName = row.Count > 2 ? row[2].Trim() : null;
                 string targetID = row.Count > 3 ? row[3].Trim() : null;
                 string initProperties = row.Count > 4 ? row[4].Trim() : null;
-                Console.WriteLine($"ModelID: {modelID}, TwinID: {srcID}, RelName: {relName}, TargetID: {targetID}, InitData: {initProperties}");
+                Console.WriteLine($"ModelID: {modelID}, TwinID: {srcID}, RelName: {relName}, TargetID: {targetID}, InitData: {initProperties}");
                 Dictionary<string, object> props = new Dictionary<string, object>();
                 // Parse properties into dictionary (left out for compactness)
                 // ...
 
-                // Null check for source and target ID's
+                // Null check for source and target ID's
                 if (srcID != null && srcID.Length > 0 && targetID != null && targetID.Length > 0)
                 {
                     BasicRelationship br = new BasicRelationship()
@@ -503,11 +511,39 @@ namespace creating_twin_graph_from_csv
                 srcTwin.Metadata.ModelId = modelID;
                 srcTwin.Contents = props;
                 TwinList.Add(srcTwin);
-            }      
+            }
+
+            // Create digital twins 
+            foreach (BasicDigitalTwin twin in TwinList)
+            {
+                try
+                {
+                    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twin.Id, twin);
+                    Console.WriteLine("Twin is created");
+                }
+                catch (RequestFailedException e)
+                {
+                    Console.WriteLine($"Error {e.Status}: {e.Message}");
+                }
+            }
+            // Create relationships between the twins
+            foreach (BasicRelationship rec in RelationshipRecordList)
+            {
+                try
+                {
+                    string relId = $"{rec.SourceId}-{rec.Name}->{rec.TargetId}";
+                    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(rec.SourceId, relId, rec);
+                    Console.WriteLine("Relationship is created");
+                }
+                catch (RequestFailedException e)
+                {
+                    Console.WriteLine($"Error {e.Status}: {e.Message}");
+                }
+            }
         }
 
-        // Method to ingest data from the CSV file
-        public static List<List<string>> ReadData()
+        // Method to ingest data from the CSV file
+        public static List<List<string>> ReadData()
         {
             string path = "<path-to>/data.csv";
             string[] lines = System.IO.File.ReadAllLines(path);
@@ -527,7 +563,15 @@ namespace creating_twin_graph_from_csv
             }
             return data;
         }
-       
+        // Method to create the digital twins client
+        private static DigitalTwinsClient createDTClient()
+        {
+
+            string adtInstanceUrl = "https://<your-instance-hostname>";
+            var credentials = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            return client;
+        }
     }
 }
 
