@@ -16,7 +16,7 @@ Boot diagnostics is a debugging feature for Azure virtual machines (VM) that all
 ## Boot Diagnostics Storage Account
 When creating a VM in Azure portal, Boot Diagnostics is enabled by default. The recommended Boot Diagnostics experience is to use a managed storage account, as it yields significant performance improvements in the time to create an Azure VM. This is because an Azure managed storage account will be used, removing the time it takes to create a new user storage account to store the boot diagnostics data.
 
-An alternative Boot Diagnostics experience is to use a user managed storage account. A user can either create a new storage account or use an existing one.
+An alternative Boot Diagnostics experience is to use a user managed storage account. A user can either create a new storage account or use an existing one. 
 
 > [!IMPORTANT]
 > Azure customers will not be charged for the storage costs associated with boot diagnostics using a managed storage account through October 2020.
@@ -29,6 +29,63 @@ Located in the virtual machine blade, the boot diagnostics option is under the *
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Screenshot of Linux boot diagnostics":::
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Screenshot of Windows boot diagnostics":::
 
+## Enable Managed Boot Diagnostics 
+Boot Diagnostics can be enabled through the Azure portal, CLI and ARM Templates.
+
+### Enable Managed Boot Diagnostics using the Azure Portal
+When creating a VM in the Azure portal, the default setting is to have Boot Diagnostics enabled using a managed storage account. To view this, navigate to the Management tab during the VM creation. 
+
+:::image type="content" source="./media/boot-diagnostics/managed-boot-diagnostics1.png" alt-text="Screenshot enabling managed boot diagnostics during VM creation.":::
+
+### Enable Managed Boot Diagnostics using CLI
+Boot Diagnostics with a managed storage account is supported in Azure CLI 2.12.0 and later. If you do not input a name or URI for a storage account, a managed account will be used. For more information and code samples see [CLI documentation for Boot Diagnostics](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).
+
+### Enable Managed Boot Diagnostics using ARM Template
+Everythign after API version 2020-06-01 supports Managed Boot Diagnostics. For more information see [Boot Diagnostics Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).
+
+```ARM Template
+"properties": {
+                "hardwareProfile": {
+                    "vmSize": "[parameters('virtualMachineSize')]"
+                },
+                "storageProfile": {
+                    "osDisk": {
+                        "createOption": "fromImage",
+                        "managedDisk": {
+                            "storageAccountType": "[parameters('osDiskType')]"
+                        }
+                    },
+                    "imageReference": {
+                        "publisher": "Canonical",
+                        "offer": "UbuntuServer",
+                        "sku": "18.04-LTS",
+                        "version": "latest"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaceName'))]"
+                        }
+                    ]
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachineComputerName')]",
+                    "adminUsername": "[parameters('adminUsername')]",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": true
+                    }
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true
+                    }
+                }
+            }
+        }
+    ],
+
+```
 
 ## Limitations
 - Boot diagnostics is only available for Azure Resource Manager VMs. 
