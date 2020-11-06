@@ -20,12 +20,28 @@ This article also contains lists of all [log categories](#log-categories) and [l
 
 ## View and query logs
 
+You can query the logs for your Azure Digital Twins instance to view specific logged information. Here is how to view and query the logs for your instance.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
+
+2. Select **Logs** from the menu to open the log query page. The page opens to a window called *Queries*.
+
+    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance. It is overlaid with a Queries window showing prebuilt queries named after different log options, like DigitalTwin API Latency and Model API Latency. ":::
+
+    These are prebuilt example queries written for various logs. You can select one of the queries to load it into the query editor and run it to see these logs for your instance.
+
+    You can also close the *Queries* window without running anything to go straight to the query editor page, where you can write or edit custom query code.
+
+3. After existing the *Queries* window, you'll see the main query editor page. Here you can view and edit the text of the example queries, or write your own queries from scratch.
+    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Screenshot showing the Logs page for an Azure Digital Twins instance. The Queries window is gone, and instead there is a list of different logs, an edit pane showing editable query code, and a pane showing Queries History. ":::
+
+    In the left pane, the *Tables* tab shows the different Azure Digital Twins [log categories](#log-categories) that are available to use in your queries. The *Queries* tab contains the example query options, and the *Filter* tab lets you customize a filtered view of the data that the query returns.
+
+For more detailed information on log queries and how to write them, you can visit [*Overview of log queries in Azure Monitor*](../azure-monitor/log-query/log-query-overview.md).
 
 ## Turn on diagnostic settings 
 
-You can turn on diagnostic settings to stream exported logs and metrics to another destination.
-
-Here is how to enable diagnostic settings for your Azure Digital Twins instance:
+You can turn on diagnostic settings to stream exported logs and metrics to another destination. Here is how to enable diagnostic settings for your Azure Digital Twins instance.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
 
