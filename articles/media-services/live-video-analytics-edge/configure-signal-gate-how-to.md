@@ -1,6 +1,6 @@
 ---
 title: Configure a signal gate for event-based video recording - Azure
-description: This article provides guidance on how to configure a signal gate in a media graph.
+description: This article provides guidance about how to configure a signal gate in a media graph.
 ms.topic: how-to
 ms.date: 11/3/2020
 
@@ -8,30 +8,37 @@ ms.date: 11/3/2020
 
 # Configure a signal gate for event-based video recording
 
-Within a media graph, a [signal gate processor node](media-graph-concept.md#signal-gate-processor) allows you to forward media from one node to another, when the gate is triggered by an event. When triggered, the gate opens and lets media flow through for a specified duration. In the absence of events to trigger the gate, the gate will close and media stops flowing. The signal gate processor is applicable for event-based video recording.
-In this article, you will learn the details about how to configure a signal gate processor.
+Within a media graph, a [signal gate processor node](media-graph-concept.md#signal-gate-processor) allows you to forward media from one node to another, when the gate is triggered by an event. When it's triggered, the gate opens and lets media flow through for a specified duration. In the absence of events to trigger the gate, the gate closes, and media stops flowing. The signal gate processor is applicable for event-based video recording.
 
-## Suggested pre-reading
+In this article, you'll learn how to configure a signal gate processor.
+
+## Suggested prereading
 -	[Media graph](media-graph-concept.md)
 -	[Event-based video recording](event-based-video-recording-concept.md)
 
 
 ## Problem
-The user may want to start recording a particular time before or after the gate was triggered by an event. The user knows the acceptable latency within their system, so the user wants to specify the latency of the signal gate processor. The user wants to specify the shortest and longest that the duration of their recording can be no matter how many new events are received.
+The user might want to start recording a particular time before or after the gate is triggered by an event. The user knows the acceptable latency within their system, so the user wants to specify the latency of the signal gate processor. The user wants to specify the minimum and maximum duration of their recording, no matter how many new events are received.
  
 ### Use case scenario
-Suppose you want to record video every time the front door of your building opens. You want the **X** seconds prior to the door being opened included in the recording. You want the recording to last at least **Y** seconds, if the door is not opened again. You want the recording to last at most **Z** seconds, if the door is repeatedly opened. You know that your door sensor has a latency of **K** seconds and want to decrease the chance of events being disregarded ("late arrivals"), so you want to allow at least **K** seconds for the events to arrive.
+Suppose you want to record video every time the front door of your building opens. You want the recording to: 
+
+- Include the *X* seconds before the door opens. 
+- Last at least *Y* seconds if the door isn't opened again. 
+- Last at most *Z* seconds if the door is repeatedly opened. 
+ 
+You know that your door sensor has a latency of *K* seconds. To decrease the chance of events being disregarded ("late arrivals"), you want to allow at least *K* seconds for the events to arrive.
 
 
 ## Solution
 
 ***Modifying Signal Gate Processor Parameters***
 
-A signal gate processor is configured by 4 parameters:
-- **activation evaluation window**
-- **activation signal offset**
-- **minimum activation window**
-- **maximum activation window**. 
+A signal gate processor is configured by four parameters:
+- Activation evaluation window
+- Activation signal offset
+- Minimum activation window
+- Maximum activation window
 
 When the signal gate processor is triggered, it will stay open for the minimum activation time. The activation event begins at the timestamp for the earliest event, plus the activation signal offset. If the signal gate processor is triggered again, while it is open, the timer resets and the gate will stay open for at least the minimum activation time. The signal gate processor will never stay open longer than the maximum activation time. An event **(Event 1)** that occurs before another event **(Event 2)**, based on media timestamps, is subject to being disregarded, if the system lags and **Event 1** arrives to the signal gate processor after **Event 2**. If **Event 1** does not arrive between the arrival of **Event 2** and the **activation evaluation window**, **Event 1** will be disregarded and not passed through the signal gate processor. Correlation IDs are set for every event. These IDs are set from the initial event and are sequential for each following event.
 
@@ -103,7 +110,7 @@ Here is an example of what the Signal Gate Processor node section would like in 
 ```
 
 
-Let’s consider how this signal gate processor configuration will behave in different recording scenarios.
+Let's consider how this signal gate processor configuration will behave in different recording scenarios.
 
 
 **1 Event from 1 Source (*Normal Activation*)**
@@ -121,7 +128,7 @@ Example Diagram:
 
 A signal gate processor receiving two events would result in a recording that starts “activation signal offset” (five) seconds before the first event arrived at the gate. The second event arrives five seconds after the first event, which is before the “minimum activation time” (20) seconds from the first event completes, therefore the gate is retriggered to stay open. The remainder of the recording is “minimum activation time” (20) seconds long, since no other events arrive before the minimum activation time from the 2nd event completes to retrigger the gate again.
 
-Example Diagram:
+Example diagram:
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/configure-signal-gate-how-to/retriggering-activation.svg" alt-text="Retriggered Activation":::
 
