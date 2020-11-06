@@ -14,9 +14,16 @@ ms.service: digital-twins
 
 Azure Digital Twins collects [metrics](troubleshoot-metrics.md) for your service instance that give information about the state of your resources. You can use these metrics to assess the overall health of Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help perform root-cause analysis on issues without needing to contact Azure support.
 
-This article shows you how to turn on **diagnostics logging** for your metrics data from your Azure Digital Twins instance. You can use these logs to help you troubleshoot service issues, and configure diagnostic settings to send Azure Digital Twins metrics to different destinations. You can read more about these settings in [*Create diagnostic settings to send platform logs and metrics to different destinations*](../azure-monitor/platform/diagnostic-settings.md).
+This article shows you how to **view and query logs** for your metrics data from your Azure Digital Twins instance, by using the [Azure portal](https://portal.azure.com). You can use these logs to help you troubleshoot service issues, and configure **diagnostic settings** to send the logs and metrics to different destinations.
 
-## Turn on diagnostic settings with the Azure portal
+This article also contains lists of all [log categories](#log-categories) and [log schemas](#log-schemas) that Azure Digital Twins collects.
+
+## View and query logs
+
+
+## Turn on diagnostic settings 
+
+You can turn on diagnostic settings to stream exported logs and metrics to another destination.
 
 Here is how to enable diagnostic settings for your Azure Digital Twins instance:
 
@@ -35,7 +42,7 @@ Here is how to enable diagnostic settings for your Azure Digital Twins instance:
         - QueryOperation
         - AllMetrics
         
-        For more details about these options, see the [*Category details*](#category-details) section below.
+        For more details about these categories and the information they contain, see the [*Log categories*](#log-categories) section below.
      * **Destination details**: Choose where you want to send the logs. You can select any combination of the three options:
         - Send to Log Analytics
         - Archive to a storage account
@@ -49,9 +56,11 @@ Here is how to enable diagnostic settings for your Azure Digital Twins instance:
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured target back on the **Diagnostic settings** page for your instance. 
 
-## Category details
+For more detailed information on diagnostic settings and their setup options, you can visit [*Create diagnostic settings to send platform logs and metrics to different destinations*](../azure-monitor/platform/diagnostic-settings.md).
 
-Here are more details about the log categories that can be selected under **Category details** when setting up diagnostic settings.
+## Log categories
+
+Here are more details about the categories of logs that Azure Digital Twins collects.
 
 | Log category | Description |
 | --- | --- |
