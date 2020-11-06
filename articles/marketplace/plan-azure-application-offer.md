@@ -225,7 +225,7 @@ There are two kinds of Azure application plans: _solution template_ and _managed
     - The resources are deployed to a resource group and are managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group. 
     - As the publisher, you specify the cost for ongoing support of the solution and transactions are supported through the commercial marketplace.
  
-    Use the managed application plan type when you or your customer require that the solution is managed by a partner or you will deploy a subscription-based solution. For more information about the advantages and types of managed applications, see [Azure managed applications overview](/azure/managed-applications/overview.md).
+    Use the managed application plan type when you or your customer requires that the solution is managed by a partner or you will deploy a subscription-based solution. For more information about the advantages and types of managed applications, see [Azure managed applications overview](/azure/managed-applications/overview.md).
 
 ## Next steps
 
