@@ -508,7 +508,7 @@ mssparkutils.credentials.getConnectionStringOrCreds('linked service name')
 
 
 ### Get secret using workspace identity
-Returns Azure Key Vault secret for a given Azure Key Vault name, secret name and linked service name. Make sure you configure the access to [Azure Key Vault](#-Configure-access-to-Azure-Key-Vault) appropriately.
+Returns Azure Key Vault secret for a given Azure Key Vault name, secret name and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#-Configure-access-to-Azure-Key-Vault) appropriately.
 
 
 :::zone pivot = "programming-language-python"
@@ -535,12 +535,12 @@ mssparkutils.credentials.getSecret('azure key vault name','secret name','linked 
 
 
 ### Get secret using user credentials
-
+Returns Azure Key Vault secret for a given Azure Key Vault name, secret name and linked service name using user credentials. 
 
 :::zone pivot = "programming-language-python"
 
 ```python
-
+mssparkutils.credentials.getSecret('azure key vault name','secret name')
 ```
 ::: zone-end
 
