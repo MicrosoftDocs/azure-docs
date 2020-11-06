@@ -234,7 +234,7 @@ print(token)
 >
 > Also, the greater the distance between your cluster's region and your workspace region, the longer it will take to fetch a token.
 
-<a id="interactive-authentication></a>
+<a id="interactive-authentication"></a>
 
 ## Using interactive authentication
 
