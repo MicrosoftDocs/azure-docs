@@ -74,6 +74,12 @@ The Key Vault VM extension (preview) does not support the following Linux operat
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
 
+Deploying the Key Vault VM extension (preview) is only supported using:
+
+- The Azure CLI
+- The Azure PowerShell
+- Azure Resource Manager template
+
 Before you deploy the extension, you need to complete the following:
 
 1. [Create a vault and certificate](../../key-vault/certificates/quick-create-portal.md) (self-signed or import).
