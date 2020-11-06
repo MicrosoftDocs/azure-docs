@@ -178,7 +178,7 @@ When a client connects to the IoT Edge hub, the following happens:
 
 1. If Transport Layer Security (TLS) is used (recommended), a TLS channel is built to establish an encrypted communication between the client and the IoT Edge hub.
 2. Authentication information is sent from the client to IoT Edge hub to identify itself.
-3. IoT Edge hub authorizes or rejects the connection based on its authentication policy.
+3. IoT Edge hub authorizes or rejects the connection based on its authorization policy.
 
 #### Secure connections (TLS)
 
