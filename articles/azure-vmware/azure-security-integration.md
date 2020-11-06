@@ -170,7 +170,7 @@ After connecting different sources to Azure Sentinel, you can create rules to ge
 
 8. On the **Review and create** tab, review the information and select **Create**.
 
-After the third attempt to sign in to Windows server with the wrong password, the created rule triggers an incident for every unsuccessful attempt.
+After the third failed attempt to sign in to Windows server, the created rule triggers an incident for every unsuccessful attempt.
 
 ## View generated alerts
 
