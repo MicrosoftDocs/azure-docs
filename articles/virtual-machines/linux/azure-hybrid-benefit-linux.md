@@ -53,7 +53,7 @@ In this phase, you may gain access to the benefit by filling out the form [here]
 1.    Register with the [Red Hat Cloud Access program](https://aka.ms/rhel-cloud-access)
 1.    Enable your Azure subscription(s) for Cloud Access, and enable the subscriptions containing the VMs you want to use the benefit with
 1.    Apply the benefit to your existing VMs either via the Azure portal or Azure CLI
-1.    Optional, register your VMs receiving the benefit with a separate source of updates (switched VMs can stay attached to [RHUI](../articles/virtual-machines/workloads/redhat/redhat-rhui.md) or registered through RHSM)
+1.    Optional, register your VMs receiving the benefit with a separate source of updates (switched VMs can stay attached to [RHUI](../workloads/redhat/redhat-rhui.md) or registered through RHSM)
 
 ### SUSE customers
 
@@ -150,7 +150,7 @@ This section contains a list of common errors and steps for mitigation.
 | ----- | ---------- |
 | "The subscription is not registered for the Linux preview of Azure Hybrid Benefit. For step-by-step instructions, refer to https://aka.ms/ahb-linux" | Fill out the form at https://aka.ms/ahb-linux-form to register for the Linux preview of the Azure Hybrid Benefit.
 | "The action could not be completed because our records show that you have not successfully enabled Red Hat Cloud Access on your Azure subscription…." | In order to use the benefit with RHEL VMs, you must first register your Azure subscription(s) with Red Hat Cloud Access. Visit this link to learn more about how to register your Azure subscriptions for Red Hat Cloud Access
-|"The option for Azure Hybrid Benefit doesn’t show up in the portal" | This is a known issue for RHEL and SLES VMs created from Shared Image Gallery, Snapshots or Captured PAYG Images. In this case, use the CLI steps described in the section “[Enable and disable the benefit in the Azure CLI](#Enable-and-disable-the-benefit-in-the-Azure-CLI)”. To view the status of AHB use the command ` az vm get-instance-view -g MyResourceGroup -n MyVm`.|
+|"The option for Azure Hybrid Benefit doesn’t show up in the portal" | This is a known issue for RHEL and SLES VMs created from Shared Image Gallery, Snapshots or Captured PAYG Images. In this case, use the CLI steps described in the section “[Enable and disable the benefit in the Azure CLI](#enable-and-disable-the-benefit-in-the-azure-cli)”. To view the status of AHB use the command ` az vm get-instance-view -g MyResourceGroup -n MyVm`.|
 
 ## Next steps
 * Get started with the with the preview by filling out the form [here](https://aka.ms/ahb-linux-form).
