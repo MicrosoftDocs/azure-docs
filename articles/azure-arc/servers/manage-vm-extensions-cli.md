@@ -3,6 +3,7 @@ title: Enable VM extension using Azure CLI
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments using the Azure CLI.
 ms.date: 10/19/2020
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ---
 
 # Enable Azure VM extensions using the Azure CLI
@@ -10,20 +11,6 @@ ms.topic: conceptual
 This article shows you how to deploy and uninstall Azure VM extensions, supported by Azure Arc enabled servers, to a Linux or Windows hybrid machine using the Azure CLI.
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## Prerequisites
-
-[Install the Azure CLI](/cli/azure/install-azure-cli).
-
-Before using the Azure CLI to manage VM extensions on your hybrid server managed by Arc enabled servers, you need to install the `ConnectedMachine` CLI extension. Run the following command on your Arc enabled server:
-
-```azurecli
-az extension add connectedmachine
-```
-
-When the installation completes, the following message is returned:
-
-`The installed extension `connectedmachine` is experimental and not covered by customer support. Please use with discretion.`
 
 ## Enable extension
 

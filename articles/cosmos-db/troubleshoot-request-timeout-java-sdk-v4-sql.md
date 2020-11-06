@@ -3,6 +3,7 @@ title: Troubleshoot Azure Cosmos DB HTTP 408 or request timeout issues with the 
 description: Learn how to diagnose and fix Java SDK request timeout exceptions with the Java v4 SDK.
 author: kushagrathapar
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
@@ -10,6 +11,8 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB Java v4 SDK request timeout exceptions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 The HTTP 408 error occurs if the SDK was unable to complete the request before the timeout limit occurred.
 
 ## Troubleshooting steps
