@@ -333,7 +333,7 @@ For information on how to connect to Media Services v2, see [Access the Azure Me
 ## Migration
 This section outlines variations and considerations when using Migration services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration,cost-management,azure-migrate,site-recovery&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
 
-### [Azure Migrate](/azure/azure-government/migrate-services-overview)
+### [Azure Migrate](/azure/migrate/migrate-services-overview)
 The following Azure Migrate **features are not currently available** in Azure Government:
 - Dependency visualization functionality as Azure Migrate depends on Service Map for dependency visualization which is currently unavailable in Azure Government.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
