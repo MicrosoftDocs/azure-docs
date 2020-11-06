@@ -117,7 +117,7 @@ To design and build secure solutions within Azure, it is critical to understand 
 |Resource | Link|
 |---|---|
 |Australian Regulatory and Policy Compliance Documents including Consumer Guidance|[https://aka.ms/au-irap](https://aka.ms/au-irap)|
-|Azure Virtual Data Center|[https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter)|
+|Azure Virtual Data Center|[https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter](/azure/architecture/vdc/networking-virtual-datacenter)|
 |ACSC Network Segmentation|[https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm](https://acsc.gov.au/publications/protect/network_segmentation_segregation.htm)|
 |ACSC Cloud Security for Tenants| [https://acsc.gov.au/publications/protect/cloud-security-tenants.htm](https://acsc.gov.au/publications/protect/cloud-security-tenants.htm)|
 |ACSC Information Security Manual|[https://acsc.gov.au/infosec/ism/index.htm](https://acsc.gov.au/infosec/ism/index.htm)|
@@ -140,9 +140,9 @@ Standard provides additional mitigation capabilities over the Basic service tier
 
 |Resource|Link|
 |---|---|
-|Azure DDoS Protection Overview|[https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)|
-|Azure DDoS Best Practices|[https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices](https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices)|
-|Managing DDoS Protection|[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)|
+|Azure DDoS Protection Overview|[https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview](../virtual-network/ddos-protection-overview.md)|
+|Azure DDoS Best Practices|[https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices](../ddos-protection/fundamental-best-practices.md)|
+|Managing DDoS Protection|[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)|
 |
 
 ### Traffic Manager
@@ -151,8 +151,8 @@ Traffic Manager is used to manage ingress traffic by controlling which endpoints
 
 |Resource|Link|
 |---|---|
-|Traffic Manager Overview | [https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)|
-|Disaster recovery using Azure DNS and Traffic Manager Guide | [https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager)|
+|Traffic Manager Overview | [https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview](../traffic-manager/traffic-manager-overview.md)|
+|Disaster recovery using Azure DNS and Traffic Manager Guide | [https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager](../networking/disaster-recovery-dns-traffic-manager.md)|
 |
 
 ### ExpressRoute
@@ -161,8 +161,8 @@ ExpressRoute can be used to establish a private path from an on-premises environ
 
 |Resource | Link|
 |---|---|
-|ExpressRoute Overview | [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)|
-|ExpressRoute Connectivity Models | [https://docs.microsoft.com/azure/expressroute/expressroute-connectivity-models](https://docs.microsoft.com/azure/expressroute/expressroute-connectivity-models)|
+|ExpressRoute Overview | [https://docs.microsoft.com/azure/expressroute/](../expressroute/index.yml)|
+|ExpressRoute Connectivity Models | [https://docs.microsoft.com/azure/expressroute/expressroute-connectivity-models](../expressroute/expressroute-connectivity-models.md)|
 |
 
 ### ExpressRoute Private Peering
@@ -171,8 +171,8 @@ Private peering provides a mechanism for extending an on-premises environment in
 
 |Resource | Link|
 |---|---|
-|ExpressRoute Private Peering Overview | [https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#routingdomains](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#routingdomains)|
-|ExpressRoute Private Peering How-to Guide | [https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager#private](https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager#private)|
+|ExpressRoute Private Peering Overview | [https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#routingdomains](../expressroute/expressroute-circuit-peerings.md#routingdomains)|
+|ExpressRoute Private Peering How-to Guide | [https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager#private](../expressroute/expressroute-howto-routing-portal-resource-manager.md#private)|
 |
 
 ### ExpressRoute Microsoft Peering
@@ -185,8 +185,8 @@ As an alternative, commonwealth entities can use ExpressRoute Microsoft peering 
 
 |Resource | Link|
 |---|---|
-|ExpressRoute Microsoft Peering Overview | [https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#routingdomains](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#routingdomains)|
-|ExpressRoute Microsoft Peering How-to Guide | [https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager#msft](https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager#msft)|
+|ExpressRoute Microsoft Peering Overview | [https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#routingdomains](../expressroute/expressroute-circuit-peerings.md#routingdomains)|
+|ExpressRoute Microsoft Peering How-to Guide | [https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager#msft](../expressroute/expressroute-howto-routing-portal-resource-manager.md#msft)|
 |
 
 ## IaaS ingress
@@ -199,8 +199,8 @@ Network interfaces are the ingress points for all traffic to a Virtual Machine. 
 
 |Resource | Link|
 |---|---|
-|Create, Change, or Delete a Network Interface | [https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface)|
-|Network Interface IP Addressing | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)|
+|Create, Change, or Delete a Network Interface | [https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface](../virtual-network/virtual-network-network-interface.md)|
+|Network Interface IP Addressing | [https://docs.microsoft.com/azure/virtual-network/private-ip-addresses](../virtual-network/private-ip-addresses.md)|
 |
 
 ### Subnet
@@ -209,7 +209,7 @@ Subnets are a crucial component for network segmentation and segregation within 
 
 |Resource | Link|
 |---|---|
-|Add, change, or delete a virtual network subnet | [https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)|
+|Add, change, or delete a virtual network subnet | [https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet](../virtual-network/virtual-network-manage-subnet.md)|
 |
 
 ### Virtual Network (VNet)
@@ -218,9 +218,9 @@ VNets are one of the fundamental building blocks for networking in Azure. Virtua
 
 |Resource | Link|
 |---|---|
-|Virtual Networks Overview | [https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)|
-|Plan Virtual Networks How-to Guide | [https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)|
-Create a Virtual Network Quickstart | [https://docs.microsoft.com/azure/virtual-network/quick-create-portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)|
+|Virtual Networks Overview | [https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview](../virtual-network/virtual-networks-overview.md)|
+|Plan Virtual Networks How-to Guide | [https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm](../virtual-network/virtual-network-vnet-plan-design-arm.md)|
+Create a Virtual Network Quickstart | [https://docs.microsoft.com/azure/virtual-network/quick-create-portal](../virtual-network/quick-create-portal.md)|
 |
 
 ### VNet Peering
@@ -229,8 +229,8 @@ VNet Peering is used to provide a direct communication path between two Virtual 
 
 |Resource | Link|
 |---|---|
-|Virtual Network Peering Overview |  [https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)|
-|Create, change, or delete a virtual network peering | [https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering)|
+|Virtual Network Peering Overview |  [https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview](../virtual-network/virtual-network-peering-overview.md)|
+|Create, change, or delete a virtual network peering | [https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering](../virtual-network/virtual-network-manage-peering.md)|
 |
 
 ### Public IP on VNET
@@ -239,8 +239,8 @@ Public IP addresses are used to provide an ingress communication path to service
 
 |Resource | Link|
 |---|---|
-|Public IP Addresses Overview | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)|
-|Create, change, or delete a public IP address | [https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)|
+|Public IP Addresses Overview | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses](../virtual-network/public-ip-addresses.md#public-ip-addresses)|
+|Create, change, or delete a public IP address | [https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address](../virtual-network/virtual-network-public-ip-address.md)|
 |
 
 ### ExpressRoute Gateway
@@ -249,8 +249,8 @@ ExpressRoute Gateways provide an ingress point from the on-premises environment 
 
 |Resource | Link|
 |---|---|
-|ExpressRoute Gateway Overview | [https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways)|
-|Configure a virtual network gateway for ExpressRoute | [https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager)|
+|ExpressRoute Gateway Overview | [https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways](../expressroute/expressroute-about-virtual-network-gateways.md)|
+|Configure a virtual network gateway for ExpressRoute | [https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)|
 |
 
 ### VPN Gateway
@@ -259,8 +259,8 @@ Azure VPN Gateway provides an ingress network point from an external network for
 
 |Resource | Link|
 |---|---|
-|VPN Gateway Overview | [https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway/)|
-|Planning and design for VPN Gateway | [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design)|
+|VPN Gateway Overview | [https://docs.microsoft.com/azure/vpn-gateway/](../vpn-gateway/index.yml)|
+|Planning and design for VPN Gateway | [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design](../vpn-gateway/vpn-gateway-about-vpngateways.md)|
 |VPN Gateway configuration for Australian Government agencies|[IPSEC configuration required for Australian Government agencies](vpn-gateway.md)|
 |
 
@@ -274,8 +274,8 @@ To use PaaS as an integrated part of system or application architecture, Microso
 
 |Resource | Link|
 |---|---|
-|Virtual network integration for Azure services | [https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)|
-|Integrate your app with an Azure Virtual Network How-to guide | [https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)|
+|Virtual network integration for Azure services | [https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services](../virtual-network/virtual-network-for-azure-services.md)|
+|Integrate your app with an Azure Virtual Network How-to guide | [https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet](../app-service/web-sites-integrate-with-vnet.md)|
 |
 
 ## PaaS ingress
@@ -288,8 +288,8 @@ PaaS capabilities are uniquely identified by hostnames to allow multiple instanc
 
 |Resource | Link|
 |---|---|
-|Many public namespaces used by Azure services can be obtained through PowerShell by running the Get-AzureRMEnvironment command | [https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermenvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermenvironment)|
-|Configuring a custom domain name for an Azure cloud service | App Services and others can have custom domains [https://docs.microsoft.com/azure/cloud-services/cloud-services-custom-domain-name-portal](https://docs.microsoft.com/azure/cloud-services/cloud-services-custom-domain-name-portal)|
+|Many public namespaces used by Azure services can be obtained through PowerShell by running the Get-AzureRMEnvironment command | [https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermenvironment](/powershell/module/azurerm.profile/get-azurermenvironment)|
+|Configuring a custom domain name for an Azure cloud service | App Services and others can have custom domains [https://docs.microsoft.com/azure/cloud-services/cloud-services-custom-domain-name-portal](../cloud-services/cloud-services-custom-domain-name-portal.md)|
 |
 
 ### Public IP for PaaS
@@ -308,8 +308,8 @@ Virtual Network Service endpoints provide a high-speed, private ingress network 
 
 |Resource | Link|
 |---|---|
-|Service endpoints overview | [https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
-|Tutorial |[https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources)|
+|Service endpoints overview | [https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview](../virtual-network/virtual-network-service-endpoints-overview.md)
+|Tutorial |[https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources](../virtual-network/tutorial-restrict-network-access-to-resources.md)|
 |
 
 ## Security
@@ -330,8 +330,8 @@ NSGs are used to specify the inbound and outbound traffic permitted for a subnet
 
 |Resource | Link|
 |---|---|
-|Network Security Overview | [https://docs.microsoft.com/azure/virtual-network/security-overview](https://docs.microsoft.com/azure/virtual-network/security-overview)
-|Create, change, or delete a network security group | [https://docs.microsoft.com/azure/virtual-network/manage-network-security-group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)|
+|Network Security Overview | [https://docs.microsoft.com/azure/virtual-network/security-overview](../virtual-network/network-security-groups-overview.md)
+|Create, change, or delete a network security group | [https://docs.microsoft.com/azure/virtual-network/manage-network-security-group](../virtual-network/manage-network-security-group.md)|
 |
 
 ## PaaS firewall
@@ -340,8 +340,8 @@ A PaaS firewall is a network access control capability that can be applied to ce
 
 |Resource | Link|
 |---|---|
-|Azure SQL Database and Azure Synapse Analytics IP firewall rules | [https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)|
-|Storage Network Security | [https://docs.microsoft.com/azure/storage/common/storage-network-security](https://docs.microsoft.com/azure/storage/common/storage-network-security)|
+|Azure SQL Database and Azure Synapse Analytics IP firewall rules | [https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure](../azure-sql/database/firewall-configure.md)|
+|Storage Network Security | [https://docs.microsoft.com/azure/storage/common/storage-network-security](../storage/common/storage-network-security.md)|
 |
 
 ## PaaS authentication and access control
@@ -350,8 +350,8 @@ Depending on the PaaS capability and its purpose, using network controls to rest
 
 |Resource | Link|
 |---|---|
-|Controlling and granting database access to SQL Database and Azure Synapse Analytics | [https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins)|
-|Authorization for the Azure Storage Services | [https://docs.microsoft.com/rest/api/storageservices/authorization-for-the-Azure-Storage-Services](https://docs.microsoft.com/rest/api/storageservices/authorization-for-the-Azure-Storage-Services)|
+|Controlling and granting database access to SQL Database and Azure Synapse Analytics | [https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins](../azure-sql/database/logins-create-manage.md)|
+|Authorization for the Azure Storage Services | [https://docs.microsoft.com/rest/api/storageservices/authorization-for-the-Azure-Storage-Services](/rest/api/storageservices/authorization-for-the-Azure-Storage-Services)|
 |
 
 ## Azure Policy
@@ -360,10 +360,10 @@ Azure Policy is a key component for enforcing and maintaining the integrity of t
 
 |Resource | Link|
 |---|---|
-|Azure Policy Overview | [https://docs.microsoft.com/azure/governance/policy/overview](https://docs.microsoft.com/azure/governance/policy/overview)|
-|Allowed Resource Types sample policy | [https://docs.microsoft.com/azure/governance/policy/samples/allowed-resource-types](https://docs.microsoft.com/azure/governance/policy/samples/allowed-resource-types)
-|Ensure HTTPS Storage Account sample policy|[https://docs.microsoft.com/azure/governance/policy/samples/ensure-https-storage-account](https://docs.microsoft.com/azure/governance/policy/samples/ensure-https-storage-account)_
-|Force NSG on a subnet sample policy| [https://docs.microsoft.com/azure/governance/policy/samples/nsg-on-subnet](https://docs.microsoft.com/azure/governance/policy/samples/nsg-on-subnet)|
+|Azure Policy Overview | [https://docs.microsoft.com/azure/governance/policy/overview](../governance/policy/overview.md)|
+|Allowed Resource Types sample policy | [https://docs.microsoft.com/azure/governance/policy/samples/allowed-resource-types](../governance/policy/samples/index.md)
+|Ensure HTTPS Storage Account sample policy|[https://docs.microsoft.com/azure/governance/policy/samples/ensure-https-storage-account](../governance/policy/samples/index.md)_
+|Force NSG on a subnet sample policy| [https://docs.microsoft.com/azure/governance/policy/samples/nsg-on-subnet](../governance/policy/samples/index.md)|
 |
 
 ## Next steps

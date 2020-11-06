@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 11/04/2020
 ms.author: victorh
 #Customer intent: As an administrator, I want monitor Azure Firewall logs and metrics so that I can track firewall activity.
 ---
@@ -45,7 +45,7 @@ It can take a few minutes for the data to appear in your logs after you complete
 8. Select your subscription.
 9. Select **Save**.
 
-## Enable diagnostic logging with PowerShell
+## Enable diagnostic logging by using PowerShell
 
 Activity logging is automatically enabled for every Resource Manager resource. Diagnostic logging must be enabled to start collecting the data available through those logs.
 
@@ -71,7 +71,7 @@ To enable diagnostic logging with PowerShell, use the following steps:
    Set-AzDiagnosticSetting  @diagSettings 
    ```
 
-## Enable diagnostic logging with Azure CLI
+## Enable diagnostic logging by using the Azure CLI
 
 Activity logging is automatically enabled for every Resource Manager resource. Diagnostic logging must be enabled to start collecting the data available through those logs.
 
@@ -94,6 +94,7 @@ To enable diagnostic logging with Azure CLI, use the following steps:
       --logs '[{\"category\":\"AzureFirewallApplicationRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallNetworkRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallDnsProxy\",\"Enabled\":true}]' 
       --metrics '[{\"category\": \"AllMetrics\",\"enabled\": true}]'
    ```
+
 ## View and analyze the activity log
 
 You can view and analyze activity log data by using any of the following methods:
