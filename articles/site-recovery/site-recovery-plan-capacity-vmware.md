@@ -15,7 +15,7 @@ Use this article to plan for capacity and scaling when you replicate on-premises
 
 ## How do I start capacity planning?
 
-To learn about Azure Site Recovery infrastructure requirements, gather information about your replication environment by running [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) for VMware replication. For more information, see [About Site Recovery Deployment Planner for VMware to Azure](site-recovery-deployment-planner.md). 
+To learn about Azure Site Recovery infrastructure requirements, gather information about your replication environment by running [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) for VMware replication. For more information, see [About Site Recovery Deployment Planner for VMware to Azure](site-recovery-deployment-planner.md). 
 
 Site Recovery Deployment Planner provides a report that has complete information about compatible and incompatible VMs, disks per VM, and data churn per disk. The tool also summarizes network bandwidth requirements to meet target RPO and the Azure infrastructure that's required for successful replication and test failover.
 

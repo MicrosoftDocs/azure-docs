@@ -18,22 +18,45 @@ Azure Spring Cloud provides robust services to host, monitor, scale, and update 
 This article explains the dependencies, configuration, and code that are required to run a .NET Core Steeltoe app in Azure Spring Cloud. For information about how to deploy an application to Azure Spring Cloud, see [Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md).
 
 >[!Note]
-> Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+> Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ##  Supported versions
 
 Azure Spring Cloud supports:
 
 * .NET Core 3.1
-* Steeltoe 2.4
+* Steeltoe 2.4 and 3.0
 
 ## Dependencies
 
-Install the [Microsoft.Azure.SpringCloud.Client](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) package.
+For Steeltoe 2.4, add the latest [Microsoft.Azure.SpringCloud.Client 1.x.x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) package to the project file:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.ExporterCore" Version="2.4.4" />
+</ItemGroup>
+```
+
+For Steeltoe 3.0, add the latest [Microsoft.Azure.SpringCloud.Client 2.x.x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) package to the project file:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="3.0.0" />
+</ItemGroup>
+```
 
 ## Update Program.cs
 
-In the `Program.Main` method, call the `UseAzureSpringCloudService` method:
+In the `Program.Main` method, call the `UseAzureSpringCloudService` method.
+
+For Steeltoe 2.4.4, call `UseAzureSpringCloudService` after `ConfigureWebHostDefaults` and after `AddConfigServer` if it is called:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -42,7 +65,21 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         {
             webBuilder.UseStartup<Startup>();
         })
+        .AddConfigServer()
         .UseAzureSpringCloudService();
+```
+
+For Steeltoe 3.0.0, call `UseAzureSpringCloudService` before `ConfigureWebHostDefaults` and before any Steeltoe configuration code:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .UseAzureSpringCloudService()
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        })
+        .AddConfigServer();
 ```
 
 ## Enable Eureka Server service discovery
@@ -94,7 +131,7 @@ This article explains the required dependencies and how to add them to the POM f
 
 Only Spring/Java applications can run in Azure Spring Cloud.
 
-Azure Spring Cloud supports both Java 8 and Java 11. The hosting environment contains the latest version of Azul Zulu OpenJDK for Azure. For more information about Azul Zulu OpenJDK for Azure, see [Install the JDK](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+Azure Spring Cloud supports both Java 8 and Java 11. The hosting environment contains the latest version of Azul Zulu OpenJDK for Azure. For more information about Azul Zulu OpenJDK for Azure, see [Install the JDK](/azure/developer/java/fundamentals/java-jdk-install).
 
 ## Spring Boot and Spring Cloud versions
 
@@ -300,9 +337,9 @@ Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zi
  You also need to enable an Azure Application Insights instance to work with your Azure Spring Cloud service instance. For information about how to use Application Insights with Azure Spring Cloud, see the [documentation on distributed tracing](spring-cloud-tutorial-distributed-tracing.md).
 
 ## See also
-* [Analyze application logs and metrics](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
-* [Set up your Config Server](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
-* [Use distributed tracing with Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+* [Analyze application logs and metrics](./diagnostic-services.md)
+* [Set up your Config Server](./spring-cloud-tutorial-config-server.md)
+* [Use distributed tracing with Azure Spring Cloud](./spring-cloud-tutorial-distributed-tracing.md)
 * [Spring Quickstart Guide](https://spring.io/quickstart)
 * [Spring Boot documentation](https://spring.io/projects/spring-boot)
 

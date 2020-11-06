@@ -1,6 +1,6 @@
 ---
-title: Convert an IoT Plug and Play device to a Generic Module | Microsoft Docs
-description: Use C# PnP device code and convert it to a module.
+title: Tutorial - Connect a generic Azure IoT Plug and Play module | Microsoft Docs
+description: Tutorial - Use sample C# IoT Plug and Play device code in a generic module.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
@@ -11,9 +11,9 @@ services: iot-pnp
 # As a device builder, I want to learn how to implement a module that works with IoT Plug and Play.
 ---
 
-# Tutorial: How to convert an IoT Plug and Play device to a module (C#)
+# Tutorial: Connect an IoT Plug and Play module (C#)
 
-This tutorial shows you how to convert IoT Plug and Play device code to run as a generic module.
+This tutorial shows you how to connect a generic IoT Plug and Play [module](../iot-hub/iot-hub-devguide-module-twins.md).
 
 A device is an IoT Plug and Play device if it publishes its model ID when it connects to an IoT hub and implements the properties and methods described in the Digital Twins Definition Language (DTDL) model identified by the model ID. To learn more about how devices use a DTDL and model ID, see [IoT Plug and Play developer guide](./concepts-developer-guide-device-csharp.md). Modules use model IDs and DTDL models in the same way.
 

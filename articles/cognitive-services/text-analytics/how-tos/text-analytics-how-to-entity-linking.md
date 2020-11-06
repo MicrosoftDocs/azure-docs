@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
 ---
 
@@ -39,7 +39,7 @@ Named Entity Recognition (NER) is the ability to identify different entities in 
 
 See [language support](../language-support.md) for information.
 
-### Entity types
+## Entity types
 
 Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3.0 can recognize entities in the [general entity category](../named-entity-types.md).
 
@@ -66,7 +66,7 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 #### [Version 3.1-preview.2](#tab/version-3-preview)
 
-Named Entity Recognition `v3.1-preview.2` uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
+Named Entity Recognition `v3.1-preview.2` uses separate endpoints for NER, PII and entity linking requests. Use a URL format below based on your request:
 
 Entity linking
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
@@ -78,6 +78,7 @@ NER
 
 [Named Entity Recognition version 3.1-preview reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
 
+Personally Identifiable Information (PII)
 * Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 You can also use the optional `domain=phi` parameter to detect health (`PHI`) information in text. 

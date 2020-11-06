@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
+ms.date: 10/21/2020
 ---
 
 # Azure Active Directory service principal with Azure SQL
@@ -29,7 +29,7 @@ When an Azure AD application is registered using the Azure portal or a PowerShel
 - An application object
 - A service principal object
 
-For more information on Azure AD applications, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) and [Create an Azure service principal with Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-4.2.0).
+For more information on Azure AD applications, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) and [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 
 SQL Database, Azure Synapse, and SQL Managed Instance support the following Azure AD objects:
 
@@ -54,7 +54,7 @@ To enable an Azure AD object creation in SQL Database and Azure Synapse on behal
     New-AzSqlServer -ResourceGroupName <resource group> -Location <Location name> -ServerName <Server name> -ServerVersion "12.0" -SqlAdministratorCredentials (Get-Credential) -AssignIdentity
     ```
 
-    For more information, see the [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) command.
+    For more information, see the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) command.
 
     - For existing Azure SQL Logical servers, execute the following command:
     
@@ -62,19 +62,21 @@ To enable an Azure AD object creation in SQL Database and Azure Synapse on behal
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <Server name> -AssignIdentity
     ```
 
-    For more information, see the [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) command.
+    For more information, see the [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) command.
 
     - To check if the server identity is assigned to the server, execute the Get-AzSqlServer command.
 
     > [!NOTE]
-    > Server identity can be assigned using CLI commands as well. For more information, see [az sql server create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) and [az sql server update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update).
+    > Server identity can be assigned using CLI commands as well. For more information, see [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create&preserve-view=true) and [az sql server update](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update&preserve-view=true).
 
-2. Grant the Azure AD [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) permission to the server identity created or assigned to the server.
+2. Grant the Azure AD [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission to the server identity created or assigned to the server.
     - To grant this permission, follow the description used for SQL Managed Instance that is available in the following article: [Provision Azure AD admin (SQL Managed Instance)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance)
     - The Azure AD user who is granting this permission must be part of the Azure AD **Global Administrator** or **Privileged Roles Administrator** role.
 
 > [!IMPORTANT]
-> Steps 1 and 2 must be executed in the above order. First, create or assign the server identity, followed by granting the [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) permission. Omitting one of these steps, or both will cause an execution error during an Azure AD object creation in Azure SQL on behalf of an Azure AD application. For step by step instructions to create an Azure AD user on behalf of an Azure AD application, see [Tutorial: Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md).
+> Steps 1 and 2 must be executed in the above order. First, create or assign the server identity, followed by granting the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission. Omitting one of these steps, or both will cause an execution error during an Azure AD object creation in Azure SQL on behalf of an Azure AD application.
+>
+> If you are using the service principal to set or unset the Azure AD admin, the application must also have the [Directory.Read.All](/graph/permissions-reference#application-permissions-18) Application API permission in Azure AD. For more information on [permissions required to set an Azure AD admin](authentication-aad-service-principal-tutorial.md#permissions-required-to-set-or-unset-the-azure-ad-admin), and step by step instructions to create an Azure AD user on behalf of an Azure AD application, see [Tutorial: Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md).
 >
 > In **public preview**, you can assign the **Directory Readers** role to a group in Azure AD. The group owners can then add the managed identity as a member of this group, which would bypass the need for a **Global Administrator** or **Privileged Roles Administrator** to grant the **Directory Readers** role. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
@@ -87,7 +89,7 @@ To enable an Azure AD object creation in SQL Database and Azure Synapse on behal
       - For the above error, follow the steps to [Assign an identity to the Azure SQL logical server](authentication-aad-service-principal-tutorial.md#assign-an-identity-to-the-azure-sql-logical-server) and [Assign Directory Readers permission to the SQL logical server identity](authentication-aad-service-principal-tutorial.md#assign-directory-readers-permission-to-the-sql-logical-server-identity).
     > [!NOTE]
     > The error messages indicated above will be changed before the feature GA to clearly identify the missing setup requirement for Azure AD application support.
-- Setting the Azure AD application as an Azure AD admin for SQL Managed Instance is only supported using the CLI command, and PowerShell command with [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) or higher. For more information, see the [az sql mi ad-admin create](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin?view=azure-cli-latest#az-sql-mi-ad-admin-create) and [Set-AzSqlInstanceActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) commands. 
+- Setting the Azure AD application as an Azure AD admin for SQL Managed Instance is only supported using the CLI command, and PowerShell command with [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) or higher. For more information, see the [az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin?view=azure-cli-latest&preserve-view=true#az-sql-mi-ad-admin-create) and [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) commands. 
     - If you want to use the Azure portal for SQL Managed Instance to set the Azure AD admin, a possible workaround is to create an Azure AD group. Then add the service principal (Azure AD application) to this group, and set this group as an Azure AD admin for the SQL Managed Instance.
     - Setting the service principal (Azure AD application) as an Azure AD admin for SQL Database and Azure Synapse is supported using the Azure portal, [PowerShell](authentication-aad-configure.md?tabs=azure-powershell#powershell-for-sql-database-and-azure-synapse), and [CLI](authentication-aad-configure.md?tabs=azure-cli#powershell-for-sql-database-and-azure-synapse) commands.
 - Using an Azure AD application with service principal from another Azure AD tenant will fail when accessing SQL Database or SQL Managed Instance created in a different tenant. A service principal assigned to this application must be from the same tenant as the SQL logical server or Managed Instance.
@@ -97,5 +99,3 @@ To enable an Azure AD object creation in SQL Database and Azure Synapse on behal
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md)
-
-

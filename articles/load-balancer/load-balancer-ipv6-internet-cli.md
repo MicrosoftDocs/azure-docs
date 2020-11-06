@@ -9,7 +9,7 @@ keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile,
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018

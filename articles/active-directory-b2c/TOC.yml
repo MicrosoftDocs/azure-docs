@@ -101,8 +101,10 @@
   items:
   - name: App integration
     items:
-    - name: Register an application
+    - name: Register a web application
       href: tutorial-register-applications.md
+    - name: Register a single-page application (SPA)
+      href: tutorial-register-spa.md
     - name: Register a SAML service provider
       href: connect-with-saml-service-providers.md
       displayName: SP, RP, service provider, connect
@@ -180,7 +182,7 @@
       href: basic-age-gating.md
     - name: Define custom attributes
       href: user-flow-custom-attributes.md
-    - name: API connectors
+    - name: API connectors (preview)
       items:
       - name: Overview
         href: api-connectors-overview.md
@@ -250,7 +252,7 @@
           href: identity-provider-twitter-custom.md
       - name: SAML providers
         items:
-        - name: ADFS
+        - name: AD FS
           href: identity-provider-adfs2016-custom.md
           displayName: SAML
         - name: Salesforce
@@ -414,10 +416,14 @@
       href: partner-jumio.md
     - name: LexisNexis
       href: partner-lexisnexis.md
+    - name: N8 Identity
+      href: partner-n8identity.md
     - name: Onfido
       href: partner-onfido.md
     - name: Saviynt
       href: partner-saviynt.md
+    - name: Strata
+      href: partner-strata.md
     - name: Trusona
       href: partner-trusona.md
     - name: Twilio

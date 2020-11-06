@@ -4,6 +4,10 @@
   items:
   - name: About Lab Services
     href: lab-services-overview.md
+- name: Quickstarts
+  items:
+    - name: Get started
+      href: get-started-manage-labs.md
 - name: Tutorials
   items:
   - name: Set up a lab account
@@ -65,7 +69,7 @@
         - name: Manage VM pool
           href: how-to-manage-vm-pool-within-teams.md
         - name: Delete labs
-          href: how-to-get-started-create-lab-within-teams.md#deleting-classroom-labs
+          href: how-to-delete-lab-within-teams.md
         - name: Schedules and settings
           href: how-to-create-schedules-within-teams.md
         - name: Access a VM (student view)

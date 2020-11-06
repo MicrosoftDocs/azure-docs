@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 10/29/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -32,7 +32,7 @@ Additional information about licensing can be found on the following pages:
 * [Azure AD licensing](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
-* [Azure AD B2B licensing guidance](../external-identities/licensing-guidance.md)
+* [Azure AD External Identities pricing](../external-identities/external-identities-pricing.md)
 
 ## Phase 1: Build a foundation of security
 
@@ -40,8 +40,8 @@ In this phase, administrators enable baseline security features to create a more
 
 | Task | Detail | Required license |
 | ---- | ------ | ---------------- |
-| [Designate more than one global administrator](../users-groups-roles/directory-emergency-access.md) | Assign at least two cloud-only permanent global administrator accounts for use if there is an emergency. These accounts are not be used daily and should have long and complex passwords. | Azure AD Free |
-| [Use non-global administrative roles where possible](../users-groups-roles/directory-assign-admin-roles.md) | Give your administrators only the access they need to only the areas they need access to. Not all administrators need to be global administrators. | Azure AD Free |
+| [Designate more than one global administrator](../roles/security-emergency-access.md) | Assign at least two cloud-only permanent global administrator accounts for use if there is an emergency. These accounts are not be used daily and should have long and complex passwords. | Azure AD Free |
+| [Use non-global administrative roles where possible](../roles/permissions-reference.md) | Give your administrators only the access they need to only the areas they need access to. Not all administrators need to be global administrators. | Azure AD Free |
 | [Enable Privileged Identity Management for tracking admin role use](../privileged-identity-management/pim-getting-started.md) | Enable Privileged Identity Management to start tracking administrative role usage. | Azure AD Premium P2 |
 | [Roll out self-service password reset](../authentication/howto-sspr-deployment.md) | Reduce helpdesk calls for password resets by allowing staff to reset their own passwords using policies you as an administrator control. | |
 | [Create an organization specific custom banned password list](../authentication/tutorial-configure-custom-password-protection.md) | Prevent users from creating passwords that include common words or phrases from your organization or area. | |
@@ -66,8 +66,8 @@ Next, we add to the foundation laid in phase 1 by importing our users and enabli
 | [Implement Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) | Synchronize password hashes to allow password changes to be replicated, bad password detection and remediation, and leaked credential reporting. | Azure AD Free |
 | [Implement Password Writeback](../authentication/tutorial-enable-sspr-writeback.md) | Allow password changes in the cloud to be written back to an on-premises Windows Server Active Directory environment. | Azure AD Premium P1 |
 | [Implement Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Enable monitoring of key health statistics for your Azure AD Connect servers, AD FS servers, and domain controllers. | Azure AD Premium P1 |
-| [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Save time and effort by creating licensing groups that enable or disable features by group instead of setting per user. | |
-| [Create a plan for guest user access](../external-identities/what-is-b2b.md) | Collaborate with guest users by letting them sign in to your apps and services with their own work, school, or social identities. | [Azure AD B2B licensing guidance](../external-identities/licensing-guidance.md) |
+| [Assign licenses to users by group membership in Azure Active Directory](../enterprise-users/licensing-groups-assign.md) | Save time and effort by creating licensing groups that enable or disable features by group instead of setting per user. | |
+| [Create a plan for guest user access](../external-identities/what-is-b2b.md) | Collaborate with guest users by letting them sign in to your apps and services with their own work, school, or social identities. | [Azure AD External Identities pricing](../external-identities/external-identities-pricing.md) |
 | [Decide on device management strategy](../devices/overview.md) | Decide what your organization allows regarding devices. Registering vs joining, Bring Your Own Device vs company provided. | |
 | [Deploy Windows Hello for Business in your organization](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepare for passwordless authentication using Windows Hello | |
 | [Deploy passwordless authentication methods for your users](../authentication/concept-authentication-passwordless.md) | Provide your users with convenient passwordless authentication methods | Azure AD Premium P1 |
@@ -90,7 +90,7 @@ Phase 4 sees administrators enforcing least privilege principles for administrat
 | ---- | ------ | ---------------- |
 | [Enforce the use of Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Remove administrative roles from normal day to day user accounts. Make administrative users eligible to use their role after succeeding a multi-factor authentication check, providing a business justification, or requesting approval from designated approvers. | Azure AD Premium P2 |
 | [Complete an access review for Azure AD directory roles in PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Work with your security and leadership teams to create an access review policy to review administrative access based on your organization's policies. | Azure AD Premium P2 |
-| [Implement dynamic group membership policies](../users-groups-roles/groups-dynamic-membership.md) | Use dynamic groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes. |  |
+| [Implement dynamic group membership policies](../enterprise-users/groups-dynamic-membership.md) | Use dynamic groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes. |  |
 | [Implement group based application provisioning](../manage-apps/what-is-access-management.md) | Use group-based access management provisioning to automatically provision users for SaaS applications. |  |
 | [Automate user provisioning and deprovisioning](../app-provisioning/user-provisioning.md) | Remove manual steps from your employee account lifecycle to prevent unauthorized access. Synchronize identities from your source of truth (HR System) to Azure AD. |  |
 

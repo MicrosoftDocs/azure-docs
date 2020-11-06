@@ -1,9 +1,8 @@
 ---
 title: Connect hybrid machines to Azure from the Azure portal
 description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc enabled servers from the Azure portal.
-ms.date: 09/24/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
-ms.custom: references_regions
 ---
 
 # Connect hybrid machines to Azure from the Azure portal
@@ -12,7 +11,7 @@ You can enable Azure Arc enabled servers for one or a small number of Windows or
 
 This method requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group.
 
-Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription and resources meet the requirements.
+Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -20,22 +19,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The script to automate the download and installation, and to establish the connection with Azure Arc, is available from the Azure portal. To complete the process, do the following:
 
-1. From your browser, go to the [Azure portal](https://aka.ms/hybridmachineportal).
+1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
 1. On the **Servers - Azure Arc** page, select **Add** at the upper left.
 
 1. On the **Select a method** page, select the **Add servers using interactive script** tile, and then select **Generate script**.
 
-1. On the **Generate script** page, select the subscription and resource group where you want the machine to be managed within Azure. Select an Azure location where the machine metadata will be stored.
-
-    >[!NOTE]
-    >Azure Arc enabled servers supports only the following regions:
-    >- EastUS
-    >- WestUS2
-    >- WestEurope
-    >- SoutheastAsia
-    >
-    >Review additional considerations when selecting a region [here](overview.md#supported-regions) in the Overview article.
+1. On the **Generate script** page, select the subscription and resource group where you want the machine to be managed within Azure. Select an Azure location where the machine metadata will be stored. This location can be the same or different, as the resource group's location.
 
 1. On the **Prerequisites** page, review the information and then select **Next: Resource details**.
 
@@ -79,7 +69,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
     ```
 
-    If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+    If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 2. If the machine needs to communicate through a proxy server, to set the proxy server environment variable, run the following command:
 
@@ -112,15 +102,15 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
 
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` script.
 
-If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 ## Install and validate the agent on Linux
 
 The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/). The [shell script bundle `Install_linux_azcmagent.sh`](https://aka.ms/azcmagent) performs the following actions:
 
-- Configures the host machine to download the agent package from packages.microsoft.com.
-- Installs the Hybrid Resource Provider package.
-- Registers the machine with Azure Arc
+* Configures the host machine to download the agent package from packages.microsoft.com.
+
+* Installs the Hybrid Resource Provider package.
 
 Optionally, you can configure the agent with your proxy information by including the `--proxy "{proxy-url}:{proxy-port}"` parameter.
 
@@ -136,15 +126,30 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh
 ```
 
-To download and install the agent, including the `--proxy` parameter for configuring the agent to communicate through your proxy server, run the following commands:
+1. To download and install the agent, including the `--proxy` parameter for configuring the agent to communicate through your proxy server, run the following commands:
 
-```bash
-# Download the installation package.
-wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+    ```bash
+    # Download the installation package.
+    wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent. 
-bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
-```
+    # Install the connected machine agent.
+    bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+    ```
+
+2. After installing the agent, you need to configure it to communicate with the Azure Arc service by running the following command:
+
+    ```bash
+    azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --cloud "cloudName"
+    if [ $? = 0 ]; then echo "\033[33mTo view your onboarded server(s), navigate to https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2Fmachines\033[m"; fi
+    ```
+
+### Install with the scripted method
+
+1. Log in to the server with an account that has root access.
+
+1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.sh` script.
+
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *var/opt/azcmagent/log*.
 
 ## Verify the connection with Azure Arc
 
@@ -158,4 +163,4 @@ After you install the agent and configure it to connect to Azure Arc enabled ser
 
 * Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md), and much more.
 
-* Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-intro.md).
+* Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).

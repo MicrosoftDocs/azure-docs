@@ -49,19 +49,19 @@ You can migrate EOS SQL Server instances to an Azure VM with manual backup/resto
 
 ### Azure Site Recovery
 
-For bulk migrations, we recommend the [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) service. With Azure Site Recovery, customers can replicate the whole VM, including SQL Server from on-premises to Azure VM.
+For bulk migrations, we recommend the [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) service. With Azure Site Recovery, customers can replicate the whole VM, including SQL Server from on-premises to Azure VM.
 
 SQL Server requires app-consistent Azure Site Recovery snapshots to guarantee recovery. Azure Site Recovery supports app-consistent snapshots with a minimum 1-hour interval. The minimum recovery point objective (RPO) possible for SQL Server with Azure Site Recovery migrations is 1 hour. The recovery time objective (RTO) is 2 hours plus SQL Server recovery time.
 
 ### Database Migration Service
 
-The [Azure Database Migration Service](/azure/dms/dms-overview) is an option for customers if they're migrating from on-premises to an Azure VM by upgrading SQL Server to the 2012 version or later.
+The [Azure Database Migration Service](../../../dms/dms-overview.md) is an option for customers if they're migrating from on-premises to an Azure VM by upgrading SQL Server to the 2012 version or later.
 
 ## Disaster recovery
 
 Disaster recovery solutions for EOS SQL Server on an Azure VM are as follows:
 
-- **SQL Server backups**: Use Azure Backup to help protect your EOS SQL Server 2008 and 2008 R2 against ransomware, accidental deletion, and corruption with 15-min RPO and point-in-time recovery. For more details, see [this article](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
+- **SQL Server backups**: Use Azure Backup to help protect your EOS SQL Server 2008 and 2008 R2 against ransomware, accidental deletion, and corruption with 15-min RPO and point-in-time recovery. For more details, see [this article](../../../backup/sql-support-matrix.md#scenario-support).
 - **Log shipping**: You can create a log shipping replica in another zone or Azure region with continuous restores to reduce the RTO. You need to manually configure log shipping.
 - **Azure Site Recovery**: You can replicate your VM between zones and regions through Azure Site Recovery replication. SQL Server requires app-consistent snapshots to guarantee recovery in case of a disaster. Azure Site Recovery offers a minimum 1-hour RPO and a 2-hour (plus SQL Server recovery time) RTO for EOS SQL Server disaster recovery.
 

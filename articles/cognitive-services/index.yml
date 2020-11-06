@@ -24,24 +24,24 @@ highlightedContent:
     - title: What's new in docs?
       itemType: whats-new
       url: whats-new-docs.md
+    - title: Development options
+      itemType: concept
+      url: ./cognitive-services-development-options.md
     - title: Cognitive Services and machine learning
       itemType: concept
       url: ./cognitive-services-and-machine-learning.md
+    - title: Cognitive Services on-prem containers
+      itemType: concept
+      url: ./cognitive-services-container-support.md
+    - title: Cognitive Services with databases
+      itemType: concept
+      url: ./big-data/cognitive-services-for-big-data.md
     - title: Language support
       itemType: reference
       url: ./language-support.md
-    - title: Create a resource
-      itemType: how-to-guide
-      url: ./cognitive-services-apis-create-account.md
-    - title: Use in Containers
-      itemType: concept
-      url: ./cognitive-services-container-support.md
-    - title: Use in Databases
-      itemType: concept
-      url: ./big-data/cognitive-services-for-big-data.md
-    - title: Security
-      itemType: concept
-      url: cognitive-services-security.md
+    - title: Support & help options
+      itemType: reference
+      url: ./cognitive-services-support-options.md
 
 conceptualContent:
   
@@ -126,9 +126,12 @@ conceptualContent:
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:
+        - url: ./containers/index.yml
+          itemType: overview
+          text:  Cognitive Services containers documentation
         - url: ./cognitive-services-container-support.md
           itemType: overview
-          text: Cognitive Service Containers
+          text: What are Cognitive Service containers?
         - url: ./containers/container-reuse-recipe.md
           itemType: learn
           text: Create containers for reuse
