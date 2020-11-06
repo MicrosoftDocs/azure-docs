@@ -78,16 +78,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<LOCALHOST>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `http://<LOCALHOST>`
+    `https://<LOCALHOST>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Reply URL. Contact [AWS ClientVPN Client support team](mailto:sujab@amazon.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Reply URL. Contact [AWS ClientVPN Client support team](https://aws.amazon.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. In the Azure Active Directory service, navigate to **App registrations** and then select **All Applications**.
 
-1. Type **AWS ClientVPN** in the search box and Select **AWS ClientVPN** from the search panel.
+1. Type **AWS ClientVPN** in the search box and select **AWS ClientVPN** from the search panel.
 
-1. Click on **Manifest** and give the Reply URL value as `http://<LOCALHOST>` instead of `https://<LOCALHOST>`, click on **Save**.
+1. Click on **Manifest** and you need to keep the Reply URL as **http** instead of **https** to get the integration working, click on **Save**.
 
     ![manifest page](./media/aws-clientvpn-tutorial/reply-url.png)
 
@@ -134,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure AWS ClientVPN SSO
 
-To configure single sign-on on **AWS ClientVPN** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [AWS ClientVPN support team](mailto:sujab@amazon.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **AWS ClientVPN** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [AWS ClientVPN support team](https://aws.amazon.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create AWS ClientVPN test user
 
