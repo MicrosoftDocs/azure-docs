@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Add a network segment in Azure VMware Solution
+title: Tutorial - Add an NSX-T network segment in Azure VMware Solution
 description: Learn how to create a NSX-T network segment to use for virtual machines (VMs) in vCenter.
 ms.topic: tutorial
 ms.date: 11/09/2020
