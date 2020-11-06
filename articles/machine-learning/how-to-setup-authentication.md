@@ -132,7 +132,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
 ### SSH
 
-When creating an Azure Machine Learning compute instance or compute cluster, you can optionally enable SSH access. SSH access is based on public key infrastructure (PKI), and uses cryptographically signed keys to perform authentication. For more information on creating and using SSH keys with Azure, see [Create and manage SSH keys](../virtual-machines/linux/create-ssh-keys-detailed).
+When creating an Azure Machine Learning compute instance or compute cluster, you can optionally enable SSH access. SSH access is based on public key infrastructure (PKI), and uses cryptographically signed keys to perform authentication. For more information on creating and using SSH keys with Azure, see [Create and manage SSH keys](../virtual-machines/linux/create-ssh-keys-detailed.md).
 
 ### Web-service authentication
 
@@ -234,6 +234,8 @@ print(token)
 >
 > Also, the greater the distance between your cluster's region and your workspace region, the longer it will take to fetch a token.
 
+<a id="interactive-authentication></a>
+
 ## Using interactive authentication
 
 > [!IMPORTANT]
@@ -268,6 +270,8 @@ Most examples in the documentation and samples use interactive authentication. F
 > ```
 
 When using the Azure CLI, the `az login` command is used to authenticate the CLI session. For more information, see [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+
+<a id="service-principal-authentication"></a>
 
 ## Using service principal authentication
 
