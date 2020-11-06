@@ -13,7 +13,7 @@ ms.date: 01/05/2019
 To process an array in your logic app, you can create a ["Foreach" loop](#foreach-loop). This loop repeats one or more actions on each item in the array. 
 For the limit on the number of array items that a "Foreach" loop can process, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-To repeat actions until a condition gets met or a state changes, you can create an ["Until" loop](#until-loop). Your logic app first runs all the actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the limit on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+To repeat actions until a condition gets met or a state changes, you can create an ["Until" loop](#until-loop). Your logic app first runs all the actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
 > If you have a trigger that receives an array and want to run a workflow for each array item, you can *debatch* that array 
@@ -177,7 +177,7 @@ you can use the `Sequential` option by adding the
 
 ## "Until" loop
   
-To run and repeat actions until a condition gets met or a state changes, put those actions in an "Until" loop. Your logic app first runs any and all actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the limit on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+To run and repeat actions until a condition gets met or a state changes, put those actions in an "Until" loop. Your logic app first runs any and all actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Here are some common scenarios where you can use an "Until" loop:
 
@@ -285,19 +285,19 @@ Starting at 8:00 AM each day, this example logic app increments a variable until
 
       ![Received email](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
+<a name="prevent-endless-loops"></a>
+
 ## Prevent endless loops
 
-An "Until" loop has default limits that stop execution 
-if any of these conditions happen:
+The "Until" loop stops execution based on these properties, so make sure that you set their values accordingly:
 
-| Property | Default value | Description | 
-| -------- | ------------- | ----------- | 
-| **Count** | 60 | The highest number of loops that run before the loop exits. The default is 60 cycles. | 
-| **Timeout** | PT1H | The most amount of time to run a loop before the loop exits. The default is one hour and is specified in ISO 8601 format. <p>The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. | 
-|||| 
+* **Count**: This value is the highest number of loops that run before the loop exits. For the default and maximum limits on the number of "Until" loops that a logic app run can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-To change these default limits, 
-choose **Show advanced options** in the loop action shape.
+* **Timeout**: This value is the most amount of time that the loop runs before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). For the default and maximum limits on the **Timeout** value, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+  The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met.
+
+To change these limits, in the loop action, select **Change limits**.
 
 <a name="until-json"></a>
 

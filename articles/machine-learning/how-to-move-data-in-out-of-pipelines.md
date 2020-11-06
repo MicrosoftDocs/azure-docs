@@ -1,7 +1,7 @@
 ---
 title: 'Moving data in ML pipelines'
 titleSuffix: Azure Machine Learning
-description: Learn about input & output of data in Azure Machine Learning pipelines.
+description: Learn how Azure Machine Learning pipelines ingest data, and how to manage and move data between pipeline steps.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, devx-track-python
+ms.custom: how-to, contperfq4, devx-track-python, data4ml
 # As a data scientist using Python, I want to get data into my pipeline and flowing between steps
 ---
 

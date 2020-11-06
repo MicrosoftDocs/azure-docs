@@ -68,10 +68,12 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 - Firewall rules are not supported on VNET, Network security groups can be used instead.
 - Public access database servers can connect to public internet, for example through `postgres_fdw`, and this access cannot be restricted. VNET-based servers can have restricted outbound access using Network Security Groups.
 
-### High availability
+### High availability (HA)
 
 - Zone-Redundant HA is currently not supported for Burstable servers.
 - The database server IP address changes when your server fails over to the HA standby. Ensure you use the DNS record instead of the server IP address.
+- If logical replication is configured with a HA configured flexible server, in the event of a failover to the standby server, the logical replication slots are not copied over to the standby server. 
+- For additional HA limitations, please see the [concepts - HA documentation](concepts-high-availability.md) page.
 
 ### Availability zones
 
