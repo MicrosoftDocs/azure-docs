@@ -67,6 +67,8 @@ Azure Arc enabled Kubernetes currently [supports system assigned identity](../..
 | System assigned | Preview | Not available | Not available | Not available |
 | User assigned | Not available | Not available | Not available | Not available |
 
+Refer to the following document to reconfigure a managed identity if you have moved your subscription to a new tenant:
+* [Azure Resource Manager template]()
 
 ### Azure Blueprints
 
