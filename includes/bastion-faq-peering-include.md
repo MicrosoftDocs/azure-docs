@@ -18,8 +18,7 @@ Yes. By default, a user sees the Bastion host that is deployed in the same virtu
 
 Yes, connectivity via Bastion will continue to work for peered VNets across different subscription for a single Tenant. Subscriptions across two different Tenants are not supported. To see Bastion in the **Connect** drop down menu, the user must select the subs they have access to in **Subscription > global subscription**.
 
-:::image type="content" source="./media/bastion-faq-peering-include/global-subscriptions.png" alt-text="Global subscription" lightbox="./media/bastion-faq-peering-include/global-subscriptions.png":::
-
+:::image type="content" source="./media/bastion-faq-peering-include/global-subscriptions.png" alt-text="Global subscriptions filter" lightbox="./media/bastion-faq-peering-include/global-subscriptions.png":::
 
 ### I have access to the peered VNet, but I can't see the VM deployed there.
 
