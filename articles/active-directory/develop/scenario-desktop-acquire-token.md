@@ -616,14 +616,6 @@ The following constraints also apply:
 - It works only for work and school accounts (not MSA).
 - The flow is available on .NET desktop and .NET Core, but not on UWP.
 
-## (Advanced) Accessing the signed-in user's token cache from background apps, APIs and services
-
-MSAL's token cache implementation can also be utilized to let background apps, APIs and services use the MSAL's access token cache to continue to act on-behalf of users in their absence. This is especially useful if the background apps and services need to continue to work on behalf of the user after the user has exited the frontend web app.
-
-Today, most background processes that need to work with user's data without them being present to authenticate or re-authenticate make use of [Application Permissions](https://docs.microsoft.com/graph/auth/auth-concepts#microsoft-graph-permissions) which often require an [admin consent](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent). This requires an elevation of privilege and is often an unnecessary hassle as the developer originally did not intend to obtain a permission over what a user consents to their app.
-
-The sample, [Accessing the logged\-in user's token cache from background apps, APIs and services](https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache) shows how to access MSAL's token cache from background apps.
-
 ### B2C specifics
 
 For more information, see [Resource Owner Password Credentials (ROPC) with B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics#resource-owner-password-credentials-ropc-with-b2c).
@@ -1392,6 +1384,10 @@ namespace CommonCacheMsalV3
  }
 }
 ```
+
+## (Advanced) Accessing the user's cached tokens in background apps and services
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
 
 ## Next steps
 
