@@ -32,7 +32,7 @@ For more migration information, see the [migration overview](sql-server-to-sql-d
 
 To migrate your SQL Server to Azure SQL Database, make sure you have the following prerequisites: 
 
-- A chosen [migration method](sql-server-to-sql-database-overview.md#migration-options) and corresponding tools 
+- A chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options) and corresponding tools 
 - [Data Migration Assistant (DMA)](https://www.microsoft.com/en-us/download/details.aspx?id=53595) installed on a machine that can connect to your source SQL Server
 - A target [Azure SQL Database](../../database/single-database-create-quickstart.md)
 
@@ -79,7 +79,7 @@ To learn more, see [Perform a SQL Server migration assessment with Data Migratio
 If the assessment encounters multiple blockers to confirm that your database it not ready for an Azure SQL Database migration, then alternatively consider:
 
 - [Azure SQL Managed Instance](../managed-instance/sql-server-to-managed-instance-overview.md) if there are multiple instance-scoped dependencies
-- [SQL Server on Azure Virtual Machines](..//virtual-machines/sql-server/to-sql-server-on-azure-vm-overview) if both SQL Database and SQL Managed Instance fail to be suitable targets. 
+- [SQL Server on Azure Virtual Machines](../virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md) if both SQL Database and SQL Managed Instance fail to be suitable targets. 
 
 
 
@@ -98,7 +98,7 @@ If you have multiple servers and databases that need to be assessed and analysed
 
 After you have completed tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. 
 
-Migrate your data using your chosen [migration method](sql-server-to-sql-database-overview.md#migration-options). 
+Migrate your data using your chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options). 
 
 This guide describe the two most popular options - Data Migration Assistant and Azure Database Migration Service. 
 

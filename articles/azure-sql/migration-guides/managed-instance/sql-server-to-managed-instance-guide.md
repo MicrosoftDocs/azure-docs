@@ -32,7 +32,7 @@ For more migration information, see the [migration overview](sql-server-to-manag
 
 To migrate your SQL Server to Azure SQL Managed Instance, make sure to go through the following pre-requisites: 
 
-- Choose a [migration method](sql-server-to-managed-instance-overview.md#migration-options) and the corresponding tools that are required for the chosen method
+- Choose a [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options) and the corresponding tools that are required for the chosen method
 - Install [Data Migration Assistant (DMA)](https://www.microsoft.com/en-us/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server
 - Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
 
@@ -101,7 +101,7 @@ Based on the information in the discover and assess phase, create an appropriate
 
 After you have completed tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. 
 
-Migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
+Migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options). 
 
 This guide describe the two most popular options - Azure Database Migration Service (DMS) and native backup and restore. 
 

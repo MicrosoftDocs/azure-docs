@@ -57,23 +57,23 @@ Consider general guidelines to help you choose the right deployment model and se
 
 **Deployment models**: Understand your application workload and the usage pattern to decide between a single database or elastic pool. 
 
-- A [single database](../../database/single-database-overview) represents a fully managed database suitable for most modern cloud applications and microservices.
-- An [elastic pool](../../database/elastic-pool-overview) is a collection of single databases with a shared set of resources such as CPU or memory and suitable for combining databases in a pool with predictable usage patterns that can effectively share the same set of resources.
+- A [single database](../../database/single-database-overview.md) represents a fully managed database suitable for most modern cloud applications and microservices.
+- An [elastic pool](../../database/elastic-pool-overview.md) is a collection of single databases with a shared set of resources such as CPU or memory and suitable for combining databases in a pool with predictable usage patterns that can effectively share the same set of resources.
 
 **Purchasing models**: Choose between the vCore, DTU, or serverless purchasing model. 
 
-- The [vCore model](../../database/service-tiers-vcore) lets you choose the number of vCores for your Azure SQL Database, making it the easiest choice when translating from on-premises SQL Server. This is the only option that supports saving on license cost with the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). 
-- The [DTU model](../../database/service-tiers-dtu) abstracts the underlying compute, memory, and IO resources in order to provide a blended DTU. 
-- The [serverless model](../../database/serverless-tier-overview) is intended for workloads that require automatic on-demand scaling with compute resources billed per second of usage. The serverless compute tier automatically pauses databases during inactive periods (where only storage is billed), and automatically resumes databases when activity returns. 
+- The [vCore model](../../database/service-tiers-vcore.md) lets you choose the number of vCores for your Azure SQL Database, making it the easiest choice when translating from on-premises SQL Server. This is the only option that supports saving on license cost with the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). 
+- The [DTU model](../../database/service-tiers-dtu.md) abstracts the underlying compute, memory, and IO resources in order to provide a blended DTU. 
+- The [serverless model](../../database/serverless-tier-overview.md) is intended for workloads that require automatic on-demand scaling with compute resources billed per second of usage. The serverless compute tier automatically pauses databases during inactive periods (where only storage is billed), and automatically resumes databases when activity returns. 
 
 **Service tiers**: Choose between three service tiers designed for different types of applications.
 
-- [General Purpose / Standard service tier](../../database/service-tier-general-purpose) offers a balanced budget-oriented option with compute and storage suitable to deliver mid-lower tier applications, with redundancy built in at the storage layer to recover from failures. Designed for most database workloads. 
-- [Business Critical / Premium service tier](../../database/service-tier-business-critical) is for high tier applications that require high transaction rates, low latency IO, and a high level of resiliency with secondary replicas available for both failover and to offload read workloads.
-- [Hyperscale service tier](../../database/service-tier-hyperscale) is for databases that have growing data volumes and need to automatically scale up to 100-TB database size. Designed for very large databases. 
+- [General Purpose / Standard service tier](../../database/service-tier-general-purpose.md) offers a balanced budget-oriented option with compute and storage suitable to deliver mid-lower tier applications, with redundancy built in at the storage layer to recover from failures. Designed for most database workloads. 
+- [Business Critical / Premium service tier](../../database/service-tier-business-critical.md) is for high tier applications that require high transaction rates, low latency IO, and a high level of resiliency with secondary replicas available for both failover and to offload read workloads.
+- [Hyperscale service tier](../../database/service-tier-hyperscale.md) is for databases that have growing data volumes and need to automatically scale up to 100-TB database size. Designed for very large databases. 
 
 > [!IMPORTANT]
-> [Transaction log rate is governed](../../database/resource-limits-logical-server#transaction-log-rate-governance) in Azure SQL Database to limit high ingestion rates. As such, during migration, it may be necessary to scale target database resources (vCores/DTUs) to ease pressure on CPU or throughput. Choose the appropriately-sized target database, but plan to scale resources up for the migration if necessary. 
+> [Transaction log rate is governed](../../database/resource-limits-logical-server.md#transaction-log-rate-governance) in Azure SQL Database to limit high ingestion rates. As such, during migration, it may be necessary to scale target database resources (vCores/DTUs) to ease pressure on CPU or throughput. Choose the appropriately-sized target database, but plan to scale resources up for the migration if necessary. 
 
 
 ### SQL Server on Azure VM alternative

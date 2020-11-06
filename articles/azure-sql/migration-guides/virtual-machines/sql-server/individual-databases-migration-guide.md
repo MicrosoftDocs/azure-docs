@@ -23,7 +23,7 @@ You can migrate SQL Server running on-premises or on:
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform - GCP)
 
-For information about additional migration strategies, see the [SQL Server VM migration overview](to-sql-server-on-azure-vm-overview).
+For information about additional migration strategies, see the [SQL Server VM migration overview](to-sql-server-on-azure-vm-overview.md).
 
 :::image type="content" source="../media/migration-process-flow-small.png" alt-text="Migration process flow":::
 
@@ -35,7 +35,7 @@ Migrating to SQL Server on Azure VMs requires the following:
 - An [Azure Migrate project](/azure/migrate/create-manage-projects).
 - A prepared target [SQL Server on Azure VM](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) that is the same or greater version than the source SQL Server.
 - [Connectivity between Azure and on-premises](/architecture/reference-architectures/hybrid-networking).
-- [Choosing an appropriate migration strategy](to-sql-server-on-azure-vm-overview#migrate).
+- [Choosing an appropriate migration strategy](to-sql-server-on-azure-vm-overview.md#migrate).
 
 ## Pre-migration
 
