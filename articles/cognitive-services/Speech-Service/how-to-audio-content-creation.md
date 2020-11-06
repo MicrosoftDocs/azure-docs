@@ -126,7 +126,7 @@ If more than one user wants to use Audio Content Creation, you can either share 
 
 Follow these steps to add a user to a speech resource so they can use Audio Content Creation.
 
-1. Search for **Cognitive services** in the Azure portal, select the speech resource that you want to add users to.
+1. Search for **Cognitive services** in the [Azure portal](https://portal.azure.com/), select the speech resource that you want to add users to.
 2. Click **Access control (IAM)**. Click the **Role assignments** tab to view all the role assignments for this subscription.
     :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Role assignment tab":::
 1. Click **Add** > **Add role assignment** to open the Add role assignment pane. In the Role drop-down list, select the **Cognitive Service User** role. If you want to give the user ownership of this speech resource, you can select the **Owner** role.
