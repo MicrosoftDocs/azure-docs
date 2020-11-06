@@ -19,11 +19,11 @@ ms.reviewer: jroth
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-This article describes how to change the license model for a SQL Server virtual machine (VM) in Azure by using the new SQL Server VM resource provider, **Microsoft.SqlVirtualMachine**.
+This article describes how to change the license model for a SQL Server virtual machine (VM) in Azure by using the [SQL IaaS Agent Extension](./sql-server-iaas-agent-extension-automate-management.md).
 
 ## Overview
 
-There are three license models for a VM that's hosting SQL Server: pay-as-you-go, Azure Hybrid Benefit (AHB), and High Availability/Disaster Recovery(HA/DR). You can modify the license model of your SQL Server VM by using the Azure portal, the Azure CLI, or PowerShell. 
+There are three license models for an Azure VM that's hosting SQL Server: pay-as-you-go, Azure Hybrid Benefit (AHB), and High Availability/Disaster Recovery(HA/DR). You can modify the license model of your SQL Server VM by using the Azure portal, the Azure CLI, or PowerShell. 
 
 - The **pay-as-you-go** model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) allows you to use your own SQL Server license with a VM that's running SQL Server. 
@@ -37,7 +37,7 @@ To indicate the use of Azure Hybrid Benefit for SQL Server on Azure VM and be co
 
 - Provision a virtual machine by using a bring-your-own-license SQL Server image from Azure Marketplace. This option is available only for customers who have an Enterprise Agreement.
 - Provision a virtual machine by using a pay-as-you-go SQL Server image from Azure Marketplace and activate the Azure Hybrid Benefit.
-- Self-install SQL Server on Azure VM, manually [register with the SQL VM resource provider](sql-vm-resource-provider-register.md), and activate Azure Hybrid Benefit.
+- Self-install SQL Server on Azure VM, manually [register with the SQL IaaS Agent Extension](sql-vm-resource-provider-register.md), and activate Azure Hybrid Benefit.
 
 The license type of SQL Server can be configured when the VM is provisioned, or anytime afterward. Switching between license models incurs no downtime, does not restart the VM or the SQL Server service, doesn't add any additional costs, and is effective immediately. In fact, activating Azure Hybrid Benefit *reduces* cost.
 
@@ -46,7 +46,7 @@ The license type of SQL Server can be configured when the VM is provisioned, or 
 Changing the licensing model of your SQL Server VM has the following requirements: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- A [SQL Server VM](./create-sql-vm-portal.md) registered with the [SQL VM resource provider](sql-vm-resource-provider-register.md).
+- A [SQL Server VM](./create-sql-vm-portal.md) registered with the [SQL IaaS Agent Extension](./sql-server-iaas-agent-extension-automate-management.md).
 - [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) is a requirement to utilize the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
@@ -101,8 +101,8 @@ Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -License
 ## Remarks
 
 - Azure Cloud Solution Provider (CSP) customers can use the Azure Hybrid Benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license, if they have active Software Assurance.
-- If you drop your SQL Server VM resource, you will go back to the hard-coded license setting of the image. 
-- The ability to change the license model is a feature of the SQL VM resource provider. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. But customers who are self-installing SQL Server will need to manually [register their SQL Server VM](sql-vm-resource-provider-register.md). 
+- If you drop your SQL virtual machine resource, you will go back to the hard-coded license setting of the image. 
+- The ability to change the license model is a feature of the SQL IaaS Agent Extension. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the extension. But customers who are self-installing SQL Server will need to manually [register their SQL Server VM](sql-vm-resource-provider-register.md). 
 - Adding a SQL Server VM to an availability set requires re-creating the VM. As such, any VMs added to an availability set will go back to the default pay-as-you-go license type. Azure Hybrid Benefit will need to be enabled again. 
 
 
@@ -115,6 +115,8 @@ Changing the license model is:
    - Available only for the public or Azure Government clouds. 
    - Only supported on virtual machines that have a single network interface (NIC). 
 
+> [!Note]
+> Only SQL Server core licensing is eligible for Azure Hybrid Benefit. If you are using server + CAL licensing for SQL Server and you have an Enterprise Agreement, you can use bring-your-own-license SQL Server virtual machine images to leverage license mobility for these servers, but you cannot leverage the other features of Azure Hybrid Benefit. 
 
 ## Known errors
 
@@ -122,11 +124,11 @@ Review the commonly known errors and their resolutions.
 
 **The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found.**
 
-This error occurs when you try to change the license model on a SQL Server VM that has not been registered with the SQL VM resource provider:
+This error occurs when you try to change the license model on a SQL Server VM that has not been registered with the SQL Server IaaS Agent Extension:
 
 `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.`
 
-You'll need to register your subscription with the resource provider, and then [register your SQL Server VM with the resource provider](sql-vm-resource-provider-register.md). 
+You'll need to register your subscription with the resource provider, and then [register your SQL Server VM with the SQL IaaS Agent Extension](sql-vm-resource-provider-register.md). 
 
 
 **The virtual machine '\<vmname\>' has more than one NIC associated**
@@ -142,3 +144,4 @@ For more information, see the following articles:
 * [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.md)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
 * [Release notes for SQL Server on a Windows VM](../../database/doc-changes-updates-release-notes.md)
+* [Overview of SQL IaaS Agent Extension](./sql-server-iaas-agent-extension-automate-management.md)
