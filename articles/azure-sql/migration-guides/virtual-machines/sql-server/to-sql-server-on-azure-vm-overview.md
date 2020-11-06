@@ -31,13 +31,15 @@ Migrate to [SQL Server on Azure Virtual Machines (VMs)](https://docs.microsoft.c
 
 Save on costs by bringing your own license with the [Azure Hybrid Benefit licensing model](../../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md) or extend support for SQL Server 2008 and SQL Server 2008 R2 by getting [free security updates](../../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md). 
 
-### Choosing an appropriate Azure SQL Server VM and Storage
+
+## Choosing appropriate target
+
 Azure Virtual Machines run in many different regions of Azure and also offer a variety of [machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes) and [Storage options](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types). 
 When determining the correct size of VM and Storage for your SQL Server workload, refer to the [Performance Guidelines for SQL Server on Azure Virtual Machines.](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices#vm-size-guidance). To determine the VM size and storage requirements for your workload. it is recommended that these are sized through an Performance-Based [Azure Migrate Assessment](https://docs.microsoft.com/en-us/azure/migrate/concepts-assessment-calculation#types-of-assessments). If this is not an available option, see the following article on creating your own [baseline for performance](https://azure.microsoft.com/en-gb/services/virtual-machines/sql-server/).
 
 Consideration should also be made on the correct installation and configuration of SQL Server on a VM. It is recommended to use the [Azure SQL virtual machine image gallery](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) as this allows you to create a SQL Server VM with the right version, edition, and operating system. This will also register the Azure VM with the SQL Server [Resource Provider](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) automatically, enabling features such as Automated Backups and Automated Patching.
 
-### Migration Approaches
+## Migration strategies
 
 There are two migration strategies to migrate your user databases to an instance of SQL Server on Azure VMs: 
 **migrate**, and **lift and shift**. 
@@ -71,7 +73,7 @@ The following table details the available method for the **lift and shift** migr
 
 ## Migrate  
 
-Due to the ease of setup, the recommended approach to migrate user databases is to take a native SQL Server [backup](/sql/t-sql/statements/backup-transact-sql) locally and then copy the file to Azure. This method supports larger databases (>1TB) for all versions of SQL Server starting from 2008 and larger database backups (>1TB). However, for databases starting in SQL Server 2014, that are smaller than 1TB, and that have good connectivity to Azure, then [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) is the better approach. 
+Due to the ease of setup, the recommended migration approach is to take a native SQL Server [backup](/sql/t-sql/statements/backup-transact-sql) locally and then copy the file to Azure. This method supports larger databases (>1TB) for all versions of SQL Server starting from 2008 and larger database backups (>1TB). However, for databases starting in SQL Server 2014, that are smaller than 1TB, and that have good connectivity to Azure, then [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) is the better approach. 
 
 :::image type="content" source="../media/VM-migration-downtime.png" alt-text="Migration downtime":::
 
@@ -110,7 +112,6 @@ The following is a list of key points to consider when reviewing migration metho
 - To minimize downtime without the overhead of configuring an availability group, use the log shipping option. 
 - For limited to no network options, use offline migration methods such as backup and restore, or [disk transfer services](../../../../storage/common/storage-solution-large-dataset-low-network.md) available in Azure.
 - To also change the version of SQL Server on a SQL Server on Azure VM, see [change SQL Server edition](../../../virtual-machines/windows/change-sql-server-edition.md).
-
 
 ## Business Intelligence 
 

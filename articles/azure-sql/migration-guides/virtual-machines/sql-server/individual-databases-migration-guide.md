@@ -31,11 +31,11 @@ For information about additional migration strategies, see the [SQL Server VM mi
 
 Migrating to SQL Server on Azure VMs requires the following: 
 
-- [Database Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595)
-- An [Azure Migrate project](/azure/migrate/create-manage-projects)
-- A prepared target [SQL Server on Azure VM](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) that is the same or greater version than the source SQL Server
-- [Connectivity between Azure and on-premises](/architecture/reference-architectures/hybrid-networking)
-- [Choosing an appropriate migration strategy](to-sql-server-on-azure-vm-overview#migrate)
+- [Database Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+- An [Azure Migrate project](/azure/migrate/create-manage-projects).
+- A prepared target [SQL Server on Azure VM](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) that is the same or greater version than the source SQL Server.
+- [Connectivity between Azure and on-premises](/architecture/reference-architectures/hybrid-networking).
+- [Choosing an appropriate migration strategy](to-sql-server-on-azure-vm-overview#migrate).
 
 ## Pre-migration
 
@@ -109,7 +109,7 @@ After you have completed the pre-migration steps, you are ready to migrate the u
 
 The following provides steps for performing either a migration using backup and restore, or a minimal downtime migration using backup and restore along with log shipping. 
 
-### Migrate using backup and restore
+### Backup and restore
 
 To perform an standard migration using backup and restore, follow these steps: 
 
@@ -120,7 +120,7 @@ To perform an standard migration using backup and restore, follow these steps:
 1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../../storage/common/storage-use-azcopy-v10.md) (> 2TB backups recommended).
 1. Restore full database backup(s) to the SQL Server on Azure VM.
 
-### Migrate using log shipping to minimize downtime
+### Log shipping  (minimize downtime)
 
 To perform a minimal downtime migration using backup, restore, and log shipping, follow these steps: 
 
