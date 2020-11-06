@@ -126,7 +126,7 @@ Azure Defender extends Azure Security Center's advanced threat protection across
 
 After connecting different sources to Azure Sentinel, you can create rules to generate alerts based on detected threats. In the following example, we'll create a rule to identify attempts to sign in to Windows server with the wrong password.
 
-1. Go to the Azure Sentinel overview page.
+1. On the Azure Sentinel overview page, under Configurations, select **Analytics**.
 
 2. Under Configurations, select **Analytics**.
 
