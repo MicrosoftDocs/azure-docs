@@ -45,6 +45,8 @@
       href: bastion-vm-copy-paste.md
     - name: Full screen view
       href: bastion-vm-full-screen.md
+  - name: Work with VNet peering
+    href: vnet-peering.md
   - name: Work with NSGs
     href: bastion-nsg.md
   - name: Configure and access diagnostic logs
