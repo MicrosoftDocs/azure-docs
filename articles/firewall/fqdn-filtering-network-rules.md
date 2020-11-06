@@ -22,13 +22,13 @@ Once you define which DNS server your organization needs (Azure DNS or your own 
 
 When a new DNS resolution takes place, new IP addresses are be added to firewall rules. Old IP addresses that are no longer returned by the DNS server expire in 15 minutes. Azure Firewall rules are updated every 15 seconds from DNS resolution of the FQDNs in network rules.
 
-### Differences in application rules vs. networking rules
+### Differences in application rules vs. network rules
 
 - FQDN filtering in application rules for HTTP/S and MSSQL is based on an application level transparent proxy and the SNI header. As such, it can discern between two FQDNs that are resolved to the same IP address. This is not the case with FQDN filtering in network rules. 
 
    Always use application rules when possible:
      - If the protocol is HTTP/S or MSSQL, use application rules for FQDN filtering.
-   - For any other protocols besides HTTP/S or MSSQL, you can use application or networking rules for FQDN filtering.
+   - For any other protocols besides HTTP/S or MSSQL, you can use application or network rules for FQDN filtering.
 
 ## Next steps
 
