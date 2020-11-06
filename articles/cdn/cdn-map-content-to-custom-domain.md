@@ -43,12 +43,10 @@ In this tutorial, you learn how to:
 
 * If you're using a domain provider to handle your DNS domain, continue to [Create a CNAME DNS record](#create-a-cname-dns-record).
 
----
-# [**Azure DNS**](#tab/azure-dns)
 
 ## Create a CNAME DNS record
 
-Before you can use a custom domain with an Azure CDN endpoint, you must first create a canonical name (CNAME) record with Azure DNS to point to your CDN endpoint. 
+Before you can use a custom domain with an Azure CDN endpoint, you must first create a canonical name (CNAME) record with Azure DNS or your DNS provider to point to your CDN endpoint. 
 
 A CNAME record is a DNS record that maps a source domain name to a destination domain name. 
 
@@ -64,6 +62,9 @@ You can map a custom domain with different subdomains to the same CDN endpoint.
 
 > [!NOTE]
 > This tutorial uses the CNAME record type. If you're using A or AAAA record types, follow the same steps below and replace CNAME with the record type of your choice.
+
+---
+# [**Azure DNS**](#tab/azure-dns)
 
 Azure DNS uses alias records for Azure resources within the same subscription.
 
@@ -86,30 +87,11 @@ To add an alias record for your Azure CDN endpoint:
     | Choose a subscription | Select your subscription. |
     | Azure resource | Select your Azure CDN endpoint. |
 
-5. Change the **TTL** for the record to your desired value.
+5. Change the **TTL** for the record to your value.
 
 6. Select **OK**.
 
 # [**DNS Provider**](#tab/dns-provider)
-
-## Create a CNAME DNS record
-
-Before you can use a custom domain with an Azure CDN endpoint, you must first create a canonical name (CNAME) record with your domain provider to point to your CDN endpoint. 
-
-A CNAME record is a DNS record that maps a source domain name to a destination domain name. 
-
-For Azure CDN, the source domain name is your custom domain name and the destination domain name is your CDN endpoint hostname. 
-
-Azure CDN routes traffic addressed to the source custom domain to the destination CDN endpoint hostname after it verifies the CNAME record.
-
-A custom domain and its subdomain can be associated with a single endpoint at a time. 
-
-Use multiple CNAME records for different subdomains from the same custom domain for different Azure services.
-
-You can map a custom domain with different subdomains to the same CDN endpoint.
-
-> [!NOTE]
-> This tutorial uses the CNAME record type. If you're using A or AAAA record types, follow the same steps below and replace CNAME with the record type of your choice.
 
 ## Map the temporary cdnverify subdomain
 
