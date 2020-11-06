@@ -25,10 +25,9 @@ You use Azure Blockchain Development Kit for Ethereum to:
 
 * Complete [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
-* [Azure Blockchain Development Kit for Ethereum extension](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
+* [Blockchain Development Kit for Ethereum extension](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Node.js 10.15.x or higher](https://nodejs.org/download)
 * [Git 2.10.x or higher](https://git-scm.com)
-* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Add python.exe to your path. Python version 2.7.15 in your path is required for Azure Blockchain Development Kit.
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * [Ganache CLI 6.0.0](https://github.com/trufflesuite/ganache-cli)
 
@@ -48,7 +47,7 @@ The Azure Blockchain Development Kit for Ethereum uses project templates and Tru
 1. Choose **Create basic project**.
 1. Create a new folder named `HelloBlockchain` and **Select new project path**.
 
-The Azure Blockchain Development Kit creates and initializes a new Solidity project for you. The basic project includes a sample **HelloBlockchain** smart contract and all the necessary files to build and deploy to your consortium member in Azure Blockchain Service. It may take several minutes for the project to be created. You can monitor the progress in VS Code's terminal panel by selecting the output for Azure Blockchain.
+The Blockchain Development Kit creates and initializes a new Solidity project for you. The basic project includes a sample **HelloBlockchain** smart contract and all the necessary files to build and deploy to your consortium member in Azure Blockchain Service. It may take several minutes for the project to be created. You can monitor the progress in VS Code's terminal panel by selecting the output for Azure Blockchain.
 
 The project structure looks like the following example:
 
@@ -63,7 +62,7 @@ Smart contracts are located in the project's **contracts** directory. You compil
 
     ![Choose Build contracts menu ](./media/send-transaction/build-contracts.png)
 
-Azure Blockchain Development Kit uses Truffle to compile the smart contracts.
+Blockchain Development Kit uses Truffle to compile the smart contracts.
 
 ![Truffle compiler output](./media/send-transaction/compile-output.png)
 
@@ -81,7 +80,7 @@ Azure Blockchain Development Kit uses Truffle to execute the migration script to
 
 ## Call a contract function
 
-The **HelloBlockchain** contract's **SendRequest** function changes the **RequestMessage** state variable. Changing the state of a blockchain network is done via a transaction. You can use the Azure Blockchain Development Kit smart contract interaction page to call the **SendRequest** function via a transaction.
+The **HelloBlockchain** contract's **SendRequest** function changes the **RequestMessage** state variable. Changing the state of a blockchain network is done via a transaction. You can use the Blockchain Development Kit smart contract interaction page to call the **SendRequest** function via a transaction.
 
 1. To interact with your smart contract, right-click **HelloBlockchain.sol** and choose **Show Smart Contract Interaction Page** from the menu.
 
