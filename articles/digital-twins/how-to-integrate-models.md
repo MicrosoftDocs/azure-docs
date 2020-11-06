@@ -24,7 +24,7 @@ To be used with Azure Digital Twins, a model must be represented in the JSON-LD-
 There are three possible paths to integrating industry-standard models with DTDL:
 * **Adopt**: You can start your solution with an open-source DTDL ontology that has been built on widely adopted industry standards. 
 * **Convert**: If you already have existing models, you'll need to convert them to DTDL.
-* **Author**: You can always develop your own custom DTDL models from scratch, as described in [*How-to: Manage custom models*](how-to-manage-models.md).
+* **Author**: You can always develop your own custom DTDL models from scratch, as described in [*How-to: Manage custom models*](how-to-manage-model.md).
 
 ## Adopt an open-source DTDL ontology
 
