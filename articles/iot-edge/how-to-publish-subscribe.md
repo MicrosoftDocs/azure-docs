@@ -381,7 +381,7 @@ Receiving a direct method is very similar to receiving full twins with the addit
 
 ### Send direct methods
 
-Sending a direct method is an HTTP call and thus does not go through the MQTT broker. To send a direct method to IoT hub, see [Understand and invoke direct methods](../iot-hub/iot-hub-devguide-direct-methods.md). To send a direct method locally to another module, see this [Azure IoT C# SDK direct method invokation example](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/ModuleClient.cs#L597).
+Sending a direct method is an HTTP call and thus does not go through the MQTT broker. To send a direct method to IoT hub, see [Understand and invoke direct methods](../iot-hub/iot-hub-devguide-direct-methods.md). To send a direct method locally to another module, see this [Azure IoT C# SDK direct method invocation example](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/ModuleClient.cs#L597).
 
 ## Publish and subscribe between MQTT brokers
 
