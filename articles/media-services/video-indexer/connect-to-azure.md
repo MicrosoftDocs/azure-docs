@@ -184,9 +184,9 @@ The following Azure Media Services related considerations apply:
 
 To automate the creation of the account is a two steps process:
  
-1. Use Azure Resource Manager to create an Azure Meidia Services account + Azure AD application.
+1. Use Azure Resource Manager to create an Azure Media Services account + Azure AD application.
 
-    See an example of the [Meida Services account creation template](https://github.com/Azure-Samples/media-services-v3-arm-templates).
+    See an example of the [Media Services account creation template](https://github.com/Azure-Samples/media-services-v3-arm-templates).
 1. Call [Create-Account with the Media Services and Azure AD application](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
 
 ## Next steps
