@@ -78,7 +78,7 @@ Azure Arc enabled Kubernetes currently [supports system assigned identity](../..
 | User assigned | Not available | Not available | Not available | Not available |
 
 Refer to the following document to reconfigure a managed identity if you have moved your subscription to a new tenant:
-* [Azure Resource Manager template]()
+* [Repair a broken Automanage Account](../../automanage/repair-automanage-account.md)
 
 ### Azure Blueprints
 
@@ -211,7 +211,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 | User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 =======
-| System assigned | ![Available][check] | ![Available][check] | Not available | Not available | 
+| System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
 | User assigned | Preview | Not available | Not available | Not available |
 >>>>>>> upstream/master
 
@@ -232,7 +232,7 @@ Refer to the following list to configure managed identity for Azure Logic Apps (
 - [Azure portal](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
 - [Azure Resource Manager template](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
-### Azure Machine Learning 
+### Azure Machine Learning
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
