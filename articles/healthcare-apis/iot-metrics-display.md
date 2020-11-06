@@ -1,6 +1,6 @@
 ---
-title: View and configure Azure IoT Connector for FHIR (preview) metrics
-description: This article explains how to view and configure Azure IoT Connector for FHIR (preview) metrics.
+title: Display and configure Azure IoT Connector for FHIR (preview) metrics
+description: This article explains how to display and configure Azure IoT Connector for FHIR (preview) metrics.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -10,18 +10,22 @@ ms.date: 10/29/2020
 ms.author: jasteppe
 ---
 
-# View and configure Azure IoT Connector for FHIR (preview) metrics 
+# Display and configure Azure IoT Connector for FHIR (preview) metrics 
 
-In this article, you'll learn how to view and configure Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR)* metrics. 
+In this article, you'll learn how to display and configure Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* metrics.
 
 > [!TIP]
+<<<<<<< HEAD
 <<<<<<< HEAD
 > To learn how to set up the export of metrics data, follow the guidance in [Export Azure IoT Connector for FHIR (preview) metrics through diagnostics settings](https://docs.microsoft.com/azure/healthcare-apis/iot-metrics-diagnostics-export).
 =======
 > Follow the guidance in [Export Azure IoT Connector for FHIR (preview) Metrics through Diagnostic settings](./iot-metrics-diagnostics-export.md) to learn how to set up the export of Metrics data.
 >>>>>>> f47683b2dbd6fca5e24c64df5ef796f62ae52190
+=======
+> To learn how to set up the export of metrics data, follow the guidance in [Export Azure IoT Connector for FHIR (preview) metrics through diagnostics settings](./iot-metrics-diagnostics-export.md).
+>>>>>>> 086af0787fa7f99ea6207df932240baa621593dc
 
-## View metrics for Azure IoT Connector for FHIR (preview)
+## Display metrics for Azure IoT Connector for FHIR (preview)
 
 1. Sign in to the Azure portal, and then select your Azure API for FHIR service. 
 
@@ -35,7 +39,7 @@ In this article, you'll learn how to view and configure Azure IoT Connector for 
 
    :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="Screenshot of the 'IoT Connector' pane, displaying IoT Connector tabs 1, 2, 3, and 4." lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
 
-5. Select the time period (for example, **1 hour**, **24 hours**, **7 days** or **Custom**) of the IoT Connector metrics you want to view. By selecting the **Custom** tab, you can create specific time/date combinations for viewing IoT Connector metrics.
+5. Select the time period (for example, **1 hour**, **24 hours**, **7 days**, or **Custom**) of the IoT Connector metrics you want to display. By selecting the **Custom** tab, you can create specific time/date combinations for displaying IoT Connector metrics.
 
    :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="Screenshot of the 'IoT Connector' pane, displaying a '1 hour' time period line graph for 'connector 1'." lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
@@ -65,7 +69,7 @@ In this example, let's focus on the **Number of Incoming Messages** metric.
    :::image type="content" source="media/iot-metrics-display/iot-metrics-add-options.png" alt-text="Screenshot of the 'Number of Incoming Messages' metric pane, highlighting the 'Add metric,' 'Add filter,' and 'Apply splitting' buttons." lightbox="media/iot-metrics-display/iot-metrics-add-options.png"::: 
 
 ## Conclusion 
-Having access to data plane metrics is essential for monitoring and troubleshooting. Azure IoT Connector for FHIR assists you in doing these actions through metrics. 
+Having access to data plane metrics is essential for monitoring and troubleshooting. Azure IoT Connector for FHIR assists you with these actions through metrics. 
 
 ## Next steps
 
@@ -74,6 +78,4 @@ Get answers to frequently asked questions about Azure IoT Connector for FHIR.
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR FAQ](fhir-faq.md)
 
-*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
-
-FHIR is the registered trademark of HL7 and is used with the permission of HL7.
+*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7. 

@@ -94,7 +94,7 @@
     href: enable-diagnostic-logging.md
   - name: Export Azure IoT Connector for FHIR (preview) metrics through diagnostics settings
     href: iot-metrics-diagnostics-export.md
-  - name: View and configure Azure IoT Connector for FHIR (preview) metrics
+  - name: Display and configure Azure IoT Connector for FHIR (preview) metrics
     href: iot-metrics-display.md  
   - name: Get a token for Azure API for FHIR - CLI
     href: get-healthcare-apis-access-token-cli.md
