@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.author: aahi
 ---
 
@@ -228,6 +228,8 @@ Release note for `2.6.0-amd64-<locale>`:
 **Fixes**
 * Fixes an issue where confidence scores were always 1 in Diarization mode
 * Migrated use the TextAnalytics 3.0 API
+
+Note that the size of this container image has increased. 
 
 | Image Tags                    | Notes                                                                                                | 
 |-------------------------------|:-----------------------------------------------------------------------------------------------------|
