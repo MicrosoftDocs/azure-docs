@@ -70,7 +70,7 @@ If you are using an ARM template or Azure CLI, you will need the principal ID (a
 1. Repeat steps 3-5, this time with the **Resource Policy Contributor** role
 
 ### ARM template
-Run the following ARM template. You will need the Principal ID of your Automanage Account - steps to get retrieve the Principal ID are above. Enter it when prompted.
+Run the following ARM template. You will need the Principal ID of your Automanage Account - steps to get the Principal ID are above. Enter it when prompted.
 
 ```json
 {
