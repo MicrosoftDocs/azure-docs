@@ -70,10 +70,7 @@ If you are using an ARM template or Azure CLI, you will need the principal ID of
 1. Repeat steps 3-5, this time with the **Resource Policy Contributor** role
 
 ### ARM template
-Run the following ARM template twice, selecting one builtInRoleType value each time. You will need the Principal ID of your Automanage Account.
-
-#### ARM template
-Save the ARM template below as `azuredeploy.json` or similar. Run the ARM template twice, once for each builtInRoleType value. Enter the Principal ID (Object ID) of your Automanage Account when prompted.
+Run the following ARM template twice, selecting one builtInRoleType value each time. You will need the Principal ID of your Automanage Account. Enter it when prompted.
 
 ```json
 {
