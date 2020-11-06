@@ -33,7 +33,7 @@ You inspect details of the test result in the Inspect panel.
 
 1.  With the Test slide-out panel open, select **Inspect** for more details on that response.
 
-    ![Inspect responses](../media/qnamaker-how-to-test-kb/inspect.png)
+    ![Inspect responses](../media/qnamaker-how-to-test-knowledge-bases/inspect.png)
 
 2.  The Inspection panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
@@ -41,13 +41,13 @@ You inspect details of the test result in the Inspect panel.
 
 If the top scoring answer is incorrect, select the correct answer from the list and select **Save and Train**.
 
-![Correct the top scoring answer](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Correct the top scoring answer](../media/qnamaker-how-to-test-knowledge-bases/choose-answer.png)
 
 ### Add alternate questions
 
 You can add alternate forms of a question to a given answer. Type the alternate answers in the text box and select enter to add them. Select **Save and Train** to store the updates.
 
-![Add alternate questions](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Add alternate questions](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question.png)
 
 ### Add a new answer
 
@@ -67,7 +67,7 @@ Select **Save and Train** to persist this answer. A new question-answer pair has
 1. You will see a checkbox on the top **Display short answer**, which is selected by default. This option is used to enable MRC based answer span detection in your test panel. 
 1. Enter a query in the text box and select Enter. 
 1. For every query, if there is a precise answer/short answer present in the answer passage then along with best-matched answer passage, which is present in the knowledge base you will also have a short answer for your query.
-    ![MRC enabled test pane](../media/qnamaker-how-to-test-kb/test-pane-with-mrc2.png)
+    ![Managed enabled test pane](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
 1. If you unselect the **Display short answer**, then only the best-matched answer passage from the knowledge base is returned as the response.
 
 ### Clear test panel
@@ -84,7 +84,7 @@ You inspect details of the test result in the Inspect panel.
 
 1.  With the Test slide-out panel open, select **Inspect** for more details on that response.
 
-    ![Inspect responses preview](../media/qnamaker-how-to-test-kb/inspect-with-mrc.png)
+    ![Inspect responses preview](../media/qnamaker-how-to-test-knowledge-bases/inspect-with-managed.png)
 
 2.  The Inspection panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 3. The panel shows the confidence score of answer passage along with score of answer span detected.
@@ -93,13 +93,13 @@ You inspect details of the test result in the Inspect panel.
 
 If the top scoring answer is incorrect, select the correct answer from the list and select **Save and Train**.
 
-![Correct the top scoring answer preview](../media/qnamaker-how-to-test-kb/chose-answer-mrc.png)
+![Correct the top scoring answer preview](../media/qnamaker-how-to-test-knowledge-bases/choose-answer-managed.png)
 
 ### Add alternate questions
 
 You can add alternate forms of a question to a given answer. Type the alternate answers in the text box and select enter to add them. Select **Save and Train** to store the updates.
 
-![Add alternate questions preview](../media/qnamaker-how-to-test-kb/add-alternate-question-with-mrc.png)
+![Add alternate questions preview](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question-with-managed.png)
 
 ### Add a new answer
 
