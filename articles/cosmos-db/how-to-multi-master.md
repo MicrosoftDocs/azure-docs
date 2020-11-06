@@ -20,7 +20,7 @@ Once an account has been created with multiple write regions enabled, you must m
 
 ## <a id="portal"></a> Azure portal
 
-Use the following steps to enable multi-region writes from Azure portal:
+To enable multi-region writes from Azure portal, use the following steps:
 
 1. Sign-in to the [Azure portal](https://portal.azure.com/).
 
