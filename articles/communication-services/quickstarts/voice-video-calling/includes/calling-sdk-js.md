@@ -231,6 +231,9 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### FAQ
+ * If network connectivity is lost, does the call state change to 'Disconnected' ?
+    * Yes, if network connection is lost for more than 2 minutes, call will transition to Disconnected state and call will end.
 
 ## Remote participants management
 
@@ -413,7 +416,9 @@ You can later update the scaling mode by invoking the `updateScalingMode` method
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### FAQ
+* If a remote participant loses their network connection, does their state change to 'Disconnected' ?
+    * Yes, if a remote participant loses their network connection for more than 2 minutes, their state will transition to Disconnected and they will be removed from the call.
 ## Device management
 
 `DeviceManager` lets you enumerate local devices that can be used in a call to transmit your audio/video streams. It also allows you to request permission from a user to access their microphone and camera using the native browser API.
