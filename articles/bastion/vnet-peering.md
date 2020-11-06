@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 # VNet peering and Azure Bastion
 
-Azure Bastion supports VNet peering. With VNet peering support, if you have an Azure Bastion host configured in one VNet, it can be leveraged to connect to VMs deployed in a peered virtual network (VNet). This removes the requirement of deploying Azure Bastion with in each VNet.
+Azure Bastion supports VNet peering. When VNet peering is configured, you don't have to deploy Azure Bastion in each peered VNet. This means if you have an Azure Bastion host configured in one virtual network (VNet), it can be leveraged to connect to VMs deployed in a peered VNet without deploying an additional Bastion host.
 
 Azure Bastion supports the following types of peering:
 
