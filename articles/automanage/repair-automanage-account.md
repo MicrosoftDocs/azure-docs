@@ -1,7 +1,7 @@
 ---
 title: Repair a broken Automanage Account
 description: Learn how to fix a broken Automanage Account
-author: alsin
+author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
