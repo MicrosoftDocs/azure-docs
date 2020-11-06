@@ -73,16 +73,16 @@ sentiment = (TextSentiment()
     .setLanguageCol("language"))
 
 # Show the results of your text query in a table format
-display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
+display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sentiment").alias("sentiment")))
 ```
 
 ### Expected result
 
 | text                                      | sentiment                                             |
 |:------------------------------------------|:------------------------------------------------------|
-| I am so happy today, its sunny!           | 0.9789592027664185                                    |
-| I am frustrated by this rush hour traffic | 0.023795604705810547                                  |
-| The cognitive services on spark aint bad  | 0.8888956308364868                                    |
+| I am so happy today, its sunny!           | positive                                              |
+| I am frustrated by this rush hour traffic | negative                                              |
+| The cognitive services on spark aint bad  | positive                                              |
 
 ## Computer Vision sample
 

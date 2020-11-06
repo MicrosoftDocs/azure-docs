@@ -14,8 +14,9 @@
   - name: Release notes
     href: release-notes.md
 - name: Quickstarts
+  expanded: true
   items:
-  - name: Introduction
+  - name: Get started
     href: get-started.md
     displayName: get, started, quickstart
   - name: 1 Create a Synapse workspace
@@ -51,13 +52,13 @@
   #   items:
   - name: Quickstarts
     items:
-    - name: Create a Synapse workspace using the Azure portal
+    - name: Create a workspace using Azure portal
       href: quickstart-create-workspace.md
       displayName: quickstart
-    - name: Create a Synapse workspace using Azure CLI
+    - name: Create a workspace using Azure CLI
       href: quickstart-create-workspace-cli.md
       displayName: quickstart
-    - name: Create a Synapse workspace using Azure PowerShell
+    - name: Create a workspace using Azure PowerShell
       href: quickstart-create-workspace-powershell.md
       displayName: quickstart
     - name: Deploy with a template
@@ -174,7 +175,9 @@
       href: sql/overview-features.md
     - name: Resource consumption models
       href: sql/resource-consumption-models.md
-    - name: Best practices serverless SQL pool
+    - name: Data processed
+      href: sql/data-processed.md
+    - name: Best practices SQL on-demand
       href: sql/best-practices-sql-on-demand.md
     - name: Best practices dedicated SQL pools
       href: sql/best-practices-sql-pool.md
@@ -353,6 +356,12 @@
         displayname: workload, management
   - name: How-to guides
     items:
+    - name: Backup and restore
+      items:
+      - name: Create restore points
+        href: ./backuprestore/sqlpool-create-restore-point.md
+      - name: Restore a Synapse SQL pool
+        href: ./backuprestore/restore-sql-pool.md
     - name: Manage and monitor
       items:
       - name: Monitor Gen2 cache
