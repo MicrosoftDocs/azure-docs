@@ -45,8 +45,8 @@ Run this code in either of the following environments. We recommend that you try
  
  - Your own Jupyter Notebook server
 
-    - Install the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
-    - Install the [Azure Machine Learning RL SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true): `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+    - Install the [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Create a [workspace configuration file](how-to-configure-environment.md#workspace).
     - Run the virtual network [setup notebook](https://aka.ms/azure-rl-env-setup) to open network ports used for distributed reinforcement learning.
 
@@ -103,7 +103,7 @@ ws = Workspace.from_config()
 
 ### Create a reinforcement learning experiment
 
-Create an [experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) to track your reinforcement learning run. In Azure Machine Learning, experiments are logical collections of related trials to organize run logs, history, outputs, and more.
+Create an [experiment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) to track your reinforcement learning run. In Azure Machine Learning, experiments are logical collections of related trials to organize run logs, history, outputs, and more.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -127,7 +127,7 @@ This example uses separate compute targets for the Ray head and workers nodes. T
 
 This example uses a GPU-equipped head cluster to optimize deep learning performance. The head node trains the neural network that the agent uses to make decisions. The head node also collects data points from the worker nodes to further train the neural network.
 
-The head compute uses a single [`STANDARD_NC6` virtual machine](https://docs.microsoft.com/azure/virtual-machines/nc-series) (VM). It has 6 virtual CPUs, which means that it can distribute work across 6 working CPUs.
+The head compute uses a single [`STANDARD_NC6` virtual machine](../virtual-machines/nc-series.md) (VM). It has 6 virtual CPUs, which means that it can distribute work across 6 working CPUs.
 
 
 ```python
@@ -169,7 +169,7 @@ else:
 
 ### Worker computing cluster
 
-This example uses four [`STANDARD_D2_V2` VMs](https://docs.microsoft.com/azure/virtual-machines/nc-series) for the worker compute target. Each worker node has 2 available CPUs for a total of 8 available CPUs to parallelize work.
+This example uses four [`STANDARD_D2_V2` VMs](../virtual-machines/nc-series.md) for the worker compute target. Each worker node has 2 available CPUs for a total of 8 available CPUs to parallelize work.
 
 GPUs aren't necessary for the worker nodes since they aren't performing deep learning. The workers run the game simulations and collect data.
 
@@ -209,7 +209,7 @@ else:
 
 ## Create a reinforcement learning estimator
 
-In this section, you learn how to use the [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) to submit a training job to Azure Machine Learning.
+In this section, you learn how to use the [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) to submit a training job to Azure Machine Learning.
 
 Azure Machine Learning uses estimator classes to encapsulate run configuration information. This lets you easily specify how to configure a script execution. 
 
@@ -244,7 +244,7 @@ The entry script `pong_rllib.py` accepts a list of parameters that defines how t
 
 Specifying the correct `num_workers` will make the most out of your parallelization efforts. Set the number of workers to the same as the number of available CPUs. For this example you can calculate this as follows:
 
-The head node is a [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) with 6 vCPUs. The worker cluster is 4 [Standard_D2_V2 VMs](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs#dv2-series) with 2 CPUs each, for a total of 8 CPUs. However, you must subtract 1 CPU from the worker count since 1 must be dedicated to the head node role. 6 CPUs + 8 CPUs - 1 head CPU = 13 simultaneous workers. Azure Machine Learning uses head and worker clusters to distinguish compute resources. However, Ray does not distinguish between head and workers, and all CPUs are available CPUs for worker thread execution.
+The head node is a [Standard_NC6](../virtual-machines/nc-series.md) with 6 vCPUs. The worker cluster is 4 [Standard_D2_V2 VMs](../cloud-services/cloud-services-sizes-specs.md#dv2-series) with 2 CPUs each, for a total of 8 CPUs. However, you must subtract 1 CPU from the worker count since 1 must be dedicated to the head node role. 6 CPUs + 8 CPUs - 1 head CPU = 13 simultaneous workers. Azure Machine Learning uses head and worker clusters to distinguish compute resources. However, Ray does not distinguish between head and workers, and all CPUs are available CPUs for worker thread execution.
 
 
 ```python
@@ -395,7 +395,7 @@ def on_train_result(info):
 
 ## Submit a run
 
-[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) handles the run history of in-progress or complete jobs. 
+[Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) handles the run history of in-progress or complete jobs. 
 
 ```python
 run = exp.submit(config=rl_estimator)

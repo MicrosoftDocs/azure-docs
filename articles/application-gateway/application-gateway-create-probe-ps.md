@@ -192,5 +192,4 @@ DnsSettings              : {
 
 ## Next steps
 
-Learn to configure TLS offloading by visiting: [Configure TLS Offload](application-gateway-ssl-arm.md)
-
+Learn to configure TLS offloading by visiting: [Configure TLS Offload](./tutorial-ssl-powershell.md)

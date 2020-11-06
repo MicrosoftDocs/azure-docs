@@ -5,11 +5,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/05/2020
-author: jasonwhowell
-ms.author: jasonh
+author: christopheranderson
+ms.author: chrande
 ---
 
 # Use MongoDB Compass to connect to Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 This tutorial demonstrates how to use [MongoDB Compass](https://www.mongodb.com/products/compass) when storing and/or managing data in Cosmos DB. We use the Azure Cosmos DB's API for MongoDB for this walk-through. For those of you unfamiliar, Compass is a GUI for MongoDB. It is commonly used to visualize your data, run ad-hoc queries, along with managing your data.
 
@@ -41,11 +42,11 @@ To connect your Cosmos DB account to Compass, you can follow the below steps:
 
 4. Compass will automatically detect a connection string in the clipboard, and will prompt to ask whether you wish to use that to connect. Click on **Yes** as shown in the screenshot below.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="Screenshot of the Compass prompt to connect":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-detect.png" alt-text="Screenshot shows a dialog box explaining that your have a connection string on your clipboard.":::
 
 5. Upon clicking **Yes** in the above step, your details from the connection string will be automatically populated. Remove the value automatically populated in the **Replica Set Name** field to ensure that is left blank.
 
-    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="Screenshot of the Compass prompt to connect":::
+    :::image type="content" source="./media/mongodb-compass/mongodb-compass-replica.png" alt-text="Screenshot shows the Replica Set Name text box.":::
 
 6. Click on **Connect** at the bottom of the page. Your Cosmos DB account and databases should now be visible within MongoDB Compass.
 
