@@ -77,7 +77,7 @@ Azure Defender extends Azure Security Center's advanced threat protection across
     - Operating system
     - Proxy Server details
     
-    Then select **Next : Tags**.
+    Then select **Next: Tags**.
 
 6. On the **Tags** tab, select **Next**.
 
@@ -155,11 +155,11 @@ After connecting data sources to Azure Sentinel, you can create rules to generat
     - Severity
     - Status
 
-    Select **Next : Set rule logic >**.
+    Select **Next: Set rule logic >**.
 
 5. On the **Set rule logic** tab, enter the required information.
 
-    - Rule query (here showing our example query of creating incidents after 3 failed attempts at sign in)
+    - Rule query (here showing our example query)
     
         ```
         SecurityEvent
@@ -176,11 +176,11 @@ After connecting data sources to Azure Sentinel, you can create rules to generat
 
     Select **Next**.
 
-6. On the **Incident settings** tab, enable **Create incidents from alerts triggered by this analytics rule** and select **Next : Automated response >**.
+6. On the **Incident settings** tab, enable **Create incidents from alerts triggered by this analytics rule** and select **Next: Automated response >**.
  
     :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Screenshot of the Analytic rule wizard for creating a new rule in Azure Sentinel showing Create incidents from alerts triggered by this analytics rule as enabled.":::
 
-7. Select **Next : Review >**.
+7. Select **Next: Review >**.
 
 8. On the **Review and create** tab, review the information and select **Create**.
 
