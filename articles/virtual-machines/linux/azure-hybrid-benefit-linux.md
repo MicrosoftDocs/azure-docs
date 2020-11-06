@@ -53,7 +53,7 @@ In this phase, you may gain access to the benefit by filling out the form [here]
 1.    Register with the [Red Hat Cloud Access program](https://aka.ms/rhel-cloud-access)
 1.    Enable your Azure subscription(s) for Cloud Access, and enable the subscriptions containing the VMs you want to use the benefit with
 1.    Apply the benefit to your existing VMs either via the Azure portal or Azure CLI
-1.    Register your VMs receiving the benefit with a separate source of updates
+1.    Optional, register your VMs receiving the benefit with a separate source of updates (switched VMs can stay attached to [RHUI](../articles/virtual-machines/workloads/redhat/redhat-rhui.md) or registered through RHSM)
 
 ### SUSE customers
 
