@@ -124,7 +124,7 @@ By default, the token lifespan is 60 minutes for all SDKs; however, it can be ch
 
 The following screenshots show the token renewal behavior in Azure Monitor Logs for different SDKs. The token lifespan and renewal threshold have been changed from their defaults as noted.
 
-* .NET device SDK with a 1200 sec (20 minute) token lifespan and renewal set to happen at 90% of lifespan. disconnects happen every 30 minutes:
+* .NET device SDK with a 1200 second (20 minute) token lifespan and renewal set to happen at 90% of lifespan. disconnects happen every 30 minutes:
 
     :::image type="content" source="media/iot-hub-troubleshoot-connectivity/net-mqtt.png" alt-text="Error behavior for token renewal over MQTT in Azure Monitor Logs with .NET SDK.":::
 
@@ -132,7 +132,7 @@ The following screenshots show the token renewal behavior in Azure Monitor Logs 
 
     :::image type="content" source="media/iot-hub-troubleshoot-connectivity/java-mqtt.png" alt-text="Error behavior for token renewal over MQTT in Azure Monitor Logs with Java SDK.":::
 
-* Node SDK with a 300 sec (5 minute) token lifespan and token renewal set to happen at 3 minutes. Disconnects happen on token renewal. Also, there are no errors, only informational connect/disconnect events are emitted:
+* Node SDK with a 300 second (5 minute) token lifespan and token renewal set to happen at 3 minutes. Disconnects happen on token renewal. Also, there are no errors, only informational connect/disconnect events are emitted:
 
     :::image type="content" source="media/iot-hub-troubleshoot-connectivity/node-mqtt.png" alt-text="Error behavior for token renewal over MQTT in Azure Monitor Logs with Node SDK.":::
 
