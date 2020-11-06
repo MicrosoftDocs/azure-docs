@@ -79,6 +79,7 @@ The recommended folder structure for a Python Functions project looks like the f
  | | - my_first_helper_function.py
  | | - my_second_helper_function.py
  | - tests/
+ | | - test_my_second_function.py
  | - .funcignore
  | - host.json
  | - local.settings.json
@@ -92,13 +93,13 @@ The main project folder (<project_root>) can contain the following files:
 * *host.json*: Contains global configuration options that affect all functions in a function app. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *.vscode/*: (Optional) Contains store VSCode configuration. To learn more, see [VSCode setting](https://code.visualstudio.com/docs/getstarted/settings).
 * *.venv/*: (Optional) Contains a Python virtual environment used by local development.
-* *.funcignore*: (Optional) Declares files that shouldn't get published to Azure.
 * *Dockerfile*: (Optional) Used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
 * *tests/*: (Optional) Contains the test cases of your function app.
+* *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains `.vscode/` to ignore your editor setting, `.venv/` to ignore local Python virtual environment, `tests/` to ignore test cases, and `local.settings.json` to prevent local app settings being published.
 
 Each function has its own code file and binding configuration file (function.json).
 
-When deploying your project to a function app in Azure, the entire contents of the main project (*<project_root>*) folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder along with other functions, in this example `tests`. To avoid deploying the test code to your app, please add `tests` in the *.funcignore* file. For more information, see [Unit Testing](#unit-testing).
+When deploying your project to a function app in Azure, the entire contents of the main project (*<project_root>*) folder should be included in the package, but not the folder itself, which means `host.json` should be in the package root. We recommend that you maintain your tests in a folder along with other functions, in this example `tests/`. For more information, see [Unit Testing](#unit-testing).
 
 ## Import behavior
 
