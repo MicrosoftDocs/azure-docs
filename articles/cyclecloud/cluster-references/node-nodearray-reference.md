@@ -91,7 +91,9 @@ ProximityPlacementGroupId | String | The full id for the Proximity Placement Gro
 PlacementGroupId | String | If set, this label is used to place this node in a single placement group with all other nodes that have a matching value for PlacementGroupId. This offers lower latency communication and is required to enable InfiniBand on VM sizes that support it. This is usually set by the scheduler as needed so it does not need to be manually specified.
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
 KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this node
-Locker | String | Specify the name of the locker from which to download project specs. See [Use Projects](~/how-to/projects.md)
+Locker | String | Specify the name of the locker from which to download project specs. See[Use Projects](~/how-to/projects.md)
+BootDiagnosticsUri | String | Storage URI for boot diagnostics (example: https://mystorageaccount.blob.core.windows.net), if specified. Storage charges will apply.
+HybridBenefit | boolean | If true, enables "Azure Hybrid Benefit" licensing for Windows VMs
 
 > [!NOTE]
 > A Proximity Placement Group is a general Azure feature, and one must be created before it can be referenced on a node. 
