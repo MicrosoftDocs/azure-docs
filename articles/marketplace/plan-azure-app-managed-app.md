@@ -72,24 +72,6 @@ Private plans are not supported with Azure subscriptions established through a r
 > [!NOTE]
 > If you publish a private plan, you can change its visibility to public later. However, once you publish a public plan, you cannot change its visibility to private.
 
-## Deployment package
-
-You’ll need a deployment package that will let customers deploy your plan. This package contains all of the template files needed for this plan, as well as any additional resources, packaged as a .zip file.
-
-All Azure applications must include these two files in the root folder of a .zip archive:
-
-- A Resource Manager template file named [mainTemplate.json](/azure/azure-resource-manager/resource-group-overview.md). This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
-- A user interface definition for the Azure application creation experience named [createUiDefinition.json](/azure/azure-resource-manager/managed-application-createuidefinition-overview.md). In the user interface, you specify elements that enable consumers to provide parameter values.
-
-Maximum file sizes supported are:
-
-- Up to 1 Gb in total compressed .zip archive size
-- Up to 1 Gb for any individual uncompressed file within the .zip archive
-
-All new Azure application offers must also include an [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md) GUID.
-
-If you create multiple plans that require the same technical configuration, you can use the same package.
-
 ## Define pricing
 
 You must provide the per-month price for each plan. This price is in addition to any Azure infrastructure or pay-as-you-go software costs incurred by the resources deployed by this solution.
