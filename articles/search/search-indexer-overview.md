@@ -28,7 +28,7 @@ You can create and manage indexers using these approaches:
 
 * [Portal > Import Data Wizard](search-import-data-portal.md)
 * [Service REST API](/rest/api/searchservice/Indexer-operations)
-* [.NET SDK](/dotnet/api/microsoft.azure.search.iindexersoperations)
+* [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 Initially, a new indexer is announced as a preview feature. Preview features are introduced in APIs (REST and .NET) and then integrated into the portal after graduating to general availability. If you're evaluating a new indexer, you should plan on writing code.
 
@@ -91,12 +91,12 @@ The next image shows a sample indexer [debug session](cognitive-search-debug-ses
 Indexers can offer features that are unique to the data source. In this respect, some aspects of indexer or data source configuration will vary by indexer type. However, all indexers share the same basic composition and requirements. Steps that are common to all indexers are covered below.
 
 ### Step 1: Create a data source
-An indexer obtains data source connection from a *data source* object. The data source definition provides a connection string and possibly credentials. Call the [Create Datasource](/rest/api/searchservice/create-data-source) REST API or [DataSource class](/dotnet/api/microsoft.azure.search.models.datasource) to create the resource.
+An indexer obtains data source connection from a *data source* object. The data source definition provides a connection string and possibly credentials. Call the [Create Datasource](/rest/api/searchservice/create-data-source) REST API or [SearchIndexerDataSourceConnection class](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) to create the resource.
 
 Data sources are configured and managed independently of the indexers that use them, which means a data source can be used by multiple indexers to load more than one index at a time.
 
 ### Step 2: Create an index
-An indexer will automate some tasks related to data ingestion, but creating an index is generally not one of them. As a prerequisite, you must have a predefined index with fields that match those in your external data source. Fields need to match by name and data type. For more information about structuring an index, see [Create an Index (Azure Cognitive Search REST API)](/rest/api/searchservice/Create-Index) or [Index class](/dotnet/api/microsoft.azure.search.models.index). For help with field associations, see [Field mappings in Azure Cognitive Search indexers](search-indexer-field-mappings.md).
+An indexer will automate some tasks related to data ingestion, but creating an index is generally not one of them. As a prerequisite, you must have a predefined index with fields that match those in your external data source. Fields need to match by name and data type. For more information about structuring an index, see [Create an Index (Azure Cognitive Search REST API)](/rest/api/searchservice/Create-Index) or [SearchIndex class](/dotnet/api/azure.search.documents.indexes.models.searchindex). For help with field associations, see [Field mappings in Azure Cognitive Search indexers](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Although indexers cannot generate an index for you, the **Import data** wizard in the portal can help. In most cases, the wizard can infer an index schema from existing metadata in the source, presenting a preliminary index schema which you can edit in-line while the wizard is active. Once the index is created on the service, further edits in the portal are mostly limited to adding new fields. Consider the wizard for creating, but not revising, an index. For hands-on learning, step through the [portal walkthrough](search-get-started-portal.md).
