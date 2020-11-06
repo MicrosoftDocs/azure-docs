@@ -1,6 +1,6 @@
 ---
 title: Red Hat Enterprise Linux Extended Lifecycle Support 
-description: Learn about Red Hat Enterprise Linux images in Microsoft Azure
+description: Learn about adding Red Hat Enterprise Extended Lifecycle support add on
 author: mathapli
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -12,7 +12,7 @@ ms.reviewer: cynthn
 
 # Red Hat Enterprise Linux (RHEL) Extended Lifecycle Support
 This article provides information on Extended Lifecycle Support for the Red Hat Enterprise images:
-* Red Hat Enterprise Linux 6 
+* Red Hat Enterprise Linux 6  
 
 ## Red Hat Enterprise Linux 6 Lifecycle
 Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maintenance phase. The maintenance phase is followed by the Extended Life Phase. As Red Hat Enterprise Linux 6 transitions out of the Full/Maintenance Phases, it is strongly recommended upgrading to Red Hat Enterprise Linux 7 or 8. If customers must stay on Red Hat Enterprise Linux 6, it's recommended to add the Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On.
