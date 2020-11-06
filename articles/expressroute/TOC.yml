@@ -4,7 +4,7 @@
   items:
   - name: What is ExpressRoute?
     href: expressroute-introduction.md
-- name: Quickstart
+- name: Quickstarts
   items:
   - name: Create an ExpressRoute circuit - Portal
     href: expressroute-howto-circuit-portal-resource-manager.md
@@ -13,6 +13,7 @@
   - name: Create an ExpressRoute circuit - CLI
     href: howto-circuit-cli.md
   - name: Create an ExpressRoute circuit - ARM template
+    displayName: Resource Manager
     href: quickstart-create-expressroute-vnet-template.md
   expanded: true
 - name: Tutorials
@@ -95,6 +96,10 @@
     href: expressroute-connect-azure-to-public-cloud.md
   - name: Cross-network connectivity
     href: cross-network-connectivity.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Security attributes
     href: expressroute-security-controls.md
   - name: BFD over ExpressRoute
@@ -108,7 +113,7 @@
     - name: Private Peering
       href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
     - name: Using VPN as a backup
-      href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md    
+      href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
 - name: How-to guides
   items:
   - name: Configuring ExpressRoute Direct
@@ -166,7 +171,7 @@
   - name: Best Practices
     items:
     - name: Best practices for network security and cloud services
-      href: ../best-practices-network-security.md
+      href: /azure/cloud-adoption-framework/reference/networking-vdc
     - name: Optimize routing
       href: expressroute-optimize-routing.md
     - name: Asymmetric routing
@@ -192,9 +197,9 @@
   - name: Azure CLI
     href: /cli/azure/network/express-route
   - name: REST
-    href: https://msdn.microsoft.com/library/azure/mt586720
+    href: /rest/api/expressroute/
   - name: REST (classic)
-    href: https://msdn.microsoft.com/library/azure/dn606310
+    href: /previous-versions/azure/reference/dn606310(v=azure.100)
   - name: Resource Manager template
     displayName: ARM,resource manager template
     href: /azure/templates/microsoft.network/expressroutecircuits
@@ -269,5 +274,3 @@
       href: expressroute-howto-add-gateway-classic.md
     - name: Create and modify public peering
       href: about-public-peering.md
-  - name: Security baseline
-    href: security-baseline.md

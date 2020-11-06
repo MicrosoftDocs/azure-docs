@@ -61,14 +61,13 @@ In addition to discovering machines, Server Assessment can discover apps, roles,
 
 **Support** | **Details**
 --- | ---
-**Supported machines** | App discovery is currently supported for VMware VMs only.
+**Supported machines** | App discovery is currently supported for VMware VMs only. You can discover apps installed on up to 10000 VMware VMs from each Azure Migrate appliance.
+**Operating systems** | App-discovery is supported for VMs running all  Windows and Linux versions.
+**VM requirements** | VMware tools must be installed and running on VMs on which you want to discover apps. <br/><br/> The VMware tools version must be later than 10.2.0.<br/><br/> VMs must have PowerShell version 2.0 or later installed.
 **Discovery** | App discovery is agentless. It uses machine guest credentials, and remotely accesses machines using WMI and SSH calls.
-**VM support** | App-discovery is supported for VMs running all  Windows and Linux versions.
 **vCenter** | The vCenter Server read-only account used for assessment, needs privileges enabled for **Virtual Machines** > **Guest Operations**, in order to interact with the VM for application discovery.
 **VM access** | App discovery needs a local user account on the VM for application discovery.<br/><br/> Azure Migrate currently supports the use of one credential for all Windows servers, and one credential for all Linux servers.<br/><br/> You create a guest user account for Windows VMs, and a regular/normal user account (non-sudo access) for all Linux VMs.
-**VMware tools** | VMware tools must be installed and running on VMs you want to discover. <br/><br/> The VMware tools version must be later than 10.2.0.
-**PowerShell** | VMs must have PowerShell version 2.0 or later installed.
-**Port access** | On ESXi hosts running VMs you want to discover, the Azure Migrate appliance must be able to connect to TCP port 443.
+**Port access** | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running VMs on which you want to discover apps. The vCenter Server returns an ESXI  host connection, to download the file containing the app information.
 **Limits** | For app-discovery, you can discover up to 10000 VMs on each Azure Migrate appliance.
 
 
@@ -112,4 +111,4 @@ In addition to discovering machines, Server Assessment can discover apps, roles,
 ## Next steps
 
 - [Review](best-practices-assessment.md) best practices for creating assessments.
-- [Prepare for VMware](tutorial-prepare-vmware.md) assessment.
+- [Prepare for VMware](./tutorial-discover-vmware.md) assessment.

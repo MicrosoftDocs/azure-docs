@@ -7,9 +7,9 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contperfq1
+ms.custom: contperfq2
 ---
 
 # Change contact information for an Azure billing account
@@ -26,7 +26,7 @@ If you want to update your Azure Active Directory user profile information, only
 
 ## Update an MOSP billing account address
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using the email address, which has the account administrator permission on the account.
+1. Sign in to the Azure portal using the email address, which has the account administrator permission on the account.
 1. Search for **Cost Management + Billing**.  
     ![Screenshot that shows where to search in the Azure portal for cost management + billing](./media/change-azure-account-profile/search-cmb.png)
 1. Select **Properties** from the left-hand side.  
@@ -36,7 +36,7 @@ If you want to update your Azure Active Directory user profile information, only
 
 ## Update an MCA billing account sold-to address
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using the email address, which has an owner or a contributor role on the billing account for a Microsoft Customer Agreement.
+1. Sign in to the Azure portal using the email address, which has an owner or a contributor role on the billing account for a Microsoft Customer Agreement.
 1. Search for **Cost Management + Billing**.  
     ![Screenshot that shows where to search in the Azure portal](./media/change-azure-account-profile/search-cmb.png)
 1. Select **Properties** from the left-hand side and then select **Update sold-to**.  
@@ -49,7 +49,7 @@ If you want to update your Azure Active Directory user profile information, only
 
 ## Update an MCA billing account address
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using the email address, which has an owner or a contributor role on a billing account or a billing profile for an MCA.
+1. Sign in to the Azure portal using the email address, which has an owner or a contributor role on a billing account or a billing profile for an MCA.
 1. Search for **Cost Management + Billing**.  
 1. Select **Billing profiles** from the left-hand side.
 1. Select a billing profile to update the billing address.  
@@ -62,7 +62,7 @@ If you want to update your Azure Active Directory user profile information, only
 
 ## Service and marketing emails
 
-You're prompted in the [Azure portal](https://portal.azure.com) to verify or update your email address every 90 days. Microsoft sends emails to this email address with Azure account-related information for:
+You're prompted in the Azure portal to verify or update your email address every 90 days. Microsoft sends emails to this email address with Azure account-related information for:
 
 - Service notifications
 - Security alerts
@@ -81,7 +81,7 @@ You can change your contact email address by using one of the following methods.
 
 1. If you're an account administrator for an MOSP account, follow the instructions in [Update an MOSP billing account address](#update-an-mosp-billing-account-address) and select **Update contact info** in the last step. Next, enter the new email address.
 1. Go to the [Contact information](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) area in the Azure portal and enter the new email address. 
-1. In the [Azure portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), select the icon with your initials or picture. Then, select the context menu (**...**). Next, select **My Contact Information** from the menu and enter the new email address.
+1. In the Azure portal, select the icon with your initials or picture. Then, select the context menu (**...**). Next, select **My Contact Information** from the menu and enter the new email address.
 
 ![Example of updating an email address in Azure](./media/change-azure-account-profile/azure-contact-information.png)
 
@@ -97,7 +97,7 @@ When you opt out of marketing communications, you still receive service notifica
 
 ## Update the email address that you sign in with
 
-You can't update the email address that you use to access your account. However, if you have a billing account for an MOSP, you can sign up for another account using the new email address and transfer ownership of your subscriptions to the next account. For an MCA billing account, [you can give the new email address permissions on your account](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+You can't update the email address that you use to access your account. However, if you have a billing account for an MOSP, you can sign up for another account using the new email address and transfer ownership of your subscriptions to the next account. For an MCA billing account, you can give the new email address permissions on your account.
 
 ## Update your credit card
 
@@ -109,7 +109,7 @@ Changing the country or region for an existing account isn't supported. However,
 
 ## Change the subscription name
 
-1. Sign in to the [Azure portal](https://portal.azure.com), select **Subscription** from the left pane, and then select the subscription that you want to rename.
+1. Sign in to the Azure portal, select **Subscription** from the left pane, and then select the subscription that you want to rename.
 1. Select **Overview**, and then select **Rename** from the command bar.  
     ![Example of renaming Azure subscription](./media/change-azure-account-profile/rename-sub.png)
 1. After you change the name, select **Save**.

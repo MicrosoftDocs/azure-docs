@@ -268,6 +268,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Plexhosted LLC](https://plexhosted.com/)|
 |[Principle Information Technology Company](https://www.principleinfotech.com/)|
 |[Practical Solutions](https://www.ps4b.com)|
+|[Prayag Lite](https://prayaglite.com/)|
 |[Precise Software Solutions](https://www.precise-soft.com)|
 |[ProArch IT Solutions](https://www.proarch.com/)|
 |[Project Hosts Inc.](https://www.projecthosts.com)|
@@ -318,7 +319,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Summit 7 Systems, Inc.](https://summit7systems.com/)|
 |[Sumo Logic](https://www.sumologic.com/)|
 |[SWC Technology Partners](https://www.swc.com)|
-|[Sybatech, Inc](http://www.sybatech.com)|
+|[Sybatech, Inc](https://www.sybatech.com)|
 |[Synergy Technical, LLC](https://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|
@@ -429,4 +430,4 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[VLCM](https://www.vlcmtech.com)|
 |[VC3](https://www.vc3.com)|
 
-If you would like to learn more about the Cloud Solution Provider Program, you can do so [here](https://docs.microsoft.com/partner-center/faq-for-us-govt-cloud). If you would like to apply to the program, you can visit [this link](https://docs.microsoft.com/azure/azure-government/documentation-government-csp-application). If you are interested to deploy to our [DoD regions via CSP](https://blogs.msdn.microsoft.com/azuregov/2017/12/18/announcing-the-availability-of-dod-regions-via-government-csp-program-for-azure-government/) talk to your CSP Provider and they can enable that for you. For any additional questions, reach out to [Azure Government CSP](mailto:azgovcsp@microsoft.com).
+If you would like to learn more about the Cloud Solution Provider Program, you can do so [here](/partner-center/faq-for-us-govt-cloud). If you would like to apply to the program, you can visit [this link](./documentation-government-csp-application.md). If you are interested to deploy to our [DoD regions via CSP](https://blogs.msdn.microsoft.com/azuregov/2017/12/18/announcing-the-availability-of-dod-regions-via-government-csp-program-for-azure-government/) talk to your CSP Provider and they can enable that for you. For any additional questions, reach out to [Azure Government CSP](mailto:azgovcsp@microsoft.com).

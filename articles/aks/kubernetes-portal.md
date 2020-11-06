@@ -2,10 +2,8 @@
 title: Access Kubernetes resources from the Azure portal (Preview)
 description: Learn how to interact with Kubernetes resources to manage an Azure Kubernetes Service (AKS) cluster from the Azure portal.
 services: container-service
-author: laurenhughes
 ms.topic: article
 ms.date: 09/21/2020
-ms.author: lahugh
 ---
 
 # Access Kubernetes resources from the Azure portal (Preview)
@@ -15,7 +13,7 @@ The Azure portal includes a Kubernetes resource viewer (preview) for easy access
 The Kubernetes resource view from the Azure portal replaces the [AKS dashboard add-on][kubernetes-dashboard], which is set for deprecation.
 
 >[!NOTE]
->The capabilty is currently not supported on [private Azure Kubernetes Service clusters](https://docs.microsoft.com/azure/aks/private-clusters).
+>The capabilty is currently not supported on [private Azure Kubernetes Service clusters](./private-clusters.md).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

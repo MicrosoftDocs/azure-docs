@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: matjazl
+ms.author: cavoeg
 ---
 
 # Features
@@ -32,15 +32,15 @@ Previous versions also currently supported include: `3.0.2`
 | patch                          | No        | No        | No        |                                                     |
 | delete                         | Yes       | Yes       | Yes       |                                                     |
 | delete (conditional)           | No        | No        | No        |                                                     |
+| history                        | Yes       | Yes       | Yes       |                                                     |
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
-| create (conditional)           | Yes       | Yes       | Yes       |                                                     |
+| create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | search                         | Partial   | Partial   | Partial   | See below                                           |
 | chained search                 | No        | Yes       | No        |                                           |
 | reverse chained search         | No        | No        | No        |                                            |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
 | batch                          | Yes       | Yes       | Yes       |                                                     |
 | transaction                    | No        | Yes       | No        |                                                     |
-| history                        | Yes       | Yes       | Yes       |                                                     |
 | paging                         | Partial   | Partial   | Partial   | `self` and `next` are supported                     |
 | intermediaries                 | No        | No        | No        |                                                     |
 
@@ -89,28 +89,30 @@ All search parameter types are supported.
 | `_has`                  | No        | No        | No        |         |
 | `_type`                 | Yes       | Yes       | Yes       |         |
 | `_query`                | No        | No        | No        |         |
-
-| Search operations       | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
-|-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | No        | No        | No        |         |
+
+| Search result parameters | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
+|-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated` is supported       |
-| `_score`                | No        | No        | No        |         |
-| `_count`                | Yes       | Yes       | Yes       |         |
-| `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
+| `_count`                | Yes       | Yes       | Yes       | `_count` is limited to 100 characters. If set to higher than 100, only 100 will be returned and a warning will be returned in the bundle. |
 | `_include`              | No        | Yes       | No        |         |
 | `_revinclude`           | No        | Yes       | No        | Included items are limited to 100. |
+| `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
+| `_total`                | Partial   | Partial   | Partial   | _total=non and _total=accurate      |
+| `_elements`             | Yes       | Yes       | Yes       |         |
 | `_contained`            | No        | No        | No        |         |
-| `_elements`             | Yes        | Yes        | Yes        |         |
+| `containedType`         | No        | No        | No        |         |
+| `_score`                | No        | No        | No        |         |
 
 ## Extended Operations
 
 All the operations that are supported that extend the RESTful API.
 
 | Search parameter type | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
-|-----------------------|-----------|-----------|-----------|---------|
-| $export (whole system)                | Yes       | Yes       | Yes       |         |
-| Patient/$export         | Yes       | Yes       | Yes       |         |
-| Group/$export               | Yes       | Yes       | Yes       |         |
+|------------------------|-----------|-----------|-----------|---------|
+| $export (whole system) | Yes       | Yes       | Yes       |         |
+| Patient/$export        | Yes       | Yes       | Yes       |         |
+| Group/$export          | Yes       | Yes       | Yes       |         |
 
 ## Persistence
 

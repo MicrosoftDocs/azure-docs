@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 ASE/SQL workload blueprint sample controls
 description: Control mapping of the ISO 27001 App Service Environment/SQL Database workload blueprint sample to Azure Policy and Azure RBAC.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
 ---
 # Control mapping of the ISO 27001 ASE/SQL workload blueprint sample
@@ -17,14 +17,15 @@ specific VM Extensions to support audit requirements** built-in policy initiativ
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
-> definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md)
-> with the control; however, there often is not a 1:1 or complete match between a control and one or
-> more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this
-> doesn't ensure you're fully compliant with all requirements of a control. In addition, the
-> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
-> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
-> status. The associations between controls and Azure Policy definitions for this compliance
-> blueprint sample may change over time. To view the change history, see the
+> definitions. These policies may help you
+> [assess compliance](../../../policy/how-to/get-compliance-data.md) with the control; however,
+> there often is not a one-to-one or complete match between a control and one or more policies. As
+> such, **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure
+> you're fully compliant with all requirements of a control. In addition, the compliance standard
+> includes controls that aren't addressed by any Azure Policy definitions at this time. Therefore,
+> compliance in Azure Policy is only a partial view of your overall compliance status. The
+> associations between controls and Azure Policy definitions for this compliance blueprint sample
+> may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-ase-sql-workload/control-mapping.md).
 
 ## A.6.1.2 Segregation of duties
@@ -57,8 +58,6 @@ audit use of resource types and configurations that may allow more permissive ac
 Understanding resources that are in violation of these policies can help you take corrective actions
 to ensure access Azure resources is restricted to authorized users.
 
-- Deploy prerequisites to audit Linux VMs that have accounts without passwords
-- Deploy prerequisites to audit Linux VMs that allow remote connections from accounts without passwords
 - Show audit results from Linux VMs that have accounts without passwords
 - Show audit results from Linux VMs that allow remote connections from accounts without passwords
 - Storage accounts should be migrated to new Azure Resource Manager resources
@@ -100,7 +99,6 @@ corrective action to ensure authenticators aren't compromised.
 - MFA should be enabled on accounts with read permissions on your subscription
 - MFA should be enabled accounts with write permissions on your subscription
 - Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
-- Deploy prerequisites to audit Linux VMs that do not have the passwd file permissions set to 0644
 
 ## A.9.2.5 Review of user access rights
 
@@ -153,11 +151,6 @@ with policy.
 - Show audit results from Windows VMs that do not have a minimum password age of 1 day
 - Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
 - Show audit results from Windows VMs that allow re-use of the previous 24 passwords
-- Deploy prerequisites to audit Windows VMs that do not have the password complexity setting enabled
-- Deploy prerequisites to audit Windows VMs that do not have a maximum password age of 70 days
-- Deploy prerequisites to audit Windows VMs that do not have a minimum password age of 1 day
-- Deploy prerequisites to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- Deploy prerequisites to audit Windows VMs that allow re-use of the previous 24 passwords
 
 ## A.10.1.1 Policy on the use of cryptographic controls
 
@@ -175,7 +168,6 @@ unencrypted Service Fabric communication.
 - Function App should only be accessible over HTTPS
 - Web Application should only be accessible over HTTPS
 - API App should only be accessible over HTTPS
-- Deploy prerequisites to audit Windows VMs that do not store passwords using reversible encryption
 - Show audit results from Windows VMs that do not store passwords using reversible encryption
 - Disk encryption should be applied on virtual machines
 - Automation account variables should be encrypted

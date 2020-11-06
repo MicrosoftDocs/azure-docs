@@ -1,6 +1,6 @@
 ---
-title: Connect IoT Plug and Play sample C# component device code to IoT Hub  | Microsoft Docs
-description: Build and run IoT Plug and Play sample C# device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Tutorial - Connect IoT Plug and Play sample C# component device code to Azure IoT Hub  | Microsoft Docs
+description: Tutorial - Build and run IoT Plug and Play sample C# device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
@@ -30,7 +30,7 @@ To complete this tutorial on Windows, install the following software on your loc
 
 If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (C#)](quickstart-connect-device-csharp.md), you've already cloned the repository.
 
-Clone the samples from the Microsoft Azure IoT SDK for .NET GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT samples for .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository:
+Clone the samples from the Azure IoT Samples for C# GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT samples for .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository:
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git

@@ -45,11 +45,11 @@ Managed private endpoints are private endpoints created in the Azure Data Factor
 
 ![New Managed private endpoint](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory supports private links. Private link enables you to access Azure (PaaS) services (such as Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (formerly Azure SQL Data Warehouse)).
+Azure Data Factory supports private links. Private link enables you to access Azure (PaaS) services (such as Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (formerly SQL Data Warehouse)).
 
 When you use a private link, traffic between your data stores and managed Virtual Network traverses entirely over the Microsoft backbone network. Private Link protects against data exfiltration risks. You establish a private link to a resource by creating a private endpoint.
 
-Private endpoint uses a private IP address in the managed Virtual Network to effectively bring the service into it. Private endpoints are mapped to a specific resource in Azure and not the entire service. Customers can limit connectivity to a specific resource approved by their organization. Learn more about [private links and private endpoints](https://docs.microsoft.com/azure/private-link/).
+Private endpoint uses a private IP address in the managed Virtual Network to effectively bring the service into it. Private endpoints are mapped to a specific resource in Azure and not the entire service. Customers can limit connectivity to a specific resource approved by their organization. Learn more about [private links and private endpoints](../private-link/index.yml).
 
 > [!NOTE]
 > It's recommended that you create Managed private endpoints to connect to all your Azure data sources. 
@@ -75,7 +75,7 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (not including Azure SQL Managed Instance)
-- Azure Synapse Analytics (formerly Azure SQL Data Warehouse)
+- Azure Synapse Analytics (formerly SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure Private Link Service
@@ -88,6 +88,7 @@ Below data sources are supported to connect through private link from ADF Manage
 - East US
 - East US 2
 - West Central US
+- West US
 - West US 2
 - South Central US
 - Central US
@@ -96,6 +97,7 @@ Below data sources are supported to connect through private link from ADF Manage
 - UK South
 - Southeast Asia
 - Australia East
+- Australia Southeast
 
 ### Outbound communications through public endpoint from ADF Managed Virtual Network
 - Only port 443 is opened for outbound communications.

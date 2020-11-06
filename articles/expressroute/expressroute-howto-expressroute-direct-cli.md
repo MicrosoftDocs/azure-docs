@@ -207,14 +207,6 @@ ExpressRoute Direct gives you the ability to directly connect to Microsoft's glo
    }  
    ```
 
-## <a name="authorization"></a>Generate the Letter of Authorization (LOA)
-
-Input the recently created ExpressRoute Direct resource name, resource group name, and a customer name to write the LOA to and (optionally) define a file location to store the document. If a file path is not referenced, the document will download to the current directory.
-
-```azurecli
-az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
-```
-
 ## <a name="state"></a>Change AdminState for links
 
 Use this process to conduct a layer 1 test. Ensure that each cross-connection is properly patched into each router in the primary and secondary ports.

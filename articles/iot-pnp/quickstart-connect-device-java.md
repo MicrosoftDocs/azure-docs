@@ -1,6 +1,6 @@
 ---
-title: Connect IoT Plug and Play sample Java device code to IoT Hub | Microsoft Docs
-description: Build and run IoT Plug and Play sample device code on that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Quickstart - Connect IoT Plug and Play sample Java device code to Azure IoT Hub | Microsoft Docs
+description: Quickstart - Build and run IoT Plug and Play sample device code on that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
@@ -23,7 +23,7 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 To complete this quickstart on Windows, install the following software on your local Windows environment:
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), under **Long-term support**, select **Java 8**.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), under **Long-term support**, select **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## Download the code
@@ -116,4 +116,4 @@ Date since = new Gson().fromJson(jsonRequest, Date.class);
 In this quickstart, you've learned how to connect an IoT Plug and Play device to an IoT hub. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
 
 > [!div class="nextstepaction"]
-> [How-to: Connect to and interact with a device](howto-develop-solution.md)
+> [How-to: Connect to and interact with a device](./quickstart-service-node.md)

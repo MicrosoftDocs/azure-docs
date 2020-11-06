@@ -18,12 +18,12 @@ Azure Queue storage is a service for storing large numbers of messages that can 
 
 > [!div class="checklist"]
 >
-> * Create a queue
-> * Retrieve a queue
-> * Add a message
-> * Read a message
-> * Delete a message
-> * Delete a queue
+> - Create a queue
+> - Retrieve a queue
+> - Add a message
+> - Read a message
+> - Delete a message
+> - Delete a queue
 
 This how-to requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
@@ -82,7 +82,7 @@ $queueName = "howtoqueue"
 $queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
-For information on naming conventions for Azure Queue Service, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+For information on naming conventions for Azure Queue Service, see [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
 
 ## Retrieve a queue
 
@@ -100,7 +100,7 @@ Get-AzStorageQueue -Context $ctx | Select-Object Name
 
 ## Add a message to a queue
 
-Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) class. Next, call the [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) method. A CloudQueueMessage can be created from either a string (in UTF-8 format) or a byte array.
+Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) class. Next, call the [AddMessage](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) method. A CloudQueueMessage can be created from either a string (in UTF-8 format) or a byte array.
 
 The following example demonstrates how to add a message to your queue.
 
@@ -123,7 +123,7 @@ If you use the [Azure Storage Explorer](https://storageexplorer.com), you can co
 
 ## Read a message from the queue, then delete it
 
-Messages are read in best-try first-in-first-out order. This is not guaranteed. When you read the message from the queue, it becomes invisible to all other processes looking at the queue. This ensures that if your code fails to process the message due to hardware or software failure, another instance of your code can get the same message and try again.  
+Messages are read in best-try first-in-first-out order. This is not guaranteed. When you read the message from the queue, it becomes invisible to all other processes looking at the queue. This ensures that if your code fails to process the message due to hardware or software failure, another instance of your code can get the same message and try again.
 
 This **invisibility timeout** defines how long the message remains invisible before it is available again for processing. The default is 30 seconds.
 
@@ -181,17 +181,17 @@ In this how-to article, you learned about basic Queue storage management with Po
 
 > [!div class="checklist"]
 >
-> * Create a queue
-> * Retrieve a queue
-> * Add a message
-> * Read the next message
-> * Delete a message
-> * Delete a queue
+> - Create a queue
+> - Retrieve a queue
+> - Add a message
+> - Read the next message
+> - Delete a message
+> - Delete a queue
 
 ### Microsoft Azure PowerShell Storage cmdlets
 
-* [Storage PowerShell cmdlets](/powershell/module/az.storage)
+- [Storage PowerShell cmdlets](/powershell/module/az.storage)
 
 ### Microsoft Azure Storage Explorer
 
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.

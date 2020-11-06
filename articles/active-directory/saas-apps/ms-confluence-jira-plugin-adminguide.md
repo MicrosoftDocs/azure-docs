@@ -61,7 +61,7 @@ The plug-in supports the following versions of Jira and Confluence:
 
 * Jira Core and Software: 6.0 to 7.12
 * Jira Service Desk: 3.0.0 to 3.5.0
-* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: 5.0 to 5.10
 * Confluence: 6.0.1
 * Confluence: 6.1.1
@@ -179,7 +179,7 @@ The plug-in supports these versions:
 
 * Jira Core and Software: 6.0 to 7.12
 * Jira Service Desk: 3.0.0 to 3.5.0
-* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: 5.0 to 5.10
 * Confluence: 6.0.1
 * Confluence: 6.1.1

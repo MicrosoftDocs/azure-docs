@@ -25,9 +25,14 @@ Use the following actions to create your own configuration for validating the st
 non-Azure machine.
 
 > [!IMPORTANT]
+> Custom policy definitions with Guest Configuration in the Azure Government and
+> Azure China environments is a Preview feature.
+>
 > The Guest Configuration extension is required to perform audits in Azure virtual machines.
 > To deploy the extension at scale across all Windows machines, assign the following policy definitions:
 > `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> Don't use secrets or confidential information in custom content packages.
 
 ## Install the PowerShell module
 
@@ -265,10 +270,10 @@ New-GuestConfigurationPackage `
 ```
 
 After creating the Configuration package but before publishing it to Azure, you can test the package
-from your workstation or CI/CD environment. The GuestConfiguration cmdlet
-`Test-GuestConfigurationPackage` includes the same agent in your development environment as is used
-inside Azure machines. Using this solution, you can do integration testing locally before releasing
-to billed cloud environments.
+from your workstation or continuous integration and continuous deployment (CI/CD) environment. The
+GuestConfiguration cmdlet `Test-GuestConfigurationPackage` includes the same agent in your
+development environment as is used inside Azure machines. Using this solution, you can do
+integration testing locally before releasing to billed cloud environments.
 
 Since the agent is actually evaluating the local environment, in most cases you need to run the
 Test- cmdlet on the same OS platform as you plan to audit. The test only uses modules that are
@@ -294,63 +299,11 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-The next step is to publish the file to blob storage. The script below contains a function you can
-use to automate this task. The commands used in the `publish` function require the `Az.Storage`
+The next step is to publish the file to Azure Blob Storage. The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
 module.
 
 ```azurepowershell-interactive
-function publish {
-    param(
-    [Parameter(Mandatory=$true)]
-    $resourceGroup,
-    [Parameter(Mandatory=$true)]
-    $storageAccountName,
-    [Parameter(Mandatory=$true)]
-    $storageContainerName,
-    [Parameter(Mandatory=$true)]
-    $filePath,
-    [Parameter(Mandatory=$true)]
-    $blobName
-    )
-
-    # Get Storage Context
-    $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-        -Name $storageAccountName | `
-        ForEach-Object { $_.Context }
-
-    # Upload file
-    $Blob = Set-AzStorageBlobContent -Context $Context `
-        -Container $storageContainerName `
-        -File $filePath `
-        -Blob $blobName `
-        -Force
-
-    # Get url with SAS token
-    $StartTime = (Get-Date)
-    $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-    $SAS = New-AzStorageBlobSASToken -Context $Context `
-        -Container $storageContainerName `
-        -Blob $blobName `
-        -StartTime $StartTime `
-        -ExpiryTime $ExpiryTime `
-        -Permission rl `
-        -FullUri
-
-    # Output
-    return $SAS
-}
-
-# replace the $storageAccountName value below, it must be globally unique
-$resourceGroup        = 'policyfiles'
-$storageAccountName   = 'youraccountname'
-$storageContainerName = 'artifacts'
-
-$uri = publish `
-  -resourceGroup $resourceGroup `
-  -storageAccountName $storageAccountName `
-  -storageContainerName $storageContainerName `
-  -filePath ./AuditBitlocker.zip `
-  -blobName 'AuditBitlocker'
+Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
 ```
 
 Once a Guest Configuration custom policy package has been created and uploaded, create the Guest
@@ -385,8 +338,6 @@ New-GuestConfigurationPolicy `
 The following files are created by `New-GuestConfigurationPolicy`:
 
 - **auditIfNotExists.json**
-- **deployIfNotExists.json**
-- **Initiative.json**
 
 The cmdlet output returns an object containing the initiative display name and path of the policy
 files.
@@ -415,33 +366,9 @@ New-GuestConfigurationPolicy `
  | Publish-GuestConfigurationPolicy
 ```
 
-With the policy created in Azure, the last step is to assign the initiative. See how to assign the
-initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md), and
+With the policy created in Azure, the last step is to assign the definition. See how to assign the
+definition with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md), and
 [Azure PowerShell](../assign-policy-powershell.md).
-
-> [!IMPORTANT]
-> Guest Configuration policies must **always** be assigned using the initiative that combines the
-> _AuditIfNotExists_ and _DeployIfNotExists_ policies. If only the _AuditIfNotExists_ policy is
-> assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are
-> compliant.
-
-Assigning a policy definition with _DeployIfNotExists_ effect requires an additional level of
-access. To grant the least privilege, you can create a custom role definition that extends
-**Resource Policy Contributor**. The example below creates a role named **Resource Policy
-Contributor DINE** with the additional permission _Microsoft.Authorization/roleAssignments/write_.
-
-```azurepowershell-interactive
-$subscriptionid = '00000000-0000-0000-0000-000000000000'
-$role = Get-AzRoleDefinition "Resource Policy Contributor"
-$role.Id = $null
-$role.Name = "Resource Policy Contributor DINE"
-$role.Description = "Can assign Policies that require remediation."
-$role.Actions.Clear()
-$role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
-$role.AssignableScopes.Clear()
-$role.AssignableScopes.Add("/subscriptions/$subscriptionid")
-New-AzRoleDefinition -Role $role
-```
 
 ### Filtering Guest Configuration policies using Tags
 
@@ -664,11 +591,18 @@ New-GuestConfigurationPackage `
 
 ## Policy lifecycle
 
-If you would like to release an update to the policy, there are two fields that require attention.
+If you would like to release an update to the policy, there are three fields that require attention.
+
+> [!NOTE]
+> The `version` property of the Guest Configuration assignment only effects packages that
+> are hosted by Microsoft. The best practice for versioning custom content is to include
+> the version in the file name.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
-  number greater than what is currently published. The property updates the version of the Guest
-  Configuration assignment so the agent recognizes the updated package.
+  number greater than what is currently published.
+- **contentUri**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a URI
+  to the location of the package. Including a package version in the file name will ensure the value
+  of this property changes in each release.
 - **contentHash**: This property is updated automatically by the `New-GuestConfigurationPolicy`
   cmdlet. It's a hash value of the package created by `New-GuestConfigurationPackage`. The property
   must be correct for the `.zip` file you publish. If only the **contentUri** property is updated,

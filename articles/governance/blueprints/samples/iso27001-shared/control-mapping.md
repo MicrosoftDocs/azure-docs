@@ -1,30 +1,33 @@
 ---
 title: ISO 27001 Shared Services blueprint sample controls
-description: Control mapping of the ISO 27001 Shared Services blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 07/13/2020
+description: Control mapping of the ISO 27001 Shared Services blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
+ms.date: 11/05/2020
 ms.topic: sample
 ---
 # Control mapping of the ISO 27001 Shared Services blueprint sample
 
 The following article details how the Azure Blueprints ISO 27001 Shared Services blueprint sample
-maps to the ISO 27001 controls. For more information about the controls, see [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
+maps to the ISO 27001 controls. For more information about the controls, see
+[ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 
 The following mappings are to the **ISO 27001:2013** controls. Use the navigation on the right to
-jump directly to a specific control mapping. Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md)
-initiative. To review the complete initiative, open **Policy** in the Azure portal and select the
-**Definitions** page. Then, find and select the **\[Preview\] Audit ISO 27001:2013 controls and deploy
-specific VM Extensions to support audit requirements** built-in policy initiative.
+jump directly to a specific control mapping. Many of the mapped controls are implemented with an
+[Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative, open
+**Policy** in the Azure portal and select the **Definitions** page. Then, find and select the
+**\[Preview\] Audit ISO 27001:2013 controls and deploy specific VM Extensions to support audit
+requirements** built-in policy initiative.
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
-> definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md)
-> with the control; however, there often is not a 1:1 or complete match between a control and one or
-> more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this
-> doesn't ensure you're fully compliant with all requirements of a control. In addition, the
-> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
-> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
-> status. The associations between controls and Azure Policy definitions for this compliance
-> blueprint sample may change over time. To view the change history, see the
+> definitions. These policies may help you
+> [assess compliance](../../../policy/how-to/get-compliance-data.md) with the control; however,
+> there often is not a one-to-one or complete match between a control and one or more policies. As
+> such, **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure
+> you're fully compliant with all requirements of a control. In addition, the compliance standard
+> includes controls that aren't addressed by any Azure Policy definitions at this time. Therefore,
+> compliance in Azure Policy is only a partial view of your overall compliance status. The
+> associations between controls and Azure Policy definitions for this compliance blueprint sample
+> may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-shared/control-mapping.md).
 
 ## A.6.1.2 Segregation of duties
@@ -41,7 +44,8 @@ appropriate separation of duties.
 
 ## A.8.2.1 Classification of information
 
-Azure's [SQL Vulnerability Assessment service](../../../../azure-sql/database/sql-vulnerability-assessment.md)
+Azure's
+[SQL Vulnerability Assessment service](../../../../azure-sql/database/sql-vulnerability-assessment.md)
 can help you discover sensitive data stored in your databases and includes recommendations to
 classify that data. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition
 to audit that vulnerabilities identified during SQL Vulnerability Assessment scan are remediated.
@@ -57,8 +61,6 @@ audit use of resource types and configurations that may allow more permissive ac
 Understanding resources that are in violation of these policies can help you take corrective actions
 to ensure access Azure resources is restricted to authorized users.
 
-- Deploy prerequisites to audit Linux VMs that have accounts without passwords
-- Deploy prerequisites to audit Linux VMs that allow remote connections from accounts without passwords
 - Show audit results from Linux VMs that have accounts without passwords
 - Show audit results from Linux VMs that allow remote connections from accounts without passwords
 - Storage accounts should be migrated to new Azure Resource Manager resources
@@ -75,8 +77,9 @@ to Azure resources. This blueprint also assigns three Azure Policy definitions t
 Active Directory authentication for SQL Servers and Service Fabric. Using Azure Active Directory
 authentication enables simplified permission management and centralized identity management of
 database users and other Microsoft services. This blueprint also assigns an Azure Policy definition
-to audit the use of custom Azure RBAC rules. Understanding where custom Azure RBAC rules are implement can help
-you verify need and proper implementation, as custom Azure RBAC rules are error prone.
+to audit the use of custom Azure RBAC rules. Understanding where custom Azure RBAC rules are
+implement can help you verify need and proper implementation, as custom Azure RBAC rules are error
+prone.
 
 - MFA should be enabled on accounts with owner permissions on your subscription
 - MFA should be enabled accounts with write permissions on your subscription
@@ -100,13 +103,12 @@ corrective action to ensure authenticators aren't compromised.
 - MFA should be enabled on accounts with read permissions on your subscription
 - MFA should be enabled accounts with write permissions on your subscription
 - Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
-- Deploy prerequisites to audit Linux VMs that do not have the passwd file permissions set to 0644
 
 ## A.9.2.5 Review of user access rights
 
 [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
-helps you manage who has access to resources in Azure. Using the Azure portal, you can
-review who has access to Azure resources and their permissions. This blueprint assigns four [Azure
+helps you manage who has access to resources in Azure. Using the Azure portal, you can review who
+has access to Azure resources and their permissions. This blueprint assigns four [Azure
 Policy](../../../policy/overview.md) definitions to audit accounts that should be prioritized for
 review, including depreciated accounts and external accounts with elevated permissions.
 
@@ -119,8 +121,8 @@ review, including depreciated accounts and external accounts with elevated permi
 
 [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
 helps you manage who has access to resources in Azure. Using [Azure Active
-Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) and Azure RBAC, you can
-update user roles to reflect organizational changes. When needed, accounts can be blocked from
+Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) and Azure RBAC, you
+can update user roles to reflect organizational changes. When needed, accounts can be blocked from
 signing in (or removed), which immediately removes access rights to Azure resources. This blueprint
 assigns two [Azure Policy](../../../policy/overview.md) definitions to audit depreciated account
 that should be considered for removal.
@@ -130,11 +132,11 @@ that should be considered for removal.
 
 ## A.9.4.2 Secure log-on procedures
 
-This blueprint assigns three Azure Policy definitions to audit accounts that don't have
-multi-factor authentication enabled. Azure Multi-Factor Authentication provides additional security
-by requiring a second form of authentication and delivers strong authentication. By monitoring
-accounts without multi-factor authentication enabled, you can identify accounts that may be more
-likely to be compromised.
+This blueprint assigns three Azure Policy definitions to audit accounts that don't have multi-factor
+authentication enabled. Azure Multi-Factor Authentication provides additional security by requiring
+a second form of authentication and delivers strong authentication. By monitoring accounts without
+multi-factor authentication enabled, you can identify accounts that may be more likely to be
+compromised.
 
 - MFA should be enabled on accounts with owner permissions on your subscription
 - MFA should be enabled on accounts with read permissions on your subscription
@@ -151,31 +153,26 @@ with policy.
 - Show audit results from Windows VMs that do not have the password complexity setting enabled
 - Show audit results from Windows VMs that do not have a maximum password age of 70 days
 - Show audit results from Windows VMs that do not have a minimum password age of 1 day
-- Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
+- Show audit results from Windows VMs that do not restrict the minimum password length to 14
+  characters
 - Show audit results from Windows VMs that allow re-use of the previous 24 passwords
-- Deploy prerequisites to audit Windows VMs that do not have the password complexity setting enabled
-- Deploy prerequisites to audit Windows VMs that do not have a maximum password age of 70 days
-- Deploy prerequisites to audit Windows VMs that do not have a minimum password age of 1 day
-- Deploy prerequisites to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- Deploy prerequisites to audit Windows VMs that allow re-use of the previous 24 passwords
 
 ## A.10.1.1 Policy on the use of cryptographic controls
 
-This blueprint helps you enforce your policy on the use of cryptograph controls by assigning 13 [Azure Policy](../../../policy/overview.md)
-definitions that enforce specific cryptograph controls and audit use of weak cryptographic settings.
-Understanding where your Azure resources may have non-optimal cryptographic configurations can help
-you take corrective actions to ensure resources are configured in accordance with your information
-security policy. Specifically, the policies assigned by this blueprint require encryption for blob
-storage accounts and data lake storage accounts; require transparent data encryption on SQL
-databases; audit missing encryption on storage accounts, SQL databases, virtual machine disks, and
-automation account variables; audit insecure connections to storage accounts, Function Apps, Web
-App, API Apps, and Redis Cache; audit weak virtual machine password encryption; and audit
-unencrypted Service Fabric communication.
+This blueprint helps you enforce your policy on the use of cryptograph controls by assigning 13
+[Azure Policy](../../../policy/overview.md) definitions that enforce specific cryptograph controls
+and audit use of weak cryptographic settings. Understanding where your Azure resources may have
+non-optimal cryptographic configurations can help you take corrective actions to ensure resources
+are configured in accordance with your information security policy. Specifically, the policies
+assigned by this blueprint require encryption for blob storage accounts and data lake storage
+accounts; require transparent data encryption on SQL databases; audit missing encryption on storage
+accounts, SQL databases, virtual machine disks, and automation account variables; audit insecure
+connections to storage accounts, Function Apps, Web App, API Apps, and Redis Cache; audit weak
+virtual machine password encryption; and audit unencrypted Service Fabric communication.
 
 - Function App should only be accessible over HTTPS
 - Web Application should only be accessible over HTTPS
 - API App should only be accessible over HTTPS
-- Deploy prerequisites to audit Windows VMs that do not store passwords using reversible encryption
 - Show audit results from Windows VMs that do not store passwords using reversible encryption
 - Disk encryption should be applied on virtual machines
 - Automation account variables should be encrypted
@@ -261,8 +258,8 @@ This blueprint helps you manage and control networks by assigning an [Azure
 Policy](../../../policy/overview.md) definition that monitors network security groups with
 permissive rules. Rules that are too permissive may allow unintended network access and should be
 reviewed. This blueprint also assigns three Azure Policy definitions that monitor unprotected
-endpoints, applications, and storage accounts. Endpoints and applications that aren't protected by
-a firewall, and storage accounts with unrestricted access can allow unintended access to information
+endpoints, applications, and storage accounts. Endpoints and applications that aren't protected by a
+firewall, and storage accounts with unrestricted access can allow unintended access to information
 contained within the information system.
 
 - Access through Internet facing endpoint should be restricted

@@ -71,6 +71,9 @@ Here are some concepts to be familiar with when using virtual networks with Post
 
 Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
 
+> [!NOTE]
+> If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for MySQL - Flexible Server. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
+
 ## Public access (allowed IP addresses)
 Characteristics of the public access method include:
 * Only the IP addresses you allow have permission to access your PostgreSQL flexible server. By default no IP addresses are allowed. You can add IP addresses during server creation or afterwards.

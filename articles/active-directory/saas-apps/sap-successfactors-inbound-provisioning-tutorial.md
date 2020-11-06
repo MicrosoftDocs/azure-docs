@@ -177,7 +177,7 @@ This section provides steps for user account provisioning from SuccessFactors to
 To provision to Active Directory on-premises, the Provisioning agent must be installed on a server that has .NET 4.7.1+ Framework and network access to the desired Active Directory domain(s).
 
 > [!TIP]
-> You can check the version of the .NET framework on your server using the instructions provided [here](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
+> You can check the version of the .NET framework on your server using the instructions provided [here](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > If the server does not have .NET 4.7.1 or higher installed, you can download it from [here](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
 Transfer the downloaded agent installer to the server host and follow the steps given below to complete the agent configuration.
@@ -253,7 +253,7 @@ In this step, we establish connectivity with SuccessFactors and Active Directory
 
    * **Notification Email –** Enter your email address, and check the "send email if failure occurs" checkbox.
     > [!NOTE]
-    > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) state.
+    > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](../app-provisioning/application-provisioning-quarantine-status.md) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the SuccessFactors credentials and the AD credentials configured on the agent setup are valid.
     >[!div class="mx-imgBorder"]

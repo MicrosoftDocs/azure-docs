@@ -3,7 +3,7 @@ title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 services: container-service
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 10/21/2020
 
 ---
 
@@ -103,7 +103,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## Upgrade an AKS cluster
 
-With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new node to the cluster that runs the specified Kubernetes version, then carefully [cordon and drains][kubernetes-drain] one of the old nodes to minimize disruption to running applications. When the new node is confirmed as running application pods, the old node is deleted. This process repeats until all nodes in the cluster have been upgraded.
+With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new buffer node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade-preview)) to the cluster that runs the specified Kubernetes version. Then it will [cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications (if you're using max surge it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified). When the old node is fully drained, it will be reimaged to receive the new version and it will become the buffer node for the following node to be upgraded. This process repeats until all nodes in the cluster have been upgraded. At the end of the process, the last drained node will be deleted, maintaining the existing agent node count.
 
 ```azurecli-interactive
 az aks upgrade \

@@ -9,11 +9,12 @@ ms.author: tvoellm
 ---
 
 # Restrict user access to data operations in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 In Azure Cosmos DB, there are two ways to authenticate your interactions with the database service:
 
 - using your Azure Active Directory identity when interacting with the Azure portal,
-- using Azure Cosmos DB [keys](secure-access-to-data.md#primary-keys) or [resource tokens](secure-access-to-data.md#resource-tokens) when issuing calls from APIs and SDKs.
+- using Azure Cosmos DB [keys](database-security.md#primary-keys) or [resource tokens](secure-access-to-data.md#resource-tokens) when issuing calls from APIs and SDKs.
 
 Each authentication method gives access to different sets of operations, with some overlap:
 

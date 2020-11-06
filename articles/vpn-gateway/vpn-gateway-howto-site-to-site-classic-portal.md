@@ -105,11 +105,11 @@ Site-to-Site connections to an on-premises network require a VPN device. In this
 
 ## <a name="CreateConnection"></a>Create the connection
 
-In this step, using the values from the previous steps, you set the shared key and create the connection. The key you set is must be the same key that was used in your VPN device configuration.
-
 > [!NOTE]
 > For the classic deployment model, this step is not available in the Azure portal or via Azure Cloud Shell. You must use the Service Management (SM) version of the Azure PowerShell cmdlets locally from your desktop.
 >
+
+In this step, using the values from the previous steps, you set the shared key and create the connection. The key you set is must be the same key that was used in your VPN device configuration.
 
 1. Set the shared key and create the connection.
 

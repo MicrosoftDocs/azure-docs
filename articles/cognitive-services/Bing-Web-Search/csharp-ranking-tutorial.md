@@ -16,6 +16,11 @@ ms.custom: devx-track-csharp
 
 # Build a console app search client in C#
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 This tutorial shows how to build a simple .NET Core console app that allows users to query the Bing Web Search API and display ranked results.
 
 This tutorial shows how to:
