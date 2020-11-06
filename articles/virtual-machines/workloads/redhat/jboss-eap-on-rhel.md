@@ -18,13 +18,13 @@ These Quickstart templates will show you how to deploy [JBoss EAP](https://www.r
 
 * An Azure account with an active subscription. To get an Azure subscription, activate your [Azure credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or [create an account for free](https://azure.microsoft.com/pricing/free-trial).
 
-* JBoss EAP installation - You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement will let you to download the Red Hat tested and certified JBoss EAP version.  If you don't have EAP entitlement, obtain a [JBoss EAP evaluation subscription](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) before you get started. To create a new Red Hat subscription, go to [Red Hat Customer Portal](https://access.redhat.com/) and set up an account.
-F
+* JBoss EAP installation - You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement will let you download the Red Hat tested and certified JBoss EAP version.  If you don't have EAP entitlement, obtain a [JBoss EAP evaluation subscription](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) before you get started. To create a new Red Hat subscription, go to [Red Hat Customer Portal](https://access.redhat.com/) and set up an account.
+
 * [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure/overview).
 
 * RHEL options - Choose between Pay-As-You-Go (PAYG) or Bring-Your-Own-Subscription (BYOS). With BYOS, you need to activate your [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold Image before deploying the Quickstart template.
 
-## Java EE / Jakarata EE Application Migration
+## Java EE / Jakarta EE Application Migration
 
 ### Migrate to JBoss EAP
 JBoss EAP 7.2 and 7.3 are certified implementations of the Java Enterprise Edition (Java EE) 8 and Jakarta EE 8 specifications. JBoss EAP provides preconfigured options for features such as high-availability (HA) clustering, messaging, and distributed caching. It also enables users to write, deploy, and run applications using the various APIs and services that JBoss EAP provides.  For additional information on JBoss EAP, visit [Introduction to JBoss EAP 7.2](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html-single/introduction_to_jboss_eap/index) or [Introduction to JBoss EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html/introduction_to_jboss_eap/index).
@@ -72,7 +72,7 @@ Solution architecture for these templates includes:
 * JBoss EAP clustered using Azure Virtual Machine Scale Set
 
 #### Linux Workload Migration for JBoss EAP
-Azure Workload Builder will simplify the Proof-of-Concept (POC), evaluation, and migration process for on-premises Java apps to Azure. The Workload Builder integrates with Azure Migrate Discovery tool to identify JBoss EAP servers. Then it will dynamically generate Ansible playbook for JBoss EAP server deployment. It leverage the Red Hat MTA tool to migrate servers from other app servers to JBoss EAP. Steps for simplifying migration include:
+Azure Workload Builder will simplify the Proof-of-Concept (POC), evaluation, and migration process for on-premises Java apps to Azure. The Workload Builder integrates with Azure Migrate Discovery tool to identify JBoss EAP servers. Then it will dynamically generate Ansible playbook for JBoss EAP server deployment. It leverages the Red Hat MTA tool to migrate servers from other app servers to JBoss EAP. Steps for simplifying migration include:
 * Evaluation - JBoss EAP clusters using Azure VM or Virtual Machine Scale Set
 * Assessment - Scans applications and infrastructure
 * Infrastructure configuration - Creates workload profile
@@ -81,7 +81,7 @@ Azure Workload Builder will simplify the Proof-of-Concept (POC), evaluation, and
 
 ## Server configuration choice
 
-For deployment of RHEL VM, you can either choose between PAYG or BYOS. Images from the [Azure Marketplace](https://azuremarketplace.microsoft.com) defaults to PAYG. Deploy a BYOS type RHEL VM if you have your own RHEL OS image. Make sure your RHSM account has BYOS entitlement via F Cloud Access before you deploy the VMs or Virtual Machine Scale Set.
+For deployment of RHEL VM, you can either choose between PAYG or BYOS. Images from the [Azure Marketplace](https://azuremarketplace.microsoft.com) defaults to PAYG. Deploy a BYOS type RHEL VM if you have your own RHEL OS image. Make sure your RHSM account has BYOS entitlement via Cloud Access before you deploy the VMs or Virtual Machine Scale Set.
 
 JBoss EAP has powerful management capabilities as well as providing functionality and APIs to its applications. These management capabilities differ depending on which operating mode is used to start JBoss EAP. It is supported on RHEL and Windows Server. JBoss EAP offers a stand-alone server operating mode for managing discrete instances. It also offers a managed domain operating mode for managing groups of instances from a single control point. Note: JBoss EAP-managed domains aren't supported in Microsoft Azure since the High Availability (HA) feature is managed by Azure infrastructure services. The environment variable named *EAP_HOME* is used to denote the path to the JBoss EAP installation.
 
@@ -115,7 +115,7 @@ Check out [Red Hat Enterprise Linux pricing](https://azure.microsoft.com/pricing
 
 #### Using RHEL OS with BYOS Model
 
-To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with entitlements to use RHEL OS in Azure. Complete the following prerequisites before you deploy this Quickstart template:
+To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with entitlements to use RHEL OS in Azure. Complete the following prerequisites before you deploy RHEL OS with BYOS Model:
 
 1. Ensure you have RHEL OS and JBoss EAP entitlements attached to your Red Hat subscription.
 2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management (RHSM) documentation](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs) to complete the process, which includes these steps:
