@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/06/2020
 ---
 
 # Plan an Azure managed application for an Azure application offer
@@ -28,10 +28,28 @@ Use an Azure Application: Managed application plan when the following conditions
 | An Azure subscription | Managed applications must be deployed to a customer's subscription, but they can be managed by a third party. |
 | Billing and metering | The resources are provided in a customer's Azure subscription. VMs that use the pay-as-you-go payment model are transacted with the customer via Microsoft and billed via the customer's Azure subscription. <br><br> For bring-your-own-license VMs, Microsoft bills any infrastructure costs that are incurred in the customer subscription, but you transact software licensing fees with the customer directly. |
 | Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. For more information, see:<br> • [Create an Azure VM technical asset](/azure/marketplace/partner-center-portal/vm-certification-issues-solutions#how-to-address-a-vulnerability-or-exploit-in-a-vm-offer.md) (for Windows VHDs).<br> •  [Linux distributions endorsed on Azure](/azure/virtual-machines/linux/endorsed-distros.md) (for Linux VHDs). |
+| Customer usage attribution | All new Azure application offers must also include an Azure partner customer usage attribution GUID. For more information about customer usage attribution and how to enable it, see [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md). |
+| Deployment package | You’ll need a deployment package that will let customers deploy your plan. If you create multiple plans that require the same technical configuration, you can use the same package. For details, see the next section: Deployment package. |
 |||
 
 > [!NOTE]
 > Managed applications must be deployable through Azure Marketplace. If customer communication is a concern, reach out to interested customers after you've enabled lead sharing.
+
+## Deployment package
+
+The deployment package contains all the template files needed for this plan, as well as any additional resources, packaged as a .zip file.
+
+All Azure applications must include these two files in the root folder of a .zip archive:
+
+- A Resource Manager template file named [mainTemplate.json](/azure/azure-resource-manager/resource-group-overview.md). This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+- A user interface definition for the Azure application creation experience named [createUiDefinition.json](/azure/azure-resource-manager/managed-application-createuidefinition-overview.md). In the user interface, you specify elements that enable consumers to provide parameter values.
+
+Maximum file sizes supported are:
+
+- Up to 1 Gb in total compressed .zip archive size
+- Up to 1 Gb for any individual uncompressed file within the .zip archive
+
+All new Azure application offers must also include an [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md) GUID.
 
 ## Azure regions
 

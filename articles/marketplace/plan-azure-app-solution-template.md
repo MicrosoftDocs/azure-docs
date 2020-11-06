@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/06/2020
 ---
 
 # Plan a solution template for an Azure application offer
@@ -24,7 +24,24 @@ The solution template plan type requires an [Azure Resource Manager template (AR
 | Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. For more information, see:<br> • [Create an Azure VM technical asset](/azure/marketplace/partner-center-portal/vm-certification-issues-solutions#how-to-address-a-vulnerability-or-exploit-in-a-vm-offer.md) (for Windows VHDs).<br> • [Linux distributions endorsed on Azure](/azure/virtual-machines/linux/endorsed-distros.md) (for Linux VHDs). |
 | Customer usage attribution | Enabling customer usage attribution is required on all solution templates that are published on Azure Marketplace. For more information about customer usage attribution and how to enable it, see [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md). |
 | Use managed disks | [Managed disks](/azure/virtual-machines/windows/managed-disks-overview.md) is the default option for persisted disks of infrastructure as a service (IaaS) VMs in Azure. You must use managed disks in solution templates.<br> - To update your solution templates, follow the guidance in [Use managed disks in Azure Resource Manager templates](/azure/virtual-machines/using-managed-disks-template-deployments.md), and use the provided samples.<br> • To publish the VHD as an image in Azure Marketplace, import the underlying VHD of the managed disks to a storage account by using either of the following methods:<br> • [Azure PowerShell](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md) <br> • [The Azure CLI](/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md) |
+| Deployment package | You’ll need a deployment package that will let customers deploy your plan. If you create multiple plans that require the same technical configuration, you can use the same plan package. For details, see the next section: Deployment package. |
 |||
+
+## Deployment package
+
+The deployment package contains all of the template files needed for this plan, as well as any additional resources, packaged as a .zip file.
+
+All Azure applications must include these two files in the root folder of a .zip archive:
+
+- A Resource Manager template file named [mainTemplate.json](/azure/azure-resource-manager/resource-group-overview.md). This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+- A user interface definition for the Azure application creation experience named [createUiDefinition.json](/azure/azure-resource-manager/managed-application-createuidefinition-overview.md). In the user interface, you specify elements that enable consumers to provide parameter values.
+
+Maximum file sizes supported are:
+
+- Up to 1 Gb in total compressed .zip archive size
+- Up to 1 Gb for any individual uncompressed file within the .zip archive
+
+All new Azure application offers must also include an [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md) GUID.
 
 ## Azure regions
 
@@ -51,24 +68,6 @@ For solution template plans, you can also choose to hide the plan from Azure Mar
 > Private plans are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
 
 For more information, see [Private offers in the Microsoft commercial marketplace](private-offers.md).
-
-## Deployment package
-
-You’ll need a deployment package that will let customers deploy your plan. This package contains all of the template files needed for this plan, as well as any additional resources, packaged as a .zip file.
-
-All Azure applications must include these two files in the root folder of a .zip archive:
-
-- A Resource Manager template file named [mainTemplate.json](/azure/azure-resource-manager/resource-group-overview.md). This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
-- A user interface definition for the Azure application creation experience named [createUiDefinition.json](/azure/azure-resource-manager/managed-application-createuidefinition-overview.md). In the user interface, you specify elements that enable consumers to provide parameter values.
-
-Maximum file sizes supported are:
-
-- Up to 1 Gb in total compressed .zip archive size
-- Up to 1 Gb for any individual uncompressed file within the .zip archive
-
-All new Azure application offers must also include an [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md) GUID.
-
-If you create multiple plans that require the same technical configuration, you can use the same plan package.
 
 ## Next steps
 

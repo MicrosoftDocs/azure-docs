@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 11/06/2020
 ---
 
 # Configure a solution template plan
@@ -70,7 +70,7 @@ In the **Version** box provide the current version of the technical configuratio
 Under **Package file (.zip)**, drag your package file to the gray box or select the **browse for your file(s)** link.
 
 > [!NOTE]
-> If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+> If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.
 
 ### Previously published packages
 

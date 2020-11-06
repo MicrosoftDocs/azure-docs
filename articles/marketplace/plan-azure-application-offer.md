@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/06/2020
 ---
 
 # Plan an Azure Application offer for the commercial marketplace
@@ -218,20 +218,14 @@ For general guidance about plans, including pricing models, and private plans, s
 
 ### Types of plans
 
-There are two kinds of Azure application plans: _solution templates_ and _managed applications_.
+There are two kinds of Azure application plans: _solution template_ and _managed application_. Both plan types support automating the deployment and configuration of a solution beyond a single virtual machine (VM). You can automate the process of providing multiple resources, including VMs, networking, and storage resources to provide complex solutions, such as IaaS solutions. Both plan types can employ many different kinds of Azure resources, including but not limited to VMs.
 
-- **Solution template** is one of the main ways to publish a solution in the commercial marketplace. Use this plan type when your solution requires additional deployment and configuration automation beyond a single virtual machine (VM). With a solution template, you can automate the process of providing multiple resources, including VMs, networking, and storage resources to provide complex IaaS solutions. Solution templates can employ many different kinds of Azure resources, including but not limited to VMs. For more information about building solution templates, see [What is Azure Resource Manager?](/azure/azure-resource-manager/resource-group-overview.md)
-- **Managed application** is similar to solution templates, with one key difference. In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group. As the publisher, you specify the cost for ongoing support of the solution. Use Managed applications to easily build and deliver fully managed, turnkey applications to your customers. For more information about the advantages and types of managed applications, see the [Azure managed applications overview](/azure/managed-applications/overview.md).
-
-Use an Azure application solution template under the following conditions:
-
-- Your solution requires additional deployment and configuration automation beyond a single virtual machine (VM), such as a combination of VMs, networking, and storage resources.
-- Your customers are going to manage the solution themselves.
-
-Use an Azure Application: Managed application plan when the following conditions are required:
-
-- You will deploy a subscription-based solution for your customer using either a virtual machine (VM) or an entire infrastructure as a service (IaaS)-based solution.
-- You or your customer requires the solution to be managed by a partner. For example, a partner can be a systems integrator or a managed service provider (MSP).
+- **Solution template** plans are one of the main ways to publish a solution in the commercial marketplace. Solution template plans are not transactable in the commercial marketplace, but they can be used to deploy paid VM offers that are billed through the commercial marketplace. Use the solution template plan type when the customer will manage the solution and the transactions are billed through another plan. For more information about building solution templates, see [What is Azure Resource Manager?](/azure/azure-resource-manager/resource-group-overview.md)
+- **Managed application** plans enable you to easily build and deliver fully managed, turnkey applications for your customers. They have the same capabilities as solution template plans, with some key differences:
+    - The resources are deployed to a resource group and are managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group. 
+    - As the publisher, you specify the cost for ongoing support of the solution and transactions are supported through the commercial marketplace.
+ 
+    Use the managed application plan type when you or your customer require that the solution is managed by a partner or you will deploy a subscription-based solution. For more information about the advantages and types of managed applications, see [Azure managed applications overview](/azure/managed-applications/overview.md).
 
 ## Next steps
 

@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 11/06/2020
 ---
 
 # How to configure your Azure Application offer listing details
