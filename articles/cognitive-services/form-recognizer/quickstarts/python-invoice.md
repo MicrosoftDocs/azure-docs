@@ -130,7 +130,7 @@ See the following invoice document and its corresponding JSON output -
 1. [Sample invoice JSON output](../media/sample-invoice-output.json)
 
 
-### Sample Python script to extract invoice or a btach of invoices into a CSV file
+### Sample Python script to extract invoice or a batch of invoices into a CSV file
 This sample python script shows you you how to get started using the Invoice API. It can run with single invoice as a parameter or folder and will output the JSON file “.invoice.json” and a CSV file “-invoiceResutls.csv” with the extracted values results. When running on a folder, it will scan through all “pdf”,”jpg”,”jpeg”,”png”,”bmp”,”tif”,”tiff” files and run them via the API. Once you created created the Pyton file you can run it via command line as following - 
 
 > python InvoiceSamplePythonScript.py {file name or folder name}
