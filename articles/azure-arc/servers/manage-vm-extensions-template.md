@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure Resource Manager template
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments using an Azure Resource Manager template.
-ms.date: 10/22/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
 ---
 
@@ -618,8 +618,137 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
 }
 ```
 
+## Deploy the Azure Key Vault VM extension
+
+To easily deploy the Key Vault extension, the following sample is provided to install on either Windows or Linux. While Key Vault supports both user and system assigned identities, Azure Arc enabled servers do not support user assigned identities. Arc enabled servers are assigned a system identity.
+
+> [!NOTE]
+> The Key Vault VM extension does not support the following Linux operating systems:
+>
+>   - CentOS Linux 7 (x64)
+>   - Red Hat Enterprise Linux (RHEL) 7 (x64)
+>   - Amazon Linux 2 (x64)
+
+Before you deploy the extension, you need to complete the following:
+
+1. [Create a vault and certificate](../../key-vault/certificates/quick-create-portal.md) (self-signed or import).
+
+2. Grant the Azure Arc enabled server access to the certificate secret. If you’re using the [RBAC preview](../../key-vault/general/rbac-guide), search for the name of the Azure Arc resource and assign it the **Key Vault Secrets User (preview)** role. If you’re using [Key Vault access policy](../../key-vault/general/assign-access-policy-portal.md), assign Secret **Get** permissions to the Azure Arc resource’s system assigned identity.
+ 
+### Template file for Linux
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "workspaceId": {
+            "type": "string"
+        },
+        "workspaceKey": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[concat(parameters('vmName'),'/OMSAgentForLinux')]",
+            "type": "Microsoft.HybridCompute/machines/extensions",
+            "location": "[parameters('location')]",
+            "apiVersion": "2019-08-02-preview",
+            "properties": {
+                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                "type": "OmsAgentForLinux",
+                "settings": {
+                    "workspaceId": "[parameters('workspaceId')]"
+                },
+                "protectedSettings": {
+                    "workspaceKey": "[parameters('workspaceKey')]"
+                }
+            }
+        }
+    ]
+}
+```
+
+### Template file for Windows
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "workspaceId": {
+            "type": "string"
+        },
+        "workspaceKey": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[concat(parameters('vmName'),'/MicrosoftMonitoringAgent')]",
+            "type": "Microsoft.HybridCompute/machines/extensions",
+            "location": "[parameters('location')]",
+            "apiVersion": "2019-08-02-preview",
+            "properties": {
+                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                "type": "MicrosoftMonitoringAgent",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "workspaceId": "[parameters('workspaceId')]"
+                },
+                "protectedSettings": {
+                    "workspaceKey": "[parameters('workspaceKey')]"
+                }
+            }
+        }
+    ]
+}
+```
+
+### Parameter file
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "value": "<vmName>"
+        },
+        "location": {
+            "value": "<region>"
+        },
+        "workspaceId": {
+            "value": "<MyWorkspaceID>"
+        },
+        "workspaceKey": {
+            "value": "<MyWorkspaceKey>"
+        }
+    }
+}
+```
+
+Save the template and parameter files to disk, and edit the parameter file with the appropriate values for your deployment. You can then install the extension on all the connected machines within a resource group with the following command. The command uses the *TemplateFile* parameter to specify the template and the *TemplateParameterFile* parameter to specify a file that contains parameters and parameter values.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\LogAnalyticsAgentWin.json" -TemplateParameterFile "D:\Azure\Templates\LogAnalyticsAgentWinParms.json"
+```
+
 ## Next steps
 
-* You can deploy and remove an extension using Azure CLI or PowerShell.
+* You can deploy, manage, and remove VM extensions using the [Azure PowerShell](manage-vm-extensions-powershell.md), from the [Azure portal](manage-vm-extensions-portal.md), or the [Azure CLI](manage-vm-extensions-cli.md).
 
 * Troubleshooting information can be found in the [Troubleshoot VM extensions guide](troubleshoot-vm-extensions.md).
