@@ -1,12 +1,12 @@
 ---
 title: Understand search
-description: This article explains what resource sets are and how Azure Purview creates them.
-author: yaronyg
-ms.author: yarong
+description: This article explains what search is in Azure Purview.
+author: chanuengg
+ms.author: csugunan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ---
 
 # Search overview
