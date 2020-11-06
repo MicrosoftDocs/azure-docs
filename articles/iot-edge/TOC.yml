@@ -51,9 +51,9 @@
       href: tutorial-deploy-custom-vision.md
     - name: Store data locally with SQL
       href: tutorial-store-data-sql-server.md
-  - name: 4. Deploy IoT Edge through gateways
+  - name: 4. Use IoT Edge as a gateway
     items:
-    - name: Create gateways for IoT Edge devices
+    - name: Create hierarchies of IoT Edge devices
       href: tutorial-nested-iot-edge.md
   - name: 5. End-to-end example of machine learning at the edge
     items:
