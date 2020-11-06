@@ -42,7 +42,7 @@ The table below provides the retirement details for MySQL major versions. The da
 ## Retired MySQL engine versions not supported in Azure Database for MySQL
 
 After the retirement date for each MySQL database version, if you continue running the retired version, note the following restrictions:
-- As the community will not be releasing any further bug fixes or security fixes, Azure for MySQL will not patch the retired database engine for any bugs or security issues or otherwise take security measures with regard to the retired database engine. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
+- As the community will not be releasing any further bug fixes or security fixes, Azure Database for MySQL will not patch the retired database engine for any bugs or security issues or otherwise take security measures with regard to the retired database engine. However, Azure will continue to perform periodic maintenance and patching for the host, OS, containers, and any other service-related components.
 - If any support issue you may experience relates to the MySQL database, we may not be able to provide you with support. In such cases, you will have to upgrade your database in order for us to provide you with any support.
 - You will not be able to create new database servers for the retired version. However, you will be able to perform point-in-time recoveries and create read replicas for your existing servers.
 - New service capabilities developed by Azure Database for MySQL may only be available to supported database server versions.
