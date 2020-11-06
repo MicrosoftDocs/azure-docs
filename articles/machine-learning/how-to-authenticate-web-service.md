@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.custom: how-to
 ---
 
-## Configure authentication for models deployed as web services
+# Configure authentication for models deployed as web services
 
 Azure Machine Learning allows you to deploy your trained machine learning models as web services. In this article, learn how to configure authentication for these deployments.
 
