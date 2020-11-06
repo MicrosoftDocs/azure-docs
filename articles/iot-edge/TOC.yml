@@ -209,6 +209,8 @@
         href: how-to-configure-api-proxy-module.md
   - name: Configure proxy support
     href: how-to-configure-proxy-support.md
+  - name: Publish and subscribe with IoT Edge
+    href: how-to-publish-and-subscribe.md
   - name: Azure Blob Storage on IoT Edge
     items:
     - name: Understand blob storage at the edge
