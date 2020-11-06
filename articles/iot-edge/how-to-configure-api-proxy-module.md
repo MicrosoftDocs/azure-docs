@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
-monikerRange: '>= iotedge-1.2'
 ---
 
 # Configure the API proxy module for your gateway hierarchy scenario
