@@ -80,7 +80,7 @@ You can structure your QnA Maker resources by language or you can use [Translato
 
 You can now have knowledge bases in different languages within the same QnA Maker resource. When you create the first knowledge base, you can choose whether you want to use the resource for knowledge bases in a single language or multiple languages.
 
-![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/concept-plan-your-knowledge-base/qnamakerv2-select-multilanguage-kb.png)
+![QnA Maker managed (Preview) multi-lingual knowledge base selection](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
 
 > [!NOTE]
 > If you enable language settings per knowledge base, you cannot create as many knowledge bases in your QnA Maker resource. For [more details on language settings limitations](./azure-resources.md).
