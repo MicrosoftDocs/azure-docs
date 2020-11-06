@@ -41,7 +41,7 @@ The deployment package contains all the template files needed for this plan, as 
 
 All Azure applications must include these two files in the root folder of a .zip archive:
 
-- A Resource Manager template file named [mainTemplate.json](/azure/azure-resource-manager/resource-group-overview.md). This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+- A Resource Manager template file named [mainTemplate.json](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md). This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
 - A user interface definition for the Azure application creation experience named [createUiDefinition.json](/azure/azure-resource-manager/managed-application-createuidefinition-overview.md). In the user interface, you specify elements that enable consumers to provide parameter values.
 
 Maximum file sizes supported are:
@@ -89,7 +89,7 @@ JIT access enables you to request elevated access to a managed application's res
 
 ## Deployment mode
 
-You can configure a managed application plan to use either the **Complete** or **Incremental** deployment mode. In complete mode, a redeployment of the application by the customer results in removal of resources in the managed resource group if the resources are not defined in the `mainTemplate.json`. In incremental mode, a redeployment of the application leaves existing resources unchanged. To learn more, see [Azure Resource Manager deployment modes](/azure/azure-resource-manager/templates/deployment-modes.md?WT.mc_id=pc_52).
+You can configure a managed application plan to use either the **Complete** or **Incremental** deployment mode. In complete mode, a redeployment of the application by the customer results in removal of resources in the managed resource group if the resources are not defined in the [mainTemplate.json](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md). In incremental mode, a redeployment of the application leaves existing resources unchanged. To learn more, see [Azure Resource Manager deployment modes](/azure/azure-resource-manager/templates/deployment-modes.md?WT.mc_id=pc_52).
 
 ## Notification endpoint URL
 

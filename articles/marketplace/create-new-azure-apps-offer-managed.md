@@ -130,7 +130,7 @@ To enable JIT access for this plan, select the **Enable just-in-time (JIT) acces
 
 Select either the **Complete** or **Incremental** deployment mode.
 
-- In **Complete** mode, a redeployment of the application by the customer will result in removal of resources in the managed resource group if the resources are not defined in the `mainTemplate.json`.
+- In **Complete** mode, a redeployment of the application by the customer will result in removal of resources in the managed resource group if the resources are not defined in the [mainTemplate.json](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md).
 - In **Incremental** mode, a redeployment of the application leaves existing resources unchanged.
 
 To learn more about deployment modes, see [Azure Resource Manager deployment modes](/azure/azure-resource-manager/deployment-modes.md).
