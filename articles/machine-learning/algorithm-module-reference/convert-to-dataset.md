@@ -1,7 +1,7 @@
 ---
 title: "Convert to Dataset: Module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Convert to Dataset module in Azure Machine Learning to convert data input to the internal dataset format used by Microsoft Azure Machine Learning.
+description: Learn how to use the Convert to Dataset module in Azure Machine Learning designer to convert data input to the internal dataset format.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

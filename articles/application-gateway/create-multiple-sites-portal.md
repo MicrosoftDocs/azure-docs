@@ -165,7 +165,7 @@ To add backend targets, you'll:
 
 In this example, you install IIS on the virtual machines only to verify Azure created the application gateway successfully.
 
-1. Open [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
+1. Open [Azure PowerShell](../cloud-shell/quickstart-powershell.md). To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
 
     ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -238,4 +238,4 @@ To remove the resource group:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about what you can do with Azure Application Gateway](application-gateway-introduction.md)
+> [Learn more about what you can do with Azure Application Gateway](./overview.md)
