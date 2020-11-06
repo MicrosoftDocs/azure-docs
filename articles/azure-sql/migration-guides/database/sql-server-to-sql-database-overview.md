@@ -143,26 +143,26 @@ The following table compares the alternative migration options:
 
 There are additional considerations when migrating workloads that rely on other SQL Server features.
 
-### SQL Server Integration Services 
+**SQL Server Integration Services**   
 
 Migrate SQL Server Integration Services (SSIS) packages  to Azure by redeploying the packages to Azure-SSIS runtime in [Azure Data Factory](../../../data-factory/introduction.md). Azure Data Factory [supports migration of SSIS packages](../../../data-factory/scenario-ssis-migration-overview.md#azure-sql-database-as-database-workload-destination) by providing a runtime built to execute SSIS packages in Azure. Alternatively, you can also rewrite the SSIS ETL logic natively in ADF using [Dataflows](../../../data-factory/concepts-data-flow-overview.md).
 
 
-### SQL Server Reporting Services 
+**SQL Server Reporting Services**   
 
 Migrate SQL Server Reporting Services (SSRS) reports to paginated reports in Power BI. Use the [RDL Migration Tool](https://github.com/microsoft/RdlMigration) to help prepare and migrate your reports. This tool was developed by Microsoft to help customers migrate RDL reports from their SSRS servers to Power BI. It is available on GitHub, and it documents an end-to-end walkthrough of the migration scenario. 
 
-### High availability
+**High availability**   
 
 The SQL Server high availability features Always On failover cluster instances and Always On availability groups become obsolete on the target Azure SQL Database as high availability architecture is already built into both [General Purpose (standard availability model)](../../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) and [Business Critical (premium availability model)](../../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) SQL Database. The Business Critical / Premium Service Tier also provides read scale-out that allows connecting into one of the secondary nodes for read-only purposes. 
 
 Beyond the high availability architecture that is included in SQL Database, there is also the [auto-failover groups](../../database/auto-failover-group-overview.md) feature that allows you to manage the replication and failover of databases in a managed instance to another region. 
 
-### SQL Agent jobs 
+**SQL Agent jobs**   
 
 SQL Agent jobs are not directly supported in Azure SQL Database and will need to be deployed to [Elastic Database Jobs (Preview)](../../database/job-automation-overview.md#elastic-database-jobs-preview).
 
-### Logins and groups 
+**Logins and groups**   
 
 Move SQL logins from the source SQL Server to Azure SQL Database using Database Migration Service (DMS) in offline mode.  Use the **Selected logins** blade in the **Migration Wizard** to migrate logins to your target SQL Database. 
 
@@ -171,7 +171,7 @@ Windows users and groups can also be migrated using DMS by enabling the correspo
 Alternatively, you can use the [PowerShell utility tool](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) specially designed by the Microsoft Data Migration Architects. The utility uses PowerShell to create a Transact-SQL (T-SQL) script to recreate logins and select database users from the source to the target. The tool automatically maps Windows AD accounts to Azure AD accounts, and can do a UPN lookup for each login against the source Active Directory. The tool scripts custom server and database roles, as well as role membership, database role, and user permissions. Contained databases are not yet supported and only a subset of possible SQL Server permissions are scripted. 
 
 
-### System databases
+**System databases**   
 
 For Azure SQL Database, the only applicable system databases are [master](/sql/relational-databases/databases/master-database) and tempdb. To learn more, see [Tempdb in Azure SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
 
