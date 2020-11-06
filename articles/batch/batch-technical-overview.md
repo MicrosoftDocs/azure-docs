@@ -70,6 +70,9 @@ Keep in mind that the workflow described above is just one way to use Batch, and
 
 See [Batch service workflow and resources](batch-service-workflow-features.md) for an overview of features such as pools, nodes, jobs, and tasks. Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
 
+## In-region data residency
+Azure Batch does not move or store customer data out of the region in which it is deployed. 
+
 ## Next steps
 
 Get started with Azure Batch with one of these quickstarts:
