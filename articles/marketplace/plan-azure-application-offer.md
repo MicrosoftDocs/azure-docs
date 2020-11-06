@@ -36,7 +36,6 @@ Review the following resources as you plan your Azure application offer for the 
     - [Deploy service catalog app](/azure/managed-applications/deploy-service-catalog-quickstart)
 - Tutorials:
     - [Create definition files](/azure/managed-applications/publish-service-catalog-app)
-    - [Publish marketplace application](/azure/managed-applications/publish-marketplace-app)
 - Samples:
     - [Azure CLI](/azure/managed-applications/cli-samples)
     - [Azure PowerShell](/azure/managed-applications/powershell-samples)

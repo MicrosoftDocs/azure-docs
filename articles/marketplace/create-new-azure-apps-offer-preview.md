@@ -1,5 +1,5 @@
 ---
-title: How to add a preview audience for your Azure Application offer to your Azure Application offer
+title: How to add a preview audience for your Azure Application offer
 description: Learn how to add a preview audience for your Azure application offer in Partner Center.
 author: aarathin
 ms.author: aarathin
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 11/06/2020
 ---
 
-# How to add a preview audience for your Azure Application offer to your Azure Application offer
+# How to add a preview audience for your Azure Application offer
 
 This article describes how to configure a preview audience for an Azure Application offer in the commercial marketplace. You need to define a preview audience who can review your offer listing before it goes live.
 
