@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-wan/security-baseline.md",
+      "redirect_url": "/azure/virtual-wan/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/concepts-convert-models.md",
       "redirect_url": "/azure/digital-twins/how-to-convert-models",
       "redirect_document_id": false
@@ -8629,6 +8634,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/functions-create-first-azure-function-azure-cli.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-cli-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-create-first-function-vs-code.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-csharp",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service-logic/app-service-logic-connector-http.md",
       "redirect_url": "/azure/connectors/connectors-native-http",
       "redirect_document_id": false
@@ -9714,22 +9729,22 @@
     },
     {
       "source_path": "articles/azure-functions/create-cli.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli",
+      "redirect_url": "/azure/azure-functions/create-first-function-cli-csharp",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-functions/functions-create-first-function-python.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python",
+      "redirect_url": "/azure/azure-functions/create-first-function-cli-python",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-functions/functions-create-first-function-powershell.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-powershell",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python",
+      "redirect_url": "/azure/azure-functions/create-first-function-cli-python",
       "redirect_document_id": false
     },
     {
@@ -9749,7 +9764,7 @@
     },
     {
       "source_path": "articles/azure-functions/create-visual-studio-code.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-function-vs-code",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-csharp",
       "redirect_document_id": false
     },
     {
@@ -9774,7 +9789,7 @@
     },
     {
       "source_path": "articles/azure-functions/functions-create-first-java-maven.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?tabs=bash%2Cbrowser&pivots=programming-language-java",
+      "redirect_url": "/azure/azure-functions/create-first-function-cli-java",
       "redirect_document_id": false
     },
     {

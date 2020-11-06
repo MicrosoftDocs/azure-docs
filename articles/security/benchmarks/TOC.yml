@@ -180,8 +180,6 @@
     href: ../../virtual-machines/windows/security-baseline.md
   - name: Virtual Network security baseline
     href: ../../virtual-network/security-baseline.md
-  - name: Virtual WAN security baseline
-    href: ../../virtual-wan/security-baseline.md
   - name: VPN Gateway security baseline
     href: ../../vpn-gateway/security-baseline.md
  
