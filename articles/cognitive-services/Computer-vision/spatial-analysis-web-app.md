@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 11/06/2020
 ms.author: aahi
 ---
 
@@ -189,7 +189,7 @@ Go to the Azure Web App and verify the deployment was successful, and the web ap
 
 ![Test the deployment](./media/spatial-analysis/solution-app-output.png)
 
-## Get the PersonCount Source Code
+## Get the PersonCount source code
 If you'd like to view or modify the source code for this application, you can find it [on Github](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
 
 ## Next steps
