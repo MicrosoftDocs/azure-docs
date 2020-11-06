@@ -29,7 +29,7 @@ You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This a
     - experimentalFeatures__enabled
     - mqttbroker__enabled
 
-- **Mosquitto clients** installed on the IoT Edge device. This article uses the popular  Moquitto clients that includes [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) and [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Other MQTT clients could be used instead. To install the Mosquitto clients on an Ubuntu device, run the following command:
+- **Mosquitto clients** installed on the IoT Edge device. This article uses the popular Mosquitto clients that includes [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) and [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Other MQTT clients could be used instead. To install the Mosquitto clients on an Ubuntu device, run the following command:
 
     ```cmd
     sudo apt-get update && sudo apt-get install mosquitto-clients
