@@ -33,7 +33,7 @@ Managed boot diagnostics can be enabled through the Azure portal, CLI and ARM Te
 ### Enable managed boot diagnostics using the Azure portal
 When creating a VM in the Azure portal, the default setting is to have boot diagnostics enabled using a managed storage account. To view this, navigate to the *Management* tab during the VM creation. 
 
-:::image type="content" source="./media/boot-diagnostics/managed-boot-diagnostics1.png" alt-text="Screenshot enabling managed boot diagnostics during VM creation.":::
+:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-enable-portal.png" alt-text="Screenshot enabling managed boot diagnostics during VM creation.":::
 
 ### Enable managed boot diagnostics using CLI
 Boot diagnostics with a managed storage account is supported in Azure CLI 2.12.0 and later. If you do not input a name or URI for a storage account, a managed account will be used. For more information and code samples see the [CLI documentation for boot diagnostics](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest&preserve-view=true).
