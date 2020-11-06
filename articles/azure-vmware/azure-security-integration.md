@@ -100,7 +100,7 @@ Azure Defender extends Azure Security Center's advanced threat protection across
 
 ## Enable data collector for security events on Azure VMware Solution VMs
 
-1. Go to the Azure Sentinel workspaces page and select the configured workspace.
+1. On the Azure Sentinel workspaces page, select the configured workspace.
 
 2. Under Configuration, select **Data connectors**.
 
