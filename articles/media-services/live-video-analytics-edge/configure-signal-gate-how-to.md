@@ -65,11 +65,8 @@ Correlation IDs are set for every event. These IDs are set from the initial even
 ### Limits of parameters
 
 * **activationEvaluationWindow**: 0 seconds to 10 seconds
-
 * **activationSignalOffset**: -1 minute to 1 minute
-
 * **minimumActivationTime**: 1 second to 1 hour
-
 * **maximumActivationTime**: 1 second to 1 hour
 
 
