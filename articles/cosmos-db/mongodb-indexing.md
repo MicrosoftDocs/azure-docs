@@ -11,6 +11,7 @@ ms.author: tisande
 ms.custom: devx-track-js
 ---
 # Manage indexing in Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](index-overview.md) that's relevant across all APIs.
 
@@ -204,7 +205,7 @@ globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { univ
         "ok" : 1,
         "collectionsharded" : "test.coll"
 }
-globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {unique:true})
+globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
         "_t" : "CreateIndexesResponse",
         "ok" : 1,

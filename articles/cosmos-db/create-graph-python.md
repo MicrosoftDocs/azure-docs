@@ -1,17 +1,18 @@
 ---
 title: 'Quickstart: Gremlin API with Python - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Gremlin API to create a console application with the Azure portal and Python
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: jasonh
+ms.author: chrande
 ms.custom: devx-track-python
 
 ---
 # Quickstart: Create a graph database in Azure Cosmos DB using Python and the Azure portal
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -167,7 +168,7 @@ After the vertices and edges are inserted, you can now go back to Data Explorer 
 
 1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-graph**, select **Graph**, and then select **Apply Filter**. 
 
-   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Create new documents in Data Explorer in the Azure portal":::
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot shows Graph selected from the A P I with the option to Apply Filter.":::
 
 2. In the **Results** list, notice three new users are added to the graph. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 
@@ -175,7 +176,7 @@ After the vertices and edges are inserted, you can now go back to Data Explorer 
 
 3. Let's add a few new users. Select the **New Vertex** button to add data to your graph.
 
-   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Create new documents in Data Explorer in the Azure portal":::
+   :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Screenshot shows the New Vertex pane where you can enter values.":::
 
 4. Enter a label of *person*.
 
