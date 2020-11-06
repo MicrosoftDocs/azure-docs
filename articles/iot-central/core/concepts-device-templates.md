@@ -244,12 +244,9 @@ You can use the IoT Central data export feature to stream telemetry to other des
 
 ## Commands
 
-<!-- TODO - confirming with Sandeep how this has changed -->
-Commands are either synchronous or asynchronous. A synchronous command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device does respond in time, or the device isn't connected, then the command fails.
+A command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device does respond in time, or the device isn't connected, then the command fails.
 
-Both synchronous and asynchronous commands can have request parameters and return a response.
-
-Use asynchronous commands for long-running operations.
+Commands can have request parameters and return a response.
 
 ### Offline commands
 
