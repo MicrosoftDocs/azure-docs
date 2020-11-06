@@ -303,5 +303,4 @@ this.authService.logout();
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Acquiring a token for the app](scenario-spa-acquire-token.md)
+[Acquiring a token for the app](scenario-spa-acquire-token.md)

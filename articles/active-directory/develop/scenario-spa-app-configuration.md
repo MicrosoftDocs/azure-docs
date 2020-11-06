@@ -72,5 +72,4 @@ export class AppModule { }
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Sign-in and sign-out](scenario-spa-sign-in.md)
+[Sign-in and sign-out](scenario-spa-sign-in.md)
