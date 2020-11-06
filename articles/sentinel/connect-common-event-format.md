@@ -55,7 +55,7 @@ Make sure the Linux machine you use as a log forwarder is running one of the fol
   - Amazon Linux 2017.09
   - Oracle Linux 7
   - Red Hat Enterprise Linux (RHEL) Server 7 and 8, including sub-versions (not 6)
-  - Debian GNU/Linux 8, 9, and 10
+  - Debian GNU/Linux 8 and 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
   - SUSE Linux Enterprise Server 12, 15
 
@@ -63,7 +63,7 @@ Make sure the Linux machine you use as a log forwarder is running one of the fol
   - CentOS 7 and 8, including sub-versions (not 6)
   - Oracle Linux 7
   - Red Hat Enterprise Linux (RHEL) Server 7 and 8, including sub-versions (not 6)
-  - Debian GNU/Linux 8, 9, and 10
+  - Debian GNU/Linux 8 and 9
   - Ubuntu Linux 14.04 LTS and 16.04 LTS
  
 - Daemon versions

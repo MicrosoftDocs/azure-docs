@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot designer module errors
 titleSuffix: "Azure Machine Learning"
-description: Troubleshoot module error codes in Azure Machine Learning designer
+description: Learn how you can read and troubleshoot automated module error codes in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

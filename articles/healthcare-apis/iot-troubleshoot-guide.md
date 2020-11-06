@@ -85,7 +85,7 @@ The mapping file copies should be provided to Azure Technical Support when openi
 > JSON is the only supported format for Device and FHIR mapping files at this time.
 
 > [!TIP]
-> Learn more about the Azure IoT Connector for FHIR [Device and FHIR conversion mapping JSON](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
+> Learn more about the Azure IoT Connector for FHIR [Device and FHIR conversion mapping JSON](./iot-mapping-templates.md)
 
 1. Select **"IoT Connector (preview)"** on the lower left side of the Azure API for FHIR resource dashboard in the **"Add-ins"** section.
 
