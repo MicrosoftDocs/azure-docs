@@ -379,27 +379,18 @@ To receive twin patches, a client needs to subscribe to special IoTHub topic `$i
 
 Receiving a direct method is very similar to receiving full twins with the addition that the client needs to confirm back that it has received the call. First the client subscribe to IoT hub special topic `$iothub/methods/POST/#`. Then once a direct method is received on this topic the client needs to extract the request identifier `rid` from the sub-topic on which the direct method is received and finally publish a confirmation message on IoT hub special topic `$iothub/methods/res/200/<request_id>`.
 
-<!--TODO: how to send direct methods? This is a HTTP call 
-Either from IoT Hub: see IoT hub documentation: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-direct-methods#:~:text=IoT%20Hub%20gives%20you%20the,a%20user%2Dspecified%20timeout).
-Or from a module: use see SDK documentation for now - https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/ModuleClient.cs#L597 - it should be documented in our docs - 
--->
+### Send direct methods
+
+Sending a direct method is an HTTP call and thus does not go through the MQTT broker. To send a direct method to IoT hub, see [Understand and invoke direct methods](../iot-hub/iot-hub-devguide-direct-methods.md). To send a direct method locally to another module, see this [Azure IoT C# SDK direct method invokation example](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/ModuleClient.cs#L597).
 
 ## Publish and subscribe between MQTT brokers
 
-To connect two MQTT brokers such as two IoT Edge devices or an IoT Edge device and a third party MQTT broker,the IoT Edge hub includes a MQTT bridge. A MQTT bridge is commonly used to connect an MQTT broker running at the edge to a remote MQTT broker. Only a subset of the local traffic is typically pushed to a remote broker.
+To connect two MQTT brokers, the IoT Edge hub includes a MQTT bridge. A MQTT bridge is commonly used to connect an MQTT broker running to another MQTT broker. Only a subset of the local traffic is typically pushed to another broker.
 
 > [!NOTE]
-> The IoT Edge hub bridge cannot be used to send data to IoT hub since IoT hub is not a full-featured MQTT broker. To learn more, see [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md)
+> The IoT Edge hub bridge can currently only be used between nested IoT Edge devices. It cannot be used to send data to IoT hub since IoT hub is not a full-featured MQTT broker. To learn more IoT hub MQTT broker features support, see [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md). To learn more about nesting IoT Edge devices, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices) 
 
-<!-- TODO: Ask Varun: do I need to use MQTT as the upstream protocol to use the bridge? No need to set it up, this is automatic. UpstreamProcol Value is ignored-->
-
-The IoT Edge MQTT bridge works as a MQTT client that subscribes and publishes to topics on the other broker. As any other clients, the IoT Edge MQTT bridge needs to be authenticated and authorized to publish and subscribe to the other broker. For the public preview only IoT hub authentication is supported, it limits the other brokers to other IoT Edge devices only. Additionally, a parent / child relationship must be setup for the connection to be authorized.
-
-<!-- TODO: Ask Varun/Vadim: I dont understand why the parent/chidl relationship is needed and why cant an authorization policy be used-->
-
-<!--TODO: dont I also need to set the upstream protocol to MQTT?
-If MQTT Broker and on and in a nested config (GATEWAY HOSTENAME) then only MQTT as upstream protocol can be used
--->
+In a nested configuration, the IoT Edge hub MQTT bridge acts as a client of the parent MQTT broker, so authorization rules must be set on the parent EdgeHub to allow the child EdgeHub to publish and subscribe to specific user-defined topics that the bridge is configured for.
 
 The IoT Edge MQTT bridge is configured via a JSON structure that is sent to the IoT Edge hub via its twin. Edit an IoT Edge hub twin to configure its MQTT bridge.
 
@@ -438,7 +429,8 @@ Below is an example of an IoT Edge MQTT bridge configuration that republishes al
 	}
 }
 ```
-
+Other notes on the IoT Edge hub MQTT bridge:
+- The MQTT protocol will automatically be used as upstream protocol when the MQTT broker is used and that IoT Edge is used in a nested configuration, e.g. with a `parent_hostname` specified. To learn more about upstream protocols, see [Cloud communication](iot-edge-runtime.md#cloud-communication). To learn more about nested configurations, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
 
 ## Next steps
 
