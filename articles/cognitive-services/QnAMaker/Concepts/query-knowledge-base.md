@@ -38,7 +38,7 @@ Features used include but aren't limited to word-level semantics, term-level imp
 
 The trained and [published](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). The following diagram illustrates the process when the user query is received.
 
-![The ranking model process for a user query](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
+![The ranking model process for a user query preview](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
 
 ### Ranker process
 
