@@ -25,7 +25,7 @@ This is a list of RHEL images available in Azure. Unless otherwise stated, all i
 
 Offer| SKU | Partitioning | Provisioning | Notes
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-els.md)
+RHEL          | 6.7      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-extended-lifecycle-support.md)
 |             | 6.8      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-extended-lifecycle-support.md)
 |             | 6.9      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-extended-lifecycle-support.md)
 |             | 6.10     | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-extended-lifecycle-support.md)
