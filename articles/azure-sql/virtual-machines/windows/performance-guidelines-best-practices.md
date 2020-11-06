@@ -49,7 +49,7 @@ For more information on *how* and *why* to make these optimizations, please revi
 
 ## VM size guidance
 
-If you are migrating a current on-premises server to an Azure SQL VM, it is natural to start by using the CPU and memory configuration from your source machine. Customers are especially going to want to bring their core licensing to the Azure if they are able to take advantage of [Azure Hybrid Use Benefit](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/).
+If you are migrating a current on-premises server to an Azure SQL VM, it is natural to start by using the CPU and memory configuration from your source machine. Customers are especially going to want to bring their core licensing to Azure if they are able to take advantage of [Azure Hybrid Benefit](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/).
 
 The next step is choosing a VM size in one of the VM series that is most optimal for SQL Server performance based on your workload (OLTP or data warehouse). 
 
@@ -69,7 +69,7 @@ Another memory optimized option is the [Edsv4-series](../../../virtual-machines/
 
 These virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
 
-These virtual machines support Premium Storage, Premium Storage caching, and VM Generation Support Generation 1 and 2.
+These virtual machines support Premium Storage, and Premium Storage caching.
 
 ### DSv2-series 11-15
 Another memory optimized option is the [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory#dsv2-series-11-15). The DSv2-series has the same memory and disk configurations as the previous D-series. This series has a consistent memory-to-CPU ratio of 7 across all virtual machines. 
@@ -105,21 +105,21 @@ The Ddv4 VM sizes includes faster local SSD storage designed for applications th
 
 These machines are ideal for side-by-side SQL and app deployments that require fast access to temp storage and departmental relational databases. There is a standard memory to core ratio of 4 across all of the virtual machines in this series. For this reason, it is recommended to leverage the D8ds_v4 as the starter virtual machine in this series which has 8 vCores and 32 GBs of memory. The largest machine is the D64ds_v4 which has 64 vCores and 256 GBs of memory.
 
-These virtual machines support premium storage, support premium storage caching, and support VM generations 1 and 2.
+These virtual machines support premium storage and premium storage caching.
 
 ### B-series
 The burstable virtual machine sizes are ideal for workloads that do not need consistent performance such as proof of concept and very small databases and development servers. This series is unique as the apps have the ability to burst during business hours with burstable credits varying based on machine size and when the credits are exhausted, the VM returns to the baseline performance.
 
-The benefit of the B-series is the compute savings you could achieve compared to the other VM sizes in other series especially if you need the processing power sparingly throughput the day.
+The benefit of the B-series is the compute savings you could achieve compared to the other VM sizes in other series especially if you need the processing power sparingly throughout the day.
 
-This series supports premium storage, premium storage caching, VM generation support 1 and 2.
+This series supports premium storage and premium storage caching.
 
 ### Av2-series
 The Av2-series VMs are best suited for entry level workloads like development and test, low traffic web servers, small to medium app databases, and proof-of-concepts.
 
 Only the A2m_v2 (2 cores and 16GBs of memory), A4m_v2 (4 cores and 32GBs of memory), and the A8m_v2 (8 cores and 64GBs of memory) have a fair memory to core ratio of 8 for these top three virtual machines. 
 
-It is important to be aware that the Av2 series does not support premium storage.
+> [!WARNING] It is important to be aware that the Av2 series does not support premium storage.
 
 ### Storage optimized
 The last recommended option to consider for SQL Server workloads is the storage optimized VM sizes that has a specific use case. These virtual machines are specifically designed with optimized disk throughput and IO. This virtual series is strong for big data scenarios, data warehousing, and large transactional databases. 
@@ -133,13 +133,13 @@ The NVMe storage is ephemeral meaning that data will be lost on these disks if y
 ### Lsv2-series
 The Lsv2-series features high throughput, low latency, and local NVMe storage. The Lsv2-series VMs are optimized to use the local disk on the node attached directly to the VM rather than using durable data disks. These virtual machines are strong options for big data, data warehouse, reporting and ETL workloads.
 
-The high throughput and IOPs of the local NVMe storage is a good use case for processing files that will be loaded into your database and other scenarios where the source data can be recreated from the source system or other repository such as Azure Blob storage or Azure Data Lake. 
+The high throughput and IOPs of the local NVMe storage is a good use case for processing files that will be loaded into your database and other scenarios where the source data can be recreated from the source system or other repositories such as Azure Blob storage or Azure Data Lake. 
 
 SQL Server data, log, and tempdb files should be stored on the uncached data disks. It is not recommended to store data files on the ephemeral NVMe storage as there would be data loss in the deallocation of the VM or in the event of a VM failure. 
 
 Note: The Lsv2 and Ls-series do not support the creation of a local cache to increase the IOPs achievable by durable data disks.
 
-These virtual machine support premium storage, but does not support premium storage caching. There is VM generation support for generation 1 and 2. Additionally, bursting is supported in this series. Lsv2-series VMs can burst their disk performance for up to 30 minutes at a time.
+These virtual machine support premium storage, but does not support premium storage caching. Additionally, bursting is supported in this series. Lsv2-series VMs can burst their disk performance for up to 30 minutes at a time.
 
 There is a consistent memory to vCore ratio of 8 across all of these virtual machines.
 
@@ -156,7 +156,7 @@ For end of month and end of quarter processing, you may want to consider scaling
 Once your performance characteristics are captured and analyzed, you would then select the [VM Size](../../../virtual-machines/sizes-memory) that can scale to your workload's performance requirements.
 
 ### IOPS and Throughput
-SQL Server performance depends heavily on the I/O subsystem. Unless your database fits into physical memory, SQL Server constantly brings database pages in and out of the buffer pool. The data files for SQL Server should be treated differently. Access to log files is sequential except when a transaction needs to be rolled back where data files, including tempdb, are randomly accessed. If you have a slow I/O subsystem, your users may experience performance problems such as slow response times and tasks that do not complete due to time-outs. 
+SQL Server performance depends heavily on the I/O subsystem. Unless your database fits into physical memory, SQL Server constantly brings database pages in and out of the buffer pool. The data files for SQL Server should be treated differently. Access to log files is sequential except when a transaction needs to be rolled back where data files, including tempdb, are randomly accessed. If you have a slow I/O subsystem, your users may experience performance issues such as slow response times and tasks that do not complete due to time-outs. 
 
 The Azure marketplace virtual machines have log files on a physical disk that is separate from the data files by default. The tempdb data files count and size meet best practices and are targeted to the ephemeral D:/ drive also by default. 
 
@@ -184,40 +184,35 @@ These counters can help validate the memory health of a SQL Server virtual machi
 * [\SQLServer:Buffer Manager\Page life expectancy](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
 
 ### Compute / Processing
-Compute in Azure is managed differently than on-prem. On-prem servers are built to last 3-5 years without an upgrade due to the cost and difficulty of acquiring new hardware. This is mitigated somewhat by virtualized environments but they are often optimized to take the most advantage of the underlying hardware, meaning any significant change to resource consumption by a VM requires rebalancing of the entire environment. This is not a problem on Azure where a completely different machine is a reboot away. Azure virtual machines should be configured to keep average CPU as high as possible without impacting the workload. An ideal configuration would be a machine running at 80%+ CPU with peaks above 90% but not reaching 100% for any sustained period of time.
+Compute in Azure is managed differently than on-prem. On-prem servers are built to last several years without an upgrade due to the management overhead and cost of acquiring new hardware. Virtualization mitigates some of these issues but applications are optimized to take the most advantage of the underlying hardware, meaning any significant change to resource consumption requires rebalancing of the entire physical environment. 
 
-Fundamentally, we only want to provision the compute that the application needs knowing we can scale upwards for end of month and end of quarter workloads. 
+This is not a challenge in Azure where a new virtual machine on a different series of hardware, and even in a different region is easy to achieve. 
+
+In Azure you want to take advtange of as much of the virtual machines resources as possible, therfore, Azure virtual machines should be configured to keep the average CPU as high as possible without impacting the workload. 
+
+> [!NOTE] An ideal configuration would be a machine running with 80% or the compute with peaks above 90% but not reaching 100% for any sustained period of time. Fundamentally, we only want to provision the compute that the application needs where we can plan to scale up or down as our needs change. 
 
 The below counters can help validate the compute health of a SQL Server virtual machine.
 * \Processor Information(_Total)\% Processor Time
 * \Process(sqlservr)\% Processor Time
 
-### SQL Workloads
-Tracking errors can help identify if there is something unexpectedly different between your workload tests. To track repeatable workloads for performance tuning and especially to compare the amount of user throughput compared to on-prem and other scenarios it is recommended to leverage the following counters. 
-
-* [\SQLServer:SQL Statistics\Batch Requests/sec](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-statistics-object?view=sql-server-ver15)
-<br/>
-* [\SQLServer:Transactions](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-transactions-object?view=sql-server-ver15)
-<br/>
-* [\SQLServer:SQL Errors(*)\Errors/sec](https://docs.microsoft.com/en-us/sql/relational-databases/performance-monitor/sql-server-sql-errors-object?view=sql-server-ver15)
-
-
-
 ### Creating a New Machine (Greenfield)
 
-If you are creating a new SQL Server on an Azure SQL VM and you are not migrating a current source system; create your new Azure SQL VM based on your vendor requirements.  The vendor requirements for an Azure SQL VM would be the same as what you would deploy on-premises. 
+If you are creating a new SQL Server on an Azure SQL VM and you are not migrating a current source system, create your new Azure SQL VM based on your vendor requirements.  The vendor requirements for an Azure SQL VM would be the same as what you would deploy on-premises. 
 
 If you are creating a new Azure SQL VM with a new application built for the cloud, you can easily size your Azure SQL VM as your data and usage requirements evolve.
 
 You could start with the development environments as was previously recommended with the D-series, B-series or even the Av2-series and grow your environment over time.
 
-A new SQL Server OLTP environment should have 4 vCore, a recommended minimum of 32 GBs of memory, with at least a memory to vCore ratio of 8 as you scale your virtual machines.
+A new SQL Server OLTP environment should have 4 vCore, a recommended minimum of 32 GBs of memory, with at least a memory to vCore ratio of 8 as you scale your virtual machine.
 
-For new environments, start with 4 core machines and scale to 8, 16, 32, and above when your data and compute requirements change. For OLTP throughput, target Azure SQL VMs that have 5000 IOPS for every vCore. Using the Azure SQL VM marketplace images with the storage configuration in the portal, makes it easy to create the storage pools necessary to get the size, IOPS and throughput necessary for your workloads. 
+For new environments, start with 4 core machines and scale to 8, 16, 32, and above when your data and compute requirements change. For OLTP throughput, target Azure SQL VMs that have 5000 IOPS for every vCore. 
+
+Use the Azure SQL VM marketplace images with the storage configuration in the portal. This will make it easier to properly create the storage pools necessary to get the size, IOPS and throughput necessary for your workloads. 
 
 It is important to choose Azure SQL VMs that support premium storage and premium storage caching which is covered in more details in the storage section.
 
-SQL Server data warehouse environments will often need to scale beyond the 1:8 core to memory ratio. For medium environments you may want to choose 1:16 with larger data warehouse environments having 1:32 memory to core ratios.
+SQL Server data warehouse environments will often need to scale beyond the 1:8 core to memory ratio. For medium environments you may want to choose a 1:16 ratio with larger data warehouse environments having 1:32 memory to core ratios.
 
 SQL Server data warehouse environments often benefit from the parallel processing of larger machines. For this reason the M-series and the Mv2-series are strong options for larger data warehouse environments.
 
@@ -238,7 +233,7 @@ For example, the M64-32ms requires licensing only 32 SQL Server cores with the m
 
 For the previous example, while the M64-16ms has a quarter of the SQL Server licensing cost of the M64ms, the compute cost of the virtual machine will be the same.
 
-> [!NOTE] Medium to large data warehouse workloads may still benefit from constrained core VMs, but data warehouse workloads are commonly characterized by fewer users and processes addressing larger amounts of data through query plans that runs in parallel. 
+> [!NOTE] Medium to large data warehouse workloads may still benefit from constrained core VMs, but data warehouse workloads are commonly characterized by fewer users and processes addressing larger amounts of data through query plans that run in parallel. 
 
 ## Storage guidance
 
