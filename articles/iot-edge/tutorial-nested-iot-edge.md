@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create a gateway for a downstream IoT Edge device - Azure IoT Edge
+title: Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge
 description: This tutorial shows you how to create a hierarchical structure of IoT Edge devices using gateways.
 author: v-tcassi
 manager: philmea
@@ -10,15 +10,16 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Tutorial: Create a hierarchy of IoT Edge devices using gateways (Preview)
+# Tutorial: Create a hierarchy of IoT Edge devices (Preview)
 
 Deploy Azure IoT Edge nodes across networks organized in hierarchical layers.
 
 >[!NOTE]
 >This feature requires IoT Edge version 1.2, which is in public preview.
-You can structure a hierarchy of devices so that only the top layer has connectivity to the cloud, and the lower layers can only communicate with adjacent north and south layers. This network configuration is a simplified version of those found in typical manufacturing environments, which follow the [ISA-95 standard](https://en.wikipedia.org/wiki/ANSI/ISA-95).
 
-The goal of this tutorial is to create a hierarchy of IoT Edge devices that simulates a production environment. At the end, you will deploy the [Simulated Temperature Sensor module](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.simulated-temperature-sensor) to a lower layer device without internet access using an API proxy module to securely direct an image pull request through the top layer of your hierarchy, which will have access to the cloud.
+You can structure a hierarchy of devices so that only the top layer has connectivity to the cloud, and the lower layers can only communicate with adjacent north and south layers. This network layering is the foundation of most industrial networks, which follow the [ISA-95 standard](https://en.wikipedia.org/wiki/ANSI/ISA-95).
+
+The goal of this tutorial is to create a hierarchy of IoT Edge devices that simulates a production environment. At the end, you will deploy the [Simulated Temperature Sensor module](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.simulated-temperature-sensor) to a lower layer device without internet access by downloading container images through the hierarchy.
 
 To accomplish this goal, this tutorial walks you through creating a hierarchy of IoT Edge devices, deploying IoT Edge runtime containers to your devices, and configuring your devices locally. In this tutorial, you learn how to:
 
@@ -26,8 +27,8 @@ To accomplish this goal, this tutorial walks you through creating a hierarchy of
 >
 > * Create and define the relationships in a hierarchy of IoT Edge devices.
 > * Configure the IoT Edge runtime on the devices in your hierarchy.
-> * Add workloads to the devices in your hierarchy.
 > * Install consistent certificates across your device hierarchy.
+> * Add workloads to the devices in your hierarchy.
 > * Use an API proxy module to securely route HTTP traffic over a single port from your lower layer devices.
 
 In this tutorial, the following network layers are defined:
@@ -50,17 +51,9 @@ To create a hierarchy of IoT Edge devices, you will need:
 
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 
-* Azure CLI with the Azure IoT extension installed. This tutorial uses the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). If you're unfamiliar with the Azure Cloud Shell, [check out a quickstart for details](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell).
+* Azure CLI v2.3.1 with the latest Azure IoT extension installed. This tutorial uses the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). If you're unfamiliar with the Azure Cloud Shell, [check out a quickstart for details](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell).
 
 ## Configure your IoT Edge device hierarchy in IoT Hub
-
-Configuring your IoT Edge device hierarchy consists of three main steps:
-
-1. Creating the devices and defining the parent-child relationships between them in IoT Hub.
-
-1. Installing and configuring the IoT Edge runtime containers to the devices in your hierarchy.
-
-1. Deploying workloads to the device in your hierarchy from IoT Hub.
 
 ### Create a hierarchy of IoT Edge devices
 
@@ -91,7 +84,7 @@ The first step, creating your IoT Edge devices, can be done through the Azure po
 1. Enter the following command to create your child edge device and create the parent-child relationship between devices:
 
     ```azurecli-interactive
-    az iot hub device-identity create -d {lower_layer_device_id} --edge-enabled --pd {top_layer_device_id} -n {iothub_name}
+    az iot hub device-identity create --device-id {lower_layer_device_id} --edge-enabled --pd {top_layer_device_id} --hub-name {iothub_name}
     ```
 
 ---
@@ -176,8 +169,6 @@ Each device needs a copy of the root CA certificate and a copy of its own device
 
 Install IoT Edge by following these steps on both devices.
 
-<!-- BUG BASH STEPS - Update for release -->
-
 1. Update package lists on your device.
 
    ```bash
@@ -190,13 +181,13 @@ Install IoT Edge by following these steps on both devices.
    sudo apt-get install moby-engine
    ```
 
-1. Install the hsmlib and IoT Edge daemon
+1. Install the hsmlib and IoT Edge daemon <!-- Update with proper image links on release -->
 
    ```bash
-   sudo wget -O libiothsm-std_public_preview_amd64.deb "https://iotedgeforiiot.blob.core.windows.net/iotedge-public-preview-assets/libiothsm-std_public_preview_amd64.deb"
-   sudo wget -O iotedge_public_preview_amd64.deb "https://iotedgeforiiot.blob.core.windows.net/iotedge-public-preview-assets/iotedge_public_preview_amd64.deb"
-   sudo dpkg -i libiothsm-std_public_preview_amd64.deb
-   sudo dpkg -i iotedge_public_preview_amd64.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0.rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0.rc1-1_ubuntu16.04_amd64.deb -o iotedge.deb
+   sudo dpkg -i ./libiothsm-std.deb
+   sudo dpkg -i ./iotedge.deb
    ```
 
 ### Configure the IoT Edge runtime
@@ -258,7 +249,7 @@ Complete these steps and restart the IoT Edge service to configure your devices.
    > [!NOTE]
    > For hierarchies with more than one lower layer, update the *parent_hostname* field with the FQDN of the device in the layer immediately above.
 
-1. For your **top layer** device, find the **agent** yaml section and update the image value to the correct version of the Edge Agent. In this case, we will point the top layer's IoT Edge Agent at the Azure Container Registry with the public preview version of IoT Edge Agent image available. <!-- BUG BASH STEPS - Update for release -->
+1. For your **top layer** device, find the **agent** yaml section and update the image value to the correct version of the Edge Agent. In this case, we will point the top layer's IoT Edge Agent at the Azure Container Registry with the public preview version of IoT Edge Agent image available.
 
    ```yml
    agent:
@@ -266,14 +257,11 @@ Complete these steps and restart the IoT Edge service to configure your devices.
      type: "docker"
      env: {}
      config:
-       image: "iotedgeforiiot.azurecr.io/azureiotedge-agent:public-preview"
-       auth:
-         username: 2ad19b50-7a8a-45c4-8d11-20636732495f
-         password: bNi_CoTYr.VNugCZn1wTd_v09AJ6NPIM0_
-         serveraddress: iotedgeforiiot.azurecr.io
+       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1"
+       auth: {}
    ```
 
-1. Bootstrap IoT Edge devices in **lower layers** in the same way. <!-- BUG BASH STEPS - Update for release -->
+1. For IoT Edge devices in **lower layers**, update the image value's domain name to point to the parent device's FQDN or IP followed by the API proxy port, 8000. You will add the API proxy module in the next section.
 
    ```yml
    agent:
@@ -281,11 +269,8 @@ Complete these steps and restart the IoT Edge service to configure your devices.
      type: "docker"
      env: {}
      config:
-       image: "iotedgeforiiot.azurecr.io/azureiotedge-agent:public-preview"
-       auth:
-         username: 2ad19b50-7a8a-45c4-8d11-20636732495f
-         password: bNi_CoTYr.VNugCZn1wTd_v09AJ6NPIM0_
-         serveraddress: iotedgeforiiot.azurecr.io
+       image: "<parent_device_fqdn_or_ip>:8000/azureiotedge-agent:1.2.0-rc1"
+       auth: {}
    ```
 
 1. Save and close the file.
@@ -314,38 +299,30 @@ In the [Azure portal](https://ms.portal.azure.com/):
 
 1. On the upper bar, select **Set Modules**.
 
-1. Provide the following registry credentials: <!-- BUG BASH STEPS - Update for release -->
-
-   * **Name**: `iotedgeforiiotACR`
-   * **Address**: `iotedgeforiiot.azurecr.io`
-   * **Username**: `2ad19b50-7a8a-45c4-8d11-20636732495f`
-   * **Password**: `bNi_CoTYr.VNugCZn1wTd_v09AJ6NPIM0_`
-
 1. Select **Runtime Settings**, next to the gear icon.
 
-1. Under **Edge Hub**, in the image field, enter `iotedgeforiiot.azurecr.io/azureiotedge-hub:public-preview`. <!-- BUG BASH STEPS - Update for release -->
+1. Under **Edge Hub**, in the image field, enter `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`.
 
    ![Edit the Edge Hub's image](./media/tutorial-nested-iot-edge/edge-hub-image.png)
 
-1. Add the following environment variables to your Edge Hub module: <!-- BUG BASH STEPS - Update for release -->
+1. Add the following environment variables to your Edge Hub module:
 
     | Name | Value |
     | - | - |
-    | `experimentalFeatures:enabled` | `true` |
-    | `experimentalFeatures:nestedEdgeEnabled` | `true` |
+    | `experimentalFeatures__enabled` | `true` |
+    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
    ![Edit the Edge Hub's environment variables](./media/tutorial-nested-iot-edge/edge-hub-environment-variables.png)
 
-1. Under **Edge Agent**, in the image field, enter `iotedgeforiiot.azurecr.io/azureiotedge-agent:public-preview`. Select **Save**. <!-- BUG BASH STEPS - Update for release -->
+1. Under **Edge Agent**, in the image field, enter `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1`. Select **Save**.
 
+1. Add the Docker registry module to your top layer device. Select **+ Add** and choose **IoT Edge Module** from the dropdown. Provide the name `registry` for your Docker registry module and enter `registry:latest` for the image URI. Next, add environment variables and create options to point your local registry module at the Microsoft container registry to download container images from and to serve these images at registry:5000.
 
-1. Add the Docker registry module to your top layer device. Select **+ Add** and choose **IoT Edge Module** from the dropdown. Provide a name for your Docker registry module and enter `registry:latest` for the image URI. Next, add environment variables and create options to point your local registry module at the Microsoft container registry to download container images from and to serve these images at {registry_module_name}:5000.
-
-1. Under the environment variables tab, enter the following environment variable name-value pair: <!-- BUG BASH STEPS - Update for release -->
+1. Under the environment variables tab, enter the following environment variable name-value pair:
 
     | Name | Value |
     | - | - |
-    | `REGISTRY_PROXY_REMOTEURL` | `mcr.microsoft.com` |
+    | `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
 
 1. Under the container create options tab, enter the following JSON:
 
@@ -363,30 +340,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
    }
    ```
 
-1. Next, add the API proxy module to your top layer device. Select **+ Add** and choose **IoT Edge Module** from the dropdown. Provide a name for your API proxy module and enter `mcr.microsoft.com/azureiotedge-api-proxy:latest` for the image URI. Next, add environment variables and create options that direct container image requests made to your device on your IoT Edge API Proxy port (8000) to your local registry module on its open port (5000). <!-- Change once Marketplace flow incident is fixed -->
-
-1. Under the environment variables tab, enter the following environment variables name-value pairs:
-
-    | Name | Value |
-    | - | - |
-    | `DOCKER_REQUEST_ROUTE_ADDRESS` | `{registry_module_name}:5000` |
-    | `NGINX_DEFAULT_PORT` | `8000` |
-
-1. Under the container create options tab, enter the following JSON:
-
-   ```json
-   {
-    "HostConfig": {
-        "PortBindings": {
-            "8000/tcp": [
-                {
-                    "HostPort": "8000"
-                }
-            ]
-         }
-      }
-   }
-   ```
+1. Next, add the API proxy module to your top layer device. Select **+ Add** and choose **Marketplace Module** from the dropdown. Search for `IoT Edge API Proxy` and select the module. The IoT Edge API proxy uses port 8000 and is configured to use your registry module named `registry` on port 5000 by default.
 
 1. Select **Review + create**, then **Create** to complete the deployment. Your top layer device's IoT Edge runtime, which has access to the internet, will pull and run the **public preview** configs for IoT Edge hub and IoT Edge agent.
 
@@ -417,47 +371,36 @@ In the [Azure portal](https://ms.portal.azure.com/):
                            "version": "1.0",
                            "env": {
                                "REGISTRY_PROXY_REMOTEURL": {
-                                   "value": "https://iotedgeforiiot.azurecr.io:443"
-                               },
-                               "REGISTRY_PROXY_USERNAME": {
-                                   "value": "2ad19b50-7a8a-45c4-8d11-20636732495f"
-                               },
-                               "REGISTRY_PROXY_PASSWORD": {
-                                   "value": "bNi_CoTYr.VNugCZn1wTd_v09AJ6NPIM0_"
-                               }
+                                   "value": "https://mcr.microsoft.com"
                            },
                            "status": "running",
                            "restartPolicy": "always"
                        },
-                       "apiProxyModule": {
+                       "IoTEdgeAPIProxy": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-api-proxy:latest",
-                               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8000/tcp\":[{\"HostPort\":\"8000\"}]}}}"
+                               "image": "mcr.microsoft.com/azureiotedge-api-proxy",
+                               "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"8000/tcp\": [{\"HostPort\":\"8000\"}]}}}"
                            },
-                        "type": "docker",
-                           "version": "1.0",
+                           "type": "docker",
                            "env": {
-                               "DOCKER_REQUEST_ROUTE_ADDRESS": {
-                                   "value": "dockerContainerRegistry:5000"
-                               },
                                "NGINX_DEFAULT_PORT": {
                                    "value": "8000"
+                               },
+                               "DOCKER_REQUEST_ROUTE_ADDRESS": {
+                                   "value": "registry:5000"
+                               },
+                               "BLOB_UPLOAD_ROUTE_ADDRESS": {
+                                   "value": "AzureBlobStorageonIoTEdge:11002"
                                }
                            },
                            "status": "running",
-                           "restartPolicy": "always"
+                           "restartPolicy": "always",
+                           "version": "1.0"
                        }
                    },
                    "runtime": {
                        "settings": {
                            "minDockerVersion": "v1.25",
-                           "registryCredentials": {
-                               "iotedgeforiiotACR": {
-                                   "address": "iotedgeforiiot.azurecr.io",
-                                   "password": "bNi_CoTYr.VNugCZn1wTd_v09AJ6NPIM0_",
-                                   "username": "2ad19b50-7a8a-45c4-8d11-20636732495f"
-                               }
-                           }
                        },
                        "type": "docker"
                    },
@@ -465,22 +408,22 @@ In the [Azure portal](https://ms.portal.azure.com/):
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "iotedgeforiiot.azurecr.io/azureiotedge-agent:public-preview",
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "iotedgeforiiot.azurecr.io/azureiotedge-hub:public-preview",
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
                            "env": {
-                               "experimentalFeatures:enabled": {
+                               "experimentalFeatures__enabled": {
                                    "value": "true"
                                },
-                               "experimentalFeatures:nestedEdgeEnabled": {
+                               "experimentalFeatures__nestedEdgeEnabled": {
                                    "value": "true"
                                }
                            },
@@ -529,27 +472,20 @@ In the [Azure portal](https://ms.portal.azure.com/):
 
 1. On the upper bar, select **Set Modules**.
 
-1. Provide the following registry credentials:<!-- BUG BASH STEPS - Update for release -->
-
-   * **Name**: `iotedgeforiiotACR`
-   * **Address**: `iotedgeforiiot.azurecr.io`
-   * **Username**: `2ad19b50-7a8a-45c4-8d11-20636732495f`
-   * **Password**: `bNi_CoTYr.VNugCZn1wTd_v09AJ6NPIM0_`
-
 1. Select **Runtime Settings**, next to the gear icon.
 
-1. Under **Edge Hub**, in the image field, enter `iotedgeforiiot.azurecr.io/azureiotedge-hub:public-preview`. <!-- BUG BASH STEPS - Update for release -->
+1. Under **Edge Hub**, in the image field, enter `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`.
 
-1. Add the following environment variables to your Edge Hub module: <!-- BUG BASH STEPS - Update for release -->
+1. Add the following environment variables to your Edge Hub module:
 
     | Name | Value |
     | - | - |
-    | `experimentalFeatures:enabled` | `true` |
-    | `experimentalFeatures:nestedEdgeEnabled` | `true` |
+    | `experimentalFeatures__enabled` | `true` |
+    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Under **Edge Agent**, in the image field, enter `iotedgeforiiot.azurecr.io/azureiotedge-agent:public-preview`. Select **Save**. <!-- BUG BASH STEPS - Update for release -->
+1. Under **Edge Agent**, in the image field, enter `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1`. Select **Save**.
 
-1. Add the temperature sensor module. Select **+ Add** and choose **IoT Edge Module** from the dropdown. Provide a name for your temperature sensor module and enter `$upstream:8000/azureiotedge-simulated-temperature-sensor:latest` for the image URI. <!-- Change once Marketplace flow incident is fixed -->
+1. Add the temperature sensor module. Select **+ Add** and choose **Marketplace Module** from the dropdown. Search for `Simulated Temperature Sensor` and select the module.
 
 1. Select **Save**, **Review + create**, and **Create** to complete the deployment.
 
@@ -573,7 +509,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
                    "modules": {
                        "simulatedTemperatureSensor": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-simulated-temperature-sensor:latest",
+                               "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:latest",
                                "createOptions": ""
                            },
                            "type": "docker",
@@ -585,13 +521,6 @@ In the [Azure portal](https://ms.portal.azure.com/):
                    "runtime": {
                        "settings": {
                            "minDockerVersion": "v1.25",
-                           "registryCredentials": {
-                               "iotedgeforiiotACR": {
-                                   "address": "iotedgeforiiot.azurecr.io",
-                                   "password": "bNi_CoTYr.VNugCZn1wTd_v09AJ6NPIM0_",
-                                   "username": "2ad19b50-7a8a-45c4-8d11-20636732495f"
-                               }
-                           }
                        },
                        "type": "docker"
                    },
@@ -599,22 +528,22 @@ In the [Azure portal](https://ms.portal.azure.com/):
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "iotedgeforiiot.azurecr.io/azureiotedge-agent:public-preview",
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "iotedgeforiiot.azurecr.io/azureiotedge-hub:public-preview",
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
                            "env": {
-                               "experimentalFeatures:enabled": {
+                               "experimentalFeatures__enabled": {
                                    "value": "true"
                                },
-                               "experimentalFeatures:nestedEdgeEnabled": {
+                               "experimentalFeatures__nestedEdgeEnabled": {
                                    "value": "true"
                                }
                            },
