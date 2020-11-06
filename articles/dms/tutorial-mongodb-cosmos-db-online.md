@@ -9,9 +9,9 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
+ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 11/06/2020
-ms.custom: "seo-lt-2019", "seo-nov-2020"
+ms.date: 09/25/2019
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS
