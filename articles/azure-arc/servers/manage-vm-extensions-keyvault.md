@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Azure Key Vault VM extension (preview) for Arc enabled servers
 
-To easily deploy the [Key Vault] virtual machine (VM) extension, Azure Arc enabled servers supports installing on either Windows or Linux using the following methods:
+To easily deploy the Key Vault virtual machine (VM) extension, Azure Arc enabled servers supports installing on either Windows or Linux using the following methods:
 
 * The Azure CLI
 * The Azure PowerShell
@@ -28,7 +28,7 @@ Before you deploy the extension, you need to complete the following:
 
 1. [Create a vault and certificate](../../key-vault/certificates/quick-create-portal.md) (self-signed or import).
 
-2. Grant the Azure Arc enabled server access to the certificate secret. If you’re using the [RBAC preview](../../key-vault/general/rbac-guide), search for the name of the Azure Arc resource and assign it the **Key Vault Secrets User (preview)** role. If you’re using [Key Vault access policy](../../key-vault/general/assign-access-policy-portal.md), assign Secret **Get** permissions to the Azure Arc resource’s system assigned identity.
+2. Grant the Azure Arc enabled server access to the certificate secret. If you’re using the [RBAC preview](../../key-vault/general/rbac-guide.md), search for the name of the Azure Arc resource and assign it the **Key Vault Secrets User (preview)** role. If you’re using [Key Vault access policy](../../key-vault/general/assign-access-policy-portal.md), assign Secret **Get** permissions to the Azure Arc resource’s system assigned identity.
 
 ## Extension schema
 
