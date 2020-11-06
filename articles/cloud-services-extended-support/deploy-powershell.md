@@ -119,7 +119,10 @@ In this method, PowerShell commands are used to create the `.cspkg` and `.cscfg`
 9.	Create OS Profile Object 
 
     ```powershell
-    
+    $keyVault = Get-AzKeyVault -ResourceGroupName ContosOrg -VaultName ContosKeyVault 
+    $certificate = Get-AzKeyVaultCertificate -VaultName ContosKeyVault -Name ContosCert 
+    $secretGroup = New-AzCloudServiceVaultSecretGroupObject -Id $keyVault.ResourceId -CertificateUrl $certificate.SecretId 
+    $osProfile = @{secret = @($secretGroup)} 
     ```
 
 10.	Create a Network Profile Object 
