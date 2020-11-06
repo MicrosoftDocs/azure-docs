@@ -26,8 +26,8 @@ You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This a
 - An **IoT Hub** of SKU either F1, S1, S2 or S3.
 - Have an **IoT Edge device with version 1.2 or above**. Since IoT Edge MQTT broker is currently in public preview, set the following environment variables to true on the edgeHub container to enable the MQTT broker:
 
-    - experimentalFeatures_enabled
-    - mqttbroker_enabled
+    - experimentalFeatures__enabled
+    - mqttbroker__enabled
 
 - **Mosquitto clients** installed on the IoT Edge device. This article uses the popular  Moquitto clients that includes [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) and [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Other MQTT clients could be used instead. To install the Mosquitto clients on an Ubuntu device, run the following command:
 
@@ -87,14 +87,12 @@ Once a MQTT client is authenticated to IoT Edge hub, it needs to be authorized t
 > [!NOTE]
 > For the public preview, the editing of authorization policies of the MQTT broker is only available via Visual Studio, Visual Studio Code or Azure CLI. The Azure portal currently does not support editing the IoT Edge hub twin and its authorization policy.
 
-Each authorization policy statement consists of the combination of `identities`, `allow` or `deny` effect, `operations`, `resources` and optional `description`:
+Each authorization policy statement consists of the combination of `identities`, `allow` or `deny` effect, `operations` and `resources`:
 
 - `identities` describe the subject of the policy. It must map to the `client identifier` sent by clients in their CONNECT packet.
 - `allow` or `deny` effect define whether to allow or deny operations.
-- `operations` define the actions to authorize. `connect`, `publish` and `subscribe` are the three supported actions today.
+- `operations` define the actions to authorize. `mqtt:connect`, `mqtt:publish` and `mqtt:subscribe` are the three supported actions today.
 - `resources` define the object of the policy. It can be a topic or a topic pattern defined with [MQTT wildcards](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107).
-
-<!-- TODO: Ask Vadim if descriptions are supported. Where do they go? -->
 
 Below is an example of an authorization policy that explicitly does not allow "rogue_client" client to connect, allows any Azure IoT clients to connect and allows "sensor_1" to publish to topic `events/alerts`.
 
@@ -112,7 +110,6 @@ Below is an example of an authorization policy that explicitly does not allow "r
          "mqttBroker":{
             "authorizations":[
                {
-                  "description":"rogue_client is not allowed to connect",
                   "identities":[
                      "rogue_client"
                   ],
@@ -125,7 +122,6 @@ Below is an example of an authorization policy that explicitly does not allow "r
                   ]
                },
                {
-                  "description":"Allow all Azure IoT identities to connect",
                   "identities":[
                      "{{iot:identity}}"
                   ],
@@ -138,7 +134,6 @@ Below is an example of an authorization policy that explicitly does not allow "r
                   ]
                },
                {
-                  "description":"Allow sensor_1 to publish alerts",
                   "identities":[
                      "sensor_1"
                   ],
@@ -165,18 +160,17 @@ A couple of things to keep in mind when writing your authorization policy:
 - By default, all operations are denied.
 - Authorization statements are evaluated in the order than they appear in the JSON definition. It starts by looking at `identities` and then select the first allow or deny statements that match the request. In case of conflicts between allow and deny statements, the deny statement wins.
 - Several variables (e.g. substitutions) can be used in the authorization policy:
-    - `{{iot:identity}}` represents any clients registered in IoT hub.
-    - `{{iot:device_id}}` represents the identity of the currently connected device.
-    - `{{iot:module_id}}` represents the identity of the currently connected module.
-
-<!-- TODO: Check with Vadim if it is correct and if we are missing any -->
+    - `{{iot:identity}}` represents the identity of the currently connected client. For example `myDevice` in case of a device, `myEdgeDevice/SampleModule` in case of a module.
+    - `{{iot:device_id}}` represents the identity of the currently connected device. For example `myDevice` in case of a device, `myEdgeDevice` in case of a module.
+    - `{{iot:module_id}}` represents the identity of the currently connected module. For example `` in case of a device, `SampleModule` in case of a module.
+    - `{{iot:this_device_id}}` represents the identity of the IoT Edge device running the authorization policy. For example `myIoTEdgeDevice`.
 
 Authorization for IoT hub topics are handled slightly differently than user-defined topics. Here are the key points to remember:
-- Azure IoT devices or modules need an explicit authorization rule to connect to IoT Edge hub MQTT broker. A default authorization policies is provided below.
-- Azure IoT devices or modules can access by default to their own IoT hub topics without any explicit authorization rule.
-- Azure IoT devices or modules can access the IoT hub topics of other devices or modules providing that appropriate explicit authorization rules are defined.
+- Azure IoT devices or modules need an explicit authorization rule to connect to IoT Edge hub MQTT broker. A default connect authorization policy is provided below.
+- Azure IoT devices or modules can access their own IoT hub topics by default without any explicit authorization rule. However, authorizations stem from parent/child relationships in that case and these relationships must be set. IoT Edge modules are automatically set as children of their IoT Edge device but devices need to explicitly be set as children of their IoT Edge gateway.
+- Azure IoT devices or modules can access the topics, including IoT hub topics, of other devices or modules providing that appropriate explicit authorization rules are defined.
 
-Here is a default authorization policy that can be used to enable all Azure IoT devices or modules to connect to the broker:
+Here is a default authorization policy that can be used to enable all Azure IoT devices or modules to **connect** to the broker:
 
 ```json
 {
@@ -212,14 +206,7 @@ In this article, you'll use one client named **sub_client** that subscribes to a
 
 ### Create publisher and subscriber clients
 
-Create two IoT Devices in IoT Hub, set your IoT Edge device as their parent and get their passwords.
-<!-- TODO: Is the parent/child relationship still needed? -->
-
-# [Portal](#tab/azure-portal)
-
-<!--Todo: add portal experience-->
-
-# [Azure CLI](#tab/azure-cli)
+Create two IoT Devices in IoT Hub and get their passwords. Using the Azure CLI from your terminal to:
 
 1. Create two IoT Devices in IoT Hub, parent them to your IoT Edge device:
 
@@ -253,8 +240,6 @@ az iot hub device-identity create --device-id  pub_client --hub-name <iot_hub_na
    "sas": "SharedAccessSignature sr=example.azure-devices.net%2Fdevices%2Fdevice_1%2Fmodules%2Fmodule_a&sig=H5iMq8ZPJBkH3aBWCs0khoTPdFytHXk8VAxrthqIQS0%3D&se=1596249190"
 }
 ```
-
----
 
 ### Authorize publisher and subscriber clients
 
@@ -315,7 +300,6 @@ To authorize the publisher and subscriber, edit the IoT Edge hub twin either via
    }
 }
 ```
-
 
 ### Symmetric keys authentication without TLS
 
@@ -379,8 +363,6 @@ Sending telemetry data to IoT Hub is similar to publishing on a user-defined top
 
 Additionally, create a route such as `FROM /messages/* INTO $upstream` to send telemetry from the IoT Edge MQTT broker to IoT hub. To learn more about routing, see [Declare routes](module-composition.md#declare-routes).
 
-<!--TODO: mention that this is only valid when using AMQP?-->
-
 ### Get twin
 
 Getting the device/module twin is not a typical MQTT pattern. The client needs to issue a request for the twin that IoT Hub is going to serve.
@@ -397,7 +379,10 @@ To receive twin patches, a client needs to subscribe to special IoTHub topic `$i
 
 Receiving a direct method is very similar to receiving full twins with the addition that the client needs to confirm back that it has received the call. First the client subscribe to IoT hub special topic `$iothub/methods/POST/#`. Then once a direct method is received on this topic the client needs to extract the request identifier `rid` from the sub-topic on which the direct method is received and finally publish a confirmation message on IoT hub special topic `$iothub/methods/res/200/<request_id>`.
 
-<!--TODO: how to send direct methods-->
+<!--TODO: how to send direct methods? This is a HTTP call 
+Either from IoT Hub: see IoT hub documentation: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-direct-methods#:~:text=IoT%20Hub%20gives%20you%20the,a%20user%2Dspecified%20timeout).
+Or from a module: use see SDK documentation for now - https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/ModuleClient.cs#L597 - it should be documented in our docs - 
+-->
 
 ## Publish and subscribe between MQTT brokers
 
@@ -406,13 +391,15 @@ To connect two MQTT brokers such as two IoT Edge devices or an IoT Edge device a
 > [!NOTE]
 > The IoT Edge hub bridge cannot be used to send data to IoT hub since IoT hub is not a full-featured MQTT broker. To learn more, see [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md)
 
-<!-- TODO: Ask Varun: do I need to use MQTT as the upstream protocol to use the bridge? -->
+<!-- TODO: Ask Varun: do I need to use MQTT as the upstream protocol to use the bridge? No need to set it up, this is automatic. UpstreamProcol Value is ignored-->
 
 The IoT Edge MQTT bridge works as a MQTT client that subscribes and publishes to topics on the other broker. As any other clients, the IoT Edge MQTT bridge needs to be authenticated and authorized to publish and subscribe to the other broker. For the public preview only IoT hub authentication is supported, it limits the other brokers to other IoT Edge devices only. Additionally, a parent / child relationship must be setup for the connection to be authorized.
 
 <!-- TODO: Ask Varun/Vadim: I dont understand why the parent/chidl relationship is needed and why cant an authorization policy be used-->
 
-<!--TODO: dont I also need to set the upstream protocol to MQTT? -->
+<!--TODO: dont I also need to set the upstream protocol to MQTT?
+If MQTT Broker and on and in a nested config (GATEWAY HOSTENAME) then only MQTT as upstream protocol can be used
+-->
 
 The IoT Edge MQTT bridge is configured via a JSON structure that is sent to the IoT Edge hub via its twin. Edit an IoT Edge hub twin to configure its MQTT bridge.
 
@@ -451,6 +438,7 @@ Below is an example of an IoT Edge MQTT bridge configuration that republishes al
 	}
 }
 ```
+
 
 ## Next steps
 
