@@ -110,7 +110,7 @@ Flexible servers that are configured with high availability, replicate data in r
 
 -   Planned events such as scale compute and scale storage happens in the standby first and then on the primary server. The service is not failed over. 
 
--  - If logical replication is configured with a HA configured flexible server, in the event of a failover to the standby server, the logical replication slots are not copied over to the standby server.  
+-  If logical decoding or logical replication is configured with a HA configured flexible server, in the event of a failover to the standby server, the logical replication slots are not copied over to the standby server.  
 
 ## Next steps
 
