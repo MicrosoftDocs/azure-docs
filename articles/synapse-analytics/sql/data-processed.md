@@ -1,6 +1,6 @@
 ---
-title: Data processed with serverless SQL pool
-description: This document describes how data processed is calculated when querying data in Azure storage using serverless SQL pool.
+title: Data processed by using serverless SQL pool
+description: This document describes how the data-processed amount is calculated when you query data in Azure storage by using serverless SQL pool.
 services: synapse analytics 
 author: filippopovic 
 ms.service: synapse-analytics 
@@ -11,20 +11,20 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# Data processed with serverless SQL pool in Azure Synapse Analytics
+# Data processed by using serverless SQL pool in Azure Synapse Analytics
 
-Data processed is the amount of data temporarily stored in the system while executing a query and consists of:
+*Data processed* is the amount of data that the system temporarily stores while a query is run. Data processed consists of the following quantities:
 
-- Amount of data read from storage – which includes:
-  - Amount of data read while reading data
-  - Amount of data read while reading metadata (for file formats that contain metadata, like Parquet)
-- Amount of data in intermediate results – data transferred among nodes during query execution, including data transfer to your endpoint, in uncompressed format. 
-- Amount of data written to storage – if you use CETAS to export your result set to storage, you'll be charged for bytes written out and the amount of data processed for the SELECT part of CETAS.
+- Amount of data read from storage. This amount includes:
+  - Data read while reading data.
+  - Data read while reading metadata (for file formats that contain metadata, like Parquet).
+- Amount of data in intermediate results. This data is transferred among nodes while the query runs. It includes the data transfer to your endpoint, in an uncompressed format. 
+- Amount of data written to storage. If you use CETAS to export your result set to storage, then you're charged for the bytes written out and the amount of data processed for the SELECT part of CETAS.
 
-Reading files from storage is highly optimized and uses:
+Reading files from storage is highly optimized. The process uses:
 
-- Prefetching - which may add a small overhead to the amount of data read. If a query reads a whole file, there will be no overhead. If a file is read partially, like in TOP N queries, a bit more data will be read with prefetching.
-- Optimized CSV parser – if you use PARSER_VERSION=’2.0’ to read CSV files it will result in slightly increased amounts of data read from storage.  Optimized CSV parser reads files in parallel in chunks of equal size. There is no guarantee that chunks will contain whole rows. To ensure all rows are parsed, small fragments of adjacent chunks will also be read, adding a small amount of overhead.
+- Prefetching, which might add some overhead to the amount of data read. If a query reads a whole file, there's no overhead. If a file is read partially, like in TOP N queries, then a bit more data is read by using prefetching.
+- An optimized comma-separated value (CSV) parser. If you use PARSER_VERSION='2.0' to read CSV files, then the amounts of data read from storage slightly increase. An optimized CSV parser reads files in parallel, in chunks of equal size. There's no guarantee that chunks will contain whole rows. To ensure all rows are parsed, the optimized CSV parser also reads small fragments of adjacent chunks. This process adds a small amount of overhead.
 
 ## Statistics
 
