@@ -286,7 +286,7 @@ Service issues, planned maintenance, health advisories, security advisories noti
 
 :::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
 
-You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal#create-service-health-alert-using-azure-portal).
+You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=21069522
