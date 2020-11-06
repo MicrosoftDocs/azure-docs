@@ -1,8 +1,30 @@
 - name: Azure SQL Documentation
   href: index.yml
+- name: Azure SQL 
+  items: 
+  - name: What is Azure SQL? 
+    href: azure-sql-iaas-vs-paas-what-is-overview.md
+  - name: Migrate to Azure SQL 
+    items: 
+    - name: SQL Database
+      items: 
+      - name: Overview
+        href: migration-guides/database/sql-server-to-sql-database-overview.md
+      - name: From SQL Server
+        href: migration-guides/database/sql-server-to-sql-database-guide.md
+    - name: SQL Managed Instance 
+      items: 
+      - name: Overview
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+      - name: From SQL Server 
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+    - name: SQL Server on Azure VMs
+      items: 
+      - name: Overview
+        href: migration-guides/virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
+      - name: From SQL Server
+        href: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
 
-- name: What is Azure SQL? 
-  href: azure-sql-iaas-vs-paas-what-is-overview.md
 
 - name: Shared SQL DB & SQL MI docs 
   items:

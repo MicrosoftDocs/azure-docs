@@ -128,6 +128,18 @@ landingContent:
             url: virtual-machines/windows/performance-guidelines-best-practices.md
 
   # Card
+  - title: Migrate to Azure SQL from SQL Server
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure SQL Database
+            url: migration-guides/database/sql-server-to-sql-database-overview.md 
+          - text: Azure SQL Managed Instance 
+            url: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+          - text: SQL Server on Azure VMs
+            url: migration-guides/virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
+
+  # Card
   - title: Connect and query 
     linkLists:
       - linkListType: quickstart
@@ -148,8 +160,6 @@ landingContent:
             url: database/connect-query-dotnet-core.md
           - text: Python
             url: database/connect-query-python.md
-
-
 
   # Card
   - title: Development
