@@ -46,7 +46,7 @@ To handle throttling at this level, you have these options:
 
 * Enable high throughput mode.
 
-  A logic app has a [default limit for the number of actions that can run over a 5-minute rolling interval](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise this limit to the maximum number of actions, turn on [high throughput mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) on your logic app.
+  A logic app has a [default limit for the number of actions that can run over a 5-minute rolling interval](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise this limit to the maximum number of actions, turn on [high throughput mode](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) on your logic app.
 
 * Disable array debatching ("split on") behavior in triggers.
 
