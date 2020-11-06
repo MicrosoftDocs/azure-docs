@@ -11,7 +11,7 @@ ms.author: alsin
 ---
 
 # Repair a broken Automanage Account
-The [Automanage Account](./automanage-virtual-machines#automanage-account) is the security context or the identity under which the automated operations occur. If you have recently moved a subscription containing an Automanage Account to a new tenant, you will need to reconfigure your Automanage Account. To reconfigure your Automanage Account, you will need to reset the identity type and assign the appropriate roles for the account.
+The [Automanage Account](./automanage-virtual-machines.md#automanage-account) is the security context or the identity under which the automated operations occur. If you have recently moved a subscription containing an Automanage Account to a new tenant, you will need to reconfigure your Automanage Account. To reconfigure your Automanage Account, you will need to reset the identity type and assign the appropriate roles for the account.
 
 ## Step 1: Reset Automanage Account identity type
 Reset the Automanage Account identity type with the ARM template below. Save the file locally as `armdeploy.json` or similar. Note down your Automanage account name and location, as those are required parameters in the ARM template.
@@ -58,7 +58,7 @@ The Automanage Account requires the Contributor and Resource Policy Contributor 
 
 If you are using an ARM template or Azure CLI, you will need the principal ID of your Automanage Account (this is not necessary if you are using the Azure portal). The Principal ID is the Object ID of your Automanage account. You may find your Object ID of your Automanage account by:
 
-1. [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest): `az ad sp list --display-name <name of your Automanage Account>`.
+1. [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp): `az ad sp list --display-name <name of your Automanage Account>`.
 1. Azure portal: Navigate to **Azure Active Directory** and search for your Automanage Account by name.
 
 ### Azure portal
