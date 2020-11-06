@@ -433,7 +433,6 @@ Supported tables are currently limited to those specified below. All data from t
 | WindowsFirewall | |
 | WireData | Partial support. Some of the data is ingested through internal services that isn't supported for export. This data is currently not exported. |
 | WorkloadMonitoringPerf | |
-| WorkloadMonitoringPerf | |
 | WVDAgentHealthStatus | |
 | WVDCheckpoints | |
 | WVDConnections | |
