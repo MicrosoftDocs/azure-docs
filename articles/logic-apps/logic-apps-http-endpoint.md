@@ -18,7 +18,8 @@ To make your logic app callable through a URL and able to receive inbound reques
 
 This article shows how to create a callable endpoint on your logic app by using the Request trigger and call that endpoint from another logic app. All principles apply identically to the other trigger types that you can use to receive inbound requests.
 
-For information about encryption, security, and authorization for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), or [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
+For more information about security, authorization, and encryption for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## Prerequisites
 
@@ -298,7 +299,7 @@ For example, if you add more properties, such as `"suite"`, to your JSON schema,
 
 ## Create nested logic apps
 
-You can nest workflows in your logic app by adding other logic apps that can receive requests. To include these logic apps, follow these steps:
+You can nest workflows into your logic app by adding other logic apps that can receive requests. To include these logic apps, follow these steps:
 
 1. Under the step where you want to call another logic app, select **New step** > **Add an action**.
 
@@ -388,6 +389,8 @@ To view the JSON definition for the Response action and your logic app's complet
 > * The shared access key appears in the URL.
 > * You can't manage security content policies due to shared domains across Azure Logic Apps customers.
 
+For more information about security, authorization, and encryption for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
 #### Q: Can I configure callable endpoints further?
 
 **A**: Yes, HTTPS endpoints support more advanced configuration through [Azure API Management](../api-management/api-management-key-concepts.md). This service also offers the capability for you to consistently manage all your APIs, including logic apps, set up custom domain names, use more authentication methods, and more, for example:
@@ -400,4 +403,4 @@ To view the JSON definition for the Response action and your logic app's complet
 ## Next steps
 
 * [Receive and respond to incoming HTTPS calls by using Azure Logic Apps](../connectors/connectors-native-reqres.md)
-* [Secure access and data in Azure Logic Apps - Access - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Secure access and data in Azure Logic Apps - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

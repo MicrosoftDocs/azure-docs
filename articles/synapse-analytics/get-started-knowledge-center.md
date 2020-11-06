@@ -34,7 +34,7 @@ The **Knowledge Center** allows you to do three things:
 
 ## Exploring blob storage with serverless SQL pool
 
-1. The **Knowledge Center**, click **Use samples immediately**
+1. Go to the **Knowledge Center**, click **Use samples immediately**
 1. Select **Query data with SQL** 
 1. Click **Use samples immediately**
 1. It will create a new SQL script.
@@ -42,7 +42,7 @@ The **Knowledge Center** allows you to do three things:
 1. Click Run. It will run the text you selected.
 
 ## Loading more NYC Taxi Data
-1. The **Knowledge Center**, click **Browse available samples** 
+1. Go to the **Knowledge Center**, click **Browse available samples** 
 1. Select the **SQL scripts** tab at the top
 1. Select **Load the New York Taxicab dataset**
 1. Under **Inputs**, choose **Select an existing pool** and select **SQLDB1**
