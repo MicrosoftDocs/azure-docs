@@ -14,3 +14,7 @@ ms.author: charwen
 This is the FAQ for Azure Bastion.
 
 [!INCLUDE [Bastion FAQ](../../includes/bastion-faq-include.md)]
+
+### VNet peering
+
+[!INCLUDE [FAQ for VNet peering](../../includes/bastion-faq-peering-include.md)]
