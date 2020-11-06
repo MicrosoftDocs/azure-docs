@@ -34,33 +34,36 @@ You will need an Azure subscription [Create one for free](https://azure.microsof
 ![Analayzed invoice example](./media/analyze-invoice.png)
 
 ### Fields extracted:
-Following are the fields extracted from an invoice in the JSON output response:  
+Following are the fields extracted from an invoice in the JSON output response (output below uses the following [sample invoice](https://../media/sample-invoice.jpg))  
 
-|Name| Type | Description | Example |
-|:-----|:----|:----|:----|
-|CustomerName | string | Customer being invoiced | Microsoft Corp |
-| CustomerId | string | Reference Id for the customer | CID-12345 |
-| PurchaseOrder | string | A purchase order reference number | PO-3333 |
-| InvoiceId | string | Id for this specific invoice (often “Invoice Number”) | INV-100 |
-| InvoiceDate | date | Date the invoice was issued | 11/15/2019 |
-| DueDate | date | Date payment for this invoice is due | 12/15/2019 | 
-| VendorName | string | Vendor who has created this invoice | CONTOSO LTD. |
-| VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 |
-| VendorAddressRecipient | string | Name associated with the VendorAddress | Contoso Headquarters |
-| CustomerAddress | string | Mailing address for the Customer | 123 Other St, Redmond WA, 98052 |
-| CustomerAddressRecipient | string | Name associated with the CustomerAddress | Microsoft Corp |
-| BillingAddress | string | Explicit billing address for the customer | 123 Bill St, Redmond WA, 98052 |
-| BillingAddressRecipient | string | Name associated with the BillingAddress | Microsoft Services |
-| ShippingAddress | string | Explicit shipping address for the customer | 123 Ship St, Redmond WA, 98052 |
-| ShippingAddressRecipient | string | Name associated with the ShippingAddress | Microsoft Delivery |
-| SubTotal | number | Subtotal field identified on this invoice | 100 | 
-| TotalTax | number | Total tax field identified on this invoice | 10 |
-| InvoiceTotal | number | Total new charges associated with this invoice | 110 |
-| AmountDue |  number | Total Amount Due to the vendor | 610 |
-| ServiceAddress | string | Explicit service address or property address for the customer | 123 Service St, Redmond WA, 98052 |
-| ServiceAddressRecipient | string | Name associated with the ServiceAddress | Microsoft Services |
-| RemittanceAddress | string | Explicit remittance or payment address for the customer | 123 Remit St New York, NY, 10001 |
-| RemittanceAddressRecipient | string | Name associated with the RemittanceAddress | Contoso Billing |
+|Name| Type | Description | Text | Value (standardized output) |
+|:-----|:----|:----|:----| :----|
+|CustomerName | string | Customer being invoiced | Microsoft Corp |  |
+| CustomerId | string | Reference Id for the customer | CID-12345 |  |
+| PurchaseOrder | string | A purchase order reference number | PO-3333 | |  |
+| InvoiceId | string | Id for this specific invoice (often “Invoice Number”) | INV-100 | |  |
+| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 
+| DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| VendorName | string | Vendor who has created this invoice | CONTOSO LTD. | |
+| VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 | |
+| VendorAddressRecipient | string | Name associated with the VendorAddress | Contoso Headquarters | |
+| CustomerAddress | string | Mailing address for the Customer | 123 Other St, Redmond WA, 98052 | |
+| CustomerAddressRecipient | string | Name associated with the CustomerAddress | Microsoft Corp | |
+| BillingAddress | string | Explicit billing address for the customer | 123 Bill St, Redmond WA, 98052 | |
+| BillingAddressRecipient | string | Name associated with the BillingAddress | Microsoft Services | |
+| ShippingAddress | string | Explicit shipping address for the customer | 123 Ship St, Redmond WA, 98052 | |
+| ShippingAddressRecipient | string | Name associated with the ShippingAddress | Microsoft Delivery | |
+| SubTotal | number | Subtotal field identified on this invoice | $100.00 | 100 | 
+| TotalTax | number | Total tax field identified on this invoice | $10.00 | 10 |
+| InvoiceTotal | number | Total new charges associated with this invoice | $110.00 | 110 |
+| AmountDue |  number | Total Amount Due to the vendor | $610.00 | 610 |
+| ServiceAddress | string | Explicit service address or property address for the customer | 123 Service St, Redmond WA, 98052 | |
+| ServiceAddressRecipient | string | Name associated with the ServiceAddress | Microsoft Services | |
+| RemittanceAddress | string | Explicit remittance or payment address for the customer | 123 Remit St New York, NY, 10001 |  |
+| RemittanceAddressRecipient | string | Name associated with the RemittanceAddress | Contoso Billing |  |
+| ServiceStartDate | date | First date for the service period (for example, a utility bill service period) | 10/14/2019 | 2019-10-14 |
+| ServiceEndDate | date | End date for the service period (for example, a utility bill service period) | 11/14/2019 | 2019-11-14 |
+| PreviousUnpaidBalance | number | Explicit previously unpaid balance | $500.00 | 500 |
 
 ### Input Requirements 
 
@@ -86,8 +89,8 @@ When the **status** field has the **succeeded** value, the JSON response will in
 
 ### Sample JSON output
 
-The response to teh Get Analyze Invoice Result operation will be the structured represntation of the invoice with all the information extracted. 
-See here a [sample invoice file](./media/sample-invoice.pdf) and it's structured output [sample invoice output](./media/sample-invoice-output.json).
+The response to the Get Analyze Invoice Result operation will be the structured represntation of the invoice with all the information extracted. 
+See here a [sample invoice file](./media/sample-invoice.jpg) and it's structured output [sample invoice output](./media/sample-invoice-output.json).
 
 The JSON output has 3 parts: 
 1. "readResults" node contains all of the recognized text. Text is organized by page, then by line, then by individual words. 
