@@ -27,7 +27,7 @@ The Invoice API extracts key fields from invoices and returns them in an organiz
 To try out the Form Recognizer Invoice Service go the the [Sample Labeling Tool online](https://fott-preview.azurewebsites.net/).
 
 > [!div class="nextstepaction"]
-> [Form Recognizer Sample Labeling Tool](https://fott-preview.azurewebsites.net/)
+> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
 
 You will need an Azure subscription [Create one for free](https://azure.microsoft.com/free/cognitive-services) and a [Form Recognzier resoruce](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
 
