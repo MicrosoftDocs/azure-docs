@@ -76,7 +76,7 @@ For a MQTT client to authenticate itself, it first needs to send a CONNECT packe
 - The `password` field of the CONNECT packet depends on the authentication mode:
 
     - In case of the [symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), the `password` field is a SAS token.
-    - In case of the [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](how-to-authenticate-downstream-device.md#using-x509-certificate-for-client-authentication).
+    - In case of the [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)(how-to-authenticate-downstream-device.md#using-x509-certificate-for-client-authentication).
 
 Modules deployed by IoT Edge use [symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication) and can call the local [IoT Edge workload API](https://github.com/Azure/iotedge/blob/40f10950dc65dd955e20f51f35d69dd4882e1618/edgelet/workload/README.md) to programmatically get a SAS token even when offline.
 
@@ -435,36 +435,3 @@ Other notes on the IoT Edge hub MQTT bridge:
 ## Next steps
 
 [Understand the IoT Edge hub](iot-edge-runtime.md#iot-edge-hub)
-
-
-<!-- TODO: add to other sections
-
-## 4. Configure the MQTT Broker
-
-Several settings can be configured to modify the behavior of the MQTT Broker. They are described in this [configuration documentation](MQTTBrokerConfig.md).
-
-Add a section on the peristence of messages
-
-## 5. Troubleshoot
-
-IoT Edge [official troubleshooting guide](https://docs.microsoft.com/azure/iot-edge/troubleshoot) still applies for this private preview. Below are a few more troubleshooting tips specific to the new MQTT broker.
-
-### Check the IoT Edge hub container logs for issues
-
-Since the MQTT broker is part of the IoT Edge hub, its logs are part of the IoT Edge hub module logs. You can get them by using the following command:
-
-```cmd
-iotedge logs edgeHub
-```
-
-### View the messages going through the MQTT broker
-
-You can view the messages going through the MQTT broker by looking at the verbose logs from the edgeHub container (`iotedge logs edgeHub`) . To turn on verbose logs, set the `RuntimeLogLevel` environment variable to `debug` on the edgeHub container in your deployment manifest.
-
-### I get connection refused when connecting to the broker
-
-Verify that the ports of the IoT Edge hub are properly configured. They are set in the deployment manifest. See section 1 for more details.
-
-### My MQTT client fails to authenticate
-
-This can happen if the generated SAS token has expired. Follow steps in section 2 to generate a new SAS token. -->
