@@ -827,29 +827,25 @@ The device should send the following JSON payload to IoT Central after it proces
 > [!NOTE]
 > In the IoT Central web UI, you can select the **Queue if offline** option for a command. This setting isn't included if you export a model or interface from the device template.
 
-### Synchronous command types
-
-The following snippet from a device model shows the definition of a synchronous command that has no parameters and that doesn't expect the device to return anything:
+The following snippet from a device model shows the definition of a command that has no parameters and that doesn't expect the device to return anything:
 
 ```json
 {
   "@type": "Command",
-  "commandType": "synchronous",
   "displayName": {
-    "en": "SynchronousCommandBasic"
+    "en": "CommandBasic"
   },
-  "name": "SynchronousCommandBasic"
+  "name": "CommandBasic"
 }
 ```
 
 The device receives an empty payload in the request and should return an empty payload in the response with a `200` HTTP response code to indicate success.
 
-The following snippet from a device model shows the definition of a synchronous command that has an integer parameter and that expects the device to return an integer value:
+The following snippet from a device model shows the definition of a command that has an integer parameter and that expects the device to return an integer value:
 
 ```json
 {
   "@type": "Command",
-  "commandType": "synchronous",
   "request": {
     "@type": "CommandPayload",
     "displayName": {
@@ -867,20 +863,19 @@ The following snippet from a device model shows the definition of a synchronous 
     "schema": "integer"
   },
   "displayName": {
-    "en": "SynchronousCommandSimple"
+    "en": "CommandSimple"
   },
-  "name": "SynchronousCommandSimple"
+  "name": "CommandSimple"
 }
 ```
 
 The device receives an integer value as the request payload. The device should return an integer value as the response payload with a `200` HTTP response code to indicate success.
 
-The following snippet from a device model shows the definition of a synchronous command that has an object parameter and that expects the device to return an object. In this example, both objects have integer and string fields:
+The following snippet from a device model shows the definition of a command that has an object parameter and that expects the device to return an object. In this example, both objects have integer and string fields:
 
 ```json
 {
   "@type": "Command",
-  "commandType": "synchronous",
   "request": {
     "@type": "CommandPayload",
     "displayName": {
@@ -940,9 +935,9 @@ The following snippet from a device model shows the definition of a synchronous 
     }
   },
   "displayName": {
-    "en": "SynchronousCommandComplex"
+    "en": "CommandComplex"
   },
-  "name": "SynchronousCommandComplex"
+  "name": "CommandComplex"
 }
 ```
 
@@ -958,14 +953,13 @@ The following snippet shows an example response payload sent from the device. Us
 { "Field1": 87, "Field2": "Another string value" }
 ```
 
-### Asynchronous command types
+### Long running commands
 
-The following snippet from a device model shows the definition of an asynchronous command. The command has an integer parameter and expects the device to return an integer value:
+The following snippet from a device model shows the definition of a command. The command has an integer parameter and expects the device to return an integer value:
 
 ```json
 {
   "@type": "Command",
-  "commandType": "asynchronous",
   "request": {
     "@type": "CommandPayload",
     "displayName": {
@@ -983,19 +977,19 @@ The following snippet from a device model shows the definition of an asynchronou
     "schema": "integer"
   },
   "displayName": {
-    "en": "AsynchronousCommandSimple"
+    "en": "LongRunningCommandSimple"
   },
-  "name": "AsynchronousCommandSimple"
+  "name": "LongRunningCommandSimple"
 }
 ```
 
-The device receives an integer value as the request payload. The device should return an empty response payload with a `202` HTTP response code to indicate the device has accepted the request for asynchronous processing.
+The device receives an integer value as the request payload. If the device needs time to process this command, it should return an empty response payload with a `202` HTTP response code to indicate the device has accepted the request for processing.
 
 When the device has finished processing the request, it should send a property to IoT Central that looks like the following example. The property name must be the same as the command name:
 
 ```json
 {
-  "AsynchronousCommandSimple": {
+  "LongRunningCommandSimple": {
     "value": 87
   }
 }
