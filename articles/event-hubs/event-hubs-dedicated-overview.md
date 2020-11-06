@@ -33,18 +33,7 @@ At high ingress volumes (>100 throughput units), a cluster costs significantly l
 
 The Event Hubs Dedicated offering is billed at a fixed monthly price, with a minimum of 4 hours of usage. The Dedicated tier offers all the features of the Standard plan, but with enterprise scale capacity and limits for customers with demanding workloads. 
 
-| Feature | Standard | Dedicated |
-| --- |:---:|:---:|
-| Bandwidth | 20 TUs (up to 40 TUs)	| 20 CUs |
-| Namespaces |  1 | 50 per CU |
-| Event Hubs |  10 per namespace | 1000 per namespace |
-| Ingress events | Pay per million events | Included |
-| Message Size | 1 Million Bytes | 1 Million Bytes |
-| Partitions | 32 per Event Hub | 1024 per Event Hub |
-| Consumer groups | 20 per Event Hub | No limit per CU, 1000 per event hub |
-| Brokered connections | 1,000 included, 5,000 max | 100 K included and max |
-| Message Retention | 7 days, 84 GB included per TU | 90 days, 10 TB included per CU |
-| Capture | Pay per hour | Included |
+For quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md)
 
 ## How to onboard
 
