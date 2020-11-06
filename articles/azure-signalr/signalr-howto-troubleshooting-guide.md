@@ -22,11 +22,11 @@ This guidance is to provide useful troubleshooting guide based on the common iss
 
 ### Root cause:
 
-For HTTP/2, the max length for a single header is **4K**, so if you are using browser to access Azure service, you will encounter this limitation with `ERR_CONNECTION_` error.
+For HTTP/2, the max length for a single header is **4 K**, so if you are using browser to access Azure service, you will encounter this limitation with `ERR_CONNECTION_` error.
 
-For HTTP/1.1, or C# clients, the max URI length is **12K**, the max header length is **16K**.
+For HTTP/1.1, or C# clients, the max URI length is **12 K**, the max header length is **16 K**.
 
-With SDK version **1.0.6** or higher, `/negotiate` will throw `413 Payload Too Large` when the generated access token is larger than **4K**.
+With SDK version **1.0.6** or higher, `/negotiate` will throw `413 Payload Too Large` when the generated access token is larger than **4 K**.
 
 ### Solution:
 
@@ -61,13 +61,13 @@ services.MapAzureSignalR(GetType().FullName, options =>
 
 ### Possible errors:
 
-1. ASP.Net "No server available" error [#279](https://github.com/Azure/azure-signalr/issues/279)
-2. ASP.Net "The connection is not active, data cannot be sent to the service." error [#324](https://github.com/Azure/azure-signalr/issues/324)
+1. ASP.NET "No server available" error [#279](https://github.com/Azure/azure-signalr/issues/279)
+2. ASP.NET "The connection is not active, data cannot be sent to the service." error [#324](https://github.com/Azure/azure-signalr/issues/324)
 3. "An error occurred while making the HTTP request to https://<API endpoint>. This could be due to the fact that the server certificate is not configured properly with HTTP.SYS in the HTTPS case. This could also be caused by a mismatch of the security binding between the client and the server."
 
 ### Root cause:
 
-Azure Service only supports TLS1.2 for security concerns. With .NET framework, it is possible that TLS1.2 is not the default protocol. As a result, the server connections to ASRS can not be successfully established.
+Azure Service only supports TLS1.2 for security concerns. With .NET framework, it is possible that TLS1.2 is not the default protocol. As a result, the server connections to ASRS cannot be successfully established.
 
 ### Troubleshooting Guide
 
@@ -78,7 +78,7 @@ Azure Service only supports TLS1.2 for security concerns. With .NET framework, i
     * Throw CLR exceptions
 
         ![Throw CLR exceptions](./media/signalr-howto-troubleshooting-guide/throw_clr_exceptions.png)
-    * See the exceptions throw when debugging the app server side code:
+    * See the exceptions throw when debugging the app server-side code:
 
         ![Exception throws](./media/signalr-howto-troubleshooting-guide/tls_throws.png)
 
@@ -100,7 +100,7 @@ ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
 ### Root cause
 
-Check if your client request has multiple `hub` query string. `hub` is a preserved query parameter and 400 will throw if the service detects more than one `hub` in the query.
+Check if your client request has multiple `hub` query strings. `hub` is a preserved query parameter and 400 will throw if the service detects more than one `hub` in the query.
 
 ## 401 Unauthorized returned for client requests
 
@@ -128,18 +128,18 @@ For a SignalR persistent connection, it first `/negotiate` to Azure SignalR serv
 
 1. Following [How to view outgoing requests](#view_request) to get the request from the client to the service.
 1. Check the URL of the request when 404 occurs. If the URL is targeting to your web app, and similar to `{your_web_app}/hubs/{hubName}`, check if the client `SkipNegotiation` is `true`. When using Azure SignalR, the client receives redirect URL when it first negotiates with the app server. The client should **NOT** skip negotiation when using Azure SignalR.
-1. Another 404 can happen when the connect request is handled more than **5** seconds after `/negotiate` is called. Check the timestamp of the client request, and open an issue to us if the request to the service has a very slow response.
+1. Another 404 can happen when the connect request is handled more than **5** seconds after `/negotiate` is called. Check the timestamp of the client request, and open an issue to us if the request to the service has a slow response.
 
 ## 404 returned for ASP.NET SignalR's reconnect request
 
-For ASP.NET SignalR, when the [client connection drops](#client_connection_drop), it reconnects using the same `connectionId` for 3 times before stopping the connection. `/reconnect` can help if the connection is dropped due to network intermittent issues that `/reconnect` can reestablish the persistent connection successfully. Under other circumstances, for example, the client connection is dropped due to the routed server connection is dropped, or SignalR Service has some internal errors like instance restart/failover/deployment, the connection no longer exists, thus `/reconnect` returns `404`. It is the expected behavior for `/reconnect` and after 3 times retry the connection stops. We suggest having [connection restart](#restart_connection) logic when connection stops.
+For ASP.NET SignalR, when the [client connection drops](#client_connection_drop), it reconnects using the same `connectionId` for three times before stopping the connection. `/reconnect` can help if the connection is dropped due to network intermittent issues that `/reconnect` can reestablish the persistent connection successfully. Under other circumstances, for example, the client connection is dropped due to the routed server connection is dropped, or SignalR Service has some internal errors like instance restart/failover/deployment, the connection no longer exists, thus `/reconnect` returns `404`. It is the expected behavior for `/reconnect` and after three times retry the connection stops. We suggest having [connection restart](#restart_connection) logic when connection stops.
 
 ## 429(Too Many Requests) returned for client requests
 
 429 returns if your **concurrent** connection count exceeds limit.
 
 For **Free** instances, **Concurrent** connection count limit is 20
-For **Standard** instances, **concurrent** connection count limit **per unit** is 1K, which means Unit100 allows 100K **concurrent** connections.
+For **Standard** instances, **concurrent** connection count limit **per unit** is 1 K, which means Unit100 allows 100-K concurrent connections.
 
 The connections include both client and server connections. check [here](https://docs.microsoft.com/azure/azure-signalr/signalr-concept-messages-and-connections#how-connections-are-counted) for how connections are counted.
 
@@ -151,11 +151,11 @@ This error is reported when there is no server connection to Azure SignalR Servi
 
 ### Troubleshooting Guide
 
-Please enable server-side trace to find out the error details when the server tries to connect to Azure SignalR Service.
+Enable server-side trace to find out the error details when the server tries to connect to Azure SignalR Service.
 
-#### Enable server side logging for ASP.NET Core SignalR
+#### Enable server-side logging for ASP.NET Core SignalR
 
-Server side logging for ASP.NET Core SignalR integrates with the `ILogger` based [logging](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) provided in the ASP.NET Core framework. You can enable server side logging by using `ConfigureLogging`, a sample usage as follows:
+Server-side logging for ASP.NET Core SignalR integrates with the `ILogger` based [logging](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&tabs=aspnetcore2x) provided in the ASP.NET Core framework. You can enable server-side logging by using `ConfigureLogging`, a sample usage as follows:
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
         {
@@ -163,7 +163,7 @@ Server side logging for ASP.NET Core SignalR integrates with the `ILogger` based
             logging.AddDebug();
         })
 ```
-Logger categories for Azure SignalR always starts with `Microsoft.Azure.SignalR`. To enable detailed logs from Azure SignalR, configure the preceding prefixes to `Debug` level in your **appsettings.json** file like below:
+Logger categories for Azure SignalR always start with `Microsoft.Azure.SignalR`. To enable detailed logs from Azure SignalR, configure the preceding prefixes to `Debug` level in your **appsettings.json** file like below:
 ```JSON
 {
     "Logging": {
@@ -176,7 +176,7 @@ Logger categories for Azure SignalR always starts with `Microsoft.Azure.SignalR`
 }
 ```
 
-#### Enable server side traces for ASP.NET SignalR
+#### Enable server-side traces for ASP.NET SignalR
 
 When using SDK version >= `1.0.0`, you can enable traces by adding the following to `web.config`: ([Details](https://github.com/Azure/azure-signalr/issues/452#issuecomment-478858102))
 ```xml
@@ -247,7 +247,7 @@ SignalR client connection's `DisposeAsync` never be called, the connection keeps
 
 ### Solution
 
-Check if you close connection. Please manually call `HubConnection.DisposeAsync()` to stop the connection after using it.
+Check if you close connection. Manually call `HubConnection.DisposeAsync()` to stop the connection after using it.
 
 For example:
 
@@ -287,7 +287,7 @@ When the app server starts, in the background, the Azure SDK starts to initiate 
 
 As the connections between the app server and SignalR Service are persistent connections, they may experience network connectivity issues. In the Server SDK, we have **Always Reconnect** strategy to server connections. As the best practice, we also encourage users to add continuous reconnect logic to the clients with a random delay time to avoid massive simultaneous requests to the server.
 
-On a regular basis there are new version releases for the Azure SignalR Service, and sometimes the Azure wide OS patching or upgrades or occasionally interruption from our dependent services. These may bring in a very short period of service disruption, but as long as client-side has the disconnect/reconnect mechanism, the impact is minimal like any client-side caused disconnect-reconnect.
+On a regular basis, there are new version releases for the Azure SignalR Service, and sometimes the Azure wide OS patching or upgrades or occasionally interruption from our dependent services. These may bring in a short period of service disruption, but as long as client-side has the disconnect/reconnect mechanism, the impact is minimal like any client-side caused disconnect-reconnect.
 
 This section describes several possibilities leading to server connection drop and provides some guidance on how to identify the root cause.
 
