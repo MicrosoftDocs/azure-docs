@@ -15,7 +15,7 @@ ms.date: 11/06/2020
 # Migration guide: SQL Server to SQL Server on Azure VMs 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
-This migration guide teaches you to **discover**, **assess** and **migrate** your user databases from SQL Server to an instance of SQL Server on Azure Virtual Machines (VMs) by using the backup and restore and log shipping utilising the [Database Migration Assistant (DMA)](/sql/dma/dma-overview) for assessment. 
+This migration guide teaches you to **discover**, **assess**, and **migrate** your user databases from SQL Server to an instance of SQL Server on Azure Virtual Machines (VMs) by using the backup and restore and log shipping utilizing the [Database Migration Assistant (DMA)](/sql/dma/dma-overview) for assessment. 
 
 You can migrate SQL Server running on-premises or on:
 
@@ -112,25 +112,25 @@ The following provides steps for performing either a migration using backup and 
 
 ### Backup and restore
 
-To perform an standard migration using backup and restore, follow these steps: 
+To perform a standard migration using backup and restore, follow these steps: 
 
-1. Setup connectivity to the target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
+1. Set up connectivity to the target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Pause/stop any applications that are using databases intended for migration. 
 1. Ensure user database(s) are inactive using [single user mode](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
 1. Perform a full database backup to an on-premises location.
-1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../storage/common/storage-use-azcopy-v10.md) (> 2TB backups recommended).
+1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../storage/common/storage-use-azcopy-v10.md) (> 2 TB backups recommended).
 1. Restore full database backup(s) to the SQL Server on Azure VM.
 
 ### Log shipping  (minimize downtime)
 
 To perform a minimal downtime migration using backup, restore, and log shipping, follow these steps: 
 
-1. Setup connectivity to target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
+1. Set up connectivity to target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Ensure on-premise User Database(s) to be migrated are in full or bulk-logged recovery model.
 1. Perform a full database backup to an on-premises location and modify any existing full database backups jobs to use [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) keyword to preserve the log chain.
-1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../storage/common/storage-use-azcopy-v10.md) (>1TB backups recommended).
+1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../storage/common/storage-use-azcopy-v10.md) (>1 TB backups recommended).
 1. Restore Full Database backup(s) on the SQL Server on Azure VM.
-1. Setup [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) between on-premise database and target SQL Server on Azure VM. Be sure not to re-initialize the database(s) as this has already been completed in the previous steps.
+1. Set up [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) between on-premise database and target SQL Server on Azure VM. Be sure not to reinitialize the database(s) as this has already been completed in the previous steps.
 1. **Cut over** to the target server. 
    1. Pause/stop applications using databases to be migrated. 
    1. Ensure user database(s) are inactive using [single user mode](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
@@ -142,7 +142,7 @@ To perform a minimal downtime migration using backup, restore, and log shipping,
 
 There may be additional SQL Server objects that are required for the seamless operation of your user databases post migration. 
 
-The following table provides a list components and recommended migration methods which can be completed before or after migration of your User databases: 
+The following table provides a list components and recommended migration methods that can be completed before or after migration of your User databases: 
 
 
 | **Feature** | **Component** | **Migration Method(s)** |
@@ -153,7 +153,7 @@ The following table provides a list components and recommended migration methods
 | **Security** | SQL Server and Windows Logins | Use DMA to [migrate user logins](/sql/dma/dma-migrateserverlogins). |
 || SQL Server roles | Script with SQL Server Management Studio |
 || Cryptographic providers | Recommend [converting to use Azure Key Vault Service](../../virtual-machines/windows/azure-key-vault-integration-configure.md). This procedure uses the [SQL VM resource provider](../../virtual-machines/windows/sql-vm-resource-provider-register.md). |
-| **Server objects** | Backup devices | Replace with database backup using [Azure Backup Service](../../../backup/backup-sql-server-database-azure-vms.md) or write backups to [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 + ). This procedure uses the [SQL VM resource provider](../../virtual-machines/windows/sql-vm-resource-provider-register.md).|
+| **Server objects** | Backup devices | Replace with database backup using [Azure Backup Service](../../../backup/backup-sql-server-database-azure-vms.md) or write backups to [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 +). This procedure uses the [SQL VM resource provider](../../virtual-machines/windows/sql-vm-resource-provider-register.md).|
 || Linked Servers | Script with SQL Server Management Studio. |
 || Server Triggers | Script with SQL Server Management Studio. |
 | **Replication** | Local Publications | Script with SQL Server Management Studio. |

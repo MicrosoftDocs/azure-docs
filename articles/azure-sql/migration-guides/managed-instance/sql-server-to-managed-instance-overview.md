@@ -94,7 +94,7 @@ The following table lists alternative migration tools:
 |---------|---------|
 |[Transactional replication](../../managed-instance/replication-transactional-overview.md) | Replicate data from source SQL Server database table(s) to SQL Managed Instance by providing a publisher-subscriber type migration option while maintaining transactional consistency. |  |
 |[Bulk copy](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| The [bulk copy program (bcp) utility](/sql/tools/bcp-utility) copies data from an instance of SQL Server into a data file. Use the BCP utility to export the data from your source and import the data file into the target SQL Managed Instance.</br></br> For high-speed bulk copy operations to move data to Azure SQL Database, [Smart Bulk Copy tool](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) can be used to maximize transfer speeds by leveraging parallel copy tasks. | 
-|[Import Export Wizard / BACPAC](/azure/azure-sql/database/database-import?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) is a Windows file with a .bacpac extension that encapsulates a database's schema and data. BACPAC can be used to both export data from a source SQL Server and to import the file back into Azure SQL Managed Instance.  |  
+|[Import Export Wizard / BACPAC](/azure/azure-sql/database/database-import?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) is a Windows file with a `.bacpac` extension that encapsulates a database's schema and data. BACPAC can be used to both export data from a source SQL Server and to import the file back into Azure SQL Managed Instance.  |  
 |[Azure Data Factory (ADF)](/azure/data-factory/connector-azure-sql-managed-instance)| The [Copy activity](/azure/data-factory/copy-activity-overview) in Azure Data Factory migrates data from source SQL Server database(s) to SQL Managed Instance using built-in connectors and an [Integration Runtime](/azure/data-factory/concepts-integration-runtime).</br> </br> ADF supports a wide range of [connectors](/azure/data-factory/connector-overview) to move data from SQL Server sources to SQL Managed Instance. |
 | | |
 
@@ -141,7 +141,7 @@ SQL Server Reporting Services (SSRS) reports can be migrated to paginated report
 
 #### SQL Server Analysis Services
 
-SQL Server Analysis Services Tabular models from SQL Server 2012 and above can be migrated to Azure Analysis Services which is a PaaS deployment model for Analysis Services Tabular model in Azure. You can learn more about migrating on-prem models to Azure Analysis Services in this [video tutorial](https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/).
+SQL Server Analysis Services Tabular models from SQL Server 2012 and above can be migrated to Azure Analysis Services, which is a PaaS deployment model for Analysis Services Tabular model in Azure. You can learn more about migrating on-prem models to Azure Analysis Services in this [video tutorial](https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/).
 
 Alternatively, you can also consider migrating your on-premises Analysis Services Tabular models to [Power BI Premium using the new XMLA read/write endpoints](https://docs.microsoft.com/power-bi/admin/service-premium-connect-tools). 
 > [!NOTE]
@@ -166,7 +166,7 @@ SQL logins from the source SQL Server can be moved to Azure SQL Managed Instance
 
 By default, Azure Database Migration Service only supports migrating SQL logins. However, you can enable the ability to migrate Windows logins by:
 
-Ensuring that the target SQL Managed Instance has AAD read access, which can be configured via the Azure portal by a user with the **Company Administrator**or a **Global Administrator**" role.
+Ensuring that the target SQL Managed Instance has AAD read access, which can be configured via the Azure portal by a user with the **Company Administrator** or a **Global Administrator**" role.
 Configuring your Azure Database Migration Service instance to enable Windows user/group login migrations, which is set up via the Azure portal, on the Configuration page. After enabling this setting, restart the service for the changes to take effect.
 
 After restarting the service, Windows user/group logins appear in the list of logins available for migration. For any Windows user/group logins you migrate, you are prompted to provide the associated domain name. Service user accounts (account with domain name NT AUTHORITY) and virtual user accounts (account name with domain name NT SERVICE) are not supported.
@@ -195,14 +195,14 @@ Some features are only available once the [database compatibility level](/sql/re
 
 ## Migration assets 
 
-For additional assistance, see the following resources which were developed for real world migration projects.
+For additional assistance, see the following resources that were developed for real world migration projects.
 
 |Asset  |Description  |
 |---------|---------|
 |[Data workload assessment model and tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| This tool provides suggested "best fit" target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing and automated and uniform target platform decision process.|
-|[DBLoader Utility](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|The DBLoader can be used to load data from delimited text files into SQL Server. This Windows console utility uses the SQL Server native client bulk load interface, which works on all versions of SQL Server, including Azure SQL MI.|
+|[DBLoader Utility](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|The DBLoader can be used to load data from delimited text files into SQL Server. This Windows console utility uses the SQL Server native client bulkload interface, which works on all versions of SQL Server, including Azure SQL MI.|
 |[Utility to move On-Premises SQL Server Logins to Azure SQL Managed Instance](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins)|A PowerShell script that creates a T-SQL command script to re-create logins and select database users from on-premises SQL Server to Azure SQL Managed Instance. The tool allows automatic mapping of Windows AD accounts to Azure AD accounts as well as optionally migrating SQL Server native logins.|
-|[Perfmon data collection automation using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|A tool that collects Perform data to understand baseline performance that assists in the migration target recommendation. This tool that uses logman.exe to create the command which will create, start, stop and delete performance counters set on a remote SQL Server.|
+|[Perfmon data collection automation using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|A tool that collects Perform data to understand baseline performance that assists in the migration target recommendation. This tool that uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server.|
 |[Whitepaper - Database migration to Azure SQL Managed Instance by restoring full and differential backups](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20to%20Azure%20SQL%20DB%20Managed%20Instance%20-%20%20Restore%20with%20Full%20and%20Differential%20backups.pdf)|This whitepaper provides guidance and steps to help accelerate migrations from SQL Server to Azure SQL Managed Instance if you only have full and differential backups (and no log backup capability).|
 
 These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, please contact your account team and ask them to submit a nomination.

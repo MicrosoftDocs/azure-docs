@@ -86,9 +86,9 @@ If the assessment encounters multiple blockers to confirm that your database it 
 #### Scaled Assessments and Analysis
 Data Migration Assistant supports performing scaled assessments and consolidation of the assessment reports for analysis. 
 
-If you have multiple servers and databases that need to be assessed and analysed at scale to provide a wider view of the data estate, see the following links to learn more:
+If you have multiple servers and databases that need to be assessed and analyzed at scale to provide a wider view of the data estate, see the following links to learn more:
 
-- [Performing scaled assessments using Powershell](/sql/dma/dma-consolidatereports)
+- [Performing scaled assessments using PowerShell](/sql/dma/dma-consolidatereports)
 - [Analyzing assessment reports using Power BI](/sql/dma/dma-consolidatereports#dma-reports)
 
 > [!IMPORTANT]
@@ -100,7 +100,7 @@ After you have completed tasks associated with the Pre-migration stage, you 
 
 Migrate your data using your chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options). 
 
-This guide describe the two most popular options - Data Migration Assistant and Azure Database Migration Service. 
+This guide describes the two most popular options - Data Migration Assistant and Azure Database Migration Service. 
 
 ### Data Migration Assistant (DMA)
 
