@@ -84,23 +84,23 @@ If you use two-step verification with your work or school account and your Micro
 
 1. Sign in to your work or school account, go to the [My account page](https://myaccount.microsoft.com), and select **Security info**.
 
-    ![Office portal showing Security info tab](media/mfa-security-info.png)
+    ![Office portal showing Security info tab](media/multi-factor-authentication-end-user-app-passwords/mfa-security-info.png)
 
 2. Select **Add method**, choose **App password** from the dropdown list, and then click **Add**.
 
-    ![Security info page, with the Add a method drowpdown list](media/mfa-add-method.png)
+    ![Security info page, with the Add a method drowpdown list](media/multi-factor-authentication-end-user-app-passwords/mfa-add-method.png)
 
 3. Enter a name for the app password, and then select **Next**.
 
-    ![Create app passwords page, with name of the app password](media/mfa-enter-app-password-name.png)
+    ![Create app passwords page, with name of the app password](media/multi-factor-authentication-end-user-app-passwords/mfa-enter-app-password-name.png)
 
 4. Copy the password from the **App password** page, and then select **Done**.
 
-    ![App password page with the new app password you created](media/mfa-copy-app-password.png)
+    ![App password page with the new app password you created](media/multi-factor-authentication-end-user-app-passwords/mfa-copy-app-password.png)
 
 5. From the **Security info** page, make sure your app password is listed.
 
-     ![Security info page, with new app password shown in list](media/mfa-verify-app-password.png)  
+     ![Security info page, with new app password shown in list](media/multi-factor-authentication-end-user-app-passwords/mfa-verify-app-password.png)  
 
 6. Open the app you created the app password for (for example, Outlook 2016), and then paste the app password when asked for it. You should only have to do this once per app.
 
@@ -108,7 +108,7 @@ If you use two-step verification with your work or school account and your Micro
 
 1. From the **Security info** page, select **Delete** next to the app password you want to delete.
 
-   ![Delete an app password](media/mfa-delete-app-password.png)
+   ![Delete an app password](media/multi-factor-authentication-end-user-app-passwords/mfa-delete-app-password.png)
 
 2. Select **Ok** in the confirmation box.
 
