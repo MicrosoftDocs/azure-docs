@@ -67,8 +67,8 @@ After you've registered your custom domain, you can then add it to your CDN endp
 
 4. In **Add a custom domain**, **Endpoint hostname**, is pre-filled and is derived from your CDN endpoint URL: **\<endpoint-hostname>**.azureedge.net. It cannot be changed.
 
-5. For **Custom hostname**, enter your custom domain, including the subdomain, to use as the source domain of your CNAME record. 
-    1. For example, **www.contoso.com** or **cdn.contoso.com**. **Don't use the cdnverify subdomain name**.
+5. For **Custom hostname**, enter your custom root or apex domain to use as the source domain of your CNAME record. 
+    1. For example, **contoso.com**. **Don't use the cdnverify subdomain name**.
 
     :::image type="content" source="media/onboard-apex-domain/cdn-add-custom-domain.png" alt-text="Add custom domain" border="true":::
 
