@@ -308,7 +308,9 @@ When referencing a linked template, the value of `uri` can't be a local file or 
 
 You may reference templates using parameters that include **http** or **https**. For example, a common pattern is to use the `_artifactsLocation` parameter. You can set the linked template with an expression like:
 
-`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+```json
+"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
+```
 
 If you're linking to a template in GitHub, use the raw URL. The link has the format: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json`. To get the raw link, select **Raw**.
 
