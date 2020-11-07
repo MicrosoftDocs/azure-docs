@@ -20,7 +20,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 ## Create your first QnA Maker knowledge base
 
-# [GA](#tab/v1)
+# [QnA Maker GA (stable release)](#tab/v1)
 
 1. Sign in to the [QnAMaker.ai](https://QnAMaker.ai) portal with your Azure credentials.
 
@@ -53,7 +53,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
     After QnA Maker successfully creates the knowledge base, the **Knowledge base** page opens. You can edit the contents of the knowledge base on this page.
 
-# [managed (Preview)](#tab/v2)
+# [QnA Maker managed (preview release)](#tab/v2)
 
 1. Sign in to the [QnAMaker.ai](https://QnAMaker.ai) portal with your Azure credentials.
 
@@ -67,7 +67,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 4. In **Step 2**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-kb.png" alt-text="Screenshot of selecting a QnA Maker service knowledge base":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="Screenshot of selecting a QnA Maker service knowledge base managed preview":::
 
 5. In **Step 2**, if you are creating the first knowledge base for your service, you will have an option to make language setting specific to every knowledge base. Once the language setting has been defined for the first knowledge base, you will not be allowed to modify the settings for the service later.
 
