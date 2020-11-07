@@ -79,7 +79,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ---
 
-## Register with SQL IaaS extension
+## Register with extension
 
 There are three management modes for the [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md#management-modes). 
 
@@ -182,7 +182,7 @@ $sqlvm.SqlManagementType
 
 ## Upgrade to full  
 
-SQL Server VMs that have registered the extension in *lightweight* mode can upgrade to _full_ using the Azure portal, the Azure CLI, or Azure PowerShell. SQL Server VMs in _NoAgent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-from-rp) the SQL Server VM from the SQL IaaS Agent extension. Doing so will remove the **SQL virtual machine** _resource_, but will not delete the actual virtual machine. 
+SQL Server VMs that have registered the extension in *lightweight* mode can upgrade to _full_ using the Azure portal, the Azure CLI, or Azure PowerShell. SQL Server VMs in _NoAgent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-from-extension) the SQL Server VM from the SQL IaaS Agent extension. Doing so will remove the **SQL virtual machine** _resource_, but will not delete the actual virtual machine. 
 
 
 ### Azure portal
@@ -281,7 +281,7 @@ To unregister your SQL Server VM from the extension using the Azure portal, foll
 
 1. Select **Delete**. 
 
-   ![Select delete in the top navigation](./media/sql-agent-extension-manually-register-single-vm/delete-sql-vm-resource-provider.png)
+   ![Select delete in the top navigation](./media/sql-agent-extension-manually-register-single-vm/delete-sql-vm-resource.png)
 
 1. Type the name of the SQL virtual machine and **clear the check box next to the virtual machine**.
 

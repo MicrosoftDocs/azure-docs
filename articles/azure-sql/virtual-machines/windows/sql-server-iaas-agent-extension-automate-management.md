@@ -114,7 +114,7 @@ To use a named instance of SQL Server, deploy an Azure virtual machine, install 
 Alternatively, to use a named instance with an Azure Marketplace SQL Server image, follow these steps: 
 
    1. Deploy a SQL Server VM from Azure Marketplace. 
-   1. [Unregister](sql-agent-extension-manually-register-single-vm.md#unregister-from-rp) the SQL Server VM from the SQL IaaS Agent extension. 
+   1. [Unregister](sql-agent-extension-manually-register-single-vm.md##unregister-from-extension) the SQL Server VM from the SQL IaaS Agent extension. 
    1. Uninstall SQL Server completely within the SQL Server VM.
    1. Install SQL Server with a named instance within the SQL Server VM. 
    1. [Register the VM with the SQL IaaS Agent Extension](sql-agent-extension-manually-register-single-vm.md#register-with-rp). 
@@ -208,7 +208,7 @@ Yes. Upgrading the manageability mode from lightweight to full is supported via 
 
 No. Downgrading the SQL Server IaaS extension manageability mode is not supported. The manageability mode can't be downgraded from full mode to lightweight or NoAgent mode, and it can't be downgraded from lightweight mode to NoAgent mode. 
 
-To change the manageability mode from full manageability, [unregister](sql-agent-extension-manually-register-single-vm.md#unregister-from-rp) the SQL Server VM from the SQL IaaS Agent extension by dropping the SQL virtual machine _resource_ and re-register the SQL Server VM with the SQL IaaS Agent extension again in a different management mode.
+To change the manageability mode from full manageability, [unregister](sql-agent-extension-manually-register-single-vm.md##unregister-from-extension) the SQL Server VM from the SQL IaaS Agent extension by dropping the SQL virtual machine _resource_ and re-register the SQL Server VM with the SQL IaaS Agent extension again in a different management mode.
 
 **Can I register with the SQL IaaS Agent extension from the Azure portal?**
 
@@ -244,7 +244,7 @@ The two service names are:
 
 **How do I remove the extension?**
 
-Remove the extension by [unregistering](sql-agent-extension-manually-register-single-vm.md#unregister-from-rp) the SQL Server VM from the SQL IaaS Agent extension. 
+Remove the extension by [unregistering](sql-agent-extension-manually-register-single-vm.md##unregister-from-extension) the SQL Server VM from the SQL IaaS Agent extension. 
 
 ## Next steps
 
