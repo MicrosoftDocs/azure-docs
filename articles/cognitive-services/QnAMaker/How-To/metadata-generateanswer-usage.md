@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 11/09/2020
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -45,7 +45,15 @@ To get your endpoint details:
     ![Screenshot of My knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Get your GenerateAnswer endpoint details.
 
+    # [QnA Maker GA (stable release)](#tab/v1)
+
     ![Screenshot of endpoint details](../media/qnamaker-how-to-metadata-usage/view-code.png)
+
+    # [QnA Maker managed (preview release)](#tab/v2)
+
+    ![Screenshot of endpoint details](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
+
+    ---
 
 You can also get your endpoint details from the **Settings** tab of your knowledge base.
 
