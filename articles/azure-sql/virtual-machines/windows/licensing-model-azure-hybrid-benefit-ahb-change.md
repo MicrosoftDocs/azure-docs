@@ -116,7 +116,7 @@ Changing the license model is:
    - Only supported on virtual machines that have a single network interface (NIC). 
 
 > [!Note]
-> Only SQL Server core licensing is eligible for Azure Hybrid Benefit. If you are using server + CAL licensing for SQL Server and you have an Enterprise Agreement, you can use bring-your-own-license SQL Server virtual machine images to leverage license mobility for these servers, but you cannot leverage the other features of Azure Hybrid Benefit. 
+> Only SQL Server core-based licensing with Software Assurance or subscription licenses are eligible for Azure Hybrid Benefit. If you are using Server + CAL licensing for SQL Server and you have Software Assurance, you can use bring-your-own-license to an Azure SQL Server virtual machine image to leverage license mobility for these servers, but you cannot leverage the other features of Azure Hybrid Benefit. 
 
 ## Known errors
 
