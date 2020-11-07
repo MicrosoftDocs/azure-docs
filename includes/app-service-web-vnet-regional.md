@@ -12,7 +12,7 @@ Using regional VNet Integration enables your app to access:
 * Service endpoint secured services.
 * Resources across Azure ExpressRoute connections.
 * Resources in the VNet you're integrated with.
-* Resources across peered connections, which includes Azure ExpressRoute connections.
+* Resources across peered connections, which include Azure ExpressRoute connections.
 * Private endpoints 
 
 When you use VNet Integration with VNets in the same region, you can use the following Azure networking features:
@@ -47,13 +47,13 @@ There are some limitations with using VNet Integration with VNets in the same re
 * You can't change the subscription of an app or a plan while there's an app that's using regional VNet Integration.
 * Your app cannot resolve addresses in Azure DNS Private Zones without configuration changes
 
-VNet Integration depends on use of a dedicated subnet.  When you provision a subnet, the Azure subnet loses 5 IPs for from the start. One address is used from the integration subnet for each plan instance. If you scale your app to four instances, then four addresses are used. The debit of 5 addresses from the subnet size means that the maximum available addresses per CIDR block are:
+VNet Integration depends on use of a dedicated subnet.  When you provision a subnet, the Azure subnet loses 5 IPs for from the start. One address is used from the integration subnet for each plan instance. If you scale your app to four instances, then four addresses are used. The debit of 5 addresses from the subnet size mean that the maximum available addresses per CIDR block are:
 
 - /28 has 11 addresses
 - /27 has 27 address
 - /26 has 59 addresses
 
-If you scale up or down in size, you need double your address need for a short period of time. The limits in size means that the real available supported instances per subnet size is, if your subnet is a:
+If you scale up or down in size, you need double your address need for a short period of time. The limits in size means that the real available supported instances per subnet size are, if your subnet is a:
 
 - /28, your maximum horizontal scale is 5 instances
 - /27, your maximum horizontal scale is 13 instances
