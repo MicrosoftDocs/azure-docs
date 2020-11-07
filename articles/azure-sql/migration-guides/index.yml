@@ -29,9 +29,9 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Overview
-            url: migration-guides/database/sql-server-to-sql-database-overview.md
+            url: database/sql-server-to-sql-database-overview.md
           - text: From SQL Server
-            url: migration-guides/database/sql-server-to-sql-database-guide.md
+            url: database/sql-server-to-sql-database-guide.md
 
 
   # Card 
@@ -40,9 +40,9 @@ landingContent:
       - linkListType: get-started 
         links:
           - text: Overview 
-            url: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+            url: managed-instance/sql-server-to-managed-instance-overview.md
           - text: From SQL Server
-            url: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+            url: managed-instance/sql-server-to-managed-instance-guide.md
 
 
   # Card 
@@ -51,9 +51,9 @@ landingContent:
       - linkListType: get-started 
         links:
           - text: Overview 
-            url: migration-guides/virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
+            url: virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
           - text: From SQL Server
-            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+            url: virtual-machines/sql-server/individual-databases-migration-guide.md
 
   # Card 
   - title: Migration tools 
@@ -61,18 +61,18 @@ landingContent:
       - linkListType: deploy 
         links:
           - text: Azure Migrate 
-            url: migration-guides/virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
+            url: virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
           - text: Azure Database Migration Service
-            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+            url: virtual-machines/sql-server/individual-databases-migration-guide.md
           - text: Data Migration Assistant (DMA)
-            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+            url: virtual-machines/sql-server/individual-databases-migration-guide.md
           - text: Transactional replication
-            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+            url: virtual-machines/sql-server/individual-databases-migration-guide.md
           - text: Import / export service / BACPAC
-            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+            url: virtual-machines/sql-server/individual-databases-migration-guide.md
           - text: Bulk copy
-            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+            url: virtual-machines/sql-server/individual-databases-migration-guide.md
           - text: Azure Data Factory
-            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+            url: virtual-machines/sql-server/individual-databases-migration-guide.md
           - text: SQL Data Sync
-            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+            url: virtual-machines/sql-server/individual-databases-migration-guide.md
