@@ -767,12 +767,17 @@
 
   - name: Migration guides
     items: 
-    - name: Overview
-      href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
-    - name: From SQL Server 
-      href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
-    - name: Performance baseline
-      href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
+    - name: From DB2
+      href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+    - name: From SQL Server
+      items: 
+      - name: Overview
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+      - name: From SQL Server 
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+      - name: Performance baseline
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
+        
   - name: Concepts
     items:
     - name: Resource limits
