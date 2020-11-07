@@ -60,7 +60,7 @@ The QnA Maker service uses CMK from the Azure Search service. Follow these steps
 1.	Go to the **Encryption** tab of your QnA Maker managed (Preview) service.
 2.	Select the **Customer Managed Keys** option. Provide the details of your [customer-managed keys](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-configure-key-vault?tabs=portal) and click on **Save**.
 
-    ![QnA Maker managed (Preview) CMK setting](../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png#lightbox)
+     :::image type="content" source="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png" alt-text="QnA Maker managed (Preview) CMK setting" lightbox="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png":::
 
 3.	On a successful save, the CMK will be used to encrypt the data stored in the Azure Search Index.
 
