@@ -25,17 +25,17 @@ This article shows how to use the [Azure portal](https://portal.azure.com/) to a
 
 ## Requirements
 
-- The key must be created and stored in an Azure Key Vault. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md). 
+- The key must be created and stored in an Azure Key Vault. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md).
 
-  You can create a key vault when add a customer-managed key to a new or completed Data Box order or separately.To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
+  You can create a key vault when add a customer-managed key to a new or completed Data Box order or separately.To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md)
 
-- The key vault must be in the same region as the storage accounts you use for your data. Multiple storage accounts can be linked with your Azure Data Box resource.
+- The key vault should be in the same region as the storage accounts you use for your data. Multiple storage accounts can be linked with your Azure Data Box resource.<!--This is recommended but not actually required. Anusha was to check for impact on costs.>
 
-- **Soft delete** and **Do not purge** must be set on the key vault. These properties are not enabled by default. <!--Soft delete is enabled in the new Order flow. Verify whether that has changed in the completed order. The PowerShell and CLI instructions seem out of place in a portal how-to. Should the article provide alternate methods for adding the customer-managed key to an existing Data Box device?-->To enable these properties, see the **Enabling soft-delete** and **Enabling Purge Protection** sections in one of the following articles:
+- **Soft delete** and **Do not purge** must be set on the key vault. These properties are not enabled by default. <!--Soft delete is enabled in the new Order flow. Verify whether that changed in the completed order.-->If you're using an existing key vault, see the **Enabling soft-delete** and **Enabling Purge Protection** sections in one of the following articles to find out how to enable these properties:
    - [How to use soft-delete with PowerShell](../key-vault/general/soft-delete-powershell.md).
    - [How to use soft-delete with CLI](../key-vault/general/soft-delete-cli.md).
 
-- The key is an RSA key of 2048 size or larger.
+- The key must be an RSA key of 2048 size or larger.
 
 ## Add key to device
 
@@ -85,17 +85,35 @@ To add a customer-managed key in the Azure portal after your Data Box order is c
 
     ![Key and key vault for customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
-11. Save the key.
 
-    ![Save customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
+11. In the **Encryption type** options, select the type of identity to use to manage the customer-managed key for this resource.<!--Low confidence in this explanation.--> You can use a **system assigned** identity (the default) or select **user assigned** and choose an identity of your own.
 
-    The key URL is displayed under **Encryption type**.
+    A user-assigned identity is an independent resource that is associated with a resource group. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).  
 
-    ![Customer-managed key URL](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)
+    ![Select the identity type](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)<!--Reshoot. Just the two selection types.-->
+
+    If you want to create a new user identity, select **Select a user identity** and then select your managed identity that you want to use.<!--Stopped shooting screens here (11/06). Got ahead of myself. Will need to test a new order.-->
+
+    ![Select an identity to use](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)<!--Edit current screen from the Order tutorial to sub new options in the Encryption Type settings. Extra line? Reshoot would require lots of handwork to cleanse the Assigned management key pane of specifics. Make same update to Order tutorial.-->
+
+    You can't create a new user identity here. To find out how to create one, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+
+    The selected user identity is shown in the **Encryption type** settings.
+
+    ![A selected user identity shown in Encryption type settings](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
+
+ 12. Save the key.<!--No new picture needed? I boxed the Save command in the previous screenshot.-->
+
+     ![Save customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
+
+The key URL is displayed under **Encryption type**.
+
+![Customer-managed key URL](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)
+
 
 ## Troubleshoot errors
 
-If you receive any errors related to your customer-managed key, use the following table to troubleshoot.<!--Two new error codes expected?-->
+If you receive any errors related to your customer-managed key, use the following table to troubleshoot.<!--Two new errors to be added. See video notes.-->
 
 | Error   code| Error details| Recoverable?|
 |-------------|--------------|---------|

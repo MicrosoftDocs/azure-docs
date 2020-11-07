@@ -323,7 +323,7 @@ Do the following steps in the Azure portal to order a device.
 
       You are notified that a key is created in your key vault.
 
-    - Select the **Version** for the key, and then choose **Select**.<!--Should we discuss version options?-->
+    - Select the **Version** for the key, and then choose **Select**.<!--They will select a key. The Current version and Older version labels appear to be category headings. For a new key, the current version is the only one available. Version requirements are a bit of a mystery. Can the key version have a different configuration than the key itself?-->
 
       ![New key created in key vault](./media/data-box-deploy-ordered/customer-managed-key-08.png)
 
@@ -331,7 +331,7 @@ Do the following steps in the Azure portal to order a device.
 
     ![Key and key vault for a customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-09.png)
 
-14. Select a user identity to associate your new resource with the customer-managed key.
+14. Select a user identity to associate your new resource with the customer-managed key.<!--Update options. Now can opt to use a system assigned identity. Haven't retested and reshot, but I am further along in the Use customer-managed key topic. Coordinate these efforts. User-managed identity may be causing issues. Test run failed because of access issues.-->
 
     The user-assigned identity is an independent resource that is associated with a resource group. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).  
 
