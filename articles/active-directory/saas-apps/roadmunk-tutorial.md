@@ -167,7 +167,7 @@ In this section, you'll enable B.Simon to use Azure SSO by granting access to Ro
 
 In this section, you test your Azure AD SSO configuration by using the access panel.
 
-In the access panel, when you select the **Roadmunk** tile, you should be automatically signed in to the Roadmunk account for which you set up SSO. For more information, see [Introduction to the access panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+In the My Apps portal, when you select the **Roadmunk** tile, you should be automatically signed in to the Roadmunk account for which you set up SSO. For more information, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
 ## Next steps
 
