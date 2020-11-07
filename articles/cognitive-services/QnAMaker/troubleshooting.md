@@ -395,7 +395,7 @@ The name of the Azure Cognitive Search resource is the QnA Maker resource name w
 <summary><b>Do I need to use Bot Framework in order to use QnA Maker?</b></summary>
 
 **Answer**:
-No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
+No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0&preserve-view=true). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
 
 </details>
 
@@ -449,7 +449,7 @@ Follow these steps to embed the QnA Maker service as a web-chat control in your 
 <summary><b>Do I need to use Bot Framework in order to use QnA Maker?</b></summary>
 
 **Answer**:
-No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
+No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with QnA Maker. However, QnA Maker is offered as one of several templates in [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0&preserve-view=true). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
 
 </details>
 

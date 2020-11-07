@@ -29,8 +29,6 @@ This quickstart walks you through creating, publishing, and querying your knowle
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
-## Prerequisites
-
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
 * You must have a [QnA Maker resource](../How-To/set-up-qnamaker-service-azure.md), to use the key and resource name. You entered the resource **Name** during resource creation, then the key was created for you. The resource name is used as the subdomain for your endpoint. To retrieve your key and resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first subdomain of the endpoint URL:
 

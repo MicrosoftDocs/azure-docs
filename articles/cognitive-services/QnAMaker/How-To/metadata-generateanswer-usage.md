@@ -51,7 +51,7 @@ To get your endpoint details:
 
     # [QnA Maker managed (preview release)](#tab/v2)
 
-    ![Screenshot of endpoint details](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
+    ![Screenshot of endpoint details managed](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
 
     ---
 
@@ -131,7 +131,7 @@ The previous JSON responded with an answer with a score of 38.5%.
 
 ## Use QnA Maker with a bot in C#
 
-The bot framework provides access to the QnA Maker's properties with the [getAnswer API](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
+The bot framework provides access to the QnA Maker's properties with the [getAnswer API](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__&preserve-view=true):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -150,7 +150,7 @@ The previous JSON requested only answers that are at 30% or above the threshold 
 
 ## Use QnA Maker with a bot in Node.js
 
-The bot framework provides access to the QnA Maker's properties with the [getAnswer API](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
+The bot framework provides access to the QnA Maker's properties with the [getAnswer API](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-&preserve-view=true):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');

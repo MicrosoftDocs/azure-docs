@@ -29,7 +29,7 @@ Follow the [quickstart](../Quickstarts/create-publish-knowledge-base.md) to crea
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
-![Screenshot of successful publishing](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint-managed.png)
+![Screenshot of successful publishing managed](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint-managed.png)
 
 ---
 
@@ -50,7 +50,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     # [QnA Maker managed (preview release)](#tab/v2)
 
-    ![Screenshot of creating a bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page-managed.png)
+    ![Screenshot of creating a bot managed preview](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page-managed.png)
 
     ---
     
