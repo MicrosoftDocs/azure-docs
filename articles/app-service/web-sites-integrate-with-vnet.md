@@ -126,6 +126,8 @@ The App Service plan VNet Integration UI shows you all of the VNet integrations 
 * **Sync network**: The sync network operation is used only for the gateway-dependent VNet Integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your VNet, perform a sync network operation. This operation restarts any apps that use this VNet. This operation will not work if you are using an app and a vnet belonging to different subscriptions.
 * **Add routes**: Adding routes drives outbound traffic into your VNet.
 
+The private IP assigned to the instance is exposed via the environment variable, **WEBSITE_PRIVATE_IP**. Kudu console UI also shows the list of environment variables available to the Web App. This is the IP that will be used by the Web App to connect to the resources through the Virtual Network. 
+
 ### Gateway-required VNet Integration routing
 The routes that are defined in your VNet are used to direct traffic into your VNet from your app. To send additional outbound traffic into the VNet, add those address blocks here. This capability only works with gateway-required VNet Integration. Route tables don't affect your app traffic when you use gateway-required VNet Integration the way that they do with regional VNet Integration.
 
