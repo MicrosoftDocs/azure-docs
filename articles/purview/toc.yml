@@ -7,8 +7,6 @@ items:
     href: overview.md
   - name: Deployment best practices
     href: deployment-best-practices.md
-  - name: Product limitations
-    href: product-limitations.md
 - name: Quickstarts
   expanded: true
   items:
@@ -54,7 +52,9 @@ items:
   - name: Data lineage
     href: data-lineage.md
   - name: Supported data sources
-    href: sources-and-scans.md    
+    href: sources-and-scans.md
+  - name: Catalog permissions
+    href: catalog-permissions.md    
 - name: How-to guides
   items:
   - name: Register & scan
