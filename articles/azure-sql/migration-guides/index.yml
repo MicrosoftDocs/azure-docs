@@ -45,7 +45,7 @@ landingContent:
           - text: From SQL Server
             url: managed-instance/sql-server-to-managed-instance-guide.md
           - text: From DB2
-            url: managed-instance/db2-to-sql-database-guide.md
+            url: managed-instance/db2-to-managed-instance-guide.md
 
 
   # Card 
@@ -56,9 +56,9 @@ landingContent:
           - text: Overview 
             url: virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
           - text: From SQL Server
-            url: virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-migration-guide.md
+            url: virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
           - text: From DB2
-            url: virtual-machines/db2-to-sql-on-azure-vm-migration-guide.md
+            url: virtual-machines/db2-to-sql-on-azure-vm-guide.md
         
 
   # Card 
@@ -69,12 +69,12 @@ landingContent:
           - text: Azure Migrate 
             url: /azure/migrate/migrate-services-overview
           - text: Azure Database Migration Service (DMS)
-            url: /azure/dms/tutorial-sql-server-to-azure-sql
+            url: /azure/dms/dms-overview
           - text: Data Migration Assistant (DMA)
             url: /sql/dma/dma-migrateonpremsqltosqldb
           - text: Transactional replication
             url: /sql/relational-databases/replication/transactional/transactional-replication
-          - text: Import / export service / BACPAC
+          - text: Import & export service / BACPAC
             url: ../database/database-import.md
           - text: Bulk copy
             url: /sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server

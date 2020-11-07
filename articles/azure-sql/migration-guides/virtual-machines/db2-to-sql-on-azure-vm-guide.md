@@ -28,7 +28,7 @@ To migrate your DB2 database to SQL Server, you need:
 
 - to verify your source environment is supported.
 - [SQL Server Migration Assistant (SSMA) for DB2](https://www.microsoft.com/download/details.aspx?id=54254).
-- Connectivity between your source environment and your SQL Server VM in Azure. 
+- [Connectivity](../../virtual-machines/windows/ways-to-connect-to-sql.md) between your source environment and your SQL Server VM in Azure. 
 
 
 
@@ -46,23 +46,23 @@ To create an assessment, follow these steps:
 1. Select **File** and then choose **New Project**. 
 1. Provide a project name, a location to save your project, and then select a SQL Server migration target from the drop-down. Select **OK**. 
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/new-project.png" alt-text="Provide project details and select OK to save.":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/new-project.png" alt-text="Provide project details and select OK to save.":::
 
 
 1. Enter in values for the DB2 connection details on the **Connect to DB2** dialog box. 
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/connect-to-db2.png" alt-text="Connect to your DB2 instance":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/connect-to-db2.png" alt-text="Connect to your DB2 instance":::
 
 
 1. Right-click the DB2 schema you want to migrate, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the schema. 
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/create-report.png" alt-text="Right-click the schema and choose create report":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/create-report.png" alt-text="Right-click the schema and choose create report":::
 
 1. Review the HTML report to understand conversion statistics and any errors or warnings. You can also open the report in Excel to get an inventory of DB2 objects and the effort required to perform schema conversions. The default location for the report is in the report folder within SSMAProjects.
 
    For example: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/report.png" alt-text="Review the report to identify any errors or warnings":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/report.png" alt-text="Review the report to identify any errors or warnings":::
 
 
 ### Validate data types
@@ -73,7 +73,7 @@ Validate the default data type mappings and change them based on requirements if
 1. Select **Project Settings**. 
 1. Select the **Type mappings** tab. 
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/type-mapping.png" alt-text="Select the schema and then type-mapping":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/type-mapping.png" alt-text="Select the schema and then type-mapping":::
 
 1. You can change the type mapping for each table by selecting the table in the **DB2 Metadata explorer**. 
 
@@ -87,16 +87,18 @@ To convert the schema, follow these steps:
     1. Choose to connect to an existing database on the target server, or provide a new name to create a new database on the target server. 
     1. Select **Connect**. 
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/connect-to-sql-server.png" alt-text="Fill in details to connect to SQL Server":::
+    :::image type="content" source="../../../../includes/media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png" alt-text="    
+    ":::
+
 
 
 1. Right-click the schema and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema. 
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/convert-schema.png" alt-text="Right-click the schema and choose convert schema":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/convert-schema.png" alt-text="Right-click the schema and choose convert schema":::
 
 1. After the conversion completes, compare and review the structure of the schema to identify potential problems and address them based on the recommendations. 
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/compare-review-schema-structure.png" alt-text="Compare and review the structure of the schema to identify potential problems and address them based on recommendations.":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/compare-review-schema-structure.png" alt-text="Compare and review the structure of the schema to identify potential problems and address them based on recommendations.":::
 
 1. Save the project locally for an offline schema remediation exercise. Select **Save Project** from the **File** menu. 
 
@@ -109,20 +111,20 @@ To publish your schema and migrate your data, follow these steps:
 
 1. Publish the schema: Right-click the database from the **Databases** node in the **SQL Server Metadata Explorer** and choose **Synchronize with Database**.
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/synchronize-with-database.png" alt-text="Right-click the database and choose synchronize with database":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/synchronize-with-database.png" alt-text="Right-click the database and choose synchronize with database":::
 
 1. Migrate the data: Right-click the schema from the **DB2 Metadata Explorer** and choose **Migrate Data**. 
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/migrate-data.png" alt-text="Right-click the schema and choose migrate data":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/migrate-data.png" alt-text="Right-click the schema and choose migrate data":::
 
 1. Provide connection details for both the DB2 and SQL Server instances. 
 1. View the **Data Migration report**. 
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/data-migration-report.png" alt-text="Review the data migration report":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/data-migration-report.png" alt-text="Review the data migration report":::
 
 1. Connect to your SQL Server instance by using SQL Server Management Studio and validate the migration by reviewing the data and schema. 
 
-   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/compare-schema-in-ssms.png" alt-text="Compare the schema in SSMS":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-guide/compare-schema-in-ssms.png" alt-text="Compare the schema in SSMS":::
 
 ## Post-migration 
 

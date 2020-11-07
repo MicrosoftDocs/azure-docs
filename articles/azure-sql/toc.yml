@@ -323,10 +323,15 @@
 
   - name: Migration guides
     items: 
-    - name: Overview
-      href: migration-guides/database/sql-server-to-sql-database-overview.md
+    - name: From DB2
+      href: migration-guides/database/db2-to-sql-database-guide.md
     - name: From SQL Server
-      href: migration-guides/database/sql-server-to-sql-database-guide.md
+      items: 
+      - name: Overview
+        href: migration-guides/database/sql-server-to-sql-database-overview.md
+      - name: Migrate
+
+      
 
   - name: Concepts
     items:
@@ -1251,9 +1256,9 @@
       - name: Overview
         href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
       - name: From SQL Server
-        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-migration-guide.md
+        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
       - name: From DB2
-        href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-migration-guide.md
+        href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
         
 - name: Reference
   items:
