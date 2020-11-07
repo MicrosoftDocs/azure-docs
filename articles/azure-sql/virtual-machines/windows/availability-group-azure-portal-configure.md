@@ -34,7 +34,7 @@ To configure an Always On availability group using the Azure portal, you must ha
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](./create-sql-vm-portal.md) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider in full manageability mode](sql-vm-resource-provider-register.md) and are using the same domain account for the SQL Server service on each VM.
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](./create-sql-vm-portal.md) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider in full manageability mode](sql-agent-extension-manually-register-single-vm.md) and are using the same domain account for the SQL Server service on each VM.
 - Two available (not used by any entity) IP addresses. One is for the internal load balancer. The other is for the availability group listener within the same subnet as the availability group. If you're using an existing load balancer, you only need one available IP address for the availability group listener. 
 
 ## Permissions

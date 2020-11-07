@@ -54027,6 +54027,21 @@
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=jre"
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-bulk-register.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/security/fundamentals/choose-ad-authn.md",
       "redirect_url": "/azure/active-directory/hybrid/choose-ad-authn",
       "redirect_document_id": true

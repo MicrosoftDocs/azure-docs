@@ -8,22 +8,22 @@ ms.service: virtual-machines-sql
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/21/2020
+ms.date: 11/07/2020
 ---
 # Automatic registration with SQL VM resource provider
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Enable the automatic registration feature in the Azure portal to automatically register all current and future SQL Server on Azure Virtual Machines (VMs) with the SQL VM resource provider in lightweight mode. Registering with the SQL VM resource provider installs the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md).
 
-This article teaches you to enable the automatic registration feature. Alternatively, you can [register a single VM](sql-vm-resource-provider-register.md), or [register your VMs in bulk](sql-vm-resource-provider-bulk-register.md) with the SQL VM resource provider. 
+This article teaches you to enable the automatic registration feature. Alternatively, you can [register a single VM](sql-agent-extension-manually-register-single-vm.md), or [register your VMs in bulk](sql-agent-extension-manually-register-vms-bulk.md) with the SQL VM resource provider. 
 
 ## Overview
 
 Registering your SQL Server VM with the SQL VM resource provider installs the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md). 
 
-When automatic registration is enabled, a job runs daily to detect whether or not SQL Server is installed on all the unregistered VMs in the subscription. This is done by copying the SQL IaaS agent extension binaries to the VM, then running a one-time utility that checks for the SQL Server registry hive. If the SQL Server hive is detected, the virtual machine is registered with the [SQL VM resource provider](sql-vm-resource-provider-register.md) in lightweight mode. If no SQL Server hive exists in the registry, the binaries are removed.
+When automatic registration is enabled, a job runs daily to detect whether or not SQL Server is installed on all the unregistered VMs in the subscription. This is done by copying the SQL IaaS agent extension binaries to the VM, then running a one-time utility that checks for the SQL Server registry hive. If the SQL Server hive is detected, the virtual machine is registered with the [SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md) in lightweight mode. If no SQL Server hive exists in the registry, the binaries are removed.
 
-Once automatic registration is enabled for a subscription, all current and future VMs that have SQL Server installed will be registered with the SQL VM resource provider in lightweight mode. You still need to [manually upgrade to full manageability mode](sql-vm-resource-provider-register.md#upgrade-to-full) to take advantage of the full feature set. 
+Once automatic registration is enabled for a subscription, all current and future VMs that have SQL Server installed will be registered with the SQL VM resource provider in lightweight mode. You still need to [manually upgrade to full manageability mode](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) to take advantage of the full feature set. 
 
 > [!IMPORTANT]
 > The SQL IaaS Agent extension collects data for the express purpose of giving customers optional benefits when using SQL Server within Azure Virtual Machines. Microsoft will not use this data for licensing audits without the customer's advance consent. See the [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy#non-personal-data) for more information.
@@ -44,7 +44,7 @@ To enable automatic registration of your SQL Server VMs in the Azure portal, fol
 1. Navigate to the [**SQL virtual machines**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource page. 
 1. Select **Automatic SQL Server VM registration** to open the **Automatic registration** page. 
 
-   :::image type="content" source="media/sql-vm-resource-provider-automatic-registration/automatic-registration.png" alt-text="Select Automatic SQL Server VM registration to open the automatic registration page":::
+   :::image type="content" source="media/sql-agent-extension-automatic-registration-all-vms/automatic-registration.png" alt-text="Select Automatic SQL Server VM registration to open the automatic registration page":::
 
 1. Choose your subscription from the drop-down. 
 1. Read through the terms and if you agree, select **I accept**. 
@@ -96,4 +96,4 @@ Failed registration errors are stored in `RegistrationErrors.csv` located in the
 
 ## Next steps
 
-Upgrade your manageability mode to [full](sql-vm-resource-provider-register.md#upgrade-to-full) to take advantage of the full feature set provided to you by the SQL VM resource provider. 
+Upgrade your manageability mode to [full](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) to take advantage of the full feature set provided to you by the SQL VM resource provider. 

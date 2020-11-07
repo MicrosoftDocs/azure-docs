@@ -127,7 +127,7 @@ The following steps show you how to move the SQL Server VM from your source regi
 1. You can monitor the failover process from the same **Site Recovery jobs** page you viewed when monitoring the failover test in the previous section. 
 1. After the job completes, check that the SQL Server VM appears in the target region as expected. 
 1. Navigate back to the vault, select **Replicated Items**, select the SQL Server VM, and select **Commit** to finish the move process to the target region. Wait until the commit job finishes. 
-1. Register your SQL Server VM with the SQL VM resource provider to enable **SQL virtual machine** manageability in the Azure portal and features associated with the resource provider. For more information, see [Register SQL Server VM with the SQL VM resource provider](sql-vm-resource-provider-register.md). 
+1. Register your SQL Server VM with the SQL VM resource provider to enable **SQL virtual machine** manageability in the Azure portal and features associated with the resource provider. For more information, see [Register SQL Server VM with the SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md). 
 
   > [!WARNING]
   > SQL Server data consistency is only guaranteed with app-consistent snapshots. The **latest processed** snapshot can't be used for SQL Server failover as a crash recovery snapshot can't guarantee SQL Server data consistency. 

@@ -146,7 +146,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Register with SQL VM RP 
 
-To get portal integration and SQL VM features, you must register with the [SQL VM resource provider](sql-vm-resource-provider-register.md).
+To get portal integration and SQL VM features, you must register with the [SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md).
 
 To get full functionality, you will need to register with the resource provider in full mode. However, doing so restarts the SQL Server service, so the recommended approach is to register in lightweight mode and then upgrade to full during a maintenance window. 
 

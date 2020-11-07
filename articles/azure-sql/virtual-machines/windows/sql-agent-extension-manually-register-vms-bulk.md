@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/21/2020
+ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 
@@ -20,7 +20,7 @@ ms.reviewer: jroth
 
 This article describes how to register your SQL Server virtual machines (VMs) in bulk in Azure with the SQL VM resource provider by using the `Register-SqlVMs` PowerShell cmdlet. Registering with the SQL VM resource provider installs the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md).
 
-This article teaches you to register SQL Server VMs in bulk. Alternatively, you can register [all SQL Server VMs automatically](sql-vm-resource-provider-automatic-registration.md) or [individual SQL Server VMs](sql-vm-resource-provider-register.md). 
+This article teaches you to register SQL Server VMs in bulk. Alternatively, you can register [all SQL Server VMs automatically](sql-agent-extension-automatic-registration-all-vms.md) or [individual SQL Server VMs](sql-agent-extension-manually-register-single-vm.md). 
 
 ## Overview
 
@@ -28,13 +28,13 @@ The `Register-SqlVMs` cmdlet can be used to register all virtual machines in a g
 
 The registration process carries no risk, has no downtime, and will not restart SQL Server or the virtual machine. 
 
-For more information, see [SQL VM resource provider](sql-vm-resource-provider-register.md). 
+For more information, see [SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md). 
 
 ## Prerequisites
 
 To register your SQL Server VM with the resource provider, you'll need the following: 
 
-- An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](sql-vm-resource-provider-register.md#register-subscription-with-rp) and contains unregistered SQL Server virtual machines. 
+- An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-rp) and contains unregistered SQL Server virtual machines. 
 - The client credentials used to register the virtual machines exist in any of the following Azure roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 - The latest version of [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).

@@ -26,7 +26,7 @@ In the [Azure portal](https://portal.azure.com), the [**SQL virtual machines**](
 ## Remarks
 
 - We recommend that you use the [**SQL virtual machines**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource to view and manage your SQL Server VMs in Azure. But currently, the **SQL virtual machines** resource does not support the management of [end-of-support](sql-server-2008-extend-end-of-support.md) SQL Server VMs. To manage settings for your end-of-support SQL Server VMs, use the deprecated [SQL Server configuration tab](#access-the-sql-server-configuration-tab) instead. 
-- The **SQL virtual machines** resource is available only to SQL Server VMs that have [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md). 
+- The **SQL virtual machines** resource is available only to SQL Server VMs that have [registered with the SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md). 
 
 
 ## Access the SQL virtual machines resource
@@ -53,7 +53,7 @@ To access the **SQL virtual machines** resource, do the following:
 > The **SQL virtual machines** resource is for dedicated SQL Server settings. Select the name of the VM in the **Virtual machine** box to open settings that are specific to the VM, but not exclusive to SQL Server. 
 
 ## Access the SQL Server configuration tab
-The **SQL Server configuration** tab has been deprecated. At this time, it's the only method to manage [end-of-support](sql-server-2008-extend-end-of-support.md) SQL Server VMs, and SQL Server VMs that have not been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md).
+The **SQL Server configuration** tab has been deprecated. At this time, it's the only method to manage [end-of-support](sql-server-2008-extend-end-of-support.md) SQL Server VMs, and SQL Server VMs that have not been [registered with the SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md).
 
 To access the deprecated **SQL Server configuration** tab, go to the **Virtual machines** resource. Use the following steps:
 

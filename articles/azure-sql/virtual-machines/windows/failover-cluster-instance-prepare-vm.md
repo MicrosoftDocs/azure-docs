@@ -71,7 +71,7 @@ As part of the FCI creation process, you'll install SQL Server as a clustered in
 
 ### Unregister from the SQL VM resource provider
 
-SQL Server VM images from Azure Marketplace are automatically registered with the SQL VM resource provider. Before you uninstall the preinstalled SQL Server instance, you must first [unregister each SQL Server VM from the SQL VM resource provider](sql-vm-resource-provider-register.md#unregister-from-rp). 
+SQL Server VM images from Azure Marketplace are automatically registered with the SQL VM resource provider. Before you uninstall the preinstalled SQL Server instance, you must first [unregister each SQL Server VM from the SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md#unregister-from-rp). 
 
 ### Uninstall SQL Server
 

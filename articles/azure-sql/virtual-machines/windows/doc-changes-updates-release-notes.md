@@ -27,7 +27,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 | Changes | Details |
 | --- | --- |
-| **Automatic RP registration** | You can now enable the [Automatic registration](sql-vm-resource-provider-automatic-registration.md) feature to automatically register all SQL Server VMs already deployed to your subscription, as well as any SQL Server VMs added in the future.  | 
+| **Automatic RP registration** | You can now enable the [Automatic registration](sql-agent-extension-automatic-registration-all-vms.md) feature to automatically register all SQL Server VMs already deployed to your subscription, as well as any SQL Server VMs added in the future.  | 
 
 
 ## August 2020
@@ -75,14 +75,14 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 |Changes | Details |
  --- | --- |
 | **Free DR replica in Azure** | You can host a [free passive instance](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure) for disaster recovery in Azure for your on-premises SQL Server instance if you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3). | 
-| **Bulk resource provider registration** | You can now [bulk register](sql-vm-resource-provider-bulk-register.md) SQL Server virtual machines with the resource provider. | 
+| **Bulk resource provider registration** | You can now [bulk register](sql-agent-extension-manually-register-vms-bulk.md) SQL Server virtual machines with the resource provider. | 
 |**Performance-optimized storage configuration** | You can now [fully customize your storage configuration](storage-configuration.md#new-vms) when creating a new SQL Server VM. |
 |**Premium file share for FCI** | You can now create a failover cluster instance by using a [Premium file share](failover-cluster-instance-premium-file-share-manually-configure.md) instead of the original method of [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
 | **Azure Dedicated Host** | You can run your SQL Server VM on [Azure Dedicated Host](dedicated-host.md). | 
 | **SQL Server VM migration to a different region** | Use Azure Site Recovery to [migrate your SQL Server VM from one region to another](move-sql-vm-different-region.md). |
 |  **New SQL IaaS installation modes** | It's now possible to install the SQL Server IaaS extension in [lightweight mode](sql-server-iaas-agent-extension-automate-management.md) to avoid restarting the SQL Server service.  |
 | **SQL Server edition modification** | You can now change the [edition property](change-sql-server-edition.md) for your SQL Server VM. |
-| **Changes to the SQL VM resource provider** | You can [register your SQL Server VM with the SQL VM resource provider](sql-vm-resource-provider-register.md) by using the new SQL IaaS modes. This capability includes [Windows Server 2008](sql-server-iaas-agent-extension-automate-management.md#management-modes) images.|
+| **Changes to the SQL VM resource provider** | You can [register your SQL Server VM with the SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md) by using the new SQL IaaS modes. This capability includes [Windows Server 2008](sql-server-iaas-agent-extension-automate-management.md#management-modes) images.|
 | **Bring-your-own-license images using Azure Hybrid Benefit** | Bring-your-own-license images deployed from Azure Marketplace can now switch their [license type to pay-as-you-go](licensing-model-azure-hybrid-benefit-ahb-change.md#remarks).| 
 | **New SQL Server VM management in the Azure portal** | There's now a way to manage your SQL Server VM in the Azure portal. For more information, see [Manage SQL Server VMs in the Azure portal](manage-sql-vm-portal.md).  | 
 | **Extended support for SQL Server 2008 and 2008 R2** | [Extend support](sql-server-2008-extend-end-of-support.md) for SQL Server 2008 and SQL Server 2008 R2 by migrating *as is* to an Azure VM. | 
@@ -99,8 +99,8 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | --- | --- |
 |  **New resource provider for a SQL Server cluster** | A new resource provider (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) defines the metadata of the Windows failover cluster. Joining a SQL Server VM to *SqlVirtualMachineGroups* bootstraps the Windows Server Failover Cluster (WSFC) service and joins the VM to the cluster.  |
 | **Automated setup of an availability group deployment with Azure quickstart templates** |It's now possible to create the Windows failover cluster, join SQL Server VMs to it, create the listener, and configure the internal load balancer by using two Azure quickstart templates. For more information, see [Use Azure quickstart templates to configure an Always On availability group for SQL Server on an Azure VM](availability-group-quickstart-template-configure.md). | 
-| **Automatic registration to the SQL VM resource provider** | SQL Server VMs deployed after this month are automatically registered with the new SQL VM resource provider. SQL Server VMs deployed before this month still need to be manually registered. For more information, see [Register a SQL Server virtual machine in Azure with the SQL VM resource provider](sql-vm-resource-provider-register.md).|
-|**New SQL VM resource provider** |  A new resource provider (Microsoft.SqlVirtualMachine) provides better management of your SQL Server VMs. For more information on registering your VMs, see [Register a SQL Server virtual machine in Azure with the SQL VM resource provider](sql-vm-resource-provider-register.md). |
+| **Automatic registration to the SQL VM resource provider** | SQL Server VMs deployed after this month are automatically registered with the new SQL VM resource provider. SQL Server VMs deployed before this month still need to be manually registered. For more information, see [Register a SQL Server virtual machine in Azure with the SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md).|
+|**New SQL VM resource provider** |  A new resource provider (Microsoft.SqlVirtualMachine) provides better management of your SQL Server VMs. For more information on registering your VMs, see [Register a SQL Server virtual machine in Azure with the SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md). |
 |**Switch licensing model** | You can now switch between the pay-per-usage and bring-your-own-license models for your SQL Server VM by using the Azure CLI or PowerShell. For more information, see [How to change the licensing model for a SQL Server virtual machine in Azure](licensing-model-azure-hybrid-benefit-ahb-change.md). | 
 | &nbsp; | &nbsp; |
 

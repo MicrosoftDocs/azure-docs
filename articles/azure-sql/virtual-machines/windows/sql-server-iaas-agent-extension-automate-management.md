@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/30/2020
+ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 ---
-# What is the SQL Server IaaS Agent extension?
+# Automate mangement with the SQL Server IaaS Agent extension
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
 The SQL Server IaaS Agent extension (SqlIaasExtension) runs on SQL Server on Azure Virtual Machines (VMs) to automate management and administration tasks. 
 
-This article provides an overview of the extension. To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-vm-resource-provider-automatic-registration.md), [Single VMs](sql-vm-resource-provider-register.md),  or [VMs in bulk](sql-vm-resource-provider-bulk-register.md). 
+This article provides an overview of the extension. To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-agent-extension-automatic-registration-all-vms.md), [Single VMs](sql-agent-extension-manually-register-single-vm.md),  or [VMs in bulk](sql-agent-extension-manually-register-vms-bulk.md). 
 
 ## Overview
 
@@ -76,13 +76,13 @@ The following table details these benefits:
 
 ## Management modes
 
-The SQL IaaS extension has three management modes:
+You can choose to register your SQL IaaS extension in three management modes: 
 
-- **Lightweight** mode does not require the restart of SQL Server, but supports only changing the license type and edition of SQL Server. Use this option for SQL Server VMs with multiple instances, or participating in a failover cluster instance (FCI). This management mode keeps the SQL IaaS Agent extension binaries on the machine, but does not install the Agent. Lightweight mode is the default management mode when using the [automatic registration](sql-vm-resource-provider-automatic-registration.md) feature, or when a management type is not specified during manual registration. There is no impact to memory or CPU when using the lightweight mode, and there is no associated cost. It is recommended to register your SQL Server VM in lightweight mode first, and then upgrade to Full mode during a scheduled maintenance window.
+- **Lightweight** mode copies extension binaries to the VM, but does not install the agent, and does not restart the SQL Server service. Lightweight mode only supports changing the license type and edition of SQL Server and provides limited portal management. Use this option for SQL Server VMs with multiple instances, or those participating in a failover cluster instance (FCI). Lightweight mode is the default management mode when using the [automatic registration](sql-agent-extension-automatic-registration-all-vms.md) feature, or when a management type is not specified during manual registration. There is no impact to memory or CPU when using the lightweight mode, and there is no associated cost. It is recommended to register your SQL Server VM in lightweight mode first, and then upgrade to Full mode during a scheduled maintenance window. 
 
-- **Full** mode delivers all functionality, but requires a restart of the SQL Server and system administrator permissions. Use it for managing a SQL Server VM with a single instance. Full mode installs two windows services that have a minimal impact to memory and CPU - these can be monitored through task manager. There is no cost associated with using the full manageability mode. 
+- **Full** mode installs the SQL IaaS Agent to the VM to deliver all functionality, but requires a restart of the SQL Server service and system administrator permissions. Use it for managing a SQL Server VM with a single instance. Full mode installs two windows services that have a minimal impact to memory and CPU - these can be monitored through task manager. There is no cost associated with using the full manageability mode. 
 
-- **NoAgent** mode is dedicated to SQL Server 2008 and SQL Server 2008 R2 installed on Windows Server 2008. There is no impact to memory or CPU when using the NoAgent mode. There is no cost associated with using the NoAgent manageability mode. 
+- **NoAgent** mode is dedicated to SQL Server 2008 and SQL Server 2008 R2 installed on Windows Server 2008. There is no impact to memory or CPU when using the NoAgent mode. There is no cost associated with using the NoAgent manageability mode, the SQL Server is not restarted, and an agent is not installed to the VM. 
 
 You can view the current mode of your SQL Server IaaS agent by using Azure PowerShell: 
 
@@ -94,33 +94,34 @@ You can view the current mode of your SQL Server IaaS agent by using Azure Power
 
 ## Installation
 
-The SQL Server IaaS Agent extension is installed when you register your SQL Server VMs with the SQL VM resource provider. Registering with the resource provider creates the **SQL virtual machine** _resource_ within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the resource provider will remove the **SQL virtual machine** _resource_ but will not drop the actual virtual machine.
+Register your SQL Server VM with the SQL Server IaaS Agent extension to create the **SQL virtual machine** _resource_ within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the extension will remove the **SQL virtual machine** _resource_ but will not drop the actual virtual machine.
 
-Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the resource provider. However, if you choose to self-install SQL Server on an Azure virtual machine, or provision an Azure virtual machine from a custom VHD, then you must register your SQL Server VM with the SQL VM resource provider to install the SQL IaaS Agent extension. 
+Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the extension. However, if you choose to self-install SQL Server on an Azure virtual machine, or provision an Azure virtual machine from a custom VHD, then you must register your SQL Server VM with the SQL IaaS extension to unlock feature benefits. 
 
-To install the extension, register the SQL Server VM with the resource provider:
-- [Automatically for all current and future VMs in a subscription](sql-vm-resource-provider-automatic-registration.md)
-- [For a single VM](sql-vm-resource-provider-register.md)
-- [For multiple VMs in bulk](sql-vm-resource-provider-bulk-register.md)
+Registering the extension in lightweight mode will copy the binaries but not install the agent to the VM. The agent is installed to the VM when the extension is upgraded to full management mode. 
+
+There are three ways to register with the extension: 
+- [Automatically for all current and future VMs in a subscription](sql-agent-extension-automatic-registration-all-vms.md)
+- [Manually for a single VM](sql-agent-extension-manually-register-single-vm.md)
+- [Manually for multiple VMs in bulk](sql-agent-extension-manually-register-vms-bulk.md)
 
 ### Named instance support
 
-The SQL Server IaaS extension will work with a named instance of SQL Server if that is the only SQL Server instance available on the virtual machine. The extension will fail to install on VMs that have multiple SQL Server instances. 
+The SQL Server IaaS Agent extension works with a named instance of SQL Server if is the only SQL Server instance available on the virtual machine. The extension fails to install on VMs that have multiple SQL Server instances. 
 
-To use a named instance of SQL Server, deploy an Azure virtual machine, install a single named SQL Server instance to it, and then register it with the [SQL VM resource provider](sql-vm-resource-provider-register.md) to install the extension.
+To use a named instance of SQL Server, deploy an Azure virtual machine, install a single named SQL Server instance to it, and then register it with the [SQL IaaS Extension](sql-agent-extension-manually-register-single-vm.md).
 
 Alternatively, to use a named instance with an Azure Marketplace SQL Server image, follow these steps: 
 
    1. Deploy a SQL Server VM from Azure Marketplace. 
-   1. [Unregister](sql-vm-resource-provider-register.md#unregister-from-rp) the SQL Server VM from the SQL VM resource provider. 
+   1. [Unregister](sql-agent-extension-manually-register-single-vm.md#unregister-from-rp) the SQL Server VM from the SQL IaaS Agent extension. 
    1. Uninstall SQL Server completely within the SQL Server VM.
    1. Install SQL Server with a named instance within the SQL Server VM. 
-   1. Install the SQL IaaS Agent extension by [registering the SQL Server VM with the SQL VM resource provider](sql-vm-resource-provider-register.md#register-with-rp). 
+   1. [Register the VM with the SQL IaaS Agent Extension](sql-agent-extension-manually-register-single-vm.md#register-with-rp). 
 
 ## Verify status of extension
 
 Use the Azure portal or Azure PowerShell to check the status of the extension. 
-
 
 ### Azure portal
 
@@ -160,40 +161,40 @@ The SQL IaaS Agent extension only supports:
 
 **Should I register my SQL Server VM provisioned from a SQL Server image in Azure Marketplace?**
 
-No. Microsoft automatically registers VMs provisioned from the SQL Server images in Azure Marketplace. Registering with the SQL VM resource provider is required only if the VM was *not* provisioned from the SQL Server images in Azure Marketplace and SQL Server was self-installed.
+No. Microsoft automatically registers VMs provisioned from the SQL Server images in Azure Marketplace. Registering with the extension is required only if the VM was *not* provisioned from the SQL Server images in Azure Marketplace and SQL Server was self-installed.
 
-**Is the SQL VM resource provider available for all customers?** 
+**Is the SQL IaaS Agent extension available for all customers?** 
 
-Yes. Customers should register their SQL Server VMs with the SQL VM resource provider if they did not use a SQL Server image from Azure Marketplace and instead self-installed SQL Server, or if they brought their custom VHD. VMs owned by all types of subscriptions (Direct, Enterprise Agreement, and Cloud Solution Provider) can register with the SQL VM resource provider.
+Yes. Customers should register their SQL Server VMs with the extension if they did not use a SQL Server image from Azure Marketplace and instead self-installed SQL Server, or if they brought their custom VHD. VMs owned by all types of subscriptions (Direct, Enterprise Agreement, and Cloud Solution Provider) can register with the SQL IaaS Agent extension.
 
-**What is the default management mode when registering with the SQL VM resource provider?**
+**What is the default management mode when registering with the SQL IaaS Agent extension?**
 
-The default management mode when you register with the SQL VM resource provider is *lightweight*. If the SQL Server management property isn't set when you register with the SQL VM resource provider, the mode will be set as lightweight, and your SQL Server service will not restart. It is recommended to register with the SQL VM resource provider in lightweight mode first, and then upgrade to full during a maintenance window. Likewise, the default management is also lightweight when using the [automatic registration feature](sql-vm-resource-provider-automatic-registration.md).
+The default management mode when you register with the SQL IaaS Agent extension is *lightweight*. If the SQL Server management property isn't set when you register with the extension, the mode will be set as lightweight, and your SQL Server service will not restart. It is recommended to register with the SQL IaaS Agent extension in lightweight mode first, and then upgrade to full during a maintenance window. Likewise, the default management is also lightweight when using the [automatic registration feature](sql-agent-extension-automatic-registration-all-vms.md).
 
-**What are the prerequisites to register with the SQL VM resource provider?**
+**What are the prerequisites to register with the SQL IaaS Agent extension?**
 
-There are no prerequisites to registering with the SQL VM resource provider other than having SQL Server installed on the VM. Note that if the SQL IaaS agent extension is installed in full mode the SQL Server service will restart, so doing so during a maintenance window is recommended.
+There are no prerequisites to registering with the SQL IaaS Agent extension other than having SQL Server installed on the VM. Note that if the SQL IaaS agent extension is installed in full mode the SQL Server service will restart, so doing so during a maintenance window is recommended.
 
-**Will registering with the SQL VM resource provider install an agent on my VM?**
+**Will registering with the SQL IaaS Agent extension install an agent on my VM?**
 
-Yes, registering with the SQL VM resource provider in full manageability mode installs an agent to the VM. Registering in lightweight, or NoAgent mode does not. 
+Yes, registering with the SQL IaaS Agent extension in full manageability mode installs an agent to the VM. Registering in lightweight, or NoAgent mode does not. 
 
-Registering with the SQL VM resource provider in lightweight mode only copies the SQL IaaS Agent extension *binaries* to the VM, it does not install the agent. These binaries are then used to install the agent when the management mode is upgraded to full.
+Registering with the SQL IaaS Agent extension in lightweight mode only copies the SQL IaaS Agent extension *binaries* to the VM, it does not install the agent. These binaries are then used to install the agent when the management mode is upgraded to full.
 
 
-**Will registering with the SQL VM resource provider restart SQL Server on my VM?**
+**Will registering with the SQL IaaS Agent extension restart SQL Server on my VM?**
 
 It depends on the mode specified during registration. If lightweight or NoAgent mode is specified, then the SQL Server service will not restart. However, specifying the management mode as full will cause the SQL Server service to restart. The automatic registration feature registers your SQL Server VMs in lightweight mode, unless the Windows Server version is 2008, in which case the SQL Server VM will be registered in NoAgent mode. 
 
-**What is the difference between lightweight and NoAgent management modes when registering with the SQL VM resource provider?** 
+**What is the difference between lightweight and NoAgent management modes when registering with the SQL IaaS Agent extension?** 
 
 NoAgent management mode is the only available management mode for SQL Server 2008 and SQL Server 2008 R2 on Windows Server 2008. For all later versions of Windows Server, the two available manageability modes are lightweight and full. 
 
 NoAgent mode requires SQL Server version and edition properties to be set by the customer. Lightweight mode queries the VM to find the version and edition of the SQL Server instance.
 
-**Can I register with the SQL VM resource provider without specifying the SQL Server license type?**
+**Can I register with the SQL IaaS Agent extension without specifying the SQL Server license type?**
 
-No. The SQL Server license type is not an optional property when you're registering with the SQL VM resource provider. You have to set the SQL Server license type as pay-as-you-go or Azure Hybrid Benefit when registering with the SQL VM resource provider in all manageability modes (NoAgent, lightweight, and full). If you have any of the free versions of SQL Server installed such as Developer or Evaluation edition, you must register with pay-as-you-go licensing. Azure Hybrid Benefit is only available for paid versions of SQL Server such as Enterprise and Standard editions.
+No. The SQL Server license type is not an optional property when you're registering with the SQL IaaS Agent extension. You have to set the SQL Server license type as pay-as-you-go or Azure Hybrid Benefit when registering with the SQL IaaS Agent extension in all manageability modes (NoAgent, lightweight, and full). If you have any of the free versions of SQL Server installed, such as Developer or Evaluation edition, you must register with pay-as-you-go licensing. Azure Hybrid Benefit is only available for paid versions of SQL Server such as Enterprise and Standard editions.
 
 **Can I upgrade the SQL Server IaaS extension from NoAgent mode to full mode?**
 
@@ -207,27 +208,27 @@ Yes. Upgrading the manageability mode from lightweight to full is supported via 
 
 No. Downgrading the SQL Server IaaS extension manageability mode is not supported. The manageability mode can't be downgraded from full mode to lightweight or NoAgent mode, and it can't be downgraded from lightweight mode to NoAgent mode. 
 
-To change the manageability mode from full manageability, [unregister](sql-vm-resource-provider-register.md#unregister-from-rp) the SQL Server VM from the SQL VM resource provider by dropping the SQL virtual machine _resource_ and re-register the SQL Server VM with the SQL VM resource provider again in a different management mode.
+To change the manageability mode from full manageability, [unregister](sql-agent-extension-manually-register-single-vm.md#unregister-from-rp) the SQL Server VM from the SQL IaaS Agent extension by dropping the SQL virtual machine _resource_ and re-register the SQL Server VM with the SQL IaaS Agent extension again in a different management mode.
 
-**Can I register with the SQL VM resource provider from the Azure portal?**
+**Can I register with the SQL IaaS Agent extension from the Azure portal?**
 
-No. Registering with the SQL VM resource provider is not available in the Azure portal. Registering with the SQL VM resource provider is only supported with the Azure CLI or Azure PowerShell. 
+No. Registering with the SQL IaaS Agent extension is not available in the Azure portal. Registering with the SQL IaaS Agent extension is only supported with the Azure CLI or Azure PowerShell. 
 
-**Can I register a VM with the SQL VM resource provider before SQL Server is installed?**
+**Can I register a VM with the SQL IaaS Agent extension before SQL Server is installed?**
 
 No. A VM must have at least one SQL Server (Database Engine) instance to successfully register with the SQL VM resource provider. If there is no SQL Server instance on the VM, the new Microsoft.SqlVirtualMachine resource will be in a failed state.
 
-**Can I register a VM with the SQL VM resource provider if there are multiple SQL Server instances?**
+**Can I register a VM with the SQL IaaS Agent extension if there are multiple SQL Server instances?**
 
-Yes. The SQL VM resource provider will register only one SQL Server (Database Engine) instance. The SQL VM resource provider will register the default SQL Server instance in the case of multiple instances. If there is no default instance, then only registering in lightweight mode is supported. To upgrade from lightweight to full manageability mode, either the default SQL Server instance should exist or the VM should have only one named SQL Server instance.
+Yes. The SQL IaaS Agent extension will register only one SQL Server (Database Engine) instance. The SQL IaaS Agent extension will register the default SQL Server instance in the case of multiple instances. If there is no default instance, then only registering in lightweight mode is supported. To upgrade from lightweight to full manageability mode, either the default SQL Server instance should exist or the VM should have only one named SQL Server instance.
 
 **Can I register a SQL Server failover cluster instance with the SQL VM resource provider?**
 
-Yes. SQL Server failover cluster instances on an Azure VM can be registered with the SQL VM resource provider in lightweight mode. However, SQL Server failover cluster instances can't be upgraded to full manageability mode.
+Yes. SQL Server failover cluster instances on an Azure VM can be registered with the SQL IaaS Agent extension in lightweight mode. However, SQL Server failover cluster instances can't be upgraded to full manageability mode.
 
-**Can I register my VM with the SQL VM resource provider if an Always On availability group is configured?**
+**Can I register my VM with the SQL IaaS Agent extension if an Always On availability group is configured?**
 
-Yes. There are no restrictions to registering a SQL Server instance on an Azure VM with the SQL VM resource provider if you're participating in an Always On availability group configuration.
+Yes. There are no restrictions to registering a SQL Server instance on an Azure VM with the SQL IaaS Agent extension if you're participating in an Always On availability group configuration.
 
 **What is the cost for registering with the SQL VM resource provider, or with upgrading to full manageability mode?**
 
@@ -243,10 +244,10 @@ The two service names are:
 
 **How do I remove the extension?**
 
-Remove the extension by [unregistering](sql-vm-resource-provider-register.md#unregister-from-rp) the SQL Server VM from the SQL VM resource provider. 
+Remove the extension by [unregistering](sql-agent-extension-manually-register-single-vm.md#unregister-from-rp) the SQL Server VM from the SQL VM resource provider. 
 
 ## Next steps
 
-To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-vm-resource-provider-automatic-registration.md), [Single VMs](sql-vm-resource-provider-register.md), or [VMs in bulk](sql-vm-resource-provider-bulk-register.md).
+To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-agent-extension-automatic-registration-all-vms.md), [Single VMs](sql-agent-extension-manually-register-single-vm.md), or [VMs in bulk](sql-agent-extension-manually-register-vms-bulk.md).
 
 For more information about running SQL Server on Azure Virtual Machines, see the [What is SQL Server on Azure Virtual Machines?](sql-server-on-azure-vm-iaas-what-is-overview.md).

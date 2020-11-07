@@ -98,18 +98,18 @@ You can downgrade the version of SQL Server by following these steps:
 
 ## Verify the version and edition in the portal
 
-After you change the version of SQL Server, register your SQL Server VM with the [SQL VM resource provider](sql-vm-resource-provider-register.md) again so that you can use the Azure portal to view the version of SQL Server. The listed version number should now reflect the newly upgraded version and edition of your SQL Server installation.
+After you change the version of SQL Server, register your SQL Server VM with the [SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md) again so that you can use the Azure portal to view the version of SQL Server. The listed version number should now reflect the newly upgraded version and edition of your SQL Server installation.
 
 :::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Verify version":::
 
 > [!NOTE]
-> If you have already registered with the SQL VM resource provider, [unregister from the RP](sql-vm-resource-provider-register.md#unregister-from-rp) and then [Register the SQL VM resource](sql-vm-resource-provider-register.md#register-with-rp) again so that it detects the correct version and edition of SQL Server that is installed on the VM. This updates the metadata and billing information that is associated with this VM.
+> If you have already registered with the SQL VM resource provider, [unregister from the RP](sql-agent-extension-manually-register-single-vm.md#unregister-from-rp) and then [Register the SQL VM resource](sql-agent-extension-manually-register-single-vm.md#register-with-rp) again so that it detects the correct version and edition of SQL Server that is installed on the VM. This updates the metadata and billing information that is associated with this VM.
 
 ## Remarks
 
 - We recommend that you initiate backups/update statistics/rebuild indexes/check consistency after the upgrade is finished. You can also check the individual database compatibility levels to make sure that they reflect your desired level.
 - After SQL Server is updated on the VM, make sure that the **Edition** property of SQL Server in the Azure portal matches the installed edition number for billing.
-- The ability to [change the edition](change-sql-server-edition.md#change-edition-in-portal) is a feature of the SQL VM resource provider. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will have to manually [register their SQL Server VM](sql-vm-resource-provider-register.md).
+- The ability to [change the edition](change-sql-server-edition.md#change-edition-in-portal) is a feature of the SQL VM resource provider. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will have to manually [register their SQL Server VM](sql-agent-extension-manually-register-single-vm.md).
 - If you drop your SQL Server VM resource, the hard-coded edition setting of the image is restored.
 
 ## Next steps
