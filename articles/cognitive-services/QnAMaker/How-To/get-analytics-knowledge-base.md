@@ -47,11 +47,11 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled Applicat
 
 QnA Maker managed (Preview) uses Azure diagnostic logging to store the telemetry data and chat logs. Follow the below steps to run sample queries to get analytics on the usage of your QnA Maker knowledge base.
 
-1. [Enable diagnostics logging]](https://docs.microsoft.com/en-us/azure/cognitive-services/diagnostic-logging) for your QnA Maker managed (Preview) service.
+1. [Enable diagnostics logging]](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging) for your QnA Maker managed (Preview) service.
 
 2. In the previous step, select **Trace** in addition to **Audit, RequestResponse and AllMetrics** for logging
 
-    ![Enable trace logging in QnA Maker managed (Preview)](../media/qnamaker-how-to-analytics-kb/qnamakerv2-enable-trace-logging.png)
+    ![Enable trace logging in QnA Maker managed (Preview)](../media/qnamaker-how-to-analytics-kb/qnamaker-v2-enable-trace-logging.png)
 
 ---
 
