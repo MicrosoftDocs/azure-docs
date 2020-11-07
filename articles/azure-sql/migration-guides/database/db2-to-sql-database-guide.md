@@ -2,7 +2,7 @@
 title: "DB2 to SQL Database - Migration guide"
 description: Follow this guide to migrate your DB2 databases to Azure SQL Database. 
 ms.service: sql-database
-ms.subservice: migration-guides
+ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to

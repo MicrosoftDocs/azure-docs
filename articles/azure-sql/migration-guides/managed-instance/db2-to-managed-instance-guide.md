@@ -2,7 +2,7 @@
 title: "Migration guide: DB2 to SQL Managed Instance"
 description: Follow this guide to migrate your DB2 databases to Azure SQL Managed Instance. 
 ms.service: sql-managed-instance
-ms.subservice: migration-guides
+ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
