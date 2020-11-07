@@ -68,23 +68,23 @@ Use the CPU and memory configuration from your source machine as a baseline for 
 
 **Microsoft recommends a memory-to-core ratio of 8 as a starting point for production SQL Server workloads.**
 
-Choose a memory-optimized, general purpose, or storage-optimized VM size that is most optimal for SQL Server performance based on your workload (OLTP or data warehouse). 
+Choose a memory-optimized, general purpose, storage-optimized, or constrained core VM size that is most optimal for SQL Server performance based on your workload (OLTP or data warehouse). 
 
 ### Memory optimized
 
-The [memory optimized virtual machine sizes](../../../virtual-machines/sizes-memory.md) as a primary target for SQL Server VMs and the recommended choice by Microsoft. The memory optimized virtual machines offer stronger memory-to-CPU ratios and medium to large cache options.
+The [memory optimized virtual machine sizes](../../../virtual-machines/sizes-memory.md) are a primary target for SQL Server VMs and the recommended choice by Microsoft. The memory optimized virtual machines offer stronger memory-to-CPU ratios and medium to large cache options. 
 
 #### M and Mv2 series
 
-The [M-series](../../../virtual-machines/m-series.md) offers vCPU counts and memory for some of the largest SQL Server workloads. These VMs are hosted on memory optimized hardware with the Skylake processor family. This VM series supports premium storage, which, when coupled with host-level read cashing, is recommended for the best I/O performance. 
+The [M-series](../../../virtual-machines/m-series.md) offers vCPU counts and memory for some of the largest SQL Server workloads. These VMs are hosted on memory optimized hardware with the Skylake processor family. 
 
 The [Mv2-series](../../../virtual-machines/mv2-series.md) has the highest vCPU counts and memory and is recommended for mission critical and data warehouse workloads. Mv2-series instances are memory optimized VM sizes providing unparalleled computational performance to support large in-memory databases and workloads with a high memory-to-CPU ratio that is perfect for relational database servers, large caches, and in-memory analytics.
 
-Some of the features of the M and Mv2-series attractive for SQL Server performance include [premium storage](../../../virtual-machines/premium-storage-performance.md) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching) support, [ultra-disk](../../../virtual-machines/disks-enable-ultra-ssd.md) support, and [write acceleration](../../../virtual-machines/how-to-enable-write-accelerator).
+Some of the features of the M and Mv2-series attractive for SQL Server performance include [premium storage](../../../virtual-machines/premium-storage-performance.md) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching) support, [ultra-disk](../../../virtual-machines/disks-enable-ultra-ssd.md) support, and [write acceleration](../../../virtual-machines/how-to-enable-write-accelerator.md).
 
 #### Edsv4-series
 
-The [Edsv4-series](../../../virtual-machines/edv4-edsv4-series.md) is a memory optimized option designed for memory-intensive applications. These VMs have a large local storage SSD capacity, strong local disk IOPS, up to 504 GiB of RAM, and improved compute compared to the previous Ev3/Esv3 sizes with Gen2 VMs. There is a nearly consistent memory-to-core ratio of 8 across these virtual machines, which is ideal for standard SQL Server workloads. 
+The [Edsv4-series](../../../virtual-machines/edv4-edsv4-series.md) is designed for memory-intensive applications. These VMs have a large local storage SSD capacity, strong local disk IOPS, up to 504 GiB of RAM, and improved compute compared to the previous Ev3/Esv3 sizes with Gen2 VMs. There is a nearly consistent memory-to-core ratio of 8 across these virtual machines, which is ideal for standard SQL Server workloads. 
 
 This VM series is ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
 
@@ -92,9 +92,9 @@ The Edsv4-series virtual machines support [premium storage](../../../virtual-mac
 
 #### DSv2-series 11-15
 
-The [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) series is a memory-optimized option. The DSv2-series has the same memory and disk configurations as the previous D-series. This series has a consistent memory-to-CPU ratio of 7 across all virtual machines. 
+The [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) has the same memory and disk configurations as the previous D-series. This series has a consistent memory-to-CPU ratio of 7 across all virtual machines. 
 
-The [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) supports [premium storage](../../../virtual-machines/premium-storage-performance) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching), which is strongly recommended for optimal performance.
+The [DSv2-series 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md#dsv2-series-11-15) supports [premium storage](../../../virtual-machines/premium-storage-performance.md) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching), which is strongly recommended for optimal performance.
 
 ### General Purpose
 
@@ -121,7 +121,7 @@ The Ddv4 VM sizes include faster local SSD storage designed for applications tha
 
 These machines are ideal for side-by-side SQL and app deployments that require fast access to temp storage and departmental relational databases. There is a standard memory-to-core ratio of 4 across all of the virtual machines in this series. For this reason, it is recommended to leverage the D8ds_v4 as the starter virtual machine in this series, which has 8 vCores and 32 GBs of memory. The largest machine is the D64ds_v4, which has 64 vCores and 256 GBs of memory.
 
-These virtual machines support premium storage and premium storage caching.
+These virtual machines support [premium storage](../../../virtual-machines/premium-storage-performance.md) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching).
 
 #### B-series
 
@@ -173,7 +173,7 @@ For example, the M64-32ms requires licensing only 32 SQL Server cores with the m
 
 > [!NOTE] 
 > - Medium to large data warehouse workloads may still benefit from constrained core VMs, but data warehouse workloads are commonly characterized by fewer users and processes addressing larger amounts of data through query plans that run in parallel. 
-- The compute cost, which includes operating system licensing, will remain the same as the parent virtual machine. 
+> - The compute cost, which includes operating system licensing, will remain the same as the parent virtual machine. 
 
 ## Storage guidance
 
@@ -329,7 +329,7 @@ Consider the following best practices when deploying multiple SQL Server instanc
 
 Signs of overloaded systems can include, but are not limited to, worker thread exhaustion, slow response times, and/or stalled dispatcher system memory. 
 
-## Performance Collection
+## Collect performance baseline
 
 For a more prescriptive approach, gather performance counters using PerfMon/LogMan and capture SQL Server wait statistics to better understand general pressures and potential bottlenecks of the source environment. 
 
@@ -337,7 +337,7 @@ Start by collecting the CPU, memory, [IOPS](../../../virtual-machines/premium-st
 
 Gather data during peak hours such as workloads during your typical business day, but also other high load processes such as end-of-day processing, and weekend ETL workloads. Consider scaling up your resources for atypically heavily workloads, such as end-of-quarter processing, and then scale done once the workload completes. 
 
-Use the performance analysis to select the [VM Size](../../../virtual-machines/sizes-memory) that can scale to your workload's performance requirements.
+Use the performance analysis to select the [VM Size](../../../virtual-machines/sizes-memory.md) that can scale to your workload's performance requirements.
 
 
 ### IOPS and Throughput
@@ -346,7 +346,10 @@ SQL Server performance depends heavily on the I/O subsystem. Unless your databas
 
 The Azure marketplace virtual machines have log files on a physical disk that is separate from the data files by default. The tempdb data files count and size meet best practices and are targeted to the ephemeral D:/ drive.. 
 
-Use the PerfMon counters **\LogicalDisk\Disk Reads/Sec** and **\LogicalDisk\Disk Writes/Sec** to collect read and write OPS requirements. Use **\LogicalDisk\Disk Bytes/Sec** to collect storage throughput requirements for the data, log, and tempdb files. 
+The following PerfMon counters can help validate the IO throughput required by your SQL Server: 
+* **\LogicalDisk\Disk Reads/Sec** (read and write IOPS)
+* **\LogicalDisk\Disk Writes/Sec** (read and write IOPS) 
+* **\LogicalDisk\Disk Bytes/Sec** (throughput requirements for the data, log, and tempdb files)
 
 Using IOPS and throughput requirements at peak levels, evaluate VM sizes that match the capacity from your measurements. 
 
@@ -356,9 +359,9 @@ Make sure to understand both throughput and IOPS requirements of the workload as
 
 ### Memory
 
-Track both external memory used by the OS as well as the memory that is internally used by SQL Server. Identifying pressure for either component will help size virtual machines and identify opportunities for tuning. 
+Track both external memory used by the OS as well as the memory used internally by SQL Server. Identifying pressure for either component will help size virtual machines and identify opportunities for tuning. 
 
-These counters can help validate the memory health of a SQL Server virtual machine.
+The following PerfMon counters can help validate the memory health of a SQL Server virtual machine: 
 * [\Memory\Available MBytes](/azure/monitoring/infrastructure-health/vmhealth-windows/winserver-memory-availmbytes)
 * [\SQLServer:Memory Manager\Target Server Memory (KB)](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
 * [\SQLServer:Memory Manager\Total Server Memory (KB)](/sql/relational-databases/performance-monitor/sql-server-buffer-manager-object)
@@ -367,13 +370,13 @@ These counters can help validate the memory health of a SQL Server virtual machi
 
 ### Compute / Processing
 
-Compute in Azure is managed differently than on-prem. On-prem servers are built to last several years without an upgrade due to the management overhead and cost of acquiring new hardware. Virtualization mitigates some of these issues but applications are optimized to take the most advantage of the underlying hardware, meaning any significant change to resource consumption requires rebalancing the entire physical environment. 
+Compute in Azure is managed differently than on-premises. On-premises servers are built to last several years without an upgrade due to the management overhead and cost of acquiring new hardware. Virtualization mitigates some of these issues but applications are optimized to take the most advantage of the underlying hardware, meaning any significant change to resource consumption requires rebalancing the entire physical environment. 
 
 This is not a challenge in Azure where a new virtual machine on a different series of hardware, and even in a different region, is easy to achieve. 
 
 In Azure, you want to take advantage of as much of the virtual machines resources as possible, therefore, Azure virtual machines should be configured to keep the average CPU as high as possible without impacting the workload. 
 
-The below counters can help validate the compute health of a SQL Server virtual machine.
+The following PerfMon counters can help validate the compute health of a SQL Server virtual machine:
 * **\Processor Information(_Total)\% Processor Time**
 * **\Process(sqlservr)\% Processor Time**
 
@@ -381,8 +384,6 @@ The below counters can help validate the compute health of a SQL Server virtual 
 > Ideally, try to aim for using 80% of your compute, with peaks above 90% but not reaching 100% for any sustained period of time. Fundamentally, you only want to provision the compute the application needs and then plan to scale up or down as the business requires. 
 
 ## Next steps
-
-For more information about storage and performance, see [Storage configuration guidelines for SQL Server on Azure Virtual Machines](/archive/blogs/sqlserverstorageengine/storage-configuration-guidelines-for-sql-server-on-azure-vm)
 
 For security best practices, see [Security considerations for SQL Server on Azure Virtual Machines](security-considerations-best-practices.md).
 
