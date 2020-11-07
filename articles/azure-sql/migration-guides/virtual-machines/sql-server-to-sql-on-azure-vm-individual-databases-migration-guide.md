@@ -12,7 +12,8 @@ ms.topic: article
 ms.date: 7/20/2020
 ---
 
-# Migration guide: SQL Server to SQL Server on Azure VMs (Individual databases)
+# Migration guide: SQL Server to SQL Server on Azure VMs 
+[!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
 This migration guide teaches you to **discover**, **assess** and **migrate** your user databases from SQL Server to an instance of SQL Server on Azure Virtual Machines (VMs) by using the backup and restore and log shipping utilising the [Database Migration Assistant (DMA)](/sql/dma/dma-overview) for assessment. 
 

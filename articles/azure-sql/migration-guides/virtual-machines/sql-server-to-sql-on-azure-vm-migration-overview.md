@@ -13,6 +13,7 @@ ms.date: 7/20/2020
 ---
 
 # Migration overview: SQL Server to SQL Server on Azure VMs
+[!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
 Learn about the different migration strategies to migrate your SQL Server to SQL Server on Azure Virtual Machines (VMs). 
 

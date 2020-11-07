@@ -68,9 +68,10 @@ landingContent:
         links:
           - text: Azure Migrate 
             url: /azure/migrate/migrate-services-overview
-          - text: Azure Database Migration Service
+          - text: Azure Database Migration Service (DMS)
             url: /azure/dms/tutorial-sql-server-to-azure-sql
-          - text: /sql/dma/dma-migrateonpremsqltosqldb
+          - text: Data Migration Assistant (DMA)
+            url: /sql/dma/dma-migrateonpremsqltosqldb
           - text: Transactional replication
             url: /sql/relational-databases/replication/transactional/transactional-replication
           - text: Import / export service / BACPAC

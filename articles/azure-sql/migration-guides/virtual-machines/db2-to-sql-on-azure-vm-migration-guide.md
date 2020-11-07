@@ -15,7 +15,7 @@ author: MashaMSFT
 ms.author: mathoma
 ---
 # Migration guide: DB2 to SQL Server on Azure VMs
-[!INCLUDE[sqlserver](../../../includes/applies-to-version/sqlserver.md)]
+[!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
 This migration guide teaches you to migrate your user databases from DB2 to SQL Server on Azure VMs using the SQL Server Migration Assistant for DB2. 
 
