@@ -75,7 +75,7 @@ The following table details the available method for the **lift and shift** migr
 
 Due to the ease of setup, the recommended migration approach is to take a native SQL Server [backup](/sql/t-sql/statements/backup-transact-sql) locally and then copy the file to Azure. This method supports larger databases (>1TB) for all versions of SQL Server starting from 2008 and larger database backups (>1TB). However, for databases starting in SQL Server 2014, that are smaller than 1TB, and that have good connectivity to Azure, then [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) is the better approach. 
 
-:::image type="content" source="../media/VM-migration-downtime.png" alt-text="Migration downtime":::
+:::image type="content" source="../media/sql-server-to-sql-on-azure-vm-individual-databases-migration-guide/VM-migration-downtime.png" alt-text="Migration downtime":::
 
 When migrating SQL Server databases to an instance of SQL Server on Azure VMs, it is important to choose an approach that suits when you need to cutover to the target server as this affects the application downtime window.
 
@@ -130,7 +130,7 @@ As you prepare for migrating SQL Server databases to SQL Server on Azure VMs, be
 
 ## Next steps
 
-To start migrating your SQL Server on SQL Server on Azure VMs, see the [Individual database migration guide](individual-databases-migration-guide.md). 
+To start migrating your SQL Server databases to SQL Server on Azure VMs, see the [Individual database migration guide](sql-server-to-sql-on-azure-vm-individual-databases-migration-guide.md). 
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration.](../../../../dms/dms-tools-matrix.md)
 

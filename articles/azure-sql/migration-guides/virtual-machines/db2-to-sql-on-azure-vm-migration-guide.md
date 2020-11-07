@@ -1,37 +1,42 @@
 ---
-title: "Migration guide: DB2 to SQL Managed Instance"
-description: Follow this guide to migrate your DB2 databases to Azure SQL Managed Instance. 
-ms.service: sql-database
-ms.subservice: migration
-ms.custom: 
-ms.devlang: 
+title: "DB2 to SQL Server on Azure VMs (Migration guide)"
+description: Follow this guide to migrate your DB2 server to SQL Server on Azure VMs. 
+ms.custom: ""
+ms.date: "08/17/2020"
+ms.prod: sql
+ms.reviewer: ""
+ms.technology: release-landing
 ms.topic: conceptual
+helpviewer_keywords: 
+  - "processors [SQL Server], supported"
+  - "number of processors supported"
+  - "maximum number of processors supported"
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: mokabiru
-ms.date: 08/25/2020
 ---
-# Migration guide: DB2 to SQL Managed Instance
-[!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
+# Migration guide: DB2 to SQL Server on Azure VMs
+[!INCLUDE[sqlserver](../../../includes/applies-to-version/sqlserver.md)]
 
-This guide teaches you to migrate your DB2 databases to Azure SQL Managed Instance using the SQL Server Migration Assistant for DB2. 
+This migration guide teaches you to migrate your user databases from DB2 to SQL Server on Azure VMs using the SQL Server Migration Assistant for DB2. 
 
-For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
+For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
 
-## Prerequisites 
 
-To migrate your DB2 database to SQL Managed Instance, you need:
+## Prerequisites
+
+To migrate your DB2 database to SQL Server, you need:
 
 - to verify your source environment is supported.
-- to download [SQL Server Migration Assistant (SSMA) for DB2](https://www.microsoft.com/download/details.aspx?id=54254).
-- a target [Azure SQL Managed Instance](../../database/single-database-create-quickstart.md).
+- [SQL Server Migration Assistant (SSMA) for DB2](https://www.microsoft.com/download/details.aspx?id=54254).
+- Connectivity between your source environment and your SQL Server VM in Azure. 
+
 
 
 ## Pre-migration
 
 After you have met the prerequisites, you are ready to discover the topology of your environment and assess the feasibility of your migration. 
 
-### Assess and convert
+### Assess 
 
 Create an assessment using SQL Server Migration Assistant (SSMA). 
 
@@ -39,25 +44,25 @@ To create an assessment, follow these steps:
 
 1. Open SQL Server Migration Assistant (SSMA) for DB2. 
 1. Select **File** and then choose **New Project**. 
-1. Provide a project name, a location to save your project, and then select Azure SQL Managed Instance as the migration target from the drop-down. Select **OK**. 
+1. Provide a project name, a location to save your project, and then select a SQL Server migration target from the drop-down. Select **OK**. 
 
-   :::image type="content" source="media/db2-to-managed-instance-guide/new-project.png" alt-text="Provide project details and select OK to save.":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/new-project.png" alt-text="Provide project details and select OK to save.":::
 
 
 1. Enter in values for the DB2 connection details on the **Connect to DB2** dialog box. 
 
-   :::image type="content" source="media/db2-to-managed-instance-guide/connect-to-db2.png" alt-text="Connect to your DB2 instance":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/connect-to-db2.png" alt-text="Connect to your DB2 instance":::
 
 
 1. Right-click the DB2 schema you want to migrate, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the schema. 
 
-   :::image type="content" source="media/db2-to-managed-instance-guide/create-report.png" alt-text="Right-click the schema and choose create report":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/create-report.png" alt-text="Right-click the schema and choose create report":::
 
 1. Review the HTML report to understand conversion statistics and any errors or warnings. You can also open the report in Excel to get an inventory of DB2 objects and the effort required to perform schema conversions. The default location for the report is in the report folder within SSMAProjects.
 
    For example: `drive:\<username>\Documents\SSMAProjects\MyDB2Migration\report\report_<date>`. 
 
-   :::image type="content" source="media/db2-to-managed-instance-guide/report.png" alt-text="Review the report to identify any errors or warnings":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/report.png" alt-text="Review the report to identify any errors or warnings":::
 
 
 ### Validate data types
@@ -68,30 +73,30 @@ Validate the default data type mappings and change them based on requirements if
 1. Select **Project Settings**. 
 1. Select the **Type mappings** tab. 
 
-   :::image type="content" source="media/db2-to-managed-instance-guide/type-mapping.png" alt-text="Select the schema and then type-mapping":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/type-mapping.png" alt-text="Select the schema and then type-mapping":::
 
 1. You can change the type mapping for each table by selecting the table in the **DB2 Metadata explorer**. 
 
-### Schema conversion 
+### Convert schema 
 
 To convert the schema, follow these steps:
 
 1. (Optional) Add dynamic or ad-hoc queries to statements. Right-click the node, and then choose **Add statements**. 
-1. Select **Connect to Azure SQL Database**. 
-    1. Enter connection details to connect to your Azure SQL Managed Instance.  
-    1. Choose your target database from the drop-down. 
+1. Select **Connect to SQL Server**. 
+    1. Enter connection details to connect to your SQL Server instance on your Azure VM. 
+    1. Choose to connect to an existing database on the target server, or provide a new name to create a new database on the target server. 
     1. Select **Connect**. 
 
-   :::image type="content" source="media/db2-to-managed-instance-guide/connect-to-sql-managed-instance.png" alt-text="Fill in details to connect to SQL Server":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/connect-to-sql-server.png" alt-text="Fill in details to connect to SQL Server":::
 
 
 1. Right-click the schema and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema. 
 
-   :::image type="content" source="media/db2-to-managed-instance-guide/convert-schema.png" alt-text="Right-click the schema and choose convert schema":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/convert-schema.png" alt-text="Right-click the schema and choose convert schema":::
 
 1. After the conversion completes, compare and review the structure of the schema to identify potential problems and address them based on the recommendations. 
 
-   :::image type="content" source="media/db2-to-managed-instance-guide/compare-review-schema-structure.png" alt-text="Compare and review the structure of the schema to identify potential problems and address them based on recommendations.":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/compare-review-schema-structure.png" alt-text="Compare and review the structure of the schema to identify potential problems and address them based on recommendations.":::
 
 1. Save the project locally for an offline schema remediation exercise. Select **Save Project** from the **File** menu. 
 
@@ -102,22 +107,22 @@ After you have completed assessing your databases and addressing any discrepanci
 
 To publish your schema and migrate your data, follow these steps:
 
-1. Publish the schema: Right-click the database from the **Databases** node in the **Azure SQL Managed Instance Metadata Explorer** and choose **Synchronize with Database**.
+1. Publish the schema: Right-click the database from the **Databases** node in the **SQL Server Metadata Explorer** and choose **Synchronize with Database**.
 
-   :::image type="content" source="media/db2-to-managed-instance-guide/synchronize-with-database.png" alt-text="Right-click the database and choose synchronize with database":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/synchronize-with-database.png" alt-text="Right-click the database and choose synchronize with database":::
 
 1. Migrate the data: Right-click the schema from the **DB2 Metadata Explorer** and choose **Migrate Data**. 
 
-   :::image type="content" source="media/db2-to-managed-instance-guide/migrate-data.png" alt-text="Right-click the schema and choose migrate data":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/migrate-data.png" alt-text="Right-click the schema and choose migrate data":::
 
-1. Provide connection details for both DB2 and SQL Managed Instance. 
+1. Provide connection details for both the DB2 and SQL Server instances. 
 1. View the **Data Migration report**. 
 
-   :::image type="content" source="media/db2-to-managed-instance-guide/data-migration-report.png" alt-text="Review the data migration report":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/data-migration-report.png" alt-text="Review the data migration report":::
 
-1. Connect to SQL Managed Instance by using SQL Server Management Studio and validate the migration by reviewing the data and schema. 
+1. Connect to your SQL Server instance by using SQL Server Management Studio and validate the migration by reviewing the data and schema. 
 
-   :::image type="content" source="media/db2-to-managed-instance-guide/compare-schema-in-ssms.png" alt-text="Compare the schema in SSMS":::
+   :::image type="content" source="media/db2-to-sql-on-azure-vm-migration-guide/compare-schema-in-ssms.png" alt-text="Compare the schema in SSMS":::
 
 ## Post-migration 
 
@@ -126,7 +131,6 @@ After you have successfully completed the Migration stage, you need to go throug
 ### Remediate applications 
 
 After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will in some cases require changes to the applications.
-
 
 ### Perform tests
 
@@ -139,14 +143,6 @@ The test approach for database migration consists of the following activities:
 
    > [!NOTE]
    > For assistance developing and running post-migration validation tests, consider the Data Quality Solution available from the partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
-
-
-## Leverage advanced features 
-
-Be sure to take advantage of the advanced cloud-based features offered by Azure SQL Managed Instance, such as [built-in high availability](../../database/high-availability-sla.md), [threat detection](../../database/advanced-data-security.md), and [monitoring and tuning your workload](../../database/monitor-tune-overview.md). 
-
-
-Some SQL Server features are only available once the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
 
 ## Migration assets 
 
@@ -161,19 +157,14 @@ For additional assistance, see the following resources, which were developed in 
 
 These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, please contact your account team and ask them to submit a nomination.
 
-
 ## Next steps
 
-- For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
+After migration, review the [Post-migration validation and optimization guide](../../../relational-databases/post-migration-validation-and-optimization-guide.md). 
 
-- To learn more about Azure SQL Managed Instance see:
-   - [An overview of SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md)
-   - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
+For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios, as well as specialty tasks, see [Data migration services and tools](/azure/dms/dms-tools-matrix).
 
+For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
 
-- To learn more about the framework and adoption cycle for Cloud migrations, see
-   -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Best practices for costing and sizing workloads migrate to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
-
-- To assess the Application access layer, see [Data Access Migration Toolkit (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
-- For details on how to perform Data Access Layer A/B testing see [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).
+For video content, see:
+- [How to use the Database Migration Guide](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/)
+- [Overview of the migration journey](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)

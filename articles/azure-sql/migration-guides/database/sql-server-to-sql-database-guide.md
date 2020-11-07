@@ -79,7 +79,7 @@ To learn more, see [Perform a SQL Server migration assessment with Data Migratio
 If the assessment encounters multiple blockers to confirm that your database it not ready for an Azure SQL Database migration, then alternatively consider:
 
 - [Azure SQL Managed Instance](../managed-instance/sql-server-to-managed-instance-overview.md) if there are multiple instance-scoped dependencies
-- [SQL Server on Azure Virtual Machines](../virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md) if both SQL Database and SQL Managed Instance fail to be suitable targets. 
+- [SQL Server on Azure Virtual Machines](../virtual-machines/sql-server/sql-server-to-sql-on-azure-vm-migration-overview.md) if both SQL Database and SQL Managed Instance fail to be suitable targets. 
 
 
 

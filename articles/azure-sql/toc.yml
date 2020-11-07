@@ -6,27 +6,6 @@
     href: azure-sql-iaas-vs-paas-what-is-overview.md
   - name: Migrate to Azure SQL 
     href: migration-guides/index.yml
-  - name: Migrate to Azure SQL 
-    items: 
-    - name: SQL Database
-      items: 
-      - name: Overview
-        href: migration-guides/database/sql-server-to-sql-database-overview.md
-      - name: From SQL Server
-        href: migration-guides/database/sql-server-to-sql-database-guide.md
-    - name: SQL Managed Instance 
-      items: 
-      - name: Overview
-        href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
-      - name: From SQL Server 
-        href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
-    - name: SQL Server on Azure VMs
-      items: 
-      - name: Overview
-        href: migration-guides/virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
-      - name: From SQL Server
-        href: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
-
 
 - name: Shared SQL DB & SQL MI docs 
   items:
@@ -773,7 +752,7 @@
       items: 
       - name: Overview
         href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
-      - name: From SQL Server 
+      - name: Migrate
         href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
       - name: Performance baseline
         href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
@@ -1270,12 +1249,11 @@
   - name: Migration guides
     items: 
       - name: Overview
-        href: migration-guides/virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
+        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
       - name: From SQL Server
-        items: 
-        - name: Individual databases 
-          href: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
-
+        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-migration-guide.md
+      - name: From DB2
+        href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-migration-guide.md
         
 - name: Reference
   items:

@@ -159,7 +159,7 @@ The SQL Server high availability features Always On failover cluster instances a
 
 Beyond the high availability architecture that is included in SQL Database, there is also the [auto-failover groups](../../database/auto-failover-group-overview.md) feature that allows you to manage the replication and failover of databases in a managed instance to another region. 
 
-SQL Agent jobs
+#### SQL Agent jobs
 SQL Agent jobs are not directly supported in Azure SQL Database and will need to be deployed to [Elastic Database Jobs (Preview)](../../database/job-automation-overview.md#elastic-database-jobs-preview).
 
 #### Logins and groups
