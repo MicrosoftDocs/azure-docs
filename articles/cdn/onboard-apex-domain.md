@@ -87,5 +87,4 @@ For more information on enabling HTTPS on your custom domain for Azure CDN, see 
 
 ## Next steps
 
-- Learn how to [create a CDN](quickstart-create-front-door.md).
-- Learn [how CDN works](front-door-routing-architecture.md).
+- Learn how to [create a CDN endpoint](cdn-create-new-endpoint.md).
