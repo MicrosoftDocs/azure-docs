@@ -34,7 +34,7 @@ When you install Azure AD Connect and you start synchronizing, the Azure AD sync
 
 The match is only evaluated for new objects coming from Connect. If you change an existing object so it is matching any of these attributes, then you see an error instead.
 
-If Azure AD finds an object where the attribute values are the same for an object coming from Connect and that it is already present in Azure AD, then the object in Azure AD is taken over by Connect. The previously cloud-managed object is flagged as on-premises managed. All attributes in Azure AD with a value in on-premises AD are overwritten with the on-premises value. The exception is when an attribute has a **NULL** value on-premises. In this case, the value in Azure AD remains, but you can still only change it on-premises to something else.
+If Azure AD finds an object where the attribute values are the same for an object coming from Connect and that it is already present in Azure AD, then the object in Azure AD is taken over by Connect. The previously cloud-managed object is flagged as on-premises managed. All attributes in Azure AD with a value in on-premises AD are overwritten with the on-premises value.
 
 > [!WARNING]
 > Since all attributes in Azure AD are going to be overwritten by the on-premises value, make sure you have good data on-premises. For example, if you only have managed email address in Microsoft 365 and not kept it updated in on-premises AD DS, then you lose any values in Azure AD/Microsoft 365 not present in AD DS.
