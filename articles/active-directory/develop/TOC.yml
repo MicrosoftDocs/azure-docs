@@ -161,9 +161,71 @@
     href: authentication-flows-app-scenarios.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
-  - name: Mobile single sign-on (SSO)
-    href: mobile-sso-support-overview.md
-    displayName: android, ios
+  - name: Microsoft Authentication Library (MSAL) Overview
+    href: msal-overview.md
+  - name: Microsoft Identity Web library
+    href: microsoft-identity-web.md
+    displayName: auth, library, .NET Core
+  - name: Application types and OAuth 2.0
+    displayName: App types, OAuth
+    href: v2-app-types.md
+  - name: Permissions and consent
+    displayName: Scopes
+    href: v2-permissions-and-consent.md
+  - name: Conditional access
+    href: v2-conditional-access-dev-guide.md
+  - name: Automatic user provisioning (SCIM)
+    href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+
+- name: How-to guides
+  items:
+  - name: Authentication
+    items:
+    - name: Configure role claim
+      href: active-directory-enterprise-app-role-management.md
+    - name: Customize claims - Portal
+      href: active-directory-saml-claims-customization.md
+    - name: Customize claims - PowerShell
+      href: active-directory-claims-mapping.md
+    - name: Configure optional claims
+      href: active-directory-optional-claims.md
+    - name: Use directory schema extension attributes in claims
+      href: active-directory-schema-extensions.md
+    - name: Configure token lifetimes
+      href: configure-token-lifetimes.md
+    - name: Handle SameSite cookie changes in Chrome browser
+      href: howto-handle-samesite-cookie-changes-chrome-browser.md
+    - name: Handle ITP in Safari
+      href: reference-third-party-cookies-spas.md
+  - name: Application configuration
+    displayName: App configuration
+    items:
+    - name: Convert a single-tenant app to a multi-tenant app
+      href: howto-convert-app-to-be-multi-tenant.md
+    - name: Create a service principal
+      items:
+      - name: Using Azure PowerShell
+        href: howto-authenticate-service-principal-powershell.md
+      - name: Using the Azure portal
+        href: howto-create-service-principal-portal.md
+    - name: Restrict your app to a set of users
+      href: howto-restrict-your-app-to-a-set-of-users.md
+    - name: Add app roles in your application
+      href: howto-add-app-roles-in-azure-ad-apps.md
+    - name: Follow the branding guidelines
+      displayName: Add branding
+      href: howto-add-branding-in-azure-ad-apps.md
+    - name: Configure publisher domain
+      href: howto-configure-publisher-domain.md
+      displayName: verified domain, verified publisher domain
+    - name: Configure Terms of Service and Privacy Statement
+      href: howto-add-terms-of-service-privacy-statement.md
+    - name: Configure publisher verification for your app
+      items:
+      - name: Mark your app as publisher verified
+        href: mark-app-as-publisher-verified.md
+      - name: Troubleshoot publisher verification
+        href: troubleshoot-publisher-verification.md
   - name: Application scenarios
     displayName: App scenarios
     items:
@@ -301,139 +363,8 @@
         href: scenario-mobile-call-api.md
       - name: Move to production
         href: scenario-mobile-production.md
-  - name: Microsoft Authentication Library (MSAL) Overview
-    href: msal-overview.md
-  - name: Microsoft Identity Web library
-    href: microsoft-identity-web.md
-    displayName: auth, library, .NET Core
-  - name: Authentication protocols
-    displayName: Auth protocol
-    items:
-    - name: Application types and OAuth 2.0
-      displayName: App types, OAuth
-      href: v2-app-types.md
-    - name: OAuth 2.0 and OpenID Connect protocols
-      items:
-      - name: OAuth 2.0 and OpenID Connect
-        href: active-directory-v2-protocols.md
-      - name: OpenID Connect
-        href: v2-protocols-oidc.md
-      - name: OAuth 2.0 implicit grant flow
-        href: v2-oauth2-implicit-grant-flow.md
-      - name: OAuth 2.0 auth code grant
-        href: v2-oauth2-auth-code-flow.md
-      - name: OAuth 2.0 on-behalf-of flow
-        displayName: OBO
-        href: v2-oauth2-on-behalf-of-flow.md
-      - name: OAuth 2.0 client credentials grant
-        href: v2-oauth2-client-creds-grant-flow.md
-      - name: OAuth 2.0 device code flow
-        href: v2-oauth2-device-code.md
-      - name: OAuth 2.0 resource owner password credentials grant
-        displayName: ROPC
-        href: v2-oauth-ropc.md
-      - name: OAuth 2.0 SAML bearer assertion flow
-        href: v2-saml-bearer-assertion.md
-      - name: Signing key rollover
-        href: active-directory-signing-key-rollover.md
-      - name: ID tokens
-        href: id-tokens.md
-      - name: Access tokens
-        href: access-tokens.md
-      - name: Configure token lifetimes
-        href: active-directory-configurable-token-lifetimes.md
-      - name: UserInfo endpoint
-        href: userinfo.md
-      - name: Certificate credentials
-        href: active-directory-certificate-credentials.md
-    - name: SAML 2.0 protocol
-      items:
-      - name: Single sign-on
-        displayName: SSO
-        href: single-sign-on-saml-protocol.md
-      - name: Sign-out
-        href: single-sign-out-saml-protocol.md
-      - name: How Azure AD uses the SAML protocol
-        href: active-directory-saml-protocol-reference.md
-      - name: SAML tokens
-        href: reference-saml-tokens.md
-  - name: Application configuration
-    displayName: App configuration
-    items:
-    - name: Applications and service principals
-      displayName: Apps, service principals
-      href: app-objects-and-service-principals.md
-    - name: How and why apps are added to Azure AD
-      href: active-directory-how-applications-are-added.md
-    - name: Redirect URI/reply URL restrictions and limitations
-      href: reply-url.md
-    - name: Validation differences by supported account types
-      href: supported-accounts-validation.md
-    - name: Single tenant and multi-tenant apps
-      href: single-and-multi-tenant-apps.md
-    - name: Publisher verification
-      href: publisher-verification-overview.md
-  - name: Permissions and consent
-    displayName: Scopes
-    items:
-    - name: Types of permissions and consent
-      href: v2-permissions-and-consent.md
-    - name: Consent framework
-      href: consent-framework.md
-    - name: Admin consent
-      href: v2-admin-consent.md
-    - name: Application consent experiences
-      displayName: App consent experiences
-      href: application-consent-experience.md
-  - name: Conditional access
-    href: v2-conditional-access-dev-guide.md
-  - name: National Clouds
-    items:
-    - name: Overview
-      href: authentication-national-cloud.md
-    - name: Authentication
-      href: msal-national-cloud.md
-  - name: Automatic user provisioning (SCIM)
-    items:
-    - name: What is automatic user provisioning?
-      href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
-    - name: Develop and integrating a SCIM endpoint
-      href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
-    - name: Common provisioning scenarios
-      href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
-    - name: Automate configuration using MS Graph
-      href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
-  - name: Azure portal help articles
-    items:
-    - name: Token lifetime defaults for a custom-developed application
-      href: registration-config-change-token-lifetime-how-to.md
-    - name: Discover endpoints
-      href: registration-config-how-to.md
-    - name: Select permissions for a given API
-      href: perms-for-given-api.md
-    - name: Authentication protocols
-      href: active-directory-authentication-protocols.md
-    - name: Differences between delegated and application permissions
-      href: delegated-and-app-perms.md
-    - name: How application consent works
-      href: consent-framework-links.md
-    - name: Find a specific API needed for a custom-developed application
-      href: api-find-an-api-how-to.md
-    - name: App registration reference
-      href: active-directory-v2-registration-portal.md
-    - name: Azure portal registration fields for custom-developed apps
-      href: registration-config-specific-application-property-how-to.md
-    - name: Configure a new multitenant application
-      href: setup-multi-tenant-app.md
-    - name: Add a multitenant application to the Azure AD application gallery
-      href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
-    - name: Integrating with Azure Active Directory
-      href: active-directory-how-to-integrate.md
-    - name: Configure single sign-on for an application
-      href: registration-config-sso-how-to.md
-- name: How-to
-  items:
-  - name: Use the Microsoft Authentication Library
+  - name: Work with Microsoft Authentication Library
+    displayName: MSAL
     items:
       - Name: All platforms
         items:
@@ -670,6 +601,72 @@
       href: vs-active-directory-error.md
 - name: Reference
   items:
+  - name: Application configuration
+    displayName: App configuration
+    items:
+    - name: Applications and service principals
+      displayName: Apps, service principals
+      href: app-objects-and-service-principals.md
+    - name: How and why apps are added to Azure AD
+      href: active-directory-how-applications-are-added.md
+    - name: Redirect URI/reply URL restrictions and limitations
+      href: reply-url.md
+    - name: Validation differences by supported account types
+      href: supported-accounts-validation.md
+    - name: Single tenant and multi-tenant apps
+      href: single-and-multi-tenant-apps.md
+    - name: Publisher verification
+      href: publisher-verification-overview.md
+  - name: Authentication protocols
+    displayName: Auth protocol
+    items:
+    - name: OAuth 2.0 and OpenID Connect protocols
+      items:
+      - name: OAuth 2.0 and OpenID Connect
+        href: active-directory-v2-protocols.md
+      - name: OpenID Connect
+        href: v2-protocols-oidc.md
+      - name: OAuth 2.0 implicit grant flow
+        href: v2-oauth2-implicit-grant-flow.md
+      - name: OAuth 2.0 auth code grant
+        href: v2-oauth2-auth-code-flow.md
+      - name: OAuth 2.0 on-behalf-of flow
+        displayName: OBO
+        href: v2-oauth2-on-behalf-of-flow.md
+      - name: OAuth 2.0 client credentials grant
+        href: v2-oauth2-client-creds-grant-flow.md
+      - name: OAuth 2.0 device code flow
+        href: v2-oauth2-device-code.md
+      - name: OAuth 2.0 resource owner password credentials grant
+        displayName: ROPC
+        href: v2-oauth-ropc.md
+      - name: OAuth 2.0 SAML bearer assertion flow
+        href: v2-saml-bearer-assertion.md
+      - name: Signing key rollover
+        href: active-directory-signing-key-rollover.md
+      - name: ID tokens
+        href: id-tokens.md
+      - name: Access tokens
+        href: access-tokens.md
+      - name: Configure token lifetimes
+        href: active-directory-configurable-token-lifetimes.md
+      - name: UserInfo endpoint
+        href: userinfo.md
+      - name: Certificate credentials
+        href: active-directory-certificate-credentials.md
+    - name: SAML 2.0 protocol
+      items:
+      - name: Single sign-on
+        displayName: SSO
+        href: single-sign-on-saml-protocol.md
+      - name: Sign-out
+        href: single-sign-out-saml-protocol.md
+      - name: How Azure AD uses the SAML protocol
+        href: active-directory-saml-protocol-reference.md
+      - name: SAML tokens
+        href: reference-saml-tokens.md
+    - name: How and why apps are added to Azure AD
+      href: active-directory-how-applications-are-added.md
   - name: Application manifest
     href: reference-app-manifest.md
     displayName: app manifest
@@ -685,6 +682,36 @@
     href: reference-aadsts-error-codes.md
   - name: Breaking changes
     href: reference-breaking-changes.md
+  - name: Mobile single sign-on (SSO)
+    href: mobile-sso-support-overview.md
+    displayName: android, ios
+  - name: Permissions and consent
+    displayName: Scopes
+    items:
+    - name: Consent framework
+      href: consent-framework.md
+    - name: Admin consent
+      href: v2-admin-consent.md
+    - name: Application consent experiences
+      displayName: App consent experiences
+      href: application-consent-experience.md
+  - name: National Clouds
+    items:
+    - name: Overview
+      href: authentication-national-cloud.md
+    - name: Authentication
+      href: msal-national-cloud.md
+  - name: Automatic user provisioning (SCIM)
+    items:
+    - name: What is automatic user provisioning?
+      href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: Develop and integrating a SCIM endpoint
+      href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: Common provisioning scenarios
+      href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+    - name: Automate configuration using MS Graph
+      href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+
 - name: Resources
   items:
   - name: Glossary
@@ -693,6 +720,34 @@
     href: identity-videos.md
   - name: Microsoft identity platform developer blog
     href: https://developer.microsoft.com/en-us/identity/blogs/
+  - name: Azure portal help articles
+    items:
+    - name: Token lifetime defaults for a custom-developed application
+      href: registration-config-change-token-lifetime-how-to.md
+    - name: Discover endpoints
+      href: registration-config-how-to.md
+    - name: Select permissions for a given API
+      href: perms-for-given-api.md
+    - name: Authentication protocols
+      href: active-directory-authentication-protocols.md
+    - name: Differences between delegated and application permissions
+      href: delegated-and-app-perms.md
+    - name: How application consent works
+      href: consent-framework-links.md
+    - name: Find a specific API needed for a custom-developed application
+      href: api-find-an-api-how-to.md
+    - name: App registration reference
+      href: active-directory-v2-registration-portal.md
+    - name: Azure portal registration fields for custom-developed apps
+      href: registration-config-specific-application-property-how-to.md
+    - name: Configure a new multitenant application
+      href: setup-multi-tenant-app.md
+    - name: Add a multitenant application to the Azure AD application gallery
+      href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
+    - name: Integrating with Azure Active Directory
+      href: active-directory-how-to-integrate.md
+    - name: Configure single sign-on for an application
+      href: registration-config-sso-how-to.md
   - name: Azure AD blog
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
   - name: Azure roadmap
