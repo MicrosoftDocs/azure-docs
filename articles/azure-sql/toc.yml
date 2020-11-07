@@ -5,6 +5,8 @@
   - name: What is Azure SQL? 
     href: azure-sql-iaas-vs-paas-what-is-overview.md
   - name: Migrate to Azure SQL 
+    href: migration-guides/index.yml
+  - name: Migrate to Azure SQL 
     items: 
     - name: SQL Database
       items: 

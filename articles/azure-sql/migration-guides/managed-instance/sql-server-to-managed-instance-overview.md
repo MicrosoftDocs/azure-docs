@@ -128,18 +128,18 @@ The following table compares the alternative migration options:
 
 There are additional considerations when migrating workloads that rely on other SQL Server features. 
 
-**SQL Server Integration Services**   
+**SQL Server Integration Services
 
 Migrate SQL Server Integration Services (SSIS) packages and projects in SSISDB to Azure SQL Managed Instance using [Azure Database Migration Service (DMS)](/azure/dms/how-to-migrate-ssis-packages-managed-instance). 
 
 Only SSIS packages in SSISDB starting with SQL Server 2012 are supported for migration. Convert legacy SSIS packages before migration. See the [project conversion tutorial](/sql/integration-services/lesson-6-2-converting-the-project-to-the-project-deployment-model) to learn more. 
 
 
-**SQL Server Reporting Services**   
+#### SQL Server Reporting Services
 
 SQL Server Reporting Services (SSRS) reports can be migrated to paginated reports in Power BI. Use the [RDL Migration Tool](https://github.com/microsoft/RdlMigration) to help prepare, and migrate your reports. This tool was developed by Microsoft to help customers migrate RDL reports from their SSRS servers to Power BI. It is available on GitHub, and it documents an end-to-end walkthrough of the migration scenario. 
 
-**SQL Server Analysis Services**   
+#### SQL Server Analysis Services
 
 SQL Server Analysis Services Tabular models from SQL Server 2012 and above can be migrated to Azure Analysis Services which is a PaaS deployment model for Analysis Services Tabular model in Azure. You can learn more about migrating on-prem models to Azure Analysis Services in this [video tutorial](https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/).
 
@@ -147,20 +147,20 @@ Alternatively, you can also consider migrating your on-premises Analysis Service
 > [!NOTE]
 > Power BI XMLA read/write endpoints functionality is currently in Public Preview and should not be considered for Production workloads until the functionality becomes Generally Available.
 
-**High availability**   
+#### High availability
 
 The SQL Server high availability features Always On failover cluster instances and Always On availability groups become obsolete on the target Azure SQL Managed Instance as high availability architecture is already built into both [General Purpose (standard availability model)](../../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) and [Business Critical (premium availability model)](../../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) SQL Managed Instance. The premium availability model also provides read scale-out that allows connecting into one of the secondary nodes for read-only purposes.     
 
 Beyond the high availability architecture that is included in SQL Managed Instance, there is also the [auto-failover groups](../../database/auto-failover-group-overview.md) feature that allows you to manage the replication and failover of databases in a managed instance to another region. 
 
-**SQL Agent jobs**   
+#### SQL Agent jobs
 
 Use the offline Azure Database Migration Service (DMS) option to migrate [SQL Agent jobs](/azure/dms/howto-sql-server-to-azure-sql-mi-powershell#offline-migrations). Otherwise, script the jobs in Transact-SQL (T-SQL) using SQL Server Management Studio and then manually recreate them on the target SQL Managed Instance. 
 
 > [!IMPORTANT]
 > Currently, Azure DMS only supports jobs with T-SQL subsystem steps. Jobs with SSIS package steps will have to be manually migrated. 
 
-**Logins and groups**   
+#### Logins and groups
 
 SQL logins from the source SQL Server can be moved to Azure SQL Managed Instance using Database Migration Service (DMS) in offline mode.  Use the **[Select logins](../../../dms/tutorial-sql-server-to-managed-instance.md#select-logins)** blade in the **Migration Wizard** to migrate logins to your target SQL Managed Instance. 
 
@@ -175,12 +175,11 @@ To learn more, see [how to migrate windows users and groups in a SQL Server inst
 
 Alternatively, you can use the [PowerShell utility tool](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) specially designed by the Microsoft Data Migration Architects. The utility uses PowerShell to create a T-SQL script to recreate logins and select database users from the source to the target. The tool automatically maps Windows AD accounts to Azure AD accounts, and can do a UPN lookup for each login against the source Active Directory. The tool scripts custom server and database roles, as well as role membership, database role, and user permissions. Contained databases are not yet supported and only a subset of possible SQL Server permissions are scripted. 
 
-
-**Encryption**   
+#### Encryption
 
 When migrating databases protected by [Transparent Data Encryption](../../database/transparent-data-encryption-tde-overview.md) to a managed instance using native restore option, [migrate the corresponding certificate](../../managed-instance/tde-certificate-migrate.md) from the source SQL Server to the target SQL Managed Instance *before* database restore. 
 
-**System databases**  
+#### System databases
 
 Restore of system databases is not supported. To migrate instance-level objects (stored in master or msdb databases), script them using Transact-SQL (T-SQL) and then recreate them on the target managed instance. 
 
@@ -193,8 +192,6 @@ To strengthen security, consider using [Azure Active Directory Authentication]
 In addition to advanced management and security features, SQL Managed Instance provides a set of advanced tools that can help you [monitor and tune your workload](../../database/monitor-tune-overview.md). [Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) allows you to monitor a large set of managed instances in a centralized manner. [Automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) in managed instances continuously monitors performance of your SQL plan execution statistics and automatically fixes the identified performance issues. 
 
 Some features are only available once the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
-
-
 
 ## Migration assets 
 

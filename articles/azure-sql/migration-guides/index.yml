@@ -1,0 +1,78 @@
+### YamlMime:Landing
+
+title: Migrate to Azure SQL 
+summary: "Find documentation how to migrate to the  Azure SQL family of SQL Server database engine products in the cloud: Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VM. "
+
+metadata:
+  title: Migrate to Azure SQL 
+  description:  "Find documentation to help you migrate to Azure SQL, which is a family of SQL Server database engine products in the cloud, from a fully managed database in Azure SQL Database, a fully managed instance in Azure SQL Managed Instance, or SQL Server installed to a virtual machine in Azure."
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: service
+  ms.tgt_pltfrm: na
+  ms.devlang:
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: sstein
+  ms.date: 11/06/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card 
+  - title: Azure SQL Database
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Overview
+            url: migration-guides/database/sql-server-to-sql-database-overview.md
+          - text: From SQL Server
+            url: migration-guides/database/sql-server-to-sql-database-guide.md
+
+
+  # Card 
+  - title: Azure SQL Managed Instance
+    linkLists:
+      - linkListType: get-started 
+        links:
+          - text: Overview 
+            url: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+          - text: From SQL Server
+            url: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+
+
+  # Card 
+  - title: SQL Server on Azure VM
+    linkLists:
+      - linkListType: get-started 
+        links:
+          - text: Overview 
+            url: migration-guides/virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
+          - text: From SQL Server
+            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+
+  # Card 
+  - title: Migration tools 
+    linkLists:
+      - linkListType: deploy 
+        links:
+          - text: Azure Migrate 
+            url: migration-guides/virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
+          - text: Azure Database Migration Service
+            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+          - text: Data Migration Assistant (DMA)
+            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+          - text: Transactional replication
+            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+          - text: Import / export service / BACPAC
+            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+          - text: Bulk copy
+            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+          - text: Azure Data Factory
+            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
+          - text: SQL Data Sync
+            url: migration-guides/virtual-machines/sql-server/individual-databases-migration-guide.md
