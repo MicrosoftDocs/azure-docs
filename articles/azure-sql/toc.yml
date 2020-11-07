@@ -1018,7 +1018,7 @@
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
-- name: SQL Server on Azure VM
+- name: SQL Server on Azure VMs
   items:
   - name: Documentation
     href: virtual-machines/index.yml
