@@ -29,6 +29,10 @@ This article describes resolutions to issues you might have when managing capaci
 | Volume creation or modification fails with `Requested throughput not available` error | Available throughput for a volume is determined by its capacity pool’s size and the service level. If you do not have sufficient throughput, you should increase the pool size or adjust the existing volume throughput. | 
 
 ## Issues moving a capacity pool 
+
+> [!IMPORTANT] 
+> The [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md) public preview registration is on-hold until further notice.
+
 |     Error condition    |     Resolution    |
 |-|-|
 | Changing the capacity pool for a volume is not permitted. | You might not be authorized yet to use this feature. <br> The feature to move a volume to another capacity pool is currently in preview. If you are using this feature for the first time, you need to register the feature first and set `-FeatureName ANFTierChange`. See the registration steps in [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md). |
