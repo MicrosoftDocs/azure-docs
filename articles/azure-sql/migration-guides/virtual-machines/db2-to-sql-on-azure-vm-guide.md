@@ -4,7 +4,6 @@ description: Follow this guide to migrate your DB2 server to SQL Server on Azure
 ms.custom: ""
 ms.service: virtual-machines-sql
 ms.subservice: 
-ms.custom: 
 ms.devlang: 
 ms.topic: how-to
 author: markjones-msft

@@ -137,7 +137,7 @@ landingContent:
           - text: Azure SQL Managed Instance 
             url: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
           - text: SQL Server on Azure VMs
-            url: migration-guides/virtual-machines/sql-server/to-sql-server-on-azure-vm-overview.md 
+            url: migration-guides/virtual-machines/to-sql-server-on-azure-vm-overview.md 
 
   # Card
   - title: Connect and query 
@@ -160,45 +160,6 @@ landingContent:
             url: database/connect-query-dotnet-core.md
           - text: Python
             url: database/connect-query-python.md
-
-  # Card
-  - title: Development
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Application development 
-            url:  database/develop-overview.md
-          - text: Disaster recovery app design
-            url: database/designing-cloud-solutions-for-disaster-recovery.md
-          - text: Managing rolling upgrades (SQL DB) 
-            url: database/manage-application-rolling-upgrade.md
-          - text: Development strategies (SQL VM)
-            url: virtual-machines/windows/application-patterns-development-strategies.md 
-          - text: SaaS database tenancy patterns
-            url: database/saas-tenancy-app-design-patterns.md
-      - linkListType: how-to-guide
-        links:
-          - text: Design first database (SSMS)
-            url: database/design-first-database-tutorial.md
-          - text: Design first database (C#)
-            url: database/design-first-database-csharp-tutorial.md
-
-  # Card 
-  - title: Learn Azure SQL 
-    linkLists:
-      - linkListType: learn
-        links:
-        - text: Azure SQL for beginners
-          url: https://aka.ms/azuresql4beginners
-        - text: Azure SQL fundamentals 
-          url: /learn/paths/azure-sql-fundamentals/
-        - text: Azure SQL hands-on labs
-          url: https://aka.ms/asqlworkshop
-        - text: Azure SQL bootcamp 
-          url: https://aka.ms/azuresqlbootcamp
-        - text: Educational SQL resources
-          url: /sql/sql-server/educational-sql-resources
-
 
   # Card 
   - title: Reference 
@@ -233,3 +194,42 @@ landingContent:
             url: /powershell/module/az.sql
           - text: REST API
             url: /rest/api/sql/
+
+
+  # Card 
+  - title: Learn Azure SQL 
+    linkLists:
+      - linkListType: learn
+        links:
+        - text: Azure SQL for beginners
+          url: https://aka.ms/azuresql4beginners
+        - text: Azure SQL fundamentals 
+          url: /learn/paths/azure-sql-fundamentals/
+        - text: Azure SQL hands-on labs
+          url: https://aka.ms/asqlworkshop
+        - text: Azure SQL bootcamp 
+          url: https://aka.ms/azuresqlbootcamp
+        - text: Educational SQL resources
+          url: /sql/sql-server/educational-sql-resources
+
+  # Card
+  - title: Development
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Application development 
+            url:  database/develop-overview.md
+          - text: Disaster recovery app design
+            url: database/designing-cloud-solutions-for-disaster-recovery.md
+          - text: Managing rolling upgrades (SQL DB) 
+            url: database/manage-application-rolling-upgrade.md
+          - text: Development strategies (SQL VM)
+            url: virtual-machines/windows/application-patterns-development-strategies.md 
+          - text: SaaS database tenancy patterns
+            url: database/saas-tenancy-app-design-patterns.md
+      - linkListType: how-to-guide
+        links:
+          - text: Design first database (SSMS)
+            url: database/design-first-database-tutorial.md
+          - text: Design first database (C#)
+            url: database/design-first-database-csharp-tutorial.md

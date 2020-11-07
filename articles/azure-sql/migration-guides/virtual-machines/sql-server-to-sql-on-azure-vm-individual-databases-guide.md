@@ -26,7 +26,7 @@ You can migrate SQL Server running on-premises or on:
 
 For information about additional migration strategies, see the [SQL Server VM migration overview](sql-server-to-sql-on-azure-vm-migration-overview.md).
 
-:::image type="content" source="../media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="Migration process flow":::
+:::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="Migration process flow":::
 
 ## Prerequisites
 
@@ -125,7 +125,7 @@ To perform an standard migration using backup and restore, follow these steps:
 
 To perform a minimal downtime migration using backup, restore, and log shipping, follow these steps: 
 
-1. Setup connectivity to target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../../virtual-machines/windows/ways-to-connect-to-sql.md).
+1. Setup connectivity to target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Ensure on-premise User Database(s) to be migrated are in full or bulk-logged recovery model.
 1. Perform a full database backup to an on-premises location and modify any existing full database backups jobs to use [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) keyword to preserve the log chain.
 1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../storage/common/storage-use-azcopy-v10.md) (>1TB backups recommended).

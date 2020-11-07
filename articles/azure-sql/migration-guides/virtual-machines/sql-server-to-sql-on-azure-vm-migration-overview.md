@@ -71,13 +71,13 @@ The following table details the available method for the **lift and shift** migr
 
 |**Method** | **Minimum source version** | **Minimum target version** | **Source backup size constraint** |  **Notes** |
 | --- | --- | --- | --- | --- |
-| [Azure Migrate](../../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Existing SQL Server to be moved as-is to instance of SQL Server on an Azure VM. Can scale migration workloads of up to 35,000 VMs. <br /><br /> Source server(s) remain online and servicing requests during synchronization of server data, minimizing downtime. <br /><br /> **Automation & scripting**: [Azure Site Recovery Scripts](../../../migrate/how-to-migrate-at-scale.md) and [Example of scaled migration and planning for Azure](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
+| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Existing SQL Server to be moved as-is to instance of SQL Server on an Azure VM. Can scale migration workloads of up to 35,000 VMs. <br /><br /> Source server(s) remain online and servicing requests during synchronization of server data, minimizing downtime. <br /><br /> **Automation & scripting**: [Azure Site Recovery Scripts](../../../migrate/how-to-migrate-at-scale.md) and [Example of scaled migration and planning for Azure](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
 ## Migrate  
 
 Due to the ease of setup, the recommended migration approach is to take a native SQL Server [backup](/sql/t-sql/statements/backup-transact-sql) locally and then copy the file to Azure. This method supports larger databases (>1TB) for all versions of SQL Server starting from 2008 and larger database backups (>1TB). However, for databases starting in SQL Server 2014, that are smaller than 1TB, and that have good connectivity to Azure, then [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) is the better approach. 
 
-:::image type="content" source="../media/sql-server-to-sql-on-azure-vm-individual-databases-guide/VM-migration-downtime.png" alt-text="Migration downtime":::
+:::image type="content" source="media/sql-server-to-sql-on-azure-vm-individual-databases-guide/VM-migration-downtime.png" alt-text="Migration downtime":::
 
 When migrating SQL Server databases to an instance of SQL Server on Azure VMs, it is important to choose an approach that suits when you need to cutover to the target server as this affects the application downtime window.
 
