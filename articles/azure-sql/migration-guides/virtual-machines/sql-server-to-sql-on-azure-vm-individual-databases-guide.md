@@ -4,7 +4,6 @@ description: Follow this guide to migrate your individual SQL Server databases t
 ms.custom: ""
 ms.service: virtual-machines-sql
 ms.subservice: 
-ms.custom: 
 ms.devlang: 
 ms.topic: how-to
 author: markjones-msft
@@ -45,12 +44,12 @@ Before you begin your migration, discover the topology of your SQL environment a
 
 ### Discover
 
-Azure Migrate assesses migration suitability of on-premises computers, performs performance-based sizing, and provides cost estimations for running on-premises. To plan for the migration, use Azure Migrate to [identify existing data sources and details about the features](../../../../migrate/concepts-assessment-calculation.md) your SQL Server instances use. This process involves scanning the network to identify all of your SQL Server instances in your organization with the version and features in use. 
+Azure Migrate assesses migration suitability of on-premises computers, performs performance-based sizing, and provides cost estimations for running on-premises. To plan for the migration, use Azure Migrate to [identify existing data sources and details about the features](../../../migrate/concepts-assessment-calculation.md) your SQL Server instances use. This process involves scanning the network to identify all of your SQL Server instances in your organization with the version and features in use. 
 
 > [!IMPORTANT]
-> When choosing a target Azure virtual machine for your SQL Server instance, be sure to consider the [Performance guidelines for SQL Server on Azure VMs](../../../virtual-machines/windows/performance-guidelines-best-practices.md).
+> When choosing a target Azure virtual machine for your SQL Server instance, be sure to consider the [Performance guidelines for SQL Server on Azure VMs](../../virtual-machines/windows/performance-guidelines-best-practices.md).
 
-For additional discovery tools, see [Services and tools](../../../../dms/dms-tools-matrix.md#business-justification-phase) available for data migration scenarios.
+For additional discovery tools, see [Services and tools](../../../dms/dms-tools-matrix.md#business-justification-phase) available for data migration scenarios.
 
 
 ### Assess
@@ -115,11 +114,11 @@ The following provides steps for performing either a migration using backup and 
 
 To perform an standard migration using backup and restore, follow these steps: 
 
-1. Setup connectivity to the target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../../virtual-machines/windows/ways-to-connect-to-sql.md).
+1. Setup connectivity to the target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Pause/stop any applications that are using databases intended for migration. 
 1. Ensure user database(s) are inactive using [single user mode](/sql/relational-databases/databases/set-a-database-to-single-user-mode). 
 1. Perform a full database backup to an on-premises location.
-1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../../storage/common/storage-use-azcopy-v10.md) (> 2TB backups recommended).
+1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../storage/common/storage-use-azcopy-v10.md) (> 2TB backups recommended).
 1. Restore full database backup(s) to the SQL Server on Azure VM.
 
 ### Log shipping  (minimize downtime)
@@ -129,7 +128,7 @@ To perform a minimal downtime migration using backup, restore, and log shipping,
 1. Setup connectivity to target SQL Server on Azure VM, based on your requirements. See [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](../../../virtual-machines/windows/ways-to-connect-to-sql.md).
 1. Ensure on-premise User Database(s) to be migrated are in full or bulk-logged recovery model.
 1. Perform a full database backup to an on-premises location and modify any existing full database backups jobs to use [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) keyword to preserve the log chain.
-1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../../storage/common/storage-use-azcopy-v10.md) (>1TB backups recommended).
+1. Copy your on-premises backup file(s) to your VM using remote desktop, [Azure Data Explorer](/data-explorer/data-explorer-overview), or the [AZCopy command line utility](../../../storage/common/storage-use-azcopy-v10.md) (>1TB backups recommended).
 1. Restore Full Database backup(s) on the SQL Server on Azure VM.
 1. Setup [log shipping](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) between on-premise database and target SQL Server on Azure VM. Be sure not to re-initialize the database(s) as this has already been completed in the previous steps.
 1. **Cut over** to the target server. 
@@ -149,12 +148,12 @@ The following table provides a list components and recommended migration methods
 | **Feature** | **Component** | **Migration Method(s)** |
 | --- | --- | --- |
 | **Databases** | Model  | Script with SQL Server Management Studio |
-|| TempDB | Plan to move TempDB onto [Azure VM temporary disk (SSD](../../../virtual-machines/windows/performance-guidelines-best-practices.md#temporary-disk)) for best performance. Be sure to pick a VM size that has a sufficient local SSD to accommodate your TempDB. |
-|| User databases with Filestream |  Use the [Backup and restore](../../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) methods for migration. DMA does not support databases with Filestream. |
+|| TempDB | Plan to move TempDB onto [Azure VM temporary disk (SSD](../../virtual-machines/windows/performance-guidelines-best-practices.md#temporary-disk)) for best performance. Be sure to pick a VM size that has a sufficient local SSD to accommodate your TempDB. |
+|| User databases with Filestream |  Use the [Backup and restore](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) methods for migration. DMA does not support databases with Filestream. |
 | **Security** | SQL Server and Windows Logins | Use DMA to [migrate user logins](/sql/dma/dma-migrateserverlogins). |
 || SQL Server roles | Script with SQL Server Management Studio |
-|| Cryptographic providers | Recommend [converting to use Azure Key Vault Service](../../../virtual-machines/windows/azure-key-vault-integration-configure.md). This procedure uses the [SQL VM resource provider](../../../virtual-machines/windows/sql-vm-resource-provider-register.md). |
-| **Server objects** | Backup devices | Replace with database backup using [Azure Backup Service](../../../../backup/backup-sql-server-database-azure-vms.md) or write backups to [Azure Storage](../../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 + ). This procedure uses the [SQL VM resource provider](../../../virtual-machines/windows/sql-vm-resource-provider-register.md).|
+|| Cryptographic providers | Recommend [converting to use Azure Key Vault Service](../../virtual-machines/windows/azure-key-vault-integration-configure.md). This procedure uses the [SQL VM resource provider](../../virtual-machines/windows/sql-vm-resource-provider-register.md). |
+| **Server objects** | Backup devices | Replace with database backup using [Azure Backup Service](../../../backup/backup-sql-server-database-azure-vms.md) or write backups to [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 + ). This procedure uses the [SQL VM resource provider](../../virtual-machines/windows/sql-vm-resource-provider-register.md).|
 || Linked Servers | Script with SQL Server Management Studio. |
 || Server Triggers | Script with SQL Server Management Studio. |
 | **Replication** | Local Publications | Script with SQL Server Management Studio. |
@@ -198,18 +197,18 @@ The post migration phase is crucial for reconciling any issues with data accurac
 For more information about these issues and specific steps to mitigate them, see the following resources:
 
 - [Post-migration Validation and Optimization Guide.](/sql/relational-databases/post-migration-validation-and-optimization-guide)
-- [Tuning performance in Azure SQL Virtual Machines](../../../virtual-machines/windows/performance-guidelines-best-practices.md).
+- [Tuning performance in Azure SQL Virtual Machines](../../virtual-machines/windows/performance-guidelines-best-practices.md).
 - [Azure cost optimization center](https://azure.microsoft.com/overview/cost-optimization/).
 
 ## Next steps
 
 - To check the availability of services applicable to SQL Server see the [Azure Global infrastructure center](https://azure.microsoft.com/global-infrastructure/services/?regions=all&amp;products=synapse-analytics,virtual-machines,sql-database)
 
-- For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration.](../../../../dms/dms-tools-matrix.md)
+- For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration.](../../../dms/dms-tools-matrix.md)
 
 - To learn more about Azure SQL see:
-   - [Deployment options](../../../azure-sql-iaas-vs-paas-what-is-overview.md)
-   - [SQL Server on Azure VMs](../../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
+   - [Deployment options](../../azure-sql-iaas-vs-paas-what-is-overview.md)
+   - [SQL Server on Azure VMs](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
    - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
@@ -218,8 +217,8 @@ For more information about these issues and specific steps to mitigate them, see
    -  [Best practices for costing and sizing workloads migrate to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 - For information about licensing, see
-   - [Bring your own license with the Azure Hybrid Benefit](../../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md)
-   - [Get free extended support for SQL Server 2008 and SQL Server 2008 R2](../../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md)
+   - [Bring your own license with the Azure Hybrid Benefit](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md)
+   - [Get free extended support for SQL Server 2008 and SQL Server 2008 R2](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md)
 
 
 - To assess the Application access layer, see [Data Access Migration Toolkit (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
