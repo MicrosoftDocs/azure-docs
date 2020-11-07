@@ -11,7 +11,7 @@ ms.author: allensu
 ---
 # Onboard a root or apex domain to an existing Azure CDN endpoint
 
-Azure CDN uses CNAME records to validate domain ownership for onboarding of custom domains. CDN doesn't expose the frontend IP address associated with your CDN profile. So you can't map your apex domain to an IP address if your intent is to onboard it to Azure CDN.
+Azure CDN uses CNAME records to validate domain ownership for onboarding of custom domains. CDN doesn't expose the frontend IP address associated with your CDN profile. You can't map your apex domain to an IP address if your intent is to onboard it to Azure CDN.
 
 The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`; you can create CNAME records for `somelabel.contoso.com`; but you can't create CNAME for `contoso.com` itself. This restriction presents a problem for application owners who have load-balanced applications behind Azure CDN. Since using a CDN profile requires creation of a CNAME record, it isn't possible to point at the CDN profile from the zone apex.
 
@@ -47,7 +47,7 @@ You can use the Azure portal to onboard an apex domain on your CDN and enable HT
 
     :::image type="content" source="./media/onboard-apex-domain/cdn-apex-alias-record.png" alt-text="Alias record for zone apex":::
 
-6. The above step will create a zone apex record pointing to your CDN resource. A CNAME record mapping **cdnverify** is used for onboarding the domain on your CDN profile.
+6. The above step will create a zone apex record pointing to your CDN resource. A CNAME record-mapping **cdnverify** is used for onboarding the domain on your CDN profile.
     1. Example, **cdnverify.contoso.com**.
     
 
