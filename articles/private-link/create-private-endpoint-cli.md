@@ -173,7 +173,7 @@ az network private-endpoint create \
     --resource-group CreatePrivateEndpointQS-rg \
     --vnet-name myVNet --subnet myBackendSubnet \
     --private-connection-resource-id $id \
-    --group-ids sites \
+    --group-id sites \
     --connection-name myConnection  
 ```
 
