@@ -21,11 +21,13 @@ ms.reviewer: jroth
 
 This article describes how to change the license model for a SQL Server virtual machine (VM) in Azure by using the new SQL Server VM resource provider, **Microsoft.SqlVirtualMachine**.
 
-There are three license models for a VM that's hosting SQL Server: pay-as-you-go, Azure Hybrid Benefit (AHB), and disaster recovery (DR). You can modify the license model of your SQL Server VM by using the Azure portal, the Azure CLI, or PowerShell. 
+## Overview
+
+There are three license models for a VM that's hosting SQL Server: pay-as-you-go, Azure Hybrid Benefit (AHB), and High Availability/Disaster Recovery(HA/DR). You can modify the license model of your SQL Server VM by using the Azure portal, the Azure CLI, or PowerShell. 
 
 - The **pay-as-you-go** model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) allows you to use your own SQL Server license with a VM that's running SQL Server. 
-- The **disaster recovery** license type is used for the [free DR replica](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure) in Azure. 
+- The **HA/DR** license type is used for the [free HA/DR replica](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure) in Azure. 
 
 Azure Hybrid Benefit allows the use of SQL Server licenses with Software Assurance ("Qualified License") on Azure virtual machines. With Azure Hybrid Benefit, customers aren't charged for the use of a SQL Server license on a VM. But they must still pay for the cost of the underlying cloud compute (that is, the base rate), storage, and backups. They must also pay for I/O associated with their use of the services (as applicable).
 
@@ -48,9 +50,9 @@ Changing the licensing model of your SQL Server VM has the following requirement
 - [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) is a requirement to utilize the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
-## VMs already registered with the resource provider 
+## Change license model
 
-# [The Azure portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -64,72 +66,37 @@ You can modify the license model directly from the portal:
 ![Azure Hybrid Benefit in the portal](./media/licensing-model-azure-hybrid-benefit-ahb-change/ahb-in-portal.png)
 
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 You can use the Azure CLI to change your license model.  
 
+Specify the following values for **license-type**:
+- `AHUB` for the Azure Hybrid Benefit
+- `PAYG` for pay as you go
+- `DR` to activate the free HA/DR replica
 
-**Azure Hybrid Benefit**
 
 ```azurecli-interactive
-# Switch your SQL Server VM license from pay-as-you-go to bring-your-own
 # example: az sql vm update -n AHBTest -g AHBTest --license-type AHUB
 
-az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
-```
-
-**Pay as you go**: 
-
-```azurecli-interactive
-# Switch your SQL Server VM license from bring-your-own to pay-as-you-go
-# example: az sql vm update -n AHBTest -g AHBTest --license-type PAYG
-
-az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
-```
-
-**Disaster recovery (DR)**
-
-```azurecli-interactive
-# Switch your SQL Server VM license from bring-your-own to pay-as-you-go
-# example: az sql vm update -n AHBTest -g AHBTest --license-type DR
-
-az sql vm update -n <VMName> -g <ResourceGroupName> --license-type DR
+az sql vm update -n <VMName> -g <ResourceGroupName> --license-type <license-type>
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 You can use PowerShell to change your license model.
 
-**Azure Hybrid Benefit**
+Specify the following values for **license-type**:
+- `AHUB` for the Azure Hybrid Benefit
+- `PAYG` for pay as you go
+- `DR` to activate the free HA/DR replica
+
 
 ```powershell-interactive
-# Switch your SQL Server VM license from pay-as-you-go to bring-your-own
-Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType AHUB
-```
-
-**Pay as you go**
-
-```powershell-interactive
-# Switch your SQL Server VM license from bring-your-own to pay-as-you-go
-Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType PAYG
-```
-
-**Disaster Recovery** 
-
-```powershell-interactive
-# Switch your SQL Server VM license from bring-your-own to pay-as-you-go
-Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType DR
+Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType <license-type>
 ```
 
 ---
-
-## VMs not registered with the resource provider
-
-If you provisioned a SQL Server VM from pay-as-you-go Azure Marketplace images, the SQL Server license type will be pay-as-you-go. If you provisioned a SQL Server VM by using a bring-your-own-license image from Azure Marketplace, the license type will be AHUB. All SQL Server VMs provisioned from default (pay-as-you-go) or bring-your-own-license Azure Marketplace images will automatically be registered with the SQL VM resource provider, so they can change the [license type](#vms-already-registered-with-the-resource-provider).
-
-You are only eligible to self-install SQL Server on Azure VM via Azure Hybrid Benefit. You should [register these VMs with the SQL VM resource provider](sql-vm-resource-provider-register.md) by setting the SQL Server license as Azure Hybrid Benefit, to indicate the Azure Hybrid Benefit usage according to Microsoft Product Terms.
-
-You can change the license type of a SQL Server VM as pay-as-you-go or Azure Hybrid Benefit only if the SQL Server VM is registered with the SQL VM resource provider.
 
 ## Remarks
 
