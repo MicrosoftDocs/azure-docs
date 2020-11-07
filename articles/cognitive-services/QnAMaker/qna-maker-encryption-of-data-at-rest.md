@@ -7,7 +7,7 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/09/2020
 ms.author: egeaney
 #Customer intent: As a user of the QnA Maker service, I want to learn how encryption at rest works.
 ---
@@ -20,7 +20,15 @@ QnA Maker automatically encrypts your data when it is persisted to the cloud, he
 
 By default, your subscription uses Microsoft-managed encryption keys. There is also the option to manage your subscription with your own keys called customer-managed keys (CMK). CMK offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. If CMK is configured for your subscription, double encryption is provided, which offers a second layer of protection, while allowing you to control the encryption key through your Azure Key Vault.
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 QnA Maker uses CMK support from Azure search. You need to create [CMK in Azure Search using Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys). This Azure instance should be associated with QnA Maker service to make it CMK enabled.
+
+# [QnA Maker managed (preview release)](#tab/v2)
+
+QnA Maker uses [CMK support from Azure search](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys), and automatically associates the provided CMK to encrypt the data stored in Azure search index.
+
+---
 
 > [!IMPORTANT]
 > Your Azure Search service resource must have been created after January 2019 and cannot be in the free (shared) tier. There is no support to configure customer-managed keys in the Azure portal.
@@ -28,6 +36,8 @@ QnA Maker uses CMK support from Azure search. You need to create [CMK in Azure S
 ## Enable customer-managed keys
 
 The QnA Maker service uses CMK from the Azure Search service. Follow these steps to enable CMKs:
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 1. Create a new Azure Search instance and enable the prerequisites mentioned in the [customer-managed key prerequisites for Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#prerequisites).
 
@@ -44,6 +54,23 @@ The QnA Maker service uses CMK from the Azure Search service. Follow these steps
    ![View Encryption settings 3](../media/cognitive-services-encryption/qna-encryption-3.png)
 
 4. When finished, restart the runtime. Now your QnA Maker service is CMK-enabled.
+
+# [QnA Maker managed (preview release)](#tab/v2)
+
+1.	Go to the **Encryption** tab of your QnA Maker managed (Preview) service.
+2.	Select the **Customer Managed Keys** option. Provide the details of your [customer-managed keys](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-configure-key-vault?tabs=portal) and click on **Save**.
+
+    ![QnA Maker managed (Preview) CMK setting](../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png)
+
+3.	On a successful save, the CMK will be used to encrypt the data stored in the Azure Search Index.
+
+> [!IMPORTANT]
+> It is recommended to set your CMK in a fresh Azure Cognitive Search service before any knowledge bases are created. If you set CMK in a QnA Maker service with existing knowledge bases, you might lose access to them. Read more about [working with encrypted content](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#work-with-encrypted-content) in Azure Cognitive search.
+
+> [!NOTE]
+> To request the ability to use customer-managed keys, fill out and submit the [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk).
+
+---
 
 ## Regional availability
 

@@ -4,7 +4,7 @@ description: Migrating a knowledge base requires exporting from one knowledge ba
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 11/09/2020
 ---
 # Migrate a knowledge base using export-import
 
@@ -15,6 +15,9 @@ Migration is the process of creating a new knowledge base from an existing knowl
 * move regions
 
 Migrating a knowledge base requires exporting from an existing knowledge base, then importing into another.
+
+> [!NOTE]
+> Follow the below instructions to migrate your existing knowledge base to a new QnA Maker managed (Preview).
 
 ## Prerequisites
 
