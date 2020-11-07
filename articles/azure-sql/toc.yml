@@ -330,8 +330,7 @@
       - name: Overview
         href: migration-guides/database/sql-server-to-sql-database-overview.md
       - name: Migrate
-
-      
+        href: migration-guides/database/sql-server-to-sql-database-guide.md
 
   - name: Concepts
     items:
