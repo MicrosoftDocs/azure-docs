@@ -1,15 +1,15 @@
 ---
 title: "SQL Server to SQL Managed Instance - Migration overview"
 description: Learn about the different tools and options available to migrate your SQL Server databases to Azure SQL Managed Instance.
-ms.service: sql-database
-ms.subservice: migration
+ms.service: sql-managed-instance
+ms.subservice: migration-guides
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: mokabiru
-ms.date: 08/25/2020
+ms.topic: how-to
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: MashaMSFT
+ms.date: 11/06/2020
 ---
 # Migration overview: SQL Server to SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]

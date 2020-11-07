@@ -6,9 +6,9 @@ ms.subservice: migration-guides
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: mokabiru
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
 ---
 # Migration guide: SQL Server to SQL Database

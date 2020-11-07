@@ -2,17 +2,15 @@
 title: "DB2 to SQL Server on Azure VMs (Migration guide)"
 description: Follow this guide to migrate your DB2 server to SQL Server on Azure VMs. 
 ms.custom: ""
-ms.date: "08/17/2020"
-ms.prod: sql
-ms.reviewer: ""
-ms.technology: release-landing
-ms.topic: conceptual
-helpviewer_keywords: 
-  - "processors [SQL Server], supported"
-  - "number of processors supported"
-  - "maximum number of processors supported"
-author: MashaMSFT
-ms.author: mathoma
+ms.service: virtual-machines-sql
+ms.subservice: 
+ms.custom: 
+ms.devlang: 
+ms.topic: how-to
+author: markjones-msft
+ms.author: markjon
+ms.reviewer: mathoma
+ms.date: 11/06/2020
 ---
 # Migration guide: DB2 to SQL Server on Azure VMs
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -87,9 +85,7 @@ To convert the schema, follow these steps:
     1. Choose to connect to an existing database on the target server, or provide a new name to create a new database on the target server. 
     1. Select **Connect**. 
 
-    :::image type="content" source="../../../../includes/media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png" alt-text="    
-    ":::
-
+    :::image type="content" source="../../../../includes/media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png" alt-text="Connect to your SQL Server on Azure VM":::
 
 
 1. Right-click the schema and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema. 
