@@ -1,691 +1,777 @@
 ---
-title: Catalog client overview
-description: This article gives an overview of the catalog client
+title: Azure Babylon catalog client overview (preview)
+description: Learn about the main features of the Azure Babylon catalog client.
 author: darrenparker
 ms.author: dpark
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
-ms.date: 3/24/2020
+ms.date: 10/28/2020
 ---
-# Catalog Client Overview
 
-## Home Page
+# Azure Babylon catalog client overview (preview)
 
-:::image type="content" source="media/catalog-client-overview/image8.png" alt-text="Screenshot":::
+This article provides an overview of the Azure Babylon catalog client.
 
-:::image type="content" source="media/catalog-client-overview/image9.png" alt-text="Screenshot":::
+## Home page
 
-:::image type="content" source="media/catalog-client-overview/image10.png" alt-text="Screenshot":::
+**Home** is the starting page for the Azure Babylon client. To get to **Home**, select it in the left navigation pane.
 
-The main areas of the home page are:
+The highlighted numbers in the following screenshot mark features of **Home** that are described in this article.
 
-1. Search
+:::image type="content" source="./media/catalog-client-overview/home.png" alt-text="Screenshot showing the Home page of Azure Babylon":::
 
-2. Catalog analytics: Shows the number of active users, data sources, data assets, and glossary terms
+The following list summarizes the features of **Home**. Each number in the list corresponds to a highlighted number in the preceding screenshot.
 
-3. Browse: Currently only Browse by asset type is enabled. Other browse capabilities will be exposed here in future iterations.
+1. **Search catalog** provides an asset search. For more information, see [Search the catalog for assets](#search-the-catalog-for-assets).
+1. Catalog analytics shows the number of:
+    - Users, groups, and applications
+    - Data sources
+    - Assets
+    - Glossary terms
+1. Three [Quick access](#quick-access) buttons take you to other pages.
 
-4. Recently Accessed: The list of recently accessed data assets.
+    - [Browse by asset type](#browse-by-asset-type).
+    - [Asset insights](#asset-insights).
+    - [Manage your data](#manage-your-data).
 
-5. My items: The list of owned data assets for the logged-on user.
+1. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the catalog for assets](#search-the-catalog-for-assets) and [Browse by asset type](#browse-by-asset-type).
+1. The **My items** tab is a list of data assets owned by the logged-on user.
+1. **Glossary terms** is a searchable dictionary of the organization's key business terms. For more information, see [Glossary terms](#glossary-terms).
+1. **FAQ/Documentation** is a list of frequently asked questions (FAQs), and documents.
+1. **Managed data sources by asset count** is an array of tiles, each of which is a count of assets whose asset type is one of a system-defined set of related types. For more information, see [Managed data sources by asset count](#managed-data-sources-by-asset-count).
+1. **Top classifications** is a bar graph of asset counts by classification for the most-used classifications. For more information about classifications, see [Classifications](#classifications).
+1. **Pinned assets** is a list of buttons, each of which links to the details page for an asset. The user controls which assets appear in this list. For more information, see [Pin and unpin data assets](#pin-and-unpin-data-assets).
 
-6. Glossary terms - A searchable dictionary of common terms that an organization uses to describe key business terms and their definitions
+## Search the catalog for assets
 
-7. FAQ/Documentation links.
+The steps to conduct an asset search are:
 
-8. Asset count by data source.
+1. [Open the asset search dialog](#open-the-asset-search-dialog) by selecting **Search catalog**.
+1. [Enter search terms](#enter-search-terms) to find assets with characteristics that match the terms.
+1. [Set quick filters](#set-quick-filters) to narrow the search.
+1. [Start the search](#start-the-search) and go to the search results.
 
-9. Top Classifications
+It doesn't matter whether you set quick filters before or after you enter search terms.
 
-10. Pinned Assets
+If there are no search terms and no filters, the search results include all assets.
 
-### Pin and unpin data assets
+### Open the asset search dialog
 
-1. Select **Pin** to pin the current data asset to homepage.
+Open the asset search dialog by selecting **Search catalog**.
 
-   :::image type="content" source="media/catalog-client-overview/image11.png" alt-text="Screenshot":::
+:::image type="content" source="./media/catalog-client-overview/search-catalog.png" alt-text="Below 'Search catalog' there's a left pane with search filters, and a right pane with recent searches." border="true":::
 
-2. Find all the pinned data assets on homepage.
+The search dialog shows quick filters, search history, and a list of recently accessed assets.
 
-   :::image type="content" source="media/catalog-client-overview/image12.png" alt-text="Screenshot":::
+:::image type="content" source="./media/catalog-client-overview/asset-search-dialog.png" alt-text="The search list is in the right pane, below 'Search catalog'." border="true":::
 
-3. Select **Unpin** to unpin the current data asset.
+### Enter search terms
 
-   :::image type="content" source="media/catalog-client-overview/image13.png" alt-text="Screenshot":::
+Enter one or more search terms in **Search catalog**. As you type, matching search terms from recent searches are listed in **Your recent searches**, suggested matching search terms are listed in **Search suggestions**, and matching data assets are listed in **Asset suggestions**.
 
-## Search
+:::image type="content" source="./media/catalog-client-overview/enter-search-terms.png" alt-text="Screenshot showing the results of a search being entered in the Search catalog box":::
 
-**Click anywhere in the search textbox** to open the search experience.
+Search results include only assets with one or more characteristics that match the search terms. These characteristics include asset name, asset type, classifications, and contacts.
 
-:::image type="content" source="media/catalog-client-overview/image14.png" alt-text="Screenshot":::
+#### Types of search criteria
 
-By default, you will see a list of your most recently searched files.
+Azure Babylon supports the following types of search criteria.
 
-:::image type="content" source="media/catalog-client-overview/image15.png" alt-text="Screenshot":::
+> [!Note]
+> Always specify Boolean operators (**AND**, **OR**, **NOT**) in all caps. Otherwise, case doesn't matter, nor do extra spaces.
 
-### Search Box
+- **hive**: Find documents that contain **hive**.
+- **hive database**: Find documents that contain exactly **hive database**.
+- **hive OR database**: Find documents that contain **hive** or **database**, or both.
+- **hive AND database**, **hive && database**: Find documents that contain both **hive** and **database**.
+- **hive AND (database OR warehouse)**: Find documents that contain **hive** and either **database** or **warehouse**, or both.
+- **hive NOT database**: Find documents that contain **hive**, but not **database**.
+- **hiv**: Find documents that contain a word that begins with **hiv**. For example, **hiv**, **hive**, **hivbar** (* is a wild card that matches any number of characters).
 
-You can enter one or more search terms in the search box. As you type, you will see autocomplete results and search suggestions with the matched keywords showing up as highlighted inline.
+### Set quick filters
 
-Selecting any of the values in the autocomplete list will take you to the search results that match.
+The search results list is based on the search terms you enter into **Search catalog**, and on the values you select for the quick filters.
 
-:::image type="content" source="media/catalog-client-overview/image16.png" alt-text="Screenshot":::
+A quick filter limits the search results list to assets that have a selected value of a characteristic. The filter has a drop-down list and a text box. The drop-down list shows values of the characteristic that are in the *current* search results. Next to each value in the list is a count of the number of assets in the current search results that have that value. If you select a value from the list, the search results will be restricted to assets that have that value. You can only select one value.
 
-The **Suggestions** list shows you results from the **Name** field of the Asset. Selecting on any of these results will take you to the **Asset Details** view for that particular asset.
+The current search results used in forming the drop-down list are determined by:
 
-If you select the **Search** icon :::image type="icon" source="media/catalog-client-overview/image17.png"::: in the upper right or press **Enter,** the system will execute the search request and take you to the **Search Results** page.
+- The search terms that are entered in **Search catalog**. 
+- The values that are selected in the quick filters.
 
-:::image type="content" source="media/catalog-client-overview/image18.png" alt-text="Screenshot":::
+Here is an example of the "Asset type" quick filter.
 
-> [!NOTE]
-> The results list for suggestions and user searches can differ slightly. This is because the results in the suggestions list are based on fuzzy matching, while user-initiated search results are based on exact matches.
+:::image type="content" source="./media/catalog-client-overview/asset-type-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
 
-### Search Criteria
+You can enter text in the text box to restrict the values in the drop-down list to values that match or partially match the text. For examples of using the text box, see [Search quick filter: filter by asset type](#search-quick-filter-filter-by-asset-type), and [Search quick filter: filter by classification](#search-quick-filter-filter-by-classification).
 
-Azure Purview currently supports the following style search criteria:
+#### Search quick filter: filter by asset type
 
-| Search Term |  Finds |
-|-------------|----------------------|
-| hive                                              | documents that contain **hive** |
-| \"hive database\"                                 | documents that contain exactly \"**hive database**\", of the specified order **\*The number of spaces do not matter, case insensitive** |
-| hive database, hive OR database, hive && database | documents that contain hive or database **Always specify Boolean operators (AND, OR, NOT) in all caps.** |
-| hive AND database, hive && database                | documents that contain hive and database **Always specify Boolean operators (AND, OR, NOT) in all caps.** |
-| hive AND (database OR warehouse)                  | combination |
-| hive NOT database                                 | Assets that contain "hive" but do not contain "database" |
-| hi\*                                             | wild card, matches hiv, hive, hivbar, etc. |
+To filter by asset type, use the **Asset type** quick filter. The drop-down list shows the asset types found in the current search results, as determined by the search terms and the quick filters. For each type, the number of assets of that type is shown.
 
-### Quick Filters
+:::image type="content" source="./media/catalog-client-overview/asset-type-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
 
-Quick filters are used to narrow down the search results returned by the search APIs instantaneously before returning the matching assets to the search result page.
+Select an asset type to restrict the search results to assets of that type. You can only select one type.
 
-### Search Quick Filter - Search by Asset type
+To show only asset types whose names match a string, enter the string in the text box. For example, to show only asset types with **sql** in their names, enter **sql**.
 
-From the Quick Filters pane, you can either select to filter by Asset type. The total number of assets of that type are displayed next to each entry.  
- :::image type="content" source="media/catalog-client-overview/image19.png" alt-text="Screenshot":::
+:::image type="content" source="./media/catalog-client-overview/filter-asset-types.png" alt-text="The Quick Filters pane has sql for 'Asset type'. The list of assets that contain sql shows three entries." border="true":::
 
-You can select one of the filters in the list and a list of matching assets will be displayed in **Suggestions** pane.
+Select an asset type to restrict the search results to assets of that type. You can select only one type.
 
-You can also perform a search in this field by typing the partial name of an Asset type, such as "sql", to see all types that contain that word.
+#### Search quick filter: filter by classification
 
- :::image type="content" source="media/catalog-client-overview/image20.png" alt-text="Screenshot":::
+To filter by asset classification, use the **Classification** quick filter. The drop-down list shows the classifications that have been assigned to one or more assets in the current search results, as determined by the search terms and the quick filters. For each classification, the number of assets assigned that classification is shown.
 
-### Search Quick Filter - Search by Classification
+:::image type="content" source="./media/catalog-client-overview/classification-quick-filter.png" alt-text="The asset type quick filters is highlighted. It shows asset types, and a count for each." border="true":::
 
-You can also choose to filter by Classification name in the same manner.
-Like in the above example, you can also type a search phrase, for example, "Bank" will filter the list to all classifications containing the name Bank.
+Select a classification to restrict the search results to assets assigned that classification. You can only select one classification.
 
- :::image type="content" source="media/catalog-client-overview/image21.png" alt-text="Screenshot":::
+To show only classifications whose names match a string, enter the string in the text box. For example, to show only classifications with **number** in their names, enter **number**.
 
->[!NOTE]
->This list shows all matches for the Asset type, no matter the file type. These suggestions are fuzzy matches. Selecting any asset in the **Suggestions** pane will take you to the **Asset Details** view where you can see more details.
->
+:::image type="content" source="./media/catalog-client-overview/filter-classifications.png" alt-text="In the Quick Filters pane, Classification is 'bank', and the classifications listed all contain that value." border="true":::
 
-### Search Quick Filter: Search by Person
+Select a classification to restrict the search results to assets that have been assigned that classification. You can't select more than one classification.
 
-On the home page, select **Search catalog**. Specify the name of a
-**Person**, for example, the name of an Owner or Expert. Possible suggestions of destined assets, if any, will be displayed in the dropdown. Select a suggested asset to go to its Asset Details page, or select **All results \>** or **Search** to perform a search for assets that contains the specified person's name.
+#### Search quick Filter: filter by contacts
 
-:::image type="content" source="media/catalog-client-overview/image22.png" alt-text="Screenshot":::
+A *contact* is a person that's assigned to an asset as an owner or expert. When you view asset details, contacts are shown on the **Contacts** tab.
 
-### Search Results Page
+There are two ways to search for assets that have a particular contact assigned to them.
 
-Once entering the search key, the results are returned in the search result page with further filters available in the left navigation bar.
+1. Enter all or part of the contact name in **Search catalog** and do a search. The search results will include assets that have contacts whose names match your search terms.
+1. Select the contact of interest in the **Contact** quick filter and do a search.
 
-### More results
+:::image type="content" source="./media/catalog-client-overview/contact-quick-filter.png" alt-text="The value of Person in the Quick Filters pane is 'darren'. There are three suggestions in the Suggestions pane." border="true":::
 
-1. Enter search keywords.
+## Search example
 
-2. When there isn't any auto completion or suggestion, select **See more results** to search.
+Let's consider a hypothetical example to see how the search terms and quick filters interact to determine the search results. In particular, we'll monitor the count of asset type **Azure Blob Storage**.
 
-   :::image type="content" source="media/catalog-client-overview/image23.png" alt-text="Screenshot":::
+- We do the first search with no search terms entered and no values selected in the quick filters. The search finds all assets in the catalog. The search results list and the **Asset type** quick filter reveal:
 
-### Search Results View
+    - The search results list has 164,230 assets, which is all the assets in the catalog.
+    - The **Asset type** drop-down list has 43 entries. These are all the asset types in the catalog. Since every asset is of one and only one type, the sum of counts of the 43 asset types is 164,230.
+    - The **Azure Blob Storage** asset type is the first entry in the drop-down list of the **Asset type** quick filter. The values are ordered by count, largest first, so **Azure Blob Storage** is the most common asset type. Its count is 118,174.
 
-- Displays the total number of matches at the top of the page.
+- We now enter **parquet** into **Search catalog** and do another search. The search results include only assets with characteristics that match **parquet**. This reduces all the counts, as follows:
 
-- Matched keywords are highlighted.
+    - The search results list has 493 assets. Only 493 of the 164,230 assets in the catalog have characteristics that match "parquet".
+    - The **Asset type** drop-down list has 15 entries. Every one of the 493 assets is of one of these 15 types, and the sum of the counts of the 15 types is 493.
+    - There are 456 assets of type **Azure Blob Storage**. The other 37 (493 minus 456) assets are of one of the other 14 types.
 
-- Selecting any item in the list will take you to the **Asset Details** view for that item.
+- We now look at the drop-down list of a different quick filter, **Classification**:
 
-  :::image type="content" source="media/catalog-client-overview/image24.png" alt-text="Screenshot":::
+    - There are 12 classifications for the 493 assets in the search results list. The counts for the 493 assets don't sum to 493, since any number of classifications can be assigned to an asset.
+    - The **Person's Name** classification is assigned to 36 assets, more than any other classification.
 
-- Pagination is at the bottom of the results page to see more results
+- We select the **Person's Name** classification. The search results list drops to 36 assets, as expected since the count for **Person's Name** was 36. None of these results are of type **Azure Blob Storage**.
 
-  :::image type="content" source="media/catalog-client-overview/image25.png" alt-text="Screenshot":::
+We can conclude that there's no asset whose type is **Azure Blob Storage** that matches **parquet**, and that has a classification of **Person's Name**.
 
-### Sort Search Results
+## Start the search
 
-You can sort your search results by either relevance or by name
+When you search, the search terms you enter in **Search catalog** are matched against the asset characteristics. These characteristics include name, type, classification, and contacts. The assets with matching characteristics appear in the search results list unless excluded by a quick filter.
 
-:::image type="content" source="media/catalog-client-overview/image26.png" alt-text="Screenshot":::
+After you've entered the search terms and set the quick filters, start the search in one of these ways:
 
-### Filtering Search Results
+- To search based on the terms you entered, select the search icon (:::image type="icon" source="./media/catalog-client-overview/search-icon.png":::), press **Enter**, or select **View search results**.
+- To search using terms from a previous search, select them from **Your recent searches**.
+- To search using suggested terms, select them from **Search suggestions**.
 
-You can further filter your search results by selecting the **left nav filters** from the search results page. You can choose and select
-**Asset type**, **Classification.**
+Select an asset from **Asset suggestions** to go directly to the details page for the asset. No search is done.
 
-:::image type="content" source="media/catalog-client-overview/image27.png" alt-text="Screenshot":::
+The results list for suggestions and user searches can differ slightly. Results in the suggestions list are based on fuzzy matches, while user-initiated search results are based on exact matches.
 
-Multi select option is also available.
+When you search, the **Search results** page appears and lists the assets found by the search.
 
-### Filter search results by Asset Type for Dynamic filters
+:::image type="content" source="./media/catalog-client-overview/search-results.png" alt-text="Screenshot showing the search results for a search value of contoso.":::
 
-Selecting an asset type filter from left nav enables additional filters called dynamic filters that correspond to an asset type. For example, choosing Azure SQL Database enables the dynamic filter for the Server, Database and Schema. These options enable the user to narrow down the search results.
+To see asset details, select an asset name.
 
- :::image type="content" source="media/catalog-client-overview/image28.png" alt-text="Screenshot":::
+Use the controls at the bottom a search results page to navigate to other search results pages.
 
-### Filter search results by Classification
+:::image type="content" source="./media/catalog-client-overview/page-navigation.png" alt-text="Screenshot showing how to navigate through thru the search results pages.":::
 
- :::image type="content" source="media/catalog-client-overview/image29.png" alt-text="Screenshot":::
+### Sort search results
 
-### Edit/Delete a search results filter
+Use **Sort by** to sort the search results by **Relevance** or **Name**.
 
-Uncheck the checkbox next to the filter name to remove a filter.
+:::image type="content" source="./media/catalog-client-overview/sort-by.png" alt-text="Screenshot showing how to sort the search results. For this example, the Sort by dropdown list is set to Relevance.":::
 
-### Recent Pane
+### Search results dynamic filters
 
-The Recent pane will display your most recently accessed assets if any.
+The **Filter** pane on the **Search results** page has filters that provide dynamic filtering of the assets on the search results list. The filtering is dynamic in that additional filters can appear based on filter selections.
 
-You can also select the **See all \>** link that will take you to the **Recent** **View** page that shows you the full list of recently accessed files:
+The dynamic filters have a check box for each value on the drop-down list. Use these check boxes to filter on as many values as you like.
 
- :::image type="content" source="media/catalog-client-overview/image30.png" alt-text="Screenshot":::
+#### Search results dynamic filter: filter by asset type
 
-### Recent View
+If you select an asset type on the **Asset type** drop-down list, dynamic filters appear that give you additional ways to narrow your search results. The filters vary depending on the asset type selected. For example, if you select **Azure SQL Database**, dynamic filters appear for server, database, and schema. The values in these filters are from the assets in the search results of the selected type.
 
- :::image type="content" source="media/catalog-client-overview/image31.png" alt-text="Screenshot":::
-To narrow down the list, you can enter a name in **Filter by name**
-textbox.
+:::image type="content" source="./media/catalog-client-overview/asset-type-dynamic-filter.png" alt-text="The Azure SQL Database filter item is the only 'Asset type' item that's selected. A search result of that asset type is highlighted also." border="true":::
 
- :::image type="content" source="media/catalog-client-overview/image32.png" alt-text="Screenshot":::
+#### Search results dynamic filter: filter by classification
 
-You can also remove the items in the list individually by selecting an item (or items) and selecting the **Remove** button.
+Each classification in the **Classification** list applies to at least one item in the search results list. Select one or more classifications to narrow your search results to assets of the selected classifications.
 
- :::image type="content" source="media/catalog-client-overview/image33.png" alt-text="Screenshot":::
+:::image type="content" source="./media/catalog-client-overview/classification-dynamic-filter.png" alt-text="The Classification filter of 'Search results' is highlighted." border="true":::
 
-Alternatively, you can also clear the entire list at once by selecting the **Clear** button
+#### Edit and delete search results filters
 
- :::image type="content" source="media/catalog-client-overview/image34.png" alt-text="Screenshot":::
+To remove a filter, clear the check box next to the filter name.
 
-## Browsing by asset type
+### Recently accessed assets
 
-The Browse page allows you to browse to a certain type of asset.
+The **Recently accessed** section of the expanded search box displays your most recently accessed assets, if any.
 
-- Select **Asset type** icon, which will open the **Browse asset types** view where you can see the list of existing asset types.
+- Select **View all** in the **Recently accessed** section to see the full list of recently accessed assets.
 
-  :::image type="content" source="media/catalog-client-overview/image35.png" alt-text="Screenshot":::
+   :::image type="content" source="./media/catalog-client-overview/get-to-recent-view.png" alt-text="Screen shot showing the Recently accessed section of the expanded search box.":::
 
-- Select the **Asset type** icon to browse for assets of the selected type.
+   A list of recently accessed assets appears.
 
-- The Browse asset type page is designed to show all asset types that are present in the catalog, along with the total asset count below the asset type name.
+   :::image type="content" source="./media/catalog-client-overview/recent.png" alt-text="Screenshot showing a list of recently accessed assets.":::
 
-  :::image type="content" source="media/catalog-client-overview/image36.png" alt-text="Screenshot":::
+- To filter by name, enter a search string in **Filter by name**.
 
-You can select any asset on this page to be taken to the **Asset Details** view.
+- To remove items from the list, select them with their check boxes, and then select **Remove**.
 
-:::image type="content" source="media/catalog-client-overview/image37.png" alt-text="Screenshot":::
+   :::image type="content" source="./media/catalog-client-overview/remove-from-recent-view.png" alt-text="Screenshot showing how to remove items from a recently accessed assets list.":::
 
-### Asset Details
+- To clear the entire list, select **Clear**.
 
-The Asset Details page is a summarized view of the metadata for a particular asset.
+   :::image type="content" source="./media/catalog-client-overview/clear-recent-view-selections.png" alt-text="Screenshot showing how to clear a recently accessed assets list":::
 
-:::image type="content" source="media/catalog-client-overview/image38.png" alt-text="Screenshot":::
+### Search assets
 
-1. Name: (for example, Customer) - This is the name of the asset.
+Many pages other than **Home** have a **Search assets** box at the top. For instance, here's an assets details page, with **Search assets** highlighted.
 
-2. Type: (for example, Azure SQL Table) - This is the assets type.
+:::image type="content" source="./media/catalog-client-overview/search-assets.png" alt-text="Screenshot showing an asset details page with Search assets highlighted":::
 
-3. Edit, Refresh, Pin/Unpin - use these action buttons to edit data on an asset details page, to refresh the page to see any updated data or to pin or unpin the asset from the home page.
+Select **Search assets** to launch a search box like the one that you get from **Search catalog** on **Home**, with the same capabilities.
 
-4. Overview Tab - this is the default tab for the asset details page. It contains the overview information about the asset.
+:::image type="content" source="./media/catalog-client-overview/search-assets-dialog.png" alt-text="Screenshot showing an expanded Search assets box.":::
 
-5. Description - can be manually added by end users or applied using the API.
+## Pin and unpin data assets
 
-6. Classifications - classifications can be added to and removed from the asset by selecting the Edit button.
+You can pin an asset to the **Home** page to access it later.
 
-7. Properties - This section contains the technical metadata for the asset as reported by the scanner. The properties that you see in this area will vary by data source. One property that is always shown is the **qualifiedName**, which is the fully qualified name (uri) for the asset in the data source.
+To pin an asset:
 
-8. Last Updated - the date/time and user that last updated the asset in the catalog.
+- From the **Overview** tab of the asset details page, select **Pin**.
 
-9. Hierarchy - the hierarchy viewer shows the hierarchical relationship of the asset in the data source. For example, for a SQL Table, it will show a parent relationship to a schema, then the schemas parent database, and finally the database's parent SQL Server. Selecting anyone of these hyperlinks will take you to the asset details for that particular asset.
+    :::image type="content" source="./media/catalog-client-overview/pin-an-asset.png" alt-text="Screenshot of the accounts_parquet asset details page with the Pin button highlighted.":::
 
-10. Glossary terms - this section shows any glossary terms that have been associated with this asset, along with the total number of terms on the asset. Each term is a hyperlink, and if selected will take you to the glossary term details page where you can see further information about the term.
+    The asset is added to the **Pinned assets** section on the **Home** page.
 
-### Schema Tab
+    :::image type="content" source="./media/catalog-client-overview/select-in-pinned-assets.png" alt-text="The 'Pinned assets' section of **Home** is highlighted. Two assets are listed, including accounts_parquet." border="true":::
 
-This tab displays schema information of a structured file or table typed asset. This tab is only present on these types of assets where the schema is relevant or could be determined by the system.
+- To unpin an asset, select **Unpin** from the **Overview** tab of its asset details page.
 
- :::image type="content" source="media/catalog-client-overview/image39.png" alt-text="Screenshot":::
+    :::image type="content" source="./media/catalog-client-overview/unpin-an-asset.png" alt-text="Screenshot showing the Supplier_Contact asset details page with the Unpin button highlighted.":::
 
-- The column names are sorted by ascending order on names.
+## Managed data sources by asset count
 
-- You can select any individual item in the **Column Name** column to jump to the asset details view for that column asset.
+The **Managed data sources by asset count** section of **Home** is an array of tiles, each one representing a set of related asset types.
 
- :::image type="content" source="media/catalog-client-overview/image40.png" alt-text="Screenshot":::
+:::image type="content" source="./media/catalog-client-overview/managed-data-sources-by-asset-count.png" alt-text="Screenshot showing the Managed data sources by asset count section of the Home page.":::
 
-### Lineage Tab
+The size of each tile reflects the count of assets of all the types in the set. Hover over a tile to see the count. In this example, the count for **Azure Data Lake Storage Gen2** is 274.
 
-The tab will display lineage for the asset, if available. Currently the catalog only supports lineage results for Azure Data Factory **Copy**
-activities and Azure Data Factory **Data Flow** activities.
+Selecting a tile produces another array of tiles, which is a breakdown of the selected set.
 
- :::image type="content" source="media/catalog-client-overview/image41.png" alt-text="Screenshot":::
+:::image type="content" source="./media/catalog-client-overview/managed-data-sources-by-asset-count-breakdown.png" alt-text="Screenshot showing the tiles array when a tile in Managed data sources by asset count is selected.":::
 
-- Use Zoom +/- buttons, zoom slider
+## Quick access
 
-  :::image type="content" source="media/catalog-client-overview/image42.png" alt-text="Screenshot":::, or the mouse wheel to change the zoom level.
+### Browse by asset type
 
-- Selecting the **Auto Align** button
+To browse to assets by type, select **Browse by asset type** on **Home**.
 
-  :::image type="content" source="media/catalog-client-overview/image43.png" alt-text="Screenshot"::: will rest the graph back to default if you have moved nodes around.
+:::image type="content" source="./media/catalog-client-overview/get-to-browse-by-asset-type.png" alt-text="Screenshot" border="true":::
 
-- Selecting the **Zoom to Fit** button
+The **Browse asset types** page appears, which shows icons of the asset types and, for each type, the count of assets of the type.
 
-  :::image type="content" source="media/catalog-client-overview/image44.png" alt-text="Screenshot"::: will enlarge or reduce the graph so that it fits within the canvas.
+:::image type="content" source="./media/catalog-client-overview/browse-by-asset-type.png" alt-text="Screenshot" border="true":::
 
-- Selecting the **Full Screen** button  expands the graph to the entire screen. Use Esc to return to escape full screen and go back to the default view.
+To see a search results list with assets of a particular type, select the asset type icon.
 
-  :::image type="content" source="media/catalog-client-overview/image45.png" alt-text="Screenshot":::
+> [!Note]
+> The search results list generated in this way is the same as is generated from **Search** if there are no key terms and the asset type is selected in the **Asset type** quick filter.
 
-- Selecting the **Zoom Preview** button will display a mini view of the graph, which allows you to pan around in the graph. This can be helpful if you are viewing a graph that extends past the viewable screen area.
+:::image type="content" source="./media/catalog-client-overview/search-results-browse-by-asset-type.png" alt-text="Screenshot showing the search results when an asset type icon is selected.":::
 
-  :::image type="content" source="media/catalog-client-overview/image46.png" alt-text="Screenshot":::
+### Asset insights
 
-- The entire graph canvas can be panned by dragging on it with the mouse.
+To see counts and graphs of the data in your catalog, select **View Insights** on **Home**.
 
-- Hover on a node to view more details:
+:::image type="content" source="./media/catalog-client-overview/get-to-view-insights.png" alt-text="Screenshot" border="true":::
 
-  :::image type="content" source="media/catalog-client-overview/image47.png" alt-text="Screenshot":::
+The **Asset insights** screen appears. The **Insights** navigation pane on the left lets (highlighted) give you the choice of four categories of insights.
 
-- On Hover:
+:::image type="content" source="./media/catalog-client-overview/asset-insights.png" alt-text="Screenshot" border="true":::
 
-  :::image type="content" source="media/catalog-client-overview/image48.png" alt-text="Screenshot":::
+### Manage Your data
 
-  To pivot the graph to view the lineage of another asset, select the node you would like to pivot on and select on the "Switch to asset" link that appears at the bottom:
+To manage your data sources, select **Manage Your Data** on **Home**.
 
-  :::image type="content" source="media/catalog-client-overview/image49.png" alt-text="Screenshot":::
+:::image type="content" source="./media/catalog-client-overview/get-to-manage-your-data.png" alt-text="Screenshot" border="true":::
 
-  The catalog will then load the lineage graph for that asset:
+Use the left navigation pane to select any of the many options for managing your data:
 
-  :::image type="content" source="media/catalog-client-overview/image50.png" alt-text="Screenshot":::
+:::image type="content" source="./media/catalog-client-overview/manage-your-data.png" alt-text="Screenshot" border="true":::
 
-### Dependency Graph
+>[!Note]
+> Selecting **Manage your data** gets you to the same display as selecting **Management Center** from the left navigation pane of **Home**.
 
-Selecting any node will cause the graph to highlight all related assets and processes to make it easy to trace dependencies.
+## Asset details
 
-:::image type="content" source="media/catalog-client-overview/image51.png" alt-text="Screenshot":::
+To see asset details, select the asset name on a search results list. The **Overview** tab shows the main details of the asset.
 
-If needed, you can rearrange any nodes in the graph by dragging them to another spot in the canvas. This can make it easier to see nodes that may be covered up.
+:::image type="content" source="./media/catalog-client-overview/asset-details.png" alt-text="Screenshot showing the Overview tab of the asset details.":::
 
-You can also view columns and column level lineage for non-binary assets (For example: SQL table)
+The numbers in the asset detail screenshot correspond to the numbers in the following list that describes the areas:
 
-By selecting "Expand to view the columns"
+1. The asset name (**Customer**).
+1. The asset type (**Azure SQL Table**).
+1. **Edit** and **Refresh** are buttons that act on the asset details page.
+1. You select the page to view with page tabs:
+    - **Overview** shows metadata.
+    - **Schema** shows schema information for some asset types (structured files and tables).
+    - **Lineage** shows lineage information.
+    - **Contacts** shows the contacts (owners and experts).
+    - **Related** shows related assets.
+1. **Description** is a description written by the user, or applied by the API.
+1. **Classifications** show the classifications assigned to the asset.
+1. **Properties** shows technical metadata for the asset as reported by the scanner. One property that's always shown is **qualifiedName**, which is the URI for the asset in the data source.
+1. **Last updated** shows the date and time of the most recent update, and the user that did the update.
+1. **Hierarchy** shows the asset in the context of its ancestor hierarchy. Select an ancestor asset hyperlink for more information.
+1. **Glossary terms** show glossary terms that are pertinent to the asset. Each term is a hyperlink to additional information.
 
-:::image type="content" source="media/catalog-client-overview/image52.png" alt-text="Screenshot":::
+## Schema tab
 
-The column pane will open which allows you to choose one or more columns.
+Select the **Schema** tab on the asset details to display schema information of an asset that's a structured file or table.
 
-:::image type="content" source="media/catalog-client-overview/image53.png" alt-text="Screenshot":::
+This tab is present only on asset types for which the schema is relevant or could be determined by the system. Azure Babylon sorts the column names by ascending alphabetical order.
 
-Select the columns to see column level lineage.
+:::image type="content" source="./media/catalog-client-overview/schema-tab.png" alt-text="Screenshot showing the Schema tab of the asset details.":::
 
- :::image type="content" source="media/catalog-client-overview/image54.png" alt-text="Screenshot":::
+Select any item under the **Column name** column to jump to the asset details view for that column asset. For example, select **CompanyName**.
 
-Hover over the selected columns to highlight them in lineage graph
- :::image type="content" source="media/catalog-client-overview/image55.png" alt-text="Screenshot":::
+:::image type="content" source="./media/catalog-client-overview/column-asset-details.png" alt-text="Screenshot showing the asset details of the selected CompanyName asset.":::
 
-### Filtering the lineage view
+## Lineage tab
 
-You can filter by either column or data asset by using the search box to search by name
+Select the **Lineage** tab to display the lineage, if available, for the asset. Azure Babylon provides lineage results for only Azure Data Factory Copy and Data Flow activities.
 
-:::image type="content" source="media/catalog-client-overview/image56.png" alt-text="Screenshot":::
+:::image type="content" source="./media/catalog-client-overview/lineage-for-customer-table.png" alt-text="Screenshot showing the lineage for an asset.":::
 
-For more detailed information about how lineage works, refer to the [Catalog lineage user guide](catalog-lineage-user-guide.md).
+- Use your mouse wheel to change the zoom level, or use the zoom slider located on the right side.
 
-### Related Tab
+    :::image type="content" source="./media/catalog-client-overview/zoom-level.png" alt-text="Screenshot showing the zoom slider on the Lineage page.":::
 
-The tab displays all the assets that are related to the asset that you have in view. In this example, you can see that this SQL Table is related to a schema, 15 columns, and four ADF copy processes.
+- To fit the graph within the canvas, select **Zoom to fit**.
 
-Select columns to see all 15 columns.
+    :::image type="content" source="./media/catalog-client-overview/zoom-to-fit.png" alt-text="Screenshot showing the Zoom to fit icon on the Lineage page.":::
 
- :::image type="content" source="media/catalog-client-overview/image57.png" alt-text="Screenshot":::
+- To expand the graph to fill the screen, select **Full screen**. Press **Esc** (escape) to return to the default view.
 
-Select inputToProcesses to see the ADF copy processes.
+    :::image type="content" source="./media/catalog-client-overview/full-screen.png" alt-text="Screenshot showing the Full screen icon on the Lineage page.":::
 
- :::image type="content" source="media/catalog-client-overview/image58.png" alt-text="Screenshot":::
+- To display a portion of the graph to pan, select **Zoom preview**.
 
-- Drag the graph to pan.
+    :::image type="content" source="./media/catalog-client-overview/zoom-preview.png" alt-text="Screenshot showing the Zoom preview icon on the Lineage page.":::
 
+- To pan, drag on the graph.
+
+- For additional options, select **More options**, located beneath **Zoom preview**.
+
+   These options include **Center the current asset**, **Auto align**, and **Reset to default view**.
+
+- To view detail about a node, hover over it.
+
+    The following information appears:
+
+    :::image type="content" source="./media/catalog-client-overview/hover-lineage-node-information.png" alt-text="Screenshot showing node details when you hover over a node on the Lineage page.":::
+
+- To view the lineage of another asset, select the asset node, and then select **Switch to asset**.
+
+    :::image type="content" source="./media/catalog-client-overview/switch-to-other-asset.png" alt-text="Screenshot showing the Switch to asset link on a node on the Lineage page.":::
+
+    For example, here's the lineage graph for the **customerWithSales** asset:
+
+    :::image type="content" source="./media/catalog-client-overview/hover-lineage-node-information-2.png" alt-text="Screenshot showing the lineage for the customerWithSales asset.":::
+
+### Dependency graph
+
+The nodes of the lineage represent related assets, which you can explore.
+
+- To show information about a node, select the node to expand it.
+
+- If you select a different node or a blank area of the canvas, the node you expanded will contract.
+
+- After you expand a node, select **Switch to asset** to see a dependency graph for the asset.
+
+    :::image type="content" source="./media/catalog-client-overview/lineage-graph-switch-asset.png" alt-text="Screenshot showing the dependency lineage graph for an asset.":::
+
+- Drag a node to uncover any nodes that it might be hiding.
+
+- Select **Expand to view the columns** on the left pane to view columns and column-level lineage for non-binary assets (for example, SQL table).
+
+    :::image type="content" source="./media/catalog-client-overview/expand-to-view-columns.png" alt-text="Screenshot showing how to enable the column pane on the Lineage page.":::
+
+    The column pane opens.
+
+    :::image type="content" source="./media/catalog-client-overview/expanded-column-pane.png" alt-text="Screenshot showing the column pane on the Lineage page.":::
+
+- Select one or columns to see the column-level lineage.
+
+    :::image type="content" source="./media/catalog-client-overview/select-columns-column-pane.png" alt-text="Screenshot showing selected columns on the column pane of the Lineage page.":::
+
+- Hover over the selected columns to highlight them in the lineage graph.
+
+    :::image type="content" source="./media/catalog-client-overview/hover-selected-columns.png" alt-text="Screenshot showing selected columns highlighted on the lineage page.":::
+
+### Filter the lineage view
+
+To filter the lineage by column or data asset, enter a name in the **Search for assets or processes** box. For example, **Company**.
+
+:::image type="content" source="./media/catalog-client-overview/filter-lineage.png" alt-text="Screenshot showing how to filter columns and data assets on the Lineage page.":::
+
+## Related tab
+
+**Related** displays all related assets. This example shows that the SQL Table is related to:
+
+- A schema.
+- 15 columns.
+- Four Azure Data Factory (ADF) copy processes.
+
+You can do the following tasks when you view related assets:
+
+- Select **columns** to see all 15 columns in a pop-up window.
+
+    :::image type="content" source="./media/catalog-client-overview/columns-pop-up.png" alt-text="Screenshot showing the columns of a related asset.":::
+
+- Select the **inputToProcesses** node to see the ADF copy processes in a pop-up window.
+
+    :::image type="content" source="./media/catalog-client-overview/copy-processes-pop-up.png" alt-text="Screenshot showing the ADF copy processes of the inputToProcesses node.":::
+
+- Drag the graph to pan it.
 - Use the mouse wheel to change the zoom level.
-
 - Select a node to display the related assets on the floating panel.
-
 - Select an asset link on the floating panel or double-click a node to navigate to the asset.
 
-- Select :::image type="icon" source="media/catalog-client-overview/image59.png"::: button to close the floating panel.  :::image type="icon" source="media/catalog-client-overview/image60.png" :::node indicates a collection of multiple assets.
+## Contacts tab
 
-### Contacts Tab
+The **Contacts** tab displays the contacts associated with an asset. Each contact is either an owner or an expert for the asset.
 
-This tab displays the "Owners" and "Experts" associated with an asset.
-Multiple Experts and Owners can be added in this tab.
+:::image type="content" source="./media/catalog-client-overview/asset-contacts.png" alt-text="Screenshot showing the contacts associated with an asset.":::
 
- :::image type="content" source="media/catalog-client-overview/image61.png" alt-text="Screenshot":::
+## Edit asset
 
-### Edit Asset
+You can edit the details of an asset:
 
-1. On the Asset Details page, edit the asset as follows:
+- Select an asset, and on its details page, use the tabs to select the area you want to edit. For example, **Overview**.
 
-   a. Select **Edit** to go to the Edit Asset experience.
+    :::image type="content" source="./media/catalog-client-overview/select-edit-overview.png" alt-text="Screenshot showing how to edit an asset.":::
 
-      :::image type="content" source="media/catalog-client-overview/image62.png" alt-text="Screenshot":::
+- Select **Edit**.
+- In the **Overview** tab, update **Description**, **Classifications**, or **Glossary terms**.
 
-2. On the Overview tab of the Edit Asset experience, **Description**, **Classifications**, and the associated **Glossary Terms** of the asset can be updated. Select **Save** to save the update changes or **Cancel** to quit. Multiple Classifications and Glossary Terms can be associated to an asset.
+    :::image type="content" source="./media/catalog-client-overview/edit-overview.png" alt-text="Screenshot showing how to edit the information on an asset's Overview page.":::
 
-   :::image type="content" source="media/catalog-client-overview/image63.png" alt-text="Screenshot":::
+- To edit the schema, select **Schema**, and then select **Edit**.
 
-3. On the schema tab of the Edit Asset experience, the associated **Column-level Classification**, the **Column Description, Column Data Type, and Column name of the** asset can now be updated. Make your desired updates and select **Save** to save the update changes or **Cancel** to quit. Note: when you change the **Column Name**, the system changes only the friendly name that appears in the catalog for that column. It does not change the name of the column in the underlying data asset. Also note that any future scans will not overwrite a user provided column name. The Sample Value, Null Count and Distinct Values columns are placeholders and inactive at the current time. These will be lit up in future iterations.
+   The columns are listed for the **Customer** SQL table.
 
-   :::image type="content" source="media/catalog-client-overview/image64.png" alt-text="Screenshot":::
+    :::image type="content" source="./media/catalog-client-overview/edit-schema.png" alt-text="Screenshot showing how to edit the schema of an SQL table.":::
 
-4. On the Contacts tab of the Edit Asset experience, the associated **Experts** and **Owners** can be updated. Make your desired updates and select **Save** to save the update changes or **Cancel** to quit.
+    You can update the following characteristics of each column:
 
-   :::image type="content" source="media/catalog-client-overview/image65.png" alt-text="Screenshot":::
+    - **Column name**
+    - **Column level classifications**
+    - **Data type**
+    - **Description**
 
-## Glossary
+   When you change the column name, the system changes only the friendly name that appears in the catalog for that column. It doesn't change the name of the column in the data asset. Future scans won't overwrite a user-provided column name.
 
-The glossary feature allows you to create and manage your terms.
+- To edit contacts, select **Contacts** and then select **Edit**. Update the associated experts and owners for the contact, and then select **Save**.
 
-Supported features:
+    :::image type="content" source="./media/catalog-client-overview/edit-contacts.png" alt-text="Screenshot showing how to edit the contacts of an asset.":::
 
-- Create Terms one at a time
+## Glossary terms
 
-- Create terms in bulk (using a .csv file)
+With the glossary feature, you can create and manage your terms.
 
-- Delete Terms in bulk
+Use the glossary feature to:
 
-- Edit Terms one at a time
+- Create terms one at a time or in bulk from a .csv file.
+- Delete terms one at a time or in bulk.
+- Edit terms one at a time.
+- Add a definition to a term.
+- Add synonyms and acronyms to a term.
 
-- Editing the **Term Name** is currently **disabled**.
+### View glossary terms
 
-- Add a Definition
+To see your existing glossary terms:
 
-- Add Synonyms & Acronyms
+- Select **Glossary** from the left navigation pane.
 
-### Term List
+- View the **Glossary terms** page to see information about your list of terms.
 
-1. On the home page, select **Management Center** and then select **Glossary** in table of contents.
+   From this page, you can add, import, edit, and delete terms. You can also manage your term templates, and refresh the list of terms.
 
-   :::image type="content" source="media/catalog-client-overview/image66.png" alt-text="Screenshot":::
-
-- On the Term List page, **New**, **Edit**, **Import Terms** and
-    **Delete** terms can be performed. Select **Refresh** to refresh the list of terms.
-
-   :::image type="content" source="media/catalog-client-overview/image67.png" alt-text="Screenshot":::
+   :::image type="content" source="./media/catalog-client-overview/glossary-terms.png" alt-text="Screenshot showing how to view the Glossary terms page.":::
 
 ### New term
 
-1. On the Term List page, Select **+ New term**.
+To add a glossary term:
 
-   :::image type="content" source="media/catalog-client-overview/image68.png" alt-text="Screenshot":::
+- From the **Glossary terms** page, select **New term**.
 
-2. Give your new term a name, which must be unique in the catalog. The term name is case-sensitive, meaning you could have a term called **Sample** and **sample** in the catalog.
+- Select the **System default** template, or an existing custom term template. You can also create a new term template.
 
-   - You can additionally add the following additional properties:
+   :::image type="content" source="./media/catalog-client-overview/select-term-template.png" alt-text="Screenshot showing how select a term template for a new glossary term.":::
 
-3. Add a **Definition**.
+- If you select **New term template** to create a new term template, enter the **Template name**, a **Description**, and select **New attribute** to add attributes. Select **Create** to save the template and return to the **Import terms** page.
 
-4. Set the **Status** for the term - New terms will default to Draft Status.
+- When you're finished selecting or creating a template, select **Continue**.
 
-   :::image type="content" source="media/catalog-client-overview/image69.png" alt-text="Screenshot":::
+- On the **Overview** tab of the **New term** page, give your new glossary term a unique **Name**. This name is case-sensitive and is the only mandatory item for a new term.
 
-   - These status markers are metadata associated with the term.
+    :::image type="content" source="./media/catalog-client-overview/new-glossary-term.png" alt-text="Screenshot showing how to edit the overview information in a new glossary term.":::
 
-     There are currently not wired up into any workflow, they are provided to help you manage your glossary. Eventually these will be used with a workflow engine to help you manage the state of your glossary. Currently you can set the following status on each term:
+- Add a **Definition** and add one or more comma-separated acronyms to the **Acronym** list.
 
-     - **Approved**: This term is official/standard/approved
-     - **Alert**: This term needs attention
-     - **Expired**: This term should no longer be used
-     - **Draft**: This term is not yet officially implemented
+- Set the **Status**. Choose one of the following status values from the drop-down list:
 
-5. You can also add **Synonyms**, **Related terms**, and provide an **Acronym** if desired.
+    - **Draft**: Default. The term isn't yet official.
+    - **Approved**: The term is official.
+    - **Expired**: Don't use the term.
+    - **Alert**: The term needs attention.
 
-6. You can optionally Select the **Contacts** tab and add Experts and Stewards to your term.
+    The **Status** value is metadata associated with the term to help you manage your glossary. It's not affected by workflow.
 
-   :::image type="content" source="media/catalog-client-overview/image70.png" alt-text="Screenshot":::
+- Select the **Related** tab, and then choose one or more **Synonyms** and **Related terms** from the drop-down lists. You choose from your existing terms in these lists.
 
-7. Select **Create** to create your term.
+    :::image type="content" source="./media/catalog-client-overview/edit-glossary-related-terms.png" alt-text="Screenshot showing how to add synonyms and related terms to your term.":::
 
-### Viewing a term details page
+- From the **Contacts** tab, select **Experts** and **Stewards** to add them to your term.
 
-1. On the Term List page, select a term's name to view the term details page.
+    :::image type="content" source="./media/catalog-client-overview/edit-glossary-contacts.png" alt-text="Screenshot showing how to add experts and stewards to your term.":::
 
-   :::image type="content" source="media/catalog-client-overview/image71.png" alt-text="Screenshot":::
+- Select **Create** to create your term.
 
-2. On the Term Details page, select **Edit** to edit the term details, **Delete** to delete the term, or select any of the terms listed under **Synonyms** or **Related terms** to view those terms.
+### View a term details page
 
-   :::image type="content" source="media/catalog-client-overview/image72.png" alt-text="Screenshot":::
+To view glossary term details:
 
-### Importing Terms into the Glossary
+- On the **Glossary terms** page, select a term's name to view its term details page. The heading for the page is the name of the term. For example, select the name **Balance Sheet** to show the term details for that term.
 
-Data Catalog provides a template .csv file for you to import your terms into your ADC Glossary.
+    :::image type="content" source="./media/catalog-client-overview/glossary-terms-names-highlighted.png" alt-text="Screenshot showing how to view glossary term details.":::
 
-- You can import terms anytime you need, be aware that duplicate terms will be overwritten.
+- From the **Overview** tab on the term details page, select:
 
-- Term names are case-sensitive. **Example**: \"Sample\" and \"saMple\" could both exist in the glossary
+    - **Edit** to edit the term details.
+    - **Delete** to delete the term.
 
-1. When you are in the Glossary, select "Import terms"
+- From the **Related** tab on the term details page, select any term listed under **Synonyms** or **Related terms** to go to its term details page.
 
-   :::image type="content" source="media/catalog-client-overview/image73.png" alt-text="Screenshot":::
+    :::image type="content" source="./media/catalog-client-overview/term-details.png" alt-text="Screenshot showing how to view the synonyms and related terms of a glossary term.":::
 
-2. Download the csv template and use it to enter your terms you would like to add.
+### Import terms into the glossary
 
-   > [!Important]
-   > The system only supports importing columns that are available in the template. You can also review the file for issues after upload.
+To import glossary terms:
 
-   :::image type="content" source="media/catalog-client-overview/image74.png" alt-text="Screenshot":::
+- On the **Glossary terms** page, select **Import terms** from the top menu.
 
-- Once you've finished filling out your .csv file, select your file to import and then select the **OK** button.
-- The system will upload the file and add all the terms to your catalog.
+    The **Import terms** page appears, showing a list of templates to choose.
+
+- To create a template to match your data, select **New term template**. Enter the **Template name**, a **Description**. and select **New attribute** to add attributes. Select **Create** to save the template and return to the **Import terms** page.
+
+- Select the template that matches your data, or select the **System default** template. Select **Continue**.
+
+   A column must be in the template for you to import it.
+
+- Choose **Browse** to select your .csv file, and then select **OK**.
+
+    :::image type="content" source="./media/catalog-client-overview/import-terms.png" alt-text="Screenshot showing how to import terms.":::
+
+   The system adds the terms in the file to your catalog. If the system finds issues during import, it notifies you, and you can then review them.
+
+   > [!NOTE]
+   >
+   > An imported term overwrites an existing term of the same name.
+   >
 
 ### Edit term
 
-1. On the Terms List page, select a term by selecting its **checkbox** or **...**, and then select **Edit** to edit the term.
+To edit a glossary term:
 
-   :::image type="content" source="media/catalog-client-overview/image75.png" alt-text="Screenshot":::
+- On the **Glossary terms** page, use a term's check box to select it, and then select **Edit**.
 
-2. On the Overview tab of the Edit term experience, you can update **Definition**. **Status**, **Synonyms**, **Related terms** and **Acronyms. Once updates are complete, select Save to confirm the changes or Cancel to discard them.**
+    :::image type="content" source="./media/catalog-client-overview/select-term-to-edit.png" alt-text="Screenshot showing how to select a glossary term to edit.":::
 
-   :::image type="content" source="media/catalog-client-overview/image76.png" alt-text="Screenshot":::
+- On the **Overview** tab of the **Edit term** page, you can update the **Status**, **Definition**, and **Acronym** list.
+
+    :::image type="content" source="./media/catalog-client-overview/edit-term.png" alt-text="Screenshot showing how to edit a glossary term.":::
+
+- Select the **Related** tab to edit **Synonyms** and **Related terms**.
+
+- After you complete your updates, select **Save** to confirm the changes or **Cancel** to discard them.
 
 ### Delete term
 
-On the Terms List page, you can delete one or more terms in a few different ways:
+On the **Glossary terms** page, delete one or more terms in these ways:
 
-1. Select one or more **checkboxes** or the **select-all checkbox** at the top to select one or more terms, and then select **Delete** at the top to delete the terms.
+- Use the check boxes next to the terms to select one or more terms or, use the check box at the top to select all terms. Then select **Delete** to delete the selected terms.
 
-2. Select **...** to select a term, and then select **Delete** on the menu to delete the term.
+- Select **...** under **Action** for a term, and then select **Delete** from the context menu to delete the selected terms.
 
-   :::image type="content" source="media/catalog-client-overview/image77.png" alt-text="Screenshot":::
+    :::image type="content" source="./media/catalog-client-overview/glossary-terms-delete.png" alt-text="Screenshot showing how to delete a term by using the context menu.":::
 
-3. On the Term Details page, select **Delete** to delete the term.
+- On a term details page, select **Delete** to delete the term.
 
-   :::image type="content" source="media/catalog-client-overview/image78.png" alt-text="Screenshot":::
+    :::image type="content" source="./media/catalog-client-overview/term-details-delete.png" alt-text="Screenshot showing how to delete a term by using the top menu.":::
 
 ## Access permissions
 
-Azure Data Catalog access permissions provide a basic access permissions infrastructure. For reasons that will eventually be resolved that infrastructure is split into two sections. One section handles creating/deleting catalogs and scanning. The other section handles access to all other API endpoints.
+Azure Data Catalog access permissions provide a basic access permissions infrastructure. The infrastructure has two sections. One handles creations and deletions of catalogs and scans. The other handles access to all other API endpoints.
 
-### Azure portal managed permissions
+### Azure portal-managed permissions
 
-To create a catalog in the first place, one must have resource creation permissions in the resource group that the catalog is to be created in. This is managed via the Access control (IAM) section of the resource group the catalog is to be created in. One needs to be in the contributor or owner roles to create a new catalog instance.
+To create a catalog, you must have resource creation permissions in the resource group where the catalog is created. These permissions are managed via the **Access control (IAM)** section of the resource group. You need to be in the contributor or owner roles to create a new catalog instance.
 
-Once a catalog has been created, it can be deleted by anyone who is in the owner or contributor role on the catalog itself.
+After a catalog has been created, it can be deleted by anyone who is in the Owner or Contributor role on the catalog itself.
 
-For general information on how to add someone to a contributor or owner role on a resource group, see [Role Based Access Control Assignment Portal](../role-based-access-control/role-assignments-portal.md).
+For information about how to add someone to an Owner Contributor role on a resource group, see [Add or remove Azure role assignments using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-One additional capability handled in the Azure portal is that in order to be able to scan content a user must be in the contributor or owner role on the catalog itself. Note that those who would create/update/delete scans need to actually be in two roles. The owner or contributor role in the Azure portal and the Catalog Admin or Data Source Admin roles in the Azure Data Catalog Portal. For details on how to get someone into both roles please see section 8.3.
+To create, update, and delete a scan, a user must be in two roles:
 
-## Annotation Management
+- The Owner or Contributor role in the Azure portal.
+- The Catalog Admin or Data Source Admin role in the Azure Babylon portal.
 
-> [!NOTE]
-> This section was written based on ADC Gen 2 and is not yet updated. However, the general steps are similar. You might find wordings and screenshots are different in your Purview account. If you're blocked at any point, send an email to BabylonDiscussion\@microsoft.com.
+## Classifications
 
-The catalog provides a set of annotations that can be used to curate assets to make them more discoverable and so that they can be used for policy and other scenarios.
+The catalog provides a classification feature to indicate the data type in a file, such as email address or phone number. Any classification can be applied to assets at the file level or at the column level.
 
-### Classifications
+The catalog scanner, which uses classification rules to detect when data matches a pattern, can automatically apply classifications.
 
-One type of annotation in the catalog is a classification.
+To manage your classifications, select **Management Center** in the left navigation pane, and then select **Classifications**.
 
-A classification is a piece of metadata that is intended on classifying what type of data exists in the file. For example, an email address, a phone number, etc.
+:::image type="content" source="./media/catalog-client-overview/classifications.png" alt-text="Screenshot showing how to view the system classifications in a catalog.":::
 
-Out of the box, the system provides a default list of classifications.
-You can view this full list of classifications in the Classification quick filter from the search box on the home page.
+There are two tabs, **System** and **Custom**:
 
- :::image type="content" source="media/catalog-client-overview/image91.png" alt-text="Screenshot":::
+- The **System** tab shows built-in default system classifications. These system classifications are read-only and can't be edited or deleted from your catalog.
 
-Any of these classifications can be manually applied to assets at the file level or at the column level.
-
- :::image type="content" source="media/catalog-client-overview/image92.png" alt-text="Screenshot":::
-
-They can also be automatically applied by the catalog scanner, which uses classification rules in order to detect when data is seen that matches a pattern.
-
-You will likely want to define your own classifications to be used in your catalog.
-
-To manage your classifications, head to the Management Center
-
- :::image type="content" source="media/catalog-client-overview/image93.png" alt-text="Screenshot"::: in the left bar in the catalog UX.
-
-Select
- :::image type="content" source="media/catalog-client-overview/image94.png" alt-text="Screenshot"::: to get to the classification management screen
-
-There are two tabs, Custom and System.
-
-Starting with the System tab, you will see the full list of system classifications.
-
- :::image type="content" source="media/catalog-client-overview/image95.png" alt-text="Screenshot":::
-
- :::image type="content" source="media/catalog-client-overview/image96.png" alt-text="Screenshot":::
-
-These classifications are read-only and cannot be edited or deleted from your catalog.
-
-If you select the Custom tab, you will see your custom classifications
-(if there are any)
+- The **Custom** tab shows custom classifications that you or other users have defined for their own use.
 
 ### Create a custom classification
 
-Select New:
+To create a custom classification in a catalog:
 
- :::image type="content" source="media/catalog-client-overview/image97.png" alt-text="Screenshot":::
+- Select the **Classifications** page, and then select **New**.
 
-The Add new classification screen appears. Provide a unique name for your classification:
+   The **Add new classification** page appears.
 
- :::image type="content" source="media/catalog-client-overview/image98.png" alt-text="Screenshot":::
+- Enter a **Name** for your classification. You can use your company name as a top-level namespace to maintain uniqueness. For example, **CONTOSO.CUSTOMER_ID**.
 
-We suggest that you use your company name as a top-level namespace to organize your classifications and to maintain uniqueness. For example, `CONTOSO.CUSTOMERID`.
+   :::image type="content" source="./media/catalog-client-overview/add-new-classification.png" alt-text="Screenshot showing how to add a custom classification.":::
 
-The name must start with a letter followed by a sequence of letters, numbers, period (.) or underscore (\_) characters. It can be upper or lowercase and must be unique in your catalog.
+   The name must start with a letter followed by a sequence of letters, numbers, period (**.**) or underscore (**_**) characters. It can be uppercase or lowercase, and must be unique in your catalog.
 
-Notice that the Friendly name is auto created by the system as you type.
-This friendly name is what is shown on the actual classification tag in the UX in order to improve readability
-
- :::image type="content" source="media/catalog-client-overview/image99.png" alt-text="Screenshot":::
-
-The rule being used is that the name will be trimmed to the last two segments of the namespace, the casing gets changed to first letter is capitalized, and the rest lower cased. All underscores are replaced by spaces.
-
-For example, if you created a classification name of `CONTOSO.FINANCE.ACCOUNT_ID`, the system would generate a friendly name of Finance. Account ID, which is what would show to users in the catalog.
-
- :::image type="content" source="media/catalog-client-overview/image100.png" alt-text="Screenshot":::
+   The friendly name is created as you type. This name appears as the **Display name** in the classification list to improve readability. It's trimmed to its last two segments of the namespace. All underscores become spaces.
 
 ### Filter a classification list
 
-You can use the Filter by name field to quickly get to a custom classification, which helps if you have a long list.
+Use the **Filter by name** field on **Classifications** to filter either the **System** or **Custom** classifications list.
 
- :::image type="content" source="media/catalog-client-overview/image101.png" alt-text="Screenshot":::
+:::image type="content" source="./media/catalog-client-overview/classifications-filter-by-name.png" alt-text="Screenshot showing how to filter the classifications list.":::
 
-### Delete a classification
+### Delete a custom classification
 
-To delete a classification, select the checkbox next to the classification and select the delete button
+To delete a custom classification:
 
- :::image type="content" source="media/catalog-client-overview/image102.png" alt-text="Screenshot":::
+- Select the check box of the custom classification to delete, and then select **Delete**.
 
-This system will prompt you to confirm the deletion
+   :::image type="content" source="./media/catalog-client-overview/delete-custom-classification.png" alt-text="Screenshot showing how to delete a custom classification.":::
 
- :::image type="content" source="media/catalog-client-overview/image103.png" alt-text="Screenshot":::
+   The system prompts you to confirm the deletion.
 
-Select **Delete** and the classification should be removed from the list.
+- Select **Delete** to delete the classification.
 
-> [!Tip]
-> You cannot delete custom classifications that have been associated to an asset(s). You will the following error. You must first remove the classification from the asset.
->
-> :::image type="content" source="media/catalog-client-overview/image104.png" alt-text="Error":::
->
+   System classifications are read-only, and cannot be modified or deleted.
 
-## Connection to Azure Data Factory (ADF)
+   > [!WARNING]
+   > You can't delete a custom classification if it's being used to describe assets. Remove it from the assets first, and then delete it.
 
-> [!NOTE]
-> This section was written based on ADC Gen 2 and is not yet updated. However, the general steps are similar. You might find wordings and screenshots are different in your Purview account. If you're blocked at any point, send an email to BabylonDiscussion\@microsoft.com.
+## Connect to Azure Data Factory
 
-This section explains how to connect ADF to import data lineage generated by ADF copy and dataflow activities into ADC catalog. For ADF to successfully communicate lineage information to a catalog instance the ADF must authenticate itself to ADC using an identity that ADC recognizes.
+This section explains how to connect Azure Data Factory (ADF) to import data lineage into the catalog. The lineage is generated by ADF Copy and Data Flow activities. ADF must authenticate itself to the catalog by using an identity that the catalog recognizes.
 
-### View existing connections
+### View connections
 
-At a given time, more than one ADF can connect to a catalog and push lineage information. Follow these steps to see the list of Data Factories that are connected to the catalog.
+More than one ADF at a time can connect to a catalog and push lineage information.
 
-1. Select **Management center**
+To show the list of ADFs connected to your catalog:
 
-   :::image type="content" source="media/catalog-client-overview/image105.png" alt-text="Management Center":::
+- Select **Management Center** on the left navigation pane
 
-2. Select **Data factory connection**
+- From the left pane, select **Data factory connection**.
 
-   :::image type="content" source="media/catalog-client-overview/image106.png" alt-text="Data factory connection tile":::
+    The data factory connection list appears.
 
-3. Data factory connection list
+    :::image type="content" source="./media/catalog-client-overview/data-factory-connection.png" alt-text="Screen shot showing a data factory connection list.":::
 
-   :::image type="content" source="media/catalog-client-overview/image107.png" alt-text="Data factory connection list":::
+    The **Status** values are:
 
-#### Status explanation
-
-- **Connected**: the data factory is successfully connected to current data catalog.
-
-- **Disconnected**: the data factory still has access to the catalog, but it's connected to other catalog, which means data lineage won't be reported to current data catalog automatically.
-
-- **Cannot** **access**: the current user does not have access to the data factory so we cannot get the connection status.
+    - **Connected**: The data factory is connected to the data catalog.
+    - **Disconnected**: The data factory has access to the catalog, but it's connected to another catalog. As a result, data lineage won't be reported to the catalog automatically.
+    - **Cannot access**: The user doesn't have access to the data factory, so the connection status is unknown.
 
 ### New data factory connection
 
-1. Select **+ New** to create a data factory connection
+To create a data factory connection:
 
-   :::image type="content" source="media/catalog-client-overview/image108.png" alt-text="Screenshot":::
+- From the **Data factory connection** page, select **New**.
 
-2. Select data factories from the list, which can be filtered by subscription name. Some options are disabled because the data factory is already connected to current catalog, or the data factory doesn't have MSI (only for data factories created before ADF GA).
+- Select one or more data factories from the list, which you can filter by subscription name.
 
-   > [!Note]
-   > You can only select less than 50 data factories one time due to limitations. If you want to select all data factories regardless of the throttling, append this feature flag after catalog URL: `?``feature``.dataFactoryLimit``=unlimited.
+   :::image type="content" source="./media/catalog-client-overview/data-factories.png" alt-text="Screenshot showing how to select data factories to connect to.":::
 
-   - *For example: [https://adc.azure.com/catalog/\<mycatalog\>/management/dataFactoryConnection/connectionsList?**feature.dataFactoryLimit=unlimited**](https://adc.azure.com/catalog/%3cmycatalog%3e/management/dataFactoryConnection/connectionsList?feature.dataFactoryLimit=unlimited)*
+    Some options might be disabled if:
 
-   :::image type="content" source="media/catalog-client-overview/image109.png" alt-text="Screenshot":::
+    - The data factory is already connected to the current catalog.
+    - The data factory doesn't have managed identity.
 
-3. Select **OK**.
+    By default, you can't view more than 49 data factories.
 
-   :::image type="content" source="media/catalog-client-overview/image110.png" alt-text="Screenshot":::
+- If you want to show all the data factories, append this feature flag after the catalog URL: `?feature.dataFactoryLimit=unlimited`.
 
-4. If some of the selected data factories are already connected to other catalog, it will pop up a dialog to let customers confirm the reconfiguration
+    For example:
+    `https://adc.azure.com/catalog/<mycatalog>/management/dataFactoryConnection/connectionsList?feature.dataFactoryLimit=unlimited`
 
-   :::image type="content" source="media/catalog-client-overview/image111.png" alt-text="Screenshot":::
+- Select **OK**.
 
-      - Select **Cancel** if the data factory should not be redirected from former catalog to current catalog.  
-      - Select **Continue** if the data factory can be disconnected from former catalog and connect to current catalog.
+- If any of the selected data factories are already connected to other catalogs, you're asked to confirm to disconnect from them.
 
-5. Customers will get notified when connections are established.
+    :::image type="content" source="./media/catalog-client-overview/continue-connection-confirm.png" alt-text="Screenshot showing the confirmation screen when a data factory is already connected.":::
 
-   :::image type="content" source="media/catalog-client-overview/image112.png" alt-text="Screenshot":::
+- Make one of the following choices:
+    - Select **Cancel** to stay connected to the other catalog.
+    - Select **Continue** to disconnect from the other catalog and connect to the current catalog.
 
-### Remove data factory connection
+    If you select **Continue**, the system notifies you after the connections have been established.
 
-1. Check to select one or more existing data factory connections.
+### Remove data factory connections
 
-   :::image type="content" source="media/catalog-client-overview/image113.png" alt-text="Screenshot":::
+To remove a data factory connection:
 
-2. Select **Remove** to remove the selected data factory connections.
+- Select the check box next to one or more data factory connections.
 
-   :::image type="content" source="media/catalog-client-overview/image114.png" alt-text="Screenshot":::
+    :::image type="content" source="./media/catalog-client-overview/data-factory-connection.png" alt-text="Screenshot showing how to select data factories to delete.":::
+
+- Select **Remove** to remove the selected data factory connections, and then select **Remove** to confirm.

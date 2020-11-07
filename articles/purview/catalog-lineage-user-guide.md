@@ -27,7 +27,7 @@ If data producers want to change the attributes of a data source they own, such 
 
 ## Configure catalog to collect ADF lineage
 
-This section explains the configuration steps required to report lineage in Azure Purview for ADF pipelines at execution time. For instructions about how to connect Azure Data Factory with Azure Purview and configure lineage reporting, see [Connection to Azure Data Factory](catalog-client-overview.md#connection-to-azure-data-factory-adf). This configuration is a one-time step to start ingesting lineage from ADF into Azure Purview.
+This section explains the configuration steps required to report lineage in Azure Purview for ADF pipelines at execution time. For instructions about how to connect Azure Data Factory with Azure Purview and configure lineage reporting, see [Connect to Azure Data Factory](catalog-client-overview.md#connect-to-azure-data-factory). This configuration is a one-time step to start ingesting lineage from ADF into Azure Purview.
 
 Lineage for the ADF Copy activity is available for on-premises SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Purview, ensure the version is 4.8.7418.1 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
 
