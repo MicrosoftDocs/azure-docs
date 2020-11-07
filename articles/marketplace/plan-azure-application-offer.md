@@ -121,7 +121,7 @@ When you create a new Azure Application offer in Partner Center, you will enter 
 
 The following screenshot shows how offer information appears in the Azure portal:
 
-:::image type="content" source="media/create-new-azure-app-offer/example-virtual-machine-container-iot-edge-saas.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+[![Illustrates how this offer appears in the Azure portal.](media/create-new-azure-app-offer/example-virtual-machine-container-iot-edge-saas.png)](media/create-new-azure-app-offer/example-virtual-machine-container-iot-edge-saas.png#lightbox)
 
 #### Call-out descriptions
 
