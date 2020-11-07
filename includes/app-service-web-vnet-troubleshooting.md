@@ -35,9 +35,21 @@ A number of things can prevent your app from reaching a specific host and port. 
 * **A firewall is in the way.** If you have a firewall in the way, you hit the TCP timeout. The TCP timeout is 21 seconds in this case. Use the **tcpping** tool to test connectivity. TCP timeouts can be caused by many things beyond firewalls, but start there.
 * **DNS isn't accessible.** The DNS timeout is 3 seconds per DNS server. If you have two DNS servers, the timeout is 6 seconds. Use nameresolver to see if DNS is working. You can't use nslookup, because that doesn't use the DNS your virtual network is configured with. If inaccessible, you could have a firewall or NSG blocking access to DNS or it could be down.
 
+You may also want to check if the environment variable WEBSITE_PRIVATE_IP set on the Web App. This is the IP that the Web App will use to access the virtual network-hosted resources. The following commands will search for this environment variable and if present, it will be shown in console output window. 
+
+```console [Windows]
+set | findstr "WEBSITE_PRIVATE_IP"
+```
+
+```console [SSH]
+set | grep "WEBSITE_PRIVATE_IP"
+```
+
 If those items don't answer your problems, look first for things like:
 
 **Regional VNet Integration**
+* Is the environment variable WEBSITE_PRIVATE_IP set on the Web App?
+* Is the ServiceAssociationLink property set on the integration subnet?
 * Is your destination a non-RFC1918 address and you don't have WEBSITE_VNET_ROUTE_ALL set to 1?
 * Is there an NSG blocking egress from your integration subnet?
 * If you're going across Azure ExpressRoute or a VPN, is your on-premises gateway configured to route traffic back up to Azure? If you can reach endpoints in your virtual network but not on-premises, check your routes.
@@ -45,6 +57,7 @@ If those items don't answer your problems, look first for things like:
 
 **Gateway-required VNet Integration**
 * Is the point-to-site address range in the RFC 1918 ranges (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255)?
+* Is the environment variable WEBSITE_PRIVATE_IP set on the Web App?
 * Does the gateway show as being up in the portal? If your gateway is down, then bring it back up.
 * Do certificates show as being in sync, or do you suspect that the network configuration was changed?  If your certificates are out of sync or you suspect that a change was made to your virtual network configuration that wasn't synced with your ASPs, select **Sync Network**.
 * If you're going across a VPN, is the on-premises gateway configured to route traffic back up to Azure? If you can reach endpoints in your virtual network but not on-premises, check your routes.
