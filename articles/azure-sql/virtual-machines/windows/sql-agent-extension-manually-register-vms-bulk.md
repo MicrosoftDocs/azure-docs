@@ -1,6 +1,6 @@
 ---
-title: Bulk register SQL virtual machines in Azure with the SQL VM resource provider | Microsoft Docs
-description: Bulk register SQL Server VMs with the SQL VM resource provider to improve manageability. 
+title: Register multiple SQL VMs in Azure with the SQL IaaS Agent extension
+description: Bulk register SQL Server VMs with the SQL IaaS Agent extension to improve manageability. 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -15,29 +15,28 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Register multiple SQL virtual machines in Azure with the SQL VM resource provider
+# Register multiple SQL VMs in Azure with the SQL IaaS Agent extension
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to register your SQL Server virtual machines (VMs) in bulk in Azure with the SQL VM resource provider by using the `Register-SqlVMs` PowerShell cmdlet. Registering with the SQL VM resource provider installs the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md).
+This article describes how to register your SQL Server virtual machines (VMs) in bulk in Azure with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) by using the `Register-SqlVMs`Azure  PowerShell cmdlet. 
 
-This article teaches you to register SQL Server VMs in bulk. Alternatively, you can register [all SQL Server VMs automatically](sql-agent-extension-automatic-registration-all-vms.md) or [individual SQL Server VMs](sql-agent-extension-manually-register-single-vm.md). 
+
+This article teaches you to register SQL Server VMs manually in bulk. Alternatively, you can register [all SQL Server VMs automatically](sql-agent-extension-automatic-registration-all-vms.md) or [individual SQL Server VMs manually](sql-agent-extension-manually-register-single-vm.md). 
 
 ## Overview
 
-The `Register-SqlVMs` cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in _lightweight_ management mode, and then generate both a [report and a log file](#output-description). 
+The `Register-SqlVMs` cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in [lightweight_ management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes), and then generate both a [report and a log file](#output-description). 
 
-The registration process carries no risk, has no downtime, and will not restart SQL Server or the virtual machine. 
-
-For more information, see [SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md). 
+The registration process carries no risk, has no downtime, and will not restart the SQL Server service or the virtual machine. 
 
 ## Prerequisites
 
-To register your SQL Server VM with the resource provider, you'll need the following: 
+To register your SQL Server VM with the extension, you'll need the following: 
 
-- An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-rp) and contains unregistered SQL Server virtual machines. 
+- An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the **Microsoft.SqlVirtualMachine** provider](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-rp) and contains unregistered SQL Server virtual machines. 
 - The client credentials used to register the virtual machines exist in any of the following Azure roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
-- The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
-- The latest version of [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
+- The latest version of [Az PowerShell (5.0 minimum)](/powershell/azure/new-azureps-module-az). 
+
 
 ## Get started
 
@@ -66,7 +65,7 @@ Connect-AzAccount
 ```
 
 
-## Register all VMs in a list of subscriptions 
+## All VMs in a list of subscriptions 
 
 Use the following cmdlet to register all SQL Server virtual machines in a list of subscriptions:
 
@@ -90,7 +89,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## Register all VMs in a single subscription
+## All VMs in a single subscription
 
 Use the following cmdlet to register all SQL Server virtual machines in a single subscription: 
 
@@ -112,7 +111,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## Register all VMs in multiple resource groups
+## All VMs in multiple resource groups
 
 Use the following cmdlet to register all SQL Server virtual machines in multiple resource groups within a single subscription:
 
@@ -133,7 +132,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## Register all VMs in a resource group
+## All VMs in a resource group
 
 Use the following cmdlet to register all SQL Server virtual machines in a single resource group: 
 
@@ -154,7 +153,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## Register specific VMs in a single resource group
+## Specific VMs in a single resource group
 
 Use the following cmdlet to register specific SQL Server virtual machines within a single resource group:
 
@@ -175,7 +174,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## Register a specific VM
+## A specific VM
 
 Use the following cmdlet to register a specific SQL Server virtual machine: 
 
@@ -205,9 +204,9 @@ The report is generated as a `.txt` file named `RegisterSqlVMScriptReport<Timest
 | **Output value** | **Description** |
 | :--------------  | :-------------- | 
 | Number of subscriptions registration failed for because you do not have access or credentials are incorrect | This provides the number and list of subscriptions that had issues with the provided authentication. The detailed error can be found in the log by searching for the subscription ID. | 
-| Number of subscriptions that could not be tried because they are not registered to the RP | This section contains the count and list of subscriptions that have not been registered to the SQL VM resource provider. |
+| Number of subscriptions that could not be tried because they are not registered to the resource provider | This section contains the count and list of subscriptions that have not been registered to the SQL IaaS Agent extension. |
 | Total VMs found | The count of virtual machines that were found in the scope of the parameters passed to the cmdlet. | 
-| VMs already registered | The count of virtual machines that were skipped as they were already registered with the resource provider. |
+| VMs already registered | The count of virtual machines that were skipped as they were already registered with the extension. |
 | Number of VMs registered successfully | The count of virtual machines that were successfully registered after running the cmdlet. Lists the registered virtual machines in the format `SubscriptionID, Resource Group, Virtual Machine`. | 
 | Number of VMs failed to register due to error | Count of virtual machines that failed to register due to some error. The details of the error can be found in the log file. | 
 | Number of VMs skipped as the VM or the gust agent on VM is not running | Count and list of virtual machines that could not be registered as either the virtual machine or the guest agent on the virtual machine were not running. These can be retried once the virtual machine or guest agent has been started. Details can be found in the log file. |
@@ -220,14 +219,14 @@ Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.l
 
 ## Remarks
 
-When you register SQL Server VMs with the resource provider by using the provided script, consider the following:
+When you register SQL Server VMs with the extension by using the provided script, consider the following:
 
-- Registration with the resource provider requires a guest agent running on the SQL Server VM. Windows Server 2008 images do not have a guest agent, so these virtual machines will fail and must be registered manually using the [NoAgent management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes).
+- Registration with the extension requires a guest agent running on the SQL Server VM. Windows Server 2008 images do not have a guest agent, so these virtual machines will fail and must be registered manually using the [NoAgent management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 - There is retry logic built-in to overcome transparent errors. If the virtual machine is successfully registered, then it is a rapid operation. However, if the registration fails, then each virtual machine will be retried.  As such, you should allow significant time to complete the registration process -  though actual time requirement is dependent on the type and number of errors. 
 
 ## Full script
 
-For the full script on GitHub, see [Bulk register SQL VMs with Az PowerShell](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1). 
+For the full script on GitHub, see [Bulk register SQL Server VMs with Az PowerShell](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1). 
 
 Copy the full script and save it as `RegisterSqLVMs.psm1`.
 

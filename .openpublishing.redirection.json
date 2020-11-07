@@ -54028,7 +54028,7 @@
     },
     {
       "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm",
       "redirect_document_id": true
     },
     {
