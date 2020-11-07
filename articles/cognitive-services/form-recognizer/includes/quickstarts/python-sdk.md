@@ -14,7 +14,7 @@ ms.author: pafarley
 > [!IMPORTANT]
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. See the reference documentation below. 
 
-[Reference documentation](https://docs.microsoft.com/python/api/azure-ai-formrecognizer) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
+[Reference documentation](/python/api/azure-ai-formrecognizer) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ With Form Recognizer, you can create two different client types. The first, `for
 * Copying a custom model from one Form Recognizer resource to another.
 
 > [!NOTE]
-> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](../../quickstarts/label-tool.md).
 
 ## Code examples
 
@@ -98,7 +98,7 @@ You'll need to add references to the URLs for your training and testing data.
 * Use the sample from and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) or you can use the above steps to get the SAS URL of an individual document in blob storage. 
 
 > [!NOTE]
-> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/python/api/azure-ai-formrecognizer) and [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
+> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](/python/api/azure-ai-formrecognizer) and [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
 ## Recognize form content
 
