@@ -4,7 +4,6 @@ description: Learn about the different migration strategies when you want to mig
 ms.custom: ""
 ms.service: virtual-machines-sql
 ms.subservice: 
-ms.custom: 
 ms.devlang: 
 ms.topic: how-to
 author: markjones-msft
