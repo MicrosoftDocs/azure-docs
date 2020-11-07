@@ -22,8 +22,6 @@ landingContent:
         links:
           - text: What is Azure Purview?
             url: overview.md
-          - text: Product limitations
-            url: product-limitations.md
   # Card
   - title: Get started
     linkLists:

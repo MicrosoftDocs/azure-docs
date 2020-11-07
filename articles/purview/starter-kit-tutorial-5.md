@@ -135,7 +135,7 @@ On the **New term template** screen, do the following steps:
 1. Enter your desired description, such as `Indicates the level of sensitivity for this data.`.
 1. Select **+ New attribute** to open a dialog for adding attributes.
 
-:::image type="content" source="./media/starter-kit-tutorial-5/new-term-template-screen-start.png" alt-text="begin creating a new term template.":::
+:::image type="content" source="./media/starter-kit-tutorial-5/new-term-template-screen-start.png" alt-text="new term template screen start.":::
 
 On the **New attribute** screen, do the following steps:
 
@@ -150,19 +150,19 @@ On the **New attribute** screen, do the following steps:
 
 Repeat the same steps to add another attribute with the name `can be shared externally`. After both attributes are added, finally select **Create**.
 
-:::image type="content" source="./media/starter-kit-tutorial-5/new-term-template-screen-finish.png" alt-text="begin creating a new term template.":::
+:::image type="content" source="./media/starter-kit-tutorial-5/new-term-template-screen-finish.png" alt-text="finish creating new term template.":::
 
 Next, you will import a new term using the **Sensitivity level** template that you have created. From the **Glossary terms** screen, select **Import terms**.
 
-:::image type="content" source="./media/starter-kit-tutorial-5/select-import-terms.png" alt-text="select import terms.":::
+:::image type="content" source="./media/starter-kit-tutorial-5/select-import-terms.png" alt-text="Select import terms.":::
 
 Select **Sensitivity level** from the **Import terms** screen. Select **Continue**.
 
-:::image type="content" source="./media/starter-kit-tutorial-5/select-sensitivity-level.png" alt-text="select import terms.":::
+:::image type="content" source="./media/starter-kit-tutorial-5/select-sensitivity-level.png" alt-text="Select sensitivity level.":::
 
 The term template for **Sensitivity level** contains default system attributes, as well as the new attributes you have added: `Sensitivity level` and `is sensitive information`. Select **Download a sample .CSV** file.
 
-:::image type="content" source="./media/starter-kit-tutorial-5/download-sample-csv-file.png" alt-text="select import terms.":::
+:::image type="content" source="./media/starter-kit-tutorial-5/download-sample-csv-file.png" alt-text="Download sample csv file.":::
 
 This step will download a template file that you can edit to upload your new glossary term with customer attributes. Open the CSV file that you have downloaded. Add new terms and their appropriate values as new rows in the CSV file.
 
@@ -172,7 +172,7 @@ Any terms listed in the **Related Terms** or **Synonyms** column that don't alre
 
 To upload the file, return to the **Import terms** screen, and select **Browse** next to the **Select the complete .CSV file to upload** box. Select your file in the dialog box that opens, and then select **OK**.
 
-:::image type="content" source="./media/starter-kit-tutorial-5/upload-term-csv-file.png" alt-text="Create term in csv file.":::
+:::image type="content" source="./media/starter-kit-tutorial-5/upload-term-csv-file.png" alt-text="Upload term csv file.":::
 
 The new terms are now listed on the **Glossary terms** screen.
 
