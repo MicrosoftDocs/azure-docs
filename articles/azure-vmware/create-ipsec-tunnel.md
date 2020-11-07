@@ -86,16 +86,16 @@ This section applies only to policy-based VPNs. Policy-based (or static, route-b
 
 1. In the Azure portal, go to your Virtual WAN hub site; under **Connectivity**, select **VPN (Site to site)**.
 
-2. Select your VPN site name and then the ellipsis (...) at the far right; then select **edit VPN section to this hub**.
+2. Select your VPN site name and then the ellipsis (...) at the far right; then select **edit VPN connection to this hub**.
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Edit VPN section to this hub." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Edit VPN connection to this hub." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
 
 3. Edit the connection between the VPN site and the hub, and then select **Save**.
    - Internet Protocol Security (IPSec), select **Custom**.
    - Use policy-based traffic selector, select **Enable**
    - Specify the details for **IKE Phase 1** and **IKE Phase 2(ipsec)**. 
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Edit VPN section"::: 
+    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Edit VPN connection"::: 
  
     Your traffic selectors or subnets that are part of the policy-based encryption domain should be:
     

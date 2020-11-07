@@ -14,19 +14,22 @@ ms.custom: devx-track-javascript, github-actions-azure
 
 # Set up a GitHub Actions workflow to deploy your static website in Azure Storage
 
-Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy a static site to an Azure storage blob. Once you have set up a GitHub Actions workflow, you will be able to automatically deploy your site to Azure from GitHub when you make changes to your site's code. 
+Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy a static site to an Azure storage account. Once you have set up a GitHub Actions workflow, you will be able to automatically deploy your site to Azure from GitHub when you make changes to your site's code.
 
 > [!NOTE]
 > If you are using [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/), then you do not need to manually set up a GitHub Actions workflow.
-> Azure Static Web Apps automatically creates a GitHub workflow for you. 
+> Azure Static Web Apps automatically creates a GitHub Actions workflow for you. 
 
 ## Prerequisites
 
 An Azure subscription and GitHub account. 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A GitHub account with your static website code. If you don't have a GitHub account, [sign up for free](https://github.com/join).  
-- A working static website hosted in Azure Storage. Learn how to [host a static website in Azure Storage](storage-blob-static-website-how-to.md). Your static website should include an [Azure CDN](static-website-content-delivery-network.md).
+- A GitHub repository with your static website code. If you don't have a GitHub account, [sign up for free](https://github.com/join).  
+- A working static website hosted in Azure Storage. Learn how to [host a static website in Azure Storage](storage-blob-static-website-how-to.md). To follow this example, you should also deploy [Azure CDN](static-website-content-delivery-network.md).
+
+> [!NOTE]
+> It's common to use a content delivery network (CDN) to reduce latency to your users around the globe and to reduce the number of transactions to your storage account. Deploying static content to a cloud-based storage service can reduce the need for potentially expensive compute instance. For more information, see [Static Content Hosting pattern](/azure/architecture/patterns/static-content-hosting).
 
 ## Generate deployment credentials
 
@@ -38,7 +41,7 @@ Replace the placeholder `myStaticSite` with the name of your site hosted in Azur
    az ad sp create-for-rbac --name {myStaticSite} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
 ```
 
-In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later.
+In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your storage account similar to below. Copy this JSON object for later.
 
 ```output 
   {
@@ -59,7 +62,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
 1. Select **Settings > Secrets > New secret**.
 
-1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
+1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret a name like `AZURE_CREDENTIALS`.
 
     When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
 
@@ -175,7 +178,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
 ## Clean up resources
 
-When your Azure static site and repository are no longer needed, clean up the resources you deployed by deleting the resource group and your GitHub repository. 
+When your static website and GitHub repository are no longer needed, clean up the resources you deployed by deleting the resource group and your GitHub repository. 
 
 ## Next steps
 

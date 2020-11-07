@@ -90,7 +90,7 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
 ### 5 - Create the data source
 
-The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) support the managed identity connection string. Below is an example of how to create a data source to index data from an Azure SQL Database using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
+The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) support the managed identity connection string. Below is an example of how to create a data source to index data from an Azure SQL Database using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 When creating a data source using the [REST API](/rest/api/searchservice/create-data-source), the data source must have the following required properties:
 

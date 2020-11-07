@@ -446,7 +446,7 @@ The Receipt output is also useful for general book-keeping for business or perso
 
 Receipts contain useful data which you can use to analyze consumer behavior and shopping trends.
 
-The Receipt API also powers the [AIBuilder Receipt Processing feature](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing).
+The Receipt API also powers the [AIBuilder Receipt Processing feature](/ai-builder/prebuilt-receipt-processing).
 
 ## Next steps
 
@@ -456,4 +456,4 @@ The Receipt API also powers the [AIBuilder Receipt Processing feature](https://d
 ## See also
 
 * [What is Form Recognizer?](./overview.md)
-* [REST API reference docs](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)
+* [REST API reference docs](./index.yml)
