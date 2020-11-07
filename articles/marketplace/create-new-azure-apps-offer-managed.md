@@ -146,9 +146,9 @@ In the **Notification Endpoint URL** box, provide an HTTPS Webhook endpoint to r
 
 ### Choose who can manage the application
 
-Indicate who should have management access to this managed application in each selected Azure region: _Public Azure_ and _Azure Government Cloud_. You will use Azure AD identities to identify the users, groups, or applications that you want to grant permission to the managed resource group. For more information, see [Plan an Azure managed application for an Azure Application offer](plan-azure-application-offer.md).
+Indicate who should have management access to this managed application in each selected Azure region: _Global Azure_ and _Azure Government Cloud_. You will use Azure AD identities to identify the users, groups, or applications that you want to grant permission to the managed resource group. For more information, see [Plan an Azure managed application for an Azure Application offer](plan-azure-application-offer.md).
 
-Complete the following steps for Public Azure and Azure Government Cloud, as applicable.
+Complete the following steps for Global Azure and Azure Government Cloud, as applicable.
 
 1. In the **Azure Active Directory Tenant ID** box, enter the Azure AD Tenant ID (also known as directory ID) containing the identities of the users, groups, or applications you want to grant permissions to.
 1. In the **Principal ID** box, provide the Azure AD object ID of the user, group, or application that you want to be granted permission to the managed resource group. Identify the user by their Principal ID, which can be found at the [Azure Active Directory users blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) on the Azure portal.

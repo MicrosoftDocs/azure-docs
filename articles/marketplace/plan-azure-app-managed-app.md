@@ -23,7 +23,7 @@ Use an Azure Application: Managed application plan when the following conditions
 
 ## Managed application offer requirements
 
-| Requriements | Details |
+| Requirements | Details |
 | ------------ | ------------- |
 | An Azure subscription | Managed applications must be deployed to a customer's subscription, but they can be managed by a third party. |
 | Billing and metering | The resources are provided in a customer's Azure subscription. VMs that use the pay-as-you-go payment model are transacted with the customer via Microsoft and billed via the customer's Azure subscription. <br><br> For bring-your-own-license VMs, Microsoft bills any infrastructure costs that are incurred in the customer subscription, but you transact software licensing fees with the customer directly. |
@@ -106,7 +106,7 @@ If you choose this option, you need to provide either the control actions or the
 You must indicate who can manage a managed application in each of the selected clouds: _Public Azure_ and _Azure Government Cloud_. Collect the following information:
 
 - **Azure Active Directory Tenant ID** – The Azure AD Tenant ID (also known as directory ID) containing the identities of the users, groups, or applications you want to grant permissions to. You can find your Azure AD Tenant ID on the Azure portal, in [Properties for Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
-- **Authoriziations** – Add the Azure Active Directory object ID of each user, group, or application that you want to be granted permission to the managed resource group. Identify the user by their Principal ID, which can be found at the [Azure Active Directory users blade on the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
+- **Authorizations** – Add the Azure Active Directory object ID of each user, group, or application that you want to be granted permission to the managed resource group. Identify the user by their Principal ID, which can be found at the [Azure Active Directory users blade on the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
 For each principal ID, you will associate one of the Azure AD built-in roles (Owner or Contributor). The role you select describes the permissions the principal will have on the resources in the customer subscription. For more information, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles.md). For more information about role-based access control (RBAC), see [Get started with RBAC in the Azure portal](/azure/role-based-access-control/overview.md).
 

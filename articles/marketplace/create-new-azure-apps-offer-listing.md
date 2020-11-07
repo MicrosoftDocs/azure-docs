@@ -28,7 +28,9 @@ On the **Offer listing** page, under **Marketplace details**, complete the follo
 1. (Optional) In the **Search keywords** boxes, enter up to three search keywords that customers can use to find your offer in the commercial marketplace. You don't need to include the offer **Name** and **Description** because that text is automatically included in search.
 1. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy. You're responsible to ensure your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
-## Add links to supplemental online documentation (optional)
+## Add supplemental links (optional)
+
+Complete these steps to add links to supplemental online documentation.
 
 1. To add optional supplemental online documents about your app or related services, under **Useful links**, select **Add a link**.
 1. In the fields that appear, enter a title (up to 255 characters) and the link (starting with `https://`) to the online document.
