@@ -31,7 +31,7 @@ This article describes resolutions to issues you might have when managing capaci
 ## Issues moving a capacity pool 
 
 > [!IMPORTANT] 
-> The [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md) public preview registration is on-hold until further notice.
+> The [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md) public preview registration is on hold until further notice.
 
 |     Error condition    |     Resolution    |
 |-|-|
