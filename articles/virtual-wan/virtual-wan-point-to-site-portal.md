@@ -29,7 +29,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
+Verify that you have met the following criteria before beginning your configuration:
+
+[!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
 
 ## <a name="wan"></a>Create a virtual WAN
 
