@@ -146,9 +146,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Register with SQL VM RP 
 
-To get portal integration and SQL VM features, you must register with the [SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md).
+To get portal integration and SQL VM features, you must register with the [SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md).
 
-To get full functionality, you will need to register with the resource provider in full mode. However, doing so restarts the SQL Server service, so the recommended approach is to register in lightweight mode and then upgrade to full during a maintenance window. 
+To get full functionality, you will need to register with the extension in full mode. However, doing so restarts the SQL Server service, so the recommended approach is to register in lightweight mode and then upgrade to full during a maintenance window. 
 
 First, register your SQL Server VM in lightweight mode: 
 
@@ -167,7 +167,7 @@ Then during a maintenance window, upgrade to full mode:
 # Get the existing Compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
       
-# Register with SQL VM resource provider in full mode
+# Register with SQL IaaS Agent extension in full mode
 Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
 ```
 

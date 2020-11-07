@@ -145,10 +145,11 @@ For more details about cluster connectivity options, see [Route HADR connections
 
 Consider the following limitations for failover cluster instances with SQL Server on Azure Virtual Machines. 
 
-### Lightweight resource provider   
-At this time, SQL Server failover cluster instances on Azure virtual machines are supported only with the [lightweight management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To change from full extension mode to lightweight, delete the **SQL virtual machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When you're deleting the **SQL virtual machine** resource by using the Azure portal, clear the check box next to the correct virtual machine. 
+### Lightweight extension support   
 
-The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL Server VMs after the agent is reinstalled in lightweight management mode.
+At this time, SQL Server failover cluster instances on Azure virtual machines are supported only with the [lightweight management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes) of the SQL Server IaaS Agent Extension. To change from full extension mode to lightweight, delete the **SQL virtual machine** resource for the corresponding VMs and then register them with the SQL IaaS Agent extension in lightweight mode. When you're deleting the **SQL virtual machine** resource by using the Azure portal, clear the check box next to the correct virtual machine. 
+
+The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL Server VMs is registered in lightweight management mode.
 
 ### MSDTC 
 

@@ -31,7 +31,7 @@ To configure an Always On availability group, you must have the following prereq
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](./create-sql-vm-portal.md) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md).  
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](./create-sql-vm-portal.md) in the *same* availability set or *different* availability zones that have been [registered with the SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md).  
 - The latest version of [PowerShell](/powershell/scripting/install/installing-powershell) or the [Azure CLI](/cli/azure/install-azure-cli). 
 - Two available (not used by any entity) IP addresses. One is for the internal load balancer. The other is for the availability group listener within the same subnet as the availability group. If you're using an existing load balancer, you only need one available IP address for the availability group listener. 
 
@@ -421,9 +421,9 @@ To remove a replica from the availability group:
 ---
 
 ## Remove listener
-If you later need to remove the availability group listener configured with the Azure CLI, you must go through the SQL VM resource provider. Because the listener is registered through the SQL VM resource provider, just deleting it via SQL Server Management Studio is insufficient. 
+If you later need to remove the availability group listener configured with the Azure CLI, you must go through the SQL IaaS Agent extension. Because the listener is registered through the SQL IaaS Agent extension, just deleting it via SQL Server Management Studio is insufficient. 
 
-The best method is to delete it through the SQL VM resource provider by using the following code snippet in the Azure CLI. Doing so removes the availability group listener metadata from the SQL VM resource provider. It also physically deletes the listener from the availability group. 
+The best method is to delete it through the SQL IaaS Agent extension by using the following code snippet in the Azure CLI. Doing so removes the availability group listener metadata from the SQL IaaS Agent extension. It also physically deletes the listener from the availability group. 
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -449,7 +449,7 @@ Remove-AzAvailabilityGroupListener -Name <Listener> `
 
 ## Remove cluster
 
-Remove all of the nodes from the cluster to destroy it, and then remove the cluster metadata from the SQL VM resource provider. You can do so by using the Azure CLI or PowerShell. 
+Remove all of the nodes from the cluster to destroy it, and then remove the cluster metadata from the SQL IaaS Agent extension. You can do so by using the Azure CLI or PowerShell. 
 
 
 # [Azure CLI](#tab/azure-cli)
@@ -466,7 +466,7 @@ az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group 
 
 If these are the only VMs in the cluster, then the cluster will be destroyed. If there are any other VMs in the cluster apart from the SQL Server VMs that were removed, the other VMs will not be removed and the cluster will not be destroyed. 
 
-Next, remove the cluster metadata from the SQL VM resource provider: 
+Next, remove the cluster metadata from the SQL IaaS Agent extension: 
 
 ```azurecli-interactive
 # Remove the cluster from the SQL VM RP metadata
@@ -495,7 +495,7 @@ $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
 
 If these are the only VMs in the cluster, then the cluster will be destroyed. If there are any other VMs in the cluster apart from the SQL Server VMs that were removed, the other VMs will not be removed and the cluster will not be destroyed. 
 
-Next, remove the cluster metadata from the SQL VM resource provider: 
+Next, remove the cluster metadata from the SQL IaaS Agent extension: 
 
 ```powershell-interactive
 # Remove the cluster metadata

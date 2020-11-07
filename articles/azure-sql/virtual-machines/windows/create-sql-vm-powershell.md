@@ -362,12 +362,17 @@ The virtual machine is created.
 
 ## Install the SQL Iaas Agent
 
-SQL Server virtual machines support automated management features with the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To install the agent on the new VM and register it with the resource provider, run the [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) command after the virtual machine is created. Specify the license type for your SQL Server VM, choosing between either pay-as-you-go or bring-your-own-license via the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). For more information about licensing, see [licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+SQL Server virtual machines support automated management features with the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To register your SQL Server with the extension run the [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) command after the virtual machine is created. Specify the license type for your SQL Server VM, choosing between either pay-as-you-go or bring-your-own-license via the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). For more information about licensing, see [licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 
    ```powershell
    New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
+There are three ways to register with the extension: 
+- [Automatically for all current and future VMs in a subscription](sql-agent-extension-automatic-registration-all-vms.md)
+- [Manually for a single VM](sql-agent-extension-manually-register-single-vm.md)
+- [Manually for multiple VMs in bulk](sql-agent-extension-manually-register-vms-bulk.md)
 
 
 ## Stop or remove a VM

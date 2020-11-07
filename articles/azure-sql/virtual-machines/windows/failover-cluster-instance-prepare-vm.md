@@ -67,15 +67,15 @@ You can create an Azure virtual machine by using an image [with](sql-vm-create-p
 
 ## Uninstall SQL Server
 
-As part of the FCI creation process, you'll install SQL Server as a clustered instance to the failover cluster. *If you deployed a virtual machine with an Azure Marketplace image without SQL Server, you can skip this step.* If you deployed an image with SQL Server preinstalled, you'll need to unregister the SQL Server VM from the SQL VM resource provider, and then uninstall SQL Server. 
+As part of the FCI creation process, you'll install SQL Server as a clustered instance to the failover cluster. *If you deployed a virtual machine with an Azure Marketplace image without SQL Server, you can skip this step.* If you deployed an image with SQL Server preinstalled, you'll need to unregister the SQL Server VM from the SQL IaaS Agent extension, and then uninstall SQL Server. 
 
-### Unregister from the SQL VM resource provider
+### Unregister from the SQL IaaS Agent extension
 
-SQL Server VM images from Azure Marketplace are automatically registered with the SQL VM resource provider. Before you uninstall the preinstalled SQL Server instance, you must first [unregister each SQL Server VM from the SQL VM resource provider](sql-agent-extension-manually-register-single-vm.md#unregister-from-rp). 
+SQL Server VM images from Azure Marketplace are automatically registered with the SQL IaaS Agent extension. Before you uninstall the preinstalled SQL Server instance, you must first [unregister each SQL Server VM from the SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md#unregister-from-rp). 
 
 ### Uninstall SQL Server
 
-After you've unregistered from the resource provider, you can uninstall SQL Server. Follow these steps on each virtual machine: 
+After you've unregistered from the extension, you can uninstall SQL Server. Follow these steps on each virtual machine: 
 
 1. Connect to the virtual machine by using RDP.
 

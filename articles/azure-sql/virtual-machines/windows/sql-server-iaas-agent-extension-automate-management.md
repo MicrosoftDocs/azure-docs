@@ -33,7 +33,7 @@ The SQL Server IaaS Agent extension provides a number of benefits for SQL Server
 
 - **Compliance**: The extension offers a simplified method of fulfilling the requirement to notify Microsoft that the Azure Hybrid Benefit has been enabled as is specified in the product terms. This process negates needing to manage licensing registration forms for each resource.  
 
-- **Free**: The extension in all three manageability modes is completely free. There is no additional cost associated with the resource provider, or with changing management modes. 
+- **Free**: The extension in all three manageability modes is completely free. There is no additional cost associated with the extension, or with changing management modes. 
 
 - **Simplified license management**: The extension simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs with the Azure Hybrid Benefit enabled using the [Azure portal](manage-sql-vm-portal.md), the Azure CLI, or PowerShell: 
 
@@ -216,13 +216,13 @@ No. Registering with the SQL IaaS Agent extension is not available in the Azure 
 
 **Can I register a VM with the SQL IaaS Agent extension before SQL Server is installed?**
 
-No. A VM must have at least one SQL Server (Database Engine) instance to successfully register with the SQL VM resource provider. If there is no SQL Server instance on the VM, the new Microsoft.SqlVirtualMachine resource will be in a failed state.
+No. A VM must have at least one SQL Server (Database Engine) instance to successfully register with the SQL IaaS Agent extension. If there is no SQL Server instance on the VM, the new Microsoft.SqlVirtualMachine resource will be in a failed state.
 
 **Can I register a VM with the SQL IaaS Agent extension if there are multiple SQL Server instances?**
 
 Yes. The SQL IaaS Agent extension will register only one SQL Server (Database Engine) instance. The SQL IaaS Agent extension will register the default SQL Server instance in the case of multiple instances. If there is no default instance, then only registering in lightweight mode is supported. To upgrade from lightweight to full manageability mode, either the default SQL Server instance should exist or the VM should have only one named SQL Server instance.
 
-**Can I register a SQL Server failover cluster instance with the SQL VM resource provider?**
+**Can I register a SQL Server failover cluster instance with the SQL IaaS Agent extension?**
 
 Yes. SQL Server failover cluster instances on an Azure VM can be registered with the SQL IaaS Agent extension in lightweight mode. However, SQL Server failover cluster instances can't be upgraded to full manageability mode.
 
@@ -230,9 +230,9 @@ Yes. SQL Server failover cluster instances on an Azure VM can be registered with
 
 Yes. There are no restrictions to registering a SQL Server instance on an Azure VM with the SQL IaaS Agent extension if you're participating in an Always On availability group configuration.
 
-**What is the cost for registering with the SQL VM resource provider, or with upgrading to full manageability mode?**
+**What is the cost for registering with the SQL IaaS Agent extension, or with upgrading to full manageability mode?**
 
-None. There is no fee associated with registering with the SQL VM resource provider, or with using any of the three manageability modes. Managing your SQL Server VM with the resource provider is completely free. 
+None. There is no fee associated with registering with the SQL IaaS Agent extension, or with using any of the three manageability modes. Managing your SQL Server VM with the extension is completely free. 
 
 **What is the performance impact of using the different manageability modes?**
 
@@ -244,7 +244,7 @@ The two service names are:
 
 **How do I remove the extension?**
 
-Remove the extension by [unregistering](sql-agent-extension-manually-register-single-vm.md#unregister-from-rp) the SQL Server VM from the SQL VM resource provider. 
+Remove the extension by [unregistering](sql-agent-extension-manually-register-single-vm.md#unregister-from-rp) the SQL Server VM from the SQL IaaS Agent extension. 
 
 ## Next steps
 

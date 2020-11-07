@@ -13,15 +13,15 @@ ms.date: 11/07/2020
 # Automatic registration with SQL IaaS Agent extension
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Enable the automatic registration feature in the Azure portal to automatically register all current and future SQL Server on Azure Virtual Machines (VMs) with the S[SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) in lightweight mode. 
+Enable the automatic registration feature in the Azure portal to automatically register all current and future SQL Server on Azure Virtual Machines (VMs) with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) in lightweight mode. 
 
 This article teaches you to enable the automatic registration feature. Alternatively, you can [register a single VM](sql-agent-extension-manually-register-single-vm.md), or [register your VMs in bulk](sql-agent-extension-manually-register-vms-bulk.md) with the SQL IaaS Agent extension. 
 
 ## Overview
 
-Registering your SQL Server VM with the SQL IaaS Agent extension installs the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md). 
+Registering your SQL Server VM with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) to unlock a full feature set of benefits. 
 
-When automatic registration is enabled, a job runs daily to detect whether or not SQL Server is installed on all the unregistered VMs in the subscription. This is done by copying the SQL IaaS agent extension binaries to the VM, then running a one-time utility that checks for the SQL Server registry hive. If the SQL Server hive is detected, the virtual machine is registered with the [SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md) in lightweight mode. If no SQL Server hive exists in the registry, the binaries are removed.
+When automatic registration is enabled, a job runs daily to detect whether or not SQL Server is installed on all the unregistered VMs in the subscription. This is done by copying the SQL IaaS agent extension binaries to the VM, then running a one-time utility that checks for the SQL Server registry hive. If the SQL Server hive is detected, the virtual machine is registered with the  extension in lightweight mode. If no SQL Server hive exists in the registry, the binaries are removed.
 
 Once automatic registration is enabled for a subscription, all current and future VMs that have SQL Server installed will be registered with the SQL IaaS Agent extension in lightweight mode. You still need to [manually upgrade to full manageability mode](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) to take advantage of the full feature set. 
 
