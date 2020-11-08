@@ -1,6 +1,6 @@
 ---
 title: Data processed by using serverless SQL pool
-description: This document describes how the data-processed amount is calculated when you query data in Azure storage by using serverless SQL pool.
+description: This document describes how the data-processed amount is calculated when you query data in your data lake.
 services: synapse analytics 
 author: filippopovic 
 ms.service: synapse-analytics 
@@ -52,10 +52,10 @@ You can optimize your per-query amount of data processed and improve performance
 
 ## Examples
 
-Imagine two tables that each contain the same data. The data is arranged in five equally sized columns.
+Imagine three tables.
 
-- The population_csv table is backed by 5 TB of CSV files.
-- The population_parquet table is backed by 1 TB of Parquet files. This table is smaller than the previous one because Parquet contains compressed data.
+- The population_csv table is backed by 5 TB of CSV files. The files are organized in five equally sized columns.
+- The population_parquet table has the same data as the population_csv table. It's backed by 1 TB of Parquet files. This table is smaller than the previous one because data is compressed in Parquet format.
 - The very_small_csv table is backed by 100 KB of CSV files.
 
 **Query 1**: SELECT SUM(population) FROM population_csv
