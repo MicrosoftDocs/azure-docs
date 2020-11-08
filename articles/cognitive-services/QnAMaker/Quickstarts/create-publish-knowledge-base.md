@@ -73,15 +73,16 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 6. In **Step 3**, name your knowledge base **My Sample QnA KB**. 
 
-In **Step 4**, configure the settings with the following table:
-    |Setting|Value|
-    |--|--|
-    |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
-    |**Multi-turn default text**| Select and option|
-    |**+ Add URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
-    |**Chit-chat**|Select **Professional**|
+7. In **Step 4**, configure the settings with the following table:
 
-7. In **Step 5**, Select **Create your KB**.
+|Setting|Value|
+|--|--|
+|**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
+|**Multi-turn default text**| Select and option|
+|**+ Add URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+|**Chit-chat**|Select **Professional**|
+
+8. In **Step 5**, Select **Create your KB**.
 
     The extraction process takes a few moments to read the document and identify questions and answers.
 
