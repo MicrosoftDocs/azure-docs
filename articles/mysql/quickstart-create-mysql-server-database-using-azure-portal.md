@@ -53,7 +53,7 @@ Go to the [Azure portal](https://portal.azure.com/) to create an MySQL Single Se
 5. Wait for the portal page to display **your deployment is complete**. Select **Go to resource** to go to the newly created server page.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/deployment_complete.png" alt-text="successful deployment":::
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/deployment-complete.png" alt-text="successful deployment":::
 
 [Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
