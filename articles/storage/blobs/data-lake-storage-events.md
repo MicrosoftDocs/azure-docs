@@ -32,7 +32,7 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
 
 * Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial uses a storage account named `contosoorders`. Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) assigned to it.
 
-  See [Create an Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
+   See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 * Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 

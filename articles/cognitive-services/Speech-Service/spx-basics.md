@@ -67,8 +67,9 @@ In this command, you specify both the source (language to translate **from**), a
 
 ### Configuration files in the datastore
 
-The Speech CLI can read and write multiple settings in configuration files, which are stored in the local Speech CLI datastore, and are named within Speech CLI calls using a @ symbol. Speech CLI attempts to save a new setting in a new `./spx/data` subdirectory it creates in the current working directory.
-When seeking a configuration value, Speech CLI looks in your current working directory, then in the `./spx/data` path.
+Speech CLI's behavior can rely on settings in configuration files, which you can refer to within Speech CLI calls using a @ symbol.
+Speech CLI saves a new setting in a new `./spx/data` subdirectory it creates in the current working directory.
+When seeking a configuration value, Speech CLI looks in your current working directory, then in the datastore at `./spx/data`, and then in other datastores, including a final read-only datastore in the `spx` binary.
 Previously, you used the datastore to save your `@key` and `@region` values, so you did not need to specify them with each command line call.
 You can also use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
 
@@ -139,6 +140,18 @@ sample_1    07baa2f8d9fd4fbcb9faea451ce05475    A sample wave file.
 sample_2    8f9b378f6d0b42f99522f1173492f013    Sample text synthesized.
 ```
 
+## Synthesize speech to a file
+
+Run the following command to change the output from your speaker to a `.wav` file.
+
+```bash
+spx synthesize --text "The speech synthesizer greets you!" --audio output greetings.wav
+```
+
+The Speech CLI will produce natural language in English into the `greetings.wav` audio file.
+In Windows, you can play the audio file by entering `start greetings.wav`.
+
+
 ## Batch text-to-speech synthesis
 
 The easiest way to run batch text-to-speech is to create a new `.tsv` (tab-separated-value) file, and leverage the `--foreach` command in the Speech CLI. Consider the following file `text_synthesis.tsv`:
@@ -179,4 +192,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## Next steps
 
-* Complete the [speech recognition](./quickstarts/speech-to-text-from-microphone.md) or [speech synthesis](./quickstarts/text-to-speech.md) quickstarts using the SDK.
+* Complete the [speech recognition](get-started-speech-to-text.md?pivots=programmer-tool-spx) or [speech synthesis](get-started-text-to-speech.md?pivots=programmer-tool-spx) quickstarts using Speech CLI.

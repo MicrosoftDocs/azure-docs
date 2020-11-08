@@ -1,13 +1,13 @@
 ---
-title: Interact with an IoT Plug and Play device connected to your Azure IoT solution (Node.js) | Microsoft Docs
-description: Use Node.js to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
+title: Quickstart - Interact with an IoT Plug and Play device connected to your Azure IoT solution (Node.js) | Microsoft Docs
+description: Quickstart - Use Node.js to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
 author: elhorton
 ms.author: elhorton
 ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.custom: mvc, devx-track-js
 
 # As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 ---

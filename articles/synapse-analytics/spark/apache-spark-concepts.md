@@ -1,6 +1,6 @@
 ---
 title: Apache Spark core concepts
-description: Introduction to Apache Spark in Azure Synapse Analytics and the different concepts.
+description: Introduction to core concepts for Apache Spark in Azure Synapse Analytics.
 services: synapse-analytics 
 author: euangMS 
 ms.service:  synapse-analytics 
@@ -19,7 +19,7 @@ Azure Synapse makes it easy to create and configure Spark capabilities in Azure.
 
 ## Spark pools (preview)
 
-A Spark pool (preview) is created in the Azure portal. It's the definition of a Spark pool that, when instantiated, is used to create a Spark instance that processes data. When a Spark pool is created, it exists only as metadata, and no resources are consumed, running, or charged for. A Spark pool has a series of properties that control the characteristics of a Spark instance. These characteristics include but aren't limited to name, size, scaling behavior, time to live.
+A serverless Apache Spark pool (preview) is created in the Azure portal. It's the definition of a Spark pool that, when instantiated, is used to create a Spark instance that processes data. When a Spark pool is created, it exists only as metadata, and no resources are consumed, running, or charged for. A Spark pool has a series of properties that control the characteristics of a Spark instance. These characteristics include but aren't limited to name, size, scaling behavior, time to live.
 
 As there's no dollar or resource cost associated with creating Spark pools, any number can be created with any number of different configurations. Permissions can also be applied to Spark pools allowing users only to have access to some and not others.
 
