@@ -34,7 +34,7 @@ You can use SQL Database auditing to:
 - **Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
 > [!IMPORTANT]
-> Azure SQL Database auditing is optimized for availability and performance. During very high activity Azure SQL Database or Azure Synapse allows operations to proceed and may not record some audited events.
+> Azure SQL Database auditing and Azure Synapse auditing are optimized for availability and performance. During very high activity, or high network load, Azure SQL Database and Azure Synapse may drop some audit events.
 
 ### Auditing limitations
 
