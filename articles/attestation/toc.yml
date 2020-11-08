@@ -41,7 +41,11 @@
   - name: REST
     href: /rest/api/attestation/ 
   - name: Azure PowerShell
-    href: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+    href: /powershell/module/az.attestation/?view=azps-5.0.0#attestation
+  - name: Azure CLI
+    href: /cli/azure/ext/attestation/attestation?view=azure-cli-latest
+  - name: Terraform
+    href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/attestation
   - name: Azure DCAP library for Windows
     href: https://www.nuget.org/packages/Microsoft.Azure.DCAP/
   - name: Azure DCAP library for Linux
