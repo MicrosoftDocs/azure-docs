@@ -1,0 +1,75 @@
+- name: Azure Defender for IoT documentation
+  href: index.yml
+- name: Overview
+  href: overview.md
+  items:
+  - name: 
+    href: 
+    items:
+      - name: 
+        href: 
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: 
+    href: 
+- name: Concepts
+  items:
+  - name: Learning modes
+    href: concept-learning-modes.md
+  - name: User roles and permissions
+    href: concept-user-roles-and-permissions.md
+  - name: Integrations
+    href: concept-integrations.md
+  - name: Proprietary protocols
+    href: concept-proprietary-protocols.md
+  - name: Proprietary protocols
+    href: concept-proprietary-protocols.md
+  - name: High availability
+    href: concept-high-availability
+  - name: Sensor console overview
+    href: sensor-console-overview.md
+  - name: 
+    href:
+- name: How-to guides
+  items:
+  - name: Change the name of your Azure consoles
+    href: how-to change-the-name-of-your-azure-consoles.md
+  - name: Create azure for defender users and roles
+    href: how-to-create-azure-for-defender-users-and-roles.md
+  - name: Import asset information to the sensor
+    href: how-to-import-asset-information-to-the-sensor.md
+  - name: Onboard install and setup
+    items: 
+    - name: Prepare your network
+      href: how-to-prepare-your-network.md
+    - name: Activate and set up your sensor
+      href: how-to-activate-and-set-up-your-sensor.md
+    - name: Set Up high availability
+      href: how-to-set-up-high-availability.md
+  - name: Work with the sensor console dashboard
+    href: how-to-work with-the-sensor-console-dashboard.md
+  - name: Manage individual sensors
+    href: how-to-manage-individual-sensors.md
+  - name: Manage sensors from the on-premises management console
+    href: how-to-manage-sensors-from-the-on-premises-management-console.md
+  - name: View sensor Connection Status to the On-prem manager
+    href: how-to-view-sensor-connection-status-to-the-on-premise-manager.md
+  - name: Work with device inventory information
+    href: how-to-work-with-asset-inventory-information.md
+  - name: Work with maps
+    href: how-to-work-with-maps.md
+  - name: Import device information
+    href: how-to-import-device-information.md
+  - name: Work with alerts
+    href: how-to-work-with-alerts.md
+  - name: 
+    href:
+- name: References
+  items:
+  - name: 
+    href: 
+- name: Resources
+  items:
+  - name: 
+    href: 

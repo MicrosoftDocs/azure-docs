@@ -1,0 +1,44 @@
+  - name: Overview
+    href: overview.md
+  - name: Getting started
+    href: getting-started.md
+  - name: CyberX Sensor API specifications
+    href: cyberx-sensor-api-specifications.md
+  - name: Retrieve asset information
+    href: retrieve-asset-information.md
+  - name: Retrieve asset connection information
+    href: retrieve-asset-connection-information.md
+  - name: Retrieve information on CVEs
+    href: retrieve-information-on-cves.md
+  - name: Retrieve alert information 
+    href: retrieve-alert-information.md
+  - name: Retrieve timeline events
+    href: retrieve-timeline-events.md
+  - name: Retrieve vulnerability information 
+    href: retrieve-vulnerability-information.md
+  - name: Retrieve security vulnerabilities
+    href: retrieve-security-vulnerabilities.md
+  - name: Retrieve operational vulnerabilities
+    href: retrieve-operational-vulnerabilities.md
+  - name: Validate user credentials 
+    href: validate-user-credentials.md
+  - name: Change password
+    href: change-password.md
+  - name: User password update by system admin
+    href: user-password-update-by-system-admin.md
+  - name: Central Manager API specifications
+    href: central-manager-api-specifications.md
+  - name: Retrieve asset devices information
+    href: retrieve-asset-devices-information.md
+  - name: Retrieve alert information
+    href: retrieve-alert-devices-information.md
+  - name: QRadar alerts
+    href: qradar-alerts.md
+  - name: Alert exclusions (maintenance window)
+    href: alert-exclusions-maintenance-window.md
+  - name: Authenticate user credentials 
+    href: authenticate-user-credentials.md
+  - name: Change password
+    href: change-password.md
+  - name: User password update by system admin
+    href: user-password-update-by-system-admin.md
