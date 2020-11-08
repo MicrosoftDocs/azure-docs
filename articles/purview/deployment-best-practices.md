@@ -1,6 +1,6 @@
 ---
 title: 'Deployment best practices'
-description: This article provides an overview of Azure Purview, including its features and the problems it addresses. Azure Purview enables any user to register, discover, understand, and consume data sources.
+description: This article provides best practices for deploying Azure Purview. Azure Purview enables any user to register, discover, understand, and consume data sources.
 author: hophan
 ms.author: hophan
 ms.service: data-catalog
@@ -13,7 +13,7 @@ ms.date: 10/06/2020
 
 This article identifies common tasks that customers find helpful to complete in phases, over the course of 30, 60, 90 days, or more, to deploy Purview into Production. Even organizations who have already deployed Purview can use this guide to ensure they are getting the most out of their investment.
 
-A well-planned and executed data governance platform paves the way for better data discovery, improved analytic collaboration and maximizing return on investment.
+A well-planned and executed data governance platform paves the way for better data discovery, improved analytic collaboration, and maximizing return on investment.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ A well-planned and executed data governance platform paves the way for better da
 
 ## Identify objectives and goals
 
-Many organizations started their data governance journey by developing individual solutions catering to specific requirements of different groups and data domains across the organization. Although challenges might be different from various organizations depending the industry, product and even cultural, most would find out that it’s extremely difficult to main a consistent knowledge across these groups to ensure consistent controls and policies. 
+Many organizations started their data governance journey by developing individual solutions catering to specific requirements of different groups and data domains across the organization. Although challenges might be different from various organizations depending on the industry, product and even cultural, most would find out that it’s difficult to main a consistent knowledge across these groups to ensure consistent controls and policies. 
 
 Some of the common overarching objectives that you might want to identify in the early phases:
 
@@ -36,7 +36,8 @@ Some of the common overarching objectives that you might want to identify in the
 * Fostering innovation by accelerating data analytics to reap the benefits of the Cloud
 * Decreasing time to discover data via self-service for various skill groups
 * Reducing time to market for the delivery of analytics solutions that improve service to their customers
-* Reducing the operational risks that are due to the use of domain-specific tools and unsupported technology
+* Reducing the operational risks that are due to the use of domain-specific tools and unsupported technology. 
+
 The general approach is to break down those overarching objectives into various categories and goals. Some examples are:
 
 |Category|Goal|
@@ -49,7 +50,7 @@ The general approach is to break down those overarching objectives into various 
 |Reporting|The users must be able to view reporting of the data estate including sensitive data and data that need additional enrichment.|
 |Data Governance|The platform must allow the Admin to define policies for access control and automatically enforce the data access based on each user.|
 |Workflow|That platform must have ability to create and modify workflow so that it is easy to scale out and automate various tasks within the platform.|
-|Integration|Other third party technologies such as ticketing or orchestration must be able to integrate into the platform via script or REST APIs.|
+|Integration|Other third-party technologies such as ticketing or orchestration must be able to integrate into the platform via script or REST APIs.|
 
 ## Top questions to ask
 
@@ -120,7 +121,7 @@ However, there are exceptions to this pattern:
 1. **Testing new configurations** – Organizations may want to create multiple instances for testing out scan configurations or classifications in isolated environments. Although there is “versioning” feature in some areas of the platform such as glossary, it would be easier to have a “disposable” instance to freely test.
 2. **Separating Test, Pre-production and Production** – Organizations want to create different platforms for different kinds of data stored in different environments. It is not recommended as those kinds of data are different content types. You could use glossary term at the top hierarchy level or category to segregate content types.
 3. **Conglomerates and federated model** – Conglomerates often have many business units (BUs) that operate separately, and, in some cases, they won't even share billing with each other. In those cases, the organization will end up creating a Purview instance per BU. This model is not ideal but there doesn't seem to be a good way around this, especially because BUs are often not willing to share billing. 
-4. **Compliance** – There are some very strict compliance regimes which treat even metadata as sensitive and require it to be in a specific geography. If a company has multiple geographies than today, the only solution is to have multiple Purview instances, one for each geography.
+4. **Compliance** – There are some strict compliance regimes, which treat even metadata as sensitive and require it to be in a specific geography. If a company has multiple geographies than today, the only solution is to have multiple Purview instances, one for each geography.
 
 ### Create a process to promote to Production
 
@@ -130,22 +131,22 @@ Another important aspect to include in your production process is how classifica
 
 In Babylon, there are several areas where the Catalog Administrators need to ensure consistency and maintenance best practices over its life cycle:
 
-* **Data assets** – Data sources will need to be re-scanned across environments. It’s not recommended to scan only in Development and then re-generate them using APIs in Production. The main reason is that the Purview scanners did a lot more “wiring” behind the scene on the data assets which could be very complex to move them to a different Purview instance. It’s much easier to just add the same data source in Production and scan the sources again. The general best practice is to have documentation of all scans, connections and authentication mechanisms being used.
+* **Data assets** – Data sources will need to be rescanned across environments. It’s not recommended to scan only in Development and then regenerate them using APIs in Production. The main reason is that the Purview scanners did a lot more “wiring” behind the scene on the data assets, which could be complex to move them to a different Purview instance. It’s much easier to just add the same data source in Production and scan the sources again. The general best practice is to have documentation of all scans, connections, and authentication mechanisms being used.
 * **Scan rule sets** – This is your collection of rules assigned to specific scan such as file type and classifications to detect. If you don’t have that many scan rule sets, it’s possible to just re-create them manually again via Production. This will require an internal process and good documentation. However, if you rule sets change on the daily or weekly basis, this could be addressed by exploring the REST API route.
-* **Custom classifications** – Your classifications may not also change on a regular basis. During the initial phase of deployment, it may take some time to understand various requirements to come up with custom classifications. However, once settled, this will require very little change. So the recommendation here is to manually migrate any custom classifications over or use the REST API.
+* **Custom classifications** – Your classifications may not also change on a regular basis. During the initial phase of deployment, it may take some time to understand various requirements to come up with custom classifications. However, once settled, this will require little change. So the recommendation here is to manually migrate any custom classifications over or use the REST API.
 * **Glossary** – It’s possible to export and import glossary terms via the UX. For automation scenarios, you can also use the REST API.
 * **Resource set pattern policies** – This functionality is very advance for any typical organizations to apply. In some cases, your Azure Data Lake Storage has folder naming convention and specific structure that may cause problem for Purview to generate the resource set. Your business unit may also want to change the resource set construction with additional customization to fit the business needs. For this scenario, it’s best to keep track of all changes via REST API and document the changes through external versioning platform.
 * **Role assignment** – This is where you control who has access to Purview and which permissions they have. Purview also has REST API to support export and import of users and roles but this is not Atlas API-compatible. The recommendation is to assign an Azure Security Group and manage the group membership instead.
 
 ### Plan and implement different integration points with Babylon
 
-It’s very likely that a mature organization already has an existing data catalog. The key question is whether to continue to use the existing technology and sync with Babylon. Purview allows publishing information via the Atlas APIs but they really aren't intended to support this kind of scenario. Some organizations may decide initially to bootstrap the usage of Purview by migrating over the existing data assets from other data catalog solutions. This can be done via the Atlas APIs as a one-way approach. To synchronize between different catalog technologies should not be considered in the long-term design. What typically happened is that each business unit may continue to use the existing solutions for older data assets while Purview would be used to scan against newer data sources.
+It’s likely that a mature organization already has an existing data catalog. The key question is whether to continue to use the existing technology and sync with Babylon. Purview allows publishing information via the Atlas APIs but they really aren't intended to support this kind of scenario. Some organizations may decide initially to bootstrap the usage of Purview by migrating over the existing data assets from other data catalog solutions. This can be done via the Atlas APIs as a one-way approach. To synchronize between different catalog technologies should not be considered in the long-term design. What typically happened is that each business unit may continue to use the existing solutions for older data assets while Purview would be used to scan against newer data sources.
 
-For other integration scenarios such as ticketing, custom user interface, orchestration, etc… you can use Atlas APIs and Kafka Endpoint. In general, there are four integration points with Babylon:
+For other integration scenarios such as ticketing, custom user interface, orchestration, etc.… you can use Atlas APIs and Kafka Endpoint. In general, there are four integration points with Babylon:
 
 * **Data Asset** – This enables Purview to scan a store’s assets in order to enumerate what those assets are and collect any readily available metadata about them. So for SQL this could be a list of DBs, tables, stored procedures, views and config data about them kept in places like sys.tables. For something like ADF this could be enumerating all the pipelines and getting data on when they were created, last run, current state, etc. 
-* **Lineage** – This enables Purview to collect information from an analysis/data mutation system on how data is moving around. For something like Spark this could be gathering information from the execution of a notebook to see what data the notebook ingested, how it transformed it and where it outputted it. For something like SQL it could be analyzing query logs to reverse engineer what mutation operations were executed and what they did. We support both push and pull based Lineage depend on the needs. 
-* **Classification** – This enables Purview to take physical samples from data sources and run them through our classification system. The classification system figures out the semantics of a piece of data. For example, we may know that a file is a Parquet file and has 3 columns and the third one is a string. But the classifiers we run on the samples we take from the file will tell us that the string is someone’s name or address or phone number. Lighting up this integration point means that we have defined how Purview can open up objects like notebooks, pipelines, parquet files, tables, containers, etc. to authenticate and get samples we can use to drive classification. 
+* **Lineage** – This enables Purview to collect information from an analysis/data mutation system on how data is moving around. For something like Spark this could be gathering information from the execution of a notebook to see what data the notebook ingested, how it transformed it and where it outputted it. For something like SQL, it could be analyzing query logs to reverse engineer what mutation operations were executed and what they did. We support both push and pull based Lineage depend on the needs. 
+* **Classification** – This enables Purview to take physical samples from data sources and run them through our classification system. The classification system figures out the semantics of a piece of data. For example, we may know that a file is a Parquet file and has three columns and the third one is a string. But the classifiers we run on the samples we take from the file will tell us that the string is someone’s name or address or phone number. Lighting up this integration point means that we have defined how Purview can open up objects like notebooks, pipelines, parquet files, tables, containers, etc. to authenticate and get samples we can use to drive classification. 
 * **Embedded Experience** – Products that have a “studio” like experience (ADF, Synapse, SQL Studio, PBI, Dynamics, etc.) usually want to enable users to discover data they want to interact with and also find places to output data. Babylon’s catalog can help to accelerate these experiences by providing an embedding experience. This experience can occur at the API or the UX level at the partner’s option. By embedding a call to Babylon, the organization can take advantage of Babylon’s map of the data estate to find data assets, see lineage, check schemas, look at ratings, contacts etc. 
 
 ## Phase 1: Pilot
@@ -176,7 +177,7 @@ In this phase, Purview must be created and configured for a very small set of us
 * Buy-in from management to approve additional resources for MVP phase.
 
 ## Phase 2: Minimum Viable Product
-Once you have the agreed requirements and participated business units to onboard Babylon, the next step is to work on a Minimum Viable Product (MVP) release. In this phase, you will expand the usage of Purview to more users who will have additional needs horizontally and vertically. There will be key scenarios that must be met horizontally for all users such as glossary terms, search and browse. There will be also in-depth requirement vertically for each business unit or group to cover specific end-to-end scenarios such as lineage from Azure Data Lake Storage to Azure Synapse DW to Power BI.
+Once you have the agreed requirements and participated business units to onboard Babylon, the next step is to work on a Minimum Viable Product (MVP) release. In this phase, you will expand the usage of Purview to more users who will have additional needs horizontally and vertically. There will be key scenarios that must be met horizontally for all users such as glossary terms, search, and browse. There will be also in-depth requirement vertically for each business unit or group to cover specific end-to-end scenarios such as lineage from Azure Data Lake Storage to Azure Synapse DW to Power BI.
 
 ### Tasks to complete
 

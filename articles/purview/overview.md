@@ -61,5 +61,4 @@ At the same time, users can contribute to the catalog by tagging, documenting, a
 
 ## Next steps
 
-For information about Azure Purview warnings that you might receive, see [Product limitations](product-limitations.md).
 To get started with Azure Purview, see [Create an Azure Purview account](create-catalog-portal.md).

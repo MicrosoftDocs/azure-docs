@@ -812,6 +812,8 @@
         "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge",
         "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer",
         "articles/migrate/**/*.md": "Azure Migrate",
+        "articles/purview/**/*.md": "Azure Purview",
+        "articles/purview/**/*.yml": "Azure Purview",
         "articles/remote-rendering/**/*.md": "Azure Remote Rendering",
         "articles/remote-rendering/**/*.yml": "Azure Remote Rendering",
         "articles/scheduler/*.md": "Azure Scheduler",
