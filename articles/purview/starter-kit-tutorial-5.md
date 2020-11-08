@@ -114,7 +114,7 @@ In this procedure, you import glossary terms via a .csv file:
 
 1. Use the procedure that you followed in [Add glossary terms to an asset](#add-glossary-terms-to-an-asset) to apply the glossary term *Devtest* to one or more of the assets you found.
 
-## Create custom term templates and import glossary terms with custom attributes
+## Create custom term templates and import glossary terms
 
 In this step, you will learn how to create a custom term template with custom attributes and import data using a template csv file.
 

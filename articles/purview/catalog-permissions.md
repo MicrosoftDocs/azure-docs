@@ -1,6 +1,6 @@
 ---
-title: Catalog permissions
-description: This article provides an overview of Azure Babylon portal-managed permissions and roles.
+title: Set catalog permissions in Azure Purview
+description: This article provides an overview of Azure Purview portal-managed permissions and roles.
 author: rogerbu
 ms.author: rogerbu
 ms.service: data-catalog
@@ -11,15 +11,15 @@ ms.date: 11/07/2020
 
 # Catalog permissions
 
-Azure Babylon uses [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) to manage catalog permissions for security principals. A security principal is an object that represents a user, Azure Active Directory group, service principal, or managed identity. For each Azure Babylon security role, you can add or remove any of these types of security principals.
+Azure Purview uses [role-based access control (RBAC)](../role-based-access-control/overview.md) to manage catalog permissions for security principals. A security principal is an object that represents a user, Azure Active Directory group, service principal, or managed identity. For each Azure Purview security role, you can add or remove any of these types of security principals.
 
-You use the Azure Babylon portal to set permissions to call all of the APIs in the catalog, except for [setting up scans](add-security-principal.md#assign-permission-to-scan-content-into-the-catalog), which you set in the Azure portal.
+You use the Azure Purview portal to set permissions to call all of the APIs in the catalog, except for [setting up scans](add-security-principal.md#assign-permission-to-scan-content-into-the-catalog), which you set in the Azure portal.
 
-## Azure Babylon security roles
+## Azure Purview security roles
 
-Azure Babylon defines the following five security roles:
+Azure Purview defines the following five security roles:
 
-- **Catalog administrator**: Allows a user to call all APIs on the catalog that are managed via the Azure Babylon portal. This role doesn't make the Catalog administrator an owner or contributor in the Azure portal.
+- **Catalog administrator**: Allows a user to call all APIs on the catalog that are managed via the Azure Purview portal. This role doesn't make the Catalog administrator an owner or contributor in the Azure portal.
 
 - **Data source administrator**: Allows a user to set up scans and connect Atlas hooks.
 
@@ -31,7 +31,7 @@ Azure Babylon defines the following five security roles:
 
 All roles are global. For example, if a user is assigned to the Contributor role, that user can read all entries in the catalog.
 
-To scan content into the catalog, a security principal must have a Catalog administrator or Data source administrator role assignment in the Azure Babylon portal. It must also have an Owner or Contributor role assignment in the Azure portal. For example, if a Catalog administrator user creates a catalog in Azure Babylon, it's not authorized to set up a scan until you assign it to an Owner or Contributor role in the Azure portal.
+To scan content into the catalog, a security principal must have a Catalog administrator or Data source administrator role assignment in the Azure Purview portal. It must also have an Owner or Contributor role assignment in the Azure portal. For example, if a Catalog administrator user creates a catalog in Azure Purview, it's not authorized to set up a scan until you assign it to an Owner or Contributor role in the Azure portal.
 
 For information about how to control security principal role assignments, see [Add a security principal to a role](add-security-principal.md).
 
