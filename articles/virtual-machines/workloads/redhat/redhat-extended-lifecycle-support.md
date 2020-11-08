@@ -27,12 +27,12 @@ Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maint
 
 |VM size|Additional charge time frame|Additional dollar amount (USD)| Notes|
 |---|---|---|---|
-| Small virtual guest (<=4 cores) | Hourly additional charge | $0.02 | |
-|  | Monthly additional charge | $13 | For Reserved instances |
-|  | Annual additional charge | $148 | For Reserved instances |
-| Large virtual guest (>4 cores) | Hourly additional charge | $0.05 | |
-|  | Monthly additional charge | $30 | For Reserved instances |
-|  | Annual additional charge | $326 | For Reserved instances |
+| Small virtual guest (<=4 cores) | Hourly additional charge | TBC | |
+|  | Monthly additional charge | TBC | For Reserved instances |
+|  | Annual additional charge | TBC | For Reserved instances |
+| Large virtual guest (>4 cores) | Hourly additional charge | TBC | |
+|  | Monthly additional charge | TBC | For Reserved instances |
+|  | Annual additional charge | TBC | For Reserved instances |
 
 #### What is the process to add Extended Life Cycle Support (ELS) repositories to continue to receive software maintenance (bug and security fixes) and  support for Red Hat Enterprise Linux 6?
 
