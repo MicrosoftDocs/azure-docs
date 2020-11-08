@@ -25,7 +25,7 @@ MSIX app attach doesn't use FSLogix. However, MSIX app attach and FSLogix are de
 
 ## Can I use MSIX app attach outside of Windows Virtual Desktop?
 
-Yes, MSIX app attach is a feature that's included with Windows 10 Enterprise and can be used outside of Windows Virtual Desktop. However, there's no management plane for MSIX app attach outside of Windows Virtual Desktop.
+The APIs that power MSIX app attach are available Windows 10 Enterprise. Those APIs can be used outside of Windows Virtual Desktop. However, there's no management plane for MSIX app attach outside of Windows Virtual Desktop.
 
 ## How do I get an MSIX package?
 
