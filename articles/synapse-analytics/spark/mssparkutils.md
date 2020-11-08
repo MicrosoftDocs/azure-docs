@@ -148,21 +148,19 @@ Use mssparkutils.fs.help("methodName") for more info about a method.
 
 ### List files
 List the content of a directory.
-```python
-mssparkutils.fs.ls('Your directory path')
-```
 
 
 :::zone pivot = "programming-language-python"
 
 ```python
-
+mssparkutils.fs.ls('Your directory path')
 ```
 ::: zone-end
 
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.fs.ls("Your directory path")
 ```
 
 ::: zone-end
@@ -191,6 +189,10 @@ for file in files:
 :::zone pivot = "programming-language-scala"
 
 ```scala
+val files = mssparkutils.fs.ls("/")
+files.foreach{
+    file => println(file.name,file.isDir,file.isFile,file.size)
+}
 ```
 
 ::: zone-end
@@ -216,6 +218,7 @@ mssparkutils.fs.mkdirs('new directory name')
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.fs.mkdirs("new directory name")
 ```
 
 ::: zone-end
@@ -241,6 +244,7 @@ mssparkutils.fs.cp('source file or directory', 'destination file or directory', 
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.fs.cp("source file or directory", "destination file or directory", true) // Set the third parameter as True to copy all files and directories recursively
 ```
 
 ::: zone-end
@@ -259,13 +263,14 @@ Returns up to the first 'maxBytes' bytes of the given file as a String encoded i
 :::zone pivot = "programming-language-python"
 
 ```python
-mssparkutils.fs.head('file path', 'maxBytes to read')
+mssparkutils.fs.head('file path', maxBytes to read)
 ```
 ::: zone-end
 
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.fs.head("file path", maxBytes to read)
 ```
 
 ::: zone-end
@@ -291,6 +296,7 @@ mssparkutils.fs.mv('source file or directory', 'destination directory', True) # 
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.fs.mv("source file or directory", "destination directory", true) // Set the last parameter as True to firstly create the parent directory if it does not exist
 ```
 
 ::: zone-end
@@ -316,6 +322,7 @@ mssparkutils.fs.put("file path", "content to write", True) # Set the last parame
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.fs.put("file path", "content to write", true) // Set the last parameter as True to overwrite the file if it existed already
 ```
 
 ::: zone-end
@@ -341,6 +348,7 @@ mssparkutils.fs.append('file path','content to append',True) # Set the last para
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.fs.append("file path","content to append",true) // Set the last parameter as True to create the file if it does not exist
 ```
 
 ::: zone-end
@@ -366,6 +374,7 @@ mssparkutils.fs.rm('file path', True) # Set the last parameter as True to remove
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.fs.rm("file path", true) // Set the last parameter as True to remove all files and directories recursively 
 ```
 
 ::: zone-end
@@ -436,13 +445,14 @@ Returns AAD token for a given audience, name (optional). The table below list al
 :::zone pivot = "programming-language-python"
 
 ```python
-mssparkutils.credentials.getToken('Audience Key')
+mssparkutils.credentials.getToken('audience Key')
 ```
 ::: zone-end
 
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.credentials.getToken("audience Key")
 ```
 
 ::: zone-end
@@ -457,17 +467,19 @@ mssparkutils.credentials.getToken('Audience Key')
 
 
 ### Validate token
+Returns true if token hasn't expired.
 
 :::zone pivot = "programming-language-python"
 
 ```python
-
+mssparkutils.credentials.isValidToken('your token')
 ```
 ::: zone-end
 
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.credentials.isValidToken("your token")
 ```
 
 ::: zone-end
@@ -494,6 +506,7 @@ mssparkutils.credentials.getConnectionStringOrCreds('linked service name')
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.credentials.getConnectionStringOrCreds("linked service name")
 ```
 
 ::: zone-end
@@ -510,7 +523,6 @@ mssparkutils.credentials.getConnectionStringOrCreds('linked service name')
 ### Get secret using workspace identity
 Returns Azure Key Vault secret for a given Azure Key Vault name, secret name and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#-Configure-access-to-Azure-Key-Vault) appropriately.
 
-
 :::zone pivot = "programming-language-python"
 
 ```python
@@ -521,6 +533,7 @@ mssparkutils.credentials.getSecret('azure key vault name','secret name','linked 
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.credentials.getSecret("azure key vault name","secret name","linked service name")
 ```
 
 ::: zone-end
@@ -547,6 +560,7 @@ mssparkutils.credentials.getSecret('azure key vault name','secret name')
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.credentials.getSecret("azure key vault name","secret name")
 ```
 
 ::: zone-end
@@ -560,17 +574,19 @@ mssparkutils.credentials.getSecret('azure key vault name','secret name')
 ::: zone-end
 
 ### Put secret using workspace identity
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#-Configure-access-to-Azure-Key-Vault) appropriately.
 
 :::zone pivot = "programming-language-python"
 
 ```python
-
+mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value','linked service name')
 ```
 ::: zone-end
 
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.credentials.putSecret("azure key vault name","secret name","secret value","linked service name")
 ```
 
 ::: zone-end
@@ -585,17 +601,19 @@ mssparkutils.credentials.getSecret('azure key vault name','secret name')
 
 
 ### Put secret using user credentials
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name and linked service name using user credentials. 
 
 :::zone pivot = "programming-language-python"
 
 ```python
-
+mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value')
 ```
 ::: zone-end
 
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.credentials.putSecret("azure key vault name","secret name","secret value")
 ```
 
 ::: zone-end
@@ -658,6 +676,7 @@ mssparkutils.env.getUserName()
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.env.getUserName()
 ```
 
 ::: zone-end
@@ -683,6 +702,7 @@ mssparkutils.env.getUserId()
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.env.getUserId()
 ```
 
 ::: zone-end
@@ -708,6 +728,7 @@ mssparkutils.env.getJobId()
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.env.getJobId()
 ```
 
 ::: zone-end
@@ -733,6 +754,7 @@ mssparkutils.env.getWorkspaceName()
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.env.getWorkspaceName()
 ```
 
 ::: zone-end
@@ -758,6 +780,7 @@ mssparkutils.env.getPoolName()
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.env.getPoolName()
 ```
 
 ::: zone-end
@@ -783,6 +806,7 @@ mssparkutils.env.getClusterId()
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.env.getClusterId()
 ```
 
 ::: zone-end
