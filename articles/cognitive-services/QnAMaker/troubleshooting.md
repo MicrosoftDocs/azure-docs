@@ -216,7 +216,7 @@ Sharing works at the level of a QnA Maker service, that is, all knowledge bases 
 </details>
 
 <details>
-<summary><b>Can you share a knowledge base with a contributor that is not in the same AAD tenant, to modify a knowledge base?</b></summary>
+<summary><b>Can you share a knowledge base with a contributor that is not in the same Azure Active Directory tenant, to modify a knowledge base?</b></summary>
 
 **Answer**:
 Sharing is based on Azure role-based access control (Azure RBAC). If you can share _any_ resource in Azure with another user, you can also share QnA Maker.
