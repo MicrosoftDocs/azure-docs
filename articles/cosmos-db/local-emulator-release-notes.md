@@ -9,6 +9,7 @@ ms.date: 09/21/2020
 ---
 
 # Azure Cosmos Emulator - Release notes and download information
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article shows the Azure Cosmos emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
 
@@ -20,6 +21,10 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 |**Get started**|[Develop locally with Azure Cosmos emulator](local-emulator.md)|
 
 ## Release notes
+
+### 2.11.8 (6 November 2020)
+
+ - This release includes an update for the Cosmos emulator Data Explorer and fixes an issue where TLS 1.3 clients try to open the Data Explorer.
 
 ### 2.11.6 (6 October 2020)
 

@@ -203,6 +203,8 @@
     href: concepts-roles-permissions.md
   - name: Naming rules
     href: naming-rules.md
+  - name: Data redundancy
+    href: concepts-data-redundancy.md
 - name: How-to guides
   items:
   - name: Author
@@ -748,8 +750,6 @@
       href: connector-troubleshoot-guide.md
     - name: Data Flows
       href: data-flow-troubleshoot-guide.md
-    - name: Copy Data tool
-      href: copy-data-tool-troubleshoot-guide.md
     - name: Self-hosted Integration Runtimes
       href: self-hosted-integration-runtime-troubleshoot-guide.md
     - name: Azure-SSIS Integration Runtime
@@ -783,7 +783,7 @@
   - name: Blog
     href: https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#
   - name: Ask a question - Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-data-factory.html
+    href: /answers/topics/azure-data-factory.html
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature

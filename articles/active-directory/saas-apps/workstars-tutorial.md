@@ -124,13 +124,13 @@ To configure Azure AD single sign-on with Workstars, perform the following steps
 
 2. In the main toolbar, click **Settings**.
 
-	![Workstars settings](./media/workstars-tutorial/tutorial_workstars_sett.png)
+	![Screenshot shows the Settings button.](./media/workstars-tutorial/tutorial_workstars_sett.png)
 
 3. Go to **Sign On** > **Settings**.
 
 	![Workstars signon](./media/workstars-tutorial/tutorial_workstars_signon.png)
 
-    ![Workstars settings](./media/workstars-tutorial/tutorial_workstars_settings.png)
+    ![Screenshot shows the Single Sign On section where you can select Settings.](./media/workstars-tutorial/tutorial_workstars_settings.png)
 
 4. On the **Single Sign On (SAML) - Settings** page, perform the following steps:
 	

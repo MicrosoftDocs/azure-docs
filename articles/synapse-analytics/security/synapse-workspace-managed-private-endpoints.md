@@ -5,7 +5,7 @@ author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ---
@@ -38,16 +38,17 @@ If the owner approves the connection, the private link is established. But, if t
 
 Only a Managed private endpoint in an approved state can send traffic to a given private link resource.
 
-## Managed private endpoints for SQL pool and SQL on-demand
+## Managed private endpoints for dedicated SQL pool and serverless SQL pool
 
-SQL pool and SQL on-demand are analytic capabilities in your Azure Synapse workspace. These capabilities use multi-tenant infrastructure that isn't deployed into the [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md).
+Dedicated SQL pool and serverless SQL pool are analytic capabilities in your Azure Synapse workspace. These capabilities use multi-tenant infrastructure that isn't deployed into the [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md).
 
-When a workspace is created, Azure Synapse creates two Managed private endpoints to SQL pool and SQL on-demand in that workspace. 
+When a workspace is created, Azure Synapse creates two Managed private endpoints in the workspace, one for dedicated SQL pool and one for serverless SQL pool. 
 
-These two Managed private endpoints are listed in Azure Synapse Studio. Select **Manage** in the left navigation, then select **Managed Virtual Networks** to see then in the Studio.
+These two Managed private endpoints are listed in Synapse Studio. Select **Manage** in the left navigation, then select **Managed private endpoints** to see them in the Studio.
 
-The Managed private endpoint that targets SQL pool is called *synapse-ws-sql--\<workspacename\>* and the one that targets SQL on-demand is called *synapse-ws-sqlOnDemand--\<workspacename\>*.
-![Managed private endpoints for SQL pool and SQL on-demand](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
+The Managed private endpoint that targets SQL pool is called *synapse-ws-sql--\<workspacename\>* and the one that targets serverless SQL pool is called *synapse-ws-sqlOnDemand--\<workspacename\>*.
+
+![Managed private endpoints for dedicated SQL pool and serverless SQL pool](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 These two Managed private endpoints are automatically created for you when you create your Azure Synapse workspace. You aren't charged for these two Managed private endpoints.
 

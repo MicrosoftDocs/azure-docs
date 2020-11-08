@@ -1,7 +1,7 @@
 ---
 title: "Preprocess Text: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Preprocess Text module in Azure Machine Learning to clean and simplify text.
+description: Learn how to use the Preprocess Text module in Azure Machine Learning designer to clean and simplify text.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

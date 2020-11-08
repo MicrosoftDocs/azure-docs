@@ -32,7 +32,7 @@ The following sections provide details about how to connect your System Center S
 
 Ensure the following prerequisites are met:
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
 - The Service Manager Web application (Web app) is deployed and configured. Information on Web app is [here](#create-and-deploy-service-manager-web-app-service).
 - Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connection).
 - Supported versions of Service Manager:  2012 R2 or 2016.
@@ -180,7 +180,7 @@ The following sections provide details about how to connect your ServiceNow prod
 
 ### Prerequisites
 Ensure the following prerequisites are met:
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
 - ServiceNow supported versions: Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 > [!NOTE]
 > ITSMC supports only the official SaaS offering from Service Now. Private deployments of Service Now are not supported. 
@@ -316,7 +316,7 @@ The following sections provide details about how to connect your Provance produc
 Ensure the following prerequisites are met:
 
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
 - Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../../app-service/configure-authentication-provider-aad.md).
 
 - User role:  Administrator.
@@ -350,7 +350,7 @@ Use the following procedure to create a Provance connection:
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, ITSMC creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled.|
 
-![Provance connection](media/itsmc-connections/itsm-connections-provance-latest.png)
+![Screenshot that highlights the Connection Name and Partner Type lists.](media/itsmc-connections/itsm-connections-provance-latest.png)
 
 **When successfully connected, and synced**:
 
@@ -373,7 +373,7 @@ The following sections provide details about how to connect your Cherwell produc
 
 Ensure the following prerequisites are met:
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
 - Client ID generated. More information: [Generate client ID for Cherwell](#generate-client-id-for-cherwell).
 - User role:  Administrator.
 
