@@ -26,45 +26,51 @@ See the definitive REST API reference for more details on the [saved searches AP
 
 ## API examples
 
-In the following examples, replace these variables as instructed:
+In the following examples, replace these placeholders with the replacement prescribed in the following table:
 
-- **{subscriptionId}** Enter the name of the subscription to which you are applying the hunting or livestream query.
-- **{resourceGroupName}** Enter the name of the resource group name to which you are applying the hunting or livestream query.
-- **{savedSearchId}** Enter a unique id for the query.  We apply a GUID for each hunting query
-- **{WorkspaceName}** Enter the name of the relevant Log Analytics workspace.
-- **{DisplayName}** Enter the display name.
-- **{Description}** A description of the hunting or livestream query.
-- **{Tactics}** Enter the relevant MITRE tactics
-- **{Query}** The query expression for your query.  
+| Placeholder | Replace with |
+|-|-|
+| **{subscriptionId}** | the name of the subscription to which you are applying the hunting or livestream query. |
+| **{resourceGroupName}** | the name of the resource group to which you are applying the hunting or livestream query. |
+| **{savedSearchId}** | a unique id (GUID) for each hunting query. |
+| **{WorkspaceName}** | the name of the Log Analytics workspace that is the target of the query. |
+| **{DisplayName}** | a display name of your choice for the query. |
+| **{Description}** | a description of the hunting or livestream query. |
+| **{Tactics}** | the relevant MITRE ATT&CK tactics that apply to the query. |
+| **{Query}** | the query expression for your query. |
+|  
 
 ### Example 1
 
 This example shows you how to create or update a hunting query for a given Azure Sentinel workspace.  For a livestream query, simply modify the “Category” in the request body from “Hunting Queries” to “Live Stream Queries”: 
+
+#### Request header
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId} _
     /resourcegroups/{resourceGroupName} _
     /providers/Microsoft.OperationalInsights/workspaces/{workspaceName} _
     /savedSearches/{savedSearchId}?api-version=2020-03-01-preview
+```
 
-Request Body (JSON) 
-    {
-    "properties": {
-        {
-        “Category”: “Hunting Queries”,
-        "DisplayName": "HuntingRule02",
-        "Query": "SecurityEvent | where EventID == \"4688\" | where CommandLine contains \"-noni -ep bypass $\"",
-        “Tags”: [
-            { 
-            “Name”: “Description”,
-            “Value”: “Test Hunting Query”
-            },
-            { 
-            “Name”: “Tactics”,
-            “Value”: “Execution, Discovery”
-            }
-            ]
+#### Request body
+
+```json
+{
+"properties": {
+    “Category”: “Hunting Queries”,
+    "DisplayName": "HuntingRule02",
+    "Query": "SecurityEvent | where EventID == \"4688\" | where CommandLine contains \"-noni -ep bypass $\"",
+    “Tags”: [
+        { 
+        “Name”: “Description”,
+        “Value”: “Test Hunting Query”
+        },
+        { 
+        “Name”: “Tactics”,
+        “Value”: “Execution, Discovery”
         }
+        ]        
     }
 }
 ```
