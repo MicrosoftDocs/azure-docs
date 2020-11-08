@@ -5,6 +5,8 @@ ms.topic: conceptual
 ms.date: 11/08/2020
 ---
 
+# Manage recovery points
+
 This article describes how retention works for virtual machines. Whenever backups happen, recovery points are created from which restore operations  can be carried out.
 
 For virtual machines, the initial backup is a full backup and the subsequent backups are incremental backups.
