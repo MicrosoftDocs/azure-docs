@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 11/06/2020
 ---
 
 # Move operation support for resources
@@ -787,7 +787,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datafactories | Yes | Yes |
-> | datafactoryschema | No | No |
 > | factories | Yes | Yes |
 
 ## Microsoft.DataLake
