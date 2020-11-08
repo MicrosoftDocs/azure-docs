@@ -908,6 +908,8 @@
         href: jamfprosamlconnector-tutorial.md
       - name: JDA Cloud
         href: jdacloud-tutorial.md
+      - name: Jedox
+        href: jedox-tutorial.md
       - name: JFrog Artifactory
         href: jfrog-artifactory-tutorial.md
       - name: JIRA SAML SSO by Microsoft
