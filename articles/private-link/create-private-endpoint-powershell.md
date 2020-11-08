@@ -149,8 +149,9 @@ In this section, you'll create the private endpoint and connection using:
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
 ```azurepowershell-interactive
-## Place web app into variable. Replace <your-webapp-name> with your server name ##
-$webapp = Get-AzWebApp -ResourceGroupName CreatePrivateEndpointQS-rg -Name <your-webapp-name>
+## Place web app into variable. Replace <webapp-resource-group-name> with the resource group of your webapp. ##
+## Replace <your-webapp-name> with your webapp name ##
+$webapp = Get-AzWebApp -ResourceGroupName <webapp-resource-group-name> -Name <your-webapp-name>
 
 ## Create private endpoint connection. ##
 $parameters1 = @{
