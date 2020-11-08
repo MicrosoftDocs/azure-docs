@@ -32,7 +32,7 @@ In the screenshot below you can see GCP projects displayed in Security Center's 
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview - [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|**Owner** or **Contributor** on the relevant Azure Subscription|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
