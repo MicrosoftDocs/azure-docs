@@ -41,9 +41,38 @@ The following example shows you how to create and run a job to set the light thr
 
     :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Screenshot of job wizard delivery options page":::
 
-    Select **Next** to move to the **Review** page. The **Review** page shows the job configuration details. Select **Run** to submit the job.
+    Select **Next** to move to the **Schedule** page. The **Schedule** page lets you set the schedule options for this job. You can choose to skip this page to run the job immediately. If you choose to schedule this job enable the schedule options.
 
-    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Screenshot of job wizard review page":::
+    Schedule options help you run this job in the future.
+
+    Recurrence option will help you setup a schedule for the job. You can setup a job to run
+    * One-time
+    * Daily
+    * Weekly
+
+    Provide a start date and time for a scheduled job. The date and time is specific to your time zone, and not to your device’s local time.
+
+    You have two options of ending a scheduled job
+    * On this day, by providing an end date
+    * After, by providing the number of occurrences 
+    
+    Scheduled jobs will always run on the devices in a device group, even if it changes over time.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule.png" alt-text="Screenshot of job wizard delivery options page":::
+
+    Select **Next** to move to the **Review** page. The **Review** page shows the job configuration details. Select **Schedule** to schedule the job in the future.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule-review.png" alt-text="Screenshot of job wizard review page":::
+
+    You will be presented with a job schedule details page. When the scheduled job executed you will see execution list of the job instances. The scheduled job execution will also be part of the Last 30 day job list. 
+
+    You can choose to **Unschedule** the job or **Edit** the scheduled job. You can later return to a scheduled job from the list of scheduled jobs.
+    
+    :::image type="content" source="media/howto-run-a-job/job-schedule-details.png" alt-text="Screenshot of job wizard review page":::
+
+    In the job wizard you can choose to not schedule a job, this will allow you to run a job immediately. Here is a review page of a job which is not scheduled for a future execution. Select **Run** to run the job immediately.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-schedule-immediate.png" alt-text="Screenshot of job wizard review page":::
 
 1. A job goes through *pending*, *running*, and *completed* phases. The job execution details contain result metrics, duration details, and a device list grid.
 
