@@ -42,7 +42,7 @@ All gateway patterns provide the following benefits:
 
 ## Transparent gateways
 
-In the transparent gateway pattern, devices that theoretically could connect to IoT Hub can connect to a gateway device instead. The downstream devices have their own IoT Hub identities and are using any of the MQTT, AMQP, or HTTP protocols. The gateway simply passes communications between the devices and IoT Hub. Both the devices and the users interacting with them through IoT Hub are unaware that a gateway is mediating their communications. This lack of awareness means the gateway is considered *transparent*.
+In the transparent gateway pattern, devices that theoretically could connect to IoT Hub can connect to a gateway device instead. The downstream devices have their own IoT Hub identities and connect using either MQTT or AMQP protocols. The gateway simply passes communications between the devices and IoT Hub. Both the devices and the users interacting with them through IoT Hub are unaware that a gateway is mediating their communications. This lack of awareness means the gateway is considered *transparent*.
 
 <!--::: moniker range=">= iotedge-1.2"-->
 
@@ -135,22 +135,6 @@ Use the following table to see how different IoT Hub capabilities are supported 
 | [Direct methods](../iot-hub/iot-hub-devguide-direct-methods.md) | ![Yes - IoT direct method](./media/iot-edge-as-gateway/check-yes.png) | ![Yes - child IoT direct method](./media/iot-edge-as-gateway/check-yes.png) |
 | [Device twins](../iot-hub/iot-hub-devguide-device-twins.md) and [Module twins](../iot-hub/iot-hub-devguide-module-twins.md) | ![Yes - IoT twins](./media/iot-edge-as-gateway/check-yes.png) | ![Yes - child IoT twins](./media/iot-edge-as-gateway/check-yes.png) |
 | [File upload](../iot-hub/iot-hub-devguide-file-upload.md) | ![Yes - IoT file upload](./media/iot-edge-as-gateway/check-yes.png) | ![No - IoT child file upload](./media/iot-edge-as-gateway/crossout-no.png) |
-
-::: moniker-end-->
-
-### Restrictions of transparent gateways
-
-<!--::: moniker range=">= iotedge-1.2"-->
-
-**Direct connections** are not allowed for modules deployed to IoT Edge devices in lower levels of the parent/child hierarchy. This restriction is by design. Ensure that all modules deployed to IoT Edge devices in lower levels of the hierarchy only use IoT Hub primitives and do not make any direct connections to the cloud.
-
-**Auto-provisioning with the Device Provisioning Service (DPS)** is not supported for child devices, whether IoT devices or IoT Edge devices. DPS currently requires a direct connection between the service and the device.
-
-<!--::: moniker-end
-
-::: moniker range="< iotedge-1.2"
-
-**Auto-provisioning with the Device Provisioning Service (DPS)** is not supported for child devices. DPS currently requires a direct connection between the service and the device, so cannot provision a device through a gateway.
 
 ::: moniker-end-->
 

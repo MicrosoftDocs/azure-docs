@@ -9,11 +9,15 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
+monikerRange: ">=iotedge-2020-11"
 ---
 
-# Connect a downstream IoT Edge device to an Azure IoT Edge gateway
+# Connect a downstream IoT Edge device to an Azure IoT Edge gateway (Preview)
 
 This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
+
+>[!NOTE]
+>This feature requires IoT Edge version 1.2, which is in public preview.
 
 In a gateway scenario, an IoT Edge device can be both a gateway and a downstream device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. The downstream (or child) devices can authenticate and send or receive messages through their gateway (or parent) device.
 
@@ -43,15 +47,13 @@ The step of setting up parent/child relationships authorizes child devices to co
 
 Only IoT Edge devices can be parent devices, but both IoT Edge devices and IoT devices can be children. A parent can have many children, but a child can only have one parent. A gateway hierarchy is created by chaining parent/child sets together so that the child of one device is the parent of another.
 
-<!-- TODO: graphic of gateway hierarcy -->
+<!-- TODO: graphic of gateway hierarchy -->
 
 # [Portal](#tab/azure-portal)
 
 In the Azure portal, you can manage the parent/child relationship when you create new device identities, or by editing existing devices.
 
 When you create a new IoT Edge device, you have the option of choosing parent and children devices from the list of existing IoT Edge devices in that hub.
-
-<!-- TODO: Validate UI text/flows -->
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 1. Select **IoT Edge** from the navigation menu.
@@ -65,7 +67,7 @@ You can also create or manage parent/child relationships for existing devices.
 1. Select **IoT Edge** from the navigation menu.
 1. Select the device you want to manage from the list of **IoT Edge devices**.
 1. Select **Set a parent device** or **Manage child devices**.
-1. Add or remove any devices.
+1. Add or remove any parent or child devices.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -75,7 +77,7 @@ The [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identit
 
 The `create` command includes parameters for adding children devices and setting a parent device at the time of device creation.
 
-Additional device-identity commands, including `add-children`, `get-parent`, `list-children`, `remove-children`, and `set-parent` allow you to manage the parent/child relationships for existing devices.
+Additional device-identity commands, including `add-children`,`list-children`, and `remove-children` or `get-parent` and `set-parent`, allow you to manage the parent/child relationships for existing devices.
 
 ---
 
@@ -152,6 +154,19 @@ On Linux, make sure that the user **iotedge** has read permissions for the direc
 
 1. **If this device is a child device**, find the **parent_hostname** parameter. Update the **parent_hostname** field to be the FQDN or IP address of the parent device, matching whatever was provided as the hostname in the parent's config.yaml file.
 
+1. While this feature is in public preview, you need to configure your IoT Edge device to use the public preview version of the IoT Edge agent when it starts up.
+
+   Find the **agent** yaml section and update the image value to the public preview image:
+
+   ```yml
+   agent:
+     name: "edgeAgent"
+     type: "docker"
+     env: {}
+     config:
+       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc1"
+       auth: {}
+   ```
 
 1. Save (`Ctrl+O`) and close (`Ctrl+X`) the config.yaml file.
 
@@ -174,6 +189,21 @@ On Linux, make sure that the user **iotedge** has read permissions for the direc
 
    >[!TIP]
    >The IoT Edge check tool uses a container to perform some of the diagnostics check. If you want to use this tool on downstream IoT Edge devices, make sure they can access `mcr.microsoft.com/azureiotedge-diagnostics:latest`, or have the container image in your private container registry.
+
+## Configure runtime modules for public preview
+
+While this feature is in public preview, you need to configure your IoT Edge device to use the public preview versions of the IoT Edge runtime modules. The previous section provides steps for configuring edgeAgent at startup. You also need to configure the runtime modules in deployments for your device.
+
+1. Configure the edgeHub module to use the public preview image: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`.
+
+1. Configure the following environment variables for the edgeHub module:
+
+   | Name | Value |
+   | - | - |
+   | `experimentalFeatures__enabled` | `true` |
+   | `experimentalFeatures__nestedEdgeEnabled` | `true` |
+
+1. Configure the edgeAgent module to use the public preview image: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc1`.
 
 ## Network isolate downstream devices
 
@@ -214,25 +244,50 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Select **IoT Edge** from the navigation menu.
 1. Select the top layer device that you're configuring from the list of **IoT Edge devices**.
 1. Select **Set modules**.
-1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge module**.
-1. Provide the following values to add the API proxy module to your deployment:
-   1. **IoT Edge module name**: `apiproxy`
-   1. In the **Module settings** tab, **Image URI**: `mcr.microsoft.com/azureiotedge-api-proxy:latest`
-   1. In the **Environment variables** tab, add the following environment variables:
+1. In the **IoT Edge modules** section, select **Add** then choose **Marketplace module**.
+1. Search for and select the **IoT Edge API Proxy** module.
+1. Select the name of the API proxy module from the list of deployed modules and update the following module settings:
+   1. In the **Environment variables** tab, update the value of **NGINX_DEFAULT_PORT** to `443`.
+   1. In the **Container create options** tab, update the port bindings to reference port 443.
 
-      * **Name**: `PROXY_CONFIG_ENV_VAR_LIST` **Value**: `NGINX_DEFAULT_PORT,DOCKER_REQUEST_ROUTE_ADDRESS`
+      ```json
+      {
+        "HostConfig": {
+          "PortBindings": {
+            "443/tcp": [
+              {
+                "HostPort": "443"
+              }
+            ]
+          }
+        }
+      }
+      ```
 
-        A list of all the environment variables that you want to update.
+   These changes configure the API proxy module to listen on port 443. To prevent port binding collisions, you need to configure the edgeHub module to not listen on port 443. Instead, the API proxy module will route any edgeHub traffic on port 443.
 
-      * **Name**: `NGINX_DEFAULT_PORT` **Value**: `8000`
+1. Select **Runtime Settings** and find the edgeHub module create options. Delete the port binding for port 443, leaving the bindings for ports 5671 and 8883.
 
-        The port that the nginx proxy listens to. This port also needs to be exposed in the module's dockerfile.
+   ```json
+   {
+     "HostConfig": {
+       "PortBindings": {
+         "5671/tcp": [
+           {
+             "HostPort": "5671"
+           }
+         ],
+         "8883/tcp": [
+           {
+             "HostPort": "8883"
+           }
+         ]
+       }
+     }
+   }
+   ```
 
-      * **Name**: `DOCKER_REQUEST_ROUTE_ADDRESS` **Value**: `registry:5000`
-
-        On the top layer IoT Edge device, route all Docker requests to the **registry** module running on the device. |
-
-1. Select **Add** to add the module to the deployment.
+1. Select **Save** to save your changes to the runtime settings.
 1. Select **Add** again, then choose **IoT Edge module**.
 1. Provide the following values to add the Docker registry module to your deployment:
    1. **IoT Edge module name**: `registry`
@@ -281,11 +336,11 @@ Before discussing the required proxy module for IoT Edge devices in gateway hier
 
 If your lower layer devices can't connect to the cloud, but you want them to pull module images as usual, then the top layer device of the gateway hierarchy must be configured to handle these requests. The top layer device needs to run a Docker **registry** module that is mapped to your container registry. Then, configure the API proxy module to route container requests to it. Those details are discussed in the earlier sections of this article. In this configuration, the lower layer devices should not point to cloud container registries, but to the registry running in the top layer.
 
-If your lower layer devices need to pull from more than one container registry, then the top layer device needs a registry module for each container registry.
+For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:latest`, lower layer devices should call `$upstream:443/azureiotedge-api-proxy:latest`.
 
-For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:latest`, lower layer devices should call `$upstream:8000/azureiotedge-api-proxy:latest`.
+The **$upstream** parameter points to the parent of a lower layer device, so the request will route through all the layers until it reaches the top layer which has a proxy environment routing container requests to the registry module. The `:443` port in this example should be replaced with whichever port the API proxy module on the parent device is listening on.
 
-The **$upstream** parameter points to the parent of a lower layer device, so the request will route through all the layers until it reaches the top layer which has a proxy environment routing container requests to the registry module. The `:8000` port in this example should be replaced with whichever port the API proxy module on the parent device is listening on.
+The API proxy module can only route to one registry module, and each registry module can only map to one container registry. Therefore, any images that lower layer devices need to pull must be stored in a single container registry.
 
 If you don't want lower layer devices making module pull requests through a gateway hierarchy, another option is to manage a local registry solution. Or, push the module images onto the devices before creating deployments and then set the **imagePullPolicy** to **never**.
 
@@ -303,39 +358,74 @@ agent:
   type: "docker"
   env: {}
   config:
-    image: "ParentFQDN:8000/azureiotedge-agent:1.2"
+    image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc1"
     auth: {}
 ```
 
 If you are using a local container registry, or providing the container images manually on the device, update the config.yaml file accordingly.
 
-#### Deploy required proxy module
+#### Configure runtime and deploy proxy module
 
 The **API proxy module** is required for routing all communications between the cloud and any downstream IoT Edge devices. An IoT Edge device in the bottom layer of the hierarchy, with no downstream IoT Edge devices, does not need this module.
 
 The API proxy module was designed to be customized to handle most common gateway scenarios. This article briefly touches on the steps to set up the modules in a basic configuration. Refer to [Configure the API proxy module for your gateway hierarchy scenario](how-to-configure-api-proxy-module.md) for more detailed information and examples.
 
-<!-- TODO: Verify UI text/flow-->
-
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 1. Select **IoT Edge** from the navigation menu.
 1. Select the lower layer device that you're configuring from the list of **IoT Edge devices**.
 1. Select **Set modules**.
-1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge module**.
-1. Provide the following values to add the API proxy module to your deployment:
-   1. **IoT Edge module name**: `apiproxy`
-   1. In the **Module settings** tab, **Image URI**: `$upstream:<listening port>/azureiotedge-api-proxy:latest`
-   1. In the **Environment variables** tab, add the following environment variables:
+1. In the **IoT Edge modules** section, select **Add** then choose **Marketplace module**.
+1. Search for and select the **IoT Edge API Proxy** module.
+1. Select the name of the API proxy module from the list of deployed modules and update the following module settings:
+   1. In the **Module settings** tab, update the value of **Image URI**. Replace `mcr.microsoft.com` with `$upstream:443`.
+   1. In the **Environment variables** tab, update the value of **NGINX_DEFAULT_PORT** to `443`.
+   1. In the **Container create options** tab, update the port bindings to reference port 443.
 
-      * **Name**: `PROXY_CONFIG_ENV_VAR_LIST` **Value**: `NGINX_DEFAULT_PORT`
+      ```json
+      {
+        "HostConfig": {
+          "PortBindings": {
+            "443/tcp": [
+              {
+                "HostPort": "443"
+              }
+            ]
+          }
+        }
+      }
+      ```
 
-        A list of all the environment variables that you want to update.
+   These changes configure the API proxy module to listen on port 443. To prevent port binding collisions, you need to configure the edgeHub module to not listen on port 443. Instead, the API proxy module will route any edgeHub traffic on port 443.
 
-      * **Name**: `NGINX_DEFAULT_PORT` **Value**: `8000`
+1. Select **Runtime Settings**.
+1. Update the edgeHub module settings:
 
-        The port that the nginx proxy listens to. This port also needs to be exposed in the module's dockerfile.
+   1. In the **Image** field, replace `mcr.microsoft.com` with `$upstream:443`.
+   1. In the **Create options** field, delete the port binding for port 443, leaving the bindings for ports 5671 and 8883.
 
-1. Select **Add** to add the module to the deployment.
+   ```json
+   {
+     "HostConfig": {
+       "PortBindings": {
+         "5671/tcp": [
+           {
+             "HostPort": "5671"
+           }
+         ],
+         "8883/tcp": [
+           {
+             "HostPort": "8883"
+           }
+         ]
+       }
+     }
+   }
+   ```
+
+1. Update the edgeAgent module settings:
+   1. In the **Image** field, replace `mcr.microsoft.com` with `$upstream:443`.
+
+1. Select **Save** to save your changes to the runtime settings.
 1. Select **Next: Routes** to go to the next step.
 1. To enable device-to-cloud messages from downstream devices to reach IoT Hub, include a route that passes all messages to `$upstream`. The upstream parameter points to the parent device in the case of lower layer devices. For example:
     1. **Name**: `Route`

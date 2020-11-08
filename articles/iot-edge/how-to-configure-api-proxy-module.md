@@ -9,11 +9,15 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
+monikerRange: ">=iotedge-2020-11"
 ---
 
-# Configure the API proxy module for your gateway hierarchy scenario
+# Configure the API proxy module for your gateway hierarchy scenario (Preview)
 
 The API proxy module enables IoT Edge devices to send HTTP requests through gateways instead of making direct connections to cloud services. This article walks through the configuration options so that you can customize the module to support your gateway hierarchy requirements.
+
+>[!NOTE]
+>This feature requires IoT Edge version 1.2, which is in public preview.
 
 In some network architectures, IoT Edge devices behind gateways don't have direct access to the cloud. Any modules that attempt to connect to cloud services will fail. The API proxy module supports downstream IoT Edge devices in this configuration by re-routing module connections to go through the layers of a gateway hierarchy, instead. It provides a secure way for clients to communicate to multiple services over HTTPS without tunneling, but by terminating the connections at each layer. The API proxy module acts as a proxy module between the IoT Edge devices in a gateway hierarchy until they reach the IoT Edge device at the top layer. At that point, services running on the top layer IoT Edge device handle these requests, and the API proxy module proxies all the HTTP traffic from local services to the cloud through a single port.
 
@@ -23,9 +27,7 @@ The API proxy module can enable many scenarios for gateway hierarchies, includin
 
 The API proxy module is available from the Microsoft Container Registry (MCR): `mcr.microsoft.com/azureiotedge-api-proxy:latest`.
 
-You can also deploy the API proxy module directly from the Azure Marketplace.
-
-<!--TODO: Add marketplace link when availabile-->
+You can also deploy the API proxy module directly from the Azure Marketplace: [IoT Edge API Proxy](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview).
 
 ## Understand the proxy module
 
@@ -44,9 +46,57 @@ Currently, the default environment variables include:
 | Environment variable | Description |
 | -------------------- | ----------- |
 | `PROXY_CONFIG_ENV_VAR_LIST` | List all the variables that you intend to update in a comma-separated list. This step prevents accidentally modifying the wrong configuration settings.
-| `NGINX_DEFAULT_PORT` | Changes the port that the nginx proxy listens to. If you update this environment variable, make sure the port you select is also exposed in the module dockerfile.<br><br>Default is 443. |
+| `NGINX_DEFAULT_PORT` | Changes the port that the nginx proxy listens to. If you update this environment variable, make sure the port you select is also exposed in the module dockerfile and declared as a port binding in the deployment manifest.<br><br>Default is 443.<br><br>When deployed from the Azure Marketplace, the default port is updated to 8000, to prevent conflicts with the edgeHub module. For more information, see [Minimize open ports](#minimize-open-ports). |
 | `DOCKER_REQUEST_ROUTE_ADDRESS` | Address to route docker requests. Modify this variable on the top layer device to point to the registry module.<br><br>Default is the parent hostname. |
 | `BLOB_UPLOAD_ROUTE_ADDRESS` | Address to route blob registry requests. Modify this variable on the top layer device to point to the blob storage module.<br><br>Default is the parent hostname. |
+
+## Minimize open ports
+
+To minimize the number of open ports, the API proxy module should relay all HTTPS traffic (port 443), including traffic targeting the edgeHub module. The API proxy module is configured by default to re-route all edgeHub traffic on port 443.
+
+Use the following steps to configure your deployment to minimize open ports:
+
+1. Update the edgeHub module settings to not bind on port 443, otherwise there will be port binding conflicts. By default, the edgeHub module binds on ports 443, 5671, and 8883. Delete the port 443 binding and leave the other two in place:
+
+   ```json
+   {
+     "HostConfig": {
+       "PortBindings": {
+         "5671/tcp": [
+           {
+             "HostPort": "5671"
+           }
+         ],
+         "8883/tcp": [
+           {
+             "HostPort": "8883"
+           }
+         ]
+       }
+     }
+   }
+   ```
+
+1. Configure the API proxy module to bind on port 443.
+
+   1. Set value of the **NGINX_DEFAULT_PORT** environment variable to `443`.
+   1. Update the container create options to bind on port 443.
+
+      ```json
+      {
+        "HostConfig": {
+          "PortBindings": {
+            "443/tcp": [
+              {
+                "HostPort": "443"
+              }
+            ]
+          }
+        }
+      }
+      ```
+
+If you don't need to minimize open ports, then you can let the edgeHub module use port 443 and configure the API proxy module to listen on another port. For example, the API proxy module can listen on port 8000 by setting the value of the **NGINX_DEFAULT_PORT** environment variable to `8000` and creating a port binding for port 8000.
 
 ## Enable container image download
 
@@ -214,4 +264,4 @@ To update the proxy configuration dynamically, use the following steps:
 
 ## Next steps
 
-Use the API proxy module to [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md)
+Use the API proxy module to [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
