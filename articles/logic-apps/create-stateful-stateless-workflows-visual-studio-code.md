@@ -5,15 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/09/2020
 ---
 
 # Create stateful or stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
 
 > [!IMPORTANT]
-> This capability is in public preview, is provided without a service level agreement, and 
-> is not recommended for production workloads. Certain features might not be supported or might 
-> have constrained capabilities. For more information, see 
+> This capability is in public preview, is provided without a service level agreement, and is not recommended for production workloads. 
+> Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and locally run [*stateful* and *stateless* logic app workflows](#stateful-stateless) in your development environment.
@@ -49,11 +48,9 @@ The Azure Logic Apps (Preview) extension brings many current and additional Logi
   * Create and deploy logic apps that can run anywhere because the Azure Logic Apps service generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. The Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy to Azure.
 
     > [!NOTE]
-    > By default, a **Logic App (Preview)** resource has its 
-    > [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
-    > automatically enabled to authenticate connections at runtime. 
-    > This identity differs from the authentication credentials or connection string that you use 
-    > when you create a connection. If you disable this identity, connections won't work at runtime.
+    > By default, a **Logic App (Preview)** resource has its [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
+    > automatically enabled to authenticate connections at runtime. This identity differs from the authentication credentials or connection 
+    > string that you use when you create a connection. If you disable this identity, connections won't work at runtime.
 
 * Create stateless logic apps that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](#stateful-stateless).
 
@@ -112,8 +109,6 @@ For this public preview, these capabilities are not available or not supported:
   Except for the previously specified triggers, *stateful* workflows can use both triggers and actions for [managed connectors](../connectors/apis-list.md#managed-api-connectors), which are deployed in Azure versus built-in triggers and actions that run natively with the Logic Apps runtime. However, *stateless* workflows currently support only *actions* for managed connectors, not triggers. Although you can enable connectors in Azure for your stateless workflow, the designer doesn't show any managed connector triggers for you to select.
 
 * You can deploy the new **Logic App (Preview)** resource type only to a [Premium or App Service hosting plan in Azure](#publish-azure) or to a [Docker container](#deploy-docker), and not [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). **Consumption** hosting plans aren't supported nor available for deploying this resource type.
-
-* In the Azure portal, you can't create new logic apps with the new **Logic App (Preview)** resource type. You can only create these logic apps in Visual Studio Code. However, after you deploy logic apps with this resource type from Visual Studio Code to Azure, you can [add new workflows to those logic apps](#add-workflows).
 
 ## Prerequisites
 
@@ -806,14 +801,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
 ## Find and manage deployed logic apps in the portal
 
-In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure.
-
-> [!NOTE]
-> For public preview, you can only view deployed **Logic App (Preview)** resources in the Azure portal, 
-> not create new **Logic App (Preview)** resources. You can create these logic apps only in Visual Studio Code. 
-> However, you can [add workflows](#add-workflows) to deployed logic apps with this resource type.
-
-To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
+In the Azure portal, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Preview)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Preview)** resource type, follow these steps:
 
 1. In the Azure portal search box, enter `logic app preview`. When the results list appears, under **Services**, select **Logic App (Preview)**.
 
