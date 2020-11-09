@@ -23,7 +23,7 @@ That said, if before you had to use an appliance or virtual machine acting as VP
 
 So in this article I'll show to you how to setup this. Below the draw of our lab:
 
-![draw](images/draw.png)
+![draw](/media/media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/draw.png)
 
 ## Configuring Azure 
 
