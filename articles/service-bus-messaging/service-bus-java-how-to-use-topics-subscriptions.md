@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 09/15/2020
 ---
 
-# Azure Service Bus topics and subscriptions - send and receive messages using azure-messaging-servicebus package
+# Send messages to an Azure Servive Bus topic and receive messages from subscriptions to the topic (Java)
 In this quickstart, you write Java code using the azure-messaging-servicebus package to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic.
 
 > [!IMPORTANT]

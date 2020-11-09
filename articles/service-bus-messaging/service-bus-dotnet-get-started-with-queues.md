@@ -7,7 +7,7 @@ ms.date: 10/30/2020
 ms.custom: devx-track-csharp
 ---
 
-# Azure Service Bus - Send and receive messages using Azure.Messaging.ServiceBus
+# Send messages to and receive messages from Azure Service Bus queues (.NET)
 In this tutorial, you create a .NET Core console application to send messages to and receive messages from a Service Bus queue using the **Azure.Messaging.ServiceBus** package. 
 
 > [!Important]

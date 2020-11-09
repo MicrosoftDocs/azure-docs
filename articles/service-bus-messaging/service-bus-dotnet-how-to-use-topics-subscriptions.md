@@ -7,7 +7,7 @@ ms.date: 09/02/2020
 ms.custom: devx-track-csharp
 ---
 
-# Send messages to Azure Service Bus topics using azure-messaging-servicebus
+# Send messages to an Azure Servive Bus topic and receive messages from subscriptions to the topic (.NET)
 This tutorial shows you how to create a .NET Core console application that sends messages to a Service Bus topic and receives messages from a subscription of the topic. 
 
 > [!Important]
