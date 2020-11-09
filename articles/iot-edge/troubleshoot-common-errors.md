@@ -4,7 +4,7 @@ description: Use this article to resolve common issues encountered when deployin
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/23/2020
+ms.date: 11/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -325,7 +325,8 @@ Only use one type of deployment mechanism per device, either an automatic deploy
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
-<!--:::moniker range="{range}"-->
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
 
 ## IoT Edge behind a gateway cannot perform HTTP requests and start edgeAgent module
 
@@ -341,7 +342,7 @@ IoT Edge devices behind a gateway get their module images from the parent IoT Ed
 
 Make sure the parent IoT Edge device can receive incoming requests from the child IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the child device.
 
-<!--:::moniker-end-->
+:::moniker-end
 
 ## Next steps
 

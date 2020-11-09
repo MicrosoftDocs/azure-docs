@@ -4,7 +4,7 @@ description: This tutorial shows you how to create a hierarchical structure of I
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 11/06/2020
+ms.date: 11/08/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -16,7 +16,7 @@ monikerRange: ">=iotedge-2020-11"
 Deploy Azure IoT Edge nodes across networks organized in hierarchical layers.
 
 >[!NOTE]
->This feature requires IoT Edge version 1.2, which is in public preview.
+>This feature requires IoT Edge version 1.2, which is in public preview, running Linux containers.
 
 You can structure a hierarchy of devices so that only the top layer has connectivity to the cloud, and the lower layers can only communicate with adjacent north and south layers. This network layering is the foundation of most industrial networks, which follow the [ISA-95 standard](https://en.wikipedia.org/wiki/ANSI/ISA-95).
 

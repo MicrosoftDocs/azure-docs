@@ -4,7 +4,7 @@ description: How to configure an IoT Edge device to connect to Azure IoT Edge ga
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/27/2020
+ms.date: 11/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -17,7 +17,7 @@ monikerRange: ">=iotedge-2020-11"
 This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
 
 >[!NOTE]
->This feature requires IoT Edge version 1.2, which is in public preview.
+>This feature requires IoT Edge version 1.2, which is in public preview, running Linux containers.
 
 In a gateway scenario, an IoT Edge device can be both a gateway and a downstream device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. The downstream (or child) devices can authenticate and send or receive messages through their gateway (or parent) device.
 

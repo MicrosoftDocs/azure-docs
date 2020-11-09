@@ -4,7 +4,7 @@ description: Learn how to customize the API proxy module for IoT Edge gateway hi
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/27/2020
+ms.date: 11/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -17,7 +17,7 @@ monikerRange: ">=iotedge-2020-11"
 The API proxy module enables IoT Edge devices to send HTTP requests through gateways instead of making direct connections to cloud services. This article walks through the configuration options so that you can customize the module to support your gateway hierarchy requirements.
 
 >[!NOTE]
->This feature requires IoT Edge version 1.2, which is in public preview.
+>This feature requires IoT Edge version 1.2, which is in public preview, running Linux containers.
 
 In some network architectures, IoT Edge devices behind gateways don't have direct access to the cloud. Any modules that attempt to connect to cloud services will fail. The API proxy module supports downstream IoT Edge devices in this configuration by re-routing module connections to go through the layers of a gateway hierarchy, instead. It provides a secure way for clients to communicate to multiple services over HTTPS without tunneling, but by terminating the connections at each layer. The API proxy module acts as a proxy module between the IoT Edge devices in a gateway hierarchy until they reach the IoT Edge device at the top layer. At that point, services running on the top layer IoT Edge device handle these requests, and the API proxy module proxies all the HTTP traffic from local services to the cloud through a single port.
 
