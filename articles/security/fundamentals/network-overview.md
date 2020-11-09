@@ -249,8 +249,8 @@ You can gain the benefits of network level load balancing in Azure by using Azur
 
 Learn more:
 
-* [Internet-facing load balancer between multiple virtual machines or services](../../load-balancer/load-balancer-overview.md#publicloadbalancer)
-* [Internal load balancer overview](../../load-balancer/load-balancer-overview.md#internalloadbalancer)
+* [Internet-facing load balancer between multiple virtual machines or services](../../load-balancer/load-balancer-overview.md)
+* [Internal load balancer overview](../../load-balancer/load-balancer-overview.md)
 
 ### Global load balancing
 
