@@ -527,8 +527,8 @@ If you are using a custom DNS server on your network, clients must be able to re
 
 For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
 
-* [Name resolution for resources in Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-* [DNS configuration for private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+* [DNS configuration for private endpoints](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ### Pricing
 
@@ -536,5 +536,5 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 ## Next steps
 
-* Explore the various [Azure Cognitive Services](welcome.md)
+* Explore the various [Azure Cognitive Services](./what-are-cognitive-services.md)
 * Learn more about [Azure Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
