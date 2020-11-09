@@ -175,7 +175,7 @@ The following example creates an object from different types of values.
 
 ```bicep
 > [!NOTE]
-> createObject() doesn't exist.
+> JGAO: createObject() doesn't exist.
 ```
 
 ---
@@ -655,7 +655,7 @@ The following example uses the null function.
 ```bicep
 
 >[!NOTE]
-> null() doesn't exist in bicep.
+> JGAO: null() doesn't exist in bicep.
 
 ```
 
@@ -764,7 +764,6 @@ param secondArray array = [
 
 output objectOutput object = union(firstObject, secondObject)
 output arrayOutput array = union(firstArray, secondArray)
-
 ```
 
 ---

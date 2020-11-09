@@ -365,7 +365,7 @@ Creates an array from the parameters.
 An array. When no parameters are provided, it returns an empty array.
 
 > [!NOTE]
-> The createArray function expects at least one argument in Bicep.
+> JGAO: The createArray function expects at least one argument in Bicep.
 
 ### Example
 

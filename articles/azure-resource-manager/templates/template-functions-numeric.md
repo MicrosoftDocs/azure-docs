@@ -158,7 +158,7 @@ The following example shows a copy loop and the index value included in the name
 ```bicep
 
 > [!NOTE]
-> Loop is implemented differently.  See https://github.com/Azure/bicep/blob/main/docs/spec/loops.md
+> JGAO: Loop is implemented differently.  See https://github.com/Azure/bicep/blob/main/docs/spec/loops.md
 
 ```
 
@@ -280,7 +280,7 @@ The following example shows how to use float to pass parameters to a Logic App:
 ```bicep
 
 > [!NOTE]
-> float() doesn't exist.
+> JGAO: float() doesn't exist.
 ```
 
 ---

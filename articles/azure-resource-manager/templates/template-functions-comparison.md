@@ -160,7 +160,7 @@ The equals function is often used with the `condition` element to test whether a
 ```bicep
 
 > [!NOTE]
-> Conditions are not yet implemented. https://github.com/Azure/bicep/issues/186
+> JGAO: Conditions are not yet implemented. https://github.com/Azure/bicep/issues/186
 ```
 
 ---

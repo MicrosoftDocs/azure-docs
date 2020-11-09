@@ -263,7 +263,9 @@ output objectOutput object = equals('a', 'a') ? json('{\'test\': \'value1\'}') :
 
 > [!NOTE]
 > JGAO - verify the escape character.
+
 ---
+
 The output from the preceding example is:
 
 | Name | Type | Value |
@@ -348,7 +350,7 @@ resource myVmExt 'Microsoft.Compute/virtualMachines/extensions@2017-03-30' = {
 ```
 
 > [!NOTE]
-> jgao - the output is not as expected
+> JGAO - the output is not as expected
 
 ---
 
@@ -550,7 +552,7 @@ The following example returns a true output value.
 ```bicep
 
 > [!NOTE]
-> jgao - true() doesn't resolve.
+> JGAO - true() doesn't resolve.
 ```
 
 ---
@@ -564,4 +566,3 @@ The output from the preceding example is:
 ## Next steps
 
 * For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-
