@@ -40,11 +40,11 @@ Roadmunk supports SSO that's started by the *service provider* (SP) and by the *
 To integrate Roadmunk into Azure AD, from the gallery, add Roadmunk to your list of managed SaaS apps:
 
 1. Sign in to the Azure portal by using a work or school account or a personal Microsoft account.
-1. In the left navigation pane, select **Azure Active Directory**.
+1. In the left pane, select **Azure Active Directory**.
 1. Go to **Enterprise Applications**, and then select **All Applications**.
 1. To add a new application, select **New application**.
-1. In the **Add from the gallery** section, in the search box, type *Roadmunk*.
-1. Select **Roadmunk** from results, and then add the app. Wait a few seconds while the app is added to your tenant.
+1. In the **Add from the gallery** section, in the search box, type **Roadmunk**.
+1. Select **Roadmunk** from the results, and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
 ## Configure and test Azure AD SSO for Roadmunk
@@ -62,7 +62,7 @@ Here's an overview of how to configure and test Azure AD SSO with Roadmunk:
 
 ## Configure Azure AD SSO
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+Follow these steps to enable Azure AD SSO in the Azure portal:
 
 1. In the Azure portal, on the **Roadmunk** application integration page, find the **Manage** section, and then select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
@@ -107,7 +107,7 @@ In this section, you'll create a test user in the Azure portal. You'll name the 
 1. At the top of the window, select **New user**.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **User name** field, enter the username@companydomain.extension. For example, enter `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Select **Create**.
 
