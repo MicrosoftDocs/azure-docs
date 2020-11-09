@@ -98,6 +98,8 @@ landingContent:
             url: concepts-api-management.md
           - text: Hub and spoke
             url: concepts-hub-and-spoke.md
+          - text: Azure Security Center
+            url: azure-security-integration.md
           - text: Azure Backup Server
             url: set-up-backup-server-for-azure-vmware-solution.md
           - text: Lifecycle management on VMs
