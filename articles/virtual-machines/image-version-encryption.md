@@ -12,7 +12,7 @@ ms.author: cynthn
 
 # Preview: Use customer-managed keys for encrypting images
 
-Gallery images are stored as managed disks, so they're automatically encrypted through server-side encryption. Server-side encryption uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available. Server-side encryption is also FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
+Images in a shared image gallery are storead as managed disks are stored as managed disks, so they're automatically encrypted through server-side encryption. Server-side encryption uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available. Server-side encryption is also FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
 You can rely on platform-managed keys for the encryption of your images, or use your own keys. You can also use both together, for double encryption. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all disks in your images. 
 
@@ -31,7 +31,7 @@ This article requires you to already have a disk encryption set in each region w
 
 ## Limitations
 
-When you're using customer-managed keys for encrypting shared image gallery images, these limitations apply:	
+When you're using customer-managed keys for encrypting images in a shared image gallery, these limitations apply:	
 
 - Encryption key sets must be in the same subscription as your image.
 
