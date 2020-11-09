@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 
 The shell state of the [Hierarchical state override component](../../overview/features/override-hierarchical-state.md) is a transparency effect. In contrast to [see-through](../../overview/features/override-hierarchical-state.md) rendering, only the front-most layer of objects is visible, akin to opaque rendering. Additionally, the objects' normal appearance can be altered when rendered as shells. The effect is intended for use cases where the user should be visually guided away from non-important parts while still maintaining spatial awareness for the whole scene.
 
-You can configure the appearance of shell-rendered objects via the ShellRenderingSettings global state. All objects that use shell rendering will use the same setting. There are no per object parameters.
+You can configure the appearance of shell-rendered objects via the `ShellRenderingSettings` global state. All objects that use shell rendering will use the same setting. There are no per object parameters.
 
 ## ShellRenderingSettings parameters
 
@@ -23,7 +23,7 @@ Class `ShellRenderingSettings` holds the settings related to global shell render
 | `Desaturation` | float   | The amount of desaturation to apply to the usual final object color, in range 0 (no desaturation) to 1 (full desaturation) |
 | `Opacity`      | float   | The opacity of the shell-rendered objects, in range 0 (invisible) to 1 (fully opaque) |
 
-See also the following table for examples of the parameters' effects:
+See also the following table for examples of the parameters' effects when applied to a whole scene:
 
 |                | 0 | 0.25 | 0.5 | 0.75 | 1.0 | 
 |----------------|:-:|:----:|:---:|:----:|:---:|
@@ -34,7 +34,7 @@ The shell effect is applied on the final opaque color the scene would be rendere
 
 ## Example
 
-The following code shows an example usage of the ShellRenderingSettings state via the API:
+The following code shows an example usage of the `ShellRenderingSettings` state via the API:
 
 ```cs
 void SetShellSettings(AzureSession session)
@@ -56,7 +56,7 @@ void SetShellSettings(ApiHandle<AzureSession> session)
 
 ## Performance
 
-The shell rendering feature carries a slight overhead in comparison with standard opaque rendering. It is significantly faster than using transparent materials on objects or [See-through](../../overview/features/override-hierarchical-state.md) rendering. Performance may degrade more strongly if only portions of the scene are switched to shell rendering. This degradation can occur due to additionally revealed objects requiring rendering. In that regard, performance behaves similarly to the [Cut planes](../../overview/features/cut-planes.md) feature.
+The shell rendering feature carries a small constant overhead in comparison with standard opaque rendering. It is significantly faster than using transparent materials on objects or [see-through](../../overview/features/override-hierarchical-state.md) rendering. Performance may degrade more strongly if only portions of the scene are switched to shell rendering. This degradation can occur due to additionally revealed objects requiring rendering. In that regard, performance behaves similarly to the [Cut planes](../../overview/features/cut-planes.md) feature.
 
 ## API documentation
 
