@@ -444,6 +444,7 @@ In this example, we'll specify rows=3 and columns=6. 18 elevation values are ret
 
 The following sample web page shows you how to use the map control to display elevation data at a coordinate point. When the user drags the marker, the map will display the elevation data in a popup.
 
+</BR>
 <iframe height="500" style="width:100%;" scrolling="no" title="Get elevation at position" src="https://codepen.io/azuremaps/embed/c840b510e113ba7cb32809591d5f96a2?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/c840b510e113ba7cb32809591d5f96a2'>Get elevation at position</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -453,6 +454,7 @@ The following sample web page shows you how to use the map control to display el
 
 The following sample web page shows you how to use the map control to display elevation data contained within a bounding box. The user defines the bounding box by clicking on the `square` icon in the upper-left hand corner, and drawing the square anywhere on the map. The map control will then render the elevation data in accordance with the colors specified in the key located in the upper-right hand corner.
 
+</BR>
 <iframe height="500" style="width: 100%;" scrolling="no" title="Elevations by bounding box" src="https://codepen.io/azuremaps/embed/619c888c70089c3350a3e95d499f3e48?height=500&theme-id=default&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/619c888c70089c3350a3e95d499f3e48'>Elevations by bounding box</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -462,6 +464,7 @@ The following sample web page shows you how to use the map control to display el
 
 The following sample web page shows you how to use the map control to display elevation data along a path. The user defines the path by clicking on the `PolyLine` icon in the upper-left hand corner, and drawing the PolyLine on the map. The map control then renders the elevation data in colors specified in the key located in the upper-right hand corner.
 
+</BR>
 <iframe height="500" style="width: 100%;" scrolling="no" title="Elevation path gradient" src="https://codepen.io/azuremaps/embed/7bee08e5cb13d05cb0a11636b60f14ca?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60f14ca'>Elevation path gradient</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
