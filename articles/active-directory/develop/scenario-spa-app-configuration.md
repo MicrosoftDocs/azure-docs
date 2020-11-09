@@ -72,4 +72,4 @@ export class AppModule { }
 
 ## Next steps
 
-[Sign-in and sign-out](scenario-spa-sign-in.md)
+Move on to the next article in this scenario, [Sign-in and sign-out](scenario-spa-sign-in.md)
