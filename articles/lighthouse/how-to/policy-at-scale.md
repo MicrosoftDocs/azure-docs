@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Policy to delegated subscriptions at scale
 description: Learn how Azure Lighthouse lets you deploy a policy definition and policy assignment across multiple tenants.
-ms.date: 08/12/2020
+ms.date: 11/09/2020
 ms.topic: how-to
 ---
 
@@ -85,6 +85,9 @@ foreach ($ManagedSub in $ManagedSubscriptions)
     }
 }
 ```
+
+> [!NOTE]
+> While you can deploy policies across multiple tenants, currently you can't [view compliance details](../governance/policy/how-to/determine-non-compliance.md#compliance-details) for non-compliant resources in these tenants.
 
 ## Next steps
 
