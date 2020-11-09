@@ -270,15 +270,15 @@
   - name: Commercial marketplace analytics 
     href: partner-center-portal/analytics.md
   - name: Summary dashboard
-    href: partner-center-portal/summary-dashboard.md
+    href: summary-dashboard.md
   - name: Orders dashboard
-    href: partner-center-portal/orders-dashboard.md
+    href: orders-dashboard.md
   - name: Usage dashboard
-    href: partner-center-portal/usage-dashboard.md
-  - name: Customer dashboard
-    href: partner-center-portal/customer-dashboard.md
+    href: usage-dashboard.md
+  - name: Customers dashboard
+    href: customer-dashboard.md
   - name: Marketplace Insights dashboard
-    href: partner-center-portal/insights-dashboard.md
+    href: insights-dashboard.md
   - name: Downloads dashboard
     href: partner-center-portal/downloads-dashboard.md
   - name: Ratings and reviews dashboard
