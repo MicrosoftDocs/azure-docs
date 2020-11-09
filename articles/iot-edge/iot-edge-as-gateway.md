@@ -74,7 +74,7 @@ All devices in a transparent gateway scenario need cloud identities so they can 
 Child devices can only have one parent. Each parent can have up to 100 children.
 
 <!-- 1.2.0 -->
-::: moniker range">=iotedge-2020-11"
+::: moniker range=">=iotedge-2020-11"
 IoT Edge devices can be both parents and children in transparent gateway relationships. A hierarchy of multiple IoT Edge devices reporting to each other can be created. The top node of a gateway hierarchy can have up to five generations of children. For example, an IoT Edge device can have five layers of IoT Edge devices linked as children below it. But the IoT Edge device in the fifth generation cannot have any children, IoT Edge or otherwise.
 ::: moniker-end
 
@@ -85,7 +85,7 @@ A child device needs to be able to find its parent device on the local network. 
 On downstream IoT devices, use the **gatewayHostname** parameter in the connection string to point to the parent device.
 
 <!-- 1.2.0 -->
-::: moniker range">=iotedge-2020-11"
+::: moniker range=">=iotedge-2020-11"
 On downstream IoT Edge devices, use the **parent_hostname** parameter in the config.yaml file to point to the parent device.
 ::: moniker-end
 
@@ -94,7 +94,7 @@ On downstream IoT Edge devices, use the **parent_hostname** parameter in the con
 Parent and child devices also need to authenticate their connections to each other. Each device needs a copy of a shared root CA certificate which the child devices use to verify that they are connecting to the proper gateway.
 
 <!-- 1.2.0 -->
-::: moniker range">=iotedge-2020-11"
+::: moniker range=">=iotedge-2020-11"
 When multiple IoT Edge gateways connect to each other in a gateway hierarchy, all the devices in the hierarchy should use a single certificate chain.
 ::: moniker-end
 
@@ -106,7 +106,8 @@ All IoT Hub primitives that work with IoT Edge's messaging pipeline also support
 Use the following table to see how different IoT Hub capabilities are supported for devices compared to devices behind gateways.
 
 <!-- 1.2.0 -->
-::: moniker range">=iotedge-2020-11"
+::: moniker range=">=iotedge-2020-11"
+
 | Capability | IoT device | IoT behind a gateway | IoT Edge device | IoT Edge behind a gateway |
 | ---------- | ---------- | --------------------------- | --------------- | -------------------------------- |
 | [Device-to-cloud (D2C) messages](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Yes - IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Yes - child IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Yes - IoT Edge D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Yes - child IoT Edge D2C](./media/iot-edge-as-gateway/check-yes.png) |

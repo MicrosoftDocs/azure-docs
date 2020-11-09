@@ -18,11 +18,17 @@ The IoT Edge runtime is a collection of programs that turn a device into an IoT 
 The IoT Edge runtime is responsible for the following functions on IoT Edge devices:
 
 * Install and update workloads on the device.
+
 * Maintain Azure IoT Edge security standards on the device.
+
 * Ensure that [IoT Edge modules](iot-edge-modules.md) are always running.
+
 * Report module health to the cloud for remote monitoring.
+
 * Manage communication between downstream devices and IoT Edge devices.
+
 * Manage communication between modules on an IoT Edge device.
+
 * Manage communication between an IoT Edge device and the cloud.
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
