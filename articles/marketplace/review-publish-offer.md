@@ -72,7 +72,7 @@ The first step in the publishing process is a set of automated validations. Each
 
 ## Certification phase
 
-Offers submitted to the commercial marketplace must be certified before being published. Offers undergo rigorous testing, some automated and others manual. To learn more, see [commercial marketplace certification policies](https://aka.ms/commercial-marketplace-certification-policies).
+Offers submitted to the commercial marketplace must be certified before being published. Offers undergo rigorous testing, some automated and others manual. To learn more, see [commercial marketplace certification policies](/legal/marketplace/certification-policies).
 
 ### Types of validation that take place during certification
 
@@ -95,7 +95,7 @@ The information entered when you created your offer is checked for quality and r
 - Quality screenshots and videos
 - An explanation of how the offer utilizes Microsoft platforms and tools.
 
-Learn more regarding the content validation criteria by reading the [general listing policies](https://aka.ms/commercial-marketplace-certification-policies#100-general).
+Learn more regarding the content validation criteria by reading the [general listing policies](/legal/marketplace/certification-policies#100-general).
 
 #### Technical validation
 

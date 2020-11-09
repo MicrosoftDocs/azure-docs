@@ -8,7 +8,7 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/27/2020
+ms.date: 11/02/2020
 ---
 
 # Sink transformation in mapping data flow
@@ -66,7 +66,26 @@ The following video explains a number of different sink options for text-delimit
 
 **Use TempDB:** By default, Data Factory will use a global temporary table to store data as part of the loading process. You can alternatively uncheck the "Use TempDB" option and instead, ask Data Factory to store the temporary holding table in a user database that is located in the database that is being used for this Sink.
 
-![TempDB](media/data-flow/tempdb.png "TempDB")
+![Use Temp DB](media/data-flow/tempdb.png "Use Temp DB")
+
+## Cache sink
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
+ 
+A *cache sink* is when a data flow writes data into the Spark cache instead of a data store. In mapping data flows, you can reference this data within the same flow many times using a *cache lookup*. This is useful when you want to reference data as part of an expression but don't want to explicitly join the columns to it. Common examples where a cache sink can help are looking up a max value on a data store and matching error codes to an error message database. 
+
+To write to a cache sink, add a sink transformation and select **Cache** as the sink type. Unlike other sink types, you don't need to select a dataset or linked service because you aren't writing to an external store. 
+
+![Select cache sink](media/data-flow/select-cache-sink.png "Select cache sink")
+
+In the sink settings, you can optionally specify the key columns of the cache sink. These are used as matching conditions when using the `lookup()` function in a cache lookup. If you specify key columns, you can't use the `outputs()` function in a cache lookup. To learn more about the cache lookup syntax, see [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
+
+![Cache sink key columns](media/data-flow/cache-sink-key-columns.png "Cache sink key columns")
+
+For example, if I specify a single key column of `column1` in a cache sink called `cacheExample`, calling `cacheExample#lookup()` would have one parameter specifies which row in the cache sink to match on. The function outputs a single complex column with subcolumns for each column mapped.
+
+> [!NOTE]
+> A cache sink must be in a completely independent data stream from any transformation referencing it via a cache lookup. A cache sink also must the first sink written. 
 
 ## Field mapping
 
@@ -79,6 +98,11 @@ When you turn off automapping, you can add either fixed column-based mappings or
 By default, data is written to multiple sinks in a nondeterministic order. The execution engine writes data in parallel as the transformation logic is completed, and the sink ordering might vary each run. To specify an exact sink ordering, enable **Custom sink ordering** on the **General** tab of the data flow. When enabled, sinks are written sequentially in increasing order.
 
 ![Screenshot that shows Custom sink ordering.](media/data-flow/custom-sink-ordering.png "Screenshot that shows Custom sink ordering.")
+
+> [!NOTE]
+> When utilizing [cached lookups](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup), make sure that your sink ordering has the cached sinks set to 0.
+
+![Custom sink ordering](media/data-flow/cache-2.png "Custom sink ordering")
 
 ## Data preview in sink
 
