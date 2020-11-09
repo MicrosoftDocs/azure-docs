@@ -162,7 +162,7 @@ If you select the check box, complete the following steps to bring your own data
 Select **Test connection** when applicable and if it's successful, select **Next**.
 
 > [!NOTE]
-   > If SQL Database is used to host SSISDB. Please note that by default, all SQL Databases use geo-redundant storage for backups. If you want to avoid your data in SSISDB to be replicated to other region, please refer to [Configure backup storage redundancy by using PowerShell](https://docs.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
+   > If SQL Database is used to host SSISDB. Please note that by default, all SQL Databases use geo-redundant storage for backups. If you want to avoid your data in SSISDB to be replicated to other region, please refer to [Configure backup storage redundancy by using PowerShell](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
    
 ##### Creating Azure-SSIS IR package stores
 
