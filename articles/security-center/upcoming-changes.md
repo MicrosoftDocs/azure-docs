@@ -46,7 +46,14 @@ We're releasing an enhanced version of the **System updates should be installed 
 
 #### Transition period
 
-There will be a transition period of approximately 36hrs. To minimize any potential disruption, we've scheduled the update to take place over a weekend. During the transition, secure scores will be affected. In addition, if you have resources for which this is the only outstanding recommendation, the health status of those resources may temporarily show as "healthy" until the transition is complete.
+There will be a transition period of approximately 36hrs. To minimize any potential disruption, we've scheduled the update to take place over a weekend. During the transition, your secure scores might be affected.
+
+#### Redesigned portal experience
+
+The recommendation details page for **System updates should be installed on your machines** includes the list of findings as shown below. When you select a single finding, the details pane opens with a link to the remediation information and a list of affected resources.
+
+:::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Opening one of the sub-recommendations in the portal experience for the updated recommendation":::
+
 
 #### Richer data from Azure Resource Graph
 
