@@ -106,7 +106,7 @@ Run following command to get an overview about the available methods:
 
 ```python
 from notebookutils import mssparkutils
-mssparkutils.help()
+mssparkutils.fs.help()
 ```
 ::: zone-end
 
@@ -122,7 +122,7 @@ mssparkutils.fs.help()
 
 ```csharp
 using Microsoft.Spark.Extensions.Azure.Synapse.Analytics.Notebook.MSSparkUtils;
-MSSparkUtils.fs.help()
+FS.Help()
 ```
 
 ::: zone-end
@@ -168,7 +168,7 @@ mssparkutils.fs.ls("Your directory path")
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+FS.Ls("Your directory path")
 ```
 
 ::: zone-end
@@ -200,7 +200,10 @@ files.foreach{
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+var Files = FS.Ls("/");
+foreach(var File in Files) {
+    Console.WriteLine(File.Name+" "+File.IsDir+" "+File.IsFile+" "+File.Size);
+}
 ```
 
 ::: zone-end
@@ -226,7 +229,7 @@ mssparkutils.fs.mkdirs("new directory name")
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+FS.Mkdirs("new directory name")
 ```
 
 ::: zone-end
@@ -252,7 +255,7 @@ mssparkutils.fs.cp("source file or directory", "destination file or directory", 
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+FS.Cp("source file or directory", "destination file or directory", true) // Set the third parameter as True to copy all files and directories recursively
 ```
 
 ::: zone-end
@@ -278,7 +281,7 @@ mssparkutils.fs.head("file path", maxBytes to read)
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+FS.Head("file path", maxBytes to read)
 ```
 
 ::: zone-end
@@ -304,7 +307,7 @@ mssparkutils.fs.mv("source file or directory", "destination directory", true) //
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+FS.Mv("source file or directory", "destination directory", true)
 ```
 
 ::: zone-end
@@ -330,7 +333,7 @@ mssparkutils.fs.put("file path", "content to write", true) // Set the last param
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+FS.Put("file path", "content to write", true) // Set the last parameter as True to overwrite the file if it existed already
 ```
 
 ::: zone-end
@@ -356,7 +359,7 @@ mssparkutils.fs.append("file path","content to append",true) // Set the last par
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+FS.Append("file path","content to append",true) // Set the last parameter as True to create the file if it does not exist
 ```
 
 ::: zone-end
@@ -382,7 +385,7 @@ mssparkutils.fs.rm("file path", true) // Set the last parameter as True to remov
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-
+FS.Rm("file path", true) // Set the last parameter as True to remove all files and directories recursively 
 ```
 
 ::: zone-end
@@ -404,6 +407,7 @@ mssparkutils.credentials.help()
 :::zone pivot = "programming-language-scala"
 
 ```scala
+mssparkutils.credentials.help()
 ```
 
 ::: zone-end
