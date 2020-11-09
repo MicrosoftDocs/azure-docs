@@ -99,7 +99,7 @@ Follow these steps to grand secret access to your workspace identity:
 
 ## File system utilities
 
-`mssparkutils.fs` provides utilities for working with various file systems, including Azure Data Lake Storage Gen2 (ADLS Gen2) and Azure Blob Storage. Make sure you configure access to [Azure Data Lake Storage Gen2](#-Configure-access-to-Azure-Data-Lake-Storage-Gen2) and [Azure Blob Storage](#-Configure-access-to-Azure-Blob-Storage) appropriately.
+`mssparkutils.fs` provides utilities for working with various file systems, including Azure Data Lake Storage Gen2 (ADLS Gen2) and Azure Blob Storage. Make sure you configure access to [Azure Data Lake Storage Gen2](#configure-access-to-azure-data-lake-storage-gen2) and [Azure Blob Storage](#configure-access-to-azure-blob-storage) appropriately.
 
 Run following command to get an overview about the available methods:
 
@@ -394,7 +394,7 @@ FS.Rm("file path", true) // Set the last parameter as True to remove all files a
 
 ## Credentials utilities
 
-You can use MSSparkUtils [Credentials Utilities](#Credentials-Utilities) to get the access tokens of linked services and manage secrets in Azure Key Vault. Make sure you configure the access to [Azure Key Vault](#-Configure-access-to-Azure-Key-Vault) appropriately.
+You can use MSSparkUtils Credentials Utilities to get the access tokens of linked services and manage secrets in Azure Key Vault. 
 
 Run following command to get an overview about the available methods:
 
@@ -434,7 +434,7 @@ putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName
 ```
 
 ### Get token
-Returns Azure AD token for a given audience, name (optional). The table below list all the available  audience types: 
+Returns Azure AD token for a given audience, name (optional). The table below list all the available audience types: 
 
 |Audience Type|Audience key|
 |--|--|
@@ -526,7 +526,7 @@ mssparkutils.credentials.getConnectionStringOrCreds("linked service name")
 
 
 ### Get secret using workspace identity
-Returns Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#-Configure-access-to-Azure-Key-Vault) appropriately.
+Returns Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#configure-access-to-azure-key-vault) appropriately.
 
 :::zone pivot = "programming-language-python"
 
@@ -579,7 +579,7 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name")
 ::: zone-end
 
 ### Put secret using workspace identity
-Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#-Configure-access-to-Azure-Key-Vault) appropriately.
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#configure-access-to-azure-key-vault) appropriately.
 
 :::zone pivot = "programming-language-python"
 
