@@ -344,4 +344,4 @@ After completing this tutorial, you can go to one of the following tutorials:
 - [Tutorial: Creating and using indexes on enclave-enabled columns using randomized encryption](https://docs.microsoft.com/sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption)
 
 ## See Also
-- [Configure and use Always Encrypted with secure enclaves](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves)
+- [Configure and use Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves)

@@ -13,7 +13,7 @@ ms.author: vanto
 ms.reviwer: 
 ms.date: 12/09/2020
 --- 
-# Plan for Intel SGX enclaves and attestation in [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)] 
+# Plan for Intel SGX enclaves and attestation in Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
@@ -27,12 +27,12 @@ Intel SGX is a hardware-based trusted execution environment technology. Intel SG
 > Intel SGX is not available in hardware generations other than DC-series, for example, Gen5, and it is not available for databases using the [DTU model](service-tiers-dtu.md).
 
 > [!IMPORTANT]
-> Before you configure the DC-series hardware generation for your database, check the regional availability of DC-series and make sure you understand its performance limitations. For details, see [DC-series](service-tiers-vcore#dc-series).
+> Before you configure the DC-series hardware generation for your database, check the regional availability of DC-series and make sure you understand its performance limitations. For details, see [DC-series](service-tiers-vcore.md#dc-series).
 
 For detailed instructions for how to configure a new or existing database to use a specific hardware generation, see [Selecting a hardware generation](service-tiers-vcore.md#selecting-a-hardware-generation).
 
 
-## Plan for attestation in [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)]
+## Plan for attestation in Azure SQL Database
 
 [Microsoft Azure Attestation](../../attestation/overview.md) (preview) is a solution for attesting Trusted Execution Environments (TEEs), including Intel SGX enclaves in Azure SQL databases using the DC-series hardware configuration.
 
