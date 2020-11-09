@@ -66,7 +66,7 @@ If you query the current version of **System updates should be installed on your
 ```kusto
 securityresources
 | where type =~ "microsoft.security/assessments/subassessments"
-| where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "071393f9-b2ef-4dc2-bd58-ef0b07ed12d2"
+| where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
 | where properties.status.code == "Unhealthy"
 ```
 
