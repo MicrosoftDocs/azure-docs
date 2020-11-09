@@ -114,10 +114,11 @@ Here's an example of how the **Signal Gate Processor** node section would look i
 
 Now consider how this signal gate processor configuration will behave in different recording scenarios.
 
+### Recording scenarios
 
 **One event from one source (*normal activation*)**
 
-A signal gate processor that receives one event results in a recording that starts the activation signal offset 5 seconds before the event arrives at the gate. The rest of the recording has a minimum activation time that's 20 seconds long because no other events arrive before the end of the minimum activation time to retrigger the gate.
+A signal gate processor that receives one event results in a recording that starts 5 seconds (activation signal = 5 seconds) before the event arrives at the gate. The rest of the recording is 20 seconds (minimum activation time = 20 seconds) because no other events arrive before the end of the minimum activation time to retrigger the gate.
 
 Example diagram:
 > [!div class="mx-imgBorder"]
@@ -128,7 +129,7 @@ Example diagram:
 
 **Two events from one source (*retriggered activation*)**
 
-A signal gate processor that receives two events results in a recording that starts the activation signal offset 5 seconds before the first event arrives at the gate. The second event arrives 5 seconds after the first event, which is before the minimum activation time of 20 seconds from the end of the first event. So the gate is retriggered to stay open. The rest of the recording has a minimum activation time that's 20 seconds long because no other events arrive before the end of the minimum activation time from the second event to retrigger the gate again.
+A signal gate processor that receives two events results in a recording that starts 5 seconds (activation signal offset = 5 seconds) before the event arrives at the gate. Also, event 2 arrives 5 seconds after event 1, which is before the 20 seconds from when event 1 finishes (minimum activation time = 20 seconds). The rest of the recording is 20 seconds (minimum activation time = 20 seconds) because no other events arrive before the end of the minimum activation time from event 2 to retrigger the gate.
 
 Example diagram:
 > [!div class="mx-imgBorder"]
@@ -139,7 +140,7 @@ Example diagram:
 
 ***N* events from one source (*maximum activation*)**
 
-A signal gate processor that receives *N* events results in a recording that starts the activation signal offset 5 seconds before the first event arrives at the gate. As each event arrives before the end of the minimum activation time of 20 seconds from the previous event, the gate is continuously retriggered. It remains open until the maximum activation time of 40 seconds after the first event. Then the gate closes and no longer accepts any new events.
+A signal gate processor that receives *N* events results in a recording that starts 5 seconds (activation signal offset = 5 seconds) before the first event arrives at the gate. As each event arrives before the end of the minimum activation time of 20 seconds from the previous event, the gate is continuously retriggered. It remains open until the maximum activation time of 40 seconds after the first event. Then the gate closes and no longer accepts any new events.
 
 Example diagram:
 > [!div class="mx-imgBorder"]
