@@ -20,8 +20,6 @@
       href: deployment-files-faq.md
     - name: Certificates
       href: certificates-faq.md
-    - name: Guest OS Changes
-      href: guest-os-changes-faq.md
     - name: Networking
       href: networking-faq.md
     - name: Migration
