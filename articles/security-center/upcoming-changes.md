@@ -66,22 +66,8 @@ When querying the current version of **System updates should be installed on you
 ```kusto
 securityresources
 | where type =~ "microsoft.security/assessments/subassessments"
-| extend assessmentKey=extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id),
-         subAssessmentId=tostring(properties.id),
-         parentResourceId= extract("(.+)/providers/Microsoft.Security", 1, id)
-| extend resourceId = tostring(properties.resourceDetails.id)
-| extend subAssessmentName=tostring(properties.displayName),
-         subAssessmentDescription=tostring(properties.description),
-         subAssessmentRemediation=tostring(properties.remediation),
-         subAssessmentCategory=tostring(properties.category),
-         subAssessmentImpact=tostring(properties.impact),
-         severity=tostring(properties.status.severity),
-         status=tostring(properties.status.code),
-         cause=tostring(properties.status.cause),
-         statusDescription=tostring(properties.status.description),
-         additionalData=tostring(properties.additionalData)
-| where assessmentKey == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
-| where status == "Unhealthy"
+| where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "071393f9-b2ef-4dc2-bd58-ef0b07ed12d2"
+| where properties.status.code == "Unhealthy"
 ```
 
 ## Next steps
