@@ -41,9 +41,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Linked service API is refined. Instead of providing resource Id, we have 3 separate parameters sub_id, rg, and name defined in configuration.
     + In order to enable customers to self-resolve token corruption issues, enable workspace token synchronization to be a public method.
     + This change allows an empty string to be used as a value for a script_param
-  + **azureml-dataprep**
-    +  Fixed the issue where if the AzureResourceManager outbound traffic is blocked then it will cause Dataset mount to timeout.
-    +  Remove misleading NotFound error message when using `OutputFileDatasetConfig` and `OutputTabularDatasetConfig`
   + **azureml-pipeline-core**
     + SDK to support SynapseCompute type and SynapseSparkStep. Customers can run experiment and pipeline run on synapse spark pool.
   + **azureml-pipeline-steps**
