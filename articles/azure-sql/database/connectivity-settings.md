@@ -102,7 +102,7 @@ The minimal [Transport Layer Security (TLS)](https://support.microsoft.com/help/
 Currently, we support TLS 1.0, 1.1, and 1.2. Setting a minimal TLS version ensures that newer TLS versions are supported. For example, choosing a TLS version greater than 1.1 means only connections with TLS 1.1 and 1.2 are accepted, and connections with TLS 1.0 are rejected. After you test to confirm that your applications support it, we recommend setting the minimal TLS version to 1.2. This version includes fixes for vulnerabilities in previous versions and is the highest version of TLS that's supported in Azure SQL Database.
 
 > [!IMPORTANT]
-> The default for the minimal TLS version is to allow all versions. Once you enforce a version of TLS, it's not possible to revert to the default.
+> The default for the minimal TLS version is to allow all versions. After you enforce a version of TLS, it's not possible to revert to the default.
 
 For customers with applications that rely on older versions of TLS, we recommend setting the minimal TLS version according to the requirements of your applications. For customers that rely on applications to connect by using an unencrypted connection, we recommend not setting any minimal TLS version.
 
