@@ -29,6 +29,12 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 ## November 2020
 
+Updates in November include:
+
+- [29 preview recommendations added to increase coverage of Azure Security Benchmark](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [NIST SP 800 171 R2 added to Security Center's regulatory compliance dashboard](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
+
+
 ### 29 preview recommendations added to increase coverage of Azure Security Benchmark
 
 Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
@@ -57,10 +63,21 @@ Related links:
 - [Learn more about Azure Database for PostgreSQL](../postgresql/overview.md)
 
 
+### NIST SP 800 171 R2 added to Security Center's regulatory compliance dashboard
+
+The NIST SP 800-171 R2 standard is now available as a built-in initiative for use with Azure Security Center's regulatory compliance dashboard. The mappings for the controls are described in [Details of the NIST SP 800-171 R2 Regulatory Compliance built-in initiative](../governance/policy/samples/nist-sp-800-171-r2.md). 
+
+To apply the standard to your subscriptions and continuously monitor your compliance status, use the instructions in [Customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
+:::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="The NIST SP 800 171 R2 standard in Security Center's regulatory compliance dashboard":::
+
+For more information about this compliance standard, see [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
+
 
 
 ## October 2020
 
+Updates in October include:
 - [Vulnerability assessment for on-premise and multi-cloud machines (preview)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Azure Firewall recommendation added (preview)](#azure-firewall-recommendation-added-preview)
 - [Authorized IP ranges should be defined on Kubernetes Services recommendation updated with quick fix](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)

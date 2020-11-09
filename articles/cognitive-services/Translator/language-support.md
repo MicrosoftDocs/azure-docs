@@ -341,7 +341,7 @@ The following languages are available for customization to or from English using
 | Welsh | `cy` |
 
 ## Speech Translation
-Speech Translation is available by using Translator with Cognitive Services Speech service. View [Speech Service documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/) to learn more about using speech translation and to view all of the [available language options](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+Speech Translation is available by using Translator with Cognitive Services Speech service. View [Speech Service documentation](../speech-service/index.yml) to learn more about using speech translation and to view all of the [available language options](../speech-service/language-support.md).
 
 ### Speech-to-text
 Convert speech into text in order to translate to the text language of your choice. Speech-to-text is used for speech to text translation, or for speech-to-speech translation when used in conjunction with speech synthesis.
