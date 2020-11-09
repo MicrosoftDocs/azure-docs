@@ -18,8 +18,6 @@ ms.subservice: B2C
 
 Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
 ## Self-asserted page (selfasserted)
 
 **2.1.1**
