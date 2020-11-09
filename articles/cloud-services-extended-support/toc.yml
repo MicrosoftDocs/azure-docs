@@ -10,12 +10,34 @@
   items: 
   - name: Available VM sizes
     href: available-sizes.md
+  - name: Extensions Overview
+    href: extensions.md
   - name: ASM to ARM PowerShell Commands
     href: asm-to-arm-powershell.md
+  - name: Frequently Asked Questions
+    items: 
+    - name: General FAQ
+      href: general-faq.md
+    - name: Architecture & Features
+      href: architecture-and-features-faq.md
+    - name: Deployment Files
+      href: deployment-files-faq.md
+    - name: Certificates
+      href: certificates-faq.md
+    - name: Guest OS Changes
+      href: guest-os-changes-faq.md
+    - name: Networking
+      href: networking-faq.md
+    - name: Migration
+      href: migration-faq.md
+    - name: Troubleshooting
+      href: troubleshooting-faq.md
 - name: How To
   items:
   - name: Enable Remote Desktop
     href: enable-rdp.md
+  - name: Swap Cloud Service Deployments
+    href: cloud-services-swap.md
   - name: Update a Cloud Service - PowerShell
     href: update-powershell.md
 - name: Reference
