@@ -24,9 +24,7 @@ landingContent:
         - text: What is Metrics Advisor?
           url: overview.md
     - linkListType: quickstart
-      links:
-        - text: Explore the demo site
-          url: quickstarts/explore-demo.md     
+      links:  
         - text: Monitor your first metric on web
           url: quickstarts/web-portal.md
 

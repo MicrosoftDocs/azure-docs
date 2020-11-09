@@ -22,6 +22,10 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ## Release notes
 
+### 2.11.8 (6 November 2020)
+
+ - This release includes an update for the Cosmos emulator Data Explorer and fixes an issue where TLS 1.3 clients try to open the Data Explorer.
+
 ### 2.11.6 (6 October 2020)
 
  - This release addresses a concurrency related issue when multiple containers might be created at the same time. In such cases emulator's data is left in a corrupted state and following API requests to the emulator's endpoint could fail with "service unavailable" errors, requiring a restart and a reset of the emulator's local data.

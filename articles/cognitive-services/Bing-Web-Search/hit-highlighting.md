@@ -34,7 +34,7 @@ Before displaying the result in your user interface, replace the Unicode charact
 
 ## Marker formatting
 
-Bing provides the option of using either Unicode characters or HTML tags as markers. To specify which markers to use, include the [textFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) query parameter: 
+Bing provides the option of using either Unicode characters or HTML tags as markers. To specify which markers to use, include the [textFormat](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) query parameter: 
 
 | Value             | Marker                       |
 |-------------------|------------------------------|

@@ -13,12 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/05/2020
 ms.author: b-juche
 ---
 # Configure NFSv4.1 Kerberos encryption for Azure NetApp Files
 
 Azure NetApp Files supports NFS client encryption in Kerberos modes (krb5, krb5i, and krb5p) with AES-256 encryption. This article describes the required configurations for using an NFSv4.1 volume with Kerberos encryption.
+
+## Considerations
+
+* NFSv4.1 Kerberos encryption volumes do not currently support Azure Active Directory Domain Services (AADDS). 
 
 ## Requirements
 
