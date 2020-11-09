@@ -148,7 +148,7 @@ You may also use Azure Blueprints to simplify large scale Azure deployments by p
 
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](../../governance/policy/samples/index.md#network)
+- [Azure Policy samples for networking](../../governance/policy/samples/built-in-policies.md#network)
 
 - [How to create an Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 

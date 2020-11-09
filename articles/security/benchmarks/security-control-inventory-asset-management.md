@@ -94,7 +94,7 @@ Use Azure virtual machine Inventory to automate the collection of information ab
 
 Use Azure Security Center's File Integrity Monitoring (Change Tracking) and virtual machine inventory to identify all software installed on Virtual Machines. You can implement your own process for removing unauthorized software. You can also use a third party solution to identify unapproved software.
 
-- [How to use File Integrity Monitoring](../../security-center/security-center-file-integrity-monitoring.md#using-file-integrity-monitoring)
+- [How to use File Integrity Monitoring](../../security-center/security-center-file-integrity-monitoring.md)
 
 - [Understand Azure Change Tracking](../../automation/change-tracking.md)
 
