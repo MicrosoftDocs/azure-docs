@@ -283,7 +283,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Open a browser window, and go to the URL: `http://localhost:8080/welcome`.
 
-    ![Quickstart app launch local](./media/quickstarts/spring-boot-feature-flag-local-before.png)
+    ![Screenshot shows a browser window with a Welcome message.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
 1. In the App Configuration portal select **Feature Manager**, and change the state of the **Beta** key to **On**:
 
@@ -293,7 +293,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Refresh the browser page to see the new configuration settings.
 
-    ![Quickstart app launch local](./media/quickstarts/spring-boot-feature-flag-local-after.png)
+    ![Screenshot shows a browser window with a Welcome message and a Beta link called out.](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
 ## Clean up resources
 

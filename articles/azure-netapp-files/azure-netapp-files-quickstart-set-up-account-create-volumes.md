@@ -11,24 +11,16 @@ ms.custom: devx-track-azurecli, subject-armqs
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
 
-# Quickstart: Set up Azure NetApp Files and create an NFS volume using an ARM template
+# Quickstart: Set up Azure NetApp Files and create an NFS volume
 
-This article shows you how to quickly set up Azure NetApp Files and create a volume using an Azure Resource Manager template (ARM template).
-
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+This article shows you how to quickly set up Azure NetApp Files and create a volume.
 
 In this quickstart, you will set up the following items:
 
-- Registration for Azure NetApp Files and NetApp Resource Provider.
-- A NetApp account.
-- A capacity pool.
-- An NFS volume for Azure NetApp Files.
-
-If your environment meets the prerequisites, you've completed the [Before you begin](#before-you-begin) section, and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
-
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-anf-nfs-volume%2Fazuredeploy.json)
-
-## Prerequisites
+- Registration for Azure NetApp Files and NetApp Resource Provider
+- A NetApp account
+- A capacity pool
+- An NFS volume for Azure NetApp Files
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -39,24 +31,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Review the template
-
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-anf-nfs-volume).
-
- To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-anf-nfs-volume/azuredeploy.json).
-
-Several resources are defined in the template:
-
-- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-- [Microsoft.NetApp/netAppAccounts](/azure/templates/microsoft.netapp/netappaccounts)
-- [Microsoft.NetApp/netAppAccounts/capacityPools](/azure/templates/microsoft.netapp/netappaccounts/capacitypools)
-- [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes)
-
-## Deploy the template
-
 ---
 
-### Register for Azure NetApp Files and NetApp Resource Provider
+## Register for Azure NetApp Files and NetApp Resource Provider
 
 > [!NOTE]
 > The registration process can take some time to complete.
@@ -96,7 +73,7 @@ See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more i
 
 ---
 
-### Create a NetApp account
+## Create a NetApp account
 
 # [Portal](#tab/azure-portal)
 
@@ -181,9 +158,9 @@ See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more i
 
 # [Template](#tab/template)
 
-<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-The following code snippet shows how to create a NetApp account in an ARM template, using the [Microsoft.NetApp/netAppAccounts](/azure/templates/microsoft.netapp/netappaccounts) resource. To run the code, download the [full ARM template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
+The following code snippet shows how to create a NetApp account in an Azure Resource Manager template (ARM template), using the [Microsoft.NetApp/netAppAccounts](/azure/templates/microsoft.netapp/netappaccounts) resource. To run the code, download the [full ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
 
@@ -191,7 +168,7 @@ The following code snippet shows how to create a NetApp account in an ARM templa
 
 ---
 
-### Set up a capacity pool
+## Set up a capacity pool
 
 # [Portal](#tab/azure-portal)
 
@@ -257,7 +234,7 @@ The following code snippet shows how to create a NetApp account in an ARM templa
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
 
-The following code snippet shows how to create a capacity pool in an ARM template, using the [Microsoft.NetApp/netAppAccounts/capacityPools](/azure/templates/microsoft.netapp/netappaccounts/capacitypools) resource. To run the code, download the [full ARM template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
+The following code snippet shows how to create a capacity pool in an Azure Resource Manager template (ARM template), using the [Microsoft.NetApp/netAppAccounts/capacityPools](/azure/templates/microsoft.netapp/netappaccounts/capacitypools) resource. To run the code, download the [full ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
 
@@ -265,7 +242,7 @@ The following code snippet shows how to create a capacity pool in an ARM templat
 
 ---
 
-### Create NFS volume for Azure NetApp Files
+## Create NFS volume for Azure NetApp Files
 
 # [Portal](#tab/azure-portal)
 
@@ -300,7 +277,7 @@ The following code snippet shows how to create a capacity pool in an ARM templat
     * Select the NFS version (**NFSv3** or **NFSv4.1**) for the volume.
       See [considerations](azure-netapp-files-create-volumes.md#considerations) and [best practice](azure-netapp-files-create-volumes.md#best-practice) about NFS versions.
 
-  ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+    ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Click **Review + create**.
 
@@ -406,7 +383,7 @@ The following code snippet shows how to create a capacity pool in an ARM templat
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
 
-The following code snippets show how to set up a VNet and create an Azure NetApp Files volume in an ARM template. VNet setup uses the [Microsoft.Network/virtualNetworks](/azure/templates/Microsoft.Network/virtualNetworks) resource. Volume creation uses the [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) resource. To run the code, download the [full ARM template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
+The following code snippets show how to set up a VNet and create an Azure NetApp Files volume in an Azure Resource Manager template (ARM template). VNet setup uses the [Microsoft.Network/virtualNetworks](/azure/templates/Microsoft.Network/virtualNetworks) resource. Volume creation uses the [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) resource. To run the code, download the [full ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) from our GitHub repo.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="148-176":::
 
