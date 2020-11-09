@@ -11,9 +11,11 @@ ms.subservice: common
 
 # Authorize access to blobs with AzCopy and Azure Active Directory (Azure AD)
 
-When you execute an AzCopy command, your security principal must have authorized access to the target data. You can provide authorization credentials by using Azure Active Directory (AD). By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.  This article helps you to use the correct Azure RBAC role, and then authorize an identity, service principal, or managed identity.
+You can provide AzCopy with authorization credentials by using Azure Active Directory (AD). That way, you won't have to append a shared access signature (SAS) token to each command. For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-v10.md).
 
-To learn more about getting started with AzCopy, see [Get started with AzCopy](storage-use-azcopy-v10.md).
+Start by verifying your role assignments. Then, choose what type of _security principal_ you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are all types of a security principal.
+
+A user identity is any user that has an identity in Azure AD. It's the easiest security principal to authorize. Both managed identities and service principals are great options if you plan to use AzCopy inside of a script that runs without user interaction. A managed identity is better suited for scripts that run from an Azure Virtual Machine (VM), and a service principal is better suited for scripts that run on-premises. 
 
 ## Verify role assignments
 
@@ -67,6 +69,48 @@ This command returns an authentication code and the URL of a website. Open the w
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
 <a id="service-principal"></a>
+
+## Authorize a managed identity
+
+This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, and the script runs from an Azure Virtual Machine (VM). When using this option, you won't have to store any credentials on the VM.
+
+You can sign into your account by using the a system-wide managed identity that you've enabled on your VM, or by using the client ID, Object ID, or Resource ID of a user-assigned managed identity that you've assigned to your VM.
+
+To learn more about how to enable a system-wide managed identity or create a user-assigned managed identity, see [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
+
+#### Authorize by using a system-wide managed identity
+
+First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
+
+Then, in your command console, type the following command, and then press the ENTER key.
+
+```azcopy
+azcopy login --identity
+```
+
+#### Authorize by using a user-assigned managed identity
+
+First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
+
+Then, in your command console, type any of the following commands, and then press the ENTER key.
+
+```azcopy
+azcopy login --identity --identity-client-id "<client-id>"
+```
+
+Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
+
+```azcopy
+azcopy login --identity --identity-object-id "<object-id>"
+```
+
+Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity.
+
+```azcopy
+azcopy login --identity --identity-resource-id "<resource-id>"
+```
+
+Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
 
 ## Authorize a service principal
 
@@ -134,48 +178,9 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully-
 
 <a id="managed-identity"></a>
 
-## Authorize a managed identity
-
-This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, and the script runs from an Azure Virtual Machine (VM). When using this option, you won't have to store any credentials on the VM.
-
-You can sign into your account by using the a system-wide managed identity that you've enabled on your VM, or by using the client ID, Object ID, or Resource ID of a user-assigned managed identity that you've assigned to your VM.
-
-To learn more about how to enable a system-wide managed identity or create a user-assigned managed identity, see [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
-
-#### Authorize by using a system-wide managed identity
-
-First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
-
-Then, in your command console, type the following command, and then press the ENTER key.
-
-```azcopy
-azcopy login --identity
-```
-
-#### Authorize by using a user-assigned managed identity
-
-First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity).
-
-Then, in your command console, type any of the following commands, and then press the ENTER key.
-
-```azcopy
-azcopy login --identity --identity-client-id "<client-id>"
-```
-
-Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
-
-```azcopy
-azcopy login --identity --identity-object-id "<object-id>"
-```
-
-Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity.
-
-```azcopy
-azcopy login --identity --identity-resource-id "<resource-id>"
-```
-
-Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
 
 ## Next steps
 
-If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy) page.
+- For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-v10.md)
+
+- If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy) page.
