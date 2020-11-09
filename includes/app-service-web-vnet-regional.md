@@ -76,12 +76,17 @@ Border Gateway Protocol (BGP) routes also affect your app traffic. If you have B
 
 ### Azure DNS Private Zones 
 
-After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with. By default, your app won't work with Azure DNS Private Zones. To work with Azure DNS Private Zones you need to add the following app settings:
+After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with. By default, your app won't work with Azure DNS Private Zones. To work with Azure DNS Private Zones, you need to add the following app settings:
 
-1. WEBSITE_DNS_SERVER with value 168.63.129.16 
+1. WEBSITE_DNS_SERVER with value 168.63.129.16
 1. WEBSITE_VNET_ROUTE_ALL with value 1
 
-These settings will send all of your outbound calls from your app into your VNet in addition to enabling your app to use Azure DNS private zones.
+These settings will send all the outbound calls from your app into your VNet. Additionally, it will enable the app to use Azure DNS by querying the Private DNS Zone at the worker level. This functionality is to be used when a running app is accessing a Private DNS Zone.
+
+> [!NOTE]
+>Trying to add a custom domain to a Web App using Private DNS Zone is not possible with the VNET Integration. Custom domain validation is done at the controller level, not the worker level, which prevents the DNS records from being seen. To use a custom domain from a Private DNS Zone, validation would need to be bypassed using an Application Gateway or ILB App Service Environment.
+
+
 
 ### Private endpoints
 
