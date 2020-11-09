@@ -18,10 +18,6 @@ ms.custom: references_regions
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-restrictions](../../includes/virtual-machines-disks-performance-tiers-restrictions.md)]
 
-## Regional availability
-
-[!INCLUDE [virtual-machines-disks-performance-tiers-regions](../../includes/virtual-machines-disks-performance-tiers-regions.md)]
-
 ## Getting started
 
 The following steps outline how to change the performance tier of your disk with the Azure portal:
