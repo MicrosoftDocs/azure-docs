@@ -27,8 +27,8 @@ See also the following table for examples of the parameters' effects:
 
 |                | 0 | 0.25 | 0.5 | 0.75 | 1.0 | 
 |----------------|:-:|:----:|:---:|:----:|:---:|
-| `Desaturation` | ![Desaturation-0.0](./media/shell-desaturation-0.0.png) | ![Desaturation-0.25](./media/shell-desaturation-0.25.png) | ![Desaturation-0.5](./media/shell-desaturation-0.5.png) | ![Desaturation-0.75](./media/shell-desaturation-0.75.png) | ![Desaturation-1.0](./media/shell-desaturation-1.0.png) |
-| `Opacity`      | ![Opacity-0.0](./media/shell-opacity-0.0.png) | ![Opacity-0.25](./media/shell-opacity-0.25.png) | ![Opacity-0.5](./media/shell-opacity-0.5.png) | ![Opacity-0.75](./media/shell-opacity-0.75.png) | ![Opacity-1.0](./media/shell-opacity-1.0.png) |
+| **Desaturation** | ![Desaturation-0.0](./media/shell-desaturation-0.0.png) | ![Desaturation-0.25](./media/shell-desaturation-0.25.png) | ![Desaturation-0.5](./media/shell-desaturation-0.5.png) | ![Desaturation-0.75](./media/shell-desaturation-0.75.png) | ![Desaturation-1.0](./media/shell-desaturation-1.0.png) |
+| **Opacity**      | ![Opacity-0.0](./media/shell-opacity-0.0.png) | ![Opacity-0.25](./media/shell-opacity-0.25.png) | ![Opacity-0.5](./media/shell-opacity-0.5.png) | ![Opacity-0.75](./media/shell-opacity-0.75.png) | ![Opacity-1.0](./media/shell-opacity-1.0.png) |
 
 The shell effect is applied on the final opaque color the scene would be rendered with otherwise. That includes the [tint hierarchical state override](../../overview/features/override-hierarchical-state.md).
 
