@@ -11,7 +11,7 @@ This article describes how retention works for virtual machines. Whenever backup
 
 For virtual machines, the initial backup is a full backup and the subsequent backups are incremental backups.
 
-## Recovery Points and retention
+## Recovery points and retention
 
 ### Scheduled initial and incremental backup
 
@@ -92,9 +92,9 @@ There are two ways to stop protecting a VM:
 - **Stop protection and delete backup data.** This option will stop all future backup jobs from protecting your VM and deletes all the recovery points. If [soft delete](backup-azure-security-feature-cloud.md) is enabled, the deleted data will be retained for 14 days. Charges aren't incurred for items in soft-deleted state. The data can be undeleted within the period of 14 days. If soft delete isn't enabled, the data will be immediately cleaned up and you won't be able to restore the VM or use the **Resume backup** option.
 - **Stop protection and retain backup data.** This option will stop all future backup jobs from protecting your VM. However, the Azure Backup service will forever retain the recovery points that have been backed up. You'll need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You'll be able to restore the VM if needed. If you decide to resume VM protection, then you can use the **Resume backup** option. After resuming backup, retention rules will be applied to expiration points. You can also delete the backed-up data using the  **Delete backup data** option.
 
-## Impact of deleting a VM on recovery points without stop protection
+## Impact of deleting a VM without stop protection
 
-This is an undesirable scenario and ideally backups should be stopped before deleting the virtual machine. Since the resource doesn't exist, the scheduled backups will fail with the [VMNotFoundV2 error](backup-azure-vms-troubleshoot.md#320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found). The recovery points will be cleaned periodically according to the retention policy, but the last copy of the virtual machine will remain forever and you'll be billed accordingly. Depending on your scenario, you have the following two options:
+Deleting a VM without stop protection has impact on recovery points, and is an undesirable scenario. Ideally backups should be stopped before deleting the virtual machine. Since the resource doesn't exist, the scheduled backups will fail with the [VMNotFoundV2 error](backup-azure-vms-troubleshoot.md#320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found). The recovery points will be cleaned periodically according to the retention policy, but the last copy of the virtual machine will remain forever and you'll be billed accordingly. Depending on your scenario, you have the following two options:
 
 - **Option 1:** Restore the VM using any of the recovery points. If you want to recover the deleted VM, restore using the same name and in the same resource group. If you protect the restored VM to the same vault, then the existing recovery points will automatically get attached.
 - **Option 2:** Go to the Recovery Services vault and stop protection with delete data.
