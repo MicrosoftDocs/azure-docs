@@ -72,6 +72,8 @@
       href: concepts-api-management.md
     - name: Hub and spoke
       href: concepts-hub-and-spoke.md
+    - name: Azure Security Center
+      href: azure-security-integration.md
     - name: Azure Backup Server
       items:
       - name: Set up Backup Server

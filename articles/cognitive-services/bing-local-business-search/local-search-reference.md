@@ -29,7 +29,7 @@ For information about query parameters that requests should include, see [Query 
   
 For information about the JSON objects that the response includes, see [Response objects](#response-objects).
 
-For information about permitted use and display of results, see [Use and display requirements](use-display-requirements.md).
+For information about permitted use and display of results, see [Use and display requirements](../bing-web-search/use-display-requirements.md).
 
 
   
