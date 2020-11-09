@@ -17,11 +17,11 @@ ms.author: robinsh
 
 In this quickstart, you enable Secure Shell (SSH) and Remote Desktop Protocol (RDP) traffic to be sent to the device over a device stream. Azure IoT Hub device streams allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart describes the execution of a Node.js proxy application that's running on the service side. During public preview, the Node.js SDK supports device streams on the service side only. As a result, this quickstart covers instructions to run only the service-local proxy application.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
 * Completion of [Enable SSH and RDP over IoT Hub device streams by using a C proxy application](./quickstart-device-streams-proxy-c.md) or [Enable SSH and RDP over IoT Hub device streams by using a C# proxy application](./quickstart-device-streams-proxy-csharp.md).
+
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 * [Node.js 10+](https://nodejs.org).
 
@@ -33,16 +33,18 @@ In this quickstart, you enable Secure Shell (SSH) and Remote Desktop Protocol (R
     node --version
     ```
 
-* Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-    > [!IMPORTANT]
-    > The preview of device streams is currently only supported for IoT Hubs created in the following regions:
-    >
-    > * Central US
-    > * Central US EUAP
-    > * North Europe
-    > * Southeast Asia
-  
+Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!IMPORTANT]
+> The preview of device streams is currently only supported for IoT Hubs created in the following regions:
+>
+> * Central US
+> * Central US EUAP
+> * North Europe
+> * Southeast Asia
+
 ### Add Azure IoT Extension
 
 Add the Azure IoT Extension for Azure CLI to your Cloud Shell instance by running the following command. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.

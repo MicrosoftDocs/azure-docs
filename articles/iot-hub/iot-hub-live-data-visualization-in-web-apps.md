@@ -39,17 +39,11 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
   * An Iot hub under your subscription
   * A client application that sends messages to your Iot hub
 
+* [Download Git](https://www.git-scm.com/downloads)
+
 * The steps in this article assume a Windows development machine; however, you can easily perform these steps on a Linux system in your preferred shell.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
-* Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
-
-    ```azurecli-interactive
-    az extension add --name azure-iot
-    ```
-
-* [Download Git](https://www.git-scm.com/downloads)
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Add a consumer group to your IoT hub
 
