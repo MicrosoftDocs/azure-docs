@@ -47,8 +47,8 @@ To request elevation data in raster tile format, use the [Render V2 - Get Map Ti
 
 Use the Elevation service APIs to request elevation data in GeoJSON format. This section will show you each one of the three APIs:
 
-* [Get Data For Points](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
-* [Post Data For Points](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
+* [Get Data for Points](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+* [Post Data for Points](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
 * [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
 * [Post Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline)
 * [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
@@ -58,7 +58,7 @@ Use the Elevation service APIs to request elevation data in GeoJSON format. This
 
 ### Request elevation data for points
 
-In this example, we'll use the [Get Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Then, we'll use the [Post Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) to request elevation data using the same two points. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
+In this example, we'll use the [Get Data for Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Then, we'll use the [Post Data for Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) to request elevation data using the same two points. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
 
  >[!IMPORTANT]
  >Due to the URL character length limit of 2048, it's not possible to pass more than 100 coordinates as a pipeline delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the POST Data For Points.
@@ -94,7 +94,7 @@ In this example, we'll use the [Get Data For Points API](https://docs.microsoft.
     }
     ```
 
-4. Now, we'll call the [Post Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) to get elevation data for the same two points. Select the **POST** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+4. Now, we'll call the [Post Data for Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) to get elevation data for the same two points. Select the **POST** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
@@ -437,6 +437,36 @@ In this example, we'll specify rows=3 and columns=6. 18 elevation values are ret
     ]
     }
     ```
+
+## Samples: Use elevation service APIs in Azure Maps Control
+
+### Get elevation data by coordinate position
+
+The following sample web page shows you how to use the map control to display elevation data at a coordinate point. When the user drags the marker, the map will display the elevation data in a popup.
+
+<iframe height="500" style="width:100%;" scrolling="no" title="Get elevation at position" src="https://codepen.io/azuremaps/embed/c840b510e113ba7cb32809591d5f96a2?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/azuremaps/pen/c840b510e113ba7cb32809591d5f96a2'>Get elevation at position</a> by Azure Maps
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+### Get elevation data by bounding box
+
+The following sample web page shows you how to use the map control to display elevation data contained within a bounding box. The user defines the bounding box by clicking on the `square` icon in the upper-left hand corner, and drawing the square anywhere on the map. The map control will then render the elevation data in accordance with the colors specified in the key located in the upper-right hand corner.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Elevations by bounding box" src="https://codepen.io/azuremaps/embed/619c888c70089c3350a3e95d499f3e48?height=500&theme-id=default&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/azuremaps/pen/619c888c70089c3350a3e95d499f3e48'>Elevations by bounding box</a> by Azure Maps
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+### Get elevation data by PolyLine path
+
+The following sample web page shows you how to use the map control to display elevation data along a path. The user defines the path by clicking on the `PolyLine` icon in the upper-left hand corner, and drawing the PolyLine on the map. The map control then renders the elevation data in colors specified in the key located in the upper-right hand corner.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Elevation path gradient" src="https://codepen.io/azuremaps/embed/7bee08e5cb13d05cb0a11636b60f14ca?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/azuremaps/pen/7bee08e5cb13d05cb0a11636b60f14ca'>Elevation path gradient</a> by Azure Maps
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 
 ## Next steps
 
