@@ -71,6 +71,11 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 * Industry-leading productivity for data engineers writing SQL or Spark code: authoring, debugging, and performance optimization
 * Integrate with enterprise CI/CD processes
 
+## Engage with the Synapse engineering team
+
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Ask development questions.
+- [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html): Ask technical questions.
+
 ## Next steps
 
 * [Get started with Azure Synapse Analytics](get-started.md)
