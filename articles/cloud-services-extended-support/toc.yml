@@ -10,10 +10,6 @@
   items: 
   - name: Available VM sizes
     href: available-sizes.md
-  - name: Extensions Overview
-    href: extensions.md
-  - name: ASM to ARM PowerShell Commands
-    href: asm-to-arm-powershell.md
   - name: Frequently Asked Questions
     items: 
     - name: General FAQ
