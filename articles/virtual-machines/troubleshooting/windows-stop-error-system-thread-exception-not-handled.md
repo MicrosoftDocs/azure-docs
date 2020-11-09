@@ -31,9 +31,9 @@ The cause can't be determined until a memory dump file is analyzed. Continue to 
 
 ## Solution
 
-To resolve this problem, you first need to gather the memory dump file for the crash and then send the file to Microsoft support. To collect the dump file, follow the instructions in the next two sections:
+To resolve this problem, you first need to gather the memory dump file for the crash and then send the file to Microsoft support. To collect the dump file, follow the instructions in the next two sections.
 
-### Attach the OS disk to a new Repair VM
+### Attach the OS disk to a new repair VM
 
 1. To prepare a repair VM, follow steps 1-3 of the [VM repair commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md).
 1. Connect to the repair VM by using Remote Desktop Connection.
