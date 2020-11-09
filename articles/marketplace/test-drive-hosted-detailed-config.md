@@ -89,6 +89,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
     - **User manual** – A PDF user manual that helps test drive users understand how to use your app.
     - **Test drive demo video** – A video that showcases your app (optional).
 
+<!-->
 ## Next steps
 
-- [Set up your Azure subscription](test-drive-azure-subscription-setup.md)
+- [Set up your Azure subscription](test-drive-azure-subscription-setup.md) -->
