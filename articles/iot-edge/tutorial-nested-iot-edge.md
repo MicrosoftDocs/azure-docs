@@ -194,13 +194,13 @@ Install IoT Edge by following these steps on both devices.
 
 Configure the IoT Edge runtime by following these steps on both your devices. Configuring the IoT Edge runtime for your devices consists of four steps, all accomplished by editing the IoT Edge configuration file:
 
-* Manually provision each device by adding that device's connection string to the configuration file.
+1. Manually provision each device by adding that device's connection string to the configuration file.
 
-* Finish setting up your device's certificates by pointing the configuration file to the device CA certificate, device CA private key, and root CA certificate.
+1. Finish setting up your device's certificates by pointing the configuration file to the device CA certificate, device CA private key, and root CA certificate.
 
-* Bootstrap the system using the IoT Edge agent.
+1. Bootstrap the system using the IoT Edge agent.
 
-* Update the **hostname** parameter for your **top layer** device, and update both the **hostname** parameter and **parent_hostname** parameter for your **lower layer** devices.
+1. Update the **hostname** parameter for your **top layer** device, and update both the **hostname** parameter and **parent_hostname** parameter for your **lower layer** devices.
 
 Complete these steps and restart the IoT Edge service to configure your devices.
 
