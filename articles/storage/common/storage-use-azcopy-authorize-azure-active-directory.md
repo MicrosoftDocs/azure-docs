@@ -11,19 +11,19 @@ ms.subservice: common
 
 # Authorize access to blobs with AzCopy and Azure Active Directory (Azure AD)
 
-You can provide AzCopy with authorization credentials by using Azure Active Directory (AD). That way, you won't have to append a shared access signature (SAS) token to each command. For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-v10.md).
+You can provide AzCopy with authorization credentials by using Azure AD. That way, you won't have to append a shared access signature (SAS) token to each command. 
 
-Start by verifying your role assignments. Then, choose what type of _security principal_ you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are all types of a security principal.
+Start by verifying your role assignments. Then, choose what type of _security principal_ you want to authorize. A [user identity](../../active-directory/fundamentals/add-users-azure-active-directory.md), a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) are each a type of security principal.
 
-A user identity is any user that has an identity in Azure AD. It's the easiest security principal to authorize. Both managed identities and service principals are great options if you plan to use AzCopy inside of a script that runs without user interaction. A managed identity is better suited for scripts that run from an Azure Virtual Machine (VM), and a service principal is better suited for scripts that run on-premises. 
+A user identity is any user that has an identity in Azure AD. It's the easiest security principal to authorize. Managed identities and service principals are great options if you plan to use AzCopy inside of a script that runs without user interaction. A managed identity is better suited for scripts that run from an Azure Virtual Machine (VM), and a service principal is better suited for scripts that run on-premises. 
+
+For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-v10.md).
 
 ## Verify role assignments
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
 If you just want to download files, then verify that the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role has been assigned to your user identity, managed identity, or service principal.
-
-> User identities, managed identities, and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
 
 If you want to upload files, then verify that one of these roles has been assigned to your security principal:
 
@@ -114,7 +114,7 @@ Replace the `<resource-id>` placeholder with the resource ID of the user-assigne
 
 ## Authorize a service principal
 
-This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, particularly when running on-premises. If you plan to run AzCopy on VMs that run in Azure, a managed service identity is easier to administer. To learn more, see the [Authenticate a managed identity](#managed-identity) section of this article.
+This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, particularly when running on-premises. If you plan to run AzCopy on VMs that run in Azure, a managed service identity is easier to administer. To learn more, see the [Authorize a managed identity](#authorize-a-managed-identity) section of this article.
 
 Before you run a script, you have to sign-in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information.
 
