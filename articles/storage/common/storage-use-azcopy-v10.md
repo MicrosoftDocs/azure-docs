@@ -81,7 +81,7 @@ To authorize access by using Azure AD, see [Authorize access to blobs with AzCop
 
 You can append a SAS token to each source or destination URL that use in your AzCopy commands.
 
-This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the of the container URL.
+This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the container URL.
 
 ```azcopy
 azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
@@ -109,7 +109,7 @@ To find example commands, see any of these articles.
 
 Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon.
 
-To avoid these issues, obtain a static (un-changing) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
+To avoid these issues, obtain a static (unchanging) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
 
 To obtain the link, run this command:
 
