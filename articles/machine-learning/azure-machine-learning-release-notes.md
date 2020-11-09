@@ -20,8 +20,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ## 2020-11-09
 
 ### Azure Machine Learning SDK for Python v1.18.0
-+ **new examples**
-  + A new community-driven repository of examples is available at https://github.com/Azure/azureml-examples
 + **Bug fixes and improvements**
   + **azureml-automl-core**
     +  Improved handling of short time series by allowing padding them with gaussian noise.
