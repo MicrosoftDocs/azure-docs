@@ -14,7 +14,7 @@ ms.subservice: pod
 
 Azure Data Box protects the device unlock key (also known as device password) that is used to lock the device via an encryption key. By default, the device unlock key for a Data Box order is encrypted with a Microsoft managed key. For additional control over the device unlock key, you can instead use a customer-managed key.
 
-Customer-managed keys must be created and stored in an Azure Key Vault. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md).
+Customer-managed keys must be created and stored in an Azure Key Vault. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/ove09rview.md).
 
 You can configure a customer-managed key when you place a Data Box order or add one after the order is processed. For information about configuring a customer-managed key when you order your Data Box, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).  
 
