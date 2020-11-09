@@ -210,7 +210,7 @@ Install the following software:
 
 * [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) - the sample back-end server uses .NET core
 * [Node.js](https://nodejs.org/) - the client/front end depends on this application
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), or [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/) - use either the developer environment of Visual Studio 2019 or the .NET Core CLI to build and run the app
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), or [.NET Core CLI](/dotnet/core/tools/) - use either the developer environment of Visual Studio 2019 or the .NET Core CLI to build and run the app
 
 ### Set up the sample
 1. Clone the Azure Personalizer Samples repo.
@@ -229,7 +229,7 @@ Install the following software:
 
 1. In the Azure portal, find the `Endpoint` and either `Key1` or `Key2` (either will work) in the **Keys and Endpoints** tab. These are your `PersonalizerServiceEndpoint` and your `PersonalizerApiKey`.
 1. Fill in the `PersonalizerServiceEndpoint` in **appsettings.json**.
-1. Configure the `PersonalizerApiKey` as an [app secrets](https://docs.microsoft.com/aspnet/core/security/app-secrets) in one of the following ways:
+1. Configure the `PersonalizerApiKey` as an [app secrets](/aspnet/core/security/app-secrets) in one of the following ways:
 
     * If you are using the .NET Core CLI, you can use the `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"` command.
     * If you are using Visual Studio, you can right-click the project and select the **Manage User Secrets** menu option to configure the Personalizer keys. By doing this, Visual Studio will open a `secrets.json` file where you can add the keys as follows:
