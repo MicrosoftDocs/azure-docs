@@ -63,7 +63,7 @@ The [serverless compute tier](serverless-tier-overview.md) auto-scales compute r
 
 ## Hardware generations
 
-Hardware generation options in the vCore model include Gen 4/5, M-series, and Fsv2-series. The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
+Hardware generation options in the vCore model include Gen 4/5, M-series, Fsv2-series, and DC-series. The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
 
 ### Gen4/Gen5
 
@@ -79,13 +79,24 @@ For regions where Gen4/Gen5 is available, see [Gen4/Gen5 availability](#gen4gen5
 
 Fsv2-series in only supported in the General Purpose tier. For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2-series-1).
 
-
 ### M-series
 
 - M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
 - M-series provides 29 GB per vCore and up to 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
 
 M-series is only supported in the Business Critical tier and does not support zone redundancy.  For regions where M-series is available, see [M-series availability](#m-series-1).
+
+### DC-series (preview)
+
+- DC-series hardware uses Intel processors with Software Guard Extensions (Intel SGX) technology.
+
+- DC-series is required for [Always Encrypted with secure enclaves](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-enclaves), which is not supported with other hardware configurations.
+
+- DC-series is designed to for workloads that process sensitive data and demand confidential query processing capabilities, provided by Always Encrypted with secure enclaves.
+
+- DC-series hardware provides balanced compute and memory resources.
+
+DC-series is only supported for the Provisioned compute (Serverless is not supported) and does not support zone redundancy. For regions where DC-series is available, see DC-series availability.
 
 #### Azure offer types supported by M-series
 
@@ -104,6 +115,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Gen5     |**Provisioned compute**<br>- Intel® E5-2673 v4 (Broadwell) 2.3-GHz, Intel® SP-8160 (Skylake)\*, and Intel® 8272CL (Cascade Lake) 2.5 GHz\* processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**Serverless compute**<br>- Intel® E5-2673 v4 (Broadwell) 2.3-GHz and Intel® SP-8160 (Skylake)* processors<br>- Auto-scale up to 40 vCores (1 vCore = 1 hyper-thread)|**Provisioned compute**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**Serverless compute**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 120 GB max|
 |Fsv2-series     |- Intel® 8168 (Skylake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision up to 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision up to 136 GB|
 |M-series     |- Intel® E7-8890 v3 2.5 GHz and Intel® 8280M 2.7 GHz (Cascade Lake) processors<br>- Provision up to 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision up to 3.7 TB|
+|DC-series     | - Intel XEON E-2288G processors<br>- Featuring Intel Software Guard Extension (Intel SGX))<br>- Provision up to 8 vCores (1 vCore = 1 physical core) | 6 GB per vCore |
 
 \* In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for databases using Intel® SP-8160 (Skylake) processors appears as Gen6, while hardware generation for databases using Intel® 8272CL (Cascade Lake) appears as Gen7. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
 
@@ -221,6 +233,10 @@ On the **Details** page, provide the following:
 
 Approved support requests are typically fulfilled within 5 business days.
 -->
+
+#### DC-series
+
+DC-series is available in the following regions: Canada Central, Canada East, East US, North Europe, UK South, West Europe, West US.
 
 ## Next steps
 
