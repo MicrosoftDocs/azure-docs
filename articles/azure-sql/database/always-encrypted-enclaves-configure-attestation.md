@@ -35,7 +35,7 @@ The Azure SQL database server must have an Azure AD identity assigned to it. The
 
 ## Create and configure an attestation provider
 
-An [attestation provider](../../attestation.md/basic-concepts#attestation-provider.md) is a resource in Azure Attestation that evaluates [attestation requests](../../attestation/basic-concepts.md#attestation-request) against [attestation policies](../../attestation/basic-concepts.md#attestation-request) and issues [attestation tokens](../../attestation/basic-concepts.md#attestation-token). 
+An [attestation provider](../../attestation/basic-concepts.md#attestation-provider.md) is a resource in Azure Attestation that evaluates [attestation requests](../../attestation/basic-concepts.md#attestation-request) against [attestation policies](../../attestation/basic-concepts.md#attestation-request) and issues [attestation tokens](../../attestation/basic-concepts.md#attestation-token). 
 
 Attestation policies are specified using the [claim rule grammar](../../attestation/claim-rule-grammar.md).
 
