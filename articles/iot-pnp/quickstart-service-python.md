@@ -1,6 +1,6 @@
 ---
-title: Interact with an IoT Plug and Play device connected to your Azure IoT solution (Python) | Microsoft Docs
-description: Use Python to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
+title: Quickstart - Interact with an IoT Plug and Play device connected to your Azure IoT solution (Python) | Microsoft Docs
+description: Quickstart - Use Python to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
 author: elhorton
 ms.author: elhorton
 ms.date: 10/05/2020
