@@ -64,7 +64,7 @@ When generating the activation key for the Azure Stack Edge Pro device, or perfo
 
 You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge Pro device, creation of a user will all fail.
 
-For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](/graph/permissions-reference).
+For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference).
 
 ### Register resource providers
 
@@ -91,7 +91,7 @@ For Azure Stack Edge Pro device, `Microsoft.DataBoxEdge` should be registered. T
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-For more information on how to register a resource provider, see [Resolve errors for resource provider registration](../azure-resource-manager/templates/error-register-resource-provider.md).
+For more information on how to register a resource provider, see [Resolve errors for resource provider registration](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
 ## Manage connectivity mode
 

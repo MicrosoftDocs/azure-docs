@@ -47,11 +47,11 @@ Here you find the configuration prerequisites for your Data Box Gateway resource
 
 Before you begin, make sure that:
 
-* Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
 * You have owner or contributor access at resource group level for the Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage resources.
     - To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. You also need to make sure that the `Microsoft.DataBoxEdge` provider is registered. For information on how to register, go to [Register resource provider](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
     - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
-- You have admin or user access to Microsoft Graph API. For more information, see [Microsoft Graph permissions reference](/graph/permissions-reference).
+- You have admin or user access to Microsoft Graph API. For more information, see [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference).
 - You have your Microsoft Azure storage account with access credentials.
 
 ### For the Data Box Gateway device
@@ -87,7 +87,7 @@ To create a Data Box Gateway resource, take the following steps in the Azure por
 1. Use your Microsoft Azure credentials to sign in to:
 
     - The Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
-    - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
+    - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 2. In the left-pane, select **+ Create a resource**. Search for **Azure Stack Edge / Data Box Gateway**. Select Azure Stack Edge / Data Box Gateway. Select **Create**.
 3. Pick the subscription that you want to use for Data Box Gateway device. Select the region where you want to deploy the Data Box Gateway resource. For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Choose a location closest to the geographical region where you want to deploy your device. In the **Data Box Gateway** option, select **Create**.
 
@@ -176,3 +176,5 @@ OR
 
 > [!div class="nextstepaction"]
 > [Provision a Data Box Gateway in VMware](./data-box-gateway-deploy-provision-vmware.md)
+
+
