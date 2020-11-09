@@ -1,5 +1,5 @@
 ---
-title: Detailed configuration for a hosted test drive in Azure marketplace
+title: Detailed configuration for a hosted test drive in Azure Marketplace
 description: Explanation configuration steps for a hosted test drive in the commercial marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
