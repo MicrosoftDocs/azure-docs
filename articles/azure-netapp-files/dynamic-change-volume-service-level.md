@@ -19,7 +19,7 @@ ms.author: b-juche
 # Dynamically change the service level of a volume
 
 > [!IMPORTANT] 
-> The public preview registration for this feature is on-hold until further notice. 
+> The public preview registration for this feature is on hold until further notice. 
 
 You can change the service level of an existing volume by moving the volume to another capacity pool that uses the [service level](azure-netapp-files-service-levels.md) you want for the volume. This in-place service-level change for the volume does not require that you migrate data. It also does not impact access to the volume.  
 

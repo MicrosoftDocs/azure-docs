@@ -340,4 +340,4 @@ Open the Web page in your browser. At the prompt, enter your Bing Spell Check AP
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use and display requirements](../UseAndDisplayRequirements.md)
+> [Use and display requirements](../../bing-web-search/use-display-requirements.md)

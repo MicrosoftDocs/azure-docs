@@ -321,7 +321,6 @@ Supported tables are currently limited to those specified below. All data from t
 | ContainerImageInventory | |
 | ContainerInventory | |
 | ContainerLog | |
-| ContainerLog | |
 | ContainerNodeInventory | |
 | ContainerServiceLog | |
 | CoreAzureBackup | |
@@ -339,7 +338,6 @@ Supported tables are currently limited to those specified below. All data from t
 | DnsInventory | |
 | Dynamics365Activity | |
 | Event | Partial support. Some of the data to this table is ingested through storage account. This data is currently not exported. |
-| ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |
