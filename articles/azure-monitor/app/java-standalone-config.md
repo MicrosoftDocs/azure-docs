@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights Java
 description: Configuration options for Azure Monitor Application Insights Java
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-java
 ---
 
@@ -222,6 +222,9 @@ Also, if your application uses
 then metrics configured by Spring Boot Actuator are also auto-collected.
 
 To disable auto-collection of Micrometer metrics (including Spring Boot Actuator metrics):
+
+> [!NOTE]
+> Custom metrics are billed separately and may generate additional costs. Make sure to check the detailed [pricing information](https://azure.microsoft.com/en-us/pricing/details/monitor/). To disable the Micrometer and Spring Actuator metrics, add the below configuration to your config file.
 
 ```json
 {
