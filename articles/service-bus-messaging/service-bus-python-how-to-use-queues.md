@@ -16,15 +16,15 @@ This article shows you how to use the [azure-servicebus](https://pypi.org/projec
 ## Prerequisites
 - An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created.
-- Python 3.5x or higher, with the [Python Azure Service Bus][Python Azure Service Bus package] package installed. For more information, see the [Python Installation Guide](/azure/developer/python/azure-sdk-install). 
+- Python 2.7 or higher, with the [Python Azure Service Bus][Python Azure Service Bus package] package installed. For more information, see the [Python Installation Guide](/azure/developer/python/azure-sdk-install). 
 
 ## Send messages to a queue
-The following sample code shows you how to send a batch of messages to a queue. See code comments for details. 
+Add the following code to send a batch of messages to the queue you crated. 
     
 ```python
 import os
 import asyncio
-from azure.servicebus import Message
+from azure.servicebus import ServiceBusMessage
 from azure.servicebus.aio import ServiceBusClient
 
 connection_string = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
@@ -38,17 +38,14 @@ async def main():
         async with servicebus_client.get_queue_sender(queue_name) as queue_sender:
 
             # create a batch and add three messages to it
-            batch_message = await queue_sender.create_batch()
-            batch_message.add(Message("First message"))
-            batch_message.add(Message("Second message"))
-            batch_message.add(Message("Third message"))
+            batch_message = await queue_sender.create_message_batch()
+            batch_message.add_message(ServiceBusMessage("First message"))
+            batch_message.add_message(ServiceBusMessage("Second message"))
+            batch_message.add_message(ServiceBusMessage("Third message"))
 
             # send the batch of three messages to the queue
             await queue_sender.send_messages(batch_message)
             print ("Sent a batch of three messages to the queue: " + queue_name)           
-
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
 ```
 
 > [!IMPORTANT]
@@ -59,59 +56,26 @@ loop.run_until_complete(main())
 Add the following code after the print statement in the main method to receive messages from the queue. 
 
 ```python
+
         # create a Queue Receiver for the queue
-        async with servicebus_client.get_queue_receiver(queue_name, max_wait_time=5) as queue_receiver:
-            
+        async with servicebus_client.get_queue_receiver(queue_name) as queue_receiver:
+
+            # receive messages
+            received_msgs = await queue_receiver.receive_messages(max_message_count=10, max_wait_time=5)
+
             # iterate over all the received messages
-            async for msg in queue_receiver:
+            for msg in received_msgs:
+
                 # print the message
                 print("Received: " + str(msg))
 
                 # complete the message to denote that processing is done and to remove it from the queue
-                await msg.complete()
+                await queue_receiver.complete_message(msg);
 ```
 
-Here's the complete code: 
+Then, add the following statement to your Python file to asynchronously run the main method.
 
 ```python
-
-import os
-import asyncio
-from azure.servicebus import Message
-from azure.servicebus.aio import ServiceBusClient
-
-connection_string = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
-queue_name = "<QUEUE NAME>"
-
-async def main():
-    # create a Service Bus Client using the connection string for the namespace
-    async with ServiceBusClient.from_connection_string(connection_string) as servicebus_client:
-
-        # create a Queue Sender for the queue
-        async with servicebus_client.get_queue_sender(queue_name) as queue_sender:
-
-            # create a batch and add three messages to it
-            batch_message = await queue_sender.create_batch()
-            batch_message.add(Message("First message"))
-            batch_message.add(Message("Second message"))
-            batch_message.add(Message("Third message"))
-
-            # send the batch of three messages to the queue
-            await queue_sender.send_messages(batch_message)
-            print ("Sent a batch of three messages to the queue: " + queue_name)           
-
-        # create a Queue Receiver for the queue
-        async with servicebus_client.get_queue_receiver(queue_name, max_wait_time=5) as queue_receiver:
-            
-            # iterate over all the received messages
-            async for msg in queue_receiver:
-                # print the message
-                print("Received: " + str(msg))
-
-                # complete the message to denote that processing is done and to remove it from the queue
-                await msg.complete()
-            
-
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
 ```
@@ -120,6 +84,14 @@ loop.run_until_complete(main())
 When you run the application, you should see the following output: 
 
 :::image type="content" source="./media/service-bus-python-how-to-use-queues/output.png" alt-text="Program output":::
+
+On the **Overview** page for the Service Bus namespace in the Azure portal, you can see **incoming** and **outgoing** message count. You may need to wait for a minute or so and then refresh the page to see the latest values. 
+
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Incoming and outgoing message count":::
+
+Select the queue on this **Overview** page to navigate to the **Service Bus Queue** page. You see the **incoming** and **outgoing** message count on this page too. You also see other information such as the **current size** of the queue, **maximum size**, **active message count**, and so on. 
+
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Queue details":::
 
 ## Next steps
 Check out our [GitHub repository with samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 

@@ -21,11 +21,6 @@ This article describes how to use the [azure-servicebus](https://pypi.org/projec
 ## Send messages to a topic
 The following sample code shows you how to send a batch of messages to a Service Bus topic. 
 
-1. Creates a `ServiceBusClient` using the connection string to the Service Bus namespace.
-1. Gets a **topic sender** object for the topic to send messages to it. 
-1. Prepares a batch of three messages.
-1. Uses the topic sender object to send the batch of messages to the topic. 
-
 > [!IMPORTANT]
 > - Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to your Service Bus namespace.
 > - Replace `<TOPIC NAME>` with the name of the topic.
@@ -33,89 +28,81 @@ The following sample code shows you how to send a batch of messages to a Service
 ```python
 import os
 import asyncio
-from azure.servicebus import Message
+from azure.servicebus import ServiceBusMessage
 from azure.servicebus.aio import ServiceBusClient
 
 connection_string = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
 topic_name = "<TOPIC NAME>"
 
 async def main():    
-    # create a service bus client using the connection string for the namespace
+    # create a Service Bus Client using the connection string for the namespace
     async with ServiceBusClient.from_connection_string(connection_string) as servicebus_client:
 
-        # get a topic sender for the topic
-        topic_sender = servicebus_client.get_topic_sender(topic_name)
+        # create a Topic Sender for the topic
+        async with servicebus_client.get_topic_sender(topic_name) as topic_sender:
 
-        async with topic_sender:
-            
             # create a batch and add three messages to it
-            batch_message = await topic_sender.create_batch()
-            batch_message.add(Message("First message"))
-            batch_message.add(Message("Second message"))
-            batch_message.add(Message("Third message"))
+            batch_message = await topic_sender.create_message_batch()
+            batch_message.add_message(ServiceBusMessage("First message"))
+            batch_message.add_message(ServiceBusMessage("Second message"))
+            batch_message.add_message(ServiceBusMessage("Third message"))
 
             # send the batch of three messages to the topic
             await topic_sender.send_messages(batch_message)
             print ("Sent a batch of three messages to the topic: " + topic_name)           
-
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
 ```
 
 ## Receive messages from a subscription
-The following sample code shows you how to receive messages from a Service Bus subscription. 
-
-1. Creates a `ServiceBusClient` using the connection string to the Service Bus namespace.
-1. Gets a **subscription receiver** object for the subscription to receive messages from it. 
-1. Receive messages using the subscription receiver object. 
+Add the following code after the print statement in the main method to receive messages from the subscription. 
 
 ```python
-import os
-import asyncio
-from azure.servicebus import Message
-from azure.servicebus.aio import ServiceBusClient
+        # create a Subscription Receiver for the subscription
+        async with servicebus_client.get_subscription_receiver(topic_name, subscription_name) as subscription_receiver:
 
-connection_string = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
-topic_name = "<TOPIC NAME>"
-subscription_name = "<SUBSCRIPTION NAME>"
+            # receive messages
+            received_msgs = await subscription_receiver.receive_messages(max_message_count=10, max_wait_time=5)
 
-async def main():    
-    
-    # create a service bus client using the connection string for the namespace
-    async with ServiceBusClient.from_connection_string(connection_string) as servicebus_client:
-        
-        # create a subscription receiver for the subcription
-        subscription_receiver = servicebus_client.get_subscription_receiver(topic_name, subscription_name)
-
-        async with subscription_receiver:
-            
-            # start receiving messages
-            received_msgs = await subscription_receiver.receive_messages(max_message_count=10, max_wait_time=30)
-
+            # iterate over all the received messages
             for msg in received_msgs:
 
-                # print the received message
-                print("Received from S1 subscription: " + str(msg))
+                # print the message
+                print("Received: " + str(msg) + " from the subscription: " + subscription_name)
 
-                # complete the message to denote that processing is done and to remove it from the subscription
-                await msg.complete()
-            
+                # complete the message to denote that processing is done
+                await subscription_receiver.complete_message(msg);
+```
 
+Then, add the following statement to your Python file to asynchronously run the main method.
+
+```python
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
 ```
 
-## Run apps
-Run the subscription receiver application and then run the topic sender application. You see the output similar to what's shown in the following images:
 
-### Topic sender
-:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/topic-sender.png" alt-text="Topic sender output":::
+## Run app
+When you run the application, you should see the following output: 
 
-### Subscription receiver
-:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/subscription-receiver.png" alt-text="Subscription receiver output":::
+```console
+Sent a batch of three messages to the topic: mytopic
+Received: First message from the subscription: S1
+Received: Second message from the subscription: S1
+Received: Third message from the subscription: S1
+Press any key to continue . . .
+```
 
-> [!NOTE]
-> If you create multiple subscriptions for a topic, each subscription gets a copy of the message.
+In the Azure portal, navigate to your Service Bus namespace, and select the topic in the bottom pane to see the **Service Bus Topic** page for your topic. On this page, you should see three incoming and three outgoing messages in the **Messages** chart. 
+
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Incoming and outgoing messages":::
+
+If you comment out the receive code and run the app again, on the **Service Bus Topic** page, you see six incoming messages (3 new) but three outgoing messages. 
+
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Updated topic page":::
+
+On this page, if you select a subscription, you get to the **Service Bus Subscription** page. You can see the active message count, dead-letter message count, and more on this page. In this example, there are three active messages that aren't received by a receiver yet. 
+
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Active message count":::
+
 
 ## Next steps
 Check out our [GitHub repository with samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 
