@@ -24,11 +24,11 @@ There is always some degree of imprecision in sentiment analysis, but the model 
 
 ## Can I add my own training data or models?
 
-No, the models are pretrained. The only operations available on uploaded data are scoring, key phrase extraction, and language detection. We do not host custom models. If you want to create and host custom machine learning models, consider the [machine learning capabilities in Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
+No, the models are pretrained. The only operations available on uploaded data are scoring, key phrase extraction, and language detection. We do not host custom models. If you want to create and host custom machine learning models, consider the [machine learning capabilities in Microsoft R Server](/r-server/r/concept-what-is-the-microsoftml-package).
 
 ## Can I request additional languages?
 
-Sentiment analysis and key phrase extraction are available for a [select number of languages](text-analytics-supported-languages.md). Natural language processing is complex and requires substantial testing before new functionality can be released. For this reason, we avoid pre-announcing support so that no one takes a dependency on functionality that needs more time to mature. 
+Sentiment analysis and key phrase extraction are available for a [select number of languages](./language-support.md). Natural language processing is complex and requires substantial testing before new functionality can be released. For this reason, we avoid pre-announcing support so that no one takes a dependency on functionality that needs more time to mature. 
 
 To help us prioritize which languages to work on next, vote for specific languages on [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
