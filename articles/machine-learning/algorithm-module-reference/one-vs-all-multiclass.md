@@ -1,7 +1,7 @@
 ---
 title: "One-vs-All Multiclass"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the One-vs-All Multiclass module in Azure Machine Learning to create a multiclass classification model from an ensemble of binary classification models.
+description: Learn how to use the One-vs-All Multiclass module in Azure Machine Learning designer to create an ensemble of binary classification models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

@@ -170,9 +170,9 @@ This article provides answers to some of the most common questions about running
 
    If you do decide to uninstall the default instance, also uninstall the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md) as well. 
 
-1. **Can I use a named instance of SQL Server with the IaaS extension**?
+1. **Can I use a named instance of SQL Server with the IaaS extension?**
    
-   Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was [uninstalled properly](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). If there is no default instance and there are multiple named instances on a single SQL Server VM, the SQL Server IaaS agent extension will fail to install. 
+   Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was [uninstalled properly](sql-server-iaas-agent-extension-automate-management.md#named-instance-support). If there is no default instance and there are multiple named instances on a single SQL Server VM, the SQL Server IaaS agent extension will fail to install.  
 
 1. **Can I remove SQL Server and the associated license billing from a SQL Server VM?**
 
@@ -205,7 +205,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I upgrade my SQL Server 2008 / 2008 R2 instance after registering it with the SQL Server VM resource provider?**
 
-   Yes. You can use any setup media to upgrade the version and edition of SQL Server, and then you can upgrade your [SQL IaaS extension mode](sql-vm-resource-provider-register.md#management-modes)) from _no agent_ to _full_. Doing so will give you access to all the benefits of the SQL IaaS extension such as portal manageability, automated backups, and automated patching. 
+   If the OS is Windows Server 2008 R2 or later, yes. You can use any setup media to upgrade the version and edition of SQL Server, and then you can upgrade your [SQL IaaS extension mode](sql-server-iaas-agent-extension-automate-management.md#management-modes)) from _no agent_ to _full_. Doing so will give you access to all the benefits of the SQL IaaS extension such as portal manageability, automated backups, and automated patching. If the OS version is Windows Server 2008, only NoAgent mode is supported. 
 
 1. **How can I get free extended security updates for my end of support SQL Server 2008 and SQL Server 2008 R2 instances?**
 

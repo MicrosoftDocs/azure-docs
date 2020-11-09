@@ -4,6 +4,7 @@ description: Learn about access control concepts in Azure Cosmos DB, including p
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
