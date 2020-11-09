@@ -1,13 +1,13 @@
 ---
-title: Connect IoT Plug and Play sample Node.js component device code to IoT Hub | Microsoft Docs
-description: Build and run IoT Plug and Play sample Node.js device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Tutorial - Connect IoT Plug and Play sample Node.js component device code to Azure IoT Hub | Microsoft Docs
+description: Tutorial - Build and run IoT Plug and Play sample Node.js device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: olivakar
 ms.author: olkar
 ms.date: 07/10/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: devx-track-js, devx-track-azurecli
+ms.custom: devx-track-js
 
 # As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and using multiple components to send properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---

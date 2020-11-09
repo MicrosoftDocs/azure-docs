@@ -27,11 +27,11 @@ The Microsoft Azure Data Box solution consists of four main components that inte
 
 The following diagram indicates the flow of data through the Azure Data Box solution from on-premises to Azure and the various security features in place as the data flows through the solution. This flow is for an import order for your Data Box.
 
-![Data Box import security](media/data-box-security/data-box-security-2.png)
+![Data Box import security](media/data-box-security/data-box-security-import.png)
 
 The following diagram is for the export order for your Data Box.
 
-![Data Box export security](media/data-box-security/data-box-security-3.png)
+![Data Box export security](media/data-box-security/data-box-security-export.png)
 
 As the data flows through this solution, events are logged and logs are generated. For more information, go to:
 

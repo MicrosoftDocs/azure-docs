@@ -123,7 +123,7 @@ Create the first listener using [New-AzApplicationGatewayHttpListener](/powershe
 
 >[!NOTE]
 > With Application Gateway or WAF v2 SKU, you can also configure up to 5 host names per listener and you can use wildcard characters in the host name. See [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener-preview) for more information.
->To use multiple host names and wildcard characters in a listener using Azure PowerShell, you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values. For example, `-HostNames "*.contoso.com,*.fabrikam.com"`
+>To use multiple host names and wildcard characters in a listener using Azure PowerShell, you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values. For example, `-HostNames "*.contoso.com","*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `

@@ -47,7 +47,7 @@ Select **Create** to generate the offer and continue.
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Per the [Managed Services certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), a **Lead Destination** is required. This will create a record in your CRM system each time a customer deploys your offer.
+Per the [Managed Services certification policies](/legal/marketplace/certification-policies#700-managed-services), a **Lead Destination** is required. This will create a record in your CRM system each time a customer deploys your offer.
 
 For more information, see [Lead management overview](./commercial-marketplace-get-customer-leads.md).
 
