@@ -38,7 +38,7 @@ The file that we are transforming in this tutorial is MoviesDB.csv, which can be
 In this step, you create a data factory and open the Data Factory UX to create a pipeline in the data factory.
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in the Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**:
+2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
 
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 

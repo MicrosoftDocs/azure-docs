@@ -32,7 +32,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure portal](https://portal.azure.com). 
-1. From the Azure portal menu, select **Create a resource** > **Analytics** > **Data Factory**:
+1. From the Azure portal menu, select **Create a resource** > **Integration** > **Data Factory**:
 
     ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
 

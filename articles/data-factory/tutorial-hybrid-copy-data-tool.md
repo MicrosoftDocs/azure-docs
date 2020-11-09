@@ -104,7 +104,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 ## Create a data factory
 
-1. On the menu on the left, select **+ Create a resource** > **Analytics** > **Data Factory**.
+1. On the menu on the left, select **Create a resource** > **Integration** > **Data Factory**.
 
    ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
 

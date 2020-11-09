@@ -37,7 +37,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 ## Create a data factory
 
-1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
+1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
    
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 
