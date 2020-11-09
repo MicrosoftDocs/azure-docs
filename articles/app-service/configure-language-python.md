@@ -289,6 +289,14 @@ Next, examine both the [deployment logs](#access-deployment-logs) and the [app l
 
 The following sections provide additional guidance for specific issues.
 
+- [App doesn't appear - default app shows](#app-doesnt-appear)
+- [App doesn't appear - "service unavailable" message](#service-unavailable)
+- [Could not find setup.py or requirements.txt](#could-not-find-setuppy-or-requirementstxt)
+- [Passwords don't appear in SSH session when typed](#other-issues)
+- [Commands in the SSH session appear to be cut off](#other-issues)
+- [Static assets don't appear in a Django app](#other-issues)
+- [Fatal SSL Connection is Required](#other-issues)
+
 #### App doesn't appear
 
 - **You see the default app after deploying your own app code.** The [default app](#default-behavior) appears because you either haven't deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.
@@ -303,7 +311,7 @@ The following sections provide additional guidance for specific issues.
     
     - If your files exist, then App Service wasn't able to identify your specific startup file. Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
 
-- **You see the message "Service Unavailable" in the browser.** The browser has timed out waiting for a response from App Service, which indicates that App Service started the Gunicorn server, but the app itself did not start. This condition could indicate that the Gunicorn arguments are incorrect, or that there's an error in the app code.
+- <a name="service-unavailable"></a>**You see the message "Service Unavailable" in the browser.** The browser has timed out waiting for a response from App Service, which indicates that App Service started the Gunicorn server, but the app itself did not start. This condition could indicate that the Gunicorn arguments are incorrect, or that there's an error in the app code.
 
     - Refresh the browser, especially if you're using the lowest pricing tiers in your App Service Plan. The app may take longer to start up when using free tiers, for example, and becomes responsive after you refresh the browser.
 
