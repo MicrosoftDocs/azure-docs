@@ -52,9 +52,9 @@ You can configure this setting when you create the hub, or modify it at a later 
 
    :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="custom DNS" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 
-## <a name="download"></a>Generate and install client profile package
+## <a name="download"></a>Generate VPN client profile package
 
-Generate the VPN client profile package to configure your VPN clients.
+Generate and download the VPN client profile package to configure your VPN clients.
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
