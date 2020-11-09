@@ -20,7 +20,7 @@ ms.author: yelevin
 
 # Manage hunting and livestream queries in Azure Sentinel using REST API
 
-As part of its native integration with Azure Monitor Log Analytics, Azure Sentinel lets you use Log Analytics’ REST API to manage hunting and livestream queries. This document shows you how to creating a hunting query using the REST API.  Queries created in this way will be displayed in the Azure Sentinel UI.
+Azure Sentinel, being built in part on Azure Monitor Log Analytics, lets you use Log Analytics’ REST API to manage hunting and livestream queries. This document shows you how to create and manage hunting queries using the REST API.  Queries created in this way will be displayed in the Azure Sentinel UI.
 
 See the definitive REST API reference for more details on the [saved searches API](https://docs.microsoft.com/rest/api/loganalytics/savedsearches).
 
