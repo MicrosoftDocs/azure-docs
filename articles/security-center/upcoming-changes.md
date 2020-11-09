@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: memildin
 
 ---
@@ -33,9 +33,9 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Aspect | Details |
 |---------|---------|
-|Announcement date | 9th November 2020  |
+|Announcement date | 9 November 2020  |
 |Date for this change  |  Mid-end November 2020 |
-|Impact     | During the transition from the current version of this recommendation to its replacement, your secure score might change. Also, if you have resources for which this is the only outstanding recommendation, the health status of those resources may temporarily show as "healthy". |
+|Impact     | During the transition from the current version of this recommendation to its replacement, your secure score might change. |
 |  |  |
 
 We're releasing an enhanced version of the **System updates should be installed on your machines** recommendation. The new version will *replace* the current version in the apply system updates security control and brings the following improvements:
@@ -46,7 +46,7 @@ We're releasing an enhanced version of the **System updates should be installed 
 
 #### Transition period
 
-There will be a transition period of approximately 36hrs. To minimize any potential disruption, we've scheduled the update to take place over a weekend. During the transition, your secure scores might be affected.
+There will be a transition period of 36 hrs (approximately). To minimize any potential disruption, we've scheduled the update to take place over a weekend. During the transition, your secure scores might be affected.
 
 #### Redesigned portal experience
 
@@ -57,11 +57,11 @@ The recommendation details page for **System updates should be installed on your
 
 #### Richer data from Azure Resource Graph
 
-Azure Resource Graph is a service in Azure that is designed to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
+Azure Resource Graph is a service in Azure that is designed to provide efficient resource exploration. You can use ARG to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
 
 For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) to query a wide range of security posture data.
 
-When querying the current version of **System updates should be installed on your machines**, the only information available from ARG is that the recommendation needs to be remediated on a machine. When the updated version is released, the following query will return each missing system updates grouped by machine.
+If you query the current version of **System updates should be installed on your machines**, the only information available from ARG is that the recommendation needs to be remediated on a machine. When the updated version is released, the following query will return each missing system updates grouped by machine.
 
 ```kusto
 securityresources
