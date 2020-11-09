@@ -113,7 +113,7 @@ In the upper right, select **Save and train** to save your edits and train QnA M
 
 ## Test the knowledge base
 
-# [QnAMaker V1](#tab/v1)
+# [QnA Maker GA (stable release)](#tab/v1)
 
 1. In the QnA Maker portal, in the upper right, select **Test** to test that the changes you made took effect.
 2. Enter an example user query in the textbox.
@@ -126,7 +126,7 @@ In the upper right, select **Save and train** to save your edits and train QnA M
 
 4. Select **Test** again to close the **Test** panel.
 
-# [QnAMaker V2 (Preview)](#tab/v2)
+# [QnA Maker managed (preview release)](#tab/v2)
 
 1. In the QnA Maker portal, in the upper right, select **Test** to test that the changes you made took effect.
 2. Enter an example user query in the textbox.
