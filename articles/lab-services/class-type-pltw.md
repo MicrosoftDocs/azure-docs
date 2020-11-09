@@ -43,7 +43,7 @@ ms.date: 10/28/2020
 
 - **Computer Science A**
 
-    Students also grow their programming expertise in this class with [Java](https://www.java.com/) using [Microsoft’s Visual Studio Code development environment](https://code.visualstudio.com/).
+    Students also grow their programming expertise in this class by learning mobile app development with [Java](https://www.java.com/) using [Microsoft’s Visual Studio Code development environment](https://code.visualstudio.com/).  In this class, students also use an emulator that allows them to run and test their mobile app code.  For information on how to setup an emulator in Azure Labs, please contact us at azlabspilot@microsoft.com.
 
 Refer to PLTW’s site for the [full list of software](https://www.pltw.org/pltw-software) for each class.
 
