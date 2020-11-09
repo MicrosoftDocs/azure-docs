@@ -34,6 +34,8 @@ However, an additional email notification will only be sent if the time the risk
 
 To prevent an overload of e-mails, you will only receive one users at risk detected email within a 5 second time period. This means that if multiple users move to the specified risk level during the same 5 second time period, we will aggregate and send one e-mail to represent the change in risk level for all of them.
 
+If your organization has enabled self-remediation as described in the article, [User experiences with Azure AD Identity Protection](concept-identity-protection-user-experience.md) there is a chance that the user may remediate their risk before you have the opportunity to investigate. You can see risky users and risky sign-ins that have been remediated by adding "Remediated" to the **Risk state** filter in either the **Risky users** or **Risky sign-ins** reports.
+
 ![Users at risk detected email](./media/howto-identity-protection-configure-notifications/01.png)
 
 ### Configure users at risk detected alerts
