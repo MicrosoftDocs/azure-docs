@@ -161,5 +161,5 @@ A sample demonstrating this flow with MSAL Python isn't yet available.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [A web API that calls web APIs: Move to production](scenario-web-api-call-api-production.md)
+Move on to the next article in this scenario,
+[Move to production](scenario-web-api-call-api-production.md)

@@ -253,5 +253,5 @@ For more information about the OBO protocol, see [Microsoft identity platform an
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md)
+Move on to the next article in this scenario,
+[Acquire a token for the app](scenario-web-api-call-api-acquire-token.md)
