@@ -12,7 +12,7 @@ ms.custom:
 
 # Cloud Services (extended support) Migration 
 
-This articles covers frequently asked questions related to Cloud Services (extended support) Migration.
+This article covers frequently asked questions related to Cloud Services (extended support) Migration.
 
 ## How do I migrate my Cloud Services (classic) to Cloud Services (extended support)? 
 

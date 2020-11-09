@@ -1,6 +1,6 @@
 ---
 title: Swap between two Cloud Services (extended support) deployments
-description: Swap between two Cloud Services (extended support) deploymentsdeployments
+description: Swap between two Cloud Services (extended support) deployments
 ms.topic: article
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -27,7 +27,7 @@ You can swap deployments from the Cloud Services (extended support) dashboard.
 
 2.	On the overview blade, select **Swap**.
 
-    :::image type="content" source="media/cloud-services-swap1.png" alt-text="Image shows selecting the swap option from the Azure Portal.":::
+    :::image type="content" source="media/cloud-services-swap1.png" alt-text="Image shows selecting the swap option from the Azure portal.":::
 
 3.	A confirmation window will appear displaying the current Cloud Service deployment and the one you want to swap it with. 
 

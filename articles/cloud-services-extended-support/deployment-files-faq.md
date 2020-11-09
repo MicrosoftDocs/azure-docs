@@ -19,7 +19,7 @@ Replace name property of load balancer probe, Endpoints, Reserved IP, Public IP 
 
 `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`
 
-Replace deprecated vm size with mentioned [alternate sizes](Get link for sizes doc from micah). Pricing does not change if the alternate sizes are used. 
+Replace deprecated vm size with [alternate sizes](sizes.md).
 
 ## Changes to the `Cscfg` file 
 

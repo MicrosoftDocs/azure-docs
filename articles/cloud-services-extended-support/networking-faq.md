@@ -34,16 +34,16 @@ Subnet containing cloud services (extended support) deployment cannot be shared 
 
 Customers need to use a different subnet in the same Virtual Network.  
 
-This restrictions apply to both new virtual networks created on ARM and virtual networks migrated from ASM.  
+These restrictions apply to both new virtual networks created on ARM and virtual networks migrated from ASM.  
 
 ## What IP allocation methods are supported on Cloud services (extended support)? 
 
-Cloud Services (extended support) supports dynamic & statis IP allocation methods. Static IP address are referenced as reserved IP in Cscfg.  
+Cloud Services (extended support) supports dynamic & static IP allocation methods. Static IP address are referenced as reserved IP in Cscfg.  
 
 ## Why am I getting charged for IP addresses? 
 
 Customers are billed for IP Address use on Cloud Services (extended support).  
 
-## Will Networking Security Groups be exposed to customers to edit from Portal or using PS? 
+## Will Networking Security Groups be exposed to customers to edit from Portal or using PowerShell? 
 
 Yes, Network Security Groups. This is the current experience both in RDFE and ARM. And customers need to be in control of their own security enforcement. 
