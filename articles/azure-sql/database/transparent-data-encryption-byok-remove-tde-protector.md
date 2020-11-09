@@ -35,7 +35,7 @@ This how-to guide goes over two approaches depending on the desired result after
 
 - You must have an Azure subscription and be an administrator on that subscription
 - You must have Azure PowerShell installed and running.
-- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Azure Synapse (formerly  SQL Data Warehouse). See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) to learn more.
+- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Azure Synapse (formerly SQL Data Warehouse). See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-overview.md) to learn more.
 
 # [PowerShell](#tab/azure-powershell)
 
