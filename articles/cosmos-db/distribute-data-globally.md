@@ -6,6 +6,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
+ms.custom: "seo-nov-2020"
 ---
 # Distribute your data globally with Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
