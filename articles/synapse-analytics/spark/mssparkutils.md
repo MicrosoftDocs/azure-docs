@@ -12,19 +12,19 @@ ms.reviewer:
 ---
 
 # Introduction of Microsoft Spark Utilities
-Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you perform common used tasks more easily. You can use MSSparkUtils to work with file system efficiently, to get environment variables, and to work with secrets. MSSparkUtils are available in `PySpark (Python)`, `Scala` and `.NET Spark (C#)` notebooks and synapse pipelines.
+Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you do common used tasks more easily. You can use MSSparkUtils to work with file system efficiently, to get environment variables, and to work with secrets. MSSparkUtils are available in `PySpark (Python)`, `Scala`, and `.NET Spark (C#)` notebooks and synapse pipelines.
 
 ## Pre-requisites
 ### Configure access to Azure Data Lake Storage Gen2 
-Synapse notebooks leverage Azure active directory(AAD) pass-through to access the ADLS Gen2 accounts so you don't need to use any key. You are required to be a **Blob Storage Contributor** in the ADLS Gen2 account (or folder) you will access. 
+Synapse notebooks use Azure active directory(Azure AD) pass-through to access the ADLS Gen2 accounts. You need to be a **Blob Storage Contributor** to access the ADLS Gen2 account (or folder). 
 
-Synapse pipelines leverage managed identities(MSI) for your Azure Synapse workspace to access the storage accounts. To use MSSparkUtils in your pipeline activities, your workspace identity is required to be a **Blob Storage Contributor** in the ADLS Gen2 account (or folder) you will access. 
+Synapse pipelines use managed identity(MSI) for your Azure Synapse workspace to access the storage accounts. To use MSSparkUtils in your pipeline activities, your workspace identity needs to be a **Blob Storage Contributor** to access the ADLS Gen2 account (or folder).
 
-Follow these steps to make sure your AAD and workspace MSI have access to the ADLS Gen2 account:
+Follow these steps to make sure your Azure AD and workspace MSI have access to the ADLS Gen2 account:
 1. Open the [Azure portal](https://portal.azure.com/) and the storage account you want to access. You can navigate to the specific container you want to access.
 2. Select the **Access control(IAM)** from the left panel.
 3. Assign the following roles or make sure they're already assigned.
-    - For the **Storage Blob Data Contributor** role on the storage account, assign **your AAD account** and **your workspace identity** (same as your workspace name) or make sure it is already assigned. 
+    - For the **Storage Blob Data Contributor** role on the storage account, assign **your Azure AD account** and **your workspace identity** (same as your workspace name) or make sure it is already assigned. 
 4. Select **Save**.
 
 You can access data on ADLS Gen2 with Synapse Spark via following URL:
@@ -33,15 +33,15 @@ You can access data on ADLS Gen2 with Synapse Spark via following URL:
 
 ### Configure access to Azure Blob Storage 
 
-Synapse leverage **Shared access signature (SAS)** to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend to create a new linked service in your Synapse workspace to the Azure Blob Storage account you will access.
+Synapse leverage **Shared access signature (SAS)** to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend creating a new linked service in your Synapse workspace to the Azure Blob Storage account you will access.
 
 Follow these steps to add a new linked service for an Azure Blob Storage account:
 
 1. Open the [Azure Synapse Studio](https://web.azuresynapse.net/).
 2. Select **Manage** from the left panel and select **Linked services** under the **External connections**.
-3. Search **Azure Blob Storage** in the **New linked Service** blade.
+3. Search **Azure Blob Storage** in the **New linked Service** panel on the right.
 4. Click **Continue**.
-5. Select the Azure Blob Storage Account you will access and configure the linked service name. Suggest to use **Account key** for the **Authentication method**.
+5. Select the Azure Blob Storage Account to access and configure the linked service name. Suggest using **Account key** for the **Authentication method**.
 6. Click **Test connection** to validate the settings are correct.
 7. Click **Create** first and click **Publish all** to save your change. 
 
@@ -49,7 +49,7 @@ You can access data on Azure Blob Storage with Synapse Spark via following URL:
 
 <code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
 
-Here is an code example. 
+Here is a code example. 
  
 :::zone pivot = "programming-language-python"
 
@@ -81,18 +81,19 @@ Follow these steps to add an Azure Key Vault as a Synapse linked service:
 1. Open the [Azure Synapse Studio](https://web.azuresynapse.net/).
 2. Select **Manage** from the left panel and select **Linked services** under the **External connections**.
 3. Search **Azure Key Vault** in the **New linked Service** blade.
-4. Select the Azure Key Vault Account you will access and configure the linked service name.
+4. Select the Azure Key Vault Account to access and configure the linked service name.
 5. Click **Test connection** to validate the settings are correct.
 6. Click **Create** first and click **Publish all** to save your change. 
 
-Synapse by default leverage Azure active directory(AAD) pass-through to access Azure Key Vault while Synapse pipelines leverage managed identities(MSI) for your Azure Synapse workspace to access Azure Key Vault. To make sure your code work both in notebook as well as in Synapse pipeline, we recommend you to grand secret access permission for your AAD account and your workspace identity.
+Synapse notebooks use Azure active directory(Azure AD) pass-through to access Azure Key Vault. Synapse pipelines use workspace identity to access Azure Key Vault. To make sure your code work both in notebook and in Synapse pipeline, we recommend you to grand secret access permission for your Azure AD account and your workspace identity.
 
 Follow these steps to grand secret access to your workspace identity:
 1. Open the [Azure portal](https://portal.azure.com/) and the Azure Key Vault you want to access. 
 2. Select the **Access policies** from the left panel.
 3. Click **Add Access Policy**: 
-    - Chose **Key, Secret, & Certificate Management** as config template, select **your AAD account** and **your workspace identity** (same as your workspace name) in the select principal or make sure it is already assigned. 
-4. Select **Select** and **Add**.
+    - Choose **Key, Secret, & Certificate Management** as config template.
+    - Select **your Azure AD account** and **your workspace identity** (same as your workspace name) in the select principal or make sure it is already assigned. 
+4. Click **Select** and **Add**.
 5. Click the **Save** button to commit changes.  
 
 
@@ -433,7 +434,7 @@ putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName
 ```
 
 ### Get token
-Returns AAD token for a given audience, name (optional). The table below list all the available  audience types: 
+Returns Azure AD token for a given audience, name (optional). The table below list all the available  audience types: 
 
 |Audience Type|Audience key|
 |--|--|
@@ -525,7 +526,7 @@ mssparkutils.credentials.getConnectionStringOrCreds("linked service name")
 
 
 ### Get secret using workspace identity
-Returns Azure Key Vault secret for a given Azure Key Vault name, secret name and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#-Configure-access-to-Azure-Key-Vault) appropriately.
+Returns Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#-Configure-access-to-Azure-Key-Vault) appropriately.
 
 :::zone pivot = "programming-language-python"
 
@@ -552,7 +553,7 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name","linked 
 
 
 ### Get secret using user credentials
-Returns Azure Key Vault secret for a given Azure Key Vault name, secret name and linked service name using user credentials. 
+Returns Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using user credentials. 
 
 :::zone pivot = "programming-language-python"
 
@@ -578,7 +579,7 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name")
 ::: zone-end
 
 ### Put secret using workspace identity
-Puts Azure Key Vault secret for a given Azure Key Vault name, secret name and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#-Configure-access-to-Azure-Key-Vault) appropriately.
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#-Configure-access-to-Azure-Key-Vault) appropriately.
 
 :::zone pivot = "programming-language-python"
 
@@ -605,7 +606,7 @@ mssparkutils.credentials.putSecret("azure key vault name","secret name","secret 
 
 
 ### Put secret using user credentials
-Puts Azure Key Vault secret for a given Azure Key Vault name, secret name and linked service name using user credentials. 
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using user credentials. 
 
 :::zone pivot = "programming-language-python"
 
