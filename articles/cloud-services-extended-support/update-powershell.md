@@ -20,7 +20,7 @@ Template & parameters file define the desired state of your Cloud Service (exten
 ## Update Method #1
 1.	Update/Create new template & parameters file for your Cloud Services (extended support) deployment. Incorporate changes for all resources. 
 
-2.	Update Storage Account or upload newer copy of Cscfg/Cspkg, obtain SAS URLs & add SAS URLs to cloud services resource section of Template. 
+2.	Update Storage Account or upload newer copy of Cscfg/Cspkg, obtain SAS URLs & add SAS URLs to Cloud Services resource section of Template. 
 
 3.	Update Cloud Services (extended support) resource using Azure Resource Manager’s PowerShell command to update using Template. (Azure Resource Manager automatically converts the call from create to update)
 
@@ -50,7 +50,7 @@ The steps below mention the order to update resources. Depending on the update s
 
 9.	Get and update network profile object.
 
-10.	Get & update cloud services deployment using profile objects & SAS URLs.
+10.	Get & update Cloud Services deployment using profile objects & SAS URLs.
 
     ```PowerShell
     $cloudService = Get-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName

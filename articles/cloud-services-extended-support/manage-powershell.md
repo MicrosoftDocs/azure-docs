@@ -63,7 +63,7 @@ Invoke-AzCloudServiceRoleInstanceReimage -ResourceGroupName $resourceGroupName -
 Invoke-AzCloudServiceRoleInstanceRebuild -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName -RoleInstanceName $roleInstanceName 
 ```
 
-## Delete Cloud Services (extended support)
+## Delete
 
 ### Delete Cloud Services deployment
 
@@ -84,15 +84,15 @@ Remove-AzCloudService -ResourceGroupName $ResourceGroupName -CloudServiceName $C
 Remove-AzCloudServiceRoleInstance -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName -RoleInstanceName $roleInstanceName
 ```
 
-## List details about Cloud Services (extended support)
+## List details
 
-### Get list of all cloud services within a subscription
+### Get list of all Cloud Services within a subscription
 
 ```PowerShell
 Get-AzCloudService
 ```
 
-### Get list of all cloud services within a resource group
+### Get list of all Cloud Services within a resource group
 
 ```PowerShell
 Get-AzCloudService -ResourceGroupName $resourceGroupName
@@ -127,11 +127,10 @@ Get-AzCloudServiceInstanceView -ResourceGroupName $resourceGroupName -CloudServi
 Get-AzCloudServiceRoleInstanceView -ResourceGroupName $resourceGroupName -CloudServiceName $cloudServiceName -RoleInstanceName $roleInstanceName  
 ```
 
-### Get list & details of all extensions applied on the cloud service deployment
+### Get list & details of all extensions applied on the Cloud Service deployment
 
 ```PowerShell
 Get-AzVMExtensionImageType  
-
 ```
 
 ## Start & Stop Cloud Services (extended support) deployment
@@ -147,9 +146,9 @@ Stop-AzCloudService -ResourceGroupName $resourceGroupName -CloudServiceName $clo
 
 ## VIP Swap deployment
 Process to define swappable relationship between two deployments and swap Virtual IP addresses.
-1.	Create first cloud services (extended support) deployment 
+1.	Create first Cloud Services (extended support) deployment 
 2.	Get cloudServicesId of the first deployment
-3.	Create second cloud services (extended support) deployment, but now by adding `-SwappableCloudServiceId` property to `New-AzCloudService` command. 
+3.	Create second Cloud Services (extended support) deployment, but now by adding `-SwappableCloudServiceId` property to `New-AzCloudService` command. 
 4.	Get cloudServiceId for second deployment
 5.	Perform VIP Swap 
 
@@ -157,7 +156,7 @@ Process to define swappable relationship between two deployments and swap Virtua
     Switch-AzCloudService -SourceCloudService $sourceCloudServiceId -TargetCloudService $targetCloudServiceId    
     ```
 
-To update the swappable relationship for a cloud service deployment, call update-AzCloudService command with -SwappableCloudServiceId property containing the Cloud Services Id of the newer deployment.
+To update the swappable relationship for a Cloud Service deployment, call update-AzCloudService command with `-SwappableCloudServiceId` property containing the Cloud Services Id of the newer deployment.
 
 ## RDP using Plugin or Extension
 
@@ -190,10 +189,10 @@ To update the swappable relationship for a cloud service deployment, call update
         ```
 
 5.	Upload the certificate  to Key Vault and reference the key vault during CS create operation
-6.	Create cloud services deployment
+6.	Create Cloud Services deployment
 
 ### RDP into role instance
-1.	Get the RDP file for your cloud service.
+1.	Get the RDP file for your Cloud Service.
 
     ```PowerShell 
     Get-AzCloudServiceRoleInstanceRemoteDesktopFile -CloudServiceName $cloudServiceName -ResourceGroupName $resourceGroupName -RoleInstanceName $roleInstanceName OutFile "C:\temp\ContosoFrontEnd_IN_0.rdp"
