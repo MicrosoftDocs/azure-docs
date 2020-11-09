@@ -116,7 +116,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
     }
 ```
 
-## Receive messages from a subscription to the topic
+## Receive messages from a subscription
 In this section, you'll add code to retrieve messages from a subscription to the topic. 
 
 1. Add a method named `receiveMessages` to receive messages from the subscription. This method creates a `ServiceBusProcessorClient` for the subscription by specifying a handler for processing messages and another one for handling errors. Then, it starts the processor, waits for few seconds, prints the messages that are received, and then stops and closes the processor.

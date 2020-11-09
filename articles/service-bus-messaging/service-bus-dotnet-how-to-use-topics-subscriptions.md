@@ -20,16 +20,19 @@ This tutorial shows you how to create a .NET Core console application that sends
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
-## Create a console application
+## Send messages to a topic
+In this section, you'll create a .NET Core console application in Visual Studio, add add code to send messages to the topic you created. 
+
+### Create a console application
 Launch Visual Studio and create a new **Console App (.NET Core)** project for C#. 
 
-## Add the Service Bus NuGet package
+### Add the Service Bus NuGet package
 
 1. Right-click the newly created project and select **Manage NuGet Packages**.
 1. Select **Browse**. Search for and select **[Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/)**.
 1. Select **Install** to complete the installation, then close the NuGet Package Manager.
 
-## Send messages to a topic
+### Add code to send messages to the topic 
 
 1. In Program.cs, add the following `using` statements at the top of the namespace definition, before the class declaration:
    
