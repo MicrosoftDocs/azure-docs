@@ -15,7 +15,7 @@ ms.author: jasteppe
 In this article, you'll learn how to view and configure Azure IoT Connector for FHIR* Metrics. 
 
 > [!TIP]
-> Follow the guidance in [Export Azure IoT Connector for FHIR (preview) Metrics through Diagnostic settings](https://docs.microsoft.com/azure/healthcare-apis/iot-metrics-diagnostics-export) to learn how to set up the export of Metrics data.
+> Follow the guidance in [Export Azure IoT Connector for FHIR (preview) Metrics through Diagnostic settings](./iot-metrics-diagnostics-export.md) to learn how to set up the export of Metrics data.
 
 ## View Metrics for Azure IoT Connector for FHIR (preview)
 1. To view Metrics for IoT Connectors, select your Azure API for FHIR service in the Azure portal. 

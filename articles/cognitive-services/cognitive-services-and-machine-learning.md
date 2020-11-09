@@ -12,7 +12,7 @@ ms.date: 08/22/2019
 
 Cognitive Services provides machine learning capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services. 
 
-[Cognitive Services](welcome.md) is a group of services, each supporting different, generalized prediction capabilities. The services are divided into different categories to help you find the right service. 
+[Cognitive Services](./what-are-cognitive-services.md) is a group of services, each supporting different, generalized prediction capabilities. The services are divided into different categories to help you find the right service. 
 
 |Service category|Purpose|
 |--|--|
@@ -38,7 +38,7 @@ Machine learning is a concept where you bring together data and an algorithm to 
 
 The process of building a machine learning system requires some knowledge of machine learning or data science.
 
-Machine learning is provided using [Azure Machine Learning (AML) products and services](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context).
+Machine learning is provided using [Azure Machine Learning (AML) products and services](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context).
 
 ## What is a Cognitive Service?
 
@@ -85,9 +85,9 @@ The following data categorizes each service by which kind of data it allows or r
 |--|--|--|--|
 |[Anomaly Detector](./Anomaly-Detector/overview.md)|x|x|x|
 |Bing Search |x|||
-|[Computer Vision](./Computer-vision/Home.md)|x|||
+|[Computer Vision](./computer-vision/overview.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
-|[Custom Vision](./Custom-Vision-Service/home.md)||x||
+|[Custom Vision](./custom-vision-service/overview.md)||x||
 |[Face](./Face/Overview.md)|x|x||
 |[Form Recognizer](./form-recognizer/overview.md)||x||
 |[Immersive Reader](./immersive-reader/overview.md)|x|||
@@ -95,7 +95,7 @@ The following data categorizes each service by which kind of data it allows or r
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
-|[Speaker Recognizer](./speaker-recognition/home.md)||x||
+|[Speaker Recognizer](./speech-service/speaker-recognition-overview.md)||x||
 |[Speech Text-to-speech (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Speech Speech-to-text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
@@ -121,16 +121,16 @@ Cognitive Services that provide exported models for other machine learning tools
 
 |Cognitive Service|Model information|
 |--|--|
-|[Custom Vision](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
+|[Custom Vision](./custom-vision-service/overview.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
 
 ## Learn more
 
-* [Architecture Guide - What are the machine learning products at Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Architecture Guide - What are the machine learning products at Microsoft?](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Machine learning - Introduction to deep learning vs. machine learning](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## Next steps
 
-* Create your Cognitive Service account in the [Azure portal](cognitive-services-apis-create-account.md) or with [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
+* Create your Cognitive Service account in the [Azure portal](cognitive-services-apis-create-account.md) or with [Azure CLI](./cognitive-services-apis-create-account-cli.md).
 * Learn how to [authenticate](authentication.md) to a Cognitive Service.
 * Use [diagnostic logging](diagnostic-logging.md) for issue identification and debugging. 
 * Deploy a Cognitive Service in a Docker [container](cognitive-services-container-support.md).

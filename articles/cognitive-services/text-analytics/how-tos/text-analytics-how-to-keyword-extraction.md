@@ -18,7 +18,7 @@ The [Key Phrase Extraction API](https://westus2.dev.cognitive.microsoft.com/docs
 
 This capability is useful if you need to quickly identify the main points in a collection of documents. For example, given input text "The food was delicious and there were wonderful staff", the service returns the main talking points: "food" and "wonderful staff".
 
-For more information, see [Supported languages](../text-analytics-supported-languages.md).
+For more information, see [Supported languages](../language-support.md).
 
 > [!TIP]
 > Text Analytics also provides a Linux-based Docker container image for key phrase extraction, so you can [install and run the Text Analytics container](text-analytics-how-to-install-containers.md) close to your data.

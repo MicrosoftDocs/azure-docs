@@ -1,7 +1,7 @@
 ---
 title: "Cross Validate Model: Module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Cross-Validate Model module in Azure Machine Learning to cross-validate parameter estimates for classification or regression models by partitioning the data.
+description: Use the Cross-Validate Model module in Azure Machine Learning designer to cross-validate parameter estimates for classification or regression models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

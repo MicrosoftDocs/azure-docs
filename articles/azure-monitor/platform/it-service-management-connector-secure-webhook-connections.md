@@ -57,6 +57,7 @@ Start using the ITSM Connector tool with these steps:
 3. Configure your partner environment. 
 
 Secure Export supports connections with the following ITSM tools:
+* [ServiceNow](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-servicenow-to-azure-monitor)
 * [BMC Helix](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-bmc-helix-to-azure-monitor)
 
 ## Register with Azure Active Directory
@@ -98,6 +99,26 @@ To add a webhook to an action, follow these instructions for Secure Webhook:
 The configuration contain 2 steps:
 1. Get the URI for the secure export definition.
 2. Definitions according to the flow of the ITSM tool.
+
+
+### Connect ServiceNow to Azure Monitor
+
+The following sections provide details about how to connect your ServiceNow product and Secure Export in Azure.
+
+### Prerequisites
+
+Ensure that you've met the following prerequisites:
+
+* Azure AD is registered.
+* You have the supported version of The ServiceNow Event Management - ITOM (version Orlando or later).
+
+### Configure the ServiceNow connection
+
+1.Use the link <https://<instance name>.service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor> the URI for the secure export definition.
+
+2. Follow the instructions according to the version:
+   * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
+   * [Orlando](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
 
 ### Connect BMC Helix to Azure Monitor
 
@@ -141,6 +162,9 @@ Ensure that you've met the following prerequisites:
       - The Azure tenant ID and Azure application ID are taken from the application that you defined earlier.
 
 ![Screenshot that shows BMC configuration.](media/it-service-management-connector-secure-webhook-connections/bmc-configuration.png)
+
+
+
 
 ## Next steps
 
