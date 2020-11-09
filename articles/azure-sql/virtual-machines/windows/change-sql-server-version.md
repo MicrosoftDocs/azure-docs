@@ -63,7 +63,7 @@ To upgrade the version of SQL Server, obtain the SQL Server setup media for the 
    :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="Selection for upgrading the version of SQL Server":::
 
 1. On the **Product Key** page, select an option to indicate whether you are upgrading to a free edition of SQL Server or you have a PID key for a production version of the product. For more information, see [Editions and supported features of SQL Server 2019 (15.x)](/sql/sql-server/editions-and-components-of-sql-server-version-155) and [Supported version and edition Upgrades (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades).
-1. Select **Next** until you reach the **Ready to upgrade** page, and then select **Upgrade**. The setup window might stop responding for several minutes while the change is taking effect. A **Complete** page will confirm that your upgrade is completed. For a step-by-step procedure to upgrade, see [the complete procedure](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure).
+1. Select **Next** until you reach the **Ready to upgrade** page, and then select **Upgrade**. The setup window might stop responding for several minutes while the change is taking effect. A **Complete** page will confirm that your upgrade is completed. For a step-by-step procedure to upgrade, see [the complete procedure](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup#procedure).
 
    :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Complete page":::
 
