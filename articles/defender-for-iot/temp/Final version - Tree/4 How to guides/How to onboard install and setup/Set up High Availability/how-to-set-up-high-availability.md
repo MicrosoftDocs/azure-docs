@@ -138,3 +138,15 @@ The core application logs can be exported to the Defender for Iot support team t
 To access the core logs:
 
 1. Select **Export** from the **System Settings** window.
+
+## Update the on-premises management console with high availability
+
+Perform the high availability update in the following order. Make sure each step is complete before you begin a new step.
+
+**To update with high availability:**
+
+1.  Update the primary on-premises management console.
+
+2. Update the secondary on-premises management console.
+
+3. Update the sensors.

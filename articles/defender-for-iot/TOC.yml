@@ -43,6 +43,18 @@
     href: quickstart-investigate-security-alerts.md
 - name: Concepts
   items:
+  - name: Key advantages
+    href: concept-key-advantages
+  - name: Learning modes
+    href: concept-learning-modes.md
+  - name: Integrations
+    href: concept-integrations.md
+  - name: Proprietary protocols
+    href: concept-proprietary-protocols.md
+  - name: High availability
+    href: concept-high-availability
+  - name: Sensor console overview
+    href: concept-sensor-console-overview.md
   - name: Security Module for Azure RTOS
     items: 
       - name: Understand the Security Module for Azure RTOS
@@ -67,6 +79,36 @@
     href: concept-pricing.md
 - name: How-to guides
   items:
+  - name: Onboard install and setup
+    items: 
+    - name: Prepare your network
+      href: how-to-prepare-your-network.md
+    - name: Activate and set up your sensor
+      href: how-to-activate-and-set-up-your-sensor.md
+    - name: Set Up high availability
+      href: how-to-set-up-high-availability.md
+  - name: Work with the sensor console dashboard
+    href: how-to-work with-the-sensor-console-dashboard.md
+  - name: Change the name of your Azure consoles
+    href: how-to change-the-name-of-your-azure-consoles.md
+  - name: Create azure for defender users and roles
+    href: how-to-create-azure-for-defender-users-and-roles.md
+  - name: Work with device inventory information
+    href: how-to-work-with-asset-inventory-information.md
+  - name: Work with maps
+    href: how-to-work-with-maps.md
+  - name: Import asset information to the sensor
+    href: how-to-import-asset-information-to-the-sensor.md
+  - name: Work with alerts
+    items:
+    - name: Work with alerts sensor
+      href: how-to-work-with-alerts-sensor.md
+    - name: Work with alerts on-premises management console
+      href: how-to-work-with-alerts-on-premises-management-console.md
+  - name: How to integrate with partners
+    items:
+      - name: Forescout Integrations
+        href: integration-forsecout.md
   - name: View and manage sensors
     href: how-to-deploy-view-sensors.md
   - name: Deploy the on-premises management console

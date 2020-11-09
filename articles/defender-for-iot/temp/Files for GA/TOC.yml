@@ -15,6 +15,8 @@
     href: 
 - name: Concepts
   items:
+  - name: Key advantages
+    href: concept-key-advantages
   - name: Learning modes
     href: concept-learning-modes.md
   - name: User roles and permissions
@@ -23,12 +25,10 @@
     href: concept-integrations.md
   - name: Proprietary protocols
     href: concept-proprietary-protocols.md
-  - name: Proprietary protocols
-    href: concept-proprietary-protocols.md
   - name: High availability
     href: concept-high-availability
-  - name: Sensor console overview
-    href: sensor-console-overview.md
+  - name: Use the sensor console
+    href: how-to-use-the-sensor-console.md
   - name: 
     href:
 - name: How-to guides
@@ -53,7 +53,7 @@
     href: how-to-manage-individual-sensors.md
   - name: Manage sensors from the on-premises management console
     href: how-to-manage-sensors-from-the-on-premises-management-console.md
-  - name: View sensor Connection Status to the On-prem manager
+  - name: View sensor connection status to the on-premise manager
     href: how-to-view-sensor-connection-status-to-the-on-premise-manager.md
   - name: Work with device inventory information
     href: how-to-work-with-asset-inventory-information.md
@@ -61,9 +61,14 @@
     href: how-to-work-with-maps.md
   - name: Import device information
     href: how-to-import-device-information.md
-  - name: Work with alerts
-    href: how-to-work-with-alerts.md
-  - name: 
+  - name: Work with alerts sensor
+    href: how-to-work-with-alerts-sensor.md
+  - name: Work with alerts on-premises management console
+    href: how-to-work-with-alerts-on-premises-management-console.md
+  - name: How to integrate with partners
+    items:
+      - name: Forescout Integrations
+        href: integration-forsecout.md
     href:
 - name: References
   items:
