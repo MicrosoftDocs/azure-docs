@@ -24,7 +24,7 @@ In this how-to, you learn to do the following tasks:
 > * Consume a pipeline endpoint
 > * Manage endpoint versions
 
-To learn how to set up batch scoring services using the SDK, see the accompanying [how-to](how-to-run-batch-predictions.md).
+To learn how to set up batch scoring services using the SDK, see the accompanying [how-to](./tutorial-pipeline-batch-scoring-classification.md).
 
 ## Prerequisites
 

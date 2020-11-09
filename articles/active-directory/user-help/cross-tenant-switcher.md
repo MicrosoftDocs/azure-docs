@@ -29,7 +29,7 @@ Switching organizations is not available for **My Sign-ins**, **Security info**,
 
 ## Switch organizations
 
-Here's how to switch to another organization. This example uses in the **My Account** portal, but the switcher icon and placement are similar in other portals, too.
+Here's how to switch to another organization. This example uses the **My Account** portal, but the switcher icon and placement are similar in other portals, too.
 
 1. Sign in to your work or school account, and then open the [My Account](https://myaccount.microsoft.com) page.
 1. Select the organization switcher :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="The icon for the organization switcher"::: at the top of the page, next to your account photo.

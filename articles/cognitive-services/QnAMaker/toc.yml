@@ -50,6 +50,8 @@
     displayName: azure, resource, key, upgrade, pricing, tier,
   - name: Manage QnA Maker App
     href: How-To/manage-qna-maker-app.md
+  - name: Turn on active learning
+    href: How-To/use-active-learning.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base
@@ -92,6 +94,8 @@
     href: troubleshooting.md
   - name: Question and answer pairs	
     href: Concepts/question-answer-set.md
+  - name: Precise answering
+    href: reference-precise-answering.md
   - name: Add secured SharePoint files
     href: How-To/add-sharepoint-datasources.md
     displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication

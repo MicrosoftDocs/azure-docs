@@ -33,9 +33,9 @@ Once you have an estimate of the number of VMs and the VM sizes for your labs, y
 
 - Create your lab account within a region that has sufficient VM capacity available.
 
-Read the following blog post to learn more: [VM Subscription Limits and Regional Capacity](TODO: Link to blog post when posted).
+Read the following blog post to learn more: [VM Subscription Limits and Regional Capacity](https://techcommunity.microsoft.com/t5/azure-lab-services/vm-subscription-limits-and-regional-capacity/ba-p/1845553).
 
-### Plan the configuration of your school's lab account
+### Who will be allowed to create and manage labs?
 
 To plan your lab account's configuration, you should consider the below questions.
 
@@ -49,6 +49,10 @@ To get started quickly, create a single lab account within its own resource grou
 #### Who should be owners and contributors of the lab account?
 Your school's IT administrators are typically the Owners and Contributors for a lab account. They are responsible for managing the policies that apply to all the labs contained within the lab account. The person that creates the lab account is automatically an Owner. You can add additional Owners and Contributors from the Azure Active Directory (AAD) tenant that is associated with your subscription. For more information about the lab account Owner and Contributor roles, read:
 -  [Administrator Guide - Manage Identity](https://docs.microsoft.com/azure/lab-services/administrator-guide#manage-identity).
+
+[!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+
+Lab users only see a single list of the virtual machines that they have access to across tenants inside Azure Lab Services.
 
 #### Who will be allowed to create labs?
 You may choose to have your IT and faculty members create labs. When a user creates a lab, they automatically are assigned as the Owner of the lab.  To create labs, users (typically from the AAD tenant associated with your subscription) must be assigned to the Lab Creator role within the lab account.  For more information about the Lab Creator role, read:

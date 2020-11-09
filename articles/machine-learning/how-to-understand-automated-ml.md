@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2
+ms.custom: how-to, contperfq2, automl
 ---
 
 # Evaluate automated machine learning experiment results
 
-In this article, learn how to view and evaluate the results of your automated machine learning, AutoML, experiments. These experiments consist of multiple runs, where each run creates a model. To help you evaluate each model, AutoML automatically generates performance metrics and charts specific to your experiment type. 
+In this article, learn how to view and evaluate the results of your automated machine learning, automated ML, experiments. These experiments consist of multiple runs, where each run creates a model. To help you evaluate each model, automated ML automatically generates performance metrics and charts specific to your experiment type. 
 
-For example, AutoML provides different charts for classification and regression models. 
+For example, automated ML provides different charts for classification and regression models. 
 
 |Classification|Regression
 |---|---|
@@ -36,7 +36,7 @@ For example, AutoML provides different charts for classification and regression 
 
 After your automated machine learning experiment completes, a history of the runs can be found in your machine learning workspace via the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). 
 
-For SDK experiments, you can see these same results during a run when you use the `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
+For SDK experiments, you can see these same results during a run when you use the `RunDetails` [Jupyter widget](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py).
 
 The following steps and animation show how to view the run history and performance metrics and charts of a specific model in the studio.
 
@@ -56,7 +56,7 @@ To view the run history and model performance metrics and charts in the studio:
 
 ## Classification performance metrics
 
-The following table summarizes the model performance metrics that AutoML calculates for each classification model generated for your experiment. 
+The following table summarizes the model performance metrics that automated ML calculates for each classification model generated for your experiment. 
 
 Metric|Description|Calculation|Extra Parameters
 --|--|--|--
@@ -83,7 +83,7 @@ weighted_accuracy|Weighted accuracy is accuracy where the weight given to each e
 
 ### Binary vs. multiclass metrics
 
-AutoML doesn't differentiate between binary and multiclass metrics. The same validation metrics are reported whether a dataset has two classes or more than two classes. However, some metrics are intended for multiclass classification. When applied to a binary dataset, these metrics won't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`.
+Automated ML doesn't differentiate between binary and multiclass metrics. The same validation metrics are reported whether a dataset has two classes or more than two classes. However, some metrics are intended for multiclass classification. When applied to a binary dataset, these metrics won't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`.
 
 For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
 
@@ -154,7 +154,7 @@ You can compare the lift of the model built automatically with Azure Machine Lea
 
 ### What does a good model look like?
 
-A higher lift curve, that is the higher your model is above the baseline, indicates a better performing model. 
+A better performing model will have a lift curve that is higher on the graph and further from the baseline. 
 
 #### Example 1: A classification model that performs poorly compared to a random selection model
 ![A classification model that does worse than a random selection model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
@@ -205,7 +205,7 @@ A well-calibrated model aligns with the y=x line, where it correctly predicts th
 
 ## Regression performance metrics
 
-The following table summarizes the model performance metrics that AutoML calculates for each regression or forecasting model that is generated for your experiment. 
+The following table summarizes the model performance metrics that automated ML calculates for each regression or forecasting model that is generated for your experiment. 
 
 |Metric|Description|Calculation|Extra Parameters
 --|--|--|--|
@@ -230,12 +230,12 @@ Predicted vs. True shows the relationship between a predicted value and its corr
 After each run, you can see a predicted vs. true graph for each regression model. To protect data privacy, values are binned together and the size of each bin is shown as a bar graph on the bottom portion of the chart area. You can compare the predictive model, with the lighter shade area showing error margins, against the ideal value of where the model should be.
 
 ### What does a good model look like?
-This graph can be used to measure performance of a model as the closer to the y=x line the predicted values are, the better the accuracy of a predictive model.
+This graph can be used to measure performance of a model as the closer to the y=x line the predicted values are, the better the performance of a predictive model.
 
-#### Example 1: A classification model with low accuracy
+#### Example 1: A regression model with low performance
 ![A regression model with low accuracy in predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-#### Example 2: A regression model with high accuracy 
+#### Example 2: A regression model with high performance
 ![A regression model with high accuracy in its predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a> 
@@ -250,7 +250,7 @@ To show a margin of error with low bias, the histogram of residuals should be sh
 #### Example 1: A regression model with bias in its errors
 ![SA regression model with bias in its errors](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-#### Example 2: A regression model with more even distribution of errors
+#### Example 2: A regression model with a more even distribution of errors
 ![A regression model with more even distribution of errors](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 <a name="explain-model"></a>

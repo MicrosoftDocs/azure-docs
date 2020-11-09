@@ -94,7 +94,10 @@ These steps add the workspace-managed identity as a __Reader__ to the storage se
 
 ## Technical notes for managed identity
 
-Using managed identity to access storage services impacts some security considerations. These considerations are unique to the type of storage account you are accessing. This section describes the changes for each storage account type.
+Using managed identity to access storage services impacts some security considerations. This section describes the changes for each storage account type.
+
+> [!IMPORTANT]
+> These considerations are unique to the __type of storage account__ you are accessing.
 
 ### Azure Blob storage
 
@@ -116,7 +119,7 @@ Azure Data Lake Storage Gen1 only supports POSIX-style access control lists. You
 
 To access data stored in an Azure SQL Database using managed identity, you must create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 
-After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
 ### Azure Machine Learning designer default datastore
 

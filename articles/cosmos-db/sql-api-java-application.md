@@ -12,6 +12,7 @@ ms.custom: devx-track-java
 ---
 
 # Tutorial: Build a Java web application using Azure Cosmos DB and the SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)

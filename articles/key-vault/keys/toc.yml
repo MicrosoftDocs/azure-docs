@@ -1,7 +1,7 @@
 - name: Keys
   href: index.yml
 
-- name: Overview 
+- name: Overview
   items:
   - name: About Key Vault keys
     href: about-keys.md
@@ -18,9 +18,10 @@
   - name: Python
     href: quick-create-python.md
   - name: ARM template
+    displayName: Resource Manager
     href: quick-create-template.md
 
-- name: Tutorials 
+- name: Tutorials
   items:
   - name: Import HSM-protected keys (overview)
     href: hsm-protected-keys.md
@@ -34,6 +35,11 @@
   items:
   - name: Key Vault Code Samples
     href: /samples/browse/?expanded=azure&products=azure-key-vault
+
+- name: Concepts 
+  items:
+  - name: Key types, algorithms, and operations
+    href: about-keys-details.md
 
 - name: Reference
   items:

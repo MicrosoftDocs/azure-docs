@@ -13,7 +13,8 @@
     href: diagnose-vm-network-traffic-filtering-problem-powershell.md
   - name: Diagnose VM traffic filter problem - Azure CLI
     href: diagnose-vm-network-traffic-filtering-problem-cli.md
-  - name: Configure NSG Flow logs using ARM Template
+  - name: Configure NSG flow logs using ARM Template
+    displayName: Resource Manager
     href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Tutorials
   items:
@@ -62,7 +63,9 @@
     - name: Using Azure portal
       href: connection-monitor-preview-create-using-portal.md
     - name: Using ARMClient
-      href: connection-monitor-preview-create-using-arm-client.md 
+      href: connection-monitor-preview-create-using-arm-client.md
+    - name: Using PowerShell
+      href: connection-monitor-create-using-powershell.md 
   - name: Migrate to Connection Monitor (Preview)
     items:
     - name: From Network Performance Monitor
