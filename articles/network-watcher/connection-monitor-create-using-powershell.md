@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-#Customer intent: I need to create a connection montior using PowerShell to monitor communication between one VM and another.
+#Customer intent: I need to create a connection monitor using PowerShell to monitor communication between one VM and another.
 ---
 # Create a Connection Monitor using PowerShell
 
@@ -63,7 +63,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 ```
 
-## Description of Properties
+## Description of properties
 
 * connectionMonitorName - Name of the Connection monitor resource
 
@@ -75,7 +75,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * Endpoints
 	* name – Unique name for each endpoint
-	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager(ARM) resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the ARM resource ID for the Log Analytics workspace linked to non-Azure agents.
+	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager(ARM) resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the Azure resource manager's resource ID for the Log Analytics workspace linked to non-Azure agents.
 	* address – Applicable only when either resource ID is not specified or if resource ID is Log Analytics workspace. If used with Log Analytics resource ID, this refers to the FQDN of the agent that can be used for monitoring. If used without resource ID, this can be the URL or IP of any public endpoint.
 	* filter – For non-Azure endpoints, use filter to select agents from Log Analytics workspace that will be used for monitoring in Connection monitor resource. If filters are not set, all agents belonging to the Log Analytics workspace can be used for monitoring
 		* type – Set type as “Agent Address”
