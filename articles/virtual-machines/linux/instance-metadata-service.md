@@ -190,6 +190,8 @@ The supported API versions are:
 - 2019-08-15
 - 2019-11-01
 - 2020-06-01
+- 2020-09-01
+- 2020-10-01
 
 Note when new version is released, it will take a while to roll out to all regions.
 
@@ -239,7 +241,9 @@ Data | Description | Version Introduced
 -----|-------------|-----------------------
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
 customData | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
+disablePasswordAuthentication | Specifies if password authentication is disabled. Note that this is only present for Linux VMs | 2020-10-01
 isHostCompatibilityLayerVm | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
+licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/en-us/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
@@ -685,15 +689,16 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with certain VM-specific details. For ARM VMs, this includes vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 The document contains the following fields:
 
-Data | Description
------|------------
-nonce | A string that can be optionally provided with the request. If no nonce was supplied, the current UTC timestamp is used
-plan | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan id (name), product image or offer (product), and publisher id (publisher).
-timestamp/createdOn | The UTC timestamp for when the signed document was created
-timestamp/expiresOn | The UTC timestamp for when the signed document expires
-vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
-subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
-sku | Specific SKU for the VM image, introduced in `2019-11-01`
+Data | Description | Version Introduced
+-----|-------------|-----------------------
+licenseType | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/en-us/pricing/hybrid-benefit). Note that this is only present for AHB-enabled VMs | 2020-09-01
+nonce | A string that can be optionally provided with the request. If no nonce was supplied, the current UTC timestamp is used | 2018-10-01
+plan | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan id (name), product image or offer (product), and publisher id (publisher). | 2018-10-01
+timestamp/createdOn | The UTC timestamp for when the signed document was created | 2018-20-01
+timestamp/expiresOn | The UTC timestamp for when the signed document expires | 2018-10-01
+vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2018-10-01
+subscriptionId | Azure subscription for the Virtual Machine | 2019-04-30
+sku | Specific SKU for the VM image | 2019-11-01
 
 > [!NOTE]
 > For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated.
