@@ -45,7 +45,7 @@ A key vault is created for Azure Stack Edge resource during the process of activ
 
 - To prevent accidental deletion, a resource lock is enabled on the key vault. A soft-delete is also enabled on the key vault that allows the key vault to be restored within 90 days if there is an accidental deletion. For more information, see [Azure Key Vault soft-delete overview](../key-vault/general/soft-delete-overview.md)
 
-    If the key vault is accidentally deleted and the purge protection duration of 90 days hasn't elapsed, follow these steps to [Recover your key vault](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault). 
+    If the key vault is accidentally deleted and the purge protection duration of 90 days hasn't elapsed, follow these steps to [Recover your key vault](../key-vault/general/key-vault-recovery.md#recovering-a-key-vault). 
 
 - If you had an existing Azure Stack Edge resource before the Azure Key Vault was integrated with Azure Stack Edge resource, you are not affected. You can continue to use your existing Azure Stack Edge resource. 
 
@@ -69,4 +69,3 @@ When you generate an activation key, the following events occur:
 ## Next steps
 
 - Learn more about how to [Generate activation key](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
-
