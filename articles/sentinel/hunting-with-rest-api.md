@@ -42,7 +42,7 @@ In the following examples, replace these placeholders with the replacement presc
 
 ### Example 1
 
-This example shows you how to create or update a hunting query for a given Azure Sentinel workspace.  For a livestream query, simply modify the **Category** in the request body from *Hunting Queries* to *Livestream Queries*: 
+This example shows you how to create or update a hunting query for a given Azure Sentinel workspace.  For a livestream query, replace *“Category”: “Hunting Queries”* with *“Category”: “Livestream Queries”* in the **request body**: 
 
 #### Request header
 
