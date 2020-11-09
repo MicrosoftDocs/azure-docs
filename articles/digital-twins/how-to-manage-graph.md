@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/21/2020
+ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -33,7 +33,7 @@ This article focuses on managing relationships and the graph as a whole; to work
 
 Relationships describe how different digital twins are connected to each other, which forms the basis of the twin graph.
 
-Relationships are created using the `CreateRelationship()` call. 
+Relationships are created using the `CreateOrReplaceRelationshipAsync()` call. 
 
 To create a relationship, you need to specify:
 * The source twin ID (`srcId` in the code sample below): The ID of the twin where the relationship originates.
@@ -58,7 +58,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
+                await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)
@@ -352,7 +352,7 @@ namespace minimal
             try
             {
                 string relId = $"{srcId}-{relName}->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
+                await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(srcId, relId, relationship);
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
             catch (RequestFailedException rex)
@@ -444,72 +444,137 @@ Here is the console output of the above program:
 > [!TIP]
 > The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [*Visualization*](how-to-manage-graph.md#visualization) section of this article. 
 
-### Create a twin graph from a spreadsheet
+### Create a twin graph from a CSV file
 
-In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet. This section illustrates how a spreadsheet can be parsed.
+In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
 
-Consider the following data table, describing a set of digital twins and relationships to be created.
+Consider the following data table, describing a set of digital twins and relationships.
 
-| Model ID| Twin ID (must be unique) | Relationship name | Target twin ID | Twin init data |
+|  Model ID    | Twin ID (must be unique) | Relationship name  | Target twin ID  | Twin init data |
 | --- | --- | --- | --- | --- |
-| dtmi:example:Floor;1 | Floor1 |  contains | Room1 |{"Temperature": 80, "Humidity": 60}
-| dtmi:example:Floor;1 | Floor0 |  has      | Room0 |{"Temperature": 70, "Humidity": 30}
-| dtmi:example:Room;1  | Room1 | 
-| dtmi:example:Room;1  | Room0 |
+| dtmi:example:Floor;1    | Floor1 | contains | Room1 | |
+| dtmi:example:Floor;1    | Floor0 | contains | Room0 | |
+| dtmi:example:Room;1    | Room1 | | | {"Temperature": 80} |
+| dtmi:example:Room;1    | Room0 | | | {"Temperature": 70} |
 
-The following code uses the [Microsoft Graph API](/graph/overview) to read a spreadsheet and construct an Azure Digital Twins twin graph from the results.
+One way to get this data into Azure Digital Twins is to convert the table to a CSV file and write code to interpret the file into commands to create twins and relationships. The following code sample illustrates reading the data from the CSV file and creating a twin graph in Azure Digital Twins.
+
+In the code below, the CSV file is called *data.csv*, and there is a placeholder representing the **hostname** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
 
 ```csharp
-var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;
-JsonDocument data = JsonDocument.Parse(range.values);
-List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
-foreach (JsonElement row in data.RootElement.EnumerateArray())
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Azure;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+
+namespace creating_twin_graph_from_csv
 {
-    string modelId = row[0].GetString();
-    string sourceId = row[1].GetString();
-    string relName = row[2].GetString();
-    string targetId = row[3].GetString();
-    string initData = row[4].GetString();
-    
-    // Parse spreadsheet extra data into a JSON string to initialize the digital twin
-    // Left out for compactness
-    Dictionary<string, object> initData = new Dictionary<string, object>() { ... };
-
-    if (sourceId != null)
+    class Program
     {
-        BasicRelationship br = new BasicRelationship()
+        static async Task Main(string[] args)
         {
-            SourceId = sourceId,
-            TargetId = targetId,
-            Name = relName
-        };
-        RelationshipRecordList.Add(br);
-    }
+            List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
+            List<BasicDigitalTwin> TwinList = new List<BasicDigitalTwin>();
+            List<List<string>> data = ReadData();
+            DigitalTwinsClient client = createDTClient();
 
-    BasicDigitalTwin twin = new BasicDigitalTwin();
-    twin.Contents = initData;
-    // Set the type of twin to be created
-    twin.Metadata = new DigitalTwinMetadata() { ModelId = modelId };
-    
-    try
-    {
-        await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(sourceId, twin);
-    }
-    catch (RequestFailedException e)
-    {
-       Console.WriteLine($"Error {e.Status}: {e.Message}");
-    }
-    foreach (BasicRelationship rec in RelationshipRecordList)
-    { 
-        try { 
-            await client.CreateOrReplaceRelationshipAsync(rec.sourceId, Guid.NewGuid().ToString(), rec);
+            // Interpret the CSV file data, by each row
+            foreach (List<string> row in data)
+            {
+                string modelID = row.Count > 0 ? row[0].Trim() : null;
+                string srcID = row.Count > 1 ? row[1].Trim() : null;
+                string relName = row.Count > 2 ? row[2].Trim() : null;
+                string targetID = row.Count > 3 ? row[3].Trim() : null;
+                string initProperties = row.Count > 4 ? row[4].Trim() : null;
+                Console.WriteLine($"ModelID: {modelID}, TwinID: {srcID}, RelName: {relName}, TargetID: {targetID}, InitData: {initProperties}");
+                Dictionary<string, object> props = new Dictionary<string, object>();
+                // Parse properties into dictionary (left out for compactness)
+                // ...
+
+                // Null check for source and target ID's
+                if (srcID != null && srcID.Length > 0 && targetID != null && targetID.Length > 0)
+                {
+                    BasicRelationship br = new BasicRelationship()
+                    {
+                        SourceId = srcID,
+                        TargetId = targetID,
+                        Name = relName
+                    };
+                    RelationshipRecordList.Add(br);
+                }
+                BasicDigitalTwin srcTwin = new BasicDigitalTwin();
+                srcTwin.Id = srcID;
+                srcTwin.Metadata = new DigitalTwinMetadata();
+                srcTwin.Metadata.ModelId = modelID;
+                srcTwin.Contents = props;
+                TwinList.Add(srcTwin);
+            }
+
+            // Create digital twins 
+            foreach (BasicDigitalTwin twin in TwinList)
+            {
+                try
+                {
+                    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twin.Id, twin);
+                    Console.WriteLine("Twin is created");
+                }
+                catch (RequestFailedException e)
+                {
+                    Console.WriteLine($"Error {e.Status}: {e.Message}");
+                }
+            }
+            // Create relationships between the twins
+            foreach (BasicRelationship rec in RelationshipRecordList)
+            {
+                try
+                {
+                    string relId = $"{rec.SourceId}-{rec.Name}->{rec.TargetId}";
+                    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(rec.SourceId, relId, rec);
+                    Console.WriteLine("Relationship is created");
+                }
+                catch (RequestFailedException e)
+                {
+                    Console.WriteLine($"Error {e.Status}: {e.Message}");
+                }
+            }
         }
-        catch (RequestFailedException e)
+
+        // Method to ingest data from the CSV file
+        public static List<List<string>> ReadData()
         {
-            Console.WriteLine($"Error {e.Status}: {e.Message}");
+            string path = "<path-to>/data.csv";
+            string[] lines = System.IO.File.ReadAllLines(path);
+            List<List<string>> data = new List<List<string>>();
+            int count = 0;
+            foreach (string line in lines)
+            {
+                if (count++ == 0)
+                    continue;
+                List<string> cols = new List<string>();
+                data.Add(cols);
+                string[] columns = line.Split(',');
+                foreach (string column in columns)
+                {
+                    cols.Add(column);
+                }
+            }
+            return data;
+        }
+        // Method to create the digital twins client
+        private static DigitalTwinsClient createDTClient()
+        {
+
+            string adtInstanceUrl = "https://<your-instance-hostname>";
+            var credentials = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            return client;
         }
     }
 }
+
 ```
 ## Manage relationships with CLI
 

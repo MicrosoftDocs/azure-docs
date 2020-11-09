@@ -85,7 +85,7 @@ The following table lists reference and sample documentation for Azure Queue sto
 
 ### Other REST reference
 
-- [Azure Storage import-export REST API ](/rest/api/storageimportexport/) helps you manage import/export jobs to transfer data to or from Blob storage.
+- [Azure Storage import-export REST API](/rest/api/storageimportexport/) helps you manage import/export jobs to transfer data to or from Blob storage.
 
 ## Other languages and platforms
 

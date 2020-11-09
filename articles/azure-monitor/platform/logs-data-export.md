@@ -185,6 +185,7 @@ Following is a sample body for the REST request for an event hub where event hub
         ],
         "enable": true
     }
+  }
 }
 ```
 
@@ -266,7 +267,7 @@ Supported tables are currently limited to those specified below. All data from t
 
 
 | Table | Limitations |
-|:---|:---|:---|
+|:---|:---|
 | AADDomainServicesAccountLogon | |
 | AADDomainServicesAccountManagement | |
 | AADDomainServicesDirectoryServiceAccess | |
@@ -432,7 +433,6 @@ Supported tables are currently limited to those specified below. All data from t
 | WindowsEvent | |
 | WindowsFirewall | |
 | WireData | Partial support. Some of the data is ingested through internal services that isn't supported for export. This data is currently not exported. |
-| WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
 | WVDAgentHealthStatus | |
 | WVDCheckpoints | |
