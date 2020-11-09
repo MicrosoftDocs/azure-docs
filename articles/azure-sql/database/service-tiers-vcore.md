@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 09/30/2020
+ms.date: 12/09/2020
 ---
 # vCore model overview - Azure SQL Database and Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -86,18 +86,6 @@ Fsv2-series in only supported in the General Purpose tier. For regions where Fsv
 
 M-series is only supported in the Business Critical tier and does not support zone redundancy.  For regions where M-series is available, see [M-series availability](#m-series-1).
 
-### DC-series (preview)
-
-- DC-series hardware uses Intel processors with Software Guard Extensions (Intel SGX) technology.
-
-- DC-series is required for [Always Encrypted with secure enclaves](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-enclaves), which is not supported with other hardware configurations.
-
-- DC-series is designed to for workloads that process sensitive data and demand confidential query processing capabilities, provided by Always Encrypted with secure enclaves.
-
-- DC-series hardware provides balanced compute and memory resources.
-
-DC-series is only supported for the Provisioned compute (Serverless is not supported) and does not support zone redundancy. For regions where DC-series is available, see DC-series availability.
-
 #### Azure offer types supported by M-series
 
 To access M-series, the subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  For a complete list of Azure offer types supported by M-series, see [current offers without spending limits](https://azure.microsoft.com/support/legal/offer-details).
@@ -105,6 +93,19 @@ To access M-series, the subscription must be a paid offer type including Pay-As-
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
 -->
+
+### DC-series (preview)
+
+- DC-series hardware uses Intel processors with Software Guard Extensions (Intel SGX) technology.
+- DC-series is required for [Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves), which is not supported with other hardware configurations.
+- DC-series is designed for workloads that process sensitive data and demand confidential query processing capabilities, provided by Always Encrypted with secure enclaves.
+- DC-series hardware provides balanced compute and memory resources.
+
+DC-series is only supported for the Provisioned compute (Serverless is not supported) and does not support zone redundancy. For regions where DC-series is available, see DC-series availability.
+
+#### Azure offer types supported by DC-series
+
+To access DC-series, the subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  For a complete list of Azure offer types supported by DC-series, see [current offers without spending limits](https://azure.microsoft.com/support/legal/offer-details).
 
 ### Compute and memory specifications
 

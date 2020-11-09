@@ -10,7 +10,7 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 10/15/2020
+ms.date: 12/09/2020
 ---
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -634,7 +634,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max concurrent logins|200|400|600|800|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
 |Number of replicas|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|Yes|Yes|Yes|Yes|
 |Read Scale-out|No|No|No|No|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
 
