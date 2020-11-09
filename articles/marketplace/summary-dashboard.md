@@ -4,7 +4,7 @@ description: Learn how to access graphs, trends, and values of aggregate data th
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 author: mingshen-ms
 ms.author: mingshen
 ---
@@ -44,7 +44,8 @@ You can find a month range selection at the top-right corner of each page. Custo
 
 The Orders widget on the Summary** dashboard displays the current orders for all your transact-based offers. The Orders widget displays a count and trend of all purchased orders (excluding canceled orders) for the selected computation period. The percentage value **Orders** represents the amount of growth during the selected computation period.
 
-:::image type="content" source="./media/summary-dashboard/orders-widget.png" alt-text="Illustrates the Orders widget on the summary dashboard.":::
+[![Illustrates the Orders widget on the summary dashboard.](./media/summary-dashboard/orders-widget.png)](./media/summary-dashboard/orders-widget.png#lightbox)
+
 
 You can also go to the Orders report by selecting the **Orders Dashboard** link in the lower-left corner of the widget.
 
@@ -52,7 +53,7 @@ You can also go to the Orders report by selecting the **Orders Dashboard** link 
 
 The **Customers** widget of the **Summary** dashboard displays the total number of customers who have acquired your offers for the selected computation period. The Customers widget displays a count and trend of total number of active (including new and existing) customers (excluding churned customers) for the selected computation period. The percentage value under **Customers** represents the amount of growth during the selected computation period.
 
-:::image type="content" source="./media/summary-dashboard/customers-widget.png" alt-text="Illustrates the customers widget on the summary dashboard.":::
+[![Illustrates the customers widget on the summary dashboard.](./media/summary-dashboard/customers-widget.png)](./media/summary-dashboard/customers-widget.png#lightbox)
 
 You can also go to the detailed Customers report by selecting the **Customers dashboard** link in the lower-left corner of the widget.
 
@@ -67,15 +68,15 @@ The usage summary table displays the customer usage hours for all offers they ha
 
 The percentage value below the total usage hours represents the amount of growth in usage hours during the selected computation period.
 
-:::image type="content" source="./media/summary-dashboard/usage-widget.png" alt-text="Illustrates the usage widget on the summary dashboard.":::
+[![Illustrates the usage widget on the summary dashboard.](./media/summary-dashboard/usage-widget.png)](./media/summary-dashboard/usage-widget.png#lightbox)
 
 You can also go to the Usage report by selecting the **Usage dashboard** link in the lower-left corner of the widget.
 
 ### Marketplace insights
 
-Marketplace Insights show the number of users who have visited your offers’ pages in Azure marketplace and AppSource. **Page visit count** shows a summary of marketplace web analytics that enables publishers to measure customer engagement for their respective product detail pages listed on the commercial marketplace online stores: Microsoft AppSource and Azure Marketplace. This widget displays a count and trend of total page visits during the selected computation period.
+Marketplace Insights show the number of users who have visited your offers’ pages in Azure Marketplace and AppSource. **Page visit count** shows a summary of commercial marketplace web analytics that enables publishers to measure customer engagement for their respective product detail pages listed on the commercial marketplace online stores: Microsoft AppSource and Azure Marketplace. This widget displays a count and trend of total page visits during the selected computation period.
 
-:::image type="content" source="./media/summary-dashboard/page-visit-count.png" alt-text="Illustrates the Page visit count widget on the summary dashboard.":::
+[![Illustrates the Page visit count widget on the summary dashboard.](./media/summary-dashboard/page-visit-count.png)](./media/summary-dashboard/page-visit-count.png#lightbox)
 
 You can also go to the Marketplace Insights report by selecting the **Marketplace insights dashboard** link in the lower-left corner of the widget.
 

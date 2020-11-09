@@ -4,7 +4,7 @@ description: Learn how to access all VM offers usage and metered billing metrics
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 author: mingshen-ms
 ms.author: mingshen
 ---
@@ -51,7 +51,7 @@ There are two representations of usage hours: VM normalized usage and VM raw usa
 - Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier.
 - Raw usage hours are defined as the amount of time VMs have been running in terms of hours.
 
-:::image type="content" source="./media/usage-dashboard/normalized-usage.png" alt-text="Illustrates the normalized usage and raw usage data on the Usage dashboard.":::
+[![Illustrates the normalized usage and raw usage data on the Usage dashboard.](./media/usage-dashboard/normalized-usage.png)](./media/usage-dashboard/normalized-usage.png#lightbox)
 
 ### Normalized usage by offers
 

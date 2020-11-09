@@ -4,7 +4,7 @@ description: Learn how to access information about your customers, including gro
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 author: shganesh-dev
 ms.author: shganesh
 ---
@@ -51,7 +51,7 @@ You can find a month range selection at the top-right corner of each page. Custo
 
 In this section, you will find your customers growth trend for the selected computation period. Metrics and growth trends are represented by a line chart and displays the value for each month by hovering over the line on the chart. The percentage value below **Active customers** in the widget represents the amount of growth during the selected computation period. For example, the following screenshot shows a growth of 0.92% for the selected computation period.
 
-:::image type="content" source="./media/customer-dashboard/customers-widget.png" alt-text="Illustrates the Customers widget on the Customers page.":::
+[![Illustrates the Customers widget on the Customers page.](./media/customer-dashboard/customers-widget.png)](./media/customer-dashboard/customers-widget.png#lightbox)
 
 There are three _customer types_: new, existing, and churned.
 
@@ -69,7 +69,7 @@ In this section, you will find trend and count of all customers, including new, 
 - You can select specific legend items to display more detailed views. For example, select new customers from the legend to display only new customers.
 - Hovering over a column in the chart displays details for that month only.
 
-:::image type="content" source="./media/customer-dashboard/customers-trend.png" alt-text="Illustrates the Customers trend widget on the Customers page.":::
+[![Illustrates the Customers trend widget on the Customers page.](./media/customer-dashboard/customers-trend.png)](./media/customer-dashboard/customers-trend.png#lightbox)
 
 ### Customers by orders/usage
 
@@ -95,7 +95,7 @@ You can also select the **Normalized usage** or **Raw usage** tab to view usage 
 
 The **Top customers percentile** chart has three tabs, "Orders," "Normalized usage," and "Raw usage." The _top customer percentile_ is displayed along the x-axis, as determined by the number of orders. The y-axis displays the customer's order count. The secondary y-axis (line graph) displays the cumulative percentage of the total number of orders. You can display details by hovering over points along the line chart.
 
-:::image type="content" source="./media/customer-dashboard/top-customer-percentile.png" alt-text="Illustrates the Orders tab of the Top Customer Percentile widget on the Customers page.":::
+[![Illustrates the Orders tab of the Top Customer Percentile widget on the Customers page.](./media/customer-dashboard/top-customer-percentile.png)](./media/customer-dashboard/top-customer-percentile.png#lightbox)
 
 ### Customer type by orders and usage
 
@@ -106,13 +106,13 @@ This chart shows the following:
 - A new customer has acquired one or more of your offers or reported usage for the first time within the same calendar month (y-axis).
 - An existing customer has previously acquired an offer from you or reported usage prior to the calendar month reported (on the y-axis).
 
-:::image type="content" source="./media/customer-dashboard/orders-by-customer-type.png" alt-text="Illustrates the Orders tab of the Orders by Customer Type widget on the Customers page.":::
+[![Illustrates the Orders tab of the Orders by Customer Type widget on the Customers page.](./media/customer-dashboard/orders-by-customer-type.png)](./media/customer-dashboard/orders-by-customer-type.png#lightbox)
 
 ### Customers by geography
 
 For the selected computation period, the heatmap displays the total number of customers, and the percentage of newly added customers against geography dimension. The light to dark color on the map represents the low to high value of the customer count. Select a record in the table to zoom in on a country or region.
 
-:::image type="content" source="./media/customer-dashboard/customers-by-geography.png" alt-text="Illustrates the Orders tab of the Orders by geography widget on the Customers page.":::
+[![Illustrates the Orders tab of the Orders by geography widget on the Customers page.](./media/customer-dashboard/customers-by-geography.png)](./media/customer-dashboard/customers-by-geography.png#lightbox)
 
 Note the following:
 

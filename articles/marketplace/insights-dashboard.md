@@ -4,7 +4,7 @@ description: Access a summary of marketplace web analytics in Partner Center, wh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 author: mingshen-ms
 ms.author: mingshen
 ---
@@ -53,13 +53,13 @@ The Marketplace Insights **Visitors** chart displays a count of _Page visits_ an
 
 **Unique visitors**: This number represents the distinct visitor count during the selected computation period for the offer(s) in Azure Marketplace and AppSource. A visitor who has visited one or more product detail pages will be counted as one unique visitor.
 
-:::image type="content" source="./media/insights-dashboard/visitors.png" alt-text="Illustrates the Visitors chart on the Marketplace Insights dashboard.":::
+[![Illustrates the Visitors chart on the Marketplace Insights dashboard.](./media/insights-dashboard/visitors.png)](./media/insights-dashboard/visitors.png#lightbox)
 
 ### Call to actions trend
 
 This number represents the count of **Call to Action** button clicks completed on the offer listing page (product detail page). _Calls to action_ are counted when users select the **Get It Now**, **Free Trial**, **Contact Me**, or **Test Drive** buttons.
 
-:::image type="content" source="./media/insights-dashboard/call-to-actions-trend.png" alt-text="Illustrates the Call to action chart on the Marketplace Insights dashboard.":::
+[![Illustrates the Call to action chart on the Marketplace Insights dashboard.](./media/insights-dashboard/call-to-actions-trend.png)](./media/insights-dashboard/call-to-actions-trend.png#lightbox)
 
 ### Page visits and Call to actions against offers, Referral domains, and Campaign IDs
 

@@ -4,7 +4,7 @@ description: Learn how to access analytic reports about your commercial marketpl
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 author: mingshen-ms
 ms.author: mingshen
 ---
@@ -54,13 +54,13 @@ There are two Orders counters: _Active_ and _Cancelled_.
 - **Active** equals the number of orders that are currently in use by customers during the selected date range.
 - **Canceled** equals the number of orders that were previously purchased and then canceled during the selected date range.
 
-:::image type="content" source="./media/orders-dashboard/orders-trend.png" alt-text="Illustrates the Orders widget on the Orders dashboard that shows the trend of active and cancelled orders.":::
+[![Illustrates the Orders widget on the Orders dashboard that shows the trend of active and cancelled orders.](./media/orders-dashboard/orders-trend.png)](./media/orders-dashboard/orders-trend.png#lightbox)
 
 ### Orders by per seat and site trend
 
 The **Orders by per seat and site-based** line chart represents the metric and trend of per-site SaaS and per-seat SaaS orders purchased by customers (this chart includes canceled orders).
 
-:::image type="content" source="./media/orders-dashboard/seats-sites.png" alt-text="Illustrates the Orders widget on the Orders dashboard that shows the orders per seat and site trend.":::
+[![Illustrates the Orders widget on the Orders dashboard that shows the orders per seat and site trend.](./media/orders-dashboard/seats-sites.png)](./media/orders-dashboard/seats-sites.png#lightbox)
 
 SaaS offers can use one of two pricing models with each plan: either flat rate (site-based) or per user (seat-based).
 
@@ -87,7 +87,7 @@ You can select any offer and a maximum of three SKUs of that offer to view the m
 
 For the selected computation period, the heatmap displays the total number of orders, and the growth percentage of newly added orders against a geography.  The light to dark color on the map represents the low to high value of the customer count. Select a record in the table to zoom in on a specific country or region.
 
-:::image type="content" source="./media/orders-dashboard/geographical-spread.png" alt-text="Illustrates the Geographical spread chart on the Orders dashboard.":::
+[![Illustrates the Geographical spread chart on the Orders dashboard.](./media/orders-dashboard/geographical-spread.png)](./media/orders-dashboard/geographical-spread.png#lightbox)
 
 Note the following:
 
