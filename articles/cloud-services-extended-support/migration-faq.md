@@ -12,11 +12,9 @@ ms.custom:
 
 # Cloud Services (extended support) Migration 
 
-Frequently asked questions related to Cloud Services (extended support) Migration.
+This articles covers frequently asked questions related to Cloud Services (extended support) Migration.
 
-## How do I migrate my existing deployment to ARM? 
-
-- Read docs and understand what cloud services (extended support) have to offer. 
+## How do I migrate my Cloud Services (classic) to Cloud Services (extended support)? 
 
 - Identify all your subscriptions and create a catalog of all your Cloud Services (classic) deployments. You can use look at all your deployment on Cloud Services (classic) Portal blade or Resource Graph Explorer using Portal or PowerShell.  
 

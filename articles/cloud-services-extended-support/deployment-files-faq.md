@@ -10,16 +10,10 @@ ms.date: 10/13/2020
 ms.custom: 
 --- 
 
-# Deployment Files (Cscfg, Csdef) 
+# Deployment files
+This article covers frequently asked questions related to Cloud Services (extended support) deployment files. 
 
-Frequently asked questions related to Cloud Services (extended support) deployment files.
-
-
-## What is changing in my existing deployment file? 
-
-To make migration simpler, we ensured your existing deployment files do not change much.  
-
-## Changes to Csdef: 
+## Changes to the `Csdef` file
 
 Replace name property of load balancer probe, Endpoints, Reserved IP, Public IP to now use fully qualified ARM resource name: 
 
@@ -27,13 +21,13 @@ Replace name property of load balancer probe, Endpoints, Reserved IP, Public IP 
 
 Replace deprecated vm size with mentioned [alternate sizes](Get link for sizes doc from micah). Pricing does not change if the alternate sizes are used. 
 
-## Changes to Cscfg: 
+## Changes to the `Cscfg` file 
 
 Update the DNS name 
 
-## Do I need to maintain 4 files (Template, parameter, Csdef, Cscfg) instead of only 2 file? 
+## Do I need to maintain 4 files (template, parameter, csdef, cscfg) instead of only 2 file? 
 
-Not necessarily. Template & parameter files are only used for deployment automation. Like before, you can still manually create dependent resources first and then a Cloud Services (extended support) deployment using PS/CLI commands.  
+Not necessarily. Template & parameter files are only used for deployment automation. Like before, users can still manually create dependent resources first and then a Cloud Services (extended support) deployment using PS/CLI commands.  
 
-You can find details on a basic create operation in the [PowerShell quick starter](). 
+For more information, see [Deploy a Cloud Service using PowerShell](deploy-powershell.md) 
 

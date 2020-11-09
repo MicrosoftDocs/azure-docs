@@ -12,7 +12,7 @@ ms.custom:
 
 # Cloud Services (extended support) Networking Components 
 
-Frequently asked questions related to Cloud Services (extended support) networking components.
+This article covers frequently asked questions related to Cloud Services (extended support) networking components.
 
 ## Why can’t I create a deployment without virtual network? 
 
@@ -43,22 +43,6 @@ Cloud Services (extended support) supports dynamic & statis IP allocation method
 ## Why am I getting charged for IP addresses? 
 
 Customers are billed for IP Address use on Cloud Services (extended support).  
-
-## Why can’t I edit Load Balancer but can edit other networking resources? 
-
-NEEDS INFORMATION
-
-## What types of Load Balancers are supported on Cloud Services (extended support)? 
-
-NEEDS INFORMATION
-
-## How can I reuse the IP address from my old Cloud Services (classic) deployment? 
-
- NEEDS INFORMATION
-
-## What is the syntax for default DNS name, where is it defined and how can I use my custom DNS?  
-
-NEEDS INFORMATION
 
 ## Will Networking Security Groups be exposed to customers to edit from Portal or using PS? 
 
