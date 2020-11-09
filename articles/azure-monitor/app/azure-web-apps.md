@@ -95,7 +95,8 @@ From within your App Service web app under **Settings** > **select Application I
 
 # [Java](#tab/java)
 
-Java App Service based web applications do not currently support automatic agent/extension based monitoring. To enable monitoring for your Java application, you need to [manually instrument your application](./java-get-started.md).
+Follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md) to enable auto-instrumentation for your Java apps without changing your code.
+The automatic integration is not yet available for App Service.
 
 # [Python](#tab/python)
 
@@ -345,7 +346,8 @@ If the upgrade is done from a version prior to 2.5.1, check that the Application
 Below is our step-by-step troubleshooting guide for extension/agent based monitoring for .NET and .NET Core based applications running on Azure App Services.
 
 > [!NOTE]
-> Java applications are only supported on Azure App Services via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
+> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
+
 
 1. Check that the application is monitored via `ApplicationInsightsAgent`.
     * Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
@@ -396,7 +398,7 @@ If you wish to test out codeless server and client-side monitoring for ASP.NET o
 
 ### PHP and WordPress are not supported
 
-PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side javascript to your web pages can be accomplished by using the [JavaScript SDK](./javascript.md).
+PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side JavaScript to your web pages can be accomplished by using the [JavaScript SDK](./javascript.md).
 
 ### Connection string and instrumentation key
 

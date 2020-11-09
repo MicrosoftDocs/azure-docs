@@ -24,7 +24,7 @@ This article describes the parameters and attributes of requests sent to the Bin
 
 You can get insights about an image in three ways:
 
-- Using an insights token that you get from an image in a previous call to one of the [Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) endpoints.
+- Using an insights token that you get from an image in a previous call to one of the [Bing Image Search API](/rest/api/cognitiveservices/bing-images-api-v7-reference) endpoints.
 - Sending the URL of an image.
 - Uploading an image (in binary format).
 

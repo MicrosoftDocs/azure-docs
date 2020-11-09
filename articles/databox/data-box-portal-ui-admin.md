@@ -24,15 +24,15 @@ Perform the following steps to cancel an order.
 
 1.	Go to **Overview > Cancel**. 
 
-    ![Cancel order 1](media/data-box-portal-ui-admin/cancel-order1.png)
+    ![Cancel command on the Overview tab for an order](media/data-box-portal-ui-admin/portal-ui-admin-cancel-command.png)
 
 2.	Fill out a reason for canceling the order.  
 
-    ![Cancel order 2](media/data-box-portal-ui-admin/cancel-order2.png)
+    ![Reason for canceling an order](media/data-box-portal-ui-admin/portal-ui-admin-cancel-order-reason.png)
 
 3.	Once the order is canceled, the portal updates the status of the order and displays it as **Canceled**.
 
-    ![Cancel order 3](media/data-box-portal-ui-admin/cancel-order3.png)
+    ![Canceled order](media/data-box-portal-ui-admin/portal-ui-admin-canceled-order.png)
 
 You do not receive an email notification when the order is canceled.
 
@@ -44,13 +44,13 @@ Perform the following steps to clone an order.
 
 1.	Go to **Overview > Clone**. 
 
-    ![Clone order 1](media/data-box-portal-ui-admin/clone-order1.png)
+    ![Clone command on the Overview tab for an order](media/data-box-portal-ui-admin/portal-ui-admin-clone-command.png)
 
 2.	All the details of the order stay the same. The order name is the original order name appended by *-Clone*. Select the checkbox to confirm that you have reviewed the privacy information. Click **Create**.    
 
 The clone is created in a few minutes and the portal updates to show the new order.
 
-[![Clone order 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Cloned order](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png)](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png#lightbox) 
 
 ## Delete order
 
@@ -60,15 +60,15 @@ You can only delete orders that are completed or canceled. Perform the following
 
 1. Go to **All resources**. Search for your order.
 
-    ![Search Data Box Disk orders](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
+    ![Search orders](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
 
 2. Click the order you want to delete and go to **Overview**. From the command bar, click **Delete**.
 
-    ![Delete Data Box Disk order 1](media/data-box-portal-ui-admin/delete-order1.png)
+    ![Delete an order](media/data-box-portal-ui-admin/portal-ui-admin-delete-command.png)
 
 3. Enter the name of the order when prompted to confirm the order deletion. Click **Delete**.
 
-     ![Delete Data Box Disk order 2](media/data-box-portal-ui-admin/delete-order2.png)
+     ![Confirm order deletion](media/data-box-portal-ui-admin/portal-ui-admin-confirm-deletion.png)
 
 
 ## Download shipping label
@@ -78,11 +78,11 @@ You may need to download the shipping label if the return shipping label shipped
 Perform the following steps to download a shipping label.
 1.	Go to **Overview > Download shipping label**. This option is available only after the disk is shipped. 
 
-    ![Download shipping label](media/data-box-portal-ui-admin/download-shipping-label.png)
+    ![Download shipping label](media/data-box-portal-ui-admin/portal-ui-admin-download-shipping-label.png)
 
 2.	This downloads the following return shipping label. Save the label, print it out, and affix to the return shipment.
 
-    ![Example shipping label](media/data-box-portal-ui-admin/example-shipping-label.png)
+    ![Example shipping label](media/data-box-portal-ui-admin/portal-ui-admin-example-shipping-label.png)
 
 ## Edit shipping address
 
@@ -92,11 +92,11 @@ Perform the following steps to edit the order.
 
 1. Go to **Order details > Edit shipping address**.
 
-    ![Edit shipping address 1](media/data-box-portal-ui-admin/edit-shipping-address1.png)
+    ![Edit shipping address command in Order details](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-command.png)
 
 2. You can now edit the shipping address and then save the changes.
 
-    ![Edit shipping address 2](media/data-box-portal-ui-admin/edit-shipping-address2.png)
+    ![Edit shipping address dialog box](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-dbox.png)
 
 ## Edit notification details
 
@@ -106,11 +106,11 @@ Perform the following steps to edit notification details.
 
 1. Go to **Order details > Edit notification details**.
 
-    ![Edit notification details 1](media/data-box-portal-ui-admin/edit-notification-details1.png)
+    ![Edit notification details command in Order details](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-command.png)
 
 2. You can now edit the notification details and then save the changes.
  
-    ![Edit notification details 2](media/data-box-portal-ui-admin/edit-notification-details2.png)
+    ![Edit notification details dialog box](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-dbox.png)
 
 ## View order status
 

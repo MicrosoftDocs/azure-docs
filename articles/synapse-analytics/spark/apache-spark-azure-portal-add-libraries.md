@@ -13,7 +13,7 @@ ms.subservice: spark
 
 # Manage libraries for Apache Spark in Azure Synapse Analytics
 
-Libraries provide reusable code that you may want to include in your programs or projects. To make third party or locally-built code available to your applications, you can install a library onto one of your Spark Pools (preview). Once a library is installed for a Spark pool, it is available for all sessions using the same pool. 
+Libraries provide reusable code that you may want to include in your programs or projects. To make third party or locally-built code available to your applications, you can install a library onto one of your serverless Apache Spark Pools (preview). Once a library is installed for a Spark pool, it is available for all sessions using the same pool. 
 
 ## Default Installation
 Apache Spark in Azure Synapse Analytics has a full Anacondas install plus additional libraries. The full libraries list can be found at [Apache Spark version support](apache-spark-version-support.md). 
