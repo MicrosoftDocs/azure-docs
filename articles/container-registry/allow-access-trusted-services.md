@@ -2,16 +2,16 @@
 title: Access network-restricted registry with trusted service
 description: Enable a trusted service instance to securely access a network-restricted container registry using a system-assigned managed identity 
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 11/09/2020
 ---
 
 # Allow trusted services to securely access a network-restricted container registry
 
-Azure Container Registry supports select trusted Azure services to access a network-restricted container registry. When a registry allows access by trusted services, a managed identity enabled in a trusted service instance can securely bypass the registry's network rules. To pull or push images or perform other registry operations, the identity must be assigned an RBAC role and authenticate with the registry.
+Azure Container Registry supports select trusted Azure services to access a network-restricted container registry. When a registry allows access by trusted services, a managed identity enabled in a trusted service instance can securely bypass the registry's network rules. To pull or push images or perform other registry operations, the identity must also be assigned an RBAC role and authenticate with the registry.
 
 Modifying settings for access by trusted services is a feature of the **Premium** service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version **XXXX** or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+Use the Azure Cloud Shell or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version **XXXX** or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Why allow trusted services?
 
@@ -39,7 +39,7 @@ The following services are allowed to access a network-restricted container regi
 
 ### Non-trusted services
 
-Instances of the following managed Azure services are *not* allowed access to a network-restricted Azure container registry, and access isn't enabled at this time by enabling network rule bypass options:
+Instances of the following managed Azure services are *not* allowed access to a network-restricted Azure container registry at this time, and access isn't enabled by enabling network rule bypass options:
 
 * Azure Security Center
 * Container Instances
@@ -60,6 +60,18 @@ To enable the setting in an existing registry or a registry where it's already d
 ```azurecli
 az acr update --name myregistry --network-rule-bypass-options enabled
 ```
+
+## Disable or enable network rule bypass options - portal
+
+By default, the network rule bypass options setting is enabled in new Azure container registries. 
+
+Disable or enable the setting on the registry's **Networking** tab in the portal:
+
+1. In the portal, navigate to your container registry.
+1. Under **Settings**, select **Networking**. 
+1. Do one of the following:
+    * To disable network rule bypass, under **Firewall exception**, uncheck **Allow trusted Microsoft services to bypass this firewall**. 
+    * To enable network rule bypass, under **Firewall exception**, uncheck **Allow trusted Microsoft services to bypass this firewall**. 
 
 ## Trusted services workflow
 
