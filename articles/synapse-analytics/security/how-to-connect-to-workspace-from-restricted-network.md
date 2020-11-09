@@ -28,7 +28,7 @@ First, add the following four network outbound security rules with four service 
 * AzureResourceManager
 * AzureFrontDoor.Frontend
 * AzureActiveDirectory
-* AzureMonitor (This type of rule is optional. Add it only when you want to share the data to Microsoft.)
+* AzureMonitor (This type of rule is optional. Add it only when you want to share the data with Microsoft.)
 
 The following screenshot shows details for the Azure Resource Manager outbound rule.
 
