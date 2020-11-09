@@ -29,10 +29,16 @@ Before you can do anything, you'll need to install the Speech SDK. Depending on 
 To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token. Create a [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) by using your key and region. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier.
 
 ```java
-import java.util.concurrent.Future;
 import com.microsoft.cognitiveservices.speech.*;
+import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
-SpeechConfig config = SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+public class Program {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+    }
+}
 ```
 
 There are a few other ways that you can initialize a [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable):
@@ -49,13 +55,27 @@ There are a few other ways that you can initialize a [`SpeechConfig`](https://do
 To recognize speech using your device microphone, create an `AudioConfig` using `fromDefaultMicrophoneInput()`. Then initialize a[`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable), passing your `audioConfig` and `config`.
 
 ```java
-AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
-SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
+import com.microsoft.cognitiveservices.speech.*;
+import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
-System.out.println("Speak into your microphone.");
-Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
-SpeechRecognitionResult result = task.get();
-System.out.println("RECOGNIZED: Text=" + result.getText());
+public class Program {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+        fromMic(speechConfig);
+    }
+
+    public static void fromMic(SpeechConfig speechConfig) throws InterruptedException, ExecutionException {
+        AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
+        SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+
+        System.out.println("Speak into your microphone.");
+        Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
+        SpeechRecognitionResult result = task.get();
+        System.out.println("RECOGNIZED: Text=" + result.getText());
+    }
+}
 ```
 
 If you want to use a *specific* audio input device, you need to specify the device ID in the `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
@@ -65,28 +85,31 @@ If you want to use a *specific* audio input device, you need to specify the devi
 If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig`. However, when you create the [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable), instead of calling `fromDefaultMicrophoneInput()`, call `fromWavFileInput()` and pass the file path.
 
 ```java
-AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
-SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
+import com.microsoft.cognitiveservices.speech.*;
+import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
-Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
-SpeechRecognitionResult result = task.get();
-System.out.println("RECOGNIZED: Text=" + result.getText());
+public class Program {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+        fromFile(speechConfig);
+    }
+
+    public static void fromFile(SpeechConfig speechConfig) throws InterruptedException, ExecutionException {
+        AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
+        SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+        
+        Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
+        SpeechRecognitionResult result = task.get();
+        System.out.println("RECOGNIZED: Text=" + result.getText());
+    }
+}
 ```
 
-## Recognize speech
+## Error handling
 
-The [Recognizer class](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable&preserve-view=true) for the Speech SDK for Java exposes a few methods that you can use for speech recognition.
-
-### Single-shot recognition
-
-Single-shot recognition asynchronously recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed. Here's an example of asynchronous single-shot recognition using [`recognizeOnceAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-java-stable):
-
-```java
-Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
-SpeechRecognitionResult result = task.get();
-```
-
-You'll need to write some code to handle the result. This sample evaluates the [`result.getReason()`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.resultreason?view=azure-java-stable&preserve-view=true):
+The previous examples simply get the recognized text using `result.getText()`, but to handle errors and other responses, you'll need to write some code to handle the result. The following  example evaluates [`result.getReason()`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.resultreason?view=azure-java-stable&preserve-view=true) and:
 
 * Prints the recognition result: `ResultReason.RecognizedSpeech`
 * If there is no recognition match, inform the user: `ResultReason.NoMatch`
@@ -115,9 +138,11 @@ switch (result.getReason()) {
 }
 ```
 
-### Continuous recognition
+## Continuous recognition
 
-Continuous recognition is a bit more involved than single-shot recognition. It requires you to subscribe to the `recognizing`, `recognized`, and `canceled` events to get the recognition results. To stop recognition, you must call [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
+The previous examples use single-shot recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
+
+In contrast, continuous recognition is used when you want to **control** when to stop recognizing. It requires you to subscribe to the `recognizing`, `recognized`, and `canceled` events to get the recognition results. To stop recognition, you must call [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
 
 Let's start by defining the input and initializing a [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable&preserve-view=true):
 

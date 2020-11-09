@@ -64,6 +64,8 @@
       href: cdn-create-endpoint-how-to.md   
     - name: Manage by using Azure PowerShell
       href: cdn-manage-powershell.md
+    - name: Onboard a root or apex domain
+      href: onboard-apex-domain.md
     - name: Restrict access by country or region
       href: cdn-restrict-access-by-country.md
     - name: Improve performance by compressing files

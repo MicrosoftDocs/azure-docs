@@ -21,7 +21,7 @@ ms.author: swmachan
 Version 2 of the Translator can be seamlessly integrated into your apps, websites, tools, or other solutions to provide multilanguage user experiences. You can use it on any hardware platform and with any operating system to perform language translation and other language-related tasks, like text-language detection and text to speech, according to industry standards. For more information, see [Translator](../translator-info-overview.md).
 
 ## Getting started
-To access the Translator, you need to [sign up for Microsoft Azure](../translator-text-how-to-signup.md).
+To access the Translator, you need to [sign up for Microsoft Azure](../translator-how-to-signup.md).
 
 ## Authentication 
 All calls to the Translator require a subscription key for authentication. The API supports three methods of authentication:
@@ -800,5 +800,3 @@ Response content type: application/xml
 
 > [!div class="nextstepaction"]
 > [Migrate to Translator v3](../migrate-to-v3.md)
-
-

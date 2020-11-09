@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -83,6 +83,7 @@ The following example localizes the Facebook identity provider to Arabic:
 | ID | Default value |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | Your password is incorrect. |
+| **UserMessageIfPasswordExpired**| Your password has expired.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | We can't seem to find your account. |
 | **UserMessageIfOldPasswordUsed** | Looks like you used an old password. |
 | **DefaultMessage** | Invalid username or password. |
@@ -118,6 +119,7 @@ The following example localizes the Facebook identity provider to Arabic:
     <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>
