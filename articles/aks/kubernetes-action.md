@@ -6,6 +6,7 @@ author: azooinmyluggage
 ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
+ms.custom: github-actions-azure
 ---
 
 # GitHub Actions for deploying to Kubernetes service
