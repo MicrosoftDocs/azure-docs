@@ -20,7 +20,7 @@ In this tutorial, you create a .NET Core console application to send messages to
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created.
 
-## Send messages
+## Send messages to a queue
 To send messages to the queue, write a C# console application using Visual Studio.
 
 ### Create a console application
@@ -32,7 +32,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 1. Select **Browse**. Search for and select **[Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/)**.
 1. Select **Install** to complete the installation, then close the NuGet Package Manager.
 
-### Send messages to a queue
+### Add code to send messages to the queue
 
 1. In *Program.cs*, add the following `using` statements at the top of the namespace definition, before the class declaration:
 

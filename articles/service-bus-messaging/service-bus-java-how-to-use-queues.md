@@ -18,53 +18,45 @@ In this tutorial, you learn how to create Java applications to send messages to 
 - If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created.
 - Install [Azure SDK for Java][Azure SDK for Java]. 
 
-## Create a Java project 
-Create a Java project using Eclipse or a tool of your choice. 
-
-## Configure your application to use Service Bus
-Make sure you've installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. 
-
-If you're using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project. If you're using IntelliJ, see [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
-
-
-## Add a reference to Azure Service Bus library
-The Java client library for Service Bus is available in the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-servicebus). You can reference this library using the following dependency declaration inside your Maven project file:
-
-```xml
-    <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-messaging-servicebus</artifactId>
-      <version>7.0.0-beta.4</version>
-    </dependency>
-```
-
-## Add the import statements
-Add the following `import` statements at the topic of the Java file. 
-
-```java
-import com.azure.messaging.servicebus.*;
-import com.azure.messaging.servicebus.models.*;
-import reactor.core.Disposable;
-import java.time.Instant;
-import java.util.concurrent.TimeUnit;
-```
-
 ## Send messages to a queue
-To send messages to a Service Bus Queue, your application instantiates a **ServiceBusSenderAsyncClient** object and sends messages asynchronously. The following code shows how to send a message to a queue that was created using the Azure portal.
+
+1. Create a Java project using Eclipse or a tool of your choice. 
+2. Configure your application to use Service Bus. Make sure you've installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. If you're using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project. If you're using IntelliJ, see [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
+3. Add a reference to Azure Service Bus library. The Java client library for Service Bus is available in the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-servicebus). You can reference this library using the following dependency declaration inside your Maven project file:
+
+    ```xml
+    	<dependency>
+    	  <groupId>com.azure</groupId>
+    	  <artifactId>azure-messaging-servicebus</artifactId>
+    	  <version>7.0.0-beta.7</version>
+    	</dependency>
+    ```
+4. Add the following `import` statements at the topic of the Java file. 
+
+    ```java
+    import com.azure.messaging.servicebus.*;
+    import com.azure.messaging.servicebus.models.*;
+    import java.util.concurrent.TimeUnit;
+    import java.util.function.Consumer;
+    import java.util.Arrays;
+    import java.util.List;
+    ```    
+5. In the class, define variables to hold connection string and queue name as shown below: 
+
+    ```java
+	static String connectionString = "<CONNECTION STRING - SERVICE BUS NAMESPACE>";
+    static String queueName = "<QUEUE NAME>";    
+    ```
+1. Add the following `sendMessages` method to send messages to the queue you created. The `createMessages` helper method creates a list of messages to be sent to the queue. The `sendMessages` method creates a `ServiceBusSenderClient` for the queue, invokes the `createMessages` method to get the list of messages, creates one or more batches, and sends the batches to the queue. 
 
 ```java
-public class QueueClient {
-	
-	static String connectionString = "<CONNECTION STRING - SERVICE BUS NAMESPACE>";
-    static String queueName = "<QUEUE NAME>";
-    
     static List<ServiceBusMessage> createMessages()
     {
         // create a list of messages and return it to the caller
         ServiceBusMessage[] messages = {
-            new ServiceBusMessage("First message"),
-            new ServiceBusMessage("Second message"),
-            new ServiceBusMessage("Three message")
+        		new ServiceBusMessage("First message"),
+        		new ServiceBusMessage("Second message"),
+        		new ServiceBusMessage("Three message")
         };
         return Arrays.asList(messages);
     }
@@ -79,16 +71,16 @@ public class QueueClient {
                 .buildClient();
 
         // Creates an ServiceBusMessageBatch where the ServiceBus.
-        ServiceBusMessageBatch messageBatch = senderClient.createBatch(new CreateBatchOptions().setMaximumSizeInBytes(1024));        
+        ServiceBusMessageBatch messageBatch = senderClient.createMessageBatch(new CreateMessageBatchOptions().setMaximumSizeInBytes(1024));        
         
-        // create a list of messages
+    	// create a list of messages
         List<ServiceBusMessage> listOfMessages = createMessages();
         
         // We try to add as many messages as a batch can fit based on the maximum size and send to Service Bus when
         // the batch can hold no more messages. Create a new batch for next set of messages and repeat until all
         // messages are sent.        
         for (ServiceBusMessage message : listOfMessages) {
-            if (messageBatch.tryAdd(message)) {
+            if (messageBatch.tryAddMessage(message)) {
                 continue;
             }
 
@@ -97,10 +89,10 @@ public class QueueClient {
             System.out.println("Sent a batch of messages to the queue: " + queueName);
             
             // create a new batch
-            messageBatch = senderClient.createBatch(new CreateBatchOptions().setMaximumSizeInBytes(1024));
+            messageBatch = senderClient.createMessageBatch(new CreateMessageBatchOptions().setMaximumSizeInBytes(1024));
 
             // Add that message that we couldn't before.
-            if (!messageBatch.tryAdd(message)) {
+            if (!messageBatch.tryAddMessage(message)) {
                 System.err.printf("Message is too large for an empty batch. Skipping. Max size: %s.", messageBatch.getMaxSizeInBytes());
             }
         }
@@ -111,74 +103,67 @@ public class QueueClient {
         //close the client
         senderClient.close();
     }
-
-    public static void main(String[] args) {
-        sendMessages();
-    }
 ```
 
 ## Receive messages from a queue
-Add the following code after the `senderClient.close()` method to receive messages from the queue.
 
-```java
-        ServiceBusReceiverAsyncClient receiver = new ServiceBusClientBuilder()
-                .connectionString(connectionString)
-                .receiver()
-                .queueName(queueName)
-                .buildAsyncClient();
-        
-        Disposable subscription = receiver.receiveMessages()
-                .flatMap(context -> {
-                    ServiceBusReceivedMessage message = context.getMessage();
+1. Add the following method to receive messages from the queue. This method creates a `ServiceBusProcessorClient` for the queue by specifying a handler for processing messages and another one for handling errors. 
 
-                    // print ID and body of the received message
-                    System.out.println("Received message with ID: " + message.getMessageId() + " and body: " + new String(message.getBody()));
+    ```java
+    // handles received messages
+    static void receiveMessages() throws InterruptedException
+    {
+        // consumer that processes a single message received from Service Bus
+        Consumer<ServiceBusReceivedMessageContext> messageProcessor = context -> {
+            ServiceBusReceivedMessage message = context.getMessage();
+            System.out.println("Received message: " + message.getBody().toString());
+        };
 
-                    // process the received message
-                    boolean isSuccessfullyProcessed = processMessage(message);
+        // handles any errors that occur when receiving messages
+        Consumer<Throwable> errorHandler = throwable -> {
+            System.out.println("Error when receiving messages: " + throwable.getMessage());
+            if (throwable instanceof ServiceBusReceiverException) {
+                ServiceBusReceiverException serviceBusReceiverException = (ServiceBusReceiverException) throwable;
+                System.out.println("Error source: " + serviceBusReceiverException.getErrorSource());
+            }
+        };
 
-                    // When we are finished processing the message, then complete or abandon it.
-                    if (isSuccessfullyProcessed) {
-                        return receiver.complete(message).thenReturn("Completed: " + message.getMessageId());
-                    } else {
-                        return receiver.abandon(message).thenReturn("Abandoned: " + message.getMessageId());
-                    }
-                })
-                .subscribe(message -> System.out.printf("Processed at %s. %s%n", Instant.now(), message),
-                    error -> System.err.println("Error occurred while receiving message: " + error),
-                    () -> System.out.println("Receiving complete."));
+        // create an instance of the processor through the ServiceBusClientBuilder
+        ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
+            .connectionString(connectionString)
+            .processor()
+            .queueName(queueName)
+            .processMessage(messageProcessor)
+            .processError(errorHandler)
+            .buildProcessorClient();
 
-            // Receiving messages from the queue for a duration of 20 seconds.
-            // Subscribe is not a blocking call so we sleep here so the program does not end.
-            TimeUnit.SECONDS.sleep(20);
+        System.out.println("Starting the processor");
+        processorClient.start();
 
-            // Disposing of the subscription will cancel the receive() operation.
-            subscription.dispose();
+        TimeUnit.SECONDS.sleep(10);
+        System.out.println("Stopping and closing the processor");
+        processorClient.close();    	
+    }    
+    ```
+2. Update the `main` method to invoke both `sendMessages` and `receiveMessages` methods and to throw `InterruptedException`.     
 
-            // Close the receiver.
-            receiver.close();
-```
-
-Add the method for processing messages after the `main` method. This method just returns true, but you can add your own code for processing the message. 
-
-```java
-	// Processes the message. Returns true in this example.
-    private static boolean processMessage(ServiceBusReceivedMessage message) {
-        return true;
-    }
-```
+    ```java
+    public static void main(String[] args) throws InterruptedException {    	
+    	sendMessages();
+    	receiveMessages();
+    }   
+    ```
 
 ## Test the application
 When you run the application, you see the following messages in the console window. 
 
 ```console
-Send complete.
-Received message with ID: 000000000000000000000000000000000 and body: First message
-Received message with ID: 111111111111111111111111111111111 and body: Second message
-Processed at 2020-09-15T20:05:56.171576300Z. Completed: 000000000000000000000000000000000
-Processed at 2020-09-15T20:05:56.175578900Z. Completed: 111111111111111111111111111111111
-Received message with ID: 22222222222222222222222222222 and body: Thrid message
-Processed at 2020-09-15T20:05:56.248572400Z. Completed: 22222222222222222222222222222
+Sent a batch of messages to the queue: myqueue
+Starting the processor
+Received message: First message
+Received message: Second message
+Received message: Three message
+Stopping and closing the processor
 ```
 
 On the **Overview** page for the Service Bus namespace in the Azure portal, you see **incoming** and **outgoing** message count. You may need to wait for a minute or so and then refresh the page to see the latest values. 
