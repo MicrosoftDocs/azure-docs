@@ -90,9 +90,9 @@ To add a customer-managed key in the Azure portal after your Data Box order is c
 
     A user-assigned identity is an independent resource that is associated with a resource group. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).  
 
-    ![Select the identity type](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)<!--Reshoot. Just the two selection types.-->
+    ![Select the identity type](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)<!--Reshoot. Just the two selection types. The option to use a system assigned identity type is not included in the Order wizard.-->
 
-    If you want to create a new user identity, select **Select a user identity** and then select your managed identity that you want to use.<!--Stopped shooting screens here (11/06). Got ahead of myself. Will need to test a new order.-->
+    If you want to create a new user identity, select **Select a user identity** and then select your managed identity that you want to use.<!--Stopped shooting screens here (11/06). Will need to test a new order to get back to this screen.-->
 
     ![Select an identity to use](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)<!--Edit current screen from the Order tutorial to sub new options in the Encryption Type settings. Extra line? Reshoot would require lots of handwork to cleanse the Assigned management key pane of specifics. Make same update to Order tutorial.-->
 
