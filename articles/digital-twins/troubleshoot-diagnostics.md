@@ -12,7 +12,7 @@ ms.service: digital-twins
 
 # Troubleshooting Azure Digital Twins: Diagnostics logging
 
-Azure Digital Twins collects [metrics](troubleshoot-metrics.md) for your service instance that give information about the state of your resources. You can use these metrics to assess the overall health of Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help perform root-cause analysis on issues without needing to contact Azure support.
+Azure Digital Twins can collect logs for your service instance to monitor its performance, access, and other data. You can use these logs to get an idea of what is happening in your Azure Digital Twins instance, and perform root-cause analysis on issues without needing to contact Azure support.
 
 This article shows you how to **configure diagnostic settings** to start collecting logs from your Azure Digital Twins instance, and specify where they should be stored (such as Log Analytics or a storage account of your choice). After enabling logs, you can also **query the logs** in the [Azure portal](https://portal.azure.com) to quickly gather custom insights.
 
@@ -20,7 +20,7 @@ This article also contains lists of all [log categories](#log-categories) and [l
 
 ## Turn on diagnostic settings 
 
-Turn on diagnostic settings to start collecting logs on your Azure Digital Twins instance. You can also choose to stream the exported logs and metrics to another destination. Here is how to enable diagnostic settings for your Azure Digital Twins instance.
+Turn on diagnostic settings to start collecting logs on your Azure Digital Twins instance. You can also choose the destination where the exported logs should be stored. Here is how to enable diagnostic settings for your Azure Digital Twins instance.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
 
