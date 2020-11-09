@@ -66,6 +66,8 @@
     href: concepts/sdk-options.md 
   - name: Pricing model
     href: concepts/pricing.md
+  - name: Identity model
+    href: concepts/identity-model.md    
   - name: Authentication
     href: concepts/authentication.md
   - name: Event handling
