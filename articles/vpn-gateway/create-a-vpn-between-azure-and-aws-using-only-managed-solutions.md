@@ -1,3 +1,17 @@
+---
+title: 'Create a VPN between Azure and AWS using only managed solutions'
+description: How to create an VPN between Azure and AWS using only the VPN managed solution from each one.
+services: vpn-gateway
+titleSuffix: Azure VPN Gateway
+author: ricmmartins
+
+ms.service: vpn-gateway
+ms.topic: how-to
+ms.date: 11/09/2020
+ms.author: ricmmartins
+
+---
+
 
 # How to create a VPN between Azure and AWS using only managed solutions
 
