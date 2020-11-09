@@ -656,7 +656,7 @@ The following table lists some example scenarios to monitor and the proper metri
 
 ## Next steps
 
-- [Azure Files monitoring data reference](storage-files-monitoring.md)
+- [Azure Files monitoring data reference](storage-files-monitoring-reference.md)
 - [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Azure Storage metrics migration](../common/storage-metrics-migration.md)
 - [Planning for an Azure Files deployment](https://docs.microsoft.com/azure/storage/files/storage-files-planning)

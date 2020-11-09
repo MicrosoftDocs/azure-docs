@@ -32,7 +32,7 @@ Although this application is written in PHP, the API is a RESTful Web service co
 
 ## Running the application
 
-The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) returns video results from the Bing search engine.
+The [Bing Video Search API](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) returns video results from the Bing search engine.
 
 1. Enable secure HTTP support in your `php.ini` file by uncommenting the `;extension=php_openssl.dll` line, as described in the following code.
 2. Create a new PHP project in your favorite IDE or editor.

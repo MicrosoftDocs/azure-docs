@@ -11,7 +11,7 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -130,7 +130,7 @@ If you select the **Add environment variable** type for your express custom setu
 
 #### Installing Azure PowerShell
 
-If you select the **Install Azure PowerShell** type for your express custom setup, you can install the Az module of PowerShell on your Azure-SSIS IR. To do so, enter the Az module version number (x.y.z) you want from a [list of supported ones](https://www.powershellgallery.com/stats/packages/Az?groupby=Version). This will allow you to run Azure PowerShell cmdlets/scripts in your packages to manage Azure resources, for example [Azure Analysis Services (AAS)](../analysis-services/analysis-services-powershell.md).
+If you select the **Install Azure PowerShell** type for your express custom setup, you can install the Az module of PowerShell on your Azure-SSIS IR. To do so, enter the Az module version number (x.y.z) you want from a [list of supported ones](https://www.powershellgallery.com/packages/az). This will allow you to run Azure PowerShell cmdlets/scripts in your packages to manage Azure resources, for example [Azure Analysis Services (AAS)](../analysis-services/analysis-services-powershell.md).
 
 #### Installing licensed components
 
@@ -284,7 +284,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
       * A *Sample* folder, which contains a custom setup to install a basic task on each node of your Azure-SSIS IR. The task does nothing but sleep for a few seconds. The folder also contains a *gacutil* folder, whose entire contents (*gacutil.exe*, *gacutil.exe.config*, and *1033\gacutlrc.dll*) can be copied as is to your container.
 
-      * A *UserScenarios* folder, which contains several custom setup samples from real user scenarios.
+      * A *UserScenarios* folder, which contains several custom setup samples from real user scenarios. If you want to install multiple samples on your Azure-SSIS IR, you can combine their custom setup script (*main.cmd*) files into a single one and upload it with all of their associated files into your container.
 
         ![Contents of the public preview container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 

@@ -421,8 +421,6 @@
                   href: http://aka.ms/speech/va-samples
                 - name: Voice assistants FAQ
                   href: faq-voice-assistants.md
-                - name: Speech SDK
-                  href: speech-sdk.md
                 - name: Custom Commands encryption of data at rest
                   href: custom-commands-encryption-of-data-at-rest.md
         - name: Direct Line Speech

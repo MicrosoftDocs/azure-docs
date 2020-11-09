@@ -73,4 +73,4 @@ Blocked|InvalidRequest.Blocked
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use and display requirements](./UseAndDisplayRequirements.md)
+> [Use and display requirements](../bing-web-search/use-display-requirements.md)

@@ -1,7 +1,7 @@
 ---
 title: Deploy a model for use with Cognitive Search
 titleSuffix: Azure Machine Learning
-description: This article teaches you how to use Azure Machine Learning to deploy a model for use with Azure Cognitive Search. Cognitive Search can use models deployed by Azure Machine Learning as a custom skill to enrich the search experience.
+description: Learn how to use Azure Machine Learning to deploy a model for use with Cognitive Search. The model is used as a custom skill to enrich the search experience.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
