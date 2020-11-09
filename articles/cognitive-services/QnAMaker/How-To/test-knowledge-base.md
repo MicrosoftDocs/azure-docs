@@ -4,13 +4,15 @@ description: Testing your QnA Maker knowledge base is an important part of an it
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 11/09/2020
 ---
 # Test your knowledge base in QnA Maker
 
 Testing your QnA Maker knowledge base is an important part of an iterative process to improve the accuracy of the responses being returned. You can test the knowledge base through an enhanced chat interface that also allows you make edits.
 
 ## Interactively test in QnA Maker portal
+
+# [QnA Maker GA (stable release)](#tab/v1)
 
 1. Access your knowledge base by selecting its name on the **My knowledge bases** page.
 1. To access the Test slide-out panel, select **Test** in your application's top panel.
@@ -31,7 +33,7 @@ You inspect details of the test result in the Inspect panel.
 
 1.  With the Test slide-out panel open, select **Inspect** for more details on that response.
 
-    ![Inspect responses](../media/qnamaker-how-to-test-kb/inspect.png)
+    ![Inspect responses](../media/qnamaker-how-to-test-knowledge-bases/inspect.png)
 
 2.  The Inspection panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
@@ -39,13 +41,13 @@ You inspect details of the test result in the Inspect panel.
 
 If the top scoring answer is incorrect, select the correct answer from the list and select **Save and Train**.
 
-![Correct the top scoring answer](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Correct the top scoring answer](../media/qnamaker-how-to-test-knowledge-bases/choose-answer.png)
 
 ### Add alternate questions
 
-You can add alternate forms of a question to a given answer. Type the alternate answers in the text box and click enter to add them. Select **Save and Train** to store the updates.
+You can add alternate forms of a question to a given answer. Type the alternate answers in the text box and select enter to add them. Select **Save and Train** to store the updates.
 
-![Add alternate questions](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Add alternate questions](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question.png)
 
 ### Add a new answer
 
@@ -58,11 +60,62 @@ Select **Save and Train** to persist this answer. A new question-answer pair has
 > [!NOTE]
 > All edits to your knowledge base only get saved when you press the **Save and Train** button.
 
+# [QnA Maker managed (preview release)](#tab/v2)
+
+1. Access your knowledge base by selecting its name on the **My knowledge bases** page.
+1. To access the Test slide-out panel, select **Test** in your application's top panel. 
+1. You will see a checkbox on the top **Display short answer**, which is selected by default. This option is used to enable MRC based answer span detection in your test panel. 
+1. Enter a query in the text box and select Enter. 
+1. For every query, if there is a precise answer/short answer present in the answer passage then along with best-matched answer passage, which is present in the knowledge base you will also have a short answer for your query.
+    ![Managed enabled test pane](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
+1. If you unselect the **Display short answer**, then only the best-matched answer passage from the knowledge base is returned as the response.
+
+### Clear test panel
+
+To clear all the entered test queries and their results from the test console, select **Start over** at the upper-left corner of the Test panel.
+
+### Close test panel
+
+To close the Test panel, select the **Test** button again. While the Test panel is open, you cannot edit the Knowledge Base contents.
+
+### Inspect score
+
+You inspect details of the test result in the Inspect panel.
+
+1.  With the Test slide-out panel open, select **Inspect** for more details on that response.
+
+    ![Inspect responses preview](../media/qnamaker-how-to-test-knowledge-bases/inspect-with-managed.png)
+
+2.  The Inspection panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
+3. The panel shows the confidence score of answer passage along with score of answer span detected.
+
+### Correct the top scoring answer
+
+If the top scoring answer is incorrect, select the correct answer from the list and select **Save and Train**.
+
+![Correct the top scoring answer preview](../media/qnamaker-how-to-test-knowledge-bases/choose-answer-managed.png)
+
+### Add alternate questions
+
+You can add alternate forms of a question to a given answer. Type the alternate answers in the text box and select enter to add them. Select **Save and Train** to store the updates.
+
+![Add alternate questions preview](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question-with-managed.png)
+
+### Add a new answer
+
+You can add a new answer if any of the existing answers that were matched are incorrect or the answer does not exist in the knowledge base (no good match found in the KB).
+
+At the bottom of the answers list, use the text box to enter a new answer and press enter to add it.
+
+Select **Save and Train** to persist this answer. A new question-answer pair has now been added to your knowledge base.
+
+---
+
 ### Test the published knowledge base
 
 You can test the published version of knowledge base in the test pane. Once you have published the KB, select the **Published KB** box and send a query to get results from the published KB.
 
-![Test against a published KB](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Test against a published KB](../media/qnamaker-how-to-test-knowledge-bases/test-against-published-knowledge-base.png)
 
 ## Batch test with tool
 
@@ -124,11 +177,11 @@ In order to use the batch test tool, create a file named `batch-test-data-1.tsv`
 |--|--|--|
 |Knowledge base ID|Your knowledge base ID found on the Publish page. Test several knowledge bases in the same service at one time in a single file by using different knowledge base IDs in a single file.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (36 character string shown as part of `POST`) |
 |Question|The question text a user would enter. 1,000 character max.|`How do I sign out?`|
-|Metadata tags|optional|`topic:power` uses the _key:value_ format|
+|Metadata tags|optional|`topic:power` uses the `key:value` format|
 |Top parameter|optional|`25`|
 |Expected answer ID|optional|`13`|
 
-For this knowledge base, add 3 rows of just the 2 required columns to the file. The first column is your knowledge base ID and the second column should be the following list of questions:
+For this knowledge base, add three rows of just the two required columns to the file. The first column is your knowledge base ID and the second column should be the following list of questions:
 
 |Column 2 - questions|
 |--|
@@ -138,7 +191,7 @@ For this knowledge base, add 3 rows of just the 2 required columns to the file. 
 
 These questions are the exact wording from the knowledge base and should return 100 as the confidence score.
 
-Next, add a few questions, similar to these questions but not exactly the same on 3 more rows, using the same knowledge base ID:
+Next, add a few questions, similar to these questions but not exactly the same on three more rows, using the same knowledge base ID:
 
 |Column 2 - questions|
 |--|
@@ -170,7 +223,7 @@ The test completes and generates the `out.tsv` file:
 
 The knowledge base ID has been replaced with `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` for security. For your own batch test, the column displays your knowledge base ID.
 
-The test output of confidence score, in the 4th column, shows the top 3 questions returned a score of 100 as expected because each question is exactly the same as it appears in the knowledge base. The last 3 questions, with new wording of the question, do not return 100 as the confidence score. In order to increase the score both for the test, and your users, you need to add more alternate questions to the knowledge base.
+The test output of confidence score, in the fourth column, shows the top three questions returned a score of 100 as expected because each question is exactly the same as it appears in the knowledge base. The last three questions, with new wording of the question, do not return 100 as the confidence score. In order to increase the score both for the test, and your users, you need to add more alternate questions to the knowledge base.
 
 ### Testing with the optional fields
 
@@ -186,7 +239,7 @@ Use the following chart to understand how to find the field values for optional 
 
 |Column number|Optional column|Data location|
 |--|--|--|
-|3|metadata|Export existing knowledge base for existing _key:value_ pairs.|
+|3|metadata|Export existing knowledge base for existing `key:value` pairs.|
 |4|top|Default value of `25` is recommended.|
 |5|Question and answer set ID|Export existing knowledge base for ID values. Also notice the IDs were returned in the output file.|
 
@@ -219,7 +272,7 @@ There are two main scenarios for batch testing:
 
 The following procedure assumes the scenario is to process chat logs with
 
-1. Create a new batch test file to include optional data, `batch-test-data-2.tsv`. Add the 6 rows from the original batch test input file, then add the metadata, top, and QnA pair ID for each row.
+1. Create a new batch test file to include optional data, `batch-test-data-2.tsv`. Add the six rows from the original batch test input file, then add the metadata, top, and QnA pair ID for each row.
 
     To simulate the automated process of checking new text from chat logs against the knowledge base, set the metadata for each column to the same value: `topic:power`.
 
@@ -235,7 +288,7 @@ The following procedure assumes the scenario is to process chat logs with
 
 This test output file can be parsed as part of an automated continuous test pipeline.
 
-This specific test output should be read as: each row was filtered with metadata, and because each row didn't match the metadata in the knowledge base, the default answer for those non-matching rows returned ("no good match found in kb"). Of those rows that did match, the QnA ID and score were returned.
+This specific test output should be read as: each row was filtered with metadata, and because each row didn't match the metadata in the knowledge base, the default answer for those non-matching rows returned ("no good match found in kb"). Of those rows that did match, the QnA ID and score was returned.
 
 All rows returned the label of incorrect because no row matched the answer ID expected.
 
