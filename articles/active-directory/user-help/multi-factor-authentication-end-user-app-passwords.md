@@ -60,7 +60,7 @@ You can create and delete app passwords from the **Additional security verificat
 
     ![Your app password page with the password for your specified app](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-4. From the **App passwords** page, make sure your app is listed.
+4. On the **App passwords** page, make sure your app is listed.
 
     ![App passwords page, with new app shown in list](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
@@ -68,9 +68,9 @@ You can create and delete app passwords from the **Additional security verificat
 
 ### To delete an app password using the App passwords page
 
-1. From the **App passwords** page, select **Delete** next to the app password you want to delete.
+1. On the **App passwords** page, select **Delete** next to the app password you want to delete.
 
-   ![Delete an app password](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![Screenshot that shows deleting an app password on the App passwords page](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
 2. Select **Yes** to confirm you want to delete the password, and then select **Close**.
 
@@ -98,17 +98,17 @@ If you use two-step verification with your work or school account and your Micro
 
     ![App password page with the new app password you created](media/multi-factor-authentication-end-user-app-passwords/mfa-copy-app-password.png)
 
-5. From the **Security info** page, make sure your app password is listed.
+5. On the **Security info** page, make sure your app password is listed.
 
     ![Security info page, with new app password shown in list](media/multi-factor-authentication-end-user-app-passwords/mfa-verify-app-password.png)  
 
 6. Open the app you created the app password for (for example, Outlook 2016), and then paste the app password when asked for it. You should only have to do this once per app.
 
-### To delete app passwords using the App passwords page
+### To delete app passwords using the Security info page
 
-1. From the **Security info** page, select **Delete** next to the app password you want to delete.
+1. On the **Security info** page, select **Delete** next to the app password you want to delete.
 
-   ![Delete an app password](media/multi-factor-authentication-end-user-app-passwords/mfa-delete-app-password.png)
+   ![Screenshot that shows deleting an app password on the Security info page](media/multi-factor-authentication-end-user-app-passwords/mfa-delete-app-password.png)
 
 2. Select **Ok** in the confirmation box.
 
