@@ -25,10 +25,10 @@ This is a list of RHEL images available in Azure. Unless otherwise stated, all i
 
 Offer| SKU | Partitioning | Provisioning | Notes
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | RAW    | Linux Agent | 
-|             | 6.8      | RAW    | Linux Agent | 
-|             | 6.9      | RAW    | Linux Agent | 
-|             | 6.10     | RAW    | Linux Agent | 
+RHEL          | 6.7      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-extended-lifecycle-support.md)
+|             | 6.8      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-extended-lifecycle-support.md)
+|             | 6.9      | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-extended-lifecycle-support.md)
+|             | 6.10     | RAW    | Linux Agent | Extended Lifecycle Support available from December 1st. [More details here.](redhat-extended-lifecycle-support.md)
 |             | 7-RAW    | RAW    | Linux Agent | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS).
 |             | 7-LVM    | LVM    | Linux Agent | RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS). If you are looking for a standard RHEL image to deploy, use this set of images and/or its Generation 2 counterpart.
 |             | 7lvm-gen2| LVM    | Linux Agent | Generation 2, RHEL 7.x family of images. <br> Attached to regular repositories by default (not EUS). If you are looking for a standard RHEL image to deploy, use this set of images and/or its Generation 1 counterpart.
@@ -64,9 +64,9 @@ RHEL-SAP      | 7.4      | LVM    | Linux Agent | RHEL 7.4 for SAP HANA and Busi
 |             | 7.6       | LVM    | Linux Agent | RHEL 7.6 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
 |             | 76sap-gen2| LVM    | Linux Agent | RHEL 7.6 for SAP HANA and Business Apps. Generation 2 image. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
 |             | 7.7       | LVM    | Linux Agent | RHEL 7.7 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
-RHEL-SAP-HANA (To be removed from Marketplace in October 2020) | 6.7       | RAW    | Linux Agent | RHEL 6.7 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed from Azure Martketplace in October 2020. More details about Red Hat's SAP cloud offerings are available [here](https://access.redhat.com/articles/3751271).
-|             | 7.2       | LVM    | Linux Agent | RHEL 7.2 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed from Azure Martketplace in October 2020. More details about Red Hat's SAP cloud offerings are available [here](https://access.redhat.com/articles/3751271).
-|             | 7.3       | LVM    | Linux Agent | RHEL 7.3 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed from Azure Martketplace in October 2020. More details about Red Hat's SAP cloud offerings are available [here](https://access.redhat.com/articles/3751271).
+RHEL-SAP-HANA (To be removed  in November 2020) | 6.7       | RAW    | Linux Agent | RHEL 6.7 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available [here](https://access.redhat.com/articles/3751271).
+|             | 7.2       | LVM    | Linux Agent | RHEL 7.2 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available [here](https://access.redhat.com/articles/3751271).
+|             | 7.3       | LVM    | Linux Agent | RHEL 7.3 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available [here](https://access.redhat.com/articles/3751271).
 RHEL-SAP-APPS | 6.8       | RAW    | Linux Agent | RHEL 6.8 for SAP Business Applications. Outdated in favor of the RHEL-SAP images.
 |             | 7.3       | LVM    | Linux Agent | RHEL 7.3 for SAP Business Applications. Outdated in favor of the RHEL-SAP images.
 |             | 7.4       | LVM    | Linux Agent | RHEL 7.4 for SAP Business Applications.
