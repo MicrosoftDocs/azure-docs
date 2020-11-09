@@ -77,7 +77,10 @@ Only an active subscription can be updated. While the subscription is being upda
 
 ##### Update initiated from the marketplace
 
-In this flow, the customer changes the subscription plan or quantity of seats from M365 Admin Center.  
+In this flow, the customer changes the subscription plan or quantity of seats from Azure Portal or M365 Admin Center.  
+
+> [!NOTE]
+> The publisher should invoke PATCH to [Update Status of Operation API](#update-the-status-of-an-operation) with Failure/Success response **within 10 second time window** after receiving the webhook notification. If PATCH of operation status is not received within the 10 seconds, the change plan is **automatically patched as Success**. 
 
 1. Once an update is entered, Microsoft will call the publisher's webhook URL, configured in **Connection webhook** field in Partner Center, with an appropriate value for *action* and other relevant parameters.  
 1. The publisher side should make the required changes to the SaaS service, and notify Microsoft when the change is complete by calling the [Update Status of Operation API](#update-the-status-of-an-operation).
