@@ -55,7 +55,7 @@ If the virtual machine size includes "i" subscript, then the size is going to ge
 **A**: We will provide reminders 12 months in advance of the official deprecation of the isolated size.
 
 ### Q: I'm an Azure Service Fabric Customer relying on the Silver or Gold Durability Tiers. Does this change impact me?
-**A**: No. The guarantees provided by Service Fabric's [Durability Tiers](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) will continue to function even after this change. If you require physical hardware isolation for other reasons, you may still need to take one of the actions described above. 
+**A**: No. The guarantees provided by Service Fabric's [Durability Tiers](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) will continue to function even after this change. If you require physical hardware isolation for other reasons, you may still need to take one of the actions described above. 
  
 ### Q: What are the milestones for D15_v2 or DS15_v2 isolation retirement? 
 **A**: 
