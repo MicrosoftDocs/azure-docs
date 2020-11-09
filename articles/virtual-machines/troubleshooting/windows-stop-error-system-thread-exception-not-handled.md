@@ -46,7 +46,7 @@ To resolve this problem, you first need to gather the memory dump file for the c
 
 For more information about NMI calls, see the [NMI calls in Azure Serial Console](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) user guide.
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Troubleshoot Azure Virtual Machine boot errors](./boot-error-troubleshoot.md)
