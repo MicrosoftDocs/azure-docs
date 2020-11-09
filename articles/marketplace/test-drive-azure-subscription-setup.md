@@ -105,7 +105,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     1. From the filter pane, select **Azure Active Directory**.
     2. Select **App registrations**.
 
-        :::image type="content" source="./media/test-drive/app-registrations.png" alt-text="Selecting app registrations.":::
+        :::image type="content" source="./media/test-drive/app-registrations.png" alt-text="Selecting an app registration.":::
 
     3. Select **New registration**.
     4. Provide an appropriate application name.
