@@ -148,7 +148,8 @@ Use the following procedure to create work items:
    ![Screenshot that shows the ITSM Ticket window.](media/itsmc-overview/itsm-action-configuration.png)
    
    * In a case you select in the work item dropdown "Event": If you select **Create individual work items for each Log Entry** in the radio buttons selection, every
-   alert will create a new work item. If you select **Create individual work items for each Configuration Item** in the radio buttons selection, every configuration item will have its own work item. 
+   alert will create a new work item. If you select **Create individual work items for each Configuration Item** in the radio buttons selection, every configuration item will have its own work item.
+   ![Screenshot that shows the ITSM Ticket window.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Select **OK**.
 
