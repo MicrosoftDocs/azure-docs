@@ -3,6 +3,7 @@ title: Analyze live video with Live Video Analytics on IoT Edge and Azure Custom
 description: Learn how to use Azure Custom Vision to build a containerized model that can detect a toy truck and use AI extensibility capability of Azure Live Video Analytics on Azure IoT Edge to deploy the model on the edge for detecting toy trucks from a live video stream.
 ms.topic: tutorial
 ms.date: 09/08/2020
+zone_pivot_groups: ams-lva-edge-programming-languages
 
 ---
 # Tutorial: Analyze live video with Live Video Analytics on IoT Edge and Azure Custom Vision
@@ -11,7 +12,13 @@ In this tutorial, you'll learn how to use Azure [Custom Vision](https://azure.mi
 
 We'll show you how to bring together the power of Custom Vision to build and train a computer vision model by uploading and labeling a few images. You don't need any knowledge of data science, machine learning, or AI. You'll also learn about the capabilities of Live Video Analytics to easily deploy a custom model as a container on the edge and analyze a simulated live video feed.
 
-This tutorial uses an Azure virtual machine (VM) as an IoT Edge device and is based on sample code written in C#. The information in this tutorial builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [header](includes/custom-vision-tutorial/csharp/header.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [header](includes/custom-vision-tutorial/python/header.md)]
+::: zone-end
 
 The tutorial shows you how to:
 
@@ -24,7 +31,7 @@ The tutorial shows you how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Suggested pre-reading
+## Suggested pre-reading  
 
 Read through the following articles before you begin:
 
@@ -39,19 +46,16 @@ Read through the following articles before you begin:
 
 ## Prerequisites
 
-Prerequisites for this tutorial are:
 
-* [Visual Studio Code](https://code.visualstudio.com/) on your development machine with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extensions.
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
+::: zone-end
 
-    > [!TIP]
-    > You might be prompted to install Docker. Ignore this prompt.
-* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) on your development machine.
-* Ensure you have:
-    
-    * [Set up Azure resources](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-    * [Set up your development environment](detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
-
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
+::: zone-end
 ## Review the sample video
+
 
 This tutorial uses a [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) file to simulate a live stream. You can examine the video via an application such as [VLC media player](https://www.videolan.org/vlc/). Select **Ctrl+N**, and then paste a link to the [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) to start playback. As you watch the video, note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck. In this tutorial, you'll use Live Video Analytics on IoT Edge to detect such toy trucks and publish associated inference events to the IoT Edge hub.
 
@@ -64,7 +68,7 @@ This diagram shows how the signals flow in this tutorial. An [edge module](https
 
 The HTTP extension node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over REST to another edge module that runs an AI model behind an HTTP endpoint. In this example, that edge module is the toy truck detector model built by using Custom Vision. The HTTP extension processor node gathers the detection results and publishes events to the [Azure IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to the [IoT Edge hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
-## Build and deploy a Custom Vision toy-detection model
+## Build and deploy a Custom Vision toy detection model 
 
 As the name Custom Vision suggests, you can use it to build your own custom object detector or classifier in the cloud. It provides a simple, easy-to-use, and intuitive interface to build Custom Vision models that can be deployed in the cloud or on the edge via containers.
 
@@ -118,20 +122,15 @@ After you're finished, you can export the model to a Docker container by using t
 
 ## Examine the sample files
 
-1. In Visual Studio Code, browse to src/edge. You'll see the .env file that you created along with a few deployment template files.
 
-    The deployment template refers to the deployment manifest for the edge device with some placeholder values. The .env file has the values for those variables.
-1. Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the appsettings.json file that you created along with a few other files:
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/csharp/examine-sample-files.md)]
+::: zone-end
 
-    * c2d-console-app.csproj: This is the project file for Visual Studio Code.
-    * operations.json: This file lists the different operations that you want the program to run.
-    * Program.cs: This sample program code:
+::: zone pivot="programming-language-python"
+[!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/python/examine-sample-files.md)]
+::: zone-end
 
-        * Loads the app settings.
-        * Invokes the Live Video Analytics on IoT Edge module's direct methods to create topology, instantiate the graph, and activate the graph.
-        * Pauses for you to examine the graph output in the **TERMINAL** window and the events sent to the IoT hub in the **OUTPUT** window.
-        * Deactivates the graph instance, deletes the graph instance, and deletes the graph topology.
-        
 ## Generate and deploy the deployment manifest
 
 1. In Visual Studio Code, go to src/cloud-to-device-console-app/operations.json.

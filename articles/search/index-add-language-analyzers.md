@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 11/05/2020
 ---
 # Add language analyzers to string fields in an Azure Cognitive Search index
 
@@ -128,4 +128,4 @@ For more information about index properties, see [Create Index &#40;Azure Cognit
 
 + [Create Index &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index)  
 
-+ [AnalyzerName Class](/dotnet/api/microsoft.azure.search.models.analyzername)
++ [LexicalAnalyzerName Class](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)

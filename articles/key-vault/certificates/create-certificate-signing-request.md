@@ -17,7 +17,7 @@ ms.author: sebansal
 
 Azure Key Vault supports storing digital certificate issued by any Certificate Authority of your choice in your key vault. It supports creating the certificate signing request with private-public key pair which can be signed by any chosen Certificate Authority. It could be internal enterprise CA or external public CA. A certificate  signing request (also CSR or certification request) is a message that is sent by the user to a certificate authority (CA) in order to request issuance of a digital certificate.
 
-For more general information about Certificates, see [Azure Key Vault Certificates](/azure/key-vault/certificates/about-certificates).
+For more general information about Certificates, see [Azure Key Vault Certificates](./about-certificates.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
