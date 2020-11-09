@@ -15,6 +15,21 @@ ms.custom: seodec18
 
 # Speech Service release notes
 
+## Text-to-speech 2020-October release
+
+**New features**
+- Jenny supports a new `newscast` style. See [how to use the speaking styles in SSML](speech-synthesis-markup.md#adjust-speaking-styles).
+- **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This is particularly beneficial to customers whose scenario relies on hi-fi audios or long interactions, including video dubbing, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
+- **[Custom Voice](https://speech.microsoft.com/customvoice) & [Audio Content Creation Studio](https://speech.microsoft.com/audiocontentcreation) localized to 17 locales**. Users can easily switch the UI to a local language for a more friendly experience.   
+- **Audio Content Creation**: Added style degree control for XiaoxiaoNeural; Refined the customized break feature. The incremental of break change is 50ms. 
+
+**General TTS voice quality improvements**
+- Improved word-level pronunciation accuracy in `pl-PL` (error rate reduction: 51%) and `fi-FI` (error rate reduction: 58%)
+- Improved `ja-JP` single word reading for the dictionary scenario. Reduced 80% pronunciation error.
+- `zh-CN-XiaoxiaoNeural` sentiment/CustomerService/Newscast/Cheerful/Angry style voice quality is improved.
+- `zh-CN` Erhua pronunciation and light tone is improved.
+- `zh-CN` space prosody is refined, which greatly improves the intelligibility. 
+
 ## Speech SDK 1.14.0: 2020-October release
 
 **Note**: The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
@@ -75,6 +90,18 @@ Download the latest version [here](https://docs.microsoft.com/azure/cognitive-se
 - `spx * --http header A=B` – support custom headers (added for Office for custom authentication). 
 - `spx help` – improved text and back-tick text color coded (blue).
 
+## Text-to-speech 2020-September release
+
+### New features
+
+* **Neural TTS** 
+	* **Extended to support 18 new languages/locales.** They are Bulgarian, Czech, German (Austria),  German (Switzerland), Greek, English (Ireland), French (Switzerland), Hebrew, Croatian, Hungarian, Indonesian, Malay, Romanian, Slovak, Slovenian, Tamil, Telugu and Vietnamese. 
+	* **Released 14 new voices to enrich the variety in the existing languages.** See [full language and voice list](language-support.md#neural-voices).
+	* **New speaking styles for `en-US` and `zh-CN` voices.** Jenny, the new voice in English (US), supports chatbot, customer service, and assistant styles. 10 new speaking styles are available with our zh-CN voice, XiaoXiao. In addition, the XiaoXiao neural voice supports `StyleDegree` tuning. See [how to use the speaking styles in SSML](speech-synthesis-markup.md#adjust-speaking-styles).
+
+* **Containers: Neural TTS Container released in public preview with 16 voices available in 14 languages.** Learn more on [how to deploy Speech Containers for Neural TTS](speech-container-howto.md)  
+
+Read the [full announcement of the TTS updates for Ignite 2020](https://techcommunity.microsoft.com/t5/azure-ai/ignite-2020-neural-tts-updates-new-language-support-more-voices/ba-p/1698544) 
 
 ## Text-to-speech 2020-August release
 
