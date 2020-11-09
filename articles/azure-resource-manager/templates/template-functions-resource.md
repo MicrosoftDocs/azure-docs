@@ -604,7 +604,7 @@ The reference function retrieves the runtime state of either a previously deploy
 
 Typically, you use the **reference** function to return a particular value from an object, such as the blob endpoint URI or fully qualified domain name.
 
-# [Bicep](#tab/bicep)
+# [JSON](#tab/json)
 
 ```json
 "outputs": {
@@ -630,7 +630,7 @@ output FQDN string = reference(resourceId('Microsoft.Network/publicIPAddresses',
 
 Use `'Full'` when you need resource values that aren't part of the properties schema. For example, to set key vault access policies, get the identity properties for a virtual machine.
 
-# [Bicep](#tab/bicep)
+# [JSON](#tab/json)
 
 ```json
 {
@@ -707,6 +707,8 @@ When referencing a resource that is deployed in the same template, provide the n
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
+# [Bicep](#tab/bicep)
+
 ```bicep
 value: reference(storageAccountName)
 ```
@@ -720,6 +722,8 @@ When referencing a resource that isn't deployed in the same template, provide th
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 value: reference(resourceId(storageResourceGroup, 'Microsoft.Storage/storageAccounts', storageAccountName), '2018-07-01')]"
@@ -735,6 +739,8 @@ To avoid ambiguity about which resource you're referencing, you can provide a fu
 ```json
 "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')))]"
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 value: reference(resourceId('Microsoft.Network/publicIPAddresses', ipAddressName))
