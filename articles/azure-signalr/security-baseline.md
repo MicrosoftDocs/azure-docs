@@ -150,7 +150,35 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41392.).
 
-**Guidance**: 
+**Guidance**: Azure SignalR Service uses Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in:
+- Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
+
+- Your organization's resources, such as applications on Azure or your corporate network resources.
+
+Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
+
+Note: Azure AD supports external identity that allow users without a Microsoft account to sign-in to their applications and resources with their external identity.
+
+- [Tenancy in Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md)
+
+- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+
+- [Use external identity providers for application](/azure/active-directory/b2b/identity-providers)
+
+- [What is the identity secure score in Azure Active Directory](../active-directory/fundamentals/identity-secure-score.md)
+
+Here is the list of built-in roles in Azure SignalR Service:
+- [SignalR Contricutor](../role-based-access-control/built-in-roles.md#signalr-contributor)
+
+- [SignalR AccessKey Reader](../role-based-access-control/built-in-roles.md#signalr-accesskey-reader)
+
+- [SignalR App Server (Preview)](../role-based-access-control/built-in-roles.md#signalr-app-server-preview)
+
+- [SignalR Serverless Contributor (Preview)](../role-based-access-control/built-in-roles.md#signalr-serverless-contributor-preview)
+
+- [SignalR Service Owner (Preview)](../role-based-access-control/built-in-roles.md#signalr-service-owner-preview)
+
+- [SignalR Service Reader (Preview)](../role-based-access-control/built-in-roles.md#signalr-service-reader-preview)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -470,11 +498,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41376.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Not applicable; Azure SignalR Service may be used to transmit sensitive data but it doesn't have capability to discovery, classify, and labeling sensitive data currently.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -485,11 +509,15 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41377.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Protect sensitive data by restricting access using Azure Role Based Access Control (Azure RBAC), network-based access controls, and specific controls in Azure services (such as encryption in SQL and other databases).
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+To ensure consistent access control, all types of access control should be aligned to your enterprise segmentation strategy. The enterprise segmentation strategy should also be informed by the location of sensitive or business critical data and systems.
+
+For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented some default data protection controls and capabilities.
+
+- [Azure Role Based Access Control (RBAC)](../role-based-access-control/overview.md)
+
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -500,11 +528,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41378.).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Not applicable; Azure SignalR Service may be used to transmit sensitive data but does not support monitoring for unauthorized transfer of sensitive data currently.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
