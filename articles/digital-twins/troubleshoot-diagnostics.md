@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Set up diagnostics
+title: Enable and query diagnostics logs
 titleSuffix: Azure Digital Twins
-description: See how to enable logging with diagnostics settings.
+description: See how to enable logging with diagnostics settings and query the logs for immediate viewing.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 7/28/2020
+ms.date: 11/9/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
 ---
