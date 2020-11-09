@@ -217,7 +217,7 @@ If you are using file share for other workloads, such as data transfer, the re
 |When reviewing images, newly labeled images are not shown.     |   To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.      |
 |Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.     |   Delete the label by clicking on the cross mark next to it.  |
 
-### Data drift monitors
+### <a name="data-drift"></a> Data drift monitors
 
 Limitations and known issues for data drift monitors:
 
