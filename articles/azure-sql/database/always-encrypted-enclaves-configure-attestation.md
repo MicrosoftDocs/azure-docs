@@ -21,7 +21,7 @@ ms.date: 12/09/2020
 
 [Microsoft Azure Attestation](../../attestation/overview.md) is a solution for attesting Trusted Execution Environments (TEEs), including Intel SGX enclaves. 
 
-To use Azure Attestation for attesting Intel SGX enclaves used for [Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves)] in Azure SQL Database, you need to:
+To use Azure Attestation for attesting Intel SGX enclaves used for [Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database, you need to:
 
 1. Create an [attestation provider](../../attestation/basic-concepts.md#attestation-provider) and configure it with the recommended attestation policy.
 
