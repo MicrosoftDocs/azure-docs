@@ -313,7 +313,9 @@ This command:
 Starting in v2.6.0 of the speech-to-text container, you should use TextAnalytics 3.0 API endpoint instead of the preview one. For example
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
 * `https://localhost:5000/text/analytics/v3.0/sentiment`
-**Note:** TextAnalytics `3.0` API is **NOT** backward compatible with `3.0-preview.1`. To get the latest sentiment feature support, please use v2.6.0 container image and TextAnalytics `3.0` endpoint.
+
+> [!NOTE]
+> The Text Analytics `v3.0` API is not backward compatible with Text Analytics `v3.0-preview.1`. To get the latest sentiment feature support, use `v2.6.0` of the speech-to-text container image and Text Analytics `v3.0`.
 
 Starting in v2.2.0 of the speech-to-text container, you can call the [sentiment analysis v3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) on the output. To call sentiment analysis, you will need a Text Analytics API resource endpoint. For example: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
