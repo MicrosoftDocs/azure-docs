@@ -10,7 +10,7 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 10/15/2020
+ms.date: 12/09/2020
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -229,6 +229,39 @@ You can set the service tier, compute size (service objective), and storage amou
 
 <sup>3</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
+
+## General purpose - provisioned compute - DC-series
+
+|Compute size (service objective)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8|
+|:--- | --: |--: |--: |--: |
+|Compute generation|DC|DC|DC|DC|
+|vCores|2|4|6|8|
+|Memory (GB)|12|24|36|48|
+|Max number DBs per pool <sup>1</sup>|100|400|400|400|
+|Columnstore support|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|
+|Max data size (GB)|756|1536|2048|2048|
+|Max log size (GB)|227|461|614|614|
+|TempDB max data size (GB)|64|128|192|256|
+|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Max data IOPS per pool <sup>2</sup>|800|1600|2400|3200|
+|Max log rate per pool (MBps)|9.4|18.8|28.1|32.8|
+|Max concurrent workers per pool (requests) <sup>3</sup>|210|420|630|840|
+|Max concurrent logins per pool (requests) <sup>3</sup>|210|420|630|840|
+|Max concurrent sessions|30,000|30,000|30,000|30,000|
+|Min/max elastic pool vCore choices per database|2|2...4|2...6|2...8|
+|Number of replicas|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
+
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+
+<sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+
 ## Business critical - provisioned compute - Gen4
 
 > [!IMPORTANT]
@@ -400,8 +433,6 @@ You can set the service tier, compute size (service objective), and storage amou
 
 If all vCores of an elastic pool are busy, then each database in the pool receives an equal amount of compute resources to process queries. Azure SQL Database provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the vCore min per database is set to a non-zero value.
 
-
-
 ### M-series compute generation (part 2)
 
 |Compute size (service objective)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
@@ -435,6 +466,37 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 
 If all vCores of an elastic pool are busy, then each database in the pool receives an equal amount of compute resources to process queries. Azure SQL Database provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the vCore min per database is set to a non-zero value.
 
+## Business critical - provisioned compute - DC-series
+
+|Compute size (service objective)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
+|:--- | --: |--: |--: |--: |
+|Compute generation|DC|DC|DC|DC|
+|vCores|2|4|6|8|
+|Memory (GB)|12|24|36|48|
+|Max number DBs per pool <sup>1</sup>|50|100|100|100|
+|Columnstore support|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|1.7|3.7|5.9|8.2|
+|Max data size (GB)|768|768|768|768|
+|Max log size (GB)|230|230|230|230|
+|TempDB max data size (GB)|64|128|192|256|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|
+|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
+|Max data IOPS per pool <sup>2</sup>|15750|31500|47250|56000|
+|Max log rate per pool (MBps)|20|60|90|120|
+|Max concurrent workers per pool (requests) <sup>3</sup>|210|420|630|840|
+|Max concurrent logins per pool (requests) <sup>3</sup>|210|420|630|840|
+|Max concurrent sessions|30,000|30,000|30,000|30,000|
+|Min/max elastic pool vCore choices per database|2|2...4|2...6|2...8|
+|Number of replicas|4|4|4|4|
+|Multi-AZ|No|No|No|No|
+|Read Scale-out|Yes|Yes|Yes|Yes|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
+
+<sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
+
+<sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ## Database properties for pooled databases
 
