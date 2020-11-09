@@ -25,29 +25,25 @@ Learn all you need to build a web app that uses the Microsoft identity platform 
 
 If you want to create your first portable (ASP.NET Core) web app that signs in users, follow this quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: ASP.NET Core web app that signs in users](quickstart-v2-aspnet-core-webapp.md)
+[Quickstart: ASP.NET Core web app that signs in users](quickstart-v2-aspnet-core-webapp.md)
 
 # [ASP.NET](#tab/aspnet)
 
 If you want to understand how to add sign-in to an existing ASP.NET web application, try the following quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: ASP.NET web app that signs in users](quickstart-v2-aspnet-webapp.md)
+[Quickstart: ASP.NET web app that signs in users](quickstart-v2-aspnet-webapp.md)
 
 # [Java](#tab/java)
 
 If you're a Java developer, try the following quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Add sign-in with Microsoft to a Java web app](quickstart-v2-java-webapp.md)
+[Quickstart: Add sign-in with Microsoft to a Java web app](quickstart-v2-java-webapp.md)
 
 # [Python](#tab/python)
 
 If you develop with Python, try the following quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Add sign-in with Microsoft to a Python web app](quickstart-v2-python-webapp.md)
+[Quickstart: Add sign-in with Microsoft to a Python web app](quickstart-v2-python-webapp.md)
 
 ---
 
@@ -78,22 +74,22 @@ As a second phase, you can enable your application to call web APIs on behalf of
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [App registration](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
+Move on to the next article in this scenario,
+[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
 
 # [ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [App registration](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
+Move on to the next article in this scenario,
+[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
 
 # [Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [App registration](./scenario-web-app-sign-user-app-registration.md?tabs=java)
+Move on to the next article in this scenario,
+[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=java)
 
 # [Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [App registration](./scenario-web-app-sign-user-app-registration.md?tabs=python)
+Move on to the next article in this scenario,
+[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=python)
 
 ---

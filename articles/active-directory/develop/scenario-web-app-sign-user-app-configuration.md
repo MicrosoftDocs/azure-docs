@@ -341,22 +341,22 @@ In the next article, you'll learn how to trigger sign-in and sign-out.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
+Move on to the next article in this scenario,
+[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
 
 # [ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
+Move on to the next article in this scenario,
+[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
 
 # [Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=java)
+Move on to the next article in this scenario,
+[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=java)
 
 # [Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=python)
+Move on to the next article in this scenario,
+[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=python)
 
 ---
