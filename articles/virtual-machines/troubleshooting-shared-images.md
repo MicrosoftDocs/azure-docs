@@ -143,7 +143,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 *Can not perform requested operation on nested resource. Parent resource <galleryName/imageDefinitionName\> not found.*  
 **Cause**: There is no gallery with the name <galleryName/imageDefinitionName\> in the current subscription and resource group.  
-**Workaround**: Check that the names of the gallery, subscription, and resource group are correct. Otherwise, create a new gallery with the name <galleryName\> and/or image definition named <imageDefinitionName\> in the indicated resource group.
+**Workaround**: Check that the names of the gallery, subscription, and resource group are correct. Otherwise, create a new gallery with the name <galleryName\> and/or an image definition named <imageDefinitionName\> in the indicated resource group.
 
 *Cannot bind parameter <property\>. Cannot convert value <value\> to type &quot;System.DateTime&quot;*  
 **Cause**: The value provided to the property is not properly formatted as a date.  
@@ -326,7 +326,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 ## Sharing resources
 
-The sharing of shared image gallery, image definition, and image version resources across subscriptions is enabled using [Azure role-based access control (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
+The sharing of image gallery, image definition, and image version resources across subscriptions is enabled using [Azure role-based access control (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 ## Replication speed
 

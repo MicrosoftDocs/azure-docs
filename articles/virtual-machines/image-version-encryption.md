@@ -22,9 +22,9 @@ Server-side encryption through customer-managed keys uses Azure Key Vault. You c
 
 This article requires you to already have a disk encryption set in each region where you want to replicate your image:
 
-- To use only a customer-managed key, see [Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks](./disks-enable-customer-managed-keys-portal.md) or [Use Azure PowerShell to enable server-side encryption with customer-managed keys for managed disks](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- To use only a customer-managed key, see the articles about enabling customer-managed keys with server-side encryption by using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
-- To use both platform-managed and customer-managed keys (for double encryption), see [Use the Azure portal to enable double encryption at rest for managed disks](./disks-enable-double-encryption-at-rest-portal.md) or [Use the Azure PowerShell module to enable double encryption at rest for managed disks](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+- To use both platform-managed and customer-managed keys (for double encryption), see the articles about enabling double encryption at rest by using the [Azure portal](./disks-enable-double-encryption-at-rest-portal.md) or [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
 
    > [!IMPORTANT]
    > You must use the link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) to access the Azure portal. Double encryption at rest is not currently visible in the public Azure portal unless you use that link.
@@ -151,7 +151,7 @@ Check your registration:
 az provider show -n Microsoft.Compute | grep registrationState
 ```
 
-If it doesn't say registered, run the following:
+If it doesn't say registered, run the following command:
 
 ```azurecli-interactive
 az provider register -n Microsoft.Compute
