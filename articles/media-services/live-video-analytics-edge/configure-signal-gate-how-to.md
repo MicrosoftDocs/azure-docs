@@ -129,7 +129,7 @@ Example diagram:
 
 **Two events from one source (*retriggered activation*)**
 
-A signal gate processor that receives two events results in a recording that starts 5 seconds (activation signal offset = 5 seconds) before the event arrives at the gate. Also, event 2 arrives 5 seconds after event 1, which is before the 20 seconds from when event 1 finishes (minimum activation time = 20 seconds). The rest of the recording is 20 seconds (minimum activation time = 20 seconds) because no other events arrive before the end of the minimum activation time from event 2 to retrigger the gate.
+A signal gate processor that receives two events results in a recording that starts 5 seconds (activation signal offset = 5 seconds) before the event arrives at the gate. Also, event 2 arrives 5 seconds after event 1. Because event 2 arrives before the end of event 1's minimum activation time (20 seconds), the gate is retriggered. The rest of the recording is 20 seconds (minimum activation time = 20 seconds) because no other events arrive before the end of the minimum activation time from event 2 to retrigger the gate.
 
 Example diagram:
 > [!div class="mx-imgBorder"]
