@@ -155,7 +155,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 *Gallery image version publishing profile regions <publishingRegions\> must contain the location of image version <sourceRegion\>*  
 **Cause**: The location of the source image (<sourceRegion\>) must be included in the <publishingRegions\> list.  
-**Workaround**: Include < sourceRegion\> in the <publishingRegions\> list.
+**Workaround**: Include <sourceRegion\> in the <publishingRegions\> list.
 
 *The value <value\> of parameter <property\> is out of range. The value must be between <minValue\> and <maxValue\>, inclusive.*  
 **Cause**: <value\> is outside the range of possible values for <property\>.  
@@ -167,7 +167,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 *Changing property 'galleryImageVersion.properties.storageProfile.<diskImage\>.source.id' is not allowed.*  
 **Cause**: The source ID of a gallery image version can't be changed after creation.  
-**Workaround**: Ensure that the source ID is the same as the existing source ID, or change the version number of the image version.
+**Workaround**: Ensure that the source ID is the same as the existing source ID, change the version number of the image version, or delete the current image version and try again.
 
 *Duplicated lun numbers have been detected in the input data disks. Lun number must be unique for each data disk.*  
 **Cause**: When you're creating an image version by using a list of disks and/or disk snapshots, two or more disks or disk snapshots have the same LUN.  
@@ -187,7 +187,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 *The source id: <resourceID\> must be a managed disk or snapshot.*  
 **Cause**: The <resourceID\> value is incorrectly formatted.  
-**Workaround**: If you're using disks and/or disk snapshots as sources for the image version, check that the resource IDs of the disks and/or disk snapshots is correct.
+**Workaround**: If you're using disks and/or disk snapshots as sources for the image version, check that the resource IDs of the disks and/or disk snapshots are correct.
 
 *Cannot create Gallery Image Version from: <resourceID\> since the OS State in the parent gallery image (<OsState\_1\>) is not <OsState\_2\>.*  
 **Cause**: The operating system state (Generalized or Specialized) does not match the operating system state specified in the image definition.  
@@ -202,11 +202,11 @@ If you have problems performing any operations on shared image galleries, image 
 **Workaround**: Either choose a source with the same operating system (Linux/Windows) as the image definition or create/choose a new image definition that has the same operating system generation as the image version.
 
 *Source virtual machine <resourceID\> cannot contain an ephemeral OS disk.*  
-**Cause**: The source at '<resourceID\>' contains an ephemeral OS disk. The shared image gallery does not currently support ephemeral OS disks.  
+**Cause**: The source at <resourceID\> contains an ephemeral OS disk. The shared image gallery does not currently support ephemeral OS disks.  
 **Workaround**: Choose a different source based on a VM that does not use an ephemeral OS disk.
 
 *Source virtual machine <resourceID\> cannot contain disk ['<diskID\>'] stored in an UltraSSD account type.*  
-**Cause**: The disk '<diskID\> is an Ultra SSD disk. The shared image gallery does not currently support Ultra SSD disks.  
+**Cause**: The disk <diskID\> is an Ultra SSD disk. The shared image gallery does not currently support Ultra SSD disks.  
 **Workaround**: Use a source that contains only Premium SSD, Standard SSD, and/or Standard HDD managed disks.
 
 *Source virtual machine <resourceID\> must be created from Managed Disks.*  
@@ -215,14 +215,14 @@ If you have problems performing any operations on shared image galleries, image 
 
 *Too many requests on source '<resourceID\>'. Please reduce the number of requests on the source or wait some time before retrying.*  
 **Cause**: The source for this image version is currently being throttled because of too many requests.  
-**Workaround**: Try the image version creation later.
+**Workaround**: Try to create the image version later.
 
 *The disk encryption set '<diskEncryptionSetID\>' must be in the same subscription '<subscriptionID\>' as the gallery resource.*  
 **Cause**: Disk encryption sets can be used only in the same subscription and region in which they were created.  
 **Workaround**: Create or use an encryption set in the same subscription and region as the image version.
 
 *Encrypted source: '<resourceID\>' is in a different subscription ID than the current gallery image version subscription '<subscriptionID\_1\>'. Please retry with an unencrypted source(s) or use the source's subscription '<subcriptionID\_2\>' to create the gallery image version.*  
-**Cause**: The shared image gallery doesn't currently support creating image versions in another subscription from another source image if the source image is encrypted.  
+**Cause**: The shared image gallery does not currently support creating image versions in another subscription from another source image if the source image is encrypted.  
 **Workaround**: Use an unencrypted source or create the image version in the same subscription as the source.
 
 *The disk encryption set <diskEncryptionSetID\> was not found.*  
@@ -255,7 +255,7 @@ If you have problems performing any operations on shared image galleries, image 
 
 *A disk encryption set is required for disk 'galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId' in target region '<Region\_1\>' since disk encryption set '<diskEncryptionSetID\>' is used for the corresponding disk in region '<Region\_2\>'*  
 **Cause**: Encryption has been used on the OS disk in <Region\_2\>, but not in <Region\_1\>.  
-**Workaround**: Ifyou're using encryption on the OS disk, use encryption in all regions.
+**Workaround**: If you're using encryption on the OS disk, use encryption in all regions.
 
 *A disk encryption set is required for disk 'LUN <number\>' in target region '<Region\_1\>' since disk encryption set '<diskEncryptionSetID\>' is used for the corresponding disk in region '<Region\_2\>'*  
 **Cause**: Encryption has been used on the data disk at LUN <number\> in <Region\_2\>, but not in <Region\_1\>.  
@@ -330,11 +330,11 @@ The sharing of shared image gallery, image definition, and image version resourc
 
 ## Replication speed
 
-Use the **--expand ReplicationStatus** flag to check if the replication to all the specified target regions has been completed. If not, wait for up to 6 hours for the job to complete. If it fails, trigger the command again to create and replicate the image version. If there are many target regions the image version is being replicated to, consider doing the replication in phases.
+Use the **--expand ReplicationStatus** flag to check if the replication to all the specified target regions has finished. If not, wait for up to six hours for the job to finish. If it fails, trigger the command again to create and replicate the image version. If there are many target regions that the image version is being replicated to, consider doing the replication in phases.
 
 ## Azure limits and quotas 
 
-[Azure limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) apply to all shared image gallery, image definition, and image version resources. Make sure you are within the limits for your subscriptions. 
+[Azure limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) apply to all shared image gallery, image definition, and image version resources. Make sure you're within the limits for your subscriptions. 
 
 
 ## Next steps
