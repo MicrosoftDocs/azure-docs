@@ -42,11 +42,11 @@ Complete these steps to create an Azure Database for MySQL server:
    ---|---|---
    Subscription | Your subscription | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription for which you want to be billed for the resource.
    Resource group | **myresourcegroup** | Provide a new or existing resource group name. You can use resource groups to organize dependencies that belong to a single project.
-   Server name | Unique server name | Enter a unique name that identifies your Azure Database for MySQL server. For example, **mysqldbserver**. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters.
+   Server name | A unique server name | Enter a unique name that identifies your Azure Database for MySQL server. For example, **mysqldbserver**. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters.
    Data source |**None** | Select **None** to create a new server from scratch. (You would select **Backup** to create a server from a geo-backup of an existing Azure Database for MySQL server.)
    Location | The region closest to your users| Select the location that's closest to your users or your other Azure applications.
-   Version | The latest major version| The latest major version (unless you require a different version).
-   Compute + storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** |The compute, storage, and backup configurations for your new server. Select **Configure server**. Next, select the appropriate pricing tier. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/mysql/). To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. Select **OK**.
+   Version | The latest major version| Enter the latest major version (unless you require a different version).
+   Compute + storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** |Enter the compute, storage, and backup configurations for your new server. Select **Configure server**. Next, select the appropriate pricing tier. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/mysql/). To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. Select **OK**.
    Server admin user name | **myadmin** | Enter a user name for your server administrator. You can't use **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public** for the admin user name.
    Password | A secure password | Provide a new password for the server admin account. The password must be between 8 and 128 characters long and have a combination of uppercase or lowercase letters, numbers, and non-alphanumeric characters (!, $, #, %, and so on).
    Confirm password | The password entered earlier| Confirm the admin account password.
@@ -80,7 +80,7 @@ By default, the new server is protected with a firewall and isn't accessible pub
 ## Connect to an Azure Database for MySQL server by using mysql.exe
 You can use either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md) to connect to the server from your local environment. In this quickstart, we'll use mysql.exe in [Azure Cloud Shell](../cloud-shell/overview.md) to connect to the server.
 
-1. Open Azure Cloud Shell in the portal by selecting first button on the toolbar, as shown in the following screenshot. Note the server name, server admin user name, and subscription for your new server in the **Overview** section, as shown in the screenshot.
+1. Open Azure Cloud Shell in the portal by selecting the first button on the toolbar, as shown in the following screenshot. Note the server name, server admin user name, and subscription for your new server in the **Overview** section, as shown in the screenshot.
 
     >[!NOTE]
     >If you're opening Cloud Shell for the first time, you'll be prompted to create a resource group and storage account. This is a one-time step. It will be automatically attached for all sessions. 
