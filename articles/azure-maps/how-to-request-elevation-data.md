@@ -3,7 +3,7 @@ title: Request elevation data
 description: Learn how to request elevation data using the Azure Maps Elevation service.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/25/2020
+ms.date: 11/09/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -438,7 +438,7 @@ In this example, we'll specify rows=3 and columns=6. 18 elevation values are ret
     }
     ```
 
-## Samples: Use elevation service APIs in Azure Maps Control
+## Samples: Use Elevation service APIs in Azure Maps Control
 
 ### Get elevation data by coordinate position
 
