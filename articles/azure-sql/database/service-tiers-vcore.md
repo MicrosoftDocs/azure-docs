@@ -94,9 +94,9 @@ To access M-series, the subscription must be a paid offer type including Pay-As-
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
 -->
 
-### DC-series (preview)
+### DC-series
 
-- DC-series hardware uses Intel processors with Software Guard Extensions (Intel SGX) technology.
+- DC-series (preview) hardware uses Intel processors with Software Guard Extensions (Intel SGX) technology.
 - DC-series is required for [Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves), which is not supported with other hardware configurations.
 - DC-series is designed for workloads that process sensitive data and demand confidential query processing capabilities, provided by Always Encrypted with secure enclaves.
 - DC-series hardware provides balanced compute and memory resources.
