@@ -150,5 +150,5 @@ To add this increased security:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App code configuration](scenario-protected-web-api-app-configuration.md)
+Move on to the next article in this scenario,
+[App code configuration](scenario-protected-web-api-app-configuration.md)

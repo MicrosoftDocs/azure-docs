@@ -239,5 +239,5 @@ You can also validate incoming access tokens in Azure Functions. You can find ex
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Verify scopes and app roles in your code](scenario-protected-web-api-verification-scope-app-roles.md)
+Move on to the next article in this scenario,
+[Verify scopes and app roles in your code](scenario-protected-web-api-verification-scope-app-roles.md)

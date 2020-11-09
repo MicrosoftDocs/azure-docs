@@ -149,5 +149,5 @@ Checking the inverse condition allows only apps that sign in a user to call your
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-protected-web-api-production.md)
+Move on to the next article in this scenario,
+[Move to production](scenario-protected-web-api-production.md)
