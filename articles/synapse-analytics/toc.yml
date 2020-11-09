@@ -177,7 +177,7 @@
       href: sql/resource-consumption-models.md
     - name: Data processed
       href: sql/data-processed.md
-    - name: Best practices SQL on-demand
+    - name: Best practices serverless SQL pool
       href: sql/best-practices-sql-on-demand.md
     - name: Best practices dedicated SQL pools
       href: sql/best-practices-sql-pool.md
