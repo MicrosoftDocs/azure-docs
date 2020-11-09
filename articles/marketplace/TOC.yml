@@ -81,12 +81,36 @@
     href: publisher-guide-by-offer-type.md 
   - name: Azure application offers
     items:
-    - name: Plan a solution template offer
-      href: marketplace-solution-templates.md
-    - name: Plan a managed application offer
-      href: marketplace-managed-apps.md
+    - name: Plan Azure application offers
+      items:
+      - name: Plan an Azure application offer
+        href: plan-azure-application-offer.md
+      - name: Plan a solution template
+        href: plan-azure-app-solution-template.md
+      - name: Plan a managed application
+        href: plan-azure-app-managed-app.md
     - name: Create and publish an Azure application offer
-      href: partner-center-portal/create-new-azure-apps-offer.md
+      items:
+      - name: Create an Azure application offer
+        href: create-new-azure-apps-offer.md
+      - name: Configure Azure application offer properties
+        href: create-new-azure-apps-offer-properties.md
+      - name: Configure Azure application offer listing
+        href: create-new-azure-apps-offer-listing.md
+      - name: Add a preview audience
+        href: create-new-azure-apps-offer-preview.md
+      - name: Add technical details
+        href: create-new-azure-apps-offer-technical.md
+      - name: Create plans
+        href: create-new-azure-apps-offer-plans.md
+      - name: Create solution template plan
+        href: create-new-azure-apps-offer-solution.md
+      - name: Create managed application plan
+        href: create-new-azure-apps-offer-managed.md
+      - name: Test and publish an Azure application offer
+        href: create-new-azure-apps-offer-test-publish.md
+    - name: Market your Azure application offer
+      href: create-new-azure-apps-offer-marketing.md
     - name: Azure application metered billing
       href: partner-center-portal/azure-app-metered-billing.md
     - name: Handling review feedback
@@ -246,15 +270,15 @@
   - name: Commercial marketplace analytics 
     href: partner-center-portal/analytics.md
   - name: Summary dashboard
-    href: partner-center-portal/summary-dashboard.md
+    href: summary-dashboard.md
   - name: Orders dashboard
-    href: partner-center-portal/orders-dashboard.md
+    href: orders-dashboard.md
   - name: Usage dashboard
-    href: partner-center-portal/usage-dashboard.md
-  - name: Customer dashboard
-    href: partner-center-portal/customer-dashboard.md
+    href: usage-dashboard.md
+  - name: Customers dashboard
+    href: customer-dashboard.md
   - name: Marketplace Insights dashboard
-    href: partner-center-portal/insights-dashboard.md
+    href: insights-dashboard.md
   - name: Downloads dashboard
     href: partner-center-portal/downloads-dashboard.md
   - name: Ratings and reviews dashboard
@@ -307,6 +331,8 @@
       href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Marketplace metering service
     items:
+    - name: Anomaly detection service
+      href: partner-center-portal/anomaly-detection-service-for-metered-billing.md
     - name: Authentication strategies
       href: partner-center-portal/marketplace-metering-service-authentication.md
     - name: Marketplace metering service APIs

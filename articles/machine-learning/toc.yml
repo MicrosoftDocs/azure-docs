@@ -402,6 +402,9 @@
         - name: Use remote compute targets
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
+        - name: Use automated ML with Databricks
+          displayName: automl
+          href: how-to-configure-databricks-automl-environment.md
         - name: Auto-train a forecast model
           displayName: time series
           href: how-to-auto-train-forecast.md

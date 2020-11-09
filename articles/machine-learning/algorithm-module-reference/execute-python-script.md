@@ -1,7 +1,7 @@
 ---
 title:  "Execute Python Script: Module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Execute Python Script module in Azure Machine Learning to run Python code.
+description: Learn how to use the Execute Python Script module in Azure Machine Learning designer to run Python code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

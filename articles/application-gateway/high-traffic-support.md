@@ -19,7 +19,7 @@ You can use Application Gateway with Web Application Firewall (WAF) for a scalab
 The following suggestions help you set up Application Gateway with WAF to handle extra traffic.
 
 ## Use the v2 SKU over v1 for its autoscaling capabilities and performance benefits
-The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. It also offers other significant performance benefits, such as 5x better TLS offload performance, quicker deployment and update times, zone redundancy, and more when compared to v1. For more information, see our [v2 documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). 
+The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. It also offers other significant performance benefits, such as 5x better TLS offload performance, quicker deployment and update times, zone redundancy, and more when compared to v1. For more information, see our [v2 documentation](./application-gateway-autoscaling-zone-redundant.md). 
 
 ## Set maximum instance count to the maximum possible (125)
  
@@ -30,7 +30,7 @@ Assuming you have an Application Gateway v2 SKU, setting the maximum instance co
 Assuming you have an Application Gateway v2 SKU, autoscaling takes six to seven minutes to scale out. With a higher minimum instance count, the Application Gateway can better handle your traffic when the load is increased, because a spike in traffic doesn't require an autoscaling operation.  
 
 ## Alert if a certain metric surpasses 75% of average CU utilization 
-See the [Application Gateway Metrics documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-visualization) for a detailed explanation of our metrics and other walkthroughs. 
+See the [Application Gateway Metrics documentation](./application-gateway-metrics.md#metrics-visualization) for a detailed explanation of our metrics and other walkthroughs. 
 
 ### Example: Setting up an alert on 75% of average CU usage
 
@@ -46,13 +46,13 @@ This example shows you how to use the Azure portal to set up an alert when 75% o
 > You can set the alert to occur at a lower or higher CU utilization percentage depending on how sensitive you want to be to potential traffic spikes.
 
 ## Set up WAF with geofiltering and bot protection to stop attacks
-If you want an extra layer of security in front of your application, use the Application Gateway WAF_v2 SKU for WAF capabilities. You can configure the v2 SKU to only allow access to your applications from a given country/region or countries/regions. You set up a WAF custom rule to explicitly allow or block traffic based on the geolocation. For more information, see [geofiltering custom rules](https://docs.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules) and [how to configure custom rules on Application Gateway WAF_v2 SKU through PowerShell](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
+If you want an extra layer of security in front of your application, use the Application Gateway WAF_v2 SKU for WAF capabilities. You can configure the v2 SKU to only allow access to your applications from a given country/region or countries/regions. You set up a WAF custom rule to explicitly allow or block traffic based on the geolocation. For more information, see [geofiltering custom rules](../web-application-firewall/ag/geomatch-custom-rules.md) and [how to configure custom rules on Application Gateway WAF_v2 SKU through PowerShell](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
-Enable bot protection to block known bad bots. This should reduce the amount of traffic getting to your application. For more information, see [bot protection with set up instructions](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
+Enable bot protection to block known bad bots. This should reduce the amount of traffic getting to your application. For more information, see [bot protection with set up instructions](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
 ## Turn on diagnostics on Application Gateway and WAF
 
-Diagnostic logs allow you to view firewall logs, performance logs, and access logs. You can use these logs in Azure to manage and troubleshoot Application Gateways. For more information, see our [diagnostics documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging). 
+Diagnostic logs allow you to view firewall logs, performance logs, and access logs. You can use these logs in Azure to manage and troubleshoot Application Gateways. For more information, see our [diagnostics documentation](./application-gateway-diagnostics.md#diagnostic-logging). 
 
 ## Set up an TLS policy for extra security
-Ensure you're using the latest TLS policy version ([AppGwSslPolicy20170401S](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview#appgwsslpolicy20170401s)). This enforces TLS 1.2 and stronger ciphers. For more information, see [configuring TLS policy versions and cipher suites via PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-configure-ssl-policy-powershell).
+Ensure you're using the latest TLS policy version ([AppGwSslPolicy20170401S](./application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s)). This enforces TLS 1.2 and stronger ciphers. For more information, see [configuring TLS policy versions and cipher suites via PowerShell](./application-gateway-configure-ssl-policy-powershell.md).
