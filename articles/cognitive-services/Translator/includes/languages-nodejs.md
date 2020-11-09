@@ -39,7 +39,7 @@ lorum ipsum
 The `request()` method, made available through the request module, allows us to pass the HTTP method, URL, request params, headers, and the JSON body as an `options` object. In this code snippet, we'll configure the request:
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Languages](../reference/v3-0-languages.md).
 
 ```javascript
 let options = {
@@ -57,7 +57,7 @@ let options = {
 };
 ```
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](../reference/v3-0-reference.md#authentication).
 
 ## Make the request and print the response
 
@@ -84,7 +84,7 @@ If you'd like to compare your code against ours, the complete sample is availabl
 
 ## Sample response
 
-Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Find the country/region abbreviation in this [list of languages](../language-support.md).
 
 This sample has been truncated to show a snippet of the result:
 
@@ -181,4 +181,4 @@ If you've hardcoded your subscription key into your program, make sure to remove
 Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)
