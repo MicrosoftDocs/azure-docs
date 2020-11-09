@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 11/09/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -338,16 +338,16 @@ This command:
 * Performs the same steps as the command above.
 * Stores a Text Analytics API endpoint and key, for sending sentiment analysis requests. 
 
-
 #### Phraselist v2 on the speech-to-text output 
-Starting v2.6.0 of the speech-to-text container, you can get the output with your own phrases (either the whole sentence, or phrases in the middle). For example:
-*"This is a sentence **The Spider Man** This is another sentence."
-*"ThIs iS A hOsPiTaL."
-*"你好舟结轮再见。"
 
-To request phrase list, you need to add your own phrases when you make the call. For example:
+Starting in v2.6.0 of the speech-to-text container, you can get the output with your own phrases - either the whole sentence, or phrases in the middle. For example *the tall man* in the following sentence:
+
+* "This is a sentence **the tall man** this is another sentence."
+
+To configure a phrase list, you need to add your own phrases when you make the call. For example:
+
 ```python
-    phrase="The Spider Man"
+    phrase="the tall man"
     recognizer = speechsdk.SpeechRecognizer(
         speech_config=dict_speech_config,
         audio_config=audio_config)
@@ -355,7 +355,8 @@ To request phrase list, you need to add your own phrases when you make the call.
     phrase_list_grammer.addPhrase(phrase)
 
 ```
-If you have multiple phrases to add, please call `.addPhrase()` multiple times to add them one by one.
+
+If you have multiple phrases to add, call `.addPhrase()` for each phrase to add it to the phrase list. 
 
 
 # [Custom Speech-to-text](#tab/cstt)
@@ -412,7 +413,8 @@ This command:
 
 
 #### Base model download on the custom speech-to-text container  
-Starting v2.6.0 of the custom-speech-to-text container, you can get the available base model information by using option `BaseModelLocale=<locale>`. This option will give you a list of availbe base models on that locale under your billing account. For example:
+Starting in v2.6.0 of the custom-speech-to-text container, you can get the available base model information by using option `BaseModelLocale=<locale>`. This option will give you a list of available base models on that locale under your billing account. For example:
+
 ```bash
 docker run --rm -it \
 mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
@@ -446,7 +448,7 @@ Checking available base model for en-us
 ```
 
 #### Custom pronunciation on the custom speech-to-text container 
-Starting v2.5.0 of the custom-speech-to-text container, you can get custom pronunciation result in the output. All you need to do is to have your own custom pronunciation rules set up in your custom model and mount the model to custom-speech-to-text container.
+Starting in v2.5.0 of the custom-speech-to-text container, you can get custom pronunciation result in the output. All you need to do is to have your own custom pronunciation rules set up in your custom model and mount the model to custom-speech-to-text container.
 
 
 # [Text-to-speech](#tab/tts)
