@@ -60,7 +60,7 @@ Generate and download the VPN client profile package to configure your VPN clien
 
 ## <a name="configure-client"></a>Configure VPN clients
 
-Use the downloaded profile to configure the remote access VPN clients. The procedure for each operating system is different. Follow the instructions that apply to your system.
+Use the downloaded profile package to configure the remote access VPN clients. The procedure for each operating system is different. Follow the instructions that apply to your system.
 
 [!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
 
