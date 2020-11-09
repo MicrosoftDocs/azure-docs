@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/3/2020
 ms.author: cynthn
 ---
 
@@ -20,7 +20,7 @@ Server-side encryption using customer-managed keys uses Azure Key Vault. You can
 
 ## Prerequisites
 
-This article requires that you already have a disk encryption set to use for your image.
+This article requires that you already have a disk encryption set in each region that you want to replicate your image to.
 
 - To use only a customer-managed key, see **Enable customer-managed keys with server-side encryption** using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
@@ -130,7 +130,7 @@ For data disks, You need to add  the `-DiskEncryptionSetId $setID` parameter whe
 
 ## CLI 
 
-For the public preview, you first need to register the feature.
+For the public preview, you first need to register for the feature. Registration takes approximately 30 minutes.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SIGEncryption

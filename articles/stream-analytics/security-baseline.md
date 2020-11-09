@@ -236,9 +236,9 @@ For more information, see the [Azure security baselines overview](../security/be
 
 **Guidance**: Azure AD has built-in roles that must be explicitly assigned. Roles can be queried to discover membership. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-* [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center monitoring**: Yes
 
@@ -540,7 +540,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 * [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 * [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -681,7 +681,7 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 **Guidance**: Use Azure Policy aliases in the "Microsoft.StreamAnalytics" namespace to create custom policies to audit or enforce the configuration of your Azure Stream Analytics. You may also make use of built-in policy definitions related to your Azure Stream Analytics, such as:
 -Diagnostic logs in Azure Stream Analytics should be enabled
 
-* [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Azure Policy built-in policy definitions](../governance/policy/samples/built-in-policies.md)
 
@@ -723,7 +723,7 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 
 **Guidance**: Use Azure Repos to securely store and manage your code including custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts, user defined functions, queries. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-* [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
 * [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -879,7 +879,7 @@ In order to backup data from Storage account supported services, there are multi
 
 Customer-managed / provided keys can be backed within Azure Key Vault using Azure CLI or PowerShell.
 
-* [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -939,7 +939,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 10.3: Test security response procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
 * [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -989,7 +989,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 * [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [You can find more information on Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center monitoring**: Not applicable
 

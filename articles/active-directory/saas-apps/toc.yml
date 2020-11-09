@@ -279,6 +279,8 @@
         href: cch-tagetik-tutorial.md
       - name: Central Desktop
         href: central-desktop-tutorial.md
+      - name: Cequence Application Security
+        href: cequence-application-security-tutorial.md
       - name: Ceridian Dayforce HCM
         href: ceridiandayforcehcm-tutorial.md
       - name: Cerner Central
@@ -686,6 +688,8 @@
         href: gigya-tutorial.md
       - name: GitHub
         href: github-tutorial.md
+      - name: GitHub AE
+        href: github-ae-tutorial.md
       - name: GitHub Enterprise Cloud - Enterprise Account
         href: github-enterprise-cloud-enterprise-account-tutorial.md
       - name: GlassFrog
@@ -1034,6 +1038,8 @@
         href: logzio-cloud-observability-for-engineers-tutorial.md
       - name: Loop Flow CRM
         href: loop-flow-crm-tutorial.md
+      - name: Lucid (All Products)
+        href: lucid-tutorial.md
       - name: Lucidchart
         href: lucidchart-tutorial.md
       - name: Luum
@@ -1074,7 +1080,7 @@
         href: meta4-global-hr-tutorial.md
       - name: Meta Networks Connector
         href: metanetworksconnector-tutorial.md
-      - name: MEVISIO
+      - name: Mevisio
         href: mevisio-tutorial.md
       - name: Michigan Data Hub Single Sign-On
         href: michigan-data-hub-single-sign-on-tutorial.md
@@ -1262,6 +1268,8 @@
         href: panopto-tutorial.md
       - name: Panorama9
         href: panorama9-tutorial.md
+      - name: Panorays
+        href: panorays-tutorial.md
       - name: Pantheon
         href: pantheon-tutorial.md
       - name: PatentSQUARE
@@ -1326,6 +1334,8 @@
         href: presspage-tutorial.md
       - name: Prezi
         href: prezi-tutorial.md
+      - name: PrinterLogic SaaS
+        href: printerlogic-saas-tutorial.md
       - name: Printix
         href: printix-tutorial.md
       - name: Prisma Cloud SSO
@@ -1446,6 +1456,8 @@
         href: safeconnect-tutorial.md
       - name: SafetyNet
         href: safetynet-tutorial.md
+      - name: SailPoint IdentityNow
+        href: sailpoint-identitynow-tutorial.md
       - name: Salesforce
         href: salesforce-tutorial.md
       - name: Salesforce Sandbox
@@ -1528,6 +1540,8 @@
         href: sequr-tutorial.md
       - name: Serraview Space Utilization Software Solutions
         href: serraview-space-utilization-software-solutions-tutorial.md
+      - name: Services@SoSafe
+        href: servicessosafe-tutorial.md
       - name: ServiceChannel
         href: servicechannel-tutorial.md
       - name: ServiceNow
@@ -1550,6 +1564,8 @@
         href: showpad-tutorial.md
       - name: Shuccho Navi
         href: shucchonavi-tutorial.md
+      - name: Shutterstock
+        href: shutterstock-tutorial.md
       - name: Signagelive
         href: signagelive-tutorial.md
       - name: SignalFx

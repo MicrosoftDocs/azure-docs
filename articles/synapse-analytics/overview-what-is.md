@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Enterprise analytics must work at massive scale on any kind of data, whether raw, refined, or highly curated. This typically requires enterprises to stitch together big data and data warehousing technologies into complex data pipelines that work across data in relational stores and data lakes. These kinds of solutions like are difficult to build, maintain, and secure. Their complexity delays delivering the insight enteprises need.
+Enterprise analytics must work at massive scale on any kind of data, whether raw, refined, or highly curated. This typically requires enterprises to stitch together big data and data warehousing technologies into complex data pipelines that work across data in relational stores and data lakes. These kinds of solutions are difficult to build, maintain, and secure. Their complexity delays delivering the insight enterprises need.
 
 **Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, and **Pipelines** for data integration and ETL/ELT. **Synapse Studio** provides a unified experience for management, monitoring, coding, and security. Synapse has deep integration with other Azure services such as **PowerBI**, **CosmosDB**, and **AzureML**.
 
@@ -75,4 +75,4 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 
 * [Get started with Azure Synapse Analytics](get-started.md)
 * [Create a workspace](quickstart-create-workspace.md)
-* [Use SQL on-demand](quickstart-sql-on-demand.md)
+* [Use serverless SQL pool](quickstart-sql-on-demand.md)
