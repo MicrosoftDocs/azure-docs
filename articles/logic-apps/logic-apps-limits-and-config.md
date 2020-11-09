@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/04/2020
+ms.date: 11/06/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -133,13 +133,57 @@ Here are the limits for a single logic app definition:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Action: Executions per 5 minutes | 100,000 is the default limit, but 300,000 is the maximum limit. | To change the default limit, see [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), which is in preview. Or, you can distribute the workload across more than one logic app as necessary. |
+| Action: Executions per 5 minutes | 100,000 is the default limit, but 300,000 is the maximum limit. | To raise the default limit to the maximum for your logic app, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
 | Action: Concurrent outbound calls | ~2,500 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Runtime endpoint: Concurrent inbound calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Runtime endpoint: Read calls per 5 minutes  | 60,000 | This limit applies to calls that get the raw inputs and outputs from a logic app's run history. You can distribute the workload across more than one app as necessary. |
 | Runtime endpoint: Invoke calls per 5 minutes | 45,000 | You can distribute workload across more than one app as necessary. |
 | Content throughput per 5 minutes | 600 MB | You can distribute workload across more than one app as necessary. |
 ||||
+
+<a name="run-high-throughput-mode"></a>
+
+#### Run in high throughput mode
+
+For a single logic app definition, the number of actions that execute every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise the default limit to the maximum for your logic app, you can enable high throughput mode, which is in preview. Or, you can [distribute the workload across more than one logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary.
+
+1. In the Azure portal, on your logic app menu, under **Settings**, select **Workflow settings**.
+
+1. Under **Runtime options** > **High throughput**, change the setting to **On**.
+
+   ![Screenshot that shows logic app menu in Azure portal with "Workflow settings" and "High throughput" set to "On".](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
+
+To enable this setting in an ARM template for deploying your logic app, in the `properties` object for your logic app's resource definition, add the `runtimeConfiguration` object with the `operationOptions` property set to `OptimizedForHighThroughput`:
+
+```json
+{
+   <template-properties>
+   "resources": [
+      // Start logic app resource definition
+      {
+         "properties": {
+            <logic-app-resource-definition-properties>,
+            <logic-app-workflow-definition>,
+            <more-logic-app-resource-definition-properties>,
+            "runtimeConfiguration": {
+               "operationOptions": "OptimizedForHighThroughput"
+            }
+         },
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {},
+         "apiVersion": "2016-06-01",
+         "dependsOn": [
+         ]
+      }
+      // End logic app resource definition
+   ],
+   "outputs": {}
+}
+```
+
+For more information about your logic app resource definition, see [Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition).
 
 ### Integration service environment (ISE)
 
