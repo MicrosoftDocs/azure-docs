@@ -10,7 +10,7 @@ ms.date: 03/30/2019
 ---
 
 # Optimize log queries in Azure Monitor
-Azure Monitor Logs uses [Azure Data Explorer (ADX)](/azure/data-explorer/) to store log data and run queries for analyzing that data. It creates, manages, and maintains the ADX clusters for you, and optimizes them for your log analysis workload. When you run a query, it's optimized, and routed to the appropriate ADX cluster that stores the workspace data. Both Azure Monitor Logs and Azure Data Explorer uses many automatic query optimization mechanisms. While automatic optimizations provide significant boost, they are in some cases where you can dramatically improve your query performance. This article explains the performance considerations and several techniques to fix them.
+Azure Monitor Logs uses [Azure Data Explorer (ADX)](/azure/data-explorer/) to store log data and run queries for analyzing that data. It creates, manages, and maintains the ADX clusters for you, and optimizes them for your log analysis workload. When you run a query, it's optimized, and routed to the appropriate ADX cluster that stores the workspace data. Both Azure Monitor Logs and Azure Data Explorer uses many automatic query optimization mechanisms. While automatic optimizations provide significant boost, there are some cases where you can dramatically improve your query performance. This article explains the performance considerations and several techniques to fix them.
 
 Most of the techniques are common to queries that are run directly on Azure Data Explorer and Azure Monitor Logs, though there are several unique Azure Monitor Logs considerations that are discussed here. For more Azure Data Explorer optimization tips, see [Query best practices](/azure/kusto/query/best-practices).
 
