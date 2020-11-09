@@ -37,7 +37,7 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * You can't enable a [liveness probe](container-instances-liveness-probe.md) or [readiness probe](container-instances-readiness-probe.md) in a container group deployed to a virtual network.
 * Due to the additional networking resources involved, deployments to a virtual network are typically slower than deploying a standard container instance.
 * Pulling images using Vnet connectivity, such as [ACR with private link](articles/container-registry/container-registry-private-link.md), is not supported.
-* Key Vault and Azure File mount with Private endpoint is not supported.
+* Azure File mount with Private endpoint is not supported.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
