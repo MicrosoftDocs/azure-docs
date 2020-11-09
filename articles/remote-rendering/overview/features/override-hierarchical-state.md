@@ -35,7 +35,7 @@ The fixed set of states that can be overridden are:
   > [!IMPORTANT]
   > The see-through effect only works when the *TileBasedComposition* [rendering mode](../../concepts/rendering-modes.md) is used.
 
-* **`Shell`**: The geometry is rendered as a transparent, de-saturated shell. This mode allows fading out non-important parts of a scene while still retaining a sense of shape and relative positioning. To change the shell rendering's appearance, use the [ShellRenderingSettings](shells.md) state. See the following image for the car model being entirely shell-rendered, except for the blue springs:
+* **`Shell`**: The geometry is rendered as a transparent, de-saturated shell. This mode allows fading out non-important parts of a scene while still retaining a sense of shape and relative positioning. To change the shell rendering's appearance, use the [ShellRenderingSettings](shell-rendering.md) state. See the following image for the car model being entirely shell-rendered, except for the blue springs:
 
   ![Shell mode used to fade out specific objects](./media/shell.png)
 
