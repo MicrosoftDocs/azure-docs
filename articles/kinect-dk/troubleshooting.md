@@ -10,7 +10,7 @@ keywords: troubleshooting, update, bug, kinect, feedback, recovery, logging, tip
 ---
 # Azure Kinect known issues and troubleshooting
 
-This page contains known issues and troubleshooting tips when using Sensor SDK with Azure Kinect DK. See also [product support pages](https://aka.ms/kinectsupport) for product hardware- specific issues.
+This page contains known issues and troubleshooting tips when using Sensor SDK with Azure Kinect DK. See also [product support pages](./index.yml) for product hardware- specific issues.
 
 ## Known issues
 

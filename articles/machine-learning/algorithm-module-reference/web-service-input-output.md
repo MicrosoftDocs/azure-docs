@@ -1,6 +1,6 @@
 ---
 title: "Web Service Input/Output: Module reference"
-description: Learn about the web service modules in Azure Machine Learning designer
+description: Learn how to use the the web service modules in Azure Machine Learning designer to manage inputs and outputs.
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning

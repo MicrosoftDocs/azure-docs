@@ -1,7 +1,7 @@
 ---
 title: Create workspaces with Azure CLI
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Azure CLI to create a new Azure Machine Learning workspace.
+description: Learn how to use the Azure CLI extension for machine learning to create a new Azure Machine Learning workspace.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
