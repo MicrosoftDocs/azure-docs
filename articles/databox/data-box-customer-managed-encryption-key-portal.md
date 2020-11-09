@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/09/2020
 ms.author: alkohli
 ms.subservice: pod
 ---
@@ -25,13 +25,13 @@ This article shows how to use the [Azure portal](https://portal.azure.com/) to a
 
 ## Requirements
 
-- The key must be created and stored in an Azure Key Vault. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md).
+- The key must be created and stored in an Azure Key Vault. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md).<!--I converted "Prerequisites" to "Requirements" because all of these can be set from the order.-->
 
-  You can create a key vault when add a customer-managed key to a new or completed Data Box order or separately.To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md)
+  You can create a key vault when you add a customer-managed key to a new or completed Data Box order or separately. To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md)
 
 - The key vault should be in the same region as the storage accounts you use for your data. Multiple storage accounts can be linked with your Azure Data Box resource.<!--This is recommended but not actually required. Anusha was to check for impact on costs.>
 
-- **Soft delete** and **Do not purge** must be set on the key vault. These properties are not enabled by default. <!--Soft delete is enabled in the new Order flow. Verify whether that changed in the completed order.-->If you're using an existing key vault, see the **Enabling soft-delete** and **Enabling Purge Protection** sections in one of the following articles to find out how to enable these properties:
+- **Soft delete** and **Do not purge** must be set on the key vault. These properties are not enabled by default. <!--Are the default values out of date? "Soft delete" is enabled by default in the new Order flow and when creating a new key vault while updating an existing order (here).-->If you're using an existing key vault, see the **Enabling soft-delete** and **Enabling Purge Protection** sections in one of the following articles to find out how to enable these properties:
    - [How to use soft-delete with PowerShell](../key-vault/general/soft-delete-powershell.md).
    - [How to use soft-delete with CLI](../key-vault/general/soft-delete-cli.md).
 
@@ -39,7 +39,7 @@ This article shows how to use the [Azure portal](https://portal.azure.com/) to a
 
 ## Add key to device
 
-To add a customer-managed key in the Azure portal after your Data Box order is complete, follow these steps.
+To add a customer-managed key to your Data Box order in the Azure portal after your Data Box order is complete, follow these steps:
 
 1. Go to the **Overview** screen for your completed Data Box order.
 
@@ -90,7 +90,7 @@ To add a customer-managed key in the Azure portal after your Data Box order is c
 
     A user-assigned identity is an independent resource that is associated with a resource group. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).  
 
-    ![Select the identity type](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)<!--Reshoot. Just the two selection types. The option to use a system assigned identity type is not included in the Order wizard.-->
+    ![Select the identity type](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)<!--Reshoot. First screenshot should show just the two selection types. The option to use a system assigned identity type is not included in the Order wizard.-->
 
     If you want to create a new user identity, select **Select a user identity** and then select your managed identity that you want to use.<!--Stopped shooting screens here (11/06). Will need to test a new order to get back to this screen.-->
 

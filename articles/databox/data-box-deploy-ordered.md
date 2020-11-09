@@ -323,7 +323,7 @@ Do the following steps in the Azure portal to order a device.
 
       You are notified that a key is created in your key vault.
 
-    - Select the **Version** for the key, and then choose **Select**.<!--They will select a key. The Current version and Older version labels appear to be category headings. For a new key, the current version is the only one available. Version requirements are a bit of a mystery. Can the key version have a different configuration than the key itself?-->
+    - Select the **Version** for the key, and then choose **Select**.
 
       ![New key created in key vault](./media/data-box-deploy-ordered/customer-managed-key-08.png)
 
