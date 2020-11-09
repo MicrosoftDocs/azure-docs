@@ -72,8 +72,8 @@ There are multiple options for deploying an availability group to SQL Server on 
 
 The following table provides a comparison of the options available: 
 
-| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](./availability-group-az-commandline-configure.md)**|**[Quickstart Templates](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| |[Azure portal](availability-group-azure-portal-configure.md)|[Azure CLI / PowerShell](./availability-group-az-commandline-configure.md)|[Quickstart Templates](availability-group-quickstart-template-configure.md)|[Manual](availability-group-manually-configure-prerequisites-tutorial.md) |
+|---------|---------|---------|---------|---------|
 |**SQL Server version** |2016 + |2016 +|2016 +|2012 +|
 |**SQL Server edition** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
 |**Windows Server version**| 2016 + | 2016 + | 2016 + | All| 
@@ -89,7 +89,6 @@ The following table provides a comparison of the options available:
 |**Distributed AG with no AD**|No|No|No|Yes|
 |**Distributed AG with no cluster** |No|No|No|Yes|
 ||||||
-
 
 
 ## Considerations 
