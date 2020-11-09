@@ -196,5 +196,5 @@ def graphcall():
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-web-app-call-api-production.md)
+Move on to the next article in this scenario,
+[Move to production](scenario-web-app-call-api-production.md)
