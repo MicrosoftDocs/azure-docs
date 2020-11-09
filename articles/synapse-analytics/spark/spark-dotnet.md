@@ -43,7 +43,7 @@ Visit the tutorial to learn how to use Azure Synapse Analytics to [create Apache
 
     **On Windows:**
 
-Use an extraction program, like [7-Zip](https://www.7-zip.org/) or [WinZip](https://www.winzip.com/), to extract the file into the bin directory with all the published binaries.
+   Use an extraction program, like [7-Zip](https://www.7-zip.org/) or [WinZip](https://www.winzip.com/), to extract the file into the bin directory with all the published binaries.
 
      **On Linux:**
 

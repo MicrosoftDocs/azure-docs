@@ -76,6 +76,7 @@ A backup policy consists of the following configurations:
 
 * **Backup storage**: Specifies the location to upload backups. Storage can be either Azure blob store or file share.
     1. **Azure blob store**: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure-based_ clusters can use this storage type. Description for this storage type requires connection string and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup.
+
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -84,9 +85,10 @@ A backup policy consists of the following configurations:
             "ContainerName": "BackupContainer"
         }
         ```
-> [!NOTE]
-> Backup restore Service does not work with v1 Azure storage
->
+
+        > [!NOTE]
+        > Backup restore Service does not work with v1 Azure storage
+        >
 
     2. **File share**: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premises. Description for this storage type requires file share path where backups need to be uploaded. Access to the file share can be configured using one of the following options
         1. _Integrated Windows Authentication_, where the access to file share is provided to all computers belonging to the Service Fabric cluster. In this case, set following fields to configure _file-share_ based backup storage.

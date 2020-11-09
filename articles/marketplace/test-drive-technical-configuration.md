@@ -88,15 +88,10 @@ The **Test Drive listings** option found under the **Test drive** tab in Partner
 
 If you are currently creating your test drive in Partner Center, select **Save draft** before continuing.
 
+## Additional Resources
+
 ## Next steps
 
 - [Test Drive Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF; make sure your pop-up blocker is off)
 - [Update an existing offer in the commercial marketplace](partner-center-portal/update-existing-offer.md)
-
-## Additional Resources
-
-## Feedback
-
-Submit and view feedback for
-[This Product](https://feedback.azure.com/forums/216369-azure-marketplace)

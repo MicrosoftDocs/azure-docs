@@ -81,7 +81,7 @@ The following table provides a comparison of the options available:
 |**Creates the availability group for you** |Yes |No|No|No|
 |**Creates listener and load balancer independently** |No|No|No|Yes|
 |**Possible to create DNN listener using this method?**|No|No|No|Yes|
-|**WSFC quorum configuratio**n|Cloud witness|Cloud witness|Cloud witness|All|
+|**WSFC quorum configuration**|Cloud witness|Cloud witness|Cloud witness|All|
 |**DR with multiple regions** |No|No|No|Yes|
 |**Multisubnet support** |Yes|Yes|Yes|Yes|
 |**Support for an existing AD**|Yes|Yes|Yes|Yes|

@@ -13,7 +13,7 @@ ms.date: 10/28/2020
 ms.author: yitoh
 
 ---
-# Azure DDoS Protection Standard overview
+# Azure DDoS Protection Standard frequent asked questions
 
 This article answers common questions about Azure DDoS Protection Standard. 
 
