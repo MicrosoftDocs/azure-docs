@@ -21,7 +21,7 @@ ms.author: aahi
     |Name|Purpose|
     |--|--|
     |Subscription | The subscription that will be billed for the resource.|
-    |Resource group| A custom resource group name you that choose or create. Resource groups allow you to group Azure resources for access and management.|
+    |Resource group| A custom resource group name that you choose or create. Resource groups allow you to group Azure resources for access and management.|
     |Name| A custom name you that choose. It's used as your custom subdomain for your authoring and prediction endpoint queries.|
     |Authoring location|The region associated with your model.|
     |Authoring pricing tier|Determines the maximum transactions per second and month.|
