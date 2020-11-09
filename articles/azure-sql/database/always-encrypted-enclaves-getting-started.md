@@ -336,7 +336,7 @@ Now, you can run rich queries against the encrypted columns. Some query processi
     ```
 
 3. Try the same query again in the SSMS instance that does not have Always Encrypted enabled, and note the failure that occurs.
-
+ 
 ## Next Steps
 After completing this tutorial, you can go to one of the following tutorials:
 - [Tutorial: Develop a .NET application using Always Encrypted with secure enclaves](https://docs.microsoft.com/sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps)

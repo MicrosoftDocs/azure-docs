@@ -112,7 +112,7 @@ $serverResourceGroupName = "<server resource group name>"
 $serverName = "<server name>" 
 $server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName
 ```
-
+ 
 2. Assign the server to the Attestation Reader role for the resource group containing your attestation provider.
 
 ```powershell

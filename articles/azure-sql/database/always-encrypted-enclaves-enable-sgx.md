@@ -11,7 +11,7 @@ ms.topic: how-to
 author: jaszymas
 ms.author: vanto
 ms.reviwer: 
-ms.date: 12/09/2020
+ms.date: 12/09/2020 
 ---
 # Enable Intel SGX for your Azure SQL database 
 

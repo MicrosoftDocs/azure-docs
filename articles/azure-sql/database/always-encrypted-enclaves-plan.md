@@ -12,7 +12,7 @@ author: jaszymas
 ms.author: vanto
 ms.reviwer: 
 ms.date: 12/09/2020
----
+--- 
 # Plan for Intel SGX enclaves and attestation in [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)] 
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
