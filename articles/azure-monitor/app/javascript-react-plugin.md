@@ -93,11 +93,11 @@ You can also run custom queries to divide Application Insights data to generate 
 
 ## Using React Hooks
 
-[React Hooks](https://reactjs.org/docs/hooks-reference.html) are an approach to state and life cycle management in a React application without relying on class-based React components. The Application Insights React plugin provides a number of Hooks integrations that operate in a similar way to the higher-order component approach.
+[React Hooks](https://reactjs.org/docs/hooks-reference.html) are an approach to state and life-cycle management in a React application without relying on class-based React components. The Application Insights React plugin provides a number of Hooks integrations that operate in a similar way to the higher-order component approach.
 
 ### Using React Context
 
-The React Hooks for Application Insights are designed to use [React Context](https://reactjs.org/docs/context.html) as a containing aspect for it. To use Context, initalize Application Insights as above, and then import the Context object:
+The React Hooks for Application Insights are designed to use [React Context](https://reactjs.org/docs/context.html) as a containing aspect for it. To use Context, initialize Application Insights as above, and then import the Context object:
 
 ```javascript
 import React from "react";
@@ -133,7 +133,7 @@ export default MyComponent;
 
 ### `useTrackMetric`
 
-This Hook replicates the functionality of the `withAITracking` higher-order component, without adding an additional component to the component structure. The Hook takes two arguments, first is the Application Insights instance (which can be obtained from the `useAppInsightsContext` Hook), and an identifier for the compontent for tracking (such as its name).
+The `useTrackMetric` Hook replicates the functionality of the `withAITracking` higher-order component, without adding an additional component to the component structure. The Hook takes two arguments, first is the Application Insights instance (which can be obtained from the `useAppInsightsContext` Hook), and an identifier for the component for tracking (such as its name).
 
 ```javascript
 import React from "react";
@@ -150,11 +150,11 @@ const MyComponent = () => {
 export default MyComponent;
 ```
 
-It will operate like the higher-order component, but respond to Hooks life cycle events, rather than a component life cycle. The Hook needs to be explicitly provided to user events if there is a need to run on particular interactions.
+It will operate like the higher-order component, but respond to Hooks life-cycle events, rather than a component life-cycle. The Hook needs to be explicitly provided to user events if there is a need to run on particular interactions.
 
 ### `useTrackEvent`
 
-This Hook is used to track any custom event that an application may need to track, such as a button click or other API call. It takes two arguments, the first is the Application Insights instance (which can be obtained from the `useAppInsightsContext` Hook), and a name for the event.
+The `useTrackEvent` Hook is used to track any custom event that an application may need to track, such as a button click or other API call. It takes two arguments, the first is the Application Insights instance (which can be obtained from the `useAppInsightsContext` Hook), and a name for the event.
 
 ```javascript
 import React, { useState, useEffect } from "react";
@@ -210,7 +210,7 @@ const App = () => {
 };
 ```
 
-The `AppInsightsErrorBoundary` requires two props to be passed to it, the `ReactPlugin` instance created for the application and a component to be rendered when an error occurs. When an unhandled error occurs `trackException` is called with the information provided to the Error Boundary and the `onError` component is displayed.
+The `AppInsightsErrorBoundary` requires two props to be passed to it, the `ReactPlugin` instance created for the application and a component to be rendered when an error occurs. When an unhandled error occurs, `trackException` is called with the information provided to the Error Boundary and the `onError` component is displayed.
 
 ## Sample app
 
