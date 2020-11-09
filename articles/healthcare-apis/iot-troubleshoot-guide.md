@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/09/2020
 ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
@@ -85,11 +85,11 @@ Each error gets logged with a number of associated properties. Every property pr
 > [!NOTE]
 > You can navigate to the *Total Errors* metric for an instance of Azure IoT Connector for FHIR (preview) as described on the [Azure IoT Connector for FHIR (preview) Metrics page](iot-metrics-display.md).
 
-Click on the *Total Errors* graph and then click on *Add filter* button to slice and dice error metric using any of the properties mentioned below.
+Click on the *Total Errors* graph and then click on *Add filter* button to slice and dice the error metric using any of the properties mentioned below.
 
 ### The operation performed by the Azure IoT Connector for FHIR (preview)
 
-This property represents the operation being performed by IoT Connector when the error has occurred. An operation  generally represents the data flow stage while processing a device message. Here is the list of possible values for this property.
+This property represents the operation being performed by IoT Connector when the error has occurred. An operation generally represents the data flow stage while processing a device message. Here is the list of possible values for this property.
 
 > [!NOTE]
 > You can read more about different stages of data flow in Azure IoT Connector for FHIR (preview) [here](iot-data-flow.md).
@@ -128,19 +128,19 @@ This property signifies a category for a given error, which basically represents
 
 ### The name of the error
 
-This property provides the name for a specific error. Here is the list of all error names and their description
+This property provides the name for a specific error. Here is the list of all error names with their description and associated error type(s), severity, and data flow stage(s).
 
-|Error name|Description|
-|----------|-----------|
-|MultipleResourceFoundException|Error occurred when multiple patient or device resources are found in the FHIR server for respective identifiers present in the device message|
-|TemplateNotFoundException|A device or FHIR mapping template isn't configured with the instance of IoT Connector|
-|CorrelationIdNotDefinedException|Correlation ID isn't specified in the device mapping template. CorrelationIdNotDefinedException is a conditional error that would occur only when FHIR Observation must group device measurements using a correlation ID but it's not configured correctly|
-|PatientDeviceMismatchException|This error occurs when the device resource on the FHIR server has a reference to a patient resource, which doesn't match with the patient identifier present in the message|
-|PatientNotFoundException|Patient identifer isn't present in the device message. Note this error will only occur when IoT Connector instance is configured with *Create* resolution type|
-|DeviceNotFoundException|Device identifer isn't present in the device message|
-|PatientIdentityNotDefinedException|This error occurs when expression to parse patient identifier from the device message isn't configured on the device mapping template. Note this error occurs only when IoT Connector's resolution type is set to *Create*|
-|DeviceIdentityNotDefinedException|This error occurs when expression to parse device identifier from the device message isn't configured on the device mapping template|
-|NotSupportedException|Error occurred when device message with unsupported format is received|
+|Error name|Description|Error type(s)|Error severity|Data flow stage(s)|
+|----------|-----------|-------------|--------------|------------------|
+|MultipleResourceFoundException|Error occurred when multiple patient or device resources are found in the FHIR server for respective identifiers present in the device message|FHIRResourceError|Error|FHIRConversion|
+|TemplateNotFoundException|A device or FHIR mapping template isn't configured with the instance of IoT Connector|DeviceTemplateError, FHIRTemplateError|Critical|Normalization, FHIRConversion|
+|CorrelationIdNotDefinedException|Correlation ID isn't specified in the device mapping template. CorrelationIdNotDefinedException is a conditional error that would occur only when FHIR Observation must group device measurements using a correlation ID but it's not configured correctly|DeviceMessageError|Error|Normalization|
+|PatientDeviceMismatchException|This error occurs when the device resource on the FHIR server has a reference to a patient resource, which doesn't match with the patient identifier present in the message|FHIRResourceError|Error|FHIRConversionError|
+|PatientNotFoundException|Patient identifer isn't present in the device message. Note this error will only occur when IoT Connector instance is configured with *Create* resolution type|FHIRConversionError|Error|FHIRConversion|
+|DeviceNotFoundException|Device identifer isn't present in the device message|DeviceMessageError|Error|Normalization|
+|PatientIdentityNotDefinedException|This error occurs when expression to parse patient identifier from the device message isn't configured on the device mapping template. Note this error occurs only when IoT Connector's resolution type is set to *Create*|DeviceTemplateError|Critical|Normalization|
+|DeviceIdentityNotDefinedException|This error occurs when expression to parse device identifier from the device message isn't configured on the device mapping template|DeviceTemplateError|Critical|Normalization|
+|NotSupportedException|Error occurred when device message with unsupported format is received|DeviceMessageError|Error|Normalization|
 
 ## Creating copies of the Azure IoT Connector for FHIR (preview) conversion mapping JSON
 
