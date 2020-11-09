@@ -124,7 +124,7 @@ Use the following table to see how different IoT Hub capabilities are supported 
 ::: moniker-end
 
 <!-- 1.0.10 -->
-::: moniker range="< iotedge-1.2"
+::: moniker range="iotedge-2018-06"
 
 | Capability | IoT device | IoT behind a gateway |
 | ---------- | ---------- | -------------------- |
