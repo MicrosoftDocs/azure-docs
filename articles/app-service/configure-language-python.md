@@ -165,7 +165,9 @@ If the App Service doesn't find a custom command, a Django app, or a Flask app, 
 
 If you deployed code and still see the default app, see [Troubleshooting - App doesn't appear](#app-doesnt-appear).
 
-![Default App Service on Linux web page](media/configure-language-python/default-python-app.png)
+[![Default App Service on Linux web page](media/configure-language-python/default-python-app.png)](#app-doesnt-appear)
+
+Again, if you expect to see a deployed app instead of the default app, see [Troubleshooting - App doesn't appear](#app-doesnt-appear).
 
 ## Customize startup command
 
