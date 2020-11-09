@@ -34,7 +34,7 @@ The Orders dashboard displays the current orders for all your software as a serv
 
 ## Elements of the Orders dashboard
 
-TThe following sections describe how to use the Orders dashboard and how to read the data.
+The following sections describe how to use the Orders dashboard and how to read the data.
 
 ### Month range
 
@@ -47,14 +47,14 @@ You can find a month range selection at the top-right corner of each page. Custo
 
 ### Orders trend
 
-In this section, you will find the **Orders** chart that shows the trend of your active and cancelled orders for the selected computation period. Metrics and growth trends are represented by a line chart and will display the value for each month by hovering over the line on the chart. The percentage value below the Orders metrics in the widget represents the amount of growth or decline during the selected computation period.
+In this section, you will find the **Orders** chart that shows the trend of your active and canceled orders for the selected computation period. Metrics and growth trends are represented by a line chart and will display the value for each month by hovering over the line on the chart. The percentage value below the Orders metrics in the widget represents the amount of growth or decline during the selected computation period.
 
 There are two Orders counters: _Active_ and _Cancelled_.
 
 - **Active** equals the number of orders that are currently in use by customers during the selected date range.
 - **Canceled** equals the number of orders that were previously purchased and then canceled during the selected date range.
 
-[![Illustrates the Orders widget on the Orders dashboard that shows the trend of active and cancelled orders.](./media/orders-dashboard/orders-trend.png)](./media/orders-dashboard/orders-trend.png#lightbox)
+[![Illustrates the Orders widget on the Orders dashboard that shows the trend of active and canceled orders.](./media/orders-dashboard/orders-trend.png)](./media/orders-dashboard/orders-trend.png#lightbox)
 
 ### Orders by per seat and site trend
 
