@@ -134,7 +134,7 @@ landingContent:
         links:
           - text: Azure PowerShell
             url: https://docs.microsoft.com/powershell/module/az.vmware
-          - text: Get help with deployment or provisioning failures
+          - text: Open a support request for deployment or provisioning failure
             url: fix-deployment-provisioning-failures.md
           - text: FAQ
             url: faq.md
