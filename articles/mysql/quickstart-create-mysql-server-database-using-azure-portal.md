@@ -20,7 +20,7 @@ An Azure subscription is required. If you don't have an Azure subscription, crea
 Go to the [Azure portal](https://portal.azure.com/) to create an MySQL Single Server database. Search for and select *Azure Database for MySQL*.
 
    >[!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/findazuremysqlinportal.png" alt-text="Find Azure Database for MySQL":::
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/find-azure-mysql-in-portal.png" alt-text="Find Azure Database for MySQL":::
 
 1. Select **Add**.
 
