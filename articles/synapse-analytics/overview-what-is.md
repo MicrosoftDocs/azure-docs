@@ -74,7 +74,7 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 ## Engage with the Synapse engineering team
 
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Ask development questions.
-- [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html): Ask technical questions.
+- [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Ask technical questions.
 
 ## Next steps
 
