@@ -49,11 +49,12 @@ In this phase, you may gain access to the benefit by filling out the form [here]
 
 ### Red Hat customers
 
-1.    Fill out the preview request form above
-1.    Register with the [Red Hat Cloud Access program](https://aka.ms/rhel-cloud-access)
-1.    Enable your Azure subscription(s) for Cloud Access, and enable the subscriptions containing the VMs you want to use the benefit with
-1.    Apply the benefit to your existing VMs either via the Azure portal or Azure CLI
-1.    Optional, register your VMs receiving the benefit with a separate source of updates (switched VMs can stay attached to [RHUI](../workloads/redhat/redhat-rhui.md) or registered through RHSM)
+Azure Hybrid Benefit for RHEL is available to customers who have active/unused RHEL subscriptions that are eligible for use in Azure and who have enabled one or more of those subscriptions for use in Azure with the [Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) program. 
+
+1.  Enable one or more of your eligible RHEL subscriptions for use in Azure using the [Red Hat Cloud Access customer interface](https://access.redhat.com/management/cloud).
+1.  The Azure subscription(s) you provided during the Red Hat Cloud Access enablement process will then be permitted to use the Azure Hybrid Benefit feature.
+1.  Apply the Azure Hybrid Benefit to any of your existing RHEL PAYG VMs as well as any new RHEL VMs you deploy from Azure Marketplace PAYG images.
+1.  Follow recommended [next steps](https://access.redhat.com/articles/5419341) for configuring update sources for your RHEL VMs and for RHEL subscription compliance guidelines.
 
 ### SUSE customers
 
@@ -128,7 +129,19 @@ From within the VM itself, you may query the IMDS Attested Metadata to determine
 
 ### Red Hat
 
-In order to use Azure Hybrid Benefit for your RHEL VMs, you must first be registered with the Red Hat Cloud Access program. You may do this via the Red Hat Cloud Access site here. Once you have enabled the benefit on your VM, you must register the VM with your own source of updates either with Red Hat Subscription Manager or Red Hat Satellite. Registering for updates will ensure you remain in a supported state.
+Customers using the Azure Hybrid Benefit for RHEL agree to the standard [legal terms](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) and [privacy statement](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) associated with the Azure Marketplace RHEL offerings.
+
+Customers using Azure Hybrid Benefit for RHEL have three options for providing software updates and patches to those VMs:
+
+1.	[Red Hat Update Infrastructure (RHUI)](../workloads/redhat/redhat-rhui.md) (default option)
+1.	Red Hat Satellite Server
+1.	Red Hat Subscription Manager
+
+Customers choosing the RHUI option, can continue to use RHUI as the main update source for their AHB RHEL VMs without attaching RHEL subscriptions to those VMs.  Customers choosing the RHUI option are responsible for ensuring RHEL subscription compliance.
+
+Customers choosing either Red Hat Satellite Server or Red Hat Subscription Manager should remove RHUI configuration and then attach a Cloud Access enabled RHEL subscription to their AHB RHEL VM(s).  
+
+More information about Red Hat subscription compliance, software updates, and sources for AHB RHEL VMs can be found [here](https://access.redhat.com/articles/5419341).
 
 ### SUSE
 
