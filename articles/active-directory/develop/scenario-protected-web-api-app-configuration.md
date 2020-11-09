@@ -116,7 +116,7 @@ _Microsoft.Identity.Web_ provides the glue between ASP.NET Core, the authenticat
 
 #### Using Microsoft.Identity.Web templates
 
-You can create a web API from scratch by using Microsoft.Identity.Web project templates. For details see [Microsoft.Identity.Web - Web API project template](https://aka.ms/ms-id-web/webapi-project-templates)
+You can create a web API from scratch by using Microsoft.Identity.Web project templates. For details see [Microsoft.Identity.Web - Web API project template](https://aka.ms/ms-id-web/webapi-project-templates).
 
 #### Starting from an existing ASP.NET Core 3.1 application
 
@@ -240,4 +240,4 @@ You can also validate incoming access tokens in Azure Functions. You can find ex
 ## Next steps
 
 Move on to the next article in this scenario,
-[Verify scopes and app roles in your code](scenario-protected-web-api-verification-scope-app-roles.md)
+[Verify scopes and app roles in your code](scenario-protected-web-api-verification-scope-app-roles.md).

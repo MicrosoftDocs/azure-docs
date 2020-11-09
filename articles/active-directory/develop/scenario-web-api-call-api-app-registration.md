@@ -30,4 +30,4 @@ Web apps call APIs on behalf of users for whom the bearer token was received. Th
 ## Next steps
 
 Move on to the next article in this scenario,
-[App Code configuration](scenario-web-api-call-api-app-configuration.md)
+[App Code configuration](scenario-web-api-call-api-app-configuration.md).

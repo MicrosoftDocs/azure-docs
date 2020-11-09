@@ -197,4 +197,4 @@ def graphcall():
 ## Next steps
 
 Move on to the next article in this scenario,
-[Move to production](scenario-web-app-call-api-production.md)
+[Move to production](scenario-web-app-call-api-production.md).

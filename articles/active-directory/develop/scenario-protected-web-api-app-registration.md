@@ -61,7 +61,7 @@ During app registration, you need to define these parameters:
 - One or more scopes
 - One or more app roles
 
-By default, the application registration portal recommends that you use the resource URI `api://{clientId}`. This URI is unique but not human readable. If you change the URI, make sure the new value is unique. The application registration portal will ensure that you use a [configured publisher domain](howto-configure-publisher-domain.md)
+By default, the application registration portal recommends that you use the resource URI `api://{clientId}`. This URI is unique but not human readable. If you change the URI, make sure the new value is unique. The application registration portal will ensure that you use a [configured publisher domain](howto-configure-publisher-domain.md).
 
 To client applications, scopes show up as *delegated permissions* and app roles show up as *application permissions* for your web API.
 
@@ -151,4 +151,4 @@ To add this increased security:
 ## Next steps
 
 Move on to the next article in this scenario,
-[App code configuration](scenario-protected-web-api-app-configuration.md)
+[App code configuration](scenario-protected-web-api-app-configuration.md).

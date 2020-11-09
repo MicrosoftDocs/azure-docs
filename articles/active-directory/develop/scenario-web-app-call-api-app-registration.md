@@ -30,4 +30,4 @@ Web apps call APIs on behalf of the signed-in user. To do that, they must reques
 ## Next steps
 
 Move on to the next article in this scenario,
-[Code configuration](scenario-web-app-call-api-app-configuration.md)
+[Code configuration](scenario-web-app-call-api-app-configuration.md).

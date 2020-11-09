@@ -51,4 +51,4 @@ Development for this scenario involves these specific tasks:
 ## Next steps
 
 Move on to the next article in this scenario,
-[App registration](scenario-web-app-call-api-app-registration.md)
+[App registration](scenario-web-app-call-api-app-registration.md).

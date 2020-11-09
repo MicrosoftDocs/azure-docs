@@ -48,21 +48,21 @@ The Python sample doesn't remove accounts from the cache on global sign-out.
 # [ASP.NET Core](#tab/aspnetcore)
 
 Move on to the next article in this scenario,
-[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore)
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore).
 
 # [ASP.NET](#tab/aspnet)
 
 Move on to the next article in this scenario,
-[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet)
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet).
 
 # [Java](#tab/java)
 
 Move on to the next article in this scenario,
-[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=java)
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=java).
 
 # [Python](#tab/python)
 
 Move on to the next article in this scenario,
-[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=python)
+[Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=python).
 
 ---
