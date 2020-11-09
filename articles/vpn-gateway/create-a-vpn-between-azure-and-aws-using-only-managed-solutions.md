@@ -29,30 +29,30 @@ So in this article I'll show to you how to setup this. Below the draw of our lab
 
 ### 1. Create a resource group on Azure to deploy the  resources on that:
 
-![newrg](images/newrg.png)
+![newrg](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/newrg.png)
 
-![create](images/create.png)
+![create](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/create.png)
 
 Choose the subscription, the name and the region to be deployed:
 
-![creating](images/creating.png)
+![creating](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/creating.png)
 
 ### 2. Create a Virtual Network and a subnet
 
-![createvnet](images/createvnet.png)
+![createvnet](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createvnet.png)
 
-![createvnetbutton](images/createvnetbutton.png)
+![createvnetbutton](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createvnetbutton.png)
 
 Define the subscription, resource group, name and region to be deployed:
 
-![vnetdefinitions](images/vnetdefinitions.png)
+![vnetdefinitions](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/vnetdefinitions.png)
 
 Set the address space for the virtual network and for the subnet. 
 Here I'm defining the virtual network address space to **172.10.0.0/16**, changing the "default" subnet name to **"subnet-01"** and defining the subnet address range to **172.10.1.0/24**:
 
-![vnetaddr](images/vnetaddr.png)
+![vnetaddr](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/vnetaddr.png)
 
-![vnetvalidation](images/vnetvalidation.png)
+![vnetvalidation](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/vnetvalidation.png)
 
 	
 ### 3. Create the VPN Gateway
@@ -61,51 +61,51 @@ The Azure VPN Gateway is a resource composed of 2 or more VM's that are deployed
 
  To create, go to your Resource Group, then click to **+ Add**
  
- ![addvpngw](images/addvpngw.PNG)
+ ![addvpngw](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/addvpngw.PNG)
  
- ![newvpngw](images/newvpngw.png)
+ ![newvpngw](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/newvpngw.png)
  
- ![createvpngw](images/createvpngw.png)
+ ![createvpngw](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createvpngw.png)
  
  Then fill the fields like below:
  
- ![vpngwsummary](images/vpngwsummary.png)
+ ![vpngwsummary](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/vpngwsummary.png)
  
  After click to Review + create, in a few minutes the Virtual Network Gateway will be ready:
  
- ![vpnready](images/vpnready.png)
+ ![vpnready](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/vpnready.png)
  
  ## Configuring AWS
  
  ### 4. Create the Virtual Private Cloud (VPC)
  
- ![createvpc](images/createvpc.png)
+ ![createvpc](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createvpc.png)
  
  ### 5. Create a subnet inside the VPC (Virtual Network)
  
- ![createsubnetvpc](images/createsubnetvpc.png)
+ ![createsubnetvpc](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createsubnetvpc.png)
  
  ### 6. Ceate a customer gateway pointing to the public ip address of Azure VPN Gateway
  
  The Customer Gateway is an AWS resource with information to AWS about the customer gateway device, which in this case is the Azure VPN Gateway.
  
- ![createcustomergw](images/createcustomergw.png)
+ ![createcustomergw](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createcustomergw.png)
  
  ### 7. Create the virtual private gateway then attach to the VPC
  
- ![createvpg](images/createvpg.png)
+ ![createvpg](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createvpg.png)
  
- ![attachvpgtovpc](images/attachvpgtovpc.png)
+ ![attachvpgtovpc](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/attachvpgtovpc.png)
  
- ![attachvpgtovpc2](images/attachvpgtovpc2.png)
+ ![attachvpgtovpc2](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/attachvpgtovpc2.png)
  
  ### 8. Create a site-to-site VPN Connection
  
- ![createvpnconnection](images/createvpnconnection.png)
+ ![createvpnconnection](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createvpnconnection.png)
  
  Set the routing as static pointing to the azure subnet-01 prefix **(172.10.1.0/24)**
  
- ![setstaticroute](images/setstaticroute.png)
+ ![setstaticroute](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/setstaticroute.png)
  
  After fill the options, click to create.
  
@@ -113,21 +113,21 @@ The Azure VPN Gateway is a resource composed of 2 or more VM's that are deployed
  
  Please note that you need to change the Vendor, Platform and Software to **Generic** since Azure isn't a valid option:
  
- ![downloadconfig](images/downloadconfig.png)
+ ![downloadconfig](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/downloadconfig.png)
  
  In this configuration file you will note that there are the Shared Keys and the Public Ip Address for each of one of the two IPSec tunnels created by AWS:
  
- ![ipsec1](images/ipsec1.png)
+ ![ipsec1](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/ipsec1.png)
   
- ![ipsec1config](images/ipsec1config.png)
+ ![ipsec1config](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/ipsec1config.png)
   
- ![ipsec2](images/ipsec2.png)
+ ![ipsec2](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/ipsec2.png)
    
- ![ipsec2config](images/ipsec2config.png)
+ ![ipsec2config](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/ipsec2config.png)
  
  After the creation, you should have something like this:
  
- ![awsvpnconfig](images/awsvpnconfig.png)
+ ![awsvpnconfig](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/awsvpnconfig.png)
  
  ## Adding the AWS information on Azure Configuration
  
@@ -135,9 +135,9 @@ The Azure VPN Gateway is a resource composed of 2 or more VM's that are deployed
  
  The Local Network Gateway is an Azure resource with information to Azure about the customer gateway device, in this case the AWS Virtual Private Gateway
  
- ![newlng](images/newlng.png)
+ ![newlng](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/newlng.png)
  
- ![createnewlng](images/createnewlng.png)
+ ![createnewlng](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createnewlng.png)
 
 Now you need to specify the public ip address from the AWS Virtual Private Gateway and the VPC CIDR prefix. 
 
@@ -145,49 +145,49 @@ Please note that the public address from the AWS Virtual Private Gateway is desc
 
 As mentioned earlier, AWS creates two IPSec tunnels to high availability purposes. I'll use the public ip address from the IPSec Tunnel #1 for now.
 
-![lngovwerview](images/lngovwerview.png)
+![lngovwerview](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/lngovwerview.png)
 
 ### 11. Then let's create the connection on the Virtual Network Gateway
 
-![createconnection](images/createconnection.png)
+![createconnection](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createconnection.png)
 
-![createconnection2](images/createconnection2.png)
+![createconnection2](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createconnection2.png)
 
 You should fill the fields according below. Please note that the Shared key was obtained at the configuration file downloaded earlier and In this case, I'm using the Shared Key for the Ipsec tunnel #1 created by AWS and described at the configuration file.
 
-![createconnection3](images/createconnection3.png)
+![createconnection3](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createconnection3.png)
 
 After a few minutes, you can see the connection established:
 
-![connectionstablished](images/connectionstablished.png)
+![connectionstablished](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/connectionstablished.png)
 
 In the same way, we can check on AWS that the 1st tunnel is up:
 
-![awsconnectionstablished](images/awsconnectionstablished.png)
+![awsconnectionstablished](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/awsconnectionstablished.png)
 
 Now let's edit the route table associated with our VPC
 
-![editawsroute](images/editawsroute.png)
+![editawsroute](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/editawsroute.png)
 
 And add the route to Azure subnet through the Virtual Private Gateway:
 
-![saveawsroute](images/saveawsroute.png)
+![saveawsroute](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/saveawsroute.png)
 
 ### 12. Adding high availability
 
 Now we can create a 2nd connection to ensure high availability. To do this let's create another Local Network Gateway which we will point to the public ip address of the IPSec tunnel #2 on the AWS
 
-![createlngstandby](images/createlngstandby.png)
+![createlngstandby](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createlngstandby.png)
 
 Then we can create the 2nd connection on the Virtual Network Gateway:
 
-![createconnectionstandby](images/createconnectionstandby.png)
+![createconnectionstandby](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createconnectionstandby.png)
 
 And in a few moments we'll have:
 
-![azuretunnels](images/azuretunnels.png)
+![azuretunnels](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/azuretunnels.png)
 
-![awstunnels](images/awstunnels.png)
+![awstunnels](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/awstunnels.png)
 
 With this, our VPN connection is established on both sides and the work is done. 
 
@@ -195,32 +195,32 @@ With this, our VPN connection is established on both sides and the work is done.
 
 First, let's add an Internet Gateway to our VPC at AWS. The Internet Gateway is a logical connection between an Amazon VPN and the Internet. This resource will allow us to connect through the test VM from their public ip through internet. This is not required for the VPN connection, is just for our test:
 
-![createigw](images/createigw.png)
+![createigw](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/createigw.png)
 
 After create, let's attach to the VPC:
  
-![attachigw](images/attachigw.png)
+![attachigw](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/attachigw.png)
 
-![attachigw2](images/attachigw2.png)
+![attachigw2](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/attachigw2.png)
 
 Now we can create a route to allow connections to **0.0.0.0/0** (Internet) through the Internet Gateway:
 
-![allowinternetigw](images/allowinternetigw.png)
+![allowinternetigw](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/allowinternetigw.png)
 
 On Azure the route was automatically created. You can check selecting the Azure VM > Networking > Network Interface > Effective routes. Note that we have 2 (1 per connection):
 
-![azureeffectiveroutes](images/azureeffectiveroutes.png)
+![azureeffectiveroutes](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/azureeffectiveroutes.png)
 
 Now I've created a Linux VM on Azure and our environment looks like this:
 
-![azoverview](images/azoverview.png)
+![azoverview](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/azoverview.png)
 
 And I did the same VM creation on AWS that looks like this:
 
-![awsoverview](images/awsoverview.png)
+![awsoverview](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/awsoverview.png)
 
 Then we can test the connectivity betweeen Azure and AWS through our VPN connection:
 
-![azureping](images/azureping.png)
+![azureping](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/azureping.png)
 
-![awsping](images/awsping.png)
+![awsping](./media/create-a-vpn-between-azure-and-aws-using-only-managed-solutions/awsping.png)
