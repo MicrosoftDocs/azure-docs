@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     * For **Staging**:
      `https://<STAGING ENTITY>.hiperos.com/sp/<CUSTOMERIDENTIFIER>.login`
 
-    * For **Prod**: 
+    * For **PROD Entity**: 
     `https://<STAGING ENTITY>.hiperos.com/sp/<CUSTOMERIDENTIFIER>.login`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     * For **Staging**:
      `https://<STAGING ENTITY>.hiperos.com/sp/<CUSTOMERIDENTIFIER>.login`
 
-    * For **Prod**: 
+    * For **PROD Entity**: 
     `https://<STAGING ENTITY>.hiperos.com/sp/<CUSTOMERIDENTIFIER>.login`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
@@ -95,7 +95,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     * For **Staging**:
      `https://<STAGING ENTITY>.hiperos.com/sp/<CUSTOMERIDENTIFIER>.login`
 
-    * For **Prod**: 
+    * For **PROD Entity**: 
     `https://<STAGING ENTITY>.hiperos.com/sp/<CUSTOMERIDENTIFIER>.login`
 
 	> [!NOTE]
