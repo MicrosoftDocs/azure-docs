@@ -128,8 +128,17 @@ There are several monitoring scenarios with Azure Machine Learning, depending on
 
 | Role | Monitoring to use |
 | ---- | ----- |
-| Admin, DevOps, MLOps | Azure Monitor metrics, activity log, vulnerability scanning |
-| Data Scientist, MLOps | ???? |
+| Admin, DevOps, MLOps | [Azure Monitor metrics](#azure-monitor), [activity log](#activity-log), [vulnerability scanning](#vulnerability-scanning) |
+| Data Scientist, MLOps | [Monitor runs](#monitor-runs) |
+
+### Monitor runs
+
+You can monitor experiment runs in Azure Machine Learning, including logging information from within your training scripts. This information can be viewed through the SDK, Azure CLI, and studio. For more information, see the following articles:
+
+* [Start, monitor, and cancel training runs](how-to-manage-runs.md)
+* [Enable logs](how-to-track-experiments.md)
+* [View logs](how-to-monitor-view-training-logs.md)
+* [Visualize runs with TensorBoard](how-to-monitor-tensorboard.md)
 
 ### Azure Monitor
 
