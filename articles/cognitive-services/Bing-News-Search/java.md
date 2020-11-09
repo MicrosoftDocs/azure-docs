@@ -29,7 +29,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* The [Java Development Kit (JDK) 7 or 8](https://aka.ms/azure-jdks).
+* The [Java Development Kit (JDK) 7 or 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 * The [Gson library](https://github.com/google/gson).
 
 

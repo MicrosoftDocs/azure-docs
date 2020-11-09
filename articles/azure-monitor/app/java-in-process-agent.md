@@ -130,7 +130,7 @@ See [configuration options](./java-standalone-config.md) for full details.
 
 Our goal in 3.0+ is to allow you to send your custom telemetry using standard APIs.
 
-We support Micrometer, OpenTelemetry API, and the popular logging frameworks. Application Insights Java 3.0 will automatically capture the telemetry, and correlate it along with all of the autocollected telemetry.
+We support Micrometer, OpenTelemetry API, and the popular logging frameworks. Application Insights Java 3.0 will automatically capture the telemetry, and correlate it along with all of the auto-collected telemetry.
 
 ### Supported custom telemetry
 
