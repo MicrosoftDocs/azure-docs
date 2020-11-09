@@ -367,8 +367,8 @@
             href: storage-blob-user-delegation-sas-create-cli.md
           - name: .NET
             href: storage-blob-user-delegation-sas-create-dotnet.md
-        - name: Create a service SAS (.NET)
-          href: storage-blob-service-sas-create-dotnet.md
+        - name: Create a service SAS
+          href: sas-service-create.md
         - name: Create an account SAS (.NET)
           href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Define a stored access policy
@@ -479,6 +479,8 @@
         items:
         - name: Get started
           href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Authorize with Azure AD
+          href: ../common/storage-use-azcopy-authorize-azure-active-directory.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Use with Blobs
           href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Use with Amazon S3 buckets

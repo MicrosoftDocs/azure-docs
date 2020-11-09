@@ -35,15 +35,15 @@ Make sure you take regular back ups of your vault on update/delete/create of obj
 
 ### Azure PowerShell Backup Commands
 
-* [Backup Certificate](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
-* [Backup Key](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
-* [Backup Secret](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret?view=azurermps-6.13.0)
+* [Backup Certificate](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
+* [Backup Key](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
+* [Backup Secret](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret?view=azurermps-6.13.0)
 
 ### Azure CLI Backup Commands
 
-* [Backup Certificate](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
-* [Backup Key](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
-* [Backup Secret](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
+* [Backup Certificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
+* [Backup Key](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
+* [Backup Secret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
 
 
 ## Turn on Logging
