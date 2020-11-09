@@ -530,7 +530,7 @@
     - name: Common migration errors
       href: ./linux/migration-classic-resource-manager-errors.md
     - name: Community tools for migration
-      href: ../windows/migration-classic-resource-manager-community-tools.md
+      href: ./windows/migration-classic-resource-manager-community-tools.md
     - name: FAQ
       href: migration-classic-resource-manager-faq.md
   - name: Management basics 
@@ -757,7 +757,7 @@
     - name: Portal
       href: dedicated-hosts-portal.md
     - name: PowerShell
-      href: ../windows/dedicated-hosts-powershell.md
+      href: ./windows/dedicated-hosts-powershell.md
   - name: Enable nested virtualization
     href: ./windows/nested-virtualization.md
 - name: Imaging
@@ -963,7 +963,7 @@
   - name: High availability
     href: manage-availability.md
   - name: Change availability set
-    href: ../windows/change-availability-set.md
+    href: ./windows/change-availability-set.md
   - name: Create a proximity placement group
     displayName: PPG aligned colocation co-location
     items:
@@ -1136,7 +1136,7 @@
         - name: Azure PowerShell
           href: attach-disk-ps.md
         - name: Azure portal
-          href: ../windows/attach-managed-disk-portal.md
+          href: ./windows/attach-managed-disk-portal.md
     - name: Change disk tier
       href: disks-performance-tiers.md
     - name: Detach a disk
@@ -1741,4 +1741,4 @@
     - name: Windows
       href: ./windows/faq.md
   - name: Troubleshoot
-    href: ../troubleshooting/index.yml
+    href: ./troubleshooting/index.yml
