@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 09/29/2020
+ms.date: 11/09/2020
 ms.author: alkohli
 ---
 
@@ -53,6 +53,8 @@ The following table shows common certificate errors and detailed information abo
 | CertificateImportFailure | Certificate with thumbprint {0} was not imported on node {1}. If the problem persists, contact Microsoft Support. |
 | CertificateApplyFailure | Certificate with thumbprint {0} was not applied on node {1}. If the problem persists, contact Microsoft Support.|
 | NodeNotReachable | Could not validate certificate on {0}. Check the system hardware and software health.|
+| GET ERROR CODE | The private key for this certificate is not accessible. Make sure that you are using a supported certificate. Only the Microsoft RSA/Schannel Cryptographic Provider is supported. |
+
 
 ## Next steps
 
