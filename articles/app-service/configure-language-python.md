@@ -161,7 +161,9 @@ If your main app module is contained in a different file, use a different name f
 
 ### Default behavior
 
-If the App Service doesn't find a custom command, a Django app, or a Flask app, then it runs a default read-only app, located in the _opt/defaultsite_ folder and shown in the following image. If you deployed code and still see the default app, see [Troubleshooting - App doesn't appear](#app-doesnt-appear).
+If the App Service doesn't find a custom command, a Django app, or a Flask app, then it runs a default read-only app, located in the _opt/defaultsite_ folder and shown in the following image.
+
+If you deployed code and still see the default app, see [Troubleshooting - App doesn't appear](#app-doesnt-appear).
 
 ![Default App Service on Linux web page](media/configure-language-python/default-python-app.png)
 
@@ -287,7 +289,7 @@ The following sections provide additional guidance for specific issues.
 
 #### App doesn't appear
 
-- **You see the default app after deploying your own app code.** The default app appears because you either haven't deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.
+- **You see the default app after deploying your own app code.** The [default app](#default-behavior) appears because you either haven't deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.
 
     - Restart the App Service, wait 15-20 seconds, and check the app again.
     
@@ -307,7 +309,7 @@ The following sections provide additional guidance for specific issues.
 
     - Examine the [app log stream](#access-diagnostic-logs) for any error messages. The logs will show any errors in the app code.
 
-#### Error streaming logs
+#### Could not find setup.py or requirements.txt
 
 - **The log stream shows "Could not find setup.py or requirements.txt; Not running pip install."**: The Oryx build process failed to find your *requirements.txt* file.
 
