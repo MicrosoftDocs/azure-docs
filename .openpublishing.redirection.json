@@ -22202,6 +22202,31 @@
       "redirect_url": "/partner-center/announcements",
       "redirect_document_id": false
     },
+     {
+      "source_path": "articles/marketplace/partner-center-portal/summary-dashboard.md",
+      "redirect_url": "articles/marketplace/summary-dashboard",
+      "redirect_document_id": false
+    },
+     {
+      "source_path": "articles/marketplace/partner-center-portal/orders-dashboard.md",
+      "redirect_url": "articles/marketplace/orders-dashboard",
+      "redirect_document_id": false
+    },
+     {
+      "source_path": "articles/marketplace/partner-center-portal/usage-dashboard.md",
+      "redirect_url": "articles/marketplace/usage-dashboard",
+      "redirect_document_id": false
+    },
+     {
+      "source_path": "articles/marketplace/partner-center-portal/customer-dashboard.md",
+      "redirect_url": "articles/marketplace/customer-dashboard",
+      "redirect_document_id": false
+    },
+     {
+      "source_path": "articles/marketplace/partner-center-portal/insights-dashboard.md",
+      "redirect_url": "articles/marketplace/insights-dashboard",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/marketplace/ccp-saas-offer.md",
       "redirect_url": "/azure/marketplace/create-new-saas-offer",
