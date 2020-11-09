@@ -29,7 +29,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Making sure that each text column can leverage char-gram transform with the n-gram range based on the length of the strings in that text column
     + Providing raw feature explanations for best mode for AutoML experiments running on user's local compute
   + **azureml-core**
-    + Pin packages en_core_web_sm and pyjwt
+    + Pin the package: pyjwt to avoid pulling in breaking versions in upcoming releases.
     + Creating an experiment will return the active or last archived experiment with that same given name if such experiment exists or a new experiment.
     + Calling get_experiment by name will return the active or last archived experiment with that given name.
     + Users cannot rename an experiment while reactivating it.
@@ -39,7 +39,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Repurposed `grant_workspace_access` parameter when registering datastores. Set it to `True` to access data behind virtual network from Machine Learning Studio.
       [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
     + Linked service API is refined. Instead of providing resource Id, we have 3 separate parameters sub_id, rg, and name defined in configuration.
-    + SDK to support SynapseCompute type and SynapseSparkStep. Customers can run experiment and pipeline run on synapse spark pool.
     + In order to enable customers to self-resolve token corruption issues, enable workspace token synchronization to be a public method.
     + This change allows an empty string to be used as a value for a script_param
   + **azureml-dataprep**
