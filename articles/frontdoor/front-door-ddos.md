@@ -46,3 +46,9 @@ Front Door is a massively scaled, globally distributed service. We have many cus
 ## For further protection
 
 If you require further protection, then you can enable [Azure DDoS Protection Standard](../security/fundamentals/ddos-best-practices.md#ddos-protection-standard) on the VNet where your back-ends are deployed. DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
+
+## Next steps
+
+- Learn how to configure a [WAF profile on Front Door](front-door-waf.md). 
+- Learn how to [create a Front Door](quickstart-create-front-door.md).
+- Learn [how Front Door works](front-door-routing-architecture.md).
