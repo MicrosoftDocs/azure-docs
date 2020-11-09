@@ -14,7 +14,7 @@ ms.service: digital-twins
 
 Azure Digital Twins can collect logs for your service instance to monitor its performance, access, and other data. You can use these logs to get an idea of what is happening in your Azure Digital Twins instance, and perform root-cause analysis on issues without needing to contact Azure support.
 
-This article shows you how to **configure diagnostic settings** to start collecting logs from your Azure Digital Twins instance, and specify where they should be stored (such as Log Analytics or a storage account of your choice). After enabling logs, you can also **query the logs** in the [Azure portal](https://portal.azure.com) to quickly gather custom insights.
+This article shows you how to [**configure diagnostic settings**](#turn-on-diagnostic-settings) in the [Azure portal](https://portal.azure.com) to start collecting logs from your Azure Digital Twins instance. You can also specify where the logs should be stored (such as Log Analytics or a storage account of your choice). After enabling logs, you can also [**query the logs**](#view-and-query-logs) to quickly gather custom insights.
 
 This article also contains lists of all [log categories](#log-categories) and [log schemas](#log-schemas) that Azure Digital Twins collects.
 
