@@ -39,7 +39,7 @@ You can get the database server connection information from the Azure portal by 
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Navigate to the Azure Databases for MySQL page. You can search for and select **Azure Database for MySQL**.
-:::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/findazuremysqlinportal.png" alt-text="Find Azure Database for MySQL":::
+:::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/find-azure-mysql-in-portal.png" alt-text="Find Azure Database for MySQL":::
 
 2. Select your  MySQL server (such as **mydemoserver**).
 3. In the **Overview** page, copy the fully qualified server name next to **Server name** and the admin user name next to **Server admin login name**. To copy the server name or host name, hover over it and select the **Copy** icon.
