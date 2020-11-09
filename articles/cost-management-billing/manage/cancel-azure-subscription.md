@@ -66,6 +66,22 @@ If you cancel your subscription with Pay-As-You-Go rates accidentally, you can [
 
 If your subscription is not a subscription with Pay-As-You-Go rates, contact support within 90 days of cancellation to reactivate your subscription.
 
+## Why don't I see the Cancel Subscription option on the Azure portal? 
+
+You may not have the permissions required to cancel a subscription. Please see [Who can cancel a subscription?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription) for a description of who can cancel various types of subscriptions.
+
+## How do I delete my Azure Account?
+
+*I need to remove my account including all my personal  information. I already cancelled my active(Free Trial) subscriptions. I don't have any active subscriptions, and would like to totally delete my account*.
+
+* If you have a Azure Active Directory (AAD) account via your organization, the AAD administrator could delete the account. After that, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only. In summary, once you cancel, billing is stopped immediately.
+
+* If you do not have an AAD account via your organization, you can cancel and then delete your Azure subscriptions, and remove your credit card from the account. While this does not delete the account, it renders it inoperable. You can go a step further and also delete the associated Microsoft account if it is not being used for any other purpose.
+
+## How do I cancel a VS Professional account?
+
+Please see the article [Renewal and Cancellation](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation). Note that if you have any VS Azure subscriptions, those need to be cancelled and deleted as well.
+
 ## Need help? Contact us.
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
