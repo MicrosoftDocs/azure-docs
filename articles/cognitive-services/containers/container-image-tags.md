@@ -146,16 +146,24 @@ The [Custom Speech-to-text][sp-cstt] container image can be found on the `mcr.mi
 Release note for `2.6.0-amd64`:
 
 **Features**
-* Support for phraselist v2
+* Support for phraselist v2 
+* Phrase lists are supported in the following locales:
+    * en-au
+    * en-ca
+    * en-gb
+    * en-in
+    * en-nz
+    * en-us
+    * zh-cn
 * Support for custom base model download. 
     * Use `BaseModelLocale=<locale>` with the `docker run` command
 * Fully migrated to .NET 3.1
 
 **Fixes**
-* Fix the issue that confidence score was always 1 on Diarization mode
-* Migrate to the TextAnalytics 3.0 api
+* Fixed an issue where the confidence score was always 1 in Diarization mode
+* Migrated to the TextAnalytics 3.0 api
 
-Note that the size of this container image has increased. 
+Note that due to the included phrase lists, the size of this container image has increased.
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
@@ -224,6 +232,14 @@ Release note for `2.6.0-amd64-<locale>`:
 **Features**
 * Upgraded to latest models and fully migrated to .NET 3.1
 * Support for phraselist v2
+* Phrase lists are supported in the following locales:
+    * en-au
+    * en-ca
+    * en-gb
+    * en-in
+    * en-nz
+    * en-us
+    * zh-cn
 * Support for new locale `cs-CZ` 
     * Capitalization and punctuation are currently not supported.
 
@@ -231,7 +247,7 @@ Release note for `2.6.0-amd64-<locale>`:
 * Fixes an issue where confidence scores were always 1 in Diarization mode
 * Migrated use the TextAnalytics 3.0 API
 
-Note that the size of this container image has increased. 
+Note that due to the included phrase lists, the size of this container image has increased. 
 
 | Image Tags                    | Notes                                                                                                | 
 |-------------------------------|:-----------------------------------------------------------------------------------------------------|
@@ -636,6 +652,8 @@ This container image has the following tags available. You can also find a full 
 | `latest`                      |       |
 | `1.1.012840001-amd64` |   |
 | `1.1.012830001-amd64` |   |
+
+---
 
 ## Sentiment analysis
 
