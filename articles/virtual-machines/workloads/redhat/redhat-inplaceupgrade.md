@@ -1,5 +1,5 @@
 ---
-title: In-place upgarde of Red Hat Enterprise images on Azure
+title: In-place upgrade of Red Hat Enterprise images on Azure
 description: Find steps to perform in-place upgrade from Red Hat Enterprise 7.x images to latest 8.x version
 author: mathapli
 ms.service: virtual-machines-linux
