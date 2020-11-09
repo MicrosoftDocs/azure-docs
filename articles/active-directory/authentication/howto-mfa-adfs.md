@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -35,12 +35,12 @@ To secure your cloud resource, set up a claims rule so that Active Directory Fed
 
 5. On the Add Transform Claim Rule Wizard, select **Pass Through or Filter an Incoming Claim** from the drop-down and click **Next**.
 
-   ![Add Transform Claim Rule Wizard](./media/howto-mfa-adfs/trustedip3.png)
+   ![Screenshot shows Add Transform Claim Rule Wizard where you select a Claim rule template.](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Give your rule a name. 
 7. Select **Authentication Methods References** as the Incoming claim type.
 8. Select **Pass through all claim values**.
-    ![Add Transform Claim Rule Wizard](./media/howto-mfa-adfs/configurewizard.png)
+    ![Screenshot shows Add Transform Claim Rule Wizard where you select Pass through all claim values.](./media/howto-mfa-adfs/configurewizard.png)
 9. Click **Finish**. Close the AD FS Management console.
 
 ## Trusted IPs for federated users
@@ -60,7 +60,7 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 4. On Issuance Transform Rules, click **Add Rule.**
    ![Adding a Claim Rule](./media/howto-mfa-adfs/trustedip2.png)
 5. On the Add Transform Claim Rule Wizard, select **Pass Through or Filter an Incoming Claim** from the drop-down and click **Next**.
-   ![Add Transform Claim Rule Wizard](./media/howto-mfa-adfs/trustedip3.png)
+   ![Screenshot shows Add Transform Claim Rule Wizard where you select Pass Through or Filter an Incoming Claim.](./media/howto-mfa-adfs/trustedip3.png)
 6. In the box next to Claim rule name, give your rule a name. For example: InsideCorpNet.
 7. From the drop-down, next to Incoming claim type, select **Inside Corporate Network**.
    ![Adding Inside Corporate Network claim](./media/howto-mfa-adfs/trustedip4.png)

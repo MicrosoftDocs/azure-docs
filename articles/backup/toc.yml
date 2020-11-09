@@ -284,6 +284,8 @@
       href: backup-azure-alternate-dpm-server.md
     - name: Restore VMware VMs with Azure Backup Server
       href: restore-azure-backup-server-vmware.md
+    - name: Back up the MABS server
+      href: backup-the-mabs-server.md
   - name: Azure Backup Server on Azure Stack
     items:
     - name: Install Azure Backup Server
@@ -384,7 +386,7 @@
     items:
     - name: Overview
       href: security-overview.md
-    - name: Role-Based Access Control
+    - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
     - name: Soft delete 
       items:
@@ -404,8 +406,8 @@
       href: backup-encryption.md
     - name: Encryption using customer-managed keys
       href: encryption-at-rest-with-cmk.md
-    - name: Built-in security controls
-      href: backup-security-controls.md
+    - name: Transport Layer Security
+      href: transport-layer-security.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -438,7 +440,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
   - name: Azure CLI
-    href: /cli/azure/backup?view=azure-cli-latest
+    href: /cli/azure/backup
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
   - name: PowerShell – Azure Backup agent

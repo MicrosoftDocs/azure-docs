@@ -32,17 +32,10 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 Add the Azure Communication Services Calling client library and its dependencies (AzureCore.framework and AzureCommunication.framework) to your project.
 
 > [!NOTE]
-> With the release of AzureCommunicationCalling SDK, you'll find a bash script named `BuildAzurePackages.sh`.
-> When the script is run `sh ./BuildAzurePackages.sh`, it gives you the path to the generated framework packages that needs to be imported in the sample app in the next step.
-> You'll need to set up Xcode Command Line Tools, if you haven't done so before you run the script.
-> 1. Start Xcode.
-> 1. Select **Preferences** > **Locations**.
-> 1. Pick your Xcode version for the Command Line Tools.
->
-> **The BuildAzurePackages.sh script works only with Xcode 11.5 and later.**
->
+> With the release of AzureCommunicationCalling SDK you will find a bash script `BuildAzurePackages.sh`. 
+The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step. Note that you will need to set up Xcode Command Line Tools if you have not done so before you run the script: Start Xcode, select "Preferences -> Locations". Pick your Xcode version for the Command Line Tools. **BuildAzurePackages.sh script works only with Xcode 11.5 and above**
 
-1. Download the Azure Communication Services Calling client library for iOS.
+1. [Download](https://github.com/Azure/Communication/releases) the Azure Communication Services Calling client library for iOS.
 2. In Xcode, click on your project file to and select the build target to open the project settings editor.
 3. Under the **General** tab, scroll to the **Frameworks, Libraries, and Embedded Content** section and click the **"+"** icon.
 4. In the bottom left of the dialog, use the drop-down chose **Add Files**, navigate to the **AzureCommunicationCalling.framework** directory of the unzipped client library package.
@@ -200,8 +193,8 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 You can make an outbound VOIP call by providing a user ID in the text field and tapping the **Start Call** button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working. 
 
 > [!NOTE]
-> The first time you make a call, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
+> The first time you make a call, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API to [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
 
 ## Sample Code
 
-You can download the sample app from [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/iOS/Swift)
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling)

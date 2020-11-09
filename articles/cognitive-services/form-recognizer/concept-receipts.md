@@ -70,14 +70,11 @@ The Receipt API also returns the following information:
   > Language input 
   >
   > Prebuilt Receipt v2.1-preview.1 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (EN-AU), Canada (EN-CA), Great Britain (EN-GB), and India (EN-IN), you can specify the locale to get improved results. If no locale is specified in v2.1-preview.1, the model will default to the EN-US model.
-  
- ### Input Requirements 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
 
 ## The Analyze Receipt operation
 
-The [Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) takes an image or PDF of a receipt as the input and extracts the values of intrest and text. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
+The [Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) takes an image or PDF of a receipt as the input and extracts the values of interest and text. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
 |Response header| Result URL |
 |:-----|:----|
@@ -437,7 +434,7 @@ The data extracted with the Receipt API can be used to perform a variety of task
 
 Often filing business expenses involves spending time manually entering data from images of receipts. With the Receipt API, you can use the extracted fields to partially automate this process and analyze your receipts quickly.  
 
-Because the Receipt API has a simple JSON output, you can use the extracted field values in multiple ways. Integrate with internal expense applications to pre-populate expense reports. For more on this scenario, read about how Acumatica is utilizing Receipt API to [make expense reporting a less painful process](https://customers.microsoft.com/en-us/story/762684-acumatica-partner-professional-services-azure).  
+Because the Receipt API has a simple JSON output, you can use the extracted field values in multiple ways. Integrate with internal expense applications to pre-populate expense reports. For more on this scenario, read about how Acumatica is utilizing Receipt API to [make expense reporting a less painful process](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
 
 ### Auditing and accounting 
 
@@ -449,7 +446,7 @@ The Receipt output is also useful for general book-keeping for business or perso
 
 Receipts contain useful data which you can use to analyze consumer behavior and shopping trends.
 
-The Receipt API also powers the [AIBuilder Receipt Processing feature](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing).
+The Receipt API also powers the [AIBuilder Receipt Processing feature](/ai-builder/prebuilt-receipt-processing).
 
 ## Next steps
 
@@ -459,4 +456,4 @@ The Receipt API also powers the [AIBuilder Receipt Processing feature](https://d
 ## See also
 
 * [What is Form Recognizer?](./overview.md)
-* [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)
+* [REST API reference docs](./index.yml)

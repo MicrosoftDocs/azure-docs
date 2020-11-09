@@ -8,12 +8,12 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 10/05/2020
 ms.author: memildin
 ---
 # Security alerts in Azure Security Center
 
-In Azure Security Center, there are a variety of alerts for many different resource types. Security Center generates alerts for resources deployed on Azure, and also for resources deployed on on-premises and hybrid cloud environments.
+In Security Center, there are a variety of alerts for many different resource types. Security Center generates alerts for resources deployed on Azure, and also for resources deployed on on-premises and hybrid cloud environments.
 
 Security alerts are triggered by advanced detections and are available only with Azure Defender. A free trial is available. You can upgrade from the **Pricing & settings** page. Learn more about [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -81,10 +81,17 @@ Azure Security Center benefits from having security research and data science te
 
 These combined efforts culminate in new and improved detections, which you can benefit from instantly – there's no action for you to take.
 
+## Export alerts
+
+You have a range of options for viewing your alerts outside of Security Center, including:
+
+- **Download CSV report** on the alerts dashboard provides a one-time export to CSV.
+- **Continuous export** from pricing & settings allows you to configure streams of security alerts and recommendations to Log Analytics workspaces and Event Hubs. [Learn more about continuous export](continuous-export.md)
+- **Azure Sentinel connector** streams Azure Defender alerts from Azure Security Center into Azure Sentinel. [Learn more about connecting Azure Security Center with Sentinel](../sentinel/connect-azure-security-center.md)
+
 
 ## Next steps
 
 In this article, you learned about the different types of alerts available in Security Center. For more information, see:
 
-- **Security alerts in Azure Activity Log** - In addition to being available in the Azure portal or programmatically, Security alerts and incidents are audited as events in [Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). For more information on the event schema, see [Security Alerts in Azure Activity log](https://go.microsoft.com/fwlink/?linkid=2114113)
-
+- **Security alerts in Azure Activity Log** - In addition to being available in the Azure portal or programmatically, Security alerts and incidents are audited as events in [Azure Activity Log](../azure-monitor/platform/activity-log.md#view-the-activity-log). For more information on the event schema, see [Security Alerts in Azure Activity log](https://go.microsoft.com/fwlink/?linkid=2114113)

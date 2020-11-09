@@ -69,7 +69,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ### Create source tables in your SQL Server database
 
-1. Open [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio), and connect to your SQL Server database.
+1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), and connect to your SQL Server database.
 
 2. In **Server Explorer (SSMS)** or in the **Connections pane (Azure Data Studio)**, right-click the database and choose **New Query**.
 
@@ -108,7 +108,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ### Create destination tables in your Azure SQL Database
 
-1. Open [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio), and connect to your SQL Server database.
+1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), and connect to your SQL Server database.
 
 2. In **Server Explorer (SSMS)** or in the **Connections pane (Azure Data Studio)**, right-click the database and choose **New Query**.
 
@@ -817,11 +817,11 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 4. On the **Data factory** page, select **Author & Monitor** to launch Azure Data Factory in a separate tab.
 
 5. On the **Let's get started** page, select **Monitor** on the left side. 
-![Pipeline Runs](media/doc-common-process/get-started-page-monitor-button.png)    
+![Screenshot shows the Let's get started page for Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. You can see all the pipeline runs and their status. Notice that in the following example, the status of the pipeline run is **Succeeded**. To check parameters passed to the pipeline, select the link in the **Parameters** column. If an error occurred, you see a link in the **Error** column.
 
-    ![Pipeline Runs](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
+    ![Screenshot shows pipeline runs for a data factory including your pipeline.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. When you select the link in the **Actions** column, you see all the activity runs for the pipeline. 
 
 8. To go back to the **Pipeline Runs** view, select **All Pipeline Runs**. 
@@ -990,5 +990,3 @@ Advance to the following tutorial to learn about transforming data by using a Sp
 
 > [!div class="nextstepaction"]
 >[Incrementally load data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-powershell.md)
-
-

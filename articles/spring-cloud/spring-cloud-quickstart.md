@@ -4,7 +4,7 @@ description: In this quickstart, we deploy a Spring Cloud application to the Azu
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-spring-cloud
 This quickstart explains how to deploy a simple Azure Spring Cloud microservice application to run on Azure.
 
 >[!NOTE]
-> Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+> Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 By following this quickstart, you'll learn how to:
 
@@ -32,7 +32,7 @@ The application code used in this quickstart is a simple app built with a .NET C
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). The Azure Spring Cloud service supports .NET Core 3.1 and later versions.
-* [Azure CLI version 2.0.67 or later](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * [Git](https://git-scm.com/).
 
 ## Install Azure CLI extension
@@ -139,11 +139,11 @@ In Visual Studio, create an ASP.NET Core Web application named as "hello-world" 
 
    ```xml
    <ItemGroup>
-     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
-	 <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-alpha.1" />
+     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+     <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
    </ItemGroup>
    <Target Name="Publish-Zip" AfterTargets="Publish">
-	 <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/deploy.zip" Overwrite="true" />
+	   <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/deploy.zip" Overwrite="true" />
    </Target>
    ```
 
@@ -237,7 +237,7 @@ The following procedure builds and deploys the project that you created earlier.
 1. Create an app in your Azure Spring Cloud instance with a public endpoint assigned. Use the same application name "hello-world" that you specified in *appsettings.json*.
 
    ```console
-   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public
+   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public --runtime-version NetCore_31
    ```
 
 1. Deploy the *.zip* file to the app.
@@ -333,16 +333,16 @@ This quickstart explains how to:
 
 To complete this quickstart:
 
-* [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
+* [Install JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* (Optional) [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
-* (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) and the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
+* (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## Generate a Spring Cloud project
 
-Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin) to generate a sample project with recommended dependencies for Azure Spring Cloud. The following image shows the Initializr set up for this sample project.
+Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Cloud. The following image shows the Initializr set up for this sample project.
 ```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
 ```
 
   ![Initializr page](media/spring-cloud-quickstart-java/initializr-page.png)
@@ -414,10 +414,10 @@ The following procedure builds and deploys the application using the Azure CLI. 
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --is-public
     ```
 
-1. Deploy the Jar file for the app:
+1. Deploy the Jar file for the app (`target\hellospring-0.0.1-SNAPSHOT.jar` on Windows):
 
     ```azurecli
-    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --jar-path <jar file path>
     ```
     
 1. It takes a few minutes to finish deploying the application. To confirm that it has deployed, go to the **Apps** blade in the Azure portal. You should see the status of the application.
@@ -434,7 +434,7 @@ The following procedure uses the IntelliJ plug-in for Azure Spring Cloud to depl
     ![Import Project](media/spring-cloud-quickstart-java/intellij-new-project.png)
 
 ### Deploy the app
-In order to deploy to Azure you must sign in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+In order to deploy to Azure you must sign in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
@@ -443,7 +443,7 @@ In order to deploy to Azure you must sign in with your Azure account, and choose
 1. Accept the name for app in the **Name** field. **Name** refers to the configuration, not app name. Users don't usually need to change it.
 1. In the **Artifact** textbox, select *hellospring-0.0.1-SNAPSHOT.jar*.
 1. In the **Subscription** textbox, verify your subscription.
-1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
+1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](./spring-cloud-quickstart-provision-service-instance.md).
 1. Set **Public Endpoint** to *Enable*.
 1. In the **App:** textbox, select **Create app...**.
 1. Enter *hellospring*, then click **OK**.

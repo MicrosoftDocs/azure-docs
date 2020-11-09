@@ -13,12 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: b-juche
 ---
 # Configure NFSv4.1 Kerberos encryption for Azure NetApp Files
 
 Azure NetApp Files supports NFS client encryption in Kerberos modes (krb5, krb5i, and krb5p) with AES-256 encryption. This article describes the required configurations for using an NFSv4.1 volume with Kerberos encryption.
+
+## Considerations
+
+* NFSv4.1 Kerberos encryption volumes do not currently support Azure Active Directory Domain Services (AADDS). 
 
 ## Requirements
 
@@ -68,9 +72,9 @@ The following requirements apply to NFSv4.1 client encryption:
 
 Configuration of NFSv4.1 Kerberos creates two computer accounts in Active Directory:
 * A computer account for SMB shares
-* A computer account for NFSv4.1 -- You can identify this account by way of the prefix `NFS-`. 
+* A computer account for NFSv4.1--You can identify this account by way of the prefix `NFS-`. 
 
-After creating the first NFSv4.1 Kerberos volume, set the encryption type or the computer account by using the following PowerShell command:
+After creating the first NFSv4.1 Kerberos volume, set the encryption type for the computer account by using the following PowerShell command:
 
 `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`
 
@@ -91,11 +95,11 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 3. Create the directory (mount point) for the new volume.  
 
 4. Set the default encryption type to AES 256 for the computer account:  
-    `Set-ADComputer $COMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
+    `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
 
     * You need to run this command only once for each computer account.
     * You can run this command from a domain controller or from a PC with [RSAT](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems) installed. 
-    * The `$COMPUTERACCOUNT` variable is the computer account created in Active Directory when you deploy the Kerberos volume. This is the account that is prefixed with `NFS-`. 
+    * The `$NFSCOMPUTERACCOUNT` variable is the computer account created in Active Directory when you deploy the Kerberos volume. This is the account that is prefixed with `NFS-`. 
     * The `$ANFSERVICEACCOUNT` variable is a non-privileged Active Directory user account with delegated controls over the Organizational Unit where the computer account has been created. 
 
 5. Mount the volume on the host: 
@@ -130,7 +134,7 @@ This section describes the single client-side performance impact of the various 
 
 ### Expected performance impact 
 
-There are two areas of focus: light load and upper limit. The following lists describe the performance impact security setting by security setting and scenario by scenario. All comparisons are made against the `sec=sys` security parameter.
+There are two areas of focus: light load and upper limit. The following lists describe the performance impact security setting by security setting and scenario by scenario. All comparisons are made against the `sec=sys` security parameter. The test was done on a single volume, using a single client. 
 
 Performance impact of krb5:
 

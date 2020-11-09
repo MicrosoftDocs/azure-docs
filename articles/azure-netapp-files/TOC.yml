@@ -4,7 +4,9 @@
   items:
   - name: What is Azure NetApp Files
     href: azure-netapp-files-introduction.md
-  - name: Understand the storage hierarchy
+  - name: What's new
+    href: whats-new.md
+  - name: Storage hierarchy of Azure NetApp Files
     href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Quickstarts
   expanded: true 
@@ -29,12 +31,16 @@
       href: azure-netapp-files-performance-metrics-volumes.md 
     - name: Performance benchmarks for Linux
       href: performance-benchmarks-linux.md
+    - name: Oracle database performance on Azure NetApp Files single volumes
+      href: performance-oracle-single-volumes.md
     - name: FAQs about SMB performance
       href: azure-netapp-files-smb-performance.md
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
   - name: Guidelines for Azure NetApp Files network planning 
     href: azure-netapp-files-network-topologies.md
+  - name: Manual QoS capacity pool
+    href: manual-qos-capacity-pool-introduction.md
   - name: Cross-region replication
     items: 
     - name: Understand cross-region replication
@@ -63,6 +69,8 @@
     href: azure-netapp-files-create-netapp-account.md
   - name: Set up a capacity pool
     href: azure-netapp-files-set-up-capacity-pool.md
+  - name: Manage a manual QoS capacity pool
+    href: manage-manual-qos-capacity-pool.md
   - name: Delegate a subnet to Azure NetApp Files
     href: azure-netapp-files-delegate-subnet.md
   - name: Create and manage an NFS volume
@@ -105,18 +113,24 @@
       href: azure-netapp-files-develop-with-rest-api.md
     - name: REST API using PowerShell
       href: develop-rest-api-powershell.md
-    - name: Azure NetApp Files SDKs and CLI tools
+    - name: SDKs, CLI tools, and ARM templates
       href: azure-netapp-files-sdk-cli.md
     - name: Troubleshoot Azure NetApp Files Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
   - name: Troubleshoot
     items:
+    - name: Troubleshoot capacity pools 
+      href: troubleshoot-capacity-pools.md
     - name: Troubleshoot cross-region replication
       href: troubleshoot-cross-region-replication.md
+    - name: Troubleshoot dual-protocol volumes
+      href: troubleshoot-dual-protocol-volumes.md
+    - name: Troubleshoot snapshot policies
+      href: troubleshoot-snapshot-policies.md
 - name: Reference
   items:
   - name: REST
-    href: https://docs.microsoft.com/rest/api/netapp/ 
+    href: /rest/api/netapp/
   - name: Resource Manager template
     href: /azure/templates/microsoft.netapp/allversions
 - name: Resources

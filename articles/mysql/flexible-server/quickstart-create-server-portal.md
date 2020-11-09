@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 9/21/2020
+ms.date: 10/22/2020
 ---
 
 # Quickstart: Use the Azure portal to create an Azure Database for MySQL Flexible Server
@@ -23,25 +23,22 @@ Open your web browser, and then go to the [Azure portal](https://portal.azure.co
 
 ## Create an Azure Database for MySQL Flexible Server
 
-You create a flexible server with a defined set of [compute and storage resources](./concepts-compute-storage.md). You create the server within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
+You create a flexible server with a defined set of [compute and storage resources](./concepts-compute-storage.md). You create the server within an [Azure resource group](../../azure-resource-manager/management/overview.md).
 
 Follow these steps to create a flexible server:
 
-1. Select **Create a resource** (+) in the upper-left corner of the  portal.
+1. Search for "Azure Database for MySQL" in the portal using the search box to find the service. 
+    
+    > :::image type="content" source="./media/quickstart-create-server-portal/find-mysql-portal.png" alt-text="Search for Azure Database for MySQL":::
 
-2. Select **Databases** > **Azure Database for MySQL**. You can also enter **MySQL** in the search box to find the service.
+2. Select **Add**. 
 
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/navigate-to-mysql.png" alt-text="Azure Database for MySQL option":::
-
-3. Select **Flexible server** as the deployment option.
+3. On the "Select deployment option page", select **Flexible server** as the deployment option.
      
-    >[!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Pick deployment option":::    
 
 4. Fill out the **Basics** form with the following information: 
 
-    >[!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Create server form"::: 
                                     
     |**Setting**|**Suggested Value**|**Description**|
@@ -55,7 +52,6 @@ Follow these steps to create a flexible server:
     Version|5.7| MySQL major version.|
     Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *Burstable*, *Standard_B1ms*, *10 GiB*, and *7 days* are the default values for     **Compute tier**, **Compute size**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this compute and storage selection, select **Save** to continue with configurations. The below screenshot shows the compute and storage options.|
     
-    >[!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Compute + storage":::
 
 5. Configure Networking options
@@ -65,10 +61,7 @@ Follow these steps to create a flexible server:
     > [!NOTE]
     > The connectivity method cannot be changed after creating the server. For example, if you selected *Public access (allowed IP addresses)* during create then you cannot change to *Private access (VNet Integration)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking.md).
 
-    >[!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Configure networking":::  
-
-    <!--:::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Select "Add current client IP address"":::-->
 
 6. Select **Review + create** to review your flexible server configuration.
 

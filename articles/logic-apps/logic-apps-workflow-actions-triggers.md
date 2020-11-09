@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -2316,6 +2316,9 @@ This loop action contains actions that run until the specified condition is true
 | <*loop-timeout*> | String | The limit on the longest time that the loop can run. The default `timeout` value is `PT1H`, which is the required [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
 
+> [!NOTE]
+> If the expression depends on the output from any action within the Until loop, make sure that you account for any failure that results from that action.
+
 *Example*
 
 This loop action definition sends an HTTP request to the specified URL until one of these conditions is met:
@@ -2405,7 +2408,6 @@ You can change the default behavior for triggers and actions with the `operation
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | Run HTTP-based actions synchronously, rather than asynchronously. <p><p>To set this option, see [Run actions synchronously](#disable-asynchronous-pattern). | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Response](#response-action) | 
 | `IncludeAuthorizationHeadersInOutputs` | String | For logic apps that [enable Azure Active Directory Open Authentication (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) to authorize access for inbound calls to a request-based trigger endpoint, include the `Authorization` header from the OAuth access token in the trigger outputs. For more information, see [Include 'Authorization' header in request trigger outputs](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Triggers: <p>[Request](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
-| `OptimizedForHighThroughput` | String | Change the [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) on the number of action executions per 5 minutes to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>To set this option, see [Run in high throughput mode](#run-high-throughput-mode). | All actions | 
 | `Sequential` | String | Run "for each" loop iterations one at a time, rather than all at the same time in parallel. <p>This option works the same way as setting the `runtimeConfiguration.concurrency.repetitions` property to `1`. You can set either property, but not both. <p><p>To set this option, see [Run "for each" loops sequentially](#sequential-for-each).| Action: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Run the trigger for each logic app instance sequentially and wait for the previously active run to finish before triggering the next logic app instance. <p><p>This option works the same way as setting the `runtimeConfiguration.concurrency.runs` property to `1`. You can set either property, but not both. <p>To set this option, see [Trigger instances sequentially](#sequential-trigger). | All triggers | 
 ||||
@@ -2423,8 +2425,6 @@ Here are some considerations for when you want to enable concurrency on a trigge
 * When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 
 * You can't disable concurrency after you enable the concurrency control.
-
-* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 
 * When concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
 
@@ -2720,25 +2720,6 @@ In the action's underlying JSON definition, add and set the ["operationOptions" 
    "type": "Http",
    "inputs": { "<action-inputs>" },
    "operationOptions": "DisableAsyncPattern",
-   "runAfter": {}
-}
-```
-
-<a name="run-high-throughput-mode"></a>
-
-### Run in high throughput mode
-
-For a single logic app definition, the number of actions that execute every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise this limit to the [maximum](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possible, set the `operationOptions` property to `OptimizedForHighThroughput`. 
-This setting puts your logic app into "high throughput" mode.
-
-> [!NOTE]
-> High throughput mode is in preview. You can also distribute a workload across more than one logic app as necessary.
-
-```json
-"<action-name>": {
-   "type": "<action-type>",
-   "inputs": { "<action-inputs>" },
-   "operationOptions": "OptimizedForHighThroughput",
    "runAfter": {}
 }
 ```

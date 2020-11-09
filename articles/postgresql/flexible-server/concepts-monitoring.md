@@ -1,14 +1,14 @@
 ---
 title: Monitoring and metrics - Azure Database for PostgreSQL - Flexible Server
 description: This article describes monitoring and metrics features in Azure Database for PostgreSQL - Flexible Server.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ---
 
-# Monitor metrics Azure Database for PostgreSQL - Flexible Server
+# Monitor metrics on Azure Database for PostgreSQL - Flexible Server
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
@@ -24,6 +24,7 @@ The following metrics are available for PostgreSQL flexible server:
 
 |Metric|Metric Display Name|Unit|Description|
 |---|---|---|---|
+| active_connections | Active Connections | Count | The number of connections to your server. | 
 | backup_storage_used | Backup Storage Used | Bytes | Amount of backup storage used. This metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed. For geo-redundant storage, backup storage usage is twice that of the locally redundant storage. |
 | connections_failed | Failed Connections | Count | Failed connections. |
 | connections_succeeded | Succeeded Connections | Count | Succeeded connections. |

@@ -37,10 +37,10 @@ Azure Spring Cloud Config server is centralized configuration service for distri
 
 ## Prerequisites
 
-* [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
+* [Install JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* (Optional) [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
-* (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
+* (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## Azure Spring Cloud config server procedures
 
@@ -65,27 +65,37 @@ Set up your config-server with the location of the git repository for the projec
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
-
 ---
 ::: zone-end
 
-## Clean up resources
+## Troubleshooting of Azure Spring Cloud config server
 
-If you intend to continue on to the next quickstart in this series, skip this step.
+The following procedure explains how to troubleshoot config server settings.
 
-In these quickstarts, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, and you don't expect to need these resources in the future, delete the resource group by using the portal or by running the following command in the Cloud Shell:
+1. In the Azure portal, go to the service **Overview** page and select **Logs**. 
+1. Select **Queries** and **Show the application logs that contain the "error" or "exception" terms"**. 
+1. Click **Run**. 
+1. If you find the error **java.lang.illegalStateException** in logs, this indicates that spring cloud service cannot locate properties from config server.
 
-```azurecli
-az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
-```
+    [ ![ASC portal run query](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
 
-In an earlier quickstart, you also set the default resource group name. If you don't intend to continue to the next quickstart, clear out that default by running the following CLI command:
+1. Go to the service **Overview** page.
+1. Select **Diagnose and solve problems**. 
+1. Select **Config Server** detector.
 
-```azurecli
-az configure --defaults group=
-```
+    [ ![ASC portal diagnose problems](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+
+3. Click **Config Server Health Check**.
+
+    [ ![ASC portal genie](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+
+4. Click **Config Server Status** to see more details from the detector.
+
+    [ ![ASC portal health status](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
 ## Next steps
+
+In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
 
 > [!div class="nextstepaction"]
 > [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md)

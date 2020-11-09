@@ -30,11 +30,11 @@ Perform the following steps to cancel an order.
 
 1.	Go to **Overview > Cancel**.
 
-    ![Cancel order 1](media/data-box-portal-admin/cancel-order1.png)
+    ![Cancel command on the Overview tab for an order](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.	Fill out a reason for canceling the order.  
 
-    ![Cancel order 2](media/data-box-portal-admin/cancel-order2.png)
+    ![Cancel order dialog box](media/data-box-portal-admin/portal-admin-cancel-order-dbox.png)
 
 3.	Once the order is canceled, the portal updates the status of the order and displays it as **Canceled**.
 
@@ -49,7 +49,7 @@ Perform the following steps to clone an import order.
 
 1.	Go to **Overview > Clone**. 
 
-    ![Clone order 1](media/data-box-portal-admin/clone-order1.png)
+    ![Clone command on the Overview tab for an order](media/data-box-portal-admin/portal-admin-clone-command.png)
 
 2.	All the details of the order stay the same. The order name is the original order name appended by *-Clone*. Select the checkbox to confirm that you have reviewed the privacy information. Click **Create**.
 
@@ -66,7 +66,7 @@ You can only delete orders that are completed or canceled. Perform the following
 
 2. Click the order you want to delete and go to **Overview**. From the command bar, click **Delete**.
 
-    ![Delete Data Box order 1](media/data-box-portal-admin/delete-order1.png)
+    ![Delete command on the Overview tab for an order](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. Enter the name of the order when prompted to confirm the order deletion. Click **Delete**.
 
@@ -78,11 +78,11 @@ Perform the following steps to download a shipping label.
 
 1.	Go to **Overview > Download shipping label**. This option is available only after the device has shipped. 
 
-    ![Download shipping label](media/data-box-portal-admin/download-shipping-label.png)
+    ![Download shipping label](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
 
 2.	This downloads the following return shipping label. Save the label and print it out. Fold and insert the label into the clear sleeve on the device. Ensure that the label is visible. Remove any stickers that are on the device from previous shipping.
 
-    ![Example shipping label](media/data-box-portal-admin/example-shipping-label.png)
+    ![Example shipping label](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## Edit shipping address
 
@@ -92,11 +92,11 @@ Perform the following steps to edit the order.
 
 1. Go to **Order details > Edit shipping address**.
 
-    ![Edit shipping address 1](media/data-box-portal-admin/edit-shipping-address1.png)
+    ![Edit shipping address command in Order details](media/data-box-portal-admin/portal-admin-edit-shipping-address-command.png)
 
 2. Edit and validate the shipping address and then save the changes.
 
-    ![Edit shipping address 2](media/data-box-portal-admin/edit-shipping-address2.png)
+    ![Edit shipping address dialog box](media/data-box-portal-admin/portal-admin-edit-shipping-address-dbox.png)
 
 ## Edit notification details
 
@@ -106,11 +106,11 @@ Perform the following steps to edit notification details.
 
 1. Go to **Order details > Edit notification details**.
 
-    ![Edit notification details 1](media/data-box-portal-admin/edit-notification-details1.png)
+    ![Edit notification details command in Order details](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. You can now edit the notification details and then save the changes.
  
-    ![Edit notification details 2](media/data-box-portal-admin/edit-notification-details2.png)
+    ![Edit notification details dialog box](media/data-box-portal-admin/portal-admin-edit-notification-details-dbox.png)
 
 
 ## Download order history
@@ -121,7 +121,7 @@ Perform the following steps to download the order history.
 
 1. In your Data Box order, go to **Overview**. Ensure that the order is complete. If the order is complete and the device cleanup is complete, then go to **Order details**. **Download order history** option is available.
 
-    ![Download order history](media/data-box-portal-admin/download-order-history-1.png)
+    ![Download order history](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
 2. Click **Download order history**. In the downloaded history, you will see a record of carrier tracking logs. There will be two sets of log corresponding to the two nodes on a Data Box Heavy. If you scroll down to the bottom of this log, you can see the links to:
     
@@ -194,11 +194,11 @@ Perform the following steps to download the order history.
 
     You can then go to your storage account and view the copy logs.
 
-![Logs in storage accounts](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+   ![The copy logs for a storage account](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
-You can also view the chain of custody logs that include the audit logs and the BOM files.
+   You can also view the chain of custody logs, which include the audit logs and the BOM files.
 
-![Logs in storage accounts](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+   ![Chain of custody logs for a storage account](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## View order status
 
@@ -218,8 +218,8 @@ Here are the statuses for an import order.
 |Received     | Your device is received and scanned at the Azure datacenter. <br> Once the shipment is inspected, device upload will start.      |
 |Data copy     | Data copy is in progress. Track the copy progress for your order in Azure portal. <br> Wait until the data copy is complete. |
 |Completed       |Successfully completed the order.<br> Verify your data is in Azure before you delete the on-premises data from servers.         |
-|Completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs using the path provided in the Azure portal. See [examples of copy logs when upload completed with errors](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Completed with warnings| Data copy was completed but your data was modified. The data had non-critical blob or file name errors that were fixed by changing the file or blob names. <br> Review the copy logs using the path provided in the Azure portal. Make a note to the modifications in your data. See [examples of copy logs when upload completed with warnings](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
+|Completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs using the path provided in the Azure portal. See [examples of copy logs when upload completed with errors](./data-box-logs.md#upload-completed-with-errors).   |
+|Completed with warnings| Data copy was completed but your data was modified. The data had non-critical blob or file name errors that were fixed by changing the file or blob names. <br> Review the copy logs using the path provided in the Azure portal. Make a note to the modifications in your data. See [examples of copy logs when upload completed with warnings](./data-box-logs.md#upload-completed-with-warnings).   |
 |Canceled            |Order is canceled. <br> Either you canceled the order or an error was encountered and the service canceled the order. If the order cannot be fulfilled in 90 days, the order is also canceled and you are notified.     |
 |Clean up | The data on the device disks is erased. The device cleanup is considered complete when the order history is available for download in the Azure portal.|
 
@@ -234,9 +234,9 @@ Here are the statuses for an export order.
 |Processed     | Order processing is complete. As per your order, the device is prepared for data copy in the datacenter. Device shares are created.         |
 |Data copy in progress     | Data copy from the specified Azure Storage accounts to the device is in progress. Track the copy progress for your order in Azure portal. <br> Wait until the data copy is complete. |
 |Copy completed     | Data copy from the specified Azure Storage accounts to the device is complete. A verbose log file (if the option was enabled in the order) and a copy log are created in your storage account. The verbose log contains the information on all the files (name, path, computation checksum) that are copied to the device. The copy log contains the summary of the copy process including a list of files that could not be copied due to any errors.<br> The storage account data stays as-is. |
-|Copy completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download completed with errors](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Copy completed with warnings| Data copy from Azure Storage account was completed but the data had non-critical errors. <br> Review the copy logs using the path provided in the Azure portal. Make a note of the non-critical errors. See [examples of copy logs when download completed with warnings](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
-|Copy failed with errors| Data copy from Azure Storage account failed and the order is terminated. A device will not be shipped.<br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download failed with errors](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Copy completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download completed with errors](./data-box-logs.md#upload-completed-with-errors).   |
+|Copy completed with warnings| Data copy from Azure Storage account was completed but the data had non-critical errors. <br> Review the copy logs using the path provided in the Azure portal. Make a note of the non-critical errors. See [examples of copy logs when download completed with warnings](./data-box-logs.md#upload-completed-with-warnings).   |
+|Copy failed with errors| Data copy from Azure Storage account failed and the order is terminated. A device will not be shipped.<br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download failed with errors](./data-box-logs.md#upload-completed-with-errors).   |
 |Dispatched     |Order has shipped. Use the tracking ID displayed in your order in the portal to track the shipment.        |
 |Delivered     |Shipment was delivered to the address specified in the order.        |
 |Picked up     |Your return shipment was picked up and scanned by the carrier.         |

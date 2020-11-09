@@ -3,14 +3,16 @@ title: LINQ to SQL translation in Azure Cosmos DB
 description: Learn the LINQ operators supported and how the LINQ queries are mapped to SQL queries in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
 
 ---
 # LINQ to SQL translation
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into a Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable`object. The following description assumes a basic familiarity with [LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
+The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into a Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable`object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
 
 The query provider type system supports only the JSON primitive types: numeric, Boolean, string, and null.
 

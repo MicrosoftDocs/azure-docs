@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, devx-track-js
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
 ---
 
@@ -19,20 +19,15 @@ ms.custom: aaddev, identityplatformtop40
 
 Learn all you need to build a single-page application (SPA).
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## Getting started
 
-You can create your first application by following the JavaScript SPA quickstart:
+If you haven't already,  create your first app by completing the JavaScript SPA quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Single-page application](./quickstart-v2-javascript.md)
+[Quickstart: Single-page application](./quickstart-v2-javascript.md)
 
 ## Overview
 
-Many modern web applications are built as client-side single-page applications. Developers write them by using JavaScript or a SPA framework such as Angular, Vue, and React. These applications run on a web browser and have different authentication characteristics than traditional server-side web applications. 
+Many modern web applications are built as client-side single-page applications. Developers write them by using JavaScript or a SPA framework such as Angular, Vue, and React. These applications run on a web browser and have different authentication characteristics than traditional server-side web applications.
 
 The Microsoft identity platform provides **two** options to enable single-page applications to sign in users and get tokens to access back-end services or web APIs:
 
@@ -54,7 +49,10 @@ To enable this scenario for your application, you need:
 * Application configuration with the registered application properties, such as the application ID.
 * Using Microsoft Authentication Library for JavaScript (MSAL.js) to do the authentication flow to sign in and acquire tokens.
 
+## Recommended reading
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App registration](scenario-spa-app-registration.md)
+[App registration](scenario-spa-app-registration.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Add controls to a map
 
-This article shows you how to add controls to a map. You'll also learn how to create a map with all controls and a [style picker](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
+This article shows you how to add controls to a map. You'll also learn how to create a map with all controls and a [style picker](./choose-map-style.md).
 
 ## Add zoom control
 
@@ -138,4 +138,3 @@ See the following articles for full code:
 
 > [!div class="nextstepaction"]
 > [Add a bubble layer](map-add-bubble-layer.md)
-

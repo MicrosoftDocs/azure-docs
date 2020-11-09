@@ -38,7 +38,7 @@ The codebase structure used in this sample resembles the following;
 
 * An **arm-templates** folder, containing a number of Azure Resource Manager templates. The templates are explained in this article.
 * A **client-application** folder, which is a copy of the [Azure Batch .NET File Processing with ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) sample. This is not needed for this article.
-* An **hpc-application** folder, which is the Windows 64-bit version of [ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+* An **hpc-application** folder, which is the Windows 64-bit version of [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z).
 * A **pipelines** folder. This contains a YAML file outlining our build process. This is discussed in the article.
 
 This section assumes you are familiar with version control and designing Resource Manager templates. If you aren't familiar with these concepts, see the following pages for more information.
@@ -286,7 +286,7 @@ You can also find out more about [creating linked Azure Resource Manager templat
 
 The infrastructure and software can be defined as code and colocated in the same repository.
 
-For this solution, the ffmpeg is used as the application package. The ffmpeg package can be downloaded [here](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+For this solution, the ffmpeg is used as the application package. The ffmpeg package can be downloaded [here](https://www.videohelp.com/software?d=ffmpeg-3.3.4-win64-static.zip).
 
 ![Example Git Repository Structure](media/batch-ci-cd/git-repository.jpg)
 

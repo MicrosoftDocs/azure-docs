@@ -7,7 +7,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning (Preview)
 
@@ -17,13 +17,13 @@ You can implement machine learning models as a user-defined function (UDF) in yo
 
 Complete the following steps before you add a machine learning model as a function to your Stream Analytics job:
 
-1. Use Azure Machine Learning to [deploy your model as a web service](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+1. Use Azure Machine Learning to [deploy your model as a web service](../machine-learning/how-to-deploy-and-where.md).
 
 2. Your scoring script should have [sample inputs and outputs](../machine-learning/how-to-deploy-and-where.md) which is used by Azure Machine Learning to generate a schema specification. Stream Analytics uses the schema to understand the function signature of your web service. You can use this [sample swagger definition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) as a reference to ensure you have set it up correctly.
 
 3. Make sure your web service accepts and returns JSON serialized data.
 
-4. Deploy your model on [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) for high-scale production deployments. If the web service is not able to handle the number of requests coming from your job, the performance of your Stream Analytics job will be degraded, which impacts latency. Models deployed on Azure Container Instances are supported only when you use the Azure portal. Models built using [Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) are not yet supported in Stream Analytics.
+4. Deploy your model on [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) for high-scale production deployments. If the web service is not able to handle the number of requests coming from your job, the performance of your Stream Analytics job will be degraded, which impacts latency. Models deployed on Azure Container Instances are supported only when you use the Azure portal. Models built using [Azure Machine Learning Designer](../machine-learning/concept-designer.md) are not yet supported in Stream Analytics.
 
 ## Add a machine learning model to your job
 

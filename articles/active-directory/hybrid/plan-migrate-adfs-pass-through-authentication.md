@@ -278,9 +278,9 @@ Next. deploy additional authentication methods:
 
 4. Run the authentication agent installation. During installation, you must enter the credentials of a Global Administrator account.
 
-   ![Screenshot that shows the Install button on the Microsoft Azure AD Connect Authentication Agent Package page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Screenshot that shows the Install button you use to run the Microsoft Azure AD Connect Authentication Agent Package.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-   ![Screenshot that shows the sign-in page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Screenshot that shows the Microsoft sign-in page.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. When the authentication agent is installed, you can return to the pass-through authentication agent health page to check the status of the additional agents.
 
@@ -322,7 +322,7 @@ First, enable pass-through authentication:
    * **Seamless single sign-on** is set to **Enabled**.
    * **Pass-through authentication** is set to **Enabled**.
    
-   ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
+   ![Screenshot that shows the settings to verify in the User sign-in section.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
 8. Select **Pass-through authentication** and verify that the status is **Active**.<br />
    
    If the authentication agent isn't active, complete some [troubleshooting steps](./tshoot-connect-pass-through-authentication.md) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your pass-through authentication agents are successfully installed and that their status **Active** in the Azure portal.
@@ -363,7 +363,7 @@ Complete the conversion by using the Azure AD PowerShell module:
    * **Seamless single sign-on** is set to **Enabled**.
    * **Pass-through authentication** is set to **Enabled**.<br />
 
-   ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
+   ![Screenshot that shows the settings in the User sign-in section in the Azure AD portal.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
 
 ## Testing and next steps
 

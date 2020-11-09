@@ -5,26 +5,23 @@ description: 'Learn how to use a custom Docker base image when deploying your Az
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: jordane
-author: jpe316
+ms.author: sagopal
+author: saachigopal
 ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 ---
 
 # Deploy a model using a custom Docker base image
 
-
 Learn how to use a custom Docker base image when deploying trained models with Azure Machine Learning.
 
-When you deploy a trained model to a web service or IoT Edge device, a package is created which contains a web server to handle incoming requests.
+Azure Machine Learning will use a default base Docker image if none is specified. You can find the specific Docker image used with `azureml.core.runconfig.DEFAULT_CPU_IMAGE`. You can also use Azure Machine Learning __environments__ to select a specific base image, or use a custom one that you provide.
 
-Azure Machine Learning provides a default Docker base image so you don't have to worry about creating one. You can also use Azure Machine Learning __environments__ to select a specific base image, or use a custom one that you provide.
+A base image is used as the starting point when an image is created for a deployment. It provides the underlying operating system and components. The deployment process then adds additional components, such as your model, conda environment, and other assets, to the image.
 
-A base image is used as the starting point when an image is created for a deployment. It provides the underlying operating system and components. The deployment process then adds additional components, such as your model, conda environment, and other assets, to the image before deploying it.
-
-Typically, you create a custom base image when you want to use Docker to manage your dependencies, maintain tighter control over  component versions or save time during deployment. For example, you might want to standardize on a specific version of Python, Conda, or other component. You might also want to install software required by your model, where the installation process takes a long time. Installing the software when creating the base image means that you don't have to install it for each deployment.
+Typically, you create a custom base image when you want to use Docker to manage your dependencies, maintain tighter control over component versions or save time during deployment. You might also want to install software required by your model, where the installation process takes a long time. Installing the software when creating the base image means that you don't have to install it for each deployment.
 
 > [!IMPORTANT]
 > When you deploy a model, you cannot override core components such as the web server or IoT Edge components. These components provide a known working environment that is tested and supported by Microsoft.
@@ -39,11 +36,11 @@ This document is broken into two sections:
 
 ## Prerequisites
 
-* An Azure Machine Learning workgroup. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
-* The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
+* The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* An [Azure Container Registry](/azure/container-registry) or other Docker registry that is accessible on the internet.
+* An [Azure Container Registry](../container-registry/index.yml) or other Docker registry that is accessible on the internet.
 * The steps in this document assume that you are familiar with creating and using an __inference configuration__ object as part of model deployment. For more information, see [Where to deploy and how](how-to-deploy-and-where.md).
 
 ## Create a custom base image
@@ -57,23 +54,41 @@ The information in this section assumes that you are using an Azure Container Re
     > [!WARNING]
     > The Azure Container Registry for your workspace is __created the first time you train or deploy a model__ using the workspace. If you've created a new workspace, but not trained or created a model, no Azure Container Registry will exist for the workspace.
 
-    For information on retrieving the name of the Azure Container Registry for your workspace, see the [Get container registry name](#getname) section of this article.
-
     When using images stored in a __standalone container registry__, you will need to configure a service principal that has at least read access. You then provide the service principal ID (username) and password to anyone that uses images from the registry. The exception is if you make the container registry publicly accessible.
 
-    For information on creating a private Azure Container Registry, see [Create a private container registry](/azure/container-registry/container-registry-get-started-azure-cli).
+    For information on creating a private Azure Container Registry, see [Create a private container registry](../container-registry/container-registry-get-started-azure-cli.md).
 
-    For information on using service principals with Azure Container Registry, see [Azure Container Registry authentication with service principals](/azure/container-registry/container-registry-auth-service-principal).
+    For information on using service principals with Azure Container Registry, see [Azure Container Registry authentication with service principals](../container-registry/container-registry-auth-service-principal.md).
 
 * Azure Container Registry and image information: Provide the image name to anyone that needs to use it. For example, an image named `myimage`, stored in a registry named `myregistry`, is referenced as `myregistry.azurecr.io/myimage` when using the image for model deployment
 
-* Image requirements: Azure Machine Learning only supports Docker images that provide the following software:
+### Image requirements
 
-    * Ubuntu 16.04 or greater.
-    * Conda 4.5.# or greater.
-    * Python 3.5.#, 3.6.# or 3.7.#.
+Azure Machine Learning only supports Docker images that provide the following software:
+* Ubuntu 16.04 or greater.
+* Conda 4.5.# or greater.
+* Python 3.5+.
 
+To use Datasets, please install the libfuse-dev package. Also make sure to install any user space packages you may need.
+
+Azure ML maintains a set of CPU and GPU base images published to Microsoft Container Registry that you can optionally leverage (or reference) instead of creating your own custom image. To see the Dockerfiles for those images, refer to the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repository.
+
+For GPU images, Azure ML currently offers both cuda9 and cuda10 base images. The major dependencies installed in these base images are:
+
+| Dependencies | IntelMPI CPU | OpenMPI CPU | IntelMPI GPU | OpenMPI GPU |
+| --- | --- | --- | --- | --- |
+| miniconda | ==4.5.11 | ==4.5.11 | ==4.5.11 | ==4.5.11 |
+| mpi | intelmpi==2018.3.222 |openmpi==3.1.2 |intelmpi==2018.3.222| openmpi==3.1.2 |
+| cuda | - | - | 9.0/10.0 | 9.0/10.0/10.1 |
+| cudnn | - | - | 7.4/7.5 | 7.4/7.5 |
+| nccl | - | - | 2.4 | 2.4 |
+| git | 2.7.4 | 2.7.4 | 2.7.4 | 2.7.4 |
+
+The CPU images are built from ubuntu16.04. The GPU images for cuda9 are built from nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04. The GPU images for cuda10 are built from nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04.
 <a id="getname"></a>
+
+> [!IMPORTANT]
+> When using custom Docker images, it is recommended that you pin package versions in order to better ensure reproducibility.
 
 ### Get container registry information
 
@@ -112,7 +127,7 @@ If you've already trained or deployed models using Azure Machine Learning, a con
 
 ### Build a custom base image
 
-The steps in this section walk-through creating a custom Docker image in your Azure Container Registry.
+The steps in this section walk-through creating a custom Docker image in your Azure Container Registry. For sample dockerfiles, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo).
 
 1. Create a new text file named `Dockerfile`, and use the following text as the contents:
 
@@ -126,11 +141,12 @@ The steps in this section walk-through creating a custom Docker image in your Az
 
     ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
     ENV PATH /opt/miniconda/bin:$PATH
+    ENV DEBIAN_FRONTEND=noninteractive
 
     RUN apt-get update --fix-missing && \
         apt-get install -y wget bzip2 && \
-        apt-get install -y fuse \
-        apt-get clean && \
+        apt-get install -y fuse && \
+        apt-get clean -y && \
         rm -rf /var/lib/apt/lists/*
 
     RUN useradd --create-home dockeruser
@@ -171,9 +187,9 @@ The steps in this section walk-through creating a custom Docker image in your Az
     Run ID: cda was successful after 2m56s
     ```
 
-For more information on building images with an Azure Container Registry, see [Build and run a container image using Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
+For more information on building images with an Azure Container Registry, see [Build and run a container image using Azure Container Registry Tasks](../container-registry/container-registry-quickstart-task-cli.md)
 
-For more information on uploading existing images to an Azure Container Registry, see [Push your first image to a private Docker container registry](/azure/container-registry/container-registry-get-started-docker-cli).
+For more information on uploading existing images to an Azure Container Registry, see [Push your first image to a private Docker container registry](../container-registry/container-registry-get-started-docker-cli.md).
 
 ## Use a custom base image
 
@@ -201,7 +217,7 @@ Microsoft provides several docker images on a publicly accessible repository, wh
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Contains ONNX Runtime for CPU inferencing |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contains the ONNX Runtime and CUDA for GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contains ONNX Runtime and TensorRT for GPU |
-| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Contains ONNX Runtime and OpenVINO for Intel<sup></sup> Vision Accelerator Design based on Movidius<sup>TM</sup> MyriadX VPUs |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm` | Contains ONNX Runtime and OpenVINO for Intel<sup></sup> Vision Accelerator Design based on Movidius<sup>TM</sup> MyriadX VPUs |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Contains ONNX Runtime and OpenVINO for Intel<sup></sup> Movidius<sup>TM</sup> USB sticks |
 
 For more information about the ONNX Runtime base images see the [ONNX Runtime dockerfile section](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md) in the GitHub repo.
@@ -213,7 +229,7 @@ For more information, see [Azure Machine Learning containers](https://github.com
 
 ### Use an image with the Azure Machine Learning SDK
 
-To use an image stored in the **Azure Container Registry for your workspace**, or a **container registry that is publicly accessible**, set the following [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) attributes:
+To use an image stored in the **Azure Container Registry for your workspace**, or a **container registry that is publicly accessible**, set the following [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) attributes:
 
 + `docker.enabled=True`
 + `docker.base_image`: Set to the registry and path to the image.
@@ -247,7 +263,7 @@ myenv.python.conda_dependencies=conda_dep
 
 You must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. You must also set inferencing_stack_version property on the environment to "latest", this will install specific apt packages needed by web service. 
 
-After defining the environment, use it with an [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true) object to define the inference environment in which the model and web service will run.
+After defining the environment, use it with an [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py) object to define the inference environment in which the model and web service will run.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -276,7 +292,7 @@ For more information on customizing your Python environment, see [Create and man
 > [!IMPORTANT]
 > Currently the Machine Learning CLI can use images from the Azure Container Registry for your workspace or publicly accessible repositories. It cannot use images from standalone private registries.
 
-Before deploying a model using the Machine Learning CLI, create an [environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) that uses the custom image. Then create an inference configuration file that references the environment. You can also define the environment directly in the inference configuration file. The following JSON document demonstrates how to reference an image in a public container registry. In this example, the environment is defined inline:
+Before deploying a model using the Machine Learning CLI, create an [environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) that uses the custom image. Then create an inference configuration file that references the environment. You can also define the environment directly in the inference configuration file. The following JSON document demonstrates how to reference an image in a public container registry. In this example, the environment is defined inline:
 
 ```json
 {
@@ -333,4 +349,4 @@ For more information on deploying a model using the ML CLI, see the "model regis
 ## Next steps
 
 * Learn more about [Where to deploy and how](how-to-deploy-and-where.md).
-* Learn how to [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops).
+* Learn how to [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops&preserve-view=true).

@@ -17,13 +17,13 @@ ms.subservice: queues
 
 Azure Storage provides extensions for PowerShell that enable you to sign in and run scripting commands with Azure Active Directory (Azure AD) credentials. When you sign in to PowerShell with Azure AD credentials, an OAuth 2.0 access token is returned. That token is automatically used by PowerShell to authorize subsequent data operations against Queue storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
-You can assign permissions to queue data to an Azure AD security principal via role-based access control (RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC](../common/storage-auth-aad-rbac.md).
+You can assign permissions to queue data to an Azure AD security principal via Azure role-based access control (Azure RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
 
 ## Supported operations
 
-The Azure Storage extensions are supported for operations on queue data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to PowerShell. Permissions to Azure Storage queues are assigned via RBAC. For example, if you have been assigned the **Queue Data Reader** role, then you can run scripting commands that read data from a queue. If you have been assigned the **Queue Data Contributor** role, then you can run scripting commands that read, write, or delete a queue or the data they contain.
+The Azure Storage extensions are supported for operations on queue data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to PowerShell. Permissions to Azure Storage queues are assigned via Azure RBAC. For example, if you have been assigned the **Queue Data Reader** role, then you can run scripting commands that read data from a queue. If you have been assigned the **Queue Data Contributor** role, then you can run scripting commands that read, write, or delete a queue or the data they contain.
 
-For details about the permissions required for each Azure Storage operation on a queue, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+For details about the permissions required for each Azure Storage operation on a queue, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 ## Call PowerShell commands using Azure AD credentials
 
@@ -41,7 +41,7 @@ The following example shows how to create a queue in a new storage account from 
 
     For more information about signing into Azure with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Create an Azure resource group by calling [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+1. Create an Azure resource group by calling [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
     ```powershell
     $resourceGroup = "sample-resource-group-ps"
@@ -64,7 +64,7 @@ The following example shows how to create a queue in a new storage account from 
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Before you create the queue, assign the [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](../common/storage-auth-aad-rbac.md).
+1. Before you create the queue, assign the [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > Azure role assignments may take a few minutes to propagate.

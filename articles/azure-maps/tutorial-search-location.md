@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Search for nearby locations on a map | Microsoft Azure Maps'
-description: Learn how to search for points of interest on a map. See how to use the Azure Maps Web SDK to add search capabilities and interactive popup boxes to a map.
+description: Tutorial on how to search for points of interest on a map. See how to use the Azure Maps Web SDK to add search capabilities and interactive popup boxes to a map.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ---
 
 # Tutorial: Search nearby points of interest using Azure Maps
@@ -134,7 +134,7 @@ The Map Control API is a convenient client library. This API allows you to easil
 
 ## Add search capabilities
 
-This section shows how to use the Maps [Search API](https://docs.microsoft.com/rest/api/maps/search) to find a point of interest on your map. It's a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns a latitude and longitude information to a specified address. The **Service Module** explained below can be used to search for a location using the Maps Search API.
+This section shows how to use the Maps [Search API](/rest/api/maps/search) to find a point of interest on your map. It's a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns a latitude and longitude information to a specified address. The **Service Module** explained below can be used to search for a location using the Maps Search API.
 
 ### Service Module
 
@@ -151,7 +151,7 @@ This section shows how to use the Maps [Search API](https://docs.microsoft.com/r
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   The `SubscriptionKeyCredential` creates a `SubscriptionKeyCredentialPolicy` to authenticate HTTP requests to Azure Maps with the subscription key. The `atlas.service.MapsURL.newPipeline()` takes in the `SubscriptionKeyCredential` policy and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) instance. The `searchURL` represents a URL to Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) operations.
+   The `SubscriptionKeyCredential` creates a `SubscriptionKeyCredentialPolicy` to authenticate HTTP requests to Azure Maps with the subscription key. The `atlas.service.MapsURL.newPipeline()` takes in the `SubscriptionKeyCredential` policy and creates a [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) instance. The `searchURL` represents a URL to Azure Maps [Search](/rest/api/maps/search) operations.
 
 2. Next add the following script block to build the search query. It uses the Fuzzy Search Service, which is a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like addresses, places, and points of interest (POI). This code searches for nearby Gasoline Stations within the specified radius of the provided latitude and longitude. A GeoJSON feature collection from the response is then extracted using the `geojson.getFeatures()` method and added to the data source, which automatically results in the data being rendered on the map via the symbol layer. The last part of the script sets the maps camera view using the bounding box of the results using the Map's [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
 

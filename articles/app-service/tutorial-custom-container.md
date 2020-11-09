@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
-ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python"
+ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli"
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 
@@ -23,7 +23,7 @@ To complete this tutorial:
 
 - <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
+- <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2019</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2019 already:
     - Install the latest updates in Visual Studio by clicking **Help** > **Check for Updates**.
     - Add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
@@ -313,6 +313,10 @@ ENTRYPOINT ["init.sh"]
 * The last line, `ENTRYPOINT ["init.sh"]`, invokes `init.sh` to start the SSH service and Python server.
 
 ## Build and test the image locally
+
+> [!NOTE]
+> Docker Hub has [quotas on the number of anonymous pulls per IP and the number of authenticated pulls per free user (see **Data transfer**)](https://www.docker.com/pricing). If you notice your pulls from Docker Hub are being limited, try `docker login` if you're not already logged in.
+> 
 
 1. Run the following command to build the image:
 

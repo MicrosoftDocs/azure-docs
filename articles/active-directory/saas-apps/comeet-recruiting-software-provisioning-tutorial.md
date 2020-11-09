@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ---
@@ -85,11 +85,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input the **Tenant URL** and **Secret Token** of your Comeet Recruiting Software's account as described in Step 6.
 

@@ -1,22 +1,12 @@
 ---
 title: Azure Monitor for SAP Solutions providers| Microsoft Docs
 description: This article provides answers to frequently asked questions about Azure monitor for SAP solutions providers.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
-manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-
-ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
+ms.reviewer: cynthn
 
 ---
 
@@ -61,13 +51,24 @@ In public preview, customers can expect to see the following data with High-avai
 
 ![Azure Monitor for SAP solutions providers - High Availability cluster](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
 
-To configure High-availability cluster provider, there are two primary steps involved: 
-1. Install [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) in *each* node within Pacemaker cluster 
-    - Customers can use Azure Automation scripts to deploy High-availability cluster. The scripts will install [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) on each cluster node.  
-    - or customers can perform manual installation, following the steps on [this page](https://github.com/ClusterLabs/ha_cluster_exporter) 
-2. Configure High-availability cluster provider in *each* node within Pacemaker cluster  
-  To configure the High-availability cluster provider, Prometheus URL, Cluster name, Host name and System ID are needed.   
-  Customers are recommended to configure one provider per cluster node.   
+To configure a High-availability cluster provider, two primary steps are involved:
+
+1. Install [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) in *each* node within the Pacemaker cluster.
+
+   You have two options for installing ha_cluster_exporter:
+   
+   - Use Azure Automation scripts to deploy a High-availability cluster. The scripts install [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) on each cluster node.  
+   - Do a [manual installation](https://github.com/ClusterLabs/ha_cluster_exporter#manual-clone--build). 
+
+2. Configure a High-availability cluster provider for *each* node within the Pacemaker cluster.
+
+   To configure the High-availability cluster provider, the following information is required:
+   
+   - **Name**. A name for this provider. It should be unique for this Azure Monitor for SAP solutions instance.
+   - **Prometheus Endpoint**. Usually http\://\<servername or ip address\>:9664/metrics.
+   - **SID**. For SAP systems, use the SAP SID. For other systems (for example, NFS clusters), use a three-character name for the cluster. The SID must be distinct from other clusters that are monitored.   
+   - **Cluster name**. The cluster name used when creating the cluster. The cluster name can be found in the cluster property `cluster-name`.
+   - **Hostname**. The Linux hostname of the VM.  
 
 ## Provider type Microsoft SQL server
 

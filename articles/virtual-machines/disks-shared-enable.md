@@ -4,10 +4,10 @@ description: Configure an Azure managed disk with shared disks so that you can s
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Enable shared disk
@@ -142,7 +142,7 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 Once you've deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
 
 > [!NOTE]
-> If you are deploying an ultra disk, make sure it matches the necessary requirements. See the [PowerShell](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) or [CLI](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) section of the ultra disk article for details.
+> If you are deploying an ultra disk, make sure it matches the necessary requirements. See [Using Azure ultra disks](disks-enable-ultra-ssd.md) for details.
 
 ```azurepowershell-interactive
 

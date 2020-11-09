@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
 ---
@@ -76,7 +76,7 @@ Before configuring Blink for automatic user provisioning with Azure AD, you need
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Blink based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Blink , following the instructions provided in the [Blink Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Blink , following the instructions provided in the [Blink Single sign-on tutorial](./blink-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for Blink in Azure AD:
 
@@ -90,11 +90,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://api.joinblink.com/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Blink. If the connection fails, ensure your Blink account has Admin permissions and try again.
 
@@ -140,4 +140,3 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
-

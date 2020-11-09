@@ -24,7 +24,7 @@ A Privileged role administrator can customize Privileged Identity Management (PI
 
 Beginning in November 2019, the Azure AD roles portion of Privileged Identity Management is being updated to a new version that matches the experiences for Azure resource roles. This creates additional features as well as [changes to the existing API](azure-ad-roles-features.md#api-changes). While the new version is being rolled out, which procedures that you follow in this article depend on version of Privileged Identity Management you currently have. Follow the steps in this section to determine which version of Privileged Identity Management you have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 1. Open **Azure AD Privileged Identity Management**. If you have a banner on the top of the overview page, follow the instructions in the **New version** tab of this article. Otherwise, follow the instructions in the **Previous version** tab.
 
   [![Select Azure AD > Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
@@ -37,7 +37,7 @@ Follow the steps in this article to approve or deny requests for Azure AD roles.
 
 Follow these steps to open the settings for an Azure AD role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 gt
 1. Open **Azure AD Privileged Identity Management** &gt; **Azure AD roles** &gt; **Role settings**.
 
@@ -191,7 +191,7 @@ If you want to delegate the required approval to activate a role, follow these s
 
 1. Set the **Require approval** switch to **Enabled**. The pane expands with options to select approvers.
 
-    ![Azure AD roles - Settings - Require approval](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Screenshot that shows the "Require approval" switch with "Enable" selected.](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     If you don't specify any approvers, the Privileged role administrator becomes the default approver and is then required to approve all activation requests for this role.
 

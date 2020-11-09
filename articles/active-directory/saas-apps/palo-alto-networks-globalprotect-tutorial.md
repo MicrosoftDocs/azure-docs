@@ -114,7 +114,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Palo Alto Networks - GlobalProtect SSO
 
-1. Open the Palo Alto Networks Firewall GlobalProtect as an administrator in another browser window.
+1. Open the Palo Alto Networks - GlobalProtect as an administrator in another browser window.
 
 2. Click on **Device**.
 
@@ -146,8 +146,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 2. Go to Palo Alto Networks - GlobalProtect Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the Palo Alto Networks - GlobalProtect tile in the Access Panel, you should be automatically signed in to the Palo Alto Networks - GlobalProtect for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. You can use Microsoft Access Panel. When you click the Palo Alto Networks - GlobalProtect tile in the Access Panel, you should be automatically signed in to the Palo Alto Networks - GlobalProtect for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 
-Once you configure Palo Alto Networks  - GlobalProtect you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure Palo Alto Networks  - GlobalProtect you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

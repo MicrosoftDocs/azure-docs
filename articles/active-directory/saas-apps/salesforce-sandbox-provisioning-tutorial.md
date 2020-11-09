@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Configure Salesforce Sandbox for automatic user provisioning with Azure Active Directory| Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Salesforce Sandbox.
+description: Learn the steps you need to perform in Salesforce Sandbox and Azure AD to automatically provision and de-provision user accounts from Azure AD to Salesforce Sandbox.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
 ---
@@ -27,7 +27,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD are synchronized.
 
-Before configuring and enabling the provisioning service, you need to decide which users or groups in Azure AD need access to your Salesforce Sandbox app. After you've made this decision, you can assign these users to your Salesforce Sandbox app by following the instructions in [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Before configuring and enabling the provisioning service, you need to decide which users or groups in Azure AD need access to your Salesforce Sandbox app. After you've made this decision, you can assign these users to your Salesforce Sandbox app by following the instructions in [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Salesforce Sandbox
 
@@ -67,15 +67,15 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. To get your Salesforce Sandbox security token, open a new tab and sign into the same Salesforce Sandbox admin account. On the top right corner of the page, click your name, and then click **Settings**.
 
-     ![Enable automatic user provisioning](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Enable automatic user provisioning")
+     ![Screenshot shows the Settings link selected.](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Enable automatic user provisioning")
 
 1. On the left navigation pane, click **My Personal Information** to expand the related section, and then click **Reset My Security Token**.
   
-    ![Enable automatic user provisioning](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Enable automatic user provisioning")
+    ![Screenshot shows Reset My Security Token selected from My Personal Information.](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Enable automatic user provisioning")
 
 1. On the **Reset Security Token** page, click the **Reset Security Token** button.
 
-    ![Enable automatic user provisioning](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Enable automatic user provisioning")
+    ![Screenshot shows the Rest Security Token page, with explanatory text and the option to Reset Security Token](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Enable automatic user provisioning")
 
 1. Check the email inbox associated with this admin account. Look for an email from Salesforce Sandbox.com that contains the new security token.
 
@@ -103,4 +103,4 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 * [Managing user account provisioning for Enterprise Apps](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configure Single Sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)
+* [Configure Single Sign-on](./salesforce-sandbox-tutorial.md)

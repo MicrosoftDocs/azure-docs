@@ -1,16 +1,16 @@
 ---
-title: Run experiments using Azure Automated ML
-description: Run machine learning experiments using Apache Spark and Azure Automated ML
+title: 'Tutorial: Run experiments using Azure Automated ML'
+description: A tutorial on how to run machine learning experiments using Apache Spark and Azure Automated ML
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
-ms.topic: conceptual
+ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick, 
 ---
-# Run experiments using Azure Automated ML and Apache Spark
+# Tutorial: Run experiments using Azure Automated ML and Apache Spark
 
 Azure Machine Learning is a cloud-based environment that allows you to train, deploy, automate, manage, and track machine learning models. 
 
@@ -23,13 +23,16 @@ In this tutorial you learn the following tasks:
 - Calculate model accuracy
 
 ### Before you begin
-- Create an Apache Spark Pool by following the [Create an Apache Spark pool tutorial](../quickstart-create-apache-spark-pool-studio.md).
+
+- Create a serverless Apache Spark Pool by following the [Create a serverless Apache Spark pool quickstart](../quickstart-create-apache-spark-pool-studio.md).
 - Complete the [Azure Machine Learning workspace setup tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) if you do not have an existing Azure Machine Learning workspace. 
 
 ### Understand regression models
+
 *Regression models* predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others.  
 
 ### Regression analysis example on the NYC taxi data
+
 In this example, you will use Spark to perform some analysis on taxi trip tip data from New York. The data is available through [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start and end time and locations, the cost, and other interesting attributes.
 
 > [!IMPORTANT]
@@ -137,7 +140,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## Convert a dataframe to an Azure Machine Learning Dataset
-To submit a remote experiment, we will need to convert our dataset into an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided files.
+To submit a remote experiment, we will need to convert our dataset into an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) represents data in a tabular format by parsing the provided files.
 
 The following code gets the existing workspace and the default Azure Machine Learning default datastore. It then passes the datastore and file locations to the path parameter to create a new ```TabularDataset```. 
 
@@ -159,7 +162,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 
 ![Picture of uploaded dataset.](./media/apache-spark-machine-learning-aml-notebook/upload-dataset.png)
 
-## Submit an Auto ML experiment
+## Submit an AutoML experiment
 
 #### Define training settings
 

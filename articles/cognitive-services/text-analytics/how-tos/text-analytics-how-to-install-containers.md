@@ -1,16 +1,17 @@
 ---
-title: Install and run containers - Text Analytics
+title: Install and run Docker containers for the Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: How to download, install, and run containers for Text Analytics in this walkthrough tutorial.
+description: Use the Docker containers for the Text Analytics API to perform natural language processing such as sentiment analysis, on-premises.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2020
 ms.author: aahi
+keywords: on-premises, Docker, container, sentiment analysis, natural language processing
 ---
 
 # Install and run Text Analytics containers
@@ -26,7 +27,7 @@ Containers enable you to run the Text Analytic APIs in your own environment and 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 > [!IMPORTANT]
-> The free account is limited to 5,000 transactions per month and only the **Free** and **Standard** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pricing tiers <span class="docon docon-navigate-external x-hidden-focus"></span></a> are valid for containers. For more information on transaction request rates, see [Data Limits](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
+> The free account is limited to 5,000 transactions per month and only the **Free** and **Standard** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pricing tiers <span class="docon docon-navigate-external x-hidden-focus"></span></a> are valid for containers. For more information on transaction request rates, see [Data Limits](../overview.md#data-limits).
 
 ## Prerequisites
 

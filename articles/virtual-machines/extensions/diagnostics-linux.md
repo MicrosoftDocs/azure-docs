@@ -35,6 +35,9 @@ This extension works with both Azure deployment models.
 
 You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, ARM templates, or the Azure portal. For more information, see [Extensions Features](features-linux.md).
 
+>[!NOTE]
+>Certain components of the Diagnostics VM extension are also shipped in the [Log Analytics VM extension](./oms-linux.md). Due to this architecture, conflicts can arise if both extensions are instantiated in the same ARM template. To avoid these install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) to ensure the extensions are installed sequentially. The extensions can be installed in either order.
+
 These installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configure LAD 3.0 to:
 
 * capture and store the same metrics as were provided by LAD 2.3;
@@ -66,6 +69,29 @@ Supported distributions and versions:
 * **Azure CLI**. [Set up the Azure CLI](/cli/azure/install-azure-cli) environment on your machine.
 * The wget command, if you don't already have it: Run `sudo apt-get install wget`.
 * An existing Azure subscription and an existing general purpose storage account to store the data in.  General purpose storage accounts support Table storage which is required.  A Blob storage account will not work.
+* Python 2
+
+### Python requirement
+
+The Linux Diagnostic Extension requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.	
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+The python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
+
+1. Run the following command to remove any existing aliases.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Run the following command to create the alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### Sample installation
 
@@ -214,7 +240,7 @@ You can easily construct the required SAS token through the Azure portal.
 1. Make the appropriate sections as previously described
 1. Click the "Generate SAS" button.
 
-![image](./media/diagnostics-linux/make_sas.png)
+![Screenshot shows the Shared access signature page with Generate S A S.](./media/diagnostics-linux/make_sas.png)
 
 Copy the generated SAS into the storageAccountSasToken field; remove the leading question-mark ("?").
 
@@ -772,7 +798,7 @@ The `resourceId` in the configuration must match that of the VM or the virtual m
 
 Use the Azure portal to view performance data or set alerts:
 
-![image](./media/diagnostics-linux/graph_metrics.png)
+![Screenshot shows the Azure portal with the Used disk space on metric selected and the resulting chart.](./media/diagnostics-linux/graph_metrics.png)
 
 The `performanceCounters` data are always stored in an Azure Storage table. Azure Storage APIs are available for many languages and platforms.
 
@@ -781,7 +807,7 @@ Data sent to JsonBlob sinks is stored in blobs in the storage account named in t
 In addition, you can use these UI tools to access the data in Azure Storage:
 
 * Visual Studio Server Explorer.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+* [Screenshot shows containers and tables in Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
 This snapshot of a Microsoft Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't match exactly with the [sample LAD 3.0 configuration](#an-example-lad-30-configuration).
 

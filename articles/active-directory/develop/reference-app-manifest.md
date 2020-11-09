@@ -19,7 +19,7 @@ ms.reviewer: sureshja
 
 The application manifest contains a definition of all the attributes of an application object in the Microsoft identity platform. It also serves as a mechanism for updating the application object. For more info on the Application entity and its schema, see the [Graph API Application entity documentation](/graph/api/resources/application).
 
-You can configure an app's attributes through the Azure portal or programmatically using [REST API](/graph/api/resources/application) or [PowerShell](/powershell/module/azuread/?view=azureadps-2.0#applications). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
+You can configure an app's attributes through the Azure portal or programmatically using [REST API](/graph/api/resources/application) or [PowerShell](/powershell/module/azuread#applications). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
 
 * If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you can't change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
 * If you need to define permissions and roles that your app supports, you must modify the application manifest.
@@ -189,6 +189,7 @@ Configures the `groups` claim issued in a user or OAuth 2.0 access token that th
 
 - `"None"`
 - `"SecurityGroup"` (for security groups and Azure AD roles)
+- `"ApplicationGroup"` (this option includes only groups that are assigned to the application)
 - `"All"` (this will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of.
 
 Example:
@@ -681,14 +682,10 @@ Use the following comments section to provide feedback that helps refine and sha
 [AAD-DEVELOPER-GLOSSARY]:developer-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
-[APPLICATION-ENTITY]: /previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity
-[APPLICATION-ENTITY-APP-ROLE]: /previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#approle-type
-[APPLICATION-ENTITY-OAUTH2-PERMISSION]: /previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#oauth2permission-type
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
 [IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
 [INTEGRATING-APPLICATIONS-AAD]: ./quickstart-register-app.md
 [O365-PERM-DETAILS]: /graph/permissions-reference
-[O365-SERVICE-DAEMON-APPS]: /previous-versions/office/office-365-api/
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/

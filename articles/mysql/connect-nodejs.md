@@ -4,7 +4,7 @@ description: This quickstart provides several Node.js code samples you can use t
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
@@ -60,9 +60,9 @@ Depending on your platform, follow the instructions in the appropriate section t
    ```
 3. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### Mac OS
+### macOS
 
-1. Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
+1. Enter the following commands to install **brew**, an easy-to-use package manager for macOS and **Node.js**.
 
    ```bash
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -313,6 +313,16 @@ function deleteData(){
 				else  console.log('Done.') 
 		});
 };
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

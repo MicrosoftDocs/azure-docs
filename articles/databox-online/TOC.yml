@@ -6,7 +6,11 @@
   - name: Overview
     items:
     - name: What is Azure Stack Edge Pro with GPU?
-      href:  azure-stack-edge-gpu-overview.md
+      href: azure-stack-edge-gpu-overview.md
+  - name: Quickstarts
+    items:
+    - name: Get started
+      href:  azure-stack-edge-gpu-quickstart.md
   - name: Tutorials
     items:
     - name: 0 - Get checklist
@@ -27,15 +31,15 @@
       href: azure-stack-edge-gpu-deploy-activate.md 
     - name: 8 - Configure compute
       href: azure-stack-edge-gpu-deploy-configure-compute.md 
-    - name: 9A - Add, connect to share
-      href: azure-stack-edge-j-series-deploy-add-shares.md 
-    - name: 9B - Add, connect to storage accounts
-      href: azure-stack-edge-j-series-deploy-add-storage-accounts.md 
       
   - name: Concepts
     items:
     - name: Review requirements
-      href: azure-stack-edge-gpu-system-requirements.md 
+      items:
+      - name: For Azure Stack Edge
+        href: azure-stack-edge-gpu-system-requirements.md
+      - name: For Azure Stack Edge Blob storage
+        href: azure-stack-edge-gpu-system-requirements-rest.md
     - name: Understand limits
       href: azure-stack-edge-limits.md 
     - name: Security overview
@@ -57,7 +61,9 @@
       - name: Kubernetes RBAC
         href: azure-stack-edge-gpu-kubernetes-rbac.md 
       - name: Kubernetes workloads
-        href: azure-stack-edge-gpu-kubernetes-workload-management.md  
+        href: azure-stack-edge-gpu-kubernetes-workload-management.md 
+    - name: View Key Vault integration 
+      href: azure-stack-edge-gpu-activation-key-vault.md
   
   - name: How to
     items:
@@ -85,6 +91,8 @@
         items:
         - name: Stateless app
           href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md 
+        - name: Develop C# module
+          href: azure-stack-edge-j-series-create-iot-edge-module.md 
       - name: Via Azure Arc (Preview)
         items:
         - name: Enable Arc on Kubernetes cluster
@@ -121,12 +129,14 @@
         href: azure-stack-edge-j-series-create-certificates-tool.md 
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-j-series-certificate-troubleshooting.md 
-    - name: Develop C# module
-      href: azure-stack-edge-j-series-create-iot-edge-module.md 
     - name: Manage Edge compute 
       href: azure-stack-edge-j-series-manage-compute.md 
     - name: Manage storage gateway
       items:
+      - name: Add, connect to share
+        href: azure-stack-edge-j-series-deploy-add-shares.md 
+      - name: Add, connect to storage accounts
+        href: azure-stack-edge-j-series-deploy-add-storage-accounts.md         
       - name: Shares
         href: azure-stack-edge-j-series-manage-shares.md 
       - name: Users
@@ -146,7 +156,11 @@
       - name: Return device
         href: azure-stack-edge-return-device.md     
       - name: Replace device
-        href: azure-stack-edge-replace-device.md     
+        href: azure-stack-edge-replace-device.md  
+      - name: Prepare for device failure
+        href: azure-stack-edge-gpu-prepare-device-failure.md
+      - name: Recover from device failure
+        href: azure-stack-edge-gpu-recover-device-failure.md   
     - name: Monitor
       items:
       - name: Using metric charts
@@ -158,7 +172,9 @@
       - name: Device issues 
         href: azure-stack-edge-gpu-troubleshoot.md
       - name: Ordering issues
-        href: azure-stack-edge-troubleshoot-ordering.md       
+        href: azure-stack-edge-troubleshoot-ordering.md   
+      - name: Activation issues
+        href: azure-stack-edge-gpu-troubleshoot-activation.md    
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
   
@@ -171,6 +187,8 @@
 
   - name: Reference
     items:
+    - name: IoT Edge Role via API, SDK, PowerShell
+      href: azure-stack-edge-gpu-iot-edge-api-update.md
     - name: Azure PowerShell
       href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
     - name: REST API

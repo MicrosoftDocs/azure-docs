@@ -32,9 +32,9 @@
     href: search-get-started-dotnet.md
   - name: Java
     href: search-get-started-java.md
-  - name : Node.js
-    href: search-get-started-nodejs.md
-  - name: Postman
+  - name : JavaScript
+    href: search-get-started-javascript.md
+  - name: REST
     href: search-get-started-postman.md
   - name: PowerShell
     href: search-get-started-powershell.md
@@ -94,6 +94,8 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
+  - name: Relevance scoring
+    href: index-similarity-and-scoring.md
   - name: Indexers
     href: search-indexer-overview.md
   - name: AI enrichment
@@ -116,8 +118,10 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
-    - name: Securing indexer resources
+    - name: Accessing protected content
       href: search-indexer-securing-resources.md
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Create indexes and constructs
@@ -160,8 +164,6 @@
     items:
     - name: Work with indexers
       items:
-      - name: Configure indexers
-        href: search-indexer-overview.md
       - name: Monitor indexers
         href: search-howto-monitor-indexers.md
       - name: Schedule indexers
@@ -186,12 +188,18 @@
         href: search-blob-ai-integration.md
       - name: Configure a blob indexer
         href: search-howto-indexing-azure-blob-storage.md
+      - name: Index changed and deleted blobs
+        href: search-howto-index-changed-deleted-blobs.md
       - name: Index one-to-many blobs
         href: search-howto-index-one-to-many-blobs.md
+      - name: Index plain text
+        href: search-howto-index-plaintext-blobs.md
       - name: Index CSV blobs
         href: search-howto-index-csv-blobs.md
       - name: Index JSON blobs
         href: search-howto-index-json-blobs.md
+      - name: Index encrypted blobs
+        href: search-howto-index-encrypted-blobs.md
     - name: Azure Tables
       href: search-howto-indexing-azure-tables.md
     - name: Azure Cosmos DB
@@ -288,8 +296,6 @@
     items:
     - name: Work with results
       href: search-pagination-page-layout.md
-    - name: Relevance scoring
-      href: index-similarity-and-scoring.md
     - name: Scoring profiles 
       href: index-add-scoring-profiles.md
     - name: Similarity algorithm
@@ -314,9 +320,11 @@
       href: search-api-preview.md
     - name: Develop in .NET
       items:
-      - name: Use Microsoft.Azure.Search (v10)
+      - name: Use Azure.Search.Documents
         href: search-howto-dotnet-sdk.md
-      - name: Get started (v10)
+      - name: Use Microsoft.Azure.Search
+        href: search-howto-dotnet-sdk-v10.md
+      - name: Legacy quickstart (Microsoft.Azure.Search)
         href: search-get-started-dotnet-v10.md
     - name: Upgrade the SDK
       items:
@@ -397,7 +405,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/search?view=azure-cli-latest
+    href: /cli/azure/search
   - name: Azure PowerShell
     href: /powershell/module/az.search 
   - name: Resource Manager template

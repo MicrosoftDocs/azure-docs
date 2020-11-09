@@ -7,7 +7,7 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Quickstart: Use JavaScript to create a chat room with Azure Functions and SignalR Service
 
@@ -52,7 +52,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
 1. Select and copy the primary connection string.
 
-    ![Create SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
+    ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
 1. In your code editor, open the *src/chat/javascript* folder in the cloned repository.
 

@@ -22,6 +22,8 @@
     href: resources-without-resource-group-limit.md
   - name: Security
     items:
+    - name: Security baseline
+      href: ./security-baseline.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -73,6 +75,8 @@
         href: ../../batch/best-practices.md?toc=/azure/azure-resource-manager/management/toc.json#moving-batch-accounts-across-regions
       - name: Azure Cognitive Search
         href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+      - name: Azure Cosmos DB
+        href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json    
       - name: Azure Dev Spaces
         href: ../../dev-spaces/faq.md?toc=/azure/azure-resource-manager/management/toc.json#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region  
       - name: Azure Event Hubs

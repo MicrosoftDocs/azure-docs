@@ -1,6 +1,6 @@
 ---
 title: Manage snapshots by using Azure NetApp Files | Microsoft Docs
-description: Describes how to create and manage snapshots by using Azure NetApp Files.
+description: Describes how to create, manage, and use snapshots by using Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 11/05/2020
 ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files
 
-Azure NetApp Files supports creating on-demand snapshots and using snapshot policies to schedule automatic snapshot creation.  You can also restore a snapshot to a new volume or restore a single file by using a client.  
+Azure NetApp Files supports creating on-demand snapshots and using snapshot policies to schedule automatic snapshot creation. You can also restore a snapshot to a new volume, restore a single file by using a client, or revert an existing volume by using a snapshot.
 
 ## Create an on-demand snapshot for a volume
 
@@ -60,7 +60,7 @@ The **snapshot policy** feature is currently in preview. If you are using this f
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-You can also use Azure CLI commands [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) and [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) to register the feature and display the registration status. 
+You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ### Create a snapshot policy 
 
@@ -214,8 +214,40 @@ If you selected the Hide Snapshot Path checkbox when you created the volume, the
 
     ![Properties Previous Versions](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
 
+## Revert a volume using snapshot revert
+
+The snapshot revert functionality enables you to quickly revert a volume to the state it was in when a particular snapshot was taken. In most cases, reverting a volume is much faster than restoring individual files from a snapshot to the active file system. It is also more space efficient compared to restoring a snapshot to a new volume. 
+
+You can find the Revert Volume option in the Snapshots menu of a volume. After you select a snapshot for reversion, Azure NetApp Files reverts the volume to the data and timestamps that it contained when the selected snapshot was taken. 
+
+> [!IMPORTANT]
+> Active filesystem data and snapshots that were taken after the selected snapshot was taken will be lost. The snapshot revert operation will replace *all* the data in the targeted volume with the data in the selected snapshot. You should pay attention to the snapshot contents and creation date when you select a snapshot. You cannot undo the snapshot revert operation.
+
+1. Go to the **Snapshots** menu of a volume.  Right-click the snapshot you want to use for the revert operation. Select **Revert volume**. 
+
+    ![Screenshot that describes the right-click menu of a snapshot](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. In the Revert Volume to Snapshot window, 
+type the name of the volume, and click **Revert**.   
+
+    The volume is now restored to the point in time of the selected snapshot.
+
+    ![Screenshot that the Revert volume to snapshot window](../media/azure-netapp-files/snapshot-revert-volume.png) 
+
+## Delete snapshots  
+
+You can delete snapshots that you no longer need to keep. 
+
+1. Go to the **Snapshots** menu of a volume. Right-click the snapshot you want to delete. Select **Delete**.
+
+    ![Screenshot that describes the right-click menu of a snapshot](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. In the Delete Snapshot window, confirm that you want to delete the snapshot by clicking **Yes**. 
+
+    ![Screenshot that confirms snapshot deletion](../media/azure-netapp-files/snapshot-confirm-delete.png)  
+
 ## Next steps
 
-* [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

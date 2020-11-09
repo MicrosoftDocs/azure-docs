@@ -10,7 +10,7 @@ ms.custom: sqldbrb=2
 ms.topic: conceptual
 author: monhaber
 ms.author: ronmat
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 09/21/2020
 tags: azure-synapse
 ---
@@ -30,7 +30,7 @@ For a full investigation experience, it is recommended to enable auditing, which
 
 ## Alerts
 
-Advanced Threat Protection for Azure SQL Database detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. For a list of alerts for Azure SQL Database, see the [Alerts for SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) in Azure Security Center](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse).
+Advanced Threat Protection for Azure SQL Database detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. For a list of alerts for Azure SQL Database, see the [Alerts for SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) in Azure Security Center](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## Explore detection of a suspicious event
 
@@ -60,5 +60,5 @@ Click **Advanced Threat Protection alert** to launch the Azure Security Center a
 - Learn more about [Advanced Threat Protection in Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).
 - Learn more about [Azure Defender for SQL](azure-defender-for-sql.md).
 - Learn more about [Azure SQL Database auditing](../../azure-sql/database/auditing-overview.md)
-- Learn more about [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- For more information on pricing, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/)  
+- Learn more about [Azure security center](../../security-center/security-center-introduction.md)
+- For more information on pricing, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/)

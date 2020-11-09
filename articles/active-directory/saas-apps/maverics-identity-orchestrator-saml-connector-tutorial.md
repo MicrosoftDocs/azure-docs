@@ -31,7 +31,7 @@ This tutorial demonstrates how to migrate an on-premises web application that's 
 4. Set up an Azure key vault, and configure Maverics to use it as its secrets management provider.
 5. Demonstrate user migration and session abstraction by using Maverics to provide access to an on-premises Java web application.
 
-For additional installation and configuration instructions, go to the [Strata website](https://strata.io/docs).
+For additional installation and configuration instructions, go to the [Strata website](https://www.strata.io).
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ subscription. To obtain the Maverics software, contact [Strata sales](mailto:sal
 
 ## Install Maverics Identity Orchestrator
 
-To get started with the Maverics Identity Orchestrator installation, see the [installation instructions](https://strata.io/docs).
+To get started with the Maverics Identity Orchestrator installation, see the [installation instructions](https://www.strata.io).
 
 ### System requirements
 * Supported operating systems
@@ -154,14 +154,14 @@ You can set up an Azure key vault by using either the Azure portal or the Azure 
 
 **Use the Azure portal**
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. [Create a new key vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault).
-1. [Add the secrets to the key vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
-1. [Register an application with Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
-1. [Authorize an application to use a secret](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
+1. [Create a new key vault](../../key-vault/secrets/quick-create-portal.md#create-a-vault).
+1. [Add the secrets to the key vault](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+1. [Register an application with Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. [Authorize an application to use a secret](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
 **Use the Azure CLI**
 
-1. Open the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and then enter the following command:
+1. Open the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), and then enter the following command:
 
     ```shell
     az login

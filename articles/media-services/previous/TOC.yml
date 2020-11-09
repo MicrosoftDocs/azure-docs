@@ -3,8 +3,10 @@
 - name: Overview
   href: media-services-overview.md
   items:
-  - name: Scenarios and availability
+  - name: Common scenarios
     href: scenarios-and-availability.md
+  - name: Regional availability
+    href: availability-regions-v-2.md
   - name: Concepts
     href: media-services-concepts.md
 - name: Get started
@@ -115,8 +117,6 @@
   - name: Encode content
     href: media-services-encode-asset.md
     items:
-    - name: Compare encoders
-      href: media-services-compare-encoders.md
     - name: Manage speed and concurrency of your encoding
       href: media-services-manage-encoding-speed.md
     - name: Media Encoder Standard (MES)
@@ -205,20 +205,6 @@
           href: media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md
         - name: H264 Single Bitrate Low Quality SD for Android
           href: media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md
-    - name: Media Encoder Premium Workflow
-      items:
-      - name: Media Encoder Premium Workflow Formats and Codecs
-        href: media-services-premium-workflow-encoder-formats.md
-      - name: Encode with Media Encoder Premium Workflow
-        items:
-        - name: Media Encoder Premium Workflow
-          href: media-services-encode-with-premium-workflow.md
-        - name: Media Encoder Premium Workflow tutorials
-          href: media-services-media-encoder-premium-workflow-tutorials.md
-        - name: Create Advanced Encoding Workflows with Workflow Designer
-          href: media-services-workflow-designer.md
-        - name: Premium workflow with multiple input
-          href: media-services-media-encoder-premium-workflow-multiplefilesinput.md
     - name: Create a task that generates fMP4 chunks
       href: media-services-generate-fmp4-chunks.md
     - name: Media processors
@@ -318,13 +304,12 @@
         href: hybrid-design-drm-sybsystem.md
       - name: Reference multi-DRM design
         href: media-services-cenc-with-multidrm-access-control.md
-    - name: Process with Indexer
-      href: media-services-index-content.md
-      items:
-      - name: Task preset
-        href: indexer-task-preset.md
   - name: Analyze content
     items:
+    - name: Process with Indexer
+      href: media-services-index-content.md
+    - name: Task preset
+      href: indexer-task-preset.md    
     - name: Process with Face Redactor
       href: media-services-face-redaction.md
     - name: Face Redactor walkthrough

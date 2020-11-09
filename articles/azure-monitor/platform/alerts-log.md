@@ -195,7 +195,7 @@ Here the steps to get started writing queries for alerts:
     > [!NOTE]
     > Log alert rules are currently [stateless and do not resolve](alerts-unified-log.md#state-and-resolving-alerts).
 
-1. Select **Manage rules** button on the top bar to edit rules:
+1. Select **Manage alert rules** button on the top bar to edit rules:
 
     ![ manage alert rules](media/alerts-log/manage-alert-rules.png)
 
@@ -257,7 +257,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
 > [!NOTE]
 > Azure CLI support is only available for the scheduledQueryRules API version `2020-05-01-preview` and above. Pervious API version can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
 
-The previous sections described how to create, view, and manage log alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). For this article, we'll use Cloud Shell.
+The previous sections described how to create, view, and manage log alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli). Quickest way to start using Azure CLI is through [Azure Cloud Shell](../../cloud-shell/overview.md). For this article, we'll use Cloud Shell.
 
 1. Go to Azure portal, select **Cloud Shell**.
 

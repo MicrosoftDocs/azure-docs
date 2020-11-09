@@ -69,6 +69,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 - Create custom rules to suit the specific needs of your applications.
 - Geo-filter traffic to allow or block certain countries/regions from gaining access to your applications. (preview)
 - Protect your applications from bots with the bot mitigation ruleset. (preview)
+- Inspect JSON and XML in the request body
 
 ## WAF policy and rules
 
@@ -166,6 +167,11 @@ With the built-in Azure WAF firewall events workbook, you can get an overview of
 
 
 ![Azure WAF firewall events workbook](../media/ag-overview/sentinel.png)
+
+
+#### Azure Monitor Workbook for WAF
+
+This workbook enables custom visualization of security-relevant WAF events across several filterable panels. It works with all WAF types, including Application Gateway, Front Door, and CDN, and can be filtered based on WAF type or a specific WAF instance. Import via ARM Template or Gallery Template. To deploy this workbook, see [WAF Workbook](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
 
 #### Logging
 

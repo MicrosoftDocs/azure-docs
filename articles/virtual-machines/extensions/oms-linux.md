@@ -39,6 +39,7 @@ The following table provides a mapping of the version of the Log Analytics VM ex
 
 | Log Analytics Linux VM extension version | Log Analytics Agent bundle version | 
 |--------------------------------|--------------------------|
+| 1.13.27 | [1.13.27](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.27-0) |
 | 1.13.15 | [1.13.9-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.9-0) |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
@@ -105,12 +106,15 @@ The following JSON shows the schema for the Log Analytics Agent extension. The e
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.7 |
+| typeHandlerVersion | 1.13 |
 | workspaceId (e.g) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (e.g) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
 ## Template deployment
+
+>[!NOTE]
+>Certain components of the Log Analytics VM extension are also shipped in the [Diagnostics VM extension](./diagnostics-linux.md). Due to this architecture, conflicts can arise if both extensions are instantiated in the same ARM template. To avoid these install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) to ensure the extensions are installed sequentially. The extensions can be installed in either order.
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration such as onboarding to Azure Monitor Logs. A sample Resource Manager template that includes the Log Analytics Agent VM extension can be found on the [Azure Quickstart Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
@@ -130,7 +134,7 @@ The following example assumes the VM extension is nested inside the virtual mach
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -155,7 +159,7 @@ When placing the extension JSON at the root of the template, the resource name i
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -176,7 +180,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.10.1 --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
   --settings '{"workspaceId":"myWorkspaceId"}'
 ```
 
@@ -207,7 +211,9 @@ Extension execution output is logged to the following file:
 | 19 | OMI package installation failure | 
 | 20 | SCX package installation failure |
 | 51 | This extension is not supported on the VM's operation system | |
-| 55 | Cannot connect to the Azure Monitor service or required packages missing or dpkg package manager is locked| Check that the system either has Internet access, or that a valid HTTP proxy has been provided. Additionally, check the correctness of the workspace ID, and verify curl and tar utilities are installed. |
+| 52 | This extension failed due to a missing dependency | Check the output and logs for more information about which dependency is missing. |
+| 53 | This extension failed due to missing or wrong configuration parameters | Check the output and logs for more information about what went wrong. Additionally, check the correctness of the workspace ID, and verify that the machine is connected to the internet. |
+| 55 | Cannot connect to the Azure Monitor service or required packages missing or dpkg package manager is locked| Check that the system either has internet access, or that a valid HTTP proxy has been provided. Additionally, check the correctness of the workspace ID, and verify that curl and tar utilities are installed. |
 
 Additional troubleshooting information can be found on the [Log Analytics-Agent-for-Linux Troubleshooting Guide](../../azure-monitor/platform/vmext-troubleshoot.md).
 

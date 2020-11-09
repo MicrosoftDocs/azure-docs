@@ -1,11 +1,11 @@
 ---
-title: Enable the Ingress Controller add-on for a new AKS cluster with a new Azure Application Gateway instance 
-description: Learn how to use the Azure CLI to enable the Ingress Controller add-on for your new AKS cluster with a new Application Gateway instance.
+title: 'Tutorial: Enable the Ingress Controller add-on for a new AKS cluster with a new Azure Application Gateway instance'
+description: Use this tutorial to learn how to use the Azure CLI to enable the Ingress Controller add-on for your new AKS cluster with a new Application Gateway instance.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
 ---
 
@@ -25,25 +25,26 @@ In this tutorial, you learn how to:
 > * Deploy a sample application by using AGIC for ingress on the AKS cluster.
 > * Check that the application is reachable through Application Gateway.
 
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Prerequisites
 
 If you choose to install and use the CLI locally, this tutorial requires you to run Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Register the *AKS-IngressApplicationGatewayAddon* feature flag by using the [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command as shown in the following example. You'll need to do this only once per subscription while the add-on is still in preview.
+Register the *AKS-IngressApplicationGatewayAddon* feature flag by using the [az feature register](/cli/azure/feature#az-feature-register) command as shown in the following example. You'll need to do this only once per subscription while the add-on is still in preview.
 ```azurecli-interactive
 az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
 ```
 
-It might take a few minutes for the status to show `Registered`. You can check the registration status by using the [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command:
+It might take a few minutes for the status to show `Registered`. You can check the registration status by using the [az feature list](/cli/azure/feature#az-feature-register) command:
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
 ```
 
-When you're ready, refresh the registration of the Microsoft.ContainerService resource provider by using the [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) command:
+When you're ready, refresh the registration of the Microsoft.ContainerService resource provider by using the [az provider register](/cli/azure/provider#az-provider-register) command:
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
@@ -76,15 +77,15 @@ You'll now deploy a new AKS cluster with the AGIC add-on enabled. If you don't p
 > - Enable WAF on Application Gateway through the portal. 
 > - Create the WAF_v2 Application Gateway instance first, and then follow instructions on how to [enable the AGIC add-on with an existing AKS cluster and existing Application Gateway instance](tutorial-ingress-controller-add-on-existing.md). 
 
-In the following example, you'll deploy a new AKS cluster named *myCluster* by using [Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) and [managed identities](https://docs.microsoft.com/azure/aks/use-managed-identity). The AGIC add-on will be enabled in the resource group that you created, *myResourceGroup*. 
+In the following example, you'll deploy a new AKS cluster named *myCluster* by using [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) and [managed identities](../aks/use-managed-identity.md). The AGIC add-on will be enabled in the resource group that you created, *myResourceGroup*. 
 
 Deploying a new AKS cluster with the AGIC add-on enabled without specifying an existing Application Gateway instance will mean an automatic creation of a Standard_v2 SKU Application Gateway instance. So, you'll also specify the name and subnet address space of the Application Gateway instance. The name of the Application Gateway instance will be *myApplicationGateway*, and the subnet address space we're using is 10.2.0.0/16. Make sure that you added or updated the aks-preview extension at the beginning of this tutorial. 
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" 
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
-To configure additional parameters for the `az aks create` command, see [these references](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
+To configure additional parameters for the `az aks create` command, see [these references](/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
 
 > [!NOTE]
 > The AKS cluster that you created will appear in the resource group that you created, *myResourceGroup*. However, the automatically created Application Gateway instance will be in the node resource group, where the agent pools are. The node resource group by is named *MC_resource-group-name_cluster-name_location* by default, but can be modified. 
@@ -129,7 +130,6 @@ az group delete --name myResourceGroup
 ```
 
 ## Next steps
-* [Learn about disabling the AGIC add-on](./ingress-controller-disable-addon.md)
-* [Learn about which annotations are supported with AGIC](./ingress-controller-annotations.md)
-* [Troubleshoot issues with AGIC](./ingress-controller-troubleshoot.md)
 
+> [!div class="nextstepaction"]
+> [Learn about disabling the AGIC add-on](./ingress-controller-disable-addon.md)

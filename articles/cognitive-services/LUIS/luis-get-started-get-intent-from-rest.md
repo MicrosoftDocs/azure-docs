@@ -1,9 +1,11 @@
 ---
 title: "Quickstart: Get intent with REST APIs - LUIS"
 description: In this REST API quickstart, use an available public LUIS app to determine a user's intention from conversational text.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 zone_pivot_groups: programming-languages-set-one
 #Customer intent: As an API developer familiar with REST but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---

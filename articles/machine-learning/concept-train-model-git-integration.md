@@ -29,7 +29,89 @@ We recommend that you clone the repository into your users directory so that oth
 
 You can clone any Git repository you can authenticate to (GitHub, Azure Repos, BitBucket, etc.)
 
-For a guide on how to use the Git CLI, read here [here](https://guides.github.com/introduction/git-handbook/).
+For more information about cloning, see the guide on [how to use Git CLI](https://guides.github.com/introduction/git-handbook/).
+
+## Authenticate your Git Account with SSH
+### Generate a new SSH key
+1) [Open the terminal window](./how-to-run-jupyter-notebooks.md#terminal) in the Azure Machine Learning Notebook Tab.
+
+2) Paste the text below, substituting in your email address.
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+This creates a new ssh key, using the provided email as a label.
+
+```
+> Generating public/private rsa key pair.
+```
+
+3) When you're prompted to "Enter a file in which to save the key" press Enter. This accepts the default file location.
+
+4) Verify that the default location is '/home/azureuser/.ssh' and press enter. Otherwise specify the location '/home/azureuser/.ssh'.
+
+> [!TIP]
+> Make sure the SSH key is saved in '/home/azureuser/.ssh'. This file is saved on the compute instance is only accessible by the owner of the Compute Instance
+
+```
+> Enter a file in which to save the key (/home/azureuser/.ssh/id_rsa): [Press enter]
+```
+
+5) At the prompt, type a secure passphrase. We recommend you add a passphrase to your SSH key for added security
+
+```
+> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter same passphrase again: [Type passphrase again]
+```
+
+### Add the public key to Git Account
+1) In your terminal window, copy the contents of your public key file. If you renamed the key, replace id_rsa.pub with the public key file name.
+
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+> [!TIP]
+> **Copy and Paste in Terminal**
+> * Windows: `Ctrl-Insert` to copy and use `Ctrl-Shift-v` or `Shift-Insert` to paste.
+> * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
+> * FireFox/IE may not support clipboard permissions properly.
+
+2) Select and copy the key output in the clipboard.
+
++ [GitHub](https://docs.github.com/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+
++ [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
+
++ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Start at **Step 2**.
+
++ [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Start at **Step 4**.
+
+### Clone the Git repository with SSH
+
+1) Copy the SSH Git clone URL from the Git repo.
+
+2) Paste the url into the `git clone` command below, to use your SSH Git repo URL. This will look something like:
+
+```bash
+git clone git@example.com:GitUser/azureml-example.git
+Cloning into 'azureml-example'...
+```
+
+You will see a response like:
+
+```bash
+The authenticity of host 'example.com (192.30.255.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of known hosts.
+```
+
+SSH may display the server's SSH fingerprint and ask you to verify it. You should verify that the displayed fingerprint matches one of the fingerprints in the SSH public keys page.
+
+SSH displays this fingerprint when it connects to an unknown host to protect you from [man-in-the-middle attacks](/previous-versions/windows/it-pro/windows-2000-server/cc959354(v=technet.10)). Once you accept the host's fingerprint, SSH will not prompt you again unless the fingerprint changes.
+
+3) When you are asked if you want to continue connecting, type `yes`. Git will clone the repo and set up the origin remote to connect with SSH for future Git commands.
 
 ## Track code that comes from Git repositories
 
@@ -90,7 +172,7 @@ The logged information contains text similar to the following JSON:
 
 ### Python SDK
 
-After submitting a training run, a [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) object is returned. The `properties` attribute of this object contains the logged git information. For example, the following code retrieves the commit hash:
+After submitting a training run, a [Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) object is returned. The `properties` attribute of this object contains the logged git information. For example, the following code retrieves the commit hash:
 
 ```python
 run.properties['azureml.git.commit']
@@ -104,7 +186,7 @@ The `az ml run` CLI command can be used to retrieve the properties from a run. F
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-For more information, see the [az ml run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true) reference documentation.
+For more information, see the [az ml run](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest) reference documentation.
 
 ## Next steps
 

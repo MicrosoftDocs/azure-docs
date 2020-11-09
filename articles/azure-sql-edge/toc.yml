@@ -46,8 +46,8 @@
       href: disconnected-deployment.md    
     - name: Deploy in Kubernetes
       href: deploy-kubernetes.md     
-    - name: SQL tools
-      href: https://docs.microsoft.com/en-us/sql/tools/overview-sql-tools?toc=/azure/azure-sql-edge/toc.json        
+    - name: Deploy with Azure Data Studio
+      href: /sql/azure-data-studio/deploy-azure-sql-edge?toc=%252fazure%252fazure-sql-edge%252ftoc.json
   - name: Machine learning 
     items:
     - name: Machine learning and AI with ONNX
@@ -91,9 +91,9 @@
     - name: DATE_BUCKET (Transact-SQL)
       href: date-bucket-tsql.md
     - name: FIRST_VALUE (Transact-SQL)
-      href: https://docs.microsoft.com/sql/t-sql/functions/first-value-transact-sql?toc=/azure/azure-sql-edge/toc.json
+      href: /sql/t-sql/functions/first-value-transact-sql?toc=%252fazure%252fazure-sql-edge%252ftoc.json
     - name: LAST_VALUE (Transact-SQL)
-      href: https://docs.microsoft.com/sql/t-sql/functions/last-value-transact-sql?toc=/azure/azure-sql-edge/toc.json
+      href: /sql/t-sql/functions/last-value-transact-sql?toc=%252fazure%252fazure-sql-edge%252ftoc.json
     - name: Data retention and cleanup
       items:
       - name: Data retention overview
@@ -109,11 +109,11 @@
     - name: Security overview
       href: security-overview.md
     - name: Security features
-      href: https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started?toc=/azure/azure-sql-edge/toc.json
+      href: /sql/linux/sql-server-linux-security-get-started?toc=%252fazure%252fazure-sql-edge%252ftoc.json
     - name: Encrypting connections
-      href: https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json
+      href: /sql/linux/sql-server-linux-encrypted-connections?toc=%252fazure%252fazure-sql-edge%252ftoc.json
     - name: Azure security center for IoT
-      href: https://docs.microsoft.com/azure/asc-for-iot/overview?toc=/azure/azure-sql-edge/toc.json&bc=/azure/azure-sql-edge/breadcrumb/toc.json
+      href: ../defender-for-iot/overview.md?bc=%252fazure%252fazure-sql-edge%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fazure-sql-edge%252ftoc.json
 - name: How to
   items:
   - name: Configure SQL Edge
@@ -141,4 +141,10 @@
 - name: Reference
   items:
   - name: Transact-SQL (T-SQL) Reference
-    href: https://docs.microsoft.com/sql/t-sql/language-reference
+    href: /sql/t-sql/language-reference
+- name: Resources
+  items:
+  - name: Partners
+    items:
+    - name: Security
+      href: resources-partners-security.md

@@ -1,6 +1,6 @@
 ---
-title: Access files on storage in SQL on-demand (preview)
-description: Describes querying storage files using SQL on-demand (preview) resources within Synapse SQL.
+title: Access files on storage in serverless SQL pool (preview)
+description: Describes querying storage files using serverless SQL pool (preview) in Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -8,11 +8,11 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
-# Access external storage in Synapse SQL (on-demand)
+# Access external storage using serverless SQL pool (preview) in Azure Synapse Analytics
 
-This document describes how can user read data from the files stored on Azure Storage in Synapse SQL (on-demand). Users have the following options to access storage:
+This document describes how can users can read data from the files stored on Azure Storage in serverless SQL pool. Users have the following options to access storage:
 
 - [OPENROWSET](develop-openrowset.md) function that enables ad-hoc queries over the files in Azure Storage.
 - [External table](develop-tables-external-tables.md) that is a predefined data structure built on top of set of external files.
@@ -21,7 +21,7 @@ User can use [different authentication methods](develop-storage-files-storage-ac
 
 ## Query files using OPENROWSET
 
-OPENROWSET enables users to query external files on Azure storage if they have access on storage. User who is connected to Synapse SQL on-demand endpoint should use the following query to read the content of the files on Azure storage:
+OPENROWSET enables users to query external files on Azure storage if they have access to the storage. A user who is connected to serverless SQL pool should use the following query to read the content of the files on Azure storage:
 
 ```sql
 SELECT * FROM

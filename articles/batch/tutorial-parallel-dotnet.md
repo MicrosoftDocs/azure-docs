@@ -3,7 +3,7 @@ title: Run a parallel workload using the .NET API
 description: Tutorial - Transcode media files in parallel with ffmpeg in Azure Batch using the Batch .NET client library
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 09/29/2020
 ms.custom: "mvc, devx-track-csharp"
 ---
 
@@ -30,7 +30,7 @@ In this tutorial, you convert MP4 media files in parallel to MP3 format using th
 
 * A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
-* [Windows 64-bit version of ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Download the zip file to your local computer. For this tutorial, you only need the zip file. You do not need to unzip the file or install it locally.
+* [Windows 64-bit version of ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z) (.zip). Download the zip file to your local computer. For this tutorial, you only need the zip file. You do not need to unzip the file or install it locally.
 
 ## Sign in to Azure
 
@@ -42,7 +42,7 @@ Use the Azure portal to add ffmpeg to your Batch account as an [application pack
 
 1. In the Azure portal, click **More services** > **Batch accounts**, and click the name of your Batch account.
 3. Click **Applications** > **Add**.
-4. For **Application id** enter *ffmpeg*, and a package version of *3.4*. Select the ffmpeg zip file you downloaded previously, and then click **OK**. The ffmpeg application package is added to your Batch account.
+4. For **Application id** enter *ffmpeg*, and a package version of *4.3.1*. Select the ffmpeg zip file you downloaded previously, and then click **OK**. The ffmpeg application package is added to your Batch account.
 
 ![Add application package](./media/tutorial-parallel-dotnet/add-application.png)
 
@@ -79,7 +79,7 @@ Also, make sure that the ffmpeg application package reference in the solution ma
 
 ```csharp
 const string appPackageId = "ffmpeg";
-const string appPackageVersion = "3.4";
+const string appPackageVersion = "4.3.1";
 ```
 
 ### Build and run the sample project
@@ -258,7 +258,7 @@ for (int i = 0; i < inputFiles.Count; i++)
     string outputMediaFile = String.Format("{0}{1}",
         System.IO.Path.GetFileNameWithoutExtension(inputMediaFile),
         ".mp3");
-    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
+    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-4.3.1-2020-09-21-full_build\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
     // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);

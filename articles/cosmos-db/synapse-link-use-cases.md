@@ -9,6 +9,7 @@ ms.author: ramkris
 ---
 
 # Azure Synapse Link for Azure Cosmos DB: Near real-time analytics use cases
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB is a cloud native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
@@ -87,7 +88,7 @@ Synapse Link for Azure Cosmos DB use cases:
 
 ## Sample scenario: HTAP for Azure Cosmos DB
 
-For nearly a decade, Azure Cosmos DB has been used by thousands of customers for mission critical applications that require elastic scale, turnkey global distribution, multi-master replication for low latency and high availability of both reads & writes in their transactional workloads.
+For nearly a decade, Azure Cosmos DB has been used by thousands of customers for mission critical applications that require elastic scale, turnkey global distribution, multi-region write replication for low latency and high availability of both reads & writes in their transactional workloads.
  
 The following list shows an overview of the various workload patterns that are supported with operational data using Azure Cosmos DB:
 
@@ -106,15 +107,15 @@ Let us take the example of an e-commerce company CompanyXYZ with global operatio
 
 * CompanyXYZ's core business depends on the inventory management system – hence availability & reliability are core pillar requirements. Benefits of using Azure Cosmos DB:
 
-  * By virtue of deep integration with Azure infrastructure and transparent multi-master global replication, Azure Cosmos DB provides industry-leading [99.999% high availability](high-availability.md) against regional outages.
+  * By virtue of deep integration with Azure infrastructure, and transparent multi-region writes, global replication, Azure Cosmos DB provides industry-leading [99.999% high availability](high-availability.md) against regional outages.
 
 * CompanyXYZ's supply chain partners may be in separate geographic locations but they may have to see a single view of the product inventory across the globe to support their local operations. This includes the need to be able to read updates made by other supply chain partners in real time. As well as being able to make updates without worrying about conflicts with other partners at high throughput. Benefits of using Azure Cosmos DB:
 
-  * With its unique multi-master replication protocol and latch-free, write-optimized transactional store, Azure Cosmos DB guarantees less than 10-ms latencies for both indexed reads and writes at the 99th percentile globally.
+  * With its unique multi-region writes replication protocol and latch-free, write-optimized transactional store, Azure Cosmos DB guarantees less than 10-ms latencies for both indexed reads and writes at the 99th percentile globally.
 
   * High throughput ingestion of both batch & streaming data feeds with [real-time indexing](index-policy.md) in transactional store.
 
-  * Azure Cosmos DB transactional store provides three more options than the two extremes of strong and eventual consistency levels to achieve the [availability vs performance tradeoffs](consistency-levels-tradeoffs.md) closest to the business need.
+  * Azure Cosmos DB transactional store provides three more options than the two extremes of strong and eventual consistency levels to achieve the [availability vs performance tradeoffs](./consistency-levels.md) closest to the business need.
 
 * CompanyXYZ's supply chain partners have highly fluctuating traffic patterns ranging from hundreds to millions of requests/s and thus the inventory management platform needs to deal with unexpected burstiness in traffic.  Benefits of using Azure Cosmos DB:
 

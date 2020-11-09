@@ -1,9 +1,11 @@
-- name: Azure DB for PostgreSQL documentation
+- name: Azure Database for PostgreSQL documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Azure DB for PostgreSQL?
     href: overview.md
+  - name: Which PostgreSQL deployment option to choose?
+    href: overview-postgres-choose-server-options.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring
@@ -21,6 +23,9 @@
       - name: Minimal-downtime migration with DMS
         href: howto-migrate-online.md
         displayName: dms, data migration service
+  - name: Versioning policy
+    href: concepts-version-policy.md
+    displayName: version, postgresql
 - name: Single Server
   expanded: true
   items:
@@ -102,7 +107,7 @@
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
     - name: Azure Policy built-ins
-      href: policy-samples.md
+      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Servers
@@ -155,6 +160,8 @@
       - name: Private link
         href: concepts-data-access-and-security-private-link.md
         displayName: security, private link, private endpoint
+    - name: Planned maintenance
+      href: concepts-planned-maintenance-notification.md
     - name: Business continuity
       items:
       - name: Business continuity intro
@@ -248,6 +255,9 @@
       - name: Azure PowerShell
         href: howto-restore-server-powershell.md
         displayName: restore, georestore, geo-restore, outage
+      - name: Restore a dropped server
+        href: howto-restore-dropped-server.md
+        displayName: restore server,dropped, recover
     - name: Enable authentication
       items:
         - name: Create users
@@ -378,6 +388,8 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
+    - name: Major version upgrades
+      href: how-to-upgrade-using-dump-and-restore.md
 - name: Flexible Server (Preview)
   expanded: true
   items:
@@ -395,6 +407,7 @@
       - name: Azure CLI
         href: flexible-server/quickstart-create-server-cli.md
       - name: ARM template
+        displayName: Resource Manager
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
       items:
@@ -538,7 +551,7 @@
       displayName: samples, azure cli
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
-      href: ./policy-samples.md
+      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Distributed data
@@ -552,10 +565,6 @@
         href: concepts-hyperscale-choose-distribution-column.md
       - name: Table colocation
         href: concepts-hyperscale-colocation.md
-      - name: Configuration options
-        href: concepts-hyperscale-configuration-options.md
-      - name: Prepay for reserved capacity
-        href: concepts-hyperscale-reserved-pricing.md
     - name: Security
       items:
       - name: Firewall rules
@@ -577,6 +586,10 @@
       items:
       - name: Monitor and tune
         href: concepts-hyperscale-monitoring.md
+    - name: Configuration options
+      href: concepts-hyperscale-configuration-options.md
+    - name: Prepay for reserved capacity
+      href: concepts-hyperscale-reserved-pricing.md
     - name: PostgreSQL extensions
       href: concepts-hyperscale-extensions.md
   - name: API Reference
@@ -636,7 +649,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/postgresql/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-database-postgresql.html
+    href: /answers/topics/azure-database-postgresql.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-postgresql
   - name: Videos

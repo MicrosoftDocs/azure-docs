@@ -54,7 +54,7 @@ The [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b6
 Use the following tips to ensure that your input images give the most accurate recognition results:
 
 * The supported input image formats are JPEG, PNG, GIF (the first frame), BMP.
-* Image file size should be no larger than 4 MB.
+* Image file size should be no larger than 6 MB.
 * When you create Person objects, use photos that feature different kinds of angles and lighting.
 * Some faces might not be recognized because of technical challenges, such as:
   * Images with extreme lighting, for example, severe backlighting.
@@ -65,6 +65,6 @@ Use the following tips to ensure that your input images give the most accurate r
 
 ## Next steps
 
-Now that you're familiar with face recognition concepts, learn how to write a script that identifies faces against a trained PersonGroup.
+Now that you're familiar with face recognition concepts, Write a script that identifies faces against a trained PersonGroup.
 
-* [Identify faces in images](../Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+* [Face client library quickstart](../Quickstarts/client-libraries.md)

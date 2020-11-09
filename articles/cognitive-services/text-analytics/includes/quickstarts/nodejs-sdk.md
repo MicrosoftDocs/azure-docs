@@ -6,22 +6,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/27/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 <a name="HOLTop"></a>
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.1 preview](#tab/version-3-1)
 
-[v3 Reference documentation](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
+[v3 Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 
-#### [Version 2.1](#tab/version-2)
+# [Version 3.0](#tab/version-3)
 
-[v2 Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [v2 Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+[v3 Reference documentation](/javascript/api/overview/azure/ai-text-analytics-readme) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
+
+
+# [Version 2.1](#tab/version-2)
+
+[v2 Reference documentation](/javascript/api/@azure/cognitiveservices-textanalytics) | [v2 Library source code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [v2 Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics) | [v2 Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ---
 
@@ -52,7 +57,19 @@ npm init
 ```
 ### Install the client library
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.1 preview](#tab/version-3-1)
+
+Install the `@azure/ai-text-analytics` NPM packages:
+
+```console
+npm install --save @azure/ai-text-analytics@5.1.0-beta.1
+```
+
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/TextAnalytics/text-analytics-v3-client-library.js), which contains the code examples in this quickstart. 
+
+
+# [Version 3.0](#tab/version-3)
 
 Install the `@azure/ai-text-analytics` NPM packages:
 
@@ -63,7 +80,7 @@ npm install --save @azure/ai-text-analytics@5.0.0
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/TextAnalytics/text-analytics-v3-client-library.js), which contains the code examples in this quickstart. 
 
-#### [Version 2.1](#tab/version-2)
+# [Version 2.1](#tab/version-2)
 
 Install the `@azure/cognitiveservices-textanalytics` NPM packages:
 
@@ -79,7 +96,7 @@ npm install --save @azure/cognitiveservices-textanalytics
 Your app's `package.json` file will be updated with the dependencies.
 Create a file named `index.js` and add the following:
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.1 preview](#tab/version-3-1)
 
 ```javascript
 "use strict";
@@ -87,7 +104,15 @@ Create a file named `index.js` and add the following:
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 3.0](#tab/version-3)
+
+```javascript
+"use strict";
+
+const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
+```
+
+# [Version 2.1](#tab/version-2)
 
 ```javascript
 "use strict";
@@ -117,14 +142,16 @@ The response object is a list containing the analysis information for each docum
 
 * [Client Authentication](#client-authentication)
 * [Sentiment Analysis](#sentiment-analysis) 
+* [Opinion mining](#opinion-mining)
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-ner)
 * [Entity linking](#entity-linking)
+* Personally Identifiable Information
 * [Key phrase extraction](#key-phrase-extraction)
 
 ## Client Authentication
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create a new `TextAnalyticsClient` object with your key and endpoint as parameters.
 
@@ -132,9 +159,17 @@ Create a new `TextAnalyticsClient` object with your key and endpoint as paramete
 const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 3.0](#tab/version-3)
 
-Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) object with `credentials` and `endpoint` as a parameter.
+Create a new `TextAnalyticsClient` object with your key and endpoint as parameters.
+
+```javascript
+const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
+```
+
+# [Version 2.1](#tab/version-2)
+
+Create a new [TextAnalyticsClient](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) object with `credentials` and `endpoint` as a parameter.
 
 [!code-javascript[Authentication and client creation](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=authentication)]
 
@@ -142,7 +177,7 @@ Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@az
 
 ## Sentiment analysis
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length, and confidence scores.
 
@@ -188,9 +223,132 @@ ID: 0
                 Positive: 0.21  Negative: 0.02  Neutral: 0.77
 ```
 
-#### [Version 2.1](#tab/version-2)
+### Opinion mining
 
-Create a list of dictionary objects, containing the documents you want to analyze. Call the client's [sentiment()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) method and get the returned [SentimentBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult). Iterate through the list of results, and print each document's ID and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
+In order to do sentiment analysis with opinion mining, create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method with adding option flag `includeOpinionMining: true` and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains not only sentence level sentiment as above, but also aspect and opinion level sentiment.
+
+```javascript
+async function sentimentAnalysisWithOpinionMining(client){
+
+    const sentimentInput = [
+        {
+            text: "The food and service were unacceptable, but the concierge were nice",
+            id: "0",
+            language: "en"
+        }
+    ];
+    const sentimentResult = await client.analyzeSentiment(sentimentInput, { includeOpinionMining: true });
+
+    sentimentResult.forEach(document => {
+        console.log(`ID: ${document.id}`);
+        console.log(`\tDocument Sentiment: ${document.sentiment}`);
+        console.log(`\tDocument Scores:`);
+        console.log(`\t\tPositive: ${document.confidenceScores.positive.toFixed(2)} \tNegative: ${document.confidenceScores.negative.toFixed(2)} \tNeutral: ${document.confidenceScores.neutral.toFixed(2)}`);
+        console.log(`\tSentences Sentiment(${document.sentences.length}):`);
+        document.sentences.forEach(sentence => {
+            console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
+            console.log(`\t\tSentences Scores:`);
+            console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
+            console.log("    Mined opinions");
+            for (const { aspect, opinions } of sentence.minedOpinions) {
+                console.log(`      - Aspect text: ${aspect.text}`);
+                console.log(`        Aspect sentiment: ${aspect.sentiment}`);
+                console.log("        Aspect confidence scores:", aspect.confidenceScores);
+                console.log("        Aspect opinions");
+                for (const { text, sentiment } of opinions) {
+                console.log(`        - Text: ${text}`);
+                console.log(`          Sentiment: ${sentiment}`);
+                }
+            }
+        });
+    });
+}
+sentimentAnalysisWithOpinionMining(textAnalyticsClient)
+```
+
+Run your code with `node index.js` in your console window.
+
+### Output
+
+```console
+ID: 0
+        // Document Sentiment: positive
+        // Document Scores:
+                // Positive: 0.84  Negative: 0.16  Neutral: 0.00
+        // Sentences Sentiment(1):
+                // Sentence sentiment: positive
+                // Sentences Scores:
+                // Positive: 0.84  Negative: 0.16  Neutral: 0.00
+    // Mined opinions
+      // - Aspect text: food
+        // Aspect sentiment: negative
+        // Aspect confidence scores: { positive: 0.01, negative: 0.99 }
+        // Aspect opinions
+        // - Text: unacceptable
+          // Sentiment: negative
+      // - Aspect text: service
+        // Aspect sentiment: negative
+        // Aspect confidence scores: { positive: 0.01, negative: 0.99 }
+        // Aspect opinions
+        // - Text: unacceptable
+          // Sentiment: negative
+      // - Aspect text: concierge
+        // Aspect sentiment: positive
+        // Aspect confidence scores: { positive: 1, negative: 0 }
+        // Aspect opinions
+        // - Text: nice
+          // Sentiment: positive
+```
+
+# [Version 3.0](#tab/version-3)
+
+Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length, and confidence scores.
+
+```javascript
+async function sentimentAnalysis(client){
+
+    const sentimentInput = [
+        "I had the best day of my life. I wish you were there with me."
+    ];
+    const sentimentResult = await client.analyzeSentiment(sentimentInput);
+
+    sentimentResult.forEach(document => {
+        console.log(`ID: ${document.id}`);
+        console.log(`\tDocument Sentiment: ${document.sentiment}`);
+        console.log(`\tDocument Scores:`);
+        console.log(`\t\tPositive: ${document.confidenceScores.positive.toFixed(2)} \tNegative: ${document.confidenceScores.negative.toFixed(2)} \tNeutral: ${document.confidenceScores.neutral.toFixed(2)}`);
+        console.log(`\tSentences Sentiment(${document.sentences.length}):`);
+        document.sentences.forEach(sentence => {
+            console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
+            console.log(`\t\tSentences Scores:`);
+            console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
+        });
+    });
+}
+sentimentAnalysis(textAnalyticsClient)
+```
+
+Run your code with `node index.js` in your console window.
+
+### Output
+
+```console
+ID: 0
+        Document Sentiment: positive
+        Document Scores:
+                Positive: 1.00  Negative: 0.00  Neutral: 0.00
+        Sentences Sentiment(2):
+                Sentence sentiment: positive
+                Sentences Scores:
+                Positive: 1.00  Negative: 0.00  Neutral: 0.00
+                Sentence sentiment: neutral
+                Sentences Scores:
+                Positive: 0.21  Negative: 0.02  Neutral: 0.77
+```
+
+# [Version 2.1](#tab/version-2)
+
+Create a list of dictionary objects, containing the documents you want to analyze. Call the client's [sentiment()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) method and get the returned [SentimentBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult). Iterate through the list of results, and print each document's ID and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
 [!code-javascript[Sentiment analysis](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=sentimentAnalysis)]
 
@@ -209,7 +367,7 @@ Run your code with `node index.js` in your console window.
 
 ## Language detection
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `detectLanguage()` method and get the returned `DetectLanguageResultCollection`. Then iterate through the results, and print each document's ID with respective primary language.
 
@@ -238,9 +396,38 @@ ID: 0
         Primary Language French
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 3.0](#tab/version-3)
 
-Create a list of dictionary objects containing your documents. Call the client's [detectLanguage()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) method and get the returned [LanguageBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult). Then iterate through the results, and print each document's ID, and language.
+Create an array of strings containing the document you want to analyze. Call the client's `detectLanguage()` method and get the returned `DetectLanguageResultCollection`. Then iterate through the results, and print each document's ID with respective primary language.
+
+```javascript
+async function languageDetection(client) {
+
+    const languageInputArray = [
+        "Ce document est rédigé en Français."
+    ];
+    const languageResult = await client.detectLanguage(languageInputArray);
+
+    languageResult.forEach(document => {
+        console.log(`ID: ${document.id}`);
+        console.log(`\tPrimary Language ${document.primaryLanguage.name}`)
+    });
+}
+languageDetection(textAnalyticsClient);
+```
+
+Run your code with `node index.js` in your console window.
+
+### Output
+
+```console
+ID: 0
+        Primary Language French
+```
+
+# [Version 2.1](#tab/version-2)
+
+Create a list of dictionary objects containing your documents. Call the client's [detectLanguage()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) method and get the returned [LanguageBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult). Then iterate through the results, and print each document's ID, and language.
 
 [!code-javascript[Language detection](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=languageDetection)]
 
@@ -258,10 +445,10 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## Named Entity Recognition (NER)
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.1 preview](#tab/version-3-1)
 
 > [!NOTE]
-> In version `3.0`:
+> In version `3.1`:
 > * Entity linking is a separate request than NER.
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeEntities()` method and get the `RecognizeEntitiesResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length, and score.
@@ -309,7 +496,7 @@ Document ID: 1
         Score: 0.25
 ```
 
-## Entity Linking
+### Entity Linking
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeLinkedEntities()` method and get the `RecognizeLinkedEntitiesResult` object. Iterate through the list of results, and print the entity name, ID, data source, url, and matches. Every object in `matches` array will contain offset, length, and score for that match.
 
@@ -363,12 +550,154 @@ Document ID: 0
                 Text: BASIC     Score: 0.33
 ```
 
-#### [Version 2.1](#tab/version-2)
+### Personally Identifying Information (PII) Recognition
+
+Create an array of strings containing the document you want to analyze. Call the client's `recognizePiiEntities()` method and get the `RecognizePIIEntitiesResult` object. Iterate through the list of results, and print the entity name, type, and score.
+
+```javascript
+async function piiRecognition(client) {
+
+    const documents = [
+        "The employee's phone number is (555) 555-5555."
+    ];
+
+    const results = await client.recognizePiiEntities(documents, "en");
+    for (const result of results) {
+        if (result.error === undefined) {
+            console.log("Redacted Text: ", result.redactedText);
+            console.log(" -- Recognized PII entities for input", result.id, "--");
+            for (const entity of result.entities) {
+                console.log(entity.text, ":", entity.category, "(Score:", entity.confidenceScore, ")");
+            }
+        } else {
+            console.error("Encountered an error:", result.error);
+        }
+    }
+}
+piiRecognition(textAnalyticsClient)
+```
+
+Run your code with `node index.js` in your console window.
+
+### Output
+
+```console
+Redacted Text:  The employee's phone number is **************.
+ -- Recognized PII entities for input 0 --
+(555) 555-5555 : Phone Number (Score: 0.8 )
+```
+
+# [Version 3.0](#tab/version-3)
+
+> [!NOTE]
+> In version `3.0`:
+> * Entity linking is a separate request than NER.
+
+Create an array of strings containing the document you want to analyze. Call the client's `recognizeEntities()` method and get the `RecognizeEntitiesResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length, and score.
+
+```javascript
+async function entityRecognition(client){
+
+    const entityInputs = [
+        "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800",
+        "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."
+    ];
+    const entityResults = await client.recognizeEntities(entityInputs);
+
+    entityResults.forEach(document => {
+        console.log(`Document ID: ${document.id}`);
+        document.entities.forEach(entity => {
+            console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
+            console.log(`\tScore: ${entity.confidenceScore}`);
+        });
+    });
+}
+entityRecognition(textAnalyticsClient);
+```
+
+Run your code with `node index.js` in your console window.
+
+### Output
+
+```console
+Document ID: 0
+        Name: Microsoft         Category: Organization  Subcategory: N/A
+        Score: 0.29
+        Name: Bill Gates        Category: Person        Subcategory: N/A
+        Score: 0.78
+        Name: Paul Allen        Category: Person        Subcategory: N/A
+        Score: 0.82
+        Name: April 4, 1975     Category: DateTime      Subcategory: Date
+        Score: 0.8
+        Name: 8800      Category: Quantity      Subcategory: Number
+        Score: 0.8
+Document ID: 1
+        Name: 21        Category: Quantity      Subcategory: Number
+        Score: 0.8
+        Name: Seattle   Category: Location      Subcategory: GPE
+        Score: 0.25
+```
+
+### Entity Linking
+
+Create an array of strings containing the document you want to analyze. Call the client's `recognizeLinkedEntities()` method and get the `RecognizeLinkedEntitiesResult` object. Iterate through the list of results, and print the entity name, ID, data source, url, and matches. Every object in `matches` array will contain offset, length, and score for that match.
+
+```javascript
+async function linkedEntityRecognition(client){
+
+    const linkedEntityInput = [
+        "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800. During his career at Microsoft, Gates held the positions of chairman, chief executive officer, president and chief software architect, while also being the largest individual shareholder until May 2014."
+    ];
+    const entityResults = await client.recognizeLinkedEntities(linkedEntityInput);
+
+    entityResults.forEach(document => {
+        console.log(`Document ID: ${document.id}`);
+        document.entities.forEach(entity => {
+            console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
+            console.log(`\tMatches:`)
+            entity.matches.forEach(match => {
+                console.log(`\t\tText: ${match.text} \tScore: ${match.confidenceScore.toFixed(2)}`);
+        })
+        });
+    });
+}
+linkedEntityRecognition(textAnalyticsClient);
+```
+
+Run your code with `node index.js` in your console window.
+
+### Output
+
+```console
+Document ID: 0
+        Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
+        Matches:
+                Text: Altair 8800       Score: 0.88
+        Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
+        Matches:
+                Text: Bill Gates        Score: 0.63
+                Text: Gates     Score: 0.63
+        Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
+        Matches:
+                Text: Paul Allen        Score: 0.60
+        Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
+        Matches:
+                Text: Microsoft         Score: 0.55
+                Text: Microsoft         Score: 0.55
+        Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
+        Matches:
+                Text: April 4   Score: 0.32
+        Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
+        Matches:
+                Text: BASIC     Score: 0.33
+```
+
+# [Version 2.1](#tab/version-2)
 
 > [!NOTE]
 > In version 2.1, entity linking is included in the NER response.
 
-Create a list of objects, containing your documents. Call the client's [entities()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) method and get the [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) object. Iterate through the list of results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
+Create a list of objects, containing your documents. Call the client's [entities()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) method and get the [EntitiesBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) object. Iterate through the list of results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
 
 [!code-javascript[Entity recognition](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=entityRecognition)]
 
@@ -408,7 +737,7 @@ Document ID: 2
 
 ## Key phrase extraction
 
-#### [Version 3.0](#tab/version-3)
+# [Version 3.1 preview](#tab/version-3-1)
 
 Create an array of strings containing the document you want to analyze. Call the client's `extractKeyPhrases()` method and get the returned `ExtractKeyPhrasesResult` object. Iterate through the results and print each document's ID, and any detected key phrases.
 
@@ -437,9 +766,38 @@ ID: 0
         Document Key Phrases: cat,veterinarian
 ```
 
-#### [Version 2.1](#tab/version-2)
+# [Version 3.0](#tab/version-3)
 
-Create a list of objects, containing your documents. Call the client's [keyPhrases()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) method and get the returned     [KeyPhraseBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) object. Iterate through the results and print each document's ID, and any detected key phrases.
+Create an array of strings containing the document you want to analyze. Call the client's `extractKeyPhrases()` method and get the returned `ExtractKeyPhrasesResult` object. Iterate through the results and print each document's ID, and any detected key phrases.
+
+```javascript
+async function keyPhraseExtraction(client){
+
+    const keyPhrasesInput = [
+        "My cat might need to see a veterinarian.",
+    ];
+    const keyPhraseResult = await client.extractKeyPhrases(keyPhrasesInput);
+    
+    keyPhraseResult.forEach(document => {
+        console.log(`ID: ${document.id}`);
+        console.log(`\tDocument Key Phrases: ${document.keyPhrases}`);
+    });
+}
+keyPhraseExtraction(textAnalyticsClient);
+```
+
+Run your code with `node index.js` in your console window.
+
+### Output
+
+```console
+ID: 0
+        Document Key Phrases: cat,veterinarian
+```
+
+# [Version 2.1](#tab/version-2)
+
+Create a list of objects, containing your documents. Call the client's [keyPhrases()](/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) method and get the returned     [KeyPhraseBatchResult](/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) object. Iterate through the results and print each document's ID, and any detected key phrases.
 
 [!code-javascript[Key phrase extraction](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=keyPhraseExtraction)]
 

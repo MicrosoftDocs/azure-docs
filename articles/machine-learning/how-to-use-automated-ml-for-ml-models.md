@@ -1,7 +1,7 @@
 ---
 title: Use AutoML to create models & deploy 
 titleSuffix: Azure Machine Learning
-description: Create, review, and deploy automated machine learning models with Azure Machine Learning.
+description: Create, review, and deploy automated machine learning models with the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ author: aniththa
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, automl
 ---
 
 # Create, review, and deploy automated machine learning models with Azure Machine Learning
@@ -131,14 +131,14 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
     Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not currently available for [certain forecasting algorithms](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
-    Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-models). <br> See the [supported models for each task type](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true).
+    Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-models). <br> See the [supported models for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
     Validation| Select one of the cross validation options to use in the training job. <br> [Learn more about cross validation](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Forecasting only supports k-fold cross validation.
     Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations.
 
 1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings** you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
 
-    ![Azure Machine Learning studio task type form](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
+    ![Screenshot shows the Select task type dialog box with View featurization settings called out.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
 ## Customize featurization
 
@@ -212,6 +212,6 @@ Now you have an operational web service to generate predictions! You can test th
 
 ## Next steps
 
-* [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).
+* [Learn how to consume a web service](./how-to-consume-web-service.md).
 * [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.

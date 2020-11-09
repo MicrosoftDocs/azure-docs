@@ -27,12 +27,16 @@
     href: roles.md
   - name: Advanced multistage attack detection
     href: fusion.md
+  - name: Bring your own machine learning platform
+    href: bring-your-own-ml.md
   - name: Extend Azure Sentinel across workspaces and tenants
     href: extend-sentinel-across-workspaces-tenants.md
   - name: Identify advanced threats with UEBA
     href: identify-threats-with-entity-behavior-analytics.md
   - name: Import threat intelligence into Azure Sentinel
     href: import-threat-intelligence.md
+  - name: Use external data with watchlists
+    href: watchlists.md
   - name: Normalize your data across tables
     href: normalization.md
   - name: Security
@@ -92,6 +96,8 @@
         href: connect-barracuda.md 
       - name: Barracuda CloudGen Firewall
         href: connect-barracuda-cloudgen-firewall.md
+      - name: Beyond Security beSECURE
+        href: connect-besecure.md
       - name: Citrix Analytics (Security)
         href: connect-citrix-analytics.md
       - name: F5 BIG-IP
@@ -144,6 +150,10 @@
             href: connect-checkpoint.md
           - name: Cisco ASA
             href: connect-cisco.md
+          - name: Citrix WAF
+            href: connect-citrix-waf.md
+          - name: CyberArk Enterprise Password Vault
+            href: connect-cyberark.md
           - name: ExtraHop Reveal(x)
             href: connect-extrahop.md
           - name: F5 ASM
@@ -170,7 +180,7 @@
       href: connect-azure-stack.md  
   - name: Enable User and Entity Behavior Analytics
     href: enable-entity-behavior-analytics.md
-  - name: Work with multiple tenants (MSSP)
+  - name: Manage multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
   - name: Work with incidents in multiple workspaces
     href: multiple-workspace-view.md

@@ -1,12 +1,14 @@
 ---
 title: "Tutorial: Create an FAQ bot with Azure Bot Service"
 description: In this tutorial, create a no code FAQ Bot with QnA Maker and Azure Bot Service.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
 ---
 
 # Tutorial: Create an FAQ bot with Azure Bot Service
-Create an FAQ Bot with QnA Maker and Azure [Bot Service](https://azure.microsoft.com/en-us/services/bot-service/) with no code.
+Create an FAQ Bot with QnA Maker and Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) with no code.
 
 In this tutorial, you learn how to:
 
@@ -21,7 +23,15 @@ In this tutorial, you learn how to:
 
 Follow the [quickstart](../Quickstarts/create-publish-knowledge-base.md) to create a knowledge base. Once the knowledge base has been successfully published, you will reach the below page.
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 ![Screenshot of successful publishing](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
+
+# [QnA Maker managed (preview release)](#tab/v2)
+
+![Screenshot of successful publishing managed](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint-managed.png)
+
+---
 
 ## Create a bot
 
@@ -34,7 +44,16 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
 1. In the QnA Maker portal, on the **Publish** page, select **Create bot**. This button appears only after you've published the knowledge base.
 
+     # [QnA Maker GA (stable release)](#tab/v1)
+
     ![Screenshot of creating a bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
+
+    # [QnA Maker managed (preview release)](#tab/v2)
+
+    ![Screenshot of creating a bot managed preview](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page-managed.png)
+
+    ---
+    
 
 1. A new browser tab opens for the Azure portal, with the Azure Bot Service's creation page. Configure the Azure bot service. The bot and QnA Maker can share the web app service plan, but can't share the web app. This means the **app name** for the bot must be different from the app name for the QnA Maker service.
 

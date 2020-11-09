@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
 ---
@@ -57,11 +57,11 @@ Before configuring Symantec Web Security Service (WSS) for automatic user provis
 
 3.  Select **Third-Party Users & Groups Sync**. 
 
-	![Symantec Web Security Service](media/symantec-web-security-service/third-party-users.png)
+	![Screenshot of the Third-Party Users & Groups Sync option.](media/symantec-web-security-service/third-party-users.png)
 
 4.  Copy the **SCIM URL** and **Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Symantec Web Security Service (WSS)  		application in the Azure portal.
 
-	![Symantec Web Security Service](media/symantec-web-security-service/scim.png)
+	![Screenshot of the New Integration dialog box with the S C I M U R L and Token text boxes called out.](media/symantec-web-security-service/scim.png)
 
 ## Add Symantec Web Security Service (WSS) from the gallery
 
@@ -104,11 +104,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the Admin Credentials section, input the **SCIM URL** and **Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Symantec Web Security Service. If the connection fails, ensure your Symantec Web Security Service (WSS) account has Admin permissions and try again.
 
@@ -122,19 +122,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Symantec Web Security Service (WSS)**.
 
-	![Symantec Web Security Service (WSS) User Mappings](media/symantec-web-security-service/usermapping.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Users to Symantec Web Security Service W S S option called out.](media/symantec-web-security-service/usermapping.png)
 
 9. Review the user attributes that are synchronized from Azure AD to Symantec Web Security Service (WSS) in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Symantec Web Security Service (WSS) for update operations. Select the **Save** button to commit any changes.
 
-	![Symantec Web Security Service (WSS) User Mappings](media/symantec-web-security-service/userattribute.png)
+	![Screenshot of the Attribution Mapping section showing 16 matching properties.](media/symantec-web-security-service/userattribute.png)
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Symantec Web Security Service**.
 
-	![Symantec Web Security Service (WSS) User Mappings](media/symantec-web-security-service/groupmapping.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Groups to Symantec Web Security Service W S S option called out.](media/symantec-web-security-service/groupmapping.png)
 
 11. Review the group attributes that are synchronized from Azure AD to Symantec Web Security Service (WSS) in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Symantec Web Security Service (WSS) for update operations. Select the **Save** button to commit any changes.
 
-	![Symantec Web Security Service (WSS) User Mappings](media/symantec-web-security-service/groupattribute.png)
+	![Screenshot of the Attribution Mapping section showing three matching properties.](media/symantec-web-security-service/groupattribute.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

@@ -99,6 +99,13 @@ landingContent:
           url: https://aka.ms/adadvisorsjoin
         - text: Featured user-generated content
           url: user-generated-content.md
+  
+- title: Help and feedback
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
 
 - title: Reference
   linkLists:
@@ -115,6 +122,6 @@ landingContent:
         - text: Node.js SDK
           url: https://go.microsoft.com/fwlink/?linkid=2090788
         - text: Azure PowerShell
-          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+          url: /powershell/module/az.cognitiveservices/#cognitive_services
         - text: Azure CLI
           url: /cli/azure/cognitiveservices#az-cognitiveservices-list

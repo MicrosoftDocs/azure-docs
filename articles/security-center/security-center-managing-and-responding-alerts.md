@@ -7,7 +7,7 @@ author: memildin
 manager: rkarlin
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -75,4 +75,4 @@ Security Center automatically collects, analyzes, and integrates log data from y
 In this document, you learned how to view security alerts. See the following pages for related material:
 
 - [Configure alert suppression rules](alerts-suppression-rules.md)
-- [Automate responses to alerts and recommendations with workflow automation](workflow-automation.md)
+- [Automate responses to Security Center triggers](workflow-automation.md)

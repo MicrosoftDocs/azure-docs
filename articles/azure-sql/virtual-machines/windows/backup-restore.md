@@ -55,7 +55,7 @@ For more information on how to configure Automated Backup for SQL VMs, see one o
 
 ## <a id="azbackup"></a> Azure Backup for SQL VMs
 
-[Azure Backup](/azure/backup/) provides an Enterprise class backup capability for SQL Server on Azure VMs. All backups are stored and managed in a Recovery Services vault. There are several advantages that this solution provides, especially for Enterprises:
+[Azure Backup](../../../backup/index.yml) provides an Enterprise class backup capability for SQL Server on Azure VMs. All backups are stored and managed in a Recovery Services vault. There are several advantages that this solution provides, especially for Enterprises:
 
 - **Zero-infrastructure backup**: You do not have to manage backup servers or storage locations.
 - **Scale**: Protect many SQL VMs and thousands of databases.
@@ -78,19 +78,19 @@ This Azure Backup solution for SQL VMs is generally available. For more informat
 
 If you want to manually manage backup and restore operations on your SQL VMs, there are several options depending on the version of SQL Server you are using. For an overview of backup and restore, see one of the following articles based on your version of SQL Server:
 
-- [Backup and restore for SQL Server 2016 and later](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
-- [Backup and restore for SQL Server 2014](https://msdn.microsoft.com/library/ms187048%28v=sql.120%29.aspx)
-- [Backup and restore for SQL Server 2012](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx)
-- [Backup and restore for SQL Server SQL Server 2008 R2](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)
-- [Backup and restore for SQL Server 2008](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx)
+- [Backup and restore for SQL Server 2016 and later](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
+- [Backup and restore for SQL Server 2014](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases?viewFallbackFrom=sql-server-2014)
+- [Backup and restore for SQL Server 2012](/previous-versions/sql/sql-server-2012/ms187048(v=sql.110))
+- [Backup and restore for SQL Server SQL Server 2008 R2](/previous-versions/sql/sql-server-2008-r2/ms187048(v=sql.105))
+- [Backup and restore for SQL Server 2008](/previous-versions/sql/sql-server-2008/ms187048(v=sql.100))
 
 The following sections describe several manual backup and restore options in more detail.
 
 ### Backup to attached disks
 
-For SQL Server on Azure VMs, you can use native backup and restore techniques using attached disks on the VM for the destination of the backup files. However, there is a limit to the number of disks you can attach to an Azure virtual machine, based on the [size of the virtual machine](../../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). There is also the overhead of disk management to consider.
+For SQL Server on Azure VMs, you can use native backup and restore techniques using attached disks on the VM for the destination of the backup files. However, there is a limit to the number of disks you can attach to an Azure virtual machine, based on the [size of the virtual machine](../../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json). There is also the overhead of disk management to consider.
 
-For an example of how to manually create a full database backup using SQL Server Management Studio (SSMS) or Transact-SQL, see [Create a Full Database Backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
+For an example of how to manually create a full database backup using SQL Server Management Studio (SSMS) or Transact-SQL, see [Create a Full Database Backup](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server).
 
 ### Backup to URL
 
@@ -99,13 +99,13 @@ Beginning with SQL Server 2012 SP1 CU2, you can back up and restore directly to 
 | 2016 enhancement | Details |
 | --- | --- |
 | **Striping** |When backing up to Microsoft Azure blob storage, SQL Server 2016 supports backing up to multiple blobs to enable backing up large databases, up to a maximum of 12.8 TB. |
-| **Snapshot Backup** |Through the use of Azure snapshots, SQL Server File-Snapshot Backup provides nearly instantaneous backups and rapid restores for database files stored using the Azure Blob storage service. This capability enables you to simplify your backup and restore policies. File-snapshot backup also supports point in time restore. For more information, see [Snapshot Backups for Database Files in Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
+| **Snapshot Backup** |Through the use of Azure snapshots, SQL Server File-Snapshot Backup provides nearly instantaneous backups and rapid restores for database files stored using the Azure Blob storage service. This capability enables you to simplify your backup and restore policies. File-snapshot backup also supports point in time restore. For more information, see [Snapshot Backups for Database Files in Azure](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
 
 For more information, see the one of the following articles based on your version of SQL Server:
 
-- **SQL Server 2016/2017**: [SQL Server Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
-- **SQL Server 2014**: [SQL Server 2014 Backup to URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)
-- **SQL Server 2012**: [SQL Server 2012 Backup to URL](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx)
+- **SQL Server 2016/2017**: [SQL Server Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+- **SQL Server 2014**: [SQL Server 2014 Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?viewFallbackFrom=sql-server-2014)
+- **SQL Server 2012**: [SQL Server 2012 Backup to URL](/previous-versions/sql/sql-server-2012/jj919148(v=sql.110))
 
 ### Managed Backup
 
@@ -115,8 +115,8 @@ Beginning in SQL Server 2016, Managed Backup got additional options for scheduli
 
 For more information, see one of the following articles based on your version of SQL Server:
 
-- [Managed Backup to Microsoft Azure for SQL Server 2016 and later](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure)
-- [Managed Backup to Microsoft Azure for SQL Server 2014](https://msdn.microsoft.com/library/dn449496%28v=sql.120%29.aspx)
+- [Managed Backup to Microsoft Azure for SQL Server 2016 and later](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure)
+- [Managed Backup to Microsoft Azure for SQL Server 2014](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?viewFallbackFrom=sql-server-2014)
 
 ## Decision matrix
 
@@ -124,23 +124,23 @@ The following table summarizes the capabilities of each backup and restore optio
 
 | Option | Automated Backup | Azure Backup for SQL | Manual backup |
 |---|---|---|---|
-| Requires additional Azure service |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Configure backup policy in Azure portal | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |   |
-| Restore databases in Azure portal |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Manage multiple servers in one dashboard |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Point-in-time restore | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |
-| 15-minute Recovery Point Objective (RPO) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |
-| Short-term backup retention policy (days) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |   |
-| Long-term backup retention policy (months, years) |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Built-in support for SQL Server Always On |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Backup to Azure Storage account(s) | ![Yes](./media/backup-restore/yes.png)(automatic) | ![Yes](./media/backup-restore/yes.png)(automatic) | ![Yes](./media/backup-restore/yes.png)(customer managed) |
-| Management of storage and backup files | | ![Yes](./media/backup-restore/yes.png) |  |
-| Backup to attached disks on the VM |   |   | ![Yes](./media/backup-restore/yes.png) |
-| Central customizable backup reports |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Consolidated email alerts for failures |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Customize monitoring based on Azure Monitor logs |   | ![Yes](./media/backup-restore/yes.png) |   |
-| Monitor backup jobs with SSMS or Transact-SQL scripts | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) | ![Yes](./media/backup-restore/yes.png) |
-| Restore databases with SSMS or Transact-SQL scripts | ![Yes](./media/backup-restore/yes.png) |   | ![Yes](./media/backup-restore/yes.png) |
+| Requires additional Azure service |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Configure backup policy in Azure portal | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Restore databases in Azure portal |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Manage multiple servers in one dashboard |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Point-in-time restore | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) |
+| 15-minute Recovery Point Objective (RPO) | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) |
+| Short-term backup retention policy (days) | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Long-term backup retention policy (months, years) |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Built-in support for SQL Server Always On |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Backup to Azure Storage account(s) | ![Green checkmark.](./media/backup-restore/yes.png)(automatic) | ![Green checkmark.](./media/backup-restore/yes.png)(automatic) | ![Green checkmark.](./media/backup-restore/yes.png)(customer managed) |
+| Management of storage and backup files | | ![Green checkmark.](./media/backup-restore/yes.png) |  |
+| Backup to attached disks on the VM |   |   | ![Green checkmark.](./media/backup-restore/yes.png) |
+| Central customizable backup reports |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Consolidated email alerts for failures |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Customize monitoring based on Azure Monitor logs |   | ![Green checkmark.](./media/backup-restore/yes.png) |   |
+| Monitor backup jobs with SSMS or Transact-SQL scripts | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) | ![Green checkmark.](./media/backup-restore/yes.png) |
+| Restore databases with SSMS or Transact-SQL scripts | ![Green checkmark.](./media/backup-restore/yes.png) |   | ![Green checkmark.](./media/backup-restore/yes.png) |
 
 ## Next steps
 

@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Azure Toolkit for IntelliJ (Spark application)
-description: Tutorial - Use the Azure Toolkit for IntelliJ to develop Spark applications, which are written in Scala, and submit them to an Apache Spark pool (preview).
+description: Tutorial - Use the Azure Toolkit for IntelliJ to develop Spark applications, which are written in Scala, and submit them to a serverless Apache Spark pool (preview).
 services: synapse-analytics 
 author: hrasheed-msft
 ms.author: jejiang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
@@ -13,7 +13,7 @@ ms.date: 04/15/2020
 
 # Tutorial: Create an Apache Spark application with IntelliJ using a Synapse workspace
 
-This tutorial shows you how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a Spark pool (preview) directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
+This tutorial shows you how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a serverless Apache Spark pool (preview) directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
 
 - Develop and submit a Scala Spark application on a Spark pool.
 - Access your Spark pools resources.
@@ -140,7 +140,7 @@ After creating a Scala application, you can remotely run it.
     |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**) and choosing another class.|
     |Job configurations|You can change the default key and values. For more information, see [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Command-line arguments|You can enter arguments separated by space for the main class if needed.|
-    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen2 cluster. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) and [How to upload resources to cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen2 cluster. For more information: [Apache Spark Configuration]https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) and [How to upload resources to cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Job Upload Storage|Expand to reveal additional options.|
     |Storage Type|Select **Use Azure Blob to upload** or **Use cluster default storage account to upload** from the drop-down list.|
     |Storage Account|Enter your storage account.|

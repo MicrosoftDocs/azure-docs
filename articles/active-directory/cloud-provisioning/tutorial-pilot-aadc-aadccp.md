@@ -36,7 +36,7 @@ The following are prerequisites required for completing this tutorial
 - A test environment with Azure AD Connect sync version 1.4.32.0 or later
 - An OU or group that is in scope of sync and can be used the pilot. We recommend starting with a small set of objects.
 - A server running Windows Server 2012 R2 or later that will host the provisioning agent.  This cannot be the same server as the Azure AD Connect server.
-- Source anchor for AAD Connect sync should be either *objectGuid* or *ms-ds-consistencyGUID*
+- Source anchor for Azure AD Connect sync should be either *objectGuid* or *ms-ds-consistencyGUID*
 
 ## Update Azure AD Connect
 
@@ -50,7 +50,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 3.  Run `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
 >[!NOTE] 
->If you are running your own custom scheduler for AAD Connect sync, then please disable the scheduler. 
+>If you are running your own custom scheduler for Azure AD Connect sync, then please disable the scheduler. 
 
 ## Create custom user inbound rule
 
@@ -58,7 +58,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
  ![Synchronization Rule Editor Menu](media/how-to-cloud-custom-user-rule/user8.png)</br>
  
  2. Select **Inbound** from the drop-down list for Direction and click on **Add new rule**.
- ![Custom rule](media/how-to-cloud-custom-user-rule/user1.png)</br>
+ ![Screenshot that shows the "View and manage your synchronization rules" window with "Inbound" and the "Add new rule" button selected.](media/how-to-cloud-custom-user-rule/user1.png)</br>
  
  3. On the **Description** page, enter the following and click **Next**:
 
@@ -70,7 +70,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
     **Link Type:** Join<br>
     **Precedence:** Provide a value that is unique in the system<br>
     **Tag:** Leave this empty<br>
-    ![Custom rule](media/how-to-cloud-custom-user-rule/user2.png)</br>
+    ![Screenshot that shows the "Create inbound synchronization rule - Description" page with values entered.](media/how-to-cloud-custom-user-rule/user2.png)</br>
  
  4.	On the **Scoping filter** page, enter the OU or security group that you want the pilot based off.  To filter on OU, add the OU portion of the distinguished name. This rule will be applied to all users who are in that OU.  So, if DN ends with "OU=CPUsers,DC=contoso,DC=com, you would add this filter.  Then click **Next**. 
 
@@ -79,31 +79,31 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
     |Scoping OU|DN|ENDSWITH|Distinguished name of the OU.|
     |Scoping group||ISMEMBEROF|Distinguished name of the security group.|
 
-    ![Custom rule](media/how-to-cloud-custom-user-rule/user3.png)</br>
+    ![Screenshot that shows the "Create inbound synchronization rule - Scoping filter" page with a scoping filter value entered.](media/how-to-cloud-custom-user-rule/user3.png)</br>
  
  5.	On the **Join** rules page, click **Next**.
  6. On the **Transformations** page, add a Constant transformation: flow True to cloudNoFlow attribute. Click **Add**.
- ![Custom rule](media/how-to-cloud-custom-user-rule/user4.png)</br>
+ ![Screenshot that shows the "Create inbound synchronization rule - Transformations" page with a "Constant transformation" flow added.](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
 Same steps need to be followed for all object types (user, group and contact). Repeat steps per configured AD Connector / per AD forest. 
 
 ## Create custom user outbound rule
 
  1. Select **Outbound** from the drop-down list for Direction and click on **Add rule**.
- ![Custom rule](media/how-to-cloud-custom-user-rule/user5.png)</br>
+ ![Screenshot that shows the "Outbound" Direction selected and the "Add new rule" button highlighted.](media/how-to-cloud-custom-user-rule/user5.png)</br>
  
  2. On the **Description** page, enter the following and click **Next**:
 
     **Name:** Give the rule a meaningful name<br>
     **Description:** Add a meaningful description<br>
-    **Connected System:** Choose the AAD connector that you are writing the custom sync rule for<br>
+    **Connected System:** Choose the Azure AD connector that you are writing the custom sync rule for<br>
     **Connected System Object Type:** User<br>
     **Metaverse Object Type:** Person<br>
     **Link Type:** JoinNoFlow<br>
     **Precedence:** Provide a value that is unique in the system<br>
     **Tag:** Leave this empty<br>
     
-    ![Custom rule](media/how-to-cloud-custom-user-rule/user6.png)</br>
+    ![Screenshot that shows the "Description" page with properties entered.](media/how-to-cloud-custom-user-rule/user6.png)</br>
  
  3. On the **Scoping filter** page, choose **cloudNoFlow** equal **True**. Then click **Next**.
  ![Custom rule](media/how-to-cloud-custom-user-rule/user7.png)</br>
@@ -118,14 +118,14 @@ Same steps need to be followed for all object types (user, group and contact).
 2. Download the Azure AD Connect cloud provisioning agent using the steps outlined [here](how-to-install.md#install-the-agent).
 3. Run the Azure AD Connect cloud provisioning (AADConnectProvisioningAgent.Installer)
 3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
-![Welcome screen](media/how-to-install/install1.png)</br>
+![Screenshot that shows the "Microsoft Azure A D Connect Provisioning Agent" splash screen.](media/how-to-install/install1.png)</br>
 
 4. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.
 5. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory administrator account.  This operation will add your on-premises directory.  Click **Next**.</br>
-![Welcome screen](media/how-to-install/install3.png)</br>
+![Screenshot that shows the "Connect Active Directory" screen with a directory value entered.](media/how-to-install/install3.png)</br>
 
 6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
-![Welcome screen](media/how-to-install/install4.png)</br>
+![Screenshot that shows the "Configuration complete" screen with the "Confirm" button selected.](media/how-to-install/install4.png)</br>
 
 7. Once this operation completes you should see a notice **Your was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install5.png)</br>

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: quickstart
 author: danimir
 ms.author: danil
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/26/2019
 ---
 # Quickstart: Create a managed instance of SQL Managed Instance
@@ -87,7 +87,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   | **Collation** | Choose the collation that you want to use for your managed instance. If you migrate databases from SQL Server, check the source collation by using `SELECT SERVERPROPERTY(N'Collation')` and use that value.| For information about collations, see [Set or change the server collation](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
+   | **Collation** | Choose the collation that you want to use for your managed instance. If you migrate databases from SQL Server, check the source collation by using `SELECT SERVERPROPERTY(N'Collation')` and use that value.| For information about collations, see [Set or change the server collation](/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Time zone** | Select the time zone that managed instance will observe.|For more information, see [Time zones](timezones-overview.md).|
    | **Use as failover secondary** | Select **Yes**. | Enable this option to use the managed instance as a failover group secondary.|
    | **Primary SQL Managed Instance** (if **Use as failover secondary** is set to **Yes**) | Choose an existing primary managed instance that will be joined in the same DNS zone with the managed instance you're creating. | This step will enable post-creation configuration of the failover group. For more information, see [Tutorial: Add a managed instance to a failover group](failover-group-add-instance-tutorial.md).|

@@ -1,11 +1,9 @@
 ---
 title: Understanding periodic backup configuration
 description: Use Service Fabric's periodic backup and restore feature to configure periodic backup of your Reliable stateful services or Reliable Actors.
-author: hrushib
 
 ms.topic: article
 ms.date: 2/01/2019
-ms.author: hrushib
 ---
 # Understanding periodic backup configuration in Azure Service Fabric
 
@@ -20,6 +18,9 @@ Configuring periodic backup of your Reliable stateful services or Reliable Actor
 A backup policy consists of the following configurations:
 
 * **Auto restore on data loss**: Specifies whether to trigger restore automatically using the latest available backup in case the partition experiences a data loss event.
+> [!NOTE]
+> It is recommended to NOT set Auto Restore in production clusters
+>
 
 * **Max incremental backups**: Defines the maximum number of incremental backups to be taken between two full backups. Max incremental backups specify the upper limit. A full backup may be taken before specified number of incremental backups are completed in one of the following conditions
 
@@ -83,6 +84,9 @@ A backup policy consists of the following configurations:
             "ContainerName": "BackupContainer"
         }
         ```
+> [!NOTE]
+> Backup restore Service does not work with v1 Azure storage
+>
 
     2. **File share**: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premises. Description for this storage type requires file share path where backups need to be uploaded. Access to the file share can be configured using one of the following options
         1. _Integrated Windows Authentication_, where the access to file share is provided to all computers belonging to the Service Fabric cluster. In this case, set following fields to configure _file-share_ based backup storage.
@@ -126,6 +130,10 @@ A backup policy consists of the following configurations:
 
 ## Enable periodic backup
 After defining backup policy to fulfill data backup requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.
+
+> [!NOTE]
+> Ensure that there are no application upgrades in progress before enabling backup
+>
 
 ### Hierarchical propagation of backup policy
 In Service Fabric, relation between application, service, and partitions is hierarchical as explained in [Application model](./service-fabric-application-model.md). Backup policy can be associated either with an _application_, _service_, or a _partition_ in the hierarchy. Backup policy propagates hierarchically to next level. Assuming there is only one backup policy created and associated with an _application_, all stateful partitions belonging to all _Reliable stateful services_ and _Reliable Actors_ of the _application_ will be backed-up using the backup policy. Or if the backup policy is associated with a _Reliable stateful service_, all its partitions will be backed-up using the backup policy.
@@ -183,6 +191,9 @@ Backup policies can be disabled when there is no need to backup data. Backup pol
         "CleanBackup": true 
     }
     ```
+> [!NOTE]
+> Ensure that there are no application upgrades in progress before disabling backup
+>
 
 ## Suspend & resume backup
 Certain situation may demand temporary suspension of periodic backup of data. In such situation, depending on the requirement, suspend backup API may be used at an _Application_, _Service_, or _Partition_. Periodic backup suspension is transitive over subtree of the application's hierarchy from the point it is applied. 
@@ -210,6 +221,10 @@ While disable can be invoked only at a level which was earlier enabled for backu
 The service partition may lose data due to unexpected failures. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted or wiped.
 
 When Service Fabric detects that the partition is in data loss, it invokes `OnDataLossAsync` interface method on the partition and expects partition to take the required action to come out of data loss. In this situation, if the effective backup policy at the partition has `AutoRestoreOnDataLoss` flag set to `true` then the restore gets triggered automatically using latest available backup for this partition.
+
+> [!NOTE]
+> It is recommended to NOT set Auto Restore in production clusters
+>
 
 ## Get backup configuration
 Separate APIs are made available to get backup configuration information at an _application_, _service_, and _partition_ scope. [Get Application Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Get Service Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo), and [Get Partition Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) are these APIs respectively. Mainly, these APIs return the applicable backup policy, scope at which the backup policy is applied and backup suspension details. Following is brief description about returned results of these APIs.

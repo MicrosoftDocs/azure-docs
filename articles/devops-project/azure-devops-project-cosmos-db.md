@@ -8,7 +8,7 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Deploy Node.js apps powered by Azure Cosmos DB with DevOps Starter
@@ -162,6 +162,4 @@ You can modify these build and release pipelines to meet the needs of your team.
 > * Commit changes to Git and automatically deploy them to Azure
 > * Clean up resources
 
-See [Define your multi-stage continuous deployment (CD) pipeline](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) for more information and next steps.
-
-
+See [Define your multi-stage continuous deployment (CD) pipeline](/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) for more information and next steps.
