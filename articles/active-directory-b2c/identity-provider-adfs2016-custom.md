@@ -71,7 +71,7 @@ You can define an AD FS account as a claims provider by adding it to the **Claim
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
-            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name"/>
+            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"/>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="contoso.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
           </OutputClaims>
@@ -194,8 +194,7 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
     | E-Mail-Address | email |
     | Display-Name | name |
 
-    Note that these names will not display in the outgoing claim type dropdown. You need to manually type them in. (The dropdown is actually editable).
-
+    Note that these names will not display in the outgoing claim type dropdown. You need to manually type them in. (The dropdown is actually editable). The exception here is Name. It will take the existing one and that will issue the claim with Name Space. Still, that is already covered by the Output claim on the policy. 
 12.  Based on your certificate type, you may need to set the HASH algorithm. On the relying party trust (B2C Demo) properties window, select the **Advanced** tab and change the **Secure hash algorithm** to `SHA-256`, and click **Ok**.
 13. In Server Manager, select **Tools**, and then select **AD FS Management**.
 14. Select the relying party trust you created, select **Update from Federation Metadata**, and then click **Update**.
