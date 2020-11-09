@@ -3,7 +3,7 @@ title: Windows Virtual Desktop MSIX app attach portal preview - Azure
 description: How to set up MSIX app attach for Windows Virtual Desktop using the Azure portal.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 11/23/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -164,28 +164,27 @@ To publish the apps:
       > [!div class="mx-imgBorder"]
       > ![A screenshot of a customer selecting MSIX package from the application source drop-down menu. MSIX package is highlighted in red.](media/select-source.png)
     
-    - If you're using Remote app group, choose one of the following options:
+    - If you're using a remote app group, choose one of the following options:
+        
         - Start menu
         - App path
         - MSIX package
 
     - For **Application name**, enter a descriptive name for the application.
 
-6. Configure these optional features, if you want:
+    You can also configure the following optional features:
    
-   - For **Display name**, enter a new name for the package that your users will see.
+    - For **Display name**, enter a new name for the package that your users will see.
 
-   - For **Description**, enter a short description of the app package.
+    - For **Description**, enter a short description of the app package.
 
-   - If you're using a remote app group, you can also configure these options:
+    - If you're using a remote app group, you can also configure these options:
 
         - **Icon path**
-
         - **Icon index**
-
         - **Show in web feed**
 
-7. When you're done, select **Save**.
+6. When you're done, select **Save**.
 
 >[!NOTE]
 >When a user is assigned to remote app group and desktop app group from the same host pool the desktop app group will be displayed in the feed.

@@ -3,7 +3,7 @@ title: Configure Windows Virtual Desktop MSIX app attach PowerShell scripts - Az
 description: How to configure MSIX app attach for Windows Virtual Desktop with PowerShell scripts.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 11/23/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -17,6 +17,8 @@ manager: lizross
 This topic will walk you through how to set up PowerShell scripts for MSIX app attach.
 
 ## Install certificates
+
+You must install certificates on all session hosts in the host pool that will host the aps from your MSIX app attach packages.
 
 If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
 
