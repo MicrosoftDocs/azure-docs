@@ -407,7 +407,7 @@ For more information, create a [support request for sponsorship activation](http
 
 ## Conversion to work or school account authentication
 
-Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account (which uses Active Directory in Azure) authentication type.
+Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account (which uses Azure Active Directory) authentication type.
 
 To begin:
 
@@ -449,7 +449,7 @@ No, an account owner can only be associated to a single department. The policy h
 
 ### Can an Azure account owner be listed as a security group?
 
-No, a subscription owner must be a unique Microsoft account (MSA) or Azure active directory (AAD) authentication. To account for succession within your organization, you may consider creating generic accounts and using AAD to manage subscription access.
+No, a subscription owner must be a unique Microsoft account (MSA) or Azure Active Directory (Azure AD) authentication. To account for succession within your organization, you may consider creating generic accounts and using Azure AD to manage subscription access.
 
 ### Can an individual user own multiple subscriptions?
 
@@ -484,7 +484,7 @@ To create an enterprise Azure offer type subscription, you must be entitled in t
 - **Resource quantity consumed**: The quantity of an individual Azure service that was used in a month.
 - **Service administrator**: The person who accesses and manages subscriptions and development projects on the Azure Enterprise portal.
 - **Subscription**: Represents an Azure Enterprise portal subscription and is a container of Azure services managed by the same service administrator.
-- **Work or school account**: For organizations that have set up active directory with federation to the cloud and all accounts are on a single tenant.
+- **Work or school account**: For organizations that have set up Azure Active Directory with federation to the cloud and all accounts are on a single tenant.
 
 ### Enrollment statuses
 
