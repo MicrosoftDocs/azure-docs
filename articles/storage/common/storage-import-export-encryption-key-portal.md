@@ -32,9 +32,9 @@ Before you begin, make sure:
 
     - **Soft delete** and **Do not purge** are set on your existing Key Vault. These properties are not enabled by default. To enable these properties, see the sections titled **Enabling soft-delete** and **Enabling Purge Protection** in one of the following articles:
 
-        - [How to use soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md).
-        - [How to use soft-delete with CLI](../../key-vault/general/soft-delete-cli.md).
-    - The existing key vault should have an RSA key of 2048 size or more. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets, and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+        - [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md).
+        - [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md).
+    - The existing key vault should have an RSA key of 2048 size or more. For more information about keys, see [About keys](../../key-vault/keys/about-keys.md).
     - Key vault must be in the same region as the storage account for your data.  
     - If you don't have an existing Azure Key Vault, you can also create it inline as described in the following section.
 
@@ -97,8 +97,8 @@ If you receive any errors related to your customer managed key, use the followin
 | CmkErrorAccessRevoked | Access to the customer managed key is revoked.                                                       | Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Access policy has Get, Wrap, and Unwrap permissions enabled.</li><li>If key vault is in a VNet behind the firewall, check if **Allow Microsoft Trusted Services** is enabled.</li><li>Check if the MSI of the job resource was reset to `None` using APIs.<br>If yes, then Set the value back to `Identity = SystemAssigned`. This recreates the identity for the job resource.<br>Once the new identity has been created, enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's access policy</li></ol>                                                                                            |
 | CmkErrorKeyDisabled      | The customer managed key is disabled.                                         | Yes, by enabling the key version     |
 | CmkErrorKeyNotFound      | Cannot find the customer managed key. | Yes, if the key has been deleted but it is still within the purge duration, using [Undo Key vault key removal](/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>Else, <ol><li>Yes, if the customer has the key backed-up and restores it.</li><li>No, otherwise.</li></ol>
-| CmkErrorVaultNotFound |Cannot find the key vault of the customer managed key. |   If the key vault has been deleted:<ol><li>Yes, if it is in the purge-protection duration, using the steps at [Recover a key vault](/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>No, if it is beyond the purge-protection duration.</li></ol><br>Else if the key vault was migrated to a different tenant, yes, it can be recovered using one of the below steps:<ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity = None` and then set the value back to `Identity = SystemAssigned`. This deletes and recreates the identity once the new identity has been created. Enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's Access policy.</li></ol>|
+| CmkErrorVaultNotFound |Cannot find the key vault of the customer managed key. |   If the key vault has been deleted:<ol><li>Yes, if it is in the purge-protection duration, using the steps at [Recover a key vault](../../key-vault/general/soft-delete-overview.md#key-vault-recovery).</li><li>No, if it is beyond the purge-protection duration.</li></ol><br>Else if the key vault was migrated to a different tenant, yes, it can be recovered using one of the below steps:<ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity = None` and then set the value back to `Identity = SystemAssigned`. This deletes and recreates the identity once the new identity has been created. Enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's Access policy.</li></ol>|
 
 ## Next steps
 
-- [What is Azure Key Vault](/azure/key-vault/key-vault-overview)?
+- [What is Azure Key Vault](../../key-vault/general/overview.md)?

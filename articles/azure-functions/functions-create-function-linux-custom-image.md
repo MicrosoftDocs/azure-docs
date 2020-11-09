@@ -3,7 +3,7 @@ title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: "devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell"
+ms.custom: "devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
 zone_pivot_groups: programming-languages-set-functions
 ---
 

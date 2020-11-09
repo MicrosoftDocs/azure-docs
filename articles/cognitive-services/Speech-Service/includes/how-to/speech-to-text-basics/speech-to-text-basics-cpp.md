@@ -31,7 +31,7 @@ To call the Speech service using the Speech SDK, you need to create a [`SpeechCo
 using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
 
-auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 ```
 
 There are a few other ways that you can initialize a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig):

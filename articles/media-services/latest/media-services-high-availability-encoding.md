@@ -22,7 +22,7 @@ ms.author: inhenkel
 
 ## High availability for VOD
 
-There is a high availability design pattern called [Geodes](/azure/architecture/patterns/geodes) in the Azure Architecture documentation. It describes how duplicate resources are deployed to different geographic regions to provide scalability and resiliency.  You can use Azure services to create such an architecture to cover many high availability design considerations such as redundancy, health monitoring, load balancing, and data backup and recovery.  One such architecture is described below with details on each service used in the solution as well as how the individual services can be used to create a high availability architecture for your VOD application.
+There is a high availability design pattern called [Geodes](https://docs.microsoft.com/azure/architecture/patterns/geodes) in the Azure Architecture documentation. It describes how duplicate resources are deployed to different geographic regions to provide scalability and resiliency.  You can use Azure services to create such an architecture to cover many high availability design considerations such as redundancy, health monitoring, load balancing, and data backup and recovery.  One such architecture is described below with details on each service used in the solution as well as how the individual services can be used to create a high availability architecture for your VOD application.
 
 ### Sample
 
@@ -83,4 +83,4 @@ This high-level diagram shows the architecture of the sample provided to get you
 
 ## Next steps
 
-* Check out [code samples](/samples/browse/?products=azure-media-services)
+* Check out [code samples](https://docs.microsoft.com/samples/browse/?products=azure-media-services)

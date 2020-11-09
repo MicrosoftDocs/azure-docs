@@ -64,6 +64,8 @@
       href: cdn-create-endpoint-how-to.md   
     - name: Manage by using Azure PowerShell
       href: cdn-manage-powershell.md
+    - name: Onboard a root or apex domain
+      href: onboard-apex-domain.md
     - name: Restrict access by country or region
       href: cdn-restrict-access-by-country.md
     - name: Improve performance by compressing files
@@ -187,7 +189,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-cdn.html
+    href: /answers/topics/azure-cdn.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cdn/
   - name: Pricing calculator
@@ -197,4 +199,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-cdn
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn   
+    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn

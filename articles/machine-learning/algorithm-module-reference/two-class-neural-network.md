@@ -1,7 +1,7 @@
 ---
 title:  "Two-Class Neural Network: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Two-Class Neural Network module in Azure Machine Learning to create a neural network model that can be used to predict a target that has only two values.
+description: Learn how to use the Two-Class Neural Network module in Azure Machine Learning to create a binary classifier.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

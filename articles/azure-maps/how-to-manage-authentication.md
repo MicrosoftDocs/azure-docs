@@ -17,7 +17,7 @@ After you create an Azure Maps account, a client ID and keys are created to supp
 
 ## View authentication details
 
-After you create an Azure Maps account, the primary and secondary keys are generated. We recommend that you use a primary key as a subscription key when you [use Shared Key authentication to call Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). You can use a secondary key in scenarios such as rolling key changes. For more information, see [Authentication in Azure Maps](https://aka.ms/amauth).
+After you create an Azure Maps account, the primary and secondary keys are generated. We recommend that you use a primary key as a subscription key when you [use Shared Key authentication to call Azure Maps](./azure-maps-authentication.md#shared-key-authentication). You can use a secondary key in scenarios such as rolling key changes. For more information, see [Authentication in Azure Maps](./azure-maps-authentication.md).
 
 You can view your authentication details in the Azure portal. There, in your account, on the **Settings** menu, select **Authentication**.
 
@@ -26,7 +26,7 @@ You can view your authentication details in the Azure portal. There, in your acc
 
 ## Discover category and scenario
 
-Depending on application needs there are specific pathways to securing the application. Azure AD defines categories to support a wide range of authentication flows. See [application categories](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#application-categories) to understand which category the application fits.
+Depending on application needs there are specific pathways to securing the application. Azure AD defines categories to support a wide range of authentication flows. See [application categories](../active-directory/develop/authentication-flows-app-scenarios.md#application-categories) to understand which category the application fits.
 
 > [!NOTE]
 > Even if you use shared key authentication, understanding categories and scenarios helps you to secure the application.
@@ -72,11 +72,11 @@ Request a token from the Azure AD token endpoint. In your Azure AD request, use 
 | Azure public cloud     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
 | Azure Government cloud | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) and view specific scenarios in the table of [Scenarios](./how-to-manage-authentication.md#determine-authentication-and-authorization).
+For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md) and view specific scenarios in the table of [Scenarios](./how-to-manage-authentication.md#determine-authentication-and-authorization).
 
 ## Next steps
 
-For more information, see [Azure AD and Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+For more information, see [Azure AD and Azure Maps Web SDK](./how-to-use-map-control.md).
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]

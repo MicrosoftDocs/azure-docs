@@ -15,6 +15,11 @@ ms.author: scottwhi
 
 # Upgrade from Bing Web Search API v5 to v7
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 This upgrade guide identifies the changes between version 5 and version 7 of the Bing Web Search API. Use this guide to help you identify the parts of your application that you need to update to use version 7.
 
 ## Breaking changes
@@ -70,14 +75,14 @@ Blocked|InvalidRequest.Blocked
 
 ### Headers
 
-- Added the optional [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) request header. By default, Bing returns cached content, if available. To prevent Bing from returning cached content, set the Pragma header to no-cache (for example, Pragma: no-cache).
+- Added the optional [Pragma](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) request header. By default, Bing returns cached content, if available. To prevent Bing from returning cached content, set the Pragma header to no-cache (for example, Pragma: no-cache).
 
 ### Query parameters
 
-- Added the [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) query parameter. Use this parameter to specify the number of answers that you want the response to include. The answers are chosen based on ranking. For example, if you set this parameter to three (3), the response includes the top three ranked answers.  
+- Added the [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) query parameter. Use this parameter to specify the number of answers that you want the response to include. The answers are chosen based on ranking. For example, if you set this parameter to three (3), the response includes the top three ranked answers.  
 
-- Added the [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) query parameter. Use this parameter along with `answerCount` to explicitly include one or more answer types, regardless of their ranking. For example, to promote videos and images into the response, you'd set promote to *videos, images*. The list of answers that you want to promote does not count against the `answerCount` limit. For example, if `answerCount` is 2 and `promote` is set to *videos, images*, the response might include webpages, news, videos, and images.
+- Added the [promote](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) query parameter. Use this parameter along with `answerCount` to explicitly include one or more answer types, regardless of their ranking. For example, to promote videos and images into the response, you'd set promote to *videos, images*. The list of answers that you want to promote does not count against the `answerCount` limit. For example, if `answerCount` is 2 and `promote` is set to *videos, images*, the response might include webpages, news, videos, and images.
 
 ### Object changes
 
-- Added the `someResultsRemoved` field to the [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) object. The field contains a Boolean value that indicates whether the response excluded some results from the web answer.  
+- Added the `someResultsRemoved` field to the [WebAnswer](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) object. The field contains a Boolean value that indicates whether the response excluded some results from the web answer.
