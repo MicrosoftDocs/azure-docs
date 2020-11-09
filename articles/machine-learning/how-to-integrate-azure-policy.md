@@ -37,7 +37,7 @@ You can also assign policies by using [Azure PowerShell](../governance/policy/as
 
 ## Workspaces encryption with customer-managed key
 
-Controls whether workspaces should be encrypted with a customer-managed key (CMK), or using a Microsoft-managed key to encrypt metrics and metadata. For more information on using CMK, see the [Azure Cosmos DB](concept-enterprise-security.md#azure-cosmos-db) section of the enterprise security article.
+Controls whether workspaces should be encrypted with a customer-managed key (CMK), or using a Microsoft-managed key to encrypt metrics and metadata. For more information on using CMK, see the [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) section of the data encryption article.
 
 To configure this policy, set the effect parameter to __audit__ or __deny__. If set to __audit__, you can create workspaces without a CMK and an warning event is created in the activity log.
 

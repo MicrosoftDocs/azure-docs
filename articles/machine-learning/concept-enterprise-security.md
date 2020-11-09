@@ -102,19 +102,11 @@ To restrict physical access to Azure Machine Learning resources, you can use Azu
 
 For more information, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
+<a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
+
 ## Data encryption
 
 Azure Machine Learning uses a variety of compute resources and data stores. To learn more about how each of these supports data encryption at rest and in transit, see [Data encryption with Azure Machine Learning](concept-data-encryption.md).
-
-## Data collection and handling
-
-### Microsoft collected data
-
-Microsoft may collect non-user identifying information like resource names (for example the dataset name, or the machine learning experiment name), or job environment variables for diagnostic purposes. All such data is stored using Microsoft-managed keys in storage hosted in Microsoft owned subscriptions and follows [Microsoft's standard Privacy policy and data handling standards](https://privacy.microsoft.com/privacystatement).
-
-Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us. Similarly when naming [run_id](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py), avoid including sensitive information such as user names or secret project names. This information may appear in telemetry logs accessible to Microsoft Support engineers.
-
-You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML Python SDK, CLI, REST APIs, or Azure Resource Manager templates.
 
 ### Microsoft-generated data
 

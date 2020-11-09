@@ -22,7 +22,7 @@ In this article, you learn how to manage access (authorization) to an Azure Mach
 > [!TIP]
 > While this article focuses on Azure Machine Learning, individual services that Azure ML relies on provide their own RBAC settings. For example, using the information in this article, you can configure who can submit scoring requests to a model deployed as a web service on Azure Kubernetes Service. But Azure Kubernetes Service provides its own set of Azure RBAC roles. For service specific RBAC information that may be useful with Azure Machine Learning, see the following links:
 >
-> * [Control access to Azure Kubernetes cluster resources](..aks/azure-ad-rbac.md)
+> * [Control access to Azure Kubernetes cluster resources](../aks/azure-ad-rbac.md)
 > * [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 > * [Use Azure RBAC for access to blob data](/storage/common/storage-auth-aad-rbac-portal.md)
 
