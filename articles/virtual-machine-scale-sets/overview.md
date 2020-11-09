@@ -56,9 +56,9 @@ Use [Azure Monitor for VMs](../azure-monitor/insights/vminsights-overview.md), w
 
 Enable monitoring for your [virtual machine scale set application](../azure-monitor/app/azure-vm-vmss-apps.md) with Application Insights to collect detailed information about your application including page views, application requests, and exceptions. Further verify the availability of your application by configuring an [availability test](../azure-monitor/app/monitor-web-app-availability.md) to simulate user traffic.
 
-## Singapore data residency
+## Data residency
 
-In Azure, the feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+In Azure, the feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azuredatacentermap.azurewebsites.net/).
 
 ## Next steps
 To get started, create your first virtual machine scale set in the Azure portal.
