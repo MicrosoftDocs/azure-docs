@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ---
 # View activity logs for Azure RBAC changes
 

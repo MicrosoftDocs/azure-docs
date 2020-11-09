@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/22/2020
 ms.author: aahi
 ---
 
@@ -70,9 +70,8 @@ The batch client can dynamically detect if an endpoint becomes unavailable (for 
 > [!NOTE] 
 > * This example uses the same directory (`/my_nfs`) for the configuration file and the inputs, outputs, and logs directories. You can use hosted or NFS-mounted directories for these folders.
 > * Running the client with `–h` will list the available command-line parameters, and their default values. 
+> * The batch processing container is only supported on Linux.
 
-
-#### [Linux](#tab/linux)
 Use the Docker `run` command to start the container. This will start an interactive shell inside the container.
 
 ```Docker
@@ -90,17 +89,6 @@ To run the batch client and container in a single command:
 ```Docker
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
-
-#### [Windows](#tab/windows)
-
-To run the batch client and container in a single command:
-
-```Docker
-docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
-
-```
-
----
 
 
 The client will start running. If an audio file has already been transcribed in a previous run, the client will automatically skip the file. Files are sent with an automatic retry if transient errors occur, and you can differentiate between which errors you want to the client to retry on. On a transcription error, the client will continue transcription, and can retry without losing progress.  
@@ -128,7 +116,7 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 
 `DAEMON` mode transcribes existing files in a given folder, and continuously transcribes new audio files as they are added.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="A diagram showing the batch-kit container processing files in daemon mode.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="A diagram showing batch-kit container processing files in daemon mode.":::
 
 1. Define the Speech container endpoints that the batch client will use in the `config.yaml` file. 
 2. Invoke the container on an input directory. The batch client will begin monitoring the directory for incoming files. 
@@ -141,7 +129,7 @@ The batch processing kit offers three modes, using the `--run-mode` parameter.
 
 `REST` mode is an API server mode that provides a basic set of HTTP endpoints for audio file batch submission, status checking, and long polling. Also enables programmatic consumption using a python module extension, or importing as a submodule.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="A diagram showing the batch-kit container processing files in daemon mode.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="A diagram showing the batch-kit container processing files in REST mode.":::
 
 1. Define the Speech container endpoints that the batch client will use in the `config.yaml` file. 
 2. Send an HTTP request request to one of the API server's endpoints. 

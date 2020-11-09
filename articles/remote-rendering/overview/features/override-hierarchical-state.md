@@ -41,8 +41,8 @@ The fixed set of states that can be overridden are:
 
 * **`DisableCollision`**: The geometry is exempt from [spatial queries](spatial-queries.md). The **`Hidden`** flag doesn't affect the collision state flag, so these two flags are often set together.
 
-* **`UseCutPlaneFilterMask`**: Use an individual filter bit mask to control the cut plane selection. This flag determines whether the individual filter mask should be used or inherited from its parent. The filter bit mask itself is set via the `CutPlaneFilterMask` property. For detailed information about how the filtering works, refer to the [Selective cut planes paragraph](cut-planes.md#selective-cut-planes).
-![Selective cut planes](./media/selective-cut-planes.png)
+* **`UseCutPlaneFilterMask`**: Use an individual filter bit mask to control the cut plane selection. This flag determines whether the individual filter mask should be used or inherited from its parent. The filter bit mask itself is set via the `CutPlaneFilterMask` property. For detailed information about how the filtering works, refer to the [Selective cut planes paragraph](cut-planes.md#selective-cut-planes). See the following example where only the tire and rim is cut while the rest of the scene remains unaffected.
+![Selective cut planes](./media/selective-cut-planes-hierarchical-override.png)
 
 
 > [!TIP]
@@ -100,8 +100,8 @@ Transparent rendering puts more workload on the server's GPUs than standard rend
 
 ## API documentation
 
-* [C# HierarchicalStateOverrideComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
-* [C++ HierarchicalStateOverrideComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
+* [C# HierarchicalStateOverrideComponent class](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [C++ HierarchicalStateOverrideComponent class](/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
 ## Next steps
 

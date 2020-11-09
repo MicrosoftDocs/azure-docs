@@ -13,13 +13,13 @@ manager: rkarlin
 
 # Introduction to Azure Defender for SQL
 
-Azure Defender for SQL includes two Azure Defender plans that extend Azure Security Center's [data security package](../azure-sql/database/advanced-data-security.md) to secure your databases and their data wherever they're located. 
+Azure Defender for SQL includes two Azure Defender plans that extend Azure Security Center's [data security package](../azure-sql/database/azure-defender-for-sql.md) to secure your databases and their data wherever they're located. 
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
-|Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Preview|
+|Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Pricing:|The two plans that form **Azure Defender for SQL** are billed as shown on [the pricing page](security-center-pricing.md)|
 |Protected SQL versions:|Azure SQL Database <br>Azure SQL Managed Instance<br>Azure Synapse Analytics (formerly SQL DW)<br>SQL Server (all supported versions)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
@@ -65,5 +65,5 @@ In this article, you learned about Azure Defender for SQL.
 For related material, see the following articles: 
 
 - [How to enable Azure Defender for SQL servers on machines](defender-for-sql-usage.md)
-- [How to enable Azure Defender for SQL database servers](../azure-sql/database/advanced-data-security.md)
+- [How to enable Azure Defender for SQL database servers](../azure-sql/database/azure-defender-for-sql.md)
 - [The list of Azure Defender alerts for SQL](alerts-reference.md#alerts-sql-db-and-warehouse)

@@ -35,10 +35,21 @@ Solutions that must be removed before you can unlink your automation account:
 - Azure Security Center
 
 >[!IMPORTANT]
-> **Azure Sentinel customers:**
-> - Once deployed on a workspace, Azure Sentinel **does not currently support** the moving of that workspace to other resource groups or subscriptions. 
+> **Azure Sentinel customers**
+> - Currently, after Azure Sentinel is deployed on a workspace, moving the workspace to another resource group or subscription isn't supported. 
+> - If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be an effective solution in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
+> 
+> **Re-create alerts**
+> - All alerts must be re-created after a move because the permissions are based on the Azure Resource ID of the workspace, which changes during a workspace move.
 >
->   If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be effective in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
+> **Update resource paths**
+> - After a workspace move, any Azure or external resources that point to the workspace must be reviewed and updated to point to the new resource target path.
+> 
+>   *Examples:*
+>   - [Azure Monitor alert rules](alerts-resource-move.md)
+>   - Third-party applications
+>   - Custom scripting
+>
 
 ### Delete solutions in Azure portal
 Use the following procedure to remove the solutions using the Azure portal:

@@ -7,8 +7,9 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 10/26/2020
 ms.author: banders
+ms.custom: contentperfq2
 ---
 
 # Tutorial: Review your individual Azure subscription bill
@@ -27,9 +28,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-You must have a paid *Microsoft Online Services Program* billing account. The account is created when you sign up for Azure through the Azure website. For example, if you have an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or if you are a [Visual Studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+You must have a paid *Microsoft Online Services Program* billing account. The account is created when you sign up for Azure through the Azure website. For example, if you have an account with pay-as-you-go rates or if you are a Visual Studio subscriber.
 
-Invoices for [Azure Free Accounts](https://azure.microsoft.com/offers/ms-azr-0044p/) are created only when the monthly credit amount is exceeded.
+Invoices for Azure Free Accounts are created only when the monthly credit amount is exceeded.
 
 It must be more than 30 days from the day that you subscribed to Azure. Azure bills you at the end of your invoice period.
 
@@ -43,7 +44,7 @@ It must be more than 30 days from the day that you subscribed to Azure. Azure bi
 
 The first step to compare usage and costs is to download your invoice and usage files. The detailed usage CSV file shows your charges by billing period and daily usage. It doesn't include any tax information. In order to download the files, you must be an account administrator or have the Owner role.
 
-In the Azure portal, type *subscriptions* in the search box and then click [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+In the Azure portal, type *subscriptions* in the search box and then click **Subscriptions**.
 
 [![Navigate to subscriptions](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
@@ -64,7 +65,7 @@ If it says **Not available** there are several reasons that you don't see usage 
 - It's less than 30 days from the day you subscribed to Azure.
 - There's no usage for the billing period.
 - An invoice isn't generated yet. Wait until the end of the billing period.
-- You don't have permission to view invoices. You might not see old invoices unless you're the Account Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](../manage/manage-billing-access.md).
+- You don't have permission to view invoices. You might not see old invoices unless you're the Account Administrator.
 - If you have a Free Trial or a monthly credit amount with your subscription that you didn't exceed, you won't get an invoice unless you have a Microsoft Customer Agreement.
 
 Next, you review the charges. Your invoice shows values for taxes and your usage charges.
@@ -102,11 +103,9 @@ In your CSV usage file, filter by *MeterName* for the corresponding Resource sho
 
 The summed *Cost* value should match precisely to the *usage charges* cost for the individual resource charged on your invoice.
 
-For more information, see [Understand your Azure invoice](understand-invoice.md) and [Understand your Azure detailed usage](understand-usage.md).
-
 ## Compare billed charges and usage in cost analysis
 
-Cost analysis in the Azure portal can also help you verify your charges. To get a quick overview of your invoiced usage and charges, select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal. Next, click **Cost analysis** and then in the views list, click **Invoice details**.
+Cost analysis in the Azure portal can also help you verify your charges. To get a quick overview of your invoiced usage and charges, select your subscription from the Subscriptions page in the Azure portal. Next, click **Cost analysis** and then in the views list, click **Invoice details**.
 
 ![Example showing Invoice details selection](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
 
@@ -124,7 +123,7 @@ Costs shown in cost analysis should match precisely to the *usage charges* cost 
 
 External services or marketplace charges are for resources that have been created by third-party software vendors. Those resources are available for use from the Azure Marketplace. For example, a Barracuda Firewall is an Azure Marketplace resource offered by a third-party. All charges for the firewall and its corresponding meters appear as external service charges.
 
-External service charges are billed separately. The charges don't show up on your Azure invoice. To learn more, see [Understand your Azure external service charges](understand-azure-marketplace-charges.md).
+External service charges are billed separately. The charges don't show up on your Azure invoice.
 
 ### Resources are billed by usage meters
 
@@ -156,10 +155,6 @@ You can see the meters that were used to calculate your bill in the usage CSV fi
 If you set up a credit card as your payment method, the payment is charged automatically within 10 days after the billing period ends. On your credit card statement, the line item would say **MSFT Azure**.
 
 To change the credit card that's charged, see [Add, update, or remove a credit card for Azure](../manage/change-credit-card.md).
-
-If you [pay by invoice](../manage/pay-by-invoice.md), send your payment to the location listed at the bottom of your invoice.
-
-To check the status of your payment, [create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Next steps
 

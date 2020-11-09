@@ -3,6 +3,7 @@ title: Model and partition data on Azure Cosmos DB with a real-world example
 description: Learn how to model and partition a real-world example using the Azure Cosmos DB Core API
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
@@ -10,6 +11,7 @@ ms.custom: devx-track-js
 ---
 
 # How to model and partition data on Azure Cosmos DB using a real-world example
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article builds on several Azure Cosmos DB concepts like [data modeling](modeling-data.md), [partitioning](partitioning-overview.md), and [provisioned throughput](request-units.md) to demonstrate how to tackle a real-world data design exercise.
 
@@ -322,7 +324,7 @@ This stored procedure takes the ID of the post and the body of the new comment a
 - replaces the post
 - adds the new comment
 
-As stored procedures are executed as atomic transactions, it is guaranteed that the value of `commentCount` and the actual number of comments will always stay in sync.
+As stored procedures are executed as atomic transactions, the value of `commentCount` and the actual number of comments will always stay in sync.
 
 We obviously call a similar stored procedure when adding new likes to increment the `likeCount`.
 
@@ -581,6 +583,6 @@ The change feed that we use to distribute updates to other containers store all 
 
 After this introduction to practical data modeling and partitioning, you may want to check the following articles to review the concepts we have covered:
 
-- [Work with databases, containers, and items](databases-containers-items.md)
+- [Work with databases, containers, and items](account-databases-containers-items.md)
 - [Partitioning in Azure Cosmos DB](partitioning-overview.md)
 - [Change feed in Azure Cosmos DB](change-feed.md)
