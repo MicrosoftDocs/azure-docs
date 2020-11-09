@@ -12,7 +12,6 @@ ms.author: atulmal
 
 [GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. You can use multiple Kubernetes actions to deploy to containers from Azure Container Registry to Azure Kubernetes Service with GitHub Actions. 
 
-
 ## Prerequisites 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -214,3 +213,14 @@ When your Kubernetes cluster, container registry, and repository are no longer n
 
 > [!div class="nextstepaction"]
 > [Learn about Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-start-here)
+
+### More Kubernetes GitHub Actions
+
+* [Kubectl tool installer](https://github.com/Azure/setup-kubectl) (`azure/setup-kubectl`): Installs a specific version of kubectl on the runner.
+* [Kubernetes set context](https://github.com/Azure/k8s-set-context) (`azure/k8s-set-context`): Set the target Kubernetes cluster context which will be used by other actions or run any kubectl commands.
+* [AKS set context](https://github.com/Azure/aks-set-context) (`azure/aks-set-context`): Set the target Azure Kubernetes Service cluster context.
+* [Kubernetes create secret](https://github.com/Azure/k8s-create-secret) (`azure/k8s-create-secret`): Create a generic secret or docker-registry secret in the Kubernetes cluster.
+* [Kubernetes deploy](https://github.com/Azure/k8s-deploy) (`azure/k8s-deploy`): Bake and deploy manifests to Kubernetes clusters.
+* [Setup Helm](https://github.com/Azure/setup-helm) (`azure/setup-helm`): Install a specific version of Helm binary on the runner.
+* [Kubernetes bake](https://github.com/Azure/k8s-bake) (`azure/k8s-bake`): Bake manifest file to be used for deployments using helm2, kustomize or kompose.
+* [Kubernetes lint](https://github.com/azure/k8s-lint) (`azure/k8s-lint`): Validate/lint your manifest files.
