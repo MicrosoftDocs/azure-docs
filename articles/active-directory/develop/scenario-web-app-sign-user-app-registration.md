@@ -123,4 +123,4 @@ and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)**,
 ## Next steps
 
 Move on to the next article in this scenario,
-[App's code configuration](scenario-web-app-sign-user-app-configuration.md)
+[App's code configuration](scenario-web-app-sign-user-app-configuration.md).

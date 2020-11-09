@@ -75,21 +75,21 @@ As a second phase, you can enable your application to call web APIs on behalf of
 # [ASP.NET Core](#tab/aspnetcore)
 
 Move on to the next article in this scenario,
-[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
+[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore).
 
 # [ASP.NET](#tab/aspnet)
 
 Move on to the next article in this scenario,
-[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
+[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet).
 
 # [Java](#tab/java)
 
 Move on to the next article in this scenario,
-[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=java)
+[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=java).
 
 # [Python](#tab/python)
 
 Move on to the next article in this scenario,
-[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=python)
+[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=python).
 
 ---

@@ -342,21 +342,21 @@ In the next article, you'll learn how to trigger sign-in and sign-out.
 # [ASP.NET Core](#tab/aspnetcore)
 
 Move on to the next article in this scenario,
-[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
+[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore).
 
 # [ASP.NET](#tab/aspnet)
 
 Move on to the next article in this scenario,
-[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
+[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet).
 
 # [Java](#tab/java)
 
 Move on to the next article in this scenario,
-[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=java)
+[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=java).
 
 # [Python](#tab/python)
 
 Move on to the next article in this scenario,
-[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=python)
+[Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=python).
 
 ---
