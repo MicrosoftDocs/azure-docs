@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services 
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/22/2020
+ms.date: 11/09/2020
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal

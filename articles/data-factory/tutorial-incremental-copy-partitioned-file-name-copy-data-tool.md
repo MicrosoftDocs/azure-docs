@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 6/10/2020
+ms.date: 11/09/2020
 ---
 
 # Incrementally copy new files based on time partitioned file name by using the Copy Data tool

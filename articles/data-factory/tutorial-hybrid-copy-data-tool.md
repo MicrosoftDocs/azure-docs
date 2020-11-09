@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/09/2020
+ms.date: 11/09/2020
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool

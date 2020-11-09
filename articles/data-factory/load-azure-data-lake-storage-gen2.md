@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
+ms.date: 11/09/2020
 ---
 
 # Load data into Azure Data Lake Storage Gen2 with Azure Data Factory

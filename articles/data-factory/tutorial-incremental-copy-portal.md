@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 06/10/2020
+ms.date: 11/09/2020
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob storage using the Azure portal
