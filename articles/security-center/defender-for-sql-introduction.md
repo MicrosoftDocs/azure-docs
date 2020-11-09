@@ -19,7 +19,7 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 
 |Aspect|Details|
 |----|:----|
-|Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Preview|
+|Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Pricing:|The two plans that form **Azure Defender for SQL** are billed as shown on [the pricing page](security-center-pricing.md)|
 |Protected SQL versions:|Azure SQL Database <br>Azure SQL Managed Instance<br>Azure Synapse Analytics (formerly SQL DW)<br>SQL Server (all supported versions)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|

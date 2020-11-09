@@ -89,6 +89,6 @@ If the user selects a suggested query string from the dropdown list, use the que
 
 ## Next steps
 
-- [Get custom suggestions](./get-custom-suggestions.md)
+- [Get custom suggestions]()
 - [Search your custom instance](./search-your-custom-view.md)
 - [Configure and consume custom hosted UI](./hosted-ui.md)

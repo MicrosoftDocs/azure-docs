@@ -64,6 +64,8 @@
       href: connection-monitor-preview-create-using-portal.md
     - name: Using ARMClient
       href: connection-monitor-preview-create-using-arm-client.md
+    - name: Using PowerShell
+      href: connection-monitor-create-using-powershell.md 
   - name: Migrate to Connection Monitor (Preview)
     items:
     - name: From Network Performance Monitor
