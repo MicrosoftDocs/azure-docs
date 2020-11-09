@@ -7,7 +7,7 @@ ms.date: 09/02/2020
 ms.custom: devx-track-csharp
 ---
 
-# Send messages to an Azure Servive Bus topic and receive messages from subscriptions to the topic (.NET)
+# Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (.NET)
 This tutorial shows you how to create a .NET Core console application that sends messages to a Service Bus topic and receives messages from a subscription of the topic. 
 
 > [!Important]
@@ -52,7 +52,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     - `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace
     - `<TOPIC NAME>` with the name of the topic
     - `<SUBSCRIPTION NAME>` with the name of the subscription
-2. Add a method named `CreateMessages` to create a list of messages to the `Program` class. Typically, you get these messages from a different parts of your application. Here, we are simply making a list of messages.
+2. Add a method named `CreateMessages` to create a list of messages to the `Program` class. Typically, you get these messages from different parts of your application. Here, we are simply making a list of messages.
 
     ```csharp
         static IList<ServiceBusMessage> CreateMessages()

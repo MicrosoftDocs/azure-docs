@@ -20,9 +20,9 @@ In this quickstart, you'll create a Java app to send messages to and receive mes
 
 
 ## Send messages to a queue
-In this quickstart, you'll create a Java console project, and add code to send messages to the queue you created. 
+In this section, you'll create a Java console project, and add code to send messages to the queue you created. 
 
-## Create a Java console project
+### Create a Java console project
 Create a Java project using Eclipse or a tool of your choice. 
 
 ### Configure your application to use Service Bus
@@ -50,7 +50,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
 5. In the class, define variables to hold connection string and queue name as shown below: 
 
     ```java
-	static String connectionString = "<CONNECTION STRING - SERVICE BUS NAMESPACE>";
+    static String connectionString = "<CONNECTION STRING - SERVICE BUS NAMESPACE>";
     static String queueName = "<QUEUE NAME>";    
     ```
 
