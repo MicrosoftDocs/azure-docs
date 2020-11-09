@@ -1,5 +1,7 @@
 - name: Azure IoT Edge documentation
   href: index.yml
+- name: Azure IoT Edge versions
+  href: version-history.md
 - name: Overview
   items:
   - name: About Azure IoT Edge
