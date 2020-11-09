@@ -135,7 +135,7 @@ Example diagram:
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/configure-signal-gate-how-to/retriggering-activation.svg" alt-text="Diagram showing the retriggered activation of two events from one source.":::
 
-* Duration of recording = -offset + (arrival of second event - arrival of first event) + minimumActivationTime
+* Duration of recording = -offset + (arrival of event 2 - arrival of event 1) + minimumActivationTime
 
 
 ***N* events from one source (*maximum activation*)**
