@@ -13,7 +13,7 @@
     href: costs/quick-create-budget-template.md
     displayName: ARM template, resource manager template
 - name: Tutorials
-  items: 
+  items:
   - name: Review your individual account bill
     href: understand/review-individual-bill.md
   - name: Review your Enterprise Agreement bill
@@ -31,7 +31,7 @@
 - name: Concepts
   items:
   - name: Cost Management
-    items: 
+    items:
     - name: Azure Cost Management best practices
       href: costs/cost-mgt-best-practices.md
     - name: Understand Cost Management data
@@ -117,9 +117,11 @@
     - name: Billing accounts for Microsoft Partner Agreement
       href: understand/mpa-overview.md
     - name: About transferring subscriptions
-      href: understand/subscription-transfer.md 
+      href: understand/subscription-transfer.md
     - name: Transfer subscriptions between partners (Preview)
-      href: manage/azure-plan-subscription-transfer-partners.md 
+      href: manage/azure-plan-subscription-transfer-partners.md
+    - name: Get started in the Azure EA portal
+      href: manage/ea-portal-get-started.md
 - name: How-to guides
   items:
   - name: Configure Cost Management + Billing
@@ -200,8 +202,6 @@
         href: manage/cancel-azure-subscription.md
     - name: Manage Enterprise Agreement subscriptions
       items:
-      - name: Get started in the Azure EA portal
-        href: manage/ea-portal-get-started.md
       - name: EA roles in Azure
         href: manage/understand-ea-roles.md
       - name: Azure EA portal administration
@@ -411,7 +411,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cost-management
   - name: Regional Availability
-    href: https://azure.microsoft.com/regions/services/ 
+    href: https://azure.microsoft.com/regions/services/
 - name: Samples
   items:
   - name: REST API

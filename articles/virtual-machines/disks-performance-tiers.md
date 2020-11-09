@@ -18,10 +18,6 @@ ms.custom: references_regions
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-restrictions](../../includes/virtual-machines-disks-performance-tiers-restrictions.md)]
 
-## Regional availability
-
-[!INCLUDE [virtual-machines-disks-performance-tiers-regions](../../includes/virtual-machines-disks-performance-tiers-regions.md)]
-
 ## Create an empty data disk with a tier higher than the baseline tier
 
 ```azurecli

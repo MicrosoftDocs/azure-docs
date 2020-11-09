@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: memildin
 
 ---
@@ -27,60 +27,48 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-### Recommendations related to Azure Security Benchmark to be added (preview)
+### "System updates should be installed on your machines" recommendation getting sub-recommendations
+
+#### Summary
 
 | Aspect | Details |
 |---------|---------|
-|Announcement date | 26 October 2020  |
-|Date for this change  |  November 2020 |
-|Impact     | Potentially, more recommendations to review.<br>No immediate impact on secure score - Preview recommendations don't affect your secure score.<br>No immediate impact on health status of your resources - Preview recommendations don't render a resource "Unhealthy".|
+|Announcement date | 9 November 2020  |
+|Date for this change  |  Mid-end November 2020 |
+|Impact     | During the transition from the current version of this recommendation to its replacement, your secure score might change. |
 |  |  |
 
-Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
+We're releasing an enhanced version of the **System updates should be installed on your machines** recommendation. The new version will *replace* the current version in the apply system updates security control and brings the following improvements:
 
-The following 29 new recommendations will be added to Security Center to increase the coverage of the benchmark.
+- Sub-recommendations for each missing update
+- A redesigned experience in the Azure Security Center pages of the Azure portal
+- Enriched data for the recommendation from Azure Resource Graph
 
-Preview recommendations don't render a resource unhealthy, and they aren't included in the calculations of your secure score. Remediate them wherever possible, so that when the preview period ends they'll contribute towards your score. Learn more about how to respond to these recommendations in [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+#### Transition period
 
-- Azure Backup should be enabled for virtual machines
-- Audit retention for SQL servers should be set to at least 90 days
-- Diagnostic logs should be enabled in App Service 
-- Enforce SSL connection should be enabled for MySQL database servers
-- Enforce SSL connection should be enabled for PostgreSQL database servers
-- FTPS should be required in your API app
-- FTPS should be required in your function app
-- FTPS should be required in your web app
-- Geo-redundant backup should be enabled for Azure Database for MariaDB
-- Geo-redundant backup should be enabled for Azure Database for MySQL
-- Geo-redundant backup should be enabled for Azure Database for PostgreSQL
-- Java should be updated to the latest version for your API app
-- Java should be updated to the latest version for your function app
-- Java should be updated to the latest version for your web app
-- Managed identity should be used in your API app
-- Managed identity should be used in your function app
-- Managed identity should be used in your web app
-- PHP should be updated to the latest version for your API app
-- PHP should be updated to the latest version for your web app
-- Private endpoint should be enabled for MariaDB servers
-- Private endpoint should be enabled for MySQL servers
-- Private endpoint should be enabled for PostgreSQL servers
-- Python should be updated to the latest version for your API app
-- Python should be updated to the latest version for your function app
-- Python should be updated to the latest version for your web app
-- TLS should be updated to the latest version for your API app
-- TLS should be updated to the latest version for your function app
-- TLS should be updated to the latest version for your web app
-- Web apps should request an SSL certificate for all incoming requests
+There will be a transition period of 36 hrs (approximately). To minimize any potential disruption, we've scheduled the update to take place over a weekend. During the transition, your secure scores might be affected.
 
-Related links:
+#### Redesigned portal experience
 
-- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Learn more about Azure API apps](../app-service/app-service-web-tutorial-rest-api.md)
-- [Learn more about Azure function apps](../azure-functions/functions-overview.md)
-- [Learn more about Azure web apps](../app-service/overview.md)
-- [Learn more about Azure Database for MariaDB](../mariadb/overview.md)
-- [Learn more about Azure Database for MySQL](../mysql/overview.md)
-- [Learn more about Azure Database for PostgreSQL](../postgresql/overview.md)
+The recommendation details page for **System updates should be installed on your machines** includes the list of findings as shown below. When you select a single finding, the details pane opens with a link to the remediation information and a list of affected resources.
+
+:::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Opening one of the sub-recommendations in the portal experience for the updated recommendation":::
+
+
+#### Richer data from Azure Resource Graph
+
+Azure Resource Graph is a service in Azure that is designed to provide efficient resource exploration. You can use ARG to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
+
+For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) to query a wide range of security posture data.
+
+If you query the current version of **System updates should be installed on your machines**, the only information available from ARG is that the recommendation needs to be remediated on a machine. When the updated version is released, the following query will return each missing system updates grouped by machine.
+
+```kusto
+securityresources
+| where type =~ "microsoft.security/assessments/subassessments"
+| where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+| where properties.status.code == "Unhealthy"
+```
 
 ## Next steps
 
