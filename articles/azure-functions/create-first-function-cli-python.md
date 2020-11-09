@@ -58,6 +58,8 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 ---
 
+[!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
+
 ## Create a local function project
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
