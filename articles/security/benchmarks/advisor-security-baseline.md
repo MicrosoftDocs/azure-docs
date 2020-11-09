@@ -909,7 +909,7 @@ The underlying infrastructure under Advisor is handled by Microsoft, which inclu
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39572.).
 
-**Guidance**: Not applicable; Azure Advisor doesn't use keys for any of the service's capabilities or features.
+**Guidance**: Not applicable; Azure Advisor does not use keys for any of it's capabilities or features.
 
 **Azure Security Center monitoring**: Not applicable
 
