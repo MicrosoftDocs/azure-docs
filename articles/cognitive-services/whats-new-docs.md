@@ -29,39 +29,39 @@ Welcome to what's new in the Cognitive Services docs from October 1, 2020 throug
 
 ### Updated articles
 
-- [Use Docker Compose to deploy multiple containers](/azure/cognitive-services/containers/docker-compose-recipe.md)
+- [Use Docker Compose to deploy multiple containers](./containers/docker-compose-recipe.md)
 
 ## Form Recognizer
 
 ### Updated articles
 
-- [What's new in Form Recognizer?](/azure/cognitive-services/form-recognizer/whats-new.md)
+- [What's new in Form Recognizer?](./form-recognizer/whats-new.md)
 
 ## Immersive Reader
 
 ### New articles
 
-- [Immersive Reader JavaScript SDK Release Notes](/azure/cognitive-services/immersive-reader/release-notes.md)
+- [Immersive Reader JavaScript SDK Release Notes](./immersive-reader/release-notes.md)
 
 ### Updated articles
 
-- [How to store user preferences](/azure/cognitive-services/immersive-reader/how-to-store-user-preferences.md)
-- [Immersive Reader JavaScript SDK Reference (v1.1)](/azure/cognitive-services/immersive-reader/reference.md)
+- [How to store user preferences](./immersive-reader/how-to-store-user-preferences.md)
+- [Immersive Reader JavaScript SDK Reference (v1.1)](./immersive-reader/reference.md)
 
 ## Metrics Advisor
 
 ### Updated articles
 
-- [Add data feeds from different data sources to Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
-- [Metrics Advisor frequently asked questions](/azure/cognitive-services/metrics-advisor/faq.md)
+- [Add data feeds from different data sources to Metrics Advisor](./metrics-advisor/data-feeds-from-different-sources.md)
+- [Metrics Advisor frequently asked questions](./metrics-advisor/faq.md)
 
 ## Text Analytics
 
 ### Updated articles
 
-- [Migrate to version 3.x of the Text Analytics API](/azure/cognitive-services/text-analytics/migration-guide.md)
-- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [How to: Detect sentiment using the Text Analytics API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
+- [Migrate to version 3.x of the Text Analytics API](./text-analytics/migration-guide.md)
+- [How to use Named Entity Recognition in Text Analytics](./text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [How to: Detect sentiment using the Text Analytics API](./text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
 
 ## Community contributors
 
