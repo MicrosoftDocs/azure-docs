@@ -27,38 +27,43 @@ The Invoice API extracts key fields from invoices and returns them in an organiz
 To try out the Form Recognizer Invoice Service go the [Sample Labeling Tool online](https://fott-preview.azurewebsites.net/).
 
 > [!div class="nextstepaction"]
-> [Form Recognizer Sample Labeling Tool](https://fott-preview.azurewebsites.net/)
+> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
 
 You will need an Azure subscription [Create one for free](https://azure.microsoft.com/free/cognitive-services) and a [Form Recognzier resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
 
-### Fields extracted:
-The following are the fields extracted from an invoice in the JSON output response:  
+![Analayzed invoice example](./media/analyze-invoice.png)
 
-| Name| Type | Description | Example |
-|:-----|:----|:----|:----|
-| CustomerName | string | Name of the customer being invoiced | Microsoft Corp |
-| CustomerId | string | Reference ID for the customer | CID-12345 |
-| PurchaseOrder | string | A purchase order reference number | PO-3333 |
-| InvoiceId | string | ID for this specific invoice (often “Invoice Number”) | INV-100 |
-| InvoiceDate | date | Date the invoice was issued | 2019-11-15 |
-| DueDate | date | Date the payment for this invoice is due | 2019-12-15 | 
-| VendorName | string | Name of the vendor who created this invoice | CONTOSO LTD. |
-| VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 |
-| VendorAddressRecipient | string | Name associated with the VendorAddress | Contoso Headquarters |
-| CustomerAddress | string | Mailing address for the Customer | 123 Other St, Redmond WA, 98052 |
-| CustomerAddressRecipient | string | Name associated with the CustomerAddress | Microsoft Corp |
-| BillingAddress | string | Explicit billing address for the customer | 123 Bill St, Redmond WA, 98052 |
-| BillingAddressRecipient | string | Name associated with the BillingAddress | Microsoft Services |
-| ShippingAddress | string | Explicit shipping address for the customer | 123 Ship St, Redmond WA, 98052 |
-| ShippingAddressRecipient | string | Name associated with the ShippingAddress | Microsoft Delivery |
-| ServiceAddress | string | Explicit service address or property address for the customer | 123 Service St, Redmond WA, 98052 |
-| ServiceAddressRecipient | string | Name associated with the ServiceAddress | Microsoft Services |
-| RemittanceAddress | string | Explicit remittance or payment address for the customer | 123 Remit St New York, NY, 10001 |
-| RemittanceAddressRecipient | string | Name associated with the RemittanceAddress | Contoso Billing |
-| SubTotal | number | Subtotal field identified on this invoice | 100 | 
-| TotalTax | number | Total tax field identified on this invoice | 10 |
-| InvoiceTotal | number | Total new charges associated with this invoice | 110 |
-| AmountDue |  number | Total amount due to the vendor | 610 |
+### Fields extracted:
+Following are the fields extracted from an invoice in the JSON output response (output below uses the following [sample invoice](https://../media/sample-invoice.jpg))  
+
+|Name| Type | Description | Text | Value (standardized output) |
+|:-----|:----|:----|:----| :----|
+| CustomerName | string | Customer being invoiced | Microsoft Corp |  |
+| CustomerId | string | Reference Id for the customer | CID-12345 |  |
+| PurchaseOrder | string | A purchase order reference number | PO-3333 | |  |
+| InvoiceId | string | Id for this specific invoice (often “Invoice Number”) | INV-100 | |  |
+| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 
+| DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| VendorName | string | Vendor who has created this invoice | CONTOSO LTD. | |
+| VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 | |
+| VendorAddressRecipient | string | Name associated with the VendorAddress | Contoso Headquarters | |
+| CustomerAddress | string | Mailing address for the Customer | 123 Other St, Redmond WA, 98052 | |
+| CustomerAddressRecipient | string | Name associated with the CustomerAddress | Microsoft Corp | |
+| BillingAddress | string | Explicit billing address for the customer | 123 Bill St, Redmond WA, 98052 | |
+| BillingAddressRecipient | string | Name associated with the BillingAddress | Microsoft Services | |
+| ShippingAddress | string | Explicit shipping address for the customer | 123 Ship St, Redmond WA, 98052 | |
+| ShippingAddressRecipient | string | Name associated with the ShippingAddress | Microsoft Delivery | |
+| SubTotal | number | Subtotal field identified on this invoice | $100.00 | 100 | 
+| TotalTax | number | Total tax field identified on this invoice | $10.00 | 10 |
+| InvoiceTotal | number | Total new charges associated with this invoice | $110.00 | 110 |
+| AmountDue |  number | Total Amount Due to the vendor | $610.00 | 610 |
+| ServiceAddress | string | Explicit service address or property address for the customer | 123 Service St, Redmond WA, 98052 | |
+| ServiceAddressRecipient | string | Name associated with the ServiceAddress | Microsoft Services | |
+| RemittanceAddress | string | Explicit remittance or payment address for the customer | 123 Remit St New York, NY, 10001 |  |
+| RemittanceAddressRecipient | string | Name associated with the RemittanceAddress | Contoso Billing |  |
+| ServiceStartDate | date | First date for the service period (for example, a utility bill service period) | 10/14/2019 | 2019-10-14 |
+| ServiceEndDate | date | End date for the service period (for example, a utility bill service period) | 11/14/2019 | 2019-11-14 |
+| PreviousUnpaidBalance | number | Explicit previously unpaid balance | $500.00 | 500 |
 
 ### Input Requirements 
 
@@ -85,7 +90,7 @@ When the **status** field has the **succeeded** value, the JSON response will in
 ### Sample JSON output
 
 The response to the Get Analyze Invoice Result operation will be the structured representation of the invoice with all the information extracted. 
-See here for a [sample invoice file](./media/sample-invoice.pdf) and its structured output [sample invoice output](./media/sample-invoice-output.json).
+See here for a [sample invoice file](./media/sample-invoice.jpg) and it's structured output [sample invoice output](./media/sample-invoice-output.json).
 
 The JSON output has 3 parts: 
 1. "readResults" node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 

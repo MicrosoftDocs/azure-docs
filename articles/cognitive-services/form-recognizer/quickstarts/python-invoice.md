@@ -130,12 +130,58 @@ See the following invoice document and its corresponding JSON output -
 1. [Sample invoice JSON output](../media/sample-invoice-output.json)
 
 
-### Sample Python script to extract invoice or a btach of invoices into a CSV file
+### Sample Python script to extract invoice or a batch of invoices into a CSV file
 This sample python script shows you you how to get started using the Invoice API. It can run with single invoice as a parameter or folder and will output the JSON file “.invoice.json” and a CSV file “-invoiceResutls.csv” with the extracted values results. When running on a folder, it will scan through all “pdf”,”jpg”,”jpeg”,”png”,”bmp”,”tif”,”tiff” files and run them via the API. Once you created created the Pyton file you can run it via command line as following - 
 
 > python InvoiceSamplePythonScript.py {file name or folder name}
  
 ```python
+########### Python Form Recognizer Async Invoice #############
+
+import json
+import time
+import os
+import ntpath
+import sys
+from requests import get, post
+import csv
+
+
+def analyzeInvoice(filename):
+    invoiceResultsFilename = filename + ".invoice.json"
+
+    # do not run analyze if .invoice.json file is present on disk
+    if os.path.isfile(invoiceResultsFilename):
+        with open(invoiceResultsFilename) as json_file:
+            return json.load(json_file)
+
+    # Endpoint URL
+    #endpoint = r"<Endpoint>"
+    #apim_key = "<subscription key>"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.2/prebuilt/invoice/analyze"
+    headers = {
+        # Request headers
+        'Content-Type': 'application/octet-stream',
+        'Ocp-Apim-Subscription-Key': apim_key,
+    }
+
+    params = {
+        "includeTextDetails": True
+    }
+
+    with open(filename, "rb") as f:
+        data_bytes = f.read()
+
+    try:
+        resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % resp.text)
+            return None
+        print("POST analyze succeeded: %s" % resp.headers["operation-location"])
+        get_url = resp.headers["operation-location"]
+    except Exception as e:
+        print("POST analyze failed:\n%s" % str(e))
+        return None
 
     n_tries = 50
     n_try = 0
@@ -189,7 +235,7 @@ def main(argv):
 
     # list of invoice to analyze
     invoiceFiles = []
-    csvPostfix = '-invoiceResutls.csv'
+    csvPostfix = '-invoiceResults.csv'
     if os.path.isfile(argv[1]):
         # Single invoice
         invoiceFiles.append(argv[1])
