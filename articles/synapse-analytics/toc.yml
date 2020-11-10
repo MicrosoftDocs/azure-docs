@@ -1,6 +1,6 @@
 - name: Azure Synapse (workspaces preview)
   href: sql-data-warehouse/index.yml
-- name: Switch to Azure Synapse (formerly SQL DW)
+- name: Switch to dedicated SQL pool (formerly SQL DW)
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Overview
   items:
@@ -348,6 +348,8 @@
         href: ./sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Resource utilization & query activity 
         href: ./sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Recommendations 
+        href: ./sql-data-warehouse/sql-data-warehouse-concept-recommendations.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Security 
       items:
       - name: Data security
@@ -455,6 +457,8 @@
       items:
       - name: Install Visual Studio SSDT
         href: ./sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Continuous integration and deployment
+        href: sql-data-warehouse-continuous-integration-and-deployment.md
     - name: Query external data
       items:
       - name: Overview
@@ -485,7 +489,7 @@
         items:
         - name: Add an Azure Stream Analytics job
           href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Connect tools to Synapse workspaces
+    - name: Tool to connect to Synapse workspaces
       items:
       - name: Overview
         href: sql/connect-overview.md

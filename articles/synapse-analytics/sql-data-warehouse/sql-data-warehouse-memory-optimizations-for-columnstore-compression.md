@@ -1,5 +1,5 @@
 ---
-title: Improve columnstore index performance
+title: Improve columnstore index performance for dedicated SQL pool
 description: Reduce memory requirements or increase the available memory to maximize the number of rows within each rowgroup in dedicated SQL pool.
 services: synapse-analytics
 author: kevinvngo 
@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Maximizing rowgroup quality for columnstore indexes for dedicated SQL pool
+# Maximizing rowgroup quality for columnstore indexes in dedicated SQL pool 
 
 Rowgroup quality is determined by the number of rows in a rowgroup. Increasing the available memory can maximize the number of rows a columnstore index compresses into each rowgroup.  Use these methods to improve compression rates and query performance for columnstore indexes.
 
