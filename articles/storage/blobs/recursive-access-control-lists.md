@@ -989,12 +989,6 @@ If you want the process to complete uninterrupted by permission errors, you can 
 This example uses the `ContinueOnFailure` parameter so that execution continues even if the operation encounters a permission error. 
 
 ```powershell
-
-$TotalDirectoriesSuccess = 0
-$TotalFilesSuccess = 0
-$totalFailure = 0
-$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
-
 $result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinueOnFailure
 
 echo "[Result Summary]"

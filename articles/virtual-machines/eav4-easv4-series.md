@@ -59,7 +59,9 @@ Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 | Standard_E32as_v4|32|256|512|32|64000 / 510 (800)|51200 / 768|8 | 16000 |
 | Standard_E48as_v4|48|384|768|32|96000 / 1020 (1200)|76800 / 1148|8 | 24000 |
 | Standard_E64as_v4|64|512|1024|32|128000 / 1020 (1600)|80000 / 1200|8 | 30000 |
-| Standard_E96as_v4|96|672|1344|32|192000 / 1020 (2400)|80000 / 1200|8 | 30000 |
+| Standard_E96as_v4 <sup>1</sup>|96|672|1344|32|192000 / 1020 (2400)|80000 / 1200|8 | 30000 |
+
+<sup>1</sup> [Constrained core sizes available](./constrained-vcpu.md).
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -37,6 +37,10 @@
         href: test-drive-technical-configuration.md
       - name: Test drive for Azure Resource Manager
         href: azure-resource-manager-test-drive.md
+      - name: Detailed configuration for hosted test drive
+        href: test-drive-hosted-detailed-config.md
+      - name: Set up Azure subscription for hosted test drives
+        href: test-drive-azure-subscription-setup.md
   - name: Azure partner customer usage attribution
     href: azure-partner-customer-usage-attribution.md
   - name: Go-to-market options
