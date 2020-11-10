@@ -62,7 +62,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39745.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Bastion does not expose any endpoints that can be accessed via a private network. This control is intended for describing how private networks can be connected together to provide access to the offering or its resources.
 
@@ -80,7 +80,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39746.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Bastion is a fully managed PaaS service that provides secure and seamless RDP and SSH access to your virtual machines directly through the Azure Portal
 
@@ -119,7 +119,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39748.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is PaaS service and cannot be configured with an IDS or IPS solution for detecting or preventing threats on the network.
 
@@ -137,7 +137,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39749.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; this recommendation is intended for offerings that can be deployed into Azure Virtual Networks, or have the capability to define groupings of allowed IP ranges for efficient management. Azure Bastion does not currently support service tags.
 
@@ -155,7 +155,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39750.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
 
@@ -275,7 +275,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39736.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't allow customer to deploy any persisted data into the running environment.
 
@@ -293,7 +293,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39772.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't host or access any legacy applications.
 
@@ -315,7 +315,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39737.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't use any administrative accounts.
 
@@ -333,7 +333,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39738.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't store or process any data that are considered as business critical by customers.
 
@@ -351,7 +351,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39739.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't use any user accounts.
 
@@ -369,7 +369,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39740.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is  PaaS service and doesn't need emergency accounts. 
 
@@ -391,7 +391,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39741.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't support any automation on account or role management.
 
@@ -409,7 +409,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39742.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't support management from a customer workstation.
 
@@ -451,7 +451,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39799.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't store customer data, and doesn't support the Customer Lockbox solution.
 
@@ -473,7 +473,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39751.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Bastion does not store, process or transmit sensitive data, because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest or in transit, and enforcement of security controls with automated tools.
 
@@ -491,7 +491,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39752.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Bastion does not store, process or transmit sensitive data, because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest or in transit, and enforcement of security controls with automated tools.
 
@@ -509,7 +509,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39753.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion does not store, process or transmit data classified as sensitive.
 
@@ -527,7 +527,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39754.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion does not store, process or transmit data classified as sensitive.
 
@@ -545,7 +545,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39755.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Bastion does not interact with sensitive data, because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest or in transit, and enforcement of security controls with automated tools.
 
@@ -637,7 +637,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39776.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a PaaS service and customer can not use the offering's capabilities to inventory and manage assets
 
@@ -672,7 +672,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39778.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a Paas service does not allow customers to install applications on them.
 
@@ -694,7 +694,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39756.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Bastion does not currently produce customer facing resource logs that can be used for threat detection.
 
@@ -785,7 +785,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39760.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion does not produce or process any security related logs which would need to be collected centrally for management or analysis.
 
@@ -803,7 +803,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39761.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Bastion does not currently produce any security-related logs. Customer can enable resource logging for the service and set any log retention customer is unable to set any log retention.
 ../../bastion/diagnostic-logs.md
@@ -822,7 +822,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39762.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Bastion does not support configuring your own time synchronization sources. The Azure Bastion service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
@@ -967,7 +967,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39783.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Define and implement standard security configurations for Azure Bastion with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Azure Bastion.
 
@@ -992,7 +992,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39784.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Define and implement standard security configurations for Azure ExpressRoute with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your ExpressRoute.
 
@@ -1018,7 +1018,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39785.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
 
@@ -1037,7 +1037,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39786.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
 
@@ -1055,7 +1055,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39787.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
 
@@ -1073,7 +1073,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39788.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Bastion.
 
@@ -1091,7 +1091,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39789.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management and software update on the underlying systems that support Azure Bastion.
 
@@ -1131,7 +1131,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39769.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not Applicable; Azure Bastion is a fully managed PaaS service which would not require Endpoint Detection and Response (EDR) protection.
 
@@ -1149,7 +1149,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39770.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a fully managed PaaS service and Microsoft is responsible for installing and managing Anti Malware protection.
 
@@ -1167,7 +1167,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39771.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a fully managed PaaS service and Microsoft is responsible for installing, managing and updating Anti Malware signature.
 
@@ -1189,7 +1189,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39779.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't support any data backup or have no needs for data backup.
 
@@ -1207,7 +1207,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39780.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't support any data backup encryption.
 
@@ -1225,7 +1225,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39781.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't support any data backup.
 
@@ -1245,7 +1245,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39782.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't manage any keys.
 
