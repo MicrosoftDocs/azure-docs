@@ -18,7 +18,7 @@ The time required to complete a restart depends on the PostgreSQL recovery proce
 
 ## Prerequisites
 To complete this how-to guide:
-- You need an [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md)
+- Create an [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 

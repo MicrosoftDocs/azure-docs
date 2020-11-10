@@ -17,7 +17,7 @@ Azure Database for PostgreSQL servers are backed up periodically to enable Resto
 ## Prerequisites
 To complete this how-to guide:
 
-- You need an [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md)
+- You need an [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
