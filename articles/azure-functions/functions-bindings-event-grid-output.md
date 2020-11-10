@@ -193,7 +193,7 @@ The following example demonstrates how to configure a function to output an Even
 }
 ```
 
-In your function, use the `Push-OutputBinding` to **TODO**.
+In your function, use the `Push-OutputBinding` to send an event to a custom topic through the Event Grid output binding.
 
 ```powershell
 using namespace System.Net
@@ -355,7 +355,7 @@ Access the output event by using `context.bindings.<name>` where `<name>` is the
 
 # [PowerShell](#tab/powershell)
 
-Access the output event by using the `Push-OutputBinding` commandlet **TODO**.
+Access the output event by using the `Push-OutputBinding` commandlet to send an event to the Event Grid output binding.
 
 # [Python](#tab/python)
 
