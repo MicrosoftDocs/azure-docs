@@ -50,7 +50,7 @@ Copy the **appId** and **password** credentials for later use.
 
 ## Flow for using Managed Identity
 
-![AKS_KeyVault_Integration_ManagedIdentity](../media/akskvintegration.png)
+![Diagram that shows the AKS-Key Vault integration flow for Managed Identify](../media/aks-key-vault-integration-flow.png)
 
 ## Deploy an Azure Kubernetes Service (AKS) cluster by using the Azure CLI
 
