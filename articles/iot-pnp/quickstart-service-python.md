@@ -1,13 +1,13 @@
 ---
-title: Interact with an IoT Plug and Play device connected to your Azure IoT solution (Python) | Microsoft Docs
-description: Use Python to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
+title: Quickstart - Interact with an IoT Plug and Play device connected to your Azure IoT solution (Python) | Microsoft Docs
+description: Quickstart - Use Python to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
 author: elhorton
 ms.author: elhorton
 ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 # As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 ---

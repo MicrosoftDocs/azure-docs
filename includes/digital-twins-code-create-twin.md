@@ -21,5 +21,5 @@ Dictionary<string, object> twin = new Dictionary<string, object>()
     { "Humidity", humidity},
 };
 //Create the twin
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
+client.CreateOrReplaceDigitalTwinAsync("myRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
 ```

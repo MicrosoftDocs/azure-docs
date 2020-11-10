@@ -3,14 +3,16 @@ title: Performance tips for Azure Cosmos DB Async Java SDK v2
 description: Learn client configuration options to improve Azure Cosmos database performance for Async Java SDK v2
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
+ms.custom: devx-track-java, contperfq2
 ---
 
 # Performance tips for Azure Cosmos DB Async Java SDK v2
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -254,7 +256,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    For more information, see [Azure Cosmos DB indexing policies](indexing-policies.md).
+    For more information, see [Azure Cosmos DB indexing policies](/azure/cosmos-db/index-policy).
 
 ## <a id="measure-rus"></a>Throughput
 

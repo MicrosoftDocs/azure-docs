@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
+ms.date: 10/21/2020
 ---
 
 # Tutorial: Create Azure AD users using Azure AD applications
@@ -57,12 +57,12 @@ In this tutorial, you learn how to:
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <server name> -AssignIdentity
     ```
 
-    For more information, see the [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) command.
+    For more information, see the [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) command.
 
     > [!IMPORTANT]
     > If an Azure AD Identity is set up for the Azure SQL logical server, the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission must be granted to the identity. We will walk through this step in following section. **Do not** skip this step as Azure AD authentication will stop working.
 
-    - If you used the [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) command with the parameter `AssignIdentity` for a new SQL server creation in the past, you will need to execute the [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) command afterwards as a separate command to enable this property in the Azure fabric.
+    - If you used the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) command with the parameter `AssignIdentity` for a new SQL server creation in the past, you'll need to execute the [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) command afterwards as a separate command to enable this property in the Azure fabric.
 
 1. Check the server identity was successfully assigned. Execute the following PowerShell command:
 
@@ -162,16 +162,26 @@ For a similar approach on how to set the **Directory Readers** permission for SQ
 
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissions":::
 
-2. You will also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
+2. You'll also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
 3. Record the following from your application registration. It should be available from your **Overview** pane:
     - **Application ID**
     - **Tenant ID** - This should be the same as before
 
-In this tutorial, we will be using *AppSP* as our main service principal, and *myapp* as the second service principal user that will be created in Azure SQL by *AppSP*. You will need to create two applications, *AppSP* and *myapp*.
+In this tutorial, we'll be using *AppSP* as our main service principal, and *myapp* as the second service principal user that will be created in Azure SQL by *AppSP*. You'll need to create two applications, *AppSP* and *myapp*.
 
 For more information on how to create an Azure AD application, see the article [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
+### Permissions required to set or unset the Azure AD admin
+
+In order for the service principal to set or unset an Azure AD admin for Azure SQL, an additional API Permission is necessary. The [Directory.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application API permission will need to be added to your application in Azure AD.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Directory.Reader.All permissions in Azure AD":::
+
+The service principal will also need the [**SQL Server Contributor**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role for SQL Database, or the [**SQL Managed Instance Contributor**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) role for SQL Managed Instance.
+
+> [!NOTE]
+> Although Azure AD Graph API is being deprecated, the **Directory.Reader.All** permission still applies to this tutorial. The Microsoft Graph API does not apply to this tutorial.
 
 ## Create the service principal user in Azure SQL Database
 
@@ -191,7 +201,7 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     GO
     ```
 
-    For more information, see [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
+    For more information, see [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
 
     Alternatively, `ALTER ANY USER` permission can be granted instead of giving the `db_owner` role. This will allow the service principal to add other Azure AD users.
 
@@ -296,5 +306,5 @@ Once a service principal is created in Azure AD, create the user in SQL Database
 - [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
 - [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467)
 - [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
-- [Create an Azure service principal with Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+- [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 - [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md)

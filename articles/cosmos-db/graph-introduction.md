@@ -1,14 +1,15 @@
 ---
 title: 'Introduction to Azure Cosmos DB Gremlin API'
 description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency by using the Gremlin graph query language of Apache TinkerPop.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
-ms.author: jasonh
+ms.author: chrande
 ---
 # Introduction to Gremlin API in Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 [Azure Cosmos DB](introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. It is a multi-model database and supports document, key-value, graph, and column-family data models. "Azure Cosmos DB provides a graph database service via the Gremlin API on a fully managed database service designed for any scale.  
 
@@ -26,7 +27,7 @@ The following are the differentiated features that Azure Cosmos DB Gremlin API o
 
 * **Elastically scalable throughput and storage**
 
-  Graphs in the real world need to scale beyond the capacity of a single server. Azure Cosmos DB supports horizontally scalable graph databases that can have a virtually unlimited size in terms of storage and provisioned throughput. As the graph database scale grows, the data will be automatically distributed using [graph partitioning](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
+  Graphs in the real world need to scale beyond the capacity of a single server. Azure Cosmos DB supports horizontally scalable graph databases that can have a virtually unlimited size in terms of storage and provisioned throughput. As the graph database scale grows, the data will be automatically distributed using [graph partitioning](./graph-partitioning.md).
 
 * **Multi-region replication**
 
@@ -46,7 +47,7 @@ The following are the differentiated features that Azure Cosmos DB Gremlin API o
 
 * **Automatic indexing**
 
-  By default, Azure Cosmos DB automatically indexes all the properties within nodes (also called as vertices) and edges in the graph and doesn't expect or require any schema or creation of secondary indices. Learn more about [indexing in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview).
+  By default, Azure Cosmos DB automatically indexes all the properties within nodes (also called as vertices) and edges in the graph and doesn't expect or require any schema or creation of secondary indices. Learn more about [indexing in Azure Cosmos DB](/azure/cosmos-db/index-overview).
 
 * **Compatibility with Apache TinkerPop**
 

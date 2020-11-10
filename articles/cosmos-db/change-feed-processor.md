@@ -4,6 +4,7 @@ description: Learn how to use the Azure Cosmos DB change feed processor to read 
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/12/2020
@@ -12,6 +13,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Change feed processor in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The change feed processor is part of the [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). It simplifies the process of reading the change feed and distribute the event processing across multiple consumers effectively.
 
@@ -122,10 +124,10 @@ The change feed processor will be initialized and start reading changes from the
 
 The change feed processor can be hosted in any platform that supports long running processes or tasks:
 
-* A continuous running [Azure WebJob](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/).
-* A process in an [Azure Virtual Machine](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
-* A background job in [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
-* An [ASP.NET hosted service](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
+* A continuous running [Azure WebJob](/learn/modules/run-web-app-background-task-with-webjobs/).
+* A process in an [Azure Virtual Machine](/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* A background job in [Azure Kubernetes Service](/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
+* An [ASP.NET hosted service](/aspnet/core/fundamentals/host/hosted-services).
 
 While change feed processor can run in short lived environments, because the lease container maintains the state, the startup cycle of these environments will add delay to receiving the notifications (due to the overhead of starting the processor every time the environment is started).
 
@@ -144,4 +146,4 @@ You can now proceed to learn more about change feed processor in the following a
 * [Change feed pull model](change-feed-pull-model.md)
 * [How to migrate from the change feed processor library](how-to-migrate-from-change-feed-library.md)
 * [Using the change feed estimator](how-to-use-change-feed-estimator.md)
-* [Change feed processor start time](how-to-configure-change-feed-start-time.md)
+* [Change feed processor start time](#starting-time)

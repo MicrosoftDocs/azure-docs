@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -16,12 +16,30 @@ services: active-directory
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
+## October 2020
+
+### New articles
+
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Understand OIDC-based single sign-on](configure-oidc-single-sign-on.md)
+- [Configure permission classifications](configure-permission-classifications.md)
+- [Configure group owner consent to apps accessing group data](configure-user-consent-groups.md)
+- [Manage app consent policies](manage-app-consent-policies.md)
+
+### Updated articles
+
+- [Problems signing in to SAML-based single sign-on configured apps](application-sign-in-problem-federated-sso-gallery.md)
+- [Problem installing the Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
+- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Configure how end-users consent to applications](configure-user-consent.md)
+
+
 ## September 2020
 
 ### New articles
 - [Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-setup-oidc-sso.md)
 - [Quickstart: Assign users to an app that is using Azure AD as an identity provider](add-application-portal-assign-users.md)
-- [What's new?](whats-new-docs.md)
+- [What's new in docs?](whats-new-docs.md)
 
 
 ### Updated articles

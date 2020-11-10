@@ -54,6 +54,7 @@ Azure Hybrid Benefit (for Linux) is in public preview phase now. You can use the
 1.    Apply the benefit to your existing VMs either via Azure CLI
 1.    Register your VMs receiving the benefit with a separate source of updates
 
+
 ### SUSE customers
 
 1.    Register with the SUSE Public Cloud program
@@ -134,8 +135,8 @@ A: No you cannot. Attempting to enter a license type that incorrectly matches th
 
 A: It may take some time for your Red Hat Cloud Access subscription registration to propagate from Red Hat to Azure. If you are still seeing the error after one business day, contact Microsoft support.
 
-## Common errors
-This section contains a list of common errors and steps for mitigation.
+## Common issues
+This section contains a list of common issues that could be encountered and steps for mitigation.
 
 | Error | Mitigation |
 | ----- | ---------- |
