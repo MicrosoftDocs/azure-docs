@@ -1502,11 +1502,6 @@
       "redirect_document": false
     },
     {
-      "source_path": "articles/active-directory/saas-apps/adobe-identity-management-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/saas-apps/azure-databricks-scim-connector-provisioning-tutorial.md",
       "redirect_url": "/azure/databricks/administration-guide/users-groups/scim/aad",
       "redirect_document_id": false
