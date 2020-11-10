@@ -67,7 +67,7 @@ The following classes handle some of the major features of the Metrics Advisor P
 | [MetricsAdvisorClient](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html#azure.ai.metricsadvisor.MetricsAdvisorClient) | **Used for**: <br> - Listing incidents <br> - Listing root cause of incidents <br> - Retrieving original time series data and time series data enriched by the service. <br> - Listing alerts <br> - Adding feedback to tune your model |
 | [MetricsAdvisorAdministrationClient](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.html?highlight=metricsadvisoradministrationclient#azure.ai.metricsadvisor.MetricsAdvisorAdministrationClient)| **Allows you to:** <br> - Manage data feeds <br> - Create, configure, retrieve, list, and delete anomaly detection configurations <br> - Create, configure, retrieve, list, and delete anomaly alerting configurations <br> - Manage hooks  | |
 | [DataFeed](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.models.html?highlight=datafeed#azure.ai.metricsadvisor.models.DataFeed)| **What Metrics Advisor ingests from your datasource. A `DataFeed` contains rows of:** <br> - Timestamps <br> - Zero or more dimensions <br> - One or more measures  |
-| [DataFeedMetric](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-metricsadvisor/latest/azure.ai.metricsadvisor.models.html?highlight=metric#azure.ai.metricsadvisor.models.Metric) | A `DataFeedMetric` is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a web health metric might contain dimensions for user count and the en-us market. |
+| DataFeedMetric | A `DataFeedMetric` is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a web health metric might contain dimensions for user count and the en-us market. |
 
 ## Code examples
 
@@ -91,7 +91,7 @@ client = MetricsAdvisorAdministrationClient(service_endpoint,
 
 ## Add a data feed
 
-In a new method, create import statements like the example below. Replace `sql_server_connection_string` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `metric` and `dimension` values based on your custom data.
+In a new method, create import statements like the example below. Replace `sql_server_connection_string` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `DataFeedmetric` and `DataFeedDimension` values based on your custom data.
 
 > [!IMPORTANT]
 > The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data. See the [FAQ section on queries](../../faq.md#how-do-i-write-a-valid-query-for-ingesting-my-data) for more information, and examples. 
@@ -155,7 +155,7 @@ sample_create_data_feed()
 
 ## Check the ingestion status
 
-In a new method, create an import statement like the example below. Replace `data_feed_id` with the ID for the data feed you created. Create a client with your keys and endpoint, and use `client.get_data_feed_ingestion_progress()` to get the ingestion progress. Print out the details, such as the last active and successful timestamps.
+In a new method, create an import statement like the example below. Replace `data_feed_id` with the ID for the data feed you created. Create a client with your keys and endpoint, and use `client.list_data_feed_ingestion_status()` to get the ingestion progress. Print out the details, such as the last active and successful timestamps.
 
 
 ```python
@@ -241,9 +241,35 @@ detection_config = client.create_detection_configuration(
 return detection_config
 ```
 
+## Create a hook
+
+In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link for receiving the alert.  
+
+```python
+def sample_create_hook():
+
+    from azure.ai.metricsadvisor import MetricsAdvisorKeyCredential, MetricsAdvisorAdministrationClient
+    from azure.ai.metricsadvisor.models import EmailNotificationHook
+
+    client = MetricsAdvisorAdministrationClient(service_endpoint,
+                                  MetricsAdvisorKeyCredential(subscription_key, api_key))
+
+client = MetricsAdvisorAdministrationClient(service_endpoint,
+    MetricsAdvisorKeyCredential(subscription_key, api_key))
+
+hook = client.create_hook(
+    hook=EmailNotificationHook(
+        name="email hook",
+        description="my email hook",
+        emails_to_alert=["alertme@alertme.com"],
+        external_link="https://adwiki.azurewebsites.net/articles/howto/alerts/create-hooks.html"
+    )
+)
+```
+
 ##  Create an alert configuration
 
-In a new method, create import statements like the example below. Replace `anomaly_detection_configuration_id` with the ID for your anomaly detection configuration, and replace `hook_id` with the hook that you created earlier. Create a client with your keys and endpoint, and use `client.create_anomaly_alert_configuration()` to create an alert configuration. `metric_alert_configurations` is a list of `MetricAlertConfiguration` objects that specify the conditions and scope for each configuration.
+In a new method, create import statements like the example below. Replace `detection_configuration_id` with the ID for your anomaly detection configuration, and replace `hook_id` with the hook that you created earlier. Create a client with your keys and endpoint, and use `client.create_alert_configuration()` to create an alert configuration. 
 
 ```python
 def sample_create_alert_config():
@@ -266,54 +292,54 @@ def sample_create_alert_config():
 )
 
 alert_config = client.create_alert_configuration(
-    name="my alert config",
-    description="alert config description",
-    cross_metrics_operator="AND",
-    metric_alert_configurations=[
-        MetricAlertConfiguration(
-            detection_configuration_id=anomaly_detection_configuration_id,
-            alert_scope=MetricAnomalyAlertScope(
-                scope_type="WholeSeries"
-            ),
-            alert_conditions=MetricAnomalyAlertConditions(
-                severity_condition=SeverityCondition(
-                    min_alert_severity="Low",
-                    max_alert_severity="High"
-                )
-            )
-        ),
-        MetricAlertConfiguration(
-            detection_configuration_id=anomaly_detection_configuration_id,
-            alert_scope=MetricAnomalyAlertScope(
-                scope_type="TopN",
-                top_n_group_in_scope=TopNGroupScope(
-                    top=10,
-                    period=5,
-                    min_top_count=5
+        name="my alert config",
+        description="alert config description",
+        cross_metrics_operator="AND",
+        metric_alert_configurations=[
+            MetricAlertConfiguration(
+                detection_configuration_id=detection_configuration_id,
+                alert_scope=MetricAnomalyAlertScope(
+                    scope_type="WholeSeries"
+                ),
+                alert_conditions=MetricAnomalyAlertConditions(
+                    severity_condition=SeverityCondition(
+                        min_alert_severity="Low",
+                        max_alert_severity="High"
+                    )
                 )
             ),
-            alert_conditions=MetricAnomalyAlertConditions(
-                metric_boundary_condition=MetricBoundaryCondition(
-                    direction="Up",
-                    upper=50
+            MetricAlertConfiguration(
+                detection_configuration_id=detection_configuration_id,
+                alert_scope=MetricAnomalyAlertScope(
+                    scope_type="TopN",
+                    top_n_group_in_scope=TopNGroupScope(
+                        top=10,
+                        period=5,
+                        min_top_count=5
+                    )
+                ),
+                alert_conditions=MetricAnomalyAlertConditions(
+                    metric_boundary_condition=MetricBoundaryCondition(
+                        direction="Up",
+                        upper=50
+                    )
+                ),
+                alert_snooze_condition=MetricAnomalyAlertSnoozeCondition(
+                    auto_snooze=2,
+                    snooze_scope="Metric",
+                    only_for_successive=True
                 )
             ),
-            alert_snooze_condition=MetricAnomalyAlertSnoozeCondition(
-                auto_snooze=2,
-                snooze_scope="Metric",
-                only_for_successive=True
-            )
-        ),
-    ],
-    hook_ids=[hook_id]
-)
+        ],
+        hook_ids=[hook_id]
+    )
 
-return alert_config
+    return alert_config
 ```
 
 ### Query the alert
 
-In a new method, create an import statement like the example below. Replace `alert_id` with the ID for your alert, and replace `alert_config_id` with the alert configuration ID. Create a client with your keys and endpoint, and use `client.list_anomalies_for_alert()` to list an alert configuration. 
+In a new method, create an import statement like the example below. Replace `alert_id` with the ID for your alert, and replace `alert_config_id` with the alert configuration ID. Create a client with your keys and endpoint, and use `client.list_anomalies` to list the anomalies for an alert. 
 
 ```python
 from azure.ai.metricsadvisor import MetricsAdvisorKeyCredential, MetricsAdvisorClient
@@ -343,32 +369,6 @@ for result in results:
     print("Create on: {}".format(result.created_on))
     print("Severity: {}".format(result.severity))
     print("Status: {}".format(result.status))
-```
-
-## Create a hook
-
-In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link for receiving the alert.  
-
-```python
-def sample_create_hook():
-
-    from azure.ai.metricsadvisor import MetricsAdvisorKeyCredential, MetricsAdvisorAdministrationClient
-    from azure.ai.metricsadvisor.models import EmailNotificationHook
-
-    client = MetricsAdvisorAdministrationClient(service_endpoint,
-                                  MetricsAdvisorKeyCredential(subscription_key, api_key))
-
-client = MetricsAdvisorAdministrationClient(service_endpoint,
-    MetricsAdvisorKeyCredential(subscription_key, api_key))
-
-hook = client.create_hook(
-    hook=EmailNotificationHook(
-        name="email hook",
-        description="my email hook",
-        emails_to_alert=["alertme@alertme.com"],
-        external_link="https://adwiki.azurewebsites.net/articles/howto/alerts/create-hooks.html"
-    )
-)
 ```
 
 ### Run the application

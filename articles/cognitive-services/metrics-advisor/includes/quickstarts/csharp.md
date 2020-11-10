@@ -94,7 +94,7 @@ The following classes handle some of the major features of the Metrics Advisor C
 | [MetricsAdvisorClient](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorClient.cs) | **Used for**: <br> - Listing incidents <br> - Listing root cause of incidents <br> - Retrieving original time series data and time series data enriched by the service. <br> - Listing alerts <br> - Adding feedback to tune your model |
 | [MetricsAdvisorAdministrationClient](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorAdministrationClient.cs)| **Allows you to:** <br> - Manage data feeds <br> - Configure anomaly detection configurations <br> - Configure anomaly alerting configurations <br> - Manage hooks  |
 | [DataFeed](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeed/DataFeed.cs)| **What Metrics Advisor ingests from your datasource. A `DataFeed` contains rows of:** <br> - Timestamps <br> - Zero or more dimensions <br> - One or more measures  |
-| [DataFeedMetric](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeedMetric.cs)| A `Metric` is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a web health metric might contain dimensions for user count and the en-us market. |
+| [DataFeedMetric](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeed/DataFeedMetric.cs)| A `DataFeedMetric` is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a web health metric might contain dimensions for user count and the en-us market. |
 
 ## Code examples
 
@@ -139,7 +139,7 @@ var adminClient = new MetricsAdvisorAdministrationClient(new Uri(endpoint), cred
 
 ## Add a data feed
 
-Metrics Advisor supports multiple types of data sources. In this sample we'll illustrate how to create a `DataFeed` that extracts data from a SQL server. Replace `connection_String` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `metric` and `dimension` values based on your custom data.
+Metrics Advisor supports multiple types of data sources. In this sample we'll illustrate how to create a `DataFeed` that extracts data from a SQL server. Replace `connection_String` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `DataFeedMetric` and `DataFeedDimension` values based on your custom data.
 
 
 ```csharp
