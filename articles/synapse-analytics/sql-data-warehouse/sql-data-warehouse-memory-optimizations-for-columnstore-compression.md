@@ -1,6 +1,6 @@
 ---
 title: Improve columnstore index performance
-description: Reduce memory requirements or increase the available memory to maximize the number of rows within each rowgroup.
+description: Reduce memory requirements or increase the available memory to maximize the number of rows within each rowgroup in dedicated SQL pool.
 services: synapse-analytics
 author: kevinvngo 
 manager: craigg
@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Maximizing rowgroup quality for columnstore
+# Maximizing rowgroup quality for columnstore indexes for dedicated SQL pool
 
 Rowgroup quality is determined by the number of rows in a rowgroup. Increasing the available memory can maximize the number of rows a columnstore index compresses into each rowgroup.  Use these methods to improve compression rates and query performance for columnstore indexes.
 
@@ -95,7 +95,7 @@ The maximum required memory to compress one rowgroup is approximately
 Long strings are compressed with a compression method designed for compressing text. This compression method uses a *dictionary* to store text patterns. The maximum size of a dictionary is 16 MB. There is only one dictionary for each long string column in the rowgroup.
 
 For an in-depth discussion of columnstore memory requirements, see the
-video [Synapse SQL pool scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+video [Dedicated SQL pool scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## Ways to reduce memory requirements
 
@@ -118,7 +118,7 @@ Additional memory requirements for string compression:
 
 ### Avoid over-partitioning
 
-Columnstore indexes create one or more rowgroups per partition. For SQL pool in Azure Synapse Analytics, the number of partitions grows quickly because the data is distributed and each distribution is partitioned.
+Columnstore indexes create one or more rowgroups per partition. For dedicated SQL pool in Azure Synapse Analytics, the number of partitions grows quickly because the data is distributed and each distribution is partitioned.
 
 If the table has too many partitions, there might not be enough rows to fill the rowgroups. The lack of rows does not create memory pressure during compression. But, it leads to rowgroups that do not achieve the best columnstore query performance.
 
@@ -161,4 +161,4 @@ To increase the memory grant for a load query, you can either increase the numbe
 
 ## Next steps
 
-To find more ways to improve performance for SQL pool, see the [Performance overview](cheat-sheet.md).
+To find more ways to improve performance for dedicated SQL pool, see the [Performance overview](cheat-sheet.md).

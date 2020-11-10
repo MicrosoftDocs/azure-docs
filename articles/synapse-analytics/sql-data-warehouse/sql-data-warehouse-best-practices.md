@@ -1,6 +1,6 @@
 ---
-title: Best practices for Synapse SQL pool in Azure Synapse Analytics (formerly SQL DW) 
-description: Recommendations and best practices for developing solutions for SQL pool in Azure Synapse Analytics (formerly SQL DW). 
+title: Best practices for dedicated SQL pool in Azure Synapse Analytics
+description: Recommendations and best practices for developing solutions for dedicated SQL pool in Azure Synapse Analytics. 
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -12,9 +12,9 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# Best practices for Synapse SQL pool in Azure Synapse Analytics (formerly SQL DW)
+# Best practices for dedicated SQL pool in Azure Synapse Analytics
 
-This article is a collection of best practices to help you to achieve optimal performance from your [SQL pool](sql-data-warehouse-overview-what-is.md) deployment.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  
+This article is a collection of best practices to help you to achieve optimal performance from your [dedicated SQL pool](sql-data-warehouse-overview-what-is.md) deployment.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  
 
 ## Reduce cost with pause and scale
 
@@ -22,7 +22,7 @@ For more information about reducing costs through pausing and scaling, see the [
 
 ## Maintain statistics
 
-SQL pool can be configured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  
+Dedicated SQL pool can be configured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  
 
 We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep the statistics updated daily or after each load to ensure that statistics on columns used in your queries are always up to date.
 
@@ -35,7 +35,7 @@ See also [Manage table statistics](sql-data-warehouse-tables-statistics.md), [CR
 
 ## Use DMVs to monitor and optimize your queries
 
-SQL pool has several DMVs that can be used to monitor query execution.  The Monitor your workload using DMVs article details step-by-step instructions on how to look at the details of an executing query.  
+Dedicated SQL pool has several DMVs that can be used to monitor query execution.  The [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor) article details step-by-step instructions on how to look at the details of an executing query.  
 
 To quickly find queries in these DMVs, using the LABEL option with your queries can help.
 
@@ -57,7 +57,7 @@ See also [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-a
 
 ## Use PolyBase to load and export data quickly
 
-SQL pool supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  However, when you are loading or exporting large volumes of data or fast performance is needed, PolyBase is the best choice.  
+Dedicated SQL pool supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  However, when you are loading or exporting large volumes of data or fast performance is needed, PolyBase is the best choice.  
 
 PolyBase is designed to leverage distributed nature of the system and will load and export data magnitudes faster than any other tool.  PolyBase loads can be run using CTAS or INSERT INTO.   
 
@@ -69,13 +69,13 @@ Azure Data Factory also supports PolyBase loads and can achieve similar performa
 > [!NOTE]
 > To maximize throughput when using gzip text files, break up files into 60 or more files to maximize parallelism of your load.  For faster total throughput, consider loading data concurrently.
 
-See also [Load data](design-elt-data-loading.md), [Guide for using PolyBase](guidance-for-loading-data.md), [SQL pool loading patterns and strategies](https://blogs.msdn.microsoft.com/sqlcat/20../../), [Load Data with Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [Move data with Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), and [Create table as select (CTAS)](sql-data-warehouse-develop-ctas.md).
+See also [Load data](design-elt-data-loading.md), [Guide for using PolyBase](guidance-for-loading-data.md), [Dedicated SQL pool loading patterns and strategies](https://blogs.msdn.microsoft.com/sqlcat/20../../), [Load Data with Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [Move data with Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), and [Create table as select (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## Load then query external tables
 
 While Polybase, also known as external tables, can be the fastest way to load data, it is not optimal for queries. Polybase tables currently only support Azure blob files and Azure Data Lake storage. These files do not have any compute resources backing them.  
 
-As a result, SQL pool cannot offload this work and therefore must read the entire file by loading it to tempdb in order to read the data.  Therefore, if you have several queries that will be querying this data, it is better to load this data once and have queries use the local table.
+As a result, dedicated SQL pool cannot offload this work and therefore must read the entire file by loading it to tempdb in order to read the data.  Therefore, if you have several queries that will be querying this data, it is better to load this data once and have queries use the local table.
 
 See also [Guide for using PolyBase](guidance-for-loading-data.md).
 
@@ -96,7 +96,7 @@ See also [Table overview](sql-data-warehouse-tables-overview.md), [Table distrib
 
 ## Do not over-partition
 
-While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy, which may work well on SQL Server may not work well in SQL pool.  
+While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy, which may work well on SQL Server may not work well in dedicated SQL pool.  
 
 Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows.  Keep in mind that behind the scenes, SQL pool partitions your data for you into 60 databases, so if you create a table with 100 partitions, this actually results in 6000 partitions.  
 
@@ -140,13 +140,13 @@ See also [Temporary tables](sql-data-warehouse-tables-temporary.md), [CREATE TAB
 
 ## Optimize clustered columnstore tables
 
-Clustered columnstore indexes are one of the most efficient ways you can store your data in SQL pool.  By default, tables in SQL pool are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  
+Clustered columnstore indexes are one of the most efficient ways you can store your data in dedicated SQL pool.  By default, tables in dedicated SQL pool are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  
 
 When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Segment quality can be measured by number of rows in a compressed Row Group.  See the [Causes of poor columnstore index quality](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) in the [Table indexes](sql-data-warehouse-tables-index.md) article for step-by-step instructions on detecting and improving segment quality for clustered columnstore tables.  
 
 Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) means you want to assign a larger resource class to your loading user.
 
-Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table and each SQL pool table is partitioned into 60 tables, as a rule of thumb, columnstore tables won't benefit a query unless the table has more than 60 million rows.  For table with less than 60 million rows, it may not make any sense to have a columnstore index.  It also may not hurt.  
+Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table and each dedicated SQL pool table is partitioned into 60 tables, as a rule of thumb, columnstore tables won't benefit a query unless the table has more than 60 million rows.  For table with less than 60 million rows, it may not make any sense to have a columnstore index.  It also may not hurt.  
 
 Furthermore, if you partition your data, then you will want to consider that each partition will need to have 1 million rows to benefit from a clustered columnstore index.  If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions *100 partitions* 1 million rows).  
 
@@ -159,7 +159,7 @@ See also [Table indexes](sql-data-warehouse-tables-index.md), [Columnstore index
 
 ## Use larger resource class to improve query performance
 
-SQL pool uses resource groups as a way to allocate memory to queries.  Out of the box, all users are assigned to the small resource class, which grants 100 MB of memory per distribution.  Since there are always 60 distributions and each distribution is given a minimum of 100 MB, system wide the total memory allocation is 6,000 MB, or just under 6 GB.  
+Dedicated SQL pool uses resource groups as a way to allocate memory to queries.  Out of the box, all users are assigned to the small resource class, which grants 100 MB of memory per distribution.  Since there are always 60 distributions and each distribution is given a minimum of 100 MB, system wide the total memory allocation is 6,000 MB, or just under 6 GB.  
 
 Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, like pure scans, will yield no benefit.  However, utilizing larger resource classes reduces concurrency, so you will want to take this impact into consideration before moving all of your users to a large resource class.
 

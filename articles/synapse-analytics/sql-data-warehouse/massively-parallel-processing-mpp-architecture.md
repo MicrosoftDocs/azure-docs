@@ -20,7 +20,7 @@ Azure Synapse is a limitless analytics service that brings together enterprise d
 
 - Synapse SQL: Complete T-SQL based analytics
 
-  - Dedicated SQL pool (pay per DWU provisioned) – Generally Available
+  - Dedicated SQL pool (formerly SQL DW) (pay per DWU provisioned) – Generally Available
   - Serverless SQL pool (pay per TB processed) – (Preview)
 - Spark: Deeply integrated Apache Spark (Preview)
 - Data Integration: Hybrid data integration (Preview)
@@ -38,16 +38,16 @@ Synapse SQL uses a node-based architecture. Applications connect and issue T-SQL
 
 The Compute nodes store all user data in Azure Storage and run the parallel queries. The Data Movement Service (DMS) is a system-level internal service that moves data across the nodes as necessary to run queries in parallel and return accurate results.
 
-With decoupled storage and compute, when using Synapse SQL pool one can:
+With decoupled storage and compute, when using a dedicated SQL pool (formerly SQL DW) one can:
 
 - Independently size compute power irrespective of your storage needs.
-- Grow or shrink compute power, within a SQL pool (data warehouse), without moving data.
+- Grow or shrink compute power, within a dedicated SQL pool (formerly SQL DW), without moving data.
 - Pause compute capacity while leaving data intact, so you only pay for storage.
 - Resume compute capacity during operational hours.
 
 ### Azure Storage
 
-Synapse SQL leverages Azure Storage to keep your user data safe.  Since your data is stored and managed by Azure Storage, there is a separate charge for your storage consumption. The data is sharded into **distributions** to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
+Dedicated SQL pool SQL (formerly SQL DW) leverages Azure Storage to keep your user data safe.  Since your data is stored and managed by Azure Storage, there is a separate charge for your storage consumption. The data is sharded into **distributions** to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
 
 - Hash
 - Round Robin
@@ -71,7 +71,7 @@ Data Movement Service (DMS) is the data transport technology that coordinates da
 
 A distribution is the basic unit of storage and processing for parallel queries that run on distributed data. When Synapse SQL runs a query, the work is divided into 60 smaller queries that run in parallel.
 
-Each of the 60 smaller queries runs on one of the data distributions. Each Compute node manages one or more of the 60 distributions. A SQL pool with maximum compute resources has one distribution per Compute node. A SQL pool with minimum compute resources has all the distributions on one compute node.  
+Each of the 60 smaller queries runs on one of the data distributions. Each Compute node manages one or more of the 60 distributions. A dedicated SQL pool (formerly SQL DW) with maximum compute resources has one distribution per Compute node. A dedicated SQL pool (formerly SQL DW) with minimum compute resources has all the distributions on one compute node.  
 
 ## Hash-distributed tables
 
@@ -107,7 +107,7 @@ The diagram below shows a replicated table that is cached on the first distribut
 
 ## Next steps
 
-Now that you know a bit about Azure Synapse, learn how to quickly [create a SQL pool](create-data-warehouse-portal.md) and [load sample data](load-data-from-azure-blob-storage-using-polybase.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources.  
+Now that you know a bit about Azure Synapse, learn how to quickly [create a dedicated SQL pool](create-data-warehouse-portal.md) and [load sample data](load-data-from-azure-blob-storage-using-polybase.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources.  
 
 - [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
