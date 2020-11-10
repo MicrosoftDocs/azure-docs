@@ -13,13 +13,13 @@ ms.author: alkohli
 ---
 # Enable Edge container registry on your Azure Stack Edge Pro GPU device
 
-This article describes how to enable this local Edge container registry and use it from within the Kubernetes cluster on your Azure Stack Edge Pro device. The example used in the article details how to push an image from a source registry, in this case, Microsoft Container registry, to the registry on the Azure Stack Edge device, the Edge container registry.
+This article describes how to enable the Edge container registry and use it from within the Kubernetes cluster on your Azure Stack Edge Pro device. The example used in the article details how to push an image from a source registry, in this case, Microsoft Container registry, to the registry on the Azure Stack Edge device, the Edge container registry.
 
 ### About Edge container registry
 
-Containerized compute applications need container images to run which are stored in registries. Registries can be public such as docker hub, private, or cloud provider managed such as Azure Container Registry. For more information, see [About registries, repositories, and images](../container-registry/container-registry-concepts.md).
+Containerized compute applications run on container images and these images are stored in registries. Registries can be public such as Docker Hub, private, or cloud provider managed such as Azure Container Registry. For more information, see [About registries, repositories, and images](../container-registry/container-registry-concepts.md).
 
-In Edge environments, network connectivity can be unreliable and network speed can be slow. An Edge container registry provides a repository at the Edge, on your Azure Stack Edge Pro device. You can use this registry to store and manage your private container images.
+An Edge container registry provides a repository at the Edge, on your Azure Stack Edge Pro device. You can use this registry to store and manage your private container images.
 
 In a multi-node environment, container images can be downloaded and pushed to the Edge container registry once. All Edge applications can use the Edge container registry for subsequent deployments.
 
@@ -46,7 +46,7 @@ Before you begin, make sure that:
 
 The first step is to enable the Edge container registry as an add-on.
 
-- Run PowerShell as an administrator on your Windows client that you will use to access your Azure Stack Edge device. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface). 
+1. Run PowerShell as an administrator on your Windows client that you will use to access your Azure Stack Edge device. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface). 
 
 1. To enable the container registry as an add-on, type: 
 
@@ -83,27 +83,27 @@ The first step is to enable the Edge container registry as an add-on.
 You may want to access the container registry from outside of your Azure Stack Edge device. Follow these steps to access Edge container registry:
 
 1. Get the endpoint details for the Edge container registry.
-    - In the local UI of the device, go to **Device**.
-    - Locate the **Edge container registry endpoint**.
+    1. In the local UI of the device, go to **Device**.
+    1. Locate the **Edge container registry endpoint**.
         ![Edge container registry endpoint on Device page](media/azure-stack-edge-gpu-edge-container-registry/get-ecr-endpoint-1.png) 
-    - Copy this endpoint and create a corresponding DNS entry into the `C:\Windows\System32\Drivers\etc\hosts` file of your client to connect to the Edge Container registry endpoint. 
+    1. Copy this endpoint and create a corresponding DNS entry into the `C:\Windows\System32\Drivers\etc\hosts` file of your client to connect to the Edge Container registry endpoint. 
 
-        <IP address of the Kubernetes master node>    <Edge container registry endpoint> 
+        <IP address of the Kubernetes main node>    <Edge container registry endpoint> 
         
         ![Add DNS entry for Edge container registry endpoint](media/azure-stack-edge-gpu-edge-container-registry/add-dns-entry-hosts-1.png)    
 
 1. Download the Edge container registry certificate from Local UI. 
-    - In the local UI of the device, go to **Certificates**.
-    - Locate the entry for **Edge container registry certificate**. To the right of this entry, select the **Download** to download the Edge container registry certificate on your Windows client system that you'll use to access your device. 
+    1. In the local UI of the device, go to **Certificates**.
+    1. Locate the entry for **Edge container registry certificate**. To the right of this entry, select the **Download** to download the Edge container registry certificate on your Windows client system that you'll use to access your device. 
 
         ![Download edge container registry endpoint certificate](media/azure-stack-edge-gpu-edge-container-registry/download-ecr-endpoint-certificate-1.png)  
 
 1. Install the downloaded certificate on the Windows client. 
-    - Select the certificate and in the Certificate Import Wizard, select store location as **Local machine**. 
+    1. Select the certificate and in the Certificate Import Wizard, select store location as **Local machine**. 
 
         ![Install certificate 1](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-1.png) 
     
-    - Install the certificate on your Local machine in the trusted root store. 
+    1. Install the certificate on your Local machine in the trusted root store. 
 
         ![Install certificate 2](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-2.png) 
 
@@ -168,7 +168,7 @@ You may want to access the container registry from outside of your Azure Stack E
 
 You can now deploy the image that you pushed in your Edge container registry from within the Kubernetes pods.
 
-1. To deploy the image, you need to configure cluster access via kubectl. Create a namespace, a user, grant user access to the namespace, and get a config file. Make sure that you can connect to the Kubernetes pods. 
+1. To deploy the image, you need to configure cluster access via *kubectl*. Create a namespace, a user, grant user access to the namespace, and get a *config* file. Make sure that you can connect to the Kubernetes pods. 
     
     Follow all the steps in [Connect to and manage a Kubernetes cluster via kubectl on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-kubernetes-cluster.md). 
 
