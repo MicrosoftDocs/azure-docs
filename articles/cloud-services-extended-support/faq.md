@@ -13,7 +13,7 @@ ms.custom:
 # Frequently asked questions for Cloud Services (extended support)
 
 ## What new features do I get with Cloud Services (extended support)?
-Cloud services customers get features like Template (Infrastructure as Code deployment model), Role based access control, Azure Resource Manager Policies for improved control on security & privacy, Resource Tagging, Private Links, Azure Firewall, Vnet Peering, Key Vault support, etc. Customers will continue getting newer improved VM sizes, quicker security & performance improvements, and newer Azure Resource Manager features. 
+Cloud services customers get features like Template (Infrastructure as Code deployment model), Role-based access control, Azure Resource Manager Policies for improved control on security & privacy, Resource Tagging, Private Links, Azure Firewall, Vnet Peering, Key Vault support, etc. Customers will continue getting newer improved VM sizes, quicker security & performance improvements, and newer Azure Resource Manager features. 
 
 ## Are there any pricing differences     
 Customers are now charged for use of Key Vault, Dynamic IP address, Reserved (static) IP address. 
@@ -21,17 +21,11 @@ Customers are now charged for use of Key Vault, Dynamic IP address, Reserved (st
 Public IP resources deployed through Resource Manager are charged differently. Dynamic IPs are also chargeable in addition to static public IPs. For more information, see [IP Address Charges)(https://azure.microsoft.com/pricing/details/ip-addresses/)
 
 ## Do I get DNS name for my Cloud Services (extended support)? Will its default naming convention change?  
-Yes, Cloud Services (extended support) can also be given a DNS name . With Azure Resource Manager, the DNS label is an optional property of the Public IP address that is assigned to the Cloud Service. The format of the DNS name for Azure Resource Manager based deployments as `<userlabel>.<region>.cloudapp.azure.com`
+Yes, Cloud Services (extended support) can also be given a DNS name. With Azure Resource Manager, the DNS label is an optional property of the Public IP address that is assigned to the Cloud Service. The format of the DNS name for Azure Resource Manager based deployments as `<userlabel>.<region>.cloudapp.azure.com`
 
 ## What is the resource name for Cloud Services (classic) & Cloud Services (extended support)?
 - Cloud Services (classic): `microsoft.classiccompute/domainnames`
 - Cloud Services (extended support): `microsoft.compute/cloudservices`
-
-## Why do I need to define certain resources under the resources section and also mention them within Network Profile section of microsoft.compute/cloudservices resource?
-- To create or update a resource (like Pubilc IP, VNet), the definition for the resource is added under the resources section of the Template. 
-- Resource definition within resources section of the template is used to create or update that particular resource.
-- Within Network Profile section, resources like the Public IP addresses are linked to the Cloud services resources. Eg: A public IP address is associated with the front-end of the load balancer within the network profile object of the Cloud Service.  
-- Therefore, if a resource like Vnet already exist and you need to only link it with your Cloud Service deployment, then you can either skip defining the Vnet resource or keep the definition ensuring its properties are unchanged. Azure Resource Manager will automatically ignore the Vnet resource definition if it has not changed.  
 
 ## How can I use a Template to deploy or manage my deployment?
 Template & Parameters file can be passed as a parameter via Rest API or PowerShell/CLI command. It can also be uploaded via Portal to create/manage the deployment.  
@@ -49,31 +43,31 @@ Replace deprecated vm size with current [alternative sizes](available-sizes.md).
 ## What is changing in my existing `.cscfg` deployment file? 
 Update the DNS name 
 
-## 	Do I need to maintain 4 files (Template, parameter, Csdef, Cscfg) instead of only 2 file?
+## 	Do I need to maintain four files (Template, parameter, Csdef, Cscfg) instead of only 2 file?
 Template & parameter files are only used for deployment automation. Like before, you can still manually create dependent resources first and then a Cloud Services (extended support) deployment using PowerShell/CLI commands. 
 
 ## Why don’t I see a production & staging slot deployment anymore?
-Unlike Cloud Services (classic), Cloud Services (extended support) does not support the logical concept of hosted service which included two slots (Production & Staging). Each deployment is an independent Cloud Service (extended support) deployment. 
+Unlike Cloud Services (classic), Cloud Services (extended support) does not support the logical concept of hosted service, which included two slots (Production & Staging). Each deployment is an independent Cloud Service (extended support) deployment. 
 
 ## How does this affect VIP Swap feature?
-During create of a new Cloud Service (extended support) deployment, you can define the deployment id of the deployment you want to swap with. This defines the VIP Swap relationship between two Cloud Services. 
+During create of a new Cloud Service (extended support) deployment, you can define the deployment ID of the deployment you want to swap with. This defines the VIP Swap relationship between two Cloud Services. 
 
 ## Why can’t I create an empty Cloud Service anymore?
-Since the concept of hosted service names do not exist anymore, you cannot create an empty Cloud Service without any deployment.
+Since the concept of hosted service names does not exist anymore, you cannot create an empty Cloud Service without any deployment.
 
 If your current architecture used to create a ready to use environment with an empty Cloud Service and later provision a deployment, you can do something similar using Resource Groups. a ready to use environment can be created using Resource Groups and later Cloud Service deployments can be created when needed. 
 
 ## How are role instance metrics changing?
-There is no change in the role instance metrics reported on Portal. 
+There are no changes in the role instance metrics reported on Portal. 
 
 ## How are Web & Worker roles changing?
-There is no change to the design, architecture and the components of Web & Worker roles. 
+There are no changes to the design, architecture and the components of Web & Worker roles. 
 
 ## How are role instances changing?
-There is no change to the design, architecture, and the components of the role instances. 
+There are no changes to the design, architecture and the components of the role instances. 
 
 ## How will guest os updates change?
- There is no changes to the rollout method. Cloud Services (classic)  and Cloud Services (extended support) will the same updates at a regular cadence. 
+ There are no changes to the rollout method. Cloud Services (classic)  and Cloud Services (extended support) will the same updates at a regular cadence. 
 
 ##	What locations will Cloud Services (extended support) be available?
 Cloud Services (extended support) is available in all Public Cloud Regions.
@@ -82,12 +76,12 @@ Cloud Services (extended support) is available in all Public Cloud Regions.
 Customers will need to request for new quota on Azure Resource Manager using the same process used for any other compute product. Quota in Azure Resource Manager is regional unlike global in Azure Service Manager. A separate quota request needs to made for each region.
 
 ##	How does my application code change on Cloud Services (extended support)
-There is no change required for your application code packaged in `.cspkg`. Your existing applications will continue to work as before. 
+There are no changes required for your application code packaged in `.cspkg`. Your existing applications will continue to work as before. 
 
-##	What resources linked to a Cloud Services (extended support) deployment need to live in the same resource group  ?
+##	What resources linked to a Cloud Services (extended support) deployment need to live in the same resource group?
 Storage accounts, public IPs, load balancer, Cloud Service deployments, network security groups and route tables need to live in the same region and resource group. 
 
-##	What resources linked to a Cloud Services (extended support) deployment need to live in the same region ?
+##	What resources linked to a Cloud Services (extended support) deployment need to live in the same region?
 Key vault, virtual network, public IPs, Cloud Service deployments, network security groups and route tables need to live in the same region.
 
 ##	What resources linked to a Cloud Services (extended support) deployment need to live in the same virtual network?
@@ -114,10 +108,10 @@ aSubnet containing Cloud Services (extended support) deployment cannot be shared
 
 Customers need to use a different subnet in the same Virtual Network. 
 
-This restrictions apply to both new virtual networks created on Azure Resource Manager and virtual networks migrated from ASM. 
+These restrictions apply to both new virtual networks created on Azure Resource Manager and virtual networks migrated from ASM. 
 
 ##	What IP allocation methods are supported on Cloud services (extended support)?
-Cloud Services (extended support) supports dynamic & static IP allocation methods. Static IP address are referenced as reserved IP in the `.cscfg` file.
+Cloud Services (extended support) supports dynamic & static IP allocation methods. Static IP addresses are referenced as reserved IP in the `.cscfg` file.
 
 ##	Why am I getting charged for IP addresses?
 Customers are billed for IP Address use on Cloud Services (extended support). 
@@ -145,19 +139,18 @@ No, Cloud Services (extended support) does not yet support Resource Health Check
 3.	Since ASM customers are the early adopters of Azure, we value your business a lot and want the best tools and experience Azure has to offer. 
 
 ## When do I need to migrate? 
-Estimating the time required, complexity and efforts for migration is difficult due to influence of range of variables. We have seen customers take anywhere from 3 months to 2 years to complete the migration. Planning is the most time consuming but the most effective step to understand the scope of work, blockers, complexity for migration and many other factors. If Cloud Services (extended support) is the path for you, early start gives you an opportunity to raise blockers ensuring the product is ready for you immediately after general availability.
+Estimating the time required, complexity and efforts for migration is difficult due to influence of range of variables. We have seen customers take anywhere from three months to 2 years to complete the migration. Planning is the most time consuming but the most effective step to understand the scope of work, blockers, complexity for migration and many other factors. If Cloud Services (extended support) is the path for you, early start gives you an opportunity to raise blockers ensuring the product is ready for you immediately after general availability.
 
 ##	How do I migrate my existing deployment to Azure Resource Manager?
 1. Read docs and understand what Cloud Services (extended support) has to offer.
-1. Identify all your subscriptions and create a catalog of all your Cloud Services (classic) deployments. You can use look at all your deployment on Cloud Services (classic) Portal blade or Resource Graph Explorer using Portal or Power shell.
+1. Identify all your subscriptions and create a catalog of all your Cloud Services (classic) deployments. You can use look at all your deployment on Cloud Services (classic) Portal blade or Resource Graph Explorer using Portal or PowerShell.
 1. Understand the set of features used and blockers for migration
-1. Build a catalog of custom tools, automations, dashboard built that need to updated to start using newer APIs, PowerShell/CLI commands & SDKs.
 1. Reach out to microsoft for assistance with migration if needed. (Support, Cloud Solution Architects, Technical Account Managers, Microsoft Q&A)
 1. Build a detailed migration plan and execution timeline. 
 1. Start and complete migration. Customers can either do a lift & shift migration (create parallel deployment on Azure Resource Manager, thoroughly test the deployment, migrate traffic from old to new deployment) or migrate within microsoft provided migration tool (will be soon released).  
 
 ##	I am getting error during create/management of my Cloud Service (extended support) deployment. What should I do?
-1. Check what the error message says and what is the recommended mitigation steps. We recommend looking for answers on our public documents, FAQs and community forums like Microsoft Q&A, Stack Overflow and Github. 
-2. If the above steps does not help find the answer, contact technical support. 
+1. Check what the error message says and what is the recommended mitigation steps. We recommend looking for answers on our public documents, FAQs and community forums like Microsoft Q&A, Stack Overflow and GitHub. 
+2. If the above steps do not help find the answer, contact technical support. 
 
 
