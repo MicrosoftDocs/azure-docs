@@ -222,15 +222,6 @@ async function main() {
   );
 }
 
-const adminClient = new MetricsAdvisorAdministrationClient(endpoint, credential);
-  await checkIngestionStatus(
-    adminClient,
-    dataFeedId,
-    new Date(Date.UTC(2020, 8, 1)),
-    new Date(Date.UTC(2020, 8, 12))
-  );
-}
-
 async function checkIngestionStatus(adminClient, datafeedId, startTime, endTime) {
   // This shows how to use for-await-of syntax to list status
   console.log("Checking ingestion status...");
