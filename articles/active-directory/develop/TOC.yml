@@ -400,6 +400,8 @@
     - name: Application types and OAuth 2.0
       displayName: App types, OAuth
       href: v2-app-types.md
+    - name: Token exchange scenarios
+      href: scenario-token-exchange-saml-oauth.md
     - name: OAuth 2.0 and OpenID Connect protocols
       items:
       - name: OAuth 2.0 and OpenID Connect
@@ -420,8 +422,6 @@
       - name: OAuth 2.0 resource owner password credentials grant
         displayName: ROPC
         href: v2-oauth-ropc.md
-      - name: OAuth 2.0 SAML bearer assertion flow
-        href: v2-saml-bearer-assertion.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
       - name: ID tokens
