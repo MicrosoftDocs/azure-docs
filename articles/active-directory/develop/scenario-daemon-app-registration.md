@@ -49,5 +49,5 @@ If you're an ISV building a multitenant application, you should read the section
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Daemon app - app code configuration](./scenario-daemon-app-configuration.md)
+Move on to the next article in this scenario,
+[App code configuration](./scenario-daemon-app-configuration.md).

@@ -37,11 +37,11 @@ You can also assign policies by using [Azure PowerShell](../governance/policy/as
 
 ## Workspaces encryption with customer-managed key
 
-Controls whether workspaces should be encrypted with a customer-managed key (CMK), or using a Microsoft-managed key to encrypt metrics and metadata. For more information on using CMK, see the [Azure Cosmos DB](concept-enterprise-security.md#azure-cosmos-db) section of the enterprise security article.
+Controls whether workspaces should be encrypted with a customer-managed key, or using a Microsoft-managed key to encrypt metrics and metadata. For more information on using customer-managed key, see the [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) section of the data encryption article.
 
-To configure this policy, set the effect parameter to __audit__ or __deny__. If set to __audit__, you can create workspaces without a CMK and an warning event is created in the activity log.
+To configure this policy, set the effect parameter to __audit__ or __deny__. If set to __audit__, you can create workspaces without a customer-managed key and a warning event is created in the activity log.
 
-If the policy is set to __deny__, then you cannot create a workspace unless it specifies a CMK. Attempting to create a workspace without a CMK results in an error similar to `Resource 'clustername' was disallowed by policy` and creates an error in the activity log. The policy identifier is also returned as part of this error.
+If the policy is set to __deny__, then you cannot create a workspace unless it specifies a customer-managed key. Attempting to create a workspace without a customer-managed key results in an error similar to `Resource 'clustername' was disallowed by policy` and creates an error in the activity log. The policy identifier is also returned as part of this error.
 
 ## Workspaces should use private link
 
