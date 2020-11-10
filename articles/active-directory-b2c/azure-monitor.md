@@ -228,7 +228,7 @@ Follow the instructions below to create a new workbook using JSON Gallery Templa
      ![Gallery Template](./media/azure-monitor/wrkb-adv-editor.png)
 
 1. Select **Gallery Template**.
-1. Replace the JSON in the **Gallery Template**  with the content [Azure AD B2C basic workbook](https://TBD):
+1. Replace the JSON in the **Gallery Template**  with the content [Azure AD B2C basic workbook](https://raw.githubusercontent.com/azure-ad-b2c/siem/master/workbooks/dashboard.json):
 1. Apply the template by using the **Apply** button.
 1. Select **Done Editing** button from the toolbar to finish editing of the workbook.
 1. Finally, save the workbook by using the **Save** button from the toolbar.
