@@ -20,9 +20,6 @@ ms.author: yelevin
 ---
 # Monitor the health of your data connectors with this Azure Sentinel workbook
 
-> [!IMPORTANT]
-> The **Data connectors health monitoring workbook** is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 The **Data connectors health monitoring workbook** allows you to keep track of your data connectors' health, connectivity, and performance, from within Azure Sentinel. The workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
 
 ## Use the health monitoring workbook
@@ -42,16 +39,28 @@ There are three tabbed sections in this workbook:
 1. The **Overview** tab shows the general status of data ingestion in the selected workspace: 
 volume measures, EPS rates and time last log received.
 
-1. The **Data collection anomalies** tab will help you to detect anomalies in the data ingestion patterns, by log type, table, and data source.
+1. The **Data collection anomalies** tab will help you to detect anomalies in the data collection process, by table and data source. Each tab presents anomalies for a particular table (the **General** tab includes a collection of tables). The anomalies are calculated using the **series_decompose_anomalies()** function that returns an **anomaly score**. [Learn more about this function](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Set the following parameters for the function to evaluate:
+
+    - **AnomaliesTimeRange**: This time picker applies only to the data collection anomalies view.
+    - **SampleInterval**: The time interval in which data is sampled in the given time range. The anomaly score is calculated only on the last interval's data.
+    - **PositiveAlertThreshold**: This value defines the positive anomaly score threshold. It accepts decimal values.
+    - **NegativeAlertThreshold**: This value defines the negative anomaly score threshold. It accepts decimal values.
+
+        :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-2.png" alt-text="data connector health monitoring workbook anomalies page" lightbox="media/monitor-data-connector-health/data-health-workbook-2.png":::
 
 1. The **Agent info** tab shows you information about the health of the Log Analytics agents installed on your various machines, whether Azure VM, other cloud VM, on-premises VM, or physical. You can monitor the following:
-   1. System location
-   1. Heartbeat status and latency
-   1. Available memory and disk space
-   1. Agent operations
+
+   - System location
+
+   - Heartbeat status and latency
+
+   - Available memory and disk space
+
+   - Agent operations
 
     In this section you must select the tab that describes your machines’ environment: choose the **Azure-managed machines** tab if you want to view only the Azure Arc-managed machines; choose the **All machines** tab to view both managed and non-Azure machines with the Log Analytics agent installed.
 
+    :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="data connector health monitoring workbook agent info page" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
+
 ## Next steps
 Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), [connect data sources](connect-data-sources.md), and [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-
