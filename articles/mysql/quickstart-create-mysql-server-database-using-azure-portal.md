@@ -11,12 +11,12 @@ ms.date: 11/04/2020
 
 # Quickstart: Create an Azure Database for MySQL server by using the Azure portal
 
-Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. This quickstart shows you how to use the Azure portal to create an Azure Database for MySQL Single Server. It also shows you how to connect to the server.
+Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. This quickstart shows you how to use the Azure portal to create an Azure Database for MySQL single server. It also shows you how to connect to the server.
 
 ## Prerequisites
 An Azure subscription is required. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-## Create an Azure Database for MySQL Single Server
+## Create an Azure Database for MySQL single server
 1. Go to the [Azure portal](https://portal.azure.com/) to create a MySQL Single Server database. Search for and select **Azure Database for MySQL**:
 
    >[!div class="mx-imgBorder"]
@@ -28,7 +28,7 @@ An Azure subscription is required. If you don't have an Azure subscription, crea
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/choose-singleserver.png" alt-text="Screenshot that shows the Single server option.":::
 
-3. Enter the basic settings for a new Single Server:
+3. Enter the basic settings for a new single server:
 
    >[!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Screenshot that shows the Create MySQL server page.":::
