@@ -12,9 +12,9 @@ Java codeless application monitoring is all about simplicity - there are no code
 
  The Java agent works in any environment, and allows you to monitor all of your Java applications. In other words, whether you are running your Java apps on VMs, on-premises, in AKS, on Windows, Linux - you name it, the Java 3.0 agent will monitor your app.
 
-Adding the Application Insights Java SDK to your application is no longer required, as the 3.0 agent autocollects requests, dependencies and logs all on its own.
+Adding the Application Insights Java SDK to your application is no longer required, as the 3.0 agent auto-collects requests, dependencies and logs all on its own.
 
-You can still send custom telemetry from your application. The 3.0 agent will track and correlate it along with all of the autocollected telemetry.
+You can still send custom telemetry from your application. The 3.0 agent will track and correlate it along with all of the auto-collected telemetry.
 
 The 3.0 agent supports Java 8 and above.
 
@@ -79,7 +79,7 @@ In the `applicationinsights.json` file, you can additionally configure:
 * Sampling
 * JMX metrics
 * Custom dimensions
-* Telemetry processors
+* Telemetry processors (preview)
 * Auto-collected logging
 * Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 * Heartbeat
@@ -88,7 +88,7 @@ In the `applicationinsights.json` file, you can additionally configure:
 
 See [configuration options](./java-standalone-config.md) for full details.
 
-## Autocollected requests, dependencies, logs, and metrics
+## Auto-collected requests, dependencies, logs, and metrics
 
 ### Requests
 

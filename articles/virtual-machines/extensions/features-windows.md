@@ -351,7 +351,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 1. To check the Windows Guest Agent Log, look at the activity when your extension was being provisioned in *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Check the actual extension logs for more details in *C:\WindowsAzure\Logs\Plugins\<extensionName>*
+2. Check the actual extension logs for more details in *C:\WindowsAzure\Logs\Plugins\\<extensionName>*
 
 3. Check extension specific documentation troubleshooting sections for error codes, known issues etc.
 
