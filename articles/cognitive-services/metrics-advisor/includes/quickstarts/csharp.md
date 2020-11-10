@@ -147,7 +147,7 @@ string sqlServerConnectionString = "<connection_String>";
 string sqlServerQuery = "<query>";
 
 var dataFeedName = "Sample data feed";
-var dataFeedSource = new MySqlDataFeedSource(sqlServerConnectionString, sqlServerQuery);
+var dataFeedSource = new SqlServerDataFeedSource(sqlServerConnectionString, sqlServerQuery);
 var dataFeedGranularity = new DataFeedGranularity(DataFeedGranularityType.Daily);
 
 var dataFeedMetrics = new List<DataFeedMetric>()
@@ -174,13 +174,11 @@ Response<string> response = await adminClient.CreateDataFeedAsync(dataFeed);
 
 string dataFeedId = response.Value;
 
-Console.WriteLine($"Data feed ID: {dataFeed.Id}");
+Console.WriteLine($"Data feed ID: {dataFeedId}");
 
 // Note that only the ID of the data feed is known at this point. You can perform another
 // service call to GetDataFeedAsync or GetDataFeed to get more information, such as status,
 // created time, the list of administrators, or the metric IDs.
-
-string dataFeedId = "<dataFeedId>";
 
 Response<DataFeed> response = await adminClient.GetDataFeedAsync(dataFeedId);
 
@@ -271,7 +269,7 @@ Console.WriteLine($"Anomaly detection configuration ID: {detectionConfigurationI
 
 ### Create a hook
 
-Metrics Advisor supports the `EmailHook` and `WebHook` classes as means of subscribing to alerts notifications. In this example we'll illustrate how to create an `EmailHook`. You need to pass the hook to an anomaly alert configuration to start getting notifications. See the sample [create an anomaly alert configuration](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor#create-an-anomaly-alert-configuration) for more information.
+Metrics Advisor supports the `EmailNotificationHook` and `WebNotificationHook` classes as means of subscribing to alerts notifications. In this example we'll illustrate how to create an `EmailNotificationHook`. You need to pass the hook to an anomaly alert configuration to start getting notifications. See the sample [create an anomaly alert configuration](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor#create-an-anomaly-alert-configuration) for more information.
 
 ```csharp
 string hookName = "Sample hook";
@@ -318,7 +316,7 @@ Console.WriteLine($"Alert configuration ID: {alertConfigurationId}");
 
 ### Query the alert
 
-Look through the alerts created by a given anomaly alert configuration, and list the anomalies that triggered these alerts.
+Look through the alerts created by a given anomaly alert configuration.
 
 ```csharp
 string anomalyAlertConfigurationId = "<anomalyAlertConfigurationId>";
