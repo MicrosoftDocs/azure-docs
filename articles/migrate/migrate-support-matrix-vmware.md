@@ -71,7 +71,7 @@ In addition to discovering machines, Server Assessment can discover apps, roles,
 
 
 
-## Agentless dependency analysis requirements
+## Dependency analysis requirements (agentless)
 
 [Dependency analysis](concepts-dependency-visualization.md) helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. The table summarizes the requirements for setting up agentless dependency analysis.
 
@@ -88,7 +88,7 @@ In addition to discovering machines, Server Assessment can discover apps, roles,
 **Port access** | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXI hosts running the VMs whose dependencies you want to discover. The vCenter Server returns an ESXI host connection, to download the file containing the dependency information.
 
 
-## Agent-based dependency analysis requirements
+## Dependency analysis requirements (agent-based)
 
 [Dependency analysis](concepts-dependency-visualization.md) helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. The table summarizes the requirements for setting up agent-based dependency analysis. 
 
