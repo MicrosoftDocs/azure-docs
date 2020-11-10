@@ -125,7 +125,7 @@
       href: troubleshoot-dual-protocol-volumes.md
     - name: Troubleshoot snapshot policies
       href: troubleshoot-snapshot-policies.md
-    - name: Troubleshoot Azure NetApp Files Resource Provider errors
+    - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Reference
   items:
