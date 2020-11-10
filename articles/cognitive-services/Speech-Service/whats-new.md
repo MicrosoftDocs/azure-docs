@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 11/06/2020
 ms.author: erhopf
 ---
 
@@ -18,9 +18,10 @@ Welcome! This page covers what's new in Speech service docs. Check back every mo
 
 ### Service updates
 
-If you want to learn about updates to the Speech service, Speech SDK, Speech Devices SDK, or Speech CLI, see:
+If you want to learn about updates to the Speech service, Speech SDK, Speech Devices SDK, Speech CLI, or Speech containers see:
 * [Speech SDK release notes](releasenotes.md).
 * [Speech Devices SDK release notes](devices-sdk-release-notes.md)
+* [Cognitive Services container release notes](../containers/container-image-tags.md)
 
 ## May 2020
 
