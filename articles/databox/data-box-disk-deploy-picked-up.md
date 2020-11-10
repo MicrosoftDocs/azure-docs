@@ -67,33 +67,17 @@ Take the following steps if returning the device in US or Canada.
     - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
 
-### [UK](#tab/in-uk)
+### [Europe or UK](#tab/in-europe-or-uk)
 
-Take the following steps if returning the device in the UK.
-
-1. Use the return shipping label that has the clear plastic sleeve affixed to the box. If the label is damaged or lost:
-    - Go to **Overview > Download shipping label** and download a return ship label.
-    - Affix the label on the device.
-
-2. Seal the shipping box and ensure that the return shipping label is visible.
-
-3. If you are returning the device with DHL, request pickup by visiting their website and specifying the airway bill number:
-    - Go to the [DHL Express United Kingdom website](https://mydhl.express.dhl/gb/en/schedule-pickup.html#/schedule-pickup).
-    - Under **Do you need a shipping label**, select **No**. Then select **I have a DHL Waybill Number**.
-    - Specify the waybill number, and click **Schedule Pickup** to arrange for pickup. <!--Please verify DHL instructions. With no waybill number, I can't test. I don't see a Schedule Pickup button.-->
-
-### [Europe](#tab/in-europe)
-
-Take the following steps if returning the device in Europe.
+Take the following steps if returning the device in Europe or the UK.
 
 1. Use the return shipping label that has the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.
     - Affix the label on the device.
 
-2. Seal the shipping box and ensure that the return shipping label is visible.
-3. If you are returning the device in Europe with DHL, request pickup from DHL by visiting their website and specifying the airway bill number.
-4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
-5. Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
+2. Seal the shipping box, and ensure that the return shipping label is visible.
+3. Go to the country/region DHL Express website and select **Schedule a Pickup**. Under **Do you need a shipping label**, select **No** > **I have a DHL Waybill Number**.
+4. Specify the waybill number, and click **Schedule Pickup** to arrange for pickup.
 
 ### [Australia](#tab/in-australia)
 
