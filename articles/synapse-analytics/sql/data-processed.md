@@ -19,7 +19,7 @@ This article explains how you can estimate and manage costs for serverless SQL p
 
 Understand that the costs for serverless SQL pool in Azure Synapse Analytics are only a portion of the monthly costs in your Azure bill. If you are using other Azure services, you’re billed for all the Azure services and resources used in your Azure subscription, including the third-party services. This article explains how to plan for and manage costs for serverless SQL pool in Azure Synapse Analytics.
 
-# Data processed
+## Data processed
 
 *Data processed* is the amount of data that the system temporarily stores while a query is run. Data processed consists of the following quantities:
 
@@ -88,7 +88,7 @@ This query reads whole files. The total size of files in storage for this table 
 
 This query processes slightly more than 100 KB of data. The amount of data processed for this query is rounded up to 10 MB, as specified in the [Rounding](#rounding) section of this article.
 
-# Cost control
+## Cost control
 
 Cost control feature in serverless SQL pool enables you to set the budget for amount of data processed. You can set the budget in TB of data processed for a day, week, and month. At the same time you can have one or more budgets set. To configure cost control for serverless SQL pool, you can use Synapse Studio or T-SQL.
 
@@ -135,6 +135,6 @@ To see how much data was processed during the current day, week, or month, execu
 SELECT * FROM sys.dm_external_data_processed
 ```
 
-# Next steps
+## Next steps
 
 To learn how to optimize your queries for performance, see [Best practices for serverless SQL pool](best-practices-sql-on-demand.md).
