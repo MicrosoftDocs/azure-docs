@@ -56,7 +56,7 @@ Refer to additional product [safety information](https://support.microsoft.com/h
 
 ## Depth camera supported operating modes
 
-Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF) depth camera using the [image sensor presented at ISSCC 2018](https://docs.microsoft.com/windows/mixed-reality/ISSCC-2018). The depth camera supports the modes indicated below:
+Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF) depth camera using the [image sensor presented at ISSCC 2018](/windows/mixed-reality/ISSCC-2018). The depth camera supports the modes indicated below:
 
  | Mode            | Resolution | FoI       | FPS                | Operating range* | Exposure time |
 |-----------------|------------|-----------|--------------------|------------------|---------------|

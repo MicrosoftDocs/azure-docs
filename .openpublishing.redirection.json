@@ -1,13 +1,18 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-convert-models.md",
+      "redirect_url": "/azure/digital-twins/how-to-integrate-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-wan/security-baseline.md",
       "redirect_url": "/azure/virtual-wan/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/concepts-convert-models.md",
-      "redirect_url": "/azure/digital-twins/how-to-convert-models",
+      "redirect_url": "/azure/digital-twins/how-to-integrate-models",
       "redirect_document_id": false
     },
     {
@@ -1495,11 +1500,6 @@
       "source_path": "articles/automation/update-management/update-mgmt-remove-vms.md",
       "redirect_url": "/azure/automation/update-management/remove-vms",
       "redirect_document": false
-    },
-    {
-      "source_path": "articles/active-directory/saas-apps/adobe-identity-management-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
-      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/saas-apps/azure-databricks-scim-connector-provisioning-tutorial.md",
@@ -22195,6 +22195,31 @@
     {
       "source_path": "articles/marketplace/marketplace-roadmap.md",
       "redirect_url": "/partner-center/announcements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/summary-dashboard.md",
+      "redirect_url": "/azure/marketplace/summary-dashboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/orders-dashboard.md",
+      "redirect_url": "/azure/marketplace/orders-dashboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/usage-dashboard.md",
+      "redirect_url": "/azure/marketplace/usage-dashboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/customer-dashboard.md",
+      "redirect_url": "/azure/marketplace/customer-dashboard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/insights-dashboard.md",
+      "redirect_url": "/azure/marketplace/insights-dashboard",
       "redirect_document_id": false
     },
     {
@@ -59137,6 +59162,16 @@
       "source_path": "articles/cognitive-services/metrics-advisor/quickstarts/rest-api.md",
       "redirect_url": "/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library",
       "redirect_document_id": false
-    }      
+    },
+    {
+      "source_path": "articles/azure-monitor/app/docker.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-monitor/app/kubernetes.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    }  
   ]
 }
