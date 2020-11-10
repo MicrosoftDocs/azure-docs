@@ -111,7 +111,7 @@ System.out.println("\nCreated an identity with ID: " + identity.getId());
 
 ## Issue access tokens
 
-Use the `issueToken` method to issue an access token for a Communication Services Identity. If you do not provide the optional `user` parameter a new user will be created and returned with the access token.
+Use the `issueToken` method to issue an access token for a Communication Services identity. Parameter `scopes` defines set of actions, which are authorized to be performed with the access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `user` can be constructed with the identity's ID, which you are suppose to store and map to your application's users.
 
 ```java
 // Issue an access token with the "voip" scope for an identity

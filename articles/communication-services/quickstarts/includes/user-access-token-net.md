@@ -96,7 +96,7 @@ Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 
 ## Issue identity access tokens
 
-Use the `issueToken` method to issue an access token for a Communication Services identity. Parameter `scopes` defines set of actions, which are authorized to be performed with the access token. See the [list of supported actions](../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed with the identity's ID, which you are suppose to store and map to your application's users.
+Use the `issueToken` method to issue an access token for a Communication Services identity. Parameter `scopes` defines set of actions, which are authorized to be performed with the access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed with the identity's ID, which you are suppose to store and map to your application's users.
 
 ```csharp
 // Issue an access token with the "voip" scope for an identity

@@ -73,7 +73,7 @@ ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 Use the `createChatThread` method to create a chat thread.
 - Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
 - Use `members` property to pass a  list of `ChatThreadMember` objects to be added to the chat thread. The `ChatThreadMember` object is initialized with a `CommunicationUser` object. To get a `CommunicationUser` object, you will need to pass an Access ID which you
-created by following instruction to [Create a user](../../access-tokens.md#create-a-user)
+created by following instruction to [Create a user](../../access-tokens.md#create-an-identity)
 
 The response `chatThreadClient` is used to perform operations on the created chat thread: adding members to the chat thread, sending a message, deleting a message, etc.
 It contains the `Id` attribute which is the unique ID of the chat thread. 
