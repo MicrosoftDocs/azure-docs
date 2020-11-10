@@ -10,6 +10,10 @@ ms.date: 10/19/2020
 ms.custom: devx-track-azurecli
 ---
 # Configure server parameters in Azure Database for MySQL Flexible Server using the Azure CLI
+
+> [!IMPORTANT] 
+> Azure Database for MySQL - Flexible Server is currently in public preview.
+
 You can list, show, and update parameters for an Azure Database for MySQL flexible server by using Azure CLI, the Azure command-line utility. The server parameters are configured with the default and recommended value when you create the server.  
 
 This article describes how to list, show, and update server parameters by using the Azure CLI.
