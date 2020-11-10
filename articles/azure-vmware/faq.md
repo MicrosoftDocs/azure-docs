@@ -55,13 +55,7 @@ Updates made to the service itself will follow Microsoft Azure's standard change
 
 With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is entirely designed, built, and supported by Microsoft, and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on a dedicated Azure infrastructure.
 
-#### Are Red Hat solutions supported on Azure VMware Solution?
 
-Microsoft and Red Hat share an integrated, colocated support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and integrated support umbrella, and Red Hat Enterprise Linux is supported for running on top of Azure VMware Solution within Azure.
-
-#### Is VMware HCX Enterprise Edition available, and if so, how much does it cost?
-
-VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in Preview, it's a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You can switch off or opt out of the service.
 
 #### Can Azure VMware Solution VMs be managed by VMRC?
 Yes, provided the system it is installed on can access the private cloud vCenter and is using public DNS to resolve ESXi hostnames.
@@ -74,6 +68,9 @@ No, because of bandwidth and latency requirements.
 
 #### Can Azure Bastion be used for connecting to Azure VMware Solution VMs?
 Azure Bastion is the service recommended to connect to the jump box to prevent exposing Azure VMware Solution to the internet. You cannot use Azure Bastion to connect to Azure VMware Solution VMs since they are not Azure IaaS objects.
+
+#### Can Azure Load Balancer internal be used for Azure VMware Solution VMs?
+No. Azure Load Balancer internal only supports Azure IaaS VMs. Azure Load Balancer doesn't support IP-based backend pools; only Azure VMs or virtual machine scale set objects in which Azure VMware Solution VMs aren't Azure objects.
 
 #### Can an existing ExpressRoute Gateway be used to connect to Azure VMware Solution?
 Yes, you can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.
@@ -230,6 +227,14 @@ Microsoft delivers support for Azure VMware Solution. You can submit a [support 
 
 You'll need an Azure account in an Azure subscription.
 
+#### Are Red Hat solutions supported on Azure VMware Solution?
+
+Microsoft and Red Hat share an integrated, colocated support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and integrated support umbrella, and Red Hat Enterprise Linux is supported for running on top of Azure VMware Solution within Azure.
+
+#### Is VMware HCX Enterprise Edition available, and if so, how much does it cost?
+
+VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in Preview, it's a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You can switch off or opt out of the service.
+
 #### How do I request a host quota increase for Azure VMware Solution?
 
 * You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
@@ -271,6 +276,17 @@ Before you create your Azure VMware Solution resource, you must submit a support
    `"
 
    For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+
+
+## Customer communication
+
+#### How can I receive an alert when Azure sends service health notifications to my Azure subscription?
+
+Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal.  You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+
+:::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
+
+
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=21069522

@@ -13,7 +13,7 @@
     href: quickstart-powershell.md
 - name: Tutorials
   items:
-  - name: Authoring and signing an attestation policy
+  - name: Authoring an attestation policy
     href: author-sign-policy.md
   - name: SGX attestation code samples
     href: /samples/browse/?expanded=azure&terms=attestation
@@ -47,5 +47,7 @@
     href: https://www.nuget.org/packages/Microsoft.Azure.DCAP/
   - name: Azure DCAP library for Linux
     href: https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/
+  - name: Troubleshoot issues
+    href: troubleshoot-guide.md
   - name: VBS attestation protocol
     href: virtualization-based-security-protocol.md

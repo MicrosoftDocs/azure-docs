@@ -50,7 +50,7 @@ To configure a hosted UI for your web applications, follow these steps. As you m
 
 6. Under **Additional Configurations**, provide values as appropriate for your app. These settings are optional. To see the effect of applying or removing them, see the preview pane on the right. Available configuration options are:  
 
-7. Enter the search subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. See [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
+7. Enter the search subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. See [Cognitive Services API account](../cognitive-services-apis-create-account.md).  
 
 8. If you enabled autosuggest, enter the autosuggest subscription key or choose one from the dropdown list. The dropdown list is populated with keys from your Azure account's subscriptions. Custom Autosuggest requires a specific subscription tier, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
@@ -78,7 +78,7 @@ To consume the hosted UI, either:
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Add the following query parameters to the URL as needed. For information about these parameters, see [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) reference.
+  > Add the following query parameters to the URL as needed. For information about these parameters, see [Custom Search API](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) reference.
   >
   > - q
   > - mkt
@@ -149,4 +149,4 @@ The following configurations apply only if you consume the Hosted UI through the
 ## Next steps
 
 - [Use decoration markers to highlight text](../bing-web-search/hit-highlighting.md)
-- [Page webpages](./page-webpages.md)
+- [Page webpages](../bing-web-search/paging-search-results.md)

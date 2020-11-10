@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python Django app with Postgres'
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework and the app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 11/02/2020
 ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli]
 ---
 # Tutorial: Deploy a Django web app with PostgreSQL in Azure App Service
@@ -99,10 +99,10 @@ The djangoapp sample contains the data-driven Django polls app you get by follow
 
 The sample is also modified to run in a production environment like App Service:
 
-- Production settings are in the *azuresite/production.py* file. Development details are in *azuresite/settings.py*.
-- The app uses production settings when the `DJANGO_ENV` environment variable is set to "production". You create this environment variable later in the tutorial along with others used for the PostgreSQL database configuration.
+- Production settings are in the *azuresite/production.py* file. Development settings are in *azuresite/settings.py*.
+- The app uses production settings when the `WEBSITE_HOSTNAME` environment variable is set. Azure App Service automatically sets this variable to the URL of the web app, such as `msdocs-django.azurewebsites.net`.
 
-These changes are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Also see [Production settings for Django on Azure](configure-language-python.md#production-settings-for-django-apps) for details on some of the changes.
+The production settings are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Also see [Production settings for Django on Azure](configure-language-python.md#production-settings-for-django-apps) for details on some of the changes.
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -184,26 +184,23 @@ Upon successful deployment, the command generates JSON output like the following
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
-> [!NOTE]
-> If you attempt to visit the app's URL at this point, you encounter the error "DisallowedHost at /". This error happens because you have not yet configured the app to use the production settings discussed earlier, which you do in the following section.
-
 ### Configure environment variables to connect the database
 
 With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure.
 
-The app code expects to find database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`. To use production settings, it also needs the `DJANGO_ENV` environment variable set to `production`.
+The app code expects to find database information in four environment variables named `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`.
 
 To set environment variables in App Service, create "app settings" with the following [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
 ```azurecli
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
+az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
 - Replace *\<postgres-server-name>* with the name you used earlier with the `az postgres up` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
 - Replace *\<username>* and *\<password>* with the administrator credentials that you used with the earlier `az postgres up` command, or those that `az postgres up` generated for you. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`, so don't include the `@server` portion. (Also, as noted earlier, you should not use the `$` character in either value as it has a special meaning for Linux environment variables.)
 - The resource group and app names are drawn from the cached values in the *.azure/config* file.
 
-In your Python code, you access these settings as environment variables with statements like `os.environ.get('DJANGO_ENV')`. For more information, see [Access environment variables](configure-language-python.md#access-environment-variables).
+In your Python code, you access these settings as environment variables with statements like `os.environ.get('DBHOST')`. For more information, see [Access environment variables](configure-language-python.md#access-environment-variables).
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 

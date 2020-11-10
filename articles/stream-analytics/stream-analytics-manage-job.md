@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/03/2019
+ms.date: 10/30/2020
 
 #Customer intent: "As an IT admin/developer I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard."
 ---
@@ -48,17 +48,18 @@ Use the following steps to create an Event Hub and send call data to that Event 
 
    |**Setting**  |**Suggested value** |**Description**  |
    |---------|---------|---------|
-   |Name     | myEventHubsNS        |  A unique name to identify the event hub namespace.       |
+   |Name     | asaTutorialEventHub        |  A unique name to identify the event hub namespace.       |
    |Subscription     |   \<Your subscription\>      |   Select an Azure subscription where you want to create the event hub.      |
    |Resource group     |   MyASADemoRG      |  Select **Create New** and enter a new resource-group name for your account.       |
    |Location     |   West US2      |    Location where the event hub namespace can be deployed.     |
 
-4. Use default options on the remaining settings and select **Create**.
+4. Use default options on the remaining settings and select **Review + create**. Then select **Create** to start the deployment.
 
    ![Create event hub namespace in Azure portal](media/stream-analytics-manage-job/create-event-hub-namespace.png)
 
-5. When the namespace has finished deploying, go to **All resources** and find *myEventHubsNS* in the list of Azure resources. Select *myEventHubsNS* to open it.
-6. Next select **+Event Hub** and enter the **Name** as *MyEventHub* or a different name of your choice. Use the default options on the remaining settings and select **Create**. Then wait for the deployment to succeed.
+5. When the namespace has finished deploying, go to **All resources** and find *asaTutorialEventHub* in the list of Azure resources. Select *asaTutorialEventHub* to open it.
+
+6. Next select **+Event Hub** and enter a **Name** for the Event Hub. Set the **Partition Count** to *2*.  Use the default options in the remaining settings and select **Create**. Then wait for the deployment to succeed.
 
    ![Event Hub configuration in Azure portal](media/stream-analytics-manage-job/create-event-hub-portal.png)
 
@@ -66,13 +67,13 @@ Use the following steps to create an Event Hub and send call data to that Event 
 
 Before an application can send data to Azure Event Hubs, the event hub must have a policy that allows appropriate access. The access policy produces a connection string that includes authorization information.
 
-1. Navigate to the event hub you created in the previous step, MyEventHub*. Select **Shared access policies** under **Settings**, and then select **+ Add**.
+1. Navigate to the event hub you created in the previous step, *MyEventHub*. Select **Shared access policies** under **Settings**, and then select **+ Add**.
 
 2. Name the policy **MyPolicy** and ensure **Manage** is checked. Then select **Create**.
 
    ![Create event hub shared access policy](media/stream-analytics-manage-job/create-event-hub-access-policy.png)
 
-3. Once the policy is created, select to open the policy, and find the **Connection string–primary key**. Select the blue **copy** button next to the connection string.
+3. Once the policy is created, click on the policy name to open the policy. Find the **Connection string–primary key**. Select the **copy** button next to the connection string.
 
    ![Save the shared access policy connection string](media/stream-analytics-manage-job/save-connection-string.png)
 
@@ -89,7 +90,7 @@ Before an application can send data to Azure Event Hubs, the event hub must have
 Before you start the TelcoGenerator app, you should configure it to send data to the Azure Event Hubs you created earlier.
 
 1. Extract the contents of [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) file.
-2. Open the `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` file in a text editor of your choice (There is more than one .config file, so be sure that you open the right one.)
+2. Open the `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` file in a text editor of your choice (There is more than one .config file, so be sure that you open the correct one.)
 
 3. Update the `<appSettings>` element in the config file with the following details:
 
@@ -125,9 +126,9 @@ Now that you have a stream of call events, you can create a Stream Analytics job
 
 1. To create a Stream Analytics job, navigate to the [Azure portal](https://portal.azure.com/).
 
-2. Select **Create a resource** > **Internet of Things** > **Stream Analytics job**.
+2. Select **Create a resource** and search for **Stream Analytics job**. Select the **Stream Analytics job** tile and select *Create**.
 
-3. Fill out the **New Stream Analytics job** pane with the following values:
+3. Fill out the **New Stream Analytics job** form with the following values:
 
    |**Setting**  |**Suggested value**  |**Description**  |
    |---------|---------|---------|
@@ -146,17 +147,17 @@ Now that you have a stream of call events, you can create a Stream Analytics job
 
 The next step is to define an input source for the job to read data using the event hub you created in the previous section.
 
-1. From the Azure portal, open the **All resources** pane, and find the *ASATutorial* Stream Analytics job.
+1. From the Azure portal, open the **All resources** page, and find the *ASATutorial* Stream Analytics job.
 
-2. In the **Job Topology** section of the Stream Analytics job pane, select the **Inputs** option.
+2. In the **Job Topology** section of the Stream Analytics job, select **Inputs**.
 
-3. Select **+ Add stream input** and **Event hub**. Fill out the pane with the following values:
+3. Select **+ Add stream input** and **Event hub**. Fill out the input form with the following values:
 
    |**Setting**  |**Suggested value**  |**Description**  |
    |---------|---------|---------|
    |Input alias     |  CallStream       |  Provide a friendly name to identify your input. Input alias can contain alphanumeric characters, hyphens, and underscores only and must be 3-63 characters long.       |
    |Subscription    |   \<Your subscription\>      |   Select the Azure subscription where you created the event hub. The event hub can be in same or a different subscription as the Stream Analytics job.       |
-   |Event hub namespace    |  myEventHubsNS       |  Select the event hub namespace you created in the previous section. All the event hub namespaces available in your current subscription are listed in the dropdown.       |
+   |Event hub namespace    |  asaTutorialEventHub       |  Select the event hub namespace you created in the previous section. All the event hub namespaces available in your current subscription are listed in the dropdown.       |
    |Event Hub name    |   MyEventHub      |  Select the event hub you created in the previous section. All the event hubs available in your current subscription are listed in the dropdown.       |
    |Event Hub policy name   |  MyPolicy       |  Select the event hub shared access policy you created in the previous section. All the event hubs policies available in your current subscription are listed in the dropdown.       |
 
@@ -166,23 +167,29 @@ The next step is to define an input source for the job to read data using the ev
 
 ## Configure job output
 
-The last step is to define an output sink for the job where it can write the transformed data. In this tutorial, you output and visualize data with Power BI.
+The last step is to define an output sink where the job can write the transformed data. In this tutorial, you output and visualize data with Power BI.
 
-1. From the Azure portal open **All resources** pane, and the *ASATutorial* Stream Analytics job.
+1. From the Azure portal, open **All resources**, and select the *ASATutorial* Stream Analytics job.
 
-2. In the **Job Topology** section of the Stream Analytics job pane, select the **Outputs** option.
+2. In the **Job Topology** section of the Stream Analytics job, select the **Outputs** option.
 
-3. Select **+ Add** > **Power BI**. Then fill the form with the following details and select **Authorize**:
+3. Select **+ Add** > **Power BI**. Then, select **Authorize** and follow the prompts to authenticate Power BI.
+
+:::image type="content" source="media/stream-analytics-manage-job/authorize-power-bi.png" alt-text="authorize button for Power BI":::
+
+4. Fill the output form with the following details and select **Save**:
 
    |**Setting**  |**Suggested value**  |
    |---------|---------|
    |Output alias  |  MyPBIoutput  |
+   |Group workspace| My workspace |
    |Dataset name  |   ASAdataset  |
    |Table name |  ASATable  |
+   | Authentication mode | User token |
 
    ![Configure Stream Analytics output](media/stream-analytics-manage-job/configure-stream-analytics-output.png)
 
-4. When you select **Authorize**, a pop-up window opens and you are asked to provide credentials to authenticate to your Power BI account. Once the authorization is successful, **Save** the settings. To use Managed Identity, see [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](powerbi-output-managed-identity.md).
+   This tutorial uses the *User token* authentication mode. To use Managed Identity, see [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](powerbi-output-managed-identity.md).
 
 ## Define a query to analyze input data
 
@@ -192,7 +199,7 @@ In this example, fraudulent calls are made from the same user within five second
 
 1. From the Azure portal, open the **All resources** pane and navigate to the **ASATutorial** Stream Analytics job you created earlier.
 
-2. In the **Job Topology** section of the Stream Analytics job pane, select the **Query** option. The query window lists the inputs and outputs that are configured for the job, and lets you create a query to transform the input stream.
+2. In the **Job Topology** section of the Stream Analytics job, select the **Query** option. The query window lists the inputs and outputs that are configured for the job and lets you create a query to transform the input stream.
 
 3. Replace the existing query in the editor with the following query, which performs a self-join on a 5-second interval of call data:
 
@@ -217,25 +224,17 @@ In this example, fraudulent calls are made from the same user within five second
 
 ## Test your query
 
-You can test a query from the query editor using sample data. Run the following steps to test the query:
+You can test a query from the query editor. Run the following steps to test the query:
 
 1. Make sure that the TelcoGenerator app is running and producing phone call records.
 
-2. In the **Query** pane, select the dots next to the *CallStream* input and then select **Sample data from input**.
-
-3. Set **Minutes** to 3 and select **OK**. Three minutes worth of data is then sampled from the input stream and you are notified when the sample data is ready. You can view the status of sampling from the notification bar.
-
-   The sample data is stored temporarily and is available while you have the query window open. If you close the query window, the sample data is discarded, and you'll have to create a new set of sample data if you want to test. Alternatively, you can use a sample data JSON file from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), and then upload that JSON file to use as sample data for the *CallStream* input.
-
-   ![Visual of how to sample input data for Stream Analytics](media/stream-analytics-manage-job/sample-input-data-asa.png)
-
-4. Select **Test** to test the query. You should see the following results:
+2. Select **Test** to test the query. You should see the following results:
 
    ![Output from Stream Analytics query test](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## Start the job and visualize output
 
-1. To start the job, navigate to the **Overview** pane of your job and select **Start**.
+1. To start the job, navigate to the job **Overview** and select **Start**.
 
 2. Select **Now** for job output start time and select **Start**. You can view the job status in the notification bar.
 
@@ -243,7 +242,7 @@ You can test a query from the query editor using sample data. Run the following 
 
 4. From your Power BI workspace, select **+ Create** to create a new dashboard named *Fraudulent Calls*.
 
-5. At the top of the window, select **Add tile**. Then select **Custom Streaming Data** and **Next**. Choose the **ASAdataset** under **Your Datasets**. Select **Card** from the **Visualization type** dropdown, and add **fraudulent calls** to **Fields**. Select **Next** to enter a name for the tile, and then select **Apply** to create the tile.
+5. At the top of the window, select **Edit** and **Add tile**. Then select **Custom Streaming Data** and **Next**. Choose the **ASAdataset** under **Your Datasets**. Select **Card** from the **Visualization type** dropdown, and add **fraudulent calls** to **Fields**. Select **Next** to enter a name for the tile, and then select **Apply** to create the tile.
 
    ![Create Power BI dashboard tiles](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 

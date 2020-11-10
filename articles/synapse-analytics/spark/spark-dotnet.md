@@ -63,7 +63,7 @@ Data engineers, data scientists, business analysts, and machine learning enginee
 
 When you create a new notebook, you choose a language kernel that you wish to express your business logic. Kernel support is available for several languages, including C#.
 
-To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **.NET Spark (C#)** as your kernel and attach the notebook to an existing Spark pool.
+To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **.NET Spark (C#)** as your kernel and attach the notebook to an existing serverless Apache Spark pool.
 
 The .NET Spark notebook is based on the .NET interactive experiences and provides interactive C# experiences with the ability to use .NET for Spark out of the box with the Spark session variable `spark` already predefined.
 

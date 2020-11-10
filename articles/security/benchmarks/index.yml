@@ -68,7 +68,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure Databricks
-            url: ../../azure-databricks/security-baseline.md
+            url: /azure/databricks/scenarios/security-baseline
           - text: Azure Machine Learnings
             url: ../../machine-learning/security-baseline.md
           - text: Cognitive Services
@@ -136,7 +136,7 @@ landingContent:
           - text: Azure Database for PostgreSQL - Hyperscale
             url: ../../postgresql/postgresql-hyperscale-security-baseline.md
           - text: Azure SQL Database 
-            url: ../../sql-database/security-baseline.md
+            url: ../../azure-sql/database/security-baseline.md
           - text: Cosmos DB
             url: ../../cosmos-db/security-baseline.md
 
@@ -200,7 +200,7 @@ landingContent:
           - text: Customer Lockbox
             url: ../fundamentals/customer-lockbox-security-baseline.md
           - text: Key Vault
-            url: ../../key-vault/security-baseline.md
+            url: ../../key-vault/general/security-baseline.md
           - text: Security Center 
             url: ../../security-center/security-baseline.md
 

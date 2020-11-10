@@ -205,7 +205,7 @@ To route traffic appropriately to the current primary node, configure the connec
 
 - Microsoft Distributed Transaction Coordinator (MSDTC) is not supported on Windows Server 2016 and earlier. 
 - Filestream isn't supported for a failover cluster with a premium file share. To use filestream, deploy your cluster by using [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) or [Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) instead.
-- Only registering with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) is supported. 
+- Only registering with the SQL VM resource provider in [lightweight management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes) is supported. 
 
 ## Next steps
 

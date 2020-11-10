@@ -198,7 +198,7 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 The `target_path` value specifies the path on the datastore where the CIFAR10 data will be uploaded.
 
 >[!TIP] 
-> While you're using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad hoc files. If you need an ETL tool, you can use [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) to ingest your data into Azure.
+> While you're using Azure Machine Learning to upload the data, you can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload ad hoc files. If you need an ETL tool, you can use [Azure Data Factory](../data-factory/introduction.md) to ingest your data into Azure.
 
 Run the Python file to upload the data. (The upload should be quick, less than 60 seconds.)
 
@@ -267,7 +267,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      A [dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) is used to reference the data you uploaded to Azure Blob Storage. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
+      A [dataset](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) is used to reference the data you uploaded to Azure Blob Storage. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -275,7 +275,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) is modified to include a list of arguments that will be passed into `train.py`. The `dataset.as_named_input('input').as_mount()` argument means the specified directory will be _mounted_ to the compute target.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) is modified to include a list of arguments that will be passed into `train.py`. The `dataset.as_named_input('input').as_mount()` argument means the specified directory will be _mounted_ to the compute target.
    :::column-end:::
 :::row-end:::
 
