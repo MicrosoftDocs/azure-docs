@@ -78,6 +78,6 @@ When comparing performance, consider the following:
 For more information to optimize your new Azure SQL Managed Instance environment, see the following resources: 
 
 - [How to identify why workload performance on Azure SQL Managed Instance is different than SQL Server?](https://medium.com/azure-sqldb-managed-instance/what-to-do-when-azure-sql-managed-instance-is-slower-than-sql-server-dd39942aaadd)
-- [Key causes of performance differences between SQL Managed Instance and SQL Server](https://azure.microsoft.com/en-us/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)
+- [Key causes of performance differences between SQL Managed Instance and SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)
 - [Storage performance best practices and considerations for Azure SQL Managed Instance (General Purpose)](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525)
 - [Real-time performance monitoring for Azure SQL Managed Instance (this is archived, is this the intended target?)](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)

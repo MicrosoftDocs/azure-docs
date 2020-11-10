@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Database - migration overview"
+title: "SQL Server to SQL Database - Migration overview"
 description: Learn about the different tools and options available to migrate your SQL Server databases to Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide

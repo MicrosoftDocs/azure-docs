@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Database - Migration Guide"
+title: "SQL Server to SQL Database - Migration guide"
 description: Follow this guide to migrate your SQL Server databases to Azure SQL Database. 
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -33,7 +33,7 @@ For more migration information, see the [migration overview](sql-server-to-sql-d
 To migrate your SQL Server to Azure SQL Database, make sure you have the following prerequisites: 
 
 - A chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options) and corresponding tools 
-- [Data Migration Assistant (DMA)](https://www.microsoft.com/en-us/download/details.aspx?id=53595) installed on a machine that can connect to your source SQL Server
+- [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) installed on a machine that can connect to your source SQL Server
 - A target [Azure SQL Database](../../database/single-database-create-quickstart.md)
 
 
@@ -62,7 +62,7 @@ You can use the Data Migration Assistant (version 4.1 and later) to assess datab
 
 To assess your environment using the Database Migration Assessment, follow these steps: 
 
-1. Open the [Data Migration Assistant (DMA)](https://www.microsoft.com/en-us/download/details.aspx?id=53595). 
+1. Open the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). 
 1. Select **File** and then choose **New assessment**. 
 1. Specify a project name, select SQL Server as the source server type, and then select Azure SQL Database as the target server type. 
 1. Select the type(s) of assessment reports that you want to generate. For example, database compatibility and feature parity. Based on the type of assessment, the permissions required on the source SQL Server can be different.  DMA will highlight the permissions required for the chosen advisor before running the assessment.
@@ -106,7 +106,7 @@ This guide describes the two most popular options - Data Migration Assistant and
 
 To migrate a database from SQL Server to Azure SQL Database using DMA, follow these steps: 
 
-1. Download and install the [Database Migration Assistant](https://www.microsoft.com/en-us/download/details.aspx?id=53595).
+1. Download and install the [Database Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595).
 1. Create a new project and select **Migration** as the project type.
 1. Set the source server type to **SQL Server** and the target server type to **Azure SQL Database**, select the migration scope as **Schema and data** and select **Create**.
 1. In the migration project, specify the source server details such as the server name, credentials to connect to the server and the source database to migrate.

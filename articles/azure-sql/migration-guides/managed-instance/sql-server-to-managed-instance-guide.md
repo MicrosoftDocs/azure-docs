@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Managed Instance - Migration Guide"
+title: "SQL Server to SQL Managed Instance - Migration guide"
 description: Follow this guide to migrate your SQL Server databases to Azure SQL Managed Instance. 
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -33,7 +33,7 @@ For more migration information, see the [migration overview](sql-server-to-manag
 To migrate your SQL Server to Azure SQL Managed Instance, make sure to go through the following pre-requisites: 
 
 - Choose a [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options) and the corresponding tools that are required for the chosen method
-- Install [Data Migration Assistant (DMA)](https://www.microsoft.com/en-us/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server
+- Install [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server
 
 
 ## Pre-migration
@@ -61,7 +61,7 @@ You can use the Data Migration Assistant (version 4.1 and later) to assess datab
 
 To assess your environment using the Database Migration Assessment, follow these steps: 
 
-1. Open the [Data Migration Assistant (DMA)](https://www.microsoft.com/en-us/download/details.aspx?id=53595). 
+1. Open the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). 
 1. Select **File** and then choose **New assessment**. 
 1. Specify a project name, select SQL Server as the source server type, and then select Azure SQL Managed Instance as the target server type. 
 1. Select the type(s) of assessment reports that you want to generate. For example, database compatibility and feature parity. Based on the type of assessment, the permissions required on the source SQL Server can be different.  DMA will highlight the permissions required for the chosen advisor before running the assessment.
@@ -79,9 +79,9 @@ If SQL Managed Instance is not a suitable target for your workload, SQL Server o
 
 #### Scaled Assessments and Analysis
 
-Data Migration Assistant supports performing scaled assessments and consolidation of the assessment reports for analysis. If you have multiple servers and databases that need to be assessed and analysed at scale to provide a wider view of the data estate, click on the following links to learn more.
+Data Migration Assistant supports performing scaled assessments and consolidation of the assessment reports for analysis. If you have multiple servers and databases that need to be assessed and analyzed at scale to provide a wider view of the data estate, click on the following links to learn more.
 
-- [Performing scaled assessments using Powershell](/sql/dma/dma-consolidatereports)
+- [Performing scaled assessments using PowerShell](/sql/dma/dma-consolidatereports)
 - [Analyzing assessment reports using Power BI](/sql/dma/dma-consolidatereports#dma-reports)
 
 > [!IMPORTANT]
@@ -93,7 +93,7 @@ If you need to compare the performance of your workload on a SQL Managed Instanc
 
 ### Create SQL Managed Instance 
 
-Based on the information in the discover and assess phase, create an appropriately-sized target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [ARM Template](/../../managed-instance/create-template-quickstart.md). 
+Based on the information in the discover and assess phase, create an appropriately-sized target SQL Managed Instance. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [Azure Resource Manager (ARM) Template](/../../managed-instance/create-template-quickstart.md). 
 
 
 ## Migrate
