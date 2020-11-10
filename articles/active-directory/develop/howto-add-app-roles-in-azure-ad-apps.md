@@ -146,7 +146,9 @@ To assign users and groups to roles by using the Azure portal:
 
 Once you've added app roles in your application, you can assign an app role to a client app by using the Azure portal or programmatically by using [Microsoft Graph](/graph/api/user-post-approleassignments).
 
-To assign users and groups to roles by using the Azure portal:
+When you assign app roles to an application, you create *application permissions*. Application permissions are typically used by daemon apps or back-end services that need to authenticate and make authorized API calls as themselves, without the interaction of a user.
+
+To assign app roles to an application by using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In **Azure Active Directory**, select **App registrations** in the left-hand navigation menu.
@@ -158,7 +160,7 @@ To assign users and groups to roles by using the Azure portal:
 1. Select the role(s) you want to assign.
 1. Select the **Add permissions** button complete addition of the role(s).
 
-The newly added roles should now appear in your app registration's **API permissions** pane.
+The newly added roles should appear in your app registration's **API permissions** pane.
 
 #### Grant admin consent
 
@@ -192,6 +194,6 @@ Learn more about app roles with the following resources:
 
 * Code sample: [Add authorization using app roles & roles claims to an ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles) (GitHub)
 * Video: [Implement authorization in your applications with Microsoft identity platform](https://www.youtube.com/watch?v=LRoc-na27l0) (1:01:15)
-* [Azure Active Directory app manifest](./reference-app-manifest.md)
-* [Azure AD Access tokens](access-tokens.md)
-* [Azure AD `id_tokens`](id-tokens.md)
+* [Azure AD app manifest](./reference-app-manifest.md)
+* [Azure AD access tokens](access-tokens.md)
+* [Azure AD id_tokens](id-tokens.md)
