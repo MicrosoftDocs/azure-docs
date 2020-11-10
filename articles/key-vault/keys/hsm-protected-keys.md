@@ -36,6 +36,7 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 |Marvell|Manufacturer|All LiquidSecurity HSMs with<ul><li>Firmware version 2.0.4 or later</li><li>Firmware version 3.2 or newer</li></ul>|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptomathic site for details](https://www.cryptomathic.com/azurebyok)|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |Securosys SA|Manufacturer, HSM as a service|Primus HSM family, Securosys Clouds HSM|[Use new BYOK method](hsm-protected-keys-byok.md)|
+|StorMagic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>See [StorMagic site for details](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |||||
 
 ## Next steps
