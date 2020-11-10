@@ -44,13 +44,15 @@ To start your standalone WildFly server with another provided configuration, use
 
 For example, to use the Jakarta EE Platform 8 with clustering capabilities use the following command:
 
-`./standalone.sh --server-config=standalone-full-ha.xml`
+```
+./standalone.sh --server-config=standalone-full-ha.xml
+```
 
 To learn more about the configurations, check out the [WildFly Getting Started Guide](https://docs.wildfly.org/18/Getting_Started_Guide.html#wildfly-10-configurations).
 
 ## Licensing, support and subscription notes
 
-Azure CentOS 8 image is a Pay-As-You-Go (PAYG) VM image and doesn't require the user to obtain a license. The first time the VM is launched, the VM's OS licensed will automatically be activated and charged an hourly rate. This is in additional to Microsoft's Linux hourly VM rates. Click [Linux VM Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux) for details. WildFly is free to download and use and doesn't require a Red Hat subscription or license.
+Azure CentOS 8 image is a Pay-As-You-Go (PAYG) VM image and doesn't require the user to obtain a license. The first time the VM is launched, the VM's OS license will automatically be activated and charged an hourly rate. This is in additional to Microsoft's Linux hourly VM rates. Click [Linux VM Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux) for details. WildFly is free to download and use and doesn't require a Red Hat subscription or license.
 
 ## How to consume
 
@@ -58,15 +60,23 @@ You can deploy the template in the following three ways:
 
 - Use PowerShell - Deploy the template by running the following commands: (Check out [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) for information on installing and configuring Azure PowerShell).
 
-    `New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
+    ```
+    New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
+    ```
 
-    `New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
+    ```
+    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    ```
     
 - Use Azure CLI - Deploy the template by running the following commands: (Check out [Azure Cross-Platform Command Line](https://docs.microsoft.com/cli/azure/install-azure-cli) for details on installing and configuring the Azure Cross-Platform Command-Line Interface).
 
-    `az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
+    ```
+    az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
+    ```
 
-    `az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
+    ```
+    az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    ```
 
 - Use Azure portal - Deploy the template by clicking <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwildfly-standalone-centos8%2Fazuredeploy.json" target="_blank">here</a> and log into your Azure portal.
 
@@ -76,7 +86,7 @@ You can deploy the template in the following three ways:
 
 ## Resource links
 
-* Learn more about [WildFly 18](https://wildfly.org/18)
+* Learn more about [WildFly 18](https://docs.wildfly.org/18/)
 * Learn more about [Linux distributions on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
 * [Azure for Java developers documentation](https://github.com/JasonFreeberg/jboss-on-app-service)
 

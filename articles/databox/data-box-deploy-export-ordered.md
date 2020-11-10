@@ -54,11 +54,11 @@ Perform the following steps in the Azure portal to order a device.
 
 2. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   ![Create resource](media/data-box-deploy-export-ordered/azure-data-box-export-00b.png)
+   ![Create a resource](media/data-box-deploy-export-ordered/azure-data-box-export-order-create-resource.png)
 
 3. Select **Create**.
 
-   ![Create Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-00c.png)
+   ![Create an Azure Data Box resource](media/data-box-deploy-export-ordered/azure-data-box-export-order-create-data-box-resource.png)
 
 4. Check if Azure Data Box service is available in your region. Enter or select the following information and select **Apply**.
 
@@ -70,11 +70,11 @@ Perform the following steps in the Azure portal to order a device.
     |Source Azure region    |    Select the Azure region where your data currently is.         |
     |Destination country     |     Select the country where you want to ship the device.        |
 
-   ![Select your Data Box settings](media/data-box-deploy-export-ordered/azure-data-box-export-01.png)
+   ![Select your Data Box settings](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-box-settings.png)
 
 5. Select **Data Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
-   ![Select Data Box capacity](media/data-box-deploy-export-ordered/azure-data-box-export-02b.png)
+   ![Select Data Box capacity](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
 6. In **Order**, specify the **Basic** order details. Enter or select the following information and select **Next**.
 
@@ -84,13 +84,13 @@ Perform the following steps in the Azure portal to order a device.
     |Resource group | The resource group you selected previously. |
     |Export order name     |  Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
 
-    ![Export order basics](media/data-box-deploy-export-ordered/azure-data-box-export-03.png)
+    ![Export order basics](media/data-box-deploy-export-ordered/azure-data-box-export-order-storage-account-export-type.png)
 
     Select **Next: Data Selection** to proceed.
 
 7. In **Data Selection**, select **Add storage account and export type**.
 
-    ![Add storage account and export type](media/data-box-deploy-export-ordered/azure-data-box-export-03b.png)
+    ![Add storage account and export type](media/data-box-deploy-export-ordered/azure-data-box-export-order-basics.png)
 
 8. In **Select Export option**, specify the export option details. Enter or select the following information and select **Add**.
 
@@ -107,82 +107,85 @@ Perform the following steps in the Azure portal to order a device.
 
     To see how to add an XML file to a container, see [Export order using XML file](data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
-   ![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+   ![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
    To see an example of the xml input, see [Sample XML input](data-box-deploy-export-ordered.md#sample-xml-file)
 
 9. In **Data selection**, review your settings and select **Next: Security>**.
 
-   ![Contact Details](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
+   ![Export order, Data selection](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-selection.png)
 
-1. In **Security**, if you want to enable software-based double encryption, select **Enable double encryption for the order**. 
+10. In **Security**, if you want to enable software-based double encryption, select **Enable double encryption for the order**. 
 
-   The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the Data Box.
+    The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the Data Box.
 
-   > [!NOTE]
-   > Enabling this option could make order processing and data copy take longer. You can't change this option after you create your order.
+   
+    > [!NOTE]
+    > Enabling this option could make order processing and data copy take longer. You can't change this option after you create your order.
 
-   ![Security screen for data box import, double encryption](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+    ![Security screen for data box import, double encryption](media/data-box-deploy-export-ordered/azure-data-box-export-order-security-double-encryption.png)
 
-   Select **Next: Contact details** to continue.
+    Select **Next: Contact details** to continue.
 
-10. In the **Contact details**, select **+ Add Shipping Address** to enter your shipping information.
+11. In the **Contact details**, select **+ Add Shipping Address** to enter your shipping information.
 
-    ![Add shipping address](media/data-box-deploy-export-ordered/azure-data-box-export-06.png)
+    ![Add shipping address](media/data-box-deploy-export-ordered/azure-data-box-export-order-add-shipping-address.png)
 
-11. In **Add Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
+12. In **Add Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
-    ![Validate shipping address](media/data-box-deploy-export-ordered/azure-data-box-export-07.png)
+    ![Validate shipping address](media/data-box-deploy-export-ordered/azure-data-box-export-order-validate-shipping-address.png)
 
     If you are ordering in a region where self-managed shipping is available, you can select this option. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
-12. Select **Add shipping address** once the shipping details have been validated successfully.
+13. Select **Add shipping address** once the shipping details have been validated successfully.
 
-13. In **Contact details**, review your shipping address and email address. The service sends email notifications regarding any updates to the order status to the specified email addresses.
+14. In **Contact details**, review your shipping address and email address. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
-    ![Order details](media/data-box-deploy-export-ordered/azure-data-box-export-09.png)
+    ![Contact details](media/data-box-deploy-export-ordered/azure-data-box-export-order-contact-details.png)
 
-14. Select **Next: Review + Order>**. You must accept the terms and conditions to proceed with order creation.
+15. Select **Next: Review + Order>**. You must accept the terms and conditions to proceed with order creation.
 
-15. Select **Order**. The order takes a few minutes to be created.
+16. Select **Order**. The order takes a few minutes to be created.
 
-    ![Commit order](media/data-box-deploy-export-ordered/azure-data-box-export-10.png)
+    ![Commit order](media/data-box-deploy-export-ordered/azure-data-box-select-export-order-commit-order.png)
 
 ## Export order using XML file
 
 If you select **Use XML file**, you can specify specific containers and blobs (page and block) you want to export. You will need to follow the [Sample XML file table](#sample-xml-file) specifications for formatting your XML. The steps below show you how to use an XML file for exporting your data:
 
-1. For **Export type**, select **Use XML file**. This is your XML file that specifies specific blobs and Azure Files you want to export. To add the XML file, select **Click here to select an XML file**.
-     ![Screenshot of the Select Export option with the Click here to select an X M L file option called out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
+1. For **Export type**, select **Use XML file**. This is your XML file that specifies specific blobs and Azure files you want to export. To add the XML file, select **Click here to select an XML file**.
+
+     ![Select Export option, XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-select-xml-option.png)
 
 2. Select **+ Container** to create a container.
-    ![Screenshot of the Containers section.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
+
+    ![Select Export option, Containers](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-containers-option.png)
 
 3. In **New Container** tab that pops out from the right side of the Azure portal, add a name for the container. The name must be lower-case and you may include numbers and dashes '-'. Then select the **Public access level** from the drop-down list box. We recommend that you choose **Private (non anonymous access)** to prevent others from accessing your data. For more information regarding container access levels, see [Container access permissions](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
 
-   ![Screenshot of the New container tab showing the Private (no anonymous access) option selected.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
+   ![Select Export option, New container settings](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-container-settings.png)
 
 4. Select **Create**.
 
-   ![Screenshot of the New container tab with the Create option called out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
+   ![Select Export option, Create new container.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-create-container.png)
 
    If your container is created successfully, you will receive the following message:
 
-   ![Screenshot of the message that says, "Successfully created storage container."](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
+   ![Container created successfully](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-container-success.png)
 
 5. Select the container you created and double-click on it.
 
-   ![Screenshot of the Containers section with the my private test container container called out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
+   ![View container details](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-view-container-details.png)
 
 6. Double-clicking on the container will bring up the container properties view. You now want to attach (or browse to) your XML file that contains your list of blobs and/or Azure Files you want to export. Select **Upload**.
 
-   ![Screenshot of the Upload blob dialog box with the Upload option called out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
+   ![Upload blob to container](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-blob-to-container.png)
 
 7. You have successfully added the XML file to the container. Only blobs and Azure Files you specified in this XML will be exported.
 
-   ![Screenshot of the Order wizard with the Next: Security option called out.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
+   ![XML file added to container](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-added-to-container.png)
 
 ## Track the order
 
@@ -190,11 +193,11 @@ After you have placed the order, you can track the status of the order from Azur
 
 When the device preparation is complete, data copy will begin from the selected storage accounts. The portal shows the order in **Data copy in progress** state.
 
-![Data Box export order processed](media/data-box-deploy-export-ordered/azure-data-box-export-15b.png)
+![Data Box export order, data copy in progress](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-copy-in-progress.png)
 
 Data Box copies data from the source storage account(s). Once the data copy is complete, Data Box is locked and the portal will show the order in **Copy Completed** state.
 
-![Data Box export data copy complete](media/data-box-deploy-export-ordered/azure-data-box-export-15c.png)
+![Data Box export order, data copy complete](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-copy-complete.png)
 
 If the device is not available, you will receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, the following actions occur:
 
@@ -204,11 +207,11 @@ If the device is not available, you will receive a notification. If the device i
 
 Microsoft then prepares and dispatches your device through a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
 
-![Data Box export order dispatched](media/data-box-deploy-export-ordered/azure-data-box-export-16.png)
+![Data Box export order dispatched](media/data-box-deploy-export-ordered/azure-data-box-export-order-dispatched.png)
 
 If self-managed shipping was selected, you will receive an email notification with next steps when the device is ready to be picked up from the datacenter. For more information relating to self-managed shipping, see [Self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
-![Self-managed shipping ready for pickup](media/data-box-deploy-export-ordered/azure-data-box-export-17.png)
+![Self-managed shipping ready for pickup](media/data-box-deploy-export-ordered/azure-data-box-export-order-ready-for-pickup.png)
 
 ## Cancel the order
 

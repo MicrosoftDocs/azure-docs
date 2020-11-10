@@ -6,7 +6,7 @@ author: jeevansd
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/10/2019
 ms.author: jeedes
@@ -17,7 +17,7 @@ ms.reviewer: celested
 
 To help integrate your cloud-enabled [software as a service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) applications with Azure Active Directory, we have developed a collection of tutorials that walk you through configuration.
 
-For a list of all SaaS apps that have been pre-integrated into Azure AD, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
+For a list of all SaaS apps that have been pre-integrated into Azure AD, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps).
 
 Use the [application network portal](../azuread-dev/howto-app-gallery-listing.md) to request a [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) enabled application to be added to the gallery for automatic provisioning or a SAML / OIDC enabled application to be added to the gallery for SSO.
 

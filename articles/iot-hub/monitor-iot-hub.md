@@ -5,7 +5,7 @@ author: robinsh
 ms.author: robinsh
 ms.topic: conceptual 
 ms.service: iot-hub
-ms.date: 10/22/2020
+ms.date: 11/06/2020
 ---
 
 # Monitoring Azure IoT Hub
@@ -18,7 +18,9 @@ The **Overview** page in the Azure portal for each IoT hub includes charts that 
 
 :::image type="content" source="media/monitor-iot-hub/overview-portal.png" alt-text="Default metric charts on IoT hub Overview page.":::
 
-This information is useful, but represents only a small amount of the monitoring data that is available for an IoT hub. Some monitoring data is collected automatically and is available for analysis as soon as you create your IoT hub. You can enable additional types of data collection with some configuration.
+Be aware that the message count value can be delayed by 1 minute, and that, for reasons having to do with the IoT Hub service infrastructure, the value can sometimes bounce between higher and lower values on refresh. This counter should only be incorrect for values accrued over the last minute.
+
+The information presented on the Overview pane is useful, but represents only a small amount of the monitoring data that is available for an IoT hub. Some monitoring data is collected automatically and is available for analysis as soon as you create your IoT hub. You can enable additional types of data collection with some configuration.
 
 ## What is Azure Monitor?
 
@@ -80,7 +82,7 @@ For a list of the platform metrics collected for Azure IoT Hub, see [Metrics in 
 
 For IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#supported-aggregations).
 
-Some IoT Hub metrics, like [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are multi-dimensional. For these metrics, you can apply [filters](/azure-monitor/platform/metrics-charts#apply-filters-to-charts) and [splitting](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) to your charts based on a dimension.
+Some IoT Hub metrics, like [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are multi-dimensional. For these metrics, you can apply [filters](/azure/azure-monitor/platform/metrics-charts#apply-filters-to-charts) and [splitting](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) to your charts based on a dimension.
 
 ## Analyzing logs
 
@@ -284,6 +286,14 @@ class Program
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks.
 
 When creating an alert rule based on platform metrics, be aware that for IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#supported-aggregations).
+
+## Monitor per-device disconnects with Event Grid
+
+Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub and trigger an alert when number of connected devices drops below a threshold value. While this may be sufficient for some scenarios, [Azure Event Grid](/azure/event-grid/) provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure.
+
+With Event Grid, you can subscribe to the IoT Hub [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) to trigger alerts and monitor device connection state. Event Grid provides much lower event latency than Azure Monitor, and you can monitor on a per-device basis, rather than for the total number of connected devices. These factors make Event Grid the preferred method for monitoring connections for critical devices and infrastructure. We highly recommend using Event Grid to monitor device connections in production environments.
+
+For more detailed information about monitoring device connections with Event Grid and Azure Monitor, see [Monitor, diagnose, and troubleshoot disconnects with Azure IoT Hub](iot-hub-troubleshoot-connectivity.md).
 
 ## Next steps
 

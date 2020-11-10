@@ -69,6 +69,8 @@
       href: face-resource-container-config.md
     - name: Use container instances
       href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+    - name: Cognitive Services containers documentation
+      href: ../containers/index.yml
 - name: Reference
   items:
   - name: Face API

@@ -49,7 +49,7 @@ To work through the scenario, you will interact with components of the pre-writt
 
 Here are the components implemented by the building scenario *AdtSampleApp* sample app:
 * Device authentication 
-* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) usage examples (found in *CommandLoop.cs*)
+* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
 * *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
@@ -289,8 +289,8 @@ In a new Visual Studio window, open (from the downloaded solution folder) _Devic
 From the *Solution Explorer* pane in this new Visual Studio window, select _DeviceSimulator/**AzureIoTHub.cs**_ to open it in the editing window. Change the following connection string values to the values you gathered above:
 
 ```csharp
-connectionString = <Iot-hub-connection-string>
-deviceConnectionString = <device-connection-string>
+iotHubConnectionString = <your-hub-connection-string>
+deviceConnectionString = <your-device-connection-string>
 ```
 
 Save the file.
@@ -332,7 +332,7 @@ To do this, you'll use the *ProcessDTRoutedData* Azure function to update a *Roo
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="An excerpt from the full building scenario graphic highlighting arrow C, the elements after Azure Digital Twins: the Event Grid and second Azure function":::
 
 Here are the actions you will complete to set up this data flow:
-1. Create an Azure Digital Twins endpoint that connects the instance to Event Grid
+1. Create an Event Grid endpoint in Azure Digital Twins that connects the instance to Event Grid
 2. Set up a route within Azure Digital Twins to send twin property change events to the endpoint
 3. Deploy an Azure Functions app that listens (through [Event Grid](../event-grid/overview.md)) on the endpoint, and updates other twins accordingly
 4. Run the simulated device and query Azure Digital Twins to see the live results
@@ -357,7 +357,7 @@ az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-g
 
 The output from this command is information about the event grid topic you've created.
 
-Next, create an Azure Digital Twins endpoint pointing to your event grid topic. Use the command below, filling in the placeholder fields as necessary:
+Next, create an Event Grid endpoint in Azure Digital Twins, which will connect your instance to your event grid topic. Use the command below, filling in the placeholder fields as necessary:
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
@@ -375,11 +375,11 @@ Look for the `provisioningState` field in the output, and check that the value i
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Result of the endpoint query, showing the endpoint with a provisioningState of Succeeded":::
 
-Save the names that you gave to your event grid topic and your Azure Digital Twins endpoint. You will use them later.
+Save the names that you gave to your event grid topic and your Event Grid endpoint in Azure Digital Twins. You will use them later.
 
 ### Set up route
 
-Next, create an Azure Digital Twins route that sends events to the Azure Digital Twins endpoint you just created.
+Next, create an Azure Digital Twins route that sends events to the Event Grid endpoint you just created.
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

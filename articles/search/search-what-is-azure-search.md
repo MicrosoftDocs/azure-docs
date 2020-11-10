@@ -73,7 +73,7 @@ The pull model "pulls" data from sources on Azure and sends it to a search index
 
 ### Step 4: Send queries and handle responses
 
-After populating an index, you can [issue search queries](search-query-overview.md) to your service endpoint using simple HTTP requests with [REST API](/rest/api/searchservice/Search-Documents) or the [.NET SDK](/dotnet/api/microsoft.azure.search.idocumentsoperations).
+After populating an index, you can [issue search queries](search-query-overview.md) to your service endpoint using simple HTTP requests with [REST API](/rest/api/searchservice/Search-Documents) or the [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search).
 
 Step through [Create your first search app](tutorial-csharp-create-first-app.md) to build and then extend a web page that collects user input and handles results. You can also use [Postman for interactive REST](search-get-started-postman.md) calls or the built-in [Search Explorer](search-explorer.md) in Azure portal to query an existing index.
 

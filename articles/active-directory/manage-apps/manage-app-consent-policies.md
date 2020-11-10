@@ -18,7 +18,7 @@ ms.custom: contperfq2
 
 With Azure AD PowerShell, you can view and manage app consent policies.
 
-An app consent policy consists of one or more "includes" condition sets and zero or more "excludes" condition sets. For an event to considered in an app consent policy, it must match *at least* one "includes" condition set, and must not many *any* "excludes" condition set.
+An app consent policy consists of one or more "includes" condition sets and zero or more "excludes" condition sets. For an event to be considered in an app consent policy, it must match *at least* one "includes" condition set, and must not match *any* "excludes" condition set.
 
 Each condition set consists of several conditions. For an event to match a condition set, *all* conditions in the condition set must be met.
 

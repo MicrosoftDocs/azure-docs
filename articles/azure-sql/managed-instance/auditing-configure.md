@@ -112,7 +112,7 @@ The following section describes the configuration of auditing on your managed in
         GO
         ```
 
-        Continue by [creating a server audit specification or database audit specification](#createspec).
+     1. Continue by [creating a server audit specification or database audit specification](#createspec).
 
    - <a id="blobssms"></a>Configure blob storage for audit logs using  SQL Server Management Studio 18 (Preview):
 

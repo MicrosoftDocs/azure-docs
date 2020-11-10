@@ -19,6 +19,15 @@ ms.author: yelevin
 ---
 # Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Azure Sentinel
 
+> [!IMPORTANT]
+>
+> - The UEBA and Entity Pages features are now in **General Availability** in the following Azure Sentinel geographies and regions:
+>    - United States geography
+>    - Europe West region
+>    - Australia geography
+>
+> - In all other geographies and regions, these features remain for the time being in **PREVIEW**. See the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## What is User and Entity Behavior Analytics (UEBA)?
 
 ### The concept
@@ -60,9 +69,41 @@ Each activity is scored with “Investigation Priority Score” – which determ
 
 See how behavior analytics is used in [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) for an example of how this works.
 
+## Entities in Azure Sentinel
 
+### Entity identifiers
 
-## Entity pages
+When alerts are sent to Azure Sentinel, they include data elements that Azure Sentinel identifies and classifies as entities, such as user accounts, hosts, IP addresses and others. On occasion, this identification can be a challenge, if the alert does not contain sufficient information about the entity.
+
+For example, user accounts can be identified in more than one way: using an Azure AD account’s numeric identifier (GUID), or its User Principal Name (UPN) value, or alternatively, using a combination of its username and its NT domain name. Different data sources can identify the same user in different ways. Therefore, whenever possible, Azure Sentinel merges those identifiers into a single entity, so that it can be properly identified.
+
+It can happen, though, that one of your resource providers creates an alert in which an entity is not sufficiently identified - for example, a user name without the domain name context. In such a case, the user entity cannot be merged with other instances of the same user account, which would be identified as a separate entity, and those two entities would remain separate instead of unified.
+
+In order to minimize the risk of this happening, you should verify that all of your alert providers properly identify the entities in the alerts they produce. Additionally, synchronizing user account entities with Azure Active Directory may create a unifying directory, which will be able to merge user account entities.
+
+The following types of entities are currently identified in Azure Sentinel:
+
+- User account (Account)
+- Host
+- IP address (IP)
+- Malware
+- File
+- Process
+- Cloud application (CloudApplication)
+- Domain name (DNS)
+- Azure resource
+- File (FileHash)
+- Registry key
+- Registry value
+- Security group
+- URL
+- IoT device
+- Mailbox
+- Mail cluster
+- Mail message
+- Submission mail
+
+### Entity pages
 
 When you encounter any entity (currently limited to users and hosts) in a search, an alert, or an investigation, you can select the entity and be taken to an **entity page**, a datasheet full of useful information about that entity. The types of information you will find on this page include basic facts about the entity, a timeline of notable events related to this entity and insights about the entity's behavior.
  
