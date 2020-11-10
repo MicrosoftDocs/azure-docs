@@ -15,7 +15,7 @@ When you generate a client certificate, it's automatically installed on the comp
 
 1. To export a client certificate, open **Manage user certificates**. The client certificates that you generated are, by default, located in 'Certificates - Current User\Personal\Certificates'. Right-click the client certificate that you want to export, click **all tasks**, and then click **Export** to open the **Certificate Export Wizard**.
 
-   ![Screenshot shows the Certificates window for the current user with Certificates selected and a contextual menu with All Tasks then Export selected.](./media/vpn-gateway-certificates-export-client-cert-include/export.png)
+   ![Screenshot shows the Certificates window for the current user with Certificates selected and a contextual menu with Export selected from All Tasks.](./media/vpn-gateway-certificates-export-client-cert-include/export.png)
 2. In the Certificate Export Wizard, click **Next** to continue.
 
    ![Screenshot shows the Certificate Export Wizard Welcome message.](./media/vpn-gateway-certificates-export-client-cert-include/next.png)
@@ -33,4 +33,4 @@ When you generate a client certificate, it's automatically installed on the comp
    ![file to export](./media/vpn-gateway-certificates-export-client-cert-include/filetoexport.png)
 7. Click **Finish** to export the certificate.
 
-   ![Screenshot shows the Certificate Export Wizard final page with the selected settings.](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)
+   ![Screenshot shows the Certificate Export Wizard with the selected settings.](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)
