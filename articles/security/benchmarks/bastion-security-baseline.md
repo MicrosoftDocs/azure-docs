@@ -27,7 +27,7 @@ To see how Azure Bastion completely maps to the Azure Security Benchmark, see th
 
 ### NS-1: Implement security for internal traffic
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39744.).
 
 **Guidance**: For the network security groups (NSGs) associated with your Azure Bastion subnets, you must allow
@@ -58,8 +58,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### NS-2: Connect private networks together
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39745.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Azure Bastion does not expose any endpoints that can be accessed via a private network. This control is intended for describing how private networks can be connected together to provide access to the offering or its resources.
 
@@ -73,8 +76,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### NS-3: Establish private network access to Azure services
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39746.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Azure Bastion is a fully managed PaaS service that provides secure and seamless RDP and SSH access to your virtual machines directly through the Azure Portal
 
@@ -92,7 +98,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### NS-4: Protect applications and services from external network attacks
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39747.).
 
 **Guidance**: Protect your Azure Bastion resources against attacks from external networks, including distributed denial of service (DDoS) attacks, application specific attacks, and unsolicited and potentially malicious internet traffic. Protect your assets against DDoS attacks by enabling DDoS standard protection on your Azure virtual networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
@@ -109,8 +115,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39748.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is PaaS service and cannot be configured with an IDS or IPS solution for detecting or preventing threats on the network.
 
@@ -124,8 +133,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### NS-6: Simplify network security rules
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39749.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; this recommendation is intended for offerings that can be deployed into Azure Virtual Networks, or have the capability to define groupings of allowed IP ranges for efficient management. Azure Bastion does not currently support service tags.
 
@@ -139,8 +151,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### NS-7: Secure Domain Name Service (DNS)
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39750.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
 
@@ -158,7 +173,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39730.).
 
 **Guidance**: Not applicable; Azure Bastion doesn't allow access to virtual machine over RDP/SSH using AAD credentials. User can access Azure portal using AAD authentication to launch Azure Bastion service to connect to  virtual machine over RDP/SSH. 
@@ -173,7 +188,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### IM-2: Manage application identities securely and automatically
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39731.).
 
 **Guidance**: Not applicable; Azure Bastion doesn't use any identities or manage any secrets for identities.
@@ -188,7 +203,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39732.).
 
 **Guidance**: Not applicable; Azure Bastion doesn't support SSO for authentication to its resources.
@@ -203,7 +218,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39733.).
 
 **Guidance**: Not applicable; Azure Bastion doesn't allow access to virtual machine over RDP/SSH using AAD credentials. User can access Azure portal using AAD multi factor authentication to launch Azure Bastion service to connect to  virtual machine over RDP/SSH. 
@@ -218,7 +233,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### IM-5: Monitor and alert on account anomalies
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39734.).
 
 **Guidance**: Azure Bastion is a PaaS service that customers can use to connect to their virtual machines over RDP/SSH. Enable diagnostics logs for remote sessions and use these logs to view which users connected to which workloads, at what time, from where, and other such relevant logging information. Create alerts for certain logged Bastion sessions using Azure Monitor to be notified when there are anomalies detected in the logs. 
@@ -231,7 +246,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### IM-6: Restrict Azure resource access based on conditions
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39735.).
 
 **Guidance**: Azure Bastion is a PaaS service that customer deploy to connect to a virtual machine using a browser and the Azure portal.  Customer can only access Azure bastion service via Azure portal. Access to Azure portal can be restricted using Azure AD conditional access for a more granular access control based on user-defined conditions
@@ -256,8 +271,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### IM-7: Eliminate unintended credential exposure
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39736.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't allow customer to deploy any persisted data into the running environment.
 
@@ -271,8 +289,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### IM-8: Secure user access to legacy applications
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39772.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't host or access any legacy applications.
 
@@ -290,8 +311,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PA-1: Protect and limit highly privileged users
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39737.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't use any administrative accounts.
 
@@ -305,8 +329,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PA-2: Restrict administrative access to business-critical systems
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39738.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't store or process any data that are considered as business critical by customers.
 
@@ -320,8 +347,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PA-3: Review and reconcile user access regularly
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39739.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't use any user accounts.
 
@@ -335,8 +365,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PA-4: Set up emergency access in Azure AD
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39740.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is  PaaS service and doesn't need emergency accounts. 
 
@@ -354,8 +387,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PA-5: Automate entitlement management 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39741.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't support any automation on account or role management.
 
@@ -369,8 +405,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PA-6: Use privileged access workstations
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39742.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't support management from a customer workstation.
 
@@ -384,7 +423,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39743.).
 
 **Guidance**: Azure Bastion service requires following minimum roll access privileges to be able to use bastion service to connect 
@@ -408,8 +447,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PA-8: Choose approval process for Microsoft support  
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39799.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't store customer data, and doesn't support the Customer Lockbox solution.
 
@@ -427,8 +469,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### DP-1: Discovery, classify and label sensitive data
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39751.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Azure Bastion does not store, process or transmit sensitive data, because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest or in transit, and enforcement of security controls with automated tools.
 
@@ -442,8 +487,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### DP-2: Protect sensitive data
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39752.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Azure Bastion does not store, process or transmit sensitive data, because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest or in transit, and enforcement of security controls with automated tools.
 
@@ -457,8 +505,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### DP-3: Monitor for unauthorized transfer of sensitive data
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39753.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion does not store, process or transmit data classified as sensitive.
 
@@ -472,8 +523,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### DP-4: Encrypt sensitive information in transit
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39754.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion does not store, process or transmit data classified as sensitive.
 
@@ -487,8 +541,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### DP-5: Encrypt sensitive data at rest
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39755.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Azure Bastion does not interact with sensitive data, because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest or in transit, and enforcement of security controls with automated tools.
 
@@ -507,7 +564,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### AM-1: Ensure security team has visibility into risks for assets
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39773.).
 
 **Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
@@ -528,7 +585,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39774.).
 
 **Guidance**: Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
@@ -555,7 +612,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### AM-3: Use only approved Azure services
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39775.).
 
 **Guidance**: Use Azure Policy to audit and restrict which services users can provision in your environment. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
@@ -576,8 +633,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### AM-4: Ensure security of asset lifecycle management
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39776.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a PaaS service and customer can not use the offering's capabilities to inventory and manage assets
 
@@ -591,7 +651,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39777.).
 
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
@@ -608,8 +668,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### AM-6: Use only approved applications in compute resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39778.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a Paas service does not allow customers to install applications on them.
 
@@ -627,8 +690,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### LT-1: Enable threat detection for Azure resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39756.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Azure Bastion does not currently produce customer facing resource logs that can be used for threat detection.
 
@@ -642,7 +708,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39757.).
 
 **Guidance**: Azure Bastion service is accessed over Azure portal. User can enable logs related to identity and access management when Azure Bastion is accessed.
@@ -677,7 +743,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### LT-3: Enable logging for Azure network activities
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39758.).
 
 **Guidance**: Customer can enable Azure bastion resource logs. Use these diagnostics log to view which users connected to which workloads, at what time, from where, and other such relevant logging information. User can configure these logs to be sent to a storage account for long term retention and auditing.
@@ -694,7 +760,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### LT-4: Enable logging for Azure resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39759.).
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Bastion resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
@@ -715,8 +781,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### LT-5: Centralize security log management and analysis
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39760.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion does not produce or process any security related logs which would need to be collected centrally for management or analysis.
 
@@ -730,8 +799,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### LT-6: Configure log storage retention
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39761.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Azure Bastion does not currently produce any security-related logs. Customer can enable resource logging for the service and set any log retention customer is unable to set any log retention.
 ../../bastion/diagnostic-logs.md
@@ -746,8 +818,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### LT-7: Use approved time synchronization sources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39762.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Azure Bastion does not support configuring your own time synchronization sources. The Azure Bastion service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
@@ -765,7 +840,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### IR-1: Preparation – update incident response process for Azure
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39763.).
 
 **Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
@@ -780,7 +855,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### IR-2: Preparation – setup incident notification
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39764.).
 
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
@@ -793,7 +868,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39765.).
 
 **Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
@@ -814,7 +889,7 @@ Export your Azure Security Center alerts and recommendations using the export fe
 
 ### IR-4: Detection and analysis – investigate an incident
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39766.).
 
 **Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
@@ -847,7 +922,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 ### IR-5: Detection and analysis – prioritize incidents
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39767.).
 
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
@@ -866,7 +941,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 ### IR-6: Containment, eradication and recovery – automate the incident handling
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39768.).
 
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
@@ -888,8 +963,11 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ### PV-1: Establish secure configurations for Azure services 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39783.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Define and implement standard security configurations for Azure Bastion with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Azure Bastion.
 
@@ -910,8 +988,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PV-2: Sustain secure configurations for Azure services
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39784.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Define and implement standard security configurations for Azure ExpressRoute with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your ExpressRoute.
 
@@ -933,8 +1014,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PV-3: Establish secure configurations for compute resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39785.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
 
@@ -949,8 +1033,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PV-4: Sustain secure configurations for compute resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39786.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
 
@@ -964,8 +1051,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PV-5: Securely store custom operating system and container images
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39787.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
 
@@ -979,8 +1069,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PV-6: Perform software vulnerability assessments
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39788.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Bastion.
 
@@ -994,8 +1087,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39789.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management and software update on the underlying systems that support Azure Bastion.
 
@@ -1009,7 +1105,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### PV-8: Conduct regular attack simulation
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39790.).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
@@ -1031,8 +1127,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### ES-1: Use Endpoint Detection and Response (EDR)
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39769.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not Applicable; Azure Bastion is a fully managed PaaS service which would not require Endpoint Detection and Response (EDR) protection.
 
@@ -1046,8 +1145,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### ES-2: Use centrally managed modern anti-malware software
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39770.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a fully managed PaaS service and Microsoft is responsible for installing and managing Anti Malware protection.
 
@@ -1061,8 +1163,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### ES-3: Ensure anti-malware software and signatures are updated
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39771.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion is a fully managed PaaS service and Microsoft is responsible for installing, managing and updating Anti Malware signature.
 
@@ -1080,8 +1185,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### BR-1: Ensure regular automated backups
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39779.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't support any data backup or have no needs for data backup.
 
@@ -1095,8 +1203,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### BR-2: Encrypt backup data
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39780.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't support any data backup encryption.
 
@@ -1110,8 +1221,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### BR-3: Validate all backups including customer-managed keys
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39781.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't support any data backup.
 
@@ -1127,8 +1241,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### BR-4: Mitigate risk of lost keys
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39782.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion doesn't manage any keys.
 
@@ -1146,7 +1263,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 ### GS-1: Define asset management and data protection strategy 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39791.).
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
@@ -1186,7 +1303,7 @@ For more information, see the following references:
 
 ### GS-2: Define enterprise segmentation strategy 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39798.).
 
 **Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
@@ -1207,7 +1324,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-3: Define security posture management strategy
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39792.).
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
@@ -1220,7 +1337,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-4: Align organization roles, responsibilities, and accountabilities
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39793.).
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
@@ -1237,7 +1354,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-5: Define network security strategy
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39794.).
 
 **Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
@@ -1271,7 +1388,7 @@ For more information, see the following references:
 
 ### GS-6: Define identity and privileged access strategy
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39795.).
 
 **Guidance**: Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
@@ -1304,7 +1421,7 @@ For more information, see the following references:
 
 ### GS-7: Define logging and threat response strategy
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39796.).
 
 **Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
