@@ -38,9 +38,9 @@ Next, download the desktop version of the Postman client. Navigate to [*www.getp
 
 Now that you've set up Postman, your Azure Digital Twins instance, and an app registration, you'll need to configure the app registration to work with the OAuth 2.0 implicit grant flow that Postman will use. This will allow requests from Postman to use your app registration to authorize against the Azure Digital Twins APIs.
 
-This step happens in the [Azure portal](https://portal.azure.com).
+Start by going to the [Azure portal](https://portal.azure.com).
 
-Visit the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal and select the name of your **app registration** that you created in the previous section from the list.
+Visit the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal and select the name of your **app registration** that you created in the previous section from the list (you can use this link or look for it by name in the portal search bar).
 
 Select *Authentication* from the registration's menu, and hit *+ Add a platform*.
 
@@ -145,7 +145,7 @@ To make a Postman request to one of the Azure Digital Twins APIs, you'll need th
 To proceed with an example query, this article will use the Query API (and its [reference documentation](/rest/api/digital-twins/dataplane/query/querytwins)) to query for all the digital twins in an instance.
 
 1. Get the request URL and type from the reference documentation. For the Query API, this is *POST https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31*.
-1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. This is where you will use your instance's *host name* from the [*Prerequisites*](#prerequisites) section.
+1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. This is where you will use your instance's **host name** from the [*Prerequisites*](#prerequisites) section.
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="In the details of the new request, the query URL from the reference documentation has been filled into the request URL box.":::
     
