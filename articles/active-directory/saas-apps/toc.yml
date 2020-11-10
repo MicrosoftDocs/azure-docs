@@ -279,6 +279,8 @@
         href: cch-tagetik-tutorial.md
       - name: Central Desktop
         href: central-desktop-tutorial.md
+      - name: Cequence Application Security
+        href: cequence-application-security-tutorial.md
       - name: Ceridian Dayforce HCM
         href: ceridiandayforcehcm-tutorial.md
       - name: Cerner Central
@@ -415,6 +417,8 @@
         href: costpoint-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
+      - name: Coupa Risk Assess
+        href: coupa-risk-assess-tutorial.md
       - name: CPQSync by Cincom
         href: cpqsync-by-cincom-tutorial.md
       - name: Creatio
@@ -906,6 +910,8 @@
         href: jamfprosamlconnector-tutorial.md
       - name: JDA Cloud
         href: jdacloud-tutorial.md
+      - name: Jedox
+        href: jedox-tutorial.md
       - name: JFrog Artifactory
         href: jfrog-artifactory-tutorial.md
       - name: JIRA SAML SSO by Microsoft
@@ -1036,6 +1042,8 @@
         href: logzio-cloud-observability-for-engineers-tutorial.md
       - name: Loop Flow CRM
         href: loop-flow-crm-tutorial.md
+      - name: Lucid (All Products)
+        href: lucid-tutorial.md
       - name: Lucidchart
         href: lucidchart-tutorial.md
       - name: Luum
@@ -1076,7 +1084,7 @@
         href: meta4-global-hr-tutorial.md
       - name: Meta Networks Connector
         href: metanetworksconnector-tutorial.md
-      - name: MEVISIO
+      - name: Mevisio
         href: mevisio-tutorial.md
       - name: Michigan Data Hub Single Sign-On
         href: michigan-data-hub-single-sign-on-tutorial.md
@@ -1264,6 +1272,8 @@
         href: panopto-tutorial.md
       - name: Panorama9
         href: panorama9-tutorial.md
+      - name: Panorays
+        href: panorays-tutorial.md
       - name: Pantheon
         href: pantheon-tutorial.md
       - name: PatentSQUARE
@@ -1328,6 +1338,8 @@
         href: presspage-tutorial.md
       - name: Prezi
         href: prezi-tutorial.md
+      - name: PrinterLogic SaaS
+        href: printerlogic-saas-tutorial.md
       - name: Printix
         href: printix-tutorial.md
       - name: Prisma Cloud SSO
@@ -1448,6 +1460,8 @@
         href: safeconnect-tutorial.md
       - name: SafetyNet
         href: safetynet-tutorial.md
+      - name: SailPoint IdentityNow
+        href: sailpoint-identitynow-tutorial.md
       - name: Salesforce
         href: salesforce-tutorial.md
       - name: Salesforce Sandbox
@@ -1554,6 +1568,8 @@
         href: showpad-tutorial.md
       - name: Shuccho Navi
         href: shucchonavi-tutorial.md
+      - name: Shutterstock
+        href: shutterstock-tutorial.md
       - name: Signagelive
         href: signagelive-tutorial.md
       - name: SignalFx
