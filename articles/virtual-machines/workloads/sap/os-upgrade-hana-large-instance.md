@@ -26,7 +26,7 @@ This document describes the details on operating system upgrades on the HANA Lar
 During HLI unit provisioning, the Microsoft operations team installs the operating system.
 Over the time, you are required to maintain the operating system (Example: Patching, tuning, upgrading etc.) on the HLI unit.
 
-Before you do major changes to the operating system (for example, Upgrade SP1 to SP2), you need to contact Microsoft Operations team by opening a support ticket to consult.
+Before you do major changes to the operating system (for example, Upgrade SP1 to SP2), you shall contact Microsoft Operations team by opening a support ticket to consult.
 
 Include in your ticket:
 
@@ -35,11 +35,9 @@ Include in your ticket:
 * The patch level you are planning to apply.
 * The date you are planning this change. 
 
-We would recommend you open this ticket at least one week before the desirable upgrade date due to having Operations team checking if a firmware upgrade will be necessary on your server blade.
-
+We would recommend you open this ticket at least one week prior to the desirable upgrade, which will let opration team know about the desired firmware version.
 
 For the support matrix of the different SAP HANA versions with the different Linux versions, see [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
 
 ## Known issues
 
@@ -52,7 +50,7 @@ The following are the few common known issues during the upgrade:
 Operating system configuration can drift from the recommended settings over time due to patching, system upgrades, and changes made by customers. Additionally, Microsoft identifies updates needed for existing systems to ensure they are optimally configured for the best performance and resiliency. Following instructions outline recommendations that address network performance, system stability, and optimal HANA performance.
 
 ### Compatible eNIC/fNIC driver versions
-  In order to have proper network performance and system stability, it is advised to ensure that the OS-specific appropriate version of eNIC and fNIC drivers are installed as depicted in following compatibility table. Servers are delivered to customers with compatible versions. Note that, in some cases, during OS/Kernel patching, drivers can get rolled back to the default driver versions. Ensure that appropriate driver version is running post OS/Kernel patching operations.
+  In order to have proper network performance and system stability, it is advised to ensure the OS-specific appropriate version of eNIC and fNIC drivers are installed as depicted in following compatibility table. Servers are delivered to customers with compatible versions. In some cases, during OS/Kernel patching, drivers can get rolled back to the default driver versions. Ensure appropriate driver version is running post OS/Kernel patching operations.
        
       
   |  OS Vendor    |  OS Package Version     |  Firmware Version  |  eNIC Driver	|  fNIC Driver | 
@@ -93,7 +91,7 @@ modinfo fnic
 * Remove old rpm packages
 * Install compatible eNIC/fNIC drivers as per installed OS version
 * Reboot system
-* After reboot check the eNIC/fNIC version
+* After reboot, check the eNIC/fNIC version
 
 
 ### SuSE HLIs GRUB update failure
@@ -124,7 +122,6 @@ blacklist edac_core
 ```
 A reboot is required to take changes in place. Execute `lsmod` command and verify the module is not present there in output.
 
-
 ### Kernel parameters
    Make sure the correct setting for `transparent_hugepage`, `numa_balancing`, `processor.max_cstate`, `ignore_ce` and `intel_idle.max_cstate` are applied.
 
@@ -133,7 +130,6 @@ A reboot is required to take changes in place. Execute `lsmod` command and verif
 * transparent_hugepage=never
 * numa_balancing=disable
 * mce=ignore_ce
-
 
 #### Execution Steps
 
