@@ -388,6 +388,12 @@ az storage blob show \
 
 ---
 
+If the replication status for a blob in the source account indicates failure, then investigate the following possible causes:
+
+- Make sure that the object replication policy is configured on the destination account.
+- Verify that the destination container still exists.
+- If the source blob has been encrypted with a customer-provided key as part of a write operation, then object replication will fail. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
+
 ## Remove a replication policy
 
 To remove a replication policy and its associated rules, use Azure portal, PowerShell, or CLI.
