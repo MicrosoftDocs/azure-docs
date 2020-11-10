@@ -47,9 +47,7 @@ You can't use the following commands in a query when scoped to a resource since 
 - [workspace](workspace-expression.md)
  
 
-## Query limits
-You may have business requirements for an Azure resource to write data to multiple Log Analytics workspaces. The workspace doesn't need to be in the same region as the resource, and a single workspace might gather data from resources in a variety of regions.  
-
+## Query scope limits
 Setting the scope to a resource or set of resources is a particularly powerful feature of Log Analytics since it allows you to automatically consolidate distributed data in a single query. It can significantly affect performance though if data needs to be retrieved from workspaces across multiple Azure regions.
 
 Log Analytics helps protect against excessive overhead from queries that span workspaces in multiple regions by issuing a warning or error when a certain number of regions are being used. 
@@ -63,12 +61,8 @@ Your query will be blocked from running if the scope includes workspaces in 20 o
 
 
 ## Time range
-The time range specifies the set of records that are evaluated for the query based on when the record was created. This is defined by a standard column on every record in the workspace or application as specified in the following table.
+The time range specifies the set of records that are evaluated for the query based on when the record was created. This is defined by the **TimeGenerated** column on every record in the workspace or application as specified in the following table. For a classic Application Insights application, the **timestamp** column is used for the time range.
 
-| Location | Column |
-|:---|:---|
-| Log Analytics workspace          | TimeGenerated |
-| Application Insights application | timestamp     |
 
 Set the time range by selecting it from the time picker at the top of the Log Analytics window.  You can select a predefined period or select **Custom** to specify a specific time range.
 
@@ -78,13 +72,13 @@ If you set a filter in the query that uses the standard time column as shown in 
 
 ![Filtered query](media/scope/query-filtered.png)
 
-If you use the [workspace](workspace-expression.md) or [app](app-expression.md) command to retrieve data from another workspace or application, the time picker may behave differently. If the scope is a Log Analytics workspace and you use **app**, or if the scope is an Application Insights application and you use **workspace**, then Log Analytics may not understand that the column used in the filter should determine the time filter.
+If you use the [workspace](workspace-expression.md) or [app](app-expression.md) command to retrieve data from another workspace or classic application, the time picker may behave differently. If the scope is a Log Analytics workspace and you use **app**, or if the scope is a classic Application Insights application and you use **workspace**, then Log Analytics may not understand that the column used in the filter should determine the time filter.
 
 In the following example, the scope is set to a Log Analytics workspace.  The query uses **workspace** to retrieve data from another Log Analytics workspace. The time picker changes to **Set in query** because it sees a filter that uses the expected **TimeGenerated** column.
 
 ![Query with workspace](media/scope/query-workspace.png)
 
-If the query uses **app** to retrieve data from an Application Insights application though, Log Analytics doesn't recognize the **timestamp** column in the filter, and the time picker remains unchanged. In this case, both filters are applied. In the example, only records created in the last 24 hours are included in the query even though it specifies 7 days in the **where** clause.
+If the query uses **app** to retrieve data from a classic Application Insights application though, Log Analytics doesn't recognize the **timestamp** column in the filter, and the time picker remains unchanged. In this case, both filters are applied. In the example, only records created in the last 24 hours are included in the query even though it specifies 7 days in the **where** clause.
 
 ![Query with app](media/scope/query-app.png)
 

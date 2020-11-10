@@ -151,7 +151,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 ### Alerts
 - [Action rules for Azure Monitor alerts](platform/alerts-action-rules.md) - Added CLI processes.
 - [Create and manage action groups in the Azure portal](platform/action-groups.md) - Updated to reflect changes in UI.
-- [Saved queries in Azure Monitor Log Analytics](log-query/saved-queries.md) - New article.
+- [Example queries in Azure Monitor Log Analytics](log-query/example-queries.md) - New article.
 - [Troubleshoot log alerts in Azure Monitor](platform/alerts-troubleshoot-log.md) - Added section on alert rule quota.
 - [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added section on alert rule on a custom metric that isn't emitted yet.
 - [Understand how metric alerts work in Azure Monitor.](platform/alerts-metric-overview.md) - Added recommendation for selecting aggregation granularity.
