@@ -29,6 +29,8 @@ landingContent:
         links:
           - text: Create a Purview account
             url: create-catalog-portal.md
+          - text: Add users to an Azure Purview account
+            url: catalog-permissions.md
           - text: Add a security principal
             url: add-security-principal.md
       - linkListType: tutorial

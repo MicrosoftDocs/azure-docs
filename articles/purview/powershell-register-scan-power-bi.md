@@ -67,7 +67,7 @@ Every Purview catalog has its own system-assigned managed identity that must be 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Image showing how to allow service principals to get read-only Power BI admin API permissions ":::
 
     > [!Caution]
-    > When you allow the security group you created (that has your data catalog managed identity as a member) to use read-only Power BI admin APIs, you also allow it to access the metadata (e.g. dashboard and report names, owners, descriptions, etc.) for all of your Power BI artifacts in this tenant. Once the metadata has been pulled into the Azure data catalog, the catalog permissions, not Power BI permissions, determine who can see that metadata.
+    > When you allow the security group you created (that has your data catalog managed identity as a member) to use read-only Power BI admin APIs, you also allow it to access the metadata (e.g. dashboard and report names, owners, descriptions, etc.) for all of your Power BI artifacts in this tenant. Once the metadata has been pulled into the Azure Purview, Purview's permissions, not Power BI permissions, determine who can see that metadata.
 
     > [!Note]
     > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Purview account. You can delete it separately.
@@ -152,7 +152,7 @@ To do delegated authentication, you must have admin user credentials, as well as
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/copy-client-and-tenantid.png" alt-text="Image showing copying the client and tenant IDs":::
 
-1. Configure your scan in PowerShell. The script will prompt for credentials. You must have at least contributor permissions on the Azure subscription you use.
+1. Configure your scan in PowerShell. The script will prompt for credentials. You must have at least contributor Role and Azure Purview Data Source Administrator Role on the Azure subscription you intend to use.
 
     ```PowerShell
     # Purview Account Info

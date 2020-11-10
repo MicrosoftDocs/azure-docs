@@ -50,7 +50,7 @@ When you run the starter kit script, it does the following steps on your behalf:
 
 1. Creates an Azure Data Factory account in your subscription named _&lt;YourResourceGroupName&gt;_**adcfactory**.
 
-1. Associates the newly created Azure Data Factory account to the Azure Data Catalog instance whose name you passed in.
+1. Associates the newly created Azure Data Factory account to the Azure Purview account whose name you passed in.
 
 1. Creates an Azure Blob storage account in your subscription named _&lt;YourResourceGroupName&gt;_**adcblob**.
 
@@ -118,18 +118,31 @@ Before you run the PowerShell scripts to bootstrap the catalog, get the values o
 * CatalogName: The name of the Azure Purview account that you created in [Create an Azure Purview account](create-catalog-portal.md).
 * NewResourceGroupName: The new resource group name to use. Resource group names must be unique with your subscription, all lowercase, and made up of only A-Z and 0-9 characters.
 
-### Verify the user running the script has catalog permissions
+### Verify the user running the script has permissions to call Azure Purview
 
-Follow these steps to add the Catalog admin running the script to the Azure Purview account that was created in [Create a Purview account](create-catalog-portal.md). If you created the Azure Purview account yourself, you're automatically made an admin and an Azure contributor, and can skip this section.
+Follow these steps to add the user running the script to the Azure Purview account that was created in [Create a Purview account](create-catalog-portal.md). If you created the Azure Purview account yourself, you're automatically given access, and can skip this section.
 
-1. Browse to the Azure Purview catalog home page by using one of these methods:
-   * Go to `https://web.babylon.azure.com/resource/<Your Azure Purview account name>`.
-   * In the [Azure portal](https://portal.azure.com), search for and select your Azure Purview account, and then select **Launch purview account**.
-1. Select **Management Center** in the left pane, and then select **Assign roles**.
+1. Go to the [**Purview accounts**](https://aka.ms/babylonportal) page in the Azure portal.
 
-1. Select the **Add user** drop-down list from the top menu, and then select **Catalog administrator**.
+1. Select the Azure Purview account you want to modify.
 
-1. From the **Add catalog administrator** page, enter the name or email of the person to add, and then select **Apply**.
+1. On the **Purview account** page, select the tab **Access control (IAM)**
+
+1. Click "+ Add"
+
+1. Select "Add role assigment"
+
+1. For the Role type in "Azure Purview Data Curator Role"
+ 
+1. For "Assign access to" leave the default, "User, group, or service principal"
+
+1. For "Select" enter the name of the user running the script
+
+1. Click on "Save"
+
+Now repeat the instructions again but this time put the user into the role "Azure Purview Data Source Administrator Role".
+
+Please see [Catalog Permissions](catalog-permissions.md) for more information.
 
 ### Run the client-side setup scripts
 

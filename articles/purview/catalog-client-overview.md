@@ -512,9 +512,9 @@ On the Terms List page, you can delete one or more terms in a few different ways
 
 ## Access permissions
 
-Azure Data Catalog access permissions provide a basic access permissions infrastructure. For reasons that will eventually be resolved that infrastructure is split into two sections. One section handles creating/deleting catalogs and scanning. The other section handles access to all other API endpoints.
+Azure Purview has both control plane and data plane permissions. Control plane permissions control the ability to create and delete Azure Purview accounts. Data Plane permissions control who is allowed to access the information in the account, call APIs, configure scanning, etc. 
 
-### Azure portal managed permissions
+### Azure control plane managed permissions
 
 To create a catalog in the first place, one must have resource creation permissions in the resource group that the catalog is to be created in. This is managed via the Access control (IAM) section of the resource group the catalog is to be created in. One needs to be in the contributor or owner roles to create a new catalog instance.
 
@@ -522,7 +522,9 @@ Once a catalog has been created, it can be deleted by anyone who is in the owner
 
 For general information on how to add someone to a contributor or owner role on a resource group, see [Role Based Access Control Assignment Portal](../role-based-access-control/role-assignments-portal.md).
 
-One additional capability handled in the Azure portal is that in order to be able to scan content a user must be in the contributor or owner role on the catalog itself. Note that those who would create/update/delete scans need to actually be in two roles. The owner or contributor role in the Azure portal and the Catalog Admin or Data Source Admin roles in the Azure Data Catalog Portal. For details on how to get someone into both roles please see section 8.3.
+### Azure data plane managed permissions
+
+With the exception of the user who actually created the Azure Purview Account, who gets special permissions, any other user who wishes to use the Azure Purview Studio or call Azure Purview's REST APIs needs to be in a data plane role. Please see [Catalog Permissions](catalog-permissions) for more information.
 
 ## Annotation Management
 

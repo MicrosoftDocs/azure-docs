@@ -12,6 +12,8 @@ items:
   items:
   - name: Create a Purview account
     href: create-catalog-portal.md
+  - name: Add Users to the Purview account
+    href: catalog-permissions.md
   - name: Add a security principal
     href: add-security-principal.md
 - name: Tutorials
@@ -45,7 +47,7 @@ items:
     href: catalog-lineage-user-guide.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
-  - name: Resource sets
+  - name: Understanding Resource sets
     href: concept-resource-sets.md
   - name: Supported stores and classifications
     href: supported-stores-and-classifications.md

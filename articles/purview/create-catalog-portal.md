@@ -7,7 +7,7 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: quickstart
 ms.date: 10/23/2020
-# Customer intent: As a data steward, I want create a new Azure Data Catalog so that I can scan and classify my data.
+# Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
 
 # Quickstart: Create an Azure Purview account
@@ -69,7 +69,7 @@ If you no longer need this Azure Purview account, delete it with the following s
 
 In this quickstart, you learned how to create an Azure Purview account.
 
-Advance to the next article to learn how to add a security principal to a role.
+Advance to the next article to learn how to allow users to access your Azure Purview Account. 
 
 > [!div class="nextstepaction"]
-> [Add a security principal](add-security-principal.md)
+> [Add users to your Azure Purview Account](catalog-permissions.md)

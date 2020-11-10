@@ -1,6 +1,6 @@
 ---
 title: 'Apply classifications on assets'
-titleSuffix: Azure Data Catalog
+titleSuffix: Azure Purview
 description: This document describes how to apply classifications on assets
 author: SunetraVirdi
 ms.author: suvirdi
