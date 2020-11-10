@@ -4,7 +4,7 @@ description: Use Azure IoT Edge to create a transparent, opaque, or proxy gatewa
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/08/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -14,12 +14,6 @@ ms.custom:  [amqp, mqtt]
 
 IoT Edge devices can operate as gateways, providing a connection between other devices on the network and IoT Hub.
 
-<!--
-::: moniker range=">=iotedge-2020-11"
->[!NOTE]
->This version of the article discusses concepts that are available in the 1.2 public preview version of IoT Edge. For the latest generally available concepts, see [IoT Edge 1.0.10](iot-edge-as-gateway.md?view=iotedge-2018-06&preserve-view=true).
-::: moniker-end
--->
 The IoT Edge hub module acts like IoT Hub, so can handle connections from any devices that have an identity with IoT Hub, including other IoT Edge devices. This type of gateway pattern is called *transparent* because messages can pass from downstream devices to IoT Hub as though there were not a gateway between them.
 
 <!-- 1.2.0 -->

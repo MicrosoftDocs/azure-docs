@@ -4,7 +4,7 @@ description: This tutorial shows you how to create a hierarchical structure of I
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 11/08/2020
+ms.date: 11/10/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -45,14 +45,12 @@ This tutorial uses a two device hierarchy for simplicity. One device, **topLayer
 To create a hierarchy of IoT Edge devices, you will need:
 
 * A computer (Windows or Linux) with internet connectivity.
-
 * Two Linux devices to configure as IoT Edge devices. If you don't have devices available, you can use [Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/linux/).
-
 * An Azure account with a valid subscription. If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/) before you begin.
-
 * A free or standard tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
+* Azure CLI v2.3.1 with the Azure IoT extension v0.9.10 or higher installed. This tutorial uses the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). If you're unfamiliar with the Azure Cloud Shell, [check out a quickstart for details](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell).
 
-* Azure CLI v2.3.1 with the latest Azure IoT extension installed. This tutorial uses the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). If you're unfamiliar with the Azure Cloud Shell, [check out a quickstart for details](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell).
+You can also try out this scenario by following the scripted [Azure IoT Edge for Industrial IoT sample](aka.ms/iotedge-nested-sample), which deploys Azure virtual machines as preconfigured devices to simulate a factory environment.
 
 ## Configure your IoT Edge device hierarchy
 
@@ -598,7 +596,7 @@ To delete the resources:
 
 ## Next steps
 
-In this tutorial, you configured two IoT Edge devices as gateways and set one as the parent device of the other. Then, you demonstrated pulling a container image onto the child device through a gateway.
+In this tutorial, you configured two IoT Edge devices as gateways and set one as the parent device of the other. Then, you demonstrated pulling a container image onto the child device through a gateway. You can also try out this scenario by following the scripted [Azure IoT Edge for Industrial IoT sample](aka.ms/iotedge-nested-sample), which deploys Azure virtual machines as preconfigured devices to simulate a factory environment.
 
 To see how Azure IoT Edge can create more solutions for your business, continue on to the other tutorials.
 
