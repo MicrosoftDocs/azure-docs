@@ -83,7 +83,7 @@ The `value` property of each app role definition should exactly match the string
 
 This example defines an app role named `Writer` that you can assign to a `User`:
 
-```Json
+```json
 "appId": "8763f1c4-0000-0000-0000-158e9ef97d6a",
 "appRoles": [
     {
@@ -106,7 +106,7 @@ When available to `applications`, app roles appear as application permissions in
 
 This example shows an app role targeted to an `Application`:
 
-```Json
+```json
 "appId": "8763f1c4-0000-0000-0000-158e9ef97d6a",
 "appRoles": [
     {
@@ -123,10 +123,9 @@ This example shows an app role targeted to an `Application`:
 "availableToOtherTenants": false,
 ```
 
-
 ## Assign users and groups to roles
 
-Once you've added app roles in your application, you can assign users and groups to the roles. Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](/graph/azuread-identity-access-management-concept-overview).
+Once you've added app roles in your application, you can assign users and groups to the roles. Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](/graph/api/user-post-approleassignments). When the users assigned to the various app roles sign in to the application, their tokens will have their assigned roles in the `roles` claim.
 
 To assign users and groups to roles by using the Azure portal:
 
@@ -143,19 +142,56 @@ To assign users and groups to roles by using the Azure portal:
 1. Select the **Assign** button to finish the assignment of users and groups to the app.
 1. Confirm that the users and groups you added are appear in the **Users and groups** list.
 
-## Receive roles in tokens
+## Assign app roles to applications
 
-When the users assigned to the various app roles sign in to the application, their tokens will have their assigned roles in the `roles` claim.
+Once you've added app roles in your application, you can assign an app role to a client app by using the Azure portal or programmatically by using [Microsoft Graph](/graph/api/user-post-approleassignments).
 
-> [!WARNING]
-> TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+To assign users and groups to roles by using the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In **Azure Active Directory**, select **App registrations** in the left-hand navigation menu.
+1. Select **All applications** to view a list of all your applications. If your application doesn't appear in the list, use the filters at the top of the **All applications** list to restrict the list, or scroll down the list to locate your application.
+1. Select the application to which you want to assign an app role.
+1. Select **API permissions** > **Add a permission**.
+1. Select the **My APIs** tab, and then select the app for which you defined app roles.
+1. Select **Application permissions**.
+1. Select the role(s) you want to assign.
+1. Select the **Add permissions** button complete addition of the role(s).
+
+The newly added roles should now appear in your app registration's **API permissions** pane.
+
+#### Grant admin consent
+
+Because these are *application permissions*, not delegated permissions, an admin must grant consent to use the app roles assigned to the application.
+
+1. In the app registration's **API permissions** pane, select **Grant admin consent for \<tenant name\>**.
+1. Select **Yes** when prompted to grant consent for the requested permissions.
+
+The **Status** column should reflect that consent has been **Granted for \<tenant name\>**.
+
+## Use the roles in your web API
+
+Once you've defined app roles and assigned them to a user, group, or application, your next step is to add code to your web API that checks for those roles when the API is called. That is, when a client app requests an API operation you've decided requires authorization, your API's code must verify the scopes are in the access token presented in the client app's call.
+
+To learn how to add authorization to your web API, see [Protected web API: Verify scopes and app roles](scenario-protected-web-api-verification-scope-app-roles.md).
+
+## App roles vs. groups
+
+Though you can use app roles or groups for authorization, key differences between them can influence which you decide to use for your scenario.
+
+| App roles                                                                          | Groups                                                      |
+|------------------------------------------------------------------------------------|-------------------------------------------------------------|
+| They are app-specific and defined on applications. They move with the application. | They are not specific to an app, but to an Azure AD tenant. |
+| App roles are removed when their app registration is removed.                      | Groups remain intact even if the app is removed.            |
+| Provided in the `roles` claim.                                                     | Provided in `groups` claim.                                 |
+| Require implementation in back-end API code to support authorization.              | Do not require back-end code to support authorization.      |
 
 ## Next steps
 
 Learn more about app roles with the following resources:
 
-- Code sample: [Add authorization using app roles & roles claims to an ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles) (GitHub)
-- Video: [Implement authorization in your applications with Microsoft identity platform ](https://www.youtube.com/watch?v=LRoc-na27l0) (1:01:15)
-- [Azure Active Directory app manifest](./reference-app-manifest.md)
-- [Azure AD Access tokens](access-tokens.md)
-- [Azure AD `id_tokens`](id-tokens.md)
+* Code sample: [Add authorization using app roles & roles claims to an ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles) (GitHub)
+* Video: [Implement authorization in your applications with Microsoft identity platform](https://www.youtube.com/watch?v=LRoc-na27l0) (1:01:15)
+* [Azure Active Directory app manifest](./reference-app-manifest.md)
+* [Azure AD Access tokens](access-tokens.md)
+* [Azure AD `id_tokens`](id-tokens.md)
