@@ -1,6 +1,6 @@
 ---
-title: Commercial marketplace analytics common questions 
-description: Get answers to commonly asked questions about commercial marketplace analytics in Partner Center.
+title: Commercial marketplace analytics common questions
+description: Get answers to commonly asked questions about commercial marketplace analytics in Partner Center for offers published to Microsoft Azure.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
