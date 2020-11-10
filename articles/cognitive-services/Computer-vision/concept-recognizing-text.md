@@ -86,7 +86,6 @@ See the following example of a successful JSON response:
     "readResults": [
       {
         "page": 1,
-        "language": "en",
         "angle": 0.8551,
         "width": 2661,
         "height": 1901,
