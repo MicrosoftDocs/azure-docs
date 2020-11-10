@@ -218,7 +218,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 })
 ```
 
-In this example, multiple messages are created **TODO**.
+To send multiple messages at once, define a message array and use `Push-OutputBinding` to send messages to the Queue output binding.
 
 ```powershell
 using namespace System.Net
