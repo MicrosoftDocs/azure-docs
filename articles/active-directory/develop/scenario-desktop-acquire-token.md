@@ -1387,5 +1387,5 @@ namespace CommonCacheMsalV3
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Call a web API from the desktop app](scenario-desktop-call-api.md)
+Move on to the next article in this scenario,
+[Call a web API from the desktop app](scenario-desktop-call-api.md).

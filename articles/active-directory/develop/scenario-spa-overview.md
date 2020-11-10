@@ -55,4 +55,4 @@ To enable this scenario for your application, you need:
 
 ## Next steps
 
-[App registration](scenario-spa-app-registration.md)
+Move on to the next article in this scenario, [App registration](scenario-spa-app-registration.md).
