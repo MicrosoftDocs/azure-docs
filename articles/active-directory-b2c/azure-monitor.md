@@ -164,7 +164,7 @@ To configure monitoring settings for Azure AD B2C activity logs:
 > [!NOTE]
 > It may take up to 15 minutes between when an event is emitted and when it [appears in a Log Analytics workspace](../azure-monitor/platform/data-ingestion-time.md). Also, read about [Active Directory reporting latencies](../active-directory/reports-monitoring/reference-reports-latencies.md) as it play important role in reporting as it influence staleness of the data. 
 
-If you see the following error message *To setup Diagnostic settings to use Azure Monitor for your Azure AD B2C directory, you need to set up delegated resource management*. Make sure you sign-in with a user who is a member of the [security group](3.2-Select-a-security-group) and   [Select your subscription](#4-select-your-subscription).
+If you see the following error message *To setup Diagnostic settings to use Azure Monitor for your Azure AD B2C directory, you need to set up delegated resource management*. Make sure you sign-in with a user who is a member of the [security group](#32-select-a-security-groups) and [Select your subscription](#4-select-your-subscription).
 
 ## 6. Visualize your data
 
