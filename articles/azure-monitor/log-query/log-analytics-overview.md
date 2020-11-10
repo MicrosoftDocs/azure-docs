@@ -38,7 +38,7 @@ Controls for working with the query in the query window.
 |:---|:---|
 | Scope | Specifies the scope of data used for the query. This could be all data in a Log Analytics workspace or data for a particular resource across multiple workspaces. See [Query scope](scope.md). |
 | Run button | Click to run the selected query in the query window. You can also press shift+enter to run a query. |
-| Time picker | Select the time range for the data available to the query. This is overriden if you include a time filter in the query. See [Log query scope and time range in Azure Monitor Log Analytics](scope.md). |
+| Time picker | Select the time range for the data available to the query. This is overridden if you include a time filter in the query. See [Log query scope and time range in Azure Monitor Log Analytics](scope.md). |
 | Save button | Save the query to the Query Explorer for the workspace. |
  Copy button | Copy a link to the query, the query text, or the query results to the clipboard. |
 | New alert rule button | Create a new tab with an empty query. |

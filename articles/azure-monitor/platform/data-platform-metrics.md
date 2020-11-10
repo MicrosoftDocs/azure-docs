@@ -55,7 +55,7 @@ Use [Metrics Explorer](metrics-charts.md) to interactively analyze the data in y
 
 ![Metrics Explorer](media/data-platform/metrics-explorer.png)
 
-- See [Getting started with Azure Monitor metrics explorer](metrics-getting-started.md) fto get started using metrics explorer.
+- See [Getting started with Azure Monitor metrics explorer](metrics-getting-started.md) to get started using metrics explorer.
 
 ## Data structure
 Data collected by Azure Monitor Metrics is stored in a time-series database which is optimized for analyzing time-stamped data. Each set of metric values is a time series with the following properties:

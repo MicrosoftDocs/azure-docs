@@ -82,7 +82,7 @@ The grouping values also act as an active table of contents. Clicking one of the
 
 ### Filter
 
-You can also filter the queries according to the groupby values mentioned earlier. In the example query dialog, the filters are found at the top.
+You can also filter the queries according to the **group by** values mentioned earlier. In the example query dialog, the filters are found at the top.
 
 ![Example queries screen filter](media/saved-queries/example-query-filter.png)
 

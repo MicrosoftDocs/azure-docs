@@ -37,7 +37,7 @@ The best way to get started learning to write log queries using KQL is leveragin
 
 
 ## Language differences
-While Azure Monitor uses the same KQL as azure Data Explorer, there are some differences. The KQL documentation will specify those operators that aren't supported by Azure Monitor or that have different functionality. Operators specific to Azure Monitor are documented in the Azure Monitor content. The following sections provide a list the differences between versions of the language for quick reference.
+While Azure Monitor uses the same KQL as Azure Data Explorer, there are some differences. The KQL documentation will specify those operators that aren't supported by Azure Monitor or that have different functionality. Operators specific to Azure Monitor are documented in the Azure Monitor content. The following sections provide a list the differences between versions of the language for quick reference.
 
 ### Statements not supported in Azure Monitor
 
