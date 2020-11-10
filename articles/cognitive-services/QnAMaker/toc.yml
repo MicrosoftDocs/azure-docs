@@ -118,9 +118,9 @@
   - name: REST API Reference
     items:
     - name: QnA Maker 4.0
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/alterations
     - name: QnA Maker 5.0 Preview 1
-      href: https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerv5.0-preview.1/alterations
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerv5.0-preview.1/alterations
   - name: SDKs
     items:
     - name: C#
