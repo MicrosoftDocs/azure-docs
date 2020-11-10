@@ -35,7 +35,7 @@ See also [Manage table statistics](sql-data-warehouse-tables-statistics.md), [CR
 
 ## Use DMVs to monitor and optimize your queries
 
-Dedicated SQL pool has several DMVs that can be used to monitor query execution.  The [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor) article details step-by-step instructions on how to look at the details of an executing query.  
+Dedicated SQL pool has several DMVs that can be used to monitor query execution.  The [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md) article details step-by-step instructions on how to look at the details of an executing query.  
 
 To quickly find queries in these DMVs, using the LABEL option with your queries can help.
 
