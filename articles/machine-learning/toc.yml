@@ -160,6 +160,8 @@
         - name: Enterprise security overview
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: Data encryption
+          href: concept-data-encryption.md
         - name: Security baseline
           href: security-baseline.md
     - name: Responsible ML
