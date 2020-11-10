@@ -42,4 +42,5 @@ Once Remote Desktop is enabled on the roles, you can initiate a connection direc
  
     :::image type="content" source="media/remote-desktop3.png" alt-text="Image shows selecting the worker role instance in the Azure Portal.":::
 
-
+## Next steps
+For more information, see [Cloud Services (extended support) Reference Documentation](https://docs.microsoft.com/rest/api/compute/cloudservices/) 

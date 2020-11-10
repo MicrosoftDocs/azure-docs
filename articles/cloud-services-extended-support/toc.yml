@@ -10,10 +10,14 @@
   items: 
   - name: Available VM sizes
     href: available-sizes.md
+  - name: Frequently Asked Questions
+    href: faq.md
 - name: How To
   items:
   - name: Enable Remote Desktop
     href: enable-rdp.md
+  - name: Swap Cloud Service Deployments
+    href: cloud-services-swap.md
   - name: Update a Cloud Service - PowerShell
     href: update-powershell.md
 - name: Reference

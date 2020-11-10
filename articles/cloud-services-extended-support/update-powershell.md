@@ -68,5 +68,6 @@ The steps below mention the order to update resources. Depending on the update s
     -ExtensionProfileExtension $extension
     ```
 
-
+## Next steps
+For more information, see [Cloud Services (extended support) Reference Documentation](https://docs.microsoft.com/rest/api/compute/cloudservices/) 
 
