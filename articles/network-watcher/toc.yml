@@ -29,7 +29,7 @@
 - name: Concepts
   items:
   - name: Connection Monitor (Preview)
-    href: connection-monitor-preview.md
+    href: connection-monitor-overview.md
   - name: Diagnose VM network traffic filter problems
     href: network-watcher-ip-flow-verify-overview.md
   - name: Diagnose NSG rules and Traffic filtering
@@ -61,9 +61,9 @@
   - name: Create Connection Monitor (Preview)
     items:
     - name: Using Azure portal
-      href: connection-monitor-preview-create-using-portal.md
+      href: connection-monitor-create-using-portal.md
     - name: Using ARMClient
-      href: connection-monitor-preview-create-using-arm-client.md
+      href: connection-monitor-create-using-template.md
     - name: Using PowerShell
       href: connection-monitor-create-using-powershell.md 
   - name: Migrate to Connection Monitor (Preview)
