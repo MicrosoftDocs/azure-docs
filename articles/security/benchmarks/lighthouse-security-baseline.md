@@ -31,7 +31,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40234.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; The Azure Lighthouse service does not have any resources which would deploy into a virtual network, and does not allows for its management endpoints to be secured via Private Link. The Azure Lighthouse service simply provides delegated resource management capabilities and a cross-tenant experience for enterprise IT organizations managing multiple tenants.
 
@@ -45,7 +45,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40235.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not expose any endpoints that can be accessed via a private network.
 
@@ -59,7 +59,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40236.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not allow for its resources to be secured to a private network via the Private Link service or Service Endpoints.
 
@@ -73,7 +73,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40237.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; The Azure Lighthouse service does not have any resources which would deploy into a virtual network. Customers can not, and do not need to configure any additional network protection features like Azure DDoS Standard for the Azure Lighthouse service.
 
@@ -87,7 +87,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40238.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution.
 
@@ -101,7 +101,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40239.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not currently support service tags, and is not designed to deploy into Azure virtual networks. This recommendation is intended for offerings that can be deployed into Azure virtual networks, or have the capability to define groupings of allowed IP ranges for efficient management.
 
@@ -115,7 +115,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40240.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
 
@@ -159,7 +159,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40221.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not use any identities or manage any secrets for identities.
 
@@ -173,7 +173,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40222.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Lighthouse uses Azure Active Directory (Azure AD) as the default identity and access management service. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. Azure AD enables single sign-on (SSO) to manage the App Lighthouse service, and other delegated resources through the Azure portal using your synced enterprise identities.
 
@@ -189,7 +189,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40223.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not provide capability to support strong authentication.
 
@@ -203,7 +203,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40224.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not use any sensitive accounts or there is no account activity logs or logs are not exportable by customers.
 
@@ -217,7 +217,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40225.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not support capability conditional access.
 
@@ -231,7 +231,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40226.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse uses Azure Active Directory (Azure AD) for authentication and Azure role-based access control (Azure RBAC) to manage access. Azure Lighthouse does not use keys for service authentication, this control is focused on eliminating exposure of credentials in code.
 
@@ -245,7 +245,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40262.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not host or access any legacy applications.
 
@@ -263,7 +263,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40227.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not use any administrative accounts.
 
@@ -347,7 +347,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40232.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not support management from a customer workstation.
 
@@ -380,7 +380,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40289.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse doesn't store customer data.
 
@@ -398,7 +398,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40241.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not store, process or transmit data classified as sensitive.
 
@@ -412,7 +412,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40242.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not store, process or transmit data classified as sensitive.
 
@@ -426,7 +426,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40243.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not store, process or transmit sensitive data
 .
@@ -441,7 +441,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40244.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: !
 
@@ -455,7 +455,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40245.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not itself interact with encrypt sensitive data at rest and thus there are no settings or any required configuration to protect sensitive data.
 
@@ -494,7 +494,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40264.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not allow for automated asset discovery for access by security teams. Thus it cannot be used with any asset inventory and metadata processes.
 
@@ -549,7 +549,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40268.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not deploy any customer-facing compute resources that would allow customers to install or configure applications.
 
@@ -567,7 +567,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40246.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable, Azure Lighthouse does not provide native capabilities to monitor security threats related to its resources.
 
@@ -605,7 +605,7 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40248.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable, Azure Lighthouse is not intended to deploy into virtual networks, because of this you are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures
 
@@ -655,7 +655,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40251.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not currently produce any security-related logs, and the customer is unable to set any log retention.
 
@@ -669,7 +669,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40252.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not support configuring your own time synchronization sources. The Azure Lighthouse service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
@@ -861,7 +861,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40276.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -875,7 +875,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40277.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -889,13 +889,13 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40278.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Lighthouse.
+**Guidance**: Microsoft performs vulnerability management on the underlying systems that support Azure Lighthouse.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
@@ -903,7 +903,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40279.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -939,7 +939,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40259.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
 
@@ -953,7 +953,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40260.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable, Azure Lighthouse or its resources do not interact with virtual machines, containers and/or storage which require anti-malware protection. Thus, there is no need for any configuration changes, additional settings or deployment of any extra services to protect it from malware.
 
@@ -967,7 +967,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40261.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable, Azure Lighthouse is not comprised of any virtual machines or containers which would require anti-malware protection. Thus it does not require you to configure any additional settings or deploy any extra services to protect it from malware.
 
@@ -985,7 +985,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40269.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not support any data backup or have any needs for data backup.
 
@@ -999,7 +999,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40270.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse doesn't support any data backup encryption.
 
@@ -1013,7 +1013,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40271.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse doesn't support any data backups.
 
@@ -1027,7 +1027,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40272.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse doesn't manage any keys.
 
