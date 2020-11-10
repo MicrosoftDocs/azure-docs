@@ -3,6 +3,7 @@ title: Troubleshoot Azure Cosmos DB service request timeout exceptions
 description: Learn how to diagnose and fix Azure Cosmos DB service request timeout exceptions.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
@@ -35,3 +36,5 @@ Choose a good partition key that evenly distributes request volume and storage. 
 ## Next steps
 * [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
 * Learn about performance guidelines for [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET v2](performance-tips.md).
+* [Diagnose and troubleshoot](troubleshoot-java-sdk-v4-sql.md) issues when you use the Azure Cosmos DB Java v4 SDK.
+* Learn about performance guidelines for [Java v4 SDK](performance-tips-java-sdk-v4-sql.md).

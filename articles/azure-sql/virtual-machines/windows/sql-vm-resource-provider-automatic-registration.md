@@ -32,7 +32,7 @@ Once automatic registration is enabled for a subscription, all current and futur
 
 To register your SQL Server VM with the resource provider, you'll need: 
 
-- An [Azure subscription](https://azure.microsoft.com/free/).
+- An [Azure subscription](https://azure.microsoft.com/free/) and, at minimum, [contributor role](../../../role-based-access-control/built-in-roles.md#all) permissions.
 - An Azure Resource Model [Windows Server 2008 R2 (or later) virtual machine](../../../virtual-machines/windows/quick-create-portal.md) with [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) deployed to the public or Azure Government cloud. Windows Server 2008 is not supported. 
 
 
