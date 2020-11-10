@@ -29,12 +29,12 @@ NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, NCasT4_v3, ND, and NDv2-series V
 
 Microsoft redistributes NVIDIA GRID driver installers for NV and NVv3-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV-series VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You do not need to set up a NVIDIA vGPU software license server.
 
-The GRID drivers redistributed by Azure do not work on non-NV series VMs like NC, NCv2, NCv3, ND, and NDv2-series VMs.
+The GRID drivers redistributed by Azure do not work on non-NV series VMs like NC, NCv2, NCv3, ND, and NDv2-series VMs. The one exception is the NCas_T4_V3 VM series where the GRID drivers will enable the graphcis functinalities simialr to NV-series.
 
 Please note that the Nvidia extension will always install the latest driver. We provide links to the previous version here for customers, who have dependency on an older version.
 
 For Windows Server 2019, Windows Server 2016, and Windows 10(up to build 2004):
-- [GRID 11 (452.39)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRID 11.1 (452.39)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
 - [GRID 11.0 (451.48)](https://download.microsoft.com/download/C/1/4/c147a482-1364-4d12-b9e3-0beda0f00a13/451.48_grid_win10_server2016_server2019_64bit_international.exe) (.exe) 
 
 For Windows Server 2012 R2: 
