@@ -4,7 +4,7 @@ description: Learn about performance tiers for managed disks, and learn how to c
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 10/21/2020
+ms.date: 11/09/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -20,6 +20,21 @@ ms.custom: references_regions
 
 ## Getting started
 
+### New disks
+
+The following steps show how to change the performance tier of your disk when you first create the disk:
+
+1. Sign in to the Azure portal.
+1. Navigate to the VM you'd like to create a new disk for.
+1. When selecting the new disk, first choose the size, of disk you need.
+1. Once you've selected a size, then select a different performance tier, to change its performance.
+1. Select **OK** to create the disk.
+
+:::image type="content" source="media/disks-performance-tiers-portal/create-new-disk-change-tier.png" alt-text="Screenshot of the disk creation blade, a disk is highlighted, and the performance tier dropdown is highlighted." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::
+
+
+## Existing disks
+
 The following steps outline how to change the performance tier of your disk with the Azure portal:
 
 1. Sign in to the Azure portal.
@@ -28,7 +43,9 @@ The following steps outline how to change the performance tier of your disk with
 1. Select your disk
 1. Select **Size + Performance**.
 1. Select a tier that is different than the disk's current baseline.
-1. Select **Save**.
+1. Select **Resize**.
+
+:::image type="content" source="media/disks-performance-tiers-portal/change-tier-existing-disk.png" alt-text="Screenshot of the size + performance blade, performance tier is highlighted." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::
 
 ## Next steps
 
