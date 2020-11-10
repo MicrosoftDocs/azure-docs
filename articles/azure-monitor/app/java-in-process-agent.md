@@ -79,7 +79,7 @@ In the `applicationinsights.json` file, you can additionally configure:
 * Sampling
 * JMX metrics
 * Custom dimensions
-* Telemetry processors
+* Telemetry processors (preview)
 * Auto-collected logging
 * Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 * Heartbeat
