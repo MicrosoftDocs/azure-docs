@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2020
+ms.date: 11/10/2020
 ms.author: memildin
 
 ---
@@ -66,8 +66,6 @@ To recap, your secure score is shown in the following locations in Security Cent
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="The secure score on Security Center's recommendations page":::
 
-
-
 ### Get your secure score from the REST API
 
 You can access your score via the secure score API (currently in preview). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the [Secure Scores API](/rest/api/securitycenter/securescores) to get the score for a specific subscription. In addition, you can use the [Secure Score Controls API](/rest/api/securitycenter/securescorecontrols) to list the security controls and the current score of your subscriptions.
@@ -75,8 +73,6 @@ You can access your score via the secure score API (currently in preview). The A
 ![Retrieving a single secure score via the API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 For examples of tools built on top of the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
-
-
 
 ### Get your secure score from Azure Resource Graph (ARG)
 
@@ -110,6 +106,27 @@ To access the secure score for multiple subscriptions with ARG:
 
 1. Select **Run query**.
 
+
+
+
+## Tracking your secure score over time
+
+If you're a Power BI user with a Pro account, you can use the **Secure Score Over Time** PowerBI dashboard to track your secure score over time and investigate any changes.
+
+> [!TIP]
+> You can find this dashboard as well as other tools for working programatically with secure score in the dedicated area of the Azure Security Center community on GitHub: https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+
+The dashboard contains the following two reports to help you analyze your security status:
+
+- **Resources Summary** - provides summarized data regarding your resources’ health.
+- **Secure Score Summary** - provides summarized data regarding your score progress. Use the “Secure score over time per subscription” chart to view changes in the score. If you notice a dramatic change in your score, check the “detected changes that may affect your secure score” table for possible changes that could have caused the change. This table presents deleted resources, newly deployed resources, or resources that their security status changed for one of the recommendations.
+
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="The optional Secure Score Over Time PowerBI dashboard for tracking your secure score over time and investigating changes":::
+
+
+
+
+
 ## How your secure score is calculated 
 
 The contribution of each security control towards the overall secure score is shown clearly on the recommendations page.
@@ -133,9 +150,9 @@ The maximum score for this control, Apply system updates, is always 6. In this e
 
 |Metric|Formula and example|
 |-|-|
-|**Security control's current score**|<br>![Equation for calculating a security control's current score](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Each individual security control contributes towards the Security Score. Each resource affected by a recommendation within the control, contributes towards the control's current score. The current score for each control is a measure of the status of the resources *within* the control.<br>![Tooltips showing the values used when calculating the security control's current score](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In this example, the max score of 6 would be divided by 78 because that's the sum of the healthy and unhealthy resources.<br>6 / 78 = 0.0769<br>Multiplying that by the number of healthy resources (4) results in the current score:<br>0.0769 * 4 = **0.31**<br><br>|
-|**Secure score**<br>Single subscription|<br>![Equation for calculating the current secure score](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all security controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.<br>![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**Secure score**<br>Multiple subscriptions|<br>The current scores for all resources across all subscriptions are added and the calculation is then the same as for a single subscription<br><br>When viewing multiple subscriptions, secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
+|**Security control's current score**|<br>![Equation for calculating a security control's current score](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Each individual security control contributes towards the Security Score. Each resource affected by a recommendation within the control, contributes towards the control's current score. The current score for each control is a measure of the status of the resources *within* the control.<br>![Tooltips showing the values used when calculating the security control's current score](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>In this example, the max score of 6 would be divided by 78 because that's the sum of the healthy and unhealthy resources.<br>6 / 78 = 0.0769<br>Multiplying that by the number of healthy resources (4) results in the current score:<br>0.0769 * 4 = **0.31**<br><br>|
+|**Secure score**<br>Single subscription|<br>![Equation for calculating the current secure score](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all security controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.<br>![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
+|**Secure score**<br>Multiple subscriptions|<br>![Equation for calculating a security control's current score](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>When calculating the combined score for multiple subscriptions, Security Center includes a *weight* for each subscription. The relative weights for your subscriptions are determined by Security Center based on factors such as the number of resources.<br>The current score for each subscription is calculated in the same way as for a single subscription, but then the weight is applied as shown in the equation.<br>When viewing multiple subscriptions, secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
 ||||
 
 ### Which recommendations are included in the secure score calculations?
@@ -275,3 +292,4 @@ This article described the secure score and the security controls it introduces.
 
 - [Learn about the different elements of a recommendation](security-center-recommendations.md)
 - [Learn how to remediate recommendations](security-center-remediate-recommendations.md)
+- [View the GitHub-based tools for working programmatically with secure score](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
