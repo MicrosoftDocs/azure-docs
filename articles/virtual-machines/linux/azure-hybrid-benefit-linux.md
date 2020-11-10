@@ -41,7 +41,7 @@ Reserved Instances, Dedicated Hosts, and SQL hybrid benefits are not eligible fo
 
 ## How to get started
 
-Azure Hybrid Benefit is currently in a preview phase for Linux VMs. Once you gain access to the preview, you may enable the benefit using the Azure portal or the Azure CLI.
+Azure Hybrid Benefit is currently in a preview phase for Linux VMs. Once you gain access to the preview, you may enable the benefit using Azure CLI.
 
 ### Public Preview
 
@@ -51,18 +51,15 @@ Azure Hybrid Benefit (for Linux) is in public preview phase now. You can use the
 
 1.    Register with the [Red Hat Cloud Access program](https://aka.ms/rhel-cloud-access)
 1.    Enable your Azure subscription(s) for Cloud Access, and enable the subscriptions containing the VMs you want to use the benefit with
-1.    Apply the benefit to your existing VMs either via the Azure portal or Azure CLI
+1.    Apply the benefit to your existing VMs either via Azure CLI
 1.    Register your VMs receiving the benefit with a separate source of updates
 
 ### SUSE customers
 
 1.    Register with the SUSE Public Cloud program
-1.    Apply the benefit to your existing VMs either via the Azure portal or Azure CLI
+1.    Apply the benefit to your existing VMs either via Azure CLI
 1.    Register your VMs receiving the benefit with a separate source of updates
 
-### Enable and disable the benefit in the Azure portal
-
-You may enable the benefit on existing VMs by visiting the **Configuration** blade and following the steps there. You may enable the benefit on new VMs during the VM create experience.
 
 ### Enable and disable the benefit in the Azure CLI
 
@@ -103,12 +100,8 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
 ## Check AHB status of a VM
-You may view the AHB status of a VM in three ways: checking in the Portal, using Azure CLI, or using the Azure Instance Metadata Service (Azure IMDS).
+You may view the AHB status of a VM in two ways:  using Azure CLI, or using the Azure Instance Metadata Service (Azure IMDS).
 
-
-### Portal
-
-View the Configuration blade and check licensing status to see if AHB is enabled for your VM.
 
 ### Azure CLI
 
