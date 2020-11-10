@@ -18,6 +18,8 @@
   href: color-materials.md
 - name: Outline rendering
   href: outlines.md
+- name: Shell rendering
+  href: shell-effect.md
 - name: Single-sided rendering
   href: single-sided-rendering.md
 - name: Spatial queries
