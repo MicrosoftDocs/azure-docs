@@ -72,7 +72,7 @@ These steps happens in your local Postman application, so go ahead and open the 
 
 ### Create a Postman collection
 
-You can create a **collection** in Postman to group your requests and apply common settings to many requests at once. Although you can make requests without placing them in any collection, a collection can greatly simplify authorization if you plan to create more than one request against the Azure Digital Twins APIs. Grouping them this way allows you to configure authentication once for the entire collection, instead of repeatedly for each individual request.
+Requests in Postman are saved in **collections** (groups of requests). When you create a collection to group your requests, you can apply common settings to many requests at once. This can greatly simplify authorization if you plan to create more than one request against the Azure Digital Twins APIs, as you only have to configure authentication once for the entire collection.
 
 To create a collection, hit the *+ New Collection* button.
 
@@ -118,33 +118,57 @@ Your new collection can now be seen from your main Postman view, under *Collecti
 
 :::image type="content" source="media/how-to-use-postman/postman-post-collection.png" alt-text="View of the main Postman window. The newly-created collection is highlighted in the 'Collections' tab.":::
 
-## Make a multipart POST request
+## Create a request
 
-After completing the previous steps, configure Postman to make an authenticated HTTP multipart POST request:
+After completing the previous steps, you can create requests to the Azure Digital Twin APIs.
 
-1. Under the **Headers** tab, add an HTTP request header key **Content-Type** with value `multipart/mixed`.
+To create a request, hit the *+ New* button.
 
-   :::image type="content" source="media/how-to-configure-postman/configure-postman-content-type.png" alt-text="Specify content type multipart/mixed" lightbox="media/how-to-configure-postman/configure-postman-content-type.png":::
+:::image type="content" source="media/how-to-use-postman/postman-new-request.png" alt-text="View of the main Postman window. The 'New' button is highlighted":::
 
-1. Serialize non-text data into files. JSON data would be saved as a JSON file.
-1. Under the **Body** tab, select `form-data`. 
-1. Add each file by assigning a **key** name, selecting `File`.
-1. Then, select each file through the **Choose File** button.
+Choose *Request*.
 
-   :::image type="content" source="media/how-to-configure-postman/configure-postman-form-body.png" alt-text="Postman client form body example" lightbox="media/how-to-configure-postman/configure-postman-form-body.png":::
+:::image type="content" source="media/how-to-use-postman/postman-new-request-2.png" alt-text="View of the options you can select to create something new. The 'Request' option is highlighted":::
 
-   >[!NOTE]
-   > * The Postman client does not require that multipart chunks have a manually assigned **Content-Type** or **Content-Disposition**.
-   > * You do not need to specify those headers for each part.
-   > * You must select `multipart/mixed` or another appropriate  **Content-Type** for the entire request.
-1. Lastly, select **Send** to submit your multipart HTTP POST request. A status code of `200` or `201` indicates a successful request. The appropriate response message will appear in the client interface.
+This opens the *Save request* window, where you can enter a name for your request, give it an optional description, and choose the collection that it's a part of. Fill in the details and save the request to the collection you created earlier.
 
-1. Validate your HTTP POST request data by calling the API endpoint: 
+:::image type="content" source="media/how-to-use-postman/postman-save-request.png" alt-text="View of the 'Save request' window where you can fill out the fields described. The 'Save to Azure Digital Twins collection' button is highlighted":::
 
-   ```URL
-   YOUR_MANAGEMENT_API_URL/spaces/blobs?includes=description
-   ```
+You can now view your request under the collection, and select it to pull up its editable details.
+
+:::image type="content" source="media/how-to-use-postman/postman-request-details.png" alt-text="View of the main Postman window. The Azure Digital Twins collection is expanded, and the 'Query twins' request is highlighted. Details of the request are shown in the center of the page.":::
+
+### Set request details
+
+To make a Postman request to one of the Azure Digital Twins APIs, you'll need the URL of the API and information about what details it requires. You can find this information in the [Azure Digital Twins REST API reference documentation](/rest/api/azure-digitaltwins/).
+
+To proceed with an example query, this article will use the Query API (and its [reference documentation](/rest/api/digital-twins/dataplane/query/querytwins)) to query for all the digital twins in an instance.
+
+1. Get the request URL and type from the reference documentation. For the Query API, this is *POST https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31*.
+1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. This is where you will use your instance's *host name* from the [*Prerequisites*](#prerequisites) section.
+    
+   :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="In the details of the new request, the query URL from the reference documentation has been filled into the request URL box.":::
+    
+1. Check that the parameters shown for the request in the *Params* tab match those described in the reference documentation. For this request in Postman, the `api-version` parameter was auto-filled when the request URL was entered in the previous step. For the Query API, this is the only required parameter, so this step is done.
+1. Check that the headers shown for the request in the *Headers* tab match those described in the reference documentation. For this request, several headers have been auto-filled. For the Query API, none of the header options are required, so this step is done.
+1. Check that the body shown for the request in the *Body* tab match the needs described in the reference documentation. For the Query API, a JSON body is required to provide the query text. Here is an example of a body for this query request that queries for all the digital twins in the instance:
+
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="In the details of the new request, the Body tab is shown. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'.":::
+
+   (For more information about crafting Azure Digital Twins queries, see [*How-to: Query the twin graph*](how-to-query-graph.md).)
+
+1. Check the reference documentation for any other fields that may be required for your type of request. For the Query API, all requirements have now been met in the Postman request, so this step is done.
+1. Use the *Send* button to send your completed request.
+   :::image type="content" source="media/how-to-use-postman/postman-request-send.png" alt-text="Near the details of the new request, the Send button is highlighted.":::
+
+After sending the request, the response details will appear in the Postman window below the request. You can view the response's status code and any body text.
+
+:::image type="content" source="media/how-to-use-postman/postman-request-response.png" alt-text="Below the details of the sent request, the details of the response are highlighted. There is a Status of 200 OK and body text describing digital twins that were returned by the query.":::
+
+You can also compare the response to the expected response data given in the request's reference documentation, to verify the result or learn more about any errors that arise.
 
 ## Next steps
 
-- To learn about the Digital Twins APIs, and how to use them, read [*How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
+To learn more about the Digital Twins APIs, read [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
+
+You can also view the reference documentation for the REST APIs [here](/rest/api/azure-digitaltwins/).
