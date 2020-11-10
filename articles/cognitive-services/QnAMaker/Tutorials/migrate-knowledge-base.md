@@ -53,12 +53,12 @@ The migration process is programmatically available using the following REST API
 
 **Export**
 
-* [Download knowledge base API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download)
+* [Download knowledge base API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
 **Import**
 
-* [Replace API (reload with same knowledge base ID)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace)
-* [Create API (load with new knowledge base ID)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+* [Replace API (reload with same knowledge base ID)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [Create API (load with new knowledge base ID)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## Chat logs and alterations

@@ -36,6 +36,20 @@
     href: quickstart-multi-container.md
 - name: Tutorials
   items:
+  - name: Secure app accesses storage and Microsoft Graph
+    items:
+    - name: Overview
+      href: scenario-secure-app-overview.md
+    - name: Set up App Service authentication
+      href: scenario-secure-app-authentication-app-service.md
+    - name: Secure app accesses storage
+      href: scenario-secure-app-access-storage.md
+    - name: Secure app accesses Microsoft Graph as the user
+      href: scenario-secure-app-access-microsoft-graph-as-user.md
+    - name: Secure app accesses Microsoft Graph as the app
+      href: scenario-secure-app-access-microsoft-graph-as-app.md    
+    - name: Clean up resources
+      href: scenario-secure-app-clean-up-resources.md
   - name: App with DB
     items:
     - name: .NET Core with SQL DB
