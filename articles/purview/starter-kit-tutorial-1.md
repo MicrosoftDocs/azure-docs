@@ -24,10 +24,7 @@ The starter kit in this tutorial gives you a quick tour of how Azure Purview wor
 
 After the starter kit creates this infrastructure, it walks you through setting up scans on the Azure Blob storage and Azure Data Lake Storage Gen2 accounts. This environment is then reused throughout the next tutorials in the series.
 
-> [!NOTE]
-> If you're blocked at any point, send an email to BabylonDiscussion\@microsoft.com.
-
-:::image type="content" source="./media/starter-kit-tutorial-1/azure-resources-created-by-starter-kit.png" alt-text="Diagram showing the Azure resources created by the starter kit.":::
+:::image type="content" source="./media/starter-kit-tutorial-1/azure-resources-created-by-starter-kit.png" alt-text="Diagram showing the Azure resources created by the starter kit." border="true":::
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -39,7 +36,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* [Prepare your Windows machine by running a series of scripts](#prepare-your-machine-to-run-the-starter-kit). These scripts work only on Windows. If this requirement prevents you from running the starter kit, contact BabylonDiscussion\@microsoft.com.
+* [Prepare your Windows machine by running a series of scripts](#prepare-your-machine-to-run-the-starter-kit). These scripts work only on Windows.
 
 * [Create an Azure Purview account](create-catalog-portal.md).
 
@@ -93,10 +90,10 @@ Follow these steps to set up the starter kit client software on your Windows mac
 
 1. If you see the warning prompt, *NuGet provider is required to continue*, enter **Y**, and then press Enter.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/nuget-warning.png" alt-text="Screenshot showing an example of a NuGet warning.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/nuget-warning.png" alt-text="Screenshot showing an example of a NuGet warning." border="true":::
 1. If you see the warning prompt, *Untrusted repository*, enter **A**, and then press Enter.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/untrusted-repository-warning.png" alt-text="Screenshot showing an example of an untrusted repository warning.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/untrusted-repository-warning.png" alt-text="Screenshot showing an example of an untrusted repository warning." border="true":::
 
 It might take up to a minute for PowerShell to install the required modules. When it's finished, you can run the catalog scripts described in the next section.
 
@@ -120,9 +117,6 @@ Before you run the PowerShell scripts to bootstrap the catalog, get the values o
 * PathtoStarterKit: The Windows file folder path where you downloaded and extracted the starter kit's .zip file.
 * CatalogName: The name of the Azure Purview account that you created in [Create an Azure Purview account](create-catalog-portal.md).
 * NewResourceGroupName: The new resource group name to use. Resource group names must be unique with your subscription, all lowercase, and made up of only A-Z and 0-9 characters.
-
-   > [!IMPORTANT]
-   > If your organization has a strict policy on naming resource groups (for example, it must contain special characters), override it or contact <BabylonDiscussion@microsoft.com> for a workaround.
 
 ### Verify the user running the script has catalog permissions
 
@@ -194,47 +188,47 @@ To scan the Azure Blob storage data source:
 
 1. Select **Management Center** on your catalog's webpage, and then select **Data sources**.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/select-management-center-data-sources.png" alt-text="Screenshot showing how to select Management Center and Data sources from your catalog.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/select-management-center-data-sources.png" alt-text="Screenshot showing how to select Management Center and Data sources from your catalog." border="true":::
 
 1. From the **Data sources** page, select **New** to add a new data source.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/select-new-data-source.png" alt-text="Screenshot showing how to select a new data source on the Data sources page.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/select-new-data-source.png" alt-text="Screenshot showing how to select a new data source on the Data sources page." border="true":::
 1. Select **Azure Blob Storage** > **Continue**.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/select-azure-blob-storage.png" alt-text="Screenshot showing Azure Blob Storage selected for a new data source.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/select-azure-blob-storage.png" alt-text="Screenshot showing Azure Blob Storage selected for a new data source." border="true":::
 1. On the **Register sources** page, enter a **Name**. Choose the **Storage account name** of the Azure Blob storage account that you previously created with the starter kit: &lt;*YourResourceGroupName*&gt;**adcblob**. Select **Finish**.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/register-azure-blob-storage.png" alt-text="Screenshot showing the settings to register an Azure Blob storage data source.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/register-azure-blob-storage.png" alt-text="Screenshot showing the settings to register an Azure Blob storage data source." border="true":::
 1. On the **Data sources** page, select **Set up scan** in the entry for the new data source you registered.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/select-setup-scan.png" alt-text="Screenshot showing how to select a scan setup from a data source.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/select-setup-scan.png" alt-text="Screenshot showing how to select a scan setup from a data source." border="true":::
 1. On the **Set up a scan** page, enter a scan name, and then select **Account Key** from the **Authentication method** drop-down list.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/set-up-a-scan.png" alt-text="Screenshot showing the page to set up a scan for a data source":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/set-up-a-scan.png" alt-text="Screenshot showing the page to set up a scan for a data source" border="true":::
 1. To give the scanners permissions to scan, you need the storage account key:
    1. In the [Azure portal](https://portal.azure.com), search for and select the name of the Azure Blob storage account that you created as part of running the script.
    1. Select **Access keys** under **Settings**, and then copy the value of key1 from this page.
 
-      :::image type="content" source="./media/starter-kit-tutorial-1/key1-settings.png" alt-text="Screenshot showing the settings for key1 on the storage account page.":::
+      :::image type="content" source="./media/starter-kit-tutorial-1/key1-settings.png" alt-text="Screenshot showing the settings for key1 on the storage account page." border="true":::
    1. On the **Set up a scan** page, paste the key1 value to **Storage account key**, and then select **Continue**.
 1. Set the scan to run once. On the **Set a scan trigger** page, select **Once**, and then select **Continue**.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/set-a-scan-trigger.png" alt-text="Screenshot show how to set a scan trigger.to scan once.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/set-a-scan-trigger.png" alt-text="Screenshot show how to set a scan trigger.to scan once." border="true":::
 1. On the **Review your scan** page, select **Save and Run** to complete setting up the scan.
 
 To scan the Azure Data Lake Storage Gen2 data source:
 
 1. From the **Data sources** page, select **New**.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/select-new-data-source.png" alt-text="Screenshot showing how to select a new data source on the Data sources page.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/select-new-data-source.png" alt-text="Screenshot showing how to select a new data source on the Data sources page." border="true":::
 
 1. From the **New data source** page, select **Azure Data Lake Storage Gen2** > **Continue**.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/select-azure-data-lake-storage-gen2.png" alt-text="Screenshot showing the Azure Data Lake Storage Gen2 data source selected.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/select-azure-data-lake-storage-gen2.png" alt-text="Screenshot showing the Azure Data Lake Storage Gen2 data source selected." border="true":::
 
 1. On the **Register sources** page, enter a **Name**. Choose the **Storage account name** of the Azure Data Lake Storage Gen2 storage account that you previously created with the starter kit: &lt;*YourResourceGroupName*&gt;**adcadls**. Select **Finish**.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/register-azure-data-lake-storage.png" alt-text="Screenshot showing the settings to register an Azure Data Lake Storage Gen2 data source.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/register-azure-data-lake-storage.png" alt-text="Screenshot showing the settings to register an Azure Data Lake Storage Gen2 data source." border="true":::
 1. On the **Data sources** page, select **Set up scan** in the entry for the new data source you registered.
 1. On the **Set up a scan** page, enter a scan name, and then select **Account Key** from the **Authentication method** drop-down list.
 1. Obtain the key the same way you did for the Azure Blob data source, and then select **Continue**.
@@ -247,11 +241,63 @@ To verify that your scans have succeeded:
 
    If the data source scan that you selected has finished, its **Last scan status** state is **Successfully Completed**. Otherwise, if the scan hasn't finished, it can be in the **Scan Queued** or the **Scan in-progress** state.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/data-source-scan-status.png" alt-text="Screenshot showing the scan status screen for the sample data source.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/data-source-scan-status.png" alt-text="Screenshot showing the scan status screen for the sample data source." border="true":::
 
 1. Select the completed scan.
 
-   :::image type="content" source="./media/starter-kit-tutorial-1/scan-run-history.png" alt-text="Screenshot showing a successful scan run screen.":::
+   :::image type="content" source="./media/starter-kit-tutorial-1/scan-run-history.png" alt-text="Screenshot showing a successful scan run screen." border="true":::
+
+## Scanning data into the catalog using custom classification
+
+First, create a new classification. Perform the following steps:
+
+1. On the left menu select **Management Center**.
+1. Under **Metadata management** select **Classifications**. 
+1. On the **Classifications** screen, select **+ New**.
+1. On the **New Classification** screen, enter the following values:
+    - Name: `HR.EMPLOYEE_ID`
+    - Description: "Employee ID Classification"
+1. Click **OK**.
+
+:::image type="content" source="./media/starter-kit-tutorial-1/add-new-classification.png" alt-text="Add a new classification." border="true":::
+
+Next, create a new classification rule. Do the following:
+
+1. Under **Metadata management** select **Classification rules**.
+1. On the **Classification rules** screen, click **+ New**.
+1. On the **New classification rules** screen, enter the following values:
+    - Name: **ContosoEmployeeIDRule**
+    - Description: "This rule detects the existence of employee IDs"
+    - Classification Name: **HR.EMPLOYEE ID**
+    - State: **Enabled**
+    - Data Pattern - `^[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{12}$`
+    - Column Pattern - **ID**
+1. Click **OK**.
+
+Next, scan the blob storage using the new classification rule set and validate that ID columns have been classified using the new classification rule. 
+
+1. Under **Sources and scanning** select **Data sources**
+1. Select the Blob storage account that you wish to scan.
+
+    :::image type="content" source="./media/starter-kit-tutorial-1/select-data-source.png" alt-text="select data source." border="true":::
+
+1. On the scans screen for the storage account, select **+ New scan**
+1. Provide a Name for the scan and select the authentication method which will be used. Select **Continue**.
+1. On the **Scope your scan** screen, select all of the containers that you wish to scan. Select **Continue**.
+
+    :::image type="content" source="./media/starter-kit-tutorial-1/scope-your-scan.png" alt-text="scope your scan." border="true":::
+
+1. Set the scan trigger to either be **Recurring** or **Once**. Select **Continue**.
+1. On the **Select a scan rule set** screen, select the **EmployeeScanruleset** which you created earlier.
+
+    :::image type="content" source="./media/starter-kit-tutorial-1/select-scan-rule-set.png" alt-text="select scan rule set." border="true":::
+
+1. On the **Review your scan** screen, check the details. Then select **Save and Run**.
+1. After the scan completes, go to the **Home**. 
+1. In the search box, enter `contoso_staging_profitandlossbyteam_ n.tsv`. Select the first result in the search list.
+1. On the detailed view of the TSV file, select **Schema**. Notice the new classification **HR.EMPLOYEE_ID** showing in the list of classifications.
+
+    :::image type="content" source="./media/starter-kit-tutorial-1/view-tsv-schema.png" alt-text="view tsv schema." border="true":::
 
 ## Next steps
 
