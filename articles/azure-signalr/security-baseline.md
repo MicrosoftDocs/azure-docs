@@ -69,7 +69,7 @@ To connect two or more virtual networks in Azure together, use virtual network p
 
 - [Virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -87,7 +87,7 @@ Private access is an additional defense in depth measure in addition to authenti
 - [Use private endpoints for Azure SignalR Service](howto-private-endpoints.md)
 - [Configure network access control](howto-network-access-control.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -126,7 +126,7 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 
 - [Use service tags for Azure SignalR Service](howto-service-tags.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -180,9 +180,9 @@ Here is the list of built-in roles in Azure SignalR Service:
 
 - [SignalR Service Reader (Preview)](../role-based-access-control/built-in-roles.md#signalr-service-reader-preview)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-2: Manage application identities securely and automatically
 
@@ -197,9 +197,9 @@ Here is the list of built-in roles in Azure SignalR Service:
 
 - [Managed identities for Azure SignalR Service](howto-use-managed-identity.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
@@ -210,9 +210,9 @@ Here is the list of built-in roles in Azure SignalR Service:
 
 - [Understand Application SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
@@ -235,9 +235,9 @@ For administrator and privileged users, ensure the highest level of the strong a
 
 - [Eliminate bad passwords using Azure Active Directory Password Protection](../active-directory/authentication/concept-password-ban-bad.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-5: Monitor and alert on account anomalies
 
@@ -272,9 +272,9 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-6: Restrict Azure resource access based on conditions
 
@@ -289,9 +289,9 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 - [Configure authentication session management with conditional access](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-7: Eliminate unintended credential exposure
 
@@ -300,9 +300,9 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 **Guidance**: Not applicable; Azure SignalR Service doesn't allow customer to deploy any persisted data into the running environment.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### IM-8: Secure user access to legacy applications
 
@@ -311,9 +311,9 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 **Guidance**: Not applicable; Azure SignalR Service doesn't access any legacy applications.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Privileged Access
 
@@ -344,9 +344,9 @@ You can enable just-in-time (JIT) privileged access to Azure resources and Azure
 
 - [Securing privileged access for hybrid and cloud deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-2: Restrict administrative access to business-critical systems
 
@@ -365,9 +365,9 @@ Management Group Access ../governance/management-groups/overview.md#management-g
 
 Azure subscription administrators ../cost-management-billing/manage/add-change-subscription-administrator.md
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-3: Review and reconcile user access regularly
 
@@ -397,9 +397,9 @@ Here is the list of built-in roles in Azure SignalR Service:
 
 - [- SignalR Service Reader (Preview)](../role-based-access-control/built-in-roles.md#signalr-service-reader-preview)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-4: Set up emergency access in Azure AD
 
@@ -412,9 +412,9 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 - [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-5: Automate entitlement management 
 
@@ -427,9 +427,9 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 - [What is Azure AD entitlement management](../active-directory/governance/entitlement-management-overview.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-6: Use privileged access workstations
 
@@ -442,9 +442,9 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 - [Deploy a privileged access workstation](../active-directory/devices/howto-azure-managed-workstation.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
@@ -474,9 +474,9 @@ Here is the list of built-in roles in Azure SignalR Service:
 
 - [SignalR Service Reader (Preview)](../role-based-access-control/built-in-roles.md#signalr-service-reader-preview)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-8: Choose approval process for Microsoft support  
 
@@ -485,9 +485,9 @@ Here is the list of built-in roles in Azure SignalR Service:
 
 **Guidance**: Not applicable; Azure SignalR Service doesn't store customer data.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Data Protection
 
@@ -500,9 +500,9 @@ Here is the list of built-in roles in Azure SignalR Service:
 
 **Guidance**: Not applicable; Azure SignalR Service may be used to transmit sensitive data but it doesn't have capability to discovery, classify, and labeling sensitive data currently.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### DP-2: Protect sensitive data
 
