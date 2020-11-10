@@ -7,18 +7,18 @@ author: baanders
 ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/10/2020
 ---
 
-# How to configure Postman for the Azure Digital Twins APIs
+# How to use Postman to send requests to the Azure Digital Twins APIs
 
 [Postman](https://www.getpostman.com/) is a REST testing tool that provides key HTTP request functionalities in a desktop and plugin-based GUI. You can use it to craft HTTP requests and submit them to the [Azure Digital Twins REST APIs](how-to-use-apis-sdks.md).
 
-This article describes how to configure the [Postman REST client](https://www.getpostman.com/) to interact with the Azure Digital Twins APIs. Specifically, it describes:
+This article describes how to configure the [Postman REST client](https://www.getpostman.com/) to interact with the Azure Digital Twins APIs, through the following steps:
 
-* How to configure an Azure Active Directory (Azure AD) application to use the OAuth 2.0 implicit grant flow.
-* How to use the Postman REST client to make token-bearing HTTP requests to your APIs.
-* How to use Postman to make multipart POST requests to your APIs.
+1. Configure an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) app registration to use the OAuth 2.0 implicit grant flow.
+1. Set up a Postman collection and configure the Postman REST client to use the app registration for token authentication.
+1. Use the configured Postman to create and send a request to the Azure Digital Twins APIs.
 
 ## Prerequisites
 
