@@ -11,6 +11,7 @@
   - name: Available VM sizes
     href: available-sizes.md
   - name: Frequently Asked Questions
+    href: faq.md
     items: 
     - name: General FAQ
       href: general-faq.md
