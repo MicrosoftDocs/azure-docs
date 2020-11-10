@@ -171,7 +171,7 @@ Because these are *application permissions*, not delegated permissions, an admin
 
 The **Status** column should reflect that consent has been **Granted for \<tenant name\>**.
 
-## Use the roles in your web API
+## Use app roles in your web API
 
 Once you've defined app roles and assigned them to a user, group, or application, your next step is to add code to your web API that checks for those roles when the API is called. That is, when a client app requests an API operation you've decided requires authorization, your API's code must verify the scopes are in the access token presented in the client app's call.
 
