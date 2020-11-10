@@ -97,13 +97,13 @@ SUSE Linux Enterprise Server 15 and 15 SP1 |  All stock SUSE 15 and 15 kernels a
 **Setting** | **Support** | **Details**
 --- | --- | ---
 Size | Any Azure VM size with at least two CPU cores and 1-GB RAM | Verify [Azure virtual machine sizes](../virtual-machines/sizes-general.md).
-Availability sets | Not currently supported | If you add an Azure VM with an availability set to the move collection with the default options, the Prepare process fails. You can either choose to move the VM to an availability zone to or to move it as a single instance VM. You can modify these settings in the edit target properties page.
+Availability sets | Supported | Supported.
 Availability zones | Supported | Supported, depending on target region support.
 Azure gallery images (published by Microsoft) | Supported | Supported if the VM runs on a supported operating system.
 Azure Gallery images (published by third party)  | Supported | Supported if the VM runs on a supported operating system.
 Custom images (published by third party)| Supported | Supported if the VM runs on a supported operating system.
 VMs using Site Recovery | Not supported | Move resources across regions for VMs, using Site Recovery on the backend. If you're already using Site Recovery, disable replication, and then start the Prepare process.
-RBAC policies | Not supported | Role-based access control (RBAC) policies on VMs aren't copied over to the VM in target region.
+Azure RBAC policies | Not supported | Azure role-based access control (Azure RBAC) policies on VMs aren't copied over to the VM in target region.
 Extensions | Not supported | Extensions aren't copied over to the  VM in target region. Install them manually after the move is complete.
 
 

@@ -51,5 +51,5 @@ In this article, you learned about Azure Defender for Key Vault.
 For related material, see the following articles: 
 
 - [Key Vault security alerts](alerts-reference.md#alerts-azurekv)--The Key Vault section of the reference table for all Azure Security Center alerts
-- [Exporting alerts to a SIEM](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)
 - [Suppress alerts from Azure Defender](alerts-suppression-rules.md)

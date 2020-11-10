@@ -405,7 +405,7 @@ Inventory Pre-defined and built-in roles for certain resources with tools like A
 
 **Guidance**: Use Azure RBAC to control access to your Load Balancer resources.
 
-- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Azure Security Center monitoring**: Yes
 

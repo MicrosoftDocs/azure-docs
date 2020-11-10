@@ -66,6 +66,10 @@ Currently, you can add up to 10 devices to tiles that support multiple devices.
 
 ### Customizing visualizations
 
+By default, line charts show data over a range of time. The selected time range is split into 50 equal-sized buckets and the device data is then aggregated per bucket to give 50 data points over the selected time range. If you wish to view raw data, you can change your selection to view the last 100 values. To change the time range or to select raw data visualization, use the Display Range dropdown in the **Configure chart** panel.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/display-range.png" alt-text="Change the display range of a line chart":::
+
 For tiles that display aggregate values, select the gear icon next to the telemetry type in the **Configure chart** panel to choose the aggregation. You can choose from average, sum, maximum, minimum, and count.
 
 For line charts, bar charts, and pie charts, you can customize the color of the different telemetry values. Select the palette icon next to the telemetry you want to customize:

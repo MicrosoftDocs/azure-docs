@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 
 # Use Azure CLI to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
+This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/) to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
 
 [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -27,14 +27,14 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 
 ## Ensure that you have the correct version of Azure CLI installed
 
-1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
 2. Verify that the version of Azure CLI that have installed is `2.6.0` or higher by using the following command.
 
    ```azurecli
     az --version
    ```
-   If your version of Azure CLI is lower than `2.6.0`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+   If your version of Azure CLI is lower than `2.6.0`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Connect to the account
 
@@ -211,7 +211,7 @@ This example deletes a file named `my-file.txt`
 az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
 ```
 
-## Manage permissions
+## Manage access control lists (ACLs)
 
 You can get, set, and update access permissions of directories and files.
 
@@ -268,7 +268,7 @@ az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory
 
 The following image shows the output after setting the ACL of a file.
 
-![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
+![Get ACL output 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
 In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -302,7 +302,12 @@ This example changes the owner of a file.
 
 ```azurecli
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
+
 ```
+
+### Set an ACL recursively
+
+You can add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item. For more information, see [Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 
 ## See also
 

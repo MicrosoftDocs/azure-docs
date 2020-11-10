@@ -6,14 +6,14 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 04/15/2020
+ms.date: 10/27/2020
 ms.author: mahi
 ms.reviewer: mahi
 ---
 
 # Use Synapse Studio to monitor your workspace pipeline runs
 
-With Azure Synapse Analytics, you can create complex pipelines that can automate and orchestrate your data movement, data transformation, and compute activities within your solution. You can author and monitor these pipelines using Synapse Studio (preview).
+With Azure Synapse Analytics, you can create complex pipelines that can automate and integrate your data movement, data transformation, and compute activities within your solution. You can author and monitor these pipelines using Synapse Studio (preview).
 
 This article explains how to monitor your pipeline runs, which allows you to keep an eye on the latest status, issues, and progress of your pipelines.
 

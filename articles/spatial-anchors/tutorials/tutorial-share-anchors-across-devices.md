@@ -82,7 +82,7 @@ Select **OK**.
 
 Open Visual Studio Code, and then open the project in the *Sharing\SharingServiceSample* folder. 
 
-To deploy the sharing service through Visual Studio Code, follow the instructions in <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Publish an ASP.NET Core app to Azure with Visual Studio Code</a>. Start at the "Open it with Visual Studio Code" section. Do not create another ASP.NET project as explained in the preceding step, because you already have a project to be deployed and published: SharingServiceSample.
+To deploy the sharing service through Visual Studio Code, follow the instructions in <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Publish an ASP.NET Core app to Azure with Visual Studio Code</a>. Start at the "Open it with Visual Studio Code" section. Do not create another ASP.NET project as explained in the preceding step, because you already have a project to be deployed and published: SharingServiceSample.
 
 ---
 
@@ -100,4 +100,3 @@ You can improve your ASP.NET Core web app so that it uses Azure Cosmos DB to per
 
 > [!div class="nextstepaction"]
 > [Use Azure Cosmos DB to store anchors](./tutorial-use-cosmos-db-to-store-anchors.md)
-

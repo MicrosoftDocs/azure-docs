@@ -3,6 +3,7 @@ title: Model and partition data on Azure Cosmos DB with a real-world example
 description: Learn how to model and partition a real-world example using the Azure Cosmos DB Core API
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
@@ -10,6 +11,7 @@ ms.custom: devx-track-js
 ---
 
 # How to model and partition data on Azure Cosmos DB using a real-world example
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article builds on several Azure Cosmos DB concepts like [data modeling](modeling-data.md), [partitioning](partitioning-overview.md), and [provisioned throughput](request-units.md) to demonstrate how to tackle a real-world data design exercise.
 
@@ -322,7 +324,7 @@ This stored procedure takes the ID of the post and the body of the new comment a
 - replaces the post
 - adds the new comment
 
-As stored procedures are executed as atomic transactions, it is guaranteed that the value of `commentCount` and the actual number of comments will always stay in sync.
+As stored procedures are executed as atomic transactions, the value of `commentCount` and the actual number of comments will always stay in sync.
 
 We obviously call a similar stored procedure when adding new likes to increment the `likeCount`.
 
@@ -406,7 +408,7 @@ Looking at our overall performance improvements, there are still two requests th
 
 This request already benefits from the improvements introduced in V2, which spares additional queries.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Retrieving all posts for a user" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Diagram that shows the query to list a user's posts in short form." border="false":::
 
 But the remaining query is still not filtering on the partition key of the `posts` container.
 
@@ -464,7 +466,7 @@ We can now route our query to the `users` container, filtering on the container'
 
 We have to deal with a similar situation here: even after sparing the additional queries left unnecessary by the denormalization introduced in V2, the remaining query does not filter on the container's partition key:
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Retrieving most recent posts" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Diagram that shows the query to list the x most recent posts created in short form." border="false":::
 
 Following the same approach, maximizing this request's performance and scalability requires that it only hits one partition. This is conceivable because we only have to return a limited number of items; in order to populate our blogging platform's home page, we just need to get the 100 most recent posts, without the need to paginate through the entire data set.
 
@@ -581,6 +583,6 @@ The change feed that we use to distribute updates to other containers store all 
 
 After this introduction to practical data modeling and partitioning, you may want to check the following articles to review the concepts we have covered:
 
-- [Work with databases, containers, and items](databases-containers-items.md)
+- [Work with databases, containers, and items](account-databases-containers-items.md)
 - [Partitioning in Azure Cosmos DB](partitioning-overview.md)
 - [Change feed in Azure Cosmos DB](change-feed.md)

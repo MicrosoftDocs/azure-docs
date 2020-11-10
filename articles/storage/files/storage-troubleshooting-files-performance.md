@@ -21,15 +21,11 @@ Requests are throttled when the IOPS, ingress or egress limits for a file share 
 
 To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the Azure portal, go to your storage account.
 
-1. Select **All services** and then search for **Metrics**.
+1. In the left menu, under **Monitoring**, select **Metrics**.
 
-1. Select **Metrics**.
-
-1. Select your storage account as the resource.
-
-1. Select **File** as the metric namespace.
+1. Select **File** as the metric namespace for your storage account scope.
 
 1. Select **Transactions** as the metric.
 
@@ -79,7 +75,7 @@ The client VM could be located in a different region than the file share.
 
 ## Client unable to achieve maximum throughput supported by the network
 
-One potential cause of this is a lack fo SMB multi-channel support. Currently, Azure file shares only support single channel, so there is only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
+One potential cause of this is a lack of SMB multi-channel support. Currently, Azure file shares only support single channel, so there is only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
 
 ### Workaround
 
@@ -178,19 +174,19 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
 6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **Response type**.
 7. Click the **Dimension values** drop-down and select **SuccessWithThrottling** (for SMB) or **ClientThrottlingError** (for REST).
 
-  > [!NOTE]
-  > If the SuccessWithThrottling or ClientThrottlingError dimension value is not listed, this means the resource has not been throttled. To add the dimension value, click **Add  custom value** beside the **Dimension values** drop-down, type **SuccessWithThrottling** or **ClientThrottlingError**, click **OK** and then repeat step #7.
+   > [!NOTE]
+   > If the SuccessWithThrottling or ClientThrottlingError dimension value is not listed, this means the resource has not been throttled. To add the dimension value, click **Add  custom value** beside the **Dimension values** drop-down, type **SuccessWithThrottling** or **ClientThrottlingError**, click **OK** and then repeat step #7.
 
 8. Click the **Dimension name** drop-down and select **File Share**.
 9. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 
-  > [!NOTE]
-  > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
+   > [!NOTE]
+   > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
 
 10. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and click **Done**.
 
-  > [!TIP]
-  > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
+    > [!TIP]
+    > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
 11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 12. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
@@ -206,25 +202,25 @@ To learn more about configuring alerts in Azure Monitor, see [Overview of alerts
 4. Click **Select Condition** to add a condition.
 5. You will see a list of signals supported for the storage account, select the **Egress** metric.
 
-  > [!NOTE]
-  > You have to create 3 separate alerts to be alerted when Ingress, Egress, or Transactions exceeds the threshold amount you set. This is because an alert is only fired when all conditions are met. So if you put all the conditions in one alert, you would only be alerted if Ingress, Egress, and Transactions exceeded their threshold amounts.
+   > [!NOTE]
+   > You have to create 3 separate alerts to be alerted when Ingress, Egress, or Transactions exceeds the threshold amount you set. This is because an alert is only fired when all conditions are met. So if you put all the conditions in one alert, you would only be alerted if Ingress, Egress, and Transactions exceeded their threshold amounts.
 
 6. Scroll down. Click the **Dimension name** drop-down and select **File Share**.
 7. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 8. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and click **Done**.
 
-  > [!NOTE]
-  > Egress, Ingress, and Transactions metrics are per minute although you are provisioned egress, ingress, and IOPS per second. (talk about aggregation granularity -> per minute = more noisy so choose diff one) Therefore, for example, if your provisioned egress is 90 MiB/second and you want your threshold to be 80% of provisioned egress, you should select the following alert parameters: 75497472 for **threshold value**, greater than or equal to for **operator**, and average for **aggregation type**. Depending on how noisy you want your alert to be, you can choose which values to select for aggregation granularity and frequency of evaluation. For example, if I want my alert to look at the average ingress over the time period of an hour and I want my alert rule to be run every hour, I would select 1 hour for **aggregation granularity** and 1 hour for **frequency of evaluation**.
+   > [!NOTE]
+   > Egress, Ingress, and Transactions metrics are per minute although you are provisioned egress, ingress, and IOPS per second. (talk about aggregation granularity -> per minute = more noisy so choose diff one) Therefore, for example, if your provisioned egress is 90 MiB/second and you want your threshold to be 80% of provisioned egress, you should select the following alert parameters: 75497472 for **threshold value**, greater than or equal to for **operator**, and average for **aggregation type**. Depending on how noisy you want your alert to be, you can choose which values to select for aggregation granularity and frequency of evaluation. For example, if I want my alert to look at the average ingress over the time period of an hour and I want my alert rule to be run every hour, I would select 1 hour for **aggregation granularity** and 1 hour for **frequency of evaluation**.
 
 9. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 10. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
 11. Click **Create alert rule** to create the alert.
 
-  > [!NOTE]
-  > To be notified if your premium file share is close to being throttled due to provisioned ingress, please follow the same steps, except in step 5, select the **Ingress** metric instead.
+    > [!NOTE]
+    > To be notified if your premium file share is close to being throttled due to provisioned ingress, please follow the same steps, except in step 5, select the **Ingress** metric instead.
 
-  > [!NOTE]
-  > To be notified if your premium file share is close to being throttled due to provisioned IOPS, you will have to make a few changes. In step 5, select the **Transactions** metric instead. Also, for step 10, the only option for **aggregation type** is total. Therefore, the threshold value would be dependent on your selected aggregation granularity. For example, if you wanted your threshold to be 80% of provisioned baseline IOPS and you selected 1 hour for **aggregation granularity**, your **threshold value** would be your baseline IOPS (in bytes) x 0.8 x 3600. Besides these changes, follow the same steps listed above. 
+    > [!NOTE]
+    > To be notified if your premium file share is close to being throttled due to provisioned IOPS, you will have to make a few changes. In step 5, select the **Transactions** metric instead. Also, for step 10, the only option for **aggregation type** is total. Therefore, the threshold value would be dependent on your selected aggregation granularity. For example, if you wanted your threshold to be 80% of provisioned baseline IOPS and you selected 1 hour for **aggregation granularity**, your **threshold value** would be your baseline IOPS (in bytes) x 0.8 x 3600. Besides these changes, follow the same steps listed above. 
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

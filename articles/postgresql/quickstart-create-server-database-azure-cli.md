@@ -11,7 +11,7 @@ ms.custom: mvc, devx-track-azurecli
 ---
 # Quickstart: Create an Azure Database for PostgreSQL server by using the Azure CLI
 
-This quickstart shows how to use [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create a single Azure Database for PostgreSQL server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+This quickstart shows how to use [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create a single Azure Database for PostgreSQL server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -21,7 +21,7 @@ This quickstart shows how to use [Azure CLI](https://docs.microsoft.com/cli/azur
 ## Prerequisites
 This article requires you to run the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-You need to log in to your account by using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property,  which refers to **Subscription ID** for your Azure account. 
+You need to log in to your account by using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property,  which refers to **Subscription ID** for your Azure account. 
 
 ```azurecli-interactive
 az login
@@ -33,11 +33,11 @@ Select the specific subscription ID under your account by using the  [az account
 az account set --subscription <subscription id>
 ```
 
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscriptions, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscriptions, use [az account list](/cli/azure/account#az-account-list).
 
 ## Create an Azure Database for PostgreSQL server
 
-Create an [Azure resource group](../azure-resource-manager/management/overview.md) by using the [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) command, and then create your PostgreSQL server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) by using the [az group create](/cli/azure/group#az-group-create) command, and then create your PostgreSQL server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -52,7 +52,7 @@ Here are the details for the preceding arguments:
 
 **Setting** | **Sample value** | **Description**
 ---|---|---
-name | mydemoserver | Unique name that identifies your Azure Database for PostgreSQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters.
+name | mydemoserver | Unique name that identifies your Azure Database for PostgreSQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters. For more information, see [Azure Database for PostgreSQL Naming Rules](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql).
 resource-group | myresourcegroup | Name of the Azure resource group.
 location | westus | Azure location for the server.
 admin-user | myadmin | Username for the administrator login. It can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
@@ -60,8 +60,8 @@ admin-password | *secure password* | Password of the administrator user. It must
 sku-name|GP_Gen5_2| Name of the pricing tier and compute configuration. Follow the convention {pricing tier}_{compute generation}_{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 >[!IMPORTANT] 
->- The default PostgreSQL version on your server is 9.6. To see all the versions supported, see [Supported PostgreSQL major versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
->- To view all the arguments for **az postgres server create** command, see [this reference document](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create).
+>- The default PostgreSQL version on your server is 9.6. To see all the versions supported, see [Supported PostgreSQL major versions](./concepts-supported-versions.md).
+>- To view all the arguments for **az postgres server create** command, see [this reference document](/cli/azure/postgres/server#az-postgres-server-create).
 >- SSL is enabled by default on your server. For more information on SSL, see [Configure SSL connectivity](./concepts-ssl-connection-security.md).
 
 ## Configure a server-level firewall rule 
@@ -147,8 +147,3 @@ az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ## Next steps
 > [!div class="nextstepaction"]
 > [Migrate your database using export and import](./howto-migrate-using-export-and-import.md)
-> 
-> [Deploy a Django web app with PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md)
->
-> [Connect with a Node.JS app](./connect-nodejs.md)
-

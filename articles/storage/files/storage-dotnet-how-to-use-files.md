@@ -155,7 +155,7 @@ In the *Program.cs* file, add the following code to access the file share progra
 
 # [\.NET v12](#tab/dotnet)
 
-The following method creates a file share if doesn't already exist. The method starts by creating a [ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) object from a connection string. The sample then attempts to download a file we created earlier. Call this method from `Main()`.
+The following method creates a file share if it doesn't already exist. The method starts by creating a [ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) object from a connection string. The sample then attempts to download a file we created earlier. Call this method from `Main()`.
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShare":::
 

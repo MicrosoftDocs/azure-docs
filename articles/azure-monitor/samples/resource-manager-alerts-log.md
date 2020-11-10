@@ -32,7 +32,7 @@ The following sample creates a [number of results alert rule](../platform/alerts
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Resource ID of the Log Analytisc workspace."
+                "description": "Resource ID of the Log Analytics workspace."
             }
         },
         "location": {

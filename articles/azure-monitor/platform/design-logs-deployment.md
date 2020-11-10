@@ -87,7 +87,7 @@ Users have two options for accessing the data:
     > - Service Fabric
     > - Application Insights
     >
-    > You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](log-standard-properties.md#_resourceid) property, then data is available to resource-centric queries.
+    > You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](./log-standard-columns.md#_resourceid) property, then data is available to resource-centric queries.
 
 Azure Monitor automatically determines the right mode depending on the context you perform the log search from. The scope is always presented in the top-left section of Log Analytics.
 
@@ -160,4 +160,3 @@ While planning your migration to this model, consider the following:
 ## Next steps
 
 To implement the security permissions and controls recommended in this guide, review [manage access to logs](manage-access.md).
-

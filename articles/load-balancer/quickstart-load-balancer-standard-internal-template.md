@@ -16,6 +16,10 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-2-vms-internal-load-balancer%2Fazuredeploy.json)
+
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -44,7 +48,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
 resourceGroupName="myResourceGroupLB"
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json" 
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json"
 
 az group create \
 --name $resourceGroupName \
@@ -59,11 +63,11 @@ az deployment group create \
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **Resource groups** from the left pane.
+1. Select **Resource groups** from the left pane.
 
-3. Select the resource group that you created in the previous section. The default resource group name is **myResourceGroupLB**
+1. Select the resource group that you created in the previous section. The default resource group name is **myResourceGroupLB**
 
-4. Verify the following resources were created in the resource group:
+1. Verify the following resources were created in the resource group:
 
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-template/verify-creation.png" alt-text="User Azure portal to verify creation of resources." border="true":::
 
@@ -71,7 +75,7 @@ az deployment group create \
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete \
     --name myResourceGroupLB
 ```

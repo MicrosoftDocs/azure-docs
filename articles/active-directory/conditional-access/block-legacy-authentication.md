@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -34,10 +34,7 @@ If your environment is ready to block legacy authentication to improve your tena
 
 ## Prerequisites
 
-This article assumes that you are familiar with: 
-
-- The [basic concepts](overview.md) of Azure AD Conditional Access 
-- The [best practices](best-practices.md) for configuring Conditional Access policies in the Azure portal
+This article assumes that you are familiar with the [basic concepts](overview.md) of Azure AD Conditional Access.
 
 ## Scenario description
 
@@ -60,7 +57,7 @@ This section explains how to configure a Conditional Access policy to block lega
 
 The following options are considered legacy authentication protocols
 
-- Authenticated SMTP - Used by POP and IMAP client's to send email messages.
+- Authenticated SMTP - Used by POP and IMAP clients to send email messages.
 - Autodiscover - Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.
 - Exchange ActiveSync (EAS) - Used to connect to mailboxes in Exchange Online.
 - Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).

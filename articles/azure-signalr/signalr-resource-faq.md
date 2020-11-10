@@ -12,7 +12,7 @@ ms.author: zhshang
 
 ## Is Azure SignalR Service ready for production use?
 
-Yes, both the support for [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) and [ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) is all generally available.
+Yes, both the support for [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) and [ASP.NET SignalR](/aspnet/signalr/overview/getting-started/introduction-to-signalr) is all generally available.
 
 ## When there are multiple application servers, are client messages sent to all servers or just one of them?
 
@@ -42,7 +42,7 @@ No.
 
 Azure SignalR Service provides all three transports that ASP.NET Core SignalR supports by default. It's not configurable. Azure SignalR Service will handle connections and transports for all client connections.
 
-You can configure client-side transports as documented in [ASP.NET Core SignalR configuration](https://docs.microsoft.com/aspnet/core/signalr/configuration#configure-allowed-transports-1).
+You can configure client-side transports as documented in [ASP.NET Core SignalR configuration](/aspnet/core/signalr/configuration#configure-allowed-transports-1).
 
 ## What is the meaning of metrics like message count or connection count shown in the Azure portal? Which kind of aggregation type should I choose?
 

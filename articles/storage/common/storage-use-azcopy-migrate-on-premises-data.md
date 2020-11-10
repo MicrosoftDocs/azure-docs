@@ -29,7 +29,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To complete this tutorial, download the latest version of AzCopy. See [Get started with AzCopy](storage-use-azcopy-v10.md).
 
-If you're on Windows, you will require [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) as this tutorial makes use of it in order to schedule a task. Linux users will make use of the crontab command, instead.
+If you're on Windows, you will require [Schtasks](/windows/win32/taskschd/schtasks) as this tutorial makes use of it in order to schedule a task. Linux users will make use of the crontab command, instead.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -42,7 +42,7 @@ Follow these steps to create a container:
 1. Select the **Storage accounts** button from the main page, and select the storage account that you created.
 2. Select **Blobs** under **Services**, and then select **Container**.
 
-   ![Create a container](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Screenshot showing container creation](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 Container names must start with a letter or number. They can contain only letters, numbers, and the hyphen character (-). For more rules about naming blobs and containers, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
@@ -58,7 +58,7 @@ Place the AzCopy file anywhere on your computer. Add the location of the file to
 
 ## Authenticate with Azure AD
 
-First, assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) role to your identity. See [Use the Azure portal to assign an Azure role for access to blob and queue data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+First, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to your identity. See [Use the Azure portal to assign an Azure role for access to blob and queue data](./storage-auth-aad-rbac-portal.md).
 
 Then, open a command prompt, type the following command, and press the ENTER key.
 
@@ -68,13 +68,13 @@ azcopy login
 
 This command returns an authentication code and the URL of a website. Open the website, provide the code, and then choose the **Next** button.
 
-![Create a container](media/storage-use-azcopy-v10/azcopy-login.png)
+![Screenshot showing the login prompt](media/storage-use-azcopy-v10/azcopy-login.png)
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
 ## Upload contents of a folder to Blob storage
 
-You can use AzCopy to upload all files in a folder to Blob storage on [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) or [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux). To upload all blobs in a folder, enter the following AzCopy command:
+You can use AzCopy to upload all files in a folder to Blob storage on [Windows](./storage-use-azcopy-v10.md) or [Linux](./storage-use-azcopy-v10.md). To upload all blobs in a folder, enter the following AzCopy command:
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -131,7 +131,7 @@ azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycont
 
 ---
 
-In this tutorial, [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) is used to create a scheduled task on Windows. The [Crontab](http://crontab.org/) command is used to create a cron job on Linux.
+In this tutorial, [Schtasks](/windows/win32/taskschd/schtasks) is used to create a scheduled task on Windows. The [Crontab](http://crontab.org/) command is used to create a cron job on Linux.
 
  **Schtasks** enables an administrator to create, delete, query, change, run, and end scheduled tasks on a local or remote computer. **Cron** enables Linux and Unix users to run commands or scripts at a specified date and time by using [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
@@ -163,7 +163,7 @@ The command uses:
 - The `/TR` parameter to specify the path to the `script.bat` file.
 
 To learn more about creating a scheduled task on
-Windows, see [Schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes).
+Windows, see [Schtasks](/previous-versions/orphan-topics/ws.10/cc772785(v=ws.10)#BKMK_minutes).
 
 ---
 
@@ -173,7 +173,7 @@ To validate that the scheduled task/cron job runs correctly, create new files in
 
 To learn more about ways to move on-premises data to Azure Storage and vice versa, follow this link:
 
-* [Move data to and from Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+* [Move data to and from Azure Storage](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
 
 For more information about AzCopy, see any of these articles:
 

@@ -24,9 +24,9 @@ In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS)
 1. Have an active Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin
 1. Have the Azure CLI version 2.0.64 or later installed and configured on your deployment machine (Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
 1. [aks-preview extension](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) minimum version 0.4.62 
-1. Have a minimum of six DCSv2 cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription 8 cores. If you plan to provision a cluster that requires more than 8 cores, follow [these](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instructions to raise a quota increase ticket
+1. Have a minimum of six **DC<x>s-v2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription 8 cores. If you plan to provision a cluster that requires more than 8 cores, follow [these](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instructions to raise a quota increase ticket
 
-### Confidential computing node features
+### Confidential computing node features (DC<x>s-v2)
 
 1. Linux Worker Nodes supporting Linux Containers Only
 1. Ubuntu Generation 2 18.04 Virtual Machines
@@ -89,14 +89,14 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --aks-custom-headers usegen2vm=true
 ```
-The above command should provision a new AKS cluster with DCSv2 node pools and automatically install two daemon sets - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
+The above command should provision a new AKS cluster with **DC<x>s-v2** node pools and automatically install two daemon sets - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
 
 Get the credentials for your AKS cluster using the az aks get-credentials command:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
-Verify the nodes are created properly and the SGX-related daemon sets are running on DCSv2 node pools using kubectl get pods & nodes command as shown below:
+Verify the nodes are created properly and the SGX-related daemon sets are running on **DC<x>s-v2** node pools using kubectl get pods & nodes command as shown below:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -114,6 +114,8 @@ Go to [Hello World from Enclave](#hello-world) deployment section to test an app
 az aks update --enable-addons confcom --resource-group myResourceGroup --name myAKSCluster
 ```
 
+![DCSv2 AKS Cluster Creation](./media/confidential-nodes-aks-overview/CLIAKSProvisioning.gif)
+
 ## Adding confidential computing node to existing AKS cluster<a id="existing-cluster"></a>
 
 This section assumes you have an AKS cluster running already that meets the criteria listed in the pre-requisites section.
@@ -123,9 +125,12 @@ First, lets enable the confidential computing-related AKS add-ons on the existin
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-Now add a DCSv2 node pool to the cluster
-
-```azurecli-interactive
+Now add a **DC<x>s-v2** node pool to the cluster
+    
+> [!NOTE]
+> To use the confidential computing capability your existing AKS cluster need to have at minimum one **DC<x>s-v2** VM SKU based node pool. Learn more on confidential computing DCsv2 VMs SKU's here [available SKUs and supported regions](virtual-machine-solutions.md).
+    
+  ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2 --aks-custom-headers usegen2vm=true
 
 output node pool added

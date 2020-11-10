@@ -86,6 +86,23 @@ We recommend deploying both, for the most complete protection possible.
 If you choose not to install the agent on your hosts, you'll only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
 
 
+### Does AKS allow me to install custom VM extensions on my AKS nodes?
+
+For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent. 
+
+AKS is a managed service and since the Log analytics agent is a Microsoft-managed extension, it is also supported on AKS clusters.
+
+
+
+### If my cluster is already running an Azure Monitor for containers agent, do I need the Log Analytics agent too?
+
+For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent.
+
+If your clusters are already running the Azure Monitor for containers agent, you can install the Log Analytics agent too and the two agents can work alongside one another without any problems.
+
+[Learn more about the Azure Monitor for containers agent](../azure-monitor/insights/container-insights-manage-agent.md).
+
+
 ## Next steps
 
 In this article, you learned about Security Center's Kubernetes protection including Azure Defender for Kubernetes. 
@@ -93,5 +110,5 @@ In this article, you learned about Security Center's Kubernetes protection inclu
 For related material, see the following articles: 
 
 - [Enable Azure Defender](security-center-pricing.md)
-- [Export alerts to a Azure Sentinel or a third-party SIEM](continuous-export.md)
+- [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md)
 - [Reference table of alerts](alerts-reference.md)

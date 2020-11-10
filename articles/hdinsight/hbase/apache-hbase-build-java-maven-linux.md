@@ -20,13 +20,13 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
 
 * An Apache HBase cluster on HDInsight. See [Get started with Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
-* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks).
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* If using PowerShell, you'll need the [AZ Module](https://docs.microsoft.com/powershell/azure/).
+* If using PowerShell, you'll need the [AZ Module](/powershell/azure/).
 
 * A text editor. This article uses Microsoft Notepad.
 
@@ -437,7 +437,7 @@ The following steps use `scp` to copy the JAR to the primary head node of your A
 
 ## Upload the JAR and run jobs (PowerShell)
 
-The following steps use the Azure PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) to upload the JAR to the default storage for your Apache HBase cluster. HDInsight cmdlets are then used to run the examples remotely.
+The following steps use the Azure PowerShell [AZ module](/powershell/azure/new-azureps-module-az) to upload the JAR to the default storage for your Apache HBase cluster. HDInsight cmdlets are then used to run the examples remotely.
 
 1. After installing and configuring the AZ module, create a file named `hbase-runner.psm1`. Use the following text as the contents of this file:
 

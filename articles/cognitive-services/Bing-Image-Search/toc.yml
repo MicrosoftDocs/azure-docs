@@ -77,7 +77,7 @@
       - name: Java
         href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-java-stable
       - name: Python
-        href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/imagesearch?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-imagesearch/?view=azure-python
       - name: Node.js
         href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-imagesearch/?view=azure-node-latest
       - name: Go

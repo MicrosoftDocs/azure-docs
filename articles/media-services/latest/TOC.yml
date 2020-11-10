@@ -63,10 +63,13 @@
       href: protect-with-drm.md
     - name: Content protection with Azure AD
       href: azure-ad-content-protection.md
+      displayName: AAD, Active Directory
   - name: REST
     items:
     - name: Encode and stream a remote file REST
       href: stream-files-tutorial-with-rest.md
+    - name: Customer-managed keys with Media Services
+      href: tutorial-byok.md
   - name: CLI
     items:
     - name: Encode and stream a remote file CLI
@@ -127,8 +130,8 @@
     - name: Overview
       href: analyzing-video-audio-files-concept.md
       displayName: analyze, analyzing, presets, jobs
-    - name: Transforms and jobs
-      href: transforms-jobs-concept.md    
+  - name: Transforms and jobs
+    href: transforms-jobs-concept.md    
   - name: Live streaming 
     items:
     - name: Overview
@@ -175,6 +178,8 @@
     - name: Dynamic encryption and key delivery
       displayName: content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom  
       href: content-protection-overview.md  
+    - name: Customer managed keys
+      href: concept-use-customer-managed-keys-byok.md
     - name: Design of multi-DRM system 
       displayName: drm, access control
       href: design-multi-drm-system-with-access-control.md  
@@ -211,7 +216,7 @@
       displayName: accessing, long-running, sdk, invalid character, name, naming, file name
     - name: Page, filter, order entities
       href: entities-overview.md 
-    - name: RBAC
+    - name: Azure RBAC
       href: rbac-overview.md
     - name: Error codes
       items:
@@ -261,6 +266,8 @@
     items:
     - name: Create transforms
       href: cli-create-transform.md
+    - name: Create a basic audio transform with REST
+      href: how-to-create-basic-audio-transform.md
     - name: Create jobs
       href: cli-create-jobs.md
     - name: Create job input with a local file and .NET
@@ -430,5 +437,7 @@
     href: limits-quotas-constraints.md       
   - name: Azure clouds and regions
     href: azure-clouds-regions.md
+  - name: Regional code names and endpoints
+    href: azure-regions-code-names.md
   - name: Documentation updates
     href: docs-release-notes.md

@@ -3,18 +3,22 @@ title: Manage Azure Cosmos DB Core (SQL) API resources using Azure CLI
 description: Manage Azure Cosmos DB Core (SQL) API resources using Azure CLI. 
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
 
 ---
 # Manage Azure Cosmos Core (SQL) API resources using Azure CLI
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-The following guide describes common commands to automate management of your Azure Cosmos DB accounts, databases and containers using Azure CLI. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](https://docs.microsoft.com/cli/azure/cosmosdb). You can also find more examples in [Azure CLI samples for Azure Cosmos DB](cli-samples.md), including how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
+The following guide describes common commands to automate management of your Azure Cosmos DB accounts, databases and containers using Azure CLI. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). You can also find more examples in [Azure CLI samples for Azure Cosmos DB](cli-samples.md), including how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.12.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+
+For Azure CLI samples for other APIs see [CLI Samples for Cassandra](cli-samples-cassandra.md), [CLI Samples for MongoDB API](cli-samples-mongodb.md), [CLI Samples for Gremlin](cli-samples-gremlin.md), [CLI Samples for Table](cli-samples-table.md)
 
 > [!IMPORTANT]
 > Azure Cosmos DB resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
@@ -538,5 +542,5 @@ az lock delete --ids $lockid
 For more information on the Azure CLI, see:
 
 * [Install Azure CLI](/cli/azure/install-azure-cli)
-* [Azure CLI Reference](https://docs.microsoft.com/cli/azure/cosmosdb)
+* [Azure CLI Reference](/cli/azure/cosmosdb)
 * [Additional Azure CLI samples for Azure Cosmos DB](cli-samples.md)

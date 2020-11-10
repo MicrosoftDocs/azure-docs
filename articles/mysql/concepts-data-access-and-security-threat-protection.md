@@ -36,6 +36,6 @@ Advanced Threat Protection for Azure Database for MySQL detects anomalous activi
 
 ## Next steps
 
-* Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Learn more about [Azure Security Center](../security-center/security-center-introduction.md)
 * For more information on pricing, see the [Azure Database for MySQL Pricing page](https://azure.microsoft.com/pricing/details/mysql/) 
-* Configure [Azure Database for MySQL Advanced Threat Protection](howto-database-threat-protection-portal.md) using the Azure portal  
+* Configure [Azure Database for MySQL Advanced Threat Protection](howto-database-threat-protection-portal.md) using the Azure portal

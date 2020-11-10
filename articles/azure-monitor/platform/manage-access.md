@@ -239,7 +239,7 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
 **Table level RBAC** allows you to define more granular control to data in a Log Analytics workspace in addition to the other permissions. This control allows you to define specific data types that are accessible only to a specific set of users.
 
-You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant access to specific [tables](../log-query/logs-structure.md) in the workspace. These roles are applied to workspaces with either workspace-context or resource-context [access control modes](design-logs-deployment.md#access-control-mode) regardless of the user's [access mode](design-logs-deployment.md#access-mode).
+You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant access to specific [tables](./data-platform-logs.md) in the workspace. These roles are applied to workspaces with either workspace-context or resource-context [access control modes](design-logs-deployment.md#access-control-mode) regardless of the user's [access mode](design-logs-deployment.md#access-mode).
 
 Create a [custom role](../../role-based-access-control/custom-roles.md) with the following actions to define access to table access control.
 

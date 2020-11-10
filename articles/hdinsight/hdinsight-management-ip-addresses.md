@@ -81,7 +81,7 @@ Allow traffic from the IP addresses listed for the Azure HDInsight health and ma
 | &nbsp; | UAE North | 65.52.252.96</br>65.52.252.97 | \*:443 | Inbound |
 | &nbsp; | UAE Central | 20.37.76.96</br>20.37.76.99 | \*:443 | Inbound |
 
-For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
+For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](../azure-government/compare-azure-government-global-azure.md) document.
 
 For more information, see [Control network traffic](./control-network-traffic.md).
 

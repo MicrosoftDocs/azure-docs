@@ -2,7 +2,7 @@
 title: Quickstart to create an Azure Recovery Services vault using an Azure Resource Manager template.
 description: In this quickstart, you learn how to create an Azure Recovery Services vault using an Azure Resource Manager template (ARM template).
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/29/2020
 ---
 

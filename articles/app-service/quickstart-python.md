@@ -3,8 +3,9 @@ title: 'Quickstart: Create a Python app'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
+adobe-target: true
 
 ---
 
