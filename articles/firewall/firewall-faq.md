@@ -200,7 +200,7 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## Why can a TCP ping and similar tools successfully connect to a target FQDN even when no rule on Azure Firewall allows that traffic?
 
-A TCP ping isn't actually connecting  to the target FQDN. This happens because Azure Firewall's transparent proxy listens on port 80/443 for outbound traffic. The TCP ping establishes a connection with the firewall, which then drops the packet and logs the connection. This behavior doesn't have any security impact. However, to avoid confusion we're investigating potential changes to this behavior.
+A TCP ping isn't actually connecting  to the target FQDN. This happens because Azure Firewall's transparent proxy listens on port 80/443 for outbound traffic. The TCP ping establishes a connection with the firewall, which then drops the packet. This behavior doesn't have any security impact. However, to avoid confusion we're investigating potential changes to this behavior.
 
 ## Are there limits for the number of IP addresses supported by IP Groups?
 

@@ -35,14 +35,21 @@ The fixed set of states that can be overridden are:
   > [!IMPORTANT]
   > The see-through effect only works when the *TileBasedComposition* [rendering mode](../../concepts/rendering-modes.md) is used.
 
+* **`Shell`**: The geometry is rendered as a transparent, de-saturated shell. This mode allows fading out non-important parts of a scene while still retaining a sense of shape and relative positioning. To change the shell rendering's appearance, use the [ShellRenderingSettings](shell-effect.md) state. See the following image for the car model being entirely shell-rendered, except for the blue springs:
+
+  ![Shell mode used to fade out specific objects](./media/shell.png)
+
+  > [!IMPORTANT]
+  > The shell effect only works when the *TileBasedComposition* [rendering mode](../../concepts/rendering-modes.md) is used.
+
 * **`Selected`**: The geometry is rendered with a [selection outline](outlines.md).
 
   ![Outline option used to highlight a selected part](./media/selection-outline.png)
 
 * **`DisableCollision`**: The geometry is exempt from [spatial queries](spatial-queries.md). The **`Hidden`** flag doesn't affect the collision state flag, so these two flags are often set together.
 
-* **`UseCutPlaneFilterMask`**: Use an individual filter bit mask to control the cut plane selection. This flag determines whether the individual filter mask should be used or inherited from its parent. The filter bit mask itself is set via the `CutPlaneFilterMask` property. For detailed information about how the filtering works, refer to the [Selective cut planes paragraph](cut-planes.md#selective-cut-planes).
-![Selective cut planes](./media/selective-cut-planes.png)
+* **`UseCutPlaneFilterMask`**: Use an individual filter bit mask to control the cut plane selection. This flag determines whether the individual filter mask should be used or inherited from its parent. The filter bit mask itself is set via the `CutPlaneFilterMask` property. For detailed information about how the filtering works, refer to the [Selective cut planes paragraph](cut-planes.md#selective-cut-planes). See the following example where only the tire and rim is cut while the rest of the scene remains unaffected.
+![Selective cut planes](./media/selective-cut-planes-hierarchical-override.png)
 
 
 > [!TIP]
@@ -96,7 +103,7 @@ The `tint color` override is slightly special in that there's both an on/off/inh
 
 An instance of `HierarchicalStateOverrideComponent` itself doesn't add much runtime overhead. However, it's always good practice to keep the number of active components low. For instance, when implementing a selection system that highlights the picked object, it is recommended to delete the component when the highlight is removed. Keeping the components around with neutral features can quickly add up.
 
-Transparent rendering puts more workload on the server's GPUs than standard rendering. If large parts of the scene graph are switched to *see-through*, with many layers of geometry being visible, it may become a performance bottleneck. The same is valid for objects with [selection outlines](../../overview/features/outlines.md#performance).
+Transparent rendering puts more workload on the server's GPUs than standard rendering. If large parts of the scene graph are switched to *see-through*, with many layers of geometry being visible, it may become a performance bottleneck. The same is valid for objects with [selection outlines](../../overview/features/outlines.md#performance) and for [shell rendering](../../overview/features/shell-effect.md#performance) . 
 
 ## API documentation
 

@@ -130,7 +130,7 @@ The metadata document for the `B2C_1_signupsignin1` policy in the `contoso.onmic
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-To determine which policy was used to sign a token (and where to go to request the metadata), you have two options. First, the policy name is included in the `acr` claim in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
+To determine which policy was used to sign a token (and where to go to request the metadata), you have two options. First, the policy name is included in the `tfp` (default) or `acr` claim (as configured) in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `tfp` or `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
 
 A description of how to perform signature validation is outside the scope of this document. Many open-source libraries are available to help you validate a token.
 

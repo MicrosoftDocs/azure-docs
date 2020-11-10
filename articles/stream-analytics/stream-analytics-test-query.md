@@ -107,6 +107,19 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 5.	Machine learning is not supported.
 
+
+## Troubleshooting
+
+1.	If you get this error “There was a network connectivity issue when fetching the results. Please check your network and firewall settings.”, follow the steps below:
+
+  * To check the connection to the service, open [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) in a browser. If you cannot open this link, then update your firewall settings.
+  
+2. If you get this error "The request size is too big. Please reduce the input data size and try again.", follow the steps below:
+
+  * Reduce input size – Test your query with smaller size sample file or with a smaller time range.
+  * Reduce query size – To test a selection of query, select a portion of query then click **Test selected query**.
+
+
 ## Next steps
 * [Build an IoT solution by using Stream Analytics](./stream-analytics-build-an-iot-solution-using-stream-analytics.md): this tutorial will guide you to build an end-to-end solution with a data generator that will simulate traffic at a toll booth.
 
