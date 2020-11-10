@@ -331,23 +331,19 @@ Do the following steps in the Azure portal to order a device.
 
     ![Key and key vault for a customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-09.png)
 
-13. Select a user identity to use to manage access for this resource.<!--Known issue: My orders with a user-assigned identity are failing with the following error. I haven't yet figured out whether this is an access issue specific to me, a bug, or a missing requirement. Error message: {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.","details":[{"code":"BadRequest","message":"{\"Error\":{\"Code\":\"SsemUserErrorKeyVaultBadRequestException\",\"Message\":\"Applied a customer managed key but the key access has not been granted or has been revoked, or unable to access key vault due to firewall being enabled.\\r\\nAdd the identity : daabe986-df60-4fb9-88f3-b64a7c79a394 to your key vault to enable access to the customer managed key. If key vault has firewall enabled, try switching to a system assigned identity and adding a customer managed key.\",\"Details\":[null],\"Target\":null}}"}]}"-->
+13. Select a user-assigned managed identity to use to manage access to this resource.
 
-    The user-assigned identity is an independent resource that is associated with a resource group. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).  
+    A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).  
 
+    To choose an identity, select **Select a user identity**. Then, in the panel on the right, select the subscription and the managed identity to use, and choose **Select**.
 
+    If you need to create a new managed identity, follow the guidance in [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    
     ![Select a user identity](./media/data-box-deploy-ordered/customer-managed-key-10.png)
-
-    You can't create a new user identity here. To find out how to create one, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
-
-    <!--Do they also need to assign the user identity to the key vault, outside the order process, or is there some hidden permission (firewall or user permissions) causing my order to fail? Flyover text for User identity - "Select user identity to add it to the key vault" - suggests the identity will be automatically associated with the selected key vault. However, order creation failed when I created a key vault and added a key (to specs), using the current version, and then used an identity that I created for the resource group and region in which the resource will be created. See error message above.-->
 
     The selected user identity is shown in **Encryption type** settings.
 
     ![A selected user identity shown in Encryption type settings](./media/data-box-deploy-ordered/customer-managed-key-11.png)
-
-    > [!IMPORTANT]
-    > You can disable creation of a Microsoft managed key and move to a customer-managed key at any stage of the Data Box order. However, once you have created a customer-managed key, you cannot switch back to the Microsoft managed key.
 
 14. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
 
