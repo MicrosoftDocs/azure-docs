@@ -1,11 +1,6 @@
 ---
-<<<<<<< HEAD
 title: Cost management for serverless SQL pool
 description: This document describes how to manage cost of serverless SQL pool and how data processed is calculated when querying data in Azure storage.
-=======
-title: Data processed by using serverless SQL pool
-description: This document describes how the data-processed amount is calculated when you query data in your data lake.
->>>>>>> e5c44ab705c14ce47e5f5ed3ce4e73c4a8d3114c
 services: synapse analytics 
 author: filippopovic 
 ms.service: synapse-analytics 
@@ -16,7 +11,6 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-<<<<<<< HEAD
 # Cost management for serverless SQL pool in Azure Synapse Analytics
 
 This article explains how you can estimate and manage costs for serverless SQL pool in Azure Synapse Analytics:
@@ -26,9 +20,6 @@ This article explains how you can estimate and manage costs for serverless SQL p
 Understand that the costs for serverless SQL pool in Azure Synapse Analytics are only a portion of the monthly costs in your Azure bill. If you are using other Azure services, you’re billed for all the Azure services and resources used in your Azure subscription, including the third-party services. This article explains how to plan for and manage costs for serverless SQL pool in Azure Synapse Analytics.
 
 # Data processed
-=======
-# Data processed by using serverless SQL pool in Azure Synapse Analytics
->>>>>>> e5c44ab705c14ce47e5f5ed3ce4e73c4a8d3114c
 
 *Data processed* is the amount of data that the system temporarily stores while a query is run. Data processed consists of the following quantities:
 
