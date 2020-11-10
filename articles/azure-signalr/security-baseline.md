@@ -97,7 +97,7 @@ Private access is an additional defense in depth measure in addition to authenti
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41416.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure SignalR Service does not support deploying directly into a virtual network, because of this you can not leverage traditional networking features to prevent denial of service (DDoS) attacks with native Azure network features like DDoS Protection Standard.
 
@@ -113,7 +113,7 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41417.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure SignalR Service does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution for detecting or preventing threats on the network.
 
@@ -142,7 +142,7 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41419.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure SignalR Service does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
 
@@ -308,7 +308,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41398.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure SignalR Service doesn't allow customer to deploy any persisted data into the running environment.
 
@@ -322,7 +322,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41399.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure SignalR Service doesn't access any legacy applications.
 
@@ -499,7 +499,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41427.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure SignalR Service doesn't store customer data.
 
@@ -517,7 +517,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41376.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure SignalR Service may be used to transmit sensitive data but it doesn't have capability to discovery, classify, and labeling sensitive data currently.
 
