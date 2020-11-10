@@ -200,5 +200,5 @@ def graphcall():
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Call a web API](scenario-web-app-call-api-call-api.md)
+Move on to the next article in this scenario,
+[Call a web API](scenario-web-app-call-api-call-api.md).
