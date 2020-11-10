@@ -34,7 +34,7 @@ You will need an Azure subscription [Create one for free](https://azure.microsof
 ![Analayzed invoice example](./media/analyze-invoice.png)
 
 ### Fields extracted:
-Following are the fields extracted from an invoice in the JSON output response (output below uses the following [sample invoice](https://../media/sample-invoice.jpg))  
+The Inovice service will extract the text, tables and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (output below uses the following [sample invoice](https://../media/sample-invoice.jpg))  
 
 |Name| Type | Description | Text | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
