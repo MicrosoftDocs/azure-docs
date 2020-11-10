@@ -43,8 +43,6 @@
         #   href: how-to-pronunciation-assessment.md
     - name: Tutorials
       items:
-        - name: Recognize speech stored in blob storage
-          href: quickstarts/from-blob.md
         - name: Improve accuracy with tenant models
           href: tutorial-tenant-model.md
     - name: Customization
