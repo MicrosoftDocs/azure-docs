@@ -195,7 +195,7 @@ Yes. You'll need to use NSX-T manager to create a firewall that restricts VM acc
 Yes.
 
 #### Can transit connectivity be established between on-premises and Azure VMware Solution through Azure Virtual WAN over ExpressRoute Global Reach?
-Azure Virtual WAN doesn't provide transitive routing between two connected ExpressRoute circuits and for non-virtual WAN ExpressRoute Gateway. Using ExpressRoute Global Reach allows connectivity between on-premises and Azure VMware Solution, but goes through Microsoft's global network instead of the Virtual WAN Hub.
+Azure Virtual WAN doesn't provide transitive routing between two connected ExpressRoute circuits and non-virtual WAN ExpressRoute Gateway. Using ExpressRoute Global Reach allows connectivity between on-premises and Azure VMware Solution, but goes through Microsoft's global network instead of the Virtual WAN Hub.
 
 
 ## Accounts and privileges
