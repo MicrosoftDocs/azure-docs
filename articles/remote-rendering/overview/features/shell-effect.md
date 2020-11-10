@@ -27,8 +27,8 @@ See also the following table for examples of the parameters' effects when applie
 
 |                | 0 | 0.25 | 0.5 | 0.75 | 1.0 | 
 |----------------|:-:|:----:|:---:|:----:|:---:|
-| **Desaturation** | ![Desaturation-0.0](./media/shell-desaturation-0.0.png) | ![Desaturation-0.25](./media/shell-desaturation-0.25.png) | ![Desaturation-0.5](./media/shell-desaturation-0.5.png) | ![Desaturation-0.75](./media/shell-desaturation-0.75.png) | ![Desaturation-1.0](./media/shell-desaturation-1.0.png) |
-| **Opacity**      | ![Opacity-0.0](./media/shell-opacity-0.0.png) | ![Opacity-0.25](./media/shell-opacity-0.25.png) | ![Opacity-0.5](./media/shell-opacity-0.5.png) | ![Opacity-0.75](./media/shell-opacity-0.75.png) | ![Opacity-1.0](./media/shell-opacity-1.0.png) |
+| **Desaturation** | ![Desaturation-0.0](./media/shell-desaturation-00.png) | ![Desaturation-0.25](./media/shell-desaturation-025.png) | ![Desaturation-0.5](./media/shell-desaturation-05.png) | ![Desaturation-0.75](./media/shell-desaturation-075.png) | ![Desaturation-1.0](./media/shell-desaturation-10.png) |
+| **Opacity**      | ![Opacity-0.0](./media/shell-opacity-00.png) | ![Opacity-0.25](./media/shell-opacity-025.png) | ![Opacity-0.5](./media/shell-opacity-05.png) | ![Opacity-0.75](./media/shell-opacity-075.png) | ![Opacity-1.0](./media/shell-opacity-10.png) |
 
 The shell effect is applied on the final opaque color the scene would be rendered with otherwise. That includes the [tint hierarchical state override](../../overview/features/override-hierarchical-state.md).
 
@@ -57,11 +57,6 @@ void SetShellSettings(ApiHandle<AzureSession> session)
 ## Performance
 
 The shell rendering feature carries a small constant overhead in comparison with standard opaque rendering. It is significantly faster than using transparent materials on objects or [see-through](../../overview/features/override-hierarchical-state.md) rendering. Performance may degrade more strongly if only portions of the scene are switched to shell rendering. This degradation can occur due to additionally revealed objects requiring rendering. In that regard, performance behaves similarly to the [Cut planes](../../overview/features/cut-planes.md) feature.
-
-## API documentation
-
-* [C# RemoteManager.ShellRenderingSettings property](/dotnet/api/microsoft.azure.remoterendering.remotemanager.shellrenderingsettings)
-* [C++ RemoteManager::ShellRenderingSettings()](/cpp/api/remote-rendering/remotemanager#shellrenderingsettings)
 
 ## Next steps
 
