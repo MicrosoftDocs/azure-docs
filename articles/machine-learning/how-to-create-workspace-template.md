@@ -32,7 +32,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * Some scenarios require you to open a support ticket. These scenarios are:
 
-    * __Private Link enabled workspace with a customer-managed key (CMK)__
+    * __Private Link enabled workspace with a customer-managed key__
     * __Azure Container Registry for the workspace behind your virtual network__
 
     For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
