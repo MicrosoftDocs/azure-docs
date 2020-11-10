@@ -21,17 +21,25 @@ This article outlines common scenarios where you need to exchange tokens between
 
 ## Scenario: You have a SAML token and want to call Graph using an OAuth token
 
-AD FS (on premises based identity management) compared to Azure AD (cloud based identity management)
+Is this scenario supported? Basic guidance on how to do it? Should we cover using AD FS vs. AAD and also ADAL vs. MSAL? I put placeholder info below.
 
-Using ADAL library (often called v1 of Microsoft's identity library) compared to using MSAL (often called v2 of Microsoft's identity library). See See https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview.
+### AD FS (on premises based identity management) compared to Azure AD (cloud based identity management)
+
+
+### ADAL vs MSAL
+Using ADAL library (often called v1 of Microsoft's identity library) compared to using MSAL (often called v2 of Microsoft's identity library). For more information about ADAL versus MSAL, see [Overview of Microsoft Authentication Library (MSAL)](msal-overview.md).
 
 ## Scenario: You have an OAuth token and you want to call into an app implemented with SAML
-AD FS (on premises based identity management) compared to Azure AD (cloud based identity management)
 
-Using ADAL library (often called v1 of Microsoft's identity library) compared to using MSAL (often called v2 of Microsoft's identity library). See See https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview.
+Is this scenario supported? Basic guidance on how to do it? Should we cover using AD FS vs. AAD and also ADAL vs. MSAL? I put placeholder info below.
+
+### AD FS (on premises based identity management) compared to Azure AD (cloud based identity management)
+
+### ADAL vs MSAL
+Using ADAL library (often called v1 of Microsoft's identity library) compared to using MSAL (often called v2 of Microsoft's identity library). For more information about ADAL versus MSAL, see [Overview of Microsoft Authentication Library (MSAL)](msal-overview.md).
 
 
-## Scenario: <Paul mentioned a couple of other scenarios to cover>
+## Scenario: Paul mentioned a couple of other scenarios to cover
 
 
 ## Next steps
