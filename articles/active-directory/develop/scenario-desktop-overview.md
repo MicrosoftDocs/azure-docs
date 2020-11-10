@@ -58,5 +58,5 @@ Desktop applications have a number of specificities. They depend mainly on wheth
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Desktop app: App registration](scenario-desktop-app-registration.md)
+Move on to the next article in this scenario, 
+[App registration](scenario-desktop-app-registration.md).
