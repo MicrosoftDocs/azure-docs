@@ -1,6 +1,6 @@
 ---
-title: Usage dashboard in commercial marketplace analytics
-description: Learn how to access all usage and metered billing metrics for offers published to Azure Marketplace. Go to the Usage dashboard in Partner Center under Commercial Marketplace.
+title: Usage dashboard in commercial marketplace analytics | Azure Marketplace
+description: Learn how to access all usage and metered billing metrics for offers published to Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
