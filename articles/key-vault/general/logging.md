@@ -92,7 +92,7 @@ The following table lists the **operationName** values and corresponding REST AP
 | **VaultPurge** |[Purge deleted vault](/rest/api/keyvault/vaults/purgedeleted) |
 | **VaultRecover** |Recover deleted vault|
 | **VaultGetDeleted** |[Get deleted vault](/rest/api/keyvault/vaults/getdeleted) |
-| **VaultListDeleted** |[List the deleted vaults](/rest/api/keyvault/vaults/listdeleted) |
+| **VaultListDeleted** |[List deleted vaults](/rest/api/keyvault/vaults/listdeleted) |
 | **KeyCreate** |[Create a key](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Get information about a key](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Import a key into a vault](/rest/api/keyvault/vaults) |
