@@ -319,7 +319,7 @@
             href: sql/develop-transaction-best-practices.md
           - name: Dedicated SQL pool
             displayname: Transactions, best, practices
-            href: sql-data-warehouse-develop-best-practices-transactions.md
+            href: ./sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: User-defined schemas
           href: sql/develop-user-defined-schemas.md
         - name: Variable assignment
@@ -458,23 +458,23 @@
     - name: Query external data
       items:
       - name: Overview
-        href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-data-storage.md
         displayname: query
       - name: Query CSV files
-        href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-single-csv-file.md
       - name: Query Parquet files
-        href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-parquet-files.md
       - name: Query JSON files
-        href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-json-files.md
       - name: Query nested types
-        href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-parquet-nested-types.md
       - name: Query folders and multiple files
-        href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-folders-multiple-csv-files.md
         displayname: csv
       - name: Query partitioned files using file metadata
-        href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-specific-files.md
       - name: Create and use views
-        href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/create-use-views.md
       - name: Create and use external tables
         href: sql/create-use-external-tables.md
       - name: Store query results to storage
@@ -484,23 +484,23 @@
       - name: Build data pipelines
         items:
         - name: Add an Azure Stream Analytics job
-          href: sql-data-warehouse-integrate-azure-stream-analytics.md
+          href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Connect tools to Synapse workspaces
       items:
       - name: Overview
-        href: sql/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/connect-overview.md
       - name: Query with Azure Data Studio
-        href: sql/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/get-started-azure-data-studio.md
       - name: Connection strings
         href: sql/connection-strings.md
       - name: Query with sqlcmd
         href: sql/get-started-connect-sqlcmd.md
       - name: Query with SSMS
-        href: sql/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/get-started-ssms.md
       - name: Query with Visual Studio
-        href: sql/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/get-started-visual-studio.md
       - name: Connect to Power BI Desktop
-        href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/get-started-power-bi-professional.md
 - name: Apache Spark
   items:
   - name: Overview
