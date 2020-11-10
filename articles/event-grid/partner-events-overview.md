@@ -73,7 +73,7 @@ Subscribers can use partner topics defined by a publisher and it's the only type
 
 The following image shows the flow of control plane operations.
 
-:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow-2.png" alt-text="Partner Events - control plane flow":::
+:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow.png" alt-text="Partner Events - control plane flow":::
 
 1. Publisher creates a partner registration. Partner registrations are global. That is, they aren't associated with a particular Azure region. This step is optional.
 1. Publisher creates a partner namespace in a specific region.
