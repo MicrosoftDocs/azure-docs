@@ -178,7 +178,7 @@ def authenticate_client():
 client = authenticate_client()
 ```
 
-Starting in v5.1.0 of the client library package, you can specify v3 of the Text Analytics API with the client's `api_version` parameter.
+Starting in v5.1.0 of the client library package, you can specify v3.0 of the Text Analytics API with the client's `api_version` parameter.
 
 ```python
 # Only use the following code sample if you're using v5.1.0 of the client library, 
