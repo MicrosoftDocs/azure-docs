@@ -37,9 +37,9 @@ To add a security principal to the Data Curator data plane role in an Azure Purv
 
 1. Click "+ Add"
 
-If upon clicking Add you see two choices showing both marked (disabled) then this means you do not have the right permissions to add anyone to a data plane role on the Azure Purview account. You must find an Owner, User Access Administrator or someone else with role assigment authority on your Azure Purview account. You can look for the right people by selecting "Role assignments" tab and then scrolling down to look for Owner or User Access Administrator and contacting those people.
+If upon clicking Add you see two choices showing both marked (disabled) then this means you do not have the right permissions to add anyone to a data plane role on the Azure Purview account. You must find an Owner, User Access Administrator or someone else with role assignment authority on your Azure Purview account. You can look for the right people by selecting "Role assignments" tab and then scrolling down to look for Owner or User Access Administrator and contacting those people.
 
-1. Select "Add role assigment"
+1. Select "Add role assignment"
 
 1. For the Role type in "Azure Purview Data Curator Role" or "Azure Purview Data Source Administrator Role" depending on what the Service Principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) for details).
  
