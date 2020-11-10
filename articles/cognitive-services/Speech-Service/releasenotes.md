@@ -19,16 +19,15 @@ ms.custom: seodec18
 
 **New features**
 - Jenny supports a new `newscast` style. See [how to use the speaking styles in SSML](speech-synthesis-markup.md#adjust-speaking-styles).
-- **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This is particularly beneficial to customers whose scenario relies on hi-fi audios or long interactions, including video dubbing, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
+- **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This benefits customers whose scenario relies on hi-fi audio or long interactions, including video dubbing, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
 - **[Custom Voice](https://speech.microsoft.com/customvoice) & [Audio Content Creation Studio](https://speech.microsoft.com/audiocontentcreation) localized to 17 locales**. Users can easily switch the UI to a local language for a more friendly experience.   
-- **Audio Content Creation**: Added style degree control for XiaoxiaoNeural; Refined the customized break feature. The incremental of break change is 50ms. 
+- **Audio Content Creation**: Added style degree control for XiaoxiaoNeural; Refined the customized break feature to include incremental breaks of 50ms. 
 
 **General TTS voice quality improvements**
 - Improved word-level pronunciation accuracy in `pl-PL` (error rate reduction: 51%) and `fi-FI` (error rate reduction: 58%)
-- Improved `ja-JP` single word reading for the dictionary scenario. Reduced 80% pronunciation error.
-- `zh-CN-XiaoxiaoNeural` sentiment/CustomerService/Newscast/Cheerful/Angry style voice quality is improved.
-- `zh-CN` Erhua pronunciation and light tone is improved.
-- `zh-CN` space prosody is refined, which greatly improves the intelligibility. 
+- Improved `ja-JP` single word reading for the dictionary scenario. Reduced pronunciation error by 80%.
+- `zh-CN-XiaoxiaoNeural`: Improved sentiment/CustomerService/Newscast/Cheerful/Angry style voice quality.
+- `zh-CN`: Improved Erhua pronunciation and light tone and refined space prosody, which greatly improves the intelligibility. 
 
 ## Speech SDK 1.14.0: 2020-October release
 
