@@ -99,7 +99,7 @@ In case you require to add new entries to the parameter's catalog per conversati
 With this activity we are adding an entry for "stereo" to the catalog of the parameter "SubjectDevice" in the command "TurnOnOff".
 
 [!div class="mx-imgBorder"]
-![Update catalog](media/custom-commands/update-catalog-wiith-remote-activity.png)
+:::image type="content" source="./media/custom-commands/update-catalog-with-remote-activity.png" alt-text="Update catalog":::
 
 Please note a couple of things.
 1. You only need to send this activity once (ideally right after you started a connection).
@@ -115,11 +115,9 @@ To test this, let's create a new command in our current application.
 1. Create a new command called GetDeviceInfo.
 1. Add an example sentence with "get device info".
 1. In the completion rule "Done" add a Send Speech Response Action.
-    > [!div class="mx-imgBorder"]
     > ![Send speech response with context](media/custom-commands/send-speech-response-context.png)
 1. Save and Train your application.
 1. Test your application.
-    > [!div class="mx-imgBorder"]
     > ![Send client context activity](media/custom-commands/send-client-context-activity.png)
 
 Please note a few things.

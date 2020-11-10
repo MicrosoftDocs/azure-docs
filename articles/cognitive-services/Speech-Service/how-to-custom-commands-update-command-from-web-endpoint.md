@@ -100,14 +100,13 @@ Now let's hook up the Azure Function with the existing Custom Commands app.
 1. Add a new parameter called Counter (same name as specified in the Azure Function above) of type Number with a default value of 0.
 1. Add a new Web endpoint called IncrementEndpoint with the URL of your Azure Function and with Remote updates enabled.
     > [!div class="mx-imgBorder"]
-    > ![set web endpoint with remote updates](media/custom-commands/set-web-endpoint-with-remote-updates.png)
+    > :::image type="content" source="./media/custom-commands/set-web-endpoint-with-remote-updates.png" alt-text="Set web endpoint with remote updates":::
 1. Create a new Interaction rule called "IncrementRule" and add a Call web endpoint action.
     > [!div class="mx-imgBorder"]
-    > ![increment rule](media/custom-commands/increment-rule-web-endpoint.png)
-
+    > :::image type="content" source="./media/custom-commands/increment-rule-web-endpoint.png" alt-text="Increment rule":::
 1. In the action configuration, select the IncrementEndpoint, configure On success to Send speech response with the value of counter and On failure with an error message.
     > [!div class="mx-imgBorder"]
-    > ![set increment counter call endpoint](media/custom-commands/set-increment-counter-call-endpoint.png)
+    > :::image type="content" source="./media/custom-commands/set-increment-counter-call-endpoint.png" alt-text="Set increment counter call endpoint":::
 1. Set the post-execution state of the rule to Wait for user's input
 
 ## Test it
@@ -115,9 +114,8 @@ Now let's hook up the Azure Function with the existing Custom Commands app.
 1. Save and Train your app
 1. Click Test
 1. Send a few times "increment" (which is the example sentence for the IncrementCounter command)
-
-> [!div class="mx-imgBorder"]
-> ![increment counter example](media/custom-commands/increment-counter-example.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="Increment counter example":::
 
 Notice how the value of the Counter parameter is incremented on each turn by the Azure Function.
 
