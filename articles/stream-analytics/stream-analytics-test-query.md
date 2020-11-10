@@ -117,7 +117,7 @@ Instead of using live data, you can use sample data from a local file to test yo
 2. If you get this error "The request size is too big. Please reduce the input data size and try again.", follow the steps below:
 
   * Reduce input size – Test your query with smaller size sample file or with a smaller time range.
-  * Reduce query size – Test a selection of query by selecting a piece of query and click “Test selected query”.
+  * Reduce query size – To test a selection of query, select a portion of query then click **Test selected query**.
 
 
 ## Next steps
