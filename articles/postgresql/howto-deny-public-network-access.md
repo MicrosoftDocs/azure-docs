@@ -12,6 +12,8 @@ ms.date: 03/10/2020
 
 This article describes how you can configure an Azure Database for PostgreSQL Single server to deny all public configurations and allow only connections through private endpoints to further enhance the network security.
 
+Note that clients from where connections to PostgreSQL Single server were made prior to the configuration described here will continue to have access to the server.
+
 ## Prerequisites
 
 To complete this how-to guide, you need:
