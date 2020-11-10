@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot the MySQL database issues for your Azure Database for MySQL
 description: Learn how to troubleshoot the MySQL database for your Azure Database for MySQL with built in capabilities of the platform.
-author: manishku
-ms.author: kummanish
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 04/13/2020
+ms.date: 11/09/2020
 ---
 
 # Troubleshoot for your Azure Database for MySQL for database issus
