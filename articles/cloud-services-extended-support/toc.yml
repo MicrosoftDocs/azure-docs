@@ -12,21 +12,6 @@
     href: available-sizes.md
   - name: Frequently Asked Questions
     href: faq.md
-    items: 
-    - name: General FAQ
-      href: general-faq.md
-    - name: Architecture & Features
-      href: architecture-and-features-faq.md
-    - name: Deployment Files
-      href: deployment-files-faq.md
-    - name: Certificates
-      href: certificates-faq.md
-    - name: Networking
-      href: networking-faq.md
-    - name: Migration
-      href: migration-faq.md
-    - name: Troubleshooting
-      href: troubleshooting-faq.md
 - name: How To
   items:
   - name: Enable Remote Desktop
