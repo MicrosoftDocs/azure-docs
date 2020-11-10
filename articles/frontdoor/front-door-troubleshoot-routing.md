@@ -43,7 +43,7 @@ The cause of this problem can be one of two things:
 ### Symptom
 
 * You created an Azure Front Door instance, but a request to the domain or frontend host is returning an HTTP 400 status code.
-* You created a DNS mapping for a custom domain to the frontend host that you configured. However, sending a request to the custom domain hostname returns an HTTP 400 status code. It doesn't appear to route to the backend that you configured.
+* You created a DNS mapping for a custom domain to the frontend host that you configured. However, sending a request to the custom domain host name returns an HTTP 400 status code. It doesn't appear to route to the backend that you configured.
 
 ### Cause
 
@@ -65,11 +65,11 @@ This behavior can happen if you didn't configure the routing rules correctly for
 
 ### Troubleshooting steps
 
-## Request to a frontend hostname returns a 404 status code
+## Request to a frontend host name returns a 404 status code
 
 ### Symptom
 
-You created an Azure Front Door instance by configuring a frontend host, a backend pool with at least one backend in it, and a routing rule that connects the frontend host to the backend pool. Your content isn't available when you make a request to the configured frontend host. As a result, an HTTP 404 status code is returned.
+You created an Azure Front Door instance by configuring a frontend host, a backend pool with at least one backend in it, and a routing rule that connects the frontend host to the backend pool. Your content isn't available when you make a request to the configured frontend host. As a result, the request returns an HTTP 404 status code.
 
 ### Cause
 
@@ -97,9 +97,9 @@ There are several possible causes for this symptom:
       
       As an example, if the backend accepts only HTTP requests, the following configurations would be valid:
             
-      * Accepted protocols are HTTP and HTTPS. The forwarding protocol is HTTP. Match request won't work, because HTTPS is an allowed protocol. If a request came in as HTTPS, Azure Front Door would try to forward it by using HTTPS.
+      * Accepted protocols are HTTP and HTTPS. The forwarding protocol is HTTP. A match request won't work, because HTTPS is an allowed protocol. If a request came in as HTTPS, Azure Front Door would try to forward it by using HTTPS.
 
-      * The accepted protocol is HTTP. The forwarding protocol is either match request or HTTP.
+      * The accepted protocol is HTTP. The forwarding protocol is either a match request or HTTP.
     - **Url Rewrite** is disabled by default. This field is used only if you want to narrow the scope of backend-hosted resources that you want to make available. When this field is disabled, Azure Front Door will forward the same request path that it receives. It's possible to misconfigure this field. So when Azure Front Door is requesting a resource from the backend that isn't available, it will return an HTTP 404 status code.
 
 ## Request to the frontend host name returns a 411 status code
@@ -122,4 +122,4 @@ This behavior is separate from the Web Application Firewall (WAF) functionality 
 
 - Verify that your requests comply with the requirements set out in the necessary RFCs.
 
-- Take note of any HTML message body that's returned in response to your request. They often explain exactly *how* your request is noncompliant.
+- Take note of any HTML message body that's returned in response to your request. A message body often explains exactly *how* your request is noncompliant.
