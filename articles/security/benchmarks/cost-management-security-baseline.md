@@ -31,7 +31,7 @@ To see how Cost Management completely maps to the Azure Security Benchmark, see 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40654.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not
 applicable; Azure Cost Management is a core Azure service. All of the
@@ -48,7 +48,7 @@ managed by Microsoft.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40655.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not
 applicable; Azure Cost Management
@@ -65,7 +65,7 @@ is intended to describe network connectivity and does not apply.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40656.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not
 applicable; Azure Cost Management is
@@ -81,7 +81,7 @@ not designed to deploy into or be secured to a virtual network for access.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40657.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not
 applicable; Azure Cost Management does
@@ -98,7 +98,7 @@ conventional network protections.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40658.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not
 applicable; Azure Cost Management
@@ -115,7 +115,7 @@ an IDS or IPS solution for detecting or preventing threats on the network.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40659.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not
 applicable; Azure Cost Management
@@ -132,7 +132,7 @@ a grouping of service IPs for reference in network security rules.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40660.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not
 applicable; This control is intended for offerings that expose DNS
@@ -181,7 +181,7 @@ Note: Azure AD supports external identity providers, which allow users without a
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40641.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Cost Management doesn't use any identities or manage any secrets for identities.
 
@@ -245,7 +245,7 @@ Introduction
 
 - [Eliminate bad passwords using Azure AD Password Protection](../../active-directory/authentication/concept-password-ban-bad.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -315,7 +315,7 @@ How
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40645.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Cost Management doesn't support capability of conditional access.
 
@@ -329,7 +329,7 @@ How
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40646.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Cost Management doesn't allow customer to deploy any persisted data into the running environment.
 
@@ -343,7 +343,7 @@ How
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40682.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Cost Management doesn't access any legacy applications.
 
@@ -403,7 +403,7 @@ Securing privileged access for hybrid and cloud deployments
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40648.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Cost Management doesn't store or process any data that are considered as business critical by customers.
 
@@ -446,7 +446,7 @@ that the users or groups have the requisite access required.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40650.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management doesn't support AAD emergency accounts or doesn't need AAD emergency accounts.
 
@@ -460,7 +460,7 @@ that the users or groups have the requisite access required.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40651.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management doesn't support any automation on account or role management.
 
@@ -474,7 +474,7 @@ that the users or groups have the requisite access required.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40652.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management doesn't support management from a customer workstation.
 
@@ -527,7 +527,7 @@ How
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40709.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management doesn't support customer lockbox.
 
@@ -641,7 +641,7 @@ Enable
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40664.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: To complement
 access controls, data in transit should be protected against ‘out of band’
@@ -725,7 +725,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40684.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management does not allow for automated asset discovery for access by security teams. Thus it cannot be used with any asset inventory and metadata processes.
 
@@ -739,7 +739,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40685.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not
 applicable; Cost Management does
@@ -770,7 +770,7 @@ Remove Azure resources when they are no longer needed.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40687.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management does not provide capabilities to customers to limit their users' ability to access Azure Resource Manager. The customer should restrict this access with other means or methods.
 
@@ -784,7 +784,7 @@ Remove Azure resources when they are no longer needed.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40688.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management does not deploy any customer facing compute resources or does not allow customers to install applications on the service.
 
@@ -802,7 +802,7 @@ Remove Azure resources when they are no longer needed.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40666.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management does not currently produce customer facing resource logs that can be used for threat detection.
 
@@ -865,7 +865,7 @@ Enable
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40668.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management either does not: support integrating with networks, or does not expose its network-related activities.
 
@@ -879,7 +879,7 @@ Enable
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40669.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management does not produce or expose any logs related to its resources.
 
@@ -893,7 +893,7 @@ Enable
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40670.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management does not produce or process any security related logs which would need to be collected centrally for management or analysis.
 
@@ -907,7 +907,7 @@ Enable
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40671.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Cost Management does not currently produce any security-related logs, and the customer is unable to set any log retention.
 
@@ -921,7 +921,7 @@ Enable
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40672.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Cost Management does not support configuring your own time synchronization sources. Cost Management service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
@@ -1062,7 +1062,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40693.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not
 applicable; Cost Management
@@ -1078,7 +1078,7 @@ doesn't have any security configurations.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40694.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not
 applicable; Cost Management
@@ -1094,7 +1094,7 @@ doesn't have any security configurations.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40695.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not
 applicable; Cost Management
@@ -1110,7 +1110,7 @@ doesn't have any secure configurations for compute resources.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40696.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -1124,7 +1124,7 @@ doesn't have any secure configurations for compute resources.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40697.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -1138,7 +1138,7 @@ doesn't have any secure configurations for compute resources.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40698.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not
 applicable; Cost Management
@@ -1189,7 +1189,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40679.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
 
@@ -1203,7 +1203,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40680.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management does not interact with compute hosts, containers and/or storage which require anti-malware protection.
 
@@ -1217,7 +1217,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40681.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management does not interact with compute hosts, containers and/or storage which require anti-malware protection.
 
@@ -1235,7 +1235,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40689.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management doesn't support any data backup or have no needs for data backup.
 
@@ -1249,7 +1249,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40690.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management doesn't support any data backup encryption.
 
@@ -1263,7 +1263,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40691.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management doesn't support any data backup.
 
@@ -1277,7 +1277,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40692.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Cost Management doesn't manage any keys.
 
