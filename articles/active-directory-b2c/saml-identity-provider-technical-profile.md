@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/16/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -81,6 +81,16 @@ The following example shows the Key Descriptor section of the SAML metadata used
 ## Protocol
 
 The **Name** attribute of the Protocol element needs to be set to `SAML2`.
+
+## Input claims
+
+The **InputClaims** element is used to send a **NameId** within the **Subject** of the SAML AuthN Request. To achieve this add an input claim with a **PartnerClaimType** set to `subject` as shown below.
+
+```xml
+<InputClaims>
+	<InputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="subject" />
+</InputClaims>
+```
 
 ## Output claims
 

@@ -55,8 +55,8 @@ Property | Description | Allowed values | Required
 **method** | The REST API method for the target endpoint. | String. The supported type is "POST". | Yes |
 **url** | The target endpoint and path. | A string or an expression with the **resultType** value of a string. | Yes |
 **headers** | Headers that are sent to the request. Here's an example that sets the language and type on a request: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | A string or an expression with the **resultType** value of a string. | Yes. A `Content-Type` header like `"headers":{ "Content-Type":"application/json"}` is required. |
-**body** | Represents the payload that is sent to the endpoint. | Valid JSON or an expression with the **resultType** value of JSON. See [Request payload schema](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) for  the schema of the request payload. | Yes |
-**authentication** | The authentication method used to call the endpoint. Supported types are "Basic" and "ClientCertificate". For more information, see [Authentication](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). If authentication isn't required, exclude this property. | A string or an expression with the **resultType** value of a string. | No |
+**body** | Represents the payload that is sent to the endpoint. | Valid JSON or an expression with the **resultType** value of JSON. See [Request payload schema](./control-flow-web-activity.md#request-payload-schema) for  the schema of the request payload. | Yes |
+**authentication** | The authentication method used to call the endpoint. Supported types are "Basic" and "ClientCertificate". For more information, see [Authentication](./control-flow-web-activity.md#authentication). If authentication isn't required, exclude this property. | A string or an expression with the **resultType** value of a string. | No |
 **timeout** | How long the activity waits for the callback specified by **callBackUri** to be invoked. The default value is 10 minutes ("00:10:00"). Values have the TimeSpan format *d*.*hh*:*mm*:*ss*. | String | No |
 **Report status on callback** | Lets a user report the failed status of a webhook activity. | Boolean | No |
 
@@ -94,7 +94,7 @@ Specify the Base64-encoded contents of a PFX file and a password.
 
 ### Managed identity
 
-Use the data factory's managed identity to specify the resource URI for which the access token is requested. To call the Azure Resource Management API, use `https://management.azure.com/`. For more information about how managed identities work, see the [managed identities for Azure resources overview](/azure/active-directory/managed-identities-azure-resources/overview).
+Use the data factory's managed identity to specify the resource URI for which the access token is requested. To call the Azure Resource Management API, use `https://management.azure.com/`. For more information about how managed identities work, see the [managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {

@@ -162,4 +162,4 @@ Using EXPLAIN and different type of Indexes can increase performance significant
 
 
 ## Next steps
-- To find peer answers to your most concerned questions or post a new question/answer, visit [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- To find peer answers to your most concerned questions or post a new question/answer, visit [Microsoft Q&A question page](/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

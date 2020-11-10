@@ -17,7 +17,7 @@ ms.custom: how-to, devx-track-python
 
 In this article, learn how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), to connect your Azure Databricks (ADB) experiments, MLflow, and Azure Machine Learning.
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts. Learn more about [Azure Databricks and MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/). 
+[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts. Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/). 
 
 See [Track experiment runs and create endpoints with MLflow and Azure Machine Learning](how-to-use-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
@@ -30,8 +30,8 @@ See [Track experiment runs and create endpoints with MLflow and Azure Machine Le
 ## Prerequisites
 
 * Install the `azureml-mlflow` package. 
-    * This package automatically brings in `azureml-core` of the [The Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), which provides the connectivity for MLflow to access your workspace.
-* An [Azure Databricks workspace and cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+    * This package automatically brings in `azureml-core` of the [The Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), which provides the connectivity for MLflow to access your workspace.
+* An [Azure Databricks workspace and cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 * [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
 
 ## Track Azure Databricks runs
@@ -230,4 +230,4 @@ The [MLflow with Azure Machine Learning notebooks](https://github.com/Azure/Mach
 
 * [Manage your models](concept-model-management-and-deployment.md).
 * [Track experiment runs and create endpoints with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
-* Learn more about [Azure Databricks and MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/).
+* Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/).

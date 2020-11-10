@@ -5,13 +5,14 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
+ms.custom: devx-track-azurepowershell
 ---
 # Use the Azure Import/Export service to import data to Azure Blob Storage
 
-This article provides step-by-step instructions on how to use the Azure Import/Export service to securely import large amounts of data to Azure Blob storage. To import data into Azure Blobs, the service requires you to ship encrypted disk drives containing your data to an Azure datacenter.  
+This article provides step-by-step instructions on how to use the Azure Import/Export service to securely import large amounts of data to Azure Blob storage. To import data into Azure Blobs, the service requires you to ship encrypted disk drives containing your data to an Azure datacenter.
 
 ## Prerequisites
 
@@ -28,12 +29,12 @@ You must:
 * [Download the latest WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) on the Windows system. The latest version of the tool has security updates to allow an external protector for the BitLocker key, and the updated unlock mode feature.
 
   * Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
-* Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.  
+* Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
   * The account must be valid, should have balance, and must have return shipping capabilities.
   * Generate a tracking number for the export job.
   * Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
   * If you do not have a carrier account, go to:
-    * [Create a FedEX account](https://www.fedex.com/en-us/create-account.html), or
+    * [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
     * [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## Step 1: Prepare the drives
@@ -89,6 +90,8 @@ Perform the following steps to prepare the drives.
 
 ## Step 2: Create an import job
 
+### [Portal](#tab/azure-portal)
+
 Perform the following steps to create an import job in the Azure portal.
 
 1. Log on to https://portal.azure.com/.
@@ -107,7 +110,7 @@ Perform the following steps to create an import job in the Azure portal.
        * The name may contain only lowercase letters, numbers, and hyphens.
        * The name must start with a letter, and may not contain spaces.
    * Select a subscription.
-   * Enter or select a resource group.  
+   * Enter or select a resource group.
 
      ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
@@ -136,6 +139,184 @@ Perform the following steps to create an import job in the Azure portal.
    * Click **OK** to create the import job.
 
      ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+
+### [Azure CLI](#tab/azure-cli)
+
+Use the following steps to create an import job in the Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### Create a job
+
+1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/ext/import-export/import-export) extension:
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. You can use an existing resource group or create one. To create a resource group, run the [az group create](/cli/azure/group#az_group_create) command:
+
+    ```azurecli
+    az group create --name myierg --location "West US"
+    ```
+
+1. You can use an existing storage account or create one. To create a storage account, run the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
+
+    ```azurecli
+    az storage account create --resource-group myierg --name myssdocsstorage --https-only
+    ```
+
+1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) command:
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Use the [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) command to get locations for your region:
+
+    ```azurecli
+    az import-export location show --location "West US"
+    ```
+
+1. Run the following [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) command to create an import job:
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name MyIEjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
+            drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
+            manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+        --type Import \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --return-shipping carrier-name=FedEx carrier-account-number=123456789 \
+        --storage-account myssdocsstorage
+    ```
+
+   > [!TIP]
+   > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+
+1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the myierg resource group:
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. To update your job or cancel your job, run the [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command:
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+Use the following steps to create an import job in Azure PowerShell.
+
+[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+
+> [!IMPORTANT]
+> While the **Az.ImportExport** PowerShell module is in preview, you must install it separately
+> using the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it
+> will be part of future Az PowerShell module releases and available by default from within Azure
+> Cloud Shell.
+
+```azurepowershell-interactive
+Install-Module -Name Az.ImportExport
+```
+
+### Create a job
+
+1. You can use an existing resource group or create one. To create a resource group, run the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet:
+
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name myierg -Location westus
+   ```
+
+1. You can use an existing storage account or create one. To create a storage account, run the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet:
+
+   ```azurepowershell-interactive
+   New-AzStorageAccount -ResourceGroupName myierg -AccountName myssdocsstorage -SkuName Standard_RAGRS -Location westus -EnableHttpsTrafficOnly $true
+   ```
+
+1. To get a list of the locations to which you can ship disks, use the [Get-AzImportExportLocation](/powershell/module/az.importexport/get-azimportexportlocation) cmdlet:
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation
+   ```
+
+1. Use the `Get-AzImportExportLocation` cmdlet with the `Name` parameter to get locations for your region:
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation -Name westus
+   ```
+
+1. Run the following [New-AzImportExport](/powershell/module/az.importexport/new-azimportexport) example to create an import job:
+
+   ```azurepowershell-interactive
+   $driveList = @(@{
+     DriveId = '9CA995BA'
+     BitLockerKey = '439675-460165-128202-905124-487224-524332-851649-442187'
+     ManifestFile = '\\DriveManifest.xml'
+     ManifestHash = '69512026C1E8D4401816A2E5B8D7420D'
+     DriveHeaderHash = 'AZ31BGB1'
+   })
+
+   $Params = @{
+      ResourceGroupName = 'myierg'
+      Name = 'MyIEjob1'
+      Location = 'westus'
+      BackupDriveManifest = $true
+      DiagnosticsPath = 'waimportexport'
+      DriveList = $driveList
+      JobType = 'Import'
+      LogLevel = 'Verbose'
+      ShippingInformationRecipientName = 'Microsoft Azure Import/Export Service'
+      ShippingInformationStreetAddress1 = '3020 Coronado'
+      ShippingInformationCity = 'Santa Clara'
+      ShippingInformationStateOrProvince = 'CA'
+      ShippingInformationPostalCode = '98054'
+      ShippingInformationCountryOrRegion = 'USA'
+      ShippingInformationPhone = '4083527600'
+      ReturnAddressRecipientName = 'Gus Poland'
+      ReturnAddressStreetAddress1 = '1020 Enterprise way'
+      ReturnAddressCity = 'Sunnyvale'
+      ReturnAddressStateOrProvince = 'CA'
+      ReturnAddressPostalCode = '94089'
+      ReturnAddressCountryOrRegion = 'USA'
+      ReturnAddressPhone = '4085555555'
+      ReturnAddressEmail = 'gus@contoso.com'
+      ReturnShippingCarrierName = 'FedEx'
+      ReturnShippingCarrierAccountNumber = '123456789'
+      StorageAccountId = '/subscriptions/<SubscriptionId>/resourceGroups/myierg/providers/Microsoft.Storage/storageAccounts/myssdocsstorage'
+   }
+   New-AzImportExport @Params
+   ```
+
+   > [!TIP]
+   > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+
+1. Use the [Get-AzImportExport](/powershell/module/az.importexport/get-azimportexport) cmdlet to see all the jobs for the myierg resource group:
+
+   ```azurepowershell-interactive
+   Get-AzImportExport -ResourceGroupName myierg
+   ```
+
+1. To update your job or cancel your job, run the [Update-AzImportExport](/powershell/module/az.importexport/update-azimportexport) cmdlet:
+
+   ```azurepowershell-interactive
+   Update-AzImportExport -Name MyIEjob1 -ResourceGroupName myierg -CancelRequested
+   ```
+
+---
 
 ## Step 3 (Optional): Configure customer managed key
 

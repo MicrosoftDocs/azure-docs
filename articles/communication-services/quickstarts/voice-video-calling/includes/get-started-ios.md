@@ -197,4 +197,4 @@ You can make an outbound VOIP call by providing a user ID in the text field and 
 
 ## Sample Code
 
-You can download the sample app from [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/iOS/Swift)
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling)

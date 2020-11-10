@@ -280,7 +280,11 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 
 ### Virtual Network Gateway limits
 
-[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### NAT Gateway limits
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
 ### Virtual WAN limits
 

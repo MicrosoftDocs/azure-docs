@@ -39,7 +39,7 @@ What you'll learn:
 To complete this tutorial:
 
 - [Install Git](https://git-scm.com/)
-- [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Install the Azure CLI](/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -266,5 +266,3 @@ Learn how to optimize CDN performance in the following articles:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
-
-

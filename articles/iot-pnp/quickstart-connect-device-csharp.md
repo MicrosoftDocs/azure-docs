@@ -1,6 +1,6 @@
 ---
-title: Connect IoT Plug and Play sample C# device code to IoT Hub | Microsoft Docs
-description: Build and run IoT Plug and Play sample device code on Windows that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Quickstart - Connect IoT Plug and Play sample C# device code to Azure IoT Hub | Microsoft Docs
+description: Quickstart - Build and run IoT Plug and Play sample device code on Windows that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020

@@ -59,7 +59,7 @@ This error occurs when the service can't read data from the transport connection
 
 To resolve vCenter discovery failures, add the vCenter server to the byPass list proxy settings. 
 
-- Download PsExec tool from [here](https://aka.ms/PsExec) to access System user content.
+- Download PsExec tool from [here](/sysinternals/downloads/psexec) to access System user content.
 - Open Internet Explorer in system user content by running the following command line
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - Add proxy settings in IE and restart tmanssvc service.
@@ -256,4 +256,3 @@ This issue can occur when the system time is incorrect.
 To resolve the issue:
 
 Set the correct time on the computer and retry the sign in. 
- 

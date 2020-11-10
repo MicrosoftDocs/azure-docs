@@ -16,10 +16,10 @@ Azure Synapse Analytics has two SQL form-factors that enable you to control your
 
 To authorize to Synapse SQL, you can use two authorization types:
 
-- AAD authorization
+- Azure Active Directory authorization
 - SQL authorization
 
-AAD authorization relies on Azure Active Directory and enables you to have single place for user management. SQL authorization enables legacy applications to use Synapse SQL in a well familiar way.
+Azure Active Directory enables you to have single place for user management. SQL authorization enables legacy applications to use Synapse SQL in a well familiar way.
 
 ## Administrative accounts
 
@@ -45,18 +45,18 @@ The **Server admin** and **Azure AD admin** accounts have the following characte
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
 
-## [SQL on-demand (preview)](#tab/serverless)
+## [Serverless SQL pool (preview)](#tab/serverless)
 
-To manage the users having access to SQL on-demand, you can use the instructions below.
+To manage the users having access to serverless SQL pool, you can use the instructions below.
 
-To create a login to SQL on-demand, use the following syntax:
+To create a login to serverless SQL pool, use the following syntax:
 
 ```sql
 CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
 ```
-Once the login exists, you can create users in the individual databases within the SQL on-demand endpoint and grant required permissions to these users. To create a use, you can use the following syntax:
+Once the login exists, you can create users in the individual databases within the serverless SQL pool endpoint and grant required permissions to these users. To create a use, you can use the following syntax:
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or
@@ -152,7 +152,7 @@ In Azure SQL Database or synapse serverless, use the `ALTER ROLE` statement.
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-In SQL pool use [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+In dedicated SQL pool use [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';

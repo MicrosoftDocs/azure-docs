@@ -3,12 +3,14 @@ title: Querying geospatial data with Azure Cosmos DB
 description: Querying spatial data with Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 
 ---
 # Querying geospatial data with Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article will cover how to query geospatial data in Azure Cosmos DB using SQL and LINQ. Currently storing and accessing geospatial data is supported by Azure Cosmos DB SQL API accounts only. Azure Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more information on the complete set of built-in functions in the SQL language, see [Query System Functions in Azure Cosmos DB](sql-query-system-functions.md).
 
