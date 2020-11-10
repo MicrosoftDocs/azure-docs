@@ -150,9 +150,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-1. Click on **Test this application** in Azure portal. This will redirect to IntSights Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to IntSights Sign on URL where you can initiate the login flow.  
 
-1. Go to IntSights Sign-on URL directly and initiate the login flow from there.
+* Go to IntSights Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
