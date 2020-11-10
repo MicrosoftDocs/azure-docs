@@ -141,7 +141,7 @@ Additionally, the service recognizes relations between the different concepts in
 
 **HEALTHCARE_PROFESSION** – A healthcare practitioner licensed or non-licensed. For example, dentist, pathologist, neurologist, radiologist, pharmacist, nutritionist, physical therapist, chiropractor.
 
-:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="This screenshot shows an example of a healthcare environment entity.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="This screenshot shows another example of a healthcare environment entity.":::
 
 :::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Another example of a healthcare environment entity.":::
 
@@ -253,7 +253,7 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="Screenshot shows an example of a relational operator attribute with a medication entity.":::
 
-:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="Screenshot shows an example of a relational operator attribute with a medication entity.":::
+:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="Screenshot shows another example of a relational operator attribute with a medication entity.":::
 
 ### Supported relations
 
