@@ -77,11 +77,13 @@ The following image shows the flow of control plane operations.
 
 1. Publisher creates a partner registration. Partner registrations are global. That is, they aren't associated with a particular Azure region. This step is optional.
 1. Publisher creates a partner namespace in a specific region.
-1. When Subscriber 1 tries to create a partner topic, an event channel (Event Channel 1) is created in the publisher's Azure subscription first.
-1. Then, a partner topic is created in the subscriber's Azure subscription. The subscriber needs to activate the partner topic. 
-1. Subscriber 1 creates two subscriptions (Azure Logic Apps and Azure Blob Storage) to the partner topic. 
-1. When Subscriber 2 tries to create a partner topic, another event channel (Event Channel 2) is created in the publisher's Azure subscription first. 
-1. Then, the partner topic is created in the second subscriber's Azure subscription. The subscriber needs to activate the partner topic. 
+1. When Subscriber 1 tries to create a partner topic, an event channel, Event Channel 1, is created in the publisher's Azure subscription first.
+1. Then, a partner topic, Partner Topic 1, is created in the subscriber's Azure subscription. The subscriber needs to activate the partner topic. 
+1. Subscriber 1 creates an Azure Logic Apps subscription to Partner Topic 1.
+1. Subscriber 1 creates an Azure Blob Storage subscription to Partner Topic 1. 
+1. When Subscriber 2 tries to create a partner topic, another event channel, Event Channel 2, is created in the publisher's Azure subscription first. 
+1. Then, the partner topic, Partner Topic 2, is created in the second subscriber's Azure subscription. The subscriber needs to activate the partner topic. 
+1. Subscriber 2 creates an Azure Functions subscription to Partner Topic 2. 
 
 ## Pricing
 Partner topics are charged by the number of operations done when using Event Grid. For more information on all types of operations that are used as the basis for billing and detailed price information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
