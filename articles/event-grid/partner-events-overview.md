@@ -71,7 +71,7 @@ An event channel is a mirrored resource to a partner topic. When a publisher cre
 ## Resources managed by subscribers 
 Subscribers can use partner topics defined by a publisher and it's the only type of resource they see and manage. Once a partner topic is created, a subscriber user can create event subscriptions defining filter rules to [destinations/event handlers](overview.md#event-handlers). To subscribers, a partner topic and its associated event subscriptions provide the same rich capabilities as [custom topics](custom-topics.md) and its related subscription(s) do with one notable difference: partner topics support only the [Cloud Events 1.0 schema](cloudevents-schema.md), which provides a richer set of capabilities than other supported schemas.
 
-The following image shows the control plane (management) operations by partners and subscribers. 
+The following image shows the flow of control plane flow operations.
 
 :::image type="content" source="./media/partner-events-overview/partner-control-plane-flow.png" alt-text="Partner Events - control plane flow":::
 
