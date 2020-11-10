@@ -1,13 +1,18 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-convert-models.md",
+      "redirect_url": "/azure/digital-twins/how-to-integrate-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-wan/security-baseline.md",
       "redirect_url": "/azure/virtual-wan/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/concepts-convert-models.md",
-      "redirect_url": "/azure/digital-twins/how-to-convert-models",
+      "redirect_url": "/azure/digital-twins/how-to-integrate-models",
       "redirect_document_id": false
     },
     {
@@ -22195,6 +22200,31 @@
     {
       "source_path": "articles/marketplace/marketplace-roadmap.md",
       "redirect_url": "/partner-center/announcements",
+      "redirect_document_id": false
+    },
+     {
+      "source_path": "articles/marketplace/partner-center-portal/summary-dashboard.md",
+      "redirect_url": "articles/marketplace/summary-dashboard",
+      "redirect_document_id": false
+    },
+     {
+      "source_path": "articles/marketplace/partner-center-portal/orders-dashboard.md",
+      "redirect_url": "articles/marketplace/orders-dashboard",
+      "redirect_document_id": false
+    },
+     {
+      "source_path": "articles/marketplace/partner-center-portal/usage-dashboard.md",
+      "redirect_url": "articles/marketplace/usage-dashboard",
+      "redirect_document_id": false
+    },
+     {
+      "source_path": "articles/marketplace/partner-center-portal/customer-dashboard.md",
+      "redirect_url": "articles/marketplace/customer-dashboard",
+      "redirect_document_id": false
+    },
+     {
+      "source_path": "articles/marketplace/partner-center-portal/insights-dashboard.md",
+      "redirect_url": "articles/marketplace/insights-dashboard",
       "redirect_document_id": false
     },
     {

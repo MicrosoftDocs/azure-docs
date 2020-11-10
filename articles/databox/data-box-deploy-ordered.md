@@ -119,7 +119,7 @@ If the extension is installed successfully, you'll see the following output:
 
 You can use [Azure Cloud Shell](https://shell.azure.com/), an Azure hosted interactive shell environment, through your browser to run CLI commands. Azure Cloud Shell supports Bash or Windows PowerShell with Azure services. The Azure CLI is pre-installed and configured to use with your account. Select the Cloud Shell button on the menu in the upper-right section of the Azure portal:
 
-![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
+![Cloud Shell menu selection](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
 The button launches an interactive shell that you can use to run the steps outlined in this how-to article.
 
@@ -211,11 +211,11 @@ Do the following steps in the Azure portal to order a device.
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 2. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   ![Screenshot of the New section with Azure Data Box in the search field.](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![Screenshot of New section with Azure Data Box in search field](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
 3. Select **Create**.
 
-   ![Screenshot of the Azure Data Box section with the Create option called out.](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Screenshot of Azure Data Box section with Create option called out](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. Check if Data Box service is available in your region. Enter or select the following information and select **Apply**.
 
@@ -227,11 +227,11 @@ Do the following steps in the Azure portal to order a device.
     |Source country/region    |    Select the country/region where your data currently resides.         |
     |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, go to [region availability](data-box-overview.md#region-availability).            |
 
-    [![Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
+    [![Starting an Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
 5. Select **Data Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
-    ![Screenshot of the different data sizes that are available for selection: Data Box Disk 40 terabytes, Data Box 100 terabytes, Data Box Heavy, 1000 terabytes, and Send your own disks 1 terabyte.](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![Available data sizes: Data Box Disk, 40 terabytes; Data Box, 100 terabytes; Data Box Heavy, 1000 terabytes; Send your own disks, 1 terabyte](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
 6. In **Order**, go to the **Basics** tab. Enter or select the following information and select **Next: Data destination>**.
 
@@ -241,7 +241,7 @@ Do the following steps in the Azure portal to order a device.
     |Resource group    | The resource group you selected previously. |
     |Import order name | Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.    |
 
-    ![Screenshot of the Order wizard showing the Basics step of the wizard with the correct info filled in.](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Data Box import Order wizard, Basics screen, with correct info filled in](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     By default, the device unlock password is encrypted using a Microsoft-managed key. After you complete the order, you can add a customer-managed key. A customer-managed key allows you to use you own key from an Azure Key vault key to protect you device unlock password. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
@@ -249,7 +249,7 @@ Do the following steps in the Azure portal to order a device.
 
     If using **storage account(s)** as the storage destination, you see the following screenshot:
 
-    ![Azure Data Box data destination](media/data-box-deploy-ordered/select-data-box-import-07.png)
+    ![Data Box import Order wizard, Data destination screen, with storage accounts selected](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
     Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**.
 
@@ -261,7 +261,7 @@ Do the following steps in the Azure portal to order a device.
     |---------|---------|
     |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box order for managed disk by Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
 
-    ![Screenshot of the Order wizard showing the Data destination step of the wizard with the correct info filled in.](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Data Box import Order wizard, Data destination screen, with Managed Disks selected](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure"
    > [!NOTE]
@@ -273,7 +273,7 @@ Do the following steps in the Azure portal to order a device.
 
     All settings on the **Security** screen are optional. If you don't change any settings, the default settings will apply.
 
-    ![Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+    ![Security screen of the Data Box import Order wizard](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
 
 9. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
 
@@ -331,7 +331,7 @@ Do the following steps in the Azure portal to order a device.
 
     ![Key and key vault for a customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-09.png)
 
-14. Select a user identity to use to manage access for this resource.<!--Known issue: My orders with a user-assigned identity are failing with the following error. I haven't yet figured out whether this is an access issue specific to me, a bug, or a missing requirement. Error message: {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.","details":[{"code":"BadRequest","message":"{\"Error\":{\"Code\":\"SsemUserErrorKeyVaultBadRequestException\",\"Message\":\"Applied a customer managed key but the key access has not been granted or has been revoked, or unable to access key vault due to firewall being enabled.\\r\\nAdd the identity : daabe986-df60-4fb9-88f3-b64a7c79a394 to your key vault to enable access to the customer managed key. If key vault has firewall enabled, try switching to a system assigned identity and adding a customer managed key.\",\"Details\":[null],\"Target\":null}}"}]}"-->
+13. Select a user identity to use to manage access for this resource.<!--Known issue: My orders with a user-assigned identity are failing with the following error. I haven't yet figured out whether this is an access issue specific to me, a bug, or a missing requirement. Error message: {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.","details":[{"code":"BadRequest","message":"{\"Error\":{\"Code\":\"SsemUserErrorKeyVaultBadRequestException\",\"Message\":\"Applied a customer managed key but the key access has not been granted or has been revoked, or unable to access key vault due to firewall being enabled.\\r\\nAdd the identity : daabe986-df60-4fb9-88f3-b64a7c79a394 to your key vault to enable access to the customer managed key. If key vault has firewall enabled, try switching to a system assigned identity and adding a customer managed key.\",\"Details\":[null],\"Target\":null}}"}]}"-->
 
     The user-assigned identity is an independent resource that is associated with a resource group. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).  
 
@@ -357,13 +357,13 @@ Do the following steps in the Azure portal to order a device.
 
    - To use your own password for your new device, by **Set preference for the device password**, select **Use your own password**, and type a password that meets the security requirements.
    
-     ![Security screen for Data Box import, options for using your own device password](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+     ![Options for using your own device password on the Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
  - To use your own passwords for shares:
 
    - By **Set preference for share passwords**, select **Use your own passwords** and then **Select passwords for the shares**.
      
-        ![Security screen for Data Box import, options for using your own share passwords](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+        ![Options for using your own share passwords on the Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
     - Type a password for each storage account in the order. The password will be used on all shares for the storage account.
      
@@ -386,7 +386,7 @@ Do the following steps in the Azure portal to order a device.
 
 16. In **Contact details**, select **+ Add Shipping Address**.
 
-    ![Screenshot of the Order wizard showing the Contact details step of the wizard with the Add Shipping Address option called out.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![From the Contact details screen, add shipping addresses to your Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
 17. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
@@ -400,13 +400,13 @@ Do the following steps in the Azure portal to order a device.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
-    ![Screenshot of the Email section of the Contact details step of the Order wizard with the Email text box and the Next: Review and Order option called out.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Email section of Contact details in the Order wizard](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 20. Review the information in **Review + Order** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
 
 21. Select **Order**. The order takes a few minutes to be created.
 
-    ![Screenshot of the Order wizard showing the Review and Order step and the Order option called out.](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![Review and Order screen of the Order wizard](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -596,11 +596,11 @@ If the device is not available, you receive a notification. If the device is ava
 
 When the device preparation is complete, the portal shows the order in **Processed** state.
 
-![Data Box order processed](media/data-box-overview/data-box-order-status-processed.png)
+![A Data Box order that's been processed](media/data-box-overview/data-box-order-status-processed.png)
 
 Microsoft then prepares and dispatches your device via a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
 
-![Data Box order dispatched](media/data-box-overview/data-box-order-status-dispatched.png)
+![A Data Box order that's been dispatched](media/data-box-overview/data-box-order-status-dispatched.png)
 
 # [Azure CLI](#tab/azure-cli)
 
