@@ -69,6 +69,9 @@ The second step is to call [Get Read Results](https://westcentralus.dev.cognitiv
 
 When the **status** field has the **succeeded** value, the JSON response contains the extracted text content from your image or document. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and confidence scores.
 
+> [!NOTE]
+> The data submitted to the `Read` operation are temporarily encrypted and stored at rest, and deleted within 48 hours. This lets your applications retrieve the extracted text as part of the service response.
+
 ## Sample JSON output
 
 See the following example of a successful JSON response:
@@ -83,7 +86,6 @@ See the following example of a successful JSON response:
     "readResults": [
       {
         "page": 1,
-        "language": "en",
         "angle": 0.8551,
         "width": 2661,
         "height": 1901,

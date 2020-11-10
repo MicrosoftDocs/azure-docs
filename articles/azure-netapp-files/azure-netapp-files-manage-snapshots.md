@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/10/2020
 ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files
@@ -103,6 +103,8 @@ If you want a volume to use the snapshot policy, you need to [apply the policy t
 
 If you want a volume to use a snapshot policy that you created, you need to apply the policy to the volume. 
 
+You cannot apply a snapshot policy to a destination volume in cross-region replication.  
+
 1.	Go to the **Volumes** page, right-click the volume that you want to apply a snapshot policy to, and select **Edit**.
 
     ![Volumes right-click menu](../media/azure-netapp-files/volume-right-cick-menu.png) 
@@ -167,6 +169,8 @@ If you do not want to [restore the entire snapshot to a volume](#restore-a-snaps
 The mounted volume contains a snapshot directory named  `.snapshot` (in NFS clients) or `~snapshot` (in SMB clients) that is accessible to the client. The snapshot directory contains subdirectories corresponding to the snapshots of the volume. Each subdirectory contains the files of the snapshot. If you accidentally delete or overwrite a file, you can restore the file to the parent read-write directory by copying the file from a snapshot subdirectory to the read-write directory. 
 
 If you selected the Hide Snapshot Path checkbox when you created the volume, the snapshot directory is hidden. You can view the Hide Snapshot Path status of the volume by selecting the volume. You can edit the Hide Snapshot Path option by clicking **Edit** on the volume’s page.  
+
+For a destination volume in cross-region replication, Hide Snapshot Path is enabled by default, and the setting cannot be modified.
 
 ![Edit volume snapshot options](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 
