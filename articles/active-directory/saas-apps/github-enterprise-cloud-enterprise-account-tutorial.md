@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://github.com/enterprises/<ENTERPRISE-SLUG>/sso`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Reply URL and Identifier. Contact [GitHub Enterprise Cloud - Enterprise Account Client support team](mailto:support@github.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> Replace `<ENTERPRISE-SLUG>` with the actual name of your GitHub Enterprise Account.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -140,9 +140,10 @@ After you enable SAML SSO for your GitHub Enterprise Account, SAML SSO is enable
 
 ## Test SSO with another enterprise account owner or organization member account
 
-- Once the SAML integration is setup for the GitHub enterprise account (which also applies to the GitHub organizations in the enterprise account), enterprise account owners should be able to navigate to the GitHub enterprise account URL (`https://github.com/enterprises/<enterprise account>`), authenticate via SAML, and access the policies and settings under the GitHub enterprise account. 
+- Once the SAML integration is setup for the GitHub enterprise account (which also applies to the GitHub organizations in the enterprise account), other enterprise account owners who are assigned to the app in Azure AD should be able to navigate to the GitHub enterprise account URL (`https://github.com/enterprises/<enterprise account>`), authenticate via SAML, and access the policies and settings under the GitHub enterprise account. 
 - An organization owner for an organization in an enterprise account should be able to [invite a user to join their GitHub organization](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization). Sign in to GitHub.com with an organization owner account and follow the steps in the article to invite `B.Simon` to the organization. A GitHub user account will need to be created for `B.Simon` if one does not already exist. 
-- To test GitHub organization access under the enterprise account with the `B.Simon` test user account:
+- To test GitHub organization access under the Enterprise Account with the `B.Simon` test user account:
+  - Invite `B.Simon` to an organization under the Enterprise Account as an organization owner. 
   - Sign in to GitHub.com using the user account you would like to link to the `B.Simon` Azure AD user account.
   - Sign in to Azure AD using the `B.Simon` user account.
   - Navigate to the GitHub organization. The user should be prompted to authenticate via SAML. After successful SAML authentication, `B.Simon` should be able to access organization resources. 
