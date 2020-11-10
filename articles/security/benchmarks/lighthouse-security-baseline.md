@@ -30,7 +30,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40234.).
 
-**Guidance**: Not applicable; Azure Lighthouse resources does not support deploying directly into any virtual network, because of this you can not leverage certain networking features with the Azure Lighthouse's resources such as network security groups, route tables, or other network dependent appliances such as an Azure Firewall.
+**Guidance**: Not applicable; The Azure Lighthouse service does not have any resources which would deploy into a virtual network, and does not allows for its management endpoints to be secured via Private Link. The Azure Lighthouse service simply provides delegated resource management capabilities and a cross-tenant experience for enterprise IT organizations managing multiple tenants.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -63,7 +63,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40237.).
 
-**Guidance**: Not applicable; Azure Lighthouse does not support deploying directly into a virtual network, because of this you can not leverage traditional networking features to prevent denial of service (DDoS) attacks with native Azure network features like DDoS Protection Standard.
+**Guidance**: Not applicable; The Azure Lighthouse service does not have any resources which would deploy into a virtual network. Customers can not, and do not need to configure any additional network protection features like Azure DDoS Standard for the Azure Lighthouse service.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -74,7 +74,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40238.).
 
-**Guidance**: Not applicable; Azure Lighthouse does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution for detecting or preventing threats on the network.
+**Guidance**: Not applicable; Azure Lighthouse does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -85,7 +85,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40239.).
 
-**Guidance**: Not applicable; this recommendation is intended for offerings that can be deployed into Azure Virtual Networks, or have the capability to define groupings of allowed IP ranges for efficient management. Azure Lighthouse does not currently support service tags, or it is not designed to deploy into Azure virtual networks.
+**Guidance**: Not applicable; Azure Lighthouse does not currently support service tags, and is not designed to deploy into Azure virtual networks. This recommendation is intended for offerings that can be deployed into Azure virtual networks, or have the capability to define groupings of allowed IP ranges for efficient management.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -100,7 +100,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ## Identity Management
 
@@ -111,14 +111,14 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40220.).
 
-**Guidance**: Azure Lighthouse uses Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in:
-Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
+**Guidance**: Azure Lighthouse uses Azure Active Directory (Azure AD) as the default identity and access management service. Standardize Azure AD to govern your organization’s identity and access management in:
+- Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
+- Your organization's resources, such as applications on Azure or your corporate network resources.
 
-Your organization's resources, such as applications on Azure or your corporate network resources.
+Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to 
+Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
 
-Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
-
-Note: Azure AD supports external identity that allow users without a Microsoft account to sign-in to their applications and resources with their external identity.
+Note that Azure AD supports external identity that allow users without a Microsoft account to sign-in to their applications and resources with their external identity.
 
 - [Tenancy in Azure Active Directory](../../active-directory/develop/single-and-multi-tenant-apps.md) 
 
@@ -137,7 +137,7 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40221.).
 
-**Guidance**: Not applicable; Azure Lighthouse doesn't use any identities or manage any secrets for identities.
+**Guidance**: Not applicable; Azure Lighthouse does not use any identities or manage any secrets for identities.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -148,7 +148,9 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40222.).
 
-**Guidance**: Not applicable; Azure Lighthouse doesn't support SSO for authentication to its resources.
+**Guidance**: Azure Lighthouse uses Azure Active Directory (Azure AD) as the default identity and access management service. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. Azure AD enables single sign-on (SSO) to manage the App Lighthouse service, and other delegated resources through the Azure portal using your synced enterprise identities.
+
+- [Understand Application SSO with Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -159,9 +161,7 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40223.).
 
-**Guidance**: Not applicable; Azure Lighthouse doesn't provide capability to support strong authentication.
-
-(With PIM integration we have in future this might change, this feature and its documentation is not yet public)
+**Guidance**: Not applicable; Azure Lighthouse does not provide capability to support strong authentication.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -172,7 +172,7 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40224.).
 
-**Guidance**: Not applicable; Azure Lighthouse doesn't use any sensitive accounts or there is no account activity logs or logs are not exportable by customers.
+**Guidance**: Not applicable; Azure Lighthouse does not use any sensitive accounts or there is no account activity logs or logs are not exportable by customers.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -183,7 +183,7 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40225.).
 
-**Guidance**: Not applicable; Azure Lighthouse doesn't support capability of conditional access
+**Guidance**: Not applicable; Azure Lighthouse does not support capability conditional access.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -194,7 +194,7 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40226.).
 
-**Guidance**: Not applicable; Azure Lighthouse doesn't allow customer to deploy any persisted data into the running environment.
+**Guidance**: Not applicable; Azure Lighthouse uses Azure Active Directory (Azure AD) for authentication and Azure role-based access control (Azure RBAC) to manage access. Azure Lighthouse does not use keys for service authentication, this control is focused on eliminating exposure of credentials in code.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -205,7 +205,7 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40262.).
 
-**Guidance**: Not applicable; Azure Lighthouse doesn't access any legacy applications.
+**Guidance**: Not applicable; Azure Lighthouse does not host or access any legacy applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -220,7 +220,7 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40227.).
 
-**Guidance**: Not applicable; Azure Lighthouse doesn't use any administrative accounts
+**Guidance**: Not applicable; Azure Lighthouse does not use any administrative accounts.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -231,17 +231,17 @@ Note: Azure AD supports external identity that allow users without a Microsoft a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40228.).
 
-**Guidance**: Azure Lighthouse uses Azure RBAC to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
+**Guidance**: Azure Lighthouse uses Azure role-based access control (Azure RBAC) to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
 
 Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers (DCs), security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical assets.
 
 All types of access controls should be aligned to your enterprise segmentation strategy to ensure consistent access control.
 
-Azure Components and Reference model /security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151 
+- [Azure Components and Reference model](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151) 
 
-Management Group Access ../../governance/management-groups/overview.md#management-group-access 
+- [Management Group Access](../../governance/management-groups/overview.md#management-group-access) 
 
-Azure subscription administrators ../../cost-management-billing/manage/add-change-subscription-administrator.md
+- [Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -252,7 +252,7 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40229.).
 
-**Guidance**: Azure Lighthouse uses Azure Active Directory (AAD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
+**Guidance**: Azure Lighthouse uses Azure Active Directory (Azure AD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
 
 In addition, Azure Privileged Identity Management can also be configured to alert when an excessive number of administrator accounts are created, and to identify administrator accounts that are stale or improperly configured.
 
@@ -286,7 +286,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40231.).
 
-**Guidance**: Azure Lighthouse is integrated with Azure Active Directory to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
+**Guidance**: Azure Lighthouse is integrated with Azure Active Directory (Azure AD)  to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
 
 - [What are Azure AD access reviews](/azure/active-directory/governance/access-reviews-overview) 
 
@@ -301,7 +301,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40232.).
 
-**Guidance**: Not applicable; Azure Lighthouse doesn't support management from a customer workstation.
+**Guidance**: Not applicable; Azure Lighthouse does not support management from a customer workstation.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -380,7 +380,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40244.).
 
-**Guidance**: Not applicable; Azure Lighthouse does not store, process or transmit sensitive data
+**Guidance**: !
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -730,15 +730,15 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 **Guidance**: Azure Lighthouse supports below service-specific policies that are available in Azure Security Center to audit and enforce configurations of your Azure resources. This can be configured in Azure Security Center or Azure Policy initiatives.
 
-- [Azure Lighthouse Policies](../../lighthouse/samples/policy-reference.md)
-
 You can use Azure Blueprints to automate deployment and configuration of services and application environments including Azure Resources Manager templates, Azure RBAC controls, and policies, in a single blueprint definition.
+
+- [Azure Lighthouse Policies](../../lighthouse/samples/policy-reference.md)
 
 Working with security policies in Azure Security Center ../../security-center/tutorial-security-policy.md 
 
 Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition 
 
-- [Tutorial: Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md) 
+- [Tutorial - Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md) 
 
 - [Azure Blueprints](../../governance/blueprints/overview.md)
 
@@ -882,7 +882,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40269.).
 
-**Guidance**: Not applicable; Azure Lighthouse doesn't support any data backup or have no needs for data backup.
+**Guidance**: Not applicable; Azure Lighthouse does not support any data backup or have any needs for data backup.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -904,7 +904,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40271.).
 
-**Guidance**: Not applicable; Azure Lighthouse doesn't support any data backup
+**Guidance**: Not applicable; Azure Lighthouse doesn't support any data backups.
 
 **Azure Security Center monitoring**: Not applicable
 
