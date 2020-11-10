@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started analyze with Spark' 
+title: 'Quickstart: Get started analyzing with Spark' 
 description: In this tutorial, you'll learn to analyze data with Apache Spark
 services: synapse-analytics
 author: saveenr
@@ -14,7 +14,7 @@ ms.date: 07/20/2020
 
 # Analyze with Apache Spark
 
-## Analyze NYC Taxi data in blob storage  using Spark
+## Analyze NYC Taxi data in blob storage using Spark
 
 In this tutorial, you'll learn the basic steps to load and analyze data with Apache Spark for Azure Synapse.
 
@@ -27,8 +27,8 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
     data_df = data.to_spark_dataframe()
     display(data_df.limit(10))
     ```
-1. In the notebook choose a spark pool in the **Attach to** menu
-1. Click **Run** on the cell
+1. In the notebook, choose a serverless Spark pool in the **Attach to** menu
+1. Select **Run** on the cell
 
 ## Load the NYC Taxi data into the Spark nyctaxi database
 
@@ -48,8 +48,8 @@ We have data available in a table in **SQLDB1**. Load it into a Spark database n
 
 1. Go to the **Data** hub, right-click **Databases**, and then select **Refresh**. You should see these databases:
 
-    - **SQLDB1** (SQL pool)
-    - **nyctaxi** (Spark)
+    - **SQLDB1** (dedicated SQL pool)
+    - **nyctaxi** (serverless Apache Spark pool)
 
 ## Analyze the NYC Taxi data using Spark and notebooks
 
@@ -62,7 +62,7 @@ We have data available in a table in **SQLDB1**. Load it into a Spark database n
    display(df)
    ```
 
-1. Run the following code to do the same analysis that we did earlier with the SQL pool **SQLDB1**. This code saves the results of the analysis into a table called **nyctaxi.passengercountstats** and visualizes the results.
+1. Run the following code to do the same analysis that we did earlier with the dedicated SQL pool **SQLDB1**. This code saves the results of the analysis into a table called **nyctaxi.passengercountstats** and visualizes the results.
 
    ```py
    %%pyspark
@@ -100,13 +100,13 @@ matplotlib.pyplot.show()
 
 
 
-## Load data from a Spark table into a SQL pool table
+## Load data from a Spark table into a dedicated SQL pool table
 
-Earlier we copied data from the SQL pool table **SQLDB1.dbo.Trip** into the Spark table **nyctaxi.trip**. Then, using
+Earlier we copied data from the dedicated SQL pool table **SQLDB1.dbo.Trip** into the Spark table **nyctaxi.trip**. Then, using
 Spark, we aggregated the data into the Spark table **nyctaxi.passengercountstats**. Now we'll copy the data
-from **nyctaxi.passengercountstats** into a SQL pool table called **SQLDB1.dbo.PassengerCountStats**.
+from **nyctaxi.passengercountstats** into a dedicated SQL pool table called **SQLDB1.dbo.PassengerCountStats**.
 
-Run the following cell in your notebook. It copies the aggregated Spark table back into the SQL pool table.
+Run the following cell in your notebook. It copies the aggregated Spark table back into the dedicated SQL pool table.
 
 ```scala
 %%spark
@@ -117,6 +117,6 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze data with SQL on-demand](get-started-analyze-sql-on-demand.md)
+> [Analyze data with serverless SQL pool](get-started-analyze-sql-on-demand.md)
 
 

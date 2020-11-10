@@ -44,7 +44,7 @@ The license type of SQL Server can be configured when the VM is provisioned, or 
 Changing the licensing model of your SQL Server VM has the following requirements: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](sql-vm-resource-provider-register.md).
+- A [SQL Server VM](./create-sql-vm-portal.md) registered with the [SQL VM resource provider](sql-vm-resource-provider-register.md).
 - [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) is a requirement to utilize the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
@@ -175,5 +175,3 @@ For more information, see the following articles:
 * [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.md)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
 * [Release notes for SQL Server on a Windows VM](../../database/doc-changes-updates-release-notes.md)
-
-

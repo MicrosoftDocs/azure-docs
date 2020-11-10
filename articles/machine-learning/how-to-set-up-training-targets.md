@@ -24,12 +24,12 @@ All you need to do is define the environment for each compute target within a **
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
-* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
+* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md), `ws`
 * A compute target, `my_compute_target`.  [Create a compute target](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-run-configuration"></a>What's a script run configuration?
-A [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) is used to configure the information necessary for submitting a training run as part of an experiment.
+A [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) is used to configure the information necessary for submitting a training run as part of an experiment.
 
 You submit your training experiment with a ScriptRunConfig object.  This object includes the:
 
@@ -37,7 +37,7 @@ You submit your training experiment with a ScriptRunConfig object.  This object 
 * **script**: The training script to run
 * **compute_target**: The compute target to run on
 * **environment**: The environment to use when running the script
-* and some additional configurable options (see the [reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) for more information)
+* and some additional configurable options (see the [reference documentation](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) for more information)
 
 ## <a id="submit"></a>Train your model
 
@@ -74,7 +74,7 @@ The example code in this article assumes that you have already created a compute
 ## Create an environment
 Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
 
-You can either define your own environment, or use an Azure ML curated environment. [Curated environments](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments#use-a-curated-environment) are predefined environments that are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. See [Azure Machine Learning Curated Environments](https://docs.microsoft.com/azure/machine-learning/resource-curated-environments) for the full list of available curated environments.
+You can either define your own environment, or use an Azure ML curated environment. [Curated environments](./how-to-use-environments.md#use-a-curated-environment) are predefined environments that are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. See [Azure Machine Learning Curated Environments](./resource-curated-environments.md) for the full list of available curated environments.
 
 For a remote compute target, you can use one of these popular curated environments to start with:
 
@@ -125,12 +125,12 @@ If you have command-line arguments you want to pass to your training script, you
 If you want to override the default maximum time allowed for the run, you can do so via the **`max_run_duration_seconds`** parameter. The system will attempt to automatically cancel the run if it takes longer than this value.
 
 ### Specify a distributed job configuration
-If you want to run a distributed training job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true), and [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true). 
+If you want to run a distributed training job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py), and [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py). 
 
 For more information and examples on running distributed Horovod, TensorFlow and PyTorch jobs, see:
 
-* [Train TensorFlow models](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow#distributed-training)
-* [Train PyTorch models](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch#distributed-training)
+* [Train TensorFlow models](./how-to-train-tensorflow.md#distributed-training)
+* [Train PyTorch models](./how-to-train-pytorch.md#distributed-training)
 
 ## Submit the experiment
 
@@ -176,5 +176,5 @@ See these notebooks for examples of configuring runs for various training scenar
 * See how to train models with specific ML frameworks, such as [Scikit-learn](how-to-train-scikit-learn.md), [TensorFlow](how-to-train-tensorflow.md), and [PyTorch](how-to-train-pytorch.md).
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
-* View the [ScriptRunConfig class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) SDK reference.
-* [Use Azure Machine Learning with Azure Virtual Networks](how-to-enable-virtual-network.md)
+* View the [ScriptRunConfig class](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) SDK reference.
+* [Use Azure Machine Learning with Azure Virtual Networks](./how-to-network-security-overview.md)

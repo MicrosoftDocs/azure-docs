@@ -13,15 +13,41 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create function
+    - name: Create your first function
       expanded: true
       items:
         - name: Visual Studio Code
-          href: ./functions-create-first-function-vs-code.md
+          expanded: true
+          items:
+          - name: C#
+            href: create-first-function-vs-code-csharp.md
+          - name: Java
+            href: create-first-function-vs-code-java.md
+          - name: JavaScript
+            href: create-first-function-vs-code-node.md
+          - name: PowerShell
+            href: create-first-function-vs-code-powershell.md
+          - name: Python
+            href: create-first-function-vs-code-python.md
+          - name: TypeScript
+            href: create-first-function-vs-code-typescript.md
         - name: Visual Studio
           href: functions-create-your-first-function-visual-studio.md
         - name: Command line
-          href: functions-create-first-azure-function-azure-cli.md
+          expanded: false
+          items:
+          - name: C#
+            href: create-first-function-cli-csharp.md
+          - name: Java
+            href: create-first-function-cli-java.md
+          - name: JavaScript
+            href: create-first-function-cli-node.md
+          - name: PowerShell
+            href: create-first-function-cli-powershell.md
+          - name: Python
+            href: create-first-function-cli-python.md
+          - name: TypeScript
+            href: create-first-function-cli-typescript.md
         - name: ARM template
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md
@@ -79,7 +105,33 @@
         - name: TypeScript
           href: /samples/browse/?products=azure-functions&languages=typescript
     - name: Azure CLI
-      href: functions-cli-samples.md
+      items:
+        - name: CLI sample index
+          href: functions-cli-samples.md
+        - name: Create function app
+          items:
+            - name: Serverless function app
+              href: ./scripts/functions-cli-create-serverless.md
+            - name: Serverless Python app
+              href: ./scripts/functions-cli-create-serverless-python.md
+            - name: Scalable Premium plan app
+              href: ./scripts/functions-cli-create-premium-plan.md
+            - name: Dedicated (App Service) plan app  
+              href: ./scripts/functions-cli-create-app-service-plan.md
+        - name: Integrate services
+          items:
+            - name: Connect Azure Storage
+              href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
+            - name: Connect Azure Cosmos DB  
+              href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
+            - name: Python mount Files share
+              href: ./scripts/functions-cli-mount-files-storage-linux.md
+        - name: Continuous deployment
+          items:
+            - name: GitHub deployment
+              href: ./scripts/functions-cli-create-function-app-github-continuous.md
+            - name: DevOps deployment
+              href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Concepts
   items:
     - name: Compare runtime versions
@@ -186,11 +238,11 @@
                 - name: Azure portal
                   href: functions-create-first-azure-function.md
                 - name: Command line
-                  href: ./functions-create-first-azure-function-azure-cli.md
+                  href: ./create-first-function-cli-csharp.md
                 - name: Visual Studio
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
-                  href: ./functions-create-first-function-vs-code.md
+                  href: ./create-first-function-vs-code-csharp.md
                 - name: Java using Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java using Eclipse
@@ -204,7 +256,7 @@
                 - name: Linux App Service plan
                   href: create-function-app-linux-app-service-plan.md
                 - name: Linux Consumption plan
-                  href: ./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python
+                  href: create-first-function-cli-python.md
                 - name: Azure for Students Starter
                   href: functions-create-student-starter.md
             - name: Azure Cosmos DB trigger
@@ -244,7 +296,7 @@
         - name: Manage connections
           href: manage-connections.md
           displayName: best practice
-        - name: Error handling
+        - name: Error handling and retries
           href: functions-bindings-error-pages.md
         - name: Manually run a non HTTP-triggered function
           href: functions-manually-run-non-http.md

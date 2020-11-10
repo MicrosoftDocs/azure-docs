@@ -61,7 +61,7 @@ If you already have a virtual network to host Azure Spring Cloud service instanc
 
 1. Select **Add subnet**, then enter *service-runtime-subnet* for **Subnet name** and 10.1.0.0/24 for **Subnet address range**. Then click **Add**.
 
-1. Select **Add subnet** again, then enter *apps-subnet* for **Subnet name** and 10.1.1.0/24 for **Subnet address range**.  Click **Add**.
+1. Select **Add subnet** again, then enter **Subnet name** and **Subnet address range**, for example, *apps-subnet* and and 10.1.1.0/24 .  Click **Add**.
 
 1. Click **Review + create**. Leave the rest as defaults and click **Create**.
 
@@ -130,11 +130,11 @@ az role assignment create \
 
 After the deployment, two additional resource groups will be created in your subscription to host the network resources for the Azure Spring Cloud service instance.  Navigate to **Home** then select **Resource groups** from the top menu items to find the following new resource groups.
 
-The resource group named as *azure-spring-cloud-service-runtime_{service instance name}_{service instance region}* contains network resources for the Service Runtime of the service instance.
+The resource group named as *ap-svc-rt_{service instance name}_{service instance region}* contains network resources for the Service Runtime of the service instance.
 
   ![Service runtime](./media/spring-cloud-v-net-injection/service-runtime-resource-group.png)
 
-The resource group named as *azure-spring-cloud-service-runtime_{service instance name}_{service instance region}* contains network resources for your Spring Boot Microservice Applications of the service instance.
+The resource group named as *ap-app_{service instance name}_{service instance region}* contains network resources for your Spring Boot Microservice Applications of the service instance.
 
   ![Apps resource group](./media/spring-cloud-v-net-injection/apps-resource-group.png)
 

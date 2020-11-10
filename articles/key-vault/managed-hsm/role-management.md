@@ -109,7 +109,7 @@ az keyvault role definition list --hsm-name ContosoMHSM
 
 ## Next steps
 
-- See an overview of [Azure role-based access control (RBAC)](../../role-based-access-control/overview.md).
+- See an overview of [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 - See a tutorial on [Managed HSM role management](role-management.md)
 - Learn more about [Managed HSM access control model](access-control.md)
 - See all the [built-in roles for Managed HSM local RBAC](built-in-roles.md)

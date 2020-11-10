@@ -69,7 +69,7 @@ To route all outbound traffic from your ASE, except that which goes to Azure SQL
 
 2. Enable Service Endpoints with Azure SQL and Azure Storage with your ASE subnet.  After this step is completed, you can then configure your VNet with forced tunneling.
 
-To create your ASE in a virtual network that is already configured to route all traffic on premises, you need to create your ASE using a resource manager template.  It is not possible to create an ASE with the portal into a pre-existing subnet.  When deploying your ASE into a VNet that is already configured to route outbound traffic on premises, you need to create your ASE using a resource manager template, which does allow you to specify a pre-existing subnet. For details on deploying an ASE with a template, read [Creating an App Service Environment using a template][template].
+For details on deploying an ASE with a template, read [Creating an App Service Environment using a template][template].
 
 Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
 

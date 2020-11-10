@@ -17,7 +17,7 @@ These frequently asked questions (FAQ) cover common issues you might encounter w
 
 If you are using the Azure Resource Manager deployment model, you have three options:
 
-- [Create a route-based VPN gateway using the Azure portal](../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+- [Create a route-based VPN gateway using the Azure portal](../vpn-gateway/tutorial-create-gateway-portal.md)
 - [Create a route-based VPN gateway using Azure PowerShell](../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
 - [Create a route-based VPN gateway using CLI](../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
@@ -27,7 +27,7 @@ You can find details at [Microsoft server software support for Microsoft Azure v
 
 ## In a VM, how do I manage the custom script extension in the startup task?
 
-For details on using the Custom Script Extension using the Azure PowerShell module, Azure Resource Manager templates, and troubleshooting steps on Windows systems, see [Custom Script Extension for Windows](/azure/virtual-machines/extensions/custom-script-windows).
+For details on using the Custom Script Extension using the Azure PowerShell module, Azure Resource Manager templates, and troubleshooting steps on Windows systems, see [Custom Script Extension for Windows](../virtual-machines/extensions/custom-script-windows.md).
 
 ## Are 32-bit applications or services supported in Azure Marketplace?
 
@@ -35,7 +35,7 @@ No. The supported operating systems and standard services for Azure VMs are all 
 
 For more information, see these articles:
 
-- [Running 32-bit applications](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
+- [Running 32-bit applications](/windows/desktop/WinProg64/running-32-bit-applications)
 - [Support for 32-bit operating systems in Azure virtual machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 

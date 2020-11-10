@@ -3,6 +3,7 @@ title: Migrate data from Cassandra to Azure Cosmos DB Cassandra API using Blitzz
 description: Learn how to migrate data from Apache Cassandra database to Azure Cosmos DB Cassandra API using Blitzz. 
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
@@ -10,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Migrate data from Cassandra to Azure Cosmos DB Cassandra API account using Blitzz
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for a variety of reasons such as: 
 

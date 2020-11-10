@@ -44,7 +44,7 @@ val location = "eastus"
 
 ## Text Analytics
 
-The [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between `0.0` and `1.0` where low scores indicate negative sentiment and high score indicates positive sentiment.  The sample below uses three simple sentences and returns the sentiment score for each.
+The [Text Analytics](../text-analytics/index.yml) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between `0.0` and `1.0` where low scores indicate negative sentiment and high score indicates positive sentiment.  The sample below uses three simple sentences and returns the sentiment score for each.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -76,7 +76,7 @@ display(sentiment.transform(df).select(col("text"), col("sentiment")(0).getItem(
 
 ## Computer Vision
 
-[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analyzes images to identify structure such as faces, objects, and natural-language descriptions.
+[Computer Vision](../computer-vision/index.yml) analyzes images to identify structure such as faces, objects, and natural-language descriptions.
  In this sample, we tag a list of images. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
 
 ```scala
@@ -113,7 +113,7 @@ display(analysis.transform(df).select(col("image"), col("results").getItem("tags
 
 ## Bing Image Search
 
-[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) searches the web to retrieve images related to a user's natural language query. In this sample, we use a text query that looks for images with quotes. It returns a list of image URLs that contain photos related to our query.
+[Bing Image Search](../bing-image-search/overview.md) searches the web to retrieve images related to a user's natural language query. In this sample, we use a text query that looks for images with quotes. It returns a list of image URLs that contain photos related to our query.
 
 
 ```scala
@@ -158,7 +158,7 @@ display(pipeline.fit(df).transform(df))
 
 ## Speech-to-Text
 
-The [Speech-to-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) service converts streams or files of spoken audio to text. In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
+The [Speech-to-text](../speech-service/index-speech-to-text.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -191,7 +191,7 @@ display(speechToText.transform(df).select(col("url"), col("text").getItem("Displ
 
 ## Anomaly Detector
 
-[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) is great for detecting irregularities in your time series data. In this sample, we use the service to find anomalies in the entire time series.
+[Anomaly Detector](../anomaly-detector/index.yml) is great for detecting irregularities in your time series data. In this sample, we use the service to find anomalies in the entire time series.
 
 ```scala
 import org.apache.spark.sql.functions.{col, lit}

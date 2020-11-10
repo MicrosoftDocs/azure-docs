@@ -16,7 +16,7 @@ ms.date: 04/22/2020
 
 Microsoft's Big Data solution integrates Microsoft Business Intelligence (BI) components with Apache Hadoop clusters  deployed in  HDInsight. An example is the ability to connect Excel to the Hive data warehouse of a Hadoop cluster. Connect using the Microsoft Hive Open Database Connectivity (ODBC) Driver.
 
-You can connect the data associated with an HDInsight cluster from Excel with Microsoft Power Query add-in for Excel. For more information, see [Connect Excel to HDInsight with Power Query](../hdinsight-connect-excel-power-query.md).
+You can connect the data associated with an HDInsight cluster from Excel with Microsoft Power Query add-in for Excel. For more information, see [Connect Excel to HDInsight with Power Query](./apache-hadoop-connect-excel-power-query.md).
 
 ## Prerequisites
 
