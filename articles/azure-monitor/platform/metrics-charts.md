@@ -110,7 +110,7 @@ You can split a metric by dimension to visualize how different segments of the m
 
    ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/00012.png)
    
-3. Choose a limit on the number of values to be displayed after splitting by selected dimension. The default limit is 10 as shown int he above chart. The of limit is 1 - 50.
+3. Choose a limit on the number of values to be displayed after splitting by selected dimension. The default limit is 10 as shown in the above chart. The range of limit is 1 - 50.
    
    ![Screenshot that shows split limit, which restricts the number of values after splitting.](./media/metrics-charts/00011.png)
    
