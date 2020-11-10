@@ -1,5 +1,5 @@
 ---
-title: Understand search
+title: Understand search features in Azure Purview
 description: This article explains what search is in Azure Purview.
 author: chanuengg
 ms.author: csugunan
@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 11/06/2020
 ---
 
-# Search overview
+# Understand search features in Azure Purview
 
-This article provides an overview of Search experience in Azure Purview. Search is a core platform capability of Purview, that powers the data discovery and data use governance experiences in an organization.
+This article provides an overview of the search experience in Azure Purview. Search is a core platform capability of Purview, that powers the data discovery and data use governance experiences in an organization.
 
 ## Search
+
 Purview search experience is powered by a managed search index. After a data source is registered with Purview, its metadata is indexed by the search service to allow easy discovery. The index provides search relevance capabilities and serve-up search requests by querying millions of metadata assets. Search helps the users to discover, understand, and use the data to get the most value out of it. 
 
 The Search experience in Purview is a three stage process. At stage zero, the search box shows the history containing recently used keywords and assets. At stage one, when the user starts typing the keystrokes, the search suggests the matching keywords and asset. At stage two, the search result page is shown with assets matching the keyword entered.

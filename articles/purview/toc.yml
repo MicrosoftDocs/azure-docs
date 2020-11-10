@@ -54,7 +54,9 @@ items:
   - name: Supported data sources
     href: sources-and-scans.md
   - name: Catalog permissions
-    href: catalog-permissions.md    
+    href: catalog-permissions.md
+  - name: Search
+    href: concept-search.md     
 - name: How-to guides
   items:
   - name: Register & scan
