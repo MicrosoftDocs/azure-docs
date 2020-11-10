@@ -46,7 +46,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet). In this example, you create a [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) using a subscription key and region. You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true). In this example, you create a [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) using a subscription key and region. You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
 Note that the region is set to `westus`, as it is the only supported region for the service.
 

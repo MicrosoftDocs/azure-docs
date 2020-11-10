@@ -16,7 +16,7 @@ This article shows you how to render point data from a data source as a symbol l
 
 ## Prerequisites
 
-To completely follow steps in this article, you need to install [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) to load a map.
+To completely follow steps in this article, you need to install [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) to load a map.
 
 ## Add a symbol layer
 
@@ -175,7 +175,7 @@ At this point, if you run your application you should see a marker on the map, a
 To add more stuff to your map, see:
 
 > [!div class="nextstepaction"]
-> [Add shapes to an Android map](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Add shapes to an Android map](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Display feature information](display-feature-information-android.md)

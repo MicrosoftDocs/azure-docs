@@ -2,7 +2,7 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/10/2020
+ms.date: 10/15/2020
 ms.author: erhopf
 ---
 To create a Visual Studio project for C++ desktop development, you need to set up Visual Studio development options, create the project, select the target architecture, and install the Speech SDK.

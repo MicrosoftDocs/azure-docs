@@ -20,9 +20,9 @@ Azure Cache for Redis is extremely performant and scalable – when paired with 
 
 ## Prerequisites
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/).
-* An Azure Machine Learning workspace. For more information, see the [Create a workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) article.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
-* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml) to train and register one.
+* An Azure Machine Learning workspace. For more information, see the [Create a workspace](../machine-learning/how-to-manage-workspace.md) article.
+* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](../machine-learning/tutorial-train-models-with-aml.md) to train and register one.
 
 > [!IMPORTANT]
 > The code snippets in this article assume that you have set the following variables:
@@ -31,7 +31,7 @@ Azure Cache for Redis is extremely performant and scalable – when paired with 
 > * `model` - The registered model that will be deployed.
 > * `inference_config` - The inference configuration for the model.
 >
-> For more information on setting these variables, see [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+> For more information on setting these variables, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
 ## Create an Azure Cache for Redis instance 
 You’ll be able to deploy a machine learning model to Azure Functions with any Basic, Standard, or Premium cache instance. To create a cache instance, follow these steps.  
@@ -83,7 +83,7 @@ Before deploying, you must define what is needed to run the model as a web servi
     >
     > If the request data is in a format that is not usable by your model, the script can transform it into an acceptable format. It may also transform the response before returning it to the client.
     >
-    > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-advanced-entry-script#binary-data).
+    > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](../machine-learning/how-to-deploy-advanced-entry-script.md#binary-data).
 
 For the run function, ensure it connects to a Redis endpoint.
 
@@ -116,14 +116,14 @@ def run(data):
         return error
 ```
 
-For more information on entry script, see [Define scoring code.](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=python#define-an-entry-script)
+For more information on entry script, see [Define scoring code.](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-entry-script)
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
 These entities are encapsulated into an __inference configuration__. The inference configuration references the entry script and other dependencies.
 
 > [!IMPORTANT]
-> When creating an inference configuration for use with Azure Functions, you must use an [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
+> When creating an inference configuration for use with Azure Functions, you must use an [Environment](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -139,9 +139,9 @@ These entities are encapsulated into an __inference configuration__. The inferen
 > inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 > ```
 
-For more information on environments, see [Create and manage environments for training and deployment](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments).
+For more information on environments, see [Create and manage environments for training and deployment](../machine-learning/how-to-use-environments.md).
 
-For more information on inference configuration, see [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=python#define-an-inference-configuration).
+For more information on inference configuration, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-inference-configuration).
 
 > [!IMPORTANT]
 > When deploying to Functions, you do not need to create a __deployment configuration__.
@@ -156,10 +156,10 @@ pip install azureml-contrib-functions
 
 ## Create the image
 
-To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) or the specific package function for the trigger you are interested in using. The following code snippet demonstrates how to create a new package with a HTTP trigger from the model and inference configuration:
+To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) or the specific package function for the trigger you are interested in using. The following code snippet demonstrates how to create a new package with a HTTP trigger from the model and inference configuration:
 
 > [!NOTE]
-> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
 ```python
 from azureml.contrib.functions import package
@@ -173,7 +173,7 @@ print(model_package.location)
 When `show_output=True`, the output of the Docker build process is shown. Once the process finishes, the image has been created in the Azure Container Registry for your workspace. Once the image has been built, the location in your Azure Container Registry is displayed. The location returned is in the format `<acrinstance>.azurecr.io/package@sha256:<imagename>`.
 
 > [!NOTE]
-> Packaging for functions currently supports HTTP Triggers, Blob triggers and Service bus triggers. For more information on triggers, see [Azure Functions bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
+> Packaging for functions currently supports HTTP Triggers, Blob triggers and Service bus triggers. For more information on triggers, see [Azure Functions bindings](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns).
 
 > [!IMPORTANT]
 > Save the location information, as it is used when deploying the image.
@@ -310,8 +310,7 @@ After a few moments, the resource group and all of its resources are deleted.
 
 ## Next steps 
 
-* Learn more about [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview)
-* Learn to configure your Functions App in the [Functions](/azure/azure-functions/functions-create-function-linux-custom-image) documentation.
-* [API Reference](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) 
-* Create a [Python app that uses Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started)
-
+* Learn more about [Azure Cache for Redis](./cache-overview.md)
+* Learn to configure your Functions App in the [Functions](../azure-functions/functions-create-function-linux-custom-image.md) documentation.
+* [API Reference](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 
+* Create a [Python app that uses Azure Cache for Redis](./cache-python-get-started.md)

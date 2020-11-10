@@ -233,10 +233,10 @@ For more info about SQL Data Sync, see:
 
 - [Data Sync Agent for Azure SQL Data Sync](sql-data-sync-agent-overview.md)
 - [Best practices](sql-data-sync-best-practices.md) and [How to troubleshoot issues with Azure SQL Data Sync](sql-data-sync-troubleshoot.md)
-- [Monitor SQL Data Sync with Azure Monitor logs](sql-data-sync-monitor-sync.md)
+- [Monitor SQL Data Sync with Azure Monitor logs](./monitor-tune-overview.md)
 - [Update the sync schema with Transact-SQL](sql-data-sync-update-sync-schema.md) or [PowerShell](scripts/update-sync-schema-in-sync-group.md)
 
 For more info about SQL Database, see:
 
 - [SQL Database Overview](sql-database-paas-overview.md)
-- [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
+- [Database Lifecycle Management](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

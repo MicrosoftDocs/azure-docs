@@ -13,7 +13,7 @@ ms.author: banders
 
 # Sign up for an Azure subscription with your Microsoft 365 account
 
-If you have a Microsoft 365 subscription, you can use your Microsoft 365 account to create an Azure subscription. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft 365 user name and password. If you want to set up virtual machines or use other Azure services, you must sign up for an Azure subscription. You can share your Azure subscription with others and [use Azure role-based access control (Azure RBAC) to manage access to your Azure subscription and resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+If you have a Microsoft 365 subscription, you can use your Microsoft 365 account to create an Azure subscription. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft 365 user name and password. If you want to set up virtual machines or use other Azure services, you must sign up for an Azure subscription. You can share your Azure subscription with others and [use Azure role-based access control (Azure RBAC) to manage access to your Azure subscription and resources](../../role-based-access-control/role-assignments-portal.md).
 
 If you already have both a Microsoft 365 account and an Azure subscription, see [Associate a Microsoft 365 tenant to an Azure subscription](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -52,4 +52,4 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 ## Next steps
 
-- Share your Azure subscription with others and [use Azure role-based access control (Azure RBAC) to manage access to your Azure subscription and resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- Share your Azure subscription with others and [use Azure role-based access control (Azure RBAC) to manage access to your Azure subscription and resources](../../role-based-access-control/role-assignments-portal.md).

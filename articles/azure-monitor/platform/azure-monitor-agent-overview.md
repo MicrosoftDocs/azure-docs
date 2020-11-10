@@ -80,7 +80,7 @@ The Azure Monitor agent sends data to Azure Monitor Metrics or a Log Analytics w
 
 
 ## Supported operating systems
-See [Supported operating systems](agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Log Analytics agent.
+See [Supported operating systems](agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
 
 
 

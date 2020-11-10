@@ -11,6 +11,7 @@ ms.date: 09/14/2020
 ---
 
 # Apache Cassandra features supported by Azure Cosmos DB Cassandra API 
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through the CQL Binary Protocol v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). 
 
@@ -146,6 +147,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | CREATE USER (Deprecated in native Apache Cassandra) | No |
 | DELETE | Yes |
 | DELETE (lightweight transactions with IF CONDITION)| Yes |
+| DISTINCT | No |
 | DROP AGGREGATE | No |
 | DROP FUNCTION | No |
 | DROP INDEX | Yes |
@@ -202,7 +204,7 @@ You can also connect to the Cassandra API in Azure Cosmos DB by using the CQLSH 
 
 **Windows:**
 
-If using windows, we recommend you enable the [Windows filesystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
+If using windows, we recommend you enable the [Windows filesystem for Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
 
 **Unix/Linux/Mac:**
 
@@ -249,7 +251,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## Consistency mapping 
 
-Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](consistency-levels-across-apis.md#cassandra-mapping).
+Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](./cassandra-consistency.md#mapping-consistency-levels).
 
 ## Permission and role management
 

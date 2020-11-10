@@ -34,6 +34,9 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 
 East US, East US 2, Central US, South Central US, West US 2, West Europe, North Europe, UK South, Southeast Asia and Australia East.
 
+### Is any customer data stored outside of the specified region?
+
+Azure Spring Cloud is a regional service. All customer data in Azure Spring Cloud is stored to multiple regions within the same geo of the specified region for redundancy. To learn more about geo and region, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### What are the known limitations of Azure Spring Cloud?
 
@@ -101,7 +104,7 @@ You can delete Spring Cloud's diagnostic settings by using Azure CLI:
 
 ### Which versions of Java runtime are supported in Azure Spring Cloud?
 
-Azure Spring Cloud supports Java LTS versions with the most recent builds, currently June 2020, Java 8 build 252 and Java 11 build 7 are supported. See [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
+Azure Spring Cloud supports Java LTS versions with the most recent builds, currently June 2020, Java 8 and Java 11 are supported. See [Install the JDK for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### Who built these Java runtimes?
 
@@ -158,7 +161,7 @@ Yes. For more information, see [Launch your Spring Cloud application from source
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 
-No.
+Yes.  For more information, see [Setup autoscale](spring-cloud-tutorial-setup-autoscale.md).
 
 ::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?

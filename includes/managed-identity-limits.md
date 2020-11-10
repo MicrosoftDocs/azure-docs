@@ -11,7 +11,7 @@
  ms.custom: include file
 ---
 
-- Each managed identity counts towards the object quota limit in an Azure AD tenant as described in [Azure AD service limits and restrictions](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md).
+- Each managed identity counts towards the object quota limit in an Azure AD tenant as described in [Azure AD service limits and restrictions](../articles/active-directory/enterprise-users/directory-service-limits-restrictions.md).
 -	The rate at which managed identities can be created have the following limits:
 
     1. Per Azure AD Tenant per Azure region: 200 create operations per 20 seconds.

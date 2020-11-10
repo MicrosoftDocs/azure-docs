@@ -15,6 +15,11 @@ ms.author: aahi
 
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and PHP
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple PHP application sends a partial search query to the API, and returns suggestions for searches. While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
@@ -152,4 +157,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## See also
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

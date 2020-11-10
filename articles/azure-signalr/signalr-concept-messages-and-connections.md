@@ -56,7 +56,7 @@ Message sent into the service is inbound message. Message sent out of the servic
 
 ## Related resources
 
-- [Aggregation types in Azure Monitor](/azure/azure-monitor/platform/metrics-supported#microsoftsignalrservicesignalr )
+- [Aggregation types in Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr )
 - [ASP.NET Core SignalR configuration](/aspnet/core/signalr/configuration)
 - [JSON](https://www.json.org/)
 - [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)

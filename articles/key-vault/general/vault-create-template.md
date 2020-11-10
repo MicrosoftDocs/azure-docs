@@ -1,6 +1,6 @@
 ---
-title: Azure Guide - Create an Azure key vault and a vault access policy by using Azure Resource Manager template | Microsoft Docs
-description: Shows how to create Azure key vaults and vault access policies by using Azure Resource Manager template.
+title: Create an Azure key vault and a vault access policy by using ARM template
+description: This article shows how to create Azure key vaults and vault access policies by using an Azure Resource Manager template.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,26 +11,26 @@ ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
 
-#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
+#Customer intent: As a security admin who's new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 
 ---
 
-# How to create Azure Key Vault and vault access policy using a Resource Manager template
+# How to create an Azure key vault and vault access policy by using a Resource Manager template
 
-[Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This guide focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a key vault.
+[Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets like keys, passwords, and certificates. This article describes the process for deploying an Azure Resource Manager template (ARM template) to create a key vault.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
-To complete this article:
+To complete the steps in this article:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start.
 
 
-## Create Key Vault Resource Manager template
+## Create a Key Vault Resource Manager template
 
-The following template shows a basic way to create key vault. Some values are specified within the template.
+The following template shows a basic way to create a key vault. Some values are specified in the template.
 
 ```json
 {
@@ -82,14 +82,14 @@ The following template shows a basic way to create key vault. Some values are sp
 
 ```
 
-For more about Key Vault template settings, see [Key Vault ARM template reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
+For more about Key Vault template settings, see [Key Vault ARM template reference](/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
-> If template is redeployed it will override any existing access policies in the key vault. It is recommended to populate `accessPolicies` property with existing access policies to avoid loosing access to key vault. 
+> If a template is redeployed, any existing access policies in the key vault will be overridden. We recommend that you populate the `accessPolicies` property with existing access policies to avoid losing access to the key vault. 
 
-## Add access policy to Key Vault Resource Manager template
+## Add an access policy to a Key Vault Resource Manager template
 
-You can deploy access policies to existing key vault without redeployment of entire key vault template. The following template shows a basic way to create access policies.
+You can deploy access policies to an existing key vault without redeploying the entire key vault template. The following template shows a basic way to create access policies:
 
 ```json
 {
@@ -158,24 +158,24 @@ You can deploy access policies to existing key vault without redeployment of ent
 }
 
 ```
-For more about Key Vault template settings, see [Key Vault ARM template reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+For more information about Key Vault template settings, see [Key Vault ARM template reference](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
-## Other available Key Vault Resource Manager templates
+## More Key Vault Resource Manager templates
 
 There are other Resource Manager templates available for Key Vault objects:
 
 | Secrets | Keys | Certificates |
 |--|--|--|
-|[Quickstart](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<br>[Reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/A|N/A|
+|<ul><li>[Quickstart](../secrets/quick-create-template.md)<li>[Reference](/azure/templates/microsoft.keyvault/vaults/secrets)|N/A|N/A|
 
-More Key Vault templates you can find here: [Key Vault Resource Manager reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions)
+You can find more Key Vault templates here: [Key Vault Resource Manager reference](/azure/templates/microsoft.keyvault/allversions).
 
 ## Deploy the templates
 
-You can use the Azure portal to deploy above templates by using 'Build your own template in editor' option in guide below:
-[Deploy resources from custom template](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template)
+You can use the Azure portal to deploy the preceding templates by using the **Build your own template in editor** option as described here:
+[Deploy resources from a custom template](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-You can also save above templates to files and use following commands:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create):
+You can also save the preceding templates to files and use these commands:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-vault-template.json
@@ -187,7 +187,7 @@ az group deployment create --resource-group ExampleGroup --template-file key-vau
 
 ## Clean up resources
 
-If you plan to continue and work on subsequent quickstarts and tutorials, you can leave these resources in place. When the resources are no longer needed, delete the resource group, which deletes the key vault and related resources. To delete the resource group by using the Azure CLI or Azure PowerShell, use the following steps.
+If you plan to continue with subsequent quickstarts and tutorials, you can leave these resources in place. When you don't need the resources any longer, delete the resource group. If you delete the group, the key vault and related resources are also deleted. To delete the resource group by using the Azure CLI or Azure PowerShell, complete these steps:
 
 # [CLI](#tab/CLI)
 
@@ -210,12 +210,12 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Resources
 
-- Read an [Overview of Azure Key Vault](../general/overview.md)
-- Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- Read an [Overview of Azure Key Vault](../general/overview.md).
+- Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- Review [Azure Key Vault best practices](../general/best-practices.md).
 
 ## Next steps
 
 - [Secure access to a key vault](secure-your-key-vault.md)
 - [Authenticate to a key vault](authentication.md)
-- [Azure Key Vault Developer's guide](developers-guide.md)
+- [Azure Key Vault Developer's Guide](developers-guide.md)

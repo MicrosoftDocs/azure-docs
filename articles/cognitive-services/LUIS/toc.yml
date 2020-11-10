@@ -242,6 +242,8 @@
     - name: Container limitations
       href: luis-container-limitations.md
       displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+    - name: Cognitive Services containers documentation
+      href: ../containers/index.yml
   - name: Use DevOps
     href: luis-how-to-devops-with-github.md
   - name: Related services
@@ -403,6 +405,8 @@
     href: luis-reference-prebuilt-sentiment.md
 - name: Resources
   items:
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
   - name: Code samples
     href: https://github.com/Azure-Samples/cognitive-services-language-understanding
   - name: Regional availability
@@ -426,10 +430,6 @@
   - name: Configure virtual networks
     maintainContext: true
     href: ../cognitive-services-virtual-networks.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/LUIS
-  - name: UserVoice
-    href: https://go.microsoft.com/fwlink/?linkid=2092090
   - name: Search
     href: https://docs.microsoft.com/search/index?search=LUIS
   - name: Blog

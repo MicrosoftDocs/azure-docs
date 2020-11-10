@@ -76,7 +76,7 @@ For specific information on what needs to be done by **October 15, 2019** for yo
     * Certification or recertification requires that your app supports the latest version of our Business Applications Platform.
     * Once your app has been approved, you'll receive an email to return to the offer and select "go live" to enable the offer to go live on Microsoft AppSource.
 
-## Additional Resources
+## Additional resources
 
 Get help from experts and peers in forums and discover blogs, webinars, videos, events, and more at [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 

@@ -16,7 +16,7 @@ You can use Cost Management automation to build a custom set of solutions to ret
 
 ## Automate cost data retrieval for offline analysis
 
-You might need to download your Azure cost data to merge it with other datasets. Or you might need to integrate cost data into your own systems. There are different options available depending on the amount of data involved. You must have Cost Management permissions at the appropriate scope to use APIs and tools in any case. For more information, see [Assign access to data](https://docs.microsoft.com/azure/cost-management-billing/costs/assign-access-acm-data).
+You might need to download your Azure cost data to merge it with other datasets. Or you might need to integrate cost data into your own systems. There are different options available depending on the amount of data involved. You must have Cost Management permissions at the appropriate scope to use APIs and tools in any case. For more information, see [Assign access to data](./assign-access-acm-data.md).
 
 ## Suggestions for handling large datasets
 
@@ -24,33 +24,33 @@ If your organization has a large Azure presence across many resources or subscri
 
 **Power BI**
 
-Power BI is used to ingest and handle large amounts of data. If you're an Enterprise Agreement customer, you can use the Power BI template app to analyze costs for your billing account. The report contains key views used by customers. For more information, see [Analyze Azure costs with the Power BI template app](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
+Power BI is used to ingest and handle large amounts of data. If you're an Enterprise Agreement customer, you can use the Power BI template app to analyze costs for your billing account. The report contains key views used by customers. For more information, see [Analyze Azure costs with the Power BI template app](./analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 **Power BI data connector**
 
-If you want to analyze your data daily, we recommend using the [Power BI data connector](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management) to get data for detailed analysis. Any reports that you create are kept up to date by the connector as more costs accrue.
+If you want to analyze your data daily, we recommend using the [Power BI data connector](/power-bi/connect-data/desktop-connect-azure-cost-management) to get data for detailed analysis. Any reports that you create are kept up to date by the connector as more costs accrue.
 
 **Cost Management exports**
 
-You might not need to analyze the data daily. If so, consider using Cost Management's [Exports](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) feature to schedule data exports to an Azure Storage account. Then you can load the data into Power BI as needed, or analyze it in Excel if the file is small enough. Exports are available in the Azure portal or you can configure exports with the [Exports API](https://docs.microsoft.com/rest/api/cost-management/exports).
+You might not need to analyze the data daily. If so, consider using Cost Management's [Exports](./tutorial-export-acm-data.md) feature to schedule data exports to an Azure Storage account. Then you can load the data into Power BI as needed, or analyze it in Excel if the file is small enough. Exports are available in the Azure portal or you can configure exports with the [Exports API](/rest/api/cost-management/exports).
 
 **Usage Details API**
 
-Consider using the [Usage Details API](https://docs.microsoft.com/rest/api/consumption/usageDetails) if you have a small cost data set. If you have a large amount of cost data, you should request the smallest amount of usage data as possible for a period. To do so, specify either a small time range or use a filter in your request. For example, in a scenario where you need three years of cost data, the API does better when you make multiple calls for different time ranges rather than with a single call. From there, you can load the data into Excel for further analysis.
+Consider using the [Usage Details API](/rest/api/consumption/usageDetails) if you have a small cost data set. If you have a large amount of cost data, you should request the smallest amount of usage data as possible for a period. To do so, specify either a small time range or use a filter in your request. For example, in a scenario where you need three years of cost data, the API does better when you make multiple calls for different time ranges rather than with a single call. From there, you can load the data into Excel for further analysis.
 
 ## Automate retrieval with Usage Details API
 
-The [Usage Details API](https://docs.microsoft.com/rest/api/consumption/usageDetails) provides an easy way to get raw, unaggregated cost data that corresponds to your Azure bill. The API is useful when your organization needs a programmatic data retrieval solution. Consider using the API if you're looking to analyze smaller cost data sets. However, you should use other solutions identified previously if you have larger datasets. The data in Usage Details is provided on a per meter basis, per day. It's used when calculating your monthly bill. The general availability (GA) version of the APIs is `2019-10-01`. Use `2019-04-01-preview` to access the preview version for reservation and Azure Marketplace purchases with the APIs.
+The [Usage Details API](/rest/api/consumption/usageDetails) provides an easy way to get raw, unaggregated cost data that corresponds to your Azure bill. The API is useful when your organization needs a programmatic data retrieval solution. Consider using the API if you're looking to analyze smaller cost data sets. However, you should use other solutions identified previously if you have larger datasets. The data in Usage Details is provided on a per meter basis, per day. It's used when calculating your monthly bill. The general availability (GA) version of the APIs is `2019-10-01`. Use `2019-04-01-preview` to access the preview version for reservation and Azure Marketplace purchases with the APIs.
 
 ### Usage Details API suggestions
 
 **Request schedule**
 
-We recommend that you make _no more than one request_ to the Usage Details API per day. For more information about how often cost data is refreshed and how rounding is handled, see [Understand cost management data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#rated-usage-data-refresh-schedule).
+We recommend that you make _no more than one request_ to the Usage Details API per day. For more information about how often cost data is refreshed and how rounding is handled, see [Understand cost management data](./understand-cost-mgt-data.md).
 
 **Target top-level scopes without filtering**
 
-Use the API to get all the data you need at the highest-level scope available. Wait until all needed data is ingested before doing any filtering, grouping, or aggregated analysis. The API is optimized specifically to provide large amounts of unaggregated raw cost data. To learn more about scopes available in Cost Management, see [Understand and work with scopes](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-work-scopes). Once you've downloaded the needed data for a scope, use Excel to analyze data further with filters and pivot tables.
+Use the API to get all the data you need at the highest-level scope available. Wait until all needed data is ingested before doing any filtering, grouping, or aggregated analysis. The API is optimized specifically to provide large amounts of unaggregated raw cost data. To learn more about scopes available in Cost Management, see [Understand and work with scopes](./understand-work-scopes.md). Once you've downloaded the needed data for a scope, use Excel to analyze data further with filters and pivot tables.
 
 ## Example Usage Details API requests
 
@@ -324,6 +324,6 @@ To enable a consistent experience for all Cost Management subscribers, Cost Mana
 
 ## Next steps
 
-- [Analyze Azure costs with the Power BI template app](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
-- [Create and manage exported data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) with Exports.
-- Learn more about the [Usage Details API](https://docs.microsoft.com/rest/api/consumption/usageDetails).
+- [Analyze Azure costs with the Power BI template app](./analyze-cost-data-azure-cost-management-power-bi-template-app.md).
+- [Create and manage exported data](./tutorial-export-acm-data.md) with Exports.
+- Learn more about the [Usage Details API](/rest/api/consumption/usageDetails).

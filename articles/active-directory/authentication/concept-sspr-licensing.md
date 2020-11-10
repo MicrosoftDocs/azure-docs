@@ -46,7 +46,7 @@ For additional licensing information, including costs, see the following pages:
 
 ## Enable group or user-based licensing
 
-Azure AD supports group-based licensing. Administrators can assign licenses in bulk to a group of users, rather than assigning them one at a time. For more information, see [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Azure AD supports group-based licensing. Administrators can assign licenses in bulk to a group of users, rather than assigning them one at a time. For more information, see [Assign, verify, and resolve problems with licenses](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 Some Microsoft services aren't available in all locations. Before a license can be assigned to a user, the administrator must specify the **Usage location** property on the user. Assignment of licenses can be done under the **User** > **Profile** > **Settings** section in the Azure portal. *When you use group license assignment, any users without a usage location specified inherit the location of the directory.*
 

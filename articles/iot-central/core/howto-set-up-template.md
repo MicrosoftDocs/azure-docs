@@ -38,7 +38,7 @@ In an IoT Central application, a device template uses a device capability model 
 - Create a device capability model by using Visual Studio Code. Implement your device code from the model. Manually import the device capability model into your IoT Central application, and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 - Create a device capability model by using Visual Studio Code. Implement your device code from the model, and connect your real device to your IoT Central application by using a device-first connection. IoT Central finds and imports the device capability model from the public repository for you. You can then add any cloud properties, customizations, and dashboards your IoT Central application needs to the device template.
 
-You can also add device templates to an IoT Central application using the [REST API](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) or the [CLI](howto-manage-iot-central-from-cli.md).
+You can also add device templates to an IoT Central application using the [REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) or the [CLI](howto-manage-iot-central-from-cli.md).
 
 Some [application templates](concepts-app-templates.md) already include device templates that are useful in the scenario the application template supports. For example, see [In-store analytics architecture](../retail/store-analytics-architecture.md).
 

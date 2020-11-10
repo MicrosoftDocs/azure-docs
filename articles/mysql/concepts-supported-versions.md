@@ -13,6 +13,7 @@ Azure Database for MySQL has been developed from [MySQL Community Edition](https
 
 MySQL uses the X.Y.Z naming scheme. X is the major version, Y is the minor version, and Z is the bug fix release. For more information about the scheme, see the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
+
 > [!NOTE]
 > In the service, a gateway is used to redirect the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt.
 
@@ -43,4 +44,5 @@ Currently, minor and major version upgrades aren't supported. For example, upgra
 
 ## Next steps
 
-For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](./concepts-pricing-tiers.md)
+- For details around Azure Database for MySQL versioning policy, see [this document](concepts-version-policy.md).
+- For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](./concepts-pricing-tiers.md)

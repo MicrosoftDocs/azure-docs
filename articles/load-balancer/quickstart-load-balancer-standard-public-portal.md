@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2020
+ms.date: 10/22/2020
 ms.author: allensu
 ms.custom: mvc
 ---
@@ -47,7 +47,7 @@ When you create a public load balancer, you create a new public IP address that 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **Create new** and enter **myResourceGroupLB** in the text box.|
+    | Resource group         | Select **Create new** and enter **CreatePubLBQS-rg** in the text box.|
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
@@ -133,7 +133,9 @@ In this section, you'll create a load balancer rule:
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**.|
     | Health probe | Select **myHealthProbe**. |
-    | Create implicit outbound rules | Select **No**.
+    | Idle timeout (minutes) | Move the slider to **15** minutes. |
+    | TCP reset | Select **Enabled**. |
+    | Outbound source network address translation (SNAT) | Select **(Recommended) Use outbound rules to provide backend pool members access to the internet.**. |
 
 4. Leave the rest of the defaults and then select **OK**.
 
@@ -157,7 +159,7 @@ In this section, you'll create a virtual network and subnet.
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **myResourceGroupLB** |
+    | Resource Group   | Select **CreatePubLBQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **West Europe** |
@@ -210,7 +212,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroupLB** |
+    | Resource Group | Select **CreatePubLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
     | Region | Select **West Europe** |
@@ -326,7 +328,7 @@ When you create a public load balancer, you create a new public IP address that 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **Create new** and type **myResourceGroupLB** in the text box.|
+    | Resource group         | Select **Create new** and type **CreatePubLBQS-rg** in the text box.|
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
@@ -363,7 +365,7 @@ In this section, you'll create a virtual network and subnet.
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **myResourceGroupLB** |
+    | Resource Group   | Select **CreatePubLBQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **West Europe** |
@@ -469,6 +471,7 @@ In this section, you'll create a load balancer rule:
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**.|
     | Health probe | Select **myHealthProbe**. |
+    | Idle timeout (minutes) | Move the slider to **15** minutes. |
  
 4. Leave the rest of the defaults and then select **OK**.
 
@@ -496,7 +499,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroupLB** |
+    | Resource Group | Select **CreatePubLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
     | Region | Select **West Europe** |
@@ -568,7 +571,7 @@ The VMs created in the previous steps must be added to the backend pool of **myL
 
 ## Install IIS
 
-1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **myResourceGroupLB** resource group.
+1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **CreateStdLBQS-rg** resource group.
 
 2. On the **Overview** page, select **Connect**, then **Bastion**.
 
@@ -611,7 +614,7 @@ To see the load balancer distribute traffic across all three VMs, you can custom
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load Balancer, and all related resources. To do so, select the resource group **myResourceGroupLB** that contains the resources and then select **Delete**.
+When no longer needed, delete the resource group, load Balancer, and all related resources. To do so, select the resource group **CreatePubLBQS-rg** that contains the resources and then select **Delete**.
 
 ## Next steps
 
@@ -621,6 +624,6 @@ In this quickstart, you:
 * Attached 3 VMs to the load balancer.
 * Configured the load balancer traffic rule, health probe, and then tested the load balancer. 
 
-To learn more about Azure Load Balancer, continue to..
+To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
 > [What is Azure Load Balancer?](load-balancer-overview.md)

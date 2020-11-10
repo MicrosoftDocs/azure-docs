@@ -224,7 +224,7 @@ SSPR performs the equivalent of an admin-initiated password reset in Active Dire
 Password reset and change are fully supported on all business-to-business (B2B) configurations. B2B user password reset is supported in the following three cases:
 
 * **Users from a partner organization with an existing Azure AD tenant**: If the organization you partner with has an existing Azure AD tenant, we respect whatever password reset policies are enabled on that tenant. For password reset to work, the partner organization just needs to make sure that Azure AD SSPR is enabled. There is no additional charge for Microsoft 365 customers.
-* **Users who sign up through** self-service sign-up: If the organization you partner with used the [self-service sign-up](../users-groups-roles/directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
+* **Users who sign up through** self-service sign-up: If the organization you partner with used the [self-service sign-up](../enterprise-users/directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
 * **B2B users**: Any new B2B users created by using the new [Azure AD B2B capabilities](../external-identities/what-is-b2b.md) can also reset their passwords with the email they registered during the invite process.
 
 To test this scenario, go to https://passwordreset.microsoftonline.com with one of these partner users. If they have an alternate email or authentication email defined, password reset works as expected.

@@ -35,6 +35,9 @@ This extension works with both Azure deployment models.
 
 You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI scripts, ARM templates, or the Azure portal. For more information, see [Extensions Features](features-linux.md).
 
+>[!NOTE]
+>Certain components of the Diagnostics VM extension are also shipped in the [Log Analytics VM extension](./oms-linux.md). Due to this architecture, conflicts can arise if both extensions are instantiated in the same ARM template. To avoid these install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) to ensure the extensions are installed sequentially. The extensions can be installed in either order.
+
 These installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configure LAD 3.0 to:
 
 * capture and store the same metrics as were provided by LAD 2.3;
@@ -66,6 +69,29 @@ Supported distributions and versions:
 * **Azure CLI**. [Set up the Azure CLI](/cli/azure/install-azure-cli) environment on your machine.
 * The wget command, if you don't already have it: Run `sudo apt-get install wget`.
 * An existing Azure subscription and an existing general purpose storage account to store the data in.  General purpose storage accounts support Table storage which is required.  A Blob storage account will not work.
+* Python 2
+
+### Python requirement
+
+The Linux Diagnostic Extension requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.	
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+The python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
+
+1. Run the following command to remove any existing aliases.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Run the following command to create the alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### Sample installation
 

@@ -20,28 +20,28 @@ highlightedContent:
   items:
     - title: What are Cognitive Services?
       itemType: overview # controls the icon image and super-title text
-      url: ./welcome.md
+      url: ./what-are-cognitive-services.md
     - title: What's new in docs?
       itemType: whats-new
       url: whats-new-docs.md
+    - title: Development options
+      itemType: concept
+      url: ./cognitive-services-development-options.md
     - title: Cognitive Services and machine learning
       itemType: concept
       url: ./cognitive-services-and-machine-learning.md
+    - title: Cognitive Services on-prem containers
+      itemType: concept
+      url: ./cognitive-services-container-support.md
+    - title: Cognitive Services with databases
+      itemType: concept
+      url: ./big-data/cognitive-services-for-big-data.md
     - title: Language support
       itemType: reference
       url: ./language-support.md
-    - title: Create a resource
-      itemType: how-to-guide
-      url: ./cognitive-services-apis-create-account.md
-    - title: Use in Containers
-      itemType: concept
-      url: ./cognitive-services-container-support.md
-    - title: Use in Databases
-      itemType: concept
-      url: ./big-data/cognitive-services-for-big-data.md
-    - title: Security
-      itemType: concept
-      url: cognitive-services-security.md
+    - title: Support & help options
+      itemType: reference
+      url: ./cognitive-services-support-options.md
 
 conceptualContent:
   
@@ -126,9 +126,12 @@ conceptualContent:
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:
+        - url: ./containers/index.yml
+          itemType: overview
+          text:  Cognitive Services containers documentation
         - url: ./cognitive-services-container-support.md
           itemType: overview
-          text: Cognitive Service Containers
+          text: What are Cognitive Service containers?
         - url: ./containers/container-reuse-recipe.md
           itemType: learn
           text: Create containers for reuse
@@ -178,24 +181,24 @@ additionalContent:
         - title: SDKs & REST APIs
           links:
             - text: C#
-              url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+              url: /dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
             - text: Go
               url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
             - text: Java
-              url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+              url: /java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
             - text: JavaScript
-              url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+              url: /javascript/api/overview/azure/cognitive-services?view=azure-node-latest
             - text: Python
-              url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
+              url: /python/api/overview/azure/cognitive-services?view=azure-python
             - text: R 
               url: https://github.com/Azure/AzureCognitive
             - text: Apache Spark and Databases 
               url: ./big-data/cognitive-services-for-big-data.md
             - text: Cognitive Services Management REST API
-              url: https://docs.microsoft.com/rest/api/cognitiveservices/
+              url: /rest/api/cognitiveservices/
         - title: Tools
           links:
             - text: Azure CLI
-              url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+              url: /cli/azure/cognitiveservices?view=azure-cli-latest
             - text: PowerShell
-              url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+              url: /powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -37,10 +37,18 @@ Before you install Azure AD Connect, there are a few things that you need.
 
 ### On-premises Active Directory
 * The Active Directory schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema version and forest-level requirements are met.
-* If you plan to use the feature *password writeback*, the domain controllers must be on Windows Server 2008 R2 or later.
+* If you plan to use the feature *password writeback*, the domain controllers must be on Windows Server 2012 or later.
 * The domain controller used by Azure AD must be writable. Using a read-only domain controller (RODC) *isn't supported*, and Azure AD Connect doesn't follow any write redirects.
 * Using on-premises forests or domains by using "dotted" (name contains a period ".") NetBIOS names *isn't supported*.
 * We recommend that you [enable the Active Directory recycle bin](how-to-connect-sync-recycle-bin.md).
+
+### PowerShell execution policy
+Azure Active Directory Connect runs signed PowerShell scripts as part of the installation. Ensure that the PowerShell execution policy will allow running of scripts.
+
+The recommended execution policy during installation is "RemoteSigned".
+
+For more information on setting the PowerShell execution policy, see [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+
 
 ### Azure AD Connect server
 The Azure AD Connect server contains critical identity data. It's important that administrative access to this server is properly secured. Follow the guidelines in [Securing privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
