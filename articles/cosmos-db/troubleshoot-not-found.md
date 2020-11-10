@@ -35,10 +35,10 @@ The partition key and ID combination aren't valid.
 Fix the application logic that's causing the incorrect combination. 
 
 ### Invalid character in an item ID
-An item is inserted into Azure Cosmos DB with an [invalid character](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) in the item ID. Base64 can still produce a name with a invalid character '/' which need to be replaced.
+An item is inserted into Azure Cosmos DB with an [invalid character](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) in the item ID.
 
 #### Solution:
-Change the ID to a different value that doesn't contain the special characters. If changing the ID isn't an option, you can Base64 encode the ID to escape the special characters.
+Change the ID to a different value that doesn't contain the special characters. If changing the ID isn't an option, you can Base64 encode the ID to escape the special characters. Base64 can still produce a name with a invalid character '/' which needs to be replaced.
 
 Items already inserted in the container for the ID can be replaced by using RID values instead of name-based references.
 ```c#
