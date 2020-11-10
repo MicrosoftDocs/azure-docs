@@ -37,11 +37,11 @@ To add a new device template to your application, select the **Device Templates*
 
 ![Device Templates page](./media/quick-create-simulated-device/device-definitions.png)
 
-A device template includes a device capability model that defines the telemetry the device sends, device properties, and the commands the device responds to.
+A device template includes a device model that defines the telemetry the device sends, device properties, and the commands the device responds to.
 
-### Add a device capability model
+### Add a device model
 
-There are several options for adding a device capability model to your IoT Central application. You can create a model from scratch, import a model from a file, or select a device from the device catalog. IoT Central also supports a *device-first* approach where it automatically imports a model from a repository when a device connects for the first time. In this quickstart, you choose a device from the device catalog to import its device capability model.
+There are several options for adding a device model to your IoT Central application. You can create a model from scratch, import a model from a file, or select a device from the device catalog. IoT Central also supports a *device-first* approach where it automatically imports a model from a repository when a device connects for the first time. In this quickstart, you choose a device from the device catalog to import its device model.
 
 The following steps show you how to use the device catalog to import the capability model for an **MXChip IoT DevKit** device. These devices send telemetry, such as temperature, to your application:
 
@@ -117,7 +117,7 @@ To publish a device template:
 
 1. On the **Publish this device template to the application** dialog, select **Publish**. 
 
-After you publish a device template, it's visible on the **Devices** page. In a published device template, you can't edit a device capability model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template without versioning. After making any changes, select **Publish**  to push those changes out to your operator.
+After you publish a device template, it's visible on the **Devices** page. In a published device template, you can't edit a device model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template without versioning. After making any changes, select **Publish**  to push those changes out to your operator.
 
 ## Add a simulated device
 

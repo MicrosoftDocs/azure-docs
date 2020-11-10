@@ -128,7 +128,7 @@ By default, properties are read-only. Read-only properties let a device report p
 
 Azure IoT Central uses device twins to synchronize property values between the device and the Azure IoT Central application. Device property values use device twin reported properties. For more information, see [device twins](../../iot-hub/tutorial-device-twins.md).
 
-The following snippet from a device capability model shows the definition of a read-only property type:
+The following snippet from a device model shows the definition of a read-only property type:
 
 ``` json
 {
@@ -170,7 +170,7 @@ The following view in Azure IoT Central application shows the properties you can
 
 Writable properties are set by an operator in the Azure IoT Central application on a form. Azure IoT Central sends the property to the device. Azure IoT Central expects an acknowledgment from the device.
 
-The following snippet from a device capability model shows the definition of a writable property type:
+The following snippet from a device model shows the definition of a writable property type:
 
 ``` json
 {

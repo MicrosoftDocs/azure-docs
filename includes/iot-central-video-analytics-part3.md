@@ -32,8 +32,8 @@ To import the deployment manifest and create the **LVA Edge Gateway** device tem
 
 1. On the **Review** page, select **Create**.
 
-### Import the device capability model
+### Import the device model
 
-The device template must include a device capability model. On the **LVA Edge Gateway** page, select the **Import capability model** tile. Navigate to the *lva-configuration* folder you created previously and select the *LvaEdgeGatewayDcm.json* file.
+The device template must include a device model. On the **LVA Edge Gateway** page, select the **Import capability model** tile. Navigate to the *lva-configuration* folder you created previously and select the *LvaEdgeGatewayDcm.json* file.
 
 The **LVA Edge Gateway** device template now includes the **LVA Edge Gateway Module** along with three interfaces: **Device information**, **LVA Edge Gateway Settings**, and **LVA Edge Gateway Interface**.

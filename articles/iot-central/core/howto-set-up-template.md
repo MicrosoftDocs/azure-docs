@@ -64,7 +64,7 @@ To create a device template in IoT Central:
 
 1. Go to the **Device Templates** page in your IoT Central application.
 1. Select **+ New** > **IoT device**. Then select **Next: Customize**.
-1. Enter a name for your template, such as **Environmental Sensor**. Then select **Next: Review** and then select **Create**.
+1. Enter a name for your template, such as **Thermostat**. Then select **Next: Review** and then select **Create**.
 1. IoT Central creates an empty device template and lets you choose to create a custom model from scratch or import a DTDL model.
 
 ## Manage a device template
@@ -91,7 +91,7 @@ After you create a device model, you can:
 
 ## Create a component
 
-A device capability must have at least one default component. A component is a reusable collection of capabilities.
+A device model must have at least one default component. A component is a reusable collection of capabilities.
 
 To create a component:
 
