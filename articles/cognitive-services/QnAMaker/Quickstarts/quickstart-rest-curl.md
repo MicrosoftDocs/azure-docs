@@ -409,8 +409,8 @@ The response status is 204 with no results. Use the `-v` command-line parameter 
 
 ## Additional resources
 
-* [Authoring](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) Reference documentation
-* [Runtime](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/) Reference documentation
+* [Authoring](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) Reference documentation
+* [Runtime](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime) Reference documentation
 * [Sample BASH scripts using cURL](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)
 
 ## Next steps
