@@ -27,8 +27,11 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 
 ### NS-1: Implement security for internal traffic
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40094.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Microsoft Azure Front door does not support deploying directly into a virtual network
 
@@ -38,7 +41,7 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 
 ### NS-2: Connect private networks together
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40095.).
 
 **Guidance**: Not applicable; Azure Front Door is not designed to deploy into or be secured to a private network, this control is intended to describe network connectivity and does not apply.
@@ -49,7 +52,7 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 
 ### NS-3: Establish private network access to Azure services
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40096.).
 
 **Guidance**: Not applicable, Azure Front Door is not designed to deployed into or secured by a virtual network for private network access..
@@ -60,7 +63,7 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 
 ### NS-4: Protect applications and services from external network attacks
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40097.).
 
 **Guidance**: Use Azure PowerShell to create a geo-filtering policy and associate the policy with your existing Front Door frontend host. This geo-filtering policy will block requests from external networks, such as the ones from other countries or regions except United States.
@@ -73,8 +76,11 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40098.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable, Azure Front Door does not support deployment into a virtual network. It cannot be configured with an IDS or IPS solution for network threat detection or prevention.
 
@@ -84,7 +90,7 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 
 ### NS-6: Simplify network security rules
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40099.).
 
 **Guidance**: Use Virtual Network Service tags to define network access controls on network security groups configured for your Azure Front Door offering resources. Service tags can be used in place of specific IP addresses when creating security rules. By specifying the service tag name( AzureFrontDoor.Frontend, AzureFrontDoor.Backend,AzureFrontDoor.FirstParty) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. 
@@ -99,8 +105,11 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ### NS-7: Secure Domain Name Service (DNS)
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40100.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not expose its underlying DNS configurations; these settings are maintained by Microsoft.
 
@@ -114,8 +123,11 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40080.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door is not integrated with Azure Active Directory (Azure AD).
 
@@ -125,8 +137,11 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ### IM-2: Manage application identities securely and automatically
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40081.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not use any identities or manage any secrets for identities.
 
@@ -136,8 +151,11 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40082.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door doesn't support single sign-on for authentication to its resources.
 
@@ -147,8 +165,11 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40083.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door doesn't provide capability to support strong authentication.
 
@@ -158,8 +179,11 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ### IM-5: Monitor and alert on account anomalies
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40084.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not use any sensitive accounts and thus account activity alerts on anomalies does not provide any protections.
 
@@ -169,7 +193,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ### IM-6: Restrict Azure resource access based on conditions
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40085.).
 
 **Guidance**: By default, Azure Front Door responds to all user requests regardless of the location where the request origin. In some scenarios, you may want to restrict the access to your web application by countries or regions. The Web application firewall (WAF) service in Front Door enables you to define a policy using custom access rules for a specific path on your endpoint to either allow or block access from specified countries or regions.
@@ -182,8 +206,11 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ### IM-7: Eliminate unintended credential exposure
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40086.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not allow customers to deploy any persisted data into the running environment.
 
@@ -193,8 +220,11 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ### IM-8: Secure user access to legacy applications
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40122.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not access any legacy applications.
 
@@ -208,8 +238,11 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ### PA-1: Protect and limit highly privileged users
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40087.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not use any administrative accounts.
 
@@ -219,7 +252,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 
 ### PA-2: Restrict administrative access to business-critical systems
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40088.).
 
 **Guidance**: Azure Front Door uses Azure role-based access control (Azure RBAC) to isolate access to business-critical systems. Use Azure RBAC to limit accounts that are granted privileged access to their subscriptions and management groups.
@@ -237,8 +270,11 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 
 ### PA-3: Review and reconcile user access regularly
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40089.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door  is not comprised of any user accounts.
 
@@ -248,8 +284,11 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 
 ### PA-4: Set up emergency access in Azure AD
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40090.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not use or support emergency accounts.
 
@@ -259,8 +298,11 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 
 ### PA-5: Automate entitlement management 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40091.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door  doesn't support any automation on account or role management.
 
@@ -270,7 +312,7 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 
 ### PA-6: Use privileged access workstations
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40092.).
 
 **Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protection (ATP), and Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations must be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
@@ -285,7 +327,7 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40093.).
 
 **Guidance**: Azure Front Door is integrated with Azure role-based access control (Azure RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. 
@@ -306,8 +348,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 ### PA-8: Choose approval process for Microsoft support  
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40149.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door doesn't store customer data and thus does not require usage of Customer Lockbox for data access requests.
 
@@ -321,8 +366,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 ### DP-1: Discovery, classify and label sensitive data
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40101.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not store, process or transmit data classified as sensitive.
 
@@ -332,8 +380,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 ### DP-2: Protect sensitive data
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40102.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not store, process or transmit data classified as sensitive.
 
@@ -343,8 +394,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 ### DP-3: Monitor for unauthorized transfer of sensitive data
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40103.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not store, process or transmit data classified as sensitive.
 
@@ -354,7 +408,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 ### DP-4: Encrypt sensitive information in transit
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40104.).
 
 **Guidance**: Usage of encryption to protect traffic on external and public networks is critical for data protection. In addition, also:
@@ -377,8 +431,11 @@ Azure provides data in transit encryption by default for data traffic between Az
 
 ### DP-5: Encrypt sensitive data at rest
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40105.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
 
 **Guidance**: Azure provides data-at-rest encryption by default. For highly sensitive data, you have options to implement additional encryption at rest on all Azure resources where available. Azure manage your encryption keys by default, but Azure provides options to manage your own keys (customer managed keys) for certain Azure services.
 
@@ -402,7 +459,7 @@ If required for compliance on compute resources, implement a third-party tool, s
 
 ### AM-1: Ensure security team has visibility into risks for assets
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40123.).
 
 **Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions for them to monitor security risks using Azure Security Center. 
@@ -423,7 +480,7 @@ Note: that additional permissions may be required for visibility into workloads 
 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40124.).
 
 **Guidance**: Apply tags to Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production..
@@ -440,7 +497,7 @@ Note: that additional permissions may be required for visibility into workloads 
 
 ### AM-3: Use only approved Azure services
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40125.).
 
 **Guidance**: Use Azure Policy to audit and restrict which services users can provision in your environment. Query for and discover resources within their subscriptions with  Azure Resource Graph.
@@ -459,8 +516,11 @@ Use Azure Monitor to create rules to trigger alerts when a non-approved service 
 
 ### AM-4: Ensure security of asset lifecycle management
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40126.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. 
 
@@ -472,8 +532,11 @@ It is recommended that the customer create a process to capture the attribute an
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40127.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not use Azure Active Directory (Azure AD) for Authentication. Thus you cannot restrict access to Azure Resource Manager with conditional access policies.
 
@@ -483,8 +546,11 @@ It is recommended that the customer create a process to capture the attribute an
 
 ### AM-6: Use only approved applications in compute resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40128.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door is not comprised of any virtual machines or containers which would either expose compute resources or allow customers to install applications on them.
 
@@ -498,7 +564,7 @@ It is recommended that the customer create a process to capture the attribute an
 
 ### LT-1: Enable threat detection for Azure resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40106.).
 
 **Guidance**: Azure Front Door does not provide any native capabilities to monitor security threats related to its resources.
@@ -517,8 +583,11 @@ Focus on high quality alerts to reduce false-positive detections.
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40107.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not support authentication or authorization via Azure Active Directory (Azure AD) for the control and data-plane level actions.
 
@@ -528,7 +597,7 @@ Focus on high quality alerts to reduce false-positive detections.
 
 ### LT-3: Enable logging for Azure network activities
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40108.).
 
 **Guidance**: Azure Frond Door is not intended to deploy into virtual networks; because of this you are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures.
@@ -543,7 +612,7 @@ Azure Front Door logs all network traffic that it processes for customer access.
 
 ### LT-4: Enable logging for Azure resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40109.).
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Front Door resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
@@ -562,8 +631,11 @@ Enable Azure resource logs for  Azure Front Door. You can use Azure Security Cen
 
 ### LT-5: Centralize security log management and analysis
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40110.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not produce or process any security related logs which would be required for centrally log management or analysis.
 
@@ -573,8 +645,11 @@ Enable Azure resource logs for  Azure Front Door. You can use Azure Security Cen
 
 ### LT-6: Configure log storage retention
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40111.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not produce any security-related logs and the customers can not set any log retention.
 
@@ -584,8 +659,11 @@ Enable Azure resource logs for  Azure Front Door. You can use Azure Security Cen
 
 ### LT-7: Use approved time synchronization sources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40112.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Azure Front Door does not support configuring your own time synchronization sources. The Azure Front Door  service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
@@ -599,7 +677,7 @@ Enable Azure resource logs for  Azure Front Door. You can use Azure Security Cen
 
 ### IR-1: Preparation – update incident response process for Azure
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40113.).
 
 **Guidance**: Ensure your organization has defined processes to respond to security incidents. Confirm that keeps these processes updated for Azure resources and regularly tests them to ensure readiness.
@@ -614,7 +692,7 @@ Enable Azure resource logs for  Azure Front Door. You can use Azure Security Cen
 
 ### IR-2: Preparation – setup incident notification
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40114.).
 
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
@@ -627,7 +705,7 @@ Enable Azure resource logs for  Azure Front Door. You can use Azure Security Cen
 
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40115.).
 
 **Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
@@ -648,7 +726,7 @@ Export your Azure Security Center alerts and recommendations using the export fe
 
 ### IR-4: Detection and analysis – investigate an incident
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40116.).
 
 **Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents to build a full view of what occurred. Diverse log types should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  Ensure insights and learnings are captured for other analysts and for future historical reference.  
@@ -681,7 +759,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 ### IR-5: Detection and analysis – prioritize incidents
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40117.).
 
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
@@ -700,7 +778,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 ### IR-6: Containment, eradication and recovery – automate the incident handling
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40118.).
 
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
@@ -722,8 +800,11 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ### PV-1: Establish secure configurations for Azure services 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40133.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not contain any security configurations.
 
@@ -733,8 +814,11 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ### PV-2: Sustain secure configurations for Azure services
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40134.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not contain any security configurations.
 
@@ -744,7 +828,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ### PV-3: Establish secure configurations for compute resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40135.).
 
 **Guidance**: Use Azure Security Center and Azure Policy to establish secure configurations on all compute resources including Virtual Machines, containers, and more.
@@ -759,8 +843,11 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ### PV-4: Sustain secure configurations for compute resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40136.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -770,8 +857,11 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ### PV-5: Securely store custom operating system and container images
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40137.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -781,8 +871,11 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ### PV-6: Perform software vulnerability assessments
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40138.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Front Door
 
@@ -792,7 +885,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40139.).
 
 **Guidance**: Rapidly deploy software updates to remediate software vulnerabilities in operating systems and applications.
@@ -805,7 +898,7 @@ Prioritize use a common risk scoring program (for example, Common Vulnerability 
 
 ### PV-8: Conduct regular attack simulation
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40140.).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
@@ -827,8 +920,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### ES-1: Use Endpoint Detection and Response (EDR)
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40119.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door is not comprised of any virtual machines or containers, which would require Endpoint Detection and Response (EDR) protection.
 
@@ -838,8 +934,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### ES-2: Use centrally managed modern anti-malware software
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40120.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not interact with compute hosts, containers and storage, which require antimalware protection.
 
@@ -849,8 +948,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### ES-3: Ensure anti-malware software and signatures are updated
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40121.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door is not comprised of any virtual machines or containers which would require antimalware protection.  Thus no configuration is required for any additional settings or to deploy any additional services to protect it from malware.
 
@@ -864,8 +966,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### BR-1: Ensure regular automated backups
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40129.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not support or require any data backups.
 
@@ -875,8 +980,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### BR-2: Encrypt backup data
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40130.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not support data backups or their encryption.
 
@@ -886,8 +994,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### BR-3: Validate all backups including customer-managed keys
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40131.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not support any data-backups.
 
@@ -897,8 +1008,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### BR-4: Mitigate risk of lost keys
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40132.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not manage any keys.
 
@@ -912,7 +1026,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### GS-1: Define asset management and data protection strategy 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40141.).
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
@@ -952,7 +1066,7 @@ For more information, see the following references:
 
 ### GS-2: Define enterprise segmentation strategy 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40148.).
 
 **Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
@@ -973,7 +1087,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-3: Define security posture management strategy
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40142.).
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
@@ -986,7 +1100,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-4: Align organization roles, responsibilities, and accountabilities
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40143.).
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
@@ -1003,7 +1117,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-5: Define network security strategy
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40144.).
 
 **Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
@@ -1037,7 +1151,7 @@ For more information, see the following references:
 
 ### GS-6: Define identity and privileged access strategy
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40145.).
 
 **Guidance**: Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
@@ -1070,7 +1184,7 @@ For more information, see the following references:
 
 ### GS-7: Define logging and threat response strategy
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40146.).
 
 **Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
