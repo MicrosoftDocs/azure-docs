@@ -4,7 +4,7 @@ description: Learn how to write a JavaScript program that uses the latest previe
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 10/13/2020
+ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
 ---
@@ -36,12 +36,9 @@ The following sample code shows you how to send a batch of messages to a Service
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus");
     
-    // connection string to the Service Bus namespace
-    const connectionString = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
+    const connectionString = "<SERVICE BUS NAMESPACE CONNECTION STRING>"
+    const topicName = "<TOPIC NAME>";
     
-    // name of the topic
-    const topicName = "<TOPIC NAME>"
-
     const messages = [
     	{ body: "Albert Einstein" },
     	{ body: "Werner Heisenberg" },
@@ -68,12 +65,12 @@ The following sample code shows you how to send a batch of messages to a Service
     		// await sender.sendMessages(messages);
      
     		// create a batch object
-    		let batch = await sender.createBatch(); 
+    		let batch = await sender.createMessageBatch(); 
     		for (let i = 0; i < messages.length; i++) {
-    			// for each message in the array			
+    			// for each message in the arry			
     
     			// try to add the message to the batch
-    			if (!batch.tryAdd(messages[i])) {			
+    			if (!batch.tryAddMessage(messages[i])) {			
     				// if it fails to add the message to the current batch
     				// send the current batch as it is full
     				await sender.sendMessages(batch);
@@ -82,7 +79,7 @@ The following sample code shows you how to send a batch of messages to a Service
     				batch = await sender.createBatch();
      
     				// now, add the message failed to be added to the previous batch to this batch
-    				if (!batch.tryAdd(messages[i])) {
+    				if (!batch.tryAddMessage(messages[i])) {
     					// if it still can't be added to the batch, the message is probably too big to fit in a batch
     					throw new Error("Message too big to fit in a batch");
     				}
@@ -91,9 +88,9 @@ The following sample code shows you how to send a batch of messages to a Service
     
     		// Send the last created batch of messages to the topic
     		await sender.sendMessages(batch);
-
-            console.log(`Sent a batch of messages to the topic: ${topicName}`);
-
+     
+    		console.log(`Sent a batch of messages to the topic: ${topicName}`);
+    				
     		// Close the sender
     		await sender.close();
     	} finally {
@@ -127,25 +124,20 @@ The following sample code shows you how to send a batch of messages to a Service
     ```typescript
     const { delay, ServiceBusClient, ServiceBusMessage } = require("@azure/service-bus");
     
-    // connection string to the Service Bus namespace
-    const connectionString = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
+    const connectionString = "<SERVICE BUS NAMESPACE CONNECTION STRING>"
+    const topicName = "<TOPIC NAME>";
+    const subscriptionName = "<SUBSCRIPTION NAME>";
     
-    // name of the topic
-    const topicName = "<TOPIC NAME>"
-    
-    // name of the subscription to the topic
-    const subName = "<SUBSCRIPTION NAME>"
-    async function main() {
+     async function main() {
     	// create a Service Bus client using the connection string to the Service Bus namespace
     	const sbClient = new ServiceBusClient(connectionString);
      
     	// createSender() can also be used to create a sender for a topic.
-    	const receiver = sbClient.createReceiver(queueName);
+    	const receiver = sbClient.createReceiver(topicName, subscriptionName);
     
     	// function to handle messages
     	const myMessageHandler = async (messageReceived) => {
     		console.log(`Received message: ${messageReceived.body}`);
-    		await messageReceived.complete();
     	};
     
     	// function to handle any errors
@@ -172,7 +164,7 @@ The following sample code shows you how to send a batch of messages to a Service
     	process.exit(1);
      });    
     ```
-3. Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to the namespace. 
+3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to the namespace. 
 1. Replace `<TOPIC NAME>` with the name of the topic. 
 1. Replace `<SUBSCRIPTION NAME>` with the name of the subscription to the topic. 
 1. Then run the command in a command prompt to execute this file.
@@ -194,6 +186,18 @@ The following sample code shows you how to send a batch of messages to a Service
     Received message: Johannes Kepler
     Received message: Nikolaus Kopernikus
     ```
+
+In the Azure portal, navigate to your Service Bus namespace, and select the topic in the bottom pane to see the **Service Bus Topic** page for your topic. On this page, you should see three incoming and three outgoing messages in the **Messages** chart. 
+
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Incoming and outgoing messages":::
+
+If you run the only the send app next time, on the **Service Bus Topic** page, you see six incoming messages (3 new) but three outgoing messages. 
+
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Updated topic page":::
+
+On this page, if you select a subscription, you get to the **Service Bus Subscription** page. You can see the active message count, dead-letter message count, and more on this page. In this example, there are three active messages that haven't been received by a receiver yet. 
+
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Active message count":::
 
 ## Next steps
 Check out our [GitHub repository with samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). 

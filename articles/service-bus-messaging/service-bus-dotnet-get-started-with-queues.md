@@ -1,13 +1,13 @@
 ---
 title: Get started with Azure Service Bus queues (Azure.Messaging.ServiceBus)
 description: In this tutorial, you create .NET Core console application and use the Azure.Messaging.ServiceBus package to send messages to and receive messages from a Service Bus queue.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 10/30/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-csharp
 ---
 
-# Azure Service Bus - Send and receive messages using Azure.Messaging.ServiceBus
+# Send messages to and receive messages from Azure Service Bus queues (.NET)
 In this tutorial, you create a .NET Core console application to send messages to and receive messages from a Service Bus queue using the **Azure.Messaging.ServiceBus** package. 
 
 > [!Important]
@@ -15,13 +15,12 @@ In this tutorial, you create a .NET Core console application to send messages to
 
 ## Prerequisites
 
-- [Visual Studio 2019](https://www.visualstudio.com/vs).
-- [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
+- [Visual Studio 2019](https://www.visualstudio.com/vs)
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the **connection string** for your Service Bus namespace and the name of the **queue** you created.
 
-## Send messages
-To send messages to the queue, write a C# console application using Visual Studio.
+## Send messages to a queue
+In this quick start, you'll create a C# .NET Core console application to send messages to the queue.
 
 ### Create a console application
 Launch Visual Studio and create a new **Console App (.NET Core)** project for C#. 
@@ -32,7 +31,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 1. Select **Browse**. Search for and select **[Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/)**.
 1. Select **Install** to complete the installation, then close the NuGet Package Manager.
 
-### Send messages to a queue
+### Add code to send messages to the queue
 
 1. In *Program.cs*, add the following `using` statements at the top of the namespace definition, before the class declaration:
 
@@ -53,7 +52,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of the queue.     
-2. Add a method named `CreateMessages` to create a list of messages to the `Program` class. Typically, you get these messages from a different parts of your application. Here, we are simply making a list of messages.
+2. Add a method named `CreateMessages` to create a list of messages to the `Program` class. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
 
     ```csharp
         static IList<ServiceBusMessage> CreateMessages()
@@ -134,13 +133,10 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Messages received with count and size":::
 
-    The **Active message count** value for the queue is now **3**. Each time you run this sender app without retrieving the messages, this value increases by 3.
-
-    The current size of the queue increments the **CURRENT** value in **Essentials**  each time the app adds messages to the queue.
-
-    In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the queue. 
-
-    The next section describes how to retrieve these messages from the queue.
+    Notice the following values:
+    - The **Active message count** value for the queue is now **3**. Each time you run this sender app without retrieving the messages, this value increases by 3.
+    - The current size of the queue increments the **CURRENT** value in **Essentials**  each time the app adds messages to the queue.
+    - In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the queue. 
 
 ## Receive messages from a queue
 In this section, you'll add code to retrieve messages from the queue.
@@ -148,6 +144,7 @@ In this section, you'll add code to retrieve messages from the queue.
 1. Add the following methods to the `Program` class that handle messages and any errors. 
 
     ```csharp
+        // handle received messages
         static async Task MessageHandler(ProcessMessageEventArgs args)
         {
             string body = args.Message.Body.ToString();
@@ -157,6 +154,7 @@ In this section, you'll add code to retrieve messages from the queue.
             await args.CompleteMessageAsync(args.Message);
         }
 
+        // handle any errors when receiving messages
         static Task ErrorHandler(ProcessErrorEventArgs args)
         {
             Console.WriteLine(args.Exception.ToString());
@@ -202,13 +200,16 @@ In this section, you'll add code to retrieve messages from the queue.
             await ReceiveMessagesAsync();
         }
     ```
-5. Run the application. You should see the messages that are received in the output window.
 
-    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/final-output.png" alt-text="Final output":::
+## Run the app
+Run the application. You should see the messages that are received in the output window.
 
-    Check the portal again. The **Active message count** and **CURRENT** values are now **0**.
+:::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/final-output.png" alt-text="Final output":::
 
-    In the **Messages** chart in the bottom **Metrics** section, you can see that there are six incoming messages and six outgoing messages for the queue. 
+Check the portal again. 
+
+- The **Active message count** and **CURRENT** values are now **0**.
+- In the **Messages** chart in the bottom **Metrics** section, you can see that there are six incoming messages and six outgoing messages for the queue. 
 
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Active messages and size after receive":::
 
