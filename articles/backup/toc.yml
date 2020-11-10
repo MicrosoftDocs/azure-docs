@@ -158,6 +158,8 @@
       items:
       - name: Manage Azure VM backups
         href: backup-azure-manage-vms.md
+      - name: Manage recovery points
+        href: manage-recovery-points.md
   - name: SQL Server database on Azure VM backup
     items:
     - name: Overview

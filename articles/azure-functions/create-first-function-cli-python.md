@@ -58,6 +58,50 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 ---
 
+## <a name="create-venv"></a>Create and activate a virtual environment
+
+In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Be sure to use Python 3.8, 3.7 or 3.6, which are supported by Azure Functions.
+
+# [bash](#tab/bash)
+
+```bash
+python -m venv .venv
+```
+
+```bash
+source .venv/bin/activate
+```
+
+If Python didn't install the venv package on your Linux distribution, run the following command:
+
+```bash
+sudo apt-get install python3-venv
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+py -m venv .venv
+```
+
+```powershell
+.venv\scripts\activate
+```
+
+# [Cmd](#tab/cmd)
+
+```cmd
+py -m venv .venv
+```
+
+```cmd
+.venv\scripts\activate
+```
+
+---
+
+You run all subsequent commands in this activated virtual environment. 
+
 ## Create a local function project
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
