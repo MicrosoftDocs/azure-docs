@@ -36,7 +36,7 @@ Version: 1.0 (General Availability)
 
 - Support for preview agents (all versions older than 1.0) will be removed in a future service update.
 - Removed support for fallback endpoint `.azure-automation.net`. If you have a proxy, you need to allow the endpoint `*.his.arc.azure.com`.
-- If the Connected Machine agent is installed on a virtual machine hosted in Azure, VM extensions cannot be installed or modified from the Arc enabled Servers resource. This is to avoid conflicting extension operations being performed from the virtual machine's **Microsoft.Compute** and **Microsoft.HybridCompute** resource. Use the **Microsoft.Compute** resource for the machine for all extension operations.
+- If the Connected Machine agent is installed on a virtual machine hosted in Azure, VM extensions cannot be installed or modified from the Arc enabled servers resource. This is to avoid conflicting extension operations being performed from the virtual machine's **Microsoft.Compute** and **Microsoft.HybridCompute** resource. Use the **Microsoft.Compute** resource for the machine for all extension operations.
 - Name of Guest Configuration process has changed, from *gcd* to *gcad* on Linux, and *gcservice* to *gcarcservice* on Windows.
 
 ### New feature
