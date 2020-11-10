@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/network-watcher/connection-monitor-preview.md",
+      "redirect_url": "/azure/network-watcher/connection-monitor-overview",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/network-watcher/connection-monitor-preview-create-using-arm-client.md",
+      "redirect_url": "/azure/network-watcher/connection-monitor-create-using-template",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/network-watcher/connection-monitor-preview-create-using-portal.md",
+      "redirect_url": "/azure/network-watcher/connection-monitor-create-using-portal",
+      "redirect_document_id": false
+    },
+	{
       "source_path": "articles/digital-twins/how-to-convert-models.md",
       "redirect_url": "/azure/digital-twins/how-to-integrate-models",
       "redirect_document_id": false
