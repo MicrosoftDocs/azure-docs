@@ -15,9 +15,6 @@ Azure Cosmos DB is available in two different capacity modes: [provisioned throu
 
 > [!VIDEO https://www.youtube.com/embed/CgYQo6uHyt0]
 
-> [!NOTE]
-> Serverless is currently supported on the Azure Cosmos DB Core (SQL) API only.
-
 ## Detailed comparison
 
 | Criteria | Provisioned throughput | Serverless |
