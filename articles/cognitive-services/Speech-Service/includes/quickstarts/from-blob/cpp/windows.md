@@ -13,7 +13,7 @@ Before you get started, make sure to:
 > [!div class="checklist"]
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
 > * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
-> * [Upload a source file to an Azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Upload a source file to an Azure blob](../../../../../../storage/blobs/storage-quickstart-blobs-portal.md)
 
 ## Open your project in Visual Studio
 
