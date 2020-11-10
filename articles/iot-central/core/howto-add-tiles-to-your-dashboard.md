@@ -29,7 +29,7 @@ After you select **Edit** or **New**, the dashboard is in *edit* mode. You can u
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Add a temperature telemetry tile to the dashboard":::
 
-When you've finished adding and customizing tiles on the dashboard, select **Save** to save the changes to the dashboard (which will take them out of edit mode).
+When you've finished adding and customizing tiles on the dashboard, select **Save** to save the changes to the dashboard, which takes you out of edit mode.
 
 When you've selected all the values to show on the tile, click **Add tile.** The tile now appears on the dashboard where you can change the visualization, resize it, move it, and configure it:
 
@@ -43,8 +43,8 @@ To edit a tile, you must be in edit mode.  The available customization options d
 
 * The gear icon lets you configure the visualization. For example, for a line chart visualization you can choose to show the legend and axes, and choose the time range to plot.
 
-## Title Formatting
-This new feature available in KPI, LKV, and Property tiles  allows users to adjust font size, choose decimal precision, abbreviate numeric values (e.g. 1,700 to 1.7K), or wrap string values in their tiles. 
+## Title formatting
+TThis feature, available in KPI, LKV, and Property tiles, lets users adjust font size, choose decimal precision, abbreviate numeric values (for example format 1,700 as 1.7K), or wrap string values in their tiles.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="Tile Format":::
 
@@ -92,11 +92,11 @@ For numeric **KPI**, **Last Known Value**, and **Property** tiles you can use co
 
 Add your conditional formatting rules:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot showing conditional formatting rules for average flow. There are three rules - less tha 20 is green, less than 50 is yellow, and anything over 50 is red":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot showing conditional formatting rules for average flow. There are three rules - less than 20 is green, less than 50 is yellow, and anything over 50 is red":::
    
 The following screenshot shows the effect of the conditional formatting rule:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot showing the yellow background color on the Average water flow tile. The number on the tile is 40.84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot showing the red background color on the Average water flow tile. The number on the tile is 50.54":::
 
 ## Next steps
 
