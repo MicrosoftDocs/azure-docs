@@ -22213,6 +22213,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/partner-center-portal/faq-terminology.md",
+      "redirect_url": "/azure/marketplace/faq-terminology",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/partner-center-portal/summary-dashboard.md",
       "redirect_url": "/azure/marketplace/summary-dashboard",
       "redirect_document_id": false

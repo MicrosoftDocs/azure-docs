@@ -1,5 +1,5 @@
 ---
-title: Usage dashboard in Microsoft commercial marketplace analytics, Azure Marketplace and Microsoft AppSource
+title: Usage dashboard in commercial marketplace analytics
 description: Learn how to access all VM offers usage and metered billing metrics. Go to the Usage dashboard in Partner Center under Commercial Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ author: mingshen-ms
 ms.author: mingshen
 ---
 
-# Usage dashboard in Microsoft commercial marketplace analytics
+# Usage dashboard in commercial marketplace analytics
 
 This article provides information on the Usage dashboard in Partner Center. This dashboard displays all virtual machine (VM) offers normalized usage, raw usage, and metered billing metrics in three separate tabs: VM Normalized usage, VM Raw usage, and metered billing usage.
 
