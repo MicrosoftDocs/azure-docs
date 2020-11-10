@@ -129,11 +129,11 @@ In this section, a user called Britta Simon is created in Resource Central. Reso
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to Resource Central Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Resource Central Sign-on URL where you can initiate the login flow. 
 
-2. Go to Resource Central Sign-on URL directly and initiate the login flow from there.
+* Go to Resource Central Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the Resource Central tile in the Access Panel, this will redirect to Resource Central Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft Access Panel. When you click the Resource Central tile in the Access Panel, this will redirect to Resource Central Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## Next steps
