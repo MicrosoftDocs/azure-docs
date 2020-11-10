@@ -443,7 +443,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: !
+**Guidance**: Not applicable; Azure Lighthouse does not store, process or transmit sensitive data
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -457,7 +457,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Lighthouse does not itself interact with encrypt sensitive data at rest and thus there are no settings or any required configuration to protect sensitive data.
+**Guidance**: Not applicable; Azure Lighthouse does not persist any sensitive data at rest.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -607,7 +607,7 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable, Azure Lighthouse is not intended to deploy into virtual networks, because of this you are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures
+**Guidance**: Not applicable; The Azure Lighthouse service is not intended to deploy into a virtual network, because of this you are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures
 
 **Azure Security Center monitoring**: Not applicable
 
