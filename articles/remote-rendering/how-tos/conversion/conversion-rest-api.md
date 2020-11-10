@@ -140,7 +140,7 @@ To get a list of all conversions for an account, use the interface:
 | accountID | Yes |
 | skiptoken | No |
 
-Returns a json document that contains a list of conversions and their details. This query returns a maximum of 50 conversions at a time. In the situation where there are more conversions to retrieve, the response will contain a **nextLink** property containing the skipToken that can be queried to retrieve the next set of results.
+Returns a json document that contains an array of conversions and their details. This query returns a maximum of 50 conversions at a time. In the situation where there are more conversions to retrieve, the response will contain a **nextLink** property containing the skipToken that can be queried to retrieve the next set of results.
 
 ## Next steps
 
