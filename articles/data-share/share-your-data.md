@@ -80,7 +80,7 @@ Create an Azure Data Share resource in an Azure resource group.
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Subscription | Your subscription | Select the Azure subscription that you want to use for your data share account.|
-    | Resource group | *test-resource-group* | Use an existing resource group or create a new resource group. |
+    | Resource group | *testresourcegroup* | Use an existing resource group or create a new resource group. |
     | Location | *East US 2* | Select a region for your data share account.
     | Name | *datashareaccount* | Specify a name for your data share account. |
     | | |
@@ -93,7 +93,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
 Create an Azure Data Share resource in an Azure resource group.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 Use these commands to create the resource:
 
@@ -112,19 +112,19 @@ Use these commands to create the resource:
 1. Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
 
    ```azurecli
-   az group create --name test-resource-group --location "East US 2"
+   az group create --name testresourcegroup --location "East US 2"
    ```
 
 1. Run the [az datashare account create](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_create) to create a Data Share account:
 
    ```azurecli
-   az datashare account create --resource-group test-resource-group --name datashareaccount --location "East US 2" 
+   az datashare account create --resource-group testresourcegroup --name datashareaccount --location "East US 2" 
    ```
 
    Run the [az datashare account list](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_list) command to see your Data Share accounts:
 
    ```azurecli
-   az datashare account list --resource-group test-resource-group
+   az datashare account list --resource-group testresourcegroup
    ```
 
 ---
@@ -180,7 +180,7 @@ Use these commands to create the resource:
 1. Run the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a Data Share:
 
    ```azurecli
-   az storage account create --resource-group test-resource-group --name ContosoMarketplaceAccount
+   az storage account create --resource-group testresourcegroup --name ContosoMarketplaceAccount
    ```
 
 1. Use the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command to create a container for the share in the previous command:
@@ -192,7 +192,7 @@ Use these commands to create the resource:
 1. Run the [az datashare create](/cli/azure/ext/datashare/datashare#ext_datashare_az_datashare_create) command to create your Data Share.
 
    ```azurecli
-   az datashare create --resource-group test-resource-group \
+   az datashare create --resource-group testresourcegroup \
      --name ContosoMarketplaceDataShare --account-name ContosoMarketplaceAccount \
      --description "Data Share" --share-kind "CopyBased" --terms "Confidential"
    ```
@@ -200,7 +200,7 @@ Use these commands to create the resource:
 1. Use the [az datashare invitation create](/cli/azure/ext/datashare/datashare/invitation#ext_datashare_az_datashare_invitation_create)
 
    ```azurecli
-   az datashare invitation create --resource-group test-resource-group \
+   az datashare invitation create --resource-group testresourcegroup \
      --name DataShareInvite --share-name ContosoMarketplaceDataShare \
      --account-name ContosoMarketplaceAccount --target-email "jacob@fabrikam"
    ```
