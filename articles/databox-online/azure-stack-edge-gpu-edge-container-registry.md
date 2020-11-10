@@ -7,14 +7,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 11/10
+/2020
 ms.author: alkohli
 ---
 # Enable Edge container registry on your Azure Stack Edge Pro GPU device
 
-Edge container registry on your Azure Stack Edge Pro device is a managed, registry service based on the open-source Docker Registry 2.0. You use this registry to store and manage your private Docker container images and related artifacts. 
-
 This article describes how to enable this local Edge container registry and use it from within the Kubernetes cluster on your Azure Stack Edge Pro device. The example used in the article details how to push an image from a source registry, in this case, Microsoft Container registry, to the registry on the Azure Stack Edge device, the Edge container registry.
+
+### About Edge container registry
+
+Containerized compute applications need container images to run which are stored in registries. Registries can be public such as docker hub, private, or cloud provider managed such as Azure Container Registry. For more information, see [About registries, repositories, and images](../container-registry/container-registry-concepts.md).
+
+In Edge environments, network connectivity can be unreliable and network speed can be slow. An Edge container registry provides a repository at the Edge, on your Azure Stack Edge Pro device. You can use this registry to store and manage your private container images.
+
+In a multi-node environment, container images can be downloaded and pushed to the Edge container registry once. All Edge applications can use the Edge container registry for subsequent deployments.
 
 
 ## Prerequisites
@@ -28,8 +35,9 @@ Before you begin, make sure that:
 3. You've enabled compute role on the device. A Kubernetes cluster was also created on the device when you configured compute on the device as per the instructions in [Configure compute on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 4. You've access to a Windows client system. You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well.
+
     1. This system is running PowerShell 5.0 or later to access the device.
-    1. This system has Docker for Windows installed to pull and push container images.  
+    1. This system is running Docker for Windows and can be used to pull and push container images. See [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/). 
 
 5. You have the Kubernetes API endpoint from the **Device** page of your local web UI. For more information, see the instructions in [Get Kubernetes API endpoint](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints).
 
@@ -91,9 +99,13 @@ You may want to access the container registry from outside of your Azure Stack E
         ![Download edge container registry endpoint certificate](media/azure-stack-edge-gpu-edge-container-registry/download-ecr-endpoint-certificate-1.png)  
 
 1. Install the downloaded certificate on the Windows client. 
-    - Select the certificate and double-click it. 
+    - Select the certificate and in the Certificate Import Wizard, select store location as **Local machine**. 
+
+        ![Install certificate 1](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-1.png) 
+    
     - Install the certificate on your Local machine in the trusted root store. 
-    - 
+
+        ![Install certificate 2](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-2.png) 
 
 1. After the certificate is installed, restart the Docker on your system.
 
@@ -101,7 +113,7 @@ You may want to access the container registry from outside of your Azure Stack E
 
     `docker login <Edge container registry endpoint> -u <username> -p <password>`
 
-    Provide the Edge container registry endpoint from the **Devices** page and <username> and <password> that you got from the output of `Get-HcsKubernetesContainerRegistryInfo`. 
+    Provide the Edge container registry endpoint from the **Devices** page, and the username and password that you got from the output of `Get-HcsKubernetesContainerRegistryInfo`. 
 
 1. Use docker push or pull commands to push or pull container images from the container registry.
  
@@ -154,55 +166,73 @@ You may want to access the container registry from outside of your Azure Stack E
 
 ## Use Edge container registry images via Kubernetes pods
 
-You can now use the image that you pushed in your Edge container registry from within the Kubernetes pods.
+You can now deploy the image that you pushed in your Edge container registry from within the Kubernetes pods.
 
-Configure cluster access via kubectl
-
-The image pull secrets are already set in all K8s namespaces. Simply refer to them in your pod specification using imagePullSecrets with a name = ase-ecr-credentials
-	
-Deploy a pod to your namespace using kubectl. Replace the image: <image-name> with the image pushed to container registry
-
-		apiVersion: v1
-		kind: Pod
-		metadata:
-		  name: nginx
-		spec:
-		  containers:
-		  - name: nginx
-		    image: ecr.dbe-hw6h1t2.microsoftdatabox.com:31001/nginx:2.0
-		    imagePullPolicy: Always
-		  imagePullSecrets:
-  - name: ase-ecr-credentials
-
-After the Kubernetes cluster is created, you can use the *kubectl* via cmdline to access the cluster. In this approach, you:
-
-- Create a namespace and a user. 
-- Associate the user with the namespace. 
-- Get the *config* file that allows you to use a Kubernetes client to talk directly to the Kubernetes cluster that you created without having to connect to PowerShell interface of your Azure Stack Edge Pro device.
-
-Follow these steps:
-
-1. Create a namespace. Type:
-
-    `New-HcsKubernetesNamespace -Namespace <string>` 
-
-    > [!NOTE]
-    > For both namespace and user names, the [DNS subdomain naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) apply.
-
-    Here is a sample output:
-
-    `[10.100.10.10]: PS> New-HcsKubernetesNamespace -Namespace "myasetest1"`
-
-2. Create a user and get a config file. Type:
-
-    `New-HcsKubernetesUser -UserName <string>`
-
-    > [!NOTE]
-    > You can't use *aseuser* as the username as it is reserved for a default user associated with IoT namespace for Azure Stack Edge Pro.
-
-    Here is a sample output of the config file:
-   
+1. To deploy the image, you need to configure cluster access via kubectl. Create a namespace, a user, grant user access to the namespace, and get a config file. Make sure that you can connect to the Kubernetes pods. 
     
+    Follow all the steps in [Connect to and manage a Kubernetes cluster via kubectl on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-kubernetes-cluster.md). 
+
+    Here is a sample output for a namespace on your device from where the user can access the Kubernetes cluster.
+
+    ```powershell
+    [10.128.44.40]: PS>New-HcsKubernetesNamespace -Namespace myecr
+    [10.128.44.40]: PS>New-HcsKubernetesUser -UserName ecruser
+    apiVersion: v1
+    clusters:
+    - cluster:
+        certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01URXdOVEF6TkRJek1Gb1hEVE13TVRFd016QXpOREl6TUZvd0ZURVRNQkVnNjOVRLWndCQ042cm1XQms2eXFwcXI1MUx6bApTaXMyTy91UEJ2YXNSSUUzdzgrbmEwdG1aTERZZ2F6MkQwMm42Q29mUmtyUTR2d1lLTnR1MlpzR3pUdz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+        server: https://compute.dbe-hw6h1t2.microsoftdatabox.com:6443
+      name: kubernetes
+        ===================CUT=========================================CUT==============
+        client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMwRENDQWJpZ0F3SUJBZ0lJYmVWRGJSTzZ3ell3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TURFeE1EVXdNelF5TXpCYUZ3MHlNVEV4TURreU16UTRNal
+        ===================CUT=========================================CUT==============
+        DMVUvN3lFOG5UU3k3b2VPWitUeHdzCjF1UDByMjhDZ1lCdHdRY0ZpcFh1blN5ak16dTNIYjhveFI2V3VWWmZldFFKNElKWEFXOStVWGhKTFhyQ2x4bUcKWHRtbCt4UU5UTzFjQVNKRVZWVDd6Tjg2ay9kSU43S3JIVkdUdUxlUDd4eGVjV2VRcWJrZEVScUsxN0liTXpiVApmbnNxc0dobEdmLzdmM21kTGtyOENrcWs5TU5aM3MvUVIwRlFCdk94ZVpuUlpTeDVGbUR5S1E9PQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+
+    [10.128.44.40]: PS>Grant-HcsKubernetesNamespaceAccess -Namespace myecr -UserName ecruser
+    [10.128.44.40]: PS>kubectl get pods -n "myecr"
+    No resources found.
+    PS C:\WINDOWS\system32>
+    ```  
+
+2. When you pushed the image in the Edge container registry, the image pull secrets are already set in all the Kubernetes namespaces. You can get secrets by using the `get secrets` command. Here is a sample output:
+
+    ```powershell
+    PS C:\WINDOWS\system32> .\kubectl.exe get secrets -n myecr
+    NAME                  TYPE                                  DATA   AGE
+    ase-ecr-credentials   kubernetes.io/dockerconfigjson        1      99m
+    default-token-c7kww   kubernetes.io/service-account-token   3      107m
+    sec-smbcredentials    microsoft.com/smb                     2      99m
+    PS C:\WINDOWS\system32>   
+    ```    
+
+3. Deploy a pod to your namespace using kubectl. Use the following `yaml`. 
+
+    Replace the image: <image-name> with the image pushed to container registry. Refer to the secrets in your namespaces using imagePullSecrets with a name `ase-ecr-credentials`.
+	
+    ```yml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: ecr.dbe-hw6h1t2.microsoftdatabox.com:31001/nginx:2.0
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: ase-ecr-credentials
+    ```
+
+4. Apply the deployment in the namespace you created using the apply command. Verify that the container is running. Here is a sample output:
+   
+    ```yml
+    PS C:\Windows\System32> .\kubectl.exe apply -f .\deployment.yml -n myecr
+    pod/nginx configured
+    PS C:\Windows\System32> .\kubectl.exe get pods -n myecr
+    NAME    READY   STATUS    RESTARTS   AGE
+    nginx   1/1     Running   0          27m
+    PS C:\Windows\System32>
+    ```
 
 ## Next steps
 
