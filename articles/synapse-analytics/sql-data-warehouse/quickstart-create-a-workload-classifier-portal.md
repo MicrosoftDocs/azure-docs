@@ -76,7 +76,7 @@ Classification allows you to route requests, based on a set of rules, to a workl
 
     ![Click Create](./media/quickstart-create-a-workload-classifier-portal/settings-classifiers.png)
 
-5. Select  **Not congfigured** under the Classifiers column.
+5. Select  **Not configured** under the Classifiers column.
 6. Select **+ Add classifier**.
 
     ![Click Add](./media/quickstart-create-a-workload-classifier-portal/add-wc.png)
