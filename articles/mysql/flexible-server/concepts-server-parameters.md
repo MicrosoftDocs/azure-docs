@@ -106,7 +106,7 @@ Creating new client connections to MySQL takes time and once established, these 
 
 If you receive an error similar to "Row size too large (> 8126)", you may want to turn OFF the parameter **innodb_strict_mode**. The server parameter **innodb_strict_mode** is not allowed to be modified globally at the server level because if row data size is larger than 8k, the data will be truncated without an error, which can lead to potential data loss. We recommend modifying the schema to fit the page size limit. 
 
-This parameter can be set at a session level using `init_connect`. To set **innodb_strict_mode** at session level, refer to [setting parameter not listed](./how-to-configure-server-parameters-portal.md#setting-parameters-not-listed).
+This parameter can be set at a session level using `init_connect`. To set **innodb_strict_mode** at session level, refer to [setting parameter not listed](./how-to-configure-server-parameters-portal.md#setting-non-modifiable-server-parameters).
 
 > [!NOTE]
 > If you have a read replica server, setting **innodb_strict_mode** to OFF at the session-level on a source server will break the replication. We suggest keeping the parameter set to OFF if you have read replicas.
