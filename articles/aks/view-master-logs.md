@@ -33,9 +33,11 @@ Azure Monitor logs are enabled and managed in the Azure portal. To enable log co
 
 In addition to entries written by Kubernetes, your project's audit logs also have entries from AKS.
 
-Audit logs are recorded into two categories, *kube-audit-admin* and *kube-audit*. The *kube-audit* category contains all audit log data for every audit event, including *get*, *list*, *create*, *update*, *delete*, *patch*, and *post*.
+Audit logs are recorded into three categories: *kube-audit*, *kube-audit-admin*, and *guard*.
 
-The *kube-audit-admin* category is a subset of the *kube-audit* log category. *kube-audit-admin* reduces the number of logs significantly by excluding the *get* and *list* audit events from the log.
+- The *kube-audit* category contains all audit log data for every audit event, including *get*, *list*, *create*, *update*, *delete*, *patch*, and *post*.
+- The *kube-audit-admin* category is a subset of the *kube-audit* log category. *kube-audit-admin* reduces the number of logs significantly by excluding the *get* and *list* audit events from the log.
+- The *guard* category is managed Azure AD and Azure RBAC audits. For managed Azure AD: token in, user info out. For Azure RBAC: access reviews in and out.
 
 ## Schedule a test pod on the AKS cluster
 
@@ -49,7 +51,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -71,7 +73,7 @@ pod/nginx created
 
 ## View collected logs
 
-It may take a few minutes for the diagnostics logs to be enabled and appear.
+It may take up to 10 minutes for the diagnostics logs to be enabled and appear.
 
 > [!NOTE]
 > If you need all audit log data for compliance or other purposes, collect and store it in inexpensive storage such as blob storage. Use the *kube-audit-admin* log category to collect and save a meaningful set of audit log data for monitoring and alerting purposes.

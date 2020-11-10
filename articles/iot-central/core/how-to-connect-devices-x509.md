@@ -7,7 +7,7 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-
+ms.custom: device-developer
 ---
 
 # How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application

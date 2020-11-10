@@ -118,7 +118,7 @@ landingContent:
         - text: Azure SQL for beginners
           url: https://aka.ms/azuresql4beginners
         - text: Azure SQL fundamentals 
-          url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+          url: /learn/paths/azure-sql-fundamentals/
         - text: Azure SQL hands-on labs
           url: https://aka.ms/asqlworkshop
         - text: Azure SQL bootcamp 
@@ -154,11 +154,11 @@ landingContent:
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/sql
+            url: /cli/azure/sql
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.sql
+            url: /powershell/module/az.sql
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/sql/
+            url: /rest/api/sql/
  
   # Card 
   - title: Scalability
@@ -174,14 +174,4 @@ landingContent:
           - text: Elastic scale
             url: elastic-scale-introduction.md 
           - text: Elastic query 
-            url: elastic-query-overview.md 
-
-
-
-
-
-
-
-
-
-
+            url: elastic-query-overview.md

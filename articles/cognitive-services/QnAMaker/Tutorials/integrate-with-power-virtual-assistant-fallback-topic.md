@@ -4,7 +4,7 @@ description: In this tutorial, improve the quality of your knowledge base with a
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 11/09/2020
 ---
 
 # Tutorial: Add your knowledge base to Power Virtual Agents
@@ -134,6 +134,9 @@ This section creates the fallback topic conversation flow.
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-flow-initial-template.png" alt-text="Partial Screenshot of Power Automate with new flow template.":::
 
 ## Create a Power Automate flow to connect to your knowledge base
+
+> [!NOTE]
+> Currently the Power Automate template does not support QnA Maker managed (Preview) endpoints. To add a QnA Maker managed (Preview) knowledge base to Power Automate skip this step and manually add the endpoints to it. 
 
 The following procedure creates a Power Automate flow that:
 * Takes the incoming user text, and sends it to QnA Maker.

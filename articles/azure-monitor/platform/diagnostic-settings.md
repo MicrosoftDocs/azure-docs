@@ -58,6 +58,8 @@ Any destinations for the diagnostic setting must be created before creating the 
 > [!NOTE]
 > Azure Data Lake Storage Gen2 accounts are not currently supported as a destination for diagnostic settings even though they may be listed as a valid option in the Azure portal.
 
+> [!NOTE]
+> Azure Monitor (Diagnostic Settings) can't access Event Hubs resources when virtual networks are enabled. You have to enable the Allow trusted Microsoft services to bypass this firewall setting in Event Hub, so that Azure Monitor (Diagnostic Settings) service is granted access to your Event Hubs resources. 
 
 
 ## Create in Azure portal

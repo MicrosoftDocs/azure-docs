@@ -67,7 +67,7 @@ firstRowOnly | Indicates whether to return only the first row or all rows. | Boo
 
 The lookup result is returned in the `output` section of the activity run result.
 
-* **When `firstRowOnly` is set to `true` (default)**, the output format is as shown in the following code. The lookup result is under a fixed `firstRow` key. To use the result in subsequent activity, use the pattern of  `@{activity('LookupActivity').output.firstRow.table`.
+* **When `firstRowOnly` is set to `true` (default)**, the output format is as shown in the following code. The lookup result is under a fixed `firstRow` key. To use the result in subsequent activity, use the pattern of  `@{activity('LookupActivity').output.firstRow.table}`.
 
     ```json
     {

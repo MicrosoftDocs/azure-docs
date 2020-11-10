@@ -108,9 +108,12 @@ Expectations are used to configure hints for the processing of the next user inp
 ### Post-execution state
 The post-execution state is the dialog state after processing the current input (utterance or activity). It's of the following types:
 
-* **Command completed**: Complete the command and no additional rules of the command will be processed.
+* **Keep current state**: Keep current state only.
+* **Complete the command**: Complete the command and no additional rules of the command will be processed.
 * **Execute completion rules**: Execute all the valid completion rules.
 * **Wait for user's input**: Wait for the next user input.
+
+
 
 ## Next steps
 

@@ -3,11 +3,13 @@ title: Frequently asked questions about the Cassandra API for Azure Cosmos DB
 description: Get answers to frequently asked questions about the Cassandra API for Azure Cosmos DB.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
 ---
 # Frequently asked questions about the Cassandra API in Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 This article describes the functionality differences between Apache Cassandra and Cassandra API in Azure Cosmos DB. It also provides answers to frequently asked questions about the Cassandra API in Azure Cosmos DB.
 
@@ -69,7 +71,7 @@ It's essential to see what operations (and their volume) cause this issue. You c
 
 Metrics are available that show you how throughput is used over hours, over days, and per seven days, across partitions or in aggregate. For more information, see [Monitoring and debugging with metrics in Azure Cosmos DB](use-metrics.md).
 
-Diagnostic logs are explained in the [Azure Cosmos DB diagnostic logging](logging.md) article.
+Diagnostic logs are explained in the [Azure Cosmos DB diagnostic logging](./monitor-cosmos-db.md) article.
 
 ### Does the primary key map to the partition key concept of Azure Cosmos DB?
 
@@ -129,9 +131,9 @@ Yes, TTL is supported.
 
 Azure Cosmos DB is a platform service that helps you increase productivity and not worry about managing and monitoring infrastructure. For example, you don't need to monitor node status, replica status, gc, and OS parameters earlier with various tools. You just need to take care of throughput that's available in portal metrics to see if you're getting throttled, and then increase or decrease that throughput. You can:
 
-- Monitor [SLAs](monitor-accounts.md)
+- Monitor [SLAs](./monitor-cosmos-db.md)
 - Use [metrics](use-metrics.md)
-- Use [diagnostic logs](logging.md)
+- Use [diagnostic logs](./monitor-cosmos-db.md)
 
 ### Which client SDKs can work with the Cassandra API?
 
@@ -181,7 +183,7 @@ You can read about migration options in the [Migrate your data to Cassandra API 
 Provide feedback via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## Next steps
 

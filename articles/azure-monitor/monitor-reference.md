@@ -166,6 +166,19 @@ The following table lists Azure services and the data they collect into Azure Mo
 |VPN Gateway | Yes | Yes | No |  |
 |Windows Virtual Desktop | No | No | No |  |
 
+## Virtual machine agents
+The following table lists the agents that can collect data from the guest operating system of virtual machines and send data to Monitor. Each agent can collect different data and send it to either Metrics or Logs in Azure Monitor. 
+
+See [Overview of Azure Monitor agents](platform/agents-overview.md) for details on the data that each agent can collect.
+
+| Agent |  Metrics | Logs |
+|:---|:---|:---|:---|
+| [Azure Monitor agent (preview)](platform/azure-monitor-agent-overview.md) | Yes | Yes |
+| [Log Analytics agent](platform/log-analytics-agent.md) | No | Yes|
+| [Diagnostic extension](platform/diagnostics-extension-overview.md) | Yes | No |
+| [Telegraf agent](platform/collect-custom-metrics-linux-telegraf.md) | Yes | No |
+| [Dependency agent](insights/vminsights-enable-overview.md) | No | Yes |
+
 
 ## Product integrations
 The services and solutions in the following table store their data in a Log Analytics workspace so that it can be analyzed with other log data collected by Azure Monitor.

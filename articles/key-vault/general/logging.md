@@ -22,7 +22,7 @@ You can access your logging information 10 minutes (at most) after the key vault
 * Use standard Azure access control methods to secure your logs by restricting who can access them.
 * Delete logs that you no longer want to keep in your storage account.
 
-For overview information about Key Vault, see [What is Azure Key Vault?](overview.md). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For information about using [Azure Monitor for Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
+For overview information about Key Vault, see [What is Azure Key Vault?](overview.md). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For information about using [Azure Monitor for Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## Interpret your Key Vault logs
 
@@ -84,32 +84,32 @@ The following table lists the **operationName** values and corresponding REST AP
 | operationName | REST API command |
 | --- | --- |
 | **Authentication** |Authenticate via Azure Active Directory endpoint |
-| **VaultGet** |[Get information about a key vault](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
-| **VaultPut** |[Create or update a key vault](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultDelete** |[Delete a key vault](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
-| **VaultPatch** |[Update a key vault](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultList** |[List all key vaults in a resource group](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
-| **KeyCreate** |[Create a key](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
-| **KeyGet** |[Get information about a key](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| **KeyImport** |[Import a key into a vault](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
-| **KeyBackup** |[Back up a key](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **KeyDelete** |[Delete a key](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| **KeyRestore** |[Restore a key](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **KeySign** |[Sign with a key](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| **KeyVerify** |[Verify with a key](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
-| **KeyWrap** |[Wrap a key](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
-| **KeyUnwrap** |[Unwrap a key](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
-| **KeyEncrypt** |[Encrypt with a key](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| **KeyDecrypt** |[Decrypt with a key](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| **KeyUpdate** |[Update a key](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| **KeyList** |[List the keys in a vault](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| **KeyListVersions** |[List the versions of a key](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| **SecretSet** |[Create a secret](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[Get a secret](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **SecretUpdate** |[Update a secret](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **SecretDelete** |[Delete a secret](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **SecretList** |[List secrets in a vault](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| **SecretListVersions** |[List versions of a secret](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultGet** |[Get information about a key vault](/rest/api/keyvault/vaults) |
+| **VaultPut** |[Create or update a key vault](/rest/api/keyvault/vaults) |
+| **VaultDelete** |[Delete a key vault](/rest/api/keyvault/vaults) |
+| **VaultPatch** |[Update a key vault](/rest/api/keyvault/vaults) |
+| **VaultList** |[List all key vaults in a resource group](/rest/api/keyvault/vaults) |
+| **KeyCreate** |[Create a key](/rest/api/keyvault/createkey) |
+| **KeyGet** |[Get information about a key](/rest/api/keyvault/getkey) |
+| **KeyImport** |[Import a key into a vault](/rest/api/keyvault/vaults) |
+| **KeyBackup** |[Back up a key](/rest/api/keyvault/backupkey) |
+| **KeyDelete** |[Delete a key](/rest/api/keyvault/deletekey) |
+| **KeyRestore** |[Restore a key](/rest/api/keyvault/restorekey) |
+| **KeySign** |[Sign with a key](/rest/api/keyvault/sign) |
+| **KeyVerify** |[Verify with a key](/rest/api/keyvault/vaults) |
+| **KeyWrap** |[Wrap a key](/rest/api/keyvault/wrapkey) |
+| **KeyUnwrap** |[Unwrap a key](/rest/api/keyvault/unwrapkey) |
+| **KeyEncrypt** |[Encrypt with a key](/rest/api/keyvault/encrypt) |
+| **KeyDecrypt** |[Decrypt with a key](/rest/api/keyvault/decrypt) |
+| **KeyUpdate** |[Update a key](/rest/api/keyvault/updatekey) |
+| **KeyList** |[List the keys in a vault](/rest/api/keyvault/vaults) |
+| **KeyListVersions** |[List the versions of a key](/rest/api/keyvault/getkeyversions) |
+| **SecretSet** |[Create a secret](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[Get a secret](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[Update a secret](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[Delete a secret](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[List secrets in a vault](/rest/api/keyvault/vaults) |
+| **SecretListVersions** |[List versions of a secret](/rest/api/keyvault/getsecretversions) |
 | **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published |
 | **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
 | **SecretExpiredEventGridNotification** |Secret expired event published |

@@ -41,7 +41,11 @@ The Azure App Service Local Cache feature provides a web role view of your conte
 * App deployment through any supported method publishes directly to the durable shared content store. To refresh the _D:\home\site_ and _D:\home\siteextensions_ folders in the local cache, the app needs to be restarted. To make the lifecycle seamless, see the information later in this article.
 * The default content view of the SCM site continues to be that of the shared content store.
 
-## Enable Local Cache in App Service
+## Enable Local Cache in App Service 
+
+> [!NOTE]
+> Local Cache is not supported in the **F1** or **D1** tier. 
+
 You configure Local Cache by using a combination of reserved app settings. You can configure these app settings by using the following methods:
 
 * [Azure portal](#Configure-Local-Cache-Portal)

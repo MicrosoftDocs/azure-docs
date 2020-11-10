@@ -21,7 +21,7 @@ The error codes listed in the following table may be returned by an operation on
 
 | Error code | User message |
 |--|--|
-| VaultAlreadyExists |  The specified key vault already exists (in soft-deleted state or in another subscription). |
+| VaultAlreadyExists |  Your attempt to create a new key vault with the specified name has failed since the name is already in use. If you recently deleted a key vault with this name, it may still be in the soft deleted state. You can verify if it existis in soft-deleted state [here](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault) |
 | VaultNameNotValid |  The vault name should be 24 char, alphanumeric and start with an alphabet |
 | AccessDenied |  You may be missing permissions in access policy to do that operation. |
 | ForbiddenByFirewall |  Client address is not authorized and caller is not a trusted service. |
