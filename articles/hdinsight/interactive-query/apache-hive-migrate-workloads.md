@@ -115,7 +115,7 @@ HDInsight optionally integrates with Azure Active Directory using HDInsight Ente
 
 ## Next steps
 
-* [Additional configuration using Hive Warehouse Connector](./apache-hive-warehouse-connector.md) is required when the metastore is shared between Spark and Hive.
+* See [Additional configuration using Hive Warehouse Connector](./apache-hive-warehouse-connector.md) for sharing the metastore between Spark and Hive for ACID tables.
 * [HDInsight 4.0 Announcement](../hdinsight-version-release.md)
 * [HDInsight 4.0 deep dive](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)
 * [Hive 3 ACID Tables](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.1.0/using-hiveql/content/hive_3_internals.html)
