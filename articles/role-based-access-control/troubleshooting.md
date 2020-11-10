@@ -62,7 +62,7 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
-- If you attempt to remove the last role assignment for a subscription, you might get the error "Cannot delete the last RBAC admin assignment." Removing the last role assignment for a subscription is not supported to avoid orphaning the subscription.
+- If you attempt to remove the last Owner role assignment for a subscription, you might see the error "Cannot delete the last RBAC admin assignment." Removing the last Owner role assignment for a subscription is not supported to avoid orphaning the subscription. If you want to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## Problems with custom roles
 
