@@ -43,6 +43,19 @@ A workspace includes other Azure resources that are used by the workspace:
 
 You can share a workspace with others.
 
+### Create workspace
+
+The following diagram shows the create workspace workflow.
+
+* You sign in to Azure AD from one of the supported Azure Machine Learning clients (Azure CLI, Python SDK, Azure portal) and request the appropriate Azure Resource Manager token.
+* You call Azure Resource Manager to create the workspace. 
+* Azure Resource Manager contacts the Azure Machine Learning resource provider to provision the workspace.
+* If you don't specify existing resources, additional required resources are created in your subscription..
+
+You can also provision other compute targets that are attached to a workspace (like Azure Kubernetes Service or VMs) as needed.
+
+[![Create workspace workflow](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
+
 ## Computes
 
 <a name="compute-targets"></a>
@@ -111,6 +124,10 @@ For example run configurations, see [Configure a training run](how-to-set-up-tra
 
 When you submit a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip file is then extracted, and the script is run there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
 
+The following diagram shows the code snapshot workflow.
+
+[![Code snapshot workflow](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
+
 ### Logging
 
 Azure Machine Learning automatically logs standard run metrics for you. However, you can also [use the Python SDK to log arbitrary metrics](how-to-track-experiments.md).
@@ -126,6 +143,31 @@ There are multiple ways to view your logs: monitoring run status in real time, o
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. This works with runs submitted using a script run configuration or ML pipeline. It also works for runs submitted from the SDK or Machine Learning CLI.
 
 For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
+
+### Training workflow
+
+When you run an experiment to train a model, the following steps happen. These are illustrated in the training workflow diagram below:
+
+* Azure Machine Learning is called with the snapshot ID for the code snapshot saved in the previous section.
+* Azure Machine Learning creates a run ID (optional) and a Machine Learning service token, which is later used by compute targets like Machine Learning Compute/VMs to communicate with the Machine Learning service.
+* You can choose either a managed compute target (like Machine Learning Compute) or an unmanaged compute target (like VMs) to run training jobs. Here are the data flows for both scenarios:
+   * VMs/HDInsight, accessed by SSH credentials in a key vault in the Microsoft subscription. Azure Machine Learning runs management code on the compute target that:
+
+   1. Prepares the environment. (Docker is an option for VMs and local computers. See the following steps for Machine Learning Compute to understand how running experiments on Docker containers works.)
+   1. Downloads the code.
+   1. Sets up environment variables and configurations.
+   1. Runs user scripts (the code snapshot mentioned in the previous section).
+
+   * Machine Learning Compute, accessed through a workspace-managed identity.
+Because Machine Learning Compute is a managed compute target (that is, it's managed by Microsoft) it runs under your Microsoft subscription.
+
+   1. Remote Docker construction is kicked off, if needed.
+   1. Management code is written to the user's Azure Files share.
+   1. The container is started with an initial command. That is, management code as described in the previous step.
+
+* After the run completes, you can query runs and metrics. In the flow diagram below, this step occurs when the training compute target writes the run metrics back to Azure Machine Learning from storage in the Cosmos DB database. Clients can call Azure Machine Learning. Machine Learning will in turn pull metrics from the Cosmos DB database and return them back to the client.
+
+[![Training workflow](media/concept-azure-machine-learning-architecture/training-and-metrics.png)](media/concept-azure-machine-learning-architecture/training-and-metrics.png#lightbox)
 
 ## Models
 
@@ -175,9 +217,21 @@ An endpoint is an instantiation of your model into either a web service that can
 
 When deploying a model as a web service, the endpoint can be deployed on Azure Container Instances, Azure Kubernetes Service, or FPGAs. You create the service from your model, script, and associated files. These are placed into a base container image, which contains the execution environment for the model. The image has a load-balanced, HTTP endpoint that receives scoring requests that are sent to the web service.
 
-You can enable Application Insights telemetry or model telemetry to monitor your web service. The telemetry data is accessible only to you.  It's stored in your Application Insights and storage account instances.
+You can enable Application Insights telemetry or model telemetry to monitor your web service. The telemetry data is accessible only to you.  It's stored in your Application Insights and storage account instances. If you've enabled automatic scaling, Azure automatically scales your deployment.
 
-If you've enabled automatic scaling, Azure automatically scales your deployment.
+The following diagram shows the inference workflow for a model deployed as a web service endpoint:
+
+Here are the details:
+
+* The user registers a model by using a client like the Azure Machine Learning SDK.
+* The user creates an image by using a model, a score file, and other model dependencies.
+* The Docker image is created and stored in Azure Container Registry.
+* The web service is deployed to the compute target (Container Instances/AKS) using the image created in the previous step.
+* Scoring request details are stored in Application Insights, which is in the user's subscription.
+* Telemetry is also pushed to the Microsoft/Azure subscription.
+
+[![Inference workflow](media/concept-azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
+
 
 For an example of deploying a model as a web service, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 

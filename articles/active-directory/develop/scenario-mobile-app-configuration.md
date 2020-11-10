@@ -364,5 +364,5 @@ For information about enabling a broker on Android, see [Brokered authentication
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Acquiring a token](scenario-mobile-acquire-token.md)
+Move on to the next article in this scenario, 
+[Acquiring a token](scenario-mobile-acquire-token.md).

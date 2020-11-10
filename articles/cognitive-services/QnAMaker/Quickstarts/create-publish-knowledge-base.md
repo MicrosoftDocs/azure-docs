@@ -131,13 +131,12 @@ In the upper right, select **Save and train** to save your edits and train QnA M
 1. In the QnA Maker portal, in the upper right, select **Test** to test that the changes you made took effect.
 2. Enter an example user query in the textbox.
 
-    `How many Azure services are used by a knowledge base?`
+    `whats the size of the touchscreen`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/enable-short-answer.png" alt-text="Screenshot of chat UI dialog displaying question: how many pages will be there is a minor's passport? and the answer:Only 36 pages passport booklet are issued to minors.":::
+3. If you enable the MRC feature for your knowledge base, by selecting the **Display short answer** then you will also see a precise answer, if available, along with the answer passage in the test pane. 
 
-3. If you enable the MRC feature for your knowledge base, by selecting the **Enable short answer(experimental)** then you will also see a precise answer, if available, along with the answer passage in the test pane. 
-
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/enable-short-answer-checked.png" alt-text="Screenshot of chat UI dialog displaying question: how many pages will be there is a minor's passport? and the answer:36. on a single line followed by a second line stating: Only 36 pages passport booklet are issued to minors.":::
+    ![Managed enabled test pane](../media/conversational-context/test-pane-with-managed.png)
+    
 
 4. Select Inspect to examine the response in more detail. The test window is used to test your changes to the knowledge base before publishing your knowledge base. 
 5. Select **Test** again to close the **Test** panel.
