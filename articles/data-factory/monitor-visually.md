@@ -18,17 +18,21 @@ ms.date: 06/30/2020
 
 Once you've created and published a pipeline in Azure Data Factory, you can associate it with a trigger or manually kick off an ad hoc run. You can monitor all of your pipeline runs natively in the Azure Data Factory user experience. To open the monitoring experience, select the **Monitor & Manage** tile in the data factory blade of the [Azure portal](https://portal.azure.com/). If you're already in the ADF UX, click on the **Monitor** icon on the left sidebar.
 
-All data factory runs are displayed in the browser's local time zone. If you change the time zone, all the date/time fields snap to the one that you selected.
+By default, all data factory runs are displayed in the browser's local time zone. If you change the time zone, all the date/time fields snap to the one that you selected.
 
 ## Monitor pipeline runs
 
-The default monitoring view is list of pipeline runs in the selected time period. The following columns are displayed:
+The default monitoring view is list of triggered pipeline runs in the selected time period. You can change the time range and filter by status, pipeline name, or annotation. Hover over the specific pipeline run to get run-specific actions such as rerun and the consumption report.
+
+![List view for monitoring pipeline runs](media/monitor-visually/pipeline-runs.png)
+
+The pipeline run grid contains the following columns:
 
 | **Column name** | **Description** |
 | --- | --- |
 | Pipeline Name | Name of the pipeline |
-| Actions | Icons that allow you to view activity details, cancel, or rerun the pipeline |
 | Run Start | Start date and time for the pipeline run (MM/DD/YYYY, HH:MM:SS AM/PM) |
+| Run End | End date and time for the pipeline run (MM/DD/YYYY, HH:MM:SS AM/PM) |
 | Duration | Run duration (HH:MM:SS) |
 | Triggered By | The name of the trigger that started the pipeline |
 | Status | **Failed**, **Succeeded**, **In Progress**, **Canceled**, or **Queued** |
@@ -37,15 +41,23 @@ The default monitoring view is list of pipeline runs in the selected time period
 | Error | If the pipeline failed, the run error |
 | Run ID | ID of the pipeline run |
 
-![List view for monitoring pipeline runs](media/monitor-visually/pipeline-runs.png)
-
 You need to manually select the **Refresh** button to refresh the list of pipeline and activity runs. Autorefresh is currently not supported.
 
 ![Refresh button](media/monitor-visually/refresh.png)
 
+To view the results of a debug run, select the **Debug** tab.
+
+![Select the View active debug runs icon](media/iterative-development-debugging/view-debug-runs.png)
+
 ## Monitor activity runs
 
-To view activity runs for each pipeline run, select the **View activity runs** icon under the **Actions** column. The list view shows activity runs that correspond to each pipeline run.
+To get a detailed view of the individual activity runs of a specific pipeline run, click on the pipeline name.
+
+![View activity runs](media/monitor-visually/view-activity-runs.png)
+
+The list view shows activity runs that correspond to each pipeline run. Hover over the specific activity run to get run-specific information such as the JSON input, JSON output, and detailed activity-specific monitoring experiences.
+
+![List view for monitoring activity runs](media/monitor-visually/activity-runs.png)
 
 | **Column name** | **Description** |
 | --- | --- |
@@ -60,56 +72,36 @@ To view activity runs for each pipeline run, select the **View activity runs** i
 | Error | If the activity failed, the run error |
 | Run ID | ID of the activity run |
 
-![List view for monitoring activity runs](media/monitor-visually/activity-runs.png)
+If an activity failed, you can see the detailed error message by clicking on the icon in the error column. 
+
+![List view for monitoring activity runs](media/monitor-visually/activity-run-error.png)
 
 ### Promote user properties to monitor
 
-Promote any pipeline activity property as a user property so that it becomes an entity that you monitor. For example, you can promote the **Source** and **Destination** properties of the copy activity in your pipeline as user properties. Select **Auto Generate** to generate the **Source** and **Destination** user properties for a copy activity.
-
-![Create user properties](media/monitor-visually/monitor-user-properties-image1.png)
+Promote any pipeline activity property as a user property so that it becomes an entity that you monitor. For example, you can promote the **Source** and **Destination** properties of the copy activity in your pipeline as user properties.
 
 > [!NOTE]
 > You can only promote up to five pipeline activity properties as user properties.
 
-After you create the user properties, you can monitor them in the monitoring list views. If the source for the copy activity is a table name, you can monitor the source table name as a column in the list view for activity runs.
+![Create user properties](media/monitor-visually/promote-user-properties.png)
 
-![Activity runs list without user properties](media/monitor-visually/monitor-user-properties-image2.png)
+After you create the user properties, you can monitor them in the monitoring list views.
 
-![Add columns for user properties to the activity runs list](media/monitor-visually/monitor-user-properties-image3.png)
+![Add columns for user properties to the activity runs list](media/monitor-visually/choose-user-properties.png)
 
-![Activity runs list with columns for user properties](media/monitor-visually/monitor-user-properties-image4.png)
+ If the source for the copy activity is a table name, you can monitor the source table name as a column in the list view for activity runs.
 
-## Configure the list view
+![Activity runs list with columns for user properties](media/monitor-visually/view-user-properties.png)
 
-### Order and filter
+## Rerun pipelines and activities
 
-Toggle whether pipeline runs will be in descending or ascending according to the run start time. Filter pipeline runs by using the following columns:
+To rerun a pipeline that has previously ran from the start, hover over the specific pipeline run and select **Rerun**. If you select multiple pipelines, you can use the **Rerun** button to run them all.
 
-| **Column name** | **Description** |
-| --- | --- |
-| Pipeline Name | Filter by the name of the pipeline. |
-| Run Start |  Determine the time range of the pipeline runs displayed. Options include quick filters for **Last 24 hours**, **Last week**, and **Last 30 days** or to select a custom date and time. |
-| Run Status | Filter runs by status: **Succeeded**, **Failed**, **Queued**, **Canceled**, or **In Progress**. |
-| Annotations | Filter by tags applied to each pipeline |
-| Runs | Filter whether you want to see reran pipelines |
+![Rerun a pipeline](media/monitor-visually/rerun-pipeline.png)
 
-![Options for filtering](media/monitor-visually/filter.png)
+If you wish to rerun starting at a specific point, you can do so from the activity runs view. Select the activity you wish to start from and select **Rerun from activity**. 
 
-### Add or remove columns
-Right-click the list view header and choose columns that you want to appear in the list view.
-
-![Options for columns](media/monitor-visually/columns.png)
-
-### Adjust column widths
-Increase and decrease the column widths in the list view by hovering over the column header.
-
-## Rerun activities inside a pipeline
-
-You can rerun activities inside a pipeline. Select **View activity runs**, and then select the activity in your pipeline from which point you want to rerun your pipeline.
-
-![View activity runs](media/monitor-visually/rerun-activities-image1.png)
-
-![Select an activity run](media/monitor-visually/rerun-activities-image2.png)
+![Rerun an activity run](media/monitor-visually/rerun-activity.png)
 
 ### Rerun from failed activity
 
@@ -121,11 +113,11 @@ If an activity fails, times out, or is canceled, you can rerun the pipeline from
 
 You can view the rerun history for all the pipeline runs in the list view.
 
-![View history](media/monitor-visually/rerun-history-image1.png)
+![View history](media/monitor-visually/rerun-history-1.png)
 
 You can also view rerun history for a particular pipeline run.
 
-![View history for a pipeline run](media/monitor-visually/rerun-history-image2.png)
+![View history for a pipeline run](media/monitor-visually/view-rerun-history.png)
 
 ## Monitor consumption
 
@@ -144,22 +136,13 @@ You can plug these values into the [Azure pricing calculator](https://azure.micr
 
 ## Gantt views
 
-Use Gantt views to quickly visualize your pipelines and activity runs.
+A Gantt chart is a view that allows you to see the run history over a time range. By switching to a Gantt view, you will see all pipeline runs grouped by name displayed as bars relative to how long the run took. You can also group by annotations/tags that you've create on your pipeline. The Gantt view is also available at the activity run level.
 
-![Example of a Gantt chart](media/monitor-visually/gantt1.png)
-
-You can look at the Gantt view per pipeline or group by annotations/tags that you've created on your pipelines.
-
-![Gantt chart annotations](media/monitor-visually/gantt2.png)
+![Example of a Gantt chart](media/monitor-visually/select-gantt.png)
 
 The length of the bar informs the duration of the pipeline. You can also select the bar to see more details.
 
-![Gantt chart duration](media/monitor-visually/gantt3.png)
-
-## Guided tours
-Select the **Information** icon on the lower left. Then select **Guided Tours** to get step-by-step instructions on how to monitor your pipeline and activity runs.
-
-![Guided tours](media/monitor-visually/guided-tours.png)
+![Gantt chart duration](media/monitor-visually/view-gantt-run.png)
 
 ## Alerts
 

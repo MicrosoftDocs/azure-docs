@@ -50,9 +50,9 @@ You can interact with your workspace in the following ways:
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](concept-designer.md) 
-+ In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
++ In any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 + In any R environment with the [Azure Machine Learning SDK for R (preview)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
-+ On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
++ On the command line using the Azure Machine Learning [CLI extension](./reference-azure-machine-learning-cli.md)
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -101,7 +101,7 @@ When you create a new workspace, it automatically creates several Azure resource
 + [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well. 
   
   > [!IMPORTANT]
-  > By default, the storage account is a general-purpose v1 account. You can [upgrade this to general-purpose v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) after the workspace has been created. 
+  > By default, the storage account is a general-purpose v1 account. You can [upgrade this to general-purpose v2](../storage/common/storage-account-upgrade.md) after the workspace has been created. 
   > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
 
   To use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.

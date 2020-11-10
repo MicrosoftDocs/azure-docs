@@ -154,6 +154,8 @@ SQL Managed Instance can't access files, so cryptographic providers can't be cre
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
 
+  - To impersonate a user with EXECUTE AS statement the user needs to be mapped directly to Azure AD server principal (login). Users that are members of Azure AD groups mapped into Azure AD server principals cannot effectively be impersonated with EXECUTE AS statement, even though the caller has the impersonate permissions on the specified user name.
+
 - Database export/import using bacpac files are supported for Azure AD users in SQL Managed Instance using either [SSMS V18.4 or later](/sql/ssms/download-sql-server-management-studio-ssms), or [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - The following configurations are supported using database bacpac file: 
     - Export/import a database between different manage instances within the same Azure AD domain.
@@ -295,6 +297,7 @@ For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-
   - Alerts aren't yet supported.
   - Proxies aren't supported.
 - EventLog isn't supported.
+- User must be directly mapped to Azure AD server principal (login) to create, modify or execute SQL Agent jobs. Users that are not directly mapped, e.g. users that belong to an Azure AD group that has the rights to create, modify or execute SQL Agent jobs, will not effectively be able to perform those actions. This is due to Managed Instance impersonation and [EXECUTE AS limitations](#logins-and-users).
 
 The following SQL Agent features currently aren't supported:
 

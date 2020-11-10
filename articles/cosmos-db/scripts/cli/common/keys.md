@@ -4,7 +4,6 @@ description: Work with account keys and connection strings for an Azure Cosmos a
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/29/2020
 ---

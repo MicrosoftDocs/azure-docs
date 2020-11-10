@@ -618,8 +618,6 @@
           - name: Web apps
             displayname: java
             href: app/java-get-started.md
-          - name: Docker apps
-            href: app/docker.md
           - name: Log traces
             href: app/java-trace-logs.md
           - name: Unix metrics
@@ -692,13 +690,15 @@
         href: app/kubernetes-codeless.md
       - name: Standalone - any environment
         items:  
-          - name: Java (preview)
+          - name: Java
             items:
             - name: Overview
               href: app/java-in-process-agent.md
             - name: Configuration options
-              href: app/java-standalone-config.md 
-            - name: JVM arguments setup 
+              href: app/java-standalone-config.md
+            - name: Telemetry processors
+              href: app/java-standalone-telemetry-processors.md
+            - name: JVM arguments setup
               href: app/java-standalone-arguments.md
       - name: On-Premises servers
         items:
@@ -1344,10 +1344,6 @@
       href: insights/azure-web-apps-analytics.md
     - name: Application Insights Connector
       href: platform/app-insights-connector.md
-    - name: Application Insights for AKS codeless 
-      href: app/kubernetes.md
-    - name: Monitor Docker applications
-      href: app/docker.md
     - name: OMS portal deprecation
       href: platform/oms-portal-transition.md
     - name: Disk metrics deprecation

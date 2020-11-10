@@ -15,20 +15,20 @@ ms.custom: how-to
 
 # How to use your workspace with a custom DNS server
 
-When using Azure Machine Learning with a virtual network, there are [several ways to handle DNS name resolution](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances). By default, Azure automatically handles name resolution for your workspace and private endpoint. However, __when using your own custom DNS server__, you must manually create DNS entries for the workspace.
+When using Azure Machine Learning with a virtual network, there are [several ways to handle DNS name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. However, __when using your own custom DNS server__, you must manually create DNS entries for the workspace.
 
 > [!IMPORTANT]
 > This article only covers how to find the fully qualified domain name (FQDN) and IP addresses for these entries it does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
 
 ## Prerequisites
 
-- An Azure Virtual Network that uses [your own DNS server](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+- An Azure Virtual Network that uses [your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 - An Azure Machine Learning workspace with a private endpoint. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-- Familiarity with using [Network isolation during training & inference](how-to-enable-virtual-network.md).
+- Familiarity with using [Network isolation during training & inference](./how-to-network-security-overview.md).
 
-- Optionally, [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Find the IP addresses
 

@@ -28,7 +28,7 @@ This article shows you how to enable Managed Identity for the Blob output(s) of 
 
 ## Azure Resource Manager deployment
 
-Using Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](/cli/azure/?view=azure-cli-latest). The below examples use the Azure CLI.
+Using Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](/cli/azure/). The below examples use the Azure CLI.
 
 
 1. You can create a **Microsoft.StreamAnalytics/streamingjobs** resource with a Managed Identity by including the following property in the resource section of your Resource Manager template:
@@ -213,9 +213,9 @@ To give access to the entire account, run the following command using the Azure 
 
 When configuring your storage account's **Firewalls and virtual networks**, you can optionally allow in network traffic from other trusted Microsoft services. When Stream Analytics authenticates using Managed Identity, it provides proof that the request is originating from a trusted service. Below are instructions to enable this VNET access exception.
 
-1.	Navigate to the “Firewalls and virtual networks” pane within the storage account’s configuration pane.
-2.	Ensure the “Allow trusted Microsoft services to access this storage account” option is enabled.
-3.	If you enabled it, click **Save**.
+1.    Navigate to the "Firewalls and virtual networks" pane within the storage account's configuration pane.
+2.    Ensure the "Allow trusted Microsoft services to access this storage account" option is enabled.
+3.    If you enabled it, click **Save**.
 
    ![Enable VNET access](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
 
