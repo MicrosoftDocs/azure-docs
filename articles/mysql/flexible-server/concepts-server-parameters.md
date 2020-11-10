@@ -14,23 +14,26 @@ ms.date: 11/10/2020
 
 This article provides considerations and guidelines for configuring server parameters in Azure Database for MySQL flexible server.
 
-## What are server parameters? 
+## What are server variables? 
 
-The MySQL engine provides many different server variables/parameters that can be used to configure and tune engine behavior. Some parameters can be set dynamically during runtime while others are "static", requiring a server restart in order to apply.
+The MySQL engine provides many different [server variables/parameters](https://dev.mysql.com/doc/refman/5.7/en/server-option-variable-reference.html) that can be used to configure and tune engine behavior. Some parameters can be set dynamically during runtime while others are "static", requiring a server restart in order to apply.
 
-Azure Database for MySQL flexible server exposes the ability to change the value of various MySQL server parameters using the [Azure portal](./how-to-configure-server-parameters-portal.md) and [Azure CLI](./how-to-configure-server-parameters-cli.md) to match your workload's needs.
+Azure Database for MySQL Flexible Server exposes the ability to change the value of various MySQL server parameters using the [Azure portal](./how-to-configure-server-parameters-portal.md) and [Azure CLI](./how-to-configure-server-parameters-cli.md) to match your workload's needs.
 
 ## Configurable server parameters
 
-You can manage Azure Database for MySQL Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameter. The non-modifiable server parameters are greyed out.
+You can manage Azure Database for MySQL Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameters. The non-modifiable server parameters are greyed out.
 
 The list of supported server parameters is constantly growing. Use the server parameters tab in the Azure portal to view the full list and configure server parameters values.
 
-Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the pricing tier and vCores of the server.
+Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the compute tier and size (vCores) of the server.
+
+> [!NOTE]
+> If you are looking to modify a server parameter which is non-modifiable but you would like to see as a modifiable for your environment, please open a [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql) item or vote if the feedback already exist which can help us prioritize.
 
 ### log_bin_trust_function_creators
 
-In Azure Database for MySQL Flexible Server, binary logs are always enabled (i.e. `log_bin` is set to ON). In case you want to use triggers you will get error similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*. 
+In Azure Database for MySQL Flexible Server, binary logs are always enabled (that is, `log_bin` is set to ON). In case you want to use triggers you will get error similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*. 
 
 The binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. With row-based binary logging, security issues do not exist and binary logging cannot break, so you can safely set [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) to **TRUE**.
 
@@ -101,7 +104,7 @@ Creating new client connections to MySQL takes time and once established, these 
 
 ### innodb_strict_mode
 
-If you receive an error similar to "Row size too large (> 8126)" then you may want to turn OFF the parameter **innodb_strict_mode**. The server parameter **innodb_strict_mode** is not allowed to be modified globally at the server level because if row data size is larger than 8k, the data will be truncated without an error leading to potential data loss. We recommend to modify the schema to fit the page size limit. 
+If you receive an error similar to "Row size too large (> 8126)", you may want to turn OFF the parameter **innodb_strict_mode**. The server parameter **innodb_strict_mode** is not allowed to be modified globally at the server level because if row data size is larger than 8k, the data will be truncated without an error, which can lead to potential data loss. We recommend modifying the schema to fit the page size limit. 
 
 This parameter can be set at a session level using `init_connect`. To set **innodb_strict_mode** at session level, refer to [setting parameter not listed](./how-to-configure-server-parameters-portal.md#setting-parameters-not-listed).
 
@@ -110,11 +113,11 @@ This parameter can be set at a session level using `init_connect`. To set **inno
 
 ### time_zone
 
-Upon initial deployment, an Azure for MySQL server includes systems tables for time zone information, but these tables are not populated. The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](./how-to-configure-server-parameters-portal.md#working-with-the-time-zone-parameter) or [Azure CLI](./how-to-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
+Upon initial deployment, an Azure for MySQL Flexible Server includes system tables for time zone information, but these tables are not populated. The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](./how-to-configure-server-parameters-portal.md#working-with-the-time-zone-parameter) or [Azure CLI](./how-to-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
 
 ## Non-modifiable server parameters
 
-The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameter. The non-modifiable server parameters are greyed out. If you want to configure the non-modifiable server parameter at session level, refer to the [Azure Portal](./how-to-configure-server-parameters-portal.md#setting-non-modifiable-server-parameters) or [Azure CLI](./how-to-configure-server-parameters-cli.md#setting-non-modifiable-server-parameters) article for setting the parameter at the connection level using `init_connect`.
+The server parameter blade on the Azure portal shows both the modifiable and non-modifiable server parameters. The non-modifiable server parameters are greyed out. If you want to configure a non-modifiable server parameter at session level, refer to the [Azure portal](./how-to-configure-server-parameters-portal.md#setting-non-modifiable-server-parameters) or [Azure CLI](./how-to-configure-server-parameters-cli.md#setting-non-modifiable-server-parameters) article for setting the parameter at the connection level using `init_connect`.
 
 ## Next steps
 
