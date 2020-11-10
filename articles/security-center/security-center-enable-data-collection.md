@@ -234,7 +234,7 @@ To turn off automatic provisioning of an agent:
 1. Toggle the status to **Off** for the relevant agent.
     :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Toggles to disable auto provisioning per agent type":::
 1. Select **Save**. When auto provisioning is disabled, the default workspace configuration section is not displayed:
-    :::image type="content" source="./media/security-center-enable-data-collection/empty-configuration-column.png" alt-text="Toggles to disable auto provisioning per agent type":::
+    :::image type="content" source="./media/security-center-enable-data-collection/empty-configuration-column.png" alt-text="When auto provisioning is disabled, the configuration cell is empty":::
 
 
 > [!NOTE]
