@@ -31,7 +31,7 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40094.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Microsoft Azure Front door does not support deploying directly into a virtual network
 
@@ -80,7 +80,7 @@ To see how Azure Front Door completely maps to the Azure Security Benchmark, see
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40098.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable, Azure Front Door does not support deployment into a virtual network. It cannot be configured with an IDS or IPS solution for network threat detection or prevention.
 
@@ -109,7 +109,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40100.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not expose its underlying DNS configurations; these settings are maintained by Microsoft.
 
@@ -127,7 +127,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40080.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door is not integrated with Azure Active Directory (Azure AD).
 
@@ -141,7 +141,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40081.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not use any identities or manage any secrets for identities.
 
@@ -155,7 +155,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40082.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door doesn't support single sign-on for authentication to its resources.
 
@@ -169,7 +169,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40083.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door doesn't provide capability to support strong authentication.
 
@@ -183,7 +183,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40084.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not use any sensitive accounts and thus account activity alerts on anomalies does not provide any protections.
 
@@ -210,7 +210,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40086.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not allow customers to deploy any persisted data into the running environment.
 
@@ -224,7 +224,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40122.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not access any legacy applications.
 
@@ -242,7 +242,7 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40087.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not use any administrative accounts.
 
@@ -274,7 +274,7 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40089.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door  is not comprised of any user accounts.
 
@@ -288,7 +288,7 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40090.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not use or support emergency accounts.
 
@@ -302,7 +302,7 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40091.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door  doesn't support any automation on account or role management.
 
@@ -352,7 +352,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40149.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door doesn't store customer data and thus does not require usage of Customer Lockbox for data access requests.
 
@@ -370,7 +370,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40101.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not store, process or transmit data classified as sensitive.
 
@@ -384,7 +384,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40102.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not store, process or transmit data classified as sensitive.
 
@@ -398,7 +398,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40103.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not store, process or transmit data classified as sensitive.
 
@@ -435,7 +435,7 @@ Azure provides data in transit encryption by default for data traffic between Az
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40105.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: Azure provides data-at-rest encryption by default. For highly sensitive data, you have options to implement additional encryption at rest on all Azure resources where available. Azure manage your encryption keys by default, but Azure provides options to manage your own keys (customer managed keys) for certain Azure services.
 
@@ -520,7 +520,7 @@ Use Azure Monitor to create rules to trigger alerts when a non-approved service 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40126.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. 
 
@@ -536,7 +536,7 @@ It is recommended that the customer create a process to capture the attribute an
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40127.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not use Azure Active Directory (Azure AD) for Authentication. Thus you cannot restrict access to Azure Resource Manager with conditional access policies.
 
@@ -550,7 +550,7 @@ It is recommended that the customer create a process to capture the attribute an
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40128.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door is not comprised of any virtual machines or containers which would either expose compute resources or allow customers to install applications on them.
 
@@ -587,7 +587,7 @@ Focus on high quality alerts to reduce false-positive detections.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40107.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not support authentication or authorization via Azure Active Directory (Azure AD) for the control and data-plane level actions.
 
@@ -635,7 +635,7 @@ Enable Azure resource logs for  Azure Front Door. You can use Azure Security Cen
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40110.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not produce or process any security related logs which would be required for centrally log management or analysis.
 
@@ -649,7 +649,7 @@ Enable Azure resource logs for  Azure Front Door. You can use Azure Security Cen
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40111.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not produce any security-related logs and the customers can not set any log retention.
 
@@ -663,7 +663,7 @@ Enable Azure resource logs for  Azure Front Door. You can use Azure Security Cen
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40112.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Front Door does not support configuring your own time synchronization sources. The Azure Front Door  service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
@@ -804,7 +804,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40133.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not contain any security configurations.
 
@@ -818,7 +818,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40134.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not contain any security configurations.
 
@@ -847,7 +847,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40136.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -861,7 +861,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40137.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -875,7 +875,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40138.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Front Door
 
@@ -924,7 +924,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40119.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door is not comprised of any virtual machines or containers, which would require Endpoint Detection and Response (EDR) protection.
 
@@ -938,7 +938,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40120.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not interact with compute hosts, containers and storage, which require antimalware protection.
 
@@ -952,7 +952,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40121.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door is not comprised of any virtual machines or containers which would require antimalware protection.  Thus no configuration is required for any additional settings or to deploy any additional services to protect it from malware.
 
@@ -970,7 +970,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40129.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not support or require any data backups.
 
@@ -984,7 +984,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40130.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not support data backups or their encryption.
 
@@ -998,7 +998,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40131.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not support any data-backups.
 
@@ -1012,7 +1012,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40132.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Front Door does not manage any keys.
 
