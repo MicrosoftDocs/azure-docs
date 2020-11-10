@@ -30,12 +30,6 @@ To proceed with using Postman to access the Azure Digital Twins APIs, you need t
 
 [!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
 
-You will also need to gather your Azure **tenant's domain name**. Visit the [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) page in the Azure portal (you can use this link or search for *Azure Active Directory* in the [portal](https://portal.azure.com) search bar). This will open up your tenant's information.
-
-Take note of the *Primary domain* value.
-
-:::image type="content" source="media/how-to-use-postman/tenant-information.png" alt-text="Azure portal page of the Azure Active Directory overview page. There is a highlight around the 'Primary domain' value in the 'Tenant information' box." lightbox="media/how-to-use-postman/tenant-information.png":::
-
 ### Download Postman
 
 Next, download the desktop version of the Postman client. Navigate to [*www.getpostman.com/apps*](https://www.getpostman.com/apps) and follow the prompts to download the app.
@@ -102,7 +96,7 @@ In the *GET NEW ACCESS TOKEN* window that appears, fill in the following fields.
 * **Token Name**: Name the token however you'd like.
 * **Grant Type**: Select *Implicit*.
 * **Callback URL**: Enter *https://www.getpostman.com/oauth2/callback*.
-* **Auth URL**: You will craft this URL using your Azure **tenant's domain name** from the [*Prerequisites*](#prerequisites) section (which looks something like `<your-company>.onmicrosoft.com`). Enter `https://login.microsoftonline.com/<YOUR_AZURE_TENANT_DOMAIN>/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0`.
+* **Auth URL**: Enter *https://login.microsoftonline.com/common/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0*.
 * **Client ID**: Enter your app registration's **Application (client) ID** from the [*Prerequisites*](#prerequisites) section.
 * **Scope**: Leave blank.
 * **State**: Leave blank.
