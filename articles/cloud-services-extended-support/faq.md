@@ -1,6 +1,6 @@
 ---
-title: Cloud Services (extended support) FAQ
-description: Frequently asked questions for Cloud Services (extended support)
+title: Frequently asked questions for to Azure Cloud Services (extended support)
+description: Frequently asked questions for to Azure Cloud Services (extended support)
 ms.topic: conceptual
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -10,18 +10,16 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Frequently asked questions for Cloud Services (extended support)
+# Frequently asked questions for Azure Cloud Services (extended support)
 
-## What new features do I get with Cloud Services (extended support)?
-Cloud services customers get features like Template (Infrastructure as Code deployment model), Role-based access control, Azure Resource Manager Policies for improved control on security & privacy, Resource Tagging, Private Links, Azure Firewall, Vnet Peering, Key Vault support, etc. Customers will continue getting newer improved VM sizes, quicker security & performance improvements, and newer Azure Resource Manager features. 
+## What new features come with Cloud Services (extended support)?
+Cloud Service (extended support) supports features such as templates, role-based access control, Azure Resource Manager policies for improved control on security and  privacy, resource tagging, private links, Azure firewall, VNET peering, key vault support, etc. Customers will continue getting newer improved VM sizes, quicker security & performance improvements, and newer Azure Resource Manager features. 
 
-## Are there any pricing differences     
-Customers are now charged for use of Key Vault, Dynamic IP address, Reserved (static) IP address. 
-
-Public IP resources deployed through Resource Manager are charged differently. Dynamic IPs are also chargeable in addition to static public IPs. For more information, see [IP Address Charges)(https://azure.microsoft.com/pricing/details/ip-addresses/)
+## Are there any pricing differences between Cloud Services (classic) and Cloud Services (extended support)
+Yes. Cloud Services (extended support) supports additional features such as the use of key vault and dynamic/ static IP addresses. Customers will be charged for the utilization of these resources similar to any other Azure Resource Manager products. 
 
 ## Do I get DNS name for my Cloud Services (extended support)? Will its default naming convention change?  
-Yes, Cloud Services (extended support) can also be given a DNS name. With Azure Resource Manager, the DNS label is an optional property of the Public IP address that is assigned to the Cloud Service. The format of the DNS name for Azure Resource Manager based deployments as `<userlabel>.<region>.cloudapp.azure.com`
+Yes. Cloud Services (extended support) can also be given a DNS name. With Azure Resource Manager, the DNS label is an optional property of the Public IP address that is assigned to the Cloud Service. The format of the DNS name for Azure Resource Manager based deployments as `<userlabel>.<region>.cloudapp.azure.com`
 
 ## What is the resource name for Cloud Services (classic) & Cloud Services (extended support)?
 - Cloud Services (classic): `microsoft.classiccompute/domainnames`
@@ -40,15 +38,12 @@ Replace name property of load balancer probe, Endpoints, Reserved IP, Public IP 
 
 Replace deprecated vm size with current [alternative sizes](available-sizes.md).
 
-## What is changing in my existing `.cscfg` deployment file? 
-Update the DNS name 
-
 ## 	Do I need to maintain four files (Template, parameter, Csdef, Cscfg) instead of only 2 file?
 Template & parameter files are only used for deployment automation. Like before, you can still manually create dependent resources first and then a Cloud Services (extended support) deployment using PowerShell/CLI commands. 
 
 ## Why don’t I see a production & staging slot deployment anymore?
 Unlike Cloud Services (classic), Cloud Services (extended support) does not support the logical concept of hosted service, which included two slots (Production & Staging). Each deployment is an independent Cloud Service (extended support) deployment. 
-
+ 
 ## How does this affect VIP Swap feature?
 During create of a new Cloud Service (extended support) deployment, you can define the deployment ID of the deployment you want to swap with. This defines the VIP Swap relationship between two Cloud Services. 
 
@@ -82,7 +77,7 @@ There are no changes required for your application code packaged in `.cspkg`. Yo
 Storage accounts, public IPs, load balancer, Cloud Service deployments, network security groups and route tables need to live in the same region and resource group. 
 
 ##	What resources linked to a Cloud Services (extended support) deployment need to live in the same region?
-Key vault, virtual network, public IPs, Cloud Service deployments, network security groups and route tables need to live in the same region.
+key vault, virtual network, public IPs, Cloud Service deployments, network security groups and route tables need to live in the same region.
 
 ##	What resources linked to a Cloud Services (extended support) deployment need to live in the same virtual network?
 Public IPs, load balancer, Cloud Services deployment, network security groups and route tables need to live in the same virtual network. 
@@ -122,13 +117,13 @@ Yes, Network Security Groups. This is the current experience both in Azure Servi
 
 
 ##	Why do I need to manage my certificates on Cloud Services (extended support)?
-Cloud Services (extended support) has adopted the same process as other compute offerings where certificates reside within customer owned Key Vault. This enables customers to have complete control over their secrets & certificates. 
+Cloud Services (extended support) has adopted the same process as other compute offerings where certificates reside within customer owned key vault. This enables customers to have complete control over their secrets & certificates. 
 
 Cloud Services (extended support) will search the referenced key vault for the certificates mentioned in the deployment files and use it. Thus, simplifying the deployment process. 
 
 
-##	Can I use one Key Vault for all my deployments in all regions?
-No, Key Vault is a regional resource and therefore you will need one Key Vault in each region. However, one Key Vault can be used for all deployments within a region.
+##	Can I use one key vault for all my deployments in all regions?
+No, key vault is a regional resource and therefore you will need one key vault in each region. However, one key vault can be used for all deployments within a region.
 
 ##	Does Cloud Services (extended support) support Resource Health Check (RHC)?
 No, Cloud Services (extended support) does not yet support Resource Health Check (RHC)
@@ -142,15 +137,17 @@ No, Cloud Services (extended support) does not yet support Resource Health Check
 Estimating the time required, complexity and efforts for migration is difficult due to influence of range of variables. We have seen customers take anywhere from three months to 2 years to complete the migration. Planning is the most time consuming but the most effective step to understand the scope of work, blockers, complexity for migration and many other factors. If Cloud Services (extended support) is the path for you, early start gives you an opportunity to raise blockers ensuring the product is ready for you immediately after general availability.
 
 ##	How do I migrate my existing deployment to Azure Resource Manager?
-1. Read docs and understand what Cloud Services (extended support) has to offer.
-1. Identify all your subscriptions and create a catalog of all your Cloud Services (classic) deployments. You can use look at all your deployment on Cloud Services (classic) Portal blade or Resource Graph Explorer using Portal or PowerShell.
-1. Understand the set of features used and blockers for migration
-1. Reach out to microsoft for assistance with migration if needed. (Support, Cloud Solution Architects, Technical Account Managers, Microsoft Q&A)
-1. Build a detailed migration plan and execution timeline. 
-1. Start and complete migration. Customers can either do a lift & shift migration (create parallel deployment on Azure Resource Manager, thoroughly test the deployment, migrate traffic from old to new deployment) or migrate within microsoft provided migration tool (will be soon released).  
+-  Read docs and understand what Cloud Services (extended support) has to offer.
+-  Identify all your subscriptions and create a catalog of all your Cloud Services (classic) deployments. You can use look at all your deployment on Cloud Services (classic) Portal blade or Resource Graph Explorer using Portal or PowerShell.
+-  Understand the set of features used and blockers for migration
+-  Reach out to microsoft for assistance with migration if needed. (Support, Cloud Solution Architects, Technical Account Managers, Microsoft Q&A)
+-  Build a detailed migration plan and execution timeline. 
+- Start and complete the lift and shift migration (create parallel deployment on Azure Resource Manager, thoroughly test the deployment, migrate traffic from old to new deployment) 
 
 ##	I am getting error during create/management of my Cloud Service (extended support) deployment. What should I do?
 1. Check what the error message says and what is the recommended mitigation steps. We recommend looking for answers on our public documents, FAQs and community forums like Microsoft Q&A, Stack Overflow and GitHub. 
 2. If the above steps do not help find the answer, contact technical support. 
 
 
+## Next steps
+To start using Cloud Services (extended support), see [Deploy a Cloud Service (extended support) using PowerShell](deploy-powershell.md)

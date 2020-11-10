@@ -35,5 +35,5 @@ Minimal changes are required to `.cscfg` and `.csdef` files to deploy to Azure R
 - The three components, the service definition (`.csdef`), the service config (`.cscfg`), and a service package (`.cspkg`) of a Cloud Service are carried forward and there is no change in their formats.
 - No changes are required to runtime code as data plane is the same and control plane is changing.
 
-
-
+## Next steps
+To start using Cloud Services (extended support), see [Deploy a Cloud Service (extended support) using PowerShell](deploy-powershell.md)

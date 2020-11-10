@@ -206,3 +206,5 @@ To update the swappable relationship for a Cloud Service deployment, call update
     ```
 3.	Double click & execute the file to connect to the VM. 
 
+## Next steps
+For more information, see [Cloud Services (extended support) Reference Documentation](https://docs.microsoft.com/rest/api/compute/cloudservices/) 
