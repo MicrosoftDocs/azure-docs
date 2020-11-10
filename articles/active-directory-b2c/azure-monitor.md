@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 02/10/2020
+ms.date: 11/11/2020
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
