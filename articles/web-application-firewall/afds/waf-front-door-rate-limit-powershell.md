@@ -15,7 +15,7 @@ This article shows how to configure a WAF rate limit rule that controls the numb
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-> [!INFORMATION]
+> [!NOTE]
 > Rate limits are applied for each client IP address. If you have multiple clients accessing your Front Door from different IP addresses, they will have their own rate limits applied.
 
 ## Prerequisites
