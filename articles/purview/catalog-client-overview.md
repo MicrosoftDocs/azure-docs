@@ -524,7 +524,7 @@ For general information on how to add someone to a contributor or owner role on 
 
 ### Azure data plane managed permissions
 
-With the exception of the user who actually created the Azure Purview Account, who gets special permissions, any other user who wishes to use the Azure Purview Studio or call Azure Purview's REST APIs needs to be in a data plane role. Please see [Catalog Permissions](./catalog-permissions) for more information.
+With the exception of the user who actually created the Azure Purview Account, who gets special permissions, any other user who wishes to use the Azure Purview Studio or call Azure Purview's REST APIs needs to be in a data plane role. Please see [Catalog Permissions](./catalog-permissions.md) for more information.
 
 ## Annotation Management
 
