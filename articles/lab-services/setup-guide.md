@@ -7,7 +7,7 @@ ms.date: 06/26/2020
 
 # Lab setup guide
 
-The process for publishing a lab to your students can take up to several hours, depending on the number of virtual machines (VMs) that will be created in your lab. Allow at least a day to set up a lab, to ensure that it's working properly and to allow enough time to publish students' VMs.
+The process for publishing a lab to your students can take up to several hours.  The amount of time depends on the number of virtual machines (VMs) that will be created in your lab. Allow at least a day to set up a lab, to ensure it's working properly and to allow enough time to publish students' VMs.
 
 ## Understand the lab requirements of your class
 
@@ -21,20 +21,20 @@ Based on your class's learning objectives, decide which operating system, applic
 
 - **Create a new custom image**: You can create your own custom image by using an Azure Marketplace image as a starting point, and customizing it by installing additional software and making configuration changes.
 
-- **Use an existing custom image**: You can reuse existing custom images that you previously created, or that were created by other administrators or faculty at your school. This requires your administrators to have configured a Shared Image Gallery, which is a repository for saving custom images.
+- **Use an existing custom image**: You can reuse existing custom images that you previously created, or that were created by other administrators or faculty at your school. To use custom images, your administrators need to set up a Shared Image Gallery.  A Shared Image Gallery is a repository that is used for saving custom images.
 
 > [!NOTE]
 > Your administrators are responsible for enabling Azure Marketplace images and custom images so that you can use them. Coordinate with your IT department to ensure that images that you need are enabled. Custom images that you create are automatically enabled for use within labs that you own.
 
 ### What hardware requirements does the class have?
 
-There are a variety of compute sizes that you can choose from:
+There are different compute sizes that you can choose from:
 
-- Nested virtualization sizes, so that you can give access to students to a VM that is capable of hosting multiple, nested VMs. For example, you might use this compute size for networking courses.
+- Nested virtualization sizes, so that you can give access to students to a VM that can host multiple, nested VMs. For example, you might use this compute size for networking or ethical hacking classes.
 
-- GPU sizes, so that your students can use computer-intensive types of applications. For example, this choice can be appropriate for artificial intelligence and machine learning.
+- GPU sizes, so that your students can use computer-intensive types of applications. For example, this choice is often used with artificial intelligence and machine learning.
 
-For guidance on selecting the appropriate VM Size, refer to the following articles:
+For guidance on selecting the appropriate VM Size, read the following articles:
 - [VM sizing](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing)
 - [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931)
 
@@ -42,20 +42,20 @@ For guidance on selecting the appropriate VM Size, refer to the following articl
 > Depending on the region of your lab, you might see fewer compute sizes available, because this varies by region. Generally, you should select the smallest compute size that is closest to your needs. With Azure Lab Services, you can set up a new lab with a different compute capacity later, if needed.
 
 ### What dependencies does the class have on external Azure or network resources?
-If your lab VMs need to use external resources, such as a database, file share, or licensing server, coordinate with your IT administrators to ensure that your lab has access to these resources.
+Your lab VMs may need access to external resources, such as access a database, file share, or licensing server.  To allow your lab VMs to use external resources, coordinate with your IT administrators.
 
 > [!NOTE]
 > You should consider whether you can reduce your lab's dependencies to external resources by providing the resource directly on the VM. For example, to eliminate the need to read data from an external database, you can install the database directly on the VM.  
 
 ### How will costs be controlled?
-Lab Services uses a pay-as-you-go pricing model, which means that you only pay for the time that a lab VM is running. To control costs, you have three options that are typically used in conjunction with one another:
+Lab Services uses a pay-as-you-go pricing model, which means that you only pay for the time that a lab VM is running. To control costs, you have three options that are typically used in together:
 
 - **Schedule**: A schedule allows you to automatically control when your labs' VMs are started and shut down.
-- **Quota**: The quota controls the number of hours that students will have access to a VM outside of the scheduled hours. If the quota is reached while a student is using it, the VM is automatically shut down. The student isn't able to restart the VM unless the quota is increased.
-- **Auto-shutdown**: When enabled, the auto-shutdown setting causes Windows VMs to automatically shut down after a certain length of time, after a student has disconnected from a Remote Desktop Protocol (RDP) session. By default, this setting is disabled.
+- **Quota**: The quota controls the number of hours that students will have access to a VM outside of the scheduled hours.  When a student is using their VM and their quota is reached, the VM automatically shuts down.  The student isn't able to restart the VM unless the quota is increased.
+- **Autoshutdown**: When enabled, the autoshutdown setting causes Windows VMs to automatically shut down after a student has disconnected from a Remote Desktop Protocol (RDP) session. By default, this setting is disabled.
 
 Read the following articles for more information:
-- [Estimating costs](https://docs.microsoft.com/azure/lab-services/cost-management-guide#estimate-the-lab-costs)
+- [Estimate costs](https://docs.microsoft.com/azure/lab-services/cost-management-guide#estimate-the-lab-costs)
 - [Manage costs](https://docs.microsoft.com/azure/lab-services/cost-management-guide#manage-costs)
 
 ### How will students save their work?
@@ -77,12 +77,12 @@ For Linux VMs, students can use either SSH or RDP. To have the students connect 
 ### Will students also be using Microsoft Teams?
 Azure Lab Services integrates with Microsoft teams so that faculty can create and manage their labs within Teams.  Similarly, students can access the lab within Teams.
 
-Refer to the following article for more information:
+For more information, see the following article:
 - [Azure Lab Services within Microsoft Teams](https://docs.microsoft.com/azure/lab-services/lab-services-within-teams-overview)
 
 ## Set up your lab
 
-After you understand the requirements for your class's lab, you're ready to set it up. Follow the links in this section to see how to set up your lab.  Notice that different steps are provided depending on if you are using labs within Teams.
+After you understand the requirements for your class's lab, you're ready to set it up. Follow the links in this section to see how to set up your lab.  Notice that different steps are provided depending on if you're using labs within Teams.
 
 1. **Create a lab.** Refer to the tutorials on creating a lab:
     - [Create a classroom lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#create-a-classroom-lab) for instructions.
@@ -98,7 +98,7 @@ After you understand the requirements for your class's lab, you're ready to set 
     > [!NOTE]
     > If you're using Windows, you should also see the instructions in [preparing a Windows template VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-prepare-windows-template). These instructions include steps for setting up OneDrive and Office for your students to use.
 
-1. **Manage VM pool and capacity.** You can easily scale up or down VM capacity, as needed by your class. Keep in mind that increasing the VM capacity might take several hours, because this involves setting up new VMs. See the steps the steps in the following articles:
+1. **Manage VM pool and capacity.** You can easily scale up or down VM capacity, as needed by your class. Keep in mind that increasing the VM capacity might take several hours because new VMs are being set up. See the steps in the following articles:
     - [Set up and manage a VM pool](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-set-virtual-machine-passwords)
     - [Manage a VM pool in Lab Services from Teams](https://docs.microsoft.com/azure/lab-services/how-to-manage-vm-pool-within-teams)
 
@@ -109,7 +109,7 @@ After you understand the requirements for your class's lab, you're ready to set 
 
     For information on the types of accounts that students can use, see [Student accounts](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts).
   
-1. **Set cost controls.** To control the costs of your lab, set schedules, quotas, and auto-shutdown. See the following tutorials:
+1. **Set cost controls.** To control the costs of your lab, set schedules, quotas, and autoshutdown. See the following tutorials:
 
    - [Set a schedule](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
 
