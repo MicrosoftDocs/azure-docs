@@ -429,7 +429,7 @@
       - name: Into the data warehouse
         items:
         - name: Azure Data Lake Storage
-          href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md
         - name: Data Factory
           href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Azure Databricks
