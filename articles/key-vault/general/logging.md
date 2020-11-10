@@ -89,10 +89,10 @@ The following table lists the **operationName** values and corresponding REST AP
 | **VaultDelete** |[Delete a key vault](/rest/api/keyvault/vaults) |
 | **VaultPatch** |[Update a key vault](/rest/api/keyvault/vaults) |
 | **VaultList** |[List all key vaults in a resource group](/rest/api/keyvault/vaults) |
-| **VaultPurge** |[Purge a vault](/rest/api/keyvault/vaults/purgedeleted) |
-| **VaultRecover** |Recover a vault|
-| **KeyGetDeleted** |[Get deleted vault](/rest/api/keyvault/vaults/getdeleted) |
-| **VaultListDeleted** |[List the deleted keys in a vault](/rest/api/keyvault/vaults/listdeleted) |
+| **VaultPurge** |[Purge deleted vault](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |Recover deleted vault|
+| **VaultGetDeleted** |[Get deleted vault](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[List the deleted vaults](/rest/api/keyvault/vaults/listdeleted) |
 | **KeyCreate** |[Create a key](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Get information about a key](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Import a key into a vault](/rest/api/keyvault/vaults) |
