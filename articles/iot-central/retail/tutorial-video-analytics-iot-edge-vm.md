@@ -49,7 +49,7 @@ Use the information in the following table to complete the **Custom deployment**
 | Admin Username | *AzureUser* |
 | Admin Password | Enter a password. Make a note of the password in the *scratchpad.txt* file, you use it later. |
 | Scope ID | The **Scope ID** you made a note of in the *scratchpad.txt* file in the previous tutorial when you added the gateway device. |
-| Device ID | *lva-gateway-001* - the gateway device you created in the previous tutorial. |
+| Device ID | *gateway-001* - the gateway device you created in the previous tutorial. |
 | Device Key | The device primary key you made a note of in the *scratchpad.txt* file in the previous tutorial when you added the gateway device. |
 | Iot Central App Host | The **Application URL** you made a note of in the *scratchpad.txt* file in the previous tutorial. For example, *traders.azureiotcentral.com*. |
 | Iot Central App Api Token | The operator API token you made a note of in the previous tutorial. |
