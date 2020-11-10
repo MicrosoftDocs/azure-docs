@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/11/2020
 ---
 
 # Create stateful or stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -16,17 +16,15 @@ ms.date: 11/10/2020
 > have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and locally run [*stateful* and *stateless* logic app workflows](#stateful-stateless) in your development environment.
+To create logic app workflows that integrate across apps, data, cloud services, and systems, you can use Visual Studio Code and the Azure Logic Apps (Preview) extension to build and locally run [*stateful* and *stateless* logic app workflows](logic-apps-overview-preview.md#stateful-stateless) in your development environment.
 
 ![Screenshot that shows Visual Studio Code and logic app workflow.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
 The logic apps that you create with the public preview extension use the new **Logic App (Preview)** resource type and are powered by the [Azure Functions](../azure-functions/functions-overview.md) runtime in your local environment. This new resource type can include multiple workflows and is similar in some ways to the **Function App** resource type, which can include multiple functions.
 
-Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code and in the Azure portal. However, the experiences for the original resource type are separate from the new resource type. At this time, both **Logic Apps** and **Logic App (Preview)** resource types can exist at the same time in Visual Studio Code and in the Azure portal. You can view and access all the deployed logic apps in your Azure subscription, but they appear and are kept separately in their own categories and sections.
+Meanwhile, the original **Logic Apps** resource type still exists for you to create and use in Visual Studio Code. The experiences to create the new resource type are separate and different from the original resource type, but yuo can have both the **Logic Apps** and **Logic App (Preview)** resource types in your Azure subscription. You can view and access all the deployed logic apps in your Azure subscription, but they appear and are kept separately in their own categories and sections. To learn more about the **Logic App (Preview)** resource type, see [Overview for Azure Logic Apps (Preview)](logic-apps-overview-preview.md#whats-new).
 
-This article provides a high-level [overview about this public preview](#whats-new), describes various aspects about the **Logic App (Preview)** resource type, and how to create this resource by using Visual Studio Code:
-
-* How [stateful and stateless](#stateful-stateless) logic apps differ from each other.
+This article shows how to build a **Logic App (Preview)** resource by using Visual Studio Code:
 
 * How to meet the [setup requirements](#prerequisites) and [set up Visual Studio Code](#set-up) for the public preview extension.
 
@@ -35,35 +33,6 @@ This article provides a high-level [overview about this public preview](#whats-n
 * How to locally run and debug your new logic apps in Visual Studio Code.
 
 * How to publish these new logic apps directly from Visual Studio Code [to Azure](#publish-azure) or [to a Docker container](#deploy-docker) that you can run anywhere. For more information about Docker, see [What is Docker](/dotnet/architecture/microservices/container-docker-introduction/docker-defined)?
-
-<a name="whats-new"></a>
-
-## What's in this public preview?
-
-The Azure Logic Apps (Preview) extension brings many current and additional Logic Apps capabilities to your local development experience in Visual Studio Code, for example:
-
-* Build logic apps for integration and automation workflows from [390+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
-
-  * Some managed connectors such as Azure Service Bus, Azure Event Hubs, and SQL Server run similarly to built-in native triggers and actions such as the HTTP action.
-
-  * Create and deploy logic apps that can run anywhere because the Azure Logic Apps service generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. The Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy to Azure.
-
-    > [!NOTE]
-    > By default, a **Logic App (Preview)** resource has its 
-    > [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
-    > automatically enabled to authenticate connections at runtime. 
-    > This identity differs from the authentication credentials or connection string that you use 
-    > when you create a connection. If you disable this identity, connections won't work at runtime.
-
-* Create stateless logic apps that run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless logic apps](#stateful-stateless).
-
-* Run and debug your logic apps locally in the Visual Studio Code development environment.
-
-* Publish and deploy your logic apps from Visual Studio Code directly to various hosting environments, such as [Azure App Service](../app-service/environment/intro.md) and [Docker containers](/dotnet/core/docker/introduction).
-
-> [!NOTE]
-> For information about current known issues, review the preview extension's 
-> [Known Issues GitHub page](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 ## Prerequisites
 
@@ -921,7 +890,6 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
 
    Here's the format for the Docker file:
 
-
    ```text
    FROM mcr.microsoft.com/azure-functions/dotnet:3.0.14492-appservice
 
@@ -961,18 +929,6 @@ By using the [.NET Core command-line interface (CLI) tool](/dotnet/core/tools/),
      <...>
    }
    ```
-
-## Limits
-
-Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md) are the same for this resource type, here are the differences in this public preview extension:
-
-* Managed connectors: 50 requests per minute per connection
-
-* For the [Inline Code action for JavaScript](../logic-apps/logic-apps-add-run-inline-code.md) action, these limits have changed:
-
-  * The limit on code characters increases from 1,024 characters to 100,000 characters.
-
-  * The limit on time to run the code increases from five seconds to 15 seconds.
 
 ## Next steps
 
