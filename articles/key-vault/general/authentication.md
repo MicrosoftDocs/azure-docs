@@ -57,7 +57,7 @@ Key Vault works with two separate levels of authorization:
 
     Key Vault currently supports the [Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor) role, which allows management operations on Key Vault resources. A number of other roles are currently in preview. You can also create custom roles, as described on [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
-    For general information on roles, see [What is Azure Role-Based Access Control (RBAC)?](../../role-based-access-control/overview.md).
+    For general information on roles, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
 
 > [!IMPORTANT]
@@ -120,4 +120,4 @@ The following table links to different articles that demonstrate how to work wit
 - [Key Vault access policy troubleshooting](troubleshooting-access-issues.md)
 - [Key Vault REST API error codes](rest-error-codes.md)
 - [Key Vault developer's guide](developers-guide.md)
-- [What is Azure Role-Based Access Control (RBAC)?](../../role-based-access-control/overview.md)
+- [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)

@@ -341,7 +341,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: Not applicable; Azure Key Vault does not have the concept of default passwords as authentication is provided by Active Directory and secured with Role-based access control.
+**Guidance**: Not applicable; Azure Key Vault does not have the concept of default passwords as authentication is provided by Active Directory and secured with Azure role-based access control (Azure RBAC).
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -442,7 +442,7 @@ What is the location condition in Azure Active Directory Conditional Access?: ht
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Azure resources such as Key Vault. This allows for Role-based access control (RBAC) to administrate sensitive resources.
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Azure resources such as Key Vault. This allows for Azure role-based access control (Azure RBAC) to administrate sensitive resources.
 
  
 
