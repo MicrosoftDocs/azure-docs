@@ -75,15 +75,19 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
    ![Screenshot that shows the dimensions (properties) you can filter.](./media/metrics-charts/00006.png)
 
-3. Select which dimension values you want to include when plotting the chart (this example shows filtering out the successful storage transactions):
+3. Select the operator you want to apply against the dimension (property). The default operator is = (equals)
+
+   ![Screenshot that shows the operator you can use with the filter.](./media/metrics-charts/00009.png)
+
+4. Select which dimension values you want to apply to the filter when plotting the chart (this example shows filtering out the successful storage transactions):
 
    ![Screenshot that shows the filtering out of the successful storage transactions.](./media/metrics-charts/00007.png)
 
-4. After selecting the filter values, click away from the Filter Selector to close it. Now the chart shows how many storage transactions have failed:
+5. After selecting the filter values, click away from the Filter Selector to close it. Now the chart shows how many storage transactions have failed:
 
    ![Screenshot that shows how many storage transactions have failed](./media/metrics-charts/00008.png)
 
-5. You can repeat steps 1-4 to apply multiple filters to the same charts.
+6. You can repeat steps 1-5 to apply multiple filters to the same charts.
 
 
 
@@ -105,8 +109,16 @@ You can split a metric by dimension to visualize how different segments of the m
    Now the chart now shows multiple lines, one for each segment of dimension:
 
    ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/00012.png)
+   
+3. Choose a limit on the number of values to be displayed after splitting by selected dimension. The default limit is 10 as shown int he above chart. The of limit is 1 - 50.
+   
+   ![Screenshot that shows split limit, which restricts the number of values after splitting.](./media/metrics-charts/00011.png)
+   
+4. Choose the sort order on segments: Ascending or Descending. The default selection is descending.
+   
+   ![Screenshot that shows sort order on split values.](./media/metrics-charts/00019.png)
 
-3. Click away from the **Grouping Selector** to close it.
+5. Click away from the **Grouping Selector** to close it.
 
    > [!NOTE]
    > Use both Filtering and Splitting on the same dimension to hide the segments that are irrelevant for your scenario and make charts easier to read.
