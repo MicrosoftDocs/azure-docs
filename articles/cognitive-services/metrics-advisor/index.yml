@@ -27,7 +27,8 @@ landingContent:
       links:  
         - text: Monitor your first metric on web
           url: quickstarts/web-portal.md
-
+        - text: Use the REST API or client libraries
+          url: quickstarts/rest-api-and-client-library
 - title: How-to articles
   linkLists:
     - linkListType: how-to-guide
