@@ -22213,6 +22213,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/partner-center-portal/faq-terminology.md",
+      "redirect_url": "/azure/marketplace/analytics-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/partner-center-portal/summary-dashboard.md",
       "redirect_url": "/azure/marketplace/summary-dashboard",
       "redirect_document_id": false
@@ -24855,6 +24860,11 @@
     {
       "source_path": "articles/active-directory/active-directory-devquickstarts-android.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-devquickstarts-android",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/from-blob.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/batch-transcription",
       "redirect_document_id": false
     },
     {
@@ -42275,7 +42285,7 @@
     {
       "source_path": "articles/log-analytics/log-analytics-queries.md",
       "redirect_url": "/azure/azure-monitor/log-query/log-query-overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/query-language/splunk-cheatsheet.md",
@@ -42369,7 +42379,7 @@
     },
     {
       "source_path": "articles/log-analytics/query-language/data-explorer-difference.md",
-      "redirect_url": "/azure/azure-monitor/log-query/data-explorer-difference",
+      "redirect_url": "/azure/azure-monitor/log-query/log-query-overview",
       "redirect_document_id": true
     },
     {
@@ -44139,6 +44149,71 @@
     {
       "source_path": "articles/azure-monitor/platform/activity-log-collect-tenants.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/string-operations.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/datetime-operations.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/aggregations.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/advanced-aggregations.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/joins.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/json-data-structures.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/charts.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/search-queries.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/advanced-query-writing.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/tutorial&pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/get-started-portal.md",
+      "redirect_url": "/azure/azure-monitor/log-query/log-analytics-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/smart-analytics.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/data-explorer-difference.md",
+      "redirect_url": "/azure/azure-monitor/log-query/query-language",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/saved-queries.md",
+      "redirect_url": "/azure/azure-monitor/log-query/example-queries",
       "redirect_document_id": false
     },
     {
