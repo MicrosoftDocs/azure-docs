@@ -25,6 +25,9 @@ Yes, the data is stored in managed databases in Azure. The Azure API for FHIR do
 
 We currently support Microsoft Azure Active Directory as the identity provider.
 
+### What is the Recovery Point Objective (RPO) for the Azure API for FHIR?
+The Azure API for FHIR is backed by Cosmos DB as our persistence provider. Because of this, the RPO for the service equals [Cosmos DB (single region)](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) and is < 240 minutes.
+
 ### What FHIR version do you support?
 
 We support versions 4.0.0 and 3.0.1 on both the Azure API for FHIR (PaaS) and FHIR Server for Azure (open source).
