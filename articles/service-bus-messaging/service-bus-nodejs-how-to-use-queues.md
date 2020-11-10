@@ -4,7 +4,7 @@ description: Learn how to write a JavaScript program that uses the latest previe
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 10/13/2020
+ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
 ---
@@ -106,7 +106,7 @@ The following sample code shows you how to send a message to a queue.
     	process.exit(1);
      });
     ```
-3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace.
+3. Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to your Service Bus namespace.
 1. Replace `<QUEUE NAME>` with the name of the queue. 
 1. Then run the command in a command prompt to execute this file.
 
@@ -168,7 +168,7 @@ The following sample code shows you how to send a message to a queue.
     	process.exit(1);
      });
     ```
-3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace.
+3. Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to your Service Bus namespace.
 1. Replace `<QUEUE NAME>` with the name of the queue. 
 1. Then, run the command in a command prompt to execute this file.
 

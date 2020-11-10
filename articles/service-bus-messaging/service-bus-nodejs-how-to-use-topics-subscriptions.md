@@ -4,7 +4,7 @@ description: Learn how to write a JavaScript program that uses the latest previe
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 10/13/2020
+ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
 ---

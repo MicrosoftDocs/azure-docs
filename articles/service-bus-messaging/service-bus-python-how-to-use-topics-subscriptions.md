@@ -5,7 +5,7 @@ documentationcenter: python
 author: spelluru
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-python
 ---

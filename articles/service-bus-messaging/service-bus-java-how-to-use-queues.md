@@ -3,12 +3,12 @@ title: Use Azure Service Bus queues with Java (azure-messaging-servicebus)
 description: In this tutorial, you learn how to use Java to send messages to and receive messages from an Azure Service Bus queue. You use the new azure-messaging-servicebus package. 
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 11/09/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (Java)
-In this quickstart, you'll create a Java app to send messages to and receive messages from a Service Bus queue. 
+In this quickstart, you'll create a Java app to send messages to and receive messages from an Azure Service Bus queue. 
 
 > [!IMPORTANT]
 > This quickstart uses the new azure-messaging-servicebus package. For a quickstart that uses the old azure-servicebus package, see [Send and receive messages using azure-servicebus](service-bus-java-how-to-use-queues-legacy.md).
@@ -20,7 +20,7 @@ In this quickstart, you'll create a Java app to send messages to and receive mes
 
 
 ## Send messages to a queue
-In this section, you'll create a Java console project, and add code to send messages to the queue you created. 
+In this section, you'll create a Java console project, and add code to send messages to the queue that you created earlier. 
 
 ### Create a Java console project
 Create a Java project using Eclipse or a tool of your choice. 
@@ -50,12 +50,12 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
 5. In the class, define variables to hold connection string and queue name as shown below: 
 
     ```java
-    static String connectionString = "<CONNECTION STRING - SERVICE BUS NAMESPACE>";
+    static String connectionString = "<NAMESPACE CONNECTION STRING>";
     static String queueName = "<QUEUE NAME>";    
     ```
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of the queue.
-3. Add a method named `CreateMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we're simply making a list of messages.
+3. Add a method named `CreateMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
 
     ```java
     static List<ServiceBusMessage> createMessages()
@@ -166,7 +166,7 @@ In this section, you'll add code to retrieve messages from the queue.
     }   
     ```
 
-## Test the application
+## Run the app
 When you run the application, you see the following messages in the console window. 
 
 ```console

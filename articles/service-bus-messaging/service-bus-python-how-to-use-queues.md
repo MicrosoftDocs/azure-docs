@@ -5,7 +5,7 @@ author: spelluru
 documentationcenter: python
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: seo-python-october2019, devx-track-python
 ---
@@ -19,7 +19,7 @@ This article shows you how to use the [azure-servicebus](https://pypi.org/projec
 - Python 2.7 or higher, with the [Python Azure Service Bus][Python Azure Service Bus package] package installed. For more information, see the [Python Installation Guide](/azure/developer/python/azure-sdk-install). 
 
 ## Send messages to a queue
-Add the following code to send a batch of messages to the queue you crated. 
+Add the following code to send a batch of messages to the queue you created. 
     
 ```python
 import os

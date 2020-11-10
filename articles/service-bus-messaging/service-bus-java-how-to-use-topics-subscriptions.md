@@ -3,7 +3,7 @@ title: Use Azure Service Bus topics and subscriptions with Java (azure-messaging
 description: In this quickstart, you write Java code using the azure-messaging-servicebus package to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic. 
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 11/09/2020
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Java)
@@ -50,12 +50,12 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
 5. In the class, define variables to hold connection string and topic name as shown below: 
 
     ```java
-    static String connectionString = "<CONNECTION STRING - SERVICE BUS NAMESPACE>";
+    static String connectionString = "<NAMESPACE CONNECTION STRING>";
     static String topicName = "<TOPIC NAME>";    
     ```
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<TOPIC NAME>` with the name of the topic.
-3. Add a method named `CreateMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we're simply making a list of messages.
+3. Add a method named `CreateMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
 
     ```java
     static List<ServiceBusMessage> createMessages()
@@ -167,7 +167,7 @@ In this section, you'll add code to retrieve messages from a subscription to the
     }   
     ```
 
-## Test the application
+## Run the app
 Run the program to see the output similar to the following output:
 
 ```console
