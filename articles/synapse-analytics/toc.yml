@@ -175,6 +175,8 @@
       href: sql/overview-features.md
     - name: Resource consumption models
       href: sql/resource-consumption-models.md
+    - name: Capacity limits
+      href: ./sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Data processed
       href: sql/data-processed.md
     - name: Best practices serverless SQL pool
@@ -187,6 +189,8 @@
       href: quickstart-create-sql-pool-studio.md
     - name: Create a dedicated SQL pool using Azure portal
       href: quickstart-create-sql-pool-portal.md
+    - name: Pause and resume using Azure portal
+      href: ./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Load data with dedicated SQL pools
       items:
       - name: COPY statement
@@ -198,6 +202,20 @@
       - name: Synapse Studio
         href: quickstart-load-studio-sql-pool.md
         displayname: sql pool
+    - name: Workload management
+      items: 
+      - name: Create workload classifier
+        items:
+        - name: Portal
+          href: ./sql-data-warehouse/quickstart-create-a-workload-classifier-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
+        - name: T-SQL
+          href: ./sql-data-warehouse/quickstart-create-a-workload-classifier-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
+      - name: Create workload isolation
+        items:
+        - name: Portal
+          href: ./sql-data-warehouse/quickstart-configure-workload-isolation-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: T-SQL
+          href: ./sql-data-warehouse/quickstart-configure-workload-isolation-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Use serverless SQL pool
       href: quickstart-sql-on-demand.md
   - name: Tutorials
@@ -229,6 +247,7 @@
       - name: Materialized view
         items:
         - name: Performance tuning guidance
+          displayname: materialized, view,
           href: sql/develop-materialized-view-performance-tuning.md
         - name: Create
           href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -236,8 +255,23 @@
         - name: Alter
           href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
           displayname: materialized, view
+      - name: Ordered clustered columnstore index
+        items:
+        - name: Performance tuning guidance
+          displayname: CCI, clustered, column, store
+          href: ./sql-data-warehouse/performance-tuning-ordered-CCI.md
       - name: Result set caching
-        href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        items:
+        - name: Performance tuning guidance 
+          href: ./sql-data-warehouse/performance-tuning-result-set-caching.md
+        - name: Set for a database
+          href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+        - name: Set for a session 
+          href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest  
+        - name: Check cache size 
+          href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
+        - name: Clean up cache
+          href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: Machine learning predictions
         href: ./sql-data-warehouse/sql-data-warehouse-predict.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Tables
@@ -252,6 +286,8 @@
           href: sql/develop-tables-data-types.md
         - name: Distributed tables
           href: ./sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Table constraints 
+          href:  ./sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: External tables
           href: sql/develop-tables-external-tables.md
         - name: Indexes
@@ -276,8 +312,14 @@
           href: sql/develop-stored-procedures.md
         - name: Transactions
           href: sql/develop-transactions.md
-        - name: Transaction best practices
-          href: sql/develop-transaction-best-practices.md
+        - name: Transactions
+          items:
+          - name: Serverless SQL pool
+            displayname: Transaction, best, practices
+            href: sql/develop-transaction-best-practices.md
+          - name: Dedicated SQL pool
+            displayname: Transactions, best, practices
+            href: ./sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: User-defined schemas
           href: sql/develop-user-defined-schemas.md
         - name: Variable assignment
@@ -378,6 +420,8 @@
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Manage and monitor workload importance
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Convert resource classes to workload groups
+          href: ./sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Upgrade to Gen2
         href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Ingest and prepare data
@@ -407,46 +451,56 @@
         items:
         - name: With the copy activity
           href: data-integration/data-integration-data-lake.md
+    - name: Change management and deployment
+      items:
+      - name: Install Visual Studio SSDT
+        href: ./sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Query external data
       items:
       - name: Overview
-        href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-data-storage.md
         displayname: query
       - name: Query CSV files
-        href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-single-csv-file.md
       - name: Query Parquet files
-        href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-parquet-files.md
       - name: Query JSON files
-        href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-json-files.md
       - name: Query nested types
-        href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-parquet-nested-types.md
       - name: Query folders and multiple files
-        href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-folders-multiple-csv-files.md
         displayname: csv
       - name: Query partitioned files using file metadata
-        href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/query-specific-files.md
       - name: Create and use views
-        href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/create-use-views.md
       - name: Create and use external tables
         href: sql/create-use-external-tables.md
       - name: Store query results to storage
         href: sql/create-external-table-as-select.md
+    - name: Integrate
+      items:
+      - name: Build data pipelines
+        items:
+        - name: Add an Azure Stream Analytics job
+          href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Connect tools to Synapse workspaces
       items:
       - name: Overview
-        href: sql/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/connect-overview.md
       - name: Query with Azure Data Studio
-        href: sql/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/get-started-azure-data-studio.md
       - name: Connection strings
         href: sql/connection-strings.md
       - name: Query with sqlcmd
         href: sql/get-started-connect-sqlcmd.md
       - name: Query with SSMS
-        href: sql/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/get-started-ssms.md
       - name: Query with Visual Studio
-        href: sql/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/get-started-visual-studio.md
       - name: Connect to Power BI Desktop
-        href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        href: sql/get-started-power-bi-professional.md
 - name: Apache Spark
   items:
   - name: Overview
