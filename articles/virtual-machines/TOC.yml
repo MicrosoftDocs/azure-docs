@@ -1308,6 +1308,12 @@
       href: security-controls-policy.md
     - name: Policy reference
       href: policy-reference.md
+    - name: Use policies
+      items:
+      - name: Linux
+        href: ./linux/policy.md
+      - name: Windows
+        href: ./windows/policy.md
   - name: Azure Disk Encryption
     href: disk-encryption-overview.md
   - name: Bastion
@@ -1329,8 +1335,6 @@
         href: ../bastion/bastion-connect-vm-rdp.md
     - name: Use access controls
       href: ../role-based-access-control/overview.md
-    - name: Use policies
-      href: ./linux/policy.md
     - name: Create a Key Vault
       items: 
       - name: CLI
