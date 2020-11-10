@@ -2,7 +2,7 @@
 title: What's new with Azure Arc enabled servers agent
 description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to additional details.
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 11/10/2020
 ---
 
 # What's new with Azure Arc enabled servers agent
@@ -12,6 +12,21 @@ The Azure Arc enabled servers Connected Machine agent receives improvements on a
 - The latest releases
 - Known issues
 - Bug fixes
+
+## November 2020
+
+### Fixed
+
+Resolved issue where proxy configuration could be lost after upgrade on RPM-based distributions.
+
+## October 2020
+
+### Fixed
+
+- Fixed proxy script to handle alternate GC daemon unit file location.
+- GuestConfig agent reliability changes.
+- GuestConfig agent support for US Gov Virginia region.
+- GuestConfig agent extension report messages to be more verbose in case of failures.
 
 ## September 2020
 
