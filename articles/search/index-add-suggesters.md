@@ -22,7 +22,7 @@ The following screenshot from [Create your first app in C#](tutorial-csharp-type
 
 You can use these features separately or together. To implement these behaviors in Azure Cognitive Search, there is an index and query component. 
 
-+ In the index, add a suggester to an index. You can use the portal, [REST API](/rest/api/searchservice/create-index), or [.NET SDK](/dotnet/api/microsoft.azure.search.models.suggester). The remainder of this article is focused on creating a suggester.
++ In the index, add a suggester to an index. You can use the portal, [Create Index (REST)(/rest/api/searchservice/create-index), or a [suggesters property](/dotnet/api/azure.search.documents.indexes.models.searchindex.suggesters). The remainder of this article is focused on creating a suggester.
 
 + In the query request, call one of the [APIs listed below](#how-to-use-a-suggester).
 
@@ -103,24 +103,23 @@ In the REST API, add suggesters through [Create Index](/rest/api/searchservice/c
 
 ## Create using .NET
 
-In C#, define a [Suggester object](/dotnet/api/microsoft.azure.search.models.suggester). `Suggesters` is a collection but it can only take one item. 
+In C#, define a [SearchSuggester object](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` is a collection on a SearchIndex object, but it can only take one item. 
 
 ```csharp
-private static void CreateHotelsIndex(SearchServiceClient serviceClient)
+private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 {
-    var definition = new Index()
-    {
-        Name = "hotels-sample-index",
-        Fields = FieldBuilder.BuildForType<Hotel>(),
-        Suggesters = new List<Suggester>() {new Suggester()
-            {
-                Name = "sg",
-                SourceFields = new string[] { "HotelName", "Category" }
-            }}
-    };
+    FieldBuilder fieldBuilder = new FieldBuilder();
+    var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-    serviceClient.Indexes.Create(definition);
+    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
 
+    var definition = new SearchIndex(indexName, searchFields);
+
+    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
+
+    definition.Suggesters.Add(suggester);
+
+    indexClient.CreateOrUpdateIndex(definition);
 }
 ```
 
@@ -130,7 +129,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |--------------|-----------------|
 |`name`        |The name of the suggester.|
 |`searchMode`  |The strategy used to search for candidate phrases. The only mode currently supported is `analyzingInfixMatching`, which currently matches on the beginning of a term.|
-|`sourceFields`|A list of one or more fields that are the source of the content for suggestions. Fields must be of type `Edm.String` and `Collection(Edm.String)`. If an analyzer is specified on the field, it must be a named analyzer from [this list](/dotnet/api/microsoft.azure.search.models.analyzername) (not a custom analyzer).<p/> As a best practice, specify only those fields that lend themselves to an expected and appropriate response, whether it's a completed string in a search bar or a dropdown list.<p/>A hotel name is a good candidate because it has precision. Verbose fields like descriptions and comments are too dense. Similarly, repetitive fields, such as categories and tags, are less effective. In the examples, we include "category" anyway to demonstrate that you can include multiple fields. |
+|`sourceFields`|A list of one or more fields that are the source of the content for suggestions. Fields must be of type `Edm.String` and `Collection(Edm.String)`. If an analyzer is specified on the field, it must be a named analyzer from [this list](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (not a custom analyzer).<p/> As a best practice, specify only those fields that lend themselves to an expected and appropriate response, whether it's a completed string in a search bar or a dropdown list.<p/>A hotel name is a good candidate because it has precision. Verbose fields like descriptions and comments are too dense. Similarly, repetitive fields, such as categories and tags, are less effective. In the examples, we include "category" anyway to demonstrate that you can include multiple fields. |
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -140,8 +139,8 @@ A suggester is used in a query. After a suggester is created, call one of the fo
 
 + [Suggestions REST API](/rest/api/searchservice/suggestions)
 + [Autocomplete REST API](/rest/api/searchservice/autocomplete)
-+ [SuggestWithHttpMessagesAsync method](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
-+ [AutocompleteWithHttpMessagesAsync method](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
++ [SuggestAsync method](/dotnet/api/azure.search.documents.searchclient.suggestasync)
++ [AutocompleteAsync method](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
 In a search application, client code should leverage a library like [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) to collect the partial query and provide the match. For more information about this task, see [Add autocomplete or suggested results to client code](search-autocomplete-tutorial.md).
 
