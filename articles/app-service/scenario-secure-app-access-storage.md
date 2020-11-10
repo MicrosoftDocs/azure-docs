@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
 #Customer intent: As an application developer, I want to learn how to access Azure storage on behalf of an app using managed identities.
@@ -18,7 +18,7 @@ ms.reviewer: stsoneff
 
 Learn how to access Azure storage on behalf of a web app (not a signed-in user) running on Azure App Service using managed identities.
 
-:::image type="content" alt-text="Access storage" source="./media/scenario-secure-app-access-storage/webapp-access-storage.svg" border="false":::
+:::image type="content" alt-text="Access storage" source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
 
 You want to add access to the Azure data plane (Azure Storage, SQL Azure, Azure Key Vault, or other services) from your web app.  You could use a shared key, but then you have to worry about operational security of who can create, deploy, and manage the secret.  It's also possible that the key could be checked into GitHub, which hackers know how to scan for. A safer way to give your web app access to data is to use [managed identities](/azure/active-directory/managed-identities-azure-resources/overview). A managed identity from Azure Active Directory allows App Services to access resources through Role-Based Access Control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate.  People don't have to worry about managing secrets or app credentials.
 

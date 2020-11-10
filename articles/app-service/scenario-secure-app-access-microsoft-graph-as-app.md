@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph using managed identities.
@@ -18,7 +18,7 @@ ms.reviewer: stsoneff
 
 Learn how to access Microsoft Graph from a web app running on Azure App Service.
 
-:::image type="content" alt-text="Access Microsoft Graph" source="./media/scenario-secure-app-access-microsoft-graph/webapp-access-graph.svg" border="false":::
+:::image type="content" alt-text="Access Microsoft Graph" source="./media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
 You want to call Microsoft Graph on behalf of the web app.  A safe way to give your web app access to data is to use a [system assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview). A managed identity from Azure AD allows App Services to access resources through Role-Based Access Control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate.  You don't have to worry about managing secrets or app credentials.
 

@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
 
@@ -19,7 +19,7 @@ ms.reviewer: stsoneff
 
 Learn how to enable auth for your web app running on Azure App Service and limit access to users in your organization.
 
-:::image type="content" source="./media/scenario-secure-app-authentication-app-service/webapp-sign-in.svg" alt-text="Sign in user" border="false":::
+:::image type="content" source="./media/scenario-secure-app-authentication-app-service/web-app-sign-in.svg" alt-text="Sign in user" border="false":::
 
 Azure App Service provides built-in authentication and authorization support, so you can sign in users and access data by writing minimal or no code in your web app.  Using the App Service authentication/authorization module is not required, but helps simplify authentication and authorization for your app. This article shows how to secure your web app with the App Service authentication/authorization module, using Azure Active Directory as the identity provider.
 
@@ -56,7 +56,7 @@ In **Action to take when request is not authenticated**, select **Log in with Az
 
 Under **Authentication Providers**, select **Azure Active Directory**. Select **Express**, then accept the default settings to create a new AD app and select **OK**.
 
-:::image type="content" alt-text="Express authentication" source="./media/scenario-secure-app-authentication-app-service/configure-auth.png":::
+:::image type="content" alt-text="Express authentication" source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 
 In the **Authentication / Authorization** page, select **Save**.
 

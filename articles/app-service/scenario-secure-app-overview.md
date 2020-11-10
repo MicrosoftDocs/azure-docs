@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/27/2020
+ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
 #Customer intent: As an application developer, I want to learn how to secure access to a web app running on Azure App Service.
@@ -23,9 +23,9 @@ This tutorial describes a common application scenario, you learn how to:
 - (C) Access data in Microsoft Graph [on behalf of the signed-in user​](scenario-secure-app-access-microsoft-graph-as-user.md) or [on behalf of the web application](scenario-secure-app-access-microsoft-graph-as-app.md) using managed identities​.
 - [Clean up the resources](scenario-secure-app-clean-up-resources.md) you created for this tutorial.
 
-:::image type="content" source="./media/scenario-secure-app-overview/webapp.svg" alt-text="Application scenarios in Microsoft identity platform" border="false":::
+:::image type="content" source="./media/scenario-secure-app-overview/web-app.svg" alt-text="Application scenarios in Microsoft identity platform" border="false":::
 
-## Next steps
+To begin, learn how to enable authentication for a web app.
 
 > [!div class="nextstepaction"]
 > [Configure authentication for a web app](scenario-secure-app-authentication-app-service.md)
