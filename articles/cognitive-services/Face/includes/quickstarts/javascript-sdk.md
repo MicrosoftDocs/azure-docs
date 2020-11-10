@@ -165,7 +165,7 @@ This **Person** group and its associated **Person** objects are now ready to be 
 
 Finally, create the `main` function and call it.
 
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="identify":::
+:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="main":::
 
 ---
 
