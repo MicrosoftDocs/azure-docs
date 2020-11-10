@@ -62,14 +62,14 @@ Certain elements of your device capabilities can be edited without needing to ve
 1. Go to the **Device templates** page.
 1. Select the device template you wish to customize.
 1. Choose the **Customize** tab.
-1. All the capabilities defined in your device capability model are listed here. You can edit, save, and use all of these fields without the need to version your device template. If there are fields you wish to edit that are read-only, you must version your device template to change them. Select a field you wish to edit and enter in any new values.
+1. All the capabilities defined in your device model are listed here. You can edit, save, and use all of these fields without the need to version your device template. If there are fields you wish to edit that are read-only, you must version your device template to change them. Select a field you wish to edit and enter in any new values.
 1. Select **Save**. Now these values override anything that was initially saved in your device template and are used across the application.
 
 ## Version a device template
 
-Creating a new version of your device template creates a draft version of the template where the device capability model can be edited. Any published interfaces remain published until they're individually versioned. To modify a published interface, first create a new device template version.
+Creating a new version of your device template creates a draft version of the template where the device model can be edited. Any published interfaces remain published until they're individually versioned. To modify a published interface, first create a new device template version.
 
-Only version the device template when you're trying to edit a part of the device capability model that you can't edit in the customizations section.
+Only version the device template when you're trying to edit a part of the device model that you can't edit in the customizations section.
 
 To version a device template:
 

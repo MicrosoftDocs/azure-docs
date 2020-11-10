@@ -53,7 +53,7 @@ As a solution builder, you use the web-based tools to create a _device template_
 
 This [device template](howto-set-up-template.md) includes:
 
-- A _device capability model_ that describes the capabilities a device should implement. The device capabilities include:
+- A _device model_ that describes the capabilities a device should implement. The device capabilities include:
 
   - The telemetry it streams to IoT Central.
   - The read-only properties it uses to report state to IoT Central.
@@ -67,9 +67,9 @@ This [device template](howto-set-up-template.md) includes:
 
 As a solution builder, you have several options for creating device templates:
 
-- Design the device template in IoT Central and then implement its device capability model in your device code.
-- Create a device capability model using Visual Studio code and publish the model to a repository. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device capability model from the repository and creates a simple device template for you.
-- Create a device capability model using Visual Studio code. Implement your device code from the model. Manually import the device capability model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
+- Design the device template in IoT Central and then implement its device model in your device code.
+- Create a device model using Visual Studio code and publish the model to a repository. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device model from the repository and creates a simple device template for you.
+- Create a device model using Visual Studio code. Implement your device code from the model. Manually import the device model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 
 As a solution builder, you can use IoT Central to generate code for test devices to validate your device templates.
 
@@ -146,7 +146,6 @@ Each Azure subscription has default quotas that could impact the scope of your I
 - Array schema types aren't supported.
 - Only the C device SDK and the Node.js device and service SDKs are supported.
 - IoT Central is currently available in the United States, Europe, Asia Pacific, Australia, United Kingdom, and Japan locations.
-- Device capability models must have all the interfaces defined inline in the same file.
 
 ## Next steps
 

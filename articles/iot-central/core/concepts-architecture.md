@@ -49,7 +49,7 @@ IoT Central enables the following capabilities to for IoT Edge devices:
   - The telemetry each module sends.
   - The properties each module reports.
   - The commands each module responds to.
-  - The relationships between an IoT Edge gateway device capability model and downstream device capability model.
+  - The relationships between an IoT Edge gateway device and downstream device.
   - Cloud properties that aren't stored on the IoT Edge device.
   - Customizations, dashboards, and forms that are part of your IoT Central application.
 
@@ -128,12 +128,12 @@ In an Azure IoT Central application, device templates define the behavior and ca
 
 ![Template architecture](media/concepts-architecture/template-architecture.png)
 
-In an IoT Central application device template contains:
+In an IoT Central [device template](concepts-device-templates.md) contains:
 
-- **Device capability models** specify the capabilities of a device such as the telemetry it sends, the properties that define the device state, and the commands the device responds to. Device capabilities are organized into one or more interfaces.
+- A **device model** to specify the capabilities of a device such as the telemetry it sends, the properties that define the device state, and the commands the device responds to. Device capabilities are organized into one or more interfaces.
 - **Cloud properties** specify the properties IoT Central stores for a device. These properties are only stored in IoT Central and are never sent to a device.
 - **Views** specify the dashboards and forms the builder creates to let the operator monitor and manage the devices.
-- **Customizations** let the builder override some of the definitions in the device capability model to make them more relevant to the IoT Central application.
+- **Customizations** let the builder override some of the definitions in the device model to make them more relevant to the IoT Central application.
 
 An application can have one or more simulated and real devices based on each device template.
 

@@ -56,9 +56,9 @@ In Azure IoT Central, you can import a deployment manifest to create a device te
 
 IoT Central models an IoT Edge device as follows:
 
-* Every IoT Edge device template has a device capability model.
+* Every IoT Edge device template has a device model.
 * For every custom module listed in the deployment manifest, a module capability model is generated.
-* A relationship is established between each module capability model and a device capability model.
+* A relationship is established between each module capability model and a device model.
 * A module capability model implements module interfaces.
 * Each module interface contains telemetry, properties, and commands.
 
@@ -66,7 +66,7 @@ IoT Central models an IoT Edge device as follows:
 
 ## IoT Edge gateway devices
 
-If you selected an IoT Edge device to be a gateway device, you can add downstream relationships to device capability models for devices you want to connect to the gateway device.
+If you selected an IoT Edge device to be a gateway device, you can add downstream relationships to device models for devices you want to connect to the gateway device.
 
 ## Next steps
 
