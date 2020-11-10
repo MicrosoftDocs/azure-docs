@@ -1,5 +1,5 @@
 ---
-title: Configure Postman
+title: Make requests with Postman
 titleSuffix: Azure Digital Twins
 description: Learn how to configure and use Postman to test the Azure Digital Twins APIs.
 ms.author: baanders

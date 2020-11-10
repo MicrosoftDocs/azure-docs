@@ -21,7 +21,7 @@ Azure Digital Twins comes equipped with both **control plane APIs** and **data p
 * The control plane APIs are [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) APIs, and cover resource management operations like creating and deleting your instance. 
 * The data plane APIs are Azure Digital Twins APIs, and are used for data management operations like managing models, twins, and the graph.
 
-This article gives an overview of the APIs available, and the methods for interacting with them. You can either use the REST APIs directly with their associated Swaggers, or through an SDK.
+This article gives an overview of the APIs available, and the methods for interacting with them. You can either use the REST APIs directly with their associated Swaggers (through a tool like [Postman](how-to-use-postman.md)), or through an SDK.
 
 ## Overview: control plane APIs
 
@@ -280,6 +280,7 @@ client.UpdateDigitalTwin("myTwin", updateTwinData);
 
 The following list provides additional detail and general guidelines for using the APIs and SDKs.
 
+* You can use an HTTP REST-testing tool like Postman to make direct calls to the Azure Digital Twins APIs. For more information about this process, see [*How-to: Make requests with Postman*](how-to-use-postman.md).
 * To use the SDK, instantiate the `DigitalTwinsClient` class. The constructor requires credentials that can be obtained with a variety of authentication methods in the `Azure.Identity` package. For more on `Azure.Identity`, see its [namespace documentation](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet). 
 * You may find the `InteractiveBrowserCredential` useful while getting started, but there are several other options, including credentials for [managed identity](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet), which you will likely use to authenticate [Azure functions set up with MSI](../app-service/overview-managed-identity.md?tabs=dotnet) against Azure Digital Twins. For more about `InteractiveBrowserCredential`, see its [class documentation](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet).
 * All service API calls are exposed as member functions on the `DigitalTwinsClient` class.
@@ -304,8 +305,8 @@ From here, you can view the metrics for your instance and create custom views.
 
 ## Next steps
 
-See how to use the APIs to set up an Azure Digital Twins instance and authentication:
-* [*How-to: Set up an instance and authentication*](how-to-set-up-instance-cli.md)
+See how to make direct requests to the APIs using Postman:
+* [*How-to: Make requests with Postman*](how-to-use-postman.md)
 
-Or, walk through the steps to create a client app like the one used in this how-to:
+Or, practice using the .NET SDK by creating a client app with this tutorial:
 * [*Tutorial: Code a client app*](tutorial-code.md)
