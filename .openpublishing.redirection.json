@@ -1502,11 +1502,6 @@
       "redirect_document": false
     },
     {
-      "source_path": "articles/active-directory/saas-apps/adobe-identity-management-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/saas-apps/azure-databricks-scim-connector-provisioning-tutorial.md",
       "redirect_url": "/azure/databricks/administration-guide/users-groups/scim/aad",
       "redirect_document_id": false
@@ -22202,29 +22197,29 @@
       "redirect_url": "/partner-center/announcements",
       "redirect_document_id": false
     },
-     {
+    {
       "source_path": "articles/marketplace/partner-center-portal/summary-dashboard.md",
-      "redirect_url": "articles/marketplace/summary-dashboard",
+      "redirect_url": "/azure/marketplace/summary-dashboard",
       "redirect_document_id": false
     },
-     {
+    {
       "source_path": "articles/marketplace/partner-center-portal/orders-dashboard.md",
-      "redirect_url": "articles/marketplace/orders-dashboard",
+      "redirect_url": "/azure/marketplace/orders-dashboard",
       "redirect_document_id": false
     },
-     {
+    {
       "source_path": "articles/marketplace/partner-center-portal/usage-dashboard.md",
-      "redirect_url": "articles/marketplace/usage-dashboard",
+      "redirect_url": "/azure/marketplace/usage-dashboard",
       "redirect_document_id": false
     },
-     {
+    {
       "source_path": "articles/marketplace/partner-center-portal/customer-dashboard.md",
-      "redirect_url": "articles/marketplace/customer-dashboard",
+      "redirect_url": "/azure/marketplace/customer-dashboard",
       "redirect_document_id": false
     },
-     {
+    {
       "source_path": "articles/marketplace/partner-center-portal/insights-dashboard.md",
-      "redirect_url": "articles/marketplace/insights-dashboard",
+      "redirect_url": "/azure/marketplace/insights-dashboard",
       "redirect_document_id": false
     },
     {
