@@ -49,5 +49,4 @@ The MSAL Angular wrapper takes advantage of the HTTP interceptor to automaticall
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-spa-production.md)
+Move on to the next article in this scenario, [Move to production](scenario-spa-production.md).

@@ -58,7 +58,7 @@ To submit sample data to the running service, use the following code. Replace th
 > [!NOTE]
 > When authenticating to a deployment on the compute instance, the authentication is made using Azure Active Directory. The call to `interactive_auth.get_authentication_header()` in the example code authenticates you using AAD, and returns a header that can then be used to authenticate to the service on the compute instance. For more information, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md#interactive-authentication).
 >
-> When authenticating to a deployment on Azure Kubernetes Service or Azure Container Instances, a different authentication method is used. For more information on, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md#web-service-authentication).
+> When authenticating to a deployment on Azure Kubernetes Service or Azure Container Instances, a different authentication method is used. For more information on, see [Configure authentication for Azure Machine models deployed as web services](how-to-authenticate-web-service.md).
 
 ```python
 import requests

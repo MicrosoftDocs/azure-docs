@@ -35,7 +35,7 @@ Note: Azure AD supports external identity providers, which allow users without a
 
 - [Define Azure AD tenants](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
 
-- [Use external identity providers for an application](/azure/active-directory/b2b/identity-providers)
+- [Use external identity providers for an application](../../active-directory/external-identities/identity-providers.md)
 
 - [What is the identity secure score in Azure AD](../../active-directory/fundamentals/identity-secure-score.md)
 
@@ -159,13 +159,13 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use on-pr
 
 - [Audit activity reports in Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to monitor users' identity and access activity in Azure Security Center](../../security-center/security-center-identity-access.md)
 
-- [Alerts in Azure Security Center's threat intelligence protection module](/azure/security-center/alerts-reference)
+- [Alerts in Azure Security Center's threat intelligence protection module](../../security-center/alerts-reference.md)
 
 - [How to integrate Azure activity logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
