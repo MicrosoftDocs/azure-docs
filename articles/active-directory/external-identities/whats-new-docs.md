@@ -17,9 +17,6 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 
 ## October 2020
 
-### New articles
-
-
 ### Updated articles
 - [Add Google as an identity provider for B2B guest users](google-federation.md)
 - [How users in your organization can invite guest users to an app](add-users-information-worker.md)
@@ -33,9 +30,6 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 
 
 ## September 2020
-
-### New articles
-
 
 ### Updated articles
 - [The elements of the B2B collaboration invitation email - Azure Active Directory](invitation-email-elements.md)

@@ -45,8 +45,6 @@ Welcome to what's new in Azure Active Directory business-to-customer (B2C) docum
 
 ## August 2020
 
-### New articles
-
 ### Updated articles
 - [Page layout versions](page-layout.md)
 - [Billing model for Azure Active Directory B2C](billing.md)
