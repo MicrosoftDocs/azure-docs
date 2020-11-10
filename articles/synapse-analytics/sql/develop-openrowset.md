@@ -257,12 +257,12 @@ Parquet files contain type descriptions for every column. The following table de
 | BINARY |UTF8 |varchar \*(UTF8 collation) |
 | BINARY |STRING |varchar \*(UTF8 collation) |
 | BINARY |ENUM|varchar \*(UTF8 collation) |
-| BINARY |UUID |uniqueidentifier |
+| FIXED_LEN_BYTE_ARRAY |UUID |uniqueidentifier |
 | BINARY |DECIMAL |decimal |
-| BINARY |JSON |varchar(max) \*(UTF8 collation) |
-| BINARY |BSON |varbinary(max) |
+| BINARY |JSON |varchar(8000) \*(UTF8 collation) |
+| BINARY |BSON | Not supported |
 | FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVAL |varchar(max), serialized into standardized format |
+| BYTE_ARRAY |INTERVAL | Not supported |
 | INT32 |INT(8, true) |smallint |
 | INT32 |INT(16, true) |smallint |
 | INT32 |INT(32, true) |int |
@@ -271,14 +271,14 @@ Parquet files contain type descriptions for every column. The following table de
 | INT32 |INT(32, false) |bigint |
 | INT32 |DATE |date |
 | INT32 |DECIMAL |decimal |
-| INT32 |TIME (MILLIS )|time |
+| INT32 |TIME (MILLIS)|time |
 | INT64 |INT(64, true) |bigint |
-| INT64 |INT(64, false ) |decimal(20,0) |
+| INT64 |INT(64, false) |decimal(20,0) |
 | INT64 |DECIMAL |decimal |
-| INT64 |TIME (MICROS / NANOS) |time |
-|INT64 |TIMESTAMP (MILLIS / MICROS / NANOS) |datetime2 |
-|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LIST |varchar(max), serialized into JSON |
-|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(max), serialized into JSON |
+| INT64 |TIME (MICROS) |time - TIME(NANOS) is not supported |
+|INT64 |TIMESTAMP (MILLIS / MICROS) |datetime2 - TIMESTAMP(NANOS) is not supported |
+|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LIST |varchar(8000), serialized into JSON |
+|[Complex type](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAP|varchar(8000), serialized into JSON |
 
 ## Examples
 

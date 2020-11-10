@@ -60,5 +60,5 @@ For developers, the end-to-end experience for this scenario has the following as
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Daemon app - app registration](./scenario-daemon-app-registration.md)
+Move on to the next article in this scenario, 
+[App registration](./scenario-daemon-app-registration.md).

@@ -12,9 +12,9 @@ Java codeless application monitoring is all about simplicity - there are no code
 
  The Java agent works in any environment, and allows you to monitor all of your Java applications. In other words, whether you are running your Java apps on VMs, on-premises, in AKS, on Windows, Linux - you name it, the Java 3.0 agent will monitor your app.
 
-Adding the Application Insights Java SDK to your application is no longer required, as the 3.0 agent autocollects requests, dependencies and logs all on its own.
+Adding the Application Insights Java SDK to your application is no longer required, as the 3.0 agent auto-collects requests, dependencies and logs all on its own.
 
-You can still send custom telemetry from your application. The 3.0 agent will track and correlate it along with all of the autocollected telemetry.
+You can still send custom telemetry from your application. The 3.0 agent will track and correlate it along with all of the auto-collected telemetry.
 
 The 3.0 agent supports Java 8 and above.
 
@@ -45,7 +45,7 @@ If you do not already have an Application Insights resource, you can create a ne
 Point the agent to your Application Insights resource, either by setting an environment variable:
 
 ```
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
 Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0.jar`, with the following content:
@@ -53,7 +53,7 @@ Or by creating a configuration file named `applicationinsights.json`, and placin
 ```json
 {
   "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+    "connectionString": "InstrumentationKey=..."
   }
 }
 ```
@@ -79,7 +79,7 @@ In the `applicationinsights.json` file, you can additionally configure:
 * Sampling
 * JMX metrics
 * Custom dimensions
-* Telemetry processors
+* Telemetry processors (preview)
 * Auto-collected logging
 * Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 * Heartbeat
@@ -88,7 +88,7 @@ In the `applicationinsights.json` file, you can additionally configure:
 
 See [configuration options](./java-standalone-config.md) for full details.
 
-## Autocollected requests, dependencies, logs, and metrics
+## Auto-collected requests, dependencies, logs, and metrics
 
 ### Requests
 
@@ -130,7 +130,7 @@ See [configuration options](./java-standalone-config.md) for full details.
 
 Our goal in 3.0+ is to allow you to send your custom telemetry using standard APIs.
 
-We support Micrometer, OpenTelemetry API, and the popular logging frameworks. Application Insights Java 3.0 will automatically capture the telemetry, and correlate it along with all of the autocollected telemetry.
+We support Micrometer, OpenTelemetry API, and the popular logging frameworks. Application Insights Java 3.0 will automatically capture the telemetry, and correlate it along with all of the auto-collected telemetry.
 
 ### Supported custom telemetry
 

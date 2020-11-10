@@ -16,3 +16,7 @@
   href: redhat-rhui.md
 - name: Red Hat Enterprise Linux BYOS Image Offer
   href: byos.md
+- name: Red Hat Enterprise Linux Extended Lifecycle Support
+  href: redhat-extended-lifecycle-support.md
+- name: In-place upgrade of Red Hat Enterprise images on Azure
+  href: redhat-in-place-upgrade.md
