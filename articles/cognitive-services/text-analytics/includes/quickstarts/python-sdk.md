@@ -167,7 +167,6 @@ Create a function to instantiate the `TextAnalyticsClient` object with your `key
 ```python
 from azure.ai.textanalytics import TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
-# from azure.ai.textanalytics import TextAnalyticsApiVersion
 
 def authenticate_client():
     ta_credential = AzureKeyCredential(key)
