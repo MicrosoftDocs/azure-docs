@@ -15,7 +15,7 @@ This article shows you how to create a Private Link service in Azure using Azure
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- This article requires the latest version of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
+- This article requires the latest version of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a Private Link service
 ### Create a resource group

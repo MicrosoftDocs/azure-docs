@@ -19,19 +19,13 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
+## Prerequisites
+
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-- This article requires version 2.0.46 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
-
-- If you are running the Azure CLI locally, you must log in and authenticate. This step is not necessary if you are using Azure Cloud Shell. To log in to Azure CLI, run `az login` and authenticate in the browser window:
-
-    ```azurecli
-    az login
-    ```
-
-- For more information about authentication with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+- This article requires version 2.0.46 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Authorize access to Blob storage
 
