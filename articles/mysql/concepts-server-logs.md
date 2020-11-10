@@ -5,12 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/13/2020
+ms.date: 11/6/2020
 ---
 # Slow query logs in Azure Database for MySQL
 In Azure Database for MySQL, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.
 
 For more information about the MySQL slow query log, see the MySQL reference manual's [slow query log section](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
+
+When [Query Store](concepts-query-store.md) is enabled on your server, you may see the queries like "`CALL mysql.az_procedure_collect_wait_stats (900, 30);`" logged in your slow query logs. This behavior is expected as the Query Store feature collects statistics about your queries. 
 
 ## Configure slow query logging 
 By default the slow query log is disabled. To enable it, set `slow_query_log` to ON. This can be enabled using the Azure portal or Azure CLI. 
@@ -137,4 +139,4 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     
 ## Next Steps
 - [How to configure slow query logs from the Azure portal](howto-configure-server-logs-in-portal.md)
-- [How to configure slow query logs from the Azure CLI](howto-configure-server-logs-in-cli.md).
+- [How to configure slow query logs from the Azure CLI](howto-configure-server-logs-in-cli.md)

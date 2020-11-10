@@ -4,6 +4,7 @@ description: In this tutorial, you access and retrieve secrets from your Azure k
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
 ---

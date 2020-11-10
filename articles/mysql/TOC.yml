@@ -29,6 +29,9 @@
   - name: Mitigate database corruption
     href: how-to-fix-corrupt-database.md
     displayName: corrupt data
+  - name: Versioning policy
+    href: concepts-version-policy.md
+    displayName: version policy 
 - name: Single Server
   expanded: true
   items:

@@ -175,6 +175,7 @@ Use these commands to create the resource:
 
 1. In the Review + Create tab, review your Package Contents, Settings, Recipients, and Synchronization Settings. Select **Create**.
 
+<<<<<<< HEAD
 ### [Azure CLI](#tab/azure-cli)
 
 1. Run the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a Data Share:
@@ -208,7 +209,17 @@ Use these commands to create the resource:
 ---
 
 Your Azure Data Share has now been created and the recipient of your Data Share is now ready to accept your invitation.
+=======
+Your Azure Data Share has now been created and the recipient of your Data Share is now ready to accept your invitation.
+
+## Clean up resources
+
+When the resource is no longer needed, go to the **Data Share Overview** page and select **Delete** to remove it.
+>>>>>>> 99ed3f21963a1b5bd253b9a475f5c5ff268fdbb1
 
 ## Next steps
 
-In this tutorial, you learnt how to create an Azure Data Share and invite recipients. To learn about how a Data Consumer can accept and receive a data share, continue to the [accept and receive data](subscribe-to-data-share.md) tutorial.
+In this tutorial, you learnt how to create an Azure Data Share and invite recipients. To learn about how a Data Consumer can accept and receive a data share, continue to the accept and receive data tutorial.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Accept and receive data using Azure Data Share](subscribe-to-data-share.md)

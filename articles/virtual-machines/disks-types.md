@@ -55,6 +55,8 @@ Some key capabilities of ultra disks are:
 |512     |153,600         |2,000         |
 |1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |2,000         |
 
+Ultra disks are designed to provide sub-millisecond latencies and target IOPS and throughput described in the preceding table 99.99% of the time.
+
 ### GA scope and limitations
 
 [!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]

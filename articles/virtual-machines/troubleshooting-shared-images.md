@@ -149,7 +149,7 @@ If you run into issues while performing any operations on shared image galleries
 
 *Changing property 'galleryImageVersion.properties.storageProfile.<diskImage\>.source.id' is not allowed.*  
 **Cause**: The source ID of a gallery image version cannot be changed after creation.  
-**Workaround**: Ensure that the source ID is the same as the already existing source ID or change the version number of the image version.
+**Workaround**: Ensure that the source ID is the same as the already existing source ID, change the version number of the image version, or delete the current image version and try again.
 
 *Duplicated lun numbers have been detected in the input data disks. Lun number must be unique for each data disk.*  
 **Cause**: When creating an image version using a list of disks and/or disk snapshots, two or more disks or disk snapshots have the same lun numbers.  
