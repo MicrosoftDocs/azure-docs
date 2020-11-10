@@ -105,6 +105,16 @@
       href: how-to-work-with-alerts-sensor.md
     - name: Work with alerts on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
+  - name: Enrich asset information
+    href: how-to-enrich-asset-information.md
+  - name: Work with system notifications
+    href: how-to-work-with-system-notifications.md
+  - name: Track sensor activity
+    href: how-to-track-sensor-activity.md
+  - name: Generate reports
+    href: how-to-generate-reports.md
+  - name: Create forwarding rules
+    href: how-to-create-forwarding-rules.md
   - name: How to integrate with partners
     items:
       - name: Forescout Integrations
