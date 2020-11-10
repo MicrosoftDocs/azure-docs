@@ -25,17 +25,19 @@ For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azu
 
 - This article requires version 2.0.67 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-    > [!IMPORTANT]
-    > If you haven't done so already, install the Azure Service Fabric Mesh CLI extension module using the following command: 
-    > 
-    > ```azurecli-interactive
-    > az extension add --name mesh
-    > ```
-    > If it's already installed, update your existing Azure Service Fabric Mesh CLI module using the following command:
-    > 
-    > ```azurecli-interactive
-    > az extension update --name mesh
-    > ```
+## Install the Azure Service Fabric Mesh CLI
+
+If you haven't done so already, install the Azure Service Fabric Mesh CLI extension module using the following command: 
+ 
+```azurecli-interactive
+az extension add --name mesh
+```
+
+If it's already installed, update your existing Azure Service Fabric Mesh CLI module using the following command:
+
+```azurecli-interactive
+az extension update --name mesh
+```
 
 ## Install the Service Fabric CLI (sfctl) 
 

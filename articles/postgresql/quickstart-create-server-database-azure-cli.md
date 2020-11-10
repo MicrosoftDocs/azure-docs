@@ -15,24 +15,20 @@ This quickstart shows how to use [Azure CLI](/cli/azure/get-started-with-azure-c
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-    > [!TIP]
-    > Consider using the simpler [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command that's currently in preview. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
-
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- You need to log in to your account by using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property,  which refers to **Subscription ID** for your Azure account. 
+    > [!TIP]
+    >  Consider using the simpler [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command that's currently in preview. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
-    ```azurecli-interactive
-    az login
-    ```
+- Select the specific subscription ID under your account by using the  [az account set](/cli/azure/account) command.
 
-- Select the specific subscription ID under your account by using the  [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for the **subscription** argument in the command. 
+    - Make a note of the **id** value from the **az login** output to use as the value for the **subscription** argument in the command. 
 
-    ```azurecli
-    az account set --subscription <subscription id>
-    ```
+        ```azurecli
+        az account set --subscription <subscription id>
+        ```
 
-- If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscriptions, use [az account list](/cli/azure/account#az-account-list).
+    - If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscriptions, use [az account list](/cli/azure/account#az-account-list).
 
 ## Create an Azure Database for PostgreSQL server
 
