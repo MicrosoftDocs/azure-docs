@@ -20,8 +20,8 @@ Azure Synapse is a limitless analytics service that brings together enterprise d
 
 - Synapse SQL: Complete T-SQL based analytics
 
-  - SQL pool (pay per DWU provisioned) – Generally Available
-  - SQL on-demand (pay per TB processed) – (Preview)
+  - Dedicated SQL pool (pay per DWU provisioned) – Generally Available
+  - Serverless SQL pool (pay per TB processed) – (Preview)
 - Spark: Deeply integrated Apache Spark (Preview)
 - Data Integration: Hybrid data integration (Preview)
 - Studio: unified user experience.  (Preview)

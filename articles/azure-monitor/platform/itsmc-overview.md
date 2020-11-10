@@ -107,7 +107,8 @@ After you've prepped your ITSM tools, complete these steps to create a connectio
 
 ## Template definitions
    There are work item types that can use templates that are defined by the ITSM tool.
-   By using templates, you can define fields that will be automatically populated according to fixed values that are defined as part of the action group. You define templates in the ITSM tool.
+   By using templates, you can define fields that will be automatically populated according to fixed values that are defined as part of the action group. You define templates in the ITSM tool. 
+   You can define in which template you would like to use as a part of the definition of the action group.
       
 ## Create ITSM work items from Azure alerts
 
@@ -142,9 +143,12 @@ Use the following procedure to create work items:
 
 9. If you select **Create individual work items for each Configuration Item**, every configuration item will have its own work item. There will be one work item per configuration item. It will be updated according to the alerts that will be created.
 
-   If you clear  the **Create individual work items for each Configuration Item** check box, every alert will create a new work item. There can be more than one alert per configuration item.
+   * In a case you select in the work item dropdown "Incident" or "Alert": If you clear  the **Create individual work items for each Configuration Item** check box, every alert will create a new work item. There can be more than one alert per configuration item.
 
    ![Screenshot that shows the ITSM Ticket window.](media/itsmc-overview/itsm-action-configuration.png)
+   
+   * In a case you select in the work item dropdown "Event": If you select **Create individual work items for each Log Entry** in the radio buttons selection, every
+   alert will create a new work item. If you select **Create individual work items for each Configuration Item** in the radio buttons selection, every configuration item will have its own work item. 
 
 10. Select **OK**.
 

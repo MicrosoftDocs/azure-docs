@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 10/26/2020
+  ms.date: 11/06/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -68,14 +68,8 @@ landingContent:
             url: deployment-manager-tutorial.md
       - linkListType: learn
         links:
-          - text: Consistent infrastructure
-            url: /learn/modules/create-azure-resource-manager-template-vs-code/
-          - text: Multiple environments
-            url: /learn/modules/modify-azure-resource-manager-template-reuse/
-          - text: Validate deployments
-            url: /learn/modules/arm-template-test/
-          - text: Deploy templates
-            url: /learn/modules/deploy-templates-command-line-github-actions/
+          - text: Deploy with ARM templates
+            url: /learn/paths/deploy-manage-resource-manager-templates/
   # Card
   - title: Develop templates
     linkLists:
