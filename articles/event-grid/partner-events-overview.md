@@ -6,7 +6,7 @@ ms.date: 11/10/2020
 ---
 
 # Partner Events in Azure Event Grid (preview)
-The **Partner Events** feature allows a third-party SaaS provider to publish events from its services to make them available to consumers who can subscribe to those events. It offers a first-party experience to third-party event sources by exposing a [topic](concepts.md#topics) type, a **partner topic**, that subscribers use to consume events. It also offers a clean pub-sub model by separating concerns and ownership of resources that are used by event publishers and subscribers.
+The **Partner Events** feature allows a third-party SaaS provider to publish events from its services so that consumers can subscribe to those events. This feature offers a first-party experience to third-party event sources by exposing a [topic](concepts.md#topics) type, a **partner topic**. Subscribers create subscriptions to this topic to consume events. It also provides a clean pub-sub model by separating concerns and ownership of resources that are used by event publishers and subscribers.
 
 > [!NOTE]
 > If you're new at using Event Grid, see [overview](overview.md), [concepts](concepts.md), and [event handlers](event-handlers.md).
@@ -71,17 +71,17 @@ An event channel is a mirrored resource to a partner topic. When a publisher cre
 ## Resources managed by subscribers 
 Subscribers can use partner topics defined by a publisher and it's the only type of resource they see and manage. Once a partner topic is created, a subscriber user can create event subscriptions defining filter rules to [destinations/event handlers](overview.md#event-handlers). To subscribers, a partner topic and its associated event subscriptions provide the same rich capabilities as [custom topics](custom-topics.md) and its related subscription(s) do with one notable difference: partner topics support only the [Cloud Events 1.0 schema](cloudevents-schema.md), which provides a richer set of capabilities than other supported schemas.
 
-The following image shows the flow of control plane flow operations.
+The following image shows the flow of control plane operations.
 
 :::image type="content" source="./media/partner-events-overview/partner-control-plane-flow-2.png" alt-text="Partner Events - control plane flow":::
 
 1. Publisher creates a partner registration. Partner registrations are global. That is, they aren't associated with a particular Azure region. This step is optional.
 1. Publisher creates a partner namespace in a specific region.
-1. When Subscriber 1 tries to create a partner topic, an event channel (Event Channel 1) is created in the publisher's Azure subscription.
-1. A partner topic is created in the subscriber's Azure subscription. The subscriber needs to activate the partner topic. 
+1. When Subscriber 1 tries to create a partner topic, an event channel (Event Channel 1) is created in the publisher's Azure subscription first.
+1. Then, a partner topic is created in the subscriber's Azure subscription. The subscriber needs to activate the partner topic. 
 1. Subscriber 1 creates two subscriptions (Azure Logic Apps and Azure Blob Storage) to the partner topic. 
-1. When Subscriber 2 tries to create a partner topic, another event channel (Event Channel 2) is created in the publisher's Azure subscription. 
-1. The partner topic is created in the second subscriber's Azure subscription. 
+1. When Subscriber 2 tries to create a partner topic, another event channel (Event Channel 2) is created in the publisher's Azure subscription first. 
+1. Then, the partner topic is created in the second subscriber's Azure subscription. The subscriber needs to activate the partner topic. 
 
 ## Pricing
 Partner topics are charged by the number of operations done when using Event Grid. For more information on all types of operations that are used as the basis for billing and detailed price information, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
