@@ -189,7 +189,7 @@
       href: quickstart-create-sql-pool-studio.md
     - name: Create a dedicated SQL pool using Azure portal
       href: quickstart-create-sql-pool-portal.md
-    - name: Pause and resume usning Azure portal
+    - name: Pause and resume using Azure portal
       href: ./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Load data with dedicated SQL pools
       items:
