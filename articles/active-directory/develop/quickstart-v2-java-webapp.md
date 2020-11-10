@@ -95,7 +95,7 @@ To run this sample you will need:
 >   ```
 >   Put the generated keystore file in the "resources" folder.
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -249,7 +249,7 @@ import com.microsoft.aad.msal4j.*;
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## Next Steps
+## Next steps
 
 For a more in-depth discussion of building web apps that sign in users on the Microsoft identity platform, move on to our multi-part scenario series:
 
