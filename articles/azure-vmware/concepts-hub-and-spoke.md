@@ -134,11 +134,7 @@ As a general design recommendation, use the existing Azure DNS infrastructure (i
 
 You can use Azure Private DNS, where the Azure Private DNS zone links to the virtual network.  The DNS servers are used as hybrid resolvers with conditional forwarding to on-premises or Azure VMware Solution running DNS leveraging customer Azure Private DNS infrastructure. 
 
-There are several considerations to consider for Azure DNS Private zones:
-
-* Autoregistration should be enabled for Azure DNS to automatically manage the DNS records' life cycle for the VMs deployed within Spoke virtual networks.
-* The maximum number of private DNS zones a virtual network can be linked to with autoregistration enabled is only one.
-* The maximum number of private DNS zones a virtual network can be linked to is 1000 without autoregistration being enabled.
+To automatically manage the DNS records' lifecycle for the VMs deployed within the Spoke virtual networks, enable autoregistration. When enabled, the maximum number of private DNS zones is only one. If disabled, then the maximum number is 1000.
 
 On-premises and Azure VMware Solution servers can be configured with conditional forwarders to resolver VMs in Azure for the Azure Private DNS zone.
 
