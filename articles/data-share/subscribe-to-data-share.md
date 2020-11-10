@@ -72,7 +72,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    To open invitation from email, check your inbox for an invitation from your data provider. The invitation is from Microsoft Azure, titled **Azure Data Share invitation from <yourdataprovider@domain.com>**. Click on **View invitation** to see your invitation in Azure. 
 
-   To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This takes you to the list of Data Share invitations.
+   To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This action takes you to the list of Data Share invitations.
 
    ![List of Invitations](./media/invitations.png "List of invitations") 
 
@@ -112,7 +112,7 @@ Copy your invitation ID for use in the next section.
 
    ![Accept options](./media/accept-options.png "Accept options") 
 
-   This takes you to your the received share in your Data Share account. 
+   This action takes you to the received share in your Data Share account. 
 
    If you don't want to accept the invitation, Select *Reject*. 
 
@@ -124,7 +124,7 @@ Use the [az datashare consumer share-subscription create](/cli/azure/ext/datasha
 az datashare consumer share-subscription create --resource-group share-rg \
   --name "Fabrikam Solutions" --account-name FabrikamDataShareAccount \
   --invitation-id 89abcdef-0123-4567-89ab-cdef01234567 \
---source-share-location "East US 2" --subscription 11111111-1111-1111-1111-111111111111
+  --source-share-location "East US 2" --subscription 11111111-1111-1111-1111-111111111111
 ```
 
 ---
@@ -169,7 +169,7 @@ Use these commands to configure where you want to receive data.
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-1. Use the [az storage account show](/cli/azure/storage/account#az_storage_account_show) to get the storage account ID:
+1. Use the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command to get the storage account ID:
 
    ```azurecli
    az storage account show --resource-group "share-rg" --name "FabrikamDataShareAccount" \
@@ -183,7 +183,7 @@ Use these commands to configure where you want to receive data.
      --subscription 11111111-1111-1111-1111-111111111111 --query "identity.principalId"
    ```
 
-1. Use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to create a role assignment for the account principal:
+1. Use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command to create a role assignment for the account principal:
 
    ```azurecli
    az role assignment create --role "01234567-89ab-cdef-0123-456789abcdef" \
@@ -199,7 +199,7 @@ Use these commands to configure where you want to receive data.
      \"storage_account_name\":\"datashareconsumersa\",\"kind\":\"BlobFolder\",\"prefix\":\"consumer\"}'
    ```
 
-1. Use the [az datashare consumer dataset-mapping create](/cli/azure/ext/datashare/datashare/consumer/dataset-mapping#ext_datashare_az_datashare_consumer_dataset_mapping_create) the dataset mapping:
+1. Use the [az datashare consumer dataset-mapping create](/cli/azure/ext/datashare/datashare/consumer/dataset-mapping#ext_datashare_az_datashare_consumer_dataset_mapping_create) command to create the dataset mapping:
 
    ```azurecli
    az datashare consumer dataset-mapping create --resource-group "share-rg" \
@@ -208,7 +208,7 @@ Use these commands to configure where you want to receive data.
      --subscription 11111111-1111-1111-1111-111111111111
    ```
 
-1. Run the [az datashare consumer share-subscription synchronization start](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_start) to start dataset synchronization.
+1. Run the [az datashare consumer share-subscription synchronization start](/cli/azure/ext/datashare/datashare/consumer/share-subscription/synchronization#ext_datashare_az_datashare_consumer_share_subscription_synchronization_start) command to start dataset synchronization.
 
    ```azurecli
    az datashare consumer share-subscription synchronization start \

@@ -115,7 +115,7 @@ Use these commands to create the resource:
    az group create --name testresourcegroup --location "East US 2"
    ```
 
-1. Run the [az datashare account create](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_create) to create a Data Share account:
+1. Run the [az datashare account create](/cli/azure/ext/datashare/datashare/account#ext_datashare_az_datashare_account_create) command to create a Data Share account:
 
    ```azurecli
    az datashare account create --resource-group testresourcegroup --name datashareaccount --location "East US 2" 
@@ -189,7 +189,7 @@ Use these commands to create the resource:
    az storage container create --name ContosoMarketplaceContainer --account-name ContosoMarketplaceAccount
    ```
 
-1. Run the [az datashare create](/cli/azure/ext/datashare/datashare#ext_datashare_az_datashare_create) command to create your Data Share.
+1. Run the [az datashare create](/cli/azure/ext/datashare/datashare#ext_datashare_az_datashare_create) command to create your Data Share:
 
    ```azurecli
    az datashare create --resource-group testresourcegroup \
@@ -197,7 +197,7 @@ Use these commands to create the resource:
      --description "Data Share" --share-kind "CopyBased" --terms "Confidential"
    ```
 
-1. Use the [az datashare invitation create](/cli/azure/ext/datashare/datashare/invitation#ext_datashare_az_datashare_invitation_create)
+1. Use the [az datashare invitation create](/cli/azure/ext/datashare/datashare/invitation#ext_datashare_az_datashare_invitation_create) command to create the invitation for the specified address:
 
    ```azurecli
    az datashare invitation create --resource-group testresourcegroup \
