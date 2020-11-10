@@ -10,15 +10,15 @@ ms.custom: devx-track-csharp
 
 # Fresnel effect
 
-The fresnel effect material feature is a non-physically correct, purely ad-hoc effect to highlight gracing view angles on an object. It is based on the physical observation of objects becoming more reflective at these angles, which is also incorporated in the [PBR material model](../../overview/features/pbr-materials.md) used in Azure Remote Rendering. Contrary to the physically based model, the fresnel effect material feature is just an additive color effect that is not dependent on [Lights](../../overview/features/lights.md) or the [Sky environment](../../overview/features/sky.md).
+The fresnel effect material feature is a non-physically correct, ad-hoc effect. The feature is based on the physical observation of objects becoming more reflective at these angles. Fresnel reflectance itself is already physically incorporated in the [PBR material model](../../overview/features/pbr-materials.md) used in Azure Remote Rendering. In contrast, the fresnel effect material feature is just an additive color effect with no dependency on [lights](../../overview/features/lights.md) or the [sky environment](../../overview/features/sky.md).
 
-In practice, activating the fresnel effect feature results in object edges naturally curving away from the viewer being highlighted by a sort of shine. The parameters which govern the effect's appearance as well as examples of the rendering results can be viewed in the following sections.
+Enabling the fresnel effect feature will give the affected objects a colored shine around their edges. Information about effect customization and examples of the rendering results can be found in the following sections.
 
 ## Enabling the fresnel effect
 
-To use the fresnel effect feature, it needs to be enabled on the materials in question. You can enable it by setting either of the [PbrMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) or [ColorMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) FresnelEffect bit on the features of the [PBR material](../../overview/features/pbr-materials.md) or [Color material](../../overview/features/color-materials.md) respectively. See the [code samples](../../overview/features/fresnel-effect.md#Code) section for a demonstration of this.
+To use the fresnel effect feature, it needs to be enabled on the materials in question. You can enable it by setting the FresnelEffect bit of the [PbrMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterialfeatures) on the [PBR material](../../overview/features/pbr-materials.md). The same pattern applies to the [ColorMaterialFeatures](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering) and the [Color material](../../overview/features/color-materials.md). See the code samples section for a usage demonstration.
 
-After enabling the fresnel effect will immediately be visible. By default the shine will be completely white (1, 1, 1, 1) and have an exponent of 1. You can customize these settings using the parameter setters below.
+After enabling, the fresnel effect will immediately be visible. By default the shine will be white (1, 1, 1, 1) and have an exponent of 1. You can customize these settings using the parameter setters below.
 
 ## Customizing the effect appearance
 

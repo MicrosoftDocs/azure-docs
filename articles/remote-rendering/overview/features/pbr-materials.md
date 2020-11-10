@@ -40,9 +40,9 @@ These properties are common to all materials:
 
 * **FresnelEffect:** This material flag enables the additive [fresnel effect](../../overview/features/fresnel-effect.md) on the respective material. The appearance of the effect is governed by the other fresnel parameters explained in the following. 
 
-* **FresnelEffectColor:** The fresnel color used for this material. Only important when the fresnel effect bit has been set on this material (see above). This property controls the color that gets added at most to the overall rendering result. Currently only the rgb values are important and the alpha value will be ignored.
+* **FresnelEffectColor:** The fresnel color used for this material. Only important when the fresnel effect bit has been set on this material (see above). This property controls the color that gets added at most to the overall rendering result. Currently only the rgb-channel values are important and the alpha value will be ignored.
 
-* **FresnelEffectExponent:** The fresnel exponent used for this material. Only important when the fresnel effect bit has been set on this material (see above). This property controls the spread of the fresnel shine, with the minimum 0.01 causing a spread across the whole object and the maximum 10.0 constricting the shine to only the most gracing edges visible.
+* **FresnelEffectExponent:** The fresnel exponent used for this material. Only important when the fresnel effect bit has been set on this material (see above). This property controls the spread of the fresnel shine. The minimum value 0.01 causes a spread across the whole object. The maximum value 10.0 constricts the shine to only the most gracing edges visible.
 
 ## PBR material properties
 
