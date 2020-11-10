@@ -70,10 +70,6 @@ You can choose to provide your own terms and conditions, instead of the standard
 
 1. Under **Legal**, make sure the **Use the Standard Contract for Microsoft's commercial marketplace** check box is cleared.
 1. In the **Terms and conditions** box, enter up to 10,000 characters of text.
-
-   > [!NOTE]
-   > If you require a longer description, enter a single web address that points to where your terms and conditions can be found. It will be displayed to customers as an active link.
-
 1. Select **Save draft** before continuing to the next tab, **Offer listing**.
 
 ## Next steps
