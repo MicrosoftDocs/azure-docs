@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro GA release notes| Microsoft Docs
-description: Describes critical open issues and resolutions for the Azure Stack Edge Pro running general availability release.
+title: Azure Stack Edge Pro 2011 release notes
+description: Describes critical open issues and resolutions for the Azure Stack Edge Pro running 2011 release.
 services: databox
 author: alkohli
  
@@ -30,7 +30,8 @@ The following new features are available in the Azure Stack Edge 2011 release.
 - Edge container registry
 - Proactive logging
 - Cloud management of VMs
-- 
+- Rotate encryption-at-rest keys
+
 
 ## Known issues 
 

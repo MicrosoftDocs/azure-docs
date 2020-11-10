@@ -21,7 +21,6 @@ This tutorial describes how to create and manage a VM on your Azure Stack Edge P
 
 
 
-
 ## Manage VM
 
 The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge Pro device.

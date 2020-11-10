@@ -7,8 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/10
-/2020
+ms.date: 11/10/2020
 ms.author: alkohli
 ---
 # Enable Edge container registry on your Azure Stack Edge Pro GPU device
