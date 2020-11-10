@@ -33,15 +33,15 @@ An important consideration for the security of a registry encrypted with a custo
 
 When you configure registry encryption with a customer-managed key, you have two options for updating the key version used for encryption:
 
-* **Automatically update the key version** - To automatically update a customer-managed key when a new version is available in Azure Key Vault, omit the key version when you enable registry encryption with a customer-managed key. When you enable encryption with a non-versioned key, Azure Container Registry regularly checks the key vault for a new version of the customer-managed key. Azure Container Registry automatically uses the latest version of the key.
+* **Automatically update the key version** - To automatically update a customer-managed key when a new version is available in Azure Key Vault, omit the key version when you enable registry encryption with a customer-managed key. When a registry is encrypted with a non-versioned key, Azure Container Registry regularly checks the key vault for a new key version. Azure Container Registry automatically uses the latest version of the key.
 
-* **Manually update the key version** - To use a specific version of a key for registry encryption, specify that key version when you enable registry encryption with a customer-managed key. If you specify the key version, then Azure Container Registry uses that version for encryption until you manually update the key version or key.
+* **Manually update the key version** - To use a specific version of a key for registry encryption, specify that key version when you enable registry encryption with a customer-managed key. When a registry is encrypted with a specific key version, Azure Container Registry uses that version for encryption until you manually rotate the customer-managed key.
 
 For details, see [Update key version](#update-key-version), later in this article.
 
 ## Prerequisites
 
-To use the Azure CLI steps in this article, you need Azure CLI version **XXX** or later. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+To use the Azure CLI steps in this article, you need Azure CLI version 2.2.0 or later, or Azure Cloud Shell. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Enable customer-managed key - CLI
 
