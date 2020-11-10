@@ -136,3 +136,4 @@ Protection of customer data stored within Azure Services is of paramount importa
 
 - See [data encryption models](encryption-models.md) to learn more about service-managed keys and customer-managed keys.
 - Learn how Azure uses [double encryption](double-encryption.md) to mitigate threats that come with encrypting data.
+- Learn what Microsoft does to ensure [platform integrity and security](platform.md) of hosts traversing the hardware and firmware build-out, integration, operationalization, and repair pipelines.
