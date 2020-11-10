@@ -1,8 +1,8 @@
 ---
 title: MySQL server operational best practices - Azure Database for MySQL
 description: This article describes the best practices to operate your MySQL database on Azure.
-author: manishku
-ms.author: kummanish
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/09/2020
