@@ -36,7 +36,7 @@ The following table lists requirements for using Azure AD Connect Health.
 | TLS inspection for outbound traffic is filtered or disabled. | The agent registration step or data upload operations might fail if there's TLS inspection or termination for outbound traffic at the network layer. For more information, see [Set up TLS inspection](/previous-versions/tn-archive/ee796230(v=technet.10)). |
 | Firewall ports on the server are running the agent. |The agent requires the following firewall ports to be open so that it can communicate with the Azure AD Connect Health service endpoints: <br /><li>TCP port 443</li><li>TCP port 5671</li> <br />The latest version of the agent doesn't require port 5671. Upgrade to the latest version so that only port 443 is required. For more information, see [Opening ports in the firewall](/previous-versions/sql/sql-server-2008/ms345310(v=sql.100)). |
 | If Internet Explorer enhanced security is enabled, allow specified websites.  |If Internet Explorer enhanced security is enabled, then allow the following websites on the server where you install the agent:<br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>The federation server for your organization that's trusted by Azure AD (for example, https:\//sts.contoso.com)</li> <br />For more information, see [How to configure Internet Explorer](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). If you have a proxy in your network, then see the following note.|
-| PowerShell version 4.0 or newer is installed. | Windows Server 2012 includes PowerShell version 3.0. This version is *not* sufficient for the agent.</br></br>Windows Server 2012 R2 and later include a sufficiently recent version of PowerShell.|
+| PowerShell version 4.0 or newer is installed. | Windows Server 2012 includes PowerShell version 3.0. This version is *not* sufficient for the agent.</br></br> Windows Server 2012 R2 and later include a sufficiently recent version of PowerShell.|
 |FIPS (Federal Information Processing Standard) is disabled.|Azure AD Connect Health agents don't support FIPS.|
 
 > [!IMPORTANT]
@@ -69,12 +69,12 @@ To download and install the Azure AD Connect Health agent:
 * Make sure that you satisfy the [requirements](how-to-connect-health-agent-install.md#requirements) for Azure AD Connect Health.
 * Get started using Azure AD Connect Health for AD FS:
     * [Download the Azure AD Connect Health agent for AD FS](https://go.microsoft.com/fwlink/?LinkID=518973).
-    * See the [installation instructions](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
+    * See the [installation instructions](#install-the-agent-for-ad-fs).
 * Get started using Azure AD Connect Health for Sync:
     * [Download and install the latest version of Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). The health agent for Sync is installed as part of the Azure AD Connect installation (version 1.0.9125.0 or later).
 * Get started using Azure AD Connect Health for Azure AD DS:
     * [Download the Azure AD Connect Health agent for Azure AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
-    * See the [installation instructions](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
+    * See the [installation instructions](#install-the-agent-for-azure-ad-ds).
 
 ## Install the agent for AD FS
 
@@ -291,7 +291,7 @@ These commands accept `Credential` as a parameter to complete the registration n
 
 ```
 
-## Configure agents to use an HTTP proxy
+## Configure Azure AD Connect Health agents to use HTTP proxy
 
 You can configure Azure AD Connect Health agents to work with an HTTP proxy.
 
@@ -364,7 +364,7 @@ You can read the current proxy settings by running the following command:
 Get-AzureAdConnectHealthProxySettings
 ```
 
-## Test connectivity to the Azure AD Connect Health service
+## Test connectivity to Azure AD Connect Health service
 
 Occasionally, the Azure AD Connect Health agent can lose connectivity with the Azure AD Connect Health service. Causes of this connectivity loss can include network problems, permission problems, and various other problems.
 
