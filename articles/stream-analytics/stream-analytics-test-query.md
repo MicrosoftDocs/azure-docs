@@ -112,7 +112,7 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 1.	If you get this error “There was a network connectivity issue when fetching the results. Please check your network and firewall settings.”, follow the steps below:
 
-  * To check the connection to the service, open [this link](https://queryruntime.azurestreamanalytics.com/api/home/index) in a browser. If you cannot open this link, please update your firewall settings.
+  * To check the connection to the service, open [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) in a browser. If you cannot open this link, then update your firewall settings.
   
 2. If you get this error “"The request size is too big. Please reduce the input data size and try again.”, follow the steps below:
 
@@ -130,5 +130,4 @@ Instead of using live data, you can use sample data from a local file to test yo
 * [Understand inputs for Azure Stream Analytics](stream-analytics-add-inputs.md)
 
 * [Understand outputs from Azure Stream Analytics](stream-analytics-define-outputs.md)
-
 
