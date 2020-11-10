@@ -114,15 +114,7 @@
   - name: Data sources
     href: platform/data-sources.md
   - name: Data platform
-    items:
-    - name: Overview
-      href: platform/data-platform.md
-    - name: Logs
-      href: platform/data-platform-logs.md
-    - name: Metrics
-      href: platform/data-platform-metrics.md
-    - name: Stream data to Event Hubs
-      href: platform/stream-monitoring-data-event-hubs.md 
+    href: platform/data-platform.md
   - name: Data security
     items:
     - name: Log data
@@ -188,98 +180,13 @@
         href: app/pricing.md
       - name: Log data usage and costs
         href: platform/manage-cost-storage.md
-  - name: Platform logs
+  - name: Azure Monitor Logs
     items:
     - name: Overview
-      displayName: Platform logs, Resource logs, Activity log
-      href: platform/platform-logs-overview.md 
-    - name: Activity log
-      href: platform/activity-log.md
-    - name: Resource logs
-      href: platform/resource-logs.md
-    - name: Diagnostic settings
-      displayName: Platform logs, Resource logs, Activity log
-      href: platform/diagnostic-settings.md
-  - name: Log Analytics
-    items:
-    - name: Overview
-      displayname: Log Analytics, log query, log queries, query, queries
-      href: log-query/log-query-overview.md
-    - name: Tutorial
-      displayname: Log Analytics workspace, log query, log queries, query, queries
-      href: log-query/get-started-portal.md
-    - name: Query scope
-      href: log-query/scope.md
-    - name: Query with Azure Data Explorer
-      href: platform/azure-data-explorer-monitor-proxy.md
-    - name: Log queries
-      items:
-      - name: Standard columns
-        href: platform/log-standard-columns.md
-      - name: Audit queries
-        href: log-query/query-audit.md
-      - name: Optimize queries
-        href: log-query/query-optimization.md
-      - name: Functions
-        href: log-query/functions.md
-      - name: Parse text data
-        href: log-query/parse-text.md
-      - name: Example queries
-        href: log-query/saved-queries.md
-      - name: Computer groups
-        href: platform/computer-groups.md
-    - name: Query language
-      items:
-      - name: KQL reference
-        href: /azure/data-explorer/kusto/query/
-      - name: Difference from Azure Data Explorer
-        href: log-query/data-explorer-difference.md
-      - name: Examples
-        href: log-query/examples.md
-      - name: Smart analytics examples
-        href: log-query/smart-analytics.md
-      - name: Lessons
-        items:
-        - name: String operations
-          href: log-query/string-operations.md
-        - name: Date and time operations
-          href: log-query/datetime-operations.md
-        - name: Aggregation functions
-          href: log-query/aggregations.md
-        - name: Advanced aggregations
-          href: log-query/advanced-aggregations.md
-        - name: Joins
-          href: log-query/joins.md
-        - name: JSON and data structures
-          href: log-query/json-data-structures.md
-        - name: Advanced query writing
-          href: log-query/advanced-query-writing.md
-        - name: Charts and diagrams
-          href: log-query/charts.md
-        - name: Search queries
-          href: log-query/search-queries.md
-      - name: Cheatsheets
-        items:
-        - name: SQL
-          href: log-query/sql-cheatsheet.md
-        - name: Splunk
-          href: log-query/splunk-cheatsheet.md
-    - name: Cross resource queries
-      items:
-      - name: Overview
-        href: log-query/cross-workspace-query.md
-      - name: app expression
-        href: log-query/app-expression.md
-      - name: workspace expression
-        href: log-query/workspace-expression.md   
-      - name: resource expression
-        href: log-query/resource-expression.md   
-      - name: Unify application data resources
-        href: log-query/unify-app-resource-data.md
+      displayname: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
+      href: platform/data-platform-logs.md
     - name: Workspaces and clusters
       items:
-      - name: Design a workspace deployment
-        href: platform/design-logs-deployment.md
       - name: Create a workspace
         items:
         - name: Azure portal
@@ -288,6 +195,8 @@
           href: learn/quick-create-workspace-cli.md
         - name: PowerShell
           href: platform/powershell-workspace-configuration.md
+      - name: Design a workspace deployment
+        href: platform/design-logs-deployment.md
       - name: Monitor a workspace
         href: platform/monitor-workspace.md
       - name: Delete and recover a workspace
@@ -301,6 +210,50 @@
         href: platform/service-providers.md
       - name: Dedicated clusters
         href: log-query/logs-dedicated-clusters.md
+    - name: Log Analytics
+      items:
+      - name: Overview
+        displayname: Log Analytics, log query, log queries, query, queries
+        href: log-query/log-analytics-overview.md
+      - name: Tutorial
+        displayname: Log Analytics workspace, log query, log queries, query, queries
+        href: log-query/log-analytics-tutorial.md
+      - name: Query scope
+        href: log-query/scope.md
+      - name: Example queries
+        href: log-query/example-queries.md
+    - name: Log queries
+      items:
+      - name: Overview
+        displayname: log query, log queries, query, queries
+        href: log-query/log-query-overview.md
+      - name: KQL reference
+        href: /azure/data-explorer/kusto/query/
+      - name: Sample queries
+        href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
+      - name: Standard columns
+        href: platform/log-standard-columns.md
+      - name: Optimize queries
+        href: log-query/query-optimization.md
+      - name: Functions
+        href: log-query/functions.md
+      - name: Parse text data
+        href: log-query/parse-text.md
+      - name: Computer groups
+        href: platform/computer-groups.md
+      - name: Cross resource queries
+        items:
+        - name: Overview
+          displayname: cross-resource queries
+          href: log-query/cross-workspace-query.md
+        - name: app expression
+          href: log-query/app-expression.md
+        - name: workspace expression
+          href: log-query/workspace-expression.md   
+        - name: resource expression
+          href: log-query/resource-expression.md   
+        - name: Unify application data resources
+          href: log-query/unify-app-resource-data.md
     - name: Data export
       items:
       - name: Workspace data export
@@ -309,16 +262,33 @@
         href: platform/logs-export-logic-app.md
       - name: Query exported data with Data Explorer
         href: platform/azure-data-explorer-query-storage.md
-  - name: Metrics explorer
+  - name: Azure Monitor Metrics
     items:
-    - name: Getting started with Metrics Explorer
-      href: platform/metrics-getting-started.md
-    - name: Advanced features of Metrics Explorer
-      href: platform/metrics-charts.md
-    - name: Examples of metric charts
-      href: platform/metric-chart-samples.md
-    - name: Troubleshooting metric charts
-      href: platform/metrics-troubleshoot.md
+    - name: Overview
+      displayname: Metrics
+      href: platform/data-platform-metrics.md
+    - name: Metrics explorer
+      items:
+      - name: Getting started with Metrics Explorer
+        href: platform/metrics-getting-started.md
+      - name: Advanced features of Metrics Explorer
+        href: platform/metrics-charts.md
+      - name: Examples of metric charts
+        href: platform/metric-chart-samples.md
+      - name: Troubleshooting metric charts
+        href: platform/metrics-troubleshoot.md
+  - name: Platform logs
+    items:
+    - name: Overview
+      displayName: Platform logs, Resource logs, Activity log
+      href: platform/platform-logs-overview.md 
+    - name: Activity log
+      href: platform/activity-log.md
+    - name: Resource logs
+      href: platform/resource-logs.md
+    - name: Diagnostic settings
+      displayName: Platform logs, Resource logs, Activity log
+      href: platform/diagnostic-settings.md
   - name: Data collection
     items:
     - name: Data collection rules
