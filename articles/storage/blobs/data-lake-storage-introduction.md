@@ -18,12 +18,12 @@ Data Lake Storage Gen2 converges the capabilities of Azure Blob storage and Azur
 
 |Capability| Blob storage | Data Lake Storage Gen1 | Data Lake Storage Gen2 |
 |---|---|---|
-|Low-cost storage|✔️||<g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">✔️|
-|Tiered storage|<g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">✔️||<g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">|
-|High availability /<br> disaster recovery|<g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">||<g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">|
-|File system semantics||<g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">|<g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">|
-|Directory and file-level security||<g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">|<g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">|
-|Scale||<g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">|<g-emoji class="g-emoji" alias="heavy_check_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2714.png">|
+|Low-cost storage|✔️||✔️|
+|Tiered storage|✔️||✔️|
+|High availability /<br> disaster recovery|✔️||✔️|
+|File system semantics||✔️|✔️|
+|Directory and file security||✔️|✔️|
+|Scale||✔️|✔️>|
 
 ## Designed for enterprise big data analytics
 
