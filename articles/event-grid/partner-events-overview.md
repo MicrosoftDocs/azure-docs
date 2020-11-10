@@ -73,13 +73,14 @@ Subscribers can use partner topics defined by a publisher and it's the only type
 
 The following image shows the flow of control plane flow operations.
 
-:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow.png" alt-text="Partner Events - control plane flow":::
+:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow-2.png" alt-text="Partner Events - control plane flow":::
 
-1. Partner creates a partner registration. Partner registrations are global. That is, they aren't associated with a particular Azure region.
-1. Partner creates a partner namespace in a specific region.
-1. When subscriber tries to create a partner topic, an event channel is created in the partner's Azure subscription.
-1. The partner topic is created in the subscriber's Azure subscription. 
-1. When another subscriber tries to create a partner topic, another event channel is created in the partner's Azure subscription. 
+1. Publisher creates a partner registration. Partner registrations are global. That is, they aren't associated with a particular Azure region. This step is optional.
+1. Publisher creates a partner namespace in a specific region.
+1. When Subscriber 1 tries to create a partner topic, an event channel (Event Channel 1) is created in the publisher's Azure subscription.
+1. A partner topic is created in the subscriber's Azure subscription. The subscriber needs to activate the partner topic. 
+1. Subscriber 1 creates two subscriptions (Azure Logic Apps and Azure Blob Storage) to the partner topic. 
+1. When Subscriber 2 tries to create a partner topic, another event channel (Event Channel 2) is created in the publisher's Azure subscription. 
 1. The partner topic is created in the second subscriber's Azure subscription. 
 
 ## Pricing
