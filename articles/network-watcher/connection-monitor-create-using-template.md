@@ -354,7 +354,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * Endpoints
 	* name – Unique name for each endpoint
-	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager(ARM) resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the ARM resource ID for the Log Analytics workspace linked to non-Azure agents.
+	* resourceId – For Azure endpoints, resource ID refers to the Azure resource manager resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the Azure resource manager resource ID for the Log Analytics workspace linked to non-Azure agents.
 	* address – Applicable only when either resource ID is not specified or if resource ID is Log Analytics workspace. If used with Log Analytics resource ID, this refers to the FQDN of the agent that can be used for monitoring. If used without resource ID, this can be the URL or IP of any public endpoint.
 	* filter – For non-Azure endpoints, use filter to select agents from Log Analytics workspace that will be used for monitoring in Connection monitor resource. If filters are not set, all agents belonging to the Log Analytics workspace can be used for monitoring
 		* type – Set type as “Agent Address”
