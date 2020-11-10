@@ -38,6 +38,12 @@ These properties are common to all materials:
 
 * **TransparencyWritesDepth:** If the TransparencyWritesDepth flag is set on the material and the material is transparent, objects using this material will also contribute to the final depth buffer. See the PBR material flag *transparent* in the next section. Enabling this feature is recommended if your use case needs a more plausible [late stage reprojection](late-stage-reprojection.md) of fully transparent scenes. For mixed opaque/transparent scenes, this setting may introduce implausible reprojection behavior or reprojection artifacts. For this reason, the default and recommended setting for the general use case is to disable this flag. The written depth values are taken from the per-pixel depth layer of the object that is closest to the camera.
 
+* **FresnelEffect:** This material flag enables the additive [fresnel effect](../../overview/features/fresnel-effect.md) on the respective material. The appearance of the effect is governed by the other fresnel parameters explained in the following. 
+
+* **FresnelEffectColor:** The fresnel color used for this material. Only important when the fresnel effect bit has been set on this material (see above). This property controls the color that gets added at most to the overall rendering result. Currently only the rgb values are important and the alpha value will be ignored.
+
+* **FresnelEffectExponent:** The fresnel exponent used for this material. Only important when the fresnel effect bit has been set on this material (see above). This property controls the spread of the fresnel shine, with the minimum 0.01 causing a spread across the whole object and the maximum 10.0 constricting the shine to only the most gracing edges visible.
+
 ## PBR material properties
 
 The core idea of physically based rendering is to use *BaseColor*, *Metalness*, and *Roughness* properties to emulate a wide range of real-world materials. A detailed description of PBR is beyond the scope of this article. For more information about PBR, see [other sources](http://www.pbr-book.org). The following properties are specific to PBR materials:
