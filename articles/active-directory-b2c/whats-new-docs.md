@@ -11,7 +11,7 @@ author: kenwith
 manager: CelesteDG
 ---
 
-# Azure Active Directory business-to-customer (B2C): What's new
+# Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory business-to-customer (B2C) documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
 
@@ -50,4 +50,3 @@ Welcome to what's new in Azure Active Directory business-to-customer (B2C) docum
 ### Updated articles
 - [Page layout versions](page-layout.md)
 - [Billing model for Azure Active Directory B2C](billing.md)
-
