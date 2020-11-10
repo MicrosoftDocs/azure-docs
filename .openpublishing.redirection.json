@@ -24843,6 +24843,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/from-blob.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/batch-transcription",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/cognitive-services/Speech-Service/includes/quickstarts/from-blob/cpp/windows.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/batch-transcription",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/cognitive-services/Speech-Service/includes/quickstarts/from-blob/csharp/dotnet.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/batch-transcription",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/cognitive-services/Speech-Service/includes/quickstarts/from-blob/java/jre.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/batch-transcription",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/cognitive-services/Speech-Service/includes/quickstarts/from-blob/javascript/node.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/batch-transcription",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/cognitive-services/Speech-Service/includes/quickstarts/from-blob/more/more.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/batch-transcription",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/cognitive-services/Speech-Service/includes/quickstarts/from-blob/python/python.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/batch-transcription",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-devquickstarts-angular.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-devquickstarts-angular",
       "redirect_document_id": false
