@@ -50,7 +50,7 @@ Sign in to the Azure portal at https://portal.azure.com
 
 4. Input the name of the Database tenant you want to use. You can choose any tenant however, we recommend using **SYSTEMDB** as it enables a wider array of monitoring  areas. 
 
-5. Input the SQL port number associated with your HANA database. The port number should be in the format of **[3]** + **[instance#]** + **[13]** or **[3]** + **[instance#]** + **[15]**. For example, 30013 or 30015. 
+5. Input the SQL port number associated with your HANA database. The port number should be in the format of **[3]** + **[instance#]** + **[13]**. For example, 30013. 
 
 6. Input the Database username you want to use. Ensure that database user has the **monitoring** and **catalog read** roles assigned. 
 

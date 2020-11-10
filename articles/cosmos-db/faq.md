@@ -9,6 +9,7 @@ ms.author: sngun
 ms.custom: seodec18
 ---
 # Frequently asked questions about different APIs in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 ### What are the typical use cases for Azure Cosmos DB?
 

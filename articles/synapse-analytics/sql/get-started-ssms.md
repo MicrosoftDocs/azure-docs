@@ -21,9 +21,9 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query Synapse SQL in Azure Synapse Analytics through either SQL on-demand (preview) or SQL pool resources. 
+You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query Synapse SQL in Azure Synapse Analytics through either serverless SQL pool (preview) or dedicated SQL pool resources. 
 
-### Supported tools for SQL on-demand (preview)
+### Supported tools for serverless SQL pool (preview)
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
 
@@ -36,14 +36,14 @@ You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-
 Before you begin, make sure you have the following prerequisites:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* For SQL pool, you need an existing data warehouse. To create one, see [Create a SQL pool](../quickstart-create-sql-pool-portal.md). For SQL on-demand, one is already provisioned in your workspace at creation time. 
+* For dedicated SQL pool, you need an existing data warehouse. To create one, see [Create a dedicated SQL pool](../quickstart-create-sql-pool-portal.md). For serverless SQL pool one is already provisioned, named Built-in, in your workspace at creation time. 
 * The fully qualified SQL Server name. To find this name, see [Connect to Synapse SQL](connect-overview.md).
 
 ## Connect
 
-### SQL pool
+### Dedicated SQL pool
 
-To connect to Synapse SQL using SQL pool, follow these steps: 
+To connect to Synapse SQL using dedicated SQL pool, follow these steps: 
 
 1. Open SQL Server Management Studio (SSMS). 
 1. In the **Connect to Server** dialog box, fill in the fields, and then select **Connect**: 
@@ -59,9 +59,9 @@ To connect to Synapse SQL using SQL pool, follow these steps:
     ![Explore AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### SQL on-demand (preview)
+### Serverless SQL pool (preview)
 
-To connect to Synapse SQL using SQL on-demand, follow these steps: 
+To connect to Synapse SQL using serverless SQL pool, follow these steps: 
 
 1. Open SQL Server Management Studio (SSMS).
 1. In the **Connect to Server** dialog box, fill in the fields,  and then select **Connect**: 
@@ -80,7 +80,7 @@ To connect to Synapse SQL using SQL on-demand, follow these steps:
 
 ## Run a sample query
 
-### SQL pool
+### Dedicated SQL pool
 
 Now that a database connection has been established, you can query the data.
 
@@ -100,7 +100,7 @@ Now that a database connection has been established, you can query the data.
    
     ![Query results 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
-### SQL on-demand
+### Serverless SQL pool
 
 Now that you've established a database connection, you can query the data.
 

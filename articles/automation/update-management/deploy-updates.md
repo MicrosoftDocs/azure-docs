@@ -3,7 +3,7 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
 ---
 
@@ -70,9 +70,6 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
    > [!NOTE]
    > You can't specify updates that have been superseded to include in the update deployment.
-
-   > [!IMPORTANT]
-   > For Red Hat Enterprise, kernel upgrades also show up as packages in YUM. If you do not exclude updates that include kernel upgrades, Update Management will apply those updates.
 
 9. Select **Schedule settings**. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 

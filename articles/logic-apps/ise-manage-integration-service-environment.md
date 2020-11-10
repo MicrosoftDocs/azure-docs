@@ -41,9 +41,10 @@ On your ISE menu, under **Settings**, select **Network health**. This pane shows
 ![Check network health](./media/ise-manage-integration-service-environment/ise-check-network-health.png)
 
 > [!CAUTION]
-> If the internal App Service Environment (ASE) that's used for your ISE is unhealthy for seven days, the ASE is suspended. 
-> To resolve this state, check your virtual network setup. Resolve any problems that you find, and then restart your ISE. 
-> Otherwise, after 90 days, the suspended ASE is deleted, and your ISE becomes unusable.
+> If your ISE's network becomes unhealthy, the internal App Service Environment (ASE) that's used by your ISE can also become unhealthy. 
+> If the ASE is unhealthy for more than seven days, the ASE is suspended. To resolve this state, check your virtual network setup. 
+> Resolve any problems that you find, and then restart your ISE. Otherwise, after 90 days, the suspended ASE is deleted, and your 
+> ISE becomes unusable. So, make sure that you keep your ISE healthy to permit the necessary traffic.
 > 
 > For more information, see these topics:
 >

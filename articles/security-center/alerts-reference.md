@@ -21,7 +21,7 @@ This article lists the security alerts you might get from Azure Defender. The al
 
 To learn how to respond to these alerts, see [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 
-To learn how to export alerts (and recommendations) see [Export security alerts and recommendations (Preview)](continuous-export.md).
+To learn how to export alerts (and recommendations) see [Continuously export Security Center data](continuous-export.md).
 
 At the bottom of this page, there's a table describing the Azure Security Center kill chain that is used to categorize the intents of these alerts. 
 
@@ -452,10 +452,12 @@ Security Center's supported kill chain intents are based on the [MITRE ATT&CK&tr
 | **Impact**              | Impact events primarily try to directly reduce the availability or integrity of a system, service, or network; including manipulation of data to impact a business or operational process. This would often refer to techniques such as ransomware, defacement, data manipulation, and others.                                                                                                                                                                                                                                                                                                     |
 |                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
 
+> [!NOTE]
+> For alerts that are in preview: [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
 
 ## Next steps
 To learn more about alerts, see the following:
 
 - [Security alerts in Azure Security Center](security-center-alerts-overview.md)
 - [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-- [Export security alerts and recommendations (Preview)](continuous-export.md)
+- [Continuously export Security Center data](continuous-export.md)

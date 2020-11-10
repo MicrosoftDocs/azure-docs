@@ -12,13 +12,13 @@ The pipeline automatically creates the output folder in the adftutorial blob con
 
 1. In the Azure portal, on the **adftutorial** container page, select **Refresh** to see the output folder. 
     
-    ![Refresh](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
+    ![Screenshot shows the container page where you can refresh the page.](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
 
 2. Select **output** in the folder list. 
 
 3. Confirm that the **emp.txt** is copied to the output folder. 
 
-    ![Refresh](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
+    ![Screenshot shows the output folder contents.](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
 
 ## Clean up resources
 

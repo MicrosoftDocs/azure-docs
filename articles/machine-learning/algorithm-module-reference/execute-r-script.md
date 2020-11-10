@@ -1,7 +1,7 @@
 ---
 title: "Execute R Script: Module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Execute R Script module in Azure Machine Learning to run R code.
+description: Learn how to use the Execute R Script module in Azure Machine Learning designer to run custom R code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -117,7 +117,7 @@ After the pipeline run is finished, you can preview the image in the right panel
 
 ## Access to registered dataset
 
-You can refer to the following sample code to [access to the registered datasets](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) in your workspace:
+You can refer to the following sample code to [access to the registered datasets](../how-to-create-register-datasets.md) in your workspace:
 
 ```R
 		azureml_main <- function(dataframe1, dataframe2){
@@ -501,4 +501,4 @@ The following preinstalled R packages are currently available:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

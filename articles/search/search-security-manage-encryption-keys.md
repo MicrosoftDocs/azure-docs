@@ -8,7 +8,7 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.custom: references_regions 
 ---
 
@@ -39,13 +39,11 @@ If you are using a different region, or a service created prior to August 1, the
 
 ## Prerequisites
 
-The following tools and services are used in this example. 
+The following tools and services are used in this scenario.
 
-+ [Create a Cognitive Search service](search-create-service-portal.md) or [find an existing one](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
-
-+ [Create an Azure Key Vault resource](../key-vault/secrets/quick-create-portal.md#create-a-vault) or find an existing one. Both Key Vault and Cognitive Search must be in the same subscription. The key vault must have **soft-delete** and **purge protection** enabled.
-
-+ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) to register an application and create a secret string used by your application to authenticate. If you don't have one, [set up a new tenant](../active-directory/develop/quickstart-create-new-tenant.md).
++ [Azure Cognitive Search](search-create-service-portal.md) on a [billable tier](search-sku-tier.md#tiers) (Basic or above, in any region).
++ [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
++ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). If you don't have one, [set up a new tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 You should have a search application that can create the encrypted object. Into this code, you'll reference a key vault key and Active Directory registration information. This code could be a working app, or prototype code such as the [C# code sample DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 

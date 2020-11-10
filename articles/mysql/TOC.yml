@@ -1,4 +1,4 @@
-- name: Azure DB for MySQL Documentation
+- name: Azure Database for MySQL Documentation
   href: index.yml
 - name: Overview
   items:
@@ -29,6 +29,9 @@
   - name: Mitigate database corruption
     href: how-to-fix-corrupt-database.md
     displayName: corrupt data
+  - name: Versioning policy
+    href: concepts-version-policy.md
+    displayName: version policy 
 - name: Single Server
   expanded: true
   items:
@@ -470,12 +473,18 @@
         href: flexible-server/concepts-high-availability.md
     - name: Monitoring & Logs
       items:
+      - name: Server parameters
+        href: flexible-server/concepts-server-parameters.md
       - name: Slow query logs
         href: flexible-server/concepts-slow-query-logs.md
       - name: Audit logs
         href: flexible-server/concepts-audit-logs.md
       - name: Metrics
         href: flexible-server/concepts-monitoring.md
+    - name: Replication
+      items:
+      - name: Read replicas
+        href: flexible-server/concepts-read-replicas.md
   - name: How-to guides
     items:
     - name: Manage a server
@@ -538,10 +547,16 @@
         items:
         - name: Azure portal
           href: flexible-server/how-to-configure-audit-logs-portal.md
-      - name: Restart server
-        items:
-        - name: Azure portal
-          href: flexible-server/how-to-restart-server-portal.md
+    - name: Restart server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-restart-server-portal.md
+    - name: Replication
+      items:
+      - name: Create read replicas Azure portal
+        href: flexible-server/how-to-read-replicas-portal.md
+      - name: Create read replicas Azure CLI
+        href: flexible-server/how-to-read-replicas-cli.md
     - name: Troubleshoot
       items:
       - name: Connection errors

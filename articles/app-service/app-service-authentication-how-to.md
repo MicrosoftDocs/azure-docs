@@ -3,7 +3,7 @@ title: Advanced usage of AuthN/AuthZ
 description: Learn to customize the authentication and authorization feature in App Service for different scenarios, and get user claims and different tokens.
 ms.topic: article
 ms.date: 07/08/2020
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ---
 
 # Advanced usage of authentication and authorization in Azure App Service

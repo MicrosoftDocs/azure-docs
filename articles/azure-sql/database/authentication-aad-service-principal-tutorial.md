@@ -57,12 +57,12 @@ In this tutorial, you learn how to:
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <server name> -AssignIdentity
     ```
 
-    For more information, see the [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) command.
+    For more information, see the [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) command.
 
     > [!IMPORTANT]
     > If an Azure AD Identity is set up for the Azure SQL logical server, the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission must be granted to the identity. We will walk through this step in following section. **Do not** skip this step as Azure AD authentication will stop working.
 
-    - If you used the [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) command with the parameter `AssignIdentity` for a new SQL server creation in the past, you'll need to execute the [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) command afterwards as a separate command to enable this property in the Azure fabric.
+    - If you used the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) command with the parameter `AssignIdentity` for a new SQL server creation in the past, you'll need to execute the [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) command afterwards as a separate command to enable this property in the Azure fabric.
 
 1. Check the server identity was successfully assigned. Execute the following PowerShell command:
 
@@ -201,7 +201,7 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     GO
     ```
 
-    For more information, see [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
+    For more information, see [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
 
     Alternatively, `ALTER ANY USER` permission can be granted instead of giving the `db_owner` role. This will allow the service principal to add other Azure AD users.
 
@@ -306,5 +306,5 @@ Once a service principal is created in Azure AD, create the user in SQL Database
 - [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
 - [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467)
 - [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
-- [Create an Azure service principal with Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+- [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 - [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md)

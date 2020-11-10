@@ -5,12 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/13/2020
+ms.date: 11/6/2020
 ---
 # Slow query logs in Azure Database for MariaDB
 In Azure Database for MariaDB, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.
 
 For more information about the slow query log, see the MariaDB documentation for [slow query log](https://mariadb.com/kb/en/library/slow-query-log-overview/).
+
+When [Query Store](concepts-query-store.md) is enabled on your server, you may see the queries like "`CALL mysql.az_procedure_collect_wait_stats (900, 30);`" logged in your slow query logs. This behavior is expected as the Query Store feature collects statistics about your queries. 
 
 ## Configure slow query logging
 By default the slow query log is disabled. To enable it, set `slow_query_log` to ON. This can be enabled using the Azure portal or Azure CLI. 

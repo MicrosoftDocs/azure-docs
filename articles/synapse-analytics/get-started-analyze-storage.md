@@ -60,7 +60,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ) AS [r];
     ```
 
-    In the script window, the **Connect to** field is set to **SQL on-demand**.
+    In the script window, the **Connect to** field is set to **serverless SQL pool**.
 
 1. Run the script.
 
