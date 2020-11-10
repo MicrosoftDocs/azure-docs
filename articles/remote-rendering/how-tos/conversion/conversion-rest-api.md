@@ -129,7 +129,7 @@ If the status is "Failure", there will be an additional "error" field with a "me
 
 ## List Conversions
 
-To get a list of conversions run from a given account, use the interface:
+To get a list of all conversions for an account, use the interface:
 
 | Endpoint | Method |
 |-----------|:-----------|
