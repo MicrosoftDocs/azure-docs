@@ -25,6 +25,9 @@ ITSMC supports connections with the following ITSM tools:
 -	Provance
 -	Cherwell
 
+   >[!NOTE]
+> As of 1-Oct-2020 Cherwell and Provance ITSM integrations with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. Existing ITSM connections will be supported.
+
 With ITSMC, you can:
 
 -  Create work items in your ITSM tool, based on your Azure alerts (metric alerts, activity log alerts, and Log Analytics alerts).
