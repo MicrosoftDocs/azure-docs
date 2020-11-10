@@ -1,5 +1,5 @@
 ---
-title: In-place upgrade of Red Hat Enterprise images on Azure
+title: In-place upgrade of Red Hat Enterprise Linux images on Azure
 description: Find steps to perform in-place upgrade from Red Hat Enterprise 7.x images to latest 8.x version
 author: mathapli
 ms.service: virtual-machines-linux
@@ -10,7 +10,7 @@ ms.reviewer: cynthn
 
 ---
 
-# Overview of in-place upgrades
+# Red Hat Enterprise Linux in-place upgrades
 
 This article provides step-by-step instructions on how to perform an in-place upgrade from Red Hat Enterprise Linux 7 to Red Hat Enterprise Linux 8 using the 'Leapp' utility on Azure. During the in-place upgrade, the existing RHEL 7 operating system is replaced by RHEL 8 version.
 
@@ -89,5 +89,5 @@ Perform these steps carefully. It is definitely recommended to try the upgrade o
 * Learn more about the [Red Hat images in Azure](./redhat-images.md).
 * Learn more about the [Red Hat Update Infrastructure](./redhat-rhui.md).
 * Learn more about the [RHEL BYOS offer](./byos.md).
-* Information on the Red Hat in-place upgrade processes can be found on the Red Hat documentation, [UPGRADING FROM RHEL 7 TO RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index)
+* Information on the Red Hat in-place upgrade processes can be found on the Red Hat documentation, [Upgrading from RHEL 7 TO RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index)
 * Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
