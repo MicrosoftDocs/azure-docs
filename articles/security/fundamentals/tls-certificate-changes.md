@@ -21,12 +21,12 @@ Microsoft is updating Azure services to use TLS certificates from a different se
 
 ## When will this change happen?
 
-- [Azure Active Directory](/azure/active-directory) (Azure AD) services began this transition on July 7, 2020.
+- [Azure Active Directory](../../active-directory/index.yml) (Azure AD) services began this transition on July 7, 2020.
 - All newly created Azure TLS/SSL endpoints contain updated certificates chaining up to the new Root CAs.
 - Existing Azure endpoints will transition in a phased manner beginning August 13, 2020.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and [DPS](/azure/iot-dps/) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
-- [Azure Storage](/azure/storage) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-- [Azure Cache for Redis](/azure/azure-cache-for-redis) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](../../azure-cache-for-redis/cache-whats-new.md).
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and [DPS](../../iot-dps/index.yml) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
+- [Azure Storage](../../storage/index.yml) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
+- [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](../../azure-cache-for-redis/cache-whats-new.md).
 > [!IMPORTANT]
 > Customers may need to update their application(s) after this change to prevent connectivity failures when attempting to connect to Azure services.
 

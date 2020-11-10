@@ -417,6 +417,8 @@
         href: costpoint-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
+      - name: Coupa Risk Assess
+        href: coupa-risk-assess-tutorial.md
       - name: CPQSync by Cincom
         href: cpqsync-by-cincom-tutorial.md
       - name: Creatio

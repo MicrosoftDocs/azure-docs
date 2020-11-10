@@ -56,7 +56,7 @@ Logically organize assets according to your organization’s taxonomy using Tags
 
 - [Azure Security Center asset inventory management](../../security-center/asset-inventory.md)
 
-- [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [For more information about tagging assets, see the resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
 
 **Responsibility**: Customer
 
@@ -76,7 +76,7 @@ Use Azure Policy to audit and restrict which services users can provision in you
 
 - [Configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/index.md)
 
 - [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
 
@@ -148,7 +148,7 @@ You can also use a third-party solution to discover and identify unapproved soft
 
 - [Understand Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md)
 
-- [How to control PowerShell script execution in Windows environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [How to control PowerShell script execution in Windows environments](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
 **Responsibility**: Customer
 
@@ -159,4 +159,3 @@ You can also use a third-party solution to discover and identify unapproved soft
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
 - [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
-
