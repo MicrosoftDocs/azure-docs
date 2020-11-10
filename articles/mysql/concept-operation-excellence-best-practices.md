@@ -71,5 +71,3 @@ The following are operational guidelines that should be followed when working wi
 ## Next steps
 - [Best practice for performance of Azure Database for MySQL](concept-performance-best-practices.md)
 - [Best practice for monitoring your Azure Database for MySQL](concept-monitoring-best-practices.md)
-- [Troubleshooting your existing Azure Database for MySQL](howto-troubleshoot-mysql.md)
-- [Get started with Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
