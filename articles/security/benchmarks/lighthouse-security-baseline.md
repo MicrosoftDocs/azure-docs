@@ -27,8 +27,11 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 
 ### NS-1: Implement security for internal traffic
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40234.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; The Azure Lighthouse service does not have any resources which would deploy into a virtual network, and does not allows for its management endpoints to be secured via Private Link. The Azure Lighthouse service simply provides delegated resource management capabilities and a cross-tenant experience for enterprise IT organizations managing multiple tenants.
 
@@ -38,8 +41,11 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 
 ### NS-2: Connect private networks together
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40235.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not expose any endpoints that can be accessed via a private network.
 
@@ -49,8 +55,11 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 
 ### NS-3: Establish private network access to Azure services
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40236.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not allow for its resources to be secured to a private network via the Private Link service or Service Endpoints.
 
@@ -60,8 +69,11 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 
 ### NS-4: Protect applications and services from external network attacks
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40237.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; The Azure Lighthouse service does not have any resources which would deploy into a virtual network. Customers can not, and do not need to configure any additional network protection features like Azure DDoS Standard for the Azure Lighthouse service.
 
@@ -71,8 +83,11 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40238.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution.
 
@@ -82,8 +97,11 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 
 ### NS-6: Simplify network security rules
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40239.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not currently support service tags, and is not designed to deploy into Azure virtual networks. This recommendation is intended for offerings that can be deployed into Azure virtual networks, or have the capability to define groupings of allowed IP ranges for efficient management.
 
@@ -93,8 +111,11 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 
 ### NS-7: Secure Domain Name Service (DNS)
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40240.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
 
@@ -108,7 +129,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40220.).
 
 **Guidance**: Azure Lighthouse uses Azure Active Directory (Azure AD) as the default identity and access management service. Standardize Azure AD to govern your organization’s identity and access management in:
@@ -134,8 +155,11 @@ Note that Azure AD supports external identity that allow users without a Microso
 
 ### IM-2: Manage application identities securely and automatically
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40221.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not use any identities or manage any secrets for identities.
 
@@ -145,8 +169,11 @@ Note that Azure AD supports external identity that allow users without a Microso
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40222.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Azure Lighthouse uses Azure Active Directory (Azure AD) as the default identity and access management service. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. Azure AD enables single sign-on (SSO) to manage the App Lighthouse service, and other delegated resources through the Azure portal using your synced enterprise identities.
 
@@ -158,8 +185,11 @@ Note that Azure AD supports external identity that allow users without a Microso
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40223.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not provide capability to support strong authentication.
 
@@ -169,8 +199,11 @@ Note that Azure AD supports external identity that allow users without a Microso
 
 ### IM-5: Monitor and alert on account anomalies
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40224.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not use any sensitive accounts or there is no account activity logs or logs are not exportable by customers.
 
@@ -180,8 +213,11 @@ Note that Azure AD supports external identity that allow users without a Microso
 
 ### IM-6: Restrict Azure resource access based on conditions
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40225.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not support capability conditional access.
 
@@ -191,8 +227,11 @@ Note that Azure AD supports external identity that allow users without a Microso
 
 ### IM-7: Eliminate unintended credential exposure
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40226.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse uses Azure Active Directory (Azure AD) for authentication and Azure role-based access control (Azure RBAC) to manage access. Azure Lighthouse does not use keys for service authentication, this control is focused on eliminating exposure of credentials in code.
 
@@ -202,8 +241,11 @@ Note that Azure AD supports external identity that allow users without a Microso
 
 ### IM-8: Secure user access to legacy applications
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40262.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not host or access any legacy applications.
 
@@ -217,8 +259,11 @@ Note that Azure AD supports external identity that allow users without a Microso
 
 ### PA-1: Protect and limit highly privileged users
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40227.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not use any administrative accounts.
 
@@ -228,7 +273,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 
 ### PA-2: Restrict administrative access to business-critical systems
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40228.).
 
 **Guidance**: Azure Lighthouse uses Azure role-based access control (Azure RBAC) to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
@@ -249,14 +294,14 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 ### PA-3: Review and reconcile user access regularly
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40229.).
 
 **Guidance**: Azure Lighthouse uses Azure Active Directory (Azure AD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
 
 In addition, Azure Privileged Identity Management can also be configured to alert when an excessive number of administrator accounts are created, and to identify administrator accounts that are stale or improperly configured.
 
-Note: Some Azure services support local users and roles which not managed through Azure AD. You will need to manage these users separately.
+Note: that some Azure services support local users and roles which not managed through Azure AD. You will need to manage these users separately.
 
 - [Create an access review of Azure resource roles in Privileged Identity Management(PIM)](../../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
 
@@ -268,7 +313,7 @@ Note: Some Azure services support local users and roles which not managed throug
 
 ### PA-4: Set up emergency access in Azure AD
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40230.).
 
 **Guidance**: Azure Lighthouse is integrated with Azure Active Directory to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
@@ -283,7 +328,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 ### PA-5: Automate entitlement management 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40231.).
 
 **Guidance**: Azure Lighthouse is integrated with Azure Active Directory (Azure AD)  to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
@@ -298,8 +343,11 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 ### PA-6: Use privileged access workstations
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40232.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not support management from a customer workstation.
 
@@ -309,7 +357,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40233.).
 
 **Guidance**: Azure Lighthouse is integrated with Azure role-based access control (RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically.
@@ -328,8 +376,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 ### PA-8: Choose approval process for Microsoft support  
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40289.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse doesn't store customer data.
 
@@ -343,8 +394,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 ### DP-1: Discovery, classify and label sensitive data
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40241.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not store, process or transmit data classified as sensitive.
 
@@ -354,8 +408,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 ### DP-2: Protect sensitive data
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40242.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not store, process or transmit data classified as sensitive.
 
@@ -365,8 +422,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 ### DP-3: Monitor for unauthorized transfer of sensitive data
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40243.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not store, process or transmit sensitive data
 .
@@ -377,8 +437,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 ### DP-4: Encrypt sensitive information in transit
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40244.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: !
 
@@ -388,8 +451,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 ### DP-5: Encrypt sensitive data at rest
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40245.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not itself interact with encrypt sensitive data at rest and thus there are no settings or any required configuration to protect sensitive data.
 
@@ -403,7 +469,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 
 ### AM-1: Ensure security team has visibility into risks for assets
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40263.).
 
 **Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
@@ -424,8 +490,11 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40264.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not allow for automated asset discovery for access by security teams. Thus it cannot be used with any asset inventory and metadata processes.
 
@@ -435,7 +504,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ### AM-3: Use only approved Azure services
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40265.).
 
 **Guidance**: Use Azure Policy to audit and restrict which services users can provision in your environment. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
@@ -452,7 +521,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ### AM-4: Ensure security of asset lifecycle management
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40266.).
 
 **Guidance**: Not applicable. The Azure Lighthouse can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
@@ -463,10 +532,11 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40267.).
 
-**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
+**Guidance**: Azure Lighthouse is integrated with Azure Active Directory (Azure AD) for identity and authentication. You can use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
+
 - [How to configure Conditional Access to block access to Azure Resources Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Yes
@@ -475,10 +545,13 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ### AM-6: Use only approved applications in compute resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40268.).
 
-**Guidance**: Not applicable; Azure Lighthouse is not comprised of any virtual machines or containers which would either expose compute resources or allow customers to install applications on them.
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
+
+**Guidance**: Not applicable; Azure Lighthouse does not deploy any customer-facing compute resources that would allow customers to install or configure applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -490,8 +563,11 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ### LT-1: Enable threat detection for Azure resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40246.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable, Azure Lighthouse does not provide native capabilities to monitor security threats related to its resources.
 
@@ -501,23 +577,19 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40247.).
 
-**Guidance**: Azure AD provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
+**Guidance**: Azure Active Directory (Azure AD) provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
 
-Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
+- Sign in – The sign in report provides information about the usage of managed applications and user sign in activities.
+- Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
+- Risky sign in - A risky sign in is an indicator for a sign in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+- Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
+Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources. 
 
-Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
-
-Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
-
-Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
-
-Audit activity reports in the Azure Active Directory
-../../active-directory/reports-monitoring/concept-audit-logs.md 
+- [Audit activity reports in the Azure Active Directory](../../active-directory/reports-monitoring/concept-audit-logs.md) 
 
 - [Enable Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) 
 
@@ -529,8 +601,11 @@ Audit activity reports in the Azure Active Directory
 
 ### LT-3: Enable logging for Azure network activities
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40248.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable, Azure Lighthouse is not intended to deploy into virtual networks, because of this you are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures
 
@@ -540,7 +615,7 @@ Audit activity reports in the Azure Active Directory
 
 ### LT-4: Enable logging for Azure resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40249.).
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Lighthouse resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
@@ -555,12 +630,12 @@ Audit activity reports in the Azure Active Directory
 
 ### LT-5: Centralize security log management and analysis
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40250.).
 
 **Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements.
 
-Ensure you are integrating Azure activity logs into your central logging. Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage.
+Ensure you are integrating Azure Activity logs into your central logging. Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage.
 
 In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
 
@@ -576,8 +651,11 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 ### LT-6: Configure log storage retention
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40251.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not currently produce any security-related logs, and the customer is unable to set any log retention.
 
@@ -587,8 +665,11 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 ### LT-7: Use approved time synchronization sources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40252.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not support configuring your own time synchronization sources. The Azure Lighthouse service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
@@ -602,7 +683,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 ### IR-1: Preparation – update incident response process for Azure
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40253.).
 
 **Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
@@ -617,7 +698,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 ### IR-2: Preparation – setup incident notification
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40254.).
 
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
@@ -630,7 +711,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40255.).
 
 **Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
@@ -651,7 +732,7 @@ Export your Azure Security Center alerts and recommendations using the export fe
 
 ### IR-4: Detection and analysis – investigate an incident
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40256.).
 
 **Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
@@ -684,7 +765,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 ### IR-5: Detection and analysis – prioritize incidents
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40257.).
 
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
@@ -703,7 +784,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 ### IR-6: Containment, eradication and recovery – automate the incident handling
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40258.).
 
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
@@ -725,7 +806,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ### PV-1: Establish secure configurations for Azure services 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40273.).
 
 **Guidance**: Azure Lighthouse supports below service-specific policies that are available in Azure Security Center to audit and enforce configurations of your Azure resources. This can be configured in Azure Security Center or Azure Policy initiatives.
@@ -748,7 +829,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 
 ### PV-2: Sustain secure configurations for Azure services
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40274.).
 
 **Guidance**: Azure Lighthouse supports below service-specific policies that are available in Azure Security Center to audit and enforce configurations of your Azure resources. This can be configured in Azure Security Center or Azure Policy initiatives.
@@ -761,7 +842,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 
 ### PV-3: Establish secure configurations for compute resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40275.).
 
 **Guidance**: Use Azure Security Center and Azure Policy to establish secure configurations on all compute resources including VMs, containers, and others.
@@ -776,8 +857,11 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 
 ### PV-4: Sustain secure configurations for compute resources
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40276.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -787,8 +871,11 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 
 ### PV-5: Securely store custom operating system and container images
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40277.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -798,8 +885,11 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 
 ### PV-6: Perform software vulnerability assessments
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40278.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Lighthouse.
 
@@ -809,8 +899,11 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40279.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -820,7 +913,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 
 ### PV-8: Conduct regular attack simulation
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40280.).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
@@ -842,8 +935,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### ES-1: Use Endpoint Detection and Response (EDR)
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40259.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
 
@@ -853,8 +949,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### ES-2: Use centrally managed modern anti-malware software
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40260.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable, Azure Lighthouse or its resources do not interact with virtual machines, containers and/or storage which require anti-malware protection. Thus, there is no need for any configuration changes, additional settings or deployment of any extra services to protect it from malware.
 
@@ -864,8 +963,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### ES-3: Ensure anti-malware software and signatures are updated
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40261.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable, Azure Lighthouse is not comprised of any virtual machines or containers which would require anti-malware protection. Thus it does not require you to configure any additional settings or deploy any extra services to protect it from malware.
 
@@ -879,8 +981,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### BR-1: Ensure regular automated backups
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40269.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse does not support any data backup or have any needs for data backup.
 
@@ -890,8 +995,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### BR-2: Encrypt backup data
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40270.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse doesn't support any data backup encryption.
 
@@ -901,8 +1009,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### BR-3: Validate all backups including customer-managed keys
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40271.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse doesn't support any data backups.
 
@@ -912,8 +1023,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### BR-4: Mitigate risk of lost keys
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40272.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be dropped from the published baseline.
 
 **Guidance**: Not applicable; Azure Lighthouse doesn't manage any keys.
 
@@ -927,7 +1041,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ### GS-1: Define asset management and data protection strategy 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40281.).
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
@@ -967,7 +1081,7 @@ For more information, see the following references:
 
 ### GS-2: Define enterprise segmentation strategy 
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40288.).
 
 **Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
@@ -988,7 +1102,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-3: Define security posture management strategy
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40282.).
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
@@ -1001,7 +1115,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-4: Align organization roles, responsibilities, and accountabilities
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40283.).
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
@@ -1018,7 +1132,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-5: Define network security strategy
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40284.).
 
 **Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
@@ -1052,7 +1166,7 @@ For more information, see the following references:
 
 ### GS-6: Define identity and privileged access strategy
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40285.).
 
 **Guidance**: Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
@@ -1085,7 +1199,7 @@ For more information, see the following references:
 
 ### GS-7: Define logging and threat response strategy
 
->[!NOTE]
+>[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40286.).
 
 **Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
