@@ -111,9 +111,9 @@ Configure IoT Edge to register and connect to your IoT Central application:
 
 1. Replace `{scope_id}` with the **ID Scope** you made a note of in the *scratchpad.txt* file in the previous tutorial.
 
-1. Replace `{registration_id}` with *lva-gateway-001*, the device you created in the previous tutorial.
+1. Replace `{registration_id}` with *gateway-001*, the device you created in the previous tutorial.
 
-1. Replace `{symmetric_key}` with the **Primary key** for the **lva-gateway-001** device you made a note of in the *scratchpad.txt* file in the previous tutorial.
+1. Replace `{symmetric_key}` with the **Primary key** for the **gateway-001** device you made a note of in the *scratchpad.txt* file in the previous tutorial.
 
 1. Run the following command to restart the IoT Edge daemon:
 

@@ -58,6 +58,8 @@
         href: class-type-matlab.md
       - name: SolidWorks computer-aided design (CAD)
         href: class-type-solidworks.md
+      - name: Project Lead the Way
+        href: class-type-pltw.md
     - name: Use Azure Lab Services within Teams
       items:
         - name: Overview 
