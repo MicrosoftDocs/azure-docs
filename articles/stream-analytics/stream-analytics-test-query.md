@@ -114,7 +114,7 @@ Instead of using live data, you can use sample data from a local file to test yo
 
   * To check the connection to the service, open [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) in a browser. If you cannot open this link, then update your firewall settings.
   
-2. If you get this error “"The request size is too big. Please reduce the input data size and try again.”, follow the steps below:
+2. If you get this error "The request size is too big. Please reduce the input data size and try again.", follow the steps below:
 
   * Reduce input size – Test your query with smaller size sample file or with a smaller time range.
   * Reduce query size – Test a selection of query by selecting a piece of query and click “Test selected query”.
@@ -130,4 +130,3 @@ Instead of using live data, you can use sample data from a local file to test yo
 * [Understand inputs for Azure Stream Analytics](stream-analytics-add-inputs.md)
 
 * [Understand outputs from Azure Stream Analytics](stream-analytics-define-outputs.md)
-
