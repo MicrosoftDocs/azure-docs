@@ -16,6 +16,9 @@ ms.reviewer: calui
 ---
 # Sign-in to Azure Active Directory using email as an alternate login ID (preview)
 
+> [!NOTE]
+> Sign in to Azure AD with email as an alternate login ID is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Many organizations want to let users sign in to Azure Active Directory (Azure AD) using the same credentials as their on-premises directory environment. With this approach, known as hybrid authentication, users only need to remember one set of credentials.
 
 Some organizations haven't moved to hybrid authentication for the following reasons:
@@ -29,7 +32,7 @@ To help with the move to hybrid authentication, you can now configure Azure AD t
 This article shows you how to enable and use email as an alternate login ID. This feature is available in the Azure AD Free edition and higher.
 
 > [!NOTE]
-> Sign in to Azure AD with email as an alternate login ID is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This feature is for cloud-authenticated Azure AD users only.
 
 ## Overview of Azure AD sign-in approaches
 
