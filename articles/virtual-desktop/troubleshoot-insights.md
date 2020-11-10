@@ -13,23 +13,25 @@ This article presents known issues and solutions for common problems in Windows 
 
 ## The subscription I want to monitor doesn't appear 
 
-If the subscription doesn’t have any WVD resources, it won’t show up in the Insights settings.
+If the subscription doesn’t have any Windows Virtual Desktop resources, it won’t show up in the Insights settings.
 
-If you do not have read access to the correct subscriptions, it won’t show up. Talk to the subscription owner to request read access.
+If you don't have read access to the correct subscriptions, it won’t show up. To solve this issue, contact your subscription owner and ask for read access.
 
-## My data is not populating Windows Virtual Desktop Insights properly
+## My data isn't displaying properly
 
-First, verify that your configuration is set up properly with the Configuration Workbook. To revisit how to use the configuration workbook, see the How to document (this will work for new environments AND existing environments to point out if you are missing any data points). If you are missing counters or events, the visuals reliant on those data points will not be able to function.
+If your data isn't displaying properly, something may have happened during the Insights configuration process. First, make sure you've filled out all fields in the configuration workbook as described in [Doc name](). You can change settings for both new and existing environments at any time. If you're missing any counters or events, the data associated with them won't appear in the Azure portal.
 
-If you are having trouble using the Configuration Workbook, all setup requirements can be manually enabled with the “learn more” links in the How To document.
+<!--Put link to doc here when it's available.-->
 
-If the Configuration Workbook has verified that you are not missing any data, and you are still seeing issues with how your data is visualized, there may be an issue in the query or the data sources. TODO: What's the recommended action here?
+If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. TODO: What's the recommended action here?
 
-If you are troubleshooting a live issue with a user and do not see the relevant data in Insights, please note that Azure Monitor has a 15 minute latency for populating log data. To learn more see [Log data ingestion time in Azure Monitor](.../azure-monitor/platform/data-ingestion-time.md).
+<!--Ask Logan to fill this out.-->
+
+Finally, you may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15 minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](.../azure-monitor/platform/data-ingestion-time.md).
 
 ## I want to customize Windows Virtual Desktop Insights
 
-Windows Virtual Desktop Insights is built on top of Azure Monitor Workbooks. Workbooks allows you to save a copy of the Windows Virtual Desktop workbook template and make your own customizations.
+Windows Virtual Desktop Insights uses Azure Monitor Workbooks. Workbooks lets you save a copy of the Windows Virtual Desktop workbook template and make your own customizations.
 
 Customized templates won't update when the product group updates the original template. This is by design in the workbooks tool, you will need to save a copy of the updated template and re-build your customizations to adopt updates. For more information, see [Troubleshooting workbook-based insights](../azure-monitor/insights/troubleshoot-workbooks.md) and the [Workbooks overview](../azure-monitor/platform/workbooks-overview.md).
 
