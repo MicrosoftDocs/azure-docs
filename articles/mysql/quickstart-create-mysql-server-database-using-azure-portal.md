@@ -35,15 +35,15 @@ An Azure subscription is required. If you don't have an Azure subscription, crea
 
    **Setting** | **Suggested value** | **Description**
    ---|---|---
-   Subscription | Your subscription | Select the desired Azure Subscription.
+   Subscription | Your subscription | Select the desired Azure subscription.
    Resource group | **myresourcegroup** | Enter a new resource group or an existing one from your subscription.
-   Server name | **mydemoserver** | Enter a unique name. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters.
+   Server name | **mydemoserver** | Enter a unique name. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters.
    Data source |**None** | Select **None** to create a new server from scratch. Select **Backup** only if you're restoring from a geo-backup of an existing server.
    Location |Your desired location | Select a location from the list.
    Version | The latest major version| Use the latest major version. See [all supported versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
    Compute + storage | Use the defaults| The default pricing tier is **General Purpose** with **4 vCores** and **100 GB** storage. Backup retention is set to **7 days**, with the **Geographically Redundant** backup option.<br/>Review the [pricing](https://azure.microsoft.com/pricing/details/mysql/) page, and update the defaults if you need to.
    Admin username | **mydemoadmin** | Enter your server admin user name. You can't use **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public** for the admin user name.
-   Password | A password | A new password for the server admin user. The password must be between 8 and 128 characters long and contain a combination of uppercase or lowercase letters, numbers, and non-alphanumeric characters (!, $, #, %, and so on).
+   Password | A password | A new password for the server admin user. The password must be 8 to 128 characters long and contain a combination of uppercase or lowercase letters, numbers, and non-alphanumeric characters (!, $, #, %, and so on).
   
 
    > [!NOTE]
