@@ -34,7 +34,7 @@ You will also need to gather your Azure **tenant's domain name**. Visit the [Azu
 
 Take note of the *Primary domain* value.
 
-:::image type="content" source="media/how-to-configure-postman-apis/tenant-information.png" alt-text="Azure portal page of the Azure Active Directory overview page. There is a highlight around the 'Primary domain' value in the 'Tenant information' box." lightbox="media/how-to-configure-postman-apis/tenant-information.png":::
+:::image type="content" source="media/how-to-use-postman/tenant-information.png" alt-text="Azure portal page of the Azure Active Directory overview page. There is a highlight around the 'Primary domain' value in the 'Tenant information' box." lightbox="media/how-to-use-postman/tenant-information.png":::
 
 ### Download Postman
 
@@ -50,7 +50,7 @@ Visit the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/
 
 Select *Authentication* from the registration's menu, and hit *+ Add a platform*.
 
-:::image type="content" source="media/how-to-configure-postman-apis/authentication-pre.png" alt-text="Azure portal page of the Authentication details for an app registration. There is a highlight around an 'Add a platform' button" lightbox="media/how-to-configure-postman-apis/authentication-pre.png":::
+:::image type="content" source="media/how-to-use-postman/authentication-pre.png" alt-text="Azure portal page of the Authentication details for an app registration. There is a highlight around an 'Add a platform' button" lightbox="media/how-to-use-postman/authentication-pre.png":::
 
 In the *Configure platforms* page that follows, select *Web*.
 Fill the configuration details as follows:
@@ -61,7 +61,7 @@ Hit *Configure* to finish.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-configure-postman-apis/authentication-configure-web.png" alt-text="The Configure platforms page, highlighting the info described above onscreen":::
+        :::image type="content" source="media/how-to-use-postman/authentication-configure-web.png" alt-text="The Configure platforms page, highlighting the info described above onscreen":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -69,7 +69,7 @@ Hit *Configure* to finish.
 
 Now you have a web configuration configured that Postman will use. The Authentication tab in the Azure portal should reflect this. After verifying the sections below, hit *Save*.
 
-:::image type="content" source="media/how-to-configure-postman-apis/authentication-post.png" alt-text="Azure portal page of the Authentication details for an app registration. There are highlights around a Web platform section with a redirect URI of https://www.getpostman.com/oauth2/callback, and Implicit Grant being enabled for access tokens. The Save button is also highlighted.":::
+:::image type="content" source="media/how-to-use-postman/authentication-post.png" alt-text="Azure portal page of the Authentication details for an app registration. There are highlights around a Web platform section with a redirect URI of https://www.getpostman.com/oauth2/callback, and Implicit Grant being enabled for access tokens. The Save button is also highlighted.":::
 
 ## Set up Postman
 
@@ -82,7 +82,7 @@ You can create a **collection** in Postman to group your requests and apply comm
 
 To create a collection, hit the *+ New Collection* button.
 
-:::image type="content" source="media/how-to-configure-postman-apis/postman-new-collection.png" alt-text="View of a newly-opened Postman window. The 'New Collection' button is highlighted":::
+:::image type="content" source="media/how-to-use-postman/postman-new-collection.png" alt-text="View of a newly-opened Postman window. The 'New Collection' button is highlighted":::
 
 In the *CREATE A NEW COLLECTION* window that follows, provide a name and optional description for your collection.
 
@@ -92,11 +92,11 @@ Then, continue on to the next section to set up authorization details for the co
 
 In the *CREATE A NEW COLLECTION* dialog, move to the *Authorization* tab. This is where you will use the values of your app registration to get an OAuth 2.0 token that you can use for all API requests in your collection.
 
-:::image type="content" source="media/how-to-configure-postman-apis/postman-authorization.png" alt-text="The 'CREATE A NEW COLLECTION' Postman window, showing the 'Authorization' tab.":::
+:::image type="content" source="media/how-to-use-postman/postman-authorization.png" alt-text="The 'CREATE A NEW COLLECTION' Postman window, showing the 'Authorization' tab.":::
 
 Set the *Type* to _**OAuth 2.0**_, and hit the button for *Get New Access Token*.
 
-:::image type="content" source="media/how-to-configure-postman-apis/postman-authorization-values.png" alt-text="The 'CREATE A NEW COLLECTION' Postman window, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and the 'Get New Access Token' button is highlighted.":::
+:::image type="content" source="media/how-to-use-postman/postman-authorization-values.png" alt-text="The 'CREATE A NEW COLLECTION' Postman window, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and the 'Get New Access Token' button is highlighted.":::
 
 In the *GET NEW ACCESS TOKEN* window that appears, fill in the following fields.
 * **Token Name**: Name the token however you'd like.
@@ -110,11 +110,11 @@ In the *GET NEW ACCESS TOKEN* window that appears, fill in the following fields.
 
 Then, select *Request Token*.
 
-:::image type="content" source="media/how-to-configure-postman-apis/postman-token-values.png" alt-text="The 'GET NEW ACCESS TOKEN' Postman window, showing fields populated with the values detailed above. The 'Request Token' button is highlighted.":::
+:::image type="content" source="media/how-to-use-postman/postman-token-values.png" alt-text="The 'GET NEW ACCESS TOKEN' Postman window, showing fields populated with the values detailed above. The 'Request Token' button is highlighted.":::
 
 This will open the *MANAGE ACCESS TOKENS* window with a token that has been generated based on the information you've provided. Select *Use Token*.
 
-:::image type="content" source="media/how-to-configure-postman-apis/postman-use-token.png" alt-text="The 'MANAGE ACCESS TOKENS' Postman window, showing the details of the token that has been created. The 'Use Token' button is highlighted.":::
+:::image type="content" source="media/how-to-use-postman/postman-use-token.png" alt-text="The 'MANAGE ACCESS TOKENS' Postman window, showing the details of the token that has been created. The 'Use Token' button is highlighted.":::
 
 ### Finish collection
 
@@ -122,7 +122,7 @@ Back on the *CREATE A NEW COLLECTION* dialog, hit *Create* to finish creating yo
 
 Your new collection can now be seen from your main Postman view, under *Collections*.
 
-:::image type="content" source="media/how-to-configure-postman-apis/postman-post-collection.png" alt-text="View of the main Postman window. The newly-created collection is highlighted in the 'Collections' tab.":::
+:::image type="content" source="media/how-to-use-postman/postman-post-collection.png" alt-text="View of the main Postman window. The newly-created collection is highlighted in the 'Collections' tab.":::
 
 ## Make a multipart POST request
 

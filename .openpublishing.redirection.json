@@ -702,7 +702,7 @@
     },
     {	
       "source_path": "articles/digital-twins/how-to-configure-postman.md",	
-      "redirect_url": "/previous-versions/azure/digital-twins/how-to-configure-postman",	
+      "redirect_url": "/azure/digital-twins/how-to-use-postman",
       "redirect_document_id": false	
     },
     {
