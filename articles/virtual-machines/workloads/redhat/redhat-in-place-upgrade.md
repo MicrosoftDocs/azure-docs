@@ -30,9 +30,9 @@ Before performing the upgrade here are some things, you should be aware of and t
 >[!NOTE]
 > The commands in this article need to be run using the root account
 
-1. Make sure you are using the latest RHEL 7 version, which currently is RHEL 7.9. If you are using a locked version and cannot upgrade to RHEL 7.9, you can use the [steps here to switch to a non EUS repository](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock).
+* Make sure you are using the latest RHEL 7 version, which currently is RHEL 7.9. If you are using a locked version and cannot upgrade to RHEL 7.9, you can use the [steps here to switch to a non EUS repository](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock).
 
-1. Run the command below to know how your upgrade is going and if it will complete. The command should generate a file under '/var/log/leapp/leapp-report.txt' that explains the process and what is being done and if the upgrade is possible or not
+* Run the command below to know how your upgrade is going and if it will complete. The command should generate a file under '/var/log/leapp/leapp-report.txt' that explains the process and what is being done and if the upgrade is possible or not
     ```bash
     leapp preupgrade --no-rhsm
     ```

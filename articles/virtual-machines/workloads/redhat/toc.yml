@@ -19,4 +19,4 @@
 - name: Red Hat Enterprise Linux Extended Lifecycle Support
   href: redhat-extended-lifecycle-support.md
 - name: In-place upgrade of Red Hat Enterprise images on Azure
-  href: redhat-inplaceupgrade.md
+  href: redhat-in-place-upgrade.md
