@@ -262,11 +262,9 @@ However, when you drag the dataset to the canvas and visualize, it may be unable
 - Currently you can only visualize tabular dataset in the designer. If you register a file dataset outside designer, you cannot visualize it in the designer canvas.
 - Your dataset is stored in virtual network (VNet). If you want to visualize, you need to enable workspace managed identity of the datastore.
     1. Go the the related datastore and click **Update Credentials**
-    > [!div class="mx-imgBorder"]
-    > ![Update Credentials](./media/resource-known-issues/datastore-update-credential.png)  
+    :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Update Credentials":::
     1. Select **Yes** to enable workspace managed identity.
-    > [!div class="mx-imgBorder"]
-    > ![Enable Workspace Managed Identity](./media/resource-known-issues/enable-workspace-managed-identity.png) 
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Enable Workspace Managed Identity":::
 
 ### Long compute preparation time
 
