@@ -178,18 +178,25 @@ def authenticate_client():
 client = authenticate_client()
 ```
 
+Starting in v5.1.0 of the client library package, you can specify v3.0 of the Text Analytics API with the client's `api_version` parameter.
+
 ```python
-# Uncomment the following code to initialize a client if your SDK version is a 5.1.0 beta version, 
-# and are looking to specify a service version of 3.0 for your client
+# Only use the following code sample if you're using v5.1.0 of the client library, 
+# and are looking to specify v3.0 of the Text Analytics API for your client
 
-# from azure.ai.textanalytics import TextAnalyticsClient, TextAnalyticsApiVersion
-# from azure.core.credentials import AzureKeyCredential
+from azure.ai.textanalytics import TextAnalyticsClient, TextAnalyticsApiVersion
+from azure.core.credentials import AzureKeyCredential
 
-# text_analytics_client = TextAnalyticsClient(
-#   endpoint=endpoint,
-#   credential=ta_credential,
-#   api_version=TextAnalyticsApiVersion.V3_0
-# )
+def authenticate_client():
+   ta_credential = AzureKeyCredential(key)
+
+   text_analytics_client = TextAnalyticsClient(
+     endpoint=endpoint,
+     credential=ta_credential,
+     api_version=TextAnalyticsApiVersion.V3_0
+   )
+   
+client = authenticate_client()
 ```
 
 # [Version 2.1](#tab/version-2)
