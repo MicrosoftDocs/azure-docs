@@ -70,7 +70,7 @@ Once you have a pipeline up and running, you can publish a pipeline so that it r
 All published pipelines have a REST endpoint. With the pipeline endpoint, you can trigger a run of the pipeline from any external systems, including non-Python clients. This endpoint enables "managed repeatability" in batch scoring and retraining scenarios.
 
 > [!IMPORTANT]
-> If you are using role-based access control (RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service).
+> If you are using role-based access control (RBAC) to manage access to your pipeline, [set the permissions for your pipeline scenario (training or scoring)](how-to-assign-roles.md#common-scenarios).
 
 To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token. Getting such a token is described in the [AzureCliAuthentication class](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) reference and in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 

@@ -31,8 +31,7 @@ Learn more by trying out the full, progressive tutorial for ASP.NET Core web app
 - Handles incremental consent.
 - Calls your own web API.
 
-> [!div class="nextstepaction"]
-> [ASP.NET Core web app tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
+[ASP.NET Core web app tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
 
 <!--- Removing this diagram as it's already shown from the next step linked tutorial
 
