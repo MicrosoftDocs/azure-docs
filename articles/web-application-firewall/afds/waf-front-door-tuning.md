@@ -38,7 +38,7 @@ In the "requestUri" field, you can see the request was made to "/api/Feedbacks/"
  
 Then, by checking the "action" field, we see that this rule is set to block requests upon matching, and we confirm that the request was in fact blocked by the WAF because the "policyMode" is set to "prevention". 
  
-Now, let's check the information in the "details" field. This is where you can see the "matchVariableName" and the "matchVariableValue" information. We learn that this rule was triggered because someone input *1=1* in the "comment" field of the web app.
+Now, let's check the information in the "details" field. This is where you can see the `matchVariableName` and the `matchVariableValue` information. We learn that this rule was triggered because someone input *1=1* in the "comment" field of the web app.
  
 ```json
 {
@@ -116,12 +116,12 @@ With this information, and the knowledge that rule 942110 is the one that matche
 * Use exclusion lists
   * See [Web Application Firewall (WAF) with Front Door Service exclusion lists](waf-front-door-exclusion.md) for more information about exclusion lists. 
 * Change WAF actions
-  * See [WAF Actions](afds/afds-overview.md#waf-actions) for more information about what actions can be taken when a request matches a rule’s conditions.
+  * See [WAF Actions](afds-overview.md#waf-actions) for more information about what actions can be taken when a request matches a rule’s conditions.
 * Use custom rules
   * See [Custom rules for Web Application Firewall with Azure Front Door](waf-front-door-custom-rules.md) for more information about custom rules.
 * Disable rules 
 
-> [!CAUTION]
+> [!TIP]
 > When selecting an approach to allow legitimate requests through the WAF, try to make this as narrow as you can. For example, it's better to use an exclusion list than disabling a rule entirely.
 
 ### Using exclusion lists
@@ -130,7 +130,7 @@ One benefit of using an exclusion list is that only the match variable you selec
  
 It’s important to consider that exclusions are a global setting. This means that the configured exclusion will apply to all traffic passing through your WAF, not just a specific web app or URI. For example, this could be a concern if *1=1* is a valid request in the body for a certain web app, but not for others under the same WAF policy.
  
-When configuring exclusion lists for managed rules, you can choose to exclude all rules within a rule set, all rules within a rule group, or an individual rule. An exclusion list can be configured using [PowerShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add), [Rest API](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), or the Azure portal.
+When configuring exclusion lists for managed rules, you can choose to exclude all rules within a rule set, all rules within a rule group, or an individual rule. An exclusion list can be configured using [PowerShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-4.7.0&viewFallbackFrom=azps-3.5.0), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add), [Rest API](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), or the Azure portal.
 
 * Exclusions at a rule level
   * Applying exclusions at a rule level means that the specified exclusions will not be analyzed against that individual rule only, while it will still be analyzed by all other rules in the rule set. This is the most granular level for exclusions, and it can be used to fine-tune the managed rule set based on the information you find in the WAF logs when troubleshooting an event.
@@ -143,17 +143,17 @@ In this example, we will be performing an exclusion at the most granular level (
 
 ![Exclusion rules](../media/waf-front-door-tuning/exclusion-rules.png)
 
-![Exclusion rule](../media/waf-front-door-tuning/exclusion-rule.png)
+![Rule exclusion for specific rule](../media/waf-front-door-tuning/exclusion-rule.png)
 
 Occasionally, there are cases where specific parameters get passed into the WAF in a manner that may not be intuitive. For example, there is a token that gets passed when authenticating using Azure Active Directory. This token, `__RequestVerificationToken`, usually gets  passed in as a request cookie. However, in some cases where cookies are disabled, this token is also passed in as a request post argument. For this reason, to address Azure AD token false positives, you need to ensure that `__RequestVerificationToken` is added to the exclusion list for both `RequestCookieNames` and `RequestBodyPostArgsNames`.
 
 Exclusions on a field name (*selector*) means that the value will no longer be evaluated by the WAF. However, the field name itself continues to be evaluated and in rare cases it may match a WAF rule and trigger an action.
 
-![Exclusion rule](../media/waf-front-door-tuning/exclusion-rule-selector.png)
+![Rule exclusion for rule set](../media/waf-front-door-tuning/exclusion-rule-selector.png)
 
 ### Changing WAF actions
 
-Another way of handling the behavior of WAF rules is by choosing the action it will take when a request matches a rule’s conditions. The available actions are: [Allow, Block, Log, and Redirect](afds/afds-overview.md#waf-actions).
+Another way of handling the behavior of WAF rules is by choosing the action it will take when a request matches a rule’s conditions. The available actions are: [Allow, Block, Log, and Redirect](afds-overview.md#waf-actions).
 
 In this example, we changed the default action *Block* to the *Log* action on rule 942110. This will cause the WAF to log the request and continue evaluating the same request against the remaining lower priority rules.
 
@@ -161,7 +161,7 @@ In this example, we changed the default action *Block* to the *Log* action on ru
 
 After performing the same request, we can refer back to the logs and we will see that this request was a match on rule ID 942110, and that the `action_s` field now indicates *Log* instead of *Block*. We then expanded the log query to include the `trackingReference_s` information and see what else has happened with this request.
 
-![Log](../media/waf-front-door-tuning/actions-log.png)
+![Log showing multiple rule matches](../media/waf-front-door-tuning/actions-log.png)
 
 Interestingly, we see a different SQLI rule match occurs milliseconds after rule ID 942110 was processed. The same request matched on rule ID 942310, and this time the default action *Block* was triggered.
 
@@ -169,7 +169,7 @@ Another advantage of using the *Log* action during WAF tuning or troubleshooting
 
 ### Using custom rules
 
-Once you have identified what is causing a WAF rule match, you can use custom rules to adjust how the WAF responds to the event. Custom rules are processed before managed rules, they can contain more than one condition, and their actions can be [Allow, Deny, Log or Redirect](afds/afds-overview.md#waf-actions). When there is a rule match, the WAF engine stops processing. This means other custom rules with lower priority and managed rules are no longer executed.
+Once you have identified what is causing a WAF rule match, you can use custom rules to adjust how the WAF responds to the event. Custom rules are processed before managed rules, they can contain more than one condition, and their actions can be [Allow, Deny, Log or Redirect](afds-overview.md#waf-actions). When there is a rule match, the WAF engine stops processing. This means other custom rules with lower priority and managed rules are no longer executed.
 
 In the example below, we created a custom rule with two conditions. The first condition is looking for the `comment` value in the request body. The second condition is looking for the `/api/Feedbacks/` value in the request URI.
 
@@ -189,7 +189,7 @@ Disabling a rule is a benefit when you are sure that all requests meeting that s
  
 However, disabling a rule is a global setting that applies to all frontend hosts associated to the WAF policy. When you choose to disable a rule, you may be leaving vulnerabilities exposed without protection or detection for any other frontend hosts associated to the WAF policy.
  
-If you want to use Azure PowerShell to disable a managed rule, see the [PSAzureManagedRuleOverride](https://docs.microsoft.com/en-us/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?view=azps-4.7.0) object documentation. If you want to use Azure CLI, see the [az network front-door waf-policy managed-rules override](https://docs.microsoft.com/en-us/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?view=azure-cli-latest) documentation.
+If you want to use Azure PowerShell to disable a managed rule, see the [PSAzureManagedRuleOverride](https://docs.microsoft.com/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?view=azps-4.7.0&preserve-view=true) object documentation. If you want to use Azure CLI, see the [az network front-door waf-policy managed-rules override](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?view=azure-cli-latest&preserve-view=true) documentation.
 
 ![WAF rules](../media/waf-front-door-tuning/waf-rules.png)
 
@@ -201,7 +201,7 @@ Using a browser proxy like [Fiddler](https://www.telerik.com/fiddler), you can i
  
 In this example, you can see the field where the `1=1` string was entered is called `comment`. This data was passed in the body of a POST request.
 
-![Fiddler request](../media/waf-front-door-tuning/fiddler-request-attribute-name.png)
+![Fiddler request showing body](../media/waf-front-door-tuning/fiddler-request-attribute-name.png)
 
 This is a field you can exclude. To learn more about exclusion lists, See [Web application firewall exclusion lists](./waf-front-door-exclusion.md). You can exclude the evaluation in this case by configuring the following exclusion:
 
@@ -244,13 +244,13 @@ In this example, you can see the rule that blocked the request (with the same Tr
 }
 ```
 
-With your knowledge of how the Azure-managed rule sets work (see [Web Application Firewall on Azure Front Door](./afds-firewall.md)) you know that the rule with the *action: Block* property is blocking based on the data matched in the request body. You can see in the details that it matched a pattern (`1=1`), and the field is named `comment`. Follow the same previous steps to exclude the request body post args name that contains `comment`.
+With your knowledge of how the Azure-managed rule sets work (see [Web Application Firewall on Azure Front Door](afds-overview.md)) you know that the rule with the *action: Block* property is blocking based on the data matched in the request body. You can see in the details that it matched a pattern (`1=1`), and the field is named `comment`. Follow the same previous steps to exclude the request body post args name that contains `comment`.
 
 ### Finding request header names
 
 Fiddler is a useful tool once again to find request header names. In the following screenshot, you can see the headers for this GET request, which include Content-Type, User-Agent, and so on. You can also use request headers to create exclusions and custom rules in WAF.
 
-![Fiddler request](../media/waf-front-door-tuning/fiddler-request-header-name.png)
+![Fiddler request showing header](../media/waf-front-door-tuning/fiddler-request-header-name.png)
 
 Another way to view request and response headers is to look inside the developer tools of your browser, such as Edge or Chrome. You can press F12 or right-click -> **Inspect** -> **Developer Tools**, and select the **Network** tab. Load a web page, and click the request you want to inspect.
 
