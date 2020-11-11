@@ -10,7 +10,7 @@ ms.date: 09/03/2020
 
 # Using customer-managed storage accounts in Azure Monitor Log Analytics
 
-Log Analytics relies on Azure Storage in a variety of scenarios. This use is typically managed automatically. However, some cases require you to provide and manage your own storage account, also referred to as a customer-managed storage account. This document details the usage of customer-managed storage for the ingestion of WAD/LAD logs, Private Link specific scenarios, and CMK encryption. 
+Log Analytics relies on Azure Storage in a variety of scenarios. This use is typically managed automatically. However, some cases require you to provide and manage your own storage account, also referred to as a customer-managed storage account. This document details the usage of customer-managed storage for the ingestion of WAD/LAD logs, Private Link specific scenarios, and customer-managed key (CMK) encryption. 
 
 > [!NOTE]
 > We recommend that you don’t take a dependency on the contents Log Analytics uploads to customer-managed storage, given that formatting and content may change.
