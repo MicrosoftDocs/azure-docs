@@ -28,8 +28,6 @@
       items:
         - name: Change speech recognition source language
           href: how-to-specify-source-language.md
-        - name: Improve accuracy with Custom Speech
-          href: how-to-custom-speech.md
         - name: Use compressed audio input formats
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
@@ -47,20 +45,18 @@
           href: tutorial-tenant-model.md
     - name: Customization
       items:
+        - name: What is Custom Speech?
+          href: custom-speech-overview.md
         - name: Test a model using audio files in Speech Studio
           href: quickstarts/speech-studio-test-model.md
         - name: Prepare data for Custom Speech
           href: how-to-custom-speech-test-and-train.md
         - name: Inspect Custom Speech data
           href: how-to-custom-speech-inspect-data.md
-        - name: Evaluate Custom Speech accuracy
+        - name: Evaluate and improve Custom Speech accuracy
           href: how-to-custom-speech-evaluate-data.md
-        - name: Improve Custom Speech accuracy
-          href: how-to-custom-speech-improve-accuracy.md
-        - name: Train a model for Custom Speech
+        - name: Train and deploy a Custom Speech model
           href: how-to-custom-speech-train-model.md
-        - name: Deploy a custom model
-          href: how-to-custom-speech-deploy-model.md
         - name: CI/CD for Custom Speech
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: Create human-labeled transcriptions

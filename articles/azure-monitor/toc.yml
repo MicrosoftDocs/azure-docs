@@ -579,12 +579,16 @@
           displayname: ilogger, logging, log 
           href: app/ilogger.md
       - name: ASP.NET
-        displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
-        href: app/asp-net.md
-      - name: Non-HTTP apps/Background apps
+        items: 
+        - name: ASP.NET App Monitoring
+          displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
+          href: app/asp-net.md
+        - name: Troubleshoot ASP.NET
+          href: app/asp-net-troubleshoot-no-data.md
+      - name: Non-HTTP/Background apps
         displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
         href: app/worker-service.md  
-      - name: .NET Console
+      - name: ASP.NET Console
         displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
         href: app/console.md
       - name: Java
@@ -594,18 +598,10 @@
             href: app/java-get-started.md
           - name: Log traces
             href: app/java-trace-logs.md
-          - name: Unix metrics
-            href: app/java-collectd.md
           - name: Dependencies
             href: app/java-agent.md
           - name: Filter telemetry
             href: app/java-filter-telemetry.md
-          - name: Micrometer Metrics
-            displayname: java
-            href: app/micrometer-java.md
-          - name: Spring Boot app
-            displayname: java
-            href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
           - name: Troubleshoot
             href: app/java-troubleshoot.md
       - name: Node.js 
@@ -641,8 +637,6 @@
       - name: Application Insights API summary
         displayname: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
         href: app/api-custom-events-metrics.md
-      - name: Troubleshoot ASP.NET
-        href: app/asp-net-troubleshoot-no-data.md
       - name: Remove Application Insights 
         href: app/remove-application-insights.md
     - name: Codeless monitoring
@@ -1329,6 +1323,11 @@
       href: platform/resource-logs-blob-format.md
     - name: Key Vault Analytics (deprecated)
       href: insights/azure-key-vault-deprecated.md
+    - name: Unix metrics
+      href: app/java-collectd.md
+    - name: Micrometer Metrics
+      displayname: java
+      href: app/micrometer-java.md
     - name: Views
       items:
       - name: View Designer
