@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/11/2020
 ms.author: alkohli
 ms.subservice: pod
 ---
@@ -46,7 +46,7 @@ To add a customer-managed key to a Data Box order in the Azure portal, follow th
 
     ![Select existing Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
-    You can also select **Create new** to create a new key vault. On the **Create key vault** screen, enter the resource group and a key vault name. Ensure that the **Soft delete** and **Purge protection** are enabled. Accept all other defaults. Select **Review + Create**.
+    You can also select **Create new** to create a new key vault. On the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults. Select **Review + Create**.
 
     ![Review and create Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
@@ -66,7 +66,7 @@ To add a customer-managed key to a Data Box order in the Azure portal, follow th
 
     ![Name new key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
-9. Select **Version**, choose **Select**, and then select the current version or an earlier one.
+9. Select **Version**, choose **Select**, and then select the current version of the key or an earlier one.
 
     ![Select version for new key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
@@ -74,15 +74,15 @@ To add a customer-managed key to a Data Box order in the Azure portal, follow th
 
     ![Key and key vault for customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
-11. Select the type of identity to use to manage the customer-managed key for this resource.<!--Low confidence in this explanation.--> You can use the **system assigned** identity that was generated during order creation or select **user assigned** and choose an identity of your own.<!--Context: They either are seeing a user-assigned identity or "System assigned" is selected by default?-->
+11. Select the type of identity to use to manage the customer-managed key for this resource. You can use the **system assigned** identity that was generated during order creation or select **user assigned** and choose an identity of your own.<!--Context: They either are seeing a user-assigned identity or "System assigned" is selected by default?-->
 
     A user-assigned identity is an independent resource that you can use to manage access to resources. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).<!--Coordinate this with the >  
 
     ![Select the identity type](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)<!--Reshoot. First screenshot should show just the two selection types. The option to use a system assigned identity type is not included in the Order wizard.-->
 
-    If you want to assign a user identity, select **Select a user identity** and then select your managed identity that you want to use.<!--Stopped shooting screens here (11/06). Will need to test a new order to get back to this screen.-->
+    If you want to assign a user identity, select **Select a user identity** and then select your managed identity that you want to use.<!--Stopped shooting screens here (11/06).-->
 
-    ![Select an identity to use](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)<!--Edit current screen from the Order tutorial to sub new options in the Encryption Type settings. Extra line? Reshoot would require lots of handwork to cleanse the Assigned management key pane of specifics. Make same update to Order tutorial.-->
+    ![Select an identity to use](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)<!--Edit current screen from the Order tutorial to sub new options in the Encryption Type settings.-->
 
     You can't create a new user identity here. To find out how to create one, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
@@ -90,7 +90,7 @@ To add a customer-managed key to a Data Box order in the Azure portal, follow th
 
     ![A selected user identity shown in Encryption type settings](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
 
- 12. Save the key settings.<!--Check the Save button context. Not just saving a key? New screenshot may not be needed. Save command is boxed in the previous screenshot.-->
+ 12. Save the key settings.<!--Check the Save button context. Not just saving a key. New screenshot may not be needed. Save command is boxed in the previous screenshot.-->
 
      ![Save customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 
@@ -111,6 +111,8 @@ If you receive any errors related to your customer-managed key, use the followin
 | SsemUserErrorKeyVaultBadRequestException| Could not fetch the passkey as the customer managed key access is revoked.| Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Access policy provides permissions to Get, Wrap, Unwrap.</li><li>If key vault is in a vNet behind the firewall, check if **Allow Microsoft Trusted Services** is enabled.</li></ol>|
 | SsemUserErrorKeyVaultDetailsNotFound| Could not fetch the passkey as the associated key vault for the customer managed key could not be found. | If you deleted the key vault, you can't recover the customer-managed key.  If you migrated the key vault to a different tenant, see [Change a key vault tenant ID after a subscription move](../key-vault/general/move-subscription.md). If you deleted the key vault:<ol><li>Yes, if it is in the purge-protection duration, using the steps at [Recover a key vault](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault).</li><li>No, if it is beyond the purge-protection duration.</li></ol><br>Else if the key vault underwent a tenant migration, yes, it can be recovered using one of the below steps: <ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity = None` and then set the value back to `Identity = SystemAssigned`. This deletes and recreates the identity once the new identity has been created. Enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's Access policy.</li></ol> |
 | SsemUserErrorSystemAssignedIdentityAbsent  | Could not fetch the passkey as the customer managed key could not be found.| Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Identity is of type System assigned.</li><li>Enable Get, Wrap and Unwrap permissions to the identity in the key vault’s Access policy.</li></ol>|
+| SsemUserErrorUserAssignedLimitReached | Adding new User Assigned Identity failed as you have reached the limit on the total number of user assigned identities that can be added. | Please retry the operation with fewer user identities or remove some user assigned identities from the resource before retrying. |
+| SsemUserErrorKeyVaultBadRequestException | Applied a customer managed key but the key access has not been granted or has been revoked, or firewall is enabled for Keyvault. | Add the identity : %IdentityId; to your key vault to enable access to the customer managed key or try disabling the firewall for Keyvault. |
 | Generic error  | Could not fetch the passkey.| This is a generic error. Contact Microsoft Support to troubleshoot the error and determine the next steps.|
 
 ## Next steps
