@@ -113,7 +113,7 @@ To automate the compute management operations, see [Manage compute with Azure fu
 
 Each of the scale-out, pause, and resume operations can take several minutes to complete. If you are scaling, pausing, or resuming automatically, we recommend implementing logic to ensure that certain operations have completed before proceeding with another action. Checking the dedicated SQL pool (formerly SQL DW) state through various endpoints allows you to correctly implement automation of such operations.
 
-To check the dedicated SQL pool (formerly SQL DW) state, see the [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) or [T-SQL](quickstart-scale-compute-tsql.md#check-dedicated-sql-pool-formerly-SQL-DW-state) quickstart. You can also check the dedicated SQL pool (formerly SQL DW) state with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+To check the dedicated SQL pool (formerly SQL DW) state, see the [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) or [T-SQL](quickstart-scale-compute-tsql.md#check-dedicated-sql-pool-formerly-sql-dw-state) quickstart. You can also check the dedicated SQL pool (formerly SQL DW) state with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 ## Permissions
 
