@@ -142,7 +142,7 @@ You can edit existing polygons. The **Lock/unlock regions** tool ![Lock/unlock r
 
 Use the **Add or remove polygon points** tool ![Regions manipulation tool](./media/how-to-label-images/add-remove-points-tool.png) or "U" to adjust an existing polygon. Click on the polygon to add or remove a point. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
 
-To delete *all* polygons in the current image, select the **Delete all regions** tool ![Delete regions tool](./media/how-to-label-images/delete-regions-tool.png).
+To delete *all* polygons in the current image, select the **Delete all regions** tool ![Delete all regions tool](./media/how-to-label-images/delete-regions-tool.png).
 
 After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
