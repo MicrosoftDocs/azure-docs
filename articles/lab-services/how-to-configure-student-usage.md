@@ -2,7 +2,7 @@
 title: Configure usage settings in classroom labs of Azure Lab Services
 description: Learn how to configure the number of students for a lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 11/11/2020
 ---
 
 # Add and manage lab users
@@ -36,7 +36,9 @@ In this section, you add students to a lab manually or by uploading a CSV file. 
 
 ### Add users by uploading a CSV file
 
-You can also add users by uploading a CSV file that contains their email addresses.
+You can also add users by uploading a CSV file that contains their email addresses. 
+
+A CSV text file is used to store comma-separated (CSV) tabular data (numbers and text). Instead of storing information in columns fields (such as in spreadsheets), a CSV file stores information separated by commas. Each line in a CSV file will have the same number of comma-separated "fields." You can use Excel to easily create and edit CSV files.
 
 1. In Microsoft Excel, create a CSV file that lists students' email addresses in one column.
 
