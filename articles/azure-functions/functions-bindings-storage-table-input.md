@@ -292,6 +292,75 @@ public class Person : TableEntity
 }
 ```
 
+# [Java](#tab/java)
+
+The following example shows an HTTP triggered function which returns a list of person objects who are in a specified partition in Table storage. In the example, the partition key is extracted from the http route, and the tableName and connection are from the function settings. 
+
+```java
+public class Person {
+    private String PartitionKey;
+    private String RowKey;
+    private String Name;
+
+    public String getPartitionKey() { return this.PartitionKey; }
+    public void setPartitionKey(String key) { this.PartitionKey = key; }
+    public String getRowKey() { return this.RowKey; }
+    public void setRowKey(String key) { this.RowKey = key; }
+    public String getName() { return this.Name; }
+    public void setName(String name) { this.Name = name; }
+}
+
+@FunctionName("getPersonsByPartitionKey")
+public Person[] get(
+        @HttpTrigger(name = "getPersons", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="persons/{partitionKey}") HttpRequestMessage<Optional<String>> request,
+        @BindingName("partitionKey") String partitionKey,
+        @TableInput(name="persons", partitionKey="{partitionKey}", tableName="%MyTableName%", connection="MyConnectionString") Person[] persons,
+        final ExecutionContext context) {
+
+    context.getLogger().info("Got query for person related to persons with partition key: " + partitionKey);
+
+    return persons;
+}
+```
+
+The TableInput annotation can also extract the bindings from the json body of the request, like the following example shows.
+
+```java
+@FunctionName("GetPersonsByKeysFromRequest")
+public HttpResponseMessage get(
+        @HttpTrigger(name = "getPerson", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="query") HttpRequestMessage<Optional<String>> request,
+        @TableInput(name="persons", partitionKey="{partitionKey}", rowKey = "{rowKey}", tableName="%MyTableName%", connection="MyConnectionString") Person person,
+        final ExecutionContext context) {
+
+    if (person == null) {
+        return request.createResponseBuilder(HttpStatus.NOT_FOUND)
+                    .body("Person not found.")
+                    .build();
+    }
+
+    return request.createResponseBuilder(HttpStatus.OK)
+                    .header("Content-Type", "application/json")
+                    .body(person)
+                    .build();
+}
+```
+
+The following examples uses the Filter to query for persons with a specific name in an Azure Table, and limits the number of possible matches to 10 results.
+
+```java
+@FunctionName("getPersonsByName")
+public Person[] get(
+        @HttpTrigger(name = "getPersons", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="filter/{name}") HttpRequestMessage<Optional<String>> request,
+        @BindingName("name") String name,
+        @TableInput(name="persons", filter="Name eq '{name}'", take = "10", tableName="%MyTableName%", connection="MyConnectionString") Person[] persons,
+        final ExecutionContext context) {
+
+    context.getLogger().info("Got query for person related to persons with name: " + name);
+
+    return persons;
+}
+```
+
 # [JavaScript](#tab/javascript)
 
 The following example shows a  table input binding in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the binding. The function uses a queue trigger to read a single table row. 
@@ -383,75 +452,6 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
     return func.HttpResponse(f"Table row: {messageJSON}")
 ```
 
-# [Java](#tab/java)
-
-The following example shows an HTTP triggered function which returns a list of person objects who are in a specified partition in Table storage. In the example, the partition key is extracted from the http route, and the tableName and connection are from the function settings. 
-
-```java
-public class Person {
-    private String PartitionKey;
-    private String RowKey;
-    private String Name;
-
-    public String getPartitionKey() { return this.PartitionKey; }
-    public void setPartitionKey(String key) { this.PartitionKey = key; }
-    public String getRowKey() { return this.RowKey; }
-    public void setRowKey(String key) { this.RowKey = key; }
-    public String getName() { return this.Name; }
-    public void setName(String name) { this.Name = name; }
-}
-
-@FunctionName("getPersonsByPartitionKey")
-public Person[] get(
-        @HttpTrigger(name = "getPersons", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="persons/{partitionKey}") HttpRequestMessage<Optional<String>> request,
-        @BindingName("partitionKey") String partitionKey,
-        @TableInput(name="persons", partitionKey="{partitionKey}", tableName="%MyTableName%", connection="MyConnectionString") Person[] persons,
-        final ExecutionContext context) {
-
-    context.getLogger().info("Got query for person related to persons with partition key: " + partitionKey);
-
-    return persons;
-}
-```
-
-The TableInput annotation can also extract the bindings from the json body of the request, like the following example shows.
-
-```java
-@FunctionName("GetPersonsByKeysFromRequest")
-public HttpResponseMessage get(
-        @HttpTrigger(name = "getPerson", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="query") HttpRequestMessage<Optional<String>> request,
-        @TableInput(name="persons", partitionKey="{partitionKey}", rowKey = "{rowKey}", tableName="%MyTableName%", connection="MyConnectionString") Person person,
-        final ExecutionContext context) {
-
-    if (person == null) {
-        return request.createResponseBuilder(HttpStatus.NOT_FOUND)
-                    .body("Person not found.")
-                    .build();
-    }
-
-    return request.createResponseBuilder(HttpStatus.OK)
-                    .header("Content-Type", "application/json")
-                    .body(person)
-                    .build();
-}
-```
-
-The following examples uses the Filter to query for persons with a specific name in an Azure Table, and limits the number of possible matches to 10 results.
-
-```java
-@FunctionName("getPersonsByName")
-public Person[] get(
-        @HttpTrigger(name = "getPersons", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="filter/{name}") HttpRequestMessage<Optional<String>> request,
-        @BindingName("name") String name,
-        @TableInput(name="persons", filter="Name eq '{name}'", take = "10", tableName="%MyTableName%", connection="MyConnectionString") Person[] persons,
-        final ExecutionContext context) {
-
-    context.getLogger().info("Got query for person related to persons with name: " + name);
-
-    return persons;
-}
-```
-
 ---
 
 ## Attributes and annotations
@@ -518,6 +518,10 @@ The storage account to use is determined in the following order:
 
 Attributes are not supported by C# Script.
 
+# [Java](#tab/java)
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+
 # [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
@@ -525,10 +529,6 @@ Attributes are not supported by JavaScript.
 # [Python](#tab/python)
 
 Attributes are not supported by Python.
-
-# [Java](#tab/java)
-
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 ---
 
@@ -578,6 +578,10 @@ The following table explains the binding configuration properties that you set i
   > [!NOTE]
   > `IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to [use a CloudTable paramName method parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) to read the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 
+# [Java](#tab/java)
+
+The [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) attribute gives you access to the table row that triggered the function.
+
 # [JavaScript](#tab/javascript)
 
 Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<BINDING_NAME>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
@@ -585,10 +589,6 @@ Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Ac
 # [Python](#tab/python)
 
 Table data is passed to the function as a JSON string. De-serialize the message by calling `json.loads` as shown in the input [example](#example).
-
-# [Java](#tab/java)
-
-The [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) attribute gives you access to the table row that triggered the function.
 
 ---
 

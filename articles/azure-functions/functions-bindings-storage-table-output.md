@@ -96,6 +96,83 @@ public class Person
 
 ```
 
+# [Java](#tab/java)
+
+The following example shows a Java function that uses an HTTP trigger to write a single table row.
+
+```java
+public class Person {
+    private String PartitionKey;
+    private String RowKey;
+    private String Name;
+
+    public String getPartitionKey() {return this.PartitionKey;}
+    public void setPartitionKey(String key) {this.PartitionKey = key; }
+    public String getRowKey() {return this.RowKey;}
+    public void setRowKey(String key) {this.RowKey = key; }
+    public String getName() {return this.Name;}
+    public void setName(String name) {this.Name = name; }
+}
+
+public class AddPerson {
+
+    @FunctionName("addPerson")
+    public HttpResponseMessage get(
+            @HttpTrigger(name = "postPerson", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION, route="persons/{partitionKey}/{rowKey}") HttpRequestMessage<Optional<Person>> request,
+            @BindingName("partitionKey") String partitionKey,
+            @BindingName("rowKey") String rowKey,
+            @TableOutput(name="person", partitionKey="{partitionKey}", rowKey = "{rowKey}", tableName="%MyTableName%", connection="MyConnectionString") OutputBinding<Person> person,
+            final ExecutionContext context) {
+
+        Person outPerson = new Person();
+        outPerson.setPartitionKey(partitionKey);
+        outPerson.setRowKey(rowKey);
+        outPerson.setName(request.getBody().get().getName());
+
+        person.setValue(outPerson);
+
+        return request.createResponseBuilder(HttpStatus.OK)
+                        .header("Content-Type", "application/json")
+                        .body(outPerson)
+                        .build();
+    }
+}
+```
+
+The following example shows a Java function that uses an HTTP trigger to write multiple table rows.
+
+```java
+public class Person {
+    private String PartitionKey;
+    private String RowKey;
+    private String Name;
+
+    public String getPartitionKey() {return this.PartitionKey;}
+    public void setPartitionKey(String key) {this.PartitionKey = key; }
+    public String getRowKey() {return this.RowKey;}
+    public void setRowKey(String key) {this.RowKey = key; }
+    public String getName() {return this.Name;}
+    public void setName(String name) {this.Name = name; }
+}
+
+public class AddPersons {
+
+    @FunctionName("addPersons")
+    public HttpResponseMessage get(
+            @HttpTrigger(name = "postPersons", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION, route="persons/") HttpRequestMessage<Optional<Person[]>> request,
+            @TableOutput(name="person", tableName="%MyTableName%", connection="MyConnectionString") OutputBinding<Person[]> persons,
+            final ExecutionContext context) {
+
+        persons.setValue(request.getBody().get());
+
+        return request.createResponseBuilder(HttpStatus.OK)
+                        .header("Content-Type", "application/json")
+                        .body(request.getBody().get())
+                        .build();
+    }
+}
+```
+
 # [JavaScript](#tab/javascript)
 
 The following example shows a  table output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes multiple table entities.
@@ -202,83 +279,6 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
     return func.HttpResponse(f"Message created with the rowKey: {rowKey}")
 ```
 
-# [Java](#tab/java)
-
-The following example shows a Java function that uses an HTTP trigger to write a single table row.
-
-```java
-public class Person {
-    private String PartitionKey;
-    private String RowKey;
-    private String Name;
-
-    public String getPartitionKey() {return this.PartitionKey;}
-    public void setPartitionKey(String key) {this.PartitionKey = key; }
-    public String getRowKey() {return this.RowKey;}
-    public void setRowKey(String key) {this.RowKey = key; }
-    public String getName() {return this.Name;}
-    public void setName(String name) {this.Name = name; }
-}
-
-public class AddPerson {
-
-    @FunctionName("addPerson")
-    public HttpResponseMessage get(
-            @HttpTrigger(name = "postPerson", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION, route="persons/{partitionKey}/{rowKey}") HttpRequestMessage<Optional<Person>> request,
-            @BindingName("partitionKey") String partitionKey,
-            @BindingName("rowKey") String rowKey,
-            @TableOutput(name="person", partitionKey="{partitionKey}", rowKey = "{rowKey}", tableName="%MyTableName%", connection="MyConnectionString") OutputBinding<Person> person,
-            final ExecutionContext context) {
-
-        Person outPerson = new Person();
-        outPerson.setPartitionKey(partitionKey);
-        outPerson.setRowKey(rowKey);
-        outPerson.setName(request.getBody().get().getName());
-
-        person.setValue(outPerson);
-
-        return request.createResponseBuilder(HttpStatus.OK)
-                        .header("Content-Type", "application/json")
-                        .body(outPerson)
-                        .build();
-    }
-}
-```
-
-The following example shows a Java function that uses an HTTP trigger to write multiple table rows.
-
-```java
-public class Person {
-    private String PartitionKey;
-    private String RowKey;
-    private String Name;
-
-    public String getPartitionKey() {return this.PartitionKey;}
-    public void setPartitionKey(String key) {this.PartitionKey = key; }
-    public String getRowKey() {return this.RowKey;}
-    public void setRowKey(String key) {this.RowKey = key; }
-    public String getName() {return this.Name;}
-    public void setName(String name) {this.Name = name; }
-}
-
-public class AddPersons {
-
-    @FunctionName("addPersons")
-    public HttpResponseMessage get(
-            @HttpTrigger(name = "postPersons", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION, route="persons/") HttpRequestMessage<Optional<Person[]>> request,
-            @TableOutput(name="person", tableName="%MyTableName%", connection="MyConnectionString") OutputBinding<Person[]> persons,
-            final ExecutionContext context) {
-
-        persons.setValue(request.getBody().get());
-
-        return request.createResponseBuilder(HttpStatus.OK)
-                        .header("Content-Type", "application/json")
-                        .body(request.getBody().get())
-                        .build();
-    }
-}
-```
-
 ---
 
 ## Attributes and annotations
@@ -321,6 +321,12 @@ You can use the `StorageAccount` attribute to specify the storage account at cla
 
 Attributes are not supported by C# Script.
 
+# [Java](#tab/java)
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) annotation on parameters to write values into table storage.
+
+See the [example for more detail](#example).
+
 # [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
@@ -328,12 +334,6 @@ Attributes are not supported by JavaScript.
 # [Python](#tab/python)
 
 Attributes are not supported by Python.
-
-# [Java](#tab/java)
-
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) annotation on parameters to write values into table storage.
-
-See the [example for more detail](#example).
 
 ---
 
@@ -367,6 +367,14 @@ Access the output table entity by using a method parameter `ICollector<T> paramN
 
 Alternatively you can use a `CloudTable` method parameter to write to the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 
+# [Java](#tab/java)
+
+There are two options for outputting a Table storage row from a function by using the [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet&preserve-view=true) annotation:
+
+- **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as a Table storage row.
+
+- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` includes the `PartitionKey` and `RowKey` properties. These properties are often accompanied by implementing `ITableEntity` or inheriting `TableEntity`.
+
 # [JavaScript](#tab/javascript)
 
 Access the output event by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
@@ -378,14 +386,6 @@ There are two options for outputting a Table storage row message from a function
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as a Table storage row.
 
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) type. The value passed to `set` is persisted as an Event Hub message.
-
-# [Java](#tab/java)
-
-There are two options for outputting a Table storage row from a function by using the [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet&preserve-view=true) annotation:
-
-- **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as a Table storage row.
-
-- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` includes the `PartitionKey` and `RowKey` properties. These properties are often accompanied by implementing `ITableEntity` or inheriting `TableEntity`.
 
 ---
 
