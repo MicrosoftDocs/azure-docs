@@ -11,7 +11,7 @@ ms.date: 11/09/2020
 ms.author: alkohli
 ---
 
-# Azure Stack Edge Pro with GPU General Availability (GA) release notes
+# Azure Stack Edge Pro with GPU 2011 release notes
 
 The following release notes identify the critical open issues and the resolved issues for general availability (GA) release for your Azure Stack Edge Pro devices with GPU.
 
