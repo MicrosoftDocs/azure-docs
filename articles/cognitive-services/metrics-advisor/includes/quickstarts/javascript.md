@@ -306,7 +306,7 @@ async function createWebhookHook(adminClient) {
     name: "web hook " + new Date().getTime().toFixed(),
     description: "description",
     hookParameter: {
-      endpoint: "https://example.com/handleAlerts",
+      endpoint: "https://example.com/handleAlerts", // you must enter a valid webhook url to post the alert payload
       username: "username",
       password: "password"
       // certificateKey: "certificate key",
