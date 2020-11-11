@@ -23,7 +23,7 @@ Instead of duplicating existing information in your system, you'll maintain the 
 
 ## Identity
 
-Identities are created with Azure Communication Service Administration library. Identity serves as identifier in the conversations and is used for creation of access tokens. The same identity might participate in multiple simultaneous sessions across multiple devices. Identity might have multiple active access tokens at the same time. Deletion of identity, resource, or subscription causes invalidation of all its access tokens and deletion of all data that are stored for this identity. Deleted identity can’t neither issue new access tokens nor access previously stored data (for example, chat messages). 
+Identities are created with Azure Communication Service Administration library. Identity serves as identifier in the conversations and is used for creation of access tokens. The same identity might participate in multiple simultaneous sessions across multiple devices. Identity might have multiple active access tokens at the same time. Deletion of identity, resource, or subscription causes invalidation of all its access tokens and deletion of all data that are stored for this identity. Deleted identity can’t issue new access tokens, neither access previously stored data (for example, chat messages). 
 
 You aren't charged by the number of identities you have, but by the usage of primitives. Number of identities don't have to restrict, how to map your application's identities to the Azure Communication Services Identities. With the freedom of mapping comes responsibility in the terms of privacy. When your application's user wants to be deleted from your system, you need to delete all identities, that were associated with that user.
 

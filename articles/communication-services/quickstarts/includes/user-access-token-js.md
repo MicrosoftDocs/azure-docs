@@ -91,7 +91,7 @@ const identityClient = new CommunicationIdentityClient(connectionString);
 
 ## Create an identity
 
-Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity for later use with mapping to your application's users (for example, by storing them in your application server's database).
+Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
 
 ```javascript
 let identityResponse = await identityClient.createUser();
