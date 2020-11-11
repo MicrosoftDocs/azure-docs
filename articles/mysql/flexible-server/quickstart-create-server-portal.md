@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create an Azure Database for MySQL flexible server - Azure portal'
 description: This article walks you through using the Azure portal to create an Azure Database for MySQL flexible server in minutes. 
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
@@ -11,7 +11,7 @@ ms.date: 10/22/2020
 
 # Quickstart: Use the Azure portal to create an Azure Database for MySQL flexible server
 
-Azure Database for MySQL Flexible Server is a managed service that you use to run, manage, and scale highly available MySQL servers in the cloud. This quickstart shows you how to create a flexible server by using the Azure portal.
+Azure Database for MySQL Flexible Server is a managed service that you can use to run, manage, and scale highly available MySQL servers in the cloud. This quickstart shows you how to create a flexible server by using the Azure portal.
 
 > [!IMPORTANT] 
 > Azure Database for MySQL Flexible Server is currently in public preview.
@@ -50,7 +50,7 @@ Complete these steps to create a flexible server:
     Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. It must also contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, and so on).|
     Region|The region closest to your users| The location that's closest to your users.|
     Version|**5.7**| A MySQL major version.|
-    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. **Burstable**, **Standard_B1ms**, **10 GiB**, and **7 days** are the default values for **Compute tier**, **Compute size**, **Storage Size**, and backup **Retention period**. You can leave those values as is or adjust them. To save this compute and storage selection, select **Save** to continue with the configuration. The following screenshot shows the compute and storage options.|
+    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. **Burstable**, **Standard_B1ms**, **10 GiB**, and **7 days** are the default values for **Compute tier**, **Compute size**, **Storage size**, and backup **Retention period**. You can leave those values as is or adjust them. To save the compute and storage selection, select **Save** to continue with the configuration. The following screenshot shows the compute and storage options.|
     
     > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Screenshot that shows compute and storage options.":::
 
@@ -99,7 +99,7 @@ You have now created an Azure Database for MySQL flexible server in a resource g
 1. In the **Overview** page for your resource group, select **Delete resource group**.
 1. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
 
-To delete the server, you can select **Delete** on **Overview** page for your server as shown here:
+To delete the server, you can select **Delete** on **Overview** page for your server, as shown here:
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Screenshot that shows how to delete a server.":::
