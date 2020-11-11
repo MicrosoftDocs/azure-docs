@@ -1,6 +1,6 @@
 ---
-title: Use and manage an App Service Environment
-description: Learn how to create, publish, and scale apps in an App Service Environment. Find all the common tasks in this article.
+title: Use an App Service Environment
+description: Learn how to use your App Service Environment to host isolated applications.
 author: ccompy
 ms.assetid: 377fce0b-7dea-474a-b64b-7fbe78380554
 ms.topic: article
@@ -8,6 +8,8 @@ ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
 ---
+
+# Using an App Service Environment
 
 The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that injects directly into an Azure Virtual Network (VNet) of your choosing. It is a system that is only used by one customer. The apps that are deployed into the ASE are subject to the networking features that are applied to the subnets used by the ASE. There aren't any additional features that need to be enabled on your apps to be subject to those networking features. 
 
@@ -32,7 +34,7 @@ To create an app in an ASE:
 
     ![App name selection][1]
 
-1. Select your Publish type, Stack and Operating System.
+1. Select your Publish type, Stack, and Operating System.
 
 1.  Select region. Here you need to select a pre-existing App Service Environment v3.  You can't make an ASEv3 during app creation 
 
@@ -72,7 +74,7 @@ The SCM URL is used to access the Kudu console or for publishing your app by usi
 
 ### DNS configuration 
 
-The ASE uses private endpoints for inbound traffic and is automatically configured with Azure DNS private zones. If you want to use your own DNS server you need to add the following records:
+The ASE uses private endpoints for inbound traffic and is automatically configured with Azure DNS private zones. If you want to use your own DNS server, you need to add the following records:
 
 1. create a zone for &lt;ASE name&gt;.appserviceenvironment.net
 1. create an A record in that zone that points * to the inbound IP address used by your ASE private endpoint
@@ -174,9 +176,6 @@ To delete an ASE:
 
 1. Select **OK**.
 
-```
-
-
 
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png
@@ -187,17 +186,12 @@ To delete an ASE:
 [5]: ./media/using_an_app_service_environment/usingase-upgradepref.png
 
 <!--Links-->
-[Intro]: ./intro.md
-[MakeExternalASE]: ./create-external-ase.md
-[MakeASEfromTemplate]: ./create-from-template.md
-[MakeILBASE]: ./create-ilb-ase.md
-[ASENetwork]: ./network-info.md
-[UsingASE]: ./using-an-ase.md
+[Intro]: ./overview.md
+[MakeASE]: ./create-ase.md
+[ASENetwork]: ./networking.md
+[UsingASE]: ./using.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
 [NSGs]: ../../virtual-network/network-security-groups-overview.md
-[ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
-[ASEv1Intro]: app-service-app-service-environment-intro.md
-[Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
