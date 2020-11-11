@@ -10,7 +10,7 @@ ms.date: 11/10/2020
 ---
 
 # Azure Monitor for VMs guest health alerts (preview)
-Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. An [Azure alert](../platform/alerts-overview.md) can be created when a virtual machine or monitor changes to an unhealthy state. You can view and manage these alerts with other alerts created by alert rules in Azure Monitor and choose to and be proactively notified when a new alert is created.
+Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. An alert can be created when a virtual machine or monitor changes to an unhealthy state. You can view and manage these alerts with [those created by alert rules in Azure Monitor](../platform/alerts-overview.md) and choose to be proactively notified when a new alert is created.
 
 ## Configure alerts
 You cannot create an explicit alert rule for Azure Monitor for VMs guest health while this feature is in preview. By default, alerts will be created for each virtual machine but not for each monitor.  This means that if a monitor changes to a state that doesn't affect the current state of the virtual machine, then no alert is created because the virtual machine state didn't change. 
