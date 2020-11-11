@@ -28,14 +28,17 @@ You can route log events to:
 
 In this article you learn how to transfer the logs to Azure Log Analytics workspace. So, you can create a dashboard or alerts about the Azure AD B2C users activities.
 
-## Perquisites
+## Deployment overview
 
-> [!IMPORTANT]
-> In this walkthrough you configure both your Azure AD B2C and your Azure AD tenant where the Log Analytics workspace will be hosted. Make sure to sign-in to the correct directory as describe in this article.
- 
-The account used to run the following deployment must be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) role for both your Azure AD B2C and Azure AD tenants.
+Azure AD B2C leverages [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). To enable *Diagnostic settings* in Azure Active Directory within your Azure AD B2C tenant, you use [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) to [delegated resource](../lighthouse/concepts/azure-delegated-resource-management.md), allowing your Azure AD B2C (the **Service Provider**) to manage an Azure AD (the **Customer**) resource. After you completed the steps in this article, you will have access to the *azure-ad-b2c-monitor* resource group that contains the Azure Monitor in your **Azure AD B2C** portal, and be able to transfer the logs from Azure AD B2C to your Log Analytics workspace.
+
+You authorize a user or group in your Azure AD B2C directory to configure the Azure Monitor instance within the tenant that contains your Azure subscription. To create the authorization, you deploy an [Azure Resource Manager](../azure-resource-manager/index.yml) template to your Azure AD tenant containing the subscription. 
+
+The following diagram depicts the component you configure in your Azure AD, and Azure AD B2C tenants.
 
 ![Resource group projection](./media/azure-monitor/resource-group-projection.png)
+
+The account used to run the deployment must be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) role for both your Azure AD B2C and Azure AD tenants. In this walkthrough you configure both your Azure AD B2C and your Azure AD tenant where the Log Analytics workspace will be hosted. Make sure to sign-in to the correct directory as describe in this article.
 
 ## 1. Create or choose resource group
 
@@ -54,10 +57,6 @@ A **Log Analytics workspaces** is a unique environment for Azure Monitor log dat
 1. [Create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md). This example uses a Log Analytics workspace named *AzureAdB2C*, in a resource group named *azure-ad-b2c-monitor*.
 
 ## 3. Delegated resource management
-
-Azure AD B2C leverages [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). To enable *Diagnostic settings* in Azure Active Directory within your Azure AD B2C tenant, you use [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) to [delegated resource](../lighthouse/concepts/azure-delegated-resource-management.md), allowing your Azure AD B2C (the **Service Provider**) to manage an Azure AD (the **Customer**) resource. After you completed the steps in this article, you will have access to the *azure-ad-b2c-monitor* resource group that contains the Azure Monitor in your **Azure AD B2C** portal, and be able to transfer the logs from Azure AD B2C to your Log Analytics workspace.
-
-You authorize a user or group in your Azure AD B2C directory to configure the Azure Monitor instance within the tenant that contains your Azure subscription. To create the authorization, you deploy an [Azure Resource Manager](../azure-resource-manager/index.yml) template to your Azure AD tenant containing the subscription. The following sections walk you through the process.
 
 ### 3.1 Get your Azure AD B2C tenant ID
 
