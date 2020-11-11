@@ -62,11 +62,16 @@ To unpublish a solution to remove it from the marketplace, on the **Product over
 
 After a solution is unpublished, new customers will not be able to get it. Existing customers will be able to access the solution for 90 days, and then the solution will no longer be accessible. If you later want to make your solution available again, you can resubmit it via Partner Center.
 
+## Microsoft 365 App Compliance Program
+
+Once your solution is published through Partner Center you can begin the [Microsoft 365 App Compliance program](https://docs.microsoft.com/microsoft-365-app-certification/overview). This program is optional and is designed to allow you reach the level of security that meets the needs of your customers. The Publisher Attestation is now integrated within Partner Center and can be started by clicking on the [App Compliance button](https://docs.microsoft.com/microsoft-365-app-certification/docs/userguide) in the Office Store section. 
+
 ## See also
 <a name="bk_addresources"> </a>
 
 - [Microsoft AppSource submission FAQ](appsource-submission-faq.md)
 - [Create effective listings](create-effective-office-store-listings.md)
 - [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies)
+- [Microsoft 365 App Compliance](https://docs.microsoft.com/microsoft-365-app-certification/overview)
  
 
