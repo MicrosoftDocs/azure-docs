@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/21/2020
+ms.date: 11/13/2020
 ms.author: kkrishna
-ms.reviewer: kkrishna, jmprieur
+ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
 ---
 
@@ -22,7 +22,7 @@ Role-based access control (RBAC) is a popular mechanism to enforce authorization
 
 Using RBAC with Application Roles and Role Claims, developers can securely enforce authorization in their apps with less effort.
 
-Another approach is to use Azure AD Groups and Group Claims, as shown in the [WebApp-GroupClaims-DotNet](https://github.com/Azure-Samples/WebApp-GroupClaims-DotNet) code sample on GitHub. Azure AD Groups and Application Roles are not mutually exclusive; they can be used in tandem to provide even finer-grained access control.
+Another approach is to use Azure AD Groups and Group Claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Azure AD Groups and Application Roles are not mutually exclusive; they can be used in tandem to provide even finer-grained access control.
 
 ## Declare roles for an application
 
@@ -33,7 +33,7 @@ There are two ways to declare app roles by using the the Azure portal:
 * [App roles UI](#app-roles-ui--preview) | Preview
 * [App manifest editor](#app-manifest-editor)
 
-The number of roles you add counts toward limits defined for an application manifest. For information about these limits, see the  [Manifest limits](./reference-app-manifest.md#manifest-limits) section of [Azure Active Directory app manifest reference](reference-app-manifest.md).
+The number of roles you add counts toward application manifest limits enforced by Azure Active Directory. For information about these limits, see the  [Manifest limits](./reference-app-manifest.md#manifest-limits) section of [Azure Active Directory app manifest reference](reference-app-manifest.md).
 
 ### App roles UI | Preview
 
@@ -183,17 +183,22 @@ Though you can use app roles or groups for authorization, key differences betwee
 
 | App roles                                                                          | Groups                                                      |
 |------------------------------------------------------------------------------------|-------------------------------------------------------------|
-| They are app-specific and defined on applications. They move with the application. | They are not specific to an app, but to an Azure AD tenant. |
+| They are specific to an application and are defined in the app registration. They move with the application. | They are not specific to an app, but to an Azure AD tenant. |
 | App roles are removed when their app registration is removed.                      | Groups remain intact even if the app is removed.            |
 | Provided in the `roles` claim.                                                     | Provided in `groups` claim.                                 |
-| Require implementation in back-end API code to support authorization.              | Do not require back-end code to support authorization.      |
+
+Developers can use app roles to control whether a user can sign in to an app or an app can obtain an access token for a web API. To extend this security control to groups, developers and admins can also assign security groups to app roles.
 
 ## Next steps
 
-Learn more about app roles with the following resources:
+Learn more about app roles with the following resources.
 
-* Code sample: [Add authorization using app roles & roles claims to an ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles) (GitHub)
+* Code samples on GitHub
+  * [Add authorization using groups and group claims to an ASP.NET Core web app](https://aka.ms/groupssample)
+  * [Angular single-page application (SPA) calling a .NET Core web API and using app roles and security groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
+* Reference documentation
+  * [Azure AD app manifest](./reference-app-manifest.md)
+  * [Azure AD access tokens](access-tokens.md)
+  * [Azure AD ID tokens](id-tokens.md)
+  * [Provide optional claims to your app](active-directory-optional-claims.md)
 * Video: [Implement authorization in your applications with Microsoft identity platform](https://www.youtube.com/watch?v=LRoc-na27l0) (1:01:15)
-* [Azure AD app manifest](./reference-app-manifest.md)
-* [Azure AD access tokens](access-tokens.md)
-* [Azure AD id_tokens](id-tokens.md)
