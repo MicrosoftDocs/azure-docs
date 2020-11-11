@@ -5705,13 +5705,13 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/tag.md",
-      "redirect_url": "/azure/virtual-machines/tag-cli.md",
-      "redirect_document_id": true
+      "redirect_url": "/azure/virtual-machines/tag-cli",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/tag.md",
-      "redirect_url": "/azure/virtual-machines/tag-portal.md",
-      "redirect_document_id": true
+      "redirect_url": "/azure/virtual-machines/tag-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
