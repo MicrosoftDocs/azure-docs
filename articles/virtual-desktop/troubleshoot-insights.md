@@ -37,28 +37,32 @@ Customized templates won't update when the product group updates the original te
 
 ## The data I need isn't available
 
-Looking for a data point to help diagnose an issue? Send us feedback!
+Can't find a data point to help diagnose an issue? Send us feedback!
 
-Here are some of the requests we are already aware of:
+<!--How will users give us feedback?-->
+
+Here are some requests from users that we're already aware of:
 
 - Expand the Time to Connect metric
 - Profile Storage and FSLogix information
 - Cost tracking and projections
 - User’s gateway connection region
 
+<!--This doesn't really feel like a proper troubleshooting section. We usually put our requests for feedback at the end of an article, too.-->
+
 ## Known issues
 
 These are the issues we're currently aware of and working to fix:
 
-- You can currently only select one subscription, resource group, and host pool to monitor at a time. Because of this, when using the User Reports section to understand a user’s experience, you need to verify that you have the correct host pool that the user has been using or their data will not populate the visuals.
+- You can currently only select one subscription, resource group, and host pool to monitor at a time. Because of this, when using the User Reports page to understand a user’s experience, you need to verify that you have the correct host pool that the user has been using or their data will not populate the visuals.
 
-- IT admins have to input subscription, resource groups, and host pool preferences each time they open Insights, it’s not possible to save favorite settings unless you save a custom template of the workbook.
+- It's not currently possible to save favorite settings in Insights unless you save a custom template of the workbook. This means that IT admins will have to enter their subscription name, resource group names, and host pool preferences every time they open Insights.
 
-- There is no way to export the data in Insights to excel.
+- There currently isn't a way to export Insights data into Excel.
 
-- All Severity 1 Azure Monitor alerts for the selected subscription will surface in the Overview page, even those unrelated to Windows Virtual Desktop. This is by design, as alerts from sources on the subscription may impact Windows Virtual Desktop.
+- All high priority Azure Monitor alerts for all products within the selected subscription will appear in the Overview page. This is by design, as alerts from other products in the subscription may impact Windows Virtual Desktop.
 
-- Error messages are difficult to understand: Today, some error messages are not user friendly and due to the ever-evolving state of errors, not all errors are captured in documentation.
+- Some error messages are not phrased in a user-friendly way, and due to the feature being in public preview, not all error messages are described in the documentation.
 
 ## Next steps
 
