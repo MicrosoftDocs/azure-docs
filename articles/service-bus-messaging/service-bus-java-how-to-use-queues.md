@@ -55,7 +55,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
     ```
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of the queue.
-3. Add a method named `CreateMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
+3. Add a method named `createMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
 
     ```java
     static List<ServiceBusMessage> createMessages()
@@ -107,9 +107,9 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
                 System.err.printf("Message is too large for an empty batch. Skipping. Max size: %s.", messageBatch.getMaxSizeInBytes());
             }
         }
-
-        System.out.println("Sent a batch of messages to the queue: " + queueName);
+        
         senderClient.sendMessages(messageBatch);
+        System.out.println("Sent a batch of messages to the queue: " + queueName);
 
         //close the client
         senderClient.close();
