@@ -173,7 +173,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
     d. Under **Authentication type**, select the appropriate authentication type that Data Factory should use to connect to your SQL Server database.
 
-    e. Under **User name** and **Password**, enter the user name and password. Use *mydomain\\myuser* for as user name if needed.
+    e. Under **User name** and **Password**, enter the user name and password. Use *mydomain\\myuser* as user name if needed.
 
     f. Select **Test connection**. This step is to confirm that Data Factory can connect to your SQL Server database by using the self-hosted integration runtime you created.
 
