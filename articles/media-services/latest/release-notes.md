@@ -54,6 +54,11 @@ A live event supports receiving various input aspect ratios. Stretch mode allows
 
 Live encoding now adds the capability of outputting fixed key frame interval fragments between 0.5 to 20 seconds.
 
+## Accounts
+
+> [!WARNING]
+> If you create a Media Services account with the 2020-05-01 API version it won’t work with RESTv2 
+
 ## August 2020
 
 ### Dynamic Encryption

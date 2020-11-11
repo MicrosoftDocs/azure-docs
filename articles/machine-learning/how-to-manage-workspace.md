@@ -189,7 +189,7 @@ Azure Security Center provides unified security management and advanced threat p
 
 By default, metrics and metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys.
 
-To limit the data that Microsoft collects on your workspace, select __High business impact workspace__ in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
+To limit the data that Microsoft collects on your workspace, select __High business impact workspace__ in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]	
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.	

@@ -4,8 +4,8 @@ description: Explanation configuration steps for a hosted test drive in the comm
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 11/06/2020
 ---
 
