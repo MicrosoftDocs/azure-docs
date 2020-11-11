@@ -67,11 +67,11 @@ To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **
 
 The .NET Spark notebook is based on the [.NET interactive](https://github.com/dotnet/interactive) experiences and provides interactive C# experiences with the ability to use .NET for Spark out of the box with the Spark session variable `spark` already predefined.
 
-### Installing Nuget packages in notebooks
+### Installing NuGet packages in notebooks
 
-You can install Nuget packages of your choice into your notebook by using the `#r` symbol before the name of the Nuget package. For example:
+You can install NuGet packages of your choice into your notebook by using the `#r` symbol before the name of the NuGet package. For example:
 
-![Spark .NET notebook Nuget package](./media/apache-spark-development-using-notebooks/synapse-sparkdotnet-notebook-nuget.png)
+![Spark .NET notebook NuGet package](./media/apache-spark-development-using-notebooks/synapse-sparkdotnet-notebook-nuget.png)
 
 ### .NET for Apache Spark C# kernel features
 
@@ -83,13 +83,13 @@ The following features are available when you use .NET for Apache Spark in the A
 * Access to the standard C# library (such as System, LINQ, Enumerables, and so on).
 * Support for C# 8.0 language features.
 * `spark` as a pre-defined variable to give you access to your Apache Spark session.
-* Support for defining [.NET user-defined functions that can run within Apache Spark](https://docs.microsoft.com/en-us/dotnet/spark/how-to-guides/udf-guide). It is recommended to go through [this article]() to understand how to use UDFs in .NET for Apache Spark interactive experiences.
+* Support for defining [.NET user-defined functions that can run within Apache Spark](/dotnet/spark/how-to-guides/udf-guide). It is recommended to go through [this article]() to understand how to use UDFs in .NET for Apache Spark interactive experiences.
 * Support for visualizing output from your Spark jobs using different charts (such as line, bar, or histogram) and layouts (such as single, overlaid, and so on) using the `XPlot.Plotly` library.
 * Ability to include NuGet packages into your C# notebook.
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](https://docs.microsoft.com/en-us/dotnet/spark/)
+* [.NET for Apache Spark documentation](/dotnet/spark/)
 * [.NET for Apache Spark Interactive guides]()
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Azure Synapse Analytics](synapse-analytics)
 * [.NET Interactive](https://devblogs.microsoft.com/dotnet/creating-interactive-net-documentation/)
