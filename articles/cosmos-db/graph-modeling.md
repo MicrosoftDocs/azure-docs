@@ -1,12 +1,12 @@
 ---
 title: 'Graph data modeling for Azure Cosmos DB Gremlin API'
 description: Learn how to model a graph database by using Azure Cosmos DB Gremlin API. This article describes when to use a graph database and best practices to model entities and relationships. 
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: jasonh
+ms.author: chrande
 ---
 
 # Graph data modeling for Azure Cosmos DB Gremlin API
@@ -73,7 +73,7 @@ One common pitfall is to map properties of a single entity as separate vertices.
 
 * **Property-embedded vertices**: This approach takes advantage of the key-value pair list to represent all the properties of the entity inside a vertex. This approach provides reduced model complexity, which will lead to simpler queries and more cost-efficient traversals.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Entity model with vertices for properties." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Diagram shows the Luis vertex from the previous diagram with i d, label, and properties." border="false":::
 
 > [!NOTE]
 > The above examples show a simplified graph model to only show the comparison between the two ways of dividing entity properties.

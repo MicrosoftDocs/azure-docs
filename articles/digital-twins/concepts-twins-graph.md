@@ -64,13 +64,15 @@ Here is some example client code that uses the [DigitalTwins APIs](/rest/api/dig
 await CreateRoom("Cafe", 70, 66);
 await CreateFloor("GroundFloor", averageTemperature=70);
 // Create relationships
-Dictionary<string, object> targetrec = new Dictionary<string, object>()
+var relationship = new BasicRelationship
 {
-    { "$targetId", "Cafe" }
+    TargetId = "Cafe",
+    Name = "contains"
 };
 try
 {
-    await client.DigitalTwins.AddEdgeAsync("GroundFloor", "contains", "GF-to-Cafe", targetrec);
+    string relId = $"GroundFloor-contains-Cafe";
+    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
 } catch(ErrorResponseException e)
 {
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");

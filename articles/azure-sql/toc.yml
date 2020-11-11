@@ -1,8 +1,11 @@
 - name: Azure SQL Documentation
   href: index.yml
-
-- name: What is Azure SQL? 
-  href: azure-sql-iaas-vs-paas-what-is-overview.md
+- name: Azure SQL 
+  items: 
+  - name: What is Azure SQL? 
+    href: azure-sql-iaas-vs-paas-what-is-overview.md
+  - name: Migrate to Azure SQL 
+    href: migration-guides/index.yml
 
 - name: Shared SQL DB & SQL MI docs 
   items:
@@ -318,6 +321,17 @@
       - name: Migrate SQLite to serverless
         href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md  
 
+  - name: Migration guides
+    items: 
+    - name: From DB2
+      href: migration-guides/database/db2-to-sql-database-guide.md
+    - name: From SQL Server
+      items: 
+      - name: Overview
+        href: migration-guides/database/sql-server-to-sql-database-overview.md
+      - name: Migrate
+        href: migration-guides/database/sql-server-to-sql-database-guide.md
+
   - name: Concepts
     items:
     - name: Connectivity architecture
@@ -383,7 +397,7 @@
           href: database/network-access-controls-overview.md
         - name: DNS aliases
           href: database/dns-alias-overview.md
-        - name: vNet endpoints
+        - name: VNet endpoints
           href: database/vnet-service-endpoint-rule-overview.md
         - name: Private Link
           href: database/private-endpoint-overview.md
@@ -734,6 +748,19 @@
       - name: MI pub, MI dist, SQL sub
         href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
 
+  - name: Migration guides
+    items: 
+    - name: From DB2
+      href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+    - name: From SQL Server
+      items: 
+      - name: Overview
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+      - name: Migrate
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+      - name: Performance baseline
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
+        
   - name: Concepts
     items:
     - name: Resource limits
@@ -990,7 +1017,7 @@
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
-- name: SQL Server on Azure VM
+- name: SQL Server on Azure VMs
   items:
   - name: Documentation
     href: virtual-machines/index.yml
@@ -1037,6 +1064,8 @@
           href: virtual-machines/windows/application-patterns-development-strategies.md
       - name: Management
         items:
+        - name: SQL IaaS Agent extension
+          href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
         - name: Dedicated host
           href: virtual-machines/windows/dedicated-host.md
         - name: Extend support for SQL 2008 & R2
@@ -1066,12 +1095,14 @@
           href: virtual-machines/windows/change-sql-server-version.md
         - name: Storage
           href: virtual-machines/windows/storage-configuration.md
+        - name: Automated Patching
+          href: virtual-machines/windows/automated-patching.md
         - name: Azure Key Vault Integration
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-        - name: Register with SQL VM RP
-          displayName: resource provider, registration
+        - name: Install SQL IaaS Agent extension
+          displayName: resource provider, registration, sql vm rp
           items:
           - name: Automatic registration
             href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
@@ -1079,12 +1110,7 @@
             href: virtual-machines/windows/sql-vm-resource-provider-register.md
           - name: Bulk register multiple VMs
             href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
-        - name: Automate management tasks
-          items:
-          - name: Use the SQL Server IaaS Agent Extension
-            href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
-          - name: Automated Patching
-            href: virtual-machines/windows/automated-patching.md
+
       - name: Migrate
         items:
         - name: SQL Server database to VM
@@ -1180,7 +1206,7 @@
       - name: Archived classic RM docs 
         href: /previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-create
       - name: SQL Server Data Tools (SSDT)
-        href: //sql/ssdt/download-sql-server-data-tools-ssdt
+        href: /sql/ssdt/download-sql-server-data-tools-ssdt
       - name: SQL Server Management Studio (SSMS)
         href: /sql/ssms/download-sql-server-management-studio-ssms
       - name: SQL Server Tools
@@ -1222,7 +1248,16 @@
         href: https://azure.microsoft.com/roadmap/?category=compute
       - name: Stack Overflow
         href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
-
+  
+  - name: Migration guides
+    items: 
+      - name: Overview
+        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
+      - name: From SQL Server
+        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+      - name: From DB2
+        href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
+        
 - name: Reference
   items:
   - name: T-SQL language reference

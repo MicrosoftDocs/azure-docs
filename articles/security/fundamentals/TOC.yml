@@ -53,7 +53,7 @@
   - name: Security checklist
     href: steps-secure-identity.md
   - name: Choose passwordless 
-    href: ad-passwordless.md
+    href: ../../active-directory/authentication/concept-authentication-passwordless.md
 
 
 
@@ -70,12 +70,14 @@
   - name: Dangling DNS and subdomain takeover
     href: subdomain-takeover.md
   - name: Secure hybrid network architecture
-    href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
 
 - name: IaaS security
   items:
   - name: Microsoft Antimalware
     href: antimalware.md
+  - name: Microsoft Antimalware code samples
+    href: antimalware-code-samples.md
   - name: Virtual machine security overview
     href: virtual-machines-overview.md
   - name: Best practices - IaaS workloads
@@ -104,13 +106,13 @@
   - name: Database security
     items:
     - name: Overview
-      href: ../../sql-database/sql-database-security-overview.md
+      href: ../../azure-sql/database/security-overview.md
     - name: Best practices
-      href: ../../sql-database/sql-database-security-best-practice.md
+      href: ../../azure-sql/database/security-best-practice.md
     - name: Security checklist
       href: database-security-checklist.md
   - name: Storage security guide
-    href: https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: ../../storage/blobs/security-recommendations.md?bc=%252fazure%252fsecurity%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fsecurity%252ftoc.json
   - name: Customer Lockbox
     href: customer-lockbox-overview.md
   - name: Security baseline for Customer Lockbox

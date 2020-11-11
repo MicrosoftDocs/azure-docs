@@ -1,6 +1,6 @@
 ---
 title: Query Azure Cosmos DB data using serverless SQL pool in Azure Synapse Link (preview)
-description: In this article, you'll learn how to query Azure Cosmos DB using SQL on-demand in Azure Synapse Link (preview).
+description: In this article, you'll learn how to query Azure Cosmos DB using serverless SQL pool in Azure Synapse Link (preview).
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 Synapse serverless SQL pool allows you to analyze data in your Azure Cosmos DB containers that are enabled with [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in near real time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the [analytical store](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface.
 
-For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) surface area is supported through the [OPENROWSET](develop-openrowset.md) function, including the majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage using [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand). You can't currently store serverless SQL pool query results to Azure Cosmos DB using [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) surface area is supported through the [OPENROWSET](develop-openrowset.md) function, including the majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage using [create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool). You can't currently store serverless SQL pool query results to Azure Cosmos DB using CETAS. 
 
 In this article, you'll learn how to write a query with serverless SQL pool that will query data from Azure Cosmos DB containers that are Synapse Link enabled. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this](./tutorial-data-analyst.md) tutorial. 
 
@@ -358,6 +358,6 @@ You can report suggestions and issues on [Azure Synapse feedback page](https://f
 
 For more information, see the following articles:
 
-- [Use Power BI and serverless Synapse SQL pool with Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
-- [How-to create and use views in SQL on-demand](create-use-views.md) 
-- [Tutorial on building SQL on-demand views over Azure Cosmos DB and connecting them to Power BI models via DirectQuery](./tutorial-data-analyst.md)
+- [Use Power BI and serverless SQL pool with Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
+- [How-to create and use views in serverless SQL pool](create-use-views.md) 
+- [Tutorial on building serverless SQL pool views over Azure Cosmos DB and connecting them to Power BI models via DirectQuery](./tutorial-data-analyst.md)
