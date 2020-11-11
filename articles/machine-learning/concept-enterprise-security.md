@@ -118,10 +118,11 @@ You may also want to encrypt [diagnostic information logged from your deployed e
 
 There are several monitoring scenarios with Azure Machine Learning, depending on the role and what is being monitored.
 
-| Role | Monitoring to use |
-| ---- | ----- |
-| Admin, DevOps, MLOps | [Azure Monitor metrics](#azure-monitor), [activity log](#activity-log), [vulnerability scanning](#vulnerability-scanning) |
-| Data Scientist, MLOps | [Monitor runs](#monitor-runs) |
+| Role | Monitoring to use | Description |
+| ---- | ----- | ----- |
+| Admin, DevOps, MLOps | [Azure Monitor metrics](#azure-monitor), [activity log](#activity-log), [vulnerability scanning](#vulnerability-scanning) | Service level information |
+| Data Scientist, MLOps | [Monitor runs](#monitor-runs) | Information logged during training runs |
+| MLOps | [Collect model data](how-to-enable-data-collection.md), [Monitor with Application Insights](how-to-enable-app-insights.md) | Information logged by models deployed as web services or IoT Edge modules|
 
 ### Monitor runs
 
