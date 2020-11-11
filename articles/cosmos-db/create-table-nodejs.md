@@ -11,6 +11,7 @@ ms.author: sngun
 ms.custom: devx-track-js
 ---
 # Quickstart: Build a Table API app with Node.js and Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)

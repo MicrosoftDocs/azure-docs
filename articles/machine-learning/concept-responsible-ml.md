@@ -69,7 +69,7 @@ In traditional cloud storage and computation solutions, the cloud needs to have 
 
 Homomorphic encryption allows for computations to be done on encrypted data without requiring access to a secret (decryption) key. The results of the computations are encrypted and can be revealed only by the owner of the secret key. Using homomorphic encryption, cloud operators will never have unencrypted access to the data they're storing and computing on. Computations are performed directly on encrypted data. Data privacy relies on state-of-the-art cryptography, and the data owner controls all information releases. For more information on homomorphic encryption at Microsoft, see [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
 
-To get started with homomorphic encryption in Azure Machine Learning, use the [encrypted-inference](https://pypi.org/project/encrypted-inference/) Python bindings for [Microsoft SEAL](https://github.com/microsoft/SEAL). Microsoft SEAL is an open-source homomorphic encryption library that allows additions and multiplications to be performed on encrypted integers or real numbers. To learn more about Microsoft SEAL, see the [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) or the [Microsoft Research project page](https://www.microsoft.com/research/project/microsoft-seal/).
+To get started with homomorphic encryption in Azure Machine Learning, use the [encrypted-inference](https://pypi.org/project/encrypted-inference/) Python bindings for [Microsoft SEAL](https://github.com/microsoft/SEAL). Microsoft SEAL is an open-source homomorphic encryption library that allows additions and multiplications to be performed on encrypted integers or real numbers. To learn more about Microsoft SEAL, see the [Azure Architecture Center](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) or the [Microsoft Research project page](https://www.microsoft.com/research/project/microsoft-seal/).
 
 See the following sample to learn [how to deploy an encrypted inferencing web service in Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
 
@@ -92,5 +92,5 @@ See the following sample to learn how to use the Azure Machine Learning SDK to i
 
 ## Additional resources
 
-- For more information, see the [responsible innovation toolkit](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) to learn about best practices.
+- For more information, see the [responsible innovation toolkit](/azure/architecture/guide/responsible-innovation/) to learn about best practices.
 - Learn more about the [ABOUT ML](https://www.partnershiponai.org/about-ml/) set of guidelines for machine learning system documentation.

@@ -23,7 +23,7 @@ For example, you can have your logic app:
 
 This article shows how to use the Request trigger and Response action so that your logic app can receive and respond to inbound calls.
 
-For information about encryption, security, and authorization for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), or [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+For more information about security, authorization, and encryption for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## Prerequisites
 
@@ -37,8 +37,7 @@ For information about encryption, security, and authorization for inbound calls 
 
 This built-in trigger creates a manually callable endpoint that can handle *only* inbound requests over HTTPS. When a caller sends a request to this endpoint, the [Request trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) fires and runs the logic app. For more information about how to call this trigger, see [Call, trigger, or nest workflows with HTTPS endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-Your logic app keeps an inbound request open only for a [limited time](../logic-apps/logic-apps-limits-and-config.md#request-limits). Assuming that your logic app includes a [Response action](#add-response), if your logic app doesn't send a response back to the caller after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` status to the caller. If your logic app doesn't include a Response action, 
-> your logic app immediately returns a `202 ACCEPTED` status to the caller.
+Your logic app keeps an inbound request open only for a [limited time](../logic-apps/logic-apps-limits-and-config.md#request-limits). Assuming that your logic app includes a [Response action](#add-response), if your logic app doesn't send a response back to the caller after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` status to the caller. If your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` status to the caller.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app.
 
@@ -190,6 +189,8 @@ Your logic app keeps an inbound request open only for a [limited time](../logic-
 1. To trigger your logic app, send an HTTP POST to the generated URL.
 
    For example, you can use a tool such as [Postman](https://www.getpostman.com/) to send the HTTP POST. For more information about the trigger's underlying JSON definition and how to call this trigger, see these topics, [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+
+For more information about security, authorization, and encryption for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## Trigger outputs
 

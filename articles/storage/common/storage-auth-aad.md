@@ -33,7 +33,7 @@ When a security principal (a user, group, or application) attempts to access a b
 
 The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access blobs or queues. To learn how to authorize requests made by a managed identity to the Azure Blob or Queue service, see [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md).
 
-The authorization step requires that one or more Azure roles be assigned to the security principal. Azure Storage provides Azure roles that encompass common sets of permissions for blob and queue data. The roles that are assigned to a security principal determine the permissions that the principal will have. To learn more about assigning Azure roles for Azure Storage, see [Manage access rights to storage data with Azure RBAC](storage-auth-aad-rbac.md).
+The authorization step requires that one or more Azure roles be assigned to the security principal. Azure Storage provides Azure roles that encompass common sets of permissions for blob and queue data. The roles that are assigned to a security principal determine the permissions that the principal will have. To learn more about assigning Azure roles for Azure Storage, see [Manage access rights to storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
 
 Native applications and web applications that make requests to the Azure Blob or Queue service can also authorize access with Azure AD. To learn how to request an access token and use it to authorize requests for blob or queue data, see [Authorize access to Azure Storage with Azure AD from an Azure Storage application](storage-auth-aad-app.md).
 
@@ -79,7 +79,7 @@ The Azure portal indicates which authorization scheme is in use when you navigat
 
 ### Data access from PowerShell or Azure CLI
 
-Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in, your session runs under those credentials. To learn more, see [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](authorize-active-directory-powershell.md).
+Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in, your session runs under those credentials. To learn more, see [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob or queue data](../blobs/authorize-active-directory-powershell.md).
 
 ## Next steps
 

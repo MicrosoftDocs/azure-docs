@@ -931,7 +931,7 @@ Use Azure Resource Graph to query/discover resources within your subscriptions. 
 
 Grant users or groups access to Kubernetes resources within a namespace or across the cluster using Azure AD integration. 
 
-Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of your AKS administrative groups; reconcile access on a regular basis. Use Azure CLI for operations such as ‘Get access credentials for a managed Kubernetes cluster. Implement Security Center Identity and Access Management recommendations.
+Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of your AKS administrative groups and use it to reconcile access on a regular basis. Use Azure CLI for operations such as ‘Get access credentials for a managed Kubernetes cluster. Implement Security Center Identity and Access Management recommendations.
 
 - [Manage AKS with Azure CLI](/cli/azure/aks?view=azure-cli-latest)
 

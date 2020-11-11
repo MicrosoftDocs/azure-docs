@@ -66,7 +66,7 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 #### [Version 3.1-preview.2](#tab/version-3-preview)
 
-Named Entity Recognition `v3.1-preview.2` uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
+Named Entity Recognition `v3.1-preview.2` uses separate endpoints for NER, PII and entity linking requests. Use a URL format below based on your request:
 
 Entity linking
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
@@ -78,6 +78,7 @@ NER
 
 [Named Entity Recognition version 3.1-preview reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
 
+Personally Identifiable Information (PII)
 * Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 You can also use the optional `domain=phi` parameter to detect health (`PHI`) information in text. 

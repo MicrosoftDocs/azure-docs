@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # Create a database and container with autoscale for Azure Cosmos DB - SQL API
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

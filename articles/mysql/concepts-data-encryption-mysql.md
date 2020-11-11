@@ -1,8 +1,8 @@
 ---
 title: Data encryption with customer-managed key - Azure Database for MySQL
 description: Azure Database for MySQL data encryption with a customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
@@ -91,7 +91,7 @@ When you configure data encryption with a customer-managed key in Key Vault, con
 * If we create a read replica for your Azure Database for MySQL, which has data encryption enabled, the replica server will be in *Inaccessible* state. You can fix this through [Azure portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) or [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * If you delete the KeyVault, the Azure Database for MySQL will be unable to access the key and will move to *Inaccessible* state. Recover the [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) and revalidate the data encryption to make the server *Available*.
 * If we delete the key from the KeyVault, the Azure Database for MySQL will be unable to access the key and will move to *Inaccessible* state. Recover the [Key](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) and revalidate the data encryption to make the server *Available*.
-* If the key stored in the Azure KeyVault expires, the key will become invalid and the Azure Database for MySQL will transition into *Inaccessible* state. Extend the key expiry date using [CLI](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-set-attributes) and then revalidate the data encryption to make the server *Available*.
+* If the key stored in the Azure KeyVault expires, the key will become invalid and the Azure Database for MySQL will transition into *Inaccessible* state. Extend the key expiry date using [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) and then revalidate the data encryption to make the server *Available*.
 
 ### Accidental key access revocation from Key Vault
 

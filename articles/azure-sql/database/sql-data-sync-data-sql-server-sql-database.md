@@ -56,7 +56,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 |----------|----------------------------|
 | Disaster Recovery | [Azure geo-redundant backups](automated-backups-overview.md) |
 | Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](read-scale-out.md) |
-| ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
+| ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
 | Migration from SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -95,7 +95,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 
 ### Did something go wrong
 
-- [Troubleshoot issues with Azure SQL Data Sync](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Troubleshoot issues with Azure SQL Data Sync](./sql-data-sync-troubleshoot.md)
 
 ## Consistency and performance
 
@@ -120,7 +120,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 > - Data between hub and member can be lost even though sync does not report any issue.
 > - Sync can fail because the tracking table has a non-existing row from source due to the primary key change.
 
-- Snapshot isolation must be enabled for both Sync members and hub. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- Snapshot isolation must be enabled for both Sync members and hub. For more info, see [Snapshot Isolation in SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### General limitations
 
@@ -242,20 +242,19 @@ The Dynamics 365 bring your own database feature lets administrators export data
 
 Do you have to update the schema of a database in a sync group? Schema changes aren't automatically replicated. For some solutions, see the following articles:
 
-- [Automate the replication of schema changes with SQL Data Sync in Azure](../../sql-database/sql-database-update-sync-schema.md)
+- [Automate the replication of schema changes with SQL Data Sync in Azure](./sql-data-sync-update-sync-schema.md)
 - [Use PowerShell to update the sync schema in an existing sync group](scripts/update-sync-schema-in-sync-group.md)
 
 ### Monitor and troubleshoot
 
 Is SQL Data Sync doing as expected? To monitor activity and troubleshoot issues, see the following articles:
 
-- [Monitor SQL Data Sync with Azure Monitor logs](../../sql-database/sql-database-sync-monitor-oms.md)
-- [Troubleshoot issues with Azure SQL Data Sync](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Monitor SQL Data Sync with Azure Monitor logs](./monitor-tune-overview.md)
+- [Troubleshoot issues with Azure SQL Data Sync](./sql-data-sync-troubleshoot.md)
 
 ### Learn more about Azure SQL Database
 
 For more info about Azure SQL Database, see the following articles:
 
 - [SQL Database Overview](sql-database-paas-overview.md)
-- [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
- 
+- [Database Lifecycle Management](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))
