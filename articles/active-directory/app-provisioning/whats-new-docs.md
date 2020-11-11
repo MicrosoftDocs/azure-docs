@@ -9,7 +9,6 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-services: active-directory
 ---
 
 # Azure Active Directory application provisioning: What's new
