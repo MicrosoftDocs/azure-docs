@@ -52,9 +52,7 @@ Or by creating a configuration file named `applicationinsights.json`, and placin
 
 ```json
 {
-  "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=..."
-  }
+  "connectionString": "InstrumentationKey=..."
 }
 ```
 
