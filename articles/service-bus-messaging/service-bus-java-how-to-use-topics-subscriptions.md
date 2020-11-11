@@ -65,7 +65,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
         ServiceBusMessage[] messages = {
         		new ServiceBusMessage("First message"),
         		new ServiceBusMessage("Second message"),
-        		new ServiceBusMessage("Three message")
+        		new ServiceBusMessage("Third message")
         };
         return Arrays.asList(messages);
     }
@@ -178,7 +178,7 @@ Sent a batch of messages to the topic: mytopic
 Starting the processor
 Received message: First message from the subscription: mysub
 Received message: Second message from the subscription: mysub
-Received message: Three message from the subscription: mysub
+Received message: Third message from the subscription: mysub
 Stopping and closing the processor
 ```
 
