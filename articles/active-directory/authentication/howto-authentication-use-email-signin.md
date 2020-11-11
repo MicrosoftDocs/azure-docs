@@ -269,5 +269,5 @@ For more information on hybrid identity operations, see [how password hash sync]
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
 [New-AzureADPolicy]: /powershell/module/azuread/new-azureadpolicy
 [Set-AzureADPolicy]: /powershell/module/azuread/set-azureadpolicy
-[staged-rollout]: /powershell/module/azuread/?view=azureadps-2.0-preview#staged-rollout
+[staged-rollout]: /powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged-rollout
 [my-profile]: https://myprofile.microsoft.com
