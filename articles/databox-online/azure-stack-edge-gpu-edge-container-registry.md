@@ -36,9 +36,8 @@ Before you begin, make sure that:
 1. You have the Kubernetes API endpoint from the **Device** page of your local web UI. For more information, see the instructions in [Get Kubernetes API endpoint](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints).
 
 1. You've access to a client system with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). If using a Windows client, the system should run PowerShell 5.0 or later to access the device.
+
     1. If you want to pull and push your own container images, make sure that the system has Docker client installed. If using a Windows client, [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/).  
-
-
 
 
 ## Enable container registry as add-on
@@ -158,9 +157,9 @@ You may want to access the container registry from outside of your Azure Stack E
     
 1. Browse to `http://localhost:8080` to view the running container. In this case, you will see the nginx webserver running.
 
-        ![View the running container](media/azure-stack-edge-gpu-edge-container-registry/view-running-container-1.png)
+    ![View the running container](media/azure-stack-edge-gpu-edge-container-registry/view-running-container-1.png)
 
-        To stop and remove the container, press `Control+C`.
+    To stop and remove the container, press `Control+C`.
    
 
 ## Use Edge container registry images via Kubernetes pods
