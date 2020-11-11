@@ -7,7 +7,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/31/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
@@ -56,6 +56,7 @@ When streaming via RTMPS, check firewall and/or proxy settings to confirm that o
 > Encoders must support TLS 1.2 when using the RTMPS protocols.
 
 - Adobe Flash Media Live Encoder 3.2
+- [Antix Digital](http://www.antixdigital.com/) StreamZ Live (previously Imagine Communication SelenioFlex Live)
 - [Blackmagic ATEM Mini and ATEM Mini PRO](https://www.blackmagicdesign.com/products/atemmini)
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - Elemental Live (version 2.14.15 and higher)
@@ -84,11 +85,11 @@ Media Services recommends using one of the following live encoders that have mul
 > Encoders must support TLS 1.2 when using HTTPS protocols.
 
 - Ateme TITAN Live
+- [Antix Digital](http://www.antixdigital.com/) StreamZ Live (previously Imagine Communication SelenioFlex Live)
 - Cisco Digital Media Encoder 2200
 - Elemental Live (version 2.14.15 and higher due to the TLS 1.2 requirement)
 - Envivio 4Caster C4 Gen III 
 - [Ffmpeg](https://www.ffmpeg.org)
-- Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
 
 > [!TIP]
