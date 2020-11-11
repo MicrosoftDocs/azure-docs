@@ -206,7 +206,7 @@ You can now deploy the image that you pushed in your Edge container registry fro
 
 3. Deploy a pod to your namespace using kubectl. Use the following `yaml`. 
 
-    Replace the image: <image-name> with the image pushed to container registry. Refer to the secrets in your namespaces using imagePullSecrets with a name `ase-ecr-credentials`.
+    Replace the image: `<image-name>` with the image pushed to the container registry. Refer to the secrets in your namespaces using imagePullSecrets with a name: `ase-ecr-credentials`.
 	
     ```yml
     apiVersion: v1
