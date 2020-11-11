@@ -1,9 +1,14 @@
 ---
-author: cynthn
+title: How to tag a VM using a template
+description: Learn about tagging a virtual machine using a template.
 ms.service: virtual-machines
+ms.topic: how-to
+ms.workload: infrastructure-services
+ms.author: cynthn
+author: cynthn
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: cynthn
+
 ---
 
 ## Tagging a Virtual Machine through Templates
