@@ -252,7 +252,8 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## Notebook examples
 
-The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article.
++ The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article.
++ See how to [parametize datasets in your ML pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
 
 ## Next steps
 

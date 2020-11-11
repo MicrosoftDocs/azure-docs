@@ -28,6 +28,7 @@ The following table outlines the regions ultra disks are available in, as well a
 |South Central US    |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |US Gov Arizona     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |US Gov Virginia     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
+|US Gov Texas     |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |West US     |Single VMs only (Availability sets and virtual machine scale sets are not supported)        |
 |Australia Central    |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |Australia East     |Three availability zones         |
