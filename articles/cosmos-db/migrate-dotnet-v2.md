@@ -1,6 +1,10 @@
 ---
 title: Migrate your application to use the Azure Cosmos DB .NET SDK 2.0 (Microsoft.Azure.Cosmos)
+<<<<<<< HEAD
 description: Learn how to upgrade your existing .NET application from the v1 SDK to .NET SDK v2 for Core (SQL) API.
+=======
+description: Learn how to upgrade your existing .NET application from the v1 SDK to .NET SDK v2 (com.azure.cosmos package) for Core (SQL) API.
+>>>>>>> a9b8336ca234533d750240ab6ff20829997a1fc6
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
@@ -14,7 +18,11 @@ ms.date: 10/15/2020
 > It is important to note that the v3 of the .NET SDK is currently available and a migration plan from v2 to v3 is available [here](migrate-dotnet-v3.md). To learn about the Azure Cosmos DB .NET SDK v2, see the [Release notes](sql-api-sdk-dotnet.md), the [.NET GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v2), .NET SDK v2 [Performance Tips](performance-tips.md), and the [Troubleshooting guide](troubleshoot-dot-net-sdk.md).
 >
 
+<<<<<<< HEAD
 This article highlights some of the considerations to upgrade your existing v1 .NET application to Azure Cosmos DB .NET SDK v2 for Core (SQL) API. Azure Cosmos DB .NET SDK v2 corresponds to the `Microsoft.Azure.DocumentDB` namespace. You can use the information provided in this document if you are migrating your application from any of the following Azure Cosmos DB .NET Platforms:
+=======
+This article highlights some of the considerations to upgrade your existing v1 .NET application to Azure Cosmos DB .NET SDK v2 for Core (SQL) API. Azure Cosmos DB .NET SDK v2 corresponds to the `Microsoft.Azure.DocumentDB` namespace. You can use the information provided in this document if you are migrating your application from any of the following Azure Cosmos DB .NET Platforms to use the V2 SDK `Microsoft.Azure.Cosmos`:
+>>>>>>> a9b8336ca234533d750240ab6ff20829997a1fc6
 
 * Azure Cosmos DB .NET Framework v1 SDK for SQL API
 * Azure Cosmos DB .NET Core SDK v1 for SQL API
@@ -24,7 +32,11 @@ This article highlights some of the considerations to upgrade your existing v1 .
 The v2 SDK contains many usability and performance improvements, including:
 
 * Support for TCP direct mode for non-Windows clients
+<<<<<<< HEAD
 * Multi-region write support
+=======
+* Multi-regions write support
+>>>>>>> a9b8336ca234533d750240ab6ff20829997a1fc6
 * Improvements on query performance
 * Support for geospatial/geometry collections and indexing
 * Increased improvements for direct/TCP transport diagnostics
@@ -63,9 +75,13 @@ The 2.1.x library has the following key changes:
 * Improved handling of errors and exceptions
 * Additional support for partitioned lease collections
 * Advanced extensions to implement the `ChangeFeedDocument` interface and class for additional error handling and tracing
+<<<<<<< HEAD
 * Added support for using a custom store to persist continuation tokens per partition
+=======
+* Added support for using custom store to persist continuation tokens per partition
+>>>>>>> a9b8336ca234533d750240ab6ff20829997a1fc6
 
-For more information, see the [change feed processor library in Azure Cosmos DB](change-feed.md) and the change feed processor SDK [release notes](sql-api-sdk-dotnet-changefeed.md).
+For more information, see the change feed processor library [release notes](sql-api-sdk-dotnet-changefeed.md).
 
 ### Using the bulk executor library
 
