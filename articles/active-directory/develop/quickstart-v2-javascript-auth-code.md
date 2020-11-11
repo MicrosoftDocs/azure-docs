@@ -18,7 +18,9 @@ ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-j
 
 # Quickstart: Sign in users and get an access token in a JavaScript SPA using the auth code flow
 
-In this quickstart, you run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. The code sample also demonstrates obtaining an access token to call a web API, in this case the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
+In this quickstart, you download and run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users and call Microsoft Graph using the authorization code flow. The code sample demonstrates how to obtain an access token to call the Microsoft Graph API or any web API. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar quickstart that uses MSAL.js 1.0 with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](./quickstart-v2-javascript.md).
 
@@ -197,4 +199,4 @@ npm install @azure/msal-browser
 For a more detailed step-by-step guide on building the application used in this quickstart, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial to sign in and call MS Graph >](./tutorial-v2-javascript-auth-code.md)
+> [Tutorial to sign in and call MS Graph](./tutorial-v2-javascript-auth-code.md)
