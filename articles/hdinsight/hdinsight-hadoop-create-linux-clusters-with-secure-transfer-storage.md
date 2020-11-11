@@ -27,7 +27,7 @@ To update an existing storage account with Azure portal, see [Require secure tra
 
 ### PowerShell
 
-For the PowerShell cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount), ensure parameter `-EnableHttpsTrafficOnly` is set to `1`.
+For the PowerShell cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount), ensure parameter `-EnableHttpsTrafficOnly` is set to `1`.
 
 To update an existing storage account with PowerShell, see [Require secure transfer with PowerShell](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell).
 

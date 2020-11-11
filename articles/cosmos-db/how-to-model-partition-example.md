@@ -3,6 +3,7 @@ title: Model and partition data on Azure Cosmos DB with a real-world example
 description: Learn how to model and partition a real-world example using the Azure Cosmos DB Core API
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
@@ -10,6 +11,7 @@ ms.custom: devx-track-js
 ---
 
 # How to model and partition data on Azure Cosmos DB using a real-world example
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article builds on several Azure Cosmos DB concepts like [data modeling](modeling-data.md), [partitioning](partitioning-overview.md), and [provisioned throughput](request-units.md) to demonstrate how to tackle a real-world data design exercise.
 

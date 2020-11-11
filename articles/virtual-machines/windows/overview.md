@@ -100,6 +100,12 @@ The resources in this table are used by the VM and need to exist or be created w
 | [Network interface](../../virtual-network/virtual-network-network-interface.md) |Yes |The VM needs the network interface to communicate in the network. |
 | [Data disks](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |The VM can include data disks to expand storage capabilities. |
 
+
+## Data residency
+
+In Azure, the feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+
+
 ## Next steps
 
 Create your first VM!

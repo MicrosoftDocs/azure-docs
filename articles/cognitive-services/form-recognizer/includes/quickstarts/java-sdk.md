@@ -15,7 +15,7 @@ ms.author: pafarley
 > [!IMPORTANT]
 > The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
 
-[Reference documentation](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## Prerequisites
 
@@ -101,10 +101,6 @@ In the application's **main** method, add calls for the methods used in this qui
 * To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, take the URL of a document located elsewhere.
 * Use the above method to get the URL of a receipt image as well.
 
-> [!NOTE]
-> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview).
-
-
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
@@ -133,7 +129,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 - Copying a custom model from one Form Recognizer resource to another.
 
 > [!NOTE]
-> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](../../quickstarts/label-tool.md).
 
 ## Code examples
 
@@ -156,10 +152,12 @@ At the top of your **main** method, add the following code. Here, you'll authent
 
 You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
 
-To recognize the content of a file at a given URI, use the **beginRecognizeContentFromUrl** method.
+To recognize the content of a file at a given URL, use the **beginRecognizeContentFromUrl** method.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_call)]
 
+> [!TIP]
+> You can also get content from a local file. See the [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) methods, such as **beginRecognizeContent**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) for scenarios involving local images.
 
 The returned value is a collection of **FormPage** objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
 
@@ -187,12 +185,14 @@ Cell has text ET.
 
 This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model.
 
-To recognize receipts from a URI, use the **beginRecognizeReceiptsFromUrl** method. The returned value is a collection of **RecognizedReceipt** objects: one for each page in the submitted document.
+To recognize receipts from a URI, use the **beginRecognizeReceiptsFromUrl** method. 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
+> [!TIP]
+> You can also get recognize local receipt images. See the [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) methods, such as **beginRecognizeReceipts**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) for scenarios involving local images.
 
-The next block of code iterates through the receipts and prints their details to the console.
+The returned value is a collection of **RecognizedReceipt** objects: one for each page in the submitted document. The next block of code iterates through the receipts and prints their details to the console.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print)]
 
@@ -300,12 +300,14 @@ This section demonstrates how to extract key/value information and other content
 > [!IMPORTANT]
 > In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#train-a-model-without-labels) section.
 
-You'll use the **beginRecognizeCustomFormsFromUrl** method. The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document.
+You'll use the **beginRecognizeCustomFormsFromUrl** method. 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_call)]
 
+> [!TIP]
+> You can also analyze a local file. See the [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) methods, such as **beginRecognizeCustomForms**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) for scenarios involving local images.
 
-The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
+The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document.The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_print)]
 

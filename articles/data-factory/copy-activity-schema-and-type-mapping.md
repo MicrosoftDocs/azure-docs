@@ -50,7 +50,7 @@ You can configure the mapping on Data Factory authoring UI -> copy activity -> m
 | path     | JSON path expression for each field to extract or map. Apply for hierarchical source and sink, for example, Cosmos DB, MongoDB, or REST connectors.<br>For fields under the root object, the JSON path starts with root `$`; for fields inside the array chosen by `collectionReference` property, JSON path starts from the array element without `$`. | No       |
 | type     | Data Factory interim data type of the source or sink column. In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
 | culture  | Culture of the source or sink column. Apply when type is `Datetime` or `Datetimeoffset`. The default is `en-us`.<br>In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
-| format   | Format string to be used when type is `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
+| format   | Format string to be used when type is `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
 
 The following properties are supported under `translator` in addition to `mappings`:
 
@@ -310,9 +310,9 @@ The following properties are supported in copy activity for data type conversion
 | *Under `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Allow data truncation when converting source data to sink with different type during copy, for example, from decimal to integer, from DatetimeOffset to Datetime. <br>Default value is true. | No       |
 | treatBooleanAsNumber             | Treat booleans as numbers, for example, true as 1.<br>Default value is false. | No       |
-| dateTimeFormat                   | Format string when converting between dates without time zone offset and strings, for example, `yyyy-MM-dd HH:mm:ss.fff`.  Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
-| dateTimeOffsetFormat             | Format string when converting between dates with time zone offset and strings, for example, `yyyy-MM-dd HH:mm:ss.fff zzz`.  Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
-| timeSpanFormat                   | Format string when converting between time periods and strings, for example, `dd\.hh\:mm`. Refer to [Custom TimeSpan Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) for detailed information. | No       |
+| dateTimeFormat                   | Format string when converting between dates without time zone offset and strings, for example, `yyyy-MM-dd HH:mm:ss.fff`.  Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
+| dateTimeOffsetFormat             | Format string when converting between dates with time zone offset and strings, for example, `yyyy-MM-dd HH:mm:ss.fff zzz`.  Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
+| timeSpanFormat                   | Format string when converting between time periods and strings, for example, `dd\.hh\:mm`. Refer to [Custom TimeSpan Format Strings](/dotnet/standard/base-types/custom-timespan-format-strings) for detailed information. | No       |
 | culture                          | Culture information to be used when convert types, for example, `en-us` or `fr-fr`. | No       |
 
 **Example:**

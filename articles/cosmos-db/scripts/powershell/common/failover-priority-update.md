@@ -9,6 +9,7 @@ ms.author: mjbrown
 ---
 
 # Change failover priority or trigger failover for an Azure Cosmos account with single write region by using PowerShell
+[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

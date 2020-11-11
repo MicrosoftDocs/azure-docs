@@ -652,7 +652,7 @@ Microsoft performs vulnerability management on the underlying systems that suppo
 
 - [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -794,7 +794,7 @@ In addition, use the Azure Resource Graph to query for and discover resources wi
 
 Enforce SSL connection should be enabled for MySQL database servers
 
-- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -834,9 +834,9 @@ Enforce SSL connection should be enabled for MySQL database servers
 
 **Guidance**: If using custom Azure Policy definitions for your Azure Database for MySQL instances and related resources, use Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center monitoring**: Not applicable
 

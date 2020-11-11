@@ -25,13 +25,13 @@ This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azu
 ## Prerequisites
 This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to log in to your account using the [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account. 
+You'll need to log in to your account using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account. 
 
 ```azurecli-interactive
 az login
 ```
 
-Select the specific subscription under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list).
+Select the specific subscription under your account using [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for **subscription** argument in the command. If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscription, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -139,5 +139,3 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 
 > [!div class="nextstepaction"]
 >[Build a PHP app on Windows with MySQL](../app-service/tutorial-php-mysql-app.md)
->[Build PHP app on Linux with MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)
->[Build Java based Spring App with MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)

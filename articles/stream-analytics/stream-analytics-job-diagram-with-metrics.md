@@ -70,15 +70,15 @@ If the preceding query step is an input processor, use the input metrics to help
  
 ### Are we falling behind in reading data?
 
-*   **Input Events Backlogged (Total)** tells you how many more messages need to be read for Event Hubs and Azure IoT Hub inputs. When this number is greater than 0, it means your job can't process the data as fast as it is coming in. In this case you may need to increase the number of Streaming Units and/or make sure your job can be parallelized. You can see more info on this on the  [query parallelization page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
+*   **Input Events Backlogged (Total)** tells you how many more messages need to be read for Event Hubs and Azure IoT Hub inputs. When this number is greater than 0, it means your job can't process the data as fast as it is coming in. In this case you may need to increase the number of Streaming Units and/or make sure your job can be parallelized. You can see more info on this on the  [query parallelization page](./stream-analytics-parallelization.md). 
 
 
 ## Get help
-For additional assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
+For additional assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
 * [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Stream Analytics management REST API reference](/rest/api/streamanalytics/)

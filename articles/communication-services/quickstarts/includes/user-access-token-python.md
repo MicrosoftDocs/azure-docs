@@ -78,7 +78,7 @@ print("\nCreated a user with ID: " + user.identifier + ":")
 
 ## Issue user access tokens
 
-Use the `issue_token` method to issue an access token for a Communication Services user. If you do not provide the optional `user` parameter a new user will be created and returned with the token.
+Use the `issue_token` method to issue an access token for a Communication Services user. A user needs to be created before a token can be issued.
 
 ```python
 # Issue an access token with the "voip" scope for a new user

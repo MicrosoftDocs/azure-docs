@@ -38,7 +38,9 @@
       href: quickstart-v2-aspnet-webapp.md
     - name: ASP.NET Core
       href: quickstart-v2-aspnet-core-webapp.md
-    - name: NodeJS
+    - name: Node.js - MSAL | Preview
+      href: quickstart-v2-nodejs-webapp-msal.md
+    - name: Node.js - Passport.js
       href: quickstart-v2-nodejs-webapp.md
       displayName: OIDC
     - name: Java
@@ -557,6 +559,7 @@
       href: howto-add-branding-in-azure-ad-apps.md
     - name: Configure publisher domain
       href: howto-configure-publisher-domain.md
+      displayName: verified domain, verified publisher domain
     - name: Configure Terms of Service and Privacy Statement
       href: howto-add-terms-of-service-privacy-statement.md
     - name: Configure publisher verification for your app

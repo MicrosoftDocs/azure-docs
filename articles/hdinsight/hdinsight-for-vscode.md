@@ -429,7 +429,7 @@ Spark & Hive for Visual Studio Code also supports the following features:
 
 ## Reader-only role
 
-Users who are assigned the reader-only role for the cluster can't submit jobs to the HDInsight cluster, nor view the Hive database. Contact the cluster administrator to upgrade your role to [**HDInsight Cluster Operator**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure portal](https://portal.azure.com/). If you have valid Ambari credentials, you can manually link the cluster by using the following guidance.
+Users who are assigned the reader-only role for the cluster can't submit jobs to the HDInsight cluster, nor view the Hive database. Contact the cluster administrator to upgrade your role to [**HDInsight Cluster Operator**](./hdinsight-migrate-granular-access-cluster-configurations.md#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure portal](https://portal.azure.com/). If you have valid Ambari credentials, you can manually link the cluster by using the following guidance.
 
 ### Browse the HDInsight cluster  
 

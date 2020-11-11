@@ -296,7 +296,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
       }
       ```
 
-      Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
+      Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](/previous-versions/azure/dn835050(v=azure.100)) for details about JSON properties.
 
       > [!NOTE]
       > Specifying input for the AzureMLBatchExecution activity is optional.
@@ -304,7 +304,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
       >
 
 ### Scenario: Experiments using Reader/Writer Modules to refer to data in various storages
-Another common scenario when creating Studio (classic) experiments is to use Reader and Writer modules. The reader module is used to load data into an experiment and the writer module is to save data from your experiments. For details about reader and writer modules, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.
+Another common scenario when creating Studio (classic) experiments is to use Reader and Writer modules. The reader module is used to load data into an experiment and the writer module is to save data from your experiments. For details about reader and writer modules, see [Reader](/azure/machine-learning/studio-module-reference/import-data) and [Writer](/azure/machine-learning/studio-module-reference/export-data) topics on MSDN Library.
 
 When using the reader and writer modules, it is good practice to use a Web service parameter for each property of these reader/writer modules. These web parameters enable you to configure the values during runtime. For example, you could create an experiment with a reader module that uses an Azure SQL Database: XXX.database.windows.net. After the web service has been deployed, you want to enable the consumers of the web service to specify another logical SQL server called YYY.database.windows.net. You can use a Web service parameter to allow this value to be configured.
 
@@ -400,7 +400,7 @@ When using the reader module in a Studio (classic) experiment, you can specify A
 In the above JSON example:
 
 * The deployed Studio (classic) Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.
-* Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
+* Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](/previous-versions/azure/dn835050(v=azure.100)) for details about JSON properties.
 
 ### Other scenarios
 #### Web service requires multiple inputs
@@ -545,7 +545,7 @@ After you are done with retraining, update the scoring web service (predictive e
 ### Reader and Writer Modules
 A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The reader module is used to load data into an experiment from data management services outside Studio (classic). The writer module is to save data from your experiments into data management services outside Studio (classic).
 
-For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.
+For details about Azure Blob/Azure SQL reader/writer, see [Reader](/azure/machine-learning/studio-module-reference/import-data) and [Writer](/azure/machine-learning/studio-module-reference/export-data) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.
 
 ## Frequently asked questions
 **Q:** I have multiple files that are generated by my big data pipelines. Can I use the AzureMLBatchExecution Activity to work on all the files?

@@ -44,8 +44,8 @@ Learn more:
 
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](antimalware.md)
-* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](/azure/virtual-machines/windows/classic/install-trend)
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](/azure/virtual-machines/windows/classic/install-symantec)
+* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](../../virtual-machines/extensions/trend.md)
+* [How to install and configure Symantec Endpoint Protection on a Windows VM](../../virtual-machines/extensions/symantec.md)
 * [New Antimalware Options for Protecting Azure Virtual Machines](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## Multi-Factor Authentication
@@ -57,7 +57,7 @@ Multi-Factor Authentication helps safeguard access to data and applications whil
 Learn more:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [What is Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
+* [What is Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [How Azure Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## ExpressRoute
@@ -108,7 +108,7 @@ By providing notifications and recommended remediation, Identity Protection help
 
 Learn more:
 
-* [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection)
+* [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## Security Center
@@ -125,8 +125,8 @@ Security Center helps you optimize and monitor the security of your Azure resour
 
 Learn more:
 
-* [Introduction to Azure Security Center](../../security-center/security-center-intro.md)
-* [Improve your secure score in Azure Security Center](../../security-center/security-center-secure-score.md)
+* [Introduction to Azure Security Center](../../security-center/security-center-introduction.md)
+* [Improve your secure score in Azure Security Center](../../security-center/secure-score-security-controls.md)
 
 ## Intelligent Security Graph
 

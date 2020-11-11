@@ -1,8 +1,8 @@
 ---
 title: Private Link - Azure CLI - Azure Database for MariaDB
 description: Learn how to configure private link for Azure Database for MariaDB from Azure CLI
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020 

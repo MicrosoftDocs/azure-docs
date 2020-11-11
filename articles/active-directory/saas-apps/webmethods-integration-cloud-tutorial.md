@@ -95,7 +95,7 @@ To configure Azure AD single sign-on with webMethods Integration Suite, perform 
 
 4. To configure the **webMethods Integration Cloud**, on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![webMethods Integration Suite Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
@@ -112,7 +112,7 @@ To configure Azure AD single sign-on with webMethods Integration Suite, perform 
 
 	c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![webMethods Integration Suite Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     d. In the **Sign-on URL** text box, type a URL using the following pattern:
 
@@ -125,7 +125,7 @@ To configure Azure AD single sign-on with webMethods Integration Suite, perform 
 
 5. To configure the **webMethods API Cloud**, on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-	![webMethods Integration Suite Domain and URLs single sign-on information](common/idp-intiated.png)
+	![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
@@ -141,7 +141,7 @@ To configure Azure AD single sign-on with webMethods Integration Suite, perform 
 
 	c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![webMethods Integration Suite Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     d. In the **Sign-on URL** text box, type a URL using the following pattern:
 

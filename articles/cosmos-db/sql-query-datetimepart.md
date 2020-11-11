@@ -3,12 +3,14 @@ title: DateTimePart in Azure Cosmos DB query language
 description: Learn about SQL system function DateTimePart in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
 ---
 # DateTimePart (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Returns the value of the specified DateTimePart between the specified DateTime.
   

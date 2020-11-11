@@ -36,6 +36,5 @@ To enable data encryption for your Content Moderator Review Team, see the [Quick
 ## Next steps
 
 * For a full list of services that support CMK, see [Customer-Managed Keys for Cognitive Services](../encryption/cognitive-services-encryption-keys-portal.md)
-* [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+* [What is Azure Key Vault](../../key-vault/general/overview.md)?
 * [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
-

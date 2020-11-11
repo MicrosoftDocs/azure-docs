@@ -23,6 +23,8 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 > * Update data
 > * Restore data
 
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 You may use the Azure Cloud Shell in the browser, or [Install Azure CLI]( /cli/azure/install-azure-cli) on your own computer to run the code blocks in this tutorial.
@@ -191,12 +193,25 @@ Restoring a server to a point-in-time creates a new server, copied as the origin
 
 The command is synchronous, and will return after the server is restored. Once the restore finishes, locate the new server that was created. Verify the data was restored as expected.
 
+## Clean up resources
+If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following command: 
+
+```azurecli-interactive
+az group delete --name myresourcegroup
+```
+
+If you would just like to delete the one newly created server, you can run [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete) command.
+
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
 ## Next steps
 In this tutorial you learned to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL server
 > * Configure the server firewall
-> * Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use the mysql command-line tool to create a database
 > * Load sample data
 > * Query data
 > * Update data

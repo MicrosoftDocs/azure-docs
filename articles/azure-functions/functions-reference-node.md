@@ -15,7 +15,7 @@ As an Express.js, Node.js, or JavaScript developer, if you are new to Azure Func
 
 | Getting started | Concepts| Guided learning |
 | -- | -- | -- | 
-| <ul><li>[Node.js function using Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[Node.js function with terminal/command prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[TypeScript functions](#typescript)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js function using Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[Node.js function with terminal/command prompt](./create-first-function-cli-java.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[TypeScript functions](#typescript)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## JavaScript function basics
 
@@ -312,7 +312,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
 > [!NOTE]  
-> Don't using `console.log` to write trace outputs. Because output from `console.log` is captured at the function app level, it's not tied to a specific function invocation and isn't displayed in a specific function's logs. Also, version 1.x of the Functions runtime doesn't support using `console.log` to write to the console.
+> Don't use `console.log` to write trace outputs. Because output from `console.log` is captured at the function app level, it's not tied to a specific function invocation and isn't displayed in a specific function's logs. Also, version 1.x of the Functions runtime doesn't support using `console.log` to write to the console.
 
 ### Trace levels
 
@@ -646,7 +646,7 @@ In version 1.x, setting `languageWorkers:node:arguments` will not work. The debu
 
 ## TypeScript
 
-When you target version 2.x of the Functions runtime, both [Azure Functions for Visual Studio Code](functions-create-first-function-vs-code.md) and the [Azure Functions Core Tools](functions-run-local.md) let you create function apps using a template that support TypeScript function app projects. The template generates `package.json` and `tsconfig.json` project files that make it easier to transpile, run, and publish JavaScript functions from TypeScript code with these tools.
+When you target version 2.x of the Functions runtime, both [Azure Functions for Visual Studio Code](./create-first-function-cli-typescript.md) and the [Azure Functions Core Tools](functions-run-local.md) let you create function apps using a template that support TypeScript function app projects. The template generates `package.json` and `tsconfig.json` project files that make it easier to transpile, run, and publish JavaScript functions from TypeScript code with these tools.
 
 A generated `.funcignore` file is used to indicate which files are excluded when a project is published to Azure.  
 

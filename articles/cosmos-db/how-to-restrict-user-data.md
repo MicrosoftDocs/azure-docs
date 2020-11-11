@@ -9,6 +9,7 @@ ms.author: tvoellm
 ---
 
 # Restrict user access to data operations in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 In Azure Cosmos DB, there are two ways to authenticate your interactions with the database service:
 

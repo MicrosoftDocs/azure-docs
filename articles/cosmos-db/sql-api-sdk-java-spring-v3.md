@@ -12,6 +12,8 @@ ms.custom: devx-track-java
 ---
 
 # Spring Data Azure Cosmos DB v3 for Core (SQL) API: Release notes and resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)

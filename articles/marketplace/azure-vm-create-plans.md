@@ -180,6 +180,30 @@ For **Disk deployment option**, select the type of disk deployment that your cus
 
 For **Support Accelerated Networking**, select whether your VM supports [Accelerated Networking](https://go.microsoft.com/fwlink/?linkid=2124513).
 
+### Generations
+
+Generating a virtual machine defines the virtual hardware it uses. Based on your customer’s needs, you can publish a Generation 1 VM, Generation 2 VM, or both.
+
+1. When creating a new offer, select a **Generation type** and enter the requested image details:
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details.png" alt-text="A view of the Generation drop-down box.":::
+
+2. To add another generation to a plan, select **Add generation**:
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-add.png" alt-text="A view of the 'Add Generation' link.":::
+
+    Then enter the generation details:
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-details.png" alt-text="A view of the generation details window.":::
+
+    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
+
+3. To update an existing VM that has a Generation 1 already published, simply edit details on the **Technical configuration** page:
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="A view of the plan technical configuration page.":::
+
+To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
+
 ### VM images
 
 Provide a disk version and the shared access signature (SAS) URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a specified submission. After an image has been published, you can't edit it, but you can delete it. Deleting a version prevents both new and existing users from deploying a new instance of the deleted version.
