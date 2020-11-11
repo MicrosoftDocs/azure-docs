@@ -28,6 +28,10 @@ This article focuses on managing digital twins; to work with relationships and t
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
+## Ways to manage twins
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
 ## Create a digital twin
 
 To create a twin, you use the `CreateOrReplaceDigitalTwinAsync()` method on the service client like this:
@@ -535,10 +539,6 @@ namespace minimal
 Here is the console output of the above program: 
 
 :::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Console output showing that the twin is created, updated, and deleted" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
-
-## Manage twins with CLI
-
-Twins can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
 ## View all digital twins
 

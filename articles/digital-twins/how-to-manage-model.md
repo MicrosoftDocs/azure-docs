@@ -27,14 +27,7 @@ Management operations include upload, validation, retrieval, and deletion of mod
 
 ## Ways to manage models
 
-This article highlights how to complete different model management operations using the [Azure Digital Twins .NET (C#) **SDK**](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet). You can also manage models with the other language SDKs described in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
-
-> [!TIP] 
-> Remember that all SDK methods come in synchronous and asynchronous versions. For paging calls, the async methods return `AsyncPageable<T>` while the synchronous versions return `Pageable<T>`.
-
-Another way to manage models is to call the the Azure Digital Twins [**REST APIs**](/rest/api/azure-digitaltwins/) directly.
-
-Finally, models can also be managed using the Azure Digital Twins **CLI**. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## Create models
 

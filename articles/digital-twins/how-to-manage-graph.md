@@ -26,7 +26,11 @@ This article focuses on managing relationships and the graph as a whole; to work
 ## Prerequisites
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
-    
+
+## Ways to manage graph
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## Create relationships
@@ -576,9 +580,6 @@ namespace creating_twin_graph_from_csv
 }
 
 ```
-## Manage relationships with CLI
-
-Twins and their relationships can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
 ## Next steps
 
