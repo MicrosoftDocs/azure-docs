@@ -14,7 +14,7 @@ ms.date: 10/15/2020
 
 # Monitor your Synapse Workspace
 
-In this tutorial, you'll learn how to monitor activities in your Synapse workspace. You can monitor current and historical activities for SQL, Apache Spark. and Pipelines. 
+In this tutorial, you'll learn how to monitor activities in your Synapse workspace. You can monitor current and historical activities for SQL, Apache Spark, and Pipelines. 
 
 ## Introduction to the Monitor Hub
 

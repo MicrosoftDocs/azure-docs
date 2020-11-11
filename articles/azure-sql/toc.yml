@@ -1078,11 +1078,11 @@
           displayName: resource provider, registration, sql vm rp
           items:
           - name: Automatic registration
-            href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
+            href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
           - name: Single VM
-            href: virtual-machines/windows/sql-vm-resource-provider-register.md
+            href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
           - name: Bulk register multiple VMs
-            href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
+            href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md
 
       - name: Migrate
         items:
