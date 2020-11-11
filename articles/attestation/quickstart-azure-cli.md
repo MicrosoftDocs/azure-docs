@@ -8,13 +8,14 @@ ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
 
-
 ---
 # Quickstart: Set up Azure Attestation with Azure CLI
 
+Get started with Azure Attestation by using the Azure CLI to set up attestation.
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Sign in to Azure
+## Get started
 
 1. Use the following command to sign into Azure:
 
@@ -28,24 +29,18 @@ ms.author: mbaldwin
    az account set --subscription 00000000-0000-0000-0000-000000000000
    ```
 
-## Register Attestation resource provider
+1. Register the Microsoft.Attestation resource provider in the subscription with the [az provider register](/cli/azure/provider#az_provider_register) command:
 
-Register the Microsoft.Attestation resource provider in the subscription with the [az provider register](/cli/azure/provider#az_provider_register) command:
+   ```azurecli
+   az provider register --name Microsoft.Attestation
+   ```
 
-```azurecli
-az provider register --name Microsoft.Attestation
-```
+   For more information about Azure resource providers and how to configure and manage resources providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
-For more information about Azure resource providers and how to configure and manage resources providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   > [!NOTE]
+   > You only need to register a resource provider once for a subscription.
 
-> [!NOTE]
-> You only need to register a resource provider once for a subscription.
-
-## Create an Azure resource group
-
-Create a resource group for the attestation provider. You can put other Azure resources in the same resource group, including a virtual machine with client application instance.
-
-Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
+1. Create a resource group for the attestation provider. You can put other Azure resources in the same resource group, including a virtual machine with a client application instance. Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
 
    ```azurecli
    az group create --name attestationrg --location uksouth
@@ -53,15 +48,18 @@ Run the [az group create](/cli/azure/group#az_group_create) command to create a 
 
 ## Create and manage an attestation provider
 
+Use these commands to create the attestation provider:
+
 1. Run the [az attestation create](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_create) command to create an attestation provider.
 
    ```azurecli
-   az attestation create --resource-group attestationrg --name attestationProvider --location uksouth --attestation-policy SgxDisableDebugMode --certs-input-path C:\test\policySignersCertificates.pem
+   az attestation create --resource-group attestationrg --name attestationProvider --location uksouth \
+      --attestation-policy SgxDisableDebugMode --certs-input-path C:\test\policySignersCertificates.pem
    ```
 
-   The **--certs-input-path** parameter specifies a set of trusted signing keys. If you specify a filename for this parameter, the attestation provider must be configured only with policies in signed JWT format. Otherwise, the policy can be configured in text or an unsigned JWT format. For certificate samples, see [Examples of an attestation policy signer certificate](policy-signer-examples.md).
+   The **--certs-input-path** parameter specifies a set of trusted signing keys. If you specify a filename for this parameter, the attestation provider must be configured only with policies in signed JWT format. Otherwise, the policy can be configured in text or an unsigned JWT format. For information about JWT, see [Basic Concepts](basic-concepts.md). For certificate samples, see [Examples of an attestation policy signer certificate](policy-signer-examples.md).
 
-1. Run the [az attestation show](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_show) command to retrieve attestation provider properties like status and AttestURI.
+1. Run the [az attestation show](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_show) command to retrieve attestation provider properties like status and AttestURI:
 
    ```azurecli
    az attestation show --resource-group attestationrg --name attestationProvider
@@ -76,13 +74,10 @@ Run the [az group create](/cli/azure/group#az_group_create) command to create a 
    Name: MyAttestationProvider
    Status: Ready
    TrustModel: AAD
-   AttestUri: https://MyAttestationProvider.us.attest.azure.net 
+   AttestUri: https://MyAttestationProvider.us.attest.azure.net
    Tags:
    TagsTable:
    ```
-
-   > [!NOTE]
-   > You need the value for AttestURI for later.
 
 You can delete an attestation provider by using the [az attestation delete](/cli/azure/ext/attestation/attestation#ext_attestation_az_attestation_delete) command:
 
@@ -94,15 +89,15 @@ az attestation delete --resource-group attestationrg --name attestationProvider
 
 To manage policies, an Azure AD user requires the following permissions for `Actions`:
 
-- Microsoft.Attestation/attestationProviders/attestation/read
-- Microsoft.Attestation/attestationProviders/attestation/write
-- Microsoft.Attestation/attestationProviders/attestation/delete
+- `Microsoft.Attestation/attestationProviders/attestation/read`
+- `Microsoft.Attestation/attestationProviders/attestation/write`
+- `Microsoft.Attestation/attestationProviders/attestation/delete`
 
 These permissions can be assigned to an Azure AD user through a role such as `Owner` (wildcard permissions), `Contributor` (wildcard permissions) or `Attestation Contributor` (specific permissions for Azure Attestation only).  
 
 To read policies, an Azure AD user requires the following permission for `Actions`:
 
-- Microsoft.Attestation/attestationProviders/attestation/read
+- `Microsoft.Attestation/attestationProviders/attestation/read`
 
 This permission can be assigned to an Azure AD user through a role such as `Reader` (wildcard permissions) or `Attestation Reader` (specific permissions for Azure Attestation only).
 
@@ -119,25 +114,27 @@ az attestation policy show --resource-group attestationrg --name attestationProv
 
 The following are supported TEE types:
 
-- CyResComponent
-- OpenEnclave
-- SgxEnclave
-- VSMEnclave
+- `CyResComponent`
+- `OpenEnclave`
+- `SgxEnclave`
+- `VSMEnclave`
 
 Use the [az attestation policy set](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_set) command to set a new policy for the specified TEE.
 
 ```azurecli
-az attestation policy set --resource-group attestationrg --name attestationProvider --tee SgxEnclave -new-attestation-policy newAttestationPolicyname
+az attestation policy set --resource-group attestationrg --name attestationProvider --tee SgxEnclave \
+   --new-attestation-policy newAttestationPolicyname
 ```
 
-Attestation policy in JWT format must contain a claim named `AttestationPolicy`. For signed policy, JWT must be signed with private key. That key can correspond to any of the existing policy signer certificates.
+Attestation policy in JWT format must contain a claim named `AttestationPolicy`. For a signed policy, JWT must be signed with private key. That key can correspond to any of the existing policy signer certificates.
 
-For policy samples, see [examples of an attestation policy](policy-examples.md).
+For policy samples, see [Examples of an attestation policy](policy-examples.md).
 
 The [az attestation policy reset](/cli/azure/ext/attestation/attestation/policy#ext_attestation_az_attestation_policy_reset) command sets a new policy for the specified TEE.
 
 ```azurecli
-az attestation policy reset --resource-group attestationrg --name attestationProvider --tee SgxEnclave --policy-jws "eyJhbGciOiJub25lIn0.."
+az attestation policy reset --resource-group attestationrg --name attestationProvider --tee SgxEnclave \
+   --policy-jws "eyJhbGciOiJub25lIn0.."
 ```
 
 ## Policy signer certificates management
@@ -147,12 +144,14 @@ Use the following commands to provide policy signer certificates management for 
 ```azurecli
 az attestation signer list --resource-group attestationrg --name attestationProvider
 
-az attestation signer add --resource-group attestationrg --name attestationProvider --signer "eyAiYWxnIjoiUlMyNTYiLCAie..."
+az attestation signer add --resource-group attestationrg --name attestationProvider \
+   --signer "eyAiYWxnIjoiUlMyNTYiLCAie..."
 
-az attestation signer remove --resource-group attestationrg --name attestationProvider --signer "eyAiYWxnIjoiUlMyNTYiLCAie..."
+az attestation signer remove --resource-group attestationrg --name attestationProvider \
+   --signer "eyAiYWxnIjoiUlMyNTYiLCAie..."
 ```
 
-Policy signer certificate is a signed JWT with claim named `maa-policyCertificate`. Value of the claim is a JWK, which contains the trusted signing key to add. The JWT must be signed with private key. That key can correspond to any of the existing policy signer certificates.
+Policy signer certificate is a signed JWT with claim named `maa-policyCertificate`. Value of the claim is a JWK, which contains the trusted signing key to add. The JWT must be signed with private key. That key can correspond to any of the existing policy signer certificates. For information about JWT and JWK, see [Basic Concepts](basic-concepts.md).
 
 All semantic manipulation of the policy signer certificate must be done outside of Azure CLI. As far as Azure CLI is concerned, it's a simple string.
 
