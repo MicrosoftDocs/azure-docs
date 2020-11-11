@@ -25,7 +25,7 @@ Once you have deployed your log forwarder (in Step 1) and configured your securi
 
 - You must have elevated permissions (sudo) on your log forwarder machine.
 
-- You must have **python 2.7** installed on your log forwarder machine.<br>
+- You must have **python 2.7** or **3** installed on your log forwarder machine.<br>
 Use the `python –version` command to check.
 
 - You may need the Workspace ID and Workspace Primary Key at some point in this process. You can find them in the workspace resource, under **Agents management**.
