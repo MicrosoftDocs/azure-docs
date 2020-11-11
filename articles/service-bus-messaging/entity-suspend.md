@@ -18,8 +18,9 @@ The states that can be set for a **queue** are:
 
 -   **Active**: The queue is active. You can send messages to and receive messages from the queue. 
 -   **Disabled**: The queue is suspended. It's equivalent to setting both **SendDisabled** and **ReceiveDisabled**. 
--   **SendDisabled**: You can't send messages to the queue, but you can receive messages from it. 
--   **ReceiveDisabled**: You can send messages to the queue, but you can't receive messages from it. 
+-   **SendDisabled**: You can't send messages to the queue, but you can receive messages from it. You'll get an exception if you try to send messages to the queue. 
+-   **ReceiveDisabled**: You can send messages to the queue, but you can't receive messages from it. You'll get an exception if you try to receive messages to the queue.
+
 
 ### Change the queue status in the Azure portal: 
 
@@ -53,7 +54,7 @@ You can change topic status in the Azure portal. Select the current status of th
 The states that can be set for a **topic** are:
 - **Active**: The topic is active. You can send messages to the topic. 
 - **Disabled**: The topic is suspended. You can't send messages to the topic. 
-- **SendDisabled**: Same effect as **Disabled**. You can't send messages to the topic. 
+- **SendDisabled**: Same effect as **Disabled**. You can't send messages to the topic. You'll get an exception if you try to send messages to the topic. 
 
 ## Subscription status
 You can change subscription status in the Azure portal. Select the current status of the subscription to see the following page, which allows you to change the status. 
@@ -63,9 +64,9 @@ You can change subscription status in the Azure portal. Select the current statu
 The states that can be set for a **subscription** are:
 - **Active**: The subscription is active. You can receive messages frm the subscription.
 - **Disabled**: The subscription is suspended. You can't receive messages from the subscription. 
-- **ReceiveDisabled**: Same effect as **Disabled**. You can't receive messages from the subscription. 
+- **ReceiveDisabled**: Same effect as **Disabled**. You can't receive messages from the subscription. You'll get an exception if you try to receive messages to the subscription.
 
-| Topic Status | Subscription Status | Behavior | 
+| Topic status | Subscription status | Behavior | 
 | ------------ | ------------------- | -------- | 
 | Active | Active | You can send messages to the topic and receive messages from the subscription. | 
 | Active | Disabled or Receive Disabled | You can send messages to the topic, but you can't receive messages from the subscription | 
