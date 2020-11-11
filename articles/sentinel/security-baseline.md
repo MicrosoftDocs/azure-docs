@@ -340,7 +340,7 @@ Additionally, each Sentinel workbook is an Azure resource, and you can assign ro
 
 **Guidance**: Azure Sentinel and Azure Monitor Log Analytics workspaces currently use Microsoft-managed keys for encrypting any contained data at rest. The ability to bring your own key is not yet fully supported for Sentinel, but will be in the near future.
 
-- [Azure Monitor customer-managed key overview](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview)
+- [Azure Monitor customer-managed key overview](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview)
 
 - [Understand customer-managed keys in Azure Sentinel (Preview)](customer-managed-keys.md)
 

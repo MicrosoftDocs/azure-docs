@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 10/19/2020
+ms.date: 11/10/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -24,6 +24,17 @@ You can centrally create, enforce, and log application and network connectivity 
 ## Features
 
 To learn about Azure Firewall features, see [Azure Firewall features](features.md).
+
+## Pricing and SLA
+
+For Azure Firewall pricing information, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
+
+For Azure Firewall SLA information, see [Azure Firewall SLA](https://azure.microsoft.com/support/legal/sla/azure-firewall/).
+
+## What's new
+
+To learn what's new with Azure Firewall, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Firewall).
+
 
 ## Known issues
 
@@ -54,6 +65,7 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |Custom DNS doesn't work with forced tunneling|If force tunneling is enabled, custom DNS doesn't work.|A fix is being investigated.|
 |New public IP address support for multiple Availability Zones|You can't add a new public IP address when you deploy a firewall with two availability zones (either 1 and 2, 2 and 3, or 1 and 3)|This is a public IP address resource limitation.|
 |Start/Stop doesn’t work with a firewall configured in forced-tunnel mode|Start/stop doesn’t work with Azure firewall configured in forced-tunnel mode. Attempting to start Azure Firewall with forced tunneling configured results in the following error:<br><br>*Set-AzFirewall: AzureFirewall FW-xx management IP configuration cannot be added to an existing firewall. Redeploy with a management IP configuration if you want to use forced tunneling support.<br>StatusCode: 400<br>ReasonPhrase: Bad Request*|Under investigation.<br><br>As a workaround, you can delete the existing firewall and create a new one with the same parameters.|
+|Can't add firewall policy tags using the portal|Azure Firewall Policy has a patch support limitation that prevents you from adding a tag using the Azure portal. The following  error is generated: *Could not save the tags for the resource*.|A fix is being investigated. Alternatively, you can use the Azure PowerShell cmdlet `Set-AzFirewallPolicy` to update tags.
 
 
 ## Next steps
