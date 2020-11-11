@@ -259,7 +259,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Using Azure Disk Encryption to encrypt disks used by your virtual machines](../../storage/blobs/security-recommendations.md#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
+| **References**              | [Using Azure Disk Encryption to encrypt disks used by your virtual machines](../../storage/blobs/security-recommendations.md#data-protection) |
 | **Steps** | <p>Azure Disk Encryption is a new feature that is currently in preview. This feature allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys. The Azure Disk Encryption solution supports the following three customer encryption scenarios:</p><ul><li>Enable encryption on new IaaS VMs created from customer-encrypted VHD files and customer-provided encryption keys, which are stored in Azure Key Vault.</li><li>Enable encryption on new IaaS VMs created from the Azure Marketplace.</li><li>Enable encryption on existing IaaS VMs already running in Azure.</li></ul>| 
 
 ## <a id="fabric-apps"></a>Encrypt secrets in Service Fabric applications

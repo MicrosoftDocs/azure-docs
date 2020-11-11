@@ -178,7 +178,7 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Azure Storage Transport-Level Encryption – Using HTTPS](../../storage/blobs/security-recommendations.md#_encryption-in-transit) |
+| **References**              | [Azure Storage Transport-Level Encryption – Using HTTPS](../../storage/blobs/security-recommendations.md#networking) |
 | **Steps** | To ensure the security of Azure Storage data in-transit, always use the HTTPS protocol when calling the REST APIs or accessing objects in storage. Also, Shared Access Signatures, which can be used to delegate access to Azure Storage objects, include an option to specify that only the HTTPS protocol can be used when using Shared Access Signatures, ensuring that anybody sending out links with SAS tokens will use the proper protocol.|
 
 ## <a id="md5-https"></a>Validate MD5 hash after downloading blob if HTTPS cannot be enabled
@@ -200,7 +200,7 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | StorageType - File |
-| **References**              | [Azure File Storage](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Azure File Storage SMB Support for Windows Clients](../../storage/files/storage-dotnet-how-to-use-files.md#_mount-the-file-share) |
+| **References**              | [Azure File Storage](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Azure File Storage SMB Support for Windows Clients](../../storage/files/storage-dotnet-how-to-use-files.md#understanding-the-net-apis) |
 | **Steps** | Azure File Storage supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.0 supports encryption, and can be used with Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop. |
 
 ## <a id="cert-pinning"></a>Implement Certificate Pinning
@@ -380,7 +380,7 @@ public class ValuesController : ApiController
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Azure Redis TLS support](../../azure-cache-for-redis/cache-faq.md#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
+| **References**              | [Azure Redis TLS support](../../azure-cache-for-redis/cache-faq.md) |
 | **Steps** | Redis server does not support TLS out of the box, but Azure Cache for Redis does. If you are connecting to Azure Cache for Redis and your client supports TLS, like StackExchange.Redis, then you should use TLS. By default non-TLS port is disabled for new Azure Cache for Redis instances. Ensure that the secure defaults are not changed unless there is a dependency on TLS support for redis clients. |
 
 Please note that Redis is designed to be accessed by trusted clients inside trusted environments. This means that usually it is not a good idea to expose the Redis instance directly to the internet or, in general, to an environment where untrusted clients can directly access the Redis TCP port or UNIX socket. 
@@ -404,5 +404,5 @@ Please note that Redis is designed to be accessed by trusted clients inside trus
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Choose your Communication Protocol](../../iot-hub/iot-hub-devguide.md#messaging) |
+| **References**              | [Choose your Communication Protocol](../../iot-hub/iot-hub-devguide.md) |
 | **Steps** | Secure HTTP/AMQP or MQTT protocols using SSL/TLS. |

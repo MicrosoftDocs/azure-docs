@@ -179,7 +179,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Gateway choice - Azure IoT Hub |
-| **References**              | [Iot Hub Access Control](../../iot-hub/iot-hub-devguide.md#Security) |
+| **References**              | [Iot Hub Access Control](../../iot-hub/iot-hub-devguide.md) |
 | **Steps** | Provide least privilege permissions to various components that connect to Cloud Gateway (IoT Hub). Typical example is – Device management/provisioning component uses registryread/write, Event Processor (ASA) uses Service Connect. Individual devices connect using Device credentials|
 
 ## <a id="sendonly-sas"></a>Use a send-only permissions SAS Key for generating device tokens
@@ -278,7 +278,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | StorageType - Table |
-| **References**              | [How to delegate access to objects in your Azure storage account using SAS](../../storage/blobs/security-recommendations.md#_data-plane-security) |
+| **References**              | [How to delegate access to objects in your Azure storage account using SAS](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Steps** | In certain business scenarios, Azure Table Storage may be required to store sensitive data that caters to different parties. E.g., sensitive data pertaining to different countries/regions. In such cases, SAS signatures can be constructed by specifying the partition and row key ranges, such that a user can access data specific to a particular country/region.| 
 
 ## <a id="rbac-azure-manager"></a>Enable Role-Based Access Control (RBAC) to Azure storage account using Azure Resource Manager
@@ -289,7 +289,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [How to secure your storage account with Role-Based Access Control (RBAC)](../../storage/blobs/security-recommendations.md#management-plane-security) |
+| **References**              | [How to secure your storage account with Role-Based Access Control (RBAC)](../../storage/blobs/security-recommendations.md) |
 | **Steps** | <p>When you create a new storage account, you select a deployment model of Classic or Azure Resource Manager. The Classic model of creating resources in Azure only allows all-or-nothing access to the subscription, and in turn, the storage account.</p><p>With the Azure Resource Manager model, you put the storage account in a resource group and control access to the management plane of that specific storage account using Azure Active Directory. For example, you can give specific users the ability to access the storage account keys, while other users can view information about the storage account, but cannot access the storage account keys.</p>|
 
 ## <a id="rooting-detection"></a>Implement implicit jailbreak or rooting detection

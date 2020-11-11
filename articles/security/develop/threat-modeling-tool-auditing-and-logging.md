@@ -150,7 +150,7 @@ ms.author: jegeib
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A |
-| **References**              | [Using Storage Analytics to monitor authorization type](../../storage/blobs/security-recommendations.md#storage-analytics) |
+| **References**              | [Using Storage Analytics to monitor authorization type](../../storage/blobs/security-recommendations.md#loggingmonitoring) |
 | **Steps** | <p>For each storage account, one can enable Azure Storage Analytics to perform logging and store metrics data. The storage analytics logs provide important information such as authentication method used by someone when they access storage.</p><p>This can be really helpful if you are tightly guarding access to storage. For example, in Blob Storage you can set all of the containers to private and implement the use of an SAS service throughout your applications. Then you can check the logs regularly to see if your blobs are accessed using the storage account keys, which may indicate a breach of security, or if the blobs are public but they shouldn’t be.</p>|
 
 ## <a id="sufficient-logging"></a>Implement sufficient Logging
