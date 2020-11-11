@@ -83,7 +83,7 @@ The following features are available when you use .NET for Apache Spark in the A
 * Access to the standard C# library (such as System, LINQ, Enumerables, and so on).
 * Support for C# 8.0 language features.
 * `spark` as a pre-defined variable to give you access to your Apache Spark session.
-* Support for defining [.NET user-defined functions that can run within Apache Spark](/dotnet/spark/how-to-guides/udf-guide). We recommend this article for learning how to use UDFs in .NET for Apache Spark interactive experiences.
+* Support for defining [.NET user-defined functions that can run within Apache Spark](/dotnet/spark/how-to-guides/udf-guide) (view this article to learn how to use UDFs in .NET for Apache Spark interactive experiences).
 * Support for visualizing output from your Spark jobs using different charts (such as line, bar, or histogram) and layouts (such as single, overlaid, and so on) using the `XPlot.Plotly` library.
 * Ability to include NuGet packages into your C# notebook.
 
