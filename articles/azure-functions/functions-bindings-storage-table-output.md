@@ -220,6 +220,46 @@ module.exports = function (context) {
 };
 ```
 
+# [PowerShell](#tab/powershell)
+
+The following example demonstrates how to write multiple entities to a table from a function.
+
+Binding configuration in _function.json_:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "InputData",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "TableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+PowerShell code in _run.ps1_:
+
+```powershell
+param($InputData, $TriggerMetadata)
+  
+foreach ($i in 1..10) {
+    Push-OutputBinding -Name TableBinding -Value @{
+        PartitionKey = 'Test'
+        RowKey = "$i"
+        Name = "Name $i"
+    }
+}
+```
+
 # [Python](#tab/python)
 
 The following example demonstrates how to use the Table storage output binding. The `table` binding is configured in the *function.json* by assigning values to `name`, `tableName`, `partitionKey`, and `connection`:
@@ -331,6 +371,10 @@ See the [example for more detail](#example).
 
 Attributes are not supported by JavaScript.
 
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
 # [Python](#tab/python)
 
 Attributes are not supported by Python.
@@ -378,6 +422,10 @@ There are two options for outputting a Table storage row from a function by usin
 # [JavaScript](#tab/javascript)
 
 Access the output event by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
+
+# [PowerShell](#tab/powershell)
+
+**TODO**
 
 # [Python](#tab/python)
 

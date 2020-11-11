@@ -403,9 +403,53 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+# [PowerShell](#tab/powershell)
+
+The following function uses a queue trigger to read a single table row as input to a function.
+
+In this example, binding configuration specifies an explicit value for the table's `partitionKey` and uses an expression to pass to the `rowKey`. The `rowKey` expression, `{queueTrigger}` indicates that the row key comes from the queue message string.
+
+Binding configuration in _function.json_:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "MyQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "PersonEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+PowerShell code in _run.ps1_:
+
+```powershell
+param($MyQueueItem, $PersonEntity, $TriggerMetadata)
+Write-Host "PowerShell queue trigger function processed work item: $MyQueueItem"
+Write-Host "Person entity name: $($PersonEntity.Name)"
+```
+
 # [Python](#tab/python)
 
-Single table row 
+The following function uses a queue trigger to read a single table row as input to a function.
+
+In this example, binding configuration specifies an explicit value for the table's `partitionKey` and uses an expression to pass to the `rowKey`. The `rowKey` expression, `{id}` indicates that the row key comes from the queue message string.
+
+Binding configuration in the _function.json_ file:
 
 ```json
 {
@@ -440,6 +484,8 @@ Single table row
   "disabled": false
 }
 ```
+
+Python code in the *\_\_init\_\_.py* file:
 
 ```python
 import json
@@ -526,6 +572,10 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 Attributes are not supported by JavaScript.
 
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
 # [Python](#tab/python)
 
 Attributes are not supported by Python.
@@ -585,6 +635,10 @@ The [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) 
 # [JavaScript](#tab/javascript)
 
 Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<BINDING_NAME>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
+
+# [PowerShell](#tab/powershell)
+
+**TODO**
 
 # [Python](#tab/python)
 
