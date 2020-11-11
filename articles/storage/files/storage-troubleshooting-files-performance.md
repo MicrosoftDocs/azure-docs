@@ -106,7 +106,7 @@ Lack of support for directory leases.
 
 - If possible, avoid excessive opening/closing handle on the same directory within a short period of time.
 - For Linux VMs, increase the directory entry cache timeout by specifying **actimeo=\<sec>** as a mount option. By default, it is one second, so a larger value like three or five might help.
-- For Linux VMs, upgrade the kernel to 4.20 or higher.
+- For RHEL/CentOS VMs, upgrade the system to RHEL/CentOS 8.2. For other Linux VMs, upgrade the kernel to 5.0 or higher.
 
 ## Low IOPS on CentOS/RHEL
 
