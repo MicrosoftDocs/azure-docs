@@ -36,6 +36,7 @@ The OEM stores the Secure Boot digests on the machine’s nonvolatile RAM (NV-RA
 
 During each stage in the boot process, the digests of the firmware, bootloader, operating system, kernel drivers, and other boot chain artifacts are calculated and compared to acceptable values. Firmware and software that are discovered to be untrusted are not allowed to load. Thus, low-level malware injection or pre-boot malware attacks can be blocked.
 
+## Secure Boot on the Azure fleet
 Today, every machine that is onboarded and deployed to the Azure compute fleet to host customer workloads comes from factory floors with Secure Boot enabled. Targeted tooling and processes are in place at every stage in the hardware buildout and integration pipeline to ensure that Secure Boot enablement is not reverted either by accident or by malicious intent.
 
 Validating that the db and dbx digests are correct ensures:
