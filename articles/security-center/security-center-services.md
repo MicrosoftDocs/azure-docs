@@ -30,7 +30,7 @@ The two tabs below show the features of Azure Security Center that are available
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Yes|
 |[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
 |[Just-in-time VM access](security-center-just-in-time.md)|✔|-|-|Yes|
-|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Yes|
+|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Yes|
 |[File integrity monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Yes|
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Yes|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Yes|
@@ -41,7 +41,7 @@ The two tabs below show the features of Azure Security Center that are available
 |Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
 |Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
-|Third-party vulnerability assessment|✔|-|-|No|
+|Third-party vulnerability assessment|✔|-|✔|No|
 |[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
 
 
@@ -54,7 +54,7 @@ The two tabs below show the features of Azure Security Center that are available
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|-|-|-|Yes|
 |[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
 |[Just-in-time VM access](security-center-just-in-time.md)|✔|-|-|Yes|
-|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Yes|
+|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Yes|
 |[File integrity monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Yes|
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Yes|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Yes|
@@ -65,7 +65,7 @@ The two tabs below show the features of Azure Security Center that are available
 |Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|No|
 |Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
-|Third-party vulnerability assessment|✔|-|-|No|
+|Third-party vulnerability assessment|✔|-|✔|No|
 |[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
 
 --- 
