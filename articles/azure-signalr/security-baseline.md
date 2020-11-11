@@ -540,25 +540,31 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Shared
 
 ### DP-3: Monitor for unauthorized transfer of sensitive data
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41378.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure SignalR Service may be used to transmit sensitive data but does not support monitoring for unauthorized transfer of sensitive data currently.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### DP-4: Encrypt sensitive information in transit
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41379.).
+
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: Encryption is critical for traffic on external and public networks.
 
@@ -572,20 +578,23 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 - [Double encryption for Azure data in transit](../security/fundamentals/double-encryption.md#data-in-transit)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Microsoft
 
 ### DP-5: Encrypt sensitive data at rest
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41380.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure SignalR Service doesn't store any customer data.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Asset Management
 
@@ -625,9 +634,9 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 - [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### AM-3: Use only approved Azure services
 
@@ -642,9 +651,9 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### AM-4: Ensure security of asset lifecycle management
 
@@ -657,9 +666,9 @@ Remove Azure resources when they are no longer needed.
 
 - [Delete Azure resource group and resource](../azure-resource-manager/management/delete-resource-group.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
@@ -670,20 +679,23 @@ Remove Azure resources when they are no longer needed.
 
 - [How to configure Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### AM-6: Use only approved applications in compute resources
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41371.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azire SignalR Service is not comprised of any virtual machines or containers which would either expose compute resources or allow customers to install applications on them.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Logging and Threat Detection
 
@@ -694,11 +706,14 @@ Remove Azure resources when they are no longer needed.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41406.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Azure SignalR Service does not provide native capabilities to monitor security threats related to its resources. It also does not produce logs that can be used for threat detection or allow for its logs to be forwarded to a SIEM tool for monitoring and alerting.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
@@ -725,26 +740,26 @@ Audit activity reports in the Azure Active Directory
 
 - [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-3: Enable logging for Azure network activities
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41408.).
 
-**Guidance**: By design even though Azure SignalR Service resources can be deployed into a virtual network, the traffic to and from the Azure SignalR Service resources cannot be enforced by or passed through a network security group. For this reason you are unable to configure network security group flow logging for Azure SignalR Service. For example, you can create a private endpoint for Azure SignalR Service resource in a virtual network to secure the server side traffic, but client side traffic still goes through public internet.
+**Guidance**: Azure SignalR Service is not intended to deploy into virtual networks, because of this you are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures.
 
-Azure SignalR Service logs network traffic that it processes for customer access. Enable resource logs within your deployed offering resources and configure these logs to be sent to a storage account for long term retention and auditing.
+However, Azure SignalR Service logs network traffic that it processes for customer access. Enable resource logs within your deployed offering resources and configure these logs to be sent to a storage account for long term retention and auditing.
 
 - [Resource logs for Azure SignalR Service](signalr-howto-diagnostic-logs.md)
 
 Azure SignalR Service does not produce or process DNS query logs which would need to be enabled.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-4: Enable logging for Azure resources
 
@@ -763,9 +778,9 @@ Enable Azure resource logs for Azure SignalR Service. You can use Azure Security
 
 - [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-5: Centralize security log management and analysis
 
@@ -784,31 +799,37 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-6: Configure log storage retention
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41411.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Azure SignalR Service does not currently produce any security-related logs, and the customer is unable to set any log retention.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### LT-7: Use approved time synchronization sources
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41412.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
+
 **Guidance**: Azure SignalR Service does not support configuring your own time synchronization sources. The {offering_name} service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Microsoft
 
 ## Incident Response
 
@@ -955,9 +976,9 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 
 - [Azure Blueprints](../governance/blueprints/overview.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PV-2: Sustain secure configurations for Azure services
 
@@ -970,9 +991,9 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 
 - [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PV-3: Establish secure configurations for compute resources
 
@@ -985,53 +1006,65 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 
 - [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PV-4: Sustain secure configurations for compute resources
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41431.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-5: Securely store custom operating system and container images
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41432.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-6: Perform software vulnerability assessments
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41433.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure SignalR Service doesn't support any vulnerability assessments.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41434.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure SignalR Service doesn't provide capability to support software remediation automatically.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-8: Conduct regular attack simulation
 
@@ -1060,33 +1093,42 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41381.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Azure SignalR Service is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ES-2: Use centrally managed modern anti-malware software
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41382.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Azure SignalR Service or its resources do not interact with virtual machines, containers and/or storage which require anti-malware protection. Thus, there is no need for any configuration changes, additional settings or deployment of any extra services to protect it from malware.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ES-3: Ensure anti-malware software and signatures are updated
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41383.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Azure SignalR Service is not comprised of any virtual machines or containers which would require anti-malware protection. Thus it does not require you to configure any additional settings or deploy any extra services to protect it from malware.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Backup and Recovery
 
@@ -1097,33 +1139,42 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41372.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure SignalR Service doesn't support any data backup.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### BR-2: Encrypt backup data
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41373.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure SignalR Service doesn't support any data backup encryption.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### BR-3: Validate all backups including customer-managed keys
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41374.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure SignalR Service doesn't support any data backup.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### BR-4: Mitigate risk of lost keys
 
@@ -1134,9 +1185,9 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 - [How to enable soft delete and purge protection in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ## Governance and Strategy
 
