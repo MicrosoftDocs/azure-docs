@@ -12,4 +12,12 @@
 
 Private links for managed disk importing or exporting is currently only available in:
 
+- East US
 - East US 2
+- North Central US 
+- South Central US 
+- West US 
+- West US 2 
+- Central India 
+- US Gov Virginia 
+- US Gov Arizona 

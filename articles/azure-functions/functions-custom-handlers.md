@@ -561,7 +561,7 @@ The Functions host outputs extra log messages including information related to t
 
 Locally, logs are printed to the console.
 
-In Azure, [query Application Insights traces](functions-monitoring.md#query-telemetry-data) to view the log messages. If your app produces a high volume of logs, only a subset of log messages are sent to Application Insights. [Disable sampling](functions-monitoring.md#configure-sampling) to ensure all messages are logged.
+In Azure, [query Application Insights traces](analyze-telemetry-data.md#query-telemetry-data) to view the log messages. If your app produces a high volume of logs, only a subset of log messages are sent to Application Insights. [Disable sampling](configure-monitoring.md#configure-sampling) to ensure all messages are logged.
 
 ### Test custom handler in isolation
 

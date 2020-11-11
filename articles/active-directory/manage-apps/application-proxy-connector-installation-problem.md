@@ -1,32 +1,27 @@
 ---
-title: Problem installing the Application Proxy Agent Connector | Microsoft Docs
-description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector 
+title: Problem installing the Application Proxy Agent Connector
+description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector for Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
 ---
 
 # Problem installing the Application Proxy Agent Connector
 
-Microsoft AAD Application Proxy Connector is an internal domain component that uses outbound connections to establish the connectivity from the cloud available endpoint to the internal domain.
+Microsoft Azure Active Directory Application Proxy Connector is an internal domain component that uses outbound connections to establish the connectivity from the cloud available endpoint to the internal domain.
 
 ## General Problem Areas with Connector installation
 
 When the installation of a connector fails, the root cause is usually one of the following areas:
 
-1.  **Connectivity** – to complete a successful installation, the new connector needs to register and establish future trust properties. This is done by connecting to the AAD Application Proxy cloud service.
+1.  **Connectivity** – to complete a successful installation, the new connector needs to register and establish future trust properties. This is done by connecting to the Azure Active Directory Application Proxy cloud service.
 
 2.  **Trust Establishment** – the new connector creates a self-signed cert and registers to the cloud service.
 
@@ -37,7 +32,7 @@ When the installation of a connector fails, the root cause is usually one of the
 
 ## Verify connectivity to the Cloud Application Proxy service and Microsoft Login page
 
-**Objective:** Verify that the connector machine can connect to the AAD Application Proxy registration endpoint as well as Microsoft login page.
+**Objective:** Verify that the connector machine can connect to the Application Proxy registration endpoint as well as Microsoft login page.
 
 1.  On the connector server, run a port test by using [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) or other port testing tool to verify that ports 443 and 80 are open.
 
@@ -62,7 +57,7 @@ When the installation of a connector fails, the root cause is usually one of the
 
 **To verify the client certificate:**
 
-Verify the thumbprint of the current client certificate. The certificate store can be found in %ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
+Verify the thumbprint of the current client certificate. The certificate store can be found in `%ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml`.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -74,23 +69,17 @@ Verify the thumbprint of the current client certificate. The certificate store c
 </ConnectorTrustSettingsFile>
 ```
 
-Here are the possible **IsInUserStore** values and meanings:
+The possible **IsInUserStore** values are **true** and **false**. A value of **true** means the automatically renewed certificate is stored in the personal container in the user certificate store of the Network Service. A value of **false** means the client certificate was created during the installation or registration initiated by Register-AppProxyConnector command and it is stored in the personal container in the certificate store of the local machine.
 
-- **false** - The client certificate was created during the installation or registration initiated by Register-AppProxyConnector command. It is stored in the personal container in the certificate store of the local machine. 
-
-Follow the steps to verify the certificate:
-
-1. Run **certlm.msc**
-2. In the management console expand the Personal container and click on Certificates
-3. Locate the certificate issued by **connectorregistrationca.msappproxy.net**
-
-- **true** - The automatically renewed certificate is stored in the personal container in the user certificate store of the Network Service. 
-
-Follow the steps to verify the certificate:
-
+If the value is **true**, follow these steps to verify the certificate:
 1. Download [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
 2. Extract [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) from the package and run **psexec -i -u "nt authority\network service" cmd.exe** from an elevated command prompt.
 3. Run **certmgr.msc** in the newly appeared command prompt
+4. In the management console expand the Personal container and click on Certificates
+5. Locate the certificate issued by **connectorregistrationca.msappproxy.net**
+
+If the value is **false**, follow these steps to verify the certificate:
+1. Run **certlm.msc**
 2. In the management console expand the Personal container and click on Certificates
 3. Locate the certificate issued by **connectorregistrationca.msappproxy.net**
 

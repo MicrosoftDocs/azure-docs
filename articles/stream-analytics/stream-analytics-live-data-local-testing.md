@@ -54,7 +54,7 @@ The following local testing options are supported:
 
 * Power BI and Azure Data Lake Storage are not supported output sinks due to authentication model limitations.
 
-* Only cloud input options have [time policies](stream-analytics-out-of-order-and-late-events.md) support, while local input options do not.
+* Only cloud input options have [time policies](./stream-analytics-time-handling.md) support, while local input options do not.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Alert at scale using a single alert rule for multiple time series
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
 ---
 
@@ -169,6 +169,11 @@ The pricing of metric alert rules is available on the [Azure Monitor pricing pag
 When creating a metric alert rule, the provided price estimation is based on the selected features and the number of monitored time-series, which is determined from the rule configuration and current metric values. However, the monthly charge is based on actual evaluations of the time-series, and can therefore differ from the original estimation if some time-series don’t have data to evaluate, or if the alert rule uses features that can make it scale dynamically.
 
 For example, an alert rule can show a high price estimation if it leverages the multi-dimension feature, and a large number of dimension values combinations are selected, resulting in the monitoring of many time-series. But the actual charge for that alert rule can be lower if not all the time-series resulting from the dimension values combinations actually have data to evaluate.
+
+## Number of time series monitored by a single alert rule
+
+To prevent excess costs, each alert rule can monitor up to 5000 time-series by default. To lift this limit from your subscription, open a support ticket.
+
 
 ## Next steps
 

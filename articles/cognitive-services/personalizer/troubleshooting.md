@@ -1,6 +1,8 @@
 ---
 title: Troubleshooting - Personalizer
 description: This article contains answers to frequently asked troubleshooting questions about Personalizer.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: troubleshooting
 ms.date: 02/26/2020
 ---

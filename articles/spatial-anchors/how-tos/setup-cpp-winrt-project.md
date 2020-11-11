@@ -21,7 +21,7 @@ ms.service: azure-spatial-anchors
 
 Azure Spatial Anchors for HoloLens and C++/WinRT is distributed using the [Microsoft.Azure.SpatialAnchors.WinRT](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/) NuGet package.
 
-Follow the instructions [here](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio) to use Visual Studio's NuGet Package Manager to install the [Microsoft.Azure.SpatialAnchors.WinRT](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/) NuGet package into your project.
+Follow the instructions [here](/nuget/consume-packages/install-use-packages-visual-studio) to use Visual Studio's NuGet Package Manager to install the [Microsoft.Azure.SpatialAnchors.WinRT](https://www.nuget.org/packages/Microsoft.Azure.SpatialAnchors.WinRT/) NuGet package into your project.
 
 ## Next steps
 

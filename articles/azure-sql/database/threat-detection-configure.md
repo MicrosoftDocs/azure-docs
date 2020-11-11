@@ -39,5 +39,5 @@ For a script example, see [Configure auditing and Advanced Threat Protection usi
 - Learn more about [Advanced Threat Protection in SQL Managed Instance](../managed-instance/threat-detection-configure.md).  
 - Learn more about [Azure Defender for SQL](azure-defender-for-sql.md).
 - Learn more about [auditing](../../azure-sql/database/auditing-overview.md)
-- Learn more about [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- For more information on pricing, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/)  
+- Learn more about [Azure security center](../../security-center/security-center-introduction.md)
+- For more information on pricing, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/)

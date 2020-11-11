@@ -11,7 +11,7 @@ ms.date: 09/09/2020
 ms.author: cherylmc
 ---
 
-# Create and set custom IPsec policies for Point-to-Site
+# Create and set custom IPsec policies for Point-to-Site (preview)
 
 If your environment requires a custom IPsec policy for encryption, you can easily configure a policy object with the required settings. This article helps you create a custom policy object, and then set it using PowerShell.
 

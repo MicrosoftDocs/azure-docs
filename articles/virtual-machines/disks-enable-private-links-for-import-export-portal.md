@@ -1,6 +1,6 @@
 ---
 title: Azure portal - Restrict import/export access to managed disks with Private Links
-description: Enable Private Links for your managed disks with Azure portal, currently in preview. Allowing you to securely export and import disks within your virtual network.
+description: Enable Private Links for your managed disks with Azure portal. Allowing you to securely export and import disks within your virtual network.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Use the Azure portal to restrict import/export access for managed disks with Private Links
 
-Private Links support for managed disks is currently in preview, and allows you to restrict the export and import of managed disks so that it only occurs within your Azure virtual network. You can generate a time bound Shared Access Signature (SAS) URI for unattached managed disks and snapshots for exporting the data to other region for regional expansion, disaster recovery and to read the data for forensic analysis. You can also use the SAS URI to directly upload VHD to an empty disk from your on-premises. Network traffic between clients on their virtual network and managed disks only traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure to the public internet.
+Private Links support for managed disks allows you to restrict the export and import of managed disks so that it only occurs within your Azure virtual network. You can generate a time bound Shared Access Signature (SAS) URI for unattached managed disks and snapshots for exporting the data to other region for regional expansion, disaster recovery and to read the data for forensic analysis. You can also use the SAS URI to directly upload VHD to an empty disk from your on-premises. Network traffic between clients on their virtual network and managed disks only traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure to the public internet.
 
 You can create a disk access resource and link it to your virtual network in the same subscription by creating a private endpoint. You must associate a disk or a snapshot with a disk access for exporting and importing the data via Private Links. Also, you must set the NetworkAccessPolicy property of the disk or the snapshot to `AllowPrivate`. 
 
@@ -25,12 +25,6 @@ You can set the NetworkAccessPolicy property to `DenyAll` to prevent anybody fro
 ## Regional availability
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
-
-## Prerequisites
-
-To use private endpoints for exporting and importing managed disks, you must get the feature enabled on your subscription. Send an email to mdprivatelinks@microsoft .com with your subscription Ids to get the feature enabled for your subscriptions.
-
-You will need to note down the virtual network of the VM that your disks are attached to. The virtual network is necessary when configuring the private endpoint.
 
 ## Create a disk access resource
 
@@ -96,4 +90,4 @@ You've now completed configuring Private Links that you can use when importing/e
 ## Next steps
 
 - [FAQ for Private Links](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md)

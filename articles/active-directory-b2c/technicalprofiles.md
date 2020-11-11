@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -80,8 +80,8 @@ The **TechnicalProfile** contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Domain | 0:1 | The domain name for the technical profile. For example, if your technical profile specifies the Facebook identity provider, the domain name is Facebook.com. |
-| DisplayName | 1:1 | The name of the technical profile that can be displayed to users. |
-| Description | 0:1 | The description of the technical profile that can be displayed to users. |
+| DisplayName | 1:1 | The display name of the technical profile. |
+| Description | 0:1 | The description of the technical profile. |
 | Protocol | 0:1 | The protocol used for the communication with the other party. |
 | Metadata | 0:1 | A collection of key/value pairs that are utilized by the protocol for communicating with the endpoint in the course of a transaction. |
 | InputTokenFormat | 0:1 | The format of the input token. Possible values: `JSON`, `JWT`, `SAML11`, or `SAML2`. The `JWT` value represents a JSON Web Token as per IETF specification. The `SAML11` value represents a SAML 1.1 security token as per OASIS specification.  The `SAML2` value represents a SAML 2.0 security token as per OASIS specification. |

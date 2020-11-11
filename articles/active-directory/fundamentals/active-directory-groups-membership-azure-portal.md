@@ -74,6 +74,6 @@ These articles provide additional information on Azure Active Directory.
 
 - [Edit your group settings](active-directory-groups-settings-azure-portal.md)
 
-- [Using a group to manage access to SaaS applications](../users-groups-roles/groups-saasapps.md)
+- [Using a group to manage access to SaaS applications](../enterprise-users/groups-saasapps.md)
 
-- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)
+- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md#limitations-and-known-issues)

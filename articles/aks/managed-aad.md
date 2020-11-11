@@ -17,17 +17,10 @@ Cluster administrators can configure Kubernetes role-based access control (RBAC)
 
 Learn more about the Azure AD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-active-directory-integration).
 
-## Region availability
-
-AKS-managed Azure Active Directory integration is available in public regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-
-* Azure Government isn't currently supported.
-* Azure China 21Vianet isn't currently supported.
-
 ## Limitations 
 
 * AKS-managed Azure AD integration can't be disabled
-* non-RBAC enabled clusters aren't supported for AKS-managed Azue AD integration
+* non-RBAC enabled clusters aren't supported for AKS-managed Azure AD integration
 * Changing the Azure AD tenant associated with AKS-managed Azure AD integration isn't supported
 
 ## Prerequisites

@@ -20,12 +20,12 @@ Before you can use managed identities for Azure Resources to authorize Event Hub
 - [Azure Resource Manager client libraries](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## Grant permissions to a managed identity in Azure AD
-To authorize a request to Event Hubs service from a managed identity in your application, first configure role-based access control (RBAC) settings for that managed identity. Azure Event Hubs defines Azure roles that encompass permissions for sending and reading from Event Hubs. When the Azure role is assigned to a managed identity, the managed identity is granted access to Event Hubs data at the appropriate scope.
+To authorize a request to Event Hubs service from a managed identity in your application, first configure Azure role-based access control (Azure RBAC) settings for that managed identity. Azure Event Hubs defines Azure roles that encompass permissions for sending and reading from Event Hubs. When the Azure role is assigned to a managed identity, the managed identity is granted access to Event Hubs data at the appropriate scope.
 
 For more information about assigning Azure roles, see [Authenticate with Azure Active Directory for access to Event Hubs resources](authorize-access-azure-active-directory.md).
 
 ## Use Event Hubs with managed identities
-To use Event Hubs with managed identities, you need to assign the identity the role and the appropriate scope. The procedure in this section uses a simple application that runs under a managed identity and accesses Event Hubs resources.
+To use Event Hubs with managed identities, you need to assign the role and the appropriate scope to the identity. The procedure in this section uses a simple application that runs under a managed identity and accesses Event Hubs resources.
 
 Here we're using a sample web application hosted in [Azure App Service](https://azure.microsoft.com/services/app-service/). For step-by-step instructions for creating a web application, see [Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md)
 

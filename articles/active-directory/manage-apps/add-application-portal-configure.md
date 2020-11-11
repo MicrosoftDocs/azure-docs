@@ -36,10 +36,7 @@ To edit the application properties:
 
 1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
 2. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
-
-    ![Screenshot of the Properties screen that shows editable app properties.](media/add-application-portal/edit-properties.png)
-
-3. Take a moment to understand the options available to configure:
+3. Take a moment to understand the options available. The options available will depend on how the app is integrated with Azure AD. For example, an app that uses SAML-based single sign-on will have fields such as *User access URL* whereas an app that uses OIDC-based single sign-on will not. Also note that apps added through **Azure Active Directory > App registrations** are by default OIDC-based apps. Whereas apps added through **Azure Active Directory > Enterprise applications** might use any of a number of single sign-on standards. All apps will have fields for configuring when an app appears and can be used. These fields are:
     - **Enabled for users to sign in?** determines whether users assigned to the application can sign in.
     - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
     - **Visible to users?** determines whether users assigned to an app can see it in [My Apps](https://myapps.microsoft.com) and Microsoft 365 app launcher. (See the waffle menu in the upper-left corner of a Microsoft 365 website.)

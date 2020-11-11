@@ -47,10 +47,10 @@ The **Offer overview** page shows a visual representation of the steps required 
 
 This page shows different links based on the current status of the offer. For example:
 
-- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is a draft - Delete draft offer
 - If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval)
-- If you haven't completed publisher sign-out - [Cancel publishing](update-existing-offer.md#cancel-publishing)
+- If the offer is in preview - [Go-live](../review-publish-offer.md#previewing-and-approving-your-offer)
+- If you haven't completed publisher sign-out - [Cancel publishing.](../review-publish-offer.md#cancel-publishing)
 
 ## Offer setup
 
@@ -76,10 +76,10 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 
 Here are some additional lead management resources:
 
-- [Lead management overview](commercial-marketplace-get-customer-leads.md)
-- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
-- [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
+- [Customer leads from your commercial marketplace offer](commercial-marketplace-get-customer-leads.md)
+- [Common questions about lead management](../lead-management-faq.md#common-questions-about-lead-management)
+- [Troubleshooting lead configuration errors](../lead-management-faq.md#publishing-config-errors)
+- [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
 Select **Save draft** before continuing.
 
@@ -118,7 +118,7 @@ To use the Standard Contract, select the **Use the Standard Contract for Microso
 
 ##### Your own terms and conditions
 
-To provide your own custom terms and conditions, enter them in the **Terms and conditions** box. You can enter an unlimited amount of characters of text in this box. Customers must accept these terms before they can try your offer.
+To provide your own custom terms and conditions, enter them in the **Terms and conditions** box. You can enter an unlimited number of characters of text in this box. Customers must accept these terms before they can try your offer.
 
 Select **Save draft** before continuing to the next section, Offer listing.
 
@@ -176,7 +176,7 @@ You must provide the name, email, and phone number for a **Support contact** and
 
 In the **Support contact** section, provide the **Support website** where partners can find support for your offer based on whether the offer is available in global Azure, Azure Government, or both.
 
-In the **CSP Program contact** section, provide the link ( **CSP Program Marketing Materials** ) where CSP partners can find marketing materials for your offer.
+In the **CSP Program contact** section, provide the link (**CSP Program Marketing Materials**) where CSP partners can find marketing materials for your offer.
 
 #### Additional marketplace listing resources
 
@@ -186,7 +186,7 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
@@ -361,7 +361,7 @@ Provide the following information on the **Image repository details** tab.
 
  :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Illustrates the Update container registry dialog box.":::
 
-**Password for the Azure Container Registry** – Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
+**Password for the Azure Container Registry** – Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command](/cli/azure/acr/credential#az-acr-credential-show).
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Illustrates the Access Key menu.":::
 

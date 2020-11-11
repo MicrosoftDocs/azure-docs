@@ -144,7 +144,7 @@ Verify virtual network and firewall rules are configured properly on the storage
 
 ### Solution for cause 2
 
-Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## Unable to delete a file or directory in an Azure file share

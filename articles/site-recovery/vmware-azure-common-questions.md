@@ -69,7 +69,7 @@ Site Recovery is certified for ISO 27001:2013 and 27018, HIPAA, and DPA. It's in
 
 Use the [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Site Recovery.
 
-For a detailed estimate of costs, run the deployment planner tool for [VMware](https://aka.ms/siterecovery_deployment_planner) and use the [cost estimation report](https://aka.ms/asr_DP_costreport).
+For a detailed estimate of costs, run the deployment planner tool for [VMware](./site-recovery-deployment-planner.md) and use the [cost estimation report](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 ### Is there any difference in cost between replicating to storage or directly to managed disks?
 
@@ -108,7 +108,7 @@ Site Recovery replicates on-premises VMware VMs and physical servers to managed 
 
 No. Beginning in March 2019, in the Azure portal, you can replicate only to Azure managed disks.
 
-Replication of new VMs to a storage account is available only by using PowerShell ([Az.RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) or the REST API (version 2018-01-10 or 2016-08-10). [Learn how](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) to setup replication using the PowerShell commands.
+Replication of new VMs to a storage account is available only by using PowerShell ([Az.RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) or the REST API (version 2018-01-10 or 2016-08-10). [Learn how](./vmware-azure-disaster-recovery-powershell.md) to setup replication using the PowerShell commands.
 
 ### What are the benefits of replicating to managed disks?
 
@@ -170,7 +170,7 @@ For VMware replication to Azure, you can modify disk size of source VMs. If you 
 
 ### Can I migrate on-premises machines to a new vCenter Server without impacting ongoing replication?
 
-No. A change of VMware Vcenter or migration will impact ongoing replication. Set up Site Recovery with the new vCenter Server and enable replication for machines again.
+Refer to our [guidance](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server) to migrate machines to a new vCenter
 
 ### Can I replicate to a cache or target storage account that has a virtual network (with Azure Firewalls) configured on it?
 
@@ -184,7 +184,7 @@ Site Recovery generates crash-consistent recovery points every 5 minutes.
 
 ### My version of the Mobility services agent or configuration server is old, and my upgrade failed. What do I do?
 
-Site Recovery follows the N-4 support model. [Learn more](https://aka.ms/asr_support_statement) about how to upgrade from very old versions.
+Site Recovery follows the N-4 support model. [Learn more](./service-updates-how-to.md#support-statement-for-azure-site-recovery) about how to upgrade from very old versions.
 
 ### Where can I find the release notes and update rollups for Azure Site Recovery?
 
@@ -192,11 +192,11 @@ Site Recovery follows the N-4 support model. [Learn more](https://aka.ms/asr_sup
 
 ### Where can I find upgrade information for disaster recovery to Azure?
 
-[Learn about upgrading](https://aka.ms/asr_vmware_upgrades).
+[Learn about upgrading](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## Do I need to reboot source machines for each upgrade?
 
-A reboot is recommended but not mandatory for each upgrade. [Learn more](https://aka.ms/asr_vmware_upgrades).
+A reboot is recommended but not mandatory for each upgrade. [Learn more](./service-updates-how-to.md#reboot-after-mobility-service-upgrade).
 
 ## Configuration server
 
@@ -240,7 +240,7 @@ Although it's possible, the Azure VM running the configuration server would need
 
 - You can find the latest update information on the [Azure updates page](https://azure.microsoft.com/updates/?product=site-recovery).
 - You can download the latest version from the portal. Or, you can download the latest version of the configuration server directly from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-- If your version is more than four versions older than the current version, see the [support statement](https://aka.ms/asr_support_statement) for upgrade guidance.
+- If your version is more than four versions older than the current version, see the [support statement](./service-updates-how-to.md#support-statement-for-azure-site-recovery) for upgrade guidance.
 
 ### Should I back up the configuration server?
 

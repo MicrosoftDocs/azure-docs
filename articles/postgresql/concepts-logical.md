@@ -1,23 +1,26 @@
 ---
 title: Logical decoding - Azure Database for PostgreSQL - Single Server
 description: Describes logical decoding and wal2json for change data capture in Azure Database for PostgreSQL - Single Server
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 11/05/2020
 ---
 
 # Logical decoding
  
+> [!NOTE]
+> Logical decoding is in public preview on Azure Database for PostgreSQL - Single Server.
+
 [Logical decoding in PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) allows you to stream data changes to external consumers. Logical decoding is popularly used for event streaming and change data capture scenarios.
 
-Logical decoding uses an output plugin to convert Postgres’s write ahead log (WAL) into a readable format. Azure Database for PostgreSQL provides the output plugins [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) and pgoutput. pgoutput is made available by Postgres from Postgres version 10 and up.
+Logical decoding uses an output plugin to convert Postgres’s write ahead log (WAL) into a readable format. Azure Database for PostgreSQL provides the output plugins [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) and pgoutput. pgoutput is made available by PostgreSQL from PostgreSQL version 10 and up.
 
 For an overview of how Postgres logical decoding works, [visit our blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421). 
 
 > [!NOTE]
-> Logical decoding is in public preview on Azure Database for PostgreSQL - Single Server.
+> Logical replication using PostgreSQL publication/subscription is not supported with Azure Database for PostgreSQL - Single Server.
 
 
 ## Set up your server 
@@ -34,14 +37,15 @@ The server needs to be restarted after a change of this parameter. Internally, t
 ### Using Azure CLI
 
 1. Set azure.replication_support to `logical`.
-   ```
+   ```azurecli-interactive
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
 
 2. Restart the server to apply the change.
-   ```
+   ```azurecli-interactive
    az postgres server restart --resource-group mygroup --name myserver
    ```
+3. If you are running Postgres 9.5 or 9.6, and use public network access, add the firewall rule to include the public IP address of the client from where you will run the logical replication. The firewall rule name must include **_replrule**. For example, *test_replrule*. To create a new firewall rule on the server, run the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command. 
 
 ### Using Azure portal
 
@@ -53,6 +57,9 @@ The server needs to be restarted after a change of this parameter. Internally, t
 
    :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL - Replication - Confirm restart":::
 
+3. If you are running Postgres 9.5 or 9.6, and use public network access, add the firewall rule to include the public IP address of the client from where you will run the logical replication. The firewall rule name must include **_replrule**. For example, *test_replrule*. Then click **Save**.
+
+   :::image type="content" source="./media/concepts-logical/client-replrule-firewall.png" alt-text="Azure Database for PostgreSQL - Replication - Add firewall rule":::
 
 ## Start logical decoding
 

@@ -11,7 +11,7 @@ ms.reviewer: dseven
 ---
 # Configure Azure RBAC for FHIR 
 
-In this article, you will learn how to use [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) to assign access to the Azure API for FHIR data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription. If you are using an external Azure Active Directory tenant, refer to the [local RBAC assignment reference](configure-local-rbac.md).
+In this article, you will learn how to use [Azure role-based access control (Azure RBAC)](../role-based-access-control/index.yml) to assign access to the Azure API for FHIR data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription. If you are using an external Azure Active Directory tenant, refer to the [local RBAC assignment reference](configure-local-rbac.md).
 
 ## Confirm Azure RBAC mode
 
@@ -38,7 +38,7 @@ You can choose between:
 * FHIR Data Exporter: Can read and export (`$export` operator) data.
 * FHIR Data Contributor: Can perform all data plane operations.
 
-If these roles are not sufficient for your need, you can also [create custom roles](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell).
+If these roles are not sufficient for your need, you can also [create custom roles](../role-based-access-control/tutorial-custom-role-powershell.md).
 
 In the **Select** box, search for a user, service principal, or group that you wish to assign the role to.
 
@@ -48,7 +48,7 @@ The Azure API for FHIR will cache decisions for up to 5 minutes. If you grant a 
 
 ## Next steps
 
-In this article, you learned how to assign Azure roles for the FHIR data plane. Next learn about additional settings for the Azure API for FHIR:
+In this article, you learned how to assign Azure roles for the FHIR data plane. To learn about additional settings for the Azure API for FHIR:
  
 >[!div class="nextstepaction"]
->[Additional settings Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
+>[Additional settings for Azure API for FHIR](azure-api-for-fhir-additional-settings.md)

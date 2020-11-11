@@ -108,7 +108,7 @@ We'll now look at these files in more detail and call out the MSAL-specific code
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. Gradle 3.0+ installs the library when you add the following to **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
 
 ```gradle
-implementation 'com.microsoft.identity.client:msal:1.+'
+implementation 'com.microsoft.identity.client:msal:2.+'
 ```
 
 You can see this in the sample project in build.gradle (Module: app):
@@ -116,7 +116,7 @@ You can see this in the sample project in build.gradle (Module: app):
 ```java
 dependencies {
     ...
-    implementation 'com.microsoft.identity.client:msal:1.+'
+    implementation 'com.microsoft.identity.client:msal:2.+'
     ...
 }
 ```

@@ -233,5 +233,8 @@ In this article, we used our development VM to simulate a leaf device sending se
 
 More information can be found at the following pages:
 
-* [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md)
-* [Store data at the edge with Azure Blob Storage on IoT Edge (preview)](how-to-store-data-blob.md)
+> [!div class="nextstepaction"]
+> [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md)
+
+> [!div class="nextstepaction"]
+> [Store data at the edge with Azure Blob Storage on IoT Edge (preview)](how-to-store-data-blob.md)

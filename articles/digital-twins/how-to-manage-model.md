@@ -17,9 +17,13 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
+You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinModels APIs**](/rest/api/digital-twins/dataplane/models), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
 
 Management operations include upload, validation, retrieval, and deletion of models. 
+
+## Prerequisites
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## Create models
 
@@ -85,7 +89,7 @@ The following sections show how to complete different model management operation
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
 > [!TIP]
-> It's recommended to validate your models offline before uploading them to your Azure Digital Twins instance. You can use the [DTDL client-side parser library](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) and [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) described in [*How-to: Parse and validate models*](how-to-parse-models.md) to check your models before you upload them to the service.
+> It's recommended to validate your models offline before uploading them to your Azure Digital Twins instance. You can use the [DTDL client-side parser library](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) and [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) described in [*How-to: Parse and validate models*](how-to-parse-models.md) to check your models before you upload them to the service.
 
 When you're ready to upload a model, you can use the following code snippet:
 
@@ -138,10 +142,9 @@ On upload, model files are validated by the service.
 You can list and retrieve models stored on your Azure Digital Twins instance. 
 
 Here are your options for this:
-* Retrieve all models
 * Retrieve a single model
-* Retrieve a single model with dependencies
-* Retrieve metadata for models
+* Retrieve all models
+* Retrieve metadata and dependencies for models
 
 Here are some example calls:
 
@@ -149,19 +152,16 @@ Here are some example calls:
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-ModelData md1 = client.GetModel(id);
+DigitalTwinsModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<ModelData> pmd2 = client.GetModels();
-
-// Get a list of metadata and full model definitions
-Pageable<ModelData> pmd3 = client.GetModels(null, true);
+Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
 ```
 
-The API calls to retrieve models all return `ModelData` objects. `ModelData` contains metadata about the model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the model. The `ModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
+The API calls to retrieve models all return `DigitalTwinsModelData` objects. `DigitalTwinsModelData` contains metadata about the model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the model. The `DigitalTwinsModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
 
 The `RetrieveModelWithDependencies` call returns not only the requested model, but also all models that the requested model depends on.
 
@@ -175,10 +175,7 @@ Instead, if you want to make changes to a model—such as updating `displayName`
 
 #### Model versioning
 
-To create a new version of an existing model, start with the DTDL of the original model. Update the fields you would like to change.
-
->[!NOTE]
->During preview, advancing a model version will only allow you to add new fields, not remove existing ones. To remove fields, you should just [create a brand new model](#create-models).
+To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you would like to change.
 
 Next, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
 
@@ -289,8 +286,6 @@ Azure Digital Twins does not prevent this state, so be careful to patch twins ap
 ## Manage models with CLI
 
 Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## Next steps
 

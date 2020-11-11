@@ -137,6 +137,15 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
 ### Run the sample program to detect vehicles
 If you open the [graph topology](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/topology.json) for this tutorial in a browser, you will see that the value of `inferencingUrl` has been set to `http://openvino:4000/vehicleDetection`, which means the inference server will return results after detecting vehicles, if any, in the live video.
 
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
 1. To start a debugging session, select the F5 key. You see messages printed in the **TERMINAL** window.
 1. The *operations.json* code starts off with calls to the direct methods `GraphTopologyList` and `GraphInstanceList`. If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
 

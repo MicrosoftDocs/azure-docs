@@ -26,7 +26,7 @@ Azure AD uses this integration to enable the following cloud HR application (app
 - **Write back to the cloud HR app:** Write the email addresses and username attributes from Azure AD back to the cloud HR app.
 
 > [!NOTE]
-> This deployment plan shows you how to deploy your cloud HR app workflows with Azure AD user provisioning. For information on how to deploy automatic user provisioning to software as a service (SaaS) apps, see [Plan an automatic user provisioning deployment](https://aka.ms/deploymentplans/provisioning).
+> This deployment plan shows you how to deploy your cloud HR app workflows with Azure AD user provisioning. For information on how to deploy automatic user provisioning to software as a service (SaaS) apps, see [Plan an automatic user provisioning deployment](./plan-auto-user-provisioning.md).
 
 ## Enabled HR scenarios
 
@@ -76,8 +76,8 @@ You also need a valid Azure AD Premium P1 or higher subscription license for eve
 
 ### Prerequisites
 
-- Azure AD [hybrid identity administrator](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  to configure the Azure AD Connect provisioning agent.
-- Azure AD [application administrator](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) role to configure the provisioning app in the Azure portal
+- Azure AD [hybrid identity administrator](../roles/permissions-reference.md#hybrid-identity-administrator)  to configure the Azure AD Connect provisioning agent.
+- Azure AD [application administrator](../roles/permissions-reference.md#application-administrator) role to configure the provisioning app in the Azure portal
 - A test and production instance of the cloud HR app.
 - Administrator permissions in the cloud HR app to create a system integration user and make changes to test employee data for testing purposes.
 - For user provisioning to Active Directory, a server running Windows Server 2012 or greater with .NET 4.7.1+ runtime is required to host the Azure AD Connect provisioning agent
@@ -121,7 +121,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so owing to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](https://aka.ms/deploymentplans). Also make sure that stakeholder roles in the project are well understood. Document the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so owing to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md). Also make sure that stakeholder roles in the project are well understood. Document the stakeholders and their project input and accountabilities.
 
 Include a representative from the HR organization who can provide inputs on existing HR business processes and worker identity plus job data-processing requirements.
 
@@ -373,7 +373,7 @@ Azure AD can provide additional insights into your organization's user provision
 
 After a successful [initial cycle](../app-provisioning/how-provisioning-works.md#initial-cycle), the Azure AD provisioning service continues to run back-to-back incremental updates indefinitely, at intervals defined in the tutorials specific to each app, until one of the following events occurs:
 
-- The service is manually stopped. A new initial cycle is triggered by using the [Azure portal](https://portal.azure.com/) or the appropriate [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) command.
+- The service is manually stopped. A new initial cycle is triggered by using the [Azure portal](https://portal.azure.com/) or the appropriate [Microsoft Graph API](/graph/api/resources/synchronization-overview) command.
 - A new initial cycle is triggered owing to a change in attribute mappings or scoping filters.
 - The provisioning process goes into quarantine because of a high error rate. It stays in quarantine for more than four weeks, at which time it's automatically disabled.
 
@@ -411,6 +411,6 @@ To troubleshoot any issues that might turn up during provisioning, see the follo
 ### Next steps
 
 - [Writing expressions for attribute mappings](functions-for-customizing-application-data.md)
-- [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview)
 - [Skip deletion of user accounts that go out of scope](skip-out-of-scope-deletions.md)
 - [Azure AD Connect Provisioning Agent: Version release history](provisioning-agent-release-version-history.md)

@@ -8,7 +8,7 @@ ms.date: 06/30/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Quickstart: Deploy your first IoT Edge module to a virtual Linux device
@@ -16,12 +16,11 @@ ms.custom: mvc
 Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual Linux IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine with the IoT Edge service installed and then delete it when you're finished.
 
 In this quickstart you learn how to:
-> [!div class="checklist"]
->
-> * Create an IoT Hub.
-> * Register an IoT Edge device to your IoT hub.
-> * Install and start the IoT Edge runtime on your virtual device.
-> * Remotely deploy a module to an IoT Edge device.
+
+* Create an IoT Hub.
+* Register an IoT Edge device to your IoT hub.
+* Install and start the IoT Edge runtime on your virtual device.
+* Remotely deploy a module to an IoT Edge device.
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart-linux/install-edge-full.png)
 
@@ -105,7 +104,7 @@ During the runtime configuration, you provide a device connection string. This i
 
 ### Deploy the IoT Edge device
 
-This section uses an Azure Resource Manager template to create a new virtual machine and install the IoT Edge runtime on it. If you want to use your own Linux device instead, you can follow the installation steps in [Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md), then return to this quickstart.
+This section uses an Azure Resource Manager template to create a new virtual machine and install the IoT Edge runtime on it. If you want to use your own Linux device instead, you can follow the installation steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md), then return to this quickstart.
 
 Use the following CLI command to create your IoT Edge device based on the prebuilt [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) template.
 

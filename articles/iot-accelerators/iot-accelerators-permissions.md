@@ -35,7 +35,7 @@ Before you can deploy a solution accelerator, you must sign in at AzureIoTSoluti
 
 Your permissions to deploy solution accelerators, manage users, and manage Azure services depend on your role in the selected directory. Common Azure AD roles associated with the solution accelerators include:
 
-* **Global administrator**: There can be many [global administrators](../active-directory/users-groups-roles/directory-assign-admin-roles.md) per Azure AD tenant:
+* **Global administrator**: There can be many [global administrators](../active-directory/roles/permissions-reference.md) per Azure AD tenant:
 
   * When you create an Azure AD tenant, you are by default the global administrator of that tenant.
   * The global administrator can deploy basic and standard solution accelerators.

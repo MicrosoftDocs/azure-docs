@@ -76,7 +76,7 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
     In **Simple editor**, enter `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
-   > ![Call web endpoints action On Success](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![Screenshot that shows the On Success - Action to execute screen.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Setting | Suggested value | Description |
    | ------- | --------------- | ----------- |
@@ -104,7 +104,7 @@ In this article, you will learn how to setup web endpoints in a Custom Commands 
 - On Success response\
 Save, train and test
    > [!div class="mx-imgBorder"]
-   > ![Call web endpoints action On Success](media/custom-commands/setup-web-endpoint-on-success-response.png)
+   > ![Screenshot that shows the On Success response.](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - On Fail response\
 Remove one of the query parameters, save, retrain, and test
    > [!div class="mx-imgBorder"]
@@ -203,4 +203,4 @@ If you tested out the app with `turn on tv` in previous section, you would see t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Enable a CI/CD process for your Custom Commands application](./how-to-custom-commands-deploy-cicd.md)
+> [Export Custom Commands application as a remote skill](./how-to-custom-commands-integrate-remote-skills.md)

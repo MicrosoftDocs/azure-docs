@@ -1,7 +1,7 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: sample
 ---
 # Advanced Resource Graph query samples
@@ -669,13 +669,12 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-gcreports"></a>Query details of Guest Configuration assignment reports
 
-Display report from [Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) details.
-In the example below,
-the query returns only results where the Guest Assignment name
-is `installed_application_linux` and the output contains the string `Python`
-to list all Linux machines where a package is installed that includes the name **Python**.
-To query compliance of all machines for a specific assignment,
-remove the 2nd `where` clause.
+Display report from
+[Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
+details. In the following example, the query returns only results where the Guest Assignment name is
+`installed_application_linux` and the output contains the string `Python` to list all Linux machines
+where a package is installed that includes the name **Python**. To query compliance of all machines
+for a specific assignment, remove the second `where` clause.
 
 ```kusto
 GuestConfigurationResources
@@ -714,8 +713,10 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-gcmachinedetails"></a>Find all reasons a machine is non-compliant for Guest Configuration assignments
 
-Display all [Guest Configuration assignment reasons](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) for a specific machine.
-Remove the first `where` clause to also include audits where the machine is compliant.
+Display all
+[Guest Configuration assignment reasons](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
+for a specific machine. Remove the first `where` clause to also include audits where the machine is
+compliant.
 
 ```kusto
 GuestConfigurationResources

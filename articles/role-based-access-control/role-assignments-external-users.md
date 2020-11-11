@@ -179,7 +179,7 @@ Guest users have restricted directory permissions. For example, guest users cann
 
 ![Guest user cannot browse users in a directory](./media/role-assignments-external-users/directory-no-users.png)
 
-If a guest user needs additional privileges in the directory, you can assign a directory role to the guest user. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/users-groups-roles/directory-assign-admin-roles.md) role in Azure AD. For more information, see [Grant permissions to users from partner organizations in your Azure Active Directory tenant](../active-directory/b2b/add-guest-to-role.md).
+If a guest user needs additional privileges in the directory, you can assign a directory role to the guest user. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/roles/permissions-reference.md) role in Azure AD. For more information, see [Grant permissions to users from partner organizations in your Azure Active Directory tenant](../active-directory/b2b/add-guest-to-role.md).
 
 ![Assign Directory Readers role](./media/role-assignments-external-users/directory-roles.png)
 
@@ -189,11 +189,11 @@ Guest users have restricted directory permissions. Even if a guest user is an [O
 
 ![Guest user cannot browse security principals to assign roles](./media/role-assignments-external-users/directory-no-browse.png)
 
-If the guest user knows someone's exact sign-in name in the directory, they can grant access. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/users-groups-roles/directory-assign-admin-roles.md) role in Azure AD. For more information, see [Grant permissions to users from partner organizations in your Azure Active Directory tenant](../active-directory/b2b/add-guest-to-role.md).
+If the guest user knows someone's exact sign-in name in the directory, they can grant access. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/roles/permissions-reference.md) role in Azure AD. For more information, see [Grant permissions to users from partner organizations in your Azure Active Directory tenant](../active-directory/b2b/add-guest-to-role.md).
 
 ### Guest user cannot register applications or create service principals
 
-Guest users have restricted directory permissions. If a guest user needs to be able to register applications or create service principals, you can add the guest user to the [Application Developer](../active-directory/users-groups-roles/directory-assign-admin-roles.md) role in Azure AD. For more information, see [Grant permissions to users from partner organizations in your Azure Active Directory tenant](../active-directory/b2b/add-guest-to-role.md).
+Guest users have restricted directory permissions. If a guest user needs to be able to register applications or create service principals, you can add the guest user to the [Application Developer](../active-directory/roles/permissions-reference.md) role in Azure AD. For more information, see [Grant permissions to users from partner organizations in your Azure Active Directory tenant](../active-directory/b2b/add-guest-to-role.md).
 
 ![Guest user cannot register applications](./media/role-assignments-external-users/directory-access-denied.png)
 

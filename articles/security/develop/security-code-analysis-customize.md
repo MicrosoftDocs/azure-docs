@@ -127,7 +127,7 @@ Available options include:
 
 > [!NOTE]
 >
-> - Roslyn Analyzers are integrated with the compiler and can be run only as part of csc.exe compilation. Hence, this task requires the compiler command that ran earlier in the build to be replayed or run again. This replay or run is done by querying Visual Studio Team Services (VSTS) for the MSBuild build task logs.
+> - Roslyn Analyzers are integrated with the compiler and can be run only as part of csc.exe compilation. Hence, this task requires the compiler command that ran earlier in the build to be replayed or run again. This replay or run is done by querying Azure DevOps (formerly Visual Studio Team Services) for the MSBuild build task logs.
 >
 >   There is no other way for the task to reliably get the MSBuild compilation command line from the build definition. We considered adding a freeform text box to allow users to enter their command lines. But then it would be hard to keep those command lines up-to-date and in sync with the main build.
 >

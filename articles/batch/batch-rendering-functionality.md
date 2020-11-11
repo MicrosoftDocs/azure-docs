@@ -70,7 +70,7 @@ Arnold 2017 command line|kick.exe|ARNOLD_2017_EXEC|
 
 As with other workloads, rendering application system requirements vary, and performance requirements vary for jobs and projects.  A large variety of VM families are available in Azure depending on your requirements – lowest cost, best price/performance, best performance, and so on.
 Some rendering applications, such as Arnold, are CPU-based; others such as V-Ray and Blender Cycles can use CPUs and/or GPUs.
-For a description of available VM families and VM sizes, [see VM types and sizes](../virtual-machines/windows/sizes.md).
+For a description of available VM families and VM sizes, [see VM types and sizes](../virtual-machines/sizes.md).
 
 ### Low-priority VMs
 

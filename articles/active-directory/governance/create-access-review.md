@@ -159,6 +159,7 @@ If you have assigned guests as reviewers and they have not accepted the invite, 
 |Auto-Reviewed | Decisions have been recorded by the system for all users who were not reviewed. Review is ready to proceed to **Applying** if Auto-Apply is enabled. |
 |Applying | There will be no change in access for users who were approved. |
 |Applied | Denied users, if any, have been removed from the resource or directory. |
+|Failed | Review could not progress. This error could be related to the deletion of the tenant, a change in licenses, or other internal tenant changes. |
 
 ## Create reviews via APIs
 

@@ -98,7 +98,7 @@ A database that you [add to an autoprotected instance](backup-sql-server-databas
   
 ## Can I protect databases that have TDE (Transparent Data Encryption) turned on and will the database stay encrypted through the entire backup process?
 
-Yes, Azure Backup supports backup of SQL Server databases or server with TDE enabled. Backup supports [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) with keys managed by Azure, or with customer-managed keys (BYOK).  Backup doesn't perform any SQL encryption as part of the backup process so the database will stay encrypted when backed up.
+Yes, Azure Backup supports backup of SQL Server databases or server with TDE enabled. Backup supports [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) with keys managed by Azure, or with customer-managed keys (BYOK).  Backup doesn't perform any SQL encryption as part of the backup process so the database will stay encrypted when backed up.
 
 ## Next steps
 

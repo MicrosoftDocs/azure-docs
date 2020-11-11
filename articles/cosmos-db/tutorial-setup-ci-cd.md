@@ -10,6 +10,7 @@ ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
 # Set up a CI/CD pipeline with the Azure Cosmos DB emulator build task in Azure DevOps
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 The Azure Cosmos DB emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. The emulator allows you to develop and test your application locally, without creating an Azure subscription or incurring any costs. 
 
@@ -26,13 +27,13 @@ To use the build task, we first need to install it onto our Azure DevOps organiz
 Next, choose the organization in which to install the extension. 
 
 > [!NOTE]
-> To install an extension to an Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
+> To install an extension to an Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](/azure/devops/marketplace/faq-extensions?preserve-view=true&view=vsts)
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Choose an Azure DevOps organization in which to install an extension":::
 
 ## Create a build definition
 
-Now that the extension is installed, sign in to your Azure DevOps organization and find your project from the projects dashboard. You can add a [build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) to your project or modify an existing build pipeline. If you already have a build pipeline, you can skip ahead to [Add the Emulator build task to a build definition](#addEmulatorBuildTaskToBuildDefinition).
+Now that the extension is installed, sign in to your Azure DevOps organization and find your project from the projects dashboard. You can add a [build pipeline](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts) to your project or modify an existing build pipeline. If you already have a build pipeline, you can skip ahead to [Add the Emulator build task to a build definition](#addEmulatorBuildTaskToBuildDefinition).
 
 1. To create a new build definition, navigate to the **Builds** tab in Azure DevOps. Select **+New.** \> **New build pipeline**
 
@@ -45,7 +46,7 @@ Now that the extension is installed, sign in to your Azure DevOps organization a
 3. Finally, select the desired template for the build pipeline. We'll select the **ASP.NET** template in this tutorial. Now you have a build pipeline that you can set up to use the Azure Cosmos DB emulator build task. 
 
 > [!NOTE]
-> The agent pool to be selected for this CI should have Docker for Windows installed unless the installation is done manually in a prior task as a part of the CI. See [Microsoft hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) article for a selection of agent pools; we recommend to start with `Hosted VS2017`.
+> The agent pool to be selected for this CI should have Docker for Windows installed unless the installation is done manually in a prior task as a part of the CI. See [Microsoft hosted agents](/azure/devops/pipelines/agents/hosted?preserve-view=true&tabs=yaml&view=azure-devops) article for a selection of agent pools; we recommend to start with `Hosted VS2017`.
 
 Azure Cosmos DB emulator currently doesn’t support hosted VS2019 agent pool. However, the emulator already comes with VS2019 installed and you use it by starting the emulator with the following PowerShell cmdlets. If you run into any issues when using the VS2019, reach out to the [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) team for help:
 
@@ -86,9 +87,9 @@ This step is optional and it's only required if you are setting up the CI/CD pip
 
 Now, we'll configure our tests to use the emulator. The emulator build task exports an environment variable – ‘CosmosDbEmulator.Endpoint’ – that any tasks further in the build pipeline can issue requests against. 
 
-In this tutorial, we'll use the [Visual Studio Test task](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a **.runsettings** file. To learn more about unit test setup, visit the [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). The complete Todo application code sample that you use in this document is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
+In this tutorial, we'll use the [Visual Studio Test task](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a **.runsettings** file. To learn more about unit test setup, visit the [documentation](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?preserve-view=true&view=vs-2017). The complete Todo application code sample that you use in this document is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
-Below is an example of a **.runsettings** file that defines parameters to be passed into an application's unit tests. Note the `authKey` variable used is the [well-known key](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) for the emulator. This `authKey` is the key expected by the emulator build task and should be defined in your **.runsettings** file.
+Below is an example of a **.runsettings** file that defines parameters to be passed into an application's unit tests. Note the `authKey` variable used is the [well-known key](./local-emulator.md#authenticate-requests) for the emulator. This `authKey` is the key expected by the emulator build task and should be defined in your **.runsettings** file.
 
 ```csharp
 <RunSettings>
@@ -171,6 +172,6 @@ After the build completes, observe that your tests pass, all running against the
 
 ## Next steps
 
-To learn more about using the emulator for local development and testing, see [Use the Azure Cosmos DB Emulator for local development and testing](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
+To learn more about using the emulator for local development and testing, see [Use the Azure Cosmos DB Emulator for local development and testing](./local-emulator.md).
 
-To export emulator TLS/SSL certificates, see [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js](https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates)
+To export emulator TLS/SSL certificates, see [Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js](./local-emulator-export-ssl-certificates.md)

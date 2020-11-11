@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
-ms.date: 5/26/2020 
+ms.date: 10/1/2020 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -15,11 +15,14 @@ ms.custom: devx-track-azurepowershell
 You can list, show, and update configuration parameters for an Azure Database for MariaDB server using
 PowerShell. A subset of engine configurations is exposed at the server-level and can be modified.
 
+>[!Note]
+> Server parameters can be updated globally at the server-level, use the [Azure CLI](./howto-configure-server-parameters-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md), or [Azure portal](./howto-server-parameters.md).
+
 ## Prerequisites
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) installed locally or
+- The [Az PowerShell module](/powershell/azure/install-az-ps) installed locally or
   [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
@@ -30,7 +33,7 @@ To complete this how-to guide, you need:
 > PowerShell module releases and available natively from within Azure Cloud Shell.
 
 If you choose to use PowerShell locally, connect to your Azure account using the
-[Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

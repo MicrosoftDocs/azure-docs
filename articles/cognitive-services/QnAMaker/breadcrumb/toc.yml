@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Cognitive Services
+    tocHref: /azure/cognitive-services/
+    topicHref: /azure/cognitive-services/index
+    items:
+    - name: QnA Maker
+      tocHref: /azure/cognitive-services/
+      topicHref: /azure/cognitive-services/qnamaker/index

@@ -32,3 +32,9 @@ landingContent:
             url: use-azure-policy.md
           - text: Deploy Azure IoT edge workloads
             url: deploy-azure-iot-edge-workloads.md
+  - title: Reference architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Manage deployments and configurations for hybrid Kubernetes clusters
+            url: /azure/architecture/hybrid/arc-hybrid-kubernetes

@@ -56,7 +56,7 @@ const request = require('request').defaults({ encoding: null });
 let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
 let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
 
-var uriBase = endpoint + 'vision/v3.0/generateThumbnail';
+var uriBase = endpoint + 'vision/v3.1/generateThumbnail';
 
 const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg';
 

@@ -1,25 +1,26 @@
 ---
-title: Update RU/s for a SQL (Core) API database and container for Azure Cosmos DB
-description: Update RU/s for a SQL (Core) API database and container for Azure Cosmos DB
+title: Azure CLI scripts for throughput (RU/s) operations for Azure Cosmos DB Core (SQL) API resources
+description: Azure CLI scripts for throughput (RU/s) operations for Azure Cosmos DB Core (SQL) API resources
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 10/07/2020
 ---
 
-# Update RU/s for a SQL (Core) API database and container for Azure Cosmos DB using Azure CLI
+# Throughput (RU/s) operations with Azure CLI for a database or container for Azure Cosmos DB Core (SQL) API
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.9.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.12.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Sample script
 
-This script creates a SQL (Core) API database with shared throughput and a SQL (Core) API container with dedicated throughput, then updates the throughput for both the database and container.
+This script creates a Core (SQL) API database with shared throughput and a Core (SQL) API container with dedicated throughput, then updates the throughput for both the database and container. The script then migrates from standard to autoscale throughput then reads the value of the autoscale throughput after it has been migrated.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/throughput.sh "Update RU/s for a SQL database and container.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/throughput.sh "Throughput operations for a SQL database and container.")]
 
 ## Clean up deployment
 
@@ -37,10 +38,12 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
-| [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Creates an Azure Cosmos SQL (Core) database. |
-| [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Creates an Azure Cosmos SQL (Core) container. |
-| [az cosmosdb sql database throughput update](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-update) | Update RU/s for an Azure Cosmos SQL (Core) database. |
-| [az cosmosdb sql container throughput update](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-update) | Update RU/s for an Azure Cosmos SQL (Core) container. |
+| [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Creates an Azure Cosmos Core (SQL) database. |
+| [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Creates an Azure Cosmos Core (SQL) container. |
+| [az cosmosdb sql database throughput update](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-update) | Update throughput for an Azure Cosmos Core (SQL) database. |
+| [az cosmosdb sql container throughput update](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-update) | Update throughput for an Azure Cosmos Core (SQL) container. |
+| [az cosmosdb sql database throughput migrate](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-migrate) | Migrate throughput for an Azure Cosmos Core (SQL) database. |
+| [az cosmosdb sql container throughput migrate](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-migrate) | Migrate throughput for an Azure Cosmos Core (SQL) container. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps

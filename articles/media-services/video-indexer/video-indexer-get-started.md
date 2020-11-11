@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 10/30/2020
 ms.author: juliako
 ---
 
@@ -23,8 +23,10 @@ When creating a Video Indexer account, you can choose a free trial account (wher
 
 To start developing with Video Indexer, browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign up.
 
+Once you start using Video Indexer, all your stored data and uploaded content are encrypted at rest with a Microsoft managed key.
+
 > [!NOTE]
-> Once you start using Video Indexer, all your stored data and uploaded content are encrypted at rest with a Microsoft managed key.
+> Review [planned Video Indexer website authenticatication changes](release-notes.md#planned-video-indexer-website-authenticatication-changes).
 
 ## Upload a video using the Video Indexer website
 
@@ -35,24 +37,28 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 ### Upload a video
 
 1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website.
-2. To upload a video, press the **Upload** button or link.
+1. To upload a video, press the **Upload** button or link.
 
     > [!NOTE]
     > The name of the video must be no greater than 80 characters.
 
-    ![Upload](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Upload":::
+1. Once your video has been uploaded, Video Indexer starts indexing and analyzing the video. You see the progress. 
 
-    Once your video has been uploaded, Video Indexer starts indexing and analyzing the video.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload":::
+1. Once Video Indexer is done analyzing, you will get an email with a link to your video and a short description of what was found in your video. For example: people, spoken and written words, topics, and named entities.
+1. You can later find your video in the library list and perform different operations. For example: search, re-index, edit.
 
-    ![Uploaded](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Uploaded the upload":::
+ 
 ## See also
 
 See [Upload and index videos](upload-index-videos.md) for more details.
 
-After you upload and index a video, you can start using [Video Indexer](video-indexer-view-edit.md) website or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
+After you upload and index a video, you can start using [Video Indexer website](video-indexer-view-edit.md) or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
 
 [Start using APIs](video-indexer-use-apis.md)
 

@@ -114,7 +114,7 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 ## Payload schema
 
 > [!NOTE]
-> You can also use the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
+> You can also use the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](./alerts-common-schema-definitions.md)​
 
 
 The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](./action-groups.md) is used:
@@ -175,4 +175,3 @@ The POST operation contains the following JSON payload and schema for all near n
 * Learn more about the new [Alerts experience](./alerts-overview.md).
 * Learn about [log alerts in Azure](./alerts-unified-log.md).
 * Learn about [alerts in Azure](./alerts-overview.md).
-

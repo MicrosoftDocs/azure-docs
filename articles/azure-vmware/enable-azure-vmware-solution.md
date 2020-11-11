@@ -10,7 +10,7 @@ Learn how to submit a support request to enable your Azure VMware Solution resou
 
 ## Eligibility criteria
 
-* You'll need an [Azure Enterprise Agreement (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) with Microsoft.
+* You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 * You'll need an Azure account in an Azure subscription.
 
 

@@ -1,6 +1,8 @@
 ---
 title: Active Learning suggested questions - QnA Maker
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: "devx-track-js, devx-track-csharp"
@@ -16,7 +18,7 @@ Active Learning alters the Knowledge Base or Search Service after you approve th
 
 ## Turn on active learning
 
-In order to see suggested questions, you must [turn on active learning](use-active-learning.md) for your QnA Maker resource.
+In order to see suggested questions, you must [turn on active learning](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/active-learning-suggestions) for your QnA Maker resource.
 
 ## View suggested questions
 

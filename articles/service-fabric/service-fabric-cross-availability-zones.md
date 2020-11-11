@@ -145,7 +145,7 @@ To enable a zone, on a virtual machine scale set you must include the following 
 
 * The first value is the **zones** property, which specifies which Availability Zone the virtual machine scale set will be deployed to.
 * The second value is the "singlePlacementGroup" property, which must be set to true.
-* The third value is the “faultDomainOverride” property in the Service Fabric virtual machine scale set extension. The value for this property should include the region and zone in which this virtual machine scale set will be placed. Example: "faultDomainOverride": "eastus/az1" All virtual machine scale set resources must be placed in the same region because Azure Service Fabric clusters do not have cross region support.
+* The third value is the “faultDomainOverride” property in the Service Fabric virtual machine scale set extension. The value for this property should include only the zone in which this virtual machine scale set will be placed. Example: "faultDomainOverride": "az1" All virtual machine scale set resources must be placed in the same region because Azure Service Fabric clusters do not have cross region support.
 
 ```json
 {
@@ -178,7 +178,7 @@ To enable a zone, on a virtual machine scale set you must include the following 
             "systemLogUploadSettings": {
                 "Enabled": true
             },
-            "faultDomainOverride": "eastus/az1"
+            "faultDomainOverride": "az1"
         },
         "typeHandlerVersion": "1.0"
     }

@@ -7,8 +7,8 @@ ms.date: 10/02/2020
 
 # Save costs with Azure VMware Solution
 
-When you commit to a reserved instance of Azure VMware Solution, you can save money. The reservation discount is applied automatically to the number of running Azure VMware Solution hosts that match the reservation scope and attributes. You don't need to assign a reservation to a dedicated host to get the discounts. A reserved instance purchase covers only the compute part of your usage and does
-include software licensing costs. See the [Overview of Azure VMware Solution](introduction.md).
+When you commit to a reserved instance of [Azure VMware Solution](introduction.md), you save money. The reservation discount is applied automatically to the running Azure VMware Solution hosts that match the reservation scope and attributes. You don't need to assign a reservation to a dedicated host to get the discounts. A reserved instance purchase covers only the compute part of your usage and includes software licensing costs. 
+
 
 ## Purchase restriction considerations
 
@@ -16,11 +16,11 @@ Reserved instances are available with some exceptions.
 
 -   **Clouds** - Reservations are available only in the regions listed on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) page.
 
--   **Insufficient quota** - A reservation that is scoped to a single/shared subscription must have hosts quota available in the subscription for the new reserved instance. You can [create quota increase request](enable-azure-vmware-solution.md) to resolve this issue.
+-   **Insufficient quota** - A reservation scoped to a single/shared subscription must have hosts quota available in the subscription for the new reserved instance. You can [create quota increase request](enable-azure-vmware-solution.md) to resolve this issue.
 
--   **Offer Eligibility**- You'll need an [Azure Enterprise Agreement (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) with Microsoft.
+-   **Offer eligibility**- You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 
--   **Capacity restrictions** - In rare circumstances, Azure limits the purchase of new reservations for Azure VMware Solution host SKUs, because of low capacity in a region.
+-   **Capacity restrictions** - In rare circumstances, Azure limits the purchase of new reservations for Azure VMware Solution host SKUs because of low capacity in a region.
 
 ## Buy a reservation
 
@@ -42,9 +42,9 @@ To buy an instance:
 
 3. Select **Add** to purchase a new reservation and then select **Azure VMware Solution**.
 
-4. Enter required fields. Running Azure VMware Solution hosts that match the attributes you select qualify to get the reservation discount. The actual number of your Azure VMware Solution hosts that get the discount depend on the scope and quantity selected.
+4. Enter the required fields. Running Azure VMware Solution hosts that match the attributes, you select qualify to get the reservation discount. The actual number of your Azure VMware Solution hosts that get the discount depending on the scope and quantity selected.
 
-   If you have an EA agreement, you can use the **Add more option** to quickly add additional instances. The option isn't available for other subscription types.
+   If you have an EA agreement, you can use the **Add more option** to add additional instances quickly. The option isn't available for other subscription types.
 
    | Field        |  Description |
    | ------------ | ------------ |
@@ -55,11 +55,14 @@ To buy an instance:
    | Term         | One year or three years.  |
    | Quantity     | The number of instances being purchased within the reservation. The quantity is the number of running Azure VMware Solution hosts that can get the billing discount.    |
 
-## Usage data and reservation utilization
+## Usage data and reservation usage
 
-Your usage data has an effective price of zero for the usage that gets a reservation discount. You can see which Azure VMware Solution instance received the reservation discount for each reservation.
+Your usage that gets a reservation discount has an effective price of zero. You can see which Azure VMware Solution instance received the reservation discount for each reservation.
 
-For more information about how reservation discounts appear in usage data, and you are an EA customer, see [Understand Azure reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md). If you have an individual subscription, see [Understand Azure reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+For more information about how reservation discounts appear in usage data:
+
+- For EA customers, see [Understand Azure reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+- For individual subscriptions, see [Understand Azure reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
 ## Change a reservation after purchase
 
@@ -74,7 +77,7 @@ You can make the following types of changes to a reservation after purchase:
 You can also split a reservation into smaller chunks or merge reservations. None of the changes cause a new commercial transaction or change the end date of the reservation.
 
 >[!NOTE]
->Once you've purchased your reservation, you will not be able to make the following types of changes, directly:
+>Once you've purchased your reservation, you will not be able to make the following types of changes directly:
 >
 > - An existing reservation’s region
 > - SKU

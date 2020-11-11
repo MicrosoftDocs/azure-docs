@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 10/01/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -41,7 +41,7 @@ You can now use the [Experience Estimator](https://azure.microsoft.com/services/
     
 - We've added a new feature that lets you change VM location, image, resource group, prefix name, network config as part of the workflow for adding a VM to your deployment in the Azure portal.
 
-- IT Pros can now manage hybrid Azure Active Directory-joined Windows 10 Enterprise VMs using Microsoft Endpoint Manager. To learn more, see [our blog post](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048)
+- IT Pros can now manage hybrid Azure Active Directory-joined Windows 10 Enterprise VMs using Microsoft Endpoint Manager. To learn more, see [our blog post](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048).
 
 ## August 2020
 

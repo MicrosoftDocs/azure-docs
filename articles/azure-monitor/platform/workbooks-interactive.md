@@ -2,14 +2,12 @@
 title: Azure Monitor workbooks with custom parameters 
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.author: mbullwin
 ---
 
 # Interactive Workbooks
@@ -186,5 +184,5 @@ While the default behavior is to export a parameter as text, if you know that th
 
 ## Next steps
 
-* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
 * [Control](workbooks-access-control.md) and share access to your workbook resources.

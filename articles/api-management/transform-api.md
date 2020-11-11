@@ -56,7 +56,7 @@ The original response should look similar to the following:
 
 :::image type="content" source="media/transform-api/original-response.png" alt-text="Original API response":::
 
-As you can see, the response includes the **X-AspNet-Version**and **X-Powered-By** headers.
+As you can see, the response includes the **X-AspNet-Version** and **X-Powered-By** headers.
 
 ### Set the transformation policy
 
@@ -66,7 +66,7 @@ As you can see, the response includes the **X-AspNet-Version**and **X-Powered-By
    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Navigate to outbound policy" border="false":::
 
 1. Position the cursor inside the **&lt;outbound&gt;** element and select **Show snippets** at the top right corner.
-1. In the right window, under **Transformation policies**, select ** Set HTTP header** twice (to insert two policy snippets).
+1. In the right window, under **Transformation policies**, select **Set HTTP header** twice (to insert two policy snippets).
 
    :::image type="content" source="media/transform-api/transform-api.png" alt-text="Set HTTP header policy":::
 
@@ -111,7 +111,7 @@ This section shows how to add protection for your backend API by configuring rat
 
 1.  Select **Demo Conference API** > **All operations** > **Design**.
 1.  In the **Inbound processing** section, select the code editor (**</>**) icon.
-1.  Position the cursor inside the **&lt;inbound&gt;** element.
+1.  Position the cursor inside the **&lt;inbound&gt;** element and select **Show snippets** at the top right corner.
 
     :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Set inbound policy" border="false":::
 

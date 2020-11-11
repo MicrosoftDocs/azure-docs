@@ -107,18 +107,18 @@ By default, the prefix of the name of a PVC indicates its usage:
 For example:
 
 ```output
-NAME                   STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
-backups-postgres01-0   Bound    local-pv-485e37db   1938Gi     RWO            local-storage   6d6h
-backups-postgres01-1   Bound    local-pv-9d3d4a15   1938Gi     RWO            local-storage   6d6h
-backups-postgres01-2   Bound    local-pv-7b8dd819   1938Gi     RWO            local-storage   6d6h
+NAME                                            STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
+backups-few7hh0k4npx9phsiobdc3hq-postgres01-0   Bound    local-pv-485e37db   1938Gi     RWO            local-storage   6d6h
+backups-few7hh0k4npx9phsiobdc3hq-postgres01-1   Bound    local-pv-9d3d4a15   1938Gi     RWO            local-storage   6d6h
+backups-few7hh0k4npx9phsiobdc3hq-postgres01-2   Bound    local-pv-7b8dd819   1938Gi     RWO            local-storage   6d6h
 ...
-data-postgres01-0      Bound    local-pv-3c1a8cc5   1938Gi     RWO            local-storage   6d6h
-data-postgres01-1      Bound    local-pv-8303ab19   1938Gi     RWO            local-storage   6d6h
-data-postgres01-2      Bound    local-pv-55572fe6   1938Gi     RWO            local-storage   6d6h
+data-few7hh0k4npx9phsiobdc3hq-postgres01-0      Bound    local-pv-3c1a8cc5   1938Gi     RWO            local-storage   6d6h
+data-few7hh0k4npx9phsiobdc3hq-postgres01-1      Bound    local-pv-8303ab19   1938Gi     RWO            local-storage   6d6h
+data-few7hh0k4npx9phsiobdc3hq-postgres01-2      Bound    local-pv-55572fe6   1938Gi     RWO            local-storage   6d6h
 ...
-logs-postgres01-0      Bound    local-pv-5e852b76   1938Gi     RWO            local-storage   6d6h
-logs-postgres01-1      Bound    local-pv-55d309a7   1938Gi     RWO            local-storage   6d6h
-logs-postgres01-2      Bound    local-pv-5ccd02e6   1938Gi     RWO            local-storage   6d6h
+logs-few7hh0k4npx9phsiobdc3hq-postgres01-0      Bound    local-pv-5e852b76   1938Gi     RWO            local-storage   6d6h
+logs-few7hh0k4npx9phsiobdc3hq-postgres01-1      Bound    local-pv-55d309a7   1938Gi     RWO            local-storage   6d6h
+logs-few7hh0k4npx9phsiobdc3hq-postgres01-2      Bound    local-pv-5ccd02e6   1938Gi     RWO            local-storage   6d6h
 ...
 ```
 
@@ -201,24 +201,12 @@ Metadata:
   Self Link:           /apis/arcdata.microsoft.com/v1alpha1/namespaces/arc/postgresql-12s/postgres02
   UID:                 8a9cd118-361b-4a2e-8a9d-5f9257bf6abb
 Spec:
-  Backups:
-    Delta Minutes:  3
-    Full Minutes:   10
-    Tiers:
-      Retention:
-        Maximums:
-          6
-          512MB
-        Minimums:
-          3
-      Storage:
-        Volume Size:  1Gi
   Engine:
     Extensions:
       Name:  citus
       Name:  pg_stat_statements
   Scale:
-    Shards:  2
+    Workers:  2
   Scheduling:
     Default:
       Resources:
@@ -244,21 +232,33 @@ Status:
 Events:               <none>
 ```
 
+>[!NOTE]
+>Prior to October 2020 release, `Workers` was `Shards` in the previous example. See [Release notes - Azure Arc enabled data services (Preview)](release-notes.md) for more information.
+
 Let's call out some specific points of interest in the description of the `servergroup` shown above. What does it tell us about this server group?
 
 - It is of version 12 of Postgres: 
+   > ```json
    > Kind:         `postgresql-12`
+   > ```
 - It was created during the month of August 2020:
+   > ```json
    > Creation Timestamp:  `2020-08-31T21:01:07Z`
+   > ```
 - Two Postgres extensions were created in this server group: `citus` and `pg_stat_statements`
+   > ```json
    > Engine:
    >    Extensions:
    >      Name:  `citus`
    >      Name:  `pg_stat_statements`
+   > ```
 - It uses two worker nodes
+   > ```json
    > Scale:
-   >    Shards:  `2`
+   >    Workers:  `2`
+   > ```
 - It is guaranteed to use 1 cpu/vCore and 512MB of Ram per node. It will use more than 4 cpu/vCores and 1024MB of memory:
+   > ```json
    > Scheduling:
    >    Default: 
    >      Resources:
@@ -268,11 +268,14 @@ Let's call out some specific points of interest in the description of the `serve
    >        Requests:
    >          Cpu:     1
    >          Memory:  512Mi
+   > ```
  - It is available for queries and does not have any problem. All nodes are up and running:
+   > ```json
    > Status:
    >  ...
    >  Ready Pods:         3/3
    >  State:              Ready
+   > ```
 
 **With azdata:**
 
@@ -290,7 +293,7 @@ azdata arc postgres server show -n postgres02
 
 Returns the below output in a format and content very similar to the one returned by kubectl.
 
-```output
+```console
 {
   "apiVersion": "arcdata.microsoft.com/v1alpha1",
   "kind": "postgresql-12",
@@ -304,26 +307,6 @@ Returns the below output in a format and content very similar to the one returne
     "uid": "8a9cd118-361b-4a2e-8a9d-5f9257bf6abb"
   },
   "spec": {
-    "backups": {
-      "deltaMinutes": 3,
-      "fullMinutes": 10,
-      "tiers": [
-        {
-          "retention": {
-            "maximums": [
-              "6",
-              "512MB"
-            ],
-            "minimums": [
-              "3"
-            ]
-          },
-          "storage": {
-            "volumeSize": "1Gi"
-          }
-        }
-      ]
-    },
     "engine": {
       "extensions": [
         {
@@ -335,7 +318,7 @@ Returns the below output in a format and content very similar to the one returne
       ]
     },
     "scale": {
-      "shards": 2
+      "workers": 2
     },
     "scheduling": {
       "default": {

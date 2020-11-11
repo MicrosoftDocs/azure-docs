@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Identity Protection policies
 
-Azure Active Directory Identity Protection includes three default policies that administrators can choose to enable. These policies include limited customization but are applicable to most organizations. All of the policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../users-groups-roles/directory-emergency-access.md).
+Azure Active Directory Identity Protection includes three default policies that administrators can choose to enable. These policies include limited customization but are applicable to most organizations. All of the policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../roles/security-emergency-access.md).
 
 ![Identity Protection policies](./media/concept-identity-protection-policies/identity-protection-policies.png)
 

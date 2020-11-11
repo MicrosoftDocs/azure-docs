@@ -72,7 +72,7 @@ Now that you have a SAS for your empty managed disk, you can use it to set your 
 
 Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the SAS URI you generated.
 
-This upload has the same throughput as the equivalent [standard HDD](disks-types.md#standard-hdd). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
+This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdd). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
 
 ```
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob

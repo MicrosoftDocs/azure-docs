@@ -21,11 +21,11 @@ ms.service: digital-twins
 
 To help you do this, a .NET client-side DTDL parsing library is provided on NuGet: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
 
-You can use the parser library directly in your C# code, or use the language-agnostic code sample project that is built on the parser library: [**DTDL Validator sample**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+You can use the parser library directly in your C# code, or use the language-agnostic code sample project that is built on the parser library: [**DTDL Validator sample**](/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 ## Use the DTDL validator sample
 
-The [**DTDL Validator**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) is a sample project that can validate model documents to make sure the DTDL is valid. It is built on the .NET parser library and is language-agnostic. You can get it with the *Download ZIP* button at the sample link.
+The [**DTDL Validator**](/samples/azure-samples/dtdl-validator/dtdl-validator) is a sample project that can validate model documents to make sure the DTDL is valid. It is built on the .NET parser library and is language-agnostic. You can get it with the *Download ZIP* button at the sample link.
 
 The source code shows examples for how to use the parser library. You can use the validator sample as a command line utility to validate a directory tree of DTDL files. It also provides an interactive mode.
 
@@ -78,32 +78,50 @@ You can use the parser library directly, for things like validating models in yo
 
 To support the parser code example below, consider several models defined in an Azure Digital Twins instance:
 
-> [!TIP] 
-> The `dtmi:com:contoso:coffeeMaker` model is using the *capability model* syntax, which implies that it was installed in the service by connecting a PnP device exposing that model.
-
 ```json
-{
-  "@id": " dtmi:com:contoso:coffeeMaker",
-  "@type": "CapabilityModel",
-  "implements": [
-        { "name": "coffeeMaker", "schema": " dtmi:com:contoso:coffeeMakerInterface" }
-  ]    
-}
-{
-  "@id": " dtmi:com:contoso:coffeeMakerInterface",
-  "@type": "Interface",
-  "contents": [
-      { "@type": "Property", "name": "waterTemp", "schema": "double" }  
-  ]
-}
-{
-  "@id": " dtmi:com:contoso:coffeeBar",
-  "@type": "Interface",
-  "contents": [
-        { "@type": "relationship", "contains": " dtmi:com:contoso:coffeeMaker" },
-        { "@type": "property", "name": "capacity", "schema": "integer" }
-  ]    
-}
+[
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeMaker;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Component",
+        "name": "coffeeMaker",
+        "schema": "dtmi:com:contoso:coffeeMakerInterface;1"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeMakerInterface;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "waterTemp",
+        "schema": "double"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeBar;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Relationship",
+        "name": "foo",
+        "target": "dtmi:com:contoso:coffeeMaker;1"
+      },
+      {
+        "@type": "Property",
+        "name": "capacity",
+        "schema": "integer"
+      }
+    ]
+  }
+]
 ```
 
 The following code shows an example of how to use the parser library to reflect on these definitions in C#:
@@ -113,10 +131,10 @@ async void ParseDemo(DigitalTwinsClient client)
 {
     try
     {
-        AsyncPageable<ModelData> mdata = client.GetModelsAsync(null, true);
+        AsyncPageable<DigitalTwinsModelData> mdata = client.GetModelsAsync(new GetModelsOptions { IncludeModelDefinition = true });
         List<string> models = new List<string>();
-        await foreach (ModelData md in mdata)
-            models.Add(md.Model);
+        await foreach (DigitalTwinsModelData md in mdata)
+            models.Add(md.DtdlModel);
         ModelParser parser = new ModelParser();
         IReadOnlyDictionary<Dtmi, DTEntityInfo> dtdlOM = await parser.ParseAsync(models);
 

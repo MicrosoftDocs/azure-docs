@@ -41,7 +41,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services Administration library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Administration --version 1.0.0-beta.1
+dotnet add package Azure.Communication.Administration --version 1.0.0-beta.2
 ```
 
 ### Set up the app framework

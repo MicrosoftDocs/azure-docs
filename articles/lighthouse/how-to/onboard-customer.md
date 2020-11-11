@@ -14,7 +14,7 @@ This article explains how you, as a service provider, can onboard a customer to 
 
 You can repeat the onboarding process for multiple customers. When a user with the appropriate permissions signs in to your managing tenant, that user can be authorized across customer tenancy scopes to perform management operations, without having to sign in to every individual customer tenant.
 
-To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. We recommend creating a service principal account in your tenant that is associated with your MPN ID, then including that service principal every time you onboard a customer. For more info, see [Link your partner ID to enable partner earned credit on delegated resources.
+To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. We recommend creating a service principal account in your tenant that is associated with your MPN ID, then including that service principal every time you onboard a customer. For more info, see [Link your partner ID to enable partner earned credit on delegated resources](partner-earned-credit.md).
 
 > [!NOTE]
 > Customers can also be onboarded to Azure Lighthouse when they purchase a Managed Service offer (public or private) that you [publish to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here alongside offers published to Azure Marketplace.
@@ -57,14 +57,14 @@ az account show
 
 ## Define roles and permissions
 
-As a service provider, you may want to perform multiple tasks for a single customer, requiring different access for different scopes. You can define as many authorizations as you need in order to assign the appropriate [role-based access control (RBAC) built-in roles](../../role-based-access-control/built-in-roles.md) to users in your tenant.
+As a service provider, you may want to perform multiple tasks for a single customer, requiring different access for different scopes. You can define as many authorizations as you need in order to assign the appropriate [Azure built-in roles](../../role-based-access-control/built-in-roles.md) to users in your tenant.
 
 To make management easier, we recommend using Azure AD user groups for each role. This gives you the flexibility to add or remove individual users to the group that has access, so that you don't have to repeat the onboarding process to make user changes. You can assign roles to a service principal, which can be useful for automation scenarios.
 
-When defining your authorizations, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job. For guidelines and information about supported roles, see [Tenants, users, and roles in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
-
 > [!IMPORTANT]
 > In order to add permissions for an Azure AD group, the **Group type** must be set to **Security**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
+When defining your authorizations, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job. For guidelines and information about supported roles, see [Tenants, users, and roles in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
 
 To define authorizations, you'll need to know the ID values for each user, user group, or service principal in the service provider tenant to which you want to grant access. You'll also need the role definition ID for each built-in role you want to assign. If you don't have them already, you can retrieve them by running the commands below from within the service provider tenant.
 
@@ -237,18 +237,18 @@ New-AzSubscriptionDeployment -Name <deploymentName> `
 # Log in first with az login if you're not using Cloud Shell
 
 # Deploy Azure Resource Manager template using template and parameter file locally
-az deployment create --name <deploymentName> \
-                     --location <AzureRegion> \
-                     --template-file <pathToTemplateFile> \
-                     --parameters <parameters/parameterFile> \
-                     --verbose
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-file <pathToTemplateFile> \
+                         --parameters <parameters/parameterFile> \
+                         --verbose
 
 # Deploy external Azure Resource Manager template, with local parameter file
-az deployment create --name <deploymentName> \
-                     --location <AzureRegion> \
-                     --template-uri <templateUri> \
-                     --parameters <parameterFile> \
-                     --verbose
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-uri <templateUri> \
+                         --parameters <parameterFile> \
+                         --verbose
 ```
 
 ## Confirm successful onboarding

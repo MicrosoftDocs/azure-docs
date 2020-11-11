@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: how-to
-ms.date: 4/29/2020 
+ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -14,6 +14,9 @@ ms.custom: devx-track-azurepowershell
 
 You can list, show, and update configuration parameters for an Azure Database for MySQL server using
 PowerShell. A subset of engine configurations is exposed at the server-level and can be modified.
+
+>[!Note]
+> Server parameters can be updated globally at the server-level, use the [Azure CLI](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md), or [Azure portal](./howto-server-parameters.md).
 
 ## Prerequisites
 

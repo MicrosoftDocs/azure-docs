@@ -33,7 +33,7 @@ Run this code on either of these environments:
     - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > pytorch > train-hyperparameter-tune-deploy-with-pytorch** folder. 
  
  - Your own Jupyter Notebook server
-    - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.15.0).
+    - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
     - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch) `pytorch_train.py`
      
@@ -53,6 +53,7 @@ import shutil
 
 from azureml.core.workspace import Workspace
 from azureml.core import Experiment
+from azureml.core import Environment
 
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
@@ -60,7 +61,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) object.
+The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) object.
 
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
@@ -110,48 +111,10 @@ For more information on compute targets, see the [what is a compute target](conc
 
 ### Define your environment
 
-To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use and Azure ML curated environment.
-
-#### Create a custom environment
-
-Define the Azure ML environment that encapsulates your training script's dependencies.
-
-First, define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
-
-```yaml
-channels:
-- conda-forge
-dependencies:
-- python=3.6.2
-- pip:
-  - azureml-defaults
-  - torch==1.6.0
-  - torchvision==0.7.0
-  - future==0.17.1
-  - pillow
-```
-
-Create an Azure ML environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
-
-By default if no base image is specified, Azure ML will use a CPU image `azureml.core.runconfig.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you will need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo for more information.
-
-```python
-from azureml.core import Environment
-
-pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
-
-# Specify a GPU base image
-pytorch_env.docker.enabled = True
-pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04'
-```
-
-> [!TIP]
-> Optionally, you can just capture all your dependencies directly in a custom Docker image or Dockerfile, and create your environment from that. For more information, see [Train with custom image](how-to-train-with-custom-image.md).
-
-For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
+To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use an Azure ML curated environment.
 
 #### Use a curated environment
-Optionally, Azure ML provides prebuilt, curated environments if you don't want to build your own image. Azure ML has several CPU and GPU curated environments for PyTorch corresponding to different versions of PyTorch. For more info, see [here](resource-curated-environments.md).
+Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for PyTorch corresponding to different versions of PyTorch. For more info, see [here](resource-curated-environments.md).
 
 If you want to use a curated environment, you can run the following command instead:
 
@@ -175,11 +138,47 @@ If you had instead modified the curated environment object directly, you can clo
 pytorch_env = pytorch_env.clone(new_name='pytorch-1.6-gpu')
 ```
 
+#### Create a custom environment
+
+You can also create your own Azure ML environment that encapsulates your training script's dependencies.
+
+First, define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
+
+```yaml
+channels:
+- conda-forge
+dependencies:
+- python=3.6.2
+- pip:
+  - azureml-defaults
+  - torch==1.6.0
+  - torchvision==0.7.0
+  - future==0.17.1
+  - pillow
+```
+
+Create an Azure ML environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
+
+By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you will need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo for more information.
+
+```python
+pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
+
+# Specify a GPU base image
+pytorch_env.docker.enabled = True
+pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04'
+```
+
+> [!TIP]
+> Optionally, you can just capture all your dependencies directly in a custom Docker image or Dockerfile, and create your environment from that. For more information, see [Train with custom image](how-to-train-with-custom-image.md).
+
+For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
+
 ## Configure and submit your training run
 
 ### Create a ScriptRunConfig
 
-Create a [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. 
+Create a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. 
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -201,7 +200,7 @@ For more information on configuring jobs with ScriptRunConfig, see [Configure an
 
 ## Submit your run
 
-The [Run object](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) provides the interface to the run history while the job is running and after it has completed.
+The [Run object](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) provides the interface to the run history while the job is running and after it has completed.
 
 ```Python
 run = Experiment(ws, name='pytorch-birds').submit(src)
@@ -266,7 +265,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-In order to execute a distributed job using MPI/Horovod on Azure ML, you must specify an [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. The below code will configure a 2-node distributed job running one process per node. If you would also like to run multiple processes per node (i.e. if your cluster SKU has multiple GPUs), additionally specify the `process_count_per_node` parameter in MpiConfiguration (the default is `1`).
+In order to execute a distributed job using MPI/Horovod on Azure ML, you must specify an [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. The below code will configure a 2-node distributed job running one process per node. If you would also like to run multiple processes per node (i.e. if your cluster SKU has multiple GPUs), additionally specify the `process_count_per_node` parameter in MpiConfiguration (the default is `1`).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -284,7 +283,7 @@ For a full tutorial on running distributed PyTorch with Horovod on Azure ML, see
 ### DistributedDataParallel
 If you are using PyTorch's built-in [DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) module that is built using the **torch.distributed** package in your training code, you can also launch the distributed job via Azure ML.
 
-In order to run a distributed PyTorch job with DistributedDataParallel, specify a [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. To use the NCCL backend for torch.distributed, specify `communication_backend='Nccl'` in the PyTorchConfiguration. The below code will configure a 2-node distributed job. The NCCL backend is the recommended backend for PyTorch distributed GPU training.
+In order to run a distributed PyTorch job with DistributedDataParallel, specify a [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. To use the NCCL backend for torch.distributed, specify `communication_backend='Nccl'` in the PyTorchConfiguration. The below code will configure a 2-node distributed job. The NCCL backend is the recommended backend for PyTorch distributed GPU training.
 
 For distributed PyTorch jobs configured via PyTorchConfiguration, Azure ML will set the following environment variables on the nodes of the compute target:
 

@@ -63,7 +63,7 @@ Scone deployments on confidential computing nodes with AKS are fully supported a
 
 ### Anjuna
 
-[Anjuna](https://www.anjuna.io/) provides SGX platform software that enables you to run unmodified containers on AKS. Read more on the **upcoming** functionality and the user flow [here](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
+[Anjuna](https://www.anjuna.io/) provides SGX platform software that enables you to run unmodified containers on AKS. Learn more on the functionality and check out the sample applications [here](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
 
 Get started with a sample Redis Cache and Python Custom Application [here](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)
 

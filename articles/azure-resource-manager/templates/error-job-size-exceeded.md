@@ -2,7 +2,7 @@
 title: Job size exceeded error
 description: Describes how to troubleshoot errors when job size or template are too large.
 ms.topic: troubleshooting
-ms.date: 09/25/2020
+ms.date: 10/07/2020
 ---
 # Resolve errors for job size exceeded
 
@@ -32,6 +32,10 @@ Your first option is to simplify the template. This option works when your templ
 
 You can set other resources as dependent on the linked template, and [get values from the output of the linked template](linked-templates.md#get-values-from-linked-template).
 
-## Solution 2 - Use serial copy
+## Solution 2 - Reduce name size
+
+Try to shorten the length of the names you use for [parameters](template-parameters.md), [variables](template-variables.md), and [outputs](template-outputs.md). When these values are repeated through copy loops, a large name gets multiplied many times.
+
+## Solution 3 - Use serial copy
 
 Your second option is to change your copy loop from [parallel to serial processing](copy-resources.md#serial-or-parallel). Use this option only when you suspect the error comes from deploying a large number of resources through copy. This change can significantly increase your deployment time because the resources aren't deployed in parallel.

@@ -81,4 +81,4 @@ If you are scaling from or to the Developer tier, there will be downtime. Otherw
 
 - [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
 - [How to automatically scale an Azure API Management service instance](api-management-howto-autoscale.md)
-- [Optimize and save on your cloud spending](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Optimize and save on your cloud spending](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

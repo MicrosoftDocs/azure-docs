@@ -15,16 +15,16 @@ ms.reviewer: jrasnick
 
 Azure Synapse SQL is a big data analytic service that enables you to query and analyze your data using the T-SQL language. You can use standard ANSI-compliant dialect of SQL language used on SQL Server and Azure SQL Database for data analysis. 
 
-Transact-SQL language is used in Synapse SQL serverless and provisioned model can reference different objects and has some differences in the set of supported features. In this page, you can find high-level Transact-SQL language differences between consumption models of Synapse SQL.
+Transact-SQL language is used in Synapse SQL serverless and dedicated model can reference different objects and has some differences in the set of supported features. In this page, you can find high-level Transact-SQL language differences between consumption models of Synapse SQL.
 
 ## Database objects
 
 Consumption models in Synapse SQL enables you to use different database objects. The comparison of supported object types is shown in the following table:
 
-|   | Provisioned | Serverless |
+|   | Dedicated | Serverless |
 | --- | --- | --- |
 | **Tables** | [Yes](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No, serverless model can query only external data placed on [Azure Storage](#storage-options) |
-| **Views** | [Yes](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Views can use [query language elements](#query-language) that are available in provisioned model. | [Yes](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Views can use [query language elements](#query-language) that are available in serverless model. |
+| **Views** | [Yes](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Views can use [query language elements](#query-language) that are available in dedicated model. | [Yes](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Views can use [query language elements](#query-language) that are available in serverless model. |
 | **Schemas** | [Yes](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | [Yes](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |
 | **Temporary tables** | [Yes](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | No |
 | **Procedures** | [Yes](/sql/t-sql/statements/create-procedure-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No |
@@ -43,7 +43,7 @@ Consumption models in Synapse SQL enables you to use different database objects.
 
 Query languages used in Synapse SQL can have different supported features depending on consumption model. The following table outlines the most important query language differences in Transact-SQL dialects:
 
-|   | Provisioned | Serverless |
+|   | Dedicated | Serverless |
 | --- | --- | --- |
 | **SELECT statement** | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), and [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) are not supported. | Yes. Transact-SQL query clauses [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), and query hints are not supported. [OFFSET/FETCH](/sql/t-sql/queries/select-order-by-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#using-offset-and-fetch-to-limit-the-rows-returned) and [PIVOT/UNPIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) can be used to query system objects (not external data). |
 | **INSERT statement** | Yes | No |
@@ -68,14 +68,14 @@ Query languages used in Synapse SQL can have different supported features depend
 
 Synapse SQL enable you to use built-in security features to secure your data and control access. The following table compares high-level differences between Synapse SQL consumption models.
 
-|   | Provisioned | Serverless |
+|   | Dedicated | Serverless |
 | --- | --- | --- |
 | **Logins** | N/A (only contained users are supported in databases) | Yes |
 | **Users** |  N/A (only contained users are supported in databases) | Yes |
 | **[Contained users](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** | Yes. **Note:** only one Azure AD user can be unrestricted admin | Yes |
 | **SQL username/password authentication**| Yes | Yes |
-| **Azure Active Directory (AAD) authentication**| Yes, Azure AD users | Yes, Azure AD logins and users |
-| **Storage Azure Active Directory (AAD) passthrough authentication** | Yes | Yes |
+| **Azure Active Directory (Azure AD) authentication**| Yes, Azure AD users | Yes, Azure AD logins and users |
+| **Storage Azure Active Directory (Azure AD) passthrough authentication** | Yes | Yes |
 | **Storage SAS token authentication** | No | Yes, using [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) or instance-level [CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). |
 | **Storage Access Key authentication** | Yes, using [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No |
 | **Storage [Managed Identity](../security/synapse-workspace-managed-identity.md) authentication** | Yes, using [Managed Service Identity Credential](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Yes, using `Managed Identity` credential. |
@@ -98,13 +98,13 @@ Synapse SQL enable you to use built-in security features to secure your data and
 | **[Firewall rules](../security/synapse-workspace-ip-firewall.md)**| Yes | Yes |
 | **[Private endpoint](../security/synapse-workspace-managed-private-endpoints.md)**| Yes | Yes |
 
-SQL pool and SQL on-demand use standard Transact-SQL language to query data. For detailed differences, look at the [Transact-SQL language reference](/sql/t-sql/language-reference).
+Dedicated SQL pool and serverless SQL pool use standard Transact-SQL language to query data. For detailed differences, look at the [Transact-SQL language reference](/sql/t-sql/language-reference).
 
 ## Tools
 
 You can use various tools to connect to Synapse SQL to query data.
 
-|   | Provisioned | Serverless |
+|   | Dedicated | Serverless |
 | --- | --- | --- |
 | **Synapse Studio** | Yes, SQL scripts | Yes, SQL scripts |
 | **Power BI** | Yes | [Yes](tutorial-connect-power-bi-desktop.md) |
@@ -113,15 +113,15 @@ You can use various tools to connect to Synapse SQL to query data.
 | **SQL Server Management Studio** | Yes | Yes, version 18.5 or higher |
 
 > [!NOTE]
-> You can use SSMS to connect to SQL on-demand (preview) and query. It is partially supported starting from version 18.5, you can use it to connect and query only.
+> You can use SSMS to connect to serverless SQL pool (preview) and query. It is partially supported starting from version 18.5, you can use it to connect and query only.
 
-Most of the applications use standard Transact-SQL language can query both provisioned and serverless consumption models of Synapse SQL.
+Most of the applications use standard Transact-SQL language can query both dedicated and serverless consumption models of Synapse SQL.
 
 ## Storage options
 
 Data that is analyzed can be stored on various storage types. The following table lists all available storage options:
 
-|   | Provisioned | Serverless |
+|   | Dedicated | Serverless |
 | --- | --- | --- |
 | **Internal storage** | Yes | No |
 | **Azure Data Lake v2** | Yes | Yes |
@@ -132,7 +132,7 @@ Data that is analyzed can be stored on various storage types. The following tabl
 
 Data that is analyzed can be stored in various storage formats. The following table lists all available data formats that can be analyzed:
 
-|   | Provisioned | Serverless |
+|   | Dedicated | Serverless |
 | --- | --- | --- |
 | **Delimited** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | [Yes](query-single-csv-file.md) |
 | **CSV** | Yes (multi-character delimiters not supported) | [Yes](query-single-csv-file.md) |
@@ -145,7 +145,7 @@ Data that is analyzed can be stored in various storage formats. The following ta
 | **[CDM](https://docs.microsoft.com/common-data-model/)** | No | No |
 
 ## Next steps
-Additional information on best practices for SQL pool and SQL on-demand can be found in the following articles:
+Additional information on best practices for dedicated SQL pool and serverless SQL pool can be found in the following articles:
 
-- [Best Practices for SQL pool](best-practices-sql-pool.md)
-- [Best practices for SQL on-demand](best-practices-sql-on-demand.md)
+- [Best Practices for dedicated SQL pool](best-practices-sql-pool.md)
+- [Best practices for serverless SQL pool](best-practices-sql-on-demand.md)

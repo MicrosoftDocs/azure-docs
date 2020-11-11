@@ -55,7 +55,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // The GenerateThumbnail method endpoint
-        static string uriBase = endpoint + "vision/v3.0/generateThumbnail";
+        static string uriBase = endpoint + "vision/v3.1/generateThumbnail";
         // Add an image to your bin/debug/netcoreappX.X folder, then add the image name (with extension), here
         static string imageFilePath = @"my-image-name";
 

@@ -2,7 +2,7 @@
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
 author: tfitzmac
-ms.date: 09/25/2020
+ms.date: 10/02/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ---
@@ -22,7 +22,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Create template spec
 
-The template spec is a new resource type named **Microsoft.Resources/templateSpecs**. To create your template spec, you can use Azure PowerShell, Azure CLI, or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
+The template spec is a resource type named **Microsoft.Resources/templateSpecs**. To create your template spec, you can use Azure PowerShell, Azure CLI, or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
 
 With PowerShell and CLI , the ARM template is passed in as a parameter to the command. With ARM template, the ARM template to package within the template spec is embedded within the template spec definition.
 

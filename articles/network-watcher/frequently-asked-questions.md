@@ -52,7 +52,7 @@ Visit the [Pricing page](https://azure.microsoft.com/pricing/details/network-wat
 You can view the latest regional availability on the [Azure Service availability page](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
 ### Which permissions are needed to use Network Watcher?
-See the list of [RBAC permissions required to use Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). For deploying resources, you need contributor permissions to the NetworkWatcherRG (see below).
+See the list of [Azure RBAC permissions required to use Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). For deploying resources, you need contributor permissions to the NetworkWatcherRG (see below).
 
 ### How do I enable Network Watcher?
 The Network Watcher service is [enabled automatically](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) for every subscription.
@@ -77,6 +77,14 @@ Network Watcher just needs to be enabled once for a subscription for it's featur
 
 ### How can I manage the Network Watcher Resource? 
 The Network Watcher resource represents the backend service for Network Watcher and is fully managed by Azure. Customers do no need to manage it. Operations like move are not supported on the resource. However, [the resource can be deleted](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal). 
+
+## Service availability and redundancy 
+
+### Is the Network Watcher service zone resilient? 
+Yes. The the Network Watcher service is zone-resilient by default. 
+
+### How do I configure the Network Watcher service to be zone-resilient? 
+No customer configuration is necessary to enable zone-resiliency. Zone-resiliency for Network Watcher resources is available by default and managed by the service itself. 
 
 ## NSG Flow Logs
 
