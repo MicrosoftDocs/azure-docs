@@ -1,5 +1,5 @@
 ---
-title: Synapse SQL recommendations
+title: Dedicated SQL pool Azure Advisor recommendations
 description: Learn about Synapse SQL recommendations and how they are generated
 services: synapse-analytics
 author: kevinvngo
@@ -13,11 +13,11 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Synapse SQL recommendations
+# Azure Advisor recommendations for dedicated SQL pool in Azure Synapse Analytics
 
-This article describes the Synapse SQL recommendations served through Azure Advisor.  
+This article describes the dedicated SQL pool recommendations available in Azure Advisor.  
 
-Synapse SQL provides recommendations to ensure your data warehouse workload is consistently optimized for performance. Recommendations are tightly integrated with [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to provide you with best practices directly within the [Azure portal](https://aka.ms/Azureadvisor). Synapse SQL collects telemetry and surfaces recommendations for your active workload on a daily cadence. The supported  recommendation scenarios are outlined below along with how to apply recommended actions.
+Dedicated SQL pool provides recommendations to ensure your data warehouse workload is consistently optimized for performance. Recommendations are tightly integrated with [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to provide you with best practices directly within the [Azure portal](https://aka.ms/Azureadvisor). Dedicated SQL pool collects telemetry and surfaces recommendations for your active workload on a daily cadence. The supported  recommendation scenarios are outlined below along with how to apply recommended actions.
 
 You can [check your recommendations](https://aka.ms/Azureadvisor) today! 
 
@@ -69,4 +69,4 @@ Query performance can degrade when there is high tempdb contention.  Tempdb cont
 
 ## Data loading misconfiguration
 
-You should always load data from a storage account in the same region as your SQL pool to minimize latency. Use the [COPY statement for high throughput data ingestion](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) and split your staged files in your storage account to maximize throughput. If you can't use the COPY statement, you can use the SqlBulkCopy API or bcp with a high batch size for better throughput. For additional data loading guidance, visit the following [documentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 
+You should always load data from a storage account in the same region as your dedicated SQL pool to minimize latency. Use the [COPY statement for high throughput data ingestion](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) and split your staged files in your storage account to maximize throughput. If you can't use the COPY statement, you can use the SqlBulkCopy API or bcp with a high batch size for better throughput. For additional data loading guidance, visit the following [documentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 
