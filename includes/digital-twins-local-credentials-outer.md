@@ -9,6 +9,6 @@ ms.author: baanders
 
 ### Set up local Azure credentials
 
-This sample uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (part of the `Azure.Identity` library) to authenticate users with the Azure Digital Twins instance when you run it on your local machine. For more on different ways a client app can authenticate with Azure Digital Twins, see [*How-to: Write app authentication code*](../articles/digital-twins/how-to-authenticate-client.md).
+This sample uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (part of the `Azure.Identity` library) to authenticate users with the Azure Digital Twins instance when you run it on your local machine. For more information on different ways a client app can authenticate with Azure Digital Twins, see [*How-to: Write app authentication code*](../articles/digital-twins/how-to-authenticate-client.md).
 
 [!INCLUDE [Azure Digital Twins: local credentials prereq (inner)](digital-twins-local-credentials-inner.md)]

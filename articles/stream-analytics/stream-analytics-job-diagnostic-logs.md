@@ -42,7 +42,7 @@ Activity logs are on by default and give high-level insights into operations per
 
    ![Stream Analytics activity log operation summary](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Scroll down to the **Properties** section of the JSON, which provides details of the error that caused the failed operation. In this example, the failure was due to a runtime error from out of bound latitude values. Discrepancy in the data that is processed by a Stream Analytics job causes a data error. You can learn about different [input and output data errors and why they occur](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+4. Scroll down to the **Properties** section of the JSON, which provides details of the error that caused the failed operation. In this example, the failure was due to a runtime error from out of bound latitude values. Discrepancy in the data that is processed by a Stream Analytics job causes a data error. You can learn about different [input and output data errors and why they occur](./data-errors.md).
 
    ![JSON error details](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -105,7 +105,7 @@ Execution logs have information about events that happened during Stream Analyti
 
 ### Data errors
 
-Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](./data-errors.md).
 
 Name | Description
 ------- | -------
@@ -137,5 +137,5 @@ Correlation ID | GUID that uniquely identifies the job execution. All execution 
 
 ## Next steps
 
-* [Stream Analytics data errors](https://docs.microsoft.com/azure/stream-analytics/data-errors)
-* [Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Stream Analytics data errors](./data-errors.md)
+* [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)

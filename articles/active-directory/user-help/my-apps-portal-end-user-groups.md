@@ -161,6 +161,6 @@ You can join or leave an already existing group from the **Groups** page.
 
 - [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
 
-- [Change your profile information](my-apps-portal-end-user-update-profile.md).
+- [Change your profile information](./my-account-portal-settings.md).
 
 - [Perform your own access reviews](my-apps-portal-end-user-access-reviews.md).

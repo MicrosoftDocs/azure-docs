@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 10/30/2020
 ms.author: juliako
 ---
 
@@ -23,8 +23,10 @@ When creating a Video Indexer account, you can choose a free trial account (wher
 
 To start developing with Video Indexer, browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign up.
 
+Once you start using Video Indexer, all your stored data and uploaded content are encrypted at rest with a Microsoft managed key.
+
 > [!NOTE]
-> Once you start using Video Indexer, all your stored data and uploaded content are encrypted at rest with a Microsoft managed key.
+> Review [planned Video Indexer website authenticatication changes](release-notes.md#planned-video-indexer-website-authenticatication-changes).
 
 ## Upload a video using the Video Indexer website
 

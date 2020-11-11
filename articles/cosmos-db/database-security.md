@@ -9,6 +9,7 @@ ms.author: mjbrown
 ---
 
 # Security in Azure Cosmos DB - overview
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article discusses database security best practices and key features offered by Azure Cosmos DB to help you prevent, detect, and respond to database breaches.
 
