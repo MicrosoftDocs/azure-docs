@@ -86,7 +86,7 @@ If you created your flexible server by using public access (allowed IP addresses
 
 You can use either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md) to connect to the server from your local environment. 
 
-If you're using mysql.exe, connect by using the following command. Use your server name and password in the command. 
+If you're using mysql.exe, connect by using the following command. Use your server name, user name, and password in the command. 
 
 ```bash
  mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
