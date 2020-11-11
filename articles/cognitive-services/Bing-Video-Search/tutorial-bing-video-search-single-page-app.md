@@ -42,7 +42,7 @@ This tutorial app illustrates how to:
 
 The tutorial page is entirely self-contained; it does not use any external frameworks, style sheets, or image files. It uses only widely supported JavaScript language features and works with current versions of all major Web browsers.
 
-In this tutorial, we discuss selected portions of the source code. The complete [source code](tutorial-bing-video-search-single-page-app-source.md) is available. To run the example, copy and paste the source code into a text editor and save it as `bing.html`.
+In this tutorial, we discuss selected portions of the source code. The complete [source code]() is available. To run the example, copy and paste the source code into a text editor and save it as `bing.html`.
 
 ## App components
 Like any single-page Web app, this tutorial application includes three parts:

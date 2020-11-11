@@ -3,6 +3,7 @@ title: Indexing in Azure Cosmos DB Cassandra API account
 description: Learn how secondary indexing works in Azure Azure Cosmos DB Cassandra API account.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 04/04/2020
 ms.author: thvankra

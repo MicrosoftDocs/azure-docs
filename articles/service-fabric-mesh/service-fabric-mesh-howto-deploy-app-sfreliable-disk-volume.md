@@ -41,6 +41,11 @@ az group create --name myResourceGroup --location eastus
 
 ## Deploy the template
 
+>[!NOTE]
+> Effective November 2, 2020, [download rate limits apply](https://docs.docker.com/docker-hub/download-rate-limit/) to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts and are enforced by IP address. 
+> 
+> This template makes use of public images from Docker Hub. Please note that you may be rate limited. For more details, see [Authenticate with Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+
 The following command deploys a Linux application using the [counter.sfreliablevolume.linux.json template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). To deploy a Windows application, use the [counter.sfreliablevolume.windows.json template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). Be aware that larger container images may take longer to deploy.
 
 ```azurecli-interactive

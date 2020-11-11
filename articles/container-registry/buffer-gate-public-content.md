@@ -20,16 +20,14 @@ Without proper controls, having dependencies on public registry content can intr
 
 ## Authenticate with Docker Hub
 
-As a first step, if you currently pull public images from Docker Hub as part of a build or deployment workflow, we recommend that you authenticate using a Docker Hub account instead of making an anonymous pull request.
+As a first step, if you currently pull public images from Docker Hub as part of a build or deployment workflow, we recommend that you [authenticate using a Docker Hub account](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) instead of making an anonymous pull request.
 
 > [!NOTE]
-> Effective November 2, 2020, download rate limits apply to anonymous and authenticated requests to Docker Hub from Docker Free Plan accounts and are enforced by IP address. 
+> Effective November 2, 2020, [download rate limits](https://docs.docker.com/docker-hub/download-rate-limit) apply to anonymous and authenticated requests to Docker Hub from Docker Free Plan accounts and are enforced by IP address and Docker ID, respectively. 
 >
-> When estimating your number of pull requests, take into account that when using cloud provider services or working behind a corporate NAT, multiple users will be presented to Docker Hub in aggregate as a subset of IP addresses.  Adding Docker paid account authentication to requests made to Docker Hub will avoid potential service disruptions due to rate-limit throttling.
+> When estimating your number of pull requests, take into account that when using cloud provider services or working behind a corporate NAT, multiple users will be presented to Docker Hub in aggregate as a subset of IP addresses. Adding Docker paid account authentication to requests made to Docker Hub will avoid potential service disruptions due to rate-limit throttling.
 >
 > For details, see [Docker pricing and subscriptions](https://www.docker.com/pricing) and the [Docker Terms of Service](https://www.docker.com/legal/docker-terms-service).
-
-For authentication examples and scenarios, see [Download rate limit](https://docs.docker.com/docker-hub/download-rate-limit/).
 
 ### Docker Hub access token
 

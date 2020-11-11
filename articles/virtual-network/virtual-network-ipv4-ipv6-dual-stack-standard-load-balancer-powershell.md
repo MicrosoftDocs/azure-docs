@@ -148,7 +148,6 @@ $lb = New-AzLoadBalancer `
 -BackendAddressPool $backendPoolv4,$backendPoolv6 `
 -LoadBalancingRule $lbrule_v4,$lbrule_v6 `
 -Probe $probe
-
 ```
 
 ## Create network resources

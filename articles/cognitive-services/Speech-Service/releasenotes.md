@@ -19,25 +19,19 @@ ms.custom: seodec18
 
 **Note**: The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
-**Speech CLI (also known as SPX)**<br>
-SPX is the command line interface to use the Azure Speech service without writing code. 
-Download the latest version [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics).
-- `spx csr dataset upload --kind audio|language|acoustic` – create datasets from local data, not just from URLs.
-- `spx csr evaluation create|status|list|update|delete` – compare new models against baseline truth/other models.
-- `spx * list` – supports non-paged experience (doesn't require --top X --skip X).
-- `spx * --http header A=B` – support custom headers (added for Office for custom authentication). 
-- `spx help` – improved text and back-tick text color coded (blue).
-
 **New features**
 - **Linux**: Added support for Debian 10 and Ubuntu 20.04 LTS.
 - **Python/Objective-C**: Added support for the `KeywordRecognizer` API. Documentation will be [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics).
 - **C++/Java/C#**: Added support to set any `HttpHeader` key/value via `ServicePropertyChannel::HttpHeader`.
 - **JavaScript**: Added support for the `ConversationTranscriber` API. Read documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript). 
-- **C++/C#**: Added new `AudioDataStream FromFile` method (to read .WAV files) [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audiodatastream) and [here (C#)](
-https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream.fromfile).
+- **C++/C#**: Added new `AudioDataStream FromWavFileInput` method (to read .WAV files) [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) and [here (C#)](
+https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
 -  **C++/C#/Java/Python/Objective-C/Swift**: Added a `stopSpeakingAsync()` method to stop text-to-speech synthesis. Read the Reference documentation [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [here (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [here (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [here (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python),  and [here (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
 - **C#, C++, Java**: Added a `FromDialogServiceConnector()` function to the `Connection` class that can be used to monitor connection and disconnection events for `DialogServiceConnector`. Read the Reference documentation [here (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), and [here (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
-- **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment).
+<!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
+
+**Breaking change**
+- **JavaScript**: PullAudioOutputStream.read() has a return type change from an internal Promise to a Native JavaScript Promise.
 
 **Bug fixes**
 - **All**: Fixed 1.13 regression in `SetServiceProperty` where values with certain special characters were ignored.
@@ -60,7 +54,7 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 **Samples**
 - **ObjectiveC**: Added sample for keyword recognition [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/speech-samples).
 - **C#/JavaScript**: Added quickstart for conversation transcription [here (C#)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/conversation-transcription) and [here (JavaScript)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/conversation-transcription).
-- **C++/C#/Java/Python/Swift/ObjectiveC**: Added sample for pronunciation assessment [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples)
+<!-- - **C++/C#/Java/Python/Swift/ObjectiveC**: Added sample for pronunciation assessment [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples) -->
 - **Xamarin**: Updated quickstart to latest Visual Studio template [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin).
 
 **Known Issue**
@@ -69,6 +63,17 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 **COVID-19 abridged testing:**
 Due to working remotely over the last few weeks, we couldn't do as much manual verification testing as we normally do. We haven't made any changes we think could have broken anything, and our automated tests all passed. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Stay healthy!
+
+## Speech CLI (also known as SPX): 2020-October release
+SPX is the command line interface to use the Azure Speech service without writing code. 
+Download the latest version [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). <br>
+
+**New features**
+- `spx csr dataset upload --kind audio|language|acoustic` – create datasets from local data, not just from URLs.
+- `spx csr evaluation create|status|list|update|delete` – compare new models against baseline truth/other models.
+- `spx * list` – supports non-paged experience (doesn't require --top X --skip X).
+- `spx * --http header A=B` – support custom headers (added for Office for custom authentication). 
+- `spx help` – improved text and back-tick text color coded (blue).
 
 
 ## Text-to-speech 2020-August release

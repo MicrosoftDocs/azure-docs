@@ -34,7 +34,7 @@ In this step, you will designate and configure the Linux machine that will forwa
 
 - You must have elevated permissions (sudo) on your designated Linux machine.
 
-- You must have **python 2.7** installed on the Linux machine.<br>Use the `python -version` command to check.
+- You must have **python 2.7** or **3** installed on the Linux machine.<br>Use the `python -version` command to check.
 
 - The Linux machine must not be connected to any Azure workspaces before you install the Log Analytics agent.
 
