@@ -4,7 +4,7 @@ description: The Azure Defender for IoT integration with the Forescout platform 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 10/26/2020
+ms.date: 11/11/2020
 ms.topic: article
 ms.service: azure
 ---
@@ -33,9 +33,9 @@ The device's inventory is enriched with critical attributes detected by the Azur
 - Gain comprehensive and continuous visibility into the OT device landscape from a single-pane-of-glass.
 - Obtain real-time intelligence about OT risks.
 
-:::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/forescout-device-inventory.png" alt-text="Device inventory":::
+:::image type="content" source="media/integration-forescout/forescout-device-inventory.png" alt-text="Device inventory":::
 
-:::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/forescout-device-details.png" alt-text="Device details":::
+:::image type="content" source="media/integration-forescout/forescout-device-details.png" alt-text="Device details":::
 
 ### Device control
 
@@ -56,7 +56,7 @@ The Forescout integration helps reduce the time required for industrial and crit
 - For white papers, webinars, videos, additional product information, and industrial security news, go to [CyberX.io](https://cyberx-labs.com/).
 - For technical support visit [https://cyberx-labs.zendesk.com](https://cyberx-labs.zendesk.com/)
 - For additional troubleshooting information, contact <support@cyberx-labs.com>.
-- To access the Defender for IoT user guide from the console, select :::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/person-icon.png" alt-text="icon"::: and select **Download User Guide**.
+- To access the Defender for IoT user guide from the console, select :::image type="content" source="media/integration-forescout/person-icon.png" alt-text="icon"::: and select **Download User Guide**.
 
 ### Getting more Forescout information
 
@@ -77,15 +77,15 @@ To generate a token:
 1. Sign in to the Azure Defender for IoT Sensor that will be queried by Forescout.
 
 2. Select **System Settings** and then select **Access Tokens** from the **General** section. The Access Tokens dialog box opens.
-   :::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/generate-access-tokens-screen.png" alt-text="Access tokens":::
+   :::image type="content" source="media/integration-forescout/generate-access-tokens-screen.png" alt-text="Access tokens":::
 3. Select **Generate new token** from the Access Tokens dialog box.
 4. Enter a token description in the **New access token** dialog box.
-   :::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/new-forescout-token.png" alt-text="New access token":::
-5. Select **Next.** The token is displayed in the dialog box. :::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/forescout-access-token-display-screen.png" alt-text="View token":::
+   :::image type="content" source="media/integration-forescout/new-forescout-token.png" alt-text="New access token":::
+5. Select **Next.** The token is displayed in the dialog box. :::image type="content" source="media/integration-forescout/forescout-access-token-display-screen.png" alt-text="View token":::
    > [!NOTE]
    > *Record the token in a safe place. You will need it when configuring the Forescout Platform*.
 6. Select **Finish**.
-   :::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/forescout-access-token-added-successfully.png" alt-text="Finish adding token":::
+   :::image type="content" source="media/integration-forescout/forescout-access-token-added-successfully.png" alt-text="Finish adding token":::
 
 ### Set up the Forescout platform
 
@@ -98,7 +98,7 @@ To set up:
 2. Sign in to the CounterACT console and select **Options** from the **Tools** menu. The options dialog box opens.
 3. Navigate to and select the **Modules** folder.
 4. In the **Modules** pane, select **Defender for IoT Platform**. The Defender for IoT platform pane opens.
-   :::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/settings-for-module.png" alt-text="Azure Defender for IoT module settings":::
+   :::image type="content" source="media/integration-forescout/settings-for-module.png" alt-text="Azure Defender for IoT module settings":::
 
    Enter the following information:
 
@@ -122,7 +122,7 @@ If **N/A** is displayed in the **Used** field for this token, the connection bet
 
 **Used** indicates the last time an external call with this token was received.
 
-:::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/forescout-access-token-added-successfully.png" alt-text="Verify token was received":::
+:::image type="content" source="media/integration-forescout/forescout-access-token-added-successfully.png" alt-text="Verify token was received":::
 
 ## View Defender for IoT detections in Forescout
 
@@ -142,9 +142,9 @@ To view a device's attributes:
    | Risk level           | The risk level calculated by Defender for IoT.                            |
    | Protocols            | The protocols detected in the traffic generated by the device.                  |
 
-:::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/device-firmware-attributes-in-forescout.png" alt-text="View firmware attributes":::
+:::image type="content" source="media/integration-forescout/device-firmware-attributes-in-forescout.png" alt-text="View firmware attributes":::
 
-:::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/vendor-attributes-in-forescout.png" alt-text="View vendor attributes":::
+:::image type="content" source="media/integration-forescout/vendor-attributes-in-forescout.png" alt-text="View vendor attributes":::
 
 ### Viewing additional details
 
@@ -153,7 +153,7 @@ View additional device information for devices directed by Defender for IoT. For
 To view additional details:
 
 1. Right-click on a device from the device inventory hosts section. The host details dialog box opens with additional information.
-   :::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/details-dialog-box-in-forescout.png" alt-text="Host Details":::
+   :::image type="content" source="media/integration-forescout/details-dialog-box-in-forescout.png" alt-text="Host Details":::
 
 ## Create Azure Defender for IoT policies in Forescout
 
@@ -170,4 +170,4 @@ To access Defender for IoT properties:
 1. Navigate to the **Properties Tree** from the **Policy Conditions** dialog box.
 2. Expand the Defender for IoT folder in the **Properties Tree**. The Defender for IoT following properties are available.
 
-:::image type="content" source="media/how-to-integrate-with-partners/integration-forescout/forescout-property-tree.png" alt-text="Properties":::
+:::image type="content" source="media/integration-forescout/forescout-property-tree.png" alt-text="Properties":::

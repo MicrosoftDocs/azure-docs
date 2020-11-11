@@ -117,8 +117,24 @@
     href: how-to-create-forwarding-rules.md
   - name: How to integrate with partners
     items:
-      - name: Forescout Integrations
+      - name: Servicenow integration
+        href: integration-servicenow.md
+      - name: Splunk integration
+        href: integration-splunk.md
+      - name: Fortinet integration
+        href: integration-fortinet.md
+      - name: Forescout integration
         href: integration-forsecout.md
+      - name: Cisco ISE pxGrid integration
+        href: integration-cisco-ise-pxgrid.md
+      - name: ClearPass integration
+        href: integration-clearpass.md
+      - name: QRadar integration
+        href: integration-qradar.md
+      - name: Sentinel syslog integration
+        href: integration-sentinel-syslog.md
+  - name: Manage proprietary protocols (horizon)
+    href: how-to-manage-proprietary-protocols.md
   - name: View and manage sensors
     href: how-to-deploy-view-sensors.md
   - name: Deploy the on-premises management console
