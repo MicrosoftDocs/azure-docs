@@ -16,7 +16,7 @@ tag: azure-synapse
 
 # Authenticate to dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
-Learn how to authenticate to dedicated SQL pool (formerly SQL DW) in Azure Synapse by using Azure Active Directory (AAD) or SQL Server authentication.
+Learn how to authenticate to dedicated SQL pool (formerly SQL DW) in Azure Synapse by using Azure Active Directory (Azure AD) or SQL Server authentication.
 
 To connect to a dedicated SQL pool (formerly SQL DW), you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  
 
@@ -40,7 +40,7 @@ By default, your connection connects to the *master* database and not your user 
 > [!NOTE]
 > The Transact-SQL statement **USE MyDatabase;** is not supported for changing the database for a connection. For guidance connecting to a SQL pool with SSDT, refer to the [Query with Visual Studio](sql-data-warehouse-query-visual-studio.md) article.
 
-## Azure Active Directory (AAD) authentication
+## Azure Active Directory authentication
 
 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) authentication is a mechanism of connecting to SQL pool by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage dedicated SQL pool (formerly SQL DW) users and simplifies permission management.
 
@@ -52,7 +52,7 @@ Azure Active Directory benefits include:
 * Helps stop the proliferation of user identities across servers.
 * Allows password rotation in a single place
 * Manage database permissions using external (Azure AD) groups.
-* Eliminates storing passwords by enabling integrated Windows authentication and o ther forms of authentication supported by Azure Active Directory.
+* Eliminates storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 * Uses contained database users to authenticate identities at the database level.
 * Supports token-based authentication for applications connecting to SQL pool.
 * Supports Multi-Factor authentication through Active Directory Universal Authentication for various tools including [SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and [SQL Server Data Tools](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
