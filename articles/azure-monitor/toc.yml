@@ -180,6 +180,21 @@
         href: app/pricing.md
       - name: Log data usage and costs
         href: platform/manage-cost-storage.md
+  - name: Azure Monitor Metrics
+    items:
+    - name: Overview
+      displayname: Metrics
+      href: platform/data-platform-metrics.md
+    - name: Metrics explorer
+      items:
+      - name: Getting started with Metrics Explorer
+        href: platform/metrics-getting-started.md
+      - name: Advanced features of Metrics Explorer
+        href: platform/metrics-charts.md
+      - name: Examples of metric charts
+        href: platform/metric-chart-samples.md
+      - name: Troubleshooting metric charts
+        href: platform/metrics-troubleshoot.md
   - name: Azure Monitor Logs
     items:
     - name: Overview
@@ -266,21 +281,6 @@
         href: log-query/log-excel.md
       - name: Send to Power BI
         href: log-query/log-powerbi.md
-  - name: Azure Monitor Metrics
-    items:
-    - name: Overview
-      displayname: Metrics
-      href: platform/data-platform-metrics.md
-    - name: Metrics explorer
-      items:
-      - name: Getting started with Metrics Explorer
-        href: platform/metrics-getting-started.md
-      - name: Advanced features of Metrics Explorer
-        href: platform/metrics-charts.md
-      - name: Examples of metric charts
-        href: platform/metric-chart-samples.md
-      - name: Troubleshooting metric charts
-        href: platform/metrics-troubleshoot.md
   - name: Platform logs
     items:
     - name: Overview
