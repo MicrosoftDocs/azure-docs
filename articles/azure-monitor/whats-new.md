@@ -17,7 +17,6 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Azure Monitor API retirement](platform/operationalinsights-api-retirement.md) - New article.
 
 ### Agents
-- [Azure Monitor agent overview](platform/azure-monitor-proxy.md) - New article.
 - [What is monitored by Azure Monitor](monitor-reference.md) - Added section on agents.
 
 ### Alerts
