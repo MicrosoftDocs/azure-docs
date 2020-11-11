@@ -67,7 +67,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
