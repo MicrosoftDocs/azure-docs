@@ -26,11 +26,10 @@ To complete this tutorial's steps, you need to have access to a resource group f
 1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.
 1. Select **Add** to create a workspace.
 1. In **Basics**, enter your preferred **Subscription**, **Resource group**, **Region**, and then choose a workspace name. In this tutorial, we'll use **myworkspace**.
-1. You need an ADLSGEN2 account and a container in that account to create a workspace. The Synapse workspace will use this container as the default location to store Spark logs and data for Spark tables.
-    1. Navigate to **Select Data Lake Storage Gen 2**. 
-    1. Click **Create New** and name it **contosolake**.
-    1. Click **File System** and name it **users**. This will create a container called **users**
-1. Your Azure Synapse workspace will use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs under a folder called **/synapse/workspacename**.
+1. Navigate to **Select Data Lake Storage Gen 2**. 
+1. Click **Create New** and name it **contosolake**.
+1. Click **File System** and name it **users**. This will create a container called **users**
+1. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
 ## Open Synapse Studio
