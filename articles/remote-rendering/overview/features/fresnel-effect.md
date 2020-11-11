@@ -33,7 +33,11 @@ In practice, different color and exponent settings will look like this:
 
 ![Fresnel effect examples](./media/fresnel-effect-examples.png)
 
-As you can see, progressively increasing the fresnel effect's exponent visually pulls the fresnel shine more and more to the very edges of the viewed objects.
+Progressively increasing the fresnel effect's exponent visually pulls the fresnel shine more and more to the very edges of the viewed objects. The fresnel effect is also unaffected by transparency, as you can see in the following example:
+
+![Fresnel effect transparency examples](./media/fresnel-effect-transparent-examples.png)
+
+As shown, the objects on the diagonal are fully transparent, but fresnel shine remains. The effect mimics physically based fresnel in that regard, which is also present in these screenshots.
 
 ## Code samples
 
