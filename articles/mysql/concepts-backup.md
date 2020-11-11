@@ -37,9 +37,9 @@ The General purpose storage is the backend storage supporting [General Purpose](
 
 #### General purpose storage servers with up to 16-TB storage
 
-In a subset of [Azure regions](/azure/mysql/concepts-pricing-tiers#storage), all newly provisioned servers can support general purpose storage up to 16-TB storage. In other words, storage up to 16-TB storage is the default general purpose storage for all the [regions](/azure/mysql/concepts-pricing-tiers#storage) where it is supported. Backups on these 16-TB storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only.
+In a subset of [Azure regions](/azure/mysql/concepts-pricing-tiers#storage), all newly provisioned servers can support general purpose storage up to 16-TB storage. In other words, storage up to 16-TB storage is the default general purpose storage for all the [regions](concepts-pricing-tiers.md#storage) where it is supported. Backups on these 16-TB storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only.
 
-In a subset of [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), all newly provisioned servers can support general purpose storage up to 16-TB storage. In other words, storage up to 16-TB storage is the default general purpose storage for all the [regions](/concepts-pricing-tiers.md#storage) where it is supported. Backups on these 16-TB storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only.
+In a subset of [Azure regions](concepts-pricing-tiers.md#storage), all newly provisioned servers can support general purpose storage up to 16-TB storage. In other words, storage up to 16-TB storage is the default general purpose storage for all the [regions](concepts-pricing-tiers.md#storage) where it is supported. Backups on these 16-TB storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only.
 
 Differential snapshot backups occur at least once a day. Differential snapshot backups do not occur on a fixed schedule. Differential snapshot backups occur every 24 hours unless the transaction log (binlog in MySQL) exceeds 50 GB since the last differential backup. In a day, a maximum of six differential snapshots are allowed.
 
@@ -110,7 +110,12 @@ You can restore a server to another Azure region where the service is available 
 
 Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. Geo-restore utilizes the most recent backup of the server. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss.
 
+> [!IMPORTANT]
+>If a geo-restore is performed for a newly created server, the initial backup synchronization may take more than 24 hours depending on data size as the initial full snapshot backup copy time is much higher. Subsequent snapshot backups are incremental copy and hence the restores are faster after 24 hours of server creation. If you are evaluating geo-restores to define your RTO, we recommend you to wait and evaluate geo-restore **only after 24 hours** of server creation for better estimates.
+
 During geo-restore, the server configurations that can be changed include compute generation, vCore, backup retention period, and backup redundancy options. Changing pricing tier (Basic, General Purpose, or Memory Optimized) or storage size during geo-restore is not supported.
+
+The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time is usually less than 12 hours.
 
 ### Perform post-restore tasks
 

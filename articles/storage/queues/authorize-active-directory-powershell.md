@@ -23,7 +23,7 @@ You can assign permissions to queue data to an Azure AD security principal via A
 
 The Azure Storage extensions are supported for operations on queue data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to PowerShell. Permissions to Azure Storage queues are assigned via Azure RBAC. For example, if you have been assigned the **Queue Data Reader** role, then you can run scripting commands that read data from a queue. If you have been assigned the **Queue Data Contributor** role, then you can run scripting commands that read, write, or delete a queue or the data they contain.
 
-For details about the permissions required for each Azure Storage operation on a queue, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+For details about the permissions required for each Azure Storage operation on a queue, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 ## Call PowerShell commands using Azure AD credentials
 
@@ -41,7 +41,7 @@ The following example shows how to create a queue in a new storage account from 
 
     For more information about signing into Azure with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Create an Azure resource group by calling [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+1. Create an Azure resource group by calling [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
     ```powershell
     $resourceGroup = "sample-resource-group-ps"

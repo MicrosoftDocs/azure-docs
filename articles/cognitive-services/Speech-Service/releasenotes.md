@@ -30,6 +30,9 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 - **C#, C++, Java**: Added a `FromDialogServiceConnector()` function to the `Connection` class that can be used to monitor connection and disconnection events for `DialogServiceConnector`. Read the Reference documentation [here (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), and [here (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
 <!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
 
+**Breaking change**
+- **JavaScript**: PullAudioOutputStream.read() has a return type change from an internal Promise to a Native JavaScript Promise.
+
 **Bug fixes**
 - **All**: Fixed 1.13 regression in `SetServiceProperty` where values with certain special characters were ignored.
 - **C#**: Fixed Windows console samples on Visual Studio 2019 failing to find native DLLs.

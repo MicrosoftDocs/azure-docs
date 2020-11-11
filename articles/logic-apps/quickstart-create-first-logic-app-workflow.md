@@ -110,7 +110,7 @@ Your logic app is now live, however, it doesn't do anything other than check the
 
 ## Add the "send email" action
 
-After you [add a trigger for your logic app](#add-rss-trigger), you must then add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) to determine the response when your logic app checks the RSS feed and a new item appears. You can also create logic apps with much more complex actions, such as in the tutorial for [processing emails with Logic Apps, Azure Functions, and Azure Storage](/tutorial-process-email-attachments-workflow.md).
+After you [add a trigger for your logic app](#add-rss-trigger), you must then add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) to determine the response when your logic app checks the RSS feed and a new item appears. You can also create logic apps with much more complex actions, such as in the tutorial for [processing emails with Logic Apps, Azure Functions, and Azure Storage](/azure/logic-apps/tutorial-process-email-attachments-workflow).
 
 > [!NOTE]
 > This example uses Office 365 Outlook as the email service. If you're using another supported email service in your logic app, the user interface might look different. However, the basic concepts for connecting to another email service remain the same.

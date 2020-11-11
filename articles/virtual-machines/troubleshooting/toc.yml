@@ -110,6 +110,8 @@
       href: unresponsive-vm-apply-group-policy.md
     - name: VM is unresponsive when applying security policy
       href: unresponsive-vm-apply-security-policy.md
+    - name: VM is unresponsive while waiting for local session manager
+      href: vm-unresponsive-wait-local-session-manager.md
     - name: Windows boot manager error - Status Invalid Image Hash
       href: windows-boot-error-invalid-image-hash.md
     - name: Windows stop error - Bad System Config Info
@@ -118,6 +120,8 @@
       href: troubleshoot-windows-stop-error.md
     - name: Windows stop error - System Process Terminated
       href: windows-stop-error-system-process-terminated.md
+    - name: Windows stop error - System thread exception not handled
+      href: windows-stop-error-system-thread-exception-not-handled.md
 - name: Cannot connect to my VM
   items:
   - name: RDP
