@@ -350,7 +350,7 @@ The numbers in the asset detail screenshot correspond to the numbers in the foll
 1. **Hierarchy** shows the asset in the context of its ancestor hierarchy. Select an ancestor asset hyperlink for more information.
 1. **Glossary terms** show glossary terms that are pertinent to the asset. Each term is a hyperlink to additional information.
 
-## Schema tab
+### Schema tab
 
 Select the **Schema** tab on the asset details to display schema information of an asset that's a structured file or table.
 
@@ -362,7 +362,7 @@ Select any item under the **Column name** column to jump to the asset details vi
 
 :::image type="content" source="./media/catalog-client-overview/column-asset-details.png" alt-text="Screenshot showing the asset details of the selected CompanyName asset.":::
 
-## Lineage tab
+### Lineage tab
 
 Select the **Lineage** tab to display the lineage, if available, for the asset. Azure Babylon provides lineage results for only Azure Data Factory Copy and Data Flow activities.
 
@@ -404,7 +404,7 @@ Select the **Lineage** tab to display the lineage, if available, for the asset. 
 
     :::image type="content" source="./media/catalog-client-overview/hover-lineage-node-information-2.png" alt-text="Screenshot showing the lineage for the customerWithSales asset.":::
 
-### Dependency graph
+#### Dependency graph
 
 The nodes of the lineage represent related assets, which you can explore.
 
@@ -422,11 +422,11 @@ The nodes of the lineage represent related assets, which you can explore.
 
     :::image type="content" source="./media/catalog-client-overview/expand-to-view-columns.png" alt-text="Screenshot showing how to enable the column pane on the Lineage page.":::
 
-    The column pane opens.
+- The column pane opens.
 
     :::image type="content" source="./media/catalog-client-overview/expanded-column-pane.png" alt-text="Screenshot showing the column pane on the Lineage page.":::
 
-- Select one or columns to see the column-level lineage.
+- Select one or more columns to see the column-level lineage.
 
     :::image type="content" source="./media/catalog-client-overview/select-columns-column-pane.png" alt-text="Screenshot showing selected columns on the column pane of the Lineage page.":::
 
@@ -434,13 +434,13 @@ The nodes of the lineage represent related assets, which you can explore.
 
     :::image type="content" source="./media/catalog-client-overview/hover-selected-columns.png" alt-text="Screenshot showing selected columns highlighted on the lineage page.":::
 
-### Filter the lineage view
+#### Filter the lineage view
 
 To filter the lineage by column or data asset, enter a name in the **Search for assets or processes** box. For example, **Company**.
 
 :::image type="content" source="./media/catalog-client-overview/filter-lineage.png" alt-text="Screenshot showing how to filter columns and data assets on the Lineage page.":::
 
-## Related tab
+### Related tab
 
 **Related** displays all related assets. This example shows that the SQL Table is related to:
 
@@ -458,12 +458,12 @@ You can do the following tasks when you view related assets:
 
     :::image type="content" source="./media/catalog-client-overview/copy-processes-pop-up.png" alt-text="Screenshot showing the ADF copy processes of the inputToProcesses node.":::
 
-- Drag the graph to pan it.
+- Drag the graph to reposition it.
 - Use the mouse wheel to change the zoom level.
 - Select a node to display the related assets on the floating panel.
 - Select an asset link on the floating panel or double-click a node to navigate to the asset.
 
-## Contacts tab
+### Contacts tab
 
 The **Contacts** tab displays the contacts associated with an asset. Each contact is either an owner or an expert for the asset.
 
@@ -775,3 +775,14 @@ To remove a data factory connection:
     :::image type="content" source="./media/catalog-client-overview/data-factory-connection.png" alt-text="Screenshot showing how to select data factories to delete.":::
 
 - Select **Remove** to remove the selected data factory connections, and then select **Remove** to confirm.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Catalog lineage user guide](catalog-lineage-user-guide.md)
+
+> [!div class="nextstepaction"]
+> [How scans detect deleted assets](concept-detect-deleted-assets.md)
+
+> [!div class="nextstepaction"]
+> [Understand resource sets](concept-resource-sets.md)
