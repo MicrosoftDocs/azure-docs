@@ -13,8 +13,7 @@ ms.author: aahi
 ---
 # Text Analytics API v3 language support 
 
-> [!IMPORTANT]
-> Version 3.x of the Text Analytics API is currently unavailable in the following regions: Central India, UAE North, China North 2, China East.
+[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 
 #### [Sentiment Analysis](#tab/sentiment-analysis)

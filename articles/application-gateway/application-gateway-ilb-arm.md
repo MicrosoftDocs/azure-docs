@@ -45,7 +45,7 @@ Here are the steps that are needed to create an application gateway:
 
 ## Create a resource group for Resource Manager
 
-Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdlets. More info is available at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdlets. More info is available at [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 ### Step 1
 
@@ -253,10 +253,9 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 ## Next steps
 
-If you want to configure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
+If you want to configure SSL offload, see [Configure an application gateway for SSL offload](./tutorial-ssl-powershell.md).
 
 If you want more information about load balancing options in general, see:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

@@ -17,6 +17,9 @@ ms.custom: seodec18
 
 # Explore Azure Machine Learning with Jupyter notebooks
 
+> [!NOTE] 
+> A community-driven repository of examples can be found at https://github.com/Azure/azureml-examples.
+
 The [example Azure Machine Learning Notebooks repository](https://github.com/azure/machinelearningnotebooks) includes the latest Azure Machine Learning Python SDK samples. These Juypter notebooks are designed to help you explore the SDK and serve as models for your own machine learning projects.
 
 This article shows you how to access the repository from the following environments:
@@ -41,7 +44,7 @@ If you'd like to bring your own notebook server for local development, follow th
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 
-These instructions install the base SDK packages necessary for the quickstart and tutorial notebooks. Other sample notebooks may require you to install extra components. For more information, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+These instructions install the base SDK packages necessary for the quickstart and tutorial notebooks. Other sample notebooks may require you to install extra components. For more information, see [Install the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install).
 
 <a name="dsvm"></a>
 ## Get samples on DSVM

@@ -26,7 +26,7 @@ Learn how to configure file integrity monitoring (FIM) in Azure Security Center 
 |----|:----|
 |Release state:|Generally available (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md).<br>FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.|
-|Required roles and permissions:|**Workspace owner** can enable/disable FIM (for more information, see [Azure Roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**Reader** can view results.|
+|Required roles and permissions:|**Workspace owner** can enable/disable FIM (for more information, see [Azure Roles for Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>**Reader** can view results.|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov<br>Supported only in regions where Azure Automation's change tracking solution is available.<br>See [Supported regions for linked Log Analytics workspace](../automation/how-to/region-mappings.md).<br>[Learn more about change tracking](../automation/change-tracking/overview.md).|
 |||
 
@@ -258,7 +258,7 @@ In this article, you learned to use file integrity monitoring (FIM) in Security 
 
 * [Setting security policies](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-* [Azure Security blog](https://docs.microsoft.com/archive/blogs/azuresecurity/)--Get the latest Azure security news and information.
+* [Azure Security blog](/archive/blogs/azuresecurity/)--Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

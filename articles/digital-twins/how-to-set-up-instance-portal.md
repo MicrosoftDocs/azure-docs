@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperfq2
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -36,7 +37,7 @@ Once in the portal, start by selecting _Create a resource_ in the Azure services
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
 
-Search for *Azure Digital Twins* in the search box, and choose the **Azure Digital Twins (Preview)** service from the results. Select the _Create_ button to create a new instance of the service.
+Search for *Azure Digital Twins* in the search box, and choose the **Azure Digital Twins** service from the results. Select the _Create_ button to create a new instance of the service.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selecting 'Create' from the Azure Digital Twins service page":::
 
@@ -76,7 +77,7 @@ First, open the page for your Azure Digital Twins instance in the Azure portal. 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecting to add a role assignment from the 'Access control (IAM)' page":::
 
 On the following *Add role assignment* page, fill in the values (must be completed by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription):
-* **Role**: Select *Azure Digital Twins Owner (Preview)* from the dropdown menu
+* **Role**: Select *Azure Digital Twins Data Owner* from the dropdown menu
 * **Assign access to**: Select *Azure AD user, group or service principal* from the dropdown menu
 * **Select**: Search for the name or email address of the user to assign. When you select the result, the user will show up in a *Selected members* section.
 
@@ -92,7 +93,7 @@ When you're finished entering the details, hit the *Save* button.
 
 ### Verify success
 
-You can view the role assignment you've set up under *Access control (IAM) > Role assignments*. The user should show up in the list with a role of *Azure Digital Twins Owner (Preview)*. 
+You can view the role assignment you've set up under *Access control (IAM) > Role assignments*. The user should show up in the list with a role of *Azure Digital Twins Data Owner*. 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="View of the role assignments for an Azure Digital Twins instance in Azure portal":::
 

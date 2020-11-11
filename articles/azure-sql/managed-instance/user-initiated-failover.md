@@ -57,7 +57,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-Use PowerShell command [Invoke-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) with the following example to initiate failover of the primary node, applicable to both BC and GP service tier.
+Use PowerShell command [Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) with the following example to initiate failover of the primary node, applicable to both BC and GP service tier.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -91,7 +91,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### Using Rest API
 
-For advanced users who would perhaps need to automate failovers of their SQL Managed Instances for purposes of implementing continuous testing pipeline, or automated performance mitigators, this function can be accomplished through initiating failover through an API call. see [Managed Instances - Failover REST API](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) for details.
+For advanced users who would perhaps need to automate failovers of their SQL Managed Instances for purposes of implementing continuous testing pipeline, or automated performance mitigators, this function can be accomplished through initiating failover through an API call. see [Managed Instances - Failover REST API](/rest/api/sql/managed%20instances%20-%20failover/failover) for details.
 
 To initiate failover using REST API call, first generate the Auth Token using API client of your choice. The generated authentication token is used as Authorization property in the header of API request and it is mandatory.
 

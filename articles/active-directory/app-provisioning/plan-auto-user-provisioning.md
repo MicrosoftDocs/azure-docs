@@ -95,7 +95,7 @@ In this example, users and or groups are created in an HR database connected to 
 
 In this example, user creation occurs in Azure AD and the  Azure AD provisioning service manages automatic user provisioning to the target (SaaS) applications.
 
-![Picture 2](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Diagram that shows the user/group creation process from an on-premises H R application through the Azure A D Provisioning Service to the target S a a S applications.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **Description of workflow:**
 
@@ -141,7 +141,7 @@ A pilot allows you to test with a small group before deploying a capability for 
 
 In your first wave, target IT, usability, and other appropriate users who can test and provide feedback. Use this feedback to further develop the communications and instructions you send to your users, and to give insights into the types of issues your support staff may see.
 
-Widen the rollout to larger groups of users by increasing the scope of the group(s) targeted. This can be done through [dynamic group membership](../users-groups-roles/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
+Widen the rollout to larger groups of users by increasing the scope of the group(s) targeted. This can be done through [dynamic group membership](../enterprise-users/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
 
 ## Plan application connections and administration
 

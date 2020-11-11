@@ -3,16 +3,18 @@ title: Resource Manager templates for Azure Cosmos DB Table API
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB Table API. 
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
 ---
 
 # Manage Azure Cosmos DB Table API resources using Azure Resource Manager templates
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 In this article, you learn how to use Azure Resource Manager templates to help deploy and manage your Azure Cosmos DB accounts, databases, and containers.
 
-This article has examples for Table API accounts only, to find examples for other API type accounts see: use Azure Resource Manager templates with Azure Cosmos DB's API for [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [SQL](manage-sql-with-resource-manager.md) articles.
+This article has examples for Table API accounts only, to find examples for other API type accounts see: use Azure Resource Manager templates with Azure Cosmos DB's API for [Cassandra](./templates-samples-cassandra.md), [Gremlin](./templates-samples-gremlin.md), [MongoDB](./templates-samples-mongodb.md), [SQL](./manage-with-templates.md) articles.
 
 > [!IMPORTANT]
 >
@@ -49,7 +51,7 @@ This template will create an Azure Cosmos account for Table API with one table w
 
 Here are some additional resources:
 
-* [Azure Resource Manager documentation](/azure/azure-resource-manager/)
+* [Azure Resource Manager documentation](../azure-resource-manager/index.yml)
 * [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
 * [Azure Cosmos DB Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 * [Troubleshoot common Azure Resource Manager deployment errors](../azure-resource-manager/templates/common-deployment-errors.md)

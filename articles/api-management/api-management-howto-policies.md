@@ -34,7 +34,7 @@ Clicking an enabled statement will add the appropriate XML at the location of th
 > 
 > 
 
-The configuration is divided into `inbound`, `backend`, `outbound`, and `on-error`. The series of specified policy statements is executes in order for a request and a response.
+The configuration is divided into `inbound`, `backend`, `outbound`, and `on-error`. The series of specified policy statements is executed in order for a request and a response.
 
 ```xml
 <policies>

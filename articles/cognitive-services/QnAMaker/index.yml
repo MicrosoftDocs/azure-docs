@@ -130,11 +130,9 @@ landingContent:
 
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: Troubleshooting
-            url: troubleshooting.md
-          - text: Ask questions on Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/QnAMaker
-          - text: Influence service with UserVoice
-            url: https://cognitive.uservoice.com/forums/578689-qna-maker-api
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
+        - text: Troubleshooting
+          url: troubleshooting.md

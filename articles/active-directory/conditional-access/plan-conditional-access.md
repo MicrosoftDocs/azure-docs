@@ -217,7 +217,7 @@ Creating a policy for each app isn't efficient and leads to difficult administra
 
 ### Set up emergency access accounts
 
-If you misconfigure a policy, it can lock the organizations out of the Azure portal. Mitigate the impact of accidental administrator lock out by creating two or more [emergency access accounts](../users-groups-roles/directory-emergency-access.md) in your organization.
+If you misconfigure a policy, it can lock the organizations out of the Azure portal. Mitigate the impact of accidental administrator lock out by creating two or more [emergency access accounts](../roles/security-emergency-access.md) in your organization.
 
 * Create a user account dedicated to policy administration and excluded from all your policies.
 

@@ -43,13 +43,13 @@ The following options are available to include when creating a Conditional Acces
 > If users or groups are a member of over 2048 groups their access may be blocked. This limit applies to both direct and nested group membership.
 
 > [!WARNING]
-> Conditional Access policies do not support users assigned a directory role [scoped to an administrative unit](../users-groups-roles/roles-admin-units-assign-roles.md) or directory roles scoped directly to an object, like through [custom roles](../users-groups-roles/roles-create-custom.md).
+> Conditional Access policies do not support users assigned a directory role [scoped to an administrative unit](../roles/admin-units-assign-roles.md) or directory roles scoped directly to an object, like through [custom roles](../roles/custom-create.md).
 
 ## Exclude users
 
 When organizations both include and exclude a user or group the user or group is excluded from the policy, as an exclude action overrides an include in policy. Exclusions are commonly used for emergency access or break-glass accounts. More information about emergency access accounts and why they are important can be found in the following articles: 
 
-* [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 * [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 The following options are available to exclude when creating a Conditional Access policy.

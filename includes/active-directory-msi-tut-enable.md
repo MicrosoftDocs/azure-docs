@@ -12,7 +12,7 @@ ms.custom: include file
 
 Enabling a system-assigned managed identity is a one-click experience. You can either enable it during the creation of a VM or in the properties of an existing VM.
 
-![Create new storage account](./media/active-directory-msi-tut-enable/identity.png)
+![Screenshot shows the System assigned tab for a virtual machine where you can turn on the System assigned status.](./media/active-directory-msi-tut-enable/identity.png)
 
 
 **To enable a system-assigned managed identity on a new VM:** 

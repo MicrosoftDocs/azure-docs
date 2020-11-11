@@ -26,6 +26,143 @@ This page provides you with information about:
 - Deprecated functionality
 
 
+
+
+## May 2020
+
+Updates in May include:
+- [Alert suppression rules (preview)](#alert-suppression-rules-preview)
+- [Virtual machine vulnerability assessment is now generally available](#virtual-machine-vulnerability-assessment-is-now-generally-available)
+- [Changes to just-in-time (JIT) virtual machine (VM) access](#changes-to-just-in-time-jit-virtual-machine-vm-access)
+- [Custom recommendations have been moved to a separate security control](#custom-recommendations-have-been-moved-to-a-separate-security-control)
+- [Toggle added to view recommendations in controls or as a flat list](#toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list)
+- [Expanded security control "Implement security best practices"](#expanded-security-control-implement-security-best-practices)
+- [Custom policies with custom metadata are now generally available](#custom-policies-with-custom-metadata-are-now-generally-available)
+- [Crash dump analysis capabilities migrating to fileless attack detection](#crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection)
+
+
+### Alert suppression rules (preview)
+
+This new feature (currently in preview) helps reduce alert fatigue. Use rules to automatically hide alerts that are known to be innocuous or related to normal activities in your organization. This lets you focus on the most relevant threats. 
+
+Alerts that match your enabled suppression rules will still be generated, but their state will be set to dismissed. You can see the state in the Azure portal or however you access your Security Center security alerts.
+
+Suppression rules define the criteria for which alerts should be automatically dismissed. Typically, you'd use a suppression rule to:
+
+- suppress alerts that you've identified as false positives
+
+- suppress alerts that are being triggered too often to be useful
+
+Learn more about [suppressing alerts from Azure Security Center's threat protection](alerts-suppression-rules.md).
+
+
+### Virtual machine vulnerability assessment is now generally available
+
+Security Center's standard tier now includes an integrated vulnerability assessment for virtual machines for no additional fee. This extension is powered by Qualys but reports its findings directly back to Security Center. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center.
+
+The new solution can continuously scan your virtual machines to find vulnerabilities and present the findings in Security Center. 
+
+To deploy the solution, use the new security recommendation:
+
+"Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys)"
+
+Learn more about [Security Center's integrated vulnerability assessment for virtual machines](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
+
+
+
+### Changes to just-in-time (JIT) virtual machine (VM) access
+
+Security Center includes an optional feature to protect the management ports of your VMs. This provides a defense against the most common form of brute force attacks.
+
+This update brings the following changes to this feature:
+
+- The recommendation that advises you to enable JIT on a VM has been renamed. Formerly, "Just-in-time network access control should be applied on virtual machines" it's now: "Management ports of virtual machines should be protected with just-in-time network access control".
+
+- The recommendation is triggered only if there are open management ports.
+
+Learn more about [the JIT access feature](security-center-just-in-time.md).
+
+
+### Custom recommendations have been moved to a separate security control
+
+One security control introduced with the enhanced secure score was "Implement security best practices". Any custom recommendations created for your subscriptions were automatically placed in that control. 
+
+To make it easier to find your custom recommendations, we've moved them into a dedicated security control, "Custom recommendations". This control has no impact on your secure score.
+
+Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
+
+
+### Toggle added to view recommendations in controls or as a flat list
+
+Security controls are logical groups of related security recommendations. They reflect your vulnerable attack surfaces. A control is a set of security recommendations, with instructions that help you implement those recommendations.
+
+To immediately see how well your organization is securing each individual attack surface, review the scores for each security control.
+
+By default, your recommendations are shown in the security controls. From this update, you can also display them as a list. To view them as simple list sorted by the health status of the affected resources, use the new toggle 'Group by controls'. The toggle is above the list in the portal.
+
+The security controls - and this toggle - are part of the new secure score experience. Remember to send us your feedback from within the portal.
+
+Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
+
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Group by controls toggle for recommendations":::
+
+### Expanded security control "Implement security best practices" 
+
+One security control introduced with the enhanced secure score is "Implement security best practices". When a recommendation is in this control, it doesn't impact the secure score. 
+
+With this update, three recommendations have moved out of the controls in which they were originally placed, and into this best practices control. We've taken this step because we've determined that the risk of these three recommendations is lower than was initially thought.
+
+In addition, two new recommendations have been introduced and added to this control.
+
+The three recommendations that moved are:
+
+- **MFA should be enabled on accounts with read permissions on your subscription** (originally in the "Enable MFA" control)
+- **External accounts with read permissions should be removed from your subscription** (originally in the "Manage access and permissions" control)
+- **A maximum of 3 owners should be designated for your subscription** (originally in the "Manage access and permissions" control)
+
+The two new recommendations added to the control are:
+
+- **Guest configuration extension should be installed on Windows virtual machines (Preview)** - Using [Azure Policy Guest Configuration](../governance/policy/concepts/guest-configuration.md) provides visibility inside virtual machines to server and application settings (Windows only).
+
+- **Windows Defender Exploit Guard should be enabled on your machines (Preview)** - Windows Defender Exploit Guard leverages the Azure Policy Guest Configuration agent. Exploit Guard has four components that are designed to lock down devices against a wide variety of attack vectors and block behaviors commonly used in malware attacks while enabling enterprises to balance their security risk and productivity requirements  (Windows only).
+
+Learn more about Windows Defender Exploit Guard in [Create and deploy an Exploit Guard policy](/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
+
+Learn more about security controls in [Enhanced secure score (preview)](secure-score-security-controls.md).
+
+
+
+### Custom policies with custom metadata are now generally available
+
+Custom policies are now part of the Security Center recommendations experience, secure score, and the regulatory compliance standards dashboard. This feature is now generally available and allows you to extend your organization's security assessment coverage in Security Center. 
+
+Create a custom initiative in Azure policy, add policies to it and onboard it to Azure Security Center, and visualize it as recommendations.
+
+We've now also added the option to edit the custom recommendation metadata. Metadata options include severity, remediation steps, threats information, and more.  
+
+Learn more about [enhancing your custom recommendations with detailed information](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information).
+
+
+
+### Crash dump analysis capabilities migrating to fileless attack detection 
+
+We are integrating the Windows crash dump analysis (CDA) detection capabilities into [fileless attack detection](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers). Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shellcode discovered, and Suspicious code segment detected.
+
+Some of the benefits of this transition:
+
+- **Proactive and timely malware detection** - The CDA approach involved waiting for a crash to occur and then running analysis to find malicious artifacts. Using fileless attack detection brings proactive identification of in-memory threats while they are running. 
+
+- **Enriched alerts** - The security alerts from fileless attack detection include enrichments that aren't available from CDA, such as the active network connections information. 
+
+- **Alert aggregation** - When CDA detected multiple attack patterns within a single crash dump, it triggered multiple security alerts. Fileless attack detection combines all of the identified attack patterns from the same process into a single alert, removing the need to correlate multiple alerts.
+
+- **Reduced requirements on your Log Analytics workspace** - Crash dumps containing potentially sensitive data will no longer be uploaded to your Log Analytics workspace.
+
+
+
+
+
+
 ## April 2020
 
 Updates in April include:
@@ -89,7 +226,7 @@ Every security program includes multiple workflows for incident response. These 
 
 For more information about the automatic and manual Security Center capabilities for running your workflows, see [workflow automation](workflow-automation.md).
 
-Learn more about [creating Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Learn more about [creating Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### Integration of Azure Security Center with Windows Admin Center
@@ -210,7 +347,7 @@ Today we are introducing a new capability in Security Center that allows custome
 
 For more information about the automatic and manual Security Center capabilities for running your workflows, see [workflow automation](workflow-automation.md).
 
-To learn about creating Logic Apps, see [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+To learn about creating Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### Quick Fix for bulk resources generally available
@@ -266,9 +403,9 @@ Applications that are installed in virtual machines could often have vulnerabili
 
 Azure Security Center’s support for threat protection and vulnerability assessment for SQL DBs running on IaaS VMs is now in preview.
 
-[Vulnerability assessment](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security posture as part of Azure secure score and includes the steps to resolve security issues and enhance your database fortifications.
+[Vulnerability assessment](../azure-sql/database/sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security posture as part of Azure secure score and includes the steps to resolve security issues and enhance your database fortifications.
 
-[Advanced threat protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your SQL server. It continuously monitors your database for suspicious activities and provides action-oriented security alerts on anomalous database access patterns. These alerts provide the suspicious activity details and recommended actions to investigate and mitigate the threat.
+[Advanced threat protection](../azure-sql/database/threat-detection-overview.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your SQL server. It continuously monitors your database for suspicious activities and provides action-oriented security alerts on anomalous database access patterns. These alerts provide the suspicious activity details and recommended actions to investigate and mitigate the threat.
 
 
 ### Support for custom policies (preview)
@@ -342,7 +479,7 @@ When you enable JIT for your VMs, you create a policy that determines the ports 
 
 Requests are logged in the Azure Activity Log, so you can easily monitor and audit access. The just-in-time page also helps you quickly identify existing VMs that have JIT enabled and VMs where JIT is recommended.
 
-[Learn more about Azure Firewall](https://docs.microsoft.com/azure/firewall/overview).
+[Learn more about Azure Firewall](../firewall/overview.md).
 
 
 ### Single click remediation to boost your security posture (preview)

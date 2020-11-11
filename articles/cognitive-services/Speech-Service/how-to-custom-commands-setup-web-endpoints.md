@@ -203,4 +203,4 @@ If you tested out the app with `turn on tv` in previous section, you would see t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Enable a CI/CD process for your Custom Commands application](./how-to-custom-commands-deploy-cicd.md)
+> [Export Custom Commands application as a remote skill](./how-to-custom-commands-integrate-remote-skills.md)

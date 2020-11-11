@@ -36,7 +36,7 @@ Microsoft also tracks the regulatory standards themselves and automatically impr
 
 You can add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, and Azure CIS 1.1.0 (new) - a more complete representation of Azure CIS 1.1.0. 
 
-In addition, you can add **Azure Security Benchmark**, the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. ([Learn more about Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction).)
+In addition, you can add **Azure Security Benchmark**, the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. ([Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).)
 
 Additional standards will be supported in the dashboard as they become available. 
 
@@ -63,6 +63,7 @@ The following steps explain how to add a package to monitor your compliance with
 
     - **Azure Security Benchmark**
     - **NIST SP 800-53 R4**
+    - **NIST SP 800 171 R2**
     - **SWIFT CSP CSCF-v2020**
     - **UKO and UK NHS**
     - **Canada PBMM**
@@ -111,6 +112,6 @@ In this article, you learned how to **add compliance packages** to monitor your 
 
 For other related material, see the following articles: 
 
-- [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction)
+- [Azure Security Benchmark](../security/benchmarks/introduction.md)
 - [Security center regulatory compliance dashboard](security-center-compliance-dashboard.md)
 - [Working with security policies](tutorial-security-policy.md)

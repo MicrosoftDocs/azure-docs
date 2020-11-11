@@ -57,7 +57,9 @@ You can create custom analytics rules to help you search for the types of threat
       ```
 
         > [!NOTE]
-        > The query length should be between 1 and 10,000 characters and cannot contain “search \*” or “union \*”.
+        > - The query length should be between 1 and 10,000 characters and cannot contain “search \*” or “union \*”.
+        >
+        > - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
 
     1. Use the **Map entities** section to link parameters from your query results to Azure Sentinel-recognized entities. These entities form the basis for further analysis, including the grouping of alerts into incidents in the **Incident settings** tab.
   

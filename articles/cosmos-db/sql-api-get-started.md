@@ -12,11 +12,12 @@ ms.custom: devx-track-csharp
 
 ---
 # Tutorial: Build a .NET console app to manage data in Azure Cosmos DB SQL API account
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [Async Java](sql-api-async-java-get-started.md)
+> * [Java](./create-sql-api-java.md)
+> * [Async Java](./create-sql-api-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
@@ -152,7 +153,7 @@ Congratulations! You've successfully connected to an Azure Cosmos DB account.
 
 ## Step 4: Create a database
 
-A database is the logical container of items partitioned across containers. Either the `CreateDatabaseIfNotExistsAsync` or `CreateDatabaseAsync` method of the [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient) class can create a database.
+A database is the logical container of items partitioned across containers. Either the `CreateDatabaseIfNotExistsAsync` or `CreateDatabaseAsync` method of the [CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient) class can create a database.
 
 1. Copy and paste the `CreateDatabaseAsync` method below your `GetStartedDemoAsync` method.
 
@@ -340,7 +341,7 @@ Congratulations! You've successfully created two Azure Cosmos items.
 
 ## <a id="Query"></a>Step 7: Query Azure Cosmos DB resources
 
-Azure Cosmos DB supports rich queries against JSON documents stored in each container. For more information, see [Getting started with SQL queries](sql-api-sql-query.md). The following sample code shows how to run a query against the items we inserted in the previous step.
+Azure Cosmos DB supports rich queries against JSON documents stored in each container. For more information, see [Getting started with SQL queries](./sql-query-getting-started.md). The following sample code shows how to run a query against the items we inserted in the previous step.
 
 1. Copy and paste the `QueryItemsAsync` method after your `AddItemsToContainerAsync` method.
 
@@ -492,8 +493,8 @@ That's it, build it, and you're on your way!
 
 * Want a more complex ASP.NET MVC tutorial? See [Tutorial: Develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET SDK](sql-api-dotnet-application.md).
 * Want to do scale and performance testing with Azure Cosmos DB? See [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
-* To learn how to monitor Azure Cosmos DB requests, usage, and storage, see [Monitor performance and storage metrics in Azure Cosmos DB](monitor-accounts.md).
+* To learn how to monitor Azure Cosmos DB requests, usage, and storage, see [Monitor performance and storage metrics in Azure Cosmos DB](./monitor-cosmos-db.md).
 * To run queries against our sample dataset, see the [Query Playground](https://www.documentdb.com/sql/demo).
-* To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
+* To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](./introduction.md).
 
 [cosmos-db-create-account]: create-sql-api-java.md#create-a-database-account

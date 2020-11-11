@@ -19,7 +19,7 @@ For details on the Azure Key Vault service and how to use it, see the [Key Vault
 Key Vault is generally available in Azure Germany. As in global Azure, there is no extension, so Key Vault is available through PowerShell and CLI only.
 
 ## Azure Active Directory
-Azure Active Directory offers identity and access capabilities for information systems running in Microsoft Azure. By using directory services, security groups, and group policy, you can help control the access and security policies of the machines that use Azure Active Directory. You can use accounts and security groups, along with role-based access control (RBAC), to help manage access to the information systems. 
+Azure Active Directory offers identity and access capabilities for information systems running in Microsoft Azure. By using directory services, security groups, and group policy, you can help control the access and security policies of the machines that use Azure Active Directory. You can use accounts and security groups, along with Azure role-based access control (Azure RBAC), to help manage access to the information systems. 
 
 Azure Active Directory is generally available in Azure Germany.
 

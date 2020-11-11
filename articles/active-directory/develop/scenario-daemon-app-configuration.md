@@ -349,17 +349,17 @@ ConfidentialClientApplication cca =
 
 # [.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](./scenario-daemon-acquire-token.md?tabs=dotnet)
+Move on to the next article in this scenario,
+[Acquire a token for the app](./scenario-daemon-acquire-token.md?tabs=dotnet).
 
 # [Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](./scenario-daemon-acquire-token.md?tabs=python)
+Move on to the next article in this scenario,
+[Acquire a token for the app](./scenario-daemon-acquire-token.md?tabs=python).
 
 # [Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](./scenario-daemon-acquire-token.md?tabs=java)
+Move on to the next article in this scenario,
+[Acquire a token for the app](./scenario-daemon-acquire-token.md?tabs=java).
 
 ---
