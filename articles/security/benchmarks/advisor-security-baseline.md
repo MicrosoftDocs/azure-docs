@@ -231,7 +231,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39525.).
 
-**Guidance**: Azure Advisor supports Azure Active Directory's (Azure AD) conditional access feature for a more granular access control based on user-defined conditions. For example, user logins from certain IP ranges will need to use multifactor authentication for login. Granular authentication session management policy can also be used for different use cases.
+**Guidance**: Azure Advisor supports Azure Active Directory's (Azure AD) conditional access feature for a more granular access control based on user-defined conditions. For example, user logins from certain IP ranges will need to use multi-factor authentication for login. Granular authentication session management policy can also be used for different use cases.
 
 - [Azure conditional access overview](../../active-directory/conditional-access/overview.md) 
 
@@ -1027,10 +1027,7 @@ The underlying infrastructure under Advisor is handled by Microsoft, which inclu
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Advisor does not store customer data or allow for customers to configure backups of underlying service data. 
-
-No stored customer data means that Advisor does support customer-managed keys
-.
+**Guidance**: Not applicable; Azure Advisor does not store customer data or allow for customers to configure backups of underlying service data. No stored customer data means that Advisor does support customer-managed keys.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1044,7 +1041,7 @@ No stored customer data means that Advisor does support customer-managed keys
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Advisor does not use keys for any of its' capabilities or features.
+**Guidance**: Not applicable; Azure Advisor does not use keys for any of its capabilities or features.
 
 **Azure Security Center monitoring**: Not applicable
 
