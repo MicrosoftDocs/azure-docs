@@ -104,8 +104,8 @@ Learn more about [image instance segmentation labeling](how-to-label-images.md).
 
 ### Azure Machine Learning Studio Notebooks Experience (October Update)
 + **New features**
-  + [Full virtual network support](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-enable-studio-virtual-network)
-  + [Focus Mode](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + [Full virtual network support](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+  + [Focus Mode](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
   + Save notebooks Ctrl-S
   + Line Numbers
 
