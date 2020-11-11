@@ -138,9 +138,9 @@ To delete a polygon, click the X-shaped target that appears next to the polygon 
 
 If you want to change the tag for a polygon, select the **Move region** tool, click on the polygon, and select the correct tag.
 
-You can edit existing polygons. The **Lock/unlock regions** tool ![Lock/unlock regions tool](./media/how-to-label-images/lock-bounding-boxes-tool.png) or "L" toggles that behavior. If regions are locked, you can only change the shape or location of a new polygon.
+You can edit existing polygons. The **Lock/unlock regions** tool ![Edit polygons with the lock/unlock regions tool](./media/how-to-label-images/lock-bounding-boxes-tool.png) or "L" toggles that behavior. If regions are locked, you can only change the shape or location of a new polygon.
 
-Use the **Add or remove polygon points** tool ![Regions manipulation tool](./media/how-to-label-images/add-remove-points-tool.png) or "U" to adjust an existing polygon. Click on the polygon to add or remove a point. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
+Use the **Add or remove polygon points** tool ![Add or remove polygon points tool](./media/how-to-label-images/add-remove-points-tool.png) or "U" to adjust an existing polygon. Click on the polygon to add or remove a point. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
 
 To delete *all* polygons in the current image, select the **Delete all regions** tool ![Delete all regions tool](./media/how-to-label-images/delete-regions-tool.png).
 
