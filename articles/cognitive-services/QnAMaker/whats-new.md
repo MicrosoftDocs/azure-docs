@@ -69,6 +69,17 @@ Learn what's new with QnA Maker.
 * [Active learning](how-to/improve-knowledge-base.md) provides suggestions for new question alternatives based on real user questions
 * Improved natural language processing (NLP) [ranker](concepts/query-knowledge-base.md#ranker-process) model for English
 
+### November 2020
+
+* Simplified resource creation. 
+* End to End region support.
+* Deep learnt ranking model.
+* Machine Reading Comprehension for precise answers.
+  
+  Check out the [blog](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
+
+
+
 > [!div class="nextstepaction"]
 > [Create a QnA Maker service](how-to/set-up-qnamaker-service-azure.md)
 
