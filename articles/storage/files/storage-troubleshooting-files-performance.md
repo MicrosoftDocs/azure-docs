@@ -45,7 +45,7 @@ To confirm whether your share is being throttled, you can access and use Azure m
 
 ### Cause 2: Metadata or namespace heavy workload
 
-If the majority of your requests are metadata-centric (such as createfile, openfile, closefile, queryinfo, or querydirectory), the latency will be worse when compared to read/write operations.
+If the majority of your requests are metadata-centric (such as createfile, openfile, closefile, queryinfo, or querydirectory), the latency will be worse than that of read/write operations.
 
 To determine whether most of your requests are metadata-centric, start by following steps 1-4 as previously outlined in Cause 1. For step 5, instead of adding a filter for **Response type**, add a property filter for **API name**.
 
@@ -86,7 +86,7 @@ One potential cause is a lack of SMB multi-channel support. Currently, Azure Fil
 - Running the client application from multiple VMs will increase throughput.
 - Use REST APIs where possible.
 
-## Throughput on Linux clients is significantly lower as compared to that of Windows clients
+## Throughput on Linux clients is significantly lower than that of Windows clients
 
 ### Cause
 
