@@ -71,7 +71,7 @@ Now, let's check the information in the "details" field. This is where you can s
 }
 ```
  
-There is also value in checking the access logs to expand your knowledge about a given WAF event. Below, we review the "FrontdoorAccessLog" log that was generated as a response to the event above.
+There is also value in checking the access logs to expand your knowledge about a given WAF event. Below we review the `FrontdoorAccessLog` log that was generated as a response to the event above.
  
 You can see these are related logs based on the "trackingReference" value being the same. Amongst various fields that provide general insight, such as "userAgent" and "clientIP", we call attention to the "httpStatusCode" and "httpStatusDetails" fields. Here, we can confirm that the client has received an HTTP 403 response, which absolutely confirms this request was denied and blocked. 
  
@@ -128,7 +128,7 @@ With this information, and the knowledge that rule 942110 is the one that matche
 
 One benefit of using an exclusion list is that only the match variable you select to exclude will no longer be inspected for that given request. That is, you can choose between specific request headers, request cookie, query string arguments, or request body post arguments to be excluded if a certain condition is met, as opposed to excluding the whole request from being inspected. The other non-specified variables of the request will still be inspected normally.
  
-It’s important to consider that exclusions are a global setting. This means that the configured exclusion will apply to all traffic passing through your WAF, not just a specific web app or URI. For example, this could be a concern if *1=1* is a valid request in the body for a certain web app, but not for others under the same WAF policy .
+It’s important to consider that exclusions are a global setting. This means that the configured exclusion will apply to all traffic passing through your WAF, not just a specific web app or URI. For example, this could be a concern if *1=1* is a valid request in the body for a certain web app, but not for others under the same WAF policy.
  
 When configuring exclusion lists for managed rules, you can choose to exclude all rules within a rule set, all rules within a rule group, or an individual rule. An exclusion list can be configured using [PowerShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext_front_door_az_network_front_door_waf_policy_managed_rules_exclusion_add), [Rest API](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate), or the Azure portal.
 
@@ -145,7 +145,7 @@ In this example, we will be performing an exclusion at the most granular level (
 
 ![Exclusion rule](../media/waf-front-door-tuning/exclusion-rule.png)
 
-Occasionally, there are cases where specific parameters get passed into the WAF in a manner that may not be intuitive. For example, there is a token that gets passed when authenticating using Azure Active Directory (AAD). This token, `__RequestVerificationToken`, usually gets  passed in as a request cookie. However, in some cases where cookies are disabled, this token is also passed in as a request post argument. For this reason, to address AAD token false positives, you need to ensure that `__RequestVerificationToken` is added to the exclusion list for both `RequestCookieNames` and `RequestBodyPostArgsNames`.
+Occasionally, there are cases where specific parameters get passed into the WAF in a manner that may not be intuitive. For example, there is a token that gets passed when authenticating using Azure Active Directory. This token, `__RequestVerificationToken`, usually gets  passed in as a request cookie. However, in some cases where cookies are disabled, this token is also passed in as a request post argument. For this reason, to address Azure AD token false positives, you need to ensure that `__RequestVerificationToken` is added to the exclusion list for both `RequestCookieNames` and `RequestBodyPostArgsNames`.
 
 Exclusions on a field name (*selector*) means that the value will no longer be evaluated by the WAF. However, the field name itself continues to be evaluated and in rare cases it may match a WAF rule and trigger an action.
 
@@ -153,7 +153,7 @@ Exclusions on a field name (*selector*) means that the value will no longer be e
 
 ### Changing WAF actions
 
-Another way of handling the behavior of WAF rules is by choosing the action it will take when a request matches a rule’s conditions. The available actions are: [Allow, Block, Log and Redirect](afds/afds-overview.md#waf-actions).
+Another way of handling the behavior of WAF rules is by choosing the action it will take when a request matches a rule’s conditions. The available actions are: [Allow, Block, Log, and Redirect](afds/afds-overview.md#waf-actions).
 
 In this example, we changed the default action *Block* to the *Log* action on rule 942110. This will cause the WAF to log the request and continue evaluating the same request against the remaining lower priority rules.
 
@@ -183,9 +183,9 @@ TODO PLACEHOLDER-LOG-IN-JSON
 
 ### Disabling rules
 
-Another way to get around a false positive is to disable the rule that matched   on the input the WAF thought was malicious. Since you've parsed the WAF logs and have narrowed the rule down to 942110, you can disable it in the Azure portal. See [Customize Web Application Firewall rules using the Azure portal](application-gateway-  customize-waf-rules-portal.md#disable-rule-groups-and-rules).
+Another way to get around a false positive is to disable the rule that matched on the input the WAF thought was malicious. Since you've parsed the WAF logs and have narrowed the rule down to 942110, you can disable it in the Azure portal. See [Customize Web Application Firewall rules using the Azure portal](../ag/application-gateway-customize-waf-rules-portal.md#disable-rule-groups-and-rules.md).
  
-Disabling a rule is a benefit when you are sure all requests meeting that specific condition are in fact legitimate requests, or when you are sure the rule simply does not apply to your environment (such as, disabling a SQL injection rule because you have non-SQL backends). 
+Disabling a rule is a benefit when you are sure that all requests meeting that specific condition are in fact legitimate requests, or when you are sure the rule simply does not apply to your environment (such as, disabling a SQL injection rule because you have non-SQL backends). 
  
 However, disabling a rule is a global setting that applies to all frontend hosts associated to the WAF policy. When you choose to disable a rule, you may be leaving vulnerabilities exposed without protection or detection for any other frontend hosts associated to the WAF policy.
  
