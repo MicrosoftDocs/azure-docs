@@ -11,11 +11,9 @@ ms.date: 11/10/2020
 ms.topic: conceptual
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
-# product-name-from-white-list
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
 # ms.suite: 
 # ms.tgt_pltfrm:
 # ms.reviewer:
