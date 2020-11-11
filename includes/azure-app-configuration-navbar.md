@@ -1,17 +1,15 @@
 ---
-title: Sample navbar code with feature flag
-description: Sample navbar code with feature flag
+title: include file
+description: include file
+services: azure-app-configuration
 author: lisaguthrie
 
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
-ms.topic: quickstart
-ms.date: 10/12/2020
+ms.topic: include
+ms.date: 11/11/2020
 ms.author: lcozzens
-
+ms.custom: include file
 ---
-
-# Sample navbar code
 
 ```html
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
