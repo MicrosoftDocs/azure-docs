@@ -261,7 +261,7 @@ To install NVIDIA GRID drivers on NV or NVv3-series VMs, make an SSH connection 
    sudo yum install hyperv-daemons
    ```
 
-2. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV or NV2 VMs.) To do this, create a file in `/etc/modprobe.d` named `nouveau.conf` with the following contents:
+2. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV or NV3 VMs.) To do this, create a file in `/etc/modprobe.d` named `nouveau.conf` with the following contents:
 
    ```
    blacklist nouveau
@@ -269,7 +269,9 @@ To install NVIDIA GRID drivers on NV or NVv3-series VMs, make an SSH connection 
    blacklist lbm-nouveau
    ```
  
-3. Reboot the VM, reconnect, and install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
+3. Reboot the VM, reconnect, and install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). Check if LIS is required by verifying the results of lspci. If all GPU devices are listed as expected, installing LIS is not required. 
+
+Skip this step is you are using CentOS/RHEL 7.8 and above.
  
    ```bash
    wget https://aka.ms/lis
