@@ -1,6 +1,6 @@
 ---
 title: Azure file share performance troubleshooting guide
-description: Troubleshoot known performance issues with Azure file shares. Discover potential causes and associated workarounds when these problems are encountered.
+description: Troubleshoot known performance issues with Azure Files. Discover potential causes and associated workarounds when these problems are encountered.
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
@@ -78,7 +78,7 @@ The client virtual machine (VM) could be located in a different region than the 
 ## Client unable to achieve maximum throughput supported by the network
 
 ### Cause
-One potential cause is a lack of SMB multi-channel support. Currently, Azure file shares support only single channel, so there's only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
+One potential cause is a lack of SMB multi-channel support. Currently, Azure Files supports only single channel, so there's only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
 
 ### Workaround
 
@@ -96,7 +96,7 @@ This is a known issue with the implementation of the SMB client on Linux.
 
 - Spread the load across multiple VMs.
 - On the same VM, use multiple mount points with a **nosharesock** option, and spread the load across these mount points.
-- On Linux, try mounting with a **nostrictsync** option to avoid forcing an SMB flush on every **fsync** call. For Azure file shares, this option doesn't interfere with data consistency, but it might result in stale file metadata on directory listings (**ls -l** command). Directly querying file metadata by using the **stat** command will return the most up-to-date file metadata.
+- On Linux, try mounting with a **nostrictsync** option to avoid forcing an SMB flush on every **fsync** call. For Azure Files, this option doesn't interfere with data consistency, but it might result in stale file metadata on directory listings (**ls -l** command). Directly querying file metadata by using the **stat** command will return the most up-to-date file metadata.
 
 ## High latencies for metadata-heavy workloads involving extensive open/close operations
 
@@ -182,7 +182,7 @@ Higher than expected latency accessing Azure file shares for IO intensive worklo
 1. In the **Dimension values** drop-down list, select the file share or shares that you want to alert on.
 
    > [!NOTE]
-   > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down list won't list the file shares, because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled, and the alert won't identify which file share was throttled. Because per-share metrics aren't available for standard file shares, we recommend that you use one file share per storage account.
+   > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down list doesn't list the file shares, because per-share metrics aren't available for standard file shares. Throttling alerts for standard file shares is triggered if any file share within the storage account is throttled, and the alert doesn't identify which file share was throttled. Because per-share metrics aren't available for standard file shares, we recommend that you use one file share per storage account.
 
 1. Define the alert parameters by entering the **Threshold value**, **Operator**, **Aggregation granularity**, and **Frequency of evaluation**, and then select **Done**.
 
@@ -208,32 +208,32 @@ To learn more about configuring alerts in Azure Monitor, see [Overview of alerts
 
 1. Scroll down. In the **Dimension name** drop-down list, select **File Share**.
 1. In the **Dimension values** drop-down list, select the file share or shares that you want to alert on.
-1. Define the alert parameters by entering the **Threshold value**, **Operator**, **Aggregation granularity**, and **Frequency of evaluation**, and then select **Done**.
+1. Define the alert parameters by selecting values in the **Operator**, **Threshold value**, **Aggregation granularity**, and **Frequency of evaluation** drop-down lists, and then select **Done**.
 
-   Egress, ingress, and transactions metrics are expressed per-minute although you're provisioned egress, ingress, and IOPS per second. Therefore, for example, if your provisioned egress is 90&nbsp;mebibytes per second (MiB/s) and you want your threshold to be 80&nbsp;percent of provisioned egress, select the following alert parameters: 
+   Egress, ingress, and transactions metrics are expressed per-minute, though you're provisioned egress, ingress, and IOPS per second. Therefore, for example, if your provisioned egress is 90&nbsp;mebibytes per second (MiB/s) and you want your threshold to be 80&nbsp;percent of provisioned egress, select the following alert parameters: 
    - For **Threshold value**: *75497472* 
    - For **Operator**: *greater than or equal to*
    - For **Aggregation type**: *average*
    
-   Depending on how noisy you want your alert to be, you can also choose which values to select for **Aggregation granularity** and **Frequency of evaluation**. For example, if you want your alert to look at the average ingress over the time period of 1 hour, and you want your alert rule to be run every hour, select the following:
+   Depending on how noisy you want your alert to be, you can also select values for **Aggregation granularity** and **Frequency of evaluation**. For example, if you want your alert to look at the average ingress over the time period of 1 hour, and you want your alert rule to be run every hour, select the following:
    - For **Aggregation granularity**: *1 hour*
    - For **Frequency of evaluation**: *1 hour*
 
-1. Select **Select action group**, and then add an action group (for example, email or SMS) to the alert either by selecting an existing action group or by creating a new action group.
+1. Select **Select action group**, and then add an action group (for example, email or SMS) to the alert either by selecting an existing action group or by creating a new one.
 1. Enter the alert details, such as **Alert rule name**, **Description**, and **Severity**.
 1. Select **Create alert rule** to create the alert.
 
     > [!NOTE]
-    > - To be notified that your premium file share is close to being throttled *because of provisioned ingress*, follow the preceding steps, but with the following change:
+    > - To be notified that your premium file share is close to being throttled *because of provisioned ingress*, follow the preceding instructions, but with the following change:
     >    - In step 5, select the **Ingress** metric instead of **Egress**.
     >
-    > - To be notified that your premium file share is close to being throttled *because of provisioned IOPS*, follow the preceding steps, but with the following changes:
+    > - To be notified that your premium file share is close to being throttled *because of provisioned IOPS*, follow the preceding instructions, but with the following changes:
     >    - In step 5, select the **Transactions** metric instead of **Egress**.
-    >    - In step 10, the only option for **aggregation type** is *total*. Therefore, the threshold value depends on your selected aggregation granularity. For example, if you want your threshold to be 80 percent of provisioned baseline IOPS and you select *1 hour* for **Aggregation granularity**, your **Threshold value** would be your baseline IOPS (in bytes) x 0.8 x 3600. 
+    >    - In step 10, the only option for **Aggregation type** is *Total*. Therefore, the threshold value depends on your selected aggregation granularity. For example, if you want your threshold to be 80&nbsp;percent of provisioned baseline IOPS and you select *1 hour* for **Aggregation granularity**, your **Threshold value** would be your baseline IOPS (in bytes) &times;&nbsp;0.8 &times;&nbsp;3600. 
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## See also
-- [Troubleshoot Azure file shares in Windows](storage-troubleshoot-windows-file-connection-problems.md)  
-- [Troubleshoot Azure file shares in Linux](storage-troubleshoot-linux-file-connection-problems.md)  
+- [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)  
+- [Troubleshoot Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md)  
 - [Azure Files FAQ](storage-files-faq.md)
