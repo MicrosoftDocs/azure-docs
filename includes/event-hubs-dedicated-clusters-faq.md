@@ -13,9 +13,9 @@ ms.custom: "include file"
 
 ### What can I achieve with a cluster?
 
-For an Event Hubs cluster, how much you can ingest and stream depends on various factors such as your producers, consumers, the rate at which you are ingesting and processing, and much more. 
+For an Event Hubs cluster, how much you can ingest and stream depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. 
 
-Following table shows the benchmark results that we achieved during our testing:
+The following table shows the benchmark results that we achieved during our testing:
 
 | Payload shape | Receivers | Ingress bandwidth| Ingress messages | Egress bandwidth | Egress messages | Total TUs | TUs per CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
@@ -31,11 +31,11 @@ In the testing, the following criteria was used:
 
 ### Can I scale up/down my cluster?
 
-After creation, clusters are billed for a minimum of 4 hours of usage. In the Preview release of the self-serve experience, you can submit a [support request](https://ms.portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under *Technical > Quota > Request to Scale Up or Scale Down Dedicated Cluster* to scale your cluster up or down. It may take up to 7 days to complete the request to scale down your cluster. 
+After creation, clusters are billed for a minimum of 4 hours of usage. In the Preview release of the self-serve experience, you can submit a [support request](https://ms.portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under **Technical** > **Quota** > **Request to Scale Up or Scale Down Dedicated Cluster** to scale your cluster up or down. It may take up to 7 days to complete the request to scale down your cluster. 
 
-### How will Geo-DR work with my cluster?
+### How does Geo-DR work with my cluster?
 
-You can geo-pair a namespace under a Dedicated-tier cluster with another namespace under a Dedicated-tier cluster. We do not encourage pairing a Dedicated-tier namespace with a namespace in our Standard offering, since the throughput limit will be incompatible which will result in errors. 
+You can geo-pair a namespace under a Dedicated-tier cluster with another namespace under a Dedicated-tier cluster. We don't encourage pairing a dedicated-tier namespace with a namespace in our standard offering because the throughput limit will be incompatible and result in errors. 
 
 ### Can I migrate my Standard namespaces to belong to a Dedicated-tier cluster?
-We do not currently support an automated migration process for migrating your event hubs data from a Standard namespace to a Dedicated one. 
+We don't currently support an automated migration process for migrating your event hubs data from a Standard namespace to a Dedicated one. 

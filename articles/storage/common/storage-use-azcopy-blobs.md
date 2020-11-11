@@ -358,7 +358,7 @@ The [sync](storage-ref-azcopy-sync.md) command compares file names and last modi
 If you set the `--delete-destination` flag to `true` AzCopy deletes files without providing a prompt. If you want a prompt to appear before AzCopy deletes a file, set the `--delete-destination` flag to `prompt`.
 
 > [!NOTE]
-> To prevent accidental deletions, make sure to enable the [soft delete](/azure/storage/blobs/storage-blob-soft-delete) feature before you use the `--delete-destination=prompt|true` flag.
+> To prevent accidental deletions, make sure to enable the [soft delete](../blobs/soft-delete-blob-overview.md) feature before you use the `--delete-destination=prompt|true` flag.
 
 > [!TIP]
 > You can tweak your sync operation by using optional flags. Here's a few examples.

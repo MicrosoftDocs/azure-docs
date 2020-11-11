@@ -7,10 +7,11 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Provision autoscale throughput on database or container in Azure Cosmos DB - SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB SQL API. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database.
 

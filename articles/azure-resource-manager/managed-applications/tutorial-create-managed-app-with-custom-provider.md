@@ -36,7 +36,7 @@ To complete this tutorial, you need to know:
 
 In this tutorial, you create a managed application and its managed resource group will contain custom provider instance, storage account, and function. The Azure Function used in this example implements an API that handles custom provider operations for actions and resources. Azure Storage Account is used as basic storage for your custom provider resources.
 
-The user interface definition for creating a managed application instance includes `funcname` and `storagename` input elements. Storage account name and function name must be globally unique. By default function files will be deployed from [sample function package](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), but you can change it by adding an input element for a package link in *createUIDefinition.json*:
+The user interface definition for creating a managed application instance includes `funcname` and `storagename` input elements. Storage account name and function name must be globally unique. By default function files will be deployed from [sample function package](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), but you can change it by adding an input element for a package link in *createUiDefinition.json*:
 
 ```json
 {
@@ -69,7 +69,7 @@ The user interface definition for creating a managed application instance includ
 }
 ```
 
-and output in *createUIDefinition.json*:
+and output in *createUiDefinition.json*:
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -77,13 +77,13 @@ and output in *createUIDefinition.json*:
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-The complete *createUIDefinition.json* sample can be found at [Reference: User interface elements artifacts](reference-createuidefinition-artifact.md).
+The complete *createUiDefinition.json* sample can be found at [Reference: User interface elements artifacts](reference-createuidefinition-artifact.md).
 
 ## Template with custom provider
 
 To create a managed application instance with custom provider, you need to define custom provider resource with name **public** and type **Microsoft.CustomProviders/resourceProviders** in your **mainTemplate.json**. In that resource, you define the resource types and actions for your service. To deploy Azure Function and Azure Storage Account instances define resources of type `Microsoft.Web/sites` and `Microsoft.Storage/storageAccounts` respectively.
 
-In this tutorial, you will create one `users` resource type, `ping` custom action, and `users/contextAction` custom action that will be performed in a context of a `users` custom resource. For each resource type and action provide an endpoint pointing to the function with name provided in [createUIDefinition.json](#user-interface-definition). Specify the **routingType** as `Proxy,Cache` for resource types and `Proxy` for actions:
+In this tutorial, you will create one `users` resource type, `ping` custom action, and `users/contextAction` custom action that will be performed in a context of a `users` custom resource. For each resource type and action provide an endpoint pointing to the function with name provided in [createUiDefinition.json](#user-interface-definition). Specify the **routingType** as `Proxy,Cache` for resource types and `Proxy` for actions:
 
 ```json
 {
@@ -334,11 +334,11 @@ You can go to managed application instance and perform **custom action** in "Ove
 
 * Go to "Users" page and click "Add" button. Provide inputs for creating a resource and submit the form:
 
-![Create custom resource](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
+![Screenshot shows the Add button selected from Users.](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
 
 * Go to "Users" page, select a "users" resource and click "Custom Context Action":
 
-![Create custom resource](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
+![Screenshot shows Custom Context Action selected.](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
 [!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
 

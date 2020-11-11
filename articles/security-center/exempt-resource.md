@@ -26,7 +26,7 @@ The resource will be listed as not applicable and the reason will be shown as "e
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview|
+|Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Pricing:|This is a premium Azure policy capability that's offered for Azure Defender customers with no additional cost. For other users, charges may apply in the future.|
 |Required roles and permissions:|**Subscription owner** or **Policy contributor** to create an exemption<br>To create a rule, you need permissions to edit policies in Azure Policy.<br>Learn more in [Azure RBAC permissions in Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|

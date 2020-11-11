@@ -26,6 +26,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 [Learn more](service-updates-how-to.md) about update installation and support.
 
+## Updates (October 2020)
 
 ### Update rollup 51
 
@@ -36,7 +37,9 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup.
 **Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup, including new Linux support for the Mobility service.
 
-## Update (September 2020)
+## Updates (September 2020)
+
+### Update rollup 50
 
 [Update rollup 50](https://support.microsoft.com/help/4582666/update-rollup-50-for-azure-site-recovery) provides the following updates:
 

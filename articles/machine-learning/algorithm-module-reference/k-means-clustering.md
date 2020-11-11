@@ -17,7 +17,7 @@ This article describes how to use the *K-Means Clustering* module in Azure Machi
  
 K-means is one of the simplest and the best known *unsupervised* learning algorithms. You can use the algorithm for a variety of machine learning tasks, such as: 
 
-* [Detecting abnormal data](https://msdn.microsoft.com/magazine/jj891054.aspx).
+* [Detecting abnormal data](/archive/msdn-magazine/2013/february/data-clustering-detecting-abnormal-data-using-k-means-clustering).
 * Clustering text documents.
 * Analyzing datasets before you use other classification or regression methods. 
 
@@ -140,4 +140,4 @@ In general, with clustering models, it's possible that any given configuration w
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

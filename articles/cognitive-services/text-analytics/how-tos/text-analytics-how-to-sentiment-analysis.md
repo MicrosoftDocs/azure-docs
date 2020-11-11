@@ -18,7 +18,7 @@ The Text Analytics API's Sentiment Analysis feature evaluates text and returns s
 
 After sending a sentiment analysis request, the API returns sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level.
 
-Sentiment Analysis supports a wide range of languages, with more in preview. For more information, see [Supported languages](../text-analytics-supported-languages.md).
+Sentiment Analysis supports a wide range of languages, with more in preview. For more information, see [Supported languages](../language-support.md).
 
 ## Sentiment Analysis versions and features
 

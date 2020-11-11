@@ -1,6 +1,6 @@
 ---
 title: Distributed tables design guidance
-description: Recommendations for designing hash-distributed and round-robin distributed tables in Synapse SQL pool.
+description: Recommendations for designing hash-distributed and round-robin distributed tables using dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -13,11 +13,11 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Guidance for designing distributed tables in Synapse SQL pool
+# Guidance for designing distributed tables using dedicated SQL pool in Azure Synapse Analytics
 
-Recommendations for designing hash-distributed and round-robin distributed tables in Synapse SQL pools.
+Recommendations for designing hash-distributed and round-robin distributed tables in dedicated SQL pools.
 
-This article assumes you are familiar with data distribution and data movement concepts in Synapse SQL.  For more information, see [Azure Synapse Analytics  architecture](massively-parallel-processing-mpp-architecture.md).
+This article assumes you are familiar with data distribution and data movement concepts in dedicated SQL pool.  For more information, see [Azure Synapse Analytics  architecture](massively-parallel-processing-mpp-architecture.md).
 
 ## What is a distributed table?
 
@@ -31,7 +31,7 @@ As part of table design, understand as much as possible about your data and how 
 
 - How large is the table?
 - How often is the table refreshed?
-- Do I have fact and dimension tables in a Synapse SQL pool?
+- Do I have fact and dimension tables in a dedicated SQL pool?
 
 ### Hash distributed
 
@@ -39,7 +39,7 @@ A hash-distributed table distributes table rows across the Compute nodes by usin
 
 ![Distributed table](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Distributed table")  
 
-Since identical values always hash to the same distribution, the data warehouse has built-in knowledge of the row locations. In Synapse SQL pool this knowledge is used to minimize data movement during queries, which improves query performance.
+Since identical values always hash to the same distribution, the data warehouse has built-in knowledge of the row locations. In dedicated SQL pool this knowledge is used to minimize data movement during queries, which improves query performance.
 
 Hash-distributed tables work well for large fact tables in a star schema. They can have very large numbers of rows and still achieve high performance. There are, of course, some design considerations that help you to get the performance the distributed system is designed to provide. Choosing a good distribution column is one such consideration that is described in this article.
 
@@ -108,7 +108,7 @@ To balance the parallel processing, select a distribution column that:
 
 ### Choose a distribution column that minimizes data movement
 
-To get the correct query result queries might move data from one Compute node to another. Data movement commonly happens when queries have joins and aggregations on distributed tables. Choosing a distribution column that helps minimize data movement is one of the most important strategies for optimizing performance of your Synapse SQL pool.
+To get the correct query result queries might move data from one Compute node to another. Data movement commonly happens when queries have joins and aggregations on distributed tables. Choosing a distribution column that helps minimize data movement is one of the most important strategies for optimizing performance of your dedicated SQL pool.
 
 To minimize data movement, select a distribution column that:
 
@@ -220,5 +220,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 To create a distributed table, use one of these statements:
 
-- [CREATE TABLE (Synapse SQL pool)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (Synapse SQL pool)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (dedicated SQL pool)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE AS SELECT (dedicated SQL pool)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

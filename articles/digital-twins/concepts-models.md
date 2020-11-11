@@ -21,9 +21,9 @@ A key characteristic of Azure Digital Twins is the ability to define your own vo
 
 A model is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Later, you will use these models to create [**digital twins**](concepts-twins-graph.md) that represent specific entities that meet this type description.
 
-Models are written using the JSON-LD-based **Digital Twin Definition Language (DTDL)**.  
+Azure Digital Twins models are represented in the JSON-LD-based **Digital Twin Definition Language (DTDL)**.  
 
-## Digital Twin Definition Language (DTDL) for writing models
+## Digital Twin Definition Language (DTDL) for models
 
 Models for Azure Digital Twins are defined using the Digital Twins Definition language (DTDL). DTDL is based on JSON-LD and is programming-language independent. DTDL is not exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
@@ -228,6 +228,18 @@ The extending interface cannot change any of the definitions of the parent inter
 ## Validating models
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
+
+## Integrating with industry-standard models
+
+Using models that are based on industry standards or use standard ontology representation, such as RDF or OWL, provides a rich starting point when designing your Azure Digital Twins models. Using industry models also helps with standardization and information sharing.
+
+To be used with Azure Digital Twins, a model must be represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). Therefore, this article describes how to represent your industry-standard models in DTDL, integrating the existing industry concepts with DTDL semantics so that Azure Digital Twins can use them. The DTDL model then serves as the source of truth for the model within Azure Digital Twins.
+
+There are two main paths to integrating industry-standard models with DTDL, depending on your situation:
+* If you have yet to create your models, you can design them around **existing starter DTDL ontologies** that contain language specific to your industry.
+* If you already have existing models that are based on an industry standard, you'll need to **convert them to DTDL** in order to bring them into Azure Digital Twins.
+
+For more on both of these processes, see [*How-to: Integrate industry-standard models*](how-to-integrate-models.md).
 
 ## Next steps
 
