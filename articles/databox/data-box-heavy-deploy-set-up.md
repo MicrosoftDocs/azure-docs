@@ -1,6 +1,6 @@
 ---
 title: Tutorial to set up Azure Data Box Heavy| Microsoft Docs
-description: Learn how to cable and connect your Azure Data Box Heavy
+description: In this tutorial, learn how to cable your Azure Data Box Heavy, connect Azure Data Box heavy, and turn on Azure Data Box Heavy.
 services: databox
 author: alkohli
 
@@ -21,7 +21,7 @@ ms.localizationpriority: high
 
 ::: zone target = "chromeless"
 
-# Get started with Azure Data Box Heavy
+## Get started with Azure Data Box Heavy
 
 ::: zone-end
 
@@ -97,7 +97,7 @@ Take the following steps to cable your device.
 
 On one of the nodes of the device, take the following steps to cable for network.
 
-1. Use a CAT 6 RJ-45 network cable (blue cable in the picture) to connect the host computer to the 1-Gbps management port.
+1. Use a CAT 6 RJ-45 network cable (top-right cable in picture, attached to plug labeled MGMT) to connect the host computer to the 1-Gbps management port.
 2. Use a QSFP+ cable (fiber or copper) to connect at least one 40-Gbps (preferred over 1 Gbps) network interface for data. If using a 10-Gbps switch, use an SFP+ cable with a QSFP+ to SFP+ adapter (the QSA adapter) to connect the 40 Gbps network interface for data.
 
     ![Data Box Heavy ports cabled](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)

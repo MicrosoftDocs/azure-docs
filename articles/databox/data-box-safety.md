@@ -116,7 +116,7 @@ This equipment has been tested and found to comply with the limits for a Class A
 
 This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation of the device.
 
-![Canada](./media/data-box-safety/canada.png)
+![Screenshot shows a notification required for Canada.](./media/data-box-safety/canada.png)
 
 CAN ICES-3(A)/NMB-3(A)
 
@@ -150,7 +150,7 @@ Fax number: +353 1 706 4110
 
 **Japan**
 
-![Japan](./media/data-box-safety/japan.png)
+![Screenshot shows a notification required for Japan.](./media/data-box-safety/japan.png)
 
 <!--**South Korea**
 

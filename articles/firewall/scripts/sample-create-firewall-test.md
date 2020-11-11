@@ -75,5 +75,5 @@ This script uses the following commands to create a resource group, virtual netw
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 

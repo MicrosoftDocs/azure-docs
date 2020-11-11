@@ -1,9 +1,10 @@
 ---
-author: sptramer
-ms.author: sttramer
-manager: carmonm
-ms.date: 04/17/2019
 ms.topic: include
+ms.date: 04/17/2019
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+
 ---
 > [!NOTE]
 > This article has been updated to use the new Azure PowerShell Az

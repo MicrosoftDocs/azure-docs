@@ -1,17 +1,10 @@
 ---
 title: Install Symantec Endpoint Protection on a Windows VM in Azure 
 description: Learn how to install and configure the Symantec Endpoint Protection security extension on a new or existing Azure VM created with the Classic deployment model.
-services: virtual-machines-windows
-documentationcenter: ''
 author: roiyz
-manager: gwallace
-editor: ''
 tags: azure-service-management
-
-ms.assetid: 19dcebc7-da6b-4510-907b-d64088e81fa2
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: akjosh
@@ -19,8 +12,9 @@ ms.author: akjosh
 ---
 
 # How to install and configure Symantec Endpoint Protection on a Windows VM
-> [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../azure-resource-manager/management/deployment-models.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../azure-resource-manager/management/deployment-models.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 This article shows you how to install and configure the Symantec Endpoint Protection client on an existing virtual machine (VM) running Windows Server. This full client includes services such as virus and spyware protection, firewall, and intrusion prevention. The client is installed as a security extension by using the VM Agent.
 
@@ -71,10 +65,10 @@ To verify that the Symantec security extension has been installed and is up-to-d
 
 [Create]:../windows/classic/tutorial.md
 
-[PS]: /powershell/azureps-cmdlets-docs
+[PS]: /powershell/azure/
 
 [Agent]: https://go.microsoft.com/fwlink/p/?LinkId=403947
 
 [Logon]:../windows/classic/connect-logon.md
 
-[Ext]: https://go.microsoft.com/fwlink/p/?linkid=390493
+[Ext]: features-windows.md

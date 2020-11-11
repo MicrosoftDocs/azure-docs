@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -11,9 +11,8 @@ ms.author: dapine
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?pivots=programmming-language-cpp)
-> * [Create an Azure Speech resource](../../../../get-started.md)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Upload a source file to an Azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## Open your project in Visual Studio

@@ -4,7 +4,7 @@ description: In this learning path, get started troubleshooting common issues wi
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
 ---
@@ -13,7 +13,7 @@ ms.author: rohink
 
 This article provides troubleshooting information for common Azure DNS questions.
 
-If these steps don't resolve your issue, you can also search for or post your issue on our [community support forum on MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Or, you can open an Azure support request.
+If these steps don't resolve your issue, you can also search for or post your issue on our [Microsoft Q&A question page for community support](https://docs.microsoft.com/answers/topics/azure-virtual-network.html). Or, you can open an Azure support request.
 
 
 ## I can't create a DNS zone

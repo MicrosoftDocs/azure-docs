@@ -1,18 +1,21 @@
 ---
 title: "Quickstart: Recognize digital ink with the Ink Recognizer REST API and C#"
 titleSuffix: Azure Cognitive Services
-description: This quickstart shows how to use the Ink Recognizer API to start recognizing digital ink strokes.
+description: This quickstart shows how to use the Ink Recognizer API and C# to start recognizing digital ink strokes.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 08/24/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Recognize digital ink with the Ink Recognizer REST API and C#
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Use this quickstart to begin sending digital ink strokes to the Ink Recognizer API. This C# application sends an API request containing JSON-formatted ink stroke data, and gets the response.
 
@@ -34,7 +37,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
         3. Search for `Newtonsoft.Json` and install the package
 - If you are using Linux/MacOS, this application can be ran using [Mono](https://www.mono-project.com/).
 
-- The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
+- The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Vision/InkRecognition/quickstart/example-ink-strokes.json).
 
 ### Create an Ink Recognizer resource
 
@@ -85,13 +88,13 @@ Create a function called `LoadJson()` to load the ink data JSON file. Use a `Str
 
 ## Run the application and view the response
 
-Run the application. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
+Run the application. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Vision/InkRecognition/quickstart/example-response.json).
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [REST API reference](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [REST API reference](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 
 To see how the Ink Recognition API works in a digital inking app, take a look at the following sample applications on GitHub:

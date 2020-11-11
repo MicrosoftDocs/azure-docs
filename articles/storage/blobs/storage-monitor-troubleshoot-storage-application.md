@@ -38,7 +38,7 @@ Under **Diagnostics settings (classic)** set **Status** to **On**. Ensure all of
 
 When complete, click **Save**
 
-![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
+![Screenshot that highlights the section that contains the configuration settings for turning on logging and metrics.](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## Enable alerts
 
@@ -82,7 +82,7 @@ In this scenario, you use [Microsoft Message Analyzer](https://technet.microsoft
 
 ### Download Microsoft Message Analyzer
 
-Download [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) and install the application.
+Download [Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) and install the application.
 
 Launch the application and choose **File** > **Open** > **From Other File Sources**.
 
@@ -92,7 +92,7 @@ In the **File Selector** dialog, select **+ Add Azure Connection**. Enter in you
 
 Once you are connected, expand the containers in the storage tree view to view the log blobs. Select the latest log and click **OK**.
 
-![Microsoft Message Analyzer - Add Azure Storage Connection Dialog](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Screenshot that shows the Microsoft Message Analyzer and highlights the selected log file.](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
 On the **New Session** dialog, click **Start** to view your log.
 

@@ -1,7 +1,6 @@
 ---
 title: Collect data from an Azure virtual machine with Azure Monitor | Microsoft Docs
 description: Learn how to enable the Log Analytics agent VM Extension and enable collection of data from your Azure VMs with Log Analytics.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: quickstart
 author: bwren
@@ -13,7 +12,7 @@ ms.custom: mvc, sec-javascript-october2019
 
 # Collect data from an Azure virtual machine with Azure Monitor
 
-[Azure Monitor](../overview.md) can collect data directly from your Azure virtual machines into a Log Analytics workspace for detailed analysis and correlation. Installing the Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) allows Azure Monitor to collect data from your Azure VMs. This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs using the VM extension with a few easy steps.  
+[Azure Monitor](../overview.md) can collect data directly from your Azure virtual machines into a Log Analytics workspace for analysis of details and correlations. Installing the Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) allows Azure Monitor to collect data from your Azure VMs. This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs using the VM extension with a few easy steps.  
  
 This quickstart assumes you have an existing Azure virtual machine. If not you can [create a Windows VM](../../virtual-machines/windows/quick-create-portal.md) or [create a Linux VM](../../virtual-machines/linux/quick-create-cli.md) following our VM quickstarts.
 
@@ -84,7 +83,7 @@ Azure Monitor can collect events from the Windows event logs or Linux Syslog and
 
 7. When you first configure Windows Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
 
-    ![Default Windows performance counters selected](media/quick-collect-azurevm/windows-perfcounters-default.png)
+    ![Screenshot of the Windows Performance Counters pane with a list of selected counters and the Add the selected performance counters button selected.](media/quick-collect-azurevm/windows-perfcounters-default.png)
 
     Select **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.
   
@@ -104,7 +103,7 @@ Azure Monitor can collect events from the Windows event logs or Linux Syslog and
 
 6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
 
-    ![Default Windows performance counters selected](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
+    ![Screenshot of the Linux Performance Counters pane with a list of selected counters and the Add the selected performance counters button selected.](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Select **Apply below configuration to to my machines** and then select **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
 
@@ -138,4 +137,4 @@ Now that you are collecting operational and performance data from your Windows o
 To learn how to view and analyze the data, continue to the tutorial.
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
+> [View or analyze data in Log Analytics](../log-query/get-started-portal.md)

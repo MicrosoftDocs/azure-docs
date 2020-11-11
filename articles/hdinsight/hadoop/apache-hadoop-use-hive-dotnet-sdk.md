@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.topic: how-to
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 12/24/2019
 ---
 
@@ -38,7 +38,9 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 1. From the Nuget Package Manager Console, run the following command:
 
-        Install-Package Microsoft.Azure.Management.HDInsight.Job
+    ```console
+    Install-Package Microsoft.Azure.Management.HDInsight.Job
+    ```
 
 1. Edit the code below to initialize the values for variables: `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName`. Then use the revised code as the entire contents of **Program.cs** in Visual Studio.
 
@@ -139,6 +141,6 @@ In this article, you learned how to submit Apache Hive queries using HDInsight .
 
 * [Get started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [HDInsight .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [HDInsight .NET SDK reference](/dotnet/api/overview/azure/hdinsight)
 * [Use Apache Sqoop with HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Create non-interactive authentication .NET HDInsight applications](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

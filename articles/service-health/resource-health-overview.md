@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Health overview
-description: Overview of Azure Resource Health
+description: Learn how Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources.
 ms.topic: conceptual
 ms.date: 05/10/2019
 
@@ -13,7 +13,7 @@ Azure Resource Health helps you diagnose and get support for service problems th
 
 ## Resource definition and health assessment
 
-A *resource* is a specific instance of an Azure service, such as a virtual machine, web app, or SQL database. Resource Health relies on signals from different Azure services to assess whether a resource is healthy. If a resource is unhealthy, Resource Health analyzes additional information to determine the source of the problem. It also reports on actions that Microsoft is taking to fix the problem and identifies things that you can do to address it.
+A *resource* is a specific instance of an Azure service, such as a virtual machine, web app, or SQL Database. Resource Health relies on signals from different Azure services to assess whether a resource is healthy. If a resource is unhealthy, Resource Health analyzes additional information to determine the source of the problem. It also reports on actions that Microsoft is taking to fix the problem and identifies things that you can do to address it.
 
 For more information on how health is assessed, see the list of resource types and health checks at [Azure Resource Health](resource-health-checks-resource-types.md).
 
@@ -33,7 +33,7 @@ The health of a resource is displayed as one of the following statuses.
 
 #### Platform events
 
-Platform events are triggered by multiple components of the Azure infrastructure. They include both scheduled actions (for example, planned maintenance) and unexpected incidents (for example, an unplanned host reboot).
+Platform events are triggered by multiple components of the Azure infrastructure. They include both scheduled actions (for example, planned maintenance) and unexpected incidents (for example, an unplanned host reboot or degraded host hardware that is predicted to fail after a specified time window).
 
 Resource Health provides additional details about the event and the recovery process. It also enables you to contact Microsoft  Support even if you don't have an active support agreement.
 
@@ -71,7 +71,7 @@ If you think that the current health status is incorrect, you can tell us by sel
 
 ## History information
 
-You can access 14 days of history in the **Health history** section of Resource Health.
+You can access up to 30 days of history in the **Health history** section of Resource Health.
 
 ![List of Resource Health events over the last two weeks](./media/resource-health-overview/history-blade.png)
 

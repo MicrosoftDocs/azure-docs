@@ -74,8 +74,9 @@ Limitations
 * The IPv6 endpoint on the VM is not exposed directly to the internet. It is behind a load balancer. Only the ports specified in the load balancer rules are accessible over IPv6.
 * Changing the IdleTimeout parameter for IPv6 is **currently not supported**. The default is four minutes.
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
-* Reserved IPv6 IPs (where IPAllocationMethod = static) are **currently not supported**.
+* IPv6 for Basic Load Balancer is locked to a **Dynamic** SKU.  IPv6 for a Standard Load Balancer is locked to a **Static** SKU.
 * NAT64 (translation of IPv6 to IPv4) is not supported.
+* Attaching a secondary NIC that refers to an IPv6 subnet to a back-end pool is **currently not supported**.
 
 ## Next steps
 

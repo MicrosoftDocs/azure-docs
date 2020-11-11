@@ -1,15 +1,13 @@
 ---
 title: Azure Monitor workbooks resource parameters
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
+description: Learn how to use resource parameters to allow picking of resources in workbooks. Use the resource parameters to set the scope from which to get the data from.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
+
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
 ---
 
 # Workbook resource parameters
@@ -57,7 +55,7 @@ Values from resource pickers can come from the workbook context, static list or 
 > [!NOTE]
 > Azure Resource Graph is not yet available in all clouds. Ensure that it is supported in your target cloud if you choose this approach.
 
-[Azure Resource Graph documentation](https://docs.microsoft.com/azure/governance/resource-graph/overview)
+[Azure Resource Graph documentation](../../governance/resource-graph/overview.md)
 
 ## Creating a resource parameter  (JSON list)
 1. Start with an empty workbook in edit mode.
@@ -109,5 +107,5 @@ Values from resource pickers can come from the workbook context, static list or 
 
 ## Next steps
 
-* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
 * [Control](workbooks-access-control.md) and share access to your workbook resources.

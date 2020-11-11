@@ -1,10 +1,10 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/27/2020
+ms.date: 04/04/2020
 ms.topic: include
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ---
 
@@ -12,8 +12,7 @@ zone_pivot_groups: programming-languages-set-two
 
 Before you get started:
 
-* If this is your first C++ project, use this guide to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=windows" target="_blank">create an empty sample project <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows" target="_blank">Install the Speech SDK for your development environment <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp" target="_blank">Install the Speech SDK for your development environment and create an empty sample project<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## Create a LUIS app for intent recognition
 
@@ -69,6 +68,8 @@ Insert this code below your `IntentRecognizer`. Make sure that you replace `"You
 > If you need help finding this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-33)]
+
+This example uses the `AddIntent()` function to individually add intents. If you want to add all intents from a model, use `AddAllIntents(model)` and pass the model.
 
 ## Recognize an intent
 

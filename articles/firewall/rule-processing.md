@@ -5,28 +5,31 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 04/10/2020
 ms.author: victorh
 ---
 
-# Azure Firewall rule processing logic
-You can configure NAT rules, network rules, and applications rules on Azure Firewall. The rules are processed according to the rule type. 
+# Configure Azure Firewall rules
+You can configure NAT rules, network rules, and applications rules on Azure Firewall. Rule collections are processed according to the rule type in priority order, lower numbers to higher numbers from 100 to 65,000. A rule collection name can have only letters, numbers, underscores, periods, or hyphens. It must begin with a letter or number, and end with a letter, number or underscore. The maximum name length is 80 characters.
+
+It's best to initially space your rule collection priority numbers in 100 increments (100, 200, 300, and so on) so you have room to add more rule collections if needed.
 
 > [!NOTE]
-> If you have enabled threat intelligence-based filtering, those rules are highest priority and are always processed first. For more information, see [Azure Firewall threat intelligence-based filtering](threat-intel.md).
+> If you enable threat intelligence-based filtering, those rules are highest priority and are always processed first. Threat-intelligence filtering may deny traffic before any configured rules are processed. For more information, see [Azure Firewall threat intelligence-based filtering](threat-intel.md).
 
-## Outbound
+## Outbound connectivity
 
-### Network rules and applications rules 
-If you have configured network rules and application rules, then network rules are applied in priority order before application rules. The rules are terminating. So if a match is found in a network rule, no other rules are processed.  If there is no network rule match, and if the protocol is HTTP/HTTPS, the the packet is then evaluated by the application rules in priority order. If still no match is found, then the packet is evaluated against the [infrastructure rule collection](infrastructure-fqdns.md). If there is still no match, then the packet is denied by default.
+### Network rules and applications rules
 
-## Inbound
+If you configure network rules and application rules, then network rules are applied in priority order before application rules. The rules are terminating. So if a match is found in a network rule, no other rules are processed.  If there is no network rule match, and if the protocol is HTTP, HTTPS, or MSSQL, then the packet is then evaluated by the application rules in priority order. If still no match is found, then the packet is evaluated against the [infrastructure rule collection](infrastructure-fqdns.md). If there is still no match, then the packet is denied by default.
+
+## Inbound connectivity
 
 ### NAT rules
 
-Inbound connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Tutorial: Filter inbound traffic with Azure Firewall DNAT using the Azure portal](tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, an implicit corresponding network rule to allow the translated traffic is added. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic.
+Inbound Internet connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Tutorial: Filter inbound traffic with Azure Firewall DNAT using the Azure portal](tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, an implicit corresponding network rule to allow the translated traffic is added. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic.
 
-Application rules are not applied for inbound connections. So if you want to filter inbound HTTP/S traffic, you should use Web Application Firewall (WAF). For more information, see [What is Azure Web Application Firewall?](../web-application-firewall/overview.md)
+Application rules aren't applied for inbound connections. So if you want to filter inbound HTTP/S traffic, you should use Web Application Firewall (WAF). For more information, see [What is Azure Web Application Firewall?](../web-application-firewall/overview.md)
 
 ## Examples
 
@@ -59,7 +62,7 @@ The connection to google.com is allowed because the packet matches the *Allow-we
 
 ### Example 2
 
-Web traffic is denied because a higher priority *Deny* network rule collection blocks it.
+SSH traffic is denied because a higher priority *Deny* network rule collection blocks it.
 
 **Network rule collection 1**
 
@@ -69,7 +72,7 @@ Web traffic is denied because a higher priority *Deny* network rule collection b
 
 |name  |Protocol  |Source type  |Source  |Destination type  |Destination address  |Destination ports|
 |---------|---------|---------|---------|----------|----------|--------|
-|Allow-web     |TCP|IP address|*|IP address|*|80,443
+|Allow-SSH     |TCP|IP address|*|IP address|*|22
 
 **Network rule collection 2**
 
@@ -79,11 +82,15 @@ Web traffic is denied because a higher priority *Deny* network rule collection b
 
 |name  |Protocol  |Source type  |Source  |Destination type  |Destination address  |Destination ports|
 |---------|---------|---------|---------|----------|----------|--------|
-|Deny-web     |TCP|IP address|*|IP address|*|80,443
+|Deny-SSH     |TCP|IP address|*|IP address|*|22
 
 **Result**
 
-Connections to web sites are denied because a higher priority network rule collection blocks it. Rule processing stops at this point.
+SSH connections are denied because a higher priority network rule collection blocks it. Rule processing stops at this point.
+
+## Rule changes
+
+If you change a rule to deny previously allowed traffic, any relevant existing sessions are dropped.
 
 ## Next steps
 

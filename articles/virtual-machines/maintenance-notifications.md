@@ -4,8 +4,8 @@ description: Overview of maintenance notifications for virtual machines running 
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 11/19/2019
+ms.topic: conceptual
+ms.date: 8/12/2020
 ms.author: shants
 #pmcontact: shants
 ---
@@ -21,7 +21,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 Planned maintenance that requires a reboot is scheduled in waves. Each wave has different scope (regions).
 
-- A wave starts with a notification to customers. By default, notification is sent to the Service Administrator and Co-Administrators. You can add more recipients and messaging options like email, SMS, and webhooks, using [Activity Log Alerts](../service-health/alerts-activity-log-service-notifications.md).  
+- A wave starts with a notification to customers. By default, the notification is sent to the subscription admin and co-admins. You can add more recipients and messaging options like email, SMS, and webhooks, using [Activity Log Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
 - Once a notification goes out, a *self-service window* is made available. During this window, you can query which of your virtual machines are affected and start maintenance based on your own scheduling needs. The self-service window is typically about 35 days.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your virtual machine. 
 
@@ -72,13 +72,13 @@ It is best to use self-service maintenance in the following cases:
 
 **A:** Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-For more information about high availability, see [Availability for virtual machines in Azure](./linux/availability.md).
+For more information about high availability, see [Availability for virtual machines in Azure](availability.md).
 
 **Q: How do I get notified about planned maintenance?**
 
-**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription Admins (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification but rather need to check the maintenance state of the VM.
+**A:** A planned maintenance wave starts by setting a schedule to one or more Azure regions. Soon after, an email notification is sent to the subscription admin and co-admins (one email per subscription). Additional channels and recipients for this notification could be configured using Activity Log Alerts. In case you deploy a virtual machine to a region where planned maintenance is already scheduled, you will not receive the notification but rather need to check the maintenance state of the VM.
 
-**Q: I don't see any indication of planned maintenance in the portal, Powershell, or CLI. What is wrong?**
+**Q: I don't see any indication of planned maintenance in the portal, PowerShell, or CLI. What is wrong?**
 
 **A:** Information related to planned maintenance is available during a planned maintenance wave only for the VMs that are going to be impacted by it. In other words, if you see not data, it could be that the maintenance wave has already completed (or not started) or that your virtual machine is already hosted in an updated server.
 
@@ -103,7 +103,8 @@ For more information about high availability, see [Availability for virtual mach
 **A:** There are several reasons why you’re not seeing any maintenance information on your VMs:
 1.	You are using a subscription marked as Microsoft internal.
 2.	Your VMs are not scheduled for maintenance. It could be that the maintenance wave has ended, canceled, or modified so that your VMs are no longer impacted by it.
-3.	You don’t have the **Maintenance** column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
+3. You have deallocated VM and then started it. This can cause VM to move to a location which does not have planned maintenance wave scheduled. So the VM will not show maintenance information any more. 
+4.	You don’t have the **Maintenance** column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
 
 **Q: My VM is scheduled for maintenance for the second time. Why?**
 
@@ -118,4 +119,3 @@ For more information about high availability, see [Availability for virtual mach
 ## Next steps
 
 You can handle planned maintenance using the [Azure CLI](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) or [portal](maintenance-notifications-portal.md).
-

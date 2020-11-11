@@ -1,9 +1,11 @@
-- name: Data Lake Analytics Documentation
+- name: Data Lake Analytics documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Data Lake Analytics?
     href: data-lake-analytics-overview.md
+  - name: What's new in Data Lake Analytics?
+    href: data-lake-analytics-whats-new.md
 - name: Get started
   items:
   - name: Azure portal
@@ -16,7 +18,16 @@
     href: data-lake-analytics-get-started-powershell.md
   - name: Azure CLI
     href: data-lake-analytics-get-started-cli.md
-- name: How to
+- name: Concepts
+  items:
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Security baseline for Azure Security Benchmark
+      href: security-baseline.md
+- name: How-to guides
   items:
   - name: Manage Data Lake Analytics
     items:
@@ -57,7 +68,7 @@
       - name: Basics
         href: data-lake-analytics-u-sql-get-started.md
       - name: Language reference
-        href: https://msdn.microsoft.com/library/azure/mt591959
+        href: /u-sql/
       - name: Catalog
         href: data-lake-analytics-u-sql-catalog.md
       - name: User-defined operators
@@ -141,23 +152,26 @@
   - name: Node.js
     href: https://www.npmjs.com/package/azure-arm-datalake-analytics
   - name: Python
-    href: https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python
+    href: /python/api/overview/azure/data-lake-analytics
   - name: REST
     href: /rest/api/datalakeanalytics/
   - name: Resource Manager template
     href: /azure/templates/microsoft.datalakeanalytics/allversions
-  - name: CLI
-    href: https://docs.microsoft.com/cli/azure/dla
+  - name: Azure CLI
+    href: /cli/azure/dla
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Data Lake Blog
-    href: https://blogs.msdn.microsoft.com/azuredatalake/
+    href: /archive/blogs/azuredatalake/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Request changes
     href: https://feedback.azure.com/forums/327234-data-lake
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-data-lake-analytics.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-lake-analytics/
   - name: Pricing calculator

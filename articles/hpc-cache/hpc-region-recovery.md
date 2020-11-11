@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.author: rohogue
+ms.author: v-erkel
 ---
 
 # Use multiple caches for regional failover recovery
@@ -53,4 +53,3 @@ All clients will need to mount the new cache, even if the clients were not affec
 ## Learn more
 
 The Azure application architecture guide includes more information about how to [recover from a region-wide service disruption](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>).
-<!-- this should be an internal link instead of a URL but I can't find the tree  -->

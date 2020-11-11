@@ -3,14 +3,14 @@ title: "Tutorial: Migrate Oracle online to Azure Database for PostgreSQL"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from Oracle on-premises or on virtual machines to Azure Database for PostgreSQL by using Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/24/2020
 ---
 
@@ -209,11 +209,11 @@ If you create a PostgreSQL schema using tools such as ora2pg before starting the
 
 1. When you create a new Oracle to Azure Database for PostgreSQL migration project, you're prompted to select target database and target schema in Select schemas step. Fill in the target database and target schema.
 
-   ![Show portal subscriptions](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
+   ![Screenshot shows Map to target databases.](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
 
 2. The **Migration settings** screen presents a list of tables in the Oracle source. Azure Database Migration Service tries to match tables in the source and the target tables based on table name. If multiple matching target tables with different casing exist, you can select which target table to map to.
 
-    ![Show portal subscriptions](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
+    ![Screenshot shows Migration settings.](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
 > If you need to map source table names to tables with different names, email [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) and we can provide a script to automate the process.

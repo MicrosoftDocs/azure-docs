@@ -3,7 +3,7 @@ title: Monitor Azure Media Services events with Event Grid with portal
 description: This article shows how to subscribe to Event Grid in order to monitor Azure Media Services events. 
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -11,14 +11,16 @@ keywords: azure media services, stream, broadcast, live, offline
 
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 01/21/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Create and monitor Media Services events with Event Grid using the Azure portal
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Event Grid is an eventing service for the cloud. This service uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Media Services events contain all the information you need to respond to changes in your data. You can identify a  Media Services event because the eventType property starts with "Microsoft.Media.". For more information, see [Media Services event schemas](media-services-event-schemas.md).
 
@@ -29,7 +31,7 @@ When you're finished, you see that the event data has been sent to the web app.
 ## Prerequisites 
 
 * Have an active Azure subscription.
-* Create a new Azure Media Services account, as described in [this quickstart](create-account-cli-quickstart.md).
+* Create a new Azure Media Services account, as described in [this quickstart](./create-account-howto.md).
 
 ## Create a message endpoint
 
@@ -37,7 +39,7 @@ Before subscribing to the events for the Media Services account, let's create th
 
 1. Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Image showing a button labeled "Deploy to Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
 
 1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
 `https://<your-site-name>.azurewebsites.net`

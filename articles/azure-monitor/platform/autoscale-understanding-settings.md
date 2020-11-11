@@ -295,9 +295,9 @@ For example, let's say there is a virtual machine scale set with a current capac
 ## Next steps
 Learn more about Autoscale by referring to the following:
 
-* [Overview of autoscale](../../azure-monitor/platform/autoscale-overview.md)
-* [Azure Monitor autoscale common metrics](../../azure-monitor/platform/autoscale-common-metrics.md)
-* [Best practices for Azure Monitor autoscale](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Use autoscale actions to send email and webhook alert notifications](../../azure-monitor/platform/autoscale-webhook-email.md)
-* [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Overview of autoscale](./autoscale-overview.md)
+* [Azure Monitor autoscale common metrics](./autoscale-common-metrics.md)
+* [Best practices for Azure Monitor autoscale](./autoscale-best-practices.md)
+* [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)
+* [Autoscale REST API](/rest/api/monitor/autoscalesettings)
 

@@ -1,10 +1,10 @@
 ---
 title: Optimize Azure Data Lake Storage Gen2 for performance | Microsoft Docs
-description: Azure Data Lake Storage Gen2 Performance Tuning Guidelines
+description: Understand how to optimize Azure Data Lake Storage Gen2 for performance. Ingest data, structure your dataset, and more.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
@@ -22,7 +22,7 @@ Data Lake Storage Gen2 can scale to provide the necessary throughput for all ana
 
 When ingesting data from a source system to Data Lake Storage Gen2, it is important to consider that the source hardware, source network hardware, and network connectivity to Data Lake Storage Gen2 can be the bottleneck.  
 
-![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
+![Diagram that shows the factors to consider when ingesting data from a source system to Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
 It is important to ensure that the data movement is not affected by these factors.
 
@@ -42,7 +42,7 @@ Once you have addressed the source hardware and network connectivity bottlenecks
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)	| [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies	| [Link](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## Structure your data set
 
@@ -60,13 +60,13 @@ For Hive workloads, partition pruning of time-series data can help some queries 
 
 Those pipelines that ingest time-series data, often place their files with a very structured naming for files and folders. Below is a very common example we see for data that is structured by date:
 
-	\DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+*\DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv*
 
 Notice that the datetime information appears both as folders and in the filename.
 
 For date and time, the following is a common pattern
 
-	\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+*\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv*
 
 Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
 
@@ -102,7 +102,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 **Run cluster with more nodes and/or larger sized VMs.**  A larger cluster will enable you to run more YARN containers as shown in the picture below.
 
-![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/VM.png)
+![Diagram that shows how a larger cluster will enable you to run more YARN containers.](./media/data-lake-storage-performance-tuning-guidance/VM.png)
 
 **Use VMs with more network bandwidth.**  The amount of network bandwidth can be a bottleneck if there is less network bandwidth than Data Lake Storage Gen2 throughput.  Different VMs will have varying network bandwidth sizes.  Choose a VM-type that has the largest possible network bandwidth.
 
@@ -110,7 +110,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 **Use smaller YARN containers.**  Reduce the size of each YARN container to create more containers with the same amount of resources.
 
-![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
+![Diagram that shows the outcome when you reduce the size of each YARN container to create more containers.](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
 Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1GB. It's common to see 3GB YARN containers. For some workloads, you may need larger YARN containers.  
 
@@ -120,7 +120,7 @@ Depending on your workload, there will always be a minimum YARN container size t
 
 **Use all available containers.**  Set the number of tasks to be equal or larger than the number of available containers so that all resources are utilized.
 
-![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
+![Diagram that shows the use of all the containers.](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
 
 **Failed tasks are costly.** If each task has a large amount of data to process, then failure of a task results in an expensive retry.  Therefore, it is better to create more tasks, each of which processes a small amount of data.
 

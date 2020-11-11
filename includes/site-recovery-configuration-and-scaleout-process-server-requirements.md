@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 06/10/2018
+ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
 
@@ -31,7 +31,7 @@ Free disk space (retention disk) | 600 GB
 **Component** | **Requirement** 
 --- | ---
 Operating system | Windows Server 2012 R2 <br> Windows Server 2016
-Operating system locale | English (en-us)
+Operating system locale | English (en-*)
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - No pre-existing default website <br> - No pre-existing website/application listening on port 443 <br>- Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting 
@@ -48,16 +48,17 @@ NIC type | VMXNET3 (if the configuration server is a VMware VM)
  |
 **Internet access**  (the server needs access to the following URLs, directly or via proxy):|
 \*.backup.windowsazure.com | Used for replicated data transfer and coordination
-\*.store.core.windows.net | Used for replicated data transfer and coordination
-\*.blob.core.windows.net | Used to access storage account that stores replicated data
+\*.blob.core.windows.net | Used to access storage account that stores replicated data. You can provide the specific URL of your cache storage account.
 \*.hypervrecoverymanager.windowsazure.com | Used for replication management operations and coordination
-https:\//management.azure.com | Used for replication management operations and coordination 
-*.services.visualstudio.com | Used for telemetry purposes (optional)
+https:\//login.microsoftonline.com | Used for replication management operations and coordination 
 time.nist.gov | Used to check time synchronization between system and global time
 time.windows.com | Used to check time synchronization between system and global time
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF setup needs access to these URLs. They're used for access control and identity management by Azure Active Directory.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also whitelisted, if necessary.
+| <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (Optional) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF setup needs access to these additional URLs. They're used for access control and identity management by Azure Active Directory.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also approved, if necessary.
 |
+
+> [!NOTE]
+> If you have [private links connectivity](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) to Site Recovery vault, you do not need any additional internet access for the Configuration Server. An exception to this is while setting up the CS machine using OVA template, you will need access to following URLs over and above private link access - https://management.azure.com, https://www.live.com and https://www.microsoft.com. If you do not wish to allow access to these URLs, please set up the CS using Unified Installer.
 
 ## Required software
 
@@ -78,4 +79,3 @@ The following table summarizes capacity requirements for the configuration serve
 12 vCPUs<br/><br/> 2 socks  * 6 cores \@ 2.5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 to 150 machines
 16 vCPUs<br/><br/> 2 socks  * 8 cores \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150 -200 machines
 |
-

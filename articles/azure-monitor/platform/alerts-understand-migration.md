@@ -1,39 +1,27 @@
 ---
-title: "Understand how the voluntary migration tool works for Azure Monitor alerts"
-description: Understand how the alerts migration tool works and troubleshoot problems.
-author: yalavi
-ms.service: azure-monitor
+title: Understand migration for Azure Monitor alerts
+description: Understand how the alerts migration works and troubleshoot problems.
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
+author: yalavi
 ms.subservice: alerts
 ---
-# Understand how the migration tool works
+# Understand migration options to newer alerts
 
-As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired by August 31, 2019 (was originally June 30, 2019). A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves.
+Classic alerts are [retired](./monitoring-classic-retirement.md), though still in limited use for resources that do not yet support the new alerts. A new date will be announced soon for remaining alerts migration, [Azure Government cloud](../../azure-government/documentation-government-welcome.md), and [Azure China 21Vianet](https://docs.azure.cn/).
 
-This article explains how the voluntary migration tool works. It also describes remedies for some common problems.
-
-> [!NOTE]
-> Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been [extended to August 31st, 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) from the originally announced date of June 30th, 2019.
-
-## Classic alert rules that will not be migrated
+This article explains how the manual migration and voluntary migration tool work, which will be used to migrate remaining alert rules. It also describes remedies for some common problems.
 
 > [!IMPORTANT]
 > Activity log alerts (including Service health alerts) and Log alerts are not impacted by the migration. The migration only applies to classic alert rules described [here](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
-Although the tool can migrate almost all [classic alert rules](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform), there are some exceptions. The following alert rules won't be migrated by using the tool (or during the automatic migration starting September 2019):
-
-- Classic alert rules on virtual-machine guest metrics (both Windows and Linux). See the [guidance for recreating such alert rules in new metric alerts](#guest-metrics-on-virtual-machines) later in this article.
-- Classic alert rules on classic storage metrics. See the [guidance for monitoring your classic storage accounts](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
-- Classic alert rules on some storage account metrics. See [details](#storage-account-metrics) later in this article.
-- Classic alert rules on some Cosmos DB metrics. See [details](#cosmos-db-metrics) later in this article.
-- Classic alert rules on all classic virtual machines and cloud services metrics (Microsoft.ClassicCompute/virtualMachines and Microsoft.ClassicCompute/domainNames/slots/roles). See [details](#classic-compute-metrics) later in this article.
-
-If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. You can also continue to create new classic alerts on the above listed exceptions till June 2020. However for everything else, no new classic alerts can be created after August 2019.
-
 > [!NOTE]
-> Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic-alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated and will not be available after service is retired.
+> If your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic-alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated and will not be available after service is retired.
+
+## Manually migrating classic alerts to newer alerts
+
+Customers that are interested in manually migrating their remaining alerts can already do so using the following sections. These sections also define metrics that are retired by the resource provider and currently can not be directly migrated.
 
 ### Guest metrics on virtual machines
 
@@ -59,7 +47,7 @@ All classic alerts on storage accounts can be migrated except alerts on these me
 - SASThrottlingError
 - ThrottlingError
 
-Classic alert rules on Percent metrics must be migrated based on [the mapping between old and new storage metrics](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be modified appropriately because the new metric available is an absolute one.
+Classic alert rules on Percent metrics must be migrated based on [the mapping between old and new storage metrics](../../storage/common/storage-metrics-migration.md#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be modified appropriately because the new metric available is an absolute one.
 
 Classic alert rules on AnonymousThrottlingError, SASThrottlingError and ThrottlingError must be split into two new alerts because there is no combined metric that provides the same functionality. Thresholds will need to be adapted appropriately.
 
@@ -99,7 +87,7 @@ Alerts on Mongo Failed Requests metrics must be split into multiple alerts becau
 
 ### Classic compute metrics
 
-Any alerts on classic compute metrics will not be migrated using the migration tool as classic compute resources are not yet supported with new alerts. Support for new alerts on these resource types will be added in future. Once that is available, customers must recreate new equivalent alert rules based on their classic alert rules before June 2020.
+Any alerts on classic compute metrics will not be migrated using the migration tool as classic compute resources are not yet supported with new alerts. Support for new alerts on these resource types is currently in public preview and customers can recreate new equivalent alert rules based on their classic alert rules.
 
 ### Classic alert rules on deprecated metrics
 
@@ -260,10 +248,12 @@ As part of the migration, new metric alerts and new action groups will be create
 
 ### Policy with 'Deny' effect preventing us from migrating your rules
 
-As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a policy can prevent us from creating resources. Depending on the policy, some or all rules could not be migrated. The policies that are blocking the process are listed in the [migration tool](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Resolve this problem by either:
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, an [Azure Policy](../../governance/policy/index.yml) assignment can prevent us from creating resources. Depending on the policy assignment, some or all rules could not be migrated. The policy assignments that are blocking the process are listed in the [migration tool](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Resolve this problem by either:
 
-- Excluding the subscriptions, or resource groups for the duration of the migration process from the policy assignment. [Learn more about managing policies exclusion scope](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
-- Removing or changing effect to 'audit' or 'append' (which, for example, can solve issues relating to missing tags). [Learn more about managing policies effect](../../governance/policy/concepts/definition-structure.md#policy-rule).
+- Excluding the subscriptions, resource groups, or individual resources for the duration of the migration process from the policy assignment. [Learn more about managing policy exclusion scopes](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion).
+- Set the 'Enforcement Mode' to **Disabled** on the policy assignment. [Learn more about policy assignment's enforcementMode property](../../governance/policy/concepts/assignment-structure.md#enforcement-mode).
+- Set a Azure Policy exemption (preview) on the subscriptions, resource groups, or individual resources to the policy assignment. [Learn more about the Azure Policy exemption structure](../../governance/policy/concepts/exemption-structure.md).
+- Removing or changing effect to 'disabled', 'audit', 'append', or 'modify' (which, for example, can solve issues relating to missing tags). [Learn more about managing policy effects](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## Next steps
 

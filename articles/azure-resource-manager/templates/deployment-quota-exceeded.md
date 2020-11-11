@@ -2,12 +2,22 @@
 title: Deployment quota exceeded
 description: Describes how to resolve the error of having more than 800 deployments in the resource group history.
 ms.topic: troubleshooting
-ms.date: 10/04/2019
+ms.date: 08/07/2020
 ---
 
 # Resolve error when deployment count exceeds 800
 
 Each resource group is limited to 800 deployments in its deployment history. This article describes the error you receive when a deployment fails because it would exceed the allowed 800 deployments. To resolve this error, delete deployments from the resource group history. Deleting a deployment from the history doesn't affect any of the resources that were deployed.
+
+Azure Resource Manager automatically deletes deployments from your history as you near the limit. You may still see this error for one of the following reasons:
+
+1. You have a CanNotDelete lock on the resource group that prevents deletions from the deployment history.
+1. You've opted out of automatic deletions.
+1. You have a large number of deployments running concurrently and the automatic deletions aren't processed fast enough to reduce the total number.
+
+For information about removing the lock or opting in to automatic deletions, see [Automatic deletions from deployment history](deployment-history-deletions.md).
+
+This article describes how to manually delete deployments from the history.
 
 ## Symptom
 
@@ -17,28 +27,28 @@ During deployment, you receive an error stating that the current deployment will
 
 ### Azure CLI
 
-Use the [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) command to delete deployments from the history.
+Use the [az deployment group delete](/cli/azure/group/deployment) command to delete deployments from the history.
 
 ```azurecli-interactive
-az group deployment delete --resource-group exampleGroup --name deploymentName
+az deployment group delete --resource-group exampleGroup --name deploymentName
 ```
 
 To delete all deployments older than five days, use:
 
 ```azurecli-interactive
 startdate=$(date +%F -d "-5days")
-deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
+deployments=$(az deployment group list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
 
 for deployment in $deployments
 do
-  az group deployment delete --resource-group exampleGroup --name $deployment
+  az deployment group delete --resource-group exampleGroup --name $deployment
 done
 ```
 
 You can get the current count in the deployment history with the following command:
 
 ```azurecli-interactive
-az group deployment list --resource-group exampleGroup --query "length(@)"
+az deployment group list --resource-group exampleGroup --query "length(@)"
 ```
 
 ### Azure PowerShell

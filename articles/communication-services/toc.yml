@@ -1,0 +1,148 @@
+- name: Azure Communication Services Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Communication Services?
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a Communication Services resource
+    href: quickstarts/create-communication-resource.md
+  - name: Create and manage access tokens
+    href: quickstarts/access-tokens.md
+  - name: Chat
+    items:
+      - name: Add chat to your app
+        href: quickstarts/chat/get-started.md
+  - name: Telephony and SMS
+    items:
+      - name: Get a telephone number
+        href: quickstarts/telephony-sms/get-phone-number.md
+      - name: Add telephone calling to your app
+        href: quickstarts/voice-video-calling/pstn-call.md
+      - name: Send an SMS message
+        href: quickstarts/telephony-sms/send.md
+      - name: Handle SMS events
+        href: quickstarts/telephony-sms/handle-sms-events.md
+      - name: Send an SMS in Azure Logic Apps
+        href: quickstarts/telephony-sms/logic-app.md
+  - name: Voice and video calling
+    items:
+    - name: Add voice calling to your app
+      href: quickstarts/voice-video-calling/getting-started-with-calling.md
+    - name: Use the calling client library
+      href: quickstarts/voice-video-calling/calling-client-samples.md
+    - name: Join your calling app to a Teams meeting
+      href: quickstarts/voice-video-calling/get-started-teams-interop.md
+- name: Tutorials
+  expanded: false
+  items:
+  - name: Build a trusted authentication service using Azure Functions
+    href: tutorials/trusted-service-tutorial.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: Chat
+    items:
+      - name: Chat client library overview
+        href: concepts/chat/sdk-features.md
+      - name: Chat concepts
+        href: concepts/chat/concepts.md
+  - name: Telephony and SMS
+    items: 
+      - name: SMS client library overview
+        href: concepts/telephony-sms/sdk-features.md
+      - name: SMS concepts
+        href: concepts/telephony-sms/concepts.md
+      - name: Plan your telephony and SMS solution 
+        href: concepts/telephony-sms/plan-solution.md
+  - name: Voice and video calling
+    items:
+      - name: Calling client library overview
+        href: concepts/voice-video-calling/calling-sdk-features.md
+      - name: Voice and video concepts
+        href: concepts/voice-video-calling/about-call-types.md
+      - name: Teams interoperability
+        href: concepts/voice-video-calling/teams-interop.md
+  - name: Client and server architecture
+    href: concepts/client-and-server-architecture.md
+  - name: Call flows
+    href: concepts/call-flows.md
+  - name: Client libraries and REST APIs
+    href: concepts/sdk-options.md 
+  - name: Pricing model
+    href: concepts/pricing.md
+  - name: Privacy
+    href: concepts/privacy.md
+  - name: Authentication
+    href: concepts/authentication.md
+  - name: Event handling
+    href: concepts/event-handling.md
+  - name: Notifications
+    href: concepts/notifications.md
+  - name: Logging and diagnostics
+    href: concepts/logging-and-diagnostics.md
+  - name: Metrics
+    href: concepts/metrics.md
+  - name: Troubleshooting
+    href: concepts/troubleshooting-info.md
+- name: Samples
+  items:
+  - name: Group calling hero sample
+    href: samples/calling-hero-sample.md
+  - name: Group chat hero sample
+    href: samples/chat-hero-sample.md
+  - name: Web calling sample
+    href: samples/web-calling-sample.md
+- name: References
+  items:
+  - name: Reference documentation overview
+    href: concepts/reference.md
+  - name: REST API documentation
+    href: https://docs.microsoft.com/rest/api/communication/
+  - name: Calling libraries
+    items:
+    - name: Calling (JavaScript)
+      href: https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
+    - name: Calling (Android/Java)
+      href: https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android
+    - name: Calling (iOS)
+      href: https://docs.microsoft.com/objectivec/communication-services/calling/
+  - name: Chat libraries
+    items:
+    - name: Chat (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-chat
+    - name: Chat (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat
+    - name: Chat (Android/Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat
+  - name: SMS libraries
+    items:
+    - name: SMS (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-sms
+    - name: SMS (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms
+    - name: SMS (Android/Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms
+  - name: Administration libraries
+    items:
+    - name: Administration (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-administration
+    - name: Administration (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationadministration
+    - name: Administration (Android/Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-administration
+  - name: Common libraries
+    items:
+    - name: Common (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-common
+    - name: Common (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon
+    - name: Common (Android/Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
+- name: Resources
+  items:
+  - name: Release notes
+    href: https://github.com/Azure/Communication/blob/master/releasenotes

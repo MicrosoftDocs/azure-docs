@@ -62,7 +62,7 @@ For PowerShell, use:
 
 For Azure CLI, use:
 
-```azurecli
+```bash
 ./sideload-createuidef.sh \
   -l southcentralus \
   -a .\100-Marketplace-Sample
@@ -78,7 +78,7 @@ For PowerShell, use:
 
 For Azure CLI, use:
 
-```azurecli
+```bash
 ./sideload-createuidef.sh
 ```
 
@@ -98,4 +98,4 @@ Now that you've verified your portal interface is working as expected, it's time
 
 ## Next steps
 
-After validating your portal interface, learn about making your [Azure managed application available in the Marketplace](publish-marketplace-app.md).
+After validating your portal interface, learn about making your [Azure managed application available in the Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).

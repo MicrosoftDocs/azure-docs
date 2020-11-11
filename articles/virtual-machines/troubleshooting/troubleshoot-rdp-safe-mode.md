@@ -20,9 +20,6 @@ ms.author: genli
 
 This article shows how to resolve a problem in which you cannot connect to Azure Windows Virtual Machines (VMs) because the VM is configured to boot into Safe Mode.
 
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources:
-[Resource Manager and classic](../../azure-resource-manager/management/deployment-models.md). This article covers using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
 ## Symptoms
 
@@ -47,7 +44,9 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
    ). If the Serial Console is not enabled on your VM, see [repair the VM offline](#repair-the-vm-offline).
 2. Check the boot configuration data:
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
     If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, the VM is not in Safe Mode. This article does not apply to your scenario.
 
@@ -61,11 +60,15 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
 
 3. Delete the **safemoade** flag, so the VM will boot into normal mode:
 
-	    bcdedit /deletevalue {current} safeboot
+    ```console
+    bcdedit /deletevalue {current} safeboot
+    ```
 
 4. Check the boot configuration data to make sure that the **safeboot** flag is removed:
 
-        bcdedit /enum
+    ```console
+    bcdedit /enum
+    ```
 
 5. Restart the VM, and then check whether the issue is resolved.
 
@@ -73,7 +76,7 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
 
 #### Attach the OS disk to a recovery VM
 
-1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md).
 2. Start a Remote Desktop connection to the recovery VM.
 3. Make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 
@@ -115,7 +118,10 @@ To enable dump log and Serial Console, run the following script.
 1. Open an elevated command prompt session (**Run as administrator**).
 2. Check the boot configuration data. In the following commands, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM.
 
-        bcdedit /store F:\boot\bcd /enum
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
     Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".
 
     If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, this article does not apply to your scenario.
@@ -124,8 +130,14 @@ To enable dump log and Serial Console, run the following script.
 
 3. Remove the **safeboot** flag, so the VM will boot into normal mode:
 
-        bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```console
+    bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+    ```
+
 4. Check the boot configuration data to make sure that the **safeboot** flag is removed:
 
-        bcdedit /store F:\boot\bcd /enum
-5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.
+    ```console
+    bcdedit /store F:\boot\bcd /enum
+    ```
+
+5. [Detach the OS disk and recreate the VM](./troubleshoot-recovery-disks-portal-windows.md). Then check whether the issue is resolved.

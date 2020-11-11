@@ -31,6 +31,7 @@ Here are some tooling capabilities and innovations, just to name a few:
 ## Next steps
 
 The table below contains important links to get you started with the Threat Modeling Tool:
+See also: [System requirements](threat-modeling-tool-releases.md)
 
 | Step  | Description                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |

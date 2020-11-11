@@ -6,21 +6,22 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 05/14/2020
 ---
+
 # What are the default and recommended node configurations for Azure HDInsight?
 
 This article discusses default and recommended node configurations for Azure HDInsight clusters.
 
 ## Default and minimum recommended node configuration and virtual machine sizes for clusters
 
-The following tables list default and recommended virtual machine (VM) sizes for HDInsight clusters.  This information is necessary to understand the VM sizes to use when you are creating PowerShell or Azure CLI scripts to deploy HDInsight clusters.
+The following tables list default and recommended virtual machine (VM) sizes for HDInsight clusters.  This information is necessary to understand the VM sizes to use when you're creating PowerShell or Azure CLI scripts to deploy HDInsight clusters.
 
-If you need more than 32 worker nodes in a cluster, select a head node size with at least 8 cores and 14 GB of RAM. 
+If you need more than 32 worker nodes in a cluster, select a head node size with at least 8 cores and 14 GB of RAM.
 
-The only cluster types that have data disks are Kafka and HBase clusters with the Accelerated Writes feature enabled. HDInsight supports P30 and S30 disk sizes in these scenarios.
+The only cluster types that have data disks are Kafka and HBase clusters with the Accelerated Writes feature enabled. HDInsight supports P30 and S30 disk sizes in these scenarios. For all other cluster types, HDInsight provides managed disk space with the cluster. Starting 11/07/2019, the managed disk size of each node in the newly created cluster is 128 GB. This can't be changed.
 
 The specifications of all minimum recommended VM types used in this document are summarized in the following table.
 
@@ -36,7 +37,7 @@ The specifications of all minimum recommended VM types used in this document are
 | Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
 | Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8x500               | 4 / 1000                     |
 
-For more details on the specifications of each VM type, see the following documents:
+For more information on the specifications of each VM type, see the following documents:
 
 * [General purpose virtual machine sizes: Dv2 series 1-5](../virtual-machines/dv2-dsv2-series.md)
 * [Memory optimized virtual machine sizes: Dv2 series 11-15](../virtual-machines/dv2-dsv2-series-memory.md)

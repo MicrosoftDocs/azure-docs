@@ -1,19 +1,20 @@
 ---
 title: Azure CLI Script Sample - Create an Azure App Configuration Store
 titleSuffix: Azure App Configuration
-description: Use Azure CLI Script to create an Azure App Configuration store
+description: Create an Azure App Configuration store using a sample Azure CLI script. See reference article links to commands used in the script.
 services: azure-app-configuration
 author: lisaguthrie
 
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
-ms.author: lcozzens
+ms.author: lcozzens 
+ms.custom: devx-track-azurecli
 ---
 
 # Create an Azure App Configuration Store
 
-This sample script creates a new instance of Azure App Configuration in a new resource group with a random name.
+This sample script creates a new instance of Azure App Configuration in a new resource group.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,8 +40,10 @@ appConfigHostname=$(az appconfig create \
   --name $myAppConfigStoreName \
   --location eastus \
   --resource-group $myResourceGroupName \
-  --query hostName \
-  -o tsv)
+  --query endpoint \
+  --sku free \
+  -o tsv
+  )
 
 # Get the AppConfig connection string 
 appConfigConnectionString=$(az appconfig credential list \

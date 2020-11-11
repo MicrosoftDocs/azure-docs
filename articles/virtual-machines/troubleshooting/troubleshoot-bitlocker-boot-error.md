@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting BitLocker boot errors on an Azure VM | Microsoft Docs
 description: Learn how to troubleshoot BitLocker boot errors in an Azure VM
 services: virtual-machines-windows
@@ -14,6 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
+ms.custom: has-adal-ref
 ---
 # BitLocker boot errors on an Azure VM
 
@@ -23,7 +24,7 @@ ms.author: genli
 
 ## Symptom
 
- A Windows VM doesn't start. When you check the screenshots in the [Boot diagnostics](../windows/boot-diagnostics.md) window, you see one of the following error messages:
+ A Windows VM doesn't start. When you check the screenshots in the [Boot diagnostics](./boot-diagnostics.md) window, you see one of the following error messages:
 
 - Plug in the USB driver that has the BitLocker key
 
@@ -38,12 +39,12 @@ This problem may occur if the VM cannot locate the BitLocker Recovery Key (BEK) 
 
 ## Solution
 
-To resolve this problem, stop and deallocate the VM, and then restart it. This operation forces the VM to retrieve the BEK file from the Azure Key Vault, and then put it on the encrypted disk. 
+To resolve this problem, stop and deallocate the VM, and then start it. This operation forces the VM to retrieve the BEK file from the Azure Key Vault, and then put it on the encrypted disk. 
 
 If this method does not the resolve the problem, follow these steps to restore the BEK file manually:
 
 1. Take a snapshot of the system disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
-2. [Attach the system disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md). To run the [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) command in the step 7, the **BitLocker Drive Encryption** feature must be enabled in the recovery VM.
+2. [Attach the system disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md). To run the [manage-bde](/windows-server/administration/windows-commands/manage-bde) command in the step 7, the **BitLocker Drive Encryption** feature must be enabled in the recovery VM.
 
     When you attach a managed disk, you might receive a "contains encryption settings and therefore cannot be used as a data disk” error message. In this situation, run the following script to try again to attach the disk:
 
@@ -65,7 +66,7 @@ If this method does not the resolve the problem, follow these steps to restore t
     ```
      You cannot attach a managed disk to a VM that was restored from a blob image.
 
-3. After the disk is attached, make a remote desktop connection to the recovery VM so that you can run some Azure PowerShell scripts. Make sure that you have the [latest version of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) installed on the recovery VM.
+3. After the disk is attached, make a remote desktop connection to the recovery VM so that you can run some Azure PowerShell scripts. Make sure that you have the [latest version of Azure PowerShell](/powershell/azure/) installed on the recovery VM.
 
 4. Open an elevated Azure PowerShell session (Run as administrator). Run the following commands to sign in to Azure subscription:
 
@@ -131,11 +132,15 @@ If this method does not the resolve the problem, follow these steps to restore t
 
     - Suspend protection to temporarily turn BitLocker OFF by running the following:
 
-                    manage-bde -protectors -disable F: -rc 0
-           
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
+
     - Fully decrypt the drive. To do this, run the following command:
 
-                    manage-bde -off F:
+    ```console
+    manage-bde -off F:
+    ```
 
 ### Key Encryption Key scenario
 
@@ -232,17 +237,18 @@ For a Key Encryption Key scenario, follow these steps:
 
 4. You see the following output when the script begins:
 
-        GAC    Version        Location                                                                              
-        ---    -------        --------                                                                              
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
+    GAC    Version        Location                                                                              
+    ---    -------        --------                                                                              
+    False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
+    False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
 
     When the script finishes, you see the following output:
 
-        VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
-        version=2015-06-01 with -1-byte payload
-        VERBOSE: received 360-byte response of content type application/json; charset=utf-8
-
+    ```output
+    VERBOSE: POST https://myvault.vault.azure.net/keys/rondomkey/<KEY-ID>/unwrapkey?api-
+    version=2015-06-01 with -1-byte payload
+    VERBOSE: received 360-byte response of content type application/json; charset=utf-8
+    ```
 
 5. To unlock the attached disk by using the BEK file, run the following command:
 
@@ -260,11 +266,16 @@ For a Key Encryption Key scenario, follow these steps:
 
     - Suspend protection to temporarily turn BitLocker OFF by running the following command:
 
-             manage-bde -protectors -disable F: -rc 0
-           
+    ```console
+    manage-bde -protectors -disable F: -rc 0
+    ```
+
     - Fully decrypt the drive. To do this, run the following command:
 
-                    manage-bde -off F:
+    ```console
+    manage-bde -off F:
+    ```
+
 ## Script troubleshooting
 
 **Error: Could not load file or assembly**

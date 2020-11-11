@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 01/17/2020
+ms.date: 07/13/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 
@@ -85,14 +85,14 @@ Azure AD provides ways to natively authenticate using passwordless methods to si
 
 ## Next steps
 
-To get started, see the [quickstart for self-service password reset][quickstart-sspr] and [Azure Multi-Factor Authentication tutorial][tutorial-mfa-applications].
+To get started, see the [tutorial for self-service password reset (SSPR)][tutorial-sspr] and [Azure Multi-Factor Authentication][tutorial-azure-mfa].
 
 To learn more about self-service password reset concepts, see [How Azure AD self-service password reset works][concept-sspr].
 
 To learn more about multi-factor authentication concepts, see [How Azure Multi-Factor Authentication works][concept-mfa].
 
 <!-- INTERNAL LINKS -->
-[quickstart-sspr]: quickstart-sspr.md
-[tutorial-mfa-applications]: tutorial-mfa-applications.md
+[tutorial-sspr]: tutorial-enable-sspr.md
+[tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [concept-sspr]: concept-sspr-howitworks.md
 [concept-mfa]: concept-mfa-howitworks.md

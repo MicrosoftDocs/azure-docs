@@ -3,12 +3,12 @@ title: Create an Azure Kubernetes Service cluster resource
 titleSuffix: Azure Cognitive Services
 description: Learn how to create an Azure Kubernetes Service (AKS) resource.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 11/21/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ## Create an Azure Kubernetes Service cluster resource
@@ -28,7 +28,7 @@ ms.author: dapine
     |Node size|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
     |Node count|Leave the slider at the default value.|
 
-1. On the **Scale** tab, leave **Virtual nodes** and **VM scale sets** set to their default values.
+1. On the **Node pools** tab, leave **Virtual nodes** and **VM scale sets** set to their default values.
 1. On the **Authentication** tab, leave **Service principal** and **Enable RBAC** set to their default values.
 1. On the **Networking** tab, enter the following selections:
 
@@ -37,7 +37,7 @@ ms.author: dapine
     |HTTP application routing|No|
     |Networking configuration|Basic|
 
-1. On the **Monitoring** tab, make sure that **Enable container monitoring** is set to **Yes**, and leave **Log Analytics workspace** as the default value.
+1. On the **Integrations** tab, make sure that **Container monitoring** is set to **Enabled**, and leave **Log Analytics workspace** as the default value.
 1. On the **Tags** tab, leave the name/value pairs blank for now.
 1. Select **Review and Create**.
 1. After validation passes, select **Create**.

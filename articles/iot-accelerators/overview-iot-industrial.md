@@ -12,19 +12,22 @@ manager: philmea
 
 # What is industrial IoT (IIoT)
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 IIoT is the Industrial Internet of Things. IIoT enhances industrial efficiencies through the application of IoT in the manufacturing industry. 
 
 ## Improve industrial efficiencies
 
 Enhance your operational productivity and profitability with a connected factory solution accelerator. Connect and monitor your industrial equipment and devices in the cloud—including your machines already operating on the factory floor. Analyze your IoT data for insights that help you increase the performance of the entire factory floor.
 
-Reduce the time-consuming process of accessing factory floor machines with OPC Twin, and focus your time on building IIoT solutions. Streamline certificate management and industrial asset integration with OPC Vault, and feel confident that asset connectivity is secured. These microservices provide a REST-like API on top of [Azure Industrial IoT components](https://github.com/Azure/azure-iiot-opc-ua). The service API gives you control of edge module functionality. 
+Reduce the time-consuming process of accessing factory floor machines with OPC Twin, and focus your time on building IIoT solutions. Streamline certificate management and industrial asset integration with OPC Vault, and feel confident that asset connectivity is secured. These microservices provide a REST-like API on top of [Azure Industrial IoT components](https://github.com/Azure/Industrial-IoT). The service API gives you control of edge module functionality. 
 
 ![Industrial IoT overview](media/overview-iot-industrial/overview.png)
 
 > [!NOTE]
 > For more information about
-Azure Industrial IoT services, see the GitHub [repository](https://github.com/Azure/azure-iiot-services).
+Azure Industrial IoT services, see the GitHub [repository](https://github.com/Azure/Industrial-IoT) and [documentation](https://azure.github.io/Industrial-IoT/).
 > If you're unfamiliar with how Azure IoT Edge modules work, begin with the following articles:
 - [About Azure IoT Edge](../iot-edge/about-iot-edge.md)
 - [Azure IoT Edge modules](../iot-edge/iot-edge-modules.md)
@@ -45,5 +48,4 @@ OPC Vault is an implementation of OPC UA Global Discovery Server (GDS) that can 
 
 Now that you've had an introduction to industrial IoT and its components, here is the suggested next step:
 
-> [!div class="nextstepaction"]
-> [What is OPC Twin](overview-opc-twin.md)
+[What is OPC Twin](overview-opc-twin.md)

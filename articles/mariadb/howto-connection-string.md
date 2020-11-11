@@ -4,8 +4,9 @@ description: This document lists the currently supported connection strings for 
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 12/02/2019
+ms.topic: how-to
+ms.date: 3/18/2020
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 
 # How to connect applications to Azure Database for MariaDB

@@ -3,16 +3,16 @@ title: Configure sign-in auto-acceleration using Home Realm Discovery
 description: Learn how to configure Home Realm Discovery policy for Azure Active Directory authentication for federated users, including auto-acceleration and domain hints.
 services: active-directory
 documentationcenter: 
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ---
@@ -76,8 +76,8 @@ For more information about auto-acceleration using the domain hints that are sup
 ### Home Realm Discovery policy for auto-acceleration
 Some applications do not provide a way to configure the authentication request they emit. In these cases, it’s not possible to use domain hints to control auto-acceleration. Auto-acceleration can be configured via policy to achieve the same behavior.  
 
-## Enable direct authentication for legacy applications
-Best practice is for applications to use AAD libraries and interactive sign-in to authenticate users. The libraries take care of the federated user flows.  Sometimes legacy applications aren't written to understand federation. They don't perform home realm discovery and do not interact with the correct federated endpoint to authenticate a user. If you choose to, you can use HRD Policy to enable specific legacy applications that submit username/password credentials to authenticate directly with Azure Active Directory. Password Hash Sync must be enabled. 
+## Enable direct ROPC authentication of federated users for legacy applications
+Best practice is for applications to use AAD libraries and interactive sign-in to authenticate users. The libraries take care of the federated user flows.  Sometimes legacy applications, especially those that use ROPC grants, submit username and password directly to Azure AD, and aren't written to understand federation. They don't perform home realm discovery and do not interact with the correct federated endpoint to authenticate a user. If you choose to, you can use HRD Policy to enable specific legacy applications that submit username/password credentials using the ROPC grant to authenticate directly with Azure Active Directory. Password Hash Sync must be enabled. 
 
 > [!IMPORTANT]
 > Only enable direct authentication if you have Password Hash Sync turned on and you know it's okay to authenticate this application without any policies implemented by your on-premises IdP. If you turn off Password Hash Sync, or turn off Directory Synchronization with AD Connect for any reason, you should remove this policy to prevent the possibility of direct authentication using a stale password hash.
@@ -105,7 +105,7 @@ Following is an example HRD policy definition:
     {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
-    "AllowCloudPasswordValidation":true
+    "AllowCloudPasswordValidation":false
     }
    }
 ```
@@ -163,7 +163,7 @@ In the following examples, you create, update, link, and delete policies on appl
 
 If nothing is returned, it means you have no policies created in your tenant.
 
-### Example: Set HRD policy for an application 
+### Example: Set an HRD policy for an application 
 
 In this example, you create a policy that when it is assigned to an application either: 
 - Auto-accelerates users to an AD FS sign-in screen when they are signing in to an application when there is a single domain in your tenant. 
@@ -246,14 +246,14 @@ Note the **ObjectID** of the policy that you want to list assignments for.
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-### Example: Remove an HRD policy for an application
+### Example: Remove an HRD policy from an application
 #### Step 1: Get the ObjectID
 Use the previous example to get the **ObjectID** of the policy, and that of the application service principal from which you want to remove it. 
 
 #### Step 2: Remove the policy assignment from the application service principal  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### Step 3: Check removal by listing the service principals to which the policy is assigned 

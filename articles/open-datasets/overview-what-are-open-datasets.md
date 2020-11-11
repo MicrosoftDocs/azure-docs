@@ -6,7 +6,7 @@ ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 11/04/2019
+ms.date: 05/06/2020
 ---
 
 # What are Azure Open Datasets and how can you use them?
@@ -19,6 +19,8 @@ Datasets include public-domain data for weather, census, holidays, public safety
 
 ## Curated, prepared datasets
 Curated open public datasets in Azure Open Datasets are optimized for consumption in machine learning workflows. 
+
+To see all the datasets available, go to the [Azure Open Datasets Catalog](https://azure.microsoft.com/services/open-datasets/catalog/).
 
 Data scientists often spend the majority of their time cleaning and preparing data for advanced analytics. Open Datasets are copied to the Azure cloud and preprocessed to save you time. At regular intervals data is pulled from the sources, such as by an FTP connection to the National Oceanic and Atmospheric Administration (NOAA). Next, data is parsed into a structured format, and then enriched as appropriate with features such as ZIP Code or location of the nearest weather station.
 
@@ -52,5 +54,5 @@ If you can't find the data you want, email us to [request a dataset](mailto:aod@
 
 ## Next steps
 * [Sample notebook](samples.md)
-* [Tutorial: Regression modeling with NY taxi data](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
+* [Tutorial: Regression modeling with NY taxi data](/azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [Python SDK for Open Datasets](/python/api/azureml-opendatasets/?view=azure-ml-py)

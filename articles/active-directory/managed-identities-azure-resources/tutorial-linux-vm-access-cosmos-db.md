@@ -3,7 +3,7 @@ title: Tutorial`:`Use a managed identity to access Azure Cosmos DB - Linux - Azu
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Cosmos DB.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: 
 
@@ -14,14 +14,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
-ms.author: markvi
+ms.author: barclayn
 
 ms.collection: M365-identity-device-management
 ---
 # Tutorial: Use a Linux VM system-assigned managed identity to access Azure Cosmos DB 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
-
 
 This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Cosmos DB. You learn how to:
 
@@ -37,10 +36,9 @@ This tutorial shows you how to use a system-assigned managed identity for a Linu
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-To run the CLI script examples in this tutorial, you have two options:
-
-- Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) either from the Azure portal, or via the **Try It** button, located in the top right corner of each code block.
-- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 or later) if you prefer to use a local CLI console.
+- To run the example scripts, you have two options:
+    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
+    - Run scripts locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account associated with the Azure subscription in which you'd like to create resources.
 
 ## Create a Cosmos DB account 
 
@@ -63,14 +61,14 @@ Next, add a data collection in the Cosmos DB account that you can query in later
 
 ## Retrieve the `principalID` of the Linux VM's system-assigned managed identity
 
-To gain access to the Cosmos DB account access keys from the Resource Manager in the following section, you need to retrieve the `principalID` of the Linux VM's system-assigned managed identity.  Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resource group in which you VM resides), and `<VM NAME>` parameter values with your own values.
+To gain access to the Cosmos DB account access keys from the Resource Manager in the following section, you need to retrieve the `principalID` of the Linux VM's system-assigned managed identity.  Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resource group in which your VM resides), and `<VM NAME>` parameter values with your own values.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
 ```
 The response includes the details of the system-assigned managed identity (note the principalID as it is used in the next section):
 
-```bash  
+```output  
 {
     "id": "/subscriptions/<SUBSCRIPTION ID>/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe>",
   "identity": {
@@ -78,8 +76,8 @@ The response includes the details of the system-assigned managed identity (note 
     "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533f8",
     "type": "SystemAssigned"
  }
-
 ```
+
 ## Grant your Linux VM's system-assigned identity access to the Cosmos DB account access keys
 
 Cosmos DB does not natively support Azure AD authentication. However, you can use a managed identity to retrieve a Cosmos DB access key from the Resource Manager, then use the key to access Cosmos DB. In this step, you grant your system-assigned managed identity access to the keys to the Cosmos DB account.
@@ -92,7 +90,7 @@ az role assignment create --assignee <MI PRINCIPALID> --role '<ROLE NAME>' --sco
 
 The response includes the details for the role assignment created:
 
-```
+```output
 {
   "id": "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMOS DB ACCOUNT>/providers/Microsoft.Authorization/roleAssignments/5b44e628-394e-4e7b-bbc3-d6cd4f28f15b",
   "name": "5b44e628-394e-4e7b-bbc3-d6cd4f28f15b",
@@ -110,7 +108,7 @@ The response includes the details for the role assignment created:
 
 For the remainder of the tutorial, work from the VM created earlier.
 
-To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+To complete these steps, you need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/install-win10). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. Copy the string to connect to your VM. 
 2. Connect to your VM using your SSH client.  
@@ -155,13 +153,13 @@ The CURL response gives you the list of Keys.  For example, if you get the read-
 
 Now that you have the access key for the Cosmos DB account you can pass it to a Cosmos DB SDK and make calls to access the account.  For a quick example, you can pass the access key to the Azure CLI.  You can get the `<COSMOS DB CONNECTION URL>` from the **Overview** tab on the Cosmos DB account blade in the Azure portal.  Replace the `<ACCESS KEY>` with the value you obtained above:
 
-```bash
+```azurecli-interactive
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
 ```
 
 This CLI command returns details about the collection:
 
-```bash
+```output
 {
   "collection": {
     "_conflicts": "conflicts/",
@@ -224,5 +222,4 @@ This CLI command returns details about the collection:
 In this tutorial, you learned how to use a system-assigned managed identity on a Linux virtual machine to access Cosmos DB.  To learn more about Cosmos DB see:
 
 > [!div class="nextstepaction"]
->[Azure Cosmos DB overview](/azure/cosmos-db/introduction)
-
+>[Azure Cosmos DB overview](../../cosmos-db/introduction.md)

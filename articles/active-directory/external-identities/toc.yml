@@ -1,0 +1,156 @@
+- name: External Identities documentation
+  href: index.yml
+  items:
+  - name: Overview
+    expanded: true
+    items:
+    - name: Compare solutions for External Identities
+      href: compare-with-b2c.md
+    - name: What is B2B guest user access?
+      href: what-is-b2b.md
+    - name: What is Azure AD B2C?
+      href: ../../active-directory-b2c/overview.md
+  - name: Quickstarts
+    items:
+    - name: Add guest users in the portal
+      href: b2b-quickstart-add-guest-users-portal.md
+    - name: Add guest users with PowerShell
+      href: b2b-quickstart-invite-powershell.md
+  - name: Tutorials
+    items:
+    - name: Bulk invite guest users via PowerShell
+      href: bulk-invite-powershell.md
+    - name: Bulk invite guest users via the portal
+      href: tutorial-bulk-invite.md
+    - name: Enforce multi-factor authentication for guest users
+      href: b2b-tutorial-require-mfa.md
+  - name: Samples
+    items:
+    - name: Samples for guest user self-service sign-up
+      href: code-samples-self-service-sign-up.md
+    - name: Code and Azure PowerShell samples
+      href: code-samples.md
+  - name: Concepts
+    expanded: false
+    items:
+    - name: External Identities pricing
+      href: external-identities-pricing.md
+    - name: B2B best practices
+      href: b2b-fundamentals.md
+    - name: B2B and Office 365 external sharing
+      href: o365-external-user.md
+    - name: Invitation redemption
+      href: redemption-experience.md
+    - name: Invitation email
+      href: invitation-email-elements.md
+    - name: Understand the B2B user
+      href: user-properties.md
+    - name: B2B user claims mapping
+      href: claims-mapping.md
+    - name: B2B user token
+      href: user-token.md
+    - name: Conditional Access for B2B
+      href: conditional-access.md
+    - name: B2B for hybrid organizations
+      href: hybrid-organizations.md
+    - name: Identity providers for External Identities
+      href: identity-providers.md
+    - name: Self-service sign-up user flows (Preview)
+      href: self-service-sign-up-overview.md
+    - name: Self-service sign-up API connectors (Preview)
+      href: api-connectors-overview.md
+    - name: Azure AD entitlement management
+      href: self-service-portal.md
+    - name: Current limitations
+      href: current-limitations.md
+  - name: How-to guides
+    expanded: true
+    items:
+    - name: Configure external collaboration settings
+      href: delegate-invitations.md
+    - name: Invite guest users
+      items:
+      - name: Admins adding B2B users
+        href: add-users-administrator.md
+      - name: Information workers adding B2B users
+        href: add-users-information-worker.md
+      - name: Invite internal users to B2B
+        href: invite-internal-users.md
+      - name: Allow or block invitations
+        href: allow-deny-list.md
+      - name: Add B2B users without an invitation
+        href: add-user-without-invite.md
+      - name: Invitation API and customization
+        href: customize-invitation-api.md
+    - name: Federate with identity providers
+      items:
+      - name: Google federation
+        href: google-federation.md
+      - name: Facebook federation
+        href: facebook-federation.md
+      - name: Direct federation
+        href: direct-federation.md
+      - name: Example of direct federation with AD FS
+        href: direct-federation-adfs.md
+    - name: One-time passcode authentication
+      href: one-time-passcode.md
+    - name: Self-service sign-up for guest users (Preview)
+      items:
+      - name: Add a self-service sign-up user flow
+        href: self-service-sign-up-user-flow.md
+      - name: Define custom attributes
+        href: user-flow-add-custom-attributes.md
+      - name: Customize the user flow language
+        href: user-flow-customize-language.md
+      - name: Add an API connector
+        href: self-service-sign-up-add-api-connector.md
+      - name: Add a custom approval system
+        href: self-service-sign-up-add-approvals.md
+    - name: Manage guest user accounts
+      items:
+      - name: Add a B2B user to a role
+        href: add-guest-to-role.md
+      - name: Dynamic groups and B2B users
+        href: use-dynamic-groups.md
+      - name: Understand the B2B user
+        href: user-properties.md
+      - name: B2B for Azure AD integrated apps
+        href: configure-saas-apps.md
+    - name: Manage guest access in a hybrid organization
+      items:
+      - name: Grant local users access to cloud apps
+        href: hybrid-on-premises-to-cloud.md
+      - name: Grant B2B users access to local apps
+        href: hybrid-cloud-to-on-premises.md
+    - name: Leave an organization
+      href: leave-the-organization.md
+    - name: Auditing and reports
+      href: auditing-and-reporting.md
+    - name: Troubleshooting B2B
+      href: troubleshoot.md
+  - name: Reference
+    items:
+    - name: Invitation manager API
+      href: customize-invitation-api.md
+  - name: Resources
+    items:
+    - name: FAQ
+      href: faq.md
+    - name: Getting support
+      href: ../fundamentals/active-directory-troubleshooting-support-howto.md
+    - name: Azure feedback forum
+      href: https://feedback.azure.com/forums/169401-azure-active-directory
+    - name: Azure Roadmap
+      href: https://azure.microsoft.com/roadmap/?category=security-identity
+    - name: Microsoft Q&A question page
+      href: /answers/topics/azure-active-directory.html
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/active-directory/
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Service updates
+      href: https://azure.microsoft.com/updates/?product=active-directory
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-active-directory
+    - name: Videos
+      href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

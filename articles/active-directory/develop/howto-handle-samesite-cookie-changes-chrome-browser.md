@@ -3,14 +3,13 @@ title: How to handle SameSite cookie changes in Chrome browser | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to handle SameSite cookie changes in Chrome browser.
 services: active-directory
-documentationcenter: ''
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
@@ -31,7 +30,7 @@ By default, the `SameSite` value is NOT set in browsers and that's why there are
 
 Recent [updates to the standards on SameSite](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) propose protecting apps by making the default behavior of `SameSite` when no value is set to Lax. This mitigation means cookies will be restricted on HTTP requests except GET made from other sites. Additionally, a value of **None** is introduced to remove restrictions on cookies being sent. These updates will soon be released in an upcoming version of the Chrome browser.
 
-When web apps authenticate with the Microsoft Identity platform using the response mode "form_post", the login server responds to the application using an HTTP POST to send the tokens or auth code. Because this request is a cross-domain request (from `login.microsoftonline.com` to your domain - for instance https://contoso.com/auth), cookies that were set by your app now fall under the new rules in Chrome. The cookies that need to be used in cross-site scenarios are cookies that hold the *state* and *nonce* values, that are also sent in the login request. There are other cookies dropped by Azure AD to hold the session.
+When web apps authenticate with the Microsoft Identity platform using the response mode "form_post", the login server responds to the application using an HTTP POST to send the tokens or auth code. Because this request is a cross-domain request (from `login.microsoftonline.com` to your domain - for instance `https://contoso.com/auth`), cookies that were set by your app now fall under the new rules in Chrome. The cookies that need to be used in cross-site scenarios are cookies that hold the *state* and *nonce* values, that are also sent in the login request. There are other cookies dropped by Azure AD to hold the session.
 
 If you don't update your web apps, this new behavior will result in authentication failures.
 
@@ -49,13 +48,13 @@ The table below presents the pull requests that worked around the SameSite chang
 
 | Sample | Pull request |
 | ------ | ------------ |
-|  [ASP.NET Core Web App incremental tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)  |  [Same site cookie fix #261](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/pull/261)  |
-|  [ASP.NET MVC Web App sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)  |  [Same site cookie fix #35](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/pull/35)  |
+|  [ASP.NET Core web app incremental tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)  |  [Same site cookie fix #261](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/pull/261)  |
+|  [ASP.NET MVC web app sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)  |  [Same site cookie fix #35](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/pull/35)  |
 |  [active-directory-dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2)  |  [Same site cookie fix #28](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2/pull/28)  |
 
 for details on how to handle SameSite cookies in ASP.NET and ASP.NET Core, see also:
 
-- [Work with SameSite cookies in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/samesite) .
+- [Work with SameSite cookies in ASP.NET Core](/aspnet/core/security/samesite) .
 - [ASP.NET Blog on SameSite issue](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 
 # [Python](#tab/python)

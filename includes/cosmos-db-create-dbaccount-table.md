@@ -14,11 +14,11 @@
 
 2. In the left menu, select **Create a resource**.
    
-   ![Create a resource in the Azure portal](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-0.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-0.png" alt-text="Create a resource in the Azure portal":::
    
 3. On the **New** page, select **Databases** > **Azure Cosmos DB**.
    
-   ![The Azure portal Databases pane](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png" alt-text="The Azure portal Databases pane":::
    
 3. On the **Create Azure Cosmos DB Account** page, enter the settings for the new Azure Cosmos DB account. 
  
@@ -34,9 +34,9 @@
 
 5. Select **Review+Create**. After the validation is complete, select **Create** to create the account. 
  
-   ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-create-new-account.png" alt-text="The new account page for Azure Cosmos DB":::
 
 6. It takes a few minutes to create the account. You'll see a message that states **Your deployment is underway**. Wait for the deployment to finish, and then select **Go to resource**.
 
-    ![The Azure portal notifications pane](./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png)
+    :::image type="content" source="./media/cosmos-db-create-dbaccount-table/azure-cosmos-db-account-created.png" alt-text="The Azure portal notifications pane":::
 

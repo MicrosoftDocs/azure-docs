@@ -51,7 +51,7 @@ Located in China, an Azure data center with direct access to China Mobile, China
 - TTS in SpeechSDK:  *config.FromHost("https[]()://chinaeast2.tts.speech.azure.cn", "\<your-key\>");*
 - Authentication Tokens: https[]()://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken
 - Azure Portal: https://portal.azure.cn
-- Custom Speech Portal: https://chinaeast2.cris.azure.cn/Home/CustomSpeech
+- Custom Speech Portal: https://speech.azure.cn/CustomSpeech
 - Available SKUs: S0
 - Supported features:
   - Speech-to-Text

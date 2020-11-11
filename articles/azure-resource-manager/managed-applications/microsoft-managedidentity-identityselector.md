@@ -17,15 +17,15 @@ A control for assigning [managed identities](../../active-directory/managed-iden
 
 The control consists of the following elements:
 
-![Microsoft.ManagedIdentity.IdentitySelector first step](./media/managed-application-elements/microsoft.managedidentity.identityselector1.png)
+![Microsoft.ManagedIdentity.IdentitySelector first step](./media/managed-application-elements/microsoft-managedidentity-identityselector-1.png)
 
 When the user selects **Add**, the following form opens. The user can select one or more user-assigned identities for the resource.
 
-![Microsoft.ManagedIdentity.IdentitySelector second step](./media/managed-application-elements/microsoft.managedidentity.identityselector2.png)
+![Microsoft.ManagedIdentity.IdentitySelector second step](./media/managed-application-elements/microsoft-managedidentity-identityselector-2.png)
 
 The selected identities are displayed in the table. The user can add or delete items from this table.
 
-![Microsoft.ManagedIdentity.IdentitySelector third step](./media/managed-application-elements/microsoft.managedidentity.identityselector3.png)
+![Microsoft.ManagedIdentity.IdentitySelector third step](./media/managed-application-elements/microsoft-managedidentity-identityselector-3.png)
 
 ## Schema
 

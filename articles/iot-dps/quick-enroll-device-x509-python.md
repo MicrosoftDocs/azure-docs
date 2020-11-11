@@ -1,5 +1,5 @@
 ---
-title: Enroll X.509 devices to Azure Device Provisioning Service using Python
+title: Quickstart - Enroll X.509 devices to Azure Device Provisioning Service using Python
 description: This quickstart uses group enrollments. In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service (DPS) using Python
 author: wesmc7777
 ms.author: wesmc
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: python
-ms.custom: mvc
+ms.custom: mvc, devx-track-python
 ---
 
 # Quickstart: Enroll X.509 devices to the Device Provisioning Service using Python
@@ -26,7 +26,7 @@ In this quickstart, you use Python to programmatically create an enrollment grou
 - [Git](https://git-scm.com/download/).
 
 > [!IMPORTANT]
-> This article only applies to the deprecated V1 Python SDK. Device and service clients for the Iot Hub Device Provisioning Service are not yet available in V2. The team is currently hard at work to bring V2 to feature parity.
+> This article only applies to the deprecated V1 Python SDK. Device and service clients for the IoT Hub Device Provisioning Service are not yet available in V2. The team is currently hard at work to bring V2 to feature parity.
 
 ## Prepare test certificates
 

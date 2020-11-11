@@ -12,6 +12,12 @@ keywords: aro, openshift, aquasec, twistlock, red hat
 
 # Run privileged containers in an Azure Red Hat OpenShift cluster
 
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 will be retired 30 June 2022. Support for creation of new Azure Red Hat OpenShift 3.11 clusters continues through 30 November 2020. Following retirement, remaining Azure Red Hat OpenShift 3.11 clusters will be shut down to prevent security vulnerabilities.
+> 
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md).
+> If you have specific questions, [please contact us](mailto:arofeedback@microsoft.com).
+
 You can't run arbitrary privileged containers on Azure Red Hat OpenShift clusters.
 Two security monitoring and compliance solutions are allowed to run on ARO clusters.
 This document describes the differences from the generic OpenShift deployment documentation of the security product vendors.
@@ -118,17 +124,24 @@ Set the following fields when deploying enforcers:
 
 The base instructions we're going to modify can be found in the [Prisma Cloud deployment documentation](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html)
 
-Start by creating a new OpenShift project
+Start by installing the `twistcli` tool as described in the "Install Prisma Cloud" and "Download the Prisma Cloud software" sections.
+
+Create a new OpenShift project
 ```
 oc new-project twistlock
 ```
 
-You can follow the documentation until the "Install Console" section, use the Prisma Cloud container registry instead of creating an internal one.
+Skip the optional section "Push the Prisma Cloud images to a private registry". It won't work on Azure Red Hat OpenShift. Use the online registry instead.
+
+You can follow the official documentation while applying the corrections described below.
+Start with the "Install Console" section.
 
 ### Install Console
 
 During `oc create -f twistlock_console.yaml` in Step 2, you'll get an Error when creating the namespace.
 You can safely ignore it, the namespace has been created previously with the `oc new-project` command.
+
+Use `azure-disk` for storage type.
 
 ### Create an external route to Console
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Communicate to device app in Node.js with Azure IoT Hub device streams
 description: In this quickstart, you will run a Node.js service-side application that communicates with an IoT device via a device stream.
 author: robinsh
@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
 ---
@@ -50,8 +50,10 @@ Microsoft Azure IoT Hub currently supports device streams as a [preview feature]
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) commands to Azure CLI.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Create an IoT hub
 

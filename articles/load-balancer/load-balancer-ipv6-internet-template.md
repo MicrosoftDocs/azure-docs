@@ -8,7 +8,7 @@ author: asudbring
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -34,7 +34,7 @@ An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer 
 
 The following diagram illustrates the load balancing solution being deployed using the example template described in this article.
 
-![Load balancer scenario](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
+![Diagram shows an example scenario used in this article, including a workstation client connected to an Azure Load Balancer over the Internet, connected in turn to two virtual machines.](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
 
 In this scenario you will create the following Azure resources:
 
@@ -51,43 +51,43 @@ This article references a template that is published in the [Azure Quickstart Te
 1. Open the Azure portal and sign in with an account that has permissions to create VMs and networking resources within an Azure subscription. Also, unless you're using existing resources, the account needs permission to create a resource group and a storage account.
 2. Click "+New" from the menu then type "template" in the search box. Select "Template deployment" from the search results.
 
-    ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![Screenshot shows the Azure portal with New and Template deployment selected.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
 3. In the Everything blade, click "Template deployment."
 
-    ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![Screenshot shows Template deployment in the Marketplace.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. Click "Create."
 
-    ![lb-ipv6-portal-step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
+    ![Screenshot shows the description of Template deployment in the Marketplace.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
 5. Click "Edit template." Delete the existing contents and copy/paste in the entire contents of the template file (to include the start and end { }), then click "Save."
 
     > [!NOTE]
     > If you are using Microsoft Internet Explorer, when you paste you receive a dialog box asking you to allow access to the Windows clipboard. Click "Allow access."
 
-    ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
+    ![Screenshot shows the firest step of a Custom deployment, which is Edit template.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
 6. Click "Edit parameters." In the Parameters blade, specify the values per the guidance in the Template parameters section, then click "Save" to close the Parameters blade. In the Custom Deployment blade, select your subscription, an existing resource group or create one. If you are creating a resource group, then select a location for the resource group. Next, click **Legal terms**, then click **Purchase** for the legal terms. Azure begins deploying the resources. It takes several minutes to deploy all the resources.
 
-    ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
+    ![Screenshot shows the steps involved in the Custom deployment, starting with entering template parameter values.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
     For more information about these parameters, see the [Template parameters and variables](#template-parameters-and-variables) section later in this article.
 
 7. To see the resources created by the template, click Browse, scroll down the list until you see "Resource groups," then click it.
 
-    ![lb-ipv6-portal-step7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
+    ![Screenshot shows the Azure portal with Browse and Resource groups selected.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
 
 8. On the Resource groups blade, click the name of the resource group you specified in step 6. You see a list of all the resources that were deployed. If all went well, it should say "Succeeded" under "Last deployment." If not, ensure that the account you're using has permissions to create the necessary resources.
 
-    ![lb-ipv6-portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
+    ![Screenshot shows the status of the last deployment for a resource group, in this example, Succeeded.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
     > If you browse your Resource Groups immediately after completing step 6, "Last deployment" will display the status of "Deploying" while the resources are being deployed.
 
 9. Click "myIPv6PublicIP" in the list of resources. You see that it has an IPv6 address under IP address, and that its DNS name is the value you specified for the dnsNameforIPv6LbIP parameter in step 6. This resource is the public IPv6 address and host name that is accessible to Internet-clients.
 
-    ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
+    ![Screenshot shows the IPv6 public address.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
 ## Validate connectivity
 

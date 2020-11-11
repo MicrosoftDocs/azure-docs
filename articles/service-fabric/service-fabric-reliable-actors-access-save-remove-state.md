@@ -6,6 +6,7 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
+ms.custom: devx-track-csharp
 ---
 # Access, save, and remove Reliable Actors state
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) are single-threaded objects that can encapsulate both logic and state and maintain state reliably. Every actor instance has its own [state manager](service-fabric-reliable-actors-state-management.md): a dictionary-like data structure that reliably stores key/value pairs. The state manager is a wrapper around a state provider. You can use it to store data regardless of which [persistence setting](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) is used.

@@ -26,7 +26,7 @@ All of the Identity Protection policies have an impact on the sign in experience
 
 ## Multi-factor authentication registration
 
-Enabling the Identity Protection policy requiring multi-factor authentication registration and targeting all of your users, will make sure that they have the ability to use Azure MFA to self-remediate in the future. Configuring this policy gives your users a 14-day period where they can choose to register and at the end are forced to register. The experience for users is outlined below. More information can be found in the end-user documentation in the article, [Overview for two-factor verification and your work or school account](../user-help/user-help-two-step-verification-overview.md).
+Enabling the Identity Protection policy requiring multi-factor authentication registration and targeting all of your users, will make sure that they have the ability to use Azure MFA to self-remediate in the future. Configuring this policy gives your users a 14-day period where they can choose to register and at the end are forced to register. The experience for users is outlined below. More information can be found in the end-user documentation in the article, [Overview for two-factor verification and your work or school account](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ### Registration interrupt
 
@@ -81,4 +81,4 @@ IT staff can follow the instructions in the section [Unblocking users](howto-ide
 
 - [Remediate risks and unblock users](howto-identity-protection-remediate-unblock.md)
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

@@ -12,9 +12,6 @@ In Azure, you can run your functions directly from a deployment package file in 
 
 This article describes the benefits of running your functions from a package. It also shows how to enable this functionality in your function app.
 
-> [!IMPORTANT]
-> When deploying your functions to a Linux function app in a [Premium plan](functions-scale.md#premium-plan), you should always run from the package file and [publish your app using the Azure Functions Core Tools](functions-run-local.md#project-file-deployment).
-
 ## Benefits of running from a package file
   
 There are several benefits to running from a package file:
@@ -50,9 +47,13 @@ The following shows a function app configured to run from a .zip file hosted in 
 
 [Zip deployment][Zip deployment for Azure Functions] is a feature of Azure App Service that lets you deploy your function app project to the `wwwroot` directory. The project is packaged as a .zip deployment file. The same APIs can be used to deploy your package to the `d:\home\data\SitePackages` folder. With the `WEBSITE_RUN_FROM_PACKAGE` app setting value of `1`, the zip deployment APIs copy your package to the `d:\home\data\SitePackages` folder instead of extracting the files to `d:\home\site\wwwroot`. It also creates the `packagename.txt` file. After a restart, the package is mounted to `wwwroot` as a read-only filesystem. For more information about zip deployment, see [Zip deployment for Azure Functions](deployment-zip-push.md).
 
+> [!NOTE]
+> When a deployment occurs, a restart of the function app is triggered. Before a restart, all existing function executions are allowed to complete or time out. To learn more, see [Deployment behaviors](functions-deployment-technologies.md#deployment-behaviors).
+
 ## Adding the WEBSITE_RUN_FROM_PACKAGE setting
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
 
 ## Troubleshooting
 
@@ -60,6 +61,7 @@ The following shows a function app configured to run from a .zip file hosted in 
 - Tar and gzip formats are not supported.
 - This feature does not compose with local cache.
 - For improved cold-start performance, use the local Zip option (`WEBSITE_RUN_FROM_PACKAGE`=1).
+- Run From Package is incompatible with deployment customization option (`SCM_DO_BUILD_DURING_DEPLOYMENT=true`), the build step will be ignored during deployment.
 
 ## Next steps
 

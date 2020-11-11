@@ -2,14 +2,14 @@
 title: What is Azure Active Directory B2C?
 description: Learn how you can use Azure Active Directory B2C to support external identities in your applications, including social login with Facebook, Google, and other identity providers.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 09/19/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -101,7 +101,7 @@ Clicking the **Create** button causes Azure AD B2C to redirect the user back to 
 
 When a customer selects one of the options under **Business customers**, the WoodGrove Groceries website invokes a different Azure AD B2C policy than it does for individual customers.
 
-This policy presents the user with an option to use their corporate credentials for sign-up and sign-in. In the WoodGrove example, users are prompted to sign in with any Office 365 or Azure AD account. This policy uses a [multi-tenant Azure AD application](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) and the `/common` Azure AD endpoint to federate Azure AD B2C with any Office 365 customer in the world.
+This policy presents the user with an option to use their corporate credentials for sign-up and sign-in. In the WoodGrove example, users are prompted to sign in with any work or school account. This policy uses a [multi-tenant Azure AD application](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) and the `/common` Azure AD endpoint to federate Azure AD B2C with any Microsoft 365 customer in the world.
 
 ### Authenticate partners
 

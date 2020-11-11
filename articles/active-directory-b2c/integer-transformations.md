@@ -3,14 +3,14 @@ title: Integer claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: Integer claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -31,7 +31,7 @@ Converts a long data type into a string data type.
 
 In this example, the `numericUserId` claim with a value type of long is converted to a `UserId` claim with a value type of string.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateUserId" TransformationMethod="ConvertNumberToStringClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="numericUserId" TransformationClaimType="inputClaim" />

@@ -14,10 +14,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
+ms.custom: devx-track-js
 ---
 
 # Sending push notifications with Azure Notification Hubs and Node.js
@@ -40,7 +41,7 @@ The scenarios covered include sending push notifications to applications on the 
 
 ## Notification Hubs
 
-Azure Notification Hubs provide an easy-to-use, multi-platform, scalable infrastructure for sending push notifications to mobile devices. For details on the service infrastructure, see the [Azure Notification Hubs](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) page.
+Azure Notification Hubs provide an easy-to-use, multi-platform, scalable infrastructure for sending push notifications to mobile devices. For details on the service infrastructure, see the [Azure Notification Hubs](/previous-versions/azure/azure-services/jj927170(v=azure.100)) page.
 
 ## Create a Node.js Application
 
@@ -86,7 +87,7 @@ Obtain the connection `connectionstring` value from the [Azure portal] by perfor
 ![Azure portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](/powershell/azureps-cmdlets-docs) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](../cli-install-nodejs.md).
+> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](/powershell/azure/) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](/cli/azure/install-classic-cli).
 
 ## General architecture
 
@@ -130,7 +131,7 @@ Same as with Android applications described above, the `ApnsService` object prov
 - **Payload** - the message's JSON or string payload.
 - **Callback** - the callback function.
 
-For more information the payload format, see The **Notification Payload** section of the [Local and Push Notification Programming Guide](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) document.
+For more information the payload format, see The **Notification Content** section of the [UserNotifications guide](https://developer.apple.com/documentation/usernotifications).
 
 The following code uses the `ApnsService` instance exposed by the `NotificationHubService` to send an alert message to all clients:
 
@@ -152,11 +153,11 @@ The `MpnsService` object provides a `send` method that can be used to send push 
 - **Tags** - the tag identifier. If no tag is provided, the notification is sent to all clients.
 - **Payload** - the message's XML payload.
 - **TargetName** - `toast` for toast notifications. `token` for tile notifications.
-- **NotificationClass** - The priority of the notification. See the **HTTP Header Elements** section of the [Push notifications from a server](https://msdn.microsoft.com/library/hh221551.aspx) document for valid values.
+- **NotificationClass** - The priority of the notification. See the **HTTP Header Elements** section of the [Push notifications from a server](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) document for valid values.
 - **Options** - optional request headers.
 - **Callback** - the callback function.
 
-For a list of valid `TargetName`, `NotificationClass` and header options, check out the [Push notifications from a server](https://msdn.microsoft.com/library/hh221551.aspx) page.
+For a list of valid `TargetName`, `NotificationClass` and header options, check out the [Push notifications from a server](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) page.
 
 The following sample code uses the `MpnsService` instance exposed by the `NotificationHubService` to send a toast push notification:
 
@@ -179,7 +180,7 @@ The `WnsService` object provides a `send` method that can be used to send push n
 - **Options** - optional request headers.
 - **Callback** - the callback function.
 
-For a list of valid types and request headers, see [Push notification service request and response headers](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
+For a list of valid types and request headers, see [Push notification service request and response headers](/previous-versions/windows/apps/hh465435(v=win.10)).
 
 The following code uses the `WnsService` instance exposed by the `NotificationHubService` to send a toast push notification to a UWP app:
 
@@ -196,7 +197,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 
 The sample snippets above allow you to easily build service infrastructure to deliver push notifications to a wide variety of devices. Now that you've learned the basics of using Notification Hubs with node.js, follow these links to learn more about how you can extend these capabilities further.
 
-- See the MSDN Reference for [Azure Notification Hubs](https://msdn.microsoft.com/library/azure/jj927170.aspx).
+- See the MSDN Reference for [Azure Notification Hubs](/previous-versions/azure/azure-services/jj927170(v=azure.100)).
 - Visit the [Azure SDK for Node] repository on GitHub for more samples and implementation details.
 
 [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -219,14 +220,14 @@ The sample snippets above allow you to easily build service infrastructure to de
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
 [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Azure Service Bus Notification Hubs]: https://msdn.microsoft.com/library/windowsazure/jj927170.aspx
-[SqlFilter]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet#microsoft_servicebus_messaging_sqlfilter_sqlexpression
+[Azure Service Bus Notification Hubs]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet#microsoft_servicebus_messaging_sqlfilter
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-[nodejswebsite]: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs
-[webmatrix]: https://docs.microsoft.com/aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
+[nodejswebsite]: ../app-service/quickstart-nodejs.md
+[webmatrix]: /aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 [Azure Portal]: https://portal.azure.com

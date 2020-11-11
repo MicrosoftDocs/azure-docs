@@ -31,6 +31,12 @@ Once you have connected to the node, run the following command to pull the *kube
 sudo journalctl -u kubelet -o cat
 ```
 
+> [!NOTE]
+> For Windows nodes, the log data is in `C:\k` and can be viewed using the *more* command:
+> ```
+> more C:\k\kubelet.log
+> ```
+
 The following sample output shows the *kubelet* log data:
 
 ```

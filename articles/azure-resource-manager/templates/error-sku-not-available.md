@@ -6,7 +6,7 @@ ms.date: 02/18/2020
 ---
 # Resolve errors for SKU not available
 
-This article describes how to resolve the **SkuNotAvailable** error. If you're unable to find a suitable SKU in that region/zone or an alternative region/zone that meets your business needs, submit a [SKU request](https://aka.ms/skurestriction) to Azure Support.
+This article describes how to resolve the **SkuNotAvailable** error. If you're unable to find a suitable SKU in that region/zone or an alternative region/zone that meets your business needs, submit a [SKU request](../../azure-portal/supportability/sku-series-unavailable.md) to Azure Support.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -36,7 +36,7 @@ Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 
 The results include a list of SKUs for the location and any restrictions for that SKU. Notice that a SKU might be listed as `NotAvailableForSubscription`.
 
-```powershell
+```output
 ResourceType          Name           Locations   Zone      Restriction                      Capability           Value
 ------------          ----           ---------   ----      -----------                      ----------           -----
 virtualMachines       Standard_A0    centralus             NotAvailableForSubscription      MaxResourceVolumeMB   20480
@@ -64,7 +64,7 @@ az vm list-skus --location southcentralus --size Standard_F --output table
 
 The command returns results like:
 
-```azurecli
+```output
 ResourceType     Locations       Name              Zones    Capabilities    Restrictions
 ---------------  --------------  ----------------  -------  --------------  --------------
 virtualMachines  southcentralus  Standard_F1                ...             None
@@ -72,7 +72,6 @@ virtualMachines  southcentralus  Standard_F2                ...             None
 virtualMachines  southcentralus  Standard_F4                ...             None
 ...
 ```
-
 
 ## Solution 3 - Azure portal
 
@@ -119,4 +118,3 @@ It returns available SKUs and regions in the following format:
   ]
 }
 ```
-

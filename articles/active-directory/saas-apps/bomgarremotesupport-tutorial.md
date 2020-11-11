@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BeyondTrust Remote Support | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and BeyondTrust Remote Support.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 193b163f-bdee-4974-b16d-777c51b991df
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with BeyondTrust Remote Support
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate BeyondTrust Remote Support with 
 * Enable your users to be automatically signed-in to BeyondTrust Remote Support with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -160,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **STATUS** menu and copy the **Identifier**, **Reply URL** and **Sign on URL** and use these values in the **Basic SAML Configuration** section in the Azure portal.
 
-    ![Configure BeyondTrust Remote Support](./media/bomgarremotesupport-tutorial/config-url-values.png)
+    ![Screenshot shows the Status menu in BeyondTrust Remote Support where you can gather this information.](./media/bomgarremotesupport-tutorial/config-url-values.png)
 
 1. Navigate to the BeyondTrust Remote Support /login interface at
 `https://support.example.com/login` where **support.example.com** is the primary hostname of your appliance and authenticate using your administrative credentials.
@@ -171,21 +164,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Under the Identity Provider Settings section, there is an option to upload the Identity Provider Metadata. Locate the Metadata XML file that you have downloaded from the Azure portal and click the **Upload** button. The **Entity ID**, **Single Sign-On Service URL** and Certificate will automatically be uploaded, and the **Protocol Binding** will need to be changed to **HTTP POST**. See screenshot below:
 
-    ![Configure BeyondTrust Remote Support](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
+    ![Screenshot shows the Identity Provider Settings section where you perform these actions.](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
 
 ### Create BeyondTrust Remote Support test user
 
 We will be configuring the User Provision Settings here. The values used in this section will be referenced from the **User Attributes & Claims** section in the Azure portal. We configured this to be the default values which are already imported at the time of creation, however, the value can be customized if necessary.
 
-![Creating User](./media/bomgarremotesupport-tutorial/config-user1.png)
+![Screenshot shows the User Provision Settings where you can configure user values.](./media/bomgarremotesupport-tutorial/config-user1.png)
 
 > [!NOTE]
 > The groups and e-mail attribute are not necessary for this
 implementation. If utilizing Azure AD groups and assigning them to BeyondTrust Remote Support Group Policies for permissions, the Object ID of the group will need to be referenced via its properties in the Azure portal and placed in the ‘Available Groups’ section. Once this has been completed, the Object ID/AD Group will now be available for assignment to a group policy for permissions.
 
-![Creating User](./media/bomgarremotesupport-tutorial/config-user2.png)
+![Screenshot shows the I T section with Membership type, Source, Type, and Object I D.](./media/bomgarremotesupport-tutorial/config-user2.png)
 
-![Creating User](./media/bomgarremotesupport-tutorial/config-user3.png)
+![Screenshot shows the Basic Settings page for a group policy.](./media/bomgarremotesupport-tutorial/config-user3.png)
 
 > [!NOTE]
 > Alternatively, a default group policy can be set on the SAML2 Security Provider. By defining this option, this will assign all users who authenticate through SAML the permissions specified within the group policy. The General Members policy is included within BeyondTrust Remote Support/Privileged Remote Access with limited permissions, which can be used to test authentication and assign users to the correct policies. Users will not populate into the SAML2 Users list via /login > Users & Security until the first successful authentication attempt. Additional information on Group policies can be found at the following link: `https://www.beyondtrust.com/docs/remote-support/getting-started/admin/group-policies.htm`
@@ -194,14 +187,14 @@ implementation. If utilizing Azure AD groups and assigning them to BeyondTrust R
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the BeyondTrust Remote Support tile in the Access Panel, you should be automatically signed in to the BeyondTrust Remote Support for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the BeyondTrust Remote Support tile in the Access Panel, you should be automatically signed in to the BeyondTrust Remote Support for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try BeyondTrust Remote Support with Azure AD](https://aad.portal.azure.com/)

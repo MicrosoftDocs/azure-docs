@@ -1,6 +1,6 @@
 ---
 title: Azure VMware Solution by CloudSimple - Private Clouds  
-description: Learn about CloudSimple Private Clouds and concepts. 
+description: Learn about CloudSimple concepts and advantages, including complete VMware operational continuity, compatibility with existing tools, skills, and processes.
 author: sharaths-cs
 ms.author: dikamath 
 ms.date: 08/20/2019 

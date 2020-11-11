@@ -18,6 +18,8 @@ Immutable storage for Azure Blob storage enables users to store business-critica
 
 For information about how to set and clear legal holds or create a time-based retention policy using the Azure portal, PowerShell, or Azure CLI, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 ## About immutable Blob storage
 
 Immutable storage helps healthcare organization, financial institutions, and related industries&mdash;particularly broker-dealer organizations&mdash;to store data securely. Immutable storage can also be leveraged in any scenario to protect critical data against modification or deletion.
@@ -40,7 +42,7 @@ Immutable storage supports the following features:
 
 - **Container-level configuration**: Users can configure time-based retention policies and legal hold tags at the container level. By using simple container-level settings, users can create and lock time-based retention policies, extend retention intervals, set and clear legal holds, and more. These policies apply to all the blobs in the container, both existing and new.
 
-- **Audit logging support**: Each container includes a policy audit log. It shows up to seven time-based retention commands for locked time-based retention policies and contains the user ID, command type, time stamps, and retention interval. For legal holds, the log contains the user ID, command type, time stamps, and legal hold tags. This log is retained for the lifetime of the policy, in accordance with the SEC 17a-4(f) regulatory guidelines. The [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md) shows a more comprehensive log of all the control plane activities; while enabling [Azure Diagnostic Logs](../../azure-monitor/platform/platform-logs-overview.md) retains and shows data plane operations. It is the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
+- **Audit logging support**: Each container includes a policy audit log. It shows up to seven time-based retention commands for locked time-based retention policies and contains the user ID, command type, time stamps, and retention interval. For legal holds, the log contains the user ID, command type, time stamps, and legal hold tags. This log is retained for the lifetime of the policy, in accordance with the SEC 17a-4(f) regulatory guidelines. The [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md) shows a more comprehensive log of all the control plane activities; while enabling [Azure Resource Logs](../../azure-monitor/platform/platform-logs-overview.md) retains and shows data plane operations. It is the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
 
 ## How it works
 
@@ -64,15 +66,15 @@ An unlocked time-based retention policy is recommended only for feature testing 
 The following limits apply to retention policies:
 
 - For a storage account, the maximum number of containers with locked time-based immutable policies is 10,000.
-- The minimum retention interval is one day. The maximum is 146,000 days (400 years).
+- The minimum retention interval is 1 day. The maximum is 146,000 days (400 years).
 - For a container, the maximum number of edits to extend a retention interval for locked time-based immutable policies is 5.
 - For a container, a maximum of seven time-based retention policy audit logs are retained for a locked policy.
 
 ### Allow protected append blobs writes
 
-Append blobs are comprised of data blocks and optimized for data append operations required by auditing and logging scenarios. By design, append blobs only allow the addition of new blocks to the end of the blob. Regardless of immutability, modification or deletion of existing blocks in an append blob is fundamentally not allowed. To learn more about append blobs, see [About Append Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+Append blobs are comprised of blocks of data and optimized for data append operations required by auditing and logging scenarios. By design, append blobs only allow the addition of new blocks to the end of the blob. Regardless of immutability, modification or deletion of existing blocks in an append blob is fundamentally not allowed. To learn more about append blobs, see [About Append Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-Only time-based retention policies have an `allowProtectedAppendWrites` setting that allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If enabled, you are allowed to create an append blob directly in the policy protected container and continue to add new blocks of data to the end of existing append blobs using the *AppendBlock* API. Only new blocks can be added and any existing blocks cannot be modified or deleted. Time-retention immutability protection still applies, preventing deletion of the append blob until the effective retention period has elapsed. Enabling this setting does not affect the immutability behavior of block blobs or page blobs.
+Only time-based retention policies have an `allowProtectedAppendWrites` setting that allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If this setting is enabled, you are allowed to create an append blob directly in the policy protected container and continue to add new blocks of data to the end of existing append blobs using the *AppendBlock* API. Only new blocks can be added and any existing blocks cannot be modified or deleted. Time-retention immutability protection still applies, preventing deletion of the append blob until the effective retention period has elapsed. Enabling this setting does not affect the immutability behavior of block blobs or page blobs.
 
 As this setting is part of a time-based retention policy, the append blobs still stay in the immutable state for the duration of the *effective* retention period. Since new data can be appended beyond the initial creation of the append blob, there is a slight difference in how the retention period is determined. The effective retention is the difference between append blob's **last modification time** and the user-specified retention interval. Similarly when the retention interval is extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
@@ -80,15 +82,7 @@ For example, suppose that a user creates a time-based retention policy with `all
 
 Unlocked time-based retention policies allow the `allowProtectedAppendWrites` setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the `allowProtectedAppendWrites` setting cannot be changed.
 
-Legal hold policies cannot enable `allowProtectedAppendWrites` and do not allow for new blocks to be appended to append blobs. If a legal hold is applied to a time-based retention policy with `allowProtectedAppendWrites` enabled, the *AppendBlock* API will fail until the legal hold is lifted.
-
-> [!IMPORTANT] 
-> The allow protected append blobs writes setting under time-based retention is currently available in the following regions:
-> - East US
-> - South Central US
-> - West US 2
->
-> At this time, we strongly advise that you do not enable `allowProtectedAppendWrites` in any other regions besides those specified, as it may cause intermittent failures and affect compliance for append blobs. For more information on how to set and lock time-based retention policies, see [Enabling allow protected append blobs writes](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
+Legal hold policies cannot enable `allowProtectedAppendWrites` and any legal holds will nullify the 'allowProtectedAppendWrites' property. If a legal hold is applied to a time-based retention policy with `allowProtectedAppendWrites` enabled, the *AppendBlock* API will fail until the legal hold is lifted.
 
 ## Legal holds
 
@@ -137,7 +131,7 @@ No, you can use immutable storage with any existing or newly created general-pur
 
 **Can I apply both a legal hold and time-based retention policy?**
 
-Yes, a container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container stay in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob stays in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
+Yes, a container can have both a legal hold and a time-based retention policy at the same time; however, the 'allowProtectedAppendWrites' setting will not apply until the legal hold is cleared. All blobs in that container stay in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob stays in an immutable state until the effective retention period expires, even though all legal holds have been cleared. 
 
 **Are legal hold policies only for legal proceedings or are there other use scenarios?**
 
@@ -161,7 +155,7 @@ Yes, you can use the Set Blob Tier command to move data across the blob tiers wh
 
 **What happens if I fail to pay and my retention interval has not expired?**
 
-In the case of non-payment, normal data retention policies will apply as stipulated in the terms and conditions of your contract with Microsoft.
+In the case of non-payment, normal data retention policies will apply as stipulated in the terms and conditions of your contract with Microsoft. For general information, see [Data management at Microsoft](https://www.microsoft.com/en-us/trust-center/privacy/data-management). 
 
 **Do you offer a trial or grace period for just trying out the feature?**
 

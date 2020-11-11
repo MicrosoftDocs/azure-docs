@@ -2,7 +2,7 @@
 title: Serverless containers in Azure
 description: The Azure Container Instances service offers the fastest and simplest way to run isolated containers in Azure, without having to manage virtual machines and without having to adopt a higher-level orchestrator.
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 08/10/2020
 ms.custom: "seodec18, mvc"
 ---
 
@@ -16,6 +16,11 @@ Azure Container Instances is a great solution for any scenario that can operate 
 
 Containers offer significant startup benefits over virtual machines (VMs). Azure Container Instances can start containers in Azure in seconds, without the need to provision and manage VMs.
 
+Bring Linux or Windows container images from Docker Hub, a private [Azure container registry](../container-registry/index.yml), or another cloud-based docker registry. Azure Container Instances caches several common base OS images, helping speed deployment of your custom application images.
+
+> [!NOTE]
+> Currently, you can't deploy an image from an on-premises registry to Azure Container Instances.
+
 ## Container access
 
 Azure Container Instances enables exposing your container groups directly to the internet with an IP address and a fully qualified domain name (FQDN). When you create a container instance, you can specify a custom DNS name label so your application is reachable at *customlabel*.*azureregion*.azurecontainer.io.
@@ -25,10 +30,15 @@ Azure Container Instances also supports executing a command in a running contain
 > [!IMPORTANT]
 > Starting January 13, 2020, Azure Container Instances will require all secure connections from servers and applications to use TLS 1.2. Support for TLS 1.0 and 1.1 will be retired.
 
-## Hypervisor-level security
+## Compliant deployments
+
+### Hypervisor-level security
 
 Historically, containers have offered application dependency isolation and resource governance but have not been considered sufficiently hardened for hostile multi-tenant usage. Azure Container Instances guarantees your application is as isolated in a container as it would be in a VM.
 
+### Customer data
+
+The ACI service stores the minimum customer data required to ensure your container groups are running as expected. Storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in [Geo](https://azure.microsoft.com/global-infrastructure/geographies/). Please get in touch with Azure Support to learn more.
 
 ## Custom sizes
 
@@ -38,7 +48,7 @@ For compute-intensive jobs such as machine learning, Azure Container Instances c
 
 ## Persistent storage
 
-To retrieve and persist state with Azure Container Instances, we offer direct [mounting of Azure Files shares](container-instances-mounting-azure-files-volume.md) backed by Azure Storage.
+To retrieve and persist state with Azure Container Instances, we offer direct [mounting of Azure Files shares](./container-instances-volume-azure-files.md) backed by Azure Storage.
 
 ## Linux and Windows containers
 
@@ -63,7 +73,7 @@ Azure Container Instances supports scheduling of [multi-container groups](contai
 
 ## Virtual network deployment
 
-Currently available for production workloads in a subset of Azure regions, this feature of Azure Container Instances enables [deployment of container instances into an Azure virtual network](container-instances-vnet.md). By deploying container instances into a subnet within your virtual network, they can communicate securely with other resources in the virtual network, including those that are on premises (through [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)).
+Azure Container Instances enables [deployment of container instances into an Azure virtual network](container-instances-vnet.md). When deployed into a subnet within your virtual network, container instances can communicate securely with other resources in the virtual network, including those that are on premises (through [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## Next steps
 

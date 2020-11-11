@@ -1,19 +1,15 @@
 ---
-title: "Migrate your classic alerts in Azure Monitor by using the voluntary migration tool"
+title: Migrate Azure Monitor alert rules
 description: Learn how to use the voluntary migration tool to migrate your classic alert rules.
 author: yanivlavi
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: yalavi
 ms.subservice: alerts
 ---
 # Use the voluntary migration tool to migrate your classic alert rules
 
-As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in September 2019 (was originally July 2019). A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves. This article explains how to use the migration tool to voluntarily migrate your classic alert rules before the automatic migration starts in September 2019.
-
-> [!NOTE]
-> Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been [extended to August 31st, 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) from the originally announced date of June 30th, 2019.
+As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired, though still in limited use for resources that do not yet support the new alerts. A migration tool was available in the Azure portal to customers who used classic alert rules and who want to trigger migration themselves. This article explains how to use the that migration tool, which will also be used to remaining alerts pending further announcement.
 
 ## Benefits of new alerts
 
@@ -32,7 +28,7 @@ The migration process converts classic alert rules to new, equivalent alert rule
 
 - Both the notification payload format and the APIs to create and manage new alert rules are different from those of the classic alert rules because they support more features. [Learn how to prepare for the migration](alerts-prepare-migration.md).
 
-- Some classic alert rules cannot be migrated by using the tool. [Learn which rules cannot be migrated and what to do with them](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
+- Some classic alert rules cannot be migrated by using the tool. [Learn which rules cannot be migrated and what to do with them](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 
     > [!NOTE]
     > The migration process won't impact the evaluation of your classic alert rules. They'll continue to run and send alerts until they're migrated and the new alert rules take effect.
@@ -47,7 +43,7 @@ To trigger the migration of your classic alert rules in the Azure portal, follow
 
 1. Select **Migrate to new rules** to go to the migration landing page. This page shows a list of all your subscriptions and their migration status:
 
-    ![migration-landing](media/alerts-migration/migration-landing.png "Migrate rules")
+    ![Screenshot shows Migrate alert rules page.](media/alerts-migration/migration-landing.png "Migrate rules")
 
     All subscriptions that can be migrated by using the tool are marked as **Ready to migrate**.
 
@@ -58,7 +54,7 @@ To trigger the migration of your classic alert rules in the Azure portal, follow
 
     The resulting page shows the details of classic alert rules that will be migrated for one subscription at a time. You can also select **Download the migration details for this subscription** to get the details in a CSV format.
 
-    ![migration-preview](media/alerts-migration/migration-preview.png "Preview migration")
+    ![Screenshot shows the Migrate alert rules page with a link to Download migration details for this subscription and you can specify email for migration notification.](media/alerts-migration/migration-preview.png "Preview migration")
 
 1. Specify one or more email addresses to be notified of migration status. You'll receive email when the migration is complete or if any action is needed from you.
 
@@ -67,7 +63,7 @@ To trigger the migration of your classic alert rules in the Azure portal, follow
     > [!IMPORTANT]
     > After you initiate migration for a subscription, you won't be able to edit or create classic alert rules for that subscription. This restriction ensures that no changes to your classic alert rules are lost during migration to the new rules. Although you won't be able to change your classic alert rules, they'll still continue to run and to provide alerts until they've been migrated. After the migration is complete for your subscription, you can't use classic alert rules anymore.
 
-    ![migration-confirm](media/alerts-migration/migration-confirm.png "Confirm start migration")
+    ![Screenshot shows a confirmation prompt for your migration, including important information with links to learn more before proceeding.](media/alerts-migration/migration-confirm.png "Confirm start migration")
 
 1. When migration is complete, or if action is required from you, you'll receive an email at the addresses that you provided earlier. You can also periodically check the status at the migration landing page in the portal.
 

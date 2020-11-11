@@ -1,20 +1,18 @@
 ---
 title: Optimize performance on Azure Lsv2-series virtual machines - Storage 
-description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines.
+description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines using a Linux example.
 services: virtual-machines-linux
 author: laurenhughes
-manager: gwallace
-
 ms.service: virtual-machines-linux
-
-ms.topic: article
+ms-subservice: sizes
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
 ---
 
-# Optimize performance on the Lsv2-series virtual machines
+# Optimize performance on the Lsv2-series Linux virtual machines
 
 Lsv2-series virtual machines support a variety of workloads that need high I/O and throughput on local storage across a wide range of applications and industries.  The Lsv2-series is ideal for Big Data, SQL, NoSQL databases, data warehousing and large transactional databases, including Cassandra, MongoDB, Cloudera, and Redis.
 
@@ -80,7 +78,7 @@ Scenarios that securely erase data to protect the customer include:
 - The VM becomes unhealthy and has to service heal to another node due to a hardware issue.
 - A small number of the planned maintenance servicing operations that requires the VM to be reallocated to another host for servicing.
 
-To learn more about options for backing up data in local storage, see [Backup and disaster recovery for Azure IaaS disks](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+To learn more about options for backing up data in local storage, see [Backup and disaster recovery for Azure IaaS disks](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## Frequently asked questions
 
@@ -107,4 +105,4 @@ To learn more about options for backing up data in local storage, see [Backup an
    
 ## Next steps
 
-* See specifications for all [VMs optimized for storage performance](sizes-storage.md) on Azure
+* See specifications for all [VMs optimized for storage performance](../sizes-storage.md) on Azure

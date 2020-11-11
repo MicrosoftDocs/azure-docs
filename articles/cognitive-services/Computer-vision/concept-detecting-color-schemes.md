@@ -74,6 +74,9 @@ The following table shows Computer Vision's black and white evaluation in the sa
 |![A black and white picture of buildings in Manhattan](./Images/bw_buildings.png) | true |
 |![A blue house and the front yard](./Images/house_yard.png) | false |
 
-## Next steps
+## Use the API
 
-Learn concepts about [detecting image types](concept-detecting-image-types.md).
+The color scheme detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. You can call this API through a native SDK or through REST calls. Include `Color` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"color"` section.
+
+* [Quickstart: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)

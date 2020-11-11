@@ -6,12 +6,11 @@ services: active-directory
 author: jeevansd
 manager: CelesteDG
 
-ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
 ---
@@ -156,7 +155,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
     a. click **Edit** icon to open **User Attributes & Claims** dialog.
 
-      !["Add attribute" button](./media/active-directory-enterprise-app-role-management/editattribute.png)
+      ![Screenshot that highlights the Edit icon used to open the User Attributes & Claims dialog box.](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
     b. In the **Manage user claims** dialog, add the SAML token attribute by clicking on **Add new claim**.
 
@@ -262,7 +261,7 @@ To delete an  existing role, perform the following steps:
 
 ## Next steps
 
-For additional steps, see the [app documentation](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+For additional steps, see the [app documentation](../saas-apps/tutorial-list.md).
 
 <!--Image references-->
 <!--Image references-->

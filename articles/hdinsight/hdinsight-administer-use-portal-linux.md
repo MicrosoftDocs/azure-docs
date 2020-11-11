@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/12/2020
+ms.date: 04/24/2020
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using the Azure portal
@@ -65,7 +65,7 @@ Select your cluster name from the [**HDInsight clusters**](#showClusters) page. 
     |Cluster size|Check, increase, and decrease the number of cluster worker nodes. See [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).|
     |Quota limits|Display the used and available cores for your subscription.|
     |SSH + Cluster login|Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
-    |Data Lake Storage Gen1|Configure access Data Lake Storage Gen1.  See [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
+    |Data Lake Storage Gen1|Configure access Data Lake Storage Gen1.  See [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).|
     |Storage accounts|View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.|
     |Applications|Add/remove HDInsight applications.  See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).|
     |Script actions|Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).|
@@ -195,9 +195,9 @@ From the [cluster home page](#homePage):
 
 The password is changed on all nodes in the cluster.
 
-### Change the SSH user password
+### Change the SSH user password or public key
 
-1. Using a text editor, save the following text as a file named **changepassword.sh**.
+1. Using a text editor, save the following text as a file named **changecredentials.sh**.
 
     > [!IMPORTANT]  
     > You must use an editor that uses LF as the line ending. If the editor uses CRLF, then the script does not work.
@@ -214,16 +214,22 @@ The password is changed on all nodes in the cluster.
 4. From the **Script actions** page, select **Submit new**.
 5. From the **Submit script action** page, enter the following information:
 
+> [!NOTE]
+> SSH passwords cannot contain the following characters:
+> ```
+> " ' ` / \ < % ~ | $ & ! 
+> ```
+
    | Field | Value |
    | --- | --- |
    | Script type | Select **- Custom** from the drop-down list.|
-   | Name |"Change ssh password" |
-   | Bash script URI |The URI to the changepassword.sh file |
+   | Name |"Change ssh credentials" |
+   | Bash script URI |The URI to the changecredentials.sh file |
    | Node type(s): (Head, Worker, Nimbus, Supervisor, or Zookeeper.) |✓ for all node types listed |
    | Parameters |Enter the SSH user name and then the new password. There should be one space between the user name and the password. |
    | Persist this script action ... |Leave this field unchecked. |
 
-6. Select **Create** to apply the script. Once the script finishes, you're able to connect to the cluster using SSH with the new password.
+6. Select **Create** to apply the script. Once the script finishes, you're able to connect to the cluster using SSH with the new credentials.
 
 ## Find the subscription ID
 

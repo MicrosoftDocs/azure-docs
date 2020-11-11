@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.topic: how-to
+ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-azurecli
 ms.date: 11/29/2019
 ---
 
 # Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI
 
-HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it's no longer in use. In this document, you learn how to delete a cluster using the [Azure portal](https://portal.azure.com), [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/overview), and the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it's no longer in use. In this document, you learn how to delete a cluster using the [Azure portal](https://portal.azure.com), [Azure PowerShell Az module](/powershell/azure/), and the [Azure CLI](/cli/azure/).
 
 > [!IMPORTANT]  
 > Deleting an HDInsight cluster does not delete the Azure Storage accounts or Data Lake Storage associated with the cluster. You can reuse data stored in those services in the future.

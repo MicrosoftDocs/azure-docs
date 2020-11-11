@@ -34,6 +34,10 @@ For more information about using availability zones with Standard Load Balancer,
 
 If you prefer, use [Azure CLI](load-balancer-standard-public-zonal-cli.md) to complete this tutorial.
 
+## Prerequisites
+
+* An Azure subscription
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -58,18 +62,24 @@ Standard Load Balancer only supports a standard public IP address. When you crea
     |Availability zone| Select **1**.    |
 3. In the **Review + create** tab, click **Create**.   
 
-   ## Create backend servers
+## Create backend servers
 
 In this section, you create a virtual network. You also create two virtual machines in same zone (namely, zone 1) for the region to add to the backend pool of your load balancer. Then you install IIS on the virtual machines to help test the zone-redundant load balancer. If one VM fails, the health probe for the VM in the same zone fails. Traffic continues to be served by other VMs within the same zone.
 
-### Create a virtual network
-1. On the upper left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.  Enter these values for the virtual network:
-    - **myVnet**, for the name of the virtual network.
-    - **myResourceGroupZLB**, for the name of the existing resource group.
-    - **myBackendSubnet**, for the subnet name.
-2. Select **Create** to create the virtual network.
+## Virtual network and parameters
 
-    ![Create a virtual network](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-network.png)
+In this section you'll need to replace the following parameters in the steps with the information below:
+
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupZLB (Select existing resource group) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## Create a network security group
 
@@ -217,5 +227,6 @@ When they're no longer needed, delete the resource group, load balancer, and all
 
 ## Next steps
 
-- Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
-- [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+Advance to the next article to learn how to load balance VMs across availability zones..
+> [!div class="nextstepaction"]
+> [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

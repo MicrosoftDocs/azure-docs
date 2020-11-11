@@ -34,7 +34,7 @@ when the new item includes a specific string.
 
 * To follow the example in this article, 
 [create this sample logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-with an Outlook.com or Office 365 Outlook account.
+with an Outlook.com account or a work or school account.
 
 ## Add condition
 
@@ -125,7 +125,7 @@ Here's the high-level code definition behind a conditional statement:
 
 ## Get support
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, visit the 
 [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 

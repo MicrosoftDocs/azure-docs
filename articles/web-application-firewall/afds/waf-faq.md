@@ -1,32 +1,32 @@
 ---
-title: Azure Web Application Firewall - Frequently Asked Questions
-description: This article provides answers to frequently asked questions about Web Application Firewall on Azure Front Door Service
+title: Azure Web Application Firewall on Azure Front Door Service - frequently asked questions
+description: This article provides answers to frequently asked questions about Web Application Firewall on Azure Front Door
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 05/05/2020
 ms.author: victorh
 ---
 
 # Frequently asked questions for Azure Web Application Firewall on Azure Front Door Service
 
-This article answers common questions about Azure web application firewall (WAF) features and functionality. 
+This article answers common questions about Azure Web Application Firewall (WAF) on Azure Front Door Service features and functionality. 
 
 ## What is Azure WAF?
 
 Azure WAF is a web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting, and other web exploits. You can define a WAF policy consisting of a combination of custom and managed rules to control access to your web applications.
 
-An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Door services.
+An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Doors.
 
-## What is WAF on Azure Front Door Service? 
+## What is WAF on Azure Front Door? 
 
 Azure Front Door is a highly scalable, globally distributed application and content delivery network. Azure WAF, when integrated with Front Door, stops denial-of-service and targeted application attacks at the Azure network edge, close to attack sources before they enter your virtual network, offers protection without sacrificing performance.
 
 ## Does Azure WAF support HTTPS?
 
-Front Door Service offers SSL offloading. WAF is natively integrated with Front Door and can inspect a request after it's decrypted.
+Front Door offers TLS offloading. WAF is natively integrated with Front Door and can inspect a request after it's decrypted.
 
 ## Does Azure WAF support IPv6?
 
@@ -42,7 +42,7 @@ Deploying a WAF policy globally usually takes about 5 minutes and often complete
 
 ## Can WAF policies be different for different regions?
 
-When integrated with Front Door Service, WAF is a global resource. Same configuration applies across all Front Door locations.
+When integrated with Front Door, WAF is a global resource. Same configuration applies across all Front Door locations.
  
 ## How do I limit access to my back-end to be from Front Door only?
 
@@ -59,7 +59,7 @@ Currently, ModSec CRS 2.2.9, CRS 3.0, and CRS 3.1 rules are only supported with 
 
 ## Is DDoS protection integrated with Front Door? 
 
-Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack.
+Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack. For more information, see [DDoS protection on Front Door](../../frontdoor/front-door-ddos.md).
 
 ## Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?
 

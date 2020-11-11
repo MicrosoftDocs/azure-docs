@@ -1,7 +1,6 @@
 ---
 title: Creating charts and diagrams from Azure Monitor log queries | Microsoft Docs
 description: Describes various visualizations in Azure Monitor to display your log data in different ways.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

@@ -9,8 +9,9 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial - Encrypt and decrypt blobs using Azure Key Vault
@@ -19,7 +20,7 @@ This tutorial covers how to make use of client-side storage encryption with Azur
 
 **Estimated time to complete:** 20 minutes
 
-For overview information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
+For overview information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
 For overview information about client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -44,7 +45,7 @@ Here is a brief description of how client side encryption works:
 
 ## Set up your Azure Key Vault
 
-In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial [Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app](../../key-vault/quick-create-net.md):
+In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial [Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app](../../key-vault/secrets/quick-create-net.md):
 
 * Create a key vault.
 * Add a key or secret to the key vault.
@@ -125,7 +126,8 @@ In the Main() method, add the following code.
 // This is standard code to interact with Blob storage.
 StorageCredentials creds = new StorageCredentials(
     CloudConfigurationManager.GetSetting("accountName"),
-    CloudConfigurationManager.GetSetting("accountKey");
+    CloudConfigurationManager.GetSetting("accountKey")
+);
 CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
 CloudBlobClient client = account.CreateCloudBlobClient();
 CloudBlobContainer contain = client.GetContainerReference(CloudConfigurationManager.GetSetting("container"));
@@ -205,7 +207,7 @@ The way to use a secret with client-side encryption is via the SymmetricKey clas
 Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey.
 Please note that the hard coded value, $key, is for demonstration purpose only. In your own code you'll want to generate this key.
 
-```csharp
+```powershell
 // Here we are making a 128-bit key so we have 16 characters.
 //     The characters are in the ASCII range of UTF8 so they are
 //    each 1 byte. 16 x 8 = 128.
@@ -234,4 +236,4 @@ For more information about using Microsoft Azure Storage with C#, see [Microsoft
 
 For more information about the Blob REST API, see [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/).
+For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](https://docs.microsoft.com/archive/blogs/windowsazurestorage/).

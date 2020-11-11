@@ -9,8 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 08/05/2020
 ms.author: pafarley
+ms.custom: devx-track-csharp
 
 ---
 
@@ -31,7 +32,7 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-- Sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) web site and create custom tags. See [Use tags](Review-Tool-User-Guide/tags.md) if you need help with this step.
+- Sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) web site and create custom tags. See [Use tags](./review-tool-user-guide/configure.md#tags) if you need help with this step.
 
     ![screenshot of Video moderation custom tags](images/video-tutorial-custom-tags.png)
 - To run the sample application, you need an Azure account, an Azure Media Services resource, an Azure Content Moderator resource, and Azure Active Directory credentials. For instructions on how to get these resources, see the [Video Moderation API](video-moderation-api.md) guide.
@@ -79,7 +80,7 @@ The class `Program` in `Program.cs` is the main entry point to the video moderat
 If no command-line arguments are present, `Main()` calls `GetUserInputs()`. This method prompts the user to enter the path to a single video file and to specify whether a text transcript should be generated.
 
 > [!NOTE]
-> The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> The console application uses the [Azure Media Indexer API](../../media-services/previous/legacy-components.md) to generate transcripts from the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
 
 ### Initialize and ProcessVideo methods
 
@@ -220,11 +221,11 @@ The result of the video moderation job (See [video moderation quickstart](video-
 A transcription of the audio from the video is also produced when the `GenerateVTT` flag is set.
 
 > [!NOTE]
-> The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> The console application uses the [Azure Media Indexer API](../../media-services/previous/legacy-components.md) to generate transcripts from the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
 
 ## Create a human review
 
-The moderation process returns a list of key frames from the video, along with a transcript of its audio tracks. The next step is to create a review in the Content Moderator review tool for human moderators. Going back to the `ProcessVideo()` method in `Program.cs`, you see the call to the `CreateVideoReviewInContentModerator()` method. This method is in the `videoReviewApi` class, which is in `VideoReviewAPI.cs`, and is shown here.
+The moderation process returns a list of key frames from the video, along with a transcript of its audio tracks. The next step is to create a review in the Content Moderator Review tool for human moderators. Going back to the `ProcessVideo()` method in `Program.cs`, you see the call to the `CreateVideoReviewInContentModerator()` method. This method is in the `videoReviewApi` class, which is in `VideoReviewAPI.cs`, and is shown here.
 
 [!code-csharp[CreateVideoReviewInContentModerator](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=42-69)]
 
@@ -245,7 +246,7 @@ The following screen shows the results of the previous steps.
 
 ## Process the transcript
 
-Until now, the code presented in this tutorial has focused on the visual content. Review of speech content is a separate and optional process that, as mentioned, uses a transcript generated from the audio. It's time now to take a look at how text transcripts are created and used in the review process. The task of generating the transcript falls to the [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) service.
+Until now, the code presented in this tutorial has focused on the visual content. Review of speech content is a separate and optional process that, as mentioned, uses a transcript generated from the audio. It's time now to take a look at how text transcripts are created and used in the review process. The task of generating the transcript falls to the [Azure Media Indexer](../../media-services/previous/media-services-index-content.md) service.
 
 The application performs the following tasks:
 
@@ -296,7 +297,7 @@ First, initialize all variables and collections.
 
 ### Parse the transcript for captions
 
-Next, parse the VTT formatted transcript for captions and timestamps. The review tool displays these captions in the Transcript Tab on the video review screen. The timestamps are used to sync the captions with the corresponding video frames.
+Next, parse the VTT formatted transcript for captions and timestamps. The Review tool displays these captions in the Transcript Tab on the video review screen. The timestamps are used to sync the captions with the corresponding video frames.
 
 [!code-csharp[TextScreen2](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=528-567)]
 

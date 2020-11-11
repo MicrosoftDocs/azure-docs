@@ -3,12 +3,15 @@ title: Use the change feed estimator - Azure Cosmos DB
 description: Learn how to use the change feed estimator to analyze the progress of your change feed processor
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.subservice: cosmosdb-sql
+ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
+ms.custom: devx-track-csharp
 ---
 
 # Use the change feed estimator
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes how you can monitor the progress of your [change feed processor](./change-feed-processor.md) instances as they read the change feed.
 
@@ -28,11 +31,11 @@ Like the [change feed processor](./change-feed-processor.md), the change feed es
 
 As an example, if your change feed processor is defined like this:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartProcessorEstimator":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimator)]
 
 The correct way to initialize an estimator to measure that processor would be using `GetChangeFeedEstimatorBuilder` like so:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartEstimator":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartEstimator)]
 
 Where both the processor and the estimator share the same `leaseContainer` and the same name.
 
@@ -40,7 +43,7 @@ The other two parameters are the delegate, which will receive a number that repr
 
 An example of a delegate that receives the estimation is:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="EstimationDelegate":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=EstimationDelegate)]
 
 You can send this estimation to your monitoring solution and use it to understand how your progress is behaving over time.
 
@@ -58,4 +61,4 @@ You can send this estimation to your monitoring solution and use it to understan
 You can now proceed to learn more about change feed processor in the following articles:
 
 * [Overview of change feed processor](change-feed-processor.md)
-* [Change feed processor start time](how-to-configure-change-feed-start-time.md)
+* [Change feed processor start time](./change-feed-processor.md#starting-time)

@@ -37,7 +37,7 @@ Please note that this does not apply to **warnings** with the same alert type. W
 Azure AD Connect Health enables you to stop data collection for each individual monitored server or for an instance of a monitored service. For example, you can stop data collection for individual ADFS (Active Directory Federation Services) servers that are monitored using Azure AD Connect Health. You can also stop data collection for the entire ADFS instance that is being monitored using Azure AD Connect Health. When you choose to do so, the corresponding servers are deleted from the Azure AD Connect Health portal, after stopping data collection. 
 
 >[!IMPORTANT]
-> You need either Azure AD Global Administrator privileges or the Contributor role in RBAC to delete monitored servers from Azure AD Connect Health.
+> You need either Azure AD Global Administrator privileges or the Contributor role in Azure RBAC to delete monitored servers from Azure AD Connect Health.
 >
 > Removing a server or service instance from Azure AD Connect Health is not a reversible action. 
 

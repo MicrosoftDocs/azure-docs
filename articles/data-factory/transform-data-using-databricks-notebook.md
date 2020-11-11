@@ -15,6 +15,8 @@ ms.date: 03/12/2018
 
 # Run a Databricks notebook with the Databricks Notebook Activity in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you use the Azure portal to create an Azure Data Factory pipeline that executes a Databricks notebook against the Databricks jobs cluster. It also passes Azure Data Factory parameters to the Databricks notebook during execution.
 
 You perform the following steps in this tutorial:
@@ -35,7 +37,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
 
 ## Prerequisites
 
-  - **Azure Databricks workspace**. [Create a Databricks workspace](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) or use an existing one. You create a Python notebook in your Azure Databricks workspace. Then you execute the notebook and pass parameters to it using Azure Data Factory.
+  - **Azure Databricks workspace**. [Create a Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) or use an existing one. You create a Python notebook in your Azure Databricks workspace. Then you execute the notebook and pass parameters to it using Azure Data Factory.
 
 ## Create a data factory
 
@@ -47,7 +49,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
 
 1.  In the **New data factory** pane, enter **ADFTutorialDataFactory** under **Name**.
 
-    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory. (For example, use **\<yourname\>ADFTutorialDataFactory**). For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](https://docs.microsoft.com/azure/data-factory/naming-rules) article.
+    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory. (For example, use **\<yourname\>ADFTutorialDataFactory**). For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](./naming-rules.md) article.
 
     ![Provide a name for the new data factory](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
@@ -59,7 +61,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
     
     - Select **Create new** and enter the name of a resource group.
 
-    Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+    Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
 
 1.  For **Version**, select **V2**.
 

@@ -21,19 +21,24 @@ Node-to-node security helps secure communication between the VMs or computers in
 
 ![Diagram of node-to-node communication][Node-to-Node]
 
-Clusters running on Azure and standalone clusters running on Windows both can use either [certificate security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows security](https://msdn.microsoft.com/library/ff649396.aspx) for Windows Server computers.
+Clusters running on Azure and standalone clusters running on Windows both can use either [certificate security](/previous-versions/msp-n-p/ff649801(v=pandp.10)) or [Windows security](/previous-versions/msp-n-p/ff649396(v=pandp.10)) for Windows Server computers.
 
 ### Node-to-node certificate security
 
 Service Fabric uses X.509 server certificates that you specify as part of the node-type configuration when you create a cluster. At the end of this article, you can see a brief overview of what these certificates are and how you can acquire or create them.
 
-Set up certificate security when you create the cluster, either in the Azure portal, by using an Azure Resource Manager template, or by using a standalone JSON template. Service Fabric SDK's default behavior is to deploy and install the certificate with the furthest into the future expiring certificate; the classic behavior allowed the defining of primary and secondary certificates, to allow manually initiated rollovers, and is not recommended for use over the new functionality. The primary certificates that will be use has the furthest into the future expiring date, should be different from the admin client and read-only client certificates that you set for [client-to-node security](#client-to-node-security).
+Set up certificate security when you create the cluster, either in the Azure portal, by using an Azure Resource Manager template, or by using a standalone JSON template. Service Fabric SDK's default behavior is to deploy and install the certificate with the furthest into the future expiring date; the classic behavior allowed the defining of primary and secondary certificates, to allow manually initiated rollovers, and is not recommended for use over the new functionality. The primary certificates that will be use has the furthest into the future expiring date, should be different from the admin client and read-only client certificates that you set for [client-to-node security](#client-to-node-security).
 
 To learn how to set up certificate security in a cluster for Azure, see [Set up a cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md).
 
 To learn how to set up certificate security in a cluster for a standalone Windows Server cluster, see [Secure a standalone cluster on Windows by using X.509 certificates](service-fabric-windows-cluster-x509-security.md).
 
 ### Node-to-node Windows security
+
+> [!NOTE]
+> Windows authentication is based on Kerberos. NTLM is not supported as an authentication type.
+>
+> Whenever possible, use X.509 certificate authentication for Service Fabric clusters.
 
 To learn how to set up Windows security for a standalone Windows Server cluster, see [Secure a standalone cluster on Windows by using Windows security](service-fabric-windows-cluster-windows-security.md).
 
@@ -43,7 +48,7 @@ Client-to-node security authenticates clients and helps secure communication bet
 
 ![Diagram of client-to-node communication][Client-to-Node]
 
-Clusters running on Azure and standalone clusters running on Windows both can use either [certificate security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows security](https://msdn.microsoft.com/library/ff649396.aspx).
+Clusters running on Azure and standalone clusters running on Windows both can use either [certificate security](/previous-versions/msp-n-p/ff649801(v=pandp.10)) or [Windows security](/previous-versions/msp-n-p/ff649396(v=pandp.10)), though the recommendation is to use X.509 certificate authentication whenever possible.
 
 ### Client-to-node certificate security
 
@@ -68,7 +73,7 @@ For clusters running on Azure, you also can secure access to management endpoint
 For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for client-to-node mutual authentication is:
 
 * Use Azure Active Directory for client identity
-* A certificate for server identity and SSL encryption of http communication
+* A certificate for server identity and TLS encryption of http communication
 
 For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for node-to-node security is to use a Cluster certificate to authenticate nodes.
 
@@ -84,7 +89,7 @@ Set the Administrator and User client roles when you create the cluster. Assign 
 
 ## X.509 certificates and Service Fabric
 
-X.509 digital certificates commonly are used to authenticate clients and servers. They also are used to encrypt and digitally sign messages. Service Fabric uses X.509 certificates to secure a cluster and provide application security features. For more information about X.509 digital certificates, see [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx). You use [Key Vault](../key-vault/key-vault-overview.md) to manage certificates for Service Fabric clusters in Azure.
+X.509 digital certificates commonly are used to authenticate clients and servers. They also are used to encrypt and digitally sign messages. Service Fabric uses X.509 certificates to secure a cluster and provide application security features. For more information about X.509 digital certificates, see [Working with certificates](/dotnet/framework/wcf/feature-details/working-with-certificates). You use [Key Vault](../key-vault/general/overview.md) to manage certificates for Service Fabric clusters in Azure.
 
 Some important things to consider:
 
@@ -97,13 +102,13 @@ Some important things to consider:
 
 These certificates (one primary and optionally a secondary) are required to secure a cluster and prevent unauthorized access to it. These certificates provide cluster and server authentication.
 
-Cluster authentication authenticates node-to-node communication for cluster federation. Only nodes that can prove their identity with this certificate can join the cluster. Server authentication authenticates the cluster management endpoints to a management client, so that the management client knows it is talking to the real cluster and not a 'man in the middle'. This certificate also provides an SSL for the HTTPS management API and for Service Fabric Explorer over HTTPS. When a client or node authenticates a node, one of the initial checks is the value of the common name in the **Subject** field. Either this common name or one of the certificates' Subject Alternative Names (SANs) must be present in the list of allowed common names.
+Cluster authentication authenticates node-to-node communication for cluster federation. Only nodes that can prove their identity with this certificate can join the cluster. Server authentication authenticates the cluster management endpoints to a management client, so that the management client knows it is talking to the real cluster and not a 'man in the middle'. This certificate also provides a TLS for the HTTPS management API and for Service Fabric Explorer over HTTPS. When a client or node authenticates a node, one of the initial checks is the value of the common name in the **Subject** field. Either this common name or one of the certificates' Subject Alternative Names (SANs) must be present in the list of allowed common names.
 
 The certificate must meet the following requirements:
 
 * The certificate must contain a private key. These certificates typically have extensions .pfx or .pem  
 * The certificate must be created for key exchange, which is exportable to a Personal Information Exchange (.pfx) file.
-* The **certificate's subject name must match the domain that you use to access the Service Fabric cluster**. This matching is required to provide an SSL for the cluster's HTTPS management endpoint and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the *.cloudapp.azure.com domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
+* The **certificate's subject name must match the domain that you use to access the Service Fabric cluster**. This matching is required to provide a TLS for the cluster's HTTPS management endpoint and Service Fabric Explorer. You cannot obtain a TLS/SSL certificate from a certificate authority (CA) for the *.cloudapp.azure.com domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
 
 Some other things to consider:
 
@@ -123,7 +128,7 @@ The concept of creating secure clusters is the same, whether they are Linux or W
 
 ### Client authentication certificates (optional)
 
-Any number of additional certificates can be specified for admin or user client operations. The client can use this certificate when mutual authentication is required. Client certificates typically are not issued by a third-party CA. Instead, the Personal store of the current user location typically contains client certificates placed there by a root authority. The certificate should have an **Intended Purposes** value of **Client Authentication**.  
+Any number of additional certificates can be specified for admin or user client operations. The client can use these certificates when mutual authentication is required. Client certificates typically are not issued by a third-party CA. Instead, the Personal store of the current user location typically contains client certificates placed there by a root authority. The certificate should have an **Intended Purposes** value of **Client Authentication**.  
 
 By default the cluster certificate has admin client privileges. These additional client certificates should not be installed into the cluster, but are specified as being allowed in the cluster configuration.  However, the client certificates need to be installed on the client machines to connect to the cluster and perform any operations.
 

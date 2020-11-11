@@ -1,15 +1,15 @@
 ---
 title: "Tutorial: Protect new resources with locks"
 description: In this tutorial, you use the Azure Blueprints resource locks options Read Only and Do Not Delete to protect newly deployed resources.
-ms.date: 11/21/2019
+ms.date: 08/27/2020
 ms.topic: tutorial
 ---
 # Tutorial: Protect new resources with Azure Blueprints resource locks
 
 With Azure Blueprints [resource locks](../concepts/resource-locking.md), you can protect newly
 deployed resources from being tampered with, even by an account with the _Owner_ role. You can add
-this protection in the blueprint definitions of resources created by a Resource Manager template
-artifact.
+this protection in the blueprint definitions of resources created by an Azure Resource Manager
+template (ARM template) artifact.
 
 In this tutorial, you'll complete these steps:
 
@@ -61,8 +61,8 @@ First, create the blueprint definition.
    1. Select the **Add artifact** row under the **RGtoLock** entry.
    1. Select **Azure Resource Manager template** under **Artifact type**, set **Artifact display
       name** to **StorageAccount**, and leave **Description** blank.
-   1. On the **Template** tab, paste the following Resource Manager template into the editor box.
-      After you paste in the template, select **Add** to add the artifact to the blueprint.
+   1. On the **Template** tab, paste the following ARM template into the editor box. After you paste
+      in the template, select **Add** to add the artifact to the blueprint.
 
    ```json
    {
@@ -200,8 +200,8 @@ step.
 ## Inspect resources deployed by the assignment
 
 The assignment creates the resource group _TestingBPLocks_ and the storage account deployed by the
-Resource Manager template artifact. The new resource group and the selected lock state are shown on
-the assignment details page.
+ARM template artifact. The new resource group and the selected lock state are shown on the
+assignment details page.
 
 1. Select **All services** in the left pane. Search for and select **Blueprints**.
 

@@ -11,8 +11,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/25/2018
+ms.topic: how-to
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -27,7 +27,7 @@ The synchronization feature of Azure AD Connect has two components:
 
 This topic explains how the following features of the **Azure AD Connect sync service** work and how you can configure them using Windows PowerShell.
 
-These settings are configured by the [Azure Active Directory Module for Windows PowerShell](https://aka.ms/aadposh). Download and install it separately from Azure AD Connect. The cmdlets documented in this topic were introduced in the [2016 March release (build 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). If you do not have the cmdlets documented in this topic or they do not produce the same result, then make sure you run the latest version.
+These settings are configured by the [Azure Active Directory Module for Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)). Download and install it separately from Azure AD Connect. The cmdlets documented in this topic were introduced in the [2016 March release (build 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). If you do not have the cmdlets documented in this topic or they do not produce the same result, then make sure you run the latest version.
 
 To see the configuration in your Azure AD directory, run `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures result](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
@@ -57,7 +57,7 @@ The following settings are configured by Azure AD Connect and cannot be modified
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Allows an attribute to be quarantined when it is a duplicate of another object rather than failing the entire object during export. |
 | Password Hash Sync |[Implementing password hash synchronization with Azure AD Connect sync](how-to-connect-password-hash-synchronization.md) |
 |Pass-through Authentication|[User sign-in with Azure Active Directory Pass-through Authentication](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[Preview: Group writeback](how-to-connect-preview.md#group-writeback) |
+| UnifiedGroupWriteback |Group writeback|
 | UserWriteback |Not currently supported. |
 
 ## Duplicate attribute resiliency
@@ -84,14 +84,16 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 ## Synchronize userPrincipalName updates
 
-Historically, updates to the UserPrincipalName attribute using the sync service from on-premises has been blocked, unless both of these conditions are true:
+Historically, updates to the UserPrincipalName attribute using the sync service from on-premises has been blocked, unless both of these conditions were true:
 
 * The user is managed (non-federated).
 * The user has not been assigned a license.
 
-For more details, see [User names in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/kb/2523192).
+> [!NOTE]
+> From March 2019, synchronizing UPN changes for federated user accounts is allowed.
+> 
 
-Enabling this feature allows the sync engine to update the userPrincipalName when it is changed on-premises and you use password hash sync or pass-through authentication. If you use federation, this feature is not supported.
+Enabling this feature allows the sync engine to update the userPrincipalName when it is changed on-premises and you use password hash sync or pass-through authentication.
 
 This feature is on by default for newly created Azure AD directories. You can see if this feature is enabled for you by running:  
 

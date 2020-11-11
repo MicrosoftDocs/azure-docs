@@ -1,7 +1,7 @@
 ---
 title: Storage account overview
 titleSuffix: Azure Storage
-description: Understand options for creating and using an Azure Storage account.
+description: Read an overview of storage accounts in Azure Storage. Review account naming, performance tiers, access tiers, redundancy, encryption, endpoints, and more.
 services: storage
 author: tamram
 
@@ -56,7 +56,7 @@ You should use general-purpose v2 accounts in most cases. You can use general-pu
 
 - Your applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity. In this case, general-purpose v1 may be the most economical choice.
 
-- You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x. You can't upgrade your application.
+- You use a version of the [Storage Services REST API](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) that is earlier than 2014-02-14 or a client library with a version lower than 4.x. You can't upgrade your application.
 
 ### BlockBlobStorage accounts
 
@@ -104,7 +104,7 @@ The available access tiers are:
 
 - The **Hot** access tier. This tier is optimized for frequent access of objects in the storage account. Accessing data in the hot tier is most cost-effective, while storage costs are higher. New storage accounts are created in the hot tier by default.
 - The **Cool** access tier. This tier is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the cool tier is more cost-effective, but accessing that data may be more expensive than accessing data in the hot tier.
-- The **Archive** tier. This tier is available only for individual block blobs and append blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and that will remain in the Archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data. However, accessing that data is more expensive than accessing data in the hot or cool tiers.
+- The **Archive** tier. This tier is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and that will remain in the archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data. However, accessing that data is more expensive than accessing data in the hot or cool tiers.
 
 If there's a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
 
@@ -129,6 +129,7 @@ For example, if your general-purpose storage account is named *mystorageaccount*
 - Table storage: `https://*mystorageaccount*.table.core.windows.net`
 - Queue storage: `https://*mystorageaccount*.queue.core.windows.net`
 - Azure Files: `https://*mystorageaccount*.file.core.windows.net`
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (Uses the [ABFS driver optimized specifically for big data](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2).)
 
 > [!NOTE]
 > Block blob and blob storage accounts expose only the Blob service endpoint.
@@ -162,7 +163,7 @@ When you upgrade to a general-purpose v2 account from a general-purpose v1 or Bl
 
 ### AzCopy
 
-AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into a Blob storage account from an existing general-purpose storage account, or to upload data from on-premises storage devices. For more information, see [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into a Blob storage account from an existing general-purpose storage account, or to upload data from on-premises storage devices. For more information, see [Transfer data with the AzCopy Command-Line Utility](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ### Data movement library
 
@@ -170,9 +171,9 @@ The Azure Storage data movement library for .NET is based on the core data movem
 
 ### REST API or client library
 
-You can create a custom application to migrate your data from a general-purpose v1 storage account into a Blob storage account. Use one of the Azure client libraries or the Azure storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
+You can create a custom application to migrate your data from a general-purpose v1 storage account into a Blob storage account. Use one of the Azure client libraries or the Azure Storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
 
-For more information about the Azure Storage REST API, see [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/).
+For more information about the Azure Storage REST API, see [Azure Storage Services REST API Reference](/rest/api/storageservices/).
 
 > [!IMPORTANT]
 > Blobs encrypted using client-side encryption store encryption-related metadata with the blob. If you copy a blob that is encrypted with client-side encryption, ensure that the copy operation preserves the blob metadata, and especially the encryption-related metadata. If you copy a blob without the encryption metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
@@ -180,6 +181,8 @@ For more information about the Azure Storage REST API, see [Azure Storage Servic
 ## Storage account billing
 
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Next steps
 

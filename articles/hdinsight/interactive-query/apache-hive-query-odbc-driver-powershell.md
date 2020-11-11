@@ -7,7 +7,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 06/27/2019
+ms.date: 06/27/2019 
+ms.custom: devx-track-azurepowershell
 
 #Customer intent: As a HDInsight user, I want to query data from my Apache Hive datasets so that I can view and interpret the data.
 ---

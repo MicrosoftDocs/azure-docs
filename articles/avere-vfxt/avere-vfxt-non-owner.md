@@ -3,7 +3,7 @@ title: Avere vFXT non-owner workaround - Azure
 description: Workaround to allow users without subscription owner permission to deploy Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
 ---

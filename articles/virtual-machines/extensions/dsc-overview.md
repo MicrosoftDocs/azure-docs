@@ -3,8 +3,8 @@ title: Desired State Configuration for Azure overview
 description: Learn how to use the Microsoft Azure extension handler for PowerShell Desired State Configuration (DSC). The article includes prerequisites, architecture, and cmdlets.
 services: virtual-machines-windows
 documentationcenter: ''
-author: bobbytreed
-manager: carmonm
+author: mgoedtel
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 keywords: 'dsc'
@@ -13,8 +13,9 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 05/02/2018
-ms.author: robreed
+ms.date: 07/13/2020
+ms.author: magoedte 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Introduction to the Azure Desired State Configuration extension handler
 
@@ -35,7 +36,7 @@ This article provides information about both scenarios: using the DSC extension 
 ## Prerequisites
 
 - **Local machine**: To interact with the Azure VM extension, you must use either the Azure portal or the Azure PowerShell SDK.
-- **Guest Agent**: The Azure VM that's configured by the DSC configuration must be an OS that supports Windows Management Framework (WMF) 4.0 or later. For the full list of supported OS versions, see the [DSC extension version history](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Guest Agent**: The Azure VM that's configured by the DSC configuration must be an OS that supports Windows Management Framework (WMF) 4.0 or later. For the full list of supported OS versions, see the [DSC extension version history](../../automation/automation-dsc-extension-history.md).
 
 ## Terms and concepts
 
@@ -55,7 +56,7 @@ When the extension is called for the first time, it installs a version of WMF by
 - If the **wmfVersion** property is specified, that version of WMF is installed, unless that version is incompatible with the VM's OS.
 - If no **wmfVersion** property is specified, the latest applicable version of WMF is installed.
 
-Installing WMF requires a restart. After restarting, the extension downloads the .zip file that's specified in the **modulesUrl** property, if provided. If this location is in Azure Blob storage, you can specify an SAS token in the **sasToken** property to access the file. After the .zip is downloaded and unpacked, the configuration function defined in **configurationFunction** runs to generate an .mof([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)) file. The extension then runs `Start-DscConfiguration -Force` by using the generated .mof file. The extension captures output and writes it to the Azure status channel.
+Installing WMF requires a restart. After restarting, the extension downloads the .zip file that's specified in the **modulesUrl** property, if provided. If this location is in Azure Blob storage, you can specify an SAS token in the **sasToken** property to access the file. After the .zip is downloaded and unpacked, the configuration function defined in **configurationFunction** runs to generate an .mof([Managed Object Format](/windows/win32/wmisdk/managed-object-format--mof-)) file. The extension then runs `Start-DscConfiguration -Force` by using the generated .mof file. The extension captures output and writes it to the Azure status channel.
 
 ### Default configuration script
 
@@ -70,8 +71,7 @@ three values will need to be provided.
 - RegistrationKey - a shared secret used to register nodes with the service
 - NodeConfigurationName - the name of the Node Configuration (MOF) to pull from the service to configure the server role
 
-This information can be seen in the
-[Azure portal](../../automation/automation-dsc-onboarding.md#azure-portal) or you can use PowerShell.
+This information can be seen in the Azure portal or you can use PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
@@ -80,7 +80,7 @@ This information can be seen in the
 
 For the Node Configuration name, make sure the node configuration exists in Azure State Configuration.  If it does not, the extension deployment will return a failure.  Also make sure you are using the name of the *Node Configuration* and not the Configuration.
 A Configuration is defined in a script that is used
-[to compile the Node Configuration (MOF file)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+[to compile the Node Configuration (MOF file)](../../automation/automation-dsc-compile.md).
 The name will always be the Configuration followed by a period `.` and either `localhost` or a specific computer name.
 
 ## DSC extension in Resource Manager templates
@@ -101,7 +101,7 @@ The **Get-AzVMDscExtension** cmdlet retrieves the DSC extension status of a spec
 
 The **Get-AzVMDscExtensionStatus** cmdlet retrieves the status of the DSC configuration that's enacted by the DSC extension handler. This action can be performed on a single VM or on a group of VMs.
 
-The **Remove-AzVMDscExtension** cmdlet removes the extension handler from a specific VM. This cmdlet does *not* remove the configuration, uninstall WMF, or change the applied settings on the VM. It only removes the extension handler. 
+The **Remove-AzVMDscExtension** cmdlet removes the extension handler from a specific VM. This cmdlet does *not* remove the configuration, uninstall WMF, or change the applied settings on the VM. It only removes the extension handler.
 
 Important information about Resource Manager DSC extension cmdlets:
 
@@ -187,11 +187,11 @@ The portal collects the following input:
 
 - **Configuration Arguments**: If the configuration function takes arguments, enter them here in the format **argumentName1=value1,argumentName2=value2**. This format is a different format in which configuration arguments are accepted in PowerShell cmdlets or Resource Manager templates.
 
-- **Configuration Data PSD1 File**: This field is optional. If your configuration requires a configuration data file in .psd1, use this field to select the data field and upload it to your user blob storage. The configuration data file is secured by an SAS token in blob storage.
+- **Configuration Data PSD1 File**: If your configuration requires a configuration data file in `.psd1`, use this field to select the data file and upload it to your user blob storage. The configuration data file is secured by an SAS token in blob storage.
 
 - **WMF Version**: Specifies the version of Windows Management Framework (WMF) that should be installed on your VM. Setting this property to latest installs the most recent version of WMF. Currently, the only possible values for this property are 4.0, 5.0, 5.1, and latest. These possible values are subject to updates. The default value is **latest**.
 
-- **Data Collection**: Determines if the extension will collect telemetry. For more information, see [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
+- **Data Collection**: Determines if the extension will collect telemetry. For more information, see [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/).
 
 - **Version**: Specifies the version of the DSC extension to install. For information about versions, see [DSC extension version history](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 

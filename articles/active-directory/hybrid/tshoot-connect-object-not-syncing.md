@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
@@ -111,7 +111,7 @@ You can perform another useful search by selecting the Azure AD Connector. In th
 
 ![Screenshot of orphans in a connector space search](./media/tshoot-connect-object-not-syncing/cssearchorphan.png) 
  
-Those objects were created by another synchronization engine or a synchronization engine with a different filtering configuration. These orphan objects are no longer managed. Review this list and consider removing these objects by using the [Azure AD PowerShell](https://aka.ms/aadposh) cmdlets.
+Those objects were created by another synchronization engine or a synchronization engine with a different filtering configuration. These orphan objects are no longer managed. Review this list and consider removing these objects by using the [Azure AD PowerShell](/previous-versions/azure/jj151815(v=azure.100)) cmdlets.
 
 ### CS import
 When you open a CS object, there are several tabs at the top. The **Import** tab shows the data that is staged after an import.  

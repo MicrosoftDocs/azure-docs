@@ -3,7 +3,7 @@ title: Manage registered servers with Azure File Sync | Microsoft Docs
 description: Learn how to register and unregister a Windows Server with an Azure File Sync Storage Sync Service.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
@@ -72,9 +72,6 @@ Before a server can be used as a *server endpoint* in an Azure File Sync *sync g
 > If the server is a member of a Failover Cluster, the Azure File Sync agent needs to be installed on every node in the cluster.
 
 #### Register the server using the server registration UI
-> [!Important]  
-> Cloud Solution Provider (CSP) subscriptions cannot use the server registration UI. Instead, use PowerShell (below this section).
-
 1. If the server registration UI did not start immediately after completing the installation of the Azure File Sync agent, it can be started manually by executing `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Click *Sign-in* to access your Azure subscription. 
 
@@ -92,7 +89,7 @@ Before a server can be used as a *server endpoint* in an Azure File Sync *sync g
 > If the server is a member of a Failover Cluster, each server needs to run the Server Registration. When you view the registered servers in the Azure Portal, Azure File Sync automatically recognizes each node as a member of the same Failover Cluster, and groups them together appropriately.
 
 #### Register the server with PowerShell
-You can also perform server registration via PowerShell. This is the only supported way of server registration for Cloud Solution Provider (CSP) subscriptions:
+You can also perform server registration via PowerShell. 
 
 ```powershell
 Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
@@ -157,7 +154,7 @@ Since Azure File Sync will rarely be the only service running in your datacenter
 You can throttle the network utilization of Azure File Sync by using the `StorageSyncNetworkLimit` cmdlets.
 
 > [!Note]  
-> Network limits do not apply when a tiered file is accessed or the Invoke-StorageSyncFileRecall cmdlet is used.
+> Network limits do not apply when a tiered file is accessed.
 
 For example, you can create a new throttle limit to ensure that Azure File Sync does not use more than 10 Mbps between 9 am and 5 pm (17:00h) during the work week: 
 

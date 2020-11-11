@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
+ms.date: 10/10/2020
 ---
 # Filter Based Feature Selection
 
-This article describes how to use the Filter Based Feature Selection module in Azure Machine Learning designer (preview). This module helps you identify the columns in your input dataset that have the greatest predictive power. 
+This article describes how to use the Filter Based Feature Selection module in Azure Machine Learning designer. This module helps you identify the columns in your input dataset that have the greatest predictive power. 
 
 In general, *feature selection* refers to the process of applying statistical tests to inputs, given a specified output. The goal is to determine which columns are more predictive of the output. The Filter Based Feature Selection module provides multiple feature selection algorithms to choose from. The module includes correlation methods such as Pearson correlation and chi-squared values. 
 
@@ -85,8 +85,14 @@ You choose a standard statistical metric. The module computes the correlation be
 
     - If you specify fewer result columns than there are feature columns, the features are ranked by descending score. Only the top features are returned. 
 
-7.  Run the pipeline, or select the Filter Based Feature Selection module and then select **Run selected**.
+7.  Submit the pipeline.
 
+> [!IMPORTANT]
+> If you are going to use **Filter Based Feature Selection** in inference, you need to use [Select Columns Transform](./select-columns-transform.md) to store the feature selected result and [Apply Transformation](./apply-transformation.md) to apply the feature selected transformation to the scoring dataset.
+>
+> Refer to the following screenshot to build your pipeline, to ensure that column selections are the same for the scoring process.
+> [!div class="mx-imgBorder"]
+> ![Sample pipeline](media/module/filter-based-feature-selection-score.png)
 
 ## Results
 

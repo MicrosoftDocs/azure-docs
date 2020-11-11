@@ -2,19 +2,16 @@
 title: Configure desktop apps that call web APIs - Microsoft identity platform | Azure
 description: Learn how to configure the code of a desktop app that calls web APIs
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
@@ -107,14 +104,14 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 To learn more about how to configure an MSAL.NET desktop application:
 
-- For a list of all modifiers available on `PublicClientApplicationBuilder`, see the reference documentation [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
-- For a description of all the options exposed in `PublicClientApplicationOptions`, see [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) in the reference documentation.
+- For a list of all modifiers available on `PublicClientApplicationBuilder`, see the reference documentation [PublicClientApplicationBuilder](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- For a description of all the options exposed in `PublicClientApplicationOptions`, see [PublicClientApplicationOptions](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) in the reference documentation.
 
 ### Complete example with configuration options
 
 Imagine a .NET Core console application that has the following `appsettings.json` configuration file:
 
-```JSon
+```json
 {
   "Authentication": {
     "AzureCloudInstance": "AzurePublic",
@@ -184,11 +181,11 @@ Before the call to the `.Build()` method, you can override your configuration wi
 
 # [Java](#tab/java)
 
-Here's the class used in MSAL Java development samples to configure the samples: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+Here's the class used in MSAL Java development samples to configure the samples: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
 
 ```Java
-PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
-        .authority(TestData.AUTHORITY_COMMON)
+PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
+        .authority(AUTHORITY)
         .build();
 ```
 
@@ -216,7 +213,7 @@ Objective-C:
 ```objc
 NSError *msalError = nil;
 
-MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
+MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
 ```
 

@@ -26,8 +26,13 @@
   items:
   - name: Deciding on deployment architecture
     href: deployment-architecture.md
+  - name: Troubleshooting
+    href: troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/Az.DedicatedHsm
 - name: Resources
   items:
   - name: Frequently asked questions
     href: faq.md
-  

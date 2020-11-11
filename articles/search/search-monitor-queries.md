@@ -1,7 +1,7 @@
 ---
 title: Monitor queries
 titleSuffix: Azure Cognitive Search
-description: Monitor query metrics for performance and throughput. Collect and analyze query string inputs in diagnostic logs.
+description: Monitor query metrics for performance and throughput. Collect and analyze query string inputs in resource logs.
 
 manager: nitinme
 author: HeidiSteen
@@ -13,7 +13,7 @@ ms.date: 02/18/2020
 
 # Monitor query requests in Azure Cognitive Search
 
-This article explains how to measure query performance and volume using metrics and diagnostic logging. It also explains how to collect the input terms used in queries - necessary information when you need to assess the utility and effectiveness of your search corpus.
+This article explains how to measure query performance and volume using metrics and resource logging. It also explains how to collect the input terms used in queries - necessary information when you need to assess the utility and effectiveness of your search corpus.
 
 Historical data that feeds into metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, be sure to enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option for persisting logged events and metrics.
 
@@ -96,7 +96,7 @@ In the following screenshot, the first number is the count (or number of metrics
 
 For a quick look at the current numbers, the **Monitoring** tab on the service Overview page shows three metrics (**Search latency**, **Search queries per second (per search unit)**, **Throttled Search Queries Percentage**) over fixed intervals measured in hours, days, and weeks, with the option of changing the aggregation type.
 
-For deeper exploration, open metrics explorer from the **Monitoring** menu so that you can layer, zoom in, and visualize data to explore trends or anomalies. Learn more about metrics explorer by completing this [tutorial on creating a metrics chart](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer).
+For deeper exploration, open metrics explorer from the **Monitoring** menu so that you can layer, zoom in, and visualize data to explore trends or anomalies. Learn more about metrics explorer by completing this [tutorial on creating a metrics chart](../azure-monitor/learn/tutorial-metrics-explorer.md).
 
 1. Under the Monitoring section, select **Metrics** to open the metrics explorer with the scope set to your search service.
 
@@ -114,7 +114,7 @@ For deeper exploration, open metrics explorer from the **Monitoring** menu so th
 
 ## Identify strings used in queries
 
-When you enable diagnostic logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [diagnostic logging](search-monitor-logs.md), specifying a log analytics workspace or another storage option.
+When you enable resource logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [resource logging](search-monitor-logs.md), specifying a log analytics workspace or another storage option.
 
 1. Under the Monitoring section, select **Logs** to open up an empty query window in Log Analytics.
 
@@ -124,11 +124,11 @@ When you enable diagnostic logging, the system captures query requests in the **
    AzureDiagnostics
    | project OperationName, Query_s, IndexName_s, Documents_d
    | where OperationName == "Query.Search"
-   | where Query_s != "?api-version=2019-05-06&search=*"
+   | where Query_s != "?api-version=2020-06-30&search=*"
    | where IndexName_s != "realestate-us-sample-index"
    ```
 
-1. Optionally, set a Column filter on *Query_s* to search over a specific syntax or string. For example, you could filter over *is equal to* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
+1. Optionally, set a Column filter on *Query_s* to search over a specific syntax or string. For example, you could filter over *is equal to* `?api-version=2020-06-30&search=*&%24filter=HotelName`).
 
    ![Logged query strings](./media/search-monitor-usage/log-query-strings.png "Logged query strings")
 

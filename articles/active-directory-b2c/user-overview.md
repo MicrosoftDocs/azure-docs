@@ -2,14 +2,14 @@
 title: Overview of user accounts in Azure Active Directory B2C
 description: Learn about the types of user accounts that can be used in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -39,7 +39,7 @@ When you add a new work account, you need to consider the following configuratio
 
     - **User** - Users can access assigned resources but cannot manage most tenant resources.
     - **Global administrator** - Global administrators have full control over all tenant resources.
-    - **Limited administrator** - Select the administrative role or roles for the user. For more information about the roles that can be selected, see [Assigning administrator roles in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+    - **Limited administrator** - Select the administrative role or roles for the user. For more information about the roles that can be selected, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ### Create a work account
 

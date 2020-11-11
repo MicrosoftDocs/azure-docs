@@ -1,8 +1,6 @@
 ---
 title: User context IDs to track activity - Azure Application Insights
 description: Track how users move through your service by assigning each of them a unique, persistent ID string in Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
@@ -18,11 +16,11 @@ ms.reviewer: abgreg;mbullwin
 Application Insights enables you to monitor and track your users through
 a set of product usage tools:
 
-- [Users, Sessions, Events](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
-- [Funnels](https://docs.microsoft.com/azure/application-insights/usage-funnels)
-- [Retention](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
+- [Users, Sessions, Events](./usage-segmentation.md)
+- [Funnels](./usage-funnels.md)
+- [Retention](./usage-retention.md)
   Cohorts
-- [Workbooks](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Workbooks](../platform/workbooks-overview.md)
 
 In order to track what a user does over time, Application Insights needs
 an ID for each user or session. Include the following IDs in every
@@ -32,7 +30,7 @@ custom event or page view.
 - Sessions: Include session ID.
 
 > [!NOTE]
-> This is an advanced article outlining the manual steps for tracking user activity with Application Insights. With many web applications **these steps may not be required**, as the default server-side SDKs in conjunction with the [Client/Browser-side JavaScript SDK](../../azure-monitor/app/website-monitoring.md ), are often sufficient to automatically track user activity. If you haven't configured [client-side monitoring](../../azure-monitor/app/website-monitoring.md ) in addition to the server-side SDK, do that first and test to see if the user behavior analytics tools are performing as expected.
+> This is an advanced article outlining the manual steps for tracking user activity with Application Insights. With many web applications **these steps may not be required**, as the default server-side SDKs in conjunction with the [Client/Browser-side JavaScript SDK](./website-monitoring.md), are often sufficient to automatically track user activity. If you haven't configured [client-side monitoring](./website-monitoring.md) in addition to the server-side SDK, do that first and test to see if the user behavior analytics tools are performing as expected.
 
 ## Choosing user IDs
 
@@ -45,11 +43,11 @@ over time. There are various approaches for persisting the ID.
 
 The ID should be a Guid or another string complex enough to identify each user uniquely. For example, it could be a long random number.
 
-If the ID contains personally identifying information about the user, it is not an appropriate value to send to Application Insights as a user ID. You can send such an ID as an [authenticated user ID](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), but it does not fulfill the user ID requirement for usage scenarios.
+If the ID contains personally identifying information about the user, it is not an appropriate value to send to Application Insights as a user ID. You can send such an ID as an [authenticated user ID](./api-custom-events-metrics.md#authenticated-users), but it does not fulfill the user ID requirement for usage scenarios.
 
 ## ASP.NET apps: Setting the user context in an ITelemetryInitializer
 
-Create a telemetry initializer, as described in detail [here](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer). Pass the session ID through the request telemetry, and set the Context.User.Id and the Context.Session.Id.
+Create a telemetry initializer, as described in detail [here](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer). Pass the session ID through the request telemetry, and set the Context.User.Id and the Context.Session.Id.
 
 This example sets the user ID to an identifier that expires after the session. If possible, use a user ID that persists across sessions.
 
@@ -131,10 +129,11 @@ namespace MvcWebRole.Telemetry
 
 ## Next steps
 
-- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- To enable usage experiences, start sending [custom events](./api-custom-events-metrics.md#trackevent) or [page views](./api-custom-events-metrics.md#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Usage overview](usage-overview.md)
     - [Users, Sessions, and Events](usage-segmentation.md)
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)
-    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+    - [Workbooks](../platform/workbooks-overview.md)
+

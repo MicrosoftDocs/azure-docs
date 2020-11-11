@@ -1,5 +1,5 @@
 ---
-title: Set up Azure IoT Hub Device Provisioning using Azure Resource Manager template
+title: Quickstart - Set up Azure IoT Hub Device Provisioning using Azure Resource Manager template
 description: Azure quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) using a template
 author: wesmc7777
 ms.author: wesmc
@@ -7,7 +7,7 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with an Azure Resource Manager template
@@ -295,7 +295,7 @@ The template that you defined in the last step uses parameters to specify the na
 
 Use the following Azure CLI commands to deploy your templates and verify the deployment.
 
-1. To deploy your template, navigate to the folder containing the template and parameter files, and run the following [command to start a deployment](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+1. To deploy your template, navigate to the folder containing the template and parameter files, and run the following [command to start a deployment](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create&preserve-view=true):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -306,7 +306,7 @@ Use the following Azure CLI commands to deploy your templates and verify the dep
    ![Provisioning output](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. To verify your deployment, run the following [command to list resources](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) and look for the new provisioning service and IoT hub in the output:
+2. To verify your deployment, run the following [command to list resources](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list&preserve-view=true) and look for the new provisioning service and IoT hub in the output:
 
     ```azurecli
      az resource list -g {your resource group name}

@@ -11,7 +11,7 @@ ms.author: mayg
 
 # Set up VMware disaster recovery in a multi-tenancy environment with the Cloud Solution Provider (CSP) program
 
-The [CSP program](https://partner.microsoft.com/en-US/cloud-solution-provider) fosters better-together stories for Microsoft cloud services, including Office 365, Enterprise Mobility Suite, and Microsoft Azure. With CSP, partners own the end-to-end relationship with customers, and become the primary relationship contact point. Partners can deploy Azure subscriptions for customers, and combine the subscriptions with their own value-added, customized offerings.
+The [CSP program](https://partner.microsoft.com/cloud-solution-provider) fosters better-together stories for Microsoft cloud services, including Microsoft 365, Enterprise Mobility Suite, and Microsoft Azure. With CSP, partners own the end-to-end relationship with customers, and become the primary relationship contact point. Partners can deploy Azure subscriptions for customers, and combine the subscriptions with their own value-added, customized offerings.
 
 With [Azure Site Recovery](site-recovery-overview.md), as partners you can manage disaster recovery for customers directly through CSP. Alternately, you can use CSP to set up Site Recovery environments, and let customers manage their own disaster recovery needs in a self-service manner. In both scenarios, partners are the liaison between Site Recovery and their customers. Partners service the customer relationship, and bill customers for Site Recovery usage.
 
@@ -93,7 +93,7 @@ There are three major multi-tenant models:
 By setting up tenant subscriptions as described in this article, you can quickly start enabling customers in any of the relevant multi-tenant models. You can learn more about the different multi-tenant models and enabling on-premises access controls [here](vmware-azure-multi-tenant-overview.md).
 
 ## Next steps
-- Learn more about [role-based access control](site-recovery-role-based-linked-access-control.md) to manage Azure Site Recovery deployments.
+- Learn more about [Azure role-based access control (Azure RBAC)](site-recovery-role-based-linked-access-control.md) to manage Azure Site Recovery deployments.
 - Learn more about VMware to Azure [replication architecture](vmware-azure-architecture.md).
 - [Review the tutorial](vmware-azure-tutorial.md) for replicating VMware VMs to Azure.
 Learn more about [multi-tenant environments](vmware-azure-multi-tenant-overview.md) for replicating VMware VMs to Azure.

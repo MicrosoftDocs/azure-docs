@@ -1,10 +1,10 @@
 ---
-title: Azure Virtual Machines high-availability architecture and scenarios for SAP NetWeaver | Microsoft Docs
+title: Azure VMs HA architecture and scenarios for SAP NetWeaver | Microsoft Docs
 description: High-availability architecture and scenarios for SAP NetWeaver on Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,8 +15,8 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
-ms.author: rclaus
+ms.date: 02/26/2020
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -88,12 +88,12 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92
 
 [virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
-[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md
+[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md
 
 [sap-ha-bc-virtual-env-hyperv-vmware-white-paper]:https://scn.sap.com/docs/DOC-44415
 [sap-ha-partner-information]:https://scn.sap.com/docs/DOC-8541
 [azure-sla]:https://azure.microsoft.com/support/legal/sla/
-[azure-virtual-machines-manage-availability]:https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability
+[azure-virtual-machines-manage-availability]:../../windows/manage-availability.md
 [azure-storage-redundancy]:https://azure.microsoft.com/documentation/articles/storage-redundancy/
 [azure-storage-managed-disks-overview]:https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
 
@@ -224,7 +224,7 @@ ms.custom: H1Hack27Feb2017
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
-[virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+[virtual-machines-manage-availability]:../../manage-availability.md
 
 
 ## Terminology definitions
@@ -287,12 +287,12 @@ An availability set is used for achieving high availability of:
 
 
 ### Azure Availability Zones
-Azure is in process of rolling out a concepts of [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) throughout different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). In Azure regions where Availability Zones are offered, the Azure regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across two or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. The Azure regions that offer zones are listed in [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Azure is in process of rolling out a concepts of [Azure Availability Zones](../../../availability-zones/az-overview.md) throughout different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). In Azure regions where Availability Zones are offered, the Azure regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across two or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. The Azure regions that offer zones are listed in [Azure Availability Zones](../../../availability-zones/az-overview.md).
 
 Using Availability Zones, there are some things to consider. The considerations list like:
 
 - You can't deploy Azure Availability Sets within an Availability Zone. You need to choose either an Availability Zone or an Availability Set as deployment frame for a VM.
-- You can't use the [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) to create failover cluster solutions based on Windows Failover Cluster Services or Linux Pacemaker. Instead you need to use the [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- You can't use the [Basic Load Balancer](../../../load-balancer/load-balancer-overview.md) to create failover cluster solutions based on Windows Failover Cluster Services or Linux Pacemaker. Instead you need to use the [Azure Standard Load Balancer SKU](../../../load-balancer/load-balancer-standard-availability-zones.md)
 - Azure Availability Zones are not giving any guarantees of certain distance between the different zones within one region
 - The network latency between different Azure Availability Zones within the different Azure regions might be different from Azure region to region. There will be cases, where you as a customer can reasonably run the SAP application layer deployed across different zones since the network latency from one zone to the active DBMS VM is still acceptable from a business process impact. Whereas there will be customer scenarios where the latency between the active DBMS VM in one zone and an SAP application instance in a VM in another zone can be too intrusive and not acceptable for the SAP business processes. As a result, the deployment architectures need to be different with an active/active architecture for the application or active/passive architecture if latency is too high.
 - Using [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) is mandatory for deploying into Azure Availability Zones 
@@ -342,7 +342,7 @@ The next sections discuss how to achieve high availability for all three critica
 
 > This section applies to:
 >
-> ![Windows][Logo_Windows] Windows and ![Linux][Logo_Linux] Linux
+> ![Windows logo.][Logo_Windows] Windows and ![Linux logo.][Logo_Linux] Linux
 >
 
 You usually don't need a specific high-availability solution for the SAP application server and dialog instances. You achieve high availability by redundancy, and you configure multiple dialog instances in various instances of Azure virtual machines. You should have at least two SAP application instances installed in two instances of Azure virtual machines.
@@ -353,12 +353,12 @@ _**Figure 1:** High-availability SAP application server_
 
 You must place all virtual machines that host SAP application server instances in the same Azure availability set. An Azure availability set ensures that:
 
-* All virtual machines are part of the same update domain.  
+* All virtual machines are not part of the same update domain.  
     An update domain ensures that the virtual machines aren't updated at the same time during planned maintenance downtime.
 
     The basic functionality, which builds on different update and fault domains within an Azure scale unit, was already introduced in the [update domains][planning-guide-3.2.2] section.
 
-* All virtual machines are part of the same fault domain.  
+* All virtual machines are not part of the same fault domain.  
     A fault domain ensures that virtual machines are deployed so that no single point of failure affects the availability of all virtual machines.
 
 The number of update and fault domains that can be used by an Azure availability set within an Azure scale unit is finite. If you keep adding VMs to a single availability set, two or more VMs will eventually end up in the same fault or update domain.
@@ -380,7 +380,7 @@ For more information, see the [Azure availability sets][planning-guide-3.2.3] se
 
 ### High-availability architecture for an SAP ASCS/SCS instance on Windows
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 
 You can use a WSFC solution to protect the SAP ASCS/SCS instance. The solution has two variants:
@@ -389,26 +389,36 @@ You can use a WSFC solution to protect the SAP ASCS/SCS instance. The solution h
 
 * **Cluster the SAP ASCS/SCS instance by using file share**: For more information about this architecture, see [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using file share][sap-high-availability-guide-wsfc-file-share].
 
+* **Cluster the SAP ASCS/SCS instance by using ANF SMB share**: For more information about this architecture, see Cluster [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using ANF SMB file share](./high-availability-guide-windows-netapp-files-smb.md).
+
 ### High-availability architecture for an SAP ASCS/SCS instance on Linux
 
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 > 
 > For more information about clustering the SAP ASCS/SCS instance by using the SLES cluster framework, see [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications][sap-suse-ascs-ha]. For alternative HA architecture on SLES, which doesn't require highly available NFS see [High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications][sap-suse-ascs-ha-anf].
 
-For more information about clustering the SAP ASCS/SCS instance by using the Red Hat cluster framework, see [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
+For more information about clustering the SAP ASCS/SCS instance by using the Red Hat cluster framework, see [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux](./high-availability-guide-rhel.md)
 
 
 ### SAP NetWeaver multi-SID configuration for a clustered SAP ASCS/SCS instance
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 > 
-> Currently, multi-SID is supported only with WSFC. Multi-SID is supported using file share and shared disk.
+> Multi-SID is supported with WSFC, using file share and shared disk.
 > 
-> For more information about multi-SID high-availability architecture, see:
+> For more information about multi-SID high-availability architecture on Windows, see:
 
 * [SAP ASCS/SCS instance multi-SID high availability for Windows Server Failover Clustering and file share][sap-ascs-ha-multi-sid-wsfc-file-share]
 
 * [SAP ASCS/SCS instance multi-SID high availability for Windows Server Failover Clustering and shared disk][sap-ascs-ha-multi-sid-wsfc-shared-disk]
+
+> ![Linux logo.][Logo_Linux] Linux
+> 
+> Multi-SID clustering is supported on Linux Pacemaker clusters for SAP ASCS/ERS, limited to **five** SAP SIDs on the same cluster.
+> For more information about multi-SID high-availability architecture on Linux, see:
+
+* [HA for SAP NW on Azure VMs on SLES for SAP applications multi-SID guide](./high-availability-guide-suse-multi-sid.md)
+* [HA for SAP NW on Azure VMs on RHEL for SAP applications multi-SID guide](./high-availability-guide-rhel-multi-sid.md)
 
 ### High-availability DBMS instance
 

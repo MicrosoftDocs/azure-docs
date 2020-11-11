@@ -8,9 +8,13 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
+ms.custom:  [amqp, mqtt]
 ---
 
 # What is OPC Publisher?
+
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
 
 OPC Publisher is a reference implementation that demonstrates how to:
 
@@ -36,6 +40,8 @@ OPC Publisher supports batching of the data sent to IoT Hub to reduce network lo
 
 This application uses the OPC Foundation OPC UA reference stack as NuGet packages. See [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/) for the licensing terms.
 
-### Next steps
+## Next steps
 
-Now you've learned what OPC Publisher is, the suggested next step is to learn how to [Configure OPC Publisher](howto-opc-publisher-configure.md).
+Now you've learned what OPC Publisher is, the suggested next step is to learn how to:
+
+[Configure OPC Publisher](howto-opc-publisher-configure.md)

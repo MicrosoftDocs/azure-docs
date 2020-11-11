@@ -1,12 +1,12 @@
 ---
 title: Map virtual networks between two regions in Azure Site Recovery 
 description: Learn about mapping virtual networks between two Azure regions for Azure VM disaster recovery with Azure Site Recovery.
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: mayg
+ms.author: harshacs
 
 ---
 # Set up network mapping and IP addressing for VNets
@@ -89,5 +89,5 @@ Target network isn't the failover VNet | - Target IP address will be static with
 
 ## Next steps
 
-- Review [networking guidance](site-recovery-azure-to-azure-networking-guidance.md) for Azure VM disaster recovery.
+- Review [networking guidance](./azure-to-azure-about-networking.md) for Azure VM disaster recovery.
 - [Learn more](site-recovery-retain-ip-azure-vm-failover.md) about retaining IP addresses after failover.

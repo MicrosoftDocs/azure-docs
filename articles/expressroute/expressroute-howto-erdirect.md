@@ -1,19 +1,19 @@
 ---
 title: 'Azure ExpressRoute: Configure ExpressRoute Direct'
-description: This page helps you configure ExpressRoute Direct.
+description: Learn how to use Azure PowerShell to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network.
 services: expressroute
-author: jaredr80
+author: duongau
 
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 01/22/2020
-ms.author: jaredro
+ms.topic: how-to
+ms.date: 09/28/2020
+ms.author: duau
 
 ---
 
 # How to configure ExpressRoute Direct
 
-ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
+ExpressRoute Direct gives you the ability to directly connect to Microsoft's global network through peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
 
 ## <a name="resources"></a>Create the resource
 
@@ -152,9 +152,22 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    Circuits                   : []
    ```
 
-## <a name="state"></a>Change Admin State of links
+## <a name="authorization"></a>Generate the Letter of Authorization (LOA)
 
-  This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
+Reference the recently created ExpressRoute Direct resource, input a customer name to write the LOA to and (optionally) define a file location to store the document. If a file path is not referenced, the document will download to the current directory.
+
+  ```powershell 
+   New-AzExpressRoutePortLOA -ExpressRoutePort $ERDirect -CustomerName TestCustomerName -Destination "C:\Users\SampleUser\Downloads" 
+   ```
+ **Example output**
+
+   ```powershell
+   Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
+   ```
+
+## <a name="state"></a>Change Admin State of links
+   
+This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
 1. Get ExpressRoute Direct details.
 
    ```powershell
@@ -224,13 +237,13 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 
 ## <a name="circuit"></a>Create a circuit
 
-By default, you can create 10 circuits in the subscription where the ExpressRoute Direct resource is. This can be increased by support. You are responsible for tracking both Provisioned and Utilized Bandwidth. Provisioned bandwidth is the sum of bandwidth of all circuits on the ExpressRoute Direct resource and utilized bandwidth is the physical usage of the underlying physical interfaces.
+By default, you can create 10 circuits in the subscription where the ExpressRoute Direct resource is. This limit can be increased by support. You are responsible for tracking both Provisioned and Utilized Bandwidth. Provisioned bandwidth is the sum of bandwidth of all circuits on the ExpressRoute Direct resource and utilized bandwidth is the physical usage of the underlying physical interfaces.
 
-There are additional circuit bandwidths that can be utilized on ExpressRoute Direct only to support the scenarios outlined above. These are: 40Gbps and 100Gbps.
+There are additional circuit bandwidths that can be utilized on ExpressRoute Direct to support only the scenarios outlined above. These bandwidths are 40 Gbps and 100 Gbps.
 
-**SkuTier** can be Local, Standard or Premium.
+**SkuTier** can be Local, Standard, or Premium.
 
-**SkuFamily** must be MeteredData only as unlimited is not supported on ExpressRoute Direct.
+**SkuFamily** can only be MeteredData. Unlimited is not supported on ExpressRoute Direct.
 
 Create a circuit on the ExpressRoute Direct resource.
 

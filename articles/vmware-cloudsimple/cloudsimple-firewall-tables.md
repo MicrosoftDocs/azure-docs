@@ -1,6 +1,6 @@
 ---
 title: Azure VMware Solution by CloudSimple - Firewall tables 
-description: Learn about CloudSimple private cloud firewall tables and firewall rules. 
+description: Learn about CloudSimple private cloud firewall tables and firewall rules, including default rules that are created on every firewall table.
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 08/20/2019
