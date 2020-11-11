@@ -55,7 +55,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
     ```
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<TOPIC NAME>` with the name of the topic.
-3. Add a method named `CreateMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
+3. Add a method named `createMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
 
     ```java
     static List<ServiceBusMessage> createMessages()
@@ -82,7 +82,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
                 .buildClient();
 
         // Creates an ServiceBusMessageBatch where the ServiceBus.
-        ServiceBusMessageBatch messageBatch = senderClient.createMessageBatch(new CreateMessageBatchOptions().setMaximumSizeInBytes(1024));        
+        ServiceBusMessageBatch messageBatch = senderClient.createMessageBatch();        
         
     	// create a list of messages
         List<ServiceBusMessage> listOfMessages = createMessages();
@@ -100,7 +100,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
             System.out.println("Sent a batch of messages to the topic: " + topicName);
             
             // create a new batch
-            messageBatch = senderClient.createMessageBatch(new CreateMessageBatchOptions().setMaximumSizeInBytes(1024));
+            messageBatch = senderClient.createMessageBatch();
 
             // Add that message that we couldn't before.
             if (!messageBatch.tryAddMessage(message)) {
@@ -108,8 +108,10 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
             }
         }
 
-        System.out.println("Sent a batch of messages to the topic: " + topicName);
-        senderClient.sendMessages(messageBatch);
+        if (messageBatch.getCount() > 0) {
+            senderClient.sendMessages(messageBatch);
+            System.out.println("Sent a batch of messages to the topic: " + topicName);
+        }
 
         //close the client
         senderClient.close();
