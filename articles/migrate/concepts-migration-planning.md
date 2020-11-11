@@ -152,5 +152,5 @@ When you're ready for migration, use the Azure Migrate: Server Migration tool, a
 ## Next steps
 
 - Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
-- Get a [quick overview] of Azure Migrate, and watch a [getting started video](https://youtu.be/wFfq3YPxYHE).
+- Get a [quick overview](migrate-services-overview.md) of Azure Migrate, and watch a [getting started video](https://youtu.be/wFfq3YPxYHE).
 - Learn more about assessing VMs for migration to [Azure VMs](concepts-assessment-calculation.md).
