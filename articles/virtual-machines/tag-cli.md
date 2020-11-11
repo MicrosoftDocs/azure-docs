@@ -10,7 +10,8 @@ ms.author: cynthn
 ms.custom: devx-track-azurecli
 
 ---
-# How to tag a Linux virtual machine in Azure
+# How to tag a VM using the CLI
+
 This article describes how to tag a VM using the Auzre CLI. Tags are user-defined key/value pairs which can be placed directly on a resource or a resource group. Azure currently supports up to 50 tags per resource and resource group. Tags may be placed on a resource at the time of creation or added to an existing resource. If you want to tag a virtual machine using Azure PowerShell, see [How to tag a virtual machine in Azure using PowerShell](tag-powershell.md).
 
 
