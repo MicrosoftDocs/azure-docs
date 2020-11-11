@@ -42,10 +42,10 @@ Regular upgrades of the Azure VMware Solution private cloud and VMware software 
 Once Azure VMware Solution is deployed into your subscription, [Azure Monitor logs](../azure-monitor/overview.md) are generated automatically. 
 
 In your private cloud, you can:
-Collect logs on each of your virtual machines.
-[Download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-options) on Linux and Windows VMs.
-Enable the [Azure diagnostics extension](../azure-monitor/platform/diagnostics-extension-overview.md).
-Run the same queries you usually run on your VMs.
+- Collect logs on each of your virtual machines.
+- [Download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-options) on Linux and Windows VMs.
+- Enable the [Azure diagnostics extension](../azure-monitor/platform/diagnostics-extension-overview.md).
+- Run the same queries you usually run on your VMs.
 
 To learn more about creating queries, see [Azure Monitor Logs overview](../azure-monitor/platform/data-platform-logs.md). 
 
