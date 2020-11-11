@@ -20,48 +20,48 @@ ms.custom:
  
 3.	In the Cloud Services (extended support) pane select **Add**.
 
-4. Complete basics tab
+## Configuring the Cloud Services (extended support) deployment
 
-    :::image type="content" source="media/deploy-portal-2.png" alt-text="Image shows the basics tab in the Azure portal for creating a Cloud Service (extended support).":::
- 
-5. Choose your Subscription
+1. Select the Subscription.
 
     > [!NOTE]
     > The subscription used for deploying cloud services (extended support) needs to have one of the following roles owner or contributor assigned via ARM role based access control (RBAC). If your subscription does not have any one of these roles, please make sure it is added before proceeding further.
     
 
-6. Choose a Resource group or create a new one
-7. Enter name of cloud service
-8. Select a region
-9. Select your Configuration (.cscfg) location, you can use your existing configurations from your blob or upload new configuration from your local machine that will be then stored in your storage account.
-10. Select service definition (.csdef)
+6. Choose a Resource group or create a new one.
+7. Enter the desired name for your Cloud Service (extended support).
+8. Select a region to deploy to. 
+9. Select your Configuration (`.cscfg`) file. You can use an existing configuration or upload a new configuration.
+10. Select Service Definition (`.csdef`) file. You can use an existing definition file or upload a new one. 
+        :::image type="content" source="media/deploy-portal-2.png" alt-text="Image shows the basics tab in the Azure portal for creating a Cloud Service (extended support).":::
 11. Once all fields have been completed, move to the Configuration tab
+
+
 
 ## Cloud Service configuration
 
-1. Configure virtual network
-Cloud Service deployments through ARM, are always in an explicit Virtual Network. Virtual Network must be referenced in the deployment configuration file CSCFG, within the NetworkConfiguration section. If a VNet is not already pre-created, a new VNet will be created in the Portal at the time of the Cloud Service creation. This is especialy usefull when creating a cloud service in a new resource group.
+1. Select a virtual network. If a virtual network does not exist, one will be created at the time of the Cloud Service creation. 
 
-2. Configure public or internal load balancer
-If you have ‘Input Endpoint(s)’ defined in your service definition file (CSDEF), a Public IP Address resource will need to be created for your Cloud Service
-o	You can create a new (Public IP Address) resource or select an existing resource that is not currently in-use
-o	Basic Public IP Address is the only SKU that can be used for Cloud Services (extended support)
-o	If CSCFG contains a Reserved IP, then the allocation type for the Public IP address must be ‘Static’ otherwise it should be ‘Dynamic’
-Optionally, give a Fully Qualified name to your cloud service endpoint by filling in the DNS label for the Public IP address assigned to the Cloud Service. 
+    >[!NOTE]
+    > Cloud Service (extended support) deployments must be in a virtual network. The virtual network must also be referenced in the deployment configuration file `.cscfg` in the `NetworkConfiguration` section. 
 
-3. Select a swappable cloud service: you can select an existing cloud service for swapping deployments. This is useful when deploying new versions of your service without any downtime. You can easily switch between “Production” and “Staging” services.
+2. Select an existing public IP address to associate with your Cloud Service or create a new one. 
 
-4. Start cloud service – you can choose to not start the service after its created and start it later. Or you can start the service immediately when it is creater.
+    - If you have **IP Input Endpoints** defined in your service definition file (`.csdef`), a public IP address will need to be created for your Cloud Service. 
+    - Cloud Services (extended support) only supports the Basic IP address SKU.
+    - If your `cscfg` contains a reserved IP address, the allocation type for the public IP address must be **Static**. 
 
+3. (Optional) Swappable Cloud Service. Select an existing Cloud Service for swapping deployments. For more information, see [Cloud Services Swap](cloud-services-swap.md)
 
+4. (Optional) Start Cloud Service. Choose start or not start the service after immediately after creation.
 
-5. Select Key vault – Key vault is required when you specified one or more certificates in your .cscfg file. When you select a key vault we will try to find the selected certificates from your .cscfg file (based on their thumbprints). If there are some certificates missing in your key vault, we will notify you and you will be able to go to your key vault to upload them. After you uploaded your certificates, just click “Refresh” in the certificates table and we will validate the results for you. 
+5. Select the key vault associated with your `.cscfg` file (based on their thumbprints). If any certificates are missing you can uploaded them and select **Refresh** in the drop down. 
 
     :::image type="content" source="media/deploy-portal-3.png" alt-text="Image shows the configuration blade in the Azure portal when creating a Cloud Services (extended support).":::
 
-## Review and Create
-In the next steps you can add Tags if needed.
-The last step in the create cloud service is Review+Create. At this point we will review and prevalidate your deployment configuration and confirm you created a configuration that should successfully deploy your service. When validation is done, click Create.
+6. One all fields have been completed, move to the **Review and Create** tab to validate your deployment configuration and create your deployment
+
+
 
 ## Next steps
 

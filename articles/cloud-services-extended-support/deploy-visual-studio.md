@@ -2,14 +2,15 @@
 title: Use Cloud Services Extended Support (Preview)
 description: Learn now to create and deploy an Azure Cloud Service using Azure Resource Manager with Visual Studio
 author: ghogen
+ms.service: cloud-services-extended-support
 manager: jillfra
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: ghogen
-monikerRange: ">=vs-2019"
 ---
+
 # Create and deploy a cloud service using extended support in Visual Studio (Preview)
 
 Starting with Visual Studio 2019 version 16.9 Preview 1, you can work with cloud services using Azure Resource Manager (ARM), which greatly simplifies and modernizes maintenance and management of Azure resources. You can also convert an existing cloud service project to an extended support cloud service project.
