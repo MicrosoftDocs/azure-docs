@@ -567,6 +567,9 @@ It is recommended that the customer create a process to capture the attribute an
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40106.).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
+
 **Guidance**: Azure Front Door does not provide any native capabilities to monitor security threats related to its resources.
 
 Forward any logs from Azure Front Door to a SIEM, which can be used to set up threat detections. Ensure you are monitoring different types of Azure resources for potential threats and anomalies. Alerts can be sourced from log data, agents, or other data. 
@@ -579,7 +582,7 @@ Focus on high quality alerts to reduce false-positive detections.
 
 **Azure Security Center monitoring**: Yes
 
-**Responsibility**: Customer
+**Responsibility**: Microsoft
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
