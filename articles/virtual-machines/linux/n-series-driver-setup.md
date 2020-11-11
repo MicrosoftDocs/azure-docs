@@ -94,6 +94,7 @@ sudo reboot
    sudo reboot
 
 2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
+   Skip this step if you plan to use CentOS 7.7(or higher) as LIS is no longer required for these versions.
 
    ```bash
    wget https://aka.ms/lis
