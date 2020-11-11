@@ -2,7 +2,7 @@
 title: Deploy to Azure button
 description: Use button to deploy Azure Resource Manager templates from a GitHub repository.
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/10/2020
 ---
 # Use a deployment button to deploy templates from GitHub repository
 
@@ -65,6 +65,14 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 You have your full URL for the link.
 
+If you're using [Git with Azure Repos](/azure/devops/repos/git/) instead of a GitHub repo, you can still use the Deploy to Azure button. Make sure your repo is public. Use the [Items operation](/rest/api/azure/devops/git/items/get) to get the template. Your request should be in the following format:
+
+```http
+https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
+```
+
+Encode this request URL.
+
 ## Create Deploy to Azure button
 
 Finally, put the link and image together.
@@ -81,6 +89,12 @@ For HTML, use:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
+```
+
+For Git with Azure repo, the button is in the format:
+
+```markdown
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%252Freponame%252Fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## Deploy the template

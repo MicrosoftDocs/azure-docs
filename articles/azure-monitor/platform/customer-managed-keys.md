@@ -23,9 +23,10 @@ Azure Monitor ensures that all data and saved queries are encrypted at rest usin
 
 The customer-Managed Key capability is delivered on dedicated Log Analytics clusters. It allows you to protect your data with [Lockbox](#customer-lockbox-preview) control and gives you the control to revoke the access to your data at any time. Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless customer-Managed Key configuration, but your control over SSD data adheres to [key revocation](#key-revocation). We are working to have SSD data encrypted with Customer-Managed Key in the first half of 2021.
 
-To verify that we have the required capacity to provision dedicated cluster in your region, we require that your subscription is allowed beforehand. Use your Microsoft contact or open support request to get your subscription allowed before you start the Customer-Managed Key configuration.
-
 The [Log Analytics clusters pricing model](./manage-cost-storage.md#log-analytics-dedicated-clusters) uses Capacity Reservations starting at a 1000 GB/day level.
+
+> [!IMPORTANT]
+> Due to temporary capacity constraints, we require you pre-register to before creating a cluster. Use your contacts into Microsoft, or open support request to register your subscriptions IDs.
 
 ## How Customer-Managed Key works in Azure Monitor
 
@@ -59,11 +60,11 @@ The following rules apply:
 
 ## Customer-Managed Key provisioning procedure
 
-1. Allowing subscription -- The capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is allowed beforehand. Use your Microsoft contact to get your subscription allowed.
-2. Creating Azure Key Vault and storing key
-3. Creating cluster
-4. Granting permissions to your Key Vault
-5. Linking Log Analytics workspaces
+1. Register your subscription to allow cluster creation
+1. Creating Azure Key Vault and storing key
+1. Creating cluster
+1. Granting permissions to your Key Vault
+1. Linking Log Analytics workspaces
 
 Customer-Managed Key configuration isn't supported in Azure portal and provisioning is performed via [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) or [REST](https://docs.microsoft.com/rest/api/loganalytics/) requests.
 
@@ -145,7 +146,6 @@ Operation failed
 
 > [!IMPORTANT]
 > Customer-Managed Key capability is regional. Your Azure Key Vault, cluster and linked Log Analytics workspaces must be in the same region, but they can be in different subscriptions.
-> To verify that we have the required capacity to provision dedicated cluster in your region, we require that your subscription is allowed beforehand. Use your Microsoft contact or open support request to get your subscription allowed before you start Customer-Managed Key configuration. 
 
 ### Storing encryption key (KEK)
 
@@ -196,6 +196,25 @@ az monitor log-analytics cluster update --name "cluster-name" --resource-group "
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
+```
+
+```rst
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "keyVaultProperties": {
+      "keyVaultUri": "https://key-vault-name.vault.azure.net",
+      "kyName": "key-name",
+      "keyVersion": "current-version"
+  },
+  "sku": {
+    "name": "CapacityReservation",
+    "capacity": 1000
+  }
+}
 ```
 
 **Response**
@@ -285,6 +304,11 @@ When you Bring Your Own Storage (BYOS) and link it to your workspace, the servic
 
 Link a storage account for *Query* to your workspace -- *saved-searches* queries are saved in your storage account. 
 
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
@@ -311,6 +335,11 @@ After the configuration, any new *saved search* query will be saved in your stor
 **Configure BYOS for log-alerts queries**
 
 Link a storage account for *Alerts* to your workspace -- *log-alerts* queries are saved in your storage account. 
+
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
