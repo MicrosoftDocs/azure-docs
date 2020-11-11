@@ -458,7 +458,7 @@
       - name: Install Visual Studio SSDT
         href: ./sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Continuous integration and deployment
-        href: sql-data-warehouse-continuous-integration-and-deployment.md
+        href: ./sql-data-warehouse/sql-data-warehouse-continuous-integration-and-deployment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Query external data
       items:
       - name: Overview
