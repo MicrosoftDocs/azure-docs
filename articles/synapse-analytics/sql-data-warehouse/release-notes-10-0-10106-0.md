@@ -1,6 +1,6 @@
 ---
-title: Release notes 
-description: Release notes for Azure Synapse Analytics.
+title: Release notes for dedicated SQL pool (formerly SQL DW)
+description: Release notes for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -14,13 +14,13 @@ ms.custom: seo-lt-2019
 tags: azure-synapse
 ---
 
-# Azure Synapse Analytics release notes
+# Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics release notes
 
-This article summarizes the new features and improvements in the recent releases of [Synapse SQL](sql-data-warehouse-overview-what-is.md) in Azure Synapse. The article also lists notable content updates that aren't directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
+This article summarizes the new features and improvements in the recent releases of [dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-overview-what-is.md) in Azure Synapse Analytics. The article also lists notable content updates that aren't directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
-## Check your Azure Synapse version
+## Check your dedicated SQL pool (formerly SQL DW) version
 
-As new features are rolled out to all regions, check the version deployed to your instance and the latest release notes for feature availability. To check the version, connect to your SQL pool via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION;` to return the current version. Use this version to confirm which release has been applied to your SQL pool. The date in the output identifies the month for the release applied to your SQL pool. This only applies to service-level improvements. 
+As new features are rolled out to all regions, check the version deployed to your instance and the latest release notes for feature availability. To check the version, connect to your Sdedicated SQL pool (formerly SQL DW) via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION;` to return the current version. Use this version to confirm which release has been applied to your dedicated SQL pool (formerly SQL DW). The date in the output identifies the month for the release applied to your dedicated SQL pool (formerly SQL DW). This only applies to service-level improvements. 
 
 For tooling improvements, make sure you have the correct version installed specified in the release note. 
 
