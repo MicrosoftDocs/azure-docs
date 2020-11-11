@@ -24,7 +24,7 @@ This article highlights some of the considerations to upgrade your existing v1 .
 The v2 SDK contains many usability and performance improvements, including:
 
 * Support for TCP direct mode for non-Windows clients
-* Multi-regions write support
+* Multi-region write support
 * Improvements on query performance
 * Support for geospatial/geometry collections and indexing
 * Increased improvements for direct/TCP transport diagnostics
