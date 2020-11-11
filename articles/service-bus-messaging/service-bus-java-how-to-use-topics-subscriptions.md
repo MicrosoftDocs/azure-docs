@@ -52,6 +52,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
     ```java
     static String connectionString = "<NAMESPACE CONNECTION STRING>";
     static String topicName = "<TOPIC NAME>";    
+    static String subName = "<SUBSCRIPTION NAME>";
     ```
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<TOPIC NAME>` with the name of the topic.
