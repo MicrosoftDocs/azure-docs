@@ -11,6 +11,8 @@
     href: quickstart-template.md
   - name: PowerShell
     href: quickstart-powershell.md
+  - name: Azure CLI
+    href: quickstart-azure-cli.md
 - name: Tutorials
   items:
   - name: Authoring an attestation policy
