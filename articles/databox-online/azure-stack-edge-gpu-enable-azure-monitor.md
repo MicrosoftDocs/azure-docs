@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Enable Azure Monitor on your Azure Stack Edge Pro GPU device
 
-Monitoring containers on your Azure Stack Edge Pro GPU device is critical, specially when you are running multiple compute applications. Azure Monitor lets you collect logs and gives you performance visibility by collecting memory and processor metrics from the Kubernetes cluster running on your device.
+Monitoring containers on your Azure Stack Edge Pro GPU device is critical, specially when you are running multiple compute applications. Azure Monitor lets you collect container logs and memory and processor metrics from the Kubernetes cluster running on your device.
 
 This article describes the steps required to enable Azure Monitor on your device and gather container logs in Log Analytics workspace. The Azure Monitor metrics store is currently not supported with your Azure Stack Edge Pro GPU device. 
 
@@ -35,15 +35,15 @@ Take the following steps to create a log analytics workspace. A log analytics wo
 
     1. On the **Basics** tab, provide the subscription, resource group, name, and region for the workspace. 
 
-    ![Basics tab for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-basics-1.png)  
+        ![Basics tab for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-basics-1.png)  
 
     1. On the **Pricing tier** tab, accept the default **Pay-as-you-go plan**.
 
-    ![Pricing tab for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-pricing-1.png) 
+        ![Pricing tab for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-pricing-1.png) 
 
     1. On the **Review + Create** tab, review the information for your workspace and select **Create**.
 
-    ![Review + Create for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
+        ![Review + Create for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
 
 For more information, see the detailed steps in [Create a Log Analytics workspace via Azure portal](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -53,7 +53,7 @@ For more information, see the detailed steps in [Create a Log Analytics workspac
 
 Take the following steps to enable Container Insights on your workspace. 
 
-1. Follow the detailed steps in [How to add the Azure Monitor Containers solution](../azure-monitor/insights/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). The following template file `containerSolution.json` was used:
+1. Follow the detailed steps in [How to add the Azure Monitor Containers solution](../azure-monitor/insights/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use the following template file `containerSolution.json`:
 
     ```yml
     {
@@ -112,7 +112,14 @@ Take the following steps to enable Container Insights on your workspace.
     }
     ```
 
-1. The following parameters file `containerSolutionParams.json` was used:
+1. Get the resource ID and location. Go to `Your Log Analytics workspace > General > Properties`. Copy the following information:
+
+    - **resource ID** which is the fully qualified Azure resource ID of the Azure Log Analytics workspace. 
+    - **location** which is the Azure region.
+
+    ![Properties of Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/log-analytics-workspace-properties-1.png) 
+
+1. Use the following parameters file `containerSolutionParams.json`. Replace `workspaceResourceId` with the resource ID and `workspaceRegion` with the location copied in the earlier step.
 
     ```yaml
     {
