@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Performance tiers for managed disks (preview)
 
-The performance of your Azure managed disk is set based on the provisioned size of disk you select when creating your disk. The size of a disk correlates to a performance tier, that has the performance tier can be changed at deployment or afterwards, without changing the size of the disk. Changing the performance tier allows you to prepare for and meet higher demand without using your disk's bursting capability. It can be more cost-effective to change your performance tier rather than rely on bursting, depending on how long the additional performance is necessary.
+The performance of your Azure managed disk is set when you first create your disk, in the form of its performance tier. A performance tier is automatically selected based on the provisioned size of disk you selected. This performance tier can be changed at deployment or afterwards, without changing the size of the disk. Changing the performance tier allows you to prepare for and meet higher demand without using your disk's bursting capability. It can be more cost-effective to change your performance tier rather than rely on bursting, depending on how long the additional performance is necessary.
 
 > [!NOTE]
 > Changing your performance tier is currently in preview. 
