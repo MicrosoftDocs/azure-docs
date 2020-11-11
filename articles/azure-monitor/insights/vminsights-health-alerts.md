@@ -5,15 +5,15 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/27/2020
+ms.date: 11/10/2020
 
 ---
 
 # Azure Monitor for VMs guest health alerts (preview)
-Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. You can choose to have an [Azure alert](../platform/alerts-overview.md) created when a virtual machine or monitor changes to an unhealthy state. You can view and manage this alert with other alerts created by alert rules in Azure Monitor and choose to be proactively notified when an alert is created.
+Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. An [Azure alert](../platform/alerts-overview.md) can be created when a virtual machine or monitor changes to an unhealthy state. You can view and manage these alerts with other alerts created by alert rules in Azure Monitor and choose to and be proactively notified when a new alert is created.
 
 ## Configure alerts
-By default, alerts will be created for each virtual machine but not for each monitor.  This means that if a monitor changes to a state that doesn't affect the current state of the virtual machine, then no alert is created because the virtual machine state didn't change. 
+You cannot create an explicit alert rule for Azure Monitor for VMs guest health while this feature is in preview. By default, alerts will be created for each virtual machine but not for each monitor.  This means that if a monitor changes to a state that doesn't affect the current state of the virtual machine, then no alert is created because the virtual machine state didn't change. 
 
 You can disable alerts for a particular virtual machine or for a particular monitor on a virtual machine from the **Alert status** setting in the configuration for the virtual machine in the Azure portal. See [Configure monitoring in Azure Monitor for VMs guest health (preview)](vminsights-health-configure.md) for details on configuring monitors in the Azure portal. See [Configure monitoring in Azure Monitor for VMs guest health using data collection rules (preview)](vminsights-health-configure-dcr.md) for details on configuring monitors across a set of virtual machines.
 
