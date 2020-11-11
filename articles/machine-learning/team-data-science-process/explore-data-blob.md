@@ -63,7 +63,7 @@ Here are a few examples of ways to explore data using pandas:
 1. Inspect the **number of rows and columns**
 
     ```python
-    print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
+    print('the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape)
     ```
 
 1. **Inspect** the first or last few **rows** in the following dataset:
@@ -78,7 +78,7 @@ Here are a few examples of ways to explore data using pandas:
 
     ```python
     for col in dataframe_blobdata.columns:
-        print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
+        print(dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype)
     ```
 
 1. Check the **basic stats** for the columns in the data set as follows
@@ -97,7 +97,7 @@ Here are a few examples of ways to explore data using pandas:
 
     ```python
     miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
-    print miss_num
+    print(miss_num)
     ```
 
 1. If you have **missing values** for a specific column in the data, you can drop them as follows:

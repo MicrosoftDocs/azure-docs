@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/11/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -19,6 +19,48 @@ Windows Virtual Desktop updates on a regular basis. This article is where you'll
 - Bug fixes
 
 This article is updated monthly. Make sure to check back here often to keep up with new updates.
+
+## October 2020
+
+Here's what changed in October 2020:
+
+### Improved performance
+
+- We've optimized performance by reducing connection latency in the following Azure geographies:
+    - Switzerland
+    - Canada
+
+You can now use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to estimate the user experience quality in these areas.
+
+### Azure Government Cloud availability
+
+The Azure Government Cloud is now generally available. Learn more at [our blog post](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-generally-available-in-the-azure-government-cloud/).
+
+### Windows Virtual Desktop Azure portal updates
+
+We've made some updates to the Windows Virtual Desktop Azure portal:
+
+- Fixed a resourceID error that prevented users from opening the "Sessions" tab.
+- Streamlined the UI on the "Session hosts" tab.
+- Fixed the "Defaults," "Usability," and "Restore defaults" settings under RDP properties.
+- Made "Remove" and "Delete" functions consistent across all tabs.
+- The portal now validates app names in the "Add an app" workflow.
+- Fixed an issue where the session host export data wasn't aligned in the columns.
+- Fixed an issue where the portal couldn't retrieve user sessions.
+- Fixed an issue in session host retrieval that happened when the virtual machine was created in a different resource group.
+- Updated the "Session host" tab to list both active and disconnected sessions.
+- The "Applications" tab now has pages.
+- Fixed an issue where the "requires command line" text didn't display correctly in the "Application list" tab.
+- Fixed an issue when the portal couldn't deploy host pools or virtual machines while using the German-language version of the Shared Image Gallery.
+
+### Client updates for October 2020
+
+We've released new versions of the clients. See these articles to learn more:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+
+For more information about the other clients, see [Client updates](#client-updates).
 
 ## September 2020
 
@@ -62,7 +104,7 @@ Here's what changed in August 2020:
 
 - Azure Advisor is now a part of Windows Virtual Desktop. When you access Windows Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Windows Virtual Desktop environment. Learn more at [Azure Advisor](azure-advisor.md).
 
-- Azure CLI now supports Windows Virtual Desktop (`az desktopvirtualization`) to help you automate your Windows Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest) for a list of extension commands.
+- Azure CLI now supports Windows Virtual Desktop (`az desktopvirtualization`) to help you automate your Windows Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true) for a list of extension commands.
 
 - We've updated our deployment templates to make them fully compatible with the Windows Virtual Desktop Azure Resource Manager interfaces. You can find the templates on [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 
@@ -134,7 +176,7 @@ We've added new AzWvd cmdlets to the Azure PowerShell Az Module with this update
 
 To install the module, follow the instructions in [Set up the PowerShell module for Windows Virtual Desktop](powershell-module.md).
 
-You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
+You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true).
 
 For more information about the new features, check out [our blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 
