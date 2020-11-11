@@ -80,7 +80,7 @@ Make sure your machine also meets the following requirements:
   - You must have elevated permissions (sudo) on your machine. 
 
 - Software requirements
-  - Make sure you have python 2.7 running on your machine.
+  - Make sure you have python 2.7 or 3 running on your machine.
 
 ## Next steps
 
