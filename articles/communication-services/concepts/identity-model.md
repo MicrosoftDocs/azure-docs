@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-## Identity model
+# Identity model
 
 Azure Communication Services is identity agnostic service. This design has multiple benefits:
 - Reuse existing identities from your identity management system
