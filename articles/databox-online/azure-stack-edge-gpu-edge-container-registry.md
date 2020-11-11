@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/11/2020
 ms.author: alkohli
 ---
 # Enable Edge container registry on your Azure Stack Edge Pro GPU device
@@ -33,10 +33,8 @@ Before you begin, make sure that:
 
 3. You've enabled compute role on the device. A Kubernetes cluster was also created on the device when you configured compute on the device as per the instructions in [Configure compute on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-configure-compute.md).
 
-4. You've access to a Windows client system. You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well.
-
-    1. This system is running PowerShell 5.0 or later to access the device.
-    1. This system is running Docker for Windows and can be used to pull and push container images. See [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/). 
+4. You've access to a client system with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). If using a Windows client, the system should run PowerShell 5.0 or later to access the device.
+    1. The system should also have Docker client installed to pull and push container images. If using a Windows client, [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/).  
 
 5. You have the Kubernetes API endpoint from the **Device** page of your local web UI. For more information, see the instructions in [Get Kubernetes API endpoint](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints).
 
@@ -45,7 +43,7 @@ Before you begin, make sure that:
 
 The first step is to enable the Edge container registry as an add-on.
 
-1. Run PowerShell as an administrator on your Windows client that you will use to access your Azure Stack Edge device. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface). 
+1. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface). 
 
 1. To enable the container registry as an add-on, type: 
 
@@ -85,7 +83,7 @@ You may want to access the container registry from outside of your Azure Stack E
     1. In the local UI of the device, go to **Device**.
     1. Locate the **Edge container registry endpoint**.
         ![Edge container registry endpoint on Device page](media/azure-stack-edge-gpu-edge-container-registry/get-ecr-endpoint-1.png) 
-    1. Copy this endpoint and create a corresponding DNS entry into the `C:\Windows\System32\Drivers\etc\hosts` file of your client to connect to the Edge Container registry endpoint. 
+    1. Copy this endpoint and create a corresponding DNS entry into the `C:\Windows\System32\Drivers\etc\hosts` file of your client to connect to the Edge container registry endpoint. 
 
         <IP address of the Kubernetes main node>    <Edge container registry endpoint> 
         
@@ -93,12 +91,12 @@ You may want to access the container registry from outside of your Azure Stack E
 
 1. Download the Edge container registry certificate from Local UI. 
     1. In the local UI of the device, go to **Certificates**.
-    1. Locate the entry for **Edge container registry certificate**. To the right of this entry, select the **Download** to download the Edge container registry certificate on your Windows client system that you'll use to access your device. 
+    1. Locate the entry for **Edge container registry certificate**. To the right of this entry, select the **Download** to download the Edge container registry certificate on your client system that you'll use to access your device. 
 
-        ![Download edge container registry endpoint certificate](media/azure-stack-edge-gpu-edge-container-registry/download-ecr-endpoint-certificate-1.png)  
+        ![Download Edge container registry endpoint certificate](media/azure-stack-edge-gpu-edge-container-registry/download-ecr-endpoint-certificate-1.png)  
 
-1. Install the downloaded certificate on the Windows client. 
-    1. Select the certificate and in the Certificate Import Wizard, select store location as **Local machine**. 
+1. Install the downloaded certificate on the client. If using a Windows client, follow these steps: 
+    1. Select the certificate and in the **Certificate Import Wizard**, select store location as **Local machine**. 
 
         ![Install certificate 1](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-1.png) 
     
@@ -106,7 +104,7 @@ You may want to access the container registry from outside of your Azure Stack E
 
         ![Install certificate 2](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-2.png) 
 
-1. After the certificate is installed, restart the Docker on your system.
+1. After the certificate is installed, restart the Docker client on your system.
 
 1. Log into the Edge container registry. Type:
 
@@ -153,10 +151,10 @@ You may want to access the container registry from outside of your Azure Stack E
         2020/11/10 00:00:49 [error] 6#6: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
         172.17.0.1 - - [10/Nov/2020:00:00:49 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36" "-"
         ^C
-        PS C:\WINDOWS\system32>
-        
+        PS C:\WINDOWS\system32>    
         ```
-    1. Browse to `http://localhost:8080` to view the running container. In this case, you will see the nginx webserver running.
+    
+1. Browse to `http://localhost:8080` to view the running container. In this case, you will see the nginx webserver running.
 
         ![View the running container](media/azure-stack-edge-gpu-edge-container-registry/view-running-container-1.png)
 
@@ -181,7 +179,7 @@ You can now deploy the image that you pushed in your Edge container registry fro
     - cluster:
         certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01URXdOVEF6TkRJek1Gb1hEVE13TVRFd016QXpOREl6TUZvd0ZURVRNQkVnNjOVRLWndCQ042cm1XQms2eXFwcXI1MUx6bApTaXMyTy91UEJ2YXNSSUUzdzgrbmEwdG1aTERZZ2F6MkQwMm42Q29mUmtyUTR2d1lLTnR1MlpzR3pUdz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
         server: https://compute.dbe-hw6h1t2.microsoftdatabox.com:6443
-      name: kubernetes
+        name: kubernetes
         ===================CUT=========================================CUT==============
         client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMwRENDQWJpZ0F3SUJBZ0lJYmVWRGJSTzZ3ell3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TURFeE1EVXdNelF5TXpCYUZ3MHlNVEV4TURreU16UTRNal
         ===================CUT=========================================CUT==============
@@ -193,7 +191,7 @@ You can now deploy the image that you pushed in your Edge container registry fro
     PS C:\WINDOWS\system32>
     ```  
 
-2. When you pushed the image in the Edge container registry, the image pull secrets are already set in all the Kubernetes namespaces. You can get secrets by using the `get secrets` command. Here is a sample output:
+2. The image pull secrets are already set in all the Kubernetes namespaces on your device. You can get secrets by using the `get secrets` command. Here is a sample output:
 
     ```powershell
     PS C:\WINDOWS\system32> .\kubectl.exe get secrets -n myecr
@@ -232,6 +230,22 @@ You can now deploy the image that you pushed in your Edge container registry fro
     nginx   1/1     Running   0          27m
     PS C:\Windows\System32>
     ```
+
+
+## Delete container images
+
+Edge Container Registry storage is hosted on a local share within your Azure Stack Edge Pro device which is limited by the available storage on the device. It is your responsibility to delete unused docker images from the container registry using Docker HTTP v2 API (https://docs.docker.com/registry/spec/api/).  
+
+To remove one or more container images, first list all the container images in your registry using the following command: 
+
+`docker image ls`
+
+Make a note of the image ID of the images you want to remove. Remove the unwanted images using the following command: 
+
+`docker image rm [image_id1] [image_id2]`
+
+After you delete the unused images, the space associated with the unreferenced images is automatically reclaimed by a process that runs nightly. 
+
 
 ## Next steps
 

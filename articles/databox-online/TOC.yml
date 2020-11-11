@@ -237,7 +237,7 @@
         href: azure-stack-edge-j-series-certificate-troubleshooting.md 
     - name: Manage Edge compute 
       href: azure-stack-edge-j-series-manage-compute.md
-    - name: Manage Edge compute registry
+    - name: Manage Edge container registry
       href: azure-stack-edge-gpu-edge-container-registry.md 
     - name: Manage storage gateway
       items:
