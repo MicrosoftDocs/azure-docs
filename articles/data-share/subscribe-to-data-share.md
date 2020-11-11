@@ -124,7 +124,14 @@ These steps only apply to snapshot-based sharing.
    ![Consumer datasets](./media/consumer-datasets.png "Consumer dataset mapping") 
 
 ## View history
-This step only applies to snapshot-based sharing. To view history of your snapshots, select **History** tab. Here you'll find history of all snapshots that were generated for the past 30 days. 
+This step only applies to snapshot-based sharing. To view history of your snapshots, select **History** tab. Here you'll find history of all snapshots that were generated for the past 30 days.
+
+## Clean up resources
+
+When the resource is no longer needed, go to the **Data Share Overview** page and select **Delete** to remove it.
 
 ## Next steps
-In this tutorial, you learned how to accept and receive an Azure Data Share. To learn more about Azure Data Share concepts, continue to [Concepts: Azure Data Share Terminology](terminology.md).
+In this tutorial, you learned how to accept and receive an Azure Data Share. To learn more about Azure Data Share concepts, continue to Azure Data Share Terminology.
+
+> [!div class="nextstepaction"]
+> [Azure Data Share Concepts](terminology.md)

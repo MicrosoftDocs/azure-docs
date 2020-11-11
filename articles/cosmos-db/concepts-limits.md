@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 11/10/2020
 ---
 
 # Azure Cosmos DB service quotas
@@ -38,9 +38,9 @@ You can provision throughput at a container-level or a database-level in terms o
 
 A Cosmos container (or shared throughput database) must have a minimum throughput of 400 RU/s. As the container grows, the minimum supported throughput also depends on the following factors:
 
-* The maximum throughput ever provisioned on the container. For example, if your throughput was increased to 50,000 RU/s, then the lowest possible provisioned throughput would be 500 RU/s
-* The current storage in GB in the container. For example, if your container has 100 GB of storage, then the lowest possible provisioned throughput would be 1000 RU/s
-* The minimum throughput on a shared throughput database also depends on the total number of containers that you have ever created in a shared throughput database, measured at 100 RU/s per container. For example, if you have created five containers within a shared throughput database, then the throughput must be at least 500 RU/s
+* The maximum throughput ever provisioned on the container. For example, if your throughput was increased to 50,000 RU/s, then the lowest possible provisioned throughput would be 500 RU/s.
+* The current storage in GB in the container. For example, if your container has 100 GB of storage, then the lowest possible provisioned throughput would be 1000 RU/s. **Note:** if your container or database contains more than 1 TB of data, your account may be eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program).
+* The minimum throughput on a shared throughput database also depends on the total number of containers that you have ever created in a shared throughput database, measured at 100 RU/s per container. For example, if you have created five containers within a shared throughput database, then the throughput must be at least 500 RU/s.
 
 The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Provision throughput on containers and databases](set-throughput.md). 
 
