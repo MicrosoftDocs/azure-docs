@@ -38,7 +38,7 @@ The number of roles you add counts toward application manifest limits enforced b
 ### App roles UI | Preview
 
 > [!IMPORTANT]
-> This preview feature is provided without a service level agreement and is not recommended for production workloads. Certain functionality might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The app roles portal UI feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 To create an app role by using the Azure portal's user interface:
 
