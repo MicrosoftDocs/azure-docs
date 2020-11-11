@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/18/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
@@ -53,7 +53,7 @@ $ras.Count
     az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
 
-    If you get the error "Insufficient privileges to complete the operation", it is likely because Azure CLI is attempting to lookup the assignee identity in Azure AD and the service principal cannot read Azure AD by default.
+    If you get the error "Insufficient privileges to complete the operation", it is likely because Azure CLI is attempting to look up the assignee identity in Azure AD and the service principal cannot read Azure AD by default.
 
     There are two ways to potentially resolve this error. The first way is to assign the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role to the service principal so that it can read data in the directory.
 
@@ -62,6 +62,7 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- If you attempt to remove the last Owner role assignment for a subscription, you might see the error "Cannot delete the last RBAC admin assignment." Removing the last Owner role assignment for a subscription is not supported to avoid orphaning the subscription. If you want to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## Problems with custom roles
 

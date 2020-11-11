@@ -191,6 +191,12 @@ No. Network traffic inbound from the internet directly to private clouds isn't a
 Yes. You'll need to use NSX-T manager to create a firewall that restricts VM access to the internet.
 
 
+#### Can Azure VMware Solution use Azure Virtual WAN hosted ExpressRoute Gateways?
+Yes.
+
+#### Can transit connectivity be established between on-premises and Azure VMware Solution through Azure Virtual WAN over ExpressRoute Global Reach?
+Azure Virtual WAN doesn't provide transitive routing between two connected ExpressRoute circuits and non-virtual WAN ExpressRoute Gateway. Using ExpressRoute Global Reach allows connectivity between on-premises and Azure VMware Solution, but goes through Microsoft's global network instead of the Virtual WAN Hub.
+
 
 ## Accounts and privileges
 
