@@ -50,7 +50,7 @@ Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confid
 
 Opinion mining is a feature of Sentiment Analysis, starting in version 3.1-preview.1. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to aspects (such as the attributes of products or services) in text.
 
-For example, if a customer leaves feedback about a hotel such as "the room was great, but the staff was unfriendly", opinion mining will locate aspects in the text, and their associated opinions and sentiments:
+For example, if a customer leaves feedback about a hotel such as "The room was great, but the staff was unfriendly.", opinion mining will locate aspects in the text, and their associated opinions and sentiments:
 
 | Aspect | Opinion    | Sentiment |
 |--------|------------|-----------|
@@ -94,7 +94,7 @@ Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics r
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
 
-To get opinion mining results, you must include the `opinionMining=true` parameter. For example:
+To get Opinion Mining results, you must include the `opinionMining=true` parameter. For example:
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
 
@@ -108,9 +108,9 @@ This parameter is set to `false` by default.
 
 Set a request header to include your Text Analytics API key. In the request body, provide the JSON documents collection you prepared for this analysis.
 
-### Example Sentiment Analysis request 
+### Example Sentiment Analysis (and Opinion Mining) request 
 
-The following is an example of content you might submit for sentiment analysis. The request format is the same for both versions.
+The following is an example of content you might submit for sentiment analysis. The request format is the same for GA (V3.0) and preview (v3.1) versions.
     
 ```json
 {
@@ -139,9 +139,9 @@ Output is returned immediately. You can stream the results to an application tha
 
 #### [Version 3.1-preview.2](#tab/version-3-1)
 
-### Sentiment Analysis v3.1 example response
+### Sentiment Analysis and Opinion Mining v3.1 example response
 
-Sentiment Analysis v3.1 offers opinion mining in addition to the response object in the **Version 3.0** tab. In the below response, the sentence *The restaurant had great food and our waiter was friendly* has two aspects: *food* and *waiter*. Each aspect's `relations` property contains a `ref` value with the URI-reference to the associated `documents`, `sentences`, and `opinions` objects.
+Sentiment Analysis v3.1 offers Opinion Mining in addition to the response object in the **Version 3.0** tab. In the below response, the sentence *The restaurant had great food and our waiter was friendly* has two aspects: *food* and *waiter*. Each aspect's `relations` property contains a `ref` value with the URI-reference to the associated `documents`, `sentences`, and `opinions` objects.
 
 ```json
 {
