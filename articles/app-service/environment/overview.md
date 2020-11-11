@@ -26,7 +26,7 @@ App Service environments (ASEs) are appropriate for application workloads that r
 	- High memory utilization.
 	- Customers can create multiple ASEs within a single Azure region or across multiple Azure regions. This flexibility makes ASEs ideal for horizontally scaling stateless application tiers in support of high requests per second (RPS) workloads.
 
-ASEs host applications from only one customer and do so in one of their VNets. Customers have fine-grained control over inbound and outbound application network traffic. Applications can establish high-speed secure connections over VPNs to on-premises corporate resources.
+ASE's host applications from only one customer and do so in one of their VNets. Customers have fine-grained control over inbound and outbound application network traffic. Applications can establish high-speed secure connections over VPNs to on-premises corporate resources.
 
 ASEv3 comes with its own pricing tier, Isolated V2.
 App Service Environments v3 provide a surrounding to safeguard your apps in a subnet of your network and provides your own private deployment of Azure App Service.
@@ -59,7 +59,7 @@ Workers are roles that host customer apps. Workers are available in three fixed 
 
 Customers do not need to manage front ends and workers. All infrastructure is automatically. As App Service plans are created or scaled in an ASE, the required infrastructure is added or removed as appropriate.
 
-There is a charge for Isolated V2 App Service plan instances. If you have no App Service plans at all in your ASE, you are charged as though you had one App Service plan with 1 instance of the two core workers.
+There is a charge for Isolated V2 App Service plan instances. If you have no App Service plans at all in your ASE, you are charged as though you had one App Service plan with one instance of the two core workers.
 
 ## Virtual network support
 The ASE feature is a deployment of the Azure App Service directly into a customer's Azure Resource Manager virtual network. An ASE always exists in a subnet of a virtual network. You can use the security features of virtual networks to control inbound and outbound network communications for your apps.
@@ -81,6 +81,6 @@ The App Service Environment v3 is in public preview.  Some features are being ad
 	- No support for some App Service features going through the customer VNet. Backup/restore, Key Vault references in app settings, using a private container registry, and Diagnostic logging to storage will not function with service endpoints or private endpoints
 	
 ### ASEv3 preview architecture
-In ASEv3 preview, the ASE will use private endpoints to support inbound traffic. This will be replaced with load balancers by GA. While in preview, the ASE will not have built in support for an internet accessible endpoint. You could add an Application Gateway for such a purpose. The ASE needs resources in two subnets.  Inbound traffic will flow through a private endpoint. The private endpoint can be placed in any subnet so long as it has an available address that can be used by private endpoints.  The outbound subnet must be empty and delegated to Microsoft.Web/hostingEnvironments. While used by the ASE, the outbound subnet cannot be used for anything else.
+In ASEv3 preview, the ASE will use private endpoints to support inbound traffic. The private endpoint will be replaced with load balancers by GA. While in preview, the ASE will not have built in support for an internet accessible endpoint. You could add an Application Gateway for such a purpose. The ASE needs resources in two subnets.  Inbound traffic will flow through a private endpoint. The private endpoint can be placed in any subnet so long as it has an available address that can be used by private endpoints.  The outbound subnet must be empty and delegated to Microsoft.Web/hostingEnvironments. While used by the ASE, the outbound subnet cannot be used for anything else.
 
-With ASEv3, there are no inbound or outbound networking requirements on the ASE subnet. You can control the traffic with Network Security Groups and Route Tables and it only will affect your application traffic. You should not delete the private endpoint associated with your ASE as that action can't be undone. The private endpoint used for the ASE is used for all of the apps in the ASE. 
+With ASEv3, there are no inbound or outbound networking requirements on the ASE subnet. You can control the traffic with Network Security Groups and Route Tables and it only will affect your application traffic. You shouldn't delete the private endpoint associated with your ASE as that action can't be undone. The private endpoint used for the ASE is used for all of the apps in the ASE. 
