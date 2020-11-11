@@ -91,5 +91,5 @@ The following features are available when you use .NET for Apache Spark in the A
 
 * [.NET for Apache Spark documentation](/dotnet/spark/)
 * [.NET for Apache Spark Interactive guides](/dotnet/spark/how-to-guides/udf-guide)
-* [Azure Synapse Analytics](synapse-analytics)
+* [Azure Synapse Analytics](../../index.yml)
 * [.NET Interactive](https://devblogs.microsoft.com/dotnet/creating-interactive-net-documentation/)
