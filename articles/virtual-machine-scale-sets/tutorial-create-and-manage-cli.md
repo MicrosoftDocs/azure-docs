@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create & manage an Azure VM scale set – Azure CLI'
+title: 'Tutorial: Create & manage a virtual machine scale set – Azure CLI'
 description: Learn how to use the Azure CLI to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
 author: ju-shim
 ms.author: jushiman
@@ -117,7 +117,7 @@ exit
 
 
 ## Understand VM instance images
-When you created a scale set at the start of the tutorial, a `--image` of *UbuntuLTS* was specified for the VM instances. The Azure marketplace includes many images that can be used to create VM instances. To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image) command.
+When you created a scale set at the start of the tutorial, a `--image` of *UbuntuLTS* was specified for the VM instances. Azure Marketplace includes many images that can be used to create VM instances. To see a list of the most commonly used images, use the [az vm image list](/cli/azure/vm/image) command.
 
 ```azurecli-interactive
 az vm image list --output table
