@@ -1,5 +1,5 @@
 ---
-title: Azure firmware integrity
+title: Firmware integrity - Azure Security
 description: Learn about cryptographic measurements to ensure firmware integrity.
 author: yosharm
 ms.service: security
@@ -27,6 +27,7 @@ The anchor of trust helps defend platform firmware from:
 
 A Cerberus chip has a cryptographic identity that is unique. The identity is established using a signed certificate chain rooted to a Microsoft certificate authority (CA).
 
+## Host Attestation Service
 Cerberus authenticates firmware integrity for server components using a Platform Firmware Manifest (PFM). PFM defines a list of authorized firmware versions and provides a platform measurement to the Azure [Host Attestation Service](measured-boot-host-attestation.md). The Host Attestation Service validates the measurements and makes a determination to only allow trusted hosts to join the Azure fleet and host customer workloads.
 
 In conjunction with the Host Attestation Service, Cerberus’ capabilities enhance and promote a highly secure Azure production infrastructure.

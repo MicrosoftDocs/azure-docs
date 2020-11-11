@@ -1,5 +1,5 @@
 ---
-title: Azure firmware measured boot and host attestation
+title: Firmware measured boot and host attestation - Azure Security
 description: Technical overview of Azure firmware measured boot and host attestation.
 author: yosharm
 ms.service: security
@@ -11,12 +11,13 @@ ms.date: 11/10/2020
 ---
 
 # Measured boot and host attestation
+This article describes how Microsoft ensures integrity and security of hosts through measured boot and host attestation.
 
 ## Measured boot
 
 The [Trusted Platform Module](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node) (TPM) is a tamper-proof, cryptographically secure auditing component with firmware supplied by a trusted third party. The boot configuration log contains hash-chained measurements recorded in it's Platform Configuration Registers (PCR) when the host last underwent the bootstrapping sequence. The following figure shows this recording process. Incrementally adding a previously hashed measurement to the next measurement’s hash and running the hashing algorithm on the union accomplishes hash-chaining.
 
-![Host Attestation Service hash-chaining](./media/measured-boot-host-attestation/hash-chaining.png)
+![Diagram that shows Host Attestation Service hash-chaining.](./media/measured-boot-host-attestation/hash-chaining.png)
 
 Attestation is accomplished when a host furnishes proof of its configuration state using its boot configuration log (TCGLog). Forgery of a boot log is difficult because the TPM doesn't expose its PCR values other than the read and extend operations. Furthermore, the credentials supplied by the Host Attestation Service are sealed to specific PCR values. The use of hash-chaining makes it computationally infeasible to spoof or unseal the credentials out-of-band.
 
@@ -30,7 +31,7 @@ If an Azure host arrives from factory with a security misconfiguration or is tam
 
 Following is a high-level architecture of the host attestation service:
 
-![Host attestation service architecture](./media/measured-boot-host-attestation/host-attestation-arch.png)
+![Diagram that shows Host Attestation Service architecture.](./media/measured-boot-host-attestation/host-attestation-arch.png)
 
 ## Attestation measurements
 

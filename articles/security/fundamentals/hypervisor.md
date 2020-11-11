@@ -1,5 +1,5 @@
 ---
-title: Hypervisor security on the Azure fleet
+title: Hypervisor security on the Azure fleet - Azure Security
 description: Technical overview of hypervisor security on the Azure fleet.
 author: yosharm
 ms.service: security
@@ -26,7 +26,7 @@ The Azure hypervisor is built keeping the following security objectives in mind:
 
 Microsoft’s approach to hardening the Azure hypervisor and the virtualization subsystem can be broken down into the following three categories.
 
-### Strongly defined security boundaries enforced by the hypervisor
+## Strongly defined security boundaries enforced by the hypervisor
 
 The Azure hypervisor enforces multiple security boundaries between:
 
@@ -39,7 +39,7 @@ Confidentiality, integrity, and availability are assured for the hypervisor secu
 
 The hypervisor security boundary also provides segmentation between tenants for network traffic, virtual devices, storage, compute resources, and all other VM resources.
 
-### Defense-in-depth exploit mitigations
+## Defense-in-depth exploit mitigations
 
 In the unlikely event a security boundary has a vulnerability, the Azure hypervisor includes multiple layers of mitigations including:
 
@@ -51,7 +51,7 @@ In the unlikely event a security boundary has a vulnerability, the Azure hypervi
 
 These mitigations are designed to make the development of an exploit for a cross-VM vulnerability infeasible.
 
-### Strong security assurance processes
+## Strong security assurance processes
 
 The attack surface related to the hypervisor includes software networking, virtual devices, and all cross-VM surfaces. The attack surface is tracked through automated build integration, which triggers periodic security reviews.
 

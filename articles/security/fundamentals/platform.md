@@ -1,5 +1,5 @@
 ---
-title: Azure platform integrity and security
+title: Azure platform integrity and security - Azure Security
 description: Technical overview of Azure platform integrity and security.
 author: yosharm
 ms.service: security
