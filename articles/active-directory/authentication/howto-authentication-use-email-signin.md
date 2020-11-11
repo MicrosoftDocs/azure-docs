@@ -84,7 +84,7 @@ For more information, see [Choose the right authentication method for your Azure
 
 ## Enable user sign-in with an email address
 
-Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in name against UPN values, but also against *ProxyAddresses* values for the email address.
+Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in name against UPN values, but also against *ProxyAddresses* values for the email address. There's a propagation delay of around 1 hour when you turn on this feature.
 
 During preview, you can currently only enable the sign-in with email as an alternate login ID feature using PowerShell. You need *tenant administrator* permissions to complete the following steps:
 
@@ -168,6 +168,72 @@ With the policy applied, it can take up to an hour to propagate and for users to
 ## Test user sign-in with email
 
 To test that users can sign in with email, browse to [https://myprofile.microsoft.com][my-profile] and sign in with a user account based on their email address, such as `balas@fabrikam.com`, not their UPN, such as `balas@contoso.com`. The sign-in experience should look and feel the same as with a UPN-based sign-in event.
+
+## Enable staged rollout to test user sign-in with an email address  
+
+Staged rollout allows tenant administrators to enable features for specific groups. It is recommended that tenant administrators use staged rollout to test user sign-in with an email address.  When administrators are ready to deploy this feature to their entire tenant, you should use a Home Realm Discovery policy.  
+
+If you turn on this feature for a new member in staged rollout, it can take up to 24 hours for this feature to propagate through your entire tenant.
+
+You need *tenant administrator* permissions to complete the following steps:
+
+1. Open an PowerShell session as an administrator, then install the *AzureADPreview* module using the [Install-Module][Install-Module] cmdlet:
+
+    ```powershell
+    Install-Module AzureADPreview
+    ```
+
+    If prompted, select **Y** to install NuGet or to install from an untrusted repository.
+
+2. Sign in to your Azure AD tenant as a *tenant administrator* using the [Connect-AzureAD][Connect-AzureAD] cmdlet:
+
+    ```powershell
+    Connect-AzureAD
+    ```
+
+    The command returns information about your account, environment, and tenant ID.
+
+3. List all existing staged rollout policies using the following cmdlet:
+   
+   ```powershell
+   Get-AzureADMSFeatureRolloutPolicy
+   ``` 
+
+4. If there are no existing staged rollout policies for AltID, create a new staged rollout policy and take note of the policy ID:
+
+   ```powershell
+   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "Alternate Login ID Rollout Policy" -IsEnabled $true
+   ```
+
+5. Find the directoryObject ID for the group to be added to the AltID staged rollout policy.  Note the value returned for the *Id* parameter, because it will be used in the next step.
+   
+   ```powershell
+   Get-AzureADMSGroup -SearchString "Name of group to be added to the AltID staged rollout policy"
+   ```
+
+6. Add the group to the staged rollout policy as shown in the following example.  Replace the value in the *-Id* parameter with  with value returned for the policy ID in step 4 and replace the value in the *-RefObjectId* parameter with the *Id* noted in step 5.
+
+   ```powershell
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   ```
+
+### Removing Groups
+
+To remove a group from a staged rollout policy, run the following command.:
+
+```powershell
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+```
+
+### Removing Policies
+
+To remove a staged rollout policy, first disable the policy then remove it from the system:
+
+```powershell
+Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false 
+
+Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
+```
 
 ## Troubleshoot
 
