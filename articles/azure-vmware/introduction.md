@@ -7,7 +7,9 @@ ms.date: 11/11/2020
 
 # What is Azure VMware Solution?
 
-Azure VMware Solution provides you with private clouds in Azure. The private clouds contain vSphere clusters, built from dedicated bare-metal Azure infrastructure. You can scale private cloud clusters from 3 to 16 hosts, with the capability to have multiple clusters in a single private cloud. All provisioned private clouds have vCenter Server, vSAN, vSphere, and NSX-T. You can migrate workloads from your on-premises environments, create or deploy new virtual machines, and consume Azure services from your private clouds.
+Azure VMware Solution provides you with private clouds in Azure. The private clouds contain vSphere clusters, built from dedicated bare-metal Azure infrastructure. You can scale private cloud clusters from 3 to 16 hosts, with the capability to have multiple clusters in a single private cloud. All provisioned private clouds have vCenter Server, vSAN, vSphere, and NSX-T. You can migrate workloads from your on-premises environments, create or deploy new virtual machines (VMs), and consume Azure services from your private clouds.
+
+Azure VMware Solution gives you the ability to deploy a vSphere cluster in Azure. The minimum initial deployment is three hosts. Additional hosts can be added one at a time, up to a maximum of 16 hosts per cluster. 
 
 Azure VMware Solution is a VMware validated solution with on-going validation and testing of enhancements and upgrades. Microsoft manages and maintains private cloud infrastructure and software. It allows you to focus on developing and running workloads in your private cloud. 
 
@@ -42,14 +44,13 @@ Regular upgrades of the Azure VMware Solution private cloud and VMware software 
 Once Azure VMware Solution is deployed into your subscription, [Azure Monitor logs](../azure-monitor/overview.md) are generated automatically. 
 
 In your private cloud, you can:
-- Collect logs on each of your virtual machines.
+- Collect logs on each of your VMs.
 - [Download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-options) on Linux and Windows VMs.
 - Enable the [Azure diagnostics extension](../azure-monitor/platform/diagnostics-extension-overview.md).
+- [Create and run new queries](../azure-monitor/platform/data-platform-logs.md#log-queries).
 - Run the same queries you usually run on your VMs.
 
-To learn more about creating queries, see [Azure Monitor Logs overview](../azure-monitor/platform/data-platform-logs.md). 
-
-Monitoring patterns inside the Azure VMware Solution are similar to Azure Virtual Machines within the IaaS platform. For more information and how-tos, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
+Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs within the IaaS platform. For more information and how-tos, see [Monitoring Azure VMs with Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
 
 ## Next steps
 
