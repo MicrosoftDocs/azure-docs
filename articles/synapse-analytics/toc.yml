@@ -177,7 +177,7 @@
       href: sql/resource-consumption-models.md
     - name: Capacity limits
       href: ./sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Data processed
+    - name: Cost management for serverless SQL pool
       href: sql/data-processed.md
     - name: Best practices serverless SQL pool
       href: sql/best-practices-sql-on-demand.md
@@ -1078,6 +1078,8 @@
     href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: REST APIs
     href: /rest/api/synapse/
+  - name: Microsoft Spark Utilities
+    href: ./spark/microsoft-spark-utilities.md
   - name: Samples
     href: https://github.com/Azure-Samples/Synapse
   - name: System views
