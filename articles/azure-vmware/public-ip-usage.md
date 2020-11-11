@@ -26,21 +26,21 @@ This article details how you can use the public IP functionality in Virtual WAN.
 ## Prerequisites
 
 - Azure VMware Solution environment
-- A webserver running in Azure VMware Solution environment.
+- A web server running in Azure VMware Solution environment.
 - A new non-overlapping IP range for the Virtual WAN hub deployment, typically a `/24`.
 
 ## Reference architecture
 
 :::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Public IP architecture diagram" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
-The architecture diagram shows a customer webserver hosted in the Azure VMware Solution environment and configured with RFC1918 private IP addresses.  This web service is made available to the internet through Virtual WAN public IP functionality.  Public IP is typically a destination NAT translated in Azure Firewall. With DNAT rules, firewall policy translates public IP address requests to a private address (webserver) with a port.
+The architecture diagram shows a web server hosted in the Azure VMware Solution environment and configured with RFC1918 private IP addresses.  The web service is made available to the internet through Virtual WAN public IP functionality.  Public IP is typically a destination NAT translated in Azure Firewall. With DNAT rules, firewall policy translates public IP address requests to a private address (web server) with a port.
 
 User requests hit the firewall on a public IP that, in turn, is translated to private IP using DNAT rules in the Azure Firewall. The firewall checks the NAT table, and if the request matches an entry, it forwards the traffic to the translated address and port in the Azure VMware Solution environment.
 
 The web server receives the request and replies with the requested information or page to the firewall, and then the firewall forwards the information to the user on the public IP address.
 
 ## Test case
-In this scenario, you must publish the IIS webserver to the internet. Use the public IP feature in Azure VMware Solution to publish the website on a public IP address.  We will configure NAT rules on the firewall and access Azure VMware Solution resource (VMs with webserver) with public IP.
+In this scenario, you must publish the IIS web server to the internet. Use the public IP feature in Azure VMware Solution to publish the website on a public IP address.  We will configure NAT rules on the firewall and access Azure VMware Solution resource (VMs with web server) with public IP.
 
 ## Deploy Virtual WAN
 
