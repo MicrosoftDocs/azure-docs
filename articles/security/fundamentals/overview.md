@@ -239,7 +239,7 @@ Application provides many Application Delivery Controller (ADC) features includi
 ### Web Application Firewall
 Web Application Firewall is a feature of [Azure Application Gateway](../../application-gateway/overview.md) that provides protection to web applications that use application gateway for standard Application Delivery Control (ADC) functions. Web application firewall does this by protecting them against most of the OWASP top 10 common web vulnerabilities.
 
-![Web Application Firewall](./media/overview/azure-security-fig1.png)
+![Web Application Firewall](./media/overview/azure-security-fig3.png)
 
 -	SQL injection protection
 
