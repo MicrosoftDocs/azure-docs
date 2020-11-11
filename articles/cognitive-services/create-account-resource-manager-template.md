@@ -40,7 +40,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
 
 One Azure resource is defined in the template:
-* [Microsoft.CognitiveServices/accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts): creates a Cognitive Services resource.
+* [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts): creates a Cognitive Services resource.
 
 ## Deploy the template
 
@@ -68,9 +68,9 @@ One Azure resource is defined in the template:
 # [Azure CLI](#tab/CLI)
 
 > [!NOTE]
-> `az deployment group` create requires Azure CLI version 2.6 or later. To display the version type `az --version`. For more information, see the [documentation](https://docs.microsoft.com/cli/azure/deployment/group).
+> `az deployment group` create requires Azure CLI version 2.6 or later. To display the version type `az --version`. For more information, see the [documentation](/cli/azure/deployment/group).
 
-Run the following script using the Azure Command Line Interface (CLI) [On your local machine](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or in a browser with the **Try it** button. Enter a name and location (for example `centralus`) for a new resource group, and the ARM template will be used to deploy a Cognitive Services resource within it. Remember the name you use. You will use it later to validate the deployment.
+Run the following script using the Azure Command Line Interface (CLI) [On your local machine](/cli/azure/install-azure-cli?view=azure-cli-latest), or in a browser with the **Try it** button. Enter a name and location (for example `centralus`) for a new resource group, and the ARM template will be used to deploy a Cognitive Services resource within it. Remember the name you use. You will use it later to validate the deployment.
 
 
 ```azurecli-interactive
@@ -135,6 +135,6 @@ az group delete --name $resourceGroupName
 ## Next steps
 
 * [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [What is Azure Cognitive Services?](Welcome.md)
+* [What is Azure Cognitive Services?](./what-are-cognitive-services.md)
 * [Natural language support](language-support.md)
 * [Docker container support](cognitive-services-container-support.md)

@@ -42,7 +42,7 @@ You can either check the planned maintenance notification on Azure portal or con
 
 1. In the [Azure portal](https://portal.azure.com), select **Service Health**.
 2. Select **Planned Maintenance** tab
-3. Select **Subscription**, **Region, and **Service** for which you want to check the planned maintenance notification. 
+3. Select **Subscription**, **Region**, and **Service** for which you want to check the planned maintenance notification. 
    
 ### To receive planned maintenance notification
 
