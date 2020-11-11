@@ -1,12 +1,12 @@
-- name: Azure Synapse (SQL DW)
+- name: Dedicated SQL pool (formerly SQL DW)
   href: index.yml
 - name: Switch to Azure Synapse (workspaces preview)
   href: ../overview-what-is.md
 - name: Overview
   items:
-  - name: What is Azure Synapse Analytics?
+  - name: What is dedicated SQL pool?
     href: sql-data-warehouse-overview-what-is.md
-  - name: Azure Synapse Analytics architecture
+  - name: Dedicated SQL pool architecture
     href: massively-parallel-processing-mpp-architecture.md
   - name: Data warehouse units
     href: what-is-a-data-warehouse-unit-dwu-cdwu.md
@@ -382,9 +382,9 @@
     items:
     - name: Full reference
       href: /sql/t-sql/language-reference?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-    - name: Azure Synapse Analytics TSQL language elements
+    - name: T-SQL language elements
       href: sql-data-warehouse-reference-tsql-language-elements.md
-    - name: Azure Synapse Analytics TSQL statements
+    - name: T-SQL statements
       href: sql-data-warehouse-reference-tsql-statements.md
   - name: System views
     href: sql-data-warehouse-reference-tsql-system-views.md
