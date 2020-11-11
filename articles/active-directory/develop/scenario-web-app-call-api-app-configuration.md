@@ -516,5 +516,4 @@ def _build_msal_app(cache=None):
 
 At this point, when the user signs in, a token is stored in the token cache. Let's see how it's then used in other parts of the web app.
 
-> [!div class="nextstepaction"]
-> [A web app that calls web APIs: Remove accounts from the cache on global sign-out](scenario-web-app-call-api-sign-in.md)
+[Remove accounts from the cache on global sign-out](scenario-web-app-call-api-sign-in.md)
