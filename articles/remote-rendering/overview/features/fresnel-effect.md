@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 
 The fresnel effect material feature is a non-physically correct, ad-hoc effect. The feature is based on the physical observation of objects becoming more reflective at these angles. Fresnel reflectance itself is already physically incorporated in the [PBR material model](../../overview/features/pbr-materials.md) used in Azure Remote Rendering. In contrast, the fresnel effect material feature is just an additive color effect with no dependency on [lights](../../overview/features/lights.md) or the [sky environment](../../overview/features/sky.md).
 
-Enabling the fresnel effect feature will give the affected objects a colored shine around their edges. Information about effect customization and examples of the rendering results can be found in the following sections.
+The fresnel effect gives affected objects a colored shine around their edges. Information about effect customization and examples of the rendering results can be found in the following sections.
 
 ## Enabling the fresnel effect
 
@@ -33,7 +33,7 @@ In practice, different color and exponent settings will look like this:
 
 ![Fresnel effect examples](./media/fresnel-effect-examples.png)
 
-Progressively increasing the fresnel effect's exponent visually pulls the fresnel shine more and more to the very edges of the viewed objects. The fresnel effect is also unaffected by transparency, as you can see in the following example:
+The fresnel effect's exponent is progressively increased from 1 to 10 for each color row. Doing so progressively pulls the fresnel shine to the edges of the viewed objects. The fresnel effect is also unaffected by transparency, as you can see in the following example:
 
 ![Fresnel effect transparency examples](./media/fresnel-effect-transparent-examples.png)
 
