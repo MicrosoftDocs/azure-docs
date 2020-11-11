@@ -98,8 +98,8 @@ In case you require to add new entries to the parameter's catalog per conversati
 ```
 With this activity we are adding an entry for "stereo" to the catalog of the parameter "SubjectDevice" in the command "TurnOnOff".
 
-[!div class="mx-imgBorder"]
-:::image type="content" source="./media/custom-commands/update-catalog-with-remote-activity.png" alt-text="Update catalog":::
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/custom-commands/update-catalog-with-remote-activity.png" alt-text="Update catalog":::
 
 Please note a couple of things.
 1. You only need to send this activity once (ideally right after you started a connection).
