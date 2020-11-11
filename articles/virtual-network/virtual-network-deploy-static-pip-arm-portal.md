@@ -17,7 +17,7 @@ ms.author: allensu
 ---
 # Create a virtual machine with a static public IP address using the Azure portal
 
-You can create a virtual machine with a static public IP address. A public IP address enables you to communicate to a virtual machine from the internet. 
+A public IP address enables you to communicate to a virtual machine from the internet. 
 
 Assign a static public IP address, rather than a dynamic address, to ensure that the address never changes.   
 
@@ -57,7 +57,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | **Network interface** |  |
     | Virtual network | Accept the default network name. |
     | Subnet | Accept the default subnet configuration. |
-    | Public IP | Select **Create new**. </br> In **Create public IP address**, for name enter **myPublicIP**. </br> In **SKU**, select **Standard**. </br> In **Assignment**, select **Static**. </br> Select **OK**.  |
+    | Public IP | Select **Create new**. </br> In **Create public IP address**, in name enter **myPublicIP**. </br> For **SKU**, select **Standard**. </br> **Assignment**, select **Static**. </br> Select **OK**.  |
     | NIC network security group | Select **Basic**|
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Select **RDP (3389)** |
@@ -79,13 +79,14 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 
-To change a public IP address assigned to an existing virtual machine from dynamic to static, or to work with private IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md).
+See [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md):
 
-Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses), and there is a [limit](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
+* To change a public IP address from dynamic to static.
+* Work with private IP addresses.
 
-If the virtual machine will be added to the back-end pool of a public Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../load-balancer/skus.md).
+Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses). There's a [limit](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
 
-Azure assigned a public IP address from addresses used in the region you created the virtual machine in. 
+The SKU of the virtual machine's public IP address must match the public IP SKU of Azure Load Balancer when added to a backend pool. For details, see [Azure Load Balancer](../load-balancer/skus.md).
 
 You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
 
