@@ -12,7 +12,7 @@ ms.date: 11/10/2020
 
 You can upgrade your PostgreSQL server deployed in Azure Database for PostgreSQL - Single Server by migrating your databases to a higher major version server using following methods.
 * **Offline** method using PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) which incurs downtime for migrating the data. This document addresses this method of upgrade/migration.
-* **Online** method using [Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). This method provides a reduced downtime migration and keeps the target database in-sync with with the source and you can choose when to cut-over. However, there are few prerequisites and restrictions to be addressed for using DMS. Please see to the [DMS documentation](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) for more details. 
+* **Online** method using [Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS). This method provides a reduced downtime migration and keeps the target database in-sync with with the source and you can choose when to cut-over. However, there are few prerequisites and restrictions to be addressed for using DMS. For details, see the [DMS documentation](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal). 
 
  The following table provides some recommendations based on database sizes and scenarios.
 
@@ -40,7 +40,7 @@ To step through this how-to-guide, you need:
 - A **target** PostgreSQL database server with the desired major version [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md). 
 - A PostgreSQL client system to run the dump and restore commands.
   - It can be a Linux or Windows client with PostgreSQL installed and has [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed. 
-  - Alternatively, you can use [Azure Cloud Shell](https://shell.azure.com) or by clicking the Azure Cloud Shell on the menu bar at the upper right in the [Azure Portal](https://portal.azure.com). You will have to login to your account `az login` before running the dump and restore commands.
+  - Alternatively, you can use [Azure Cloud Shell](https://shell.azure.com) or by clicking the Azure Cloud Shell on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). You will have to login to your account `az login` before running the dump and restore commands.
 - Your PostgreSQL client preferably running in the same region as the source and target servers. 
 
 
@@ -70,11 +70,11 @@ In this guide, the following source and target servers and database names are us
 ## Upgrade your databases using offline migration methods
 You may choose to use one of the methods described in this section for your upgrades. You can use the following tips while performing the tasks.
 
-1. If you are using the same password for source and the target database,  you can set the `PGPASSWORD=yourPassword` environment variable.  Then you don’t have to provide password everytime you run commands like psql, pg_dump, and pg_restore.  Similarly you can setup additional variables like `PGUSER`, `PGSSLMODE` etc. see to [PostgreSQL environment variables](https://www.postgresql.org/docs/11/libpq-envars.html).
+- If you are using the same password for source and the target database,  you can set the `PGPASSWORD=yourPassword` environment variable.  Then you don’t have to provide password every time you run commands like psql, pg_dump, and pg_restore.  Similarly you can setup additional variables like `PGUSER`, `PGSSLMODE` etc. see to [PostgreSQL environment variables](https://www.postgresql.org/docs/11/libpq-envars.html).
   
-2. If your PostgreSQL server requires TLS/SSL connections (on by default in Azure Database for PostgreSQL servers), set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error may read  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
+- If your PostgreSQL server requires TLS/SSL connections (on by default in Azure Database for PostgreSQL servers), set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error may read  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
 
-3. In the Windows command line, run the command `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash run the command `export PGSSLMODE=require` before running the pg_restore command.
+- In the Windows command line, run the command `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash run the command `export PGSSLMODE=require` before running the pg_restore command.
 
 ### Method 1: Migrate using dump file
 
@@ -156,8 +156,8 @@ You can consider this method if you have few larger tables in your database and 
 > [!TIP]
 > The process mentioned in this document can also be used to upgrade your Azure Database for PostgreSQL - Flexible server, which is in Preview. The main difference is the connection string for the flexible server target is without the `@dbName`.  For example, if the user name is `pg`, the single server’s username in the connect string will be `pg@pg-95`, while with flexible server, you can simply use `pg`.
 
-## Next Steps
+## Next steps
 
-- Once you are satisfied with the target database function, you can drop your old database server. 
+- After you're satisfied with the target database function, you can drop your old database server. 
 - If you want to use the same database endpoint as the source server, then after you had deleted your old source database server, you can create a read replica with the old database server name. Once the steady state is established, you can stop the replica, which will promote the replica server to be an independent server. See [Replication](./concepts-read-replicas.md) for more details.
 - Remember to test and validate these commands in a test environment before you use them in production.
