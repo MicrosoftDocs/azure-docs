@@ -687,7 +687,15 @@
     - name: Time sync
       href: time-sync.md
     - name: Tag a VM
-      href: tag.md
+      items:
+      - name: CLI
+        href: ../tag-cli.md
+      - name: Portal
+        href: ../tag-portal.md
+      - name: PowerShell
+        href: ../tag-powershell.md
+      - name: Template
+        href: ../tag-template.md
     - name: Run scripts on a VM
       href: run-scripts-in-vm.md
       items:

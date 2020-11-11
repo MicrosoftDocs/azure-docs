@@ -9,6 +9,7 @@ ms.author: cynthn
 
 
 ## Viewing your tags in the usage details
+
 Tags placed on Compute, Network, and Storage resources in the Resource Manager deployment model will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
 
 Click on **Download usage details** to view the usage details in your subscription.
