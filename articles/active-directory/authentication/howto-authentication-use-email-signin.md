@@ -262,7 +262,6 @@ For more information on hybrid identity operations, see [how password hash sync]
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
 [identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
-[staged-rollout]: ../hybrid/how-to-connect-staged-rollout.md
 
 <!-- EXTERNAL LINKS -->
 [Install-Module]: /powershell/module/powershellget/install-module
