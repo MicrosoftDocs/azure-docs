@@ -16,6 +16,12 @@ ms.author: aahi
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## November 2020
+
+* New asynchronous Analyze endpoint for batch processing of NER, PII and KPE in API v3.1-preview.3
+* New Text Analytics for health hosted endpoint for batch processing in API v3.1-preview.3
+* Both new features listed above are available in West US2, East US2, Central US, North Europe and West Europe regions.
+
 ## October 2020
 
 * Hindi support for Sentiment Analysis v3.x, starting with model version `2020-04-01`. 
