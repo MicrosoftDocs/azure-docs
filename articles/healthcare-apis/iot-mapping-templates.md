@@ -348,7 +348,7 @@ The IotCentralJsonPathContentTemplate also doesn't require DeviceIdExpression an
     "templateId": "urn:qugj6vbw5:___qbj_27r",
     "enqueuedTime": "2020-08-05T22:26:55.455Z",
     "telemetry": {
-        "HeartRate": 88,
+        "HeartRate": "88",
     },
     "enrichments": {
       "userSpecifiedKey": "sampleValue"
