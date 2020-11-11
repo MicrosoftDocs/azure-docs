@@ -239,56 +239,33 @@ For administrator and privileged users, ensure the highest level of the strong a
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40644.).
 
-**Guidance**: Azure Cost Management is integrated with
-Azure Active Directory in which provides the following data sources:
+**Guidance**: Azure Cost Management is integrated with Azure Active Directory in which provides the following data sources:
 
-- Sign-ins
-     - The sign-ins report provides information about the usage of managed
-     applications and user sign-in activities.
-- Audit
-     logs - Provides traceability through logs for all changes done by various
-     features within Azure AD. Examples of audit logs include changes made to
-     any resources within Azure AD like adding or removing users, apps, groups,
-     roles and policies.
-- Risky
-     sign-ins - A risky sign-in is an indicator for a sign-in attempt that
-     might have been performed by someone who is not the legitimate owner of a
-     user account.
-- Users
-     flagged for risk - A risky user is an indicator for a user account that
-     might have been compromised.
+- Sign-ins - The sign-ins report provides information about the usage of managed applications and user sign-in activities.
 
-These
-data sources can be integrated with Azure Monitor, Azure Sentinel or third
-party SIEM systems.
+- Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
 
-Azure
-Security Center can also alert on certain suspicious activities such as
-excessive number of failed authentication attempts, deprecated accounts in the
-subscription.
+- Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
 
-Azure
-Advanced Threat Protection (ATP) is a security solution that can use Active
-Directory signals to identify, detect, and investigate advanced threats,
-compromised identities, and malicious insider actions.
+- Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-Audit
-- [activity reports in the Azure Active Directory](../../active-directory/reports-monitoring/concept-audit-logs.md) 
+These data sources can be integrated with Azure Monitor, Azure Sentinel or third party SIEM systems.
 
-How
-- [to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription.
 
-How
-- [to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
+Azure Advanced Threat Protection (ATP) is a security solution that can use Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions.
 
-How
-- [to monitor users' identity and access activity in Azure Security Center](../../security-center/security-center-identity-access.md) 
+- [Audit activity reports in the Azure Active Directory](../../active-directory/reports-monitoring/concept-audit-logs.md) 
 
-Alerts
-- [in Azure Security Center's threat intelligence protection module](../../security-center/alerts-reference.md) 
+- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-How
-- [to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
+
+- [How to monitor users' identity and access activity in Azure Security Center](../../security-center/security-center-identity-access.md) 
+
+- [Alerts in Azure Security Center's threat intelligence protection module](../../security-center/alerts-reference.md) 
+
+- [How to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -345,38 +322,23 @@ How
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40647.).
 
-**Guidance**: Cost Management for Enterprise Agreements (EA) has
-below highly privileged account.
+**Guidance**: Cost Management for Enterprise Agreements (EA) has below highly privileged account.
 
 - Enterprise Administrator
 
-It is recommended
-to routinely review the users assigned to roles within your Enterprise
-Agreement (EA).
+It is recommended to routinely review the users assigned to roles within your Enterprise Agreement (EA).
 
-It
-is also recommended as a rule, to limit the number of highly privileged accounts
-or roles and protect these accounts at an elevated level because users with
-this privilege can directly or indirectly read and modify every resource in
-your Azure environment.
+It is also recommended as a rule, to limit the number of highly privileged accounts or roles and protect these accounts at an elevated level because users with this privilege can directly or indirectly read and modify every resource in your Azure environment.
 
-You
-can enable just-in-time (JIT) privileged access to Azure resources and Azure AD
-using Azure AD Privileged Identity Management (PIM). JIT grants temporary
-permissions to perform privileged tasks only when users need it. PIM can also
-generate security alerts when there is suspicious or unsafe activity in your
-Azure AD organization.
+You can enable just-in-time (JIT) privileged access to Azure resources and Azure AD using Azure AD Privileged Identity Management (PIM). JIT grants temporary permissions to perform privileged tasks only when users need it. PIM can also generate security alerts when there is suspicious or unsafe activity in your Azure AD organization.
 
 - [Managing Azure Enterprise roles](../../cost-management-billing/manage/understand-ea-roles.md) 
 
-Administrator
-- [role permissions in Azure AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 
+- [Administrator role permissions in Azure AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 
 
-Use
-- [Azure Privileged Identity Management security alerts](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md) 
+- [Use Azure Privileged Identity Management security alerts](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md) 
 
-Securing privileged access for hybrid and cloud deployments
-- [in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
 
 **Azure Security Center monitoring**: Yes
 
@@ -401,25 +363,15 @@ Securing privileged access for hybrid and cloud deployments
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40649.).
 
-**Guidance**: Azure Cost
-Management relies on the appropriate access to view and manage organizational
-cost data. Access is controlled with Azure role-based access control (Azure
-RBAC) at the subscription level and through administrative roles with
-Enterprise Agreements (EA) or Microsoft Customer Agreement (MCA) for billing
-scopes. Audit and review the access granted on a regular basis to make sure
-that the users or groups have the requisite access required.
+**Guidance**: Azure Cost Management relies on the appropriate access to view and manage organizational cost data. Access is controlled with Azure role-based access control (Azure RBAC) at the subscription level and through administrative roles with Enterprise Agreements (EA) or Microsoft Customer Agreement (MCA) for billing scopes. Audit and review the access granted on a regular basis to make sure that the users or groups have the requisite access required.
 
-- Manage
-- [access to billing information for Azure](../../cost-management-billing/manage/manage-billing-access.md)
+- [Manage access to billing information for Azure](../../cost-management-billing/manage/manage-billing-access.md)
 
-- Assign
-- [access to Cost Management data](../../cost-management-billing/costs/assign-access-acm-data.md)
+- [Assign access to Cost Management data](../../cost-management-billing/costs/assign-access-acm-data.md)
 
-- Managing
-- [Azure Enterprise roles](../../cost-management-billing/manage/understand-ea-roles.md)
+- [Managing Azure Enterprise roles](../../cost-management-billing/manage/understand-ea-roles.md)
 
-- Understand
-- [Microsoft Customer Agreement administrative roles in Azure](../../cost-management-billing/manage/understand-mca-roles.md)
+- [Understand Microsoft Customer Agreement administrative roles in Azure](../../cost-management-billing/manage/understand-mca-roles.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -472,20 +424,9 @@ that the users or groups have the requisite access required.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40653.).
 
-**Guidance**: Azure Cost Management integrates with
-Azure role-based access control (RBAC) to manage resources (e.g. budgets, saved
-reports, etc.). Azure RBAC allows you to manage Azure resource access through
-role assignments. You can assign these roles to users, groups  and service principals. There are pre-defined
-built-in roles for certain resources, and these roles can be inventoried or
-queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
-The privileges you assign to resources through the Azure RBAC should be always
-limited to what is required by the roles. This complements the just in time
-(JIT) approach of Azure AD Privileged Identity Management (PIM) and should be
-reviewed periodically.
+**Guidance**: Azure Cost Management integrates with Azure role-based access control (RBAC) to manage resources (e.g. budgets, saved reports, etc.). Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups  and service principals. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically.
 
-Use
-built-in roles to allocate permission and only create custom role when
-required.
+Use built-in roles to allocate permission and only create custom role when required.
 
 Azure Cost Management offers built-in roles, readers and contributors.
 
@@ -493,14 +434,11 @@ Azure Cost Management offers built-in roles, readers and contributors.
 
 - [Azure Cost Management Contributor](../../role-based-access-control/built-in-roles.md#cost-management-contributor)
 
-What
-is Azure role-based access control (Azure RBAC) ../../role-based-access-control/overview.md 
+What is Azure role-based access control (Azure RBAC) ../../role-based-access-control/overview.md 
 
-How
-- [to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md) 
+- [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md) 
 
-How
-- [to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
+- [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -529,25 +467,15 @@ How
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40661.).
 
-**Guidance**: It is recommended to discover, classify, and label your
-sensitive data so that you can design the appropriate controls to ensure
-sensitive information is stored, processed, and transmitted securely by the
-organization's technology systems.
+**Guidance**: It is recommended to discover, classify, and label your sensitive data so that you can design the appropriate controls to ensure sensitive information is stored, processed, and transmitted securely by the organization's technology systems.
 
-Use
-Azure Information Protection (and its associated scanning tool) for sensitive
-information within Office documents on Azure, on-premises, on Office 365, and
-in other locations.
+Use Azure Information Protection (and its associated scanning tool) for sensitive information within Office documents on Azure, on-premises, on Office 365, and in other locations.
 
-You
-can use Azure SQL Information Protection to assist in the classification and
-labeling of information stored in Azure SQL Databases.
+You can use Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Databases.
 
-Tag
-- [sensitive information using Azure Information Protection](/azure/information-protection/what-is-information-protection) 
+- [Tag sensitive information using Azure Information Protection](/azure/information-protection/what-is-information-protection) 
 
-How to implement Azure SQL Data
-- [Discovery](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [How to implement Azure SQL Data Discovery](/azure/sql-database/sql-database-data-discovery-and-classification)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -558,29 +486,17 @@ How to implement Azure SQL Data
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40662.).
 
-**Guidance**: It is recommended to protect sensitive
-data by restricting access using Azure Role Based Access Control (Azure RBAC),
-network-based access controls, and specific controls in Azure services (such as
-encryption in SQL and other databases).
+**Guidance**: It is recommended to protect sensitive data by restricting access using Azure Role Based Access Control (Azure RBAC), network-based access controls, and specific controls in Azure services (such as encryption in SQL and other databases).
 
-To
-ensure consistent access control, all types of access control should be aligned
-to your enterprise segmentation strategy. The enterprise segmentation strategy
-should also be informed by the location of sensitive or business critical data
-and systems.
+To ensure consistent access control, all types of access control should be aligned to your enterprise segmentation strategy. The enterprise segmentation strategy should also be informed by the location of sensitive or business critical data and systems.
 
-For
-the underlying platform, which is managed by Microsoft, Microsoft treats all
-customer content as sensitive and guards against customer data loss and
-exposure. To ensure customer data within Azure remains secure, Microsoft has
-implemented some default data protection controls and capabilities.
+For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented some default data protection controls and capabilities.
 
 - [Assign access to Cost Management data](../../cost-management-billing/costs/assign-access-acm-data.md)
 
 - [Azure Role Based Access Control (RBAC)](../../role-based-access-control/overview.md) 
 
-Understand
-- [customer data protection in Azure](../fundamentals/protection-customer-data.md)
+- [Understand customer data protection in Azure](../fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -591,30 +507,17 @@ Understand
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40663.).
 
-**Guidance**: Monitor for unauthorized transfer of data
-to locations outside of enterprise visibility and control. This typically
-involves monitoring for anomalous activities (large or unusual transfers) that
-could indicate unauthorized data exfiltration.
+**Guidance**: Monitor for unauthorized transfer of data to locations outside of enterprise visibility and control. This typically involves monitoring for anomalous activities (large or unusual transfers) that could indicate unauthorized data exfiltration.
 
-Azure
-Storage Advanced Threat Protection (ATP) and Azure SQL ATP can alert on
-anomalous transfer of information that might indicate unauthorized transfers of
-sensitive information.
+Azure Storage Advanced Threat Protection (ATP) and Azure SQL ATP can alert on anomalous transfer of information that might indicate unauthorized transfers of sensitive information.
 
-Azure
-Information protection (AIP) provides monitoring capabilities for information
-that has been classified and labelled.
+Azure Information protection (AIP) provides monitoring capabilities for information that has been classified and labelled.
 
-If
-required for compliance of data loss prevention (DLP), you can use a host-based
-DLP solution to enforce detective and/or preventative controls to prevent data
-exfiltration.
+If required for compliance of data loss prevention (DLP), you can use a host-based DLP solution to enforce detective and/or preventative controls to prevent data exfiltration.
 
-Enable
-- [Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md) 
+- [Enable Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md) 
 
-Enable
-- [Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [Enable Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -662,18 +565,13 @@ transit between Azure data centers.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40665.).
 
-**Guidance**: To complement access controls, Azure Cost
-Management’s Exports feature supports Azure Storage encryption of the data at
-rest to protect against ‘out of band’ attacks (such as accessing underlying
-storage) using Microsoft-managed keys encryption. This default settings helps ensure that
-attackers cannot easily read or modify the data.
+**Guidance**: To complement access controls, Azure Cost Management’s Exports feature supports Azure Storage encryption of the data at rest to protect against ‘out of band’ attacks (such as accessing underlying storage) using Microsoft-managed keys encryption. This default settings helps ensure that attackers cannot easily read or modify the data.
 
 For more information see:
 
 - [Azure Storage encryption for data at rest](../../storage/common/storage-service-encryption.md)
 
-Understand
-- [encryption at rest in Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
+- [Understand encryption at rest in Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -800,43 +698,25 @@ Remove Azure resources when they are no longer needed.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40667.).
 
-**Guidance**: Azure AD provides the following user logs
-that can be viewed in Azure AD reporting or integrated with Azure Monitor,
-Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring
-and analytics use cases:
+**Guidance**: Azure AD provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
 
-- Sign-ins – The sign-ins report provides
-information about the usage of managed applications and user sign-in
-activities.
-- Audit logs - Provides traceability
-through logs for all changes done by various features within Azure AD. Examples
-of audit logs include changes made to any resources within Azure AD like adding
-or removing users, apps, groups, roles and policies.
-- Risky sign-ins - A risky sign-in is an
-indicator for a sign-in attempt that might have been performed by someone who
-is not the legitimate owner of a user account.
-- Users flagged for risk - A risky user is
-an indicator for a user account that might have been compromised.
+- Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
 
-Azure
-Security Center can also alert on certain suspicious activities such as
-excessive number of failed authentication attempts, deprecated accounts in the
-subscription. In addition to the basic security hygiene monitoring, Azure
-Security Center’s Threat Protection module can also collect more in-depth
-security alerts from individual Azure compute resources (virtual machines, containers,
-app service), data resources (SQL DB and storage), and Azure service layers.
-This capability allows you have visibility on account anomalies inside the
-individual resources.
+- Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
+
+- Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+
+- Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+
+Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
 
 It is also recommended to routinely review the users assigned to roles within your Enterprise Agreement (EA). 
 
 - [Managing Azure Enterprise roles](../../cost-management-billing/manage/understand-ea-roles.md)
 
-Audit
-- [activity reports in the Azure Active Directory](../../active-directory/reports-monitoring/concept-audit-logs.md) 
+- [Audit activity reports in the Azure Active Directory](../../active-directory/reports-monitoring/concept-audit-logs.md) 
 
-Enable
-- [Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
+- [Enable Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
 
