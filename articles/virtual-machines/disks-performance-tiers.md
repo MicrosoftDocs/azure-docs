@@ -4,7 +4,7 @@ description: Learn about performance tiers for managed disks, and learn how to c
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 11/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Performance tiers for managed disks (preview)
 
-Azure Disk Storage currently offers built-in bursting capabilities to provide higher performance for handling short-term unexpected traffic. Premium SSDs have the flexibility to increase disk performance without increasing the actual disk size. This capability allows you to match your workload performance needs and reduce costs. 
+Azure Disk Storage offers built-in bursting capabilities to provide higher performance for handling short-term unexpected traffic. Premium SSDs have the flexibility to increase disk performance without increasing the actual disk size. This capability allows you to match your workload performance needs and reduce costs. 
 
 > [!NOTE]
 > This feature is currently in preview. 
