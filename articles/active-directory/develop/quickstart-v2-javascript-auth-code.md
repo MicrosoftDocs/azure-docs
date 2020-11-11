@@ -100,9 +100,9 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 > };
 > ```
 
-> >[!div renderon="portal" class="sxs-lookup"]
-> >[!NOTE]
-> >`Enter_the_Supported_Account_Info_Here`
+> > [!div renderon="portal" class="sxs-lookup"]
+> > [!NOTE]
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 >
