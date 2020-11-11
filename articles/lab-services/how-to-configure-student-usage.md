@@ -2,7 +2,7 @@
 title: Configure usage settings in classroom labs of Azure Lab Services
 description: Learn how to configure the number of students for a lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 11/11/2020
 ---
 
 # Add and manage lab users
@@ -36,7 +36,9 @@ In this section, you add students to a lab manually or by uploading a CSV file. 
 
 ### Add users by uploading a CSV file
 
-You can also add users by uploading a CSV file that contains their email addresses.
+You can also add users by uploading a CSV file that contains their email addresses. 
+
+A CSV text file is used to store comma-separated (CSV) tabular data (numbers and text). Instead of storing information in columns fields (such as in spreadsheets), a CSV file stores information separated by commas. Each line in a CSV file will have the same number of comma-separated "fields." You can use Excel to easily create and edit CSV files.
 
 1. In Microsoft Excel, create a CSV file that lists students' email addresses in one column.
 
@@ -167,6 +169,7 @@ To add students to a classroom lab, you use their email accounts. Students might
 - A GitHub account. This account must be linked with a Microsoft account.
 
 ### Use a non-Microsoft email account
+
 Students can use non-Microsoft email accounts to register and sign in to a classroom lab.  However, the registration requires that they first create a Microsoft account that's linked to their non-Microsoft email address.
 
 Many students might already have a Microsoft account that's linked to their non-Microsoft email address. For example, students already have a Microsoft account if they've used their email address with other Microsoft products or services, such as Office, Skype, OneDrive, or Windows.  
@@ -181,6 +184,7 @@ Here's a link for students to [sign up for a Microsoft account](http://signup.li
 > When students sign in to a classroom lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, http://signup.live.com, in the classroom lab registration email that you send to students who are using non-Microsoft accounts.
 
 ### Use a GitHub account
+
 Students can also use an existing GitHub account to register and sign in to a classroom lab. If they already have a Microsoft account linked to their GitHub account, students can sign in and provide their password as shown in the preceding section. 
 
 If they haven't yet linked their GitHub account to a Microsoft account, they can do the following:
@@ -204,6 +208,7 @@ If they haven't yet linked their GitHub account to a Microsoft account, they can
 
 
 ## Next steps
+
 See the following articles:
 
 - For administrators: [Create and manage lab accounts](how-to-manage-lab-accounts.md)
