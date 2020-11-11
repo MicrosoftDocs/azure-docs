@@ -39,9 +39,19 @@ Before you begin, you'll need:
 Take the following steps to create a log analytics workspace. A log analytics workspace is a logical storage unit where the log data is collected and stored.
 
 1. In the Azure portal, select **+ Create a resource** and search for **Log Analytics Workspace** and then select **Create**. 
-1. In the **Create Log Analytics workspace**, on the **Basics** tab, provide the subscription, resource group, name, and region for the workspace. 
-1. On the **Pricing tier** tab, accept the default **Pay-as-you-go plan**.
-1. On the **Review + Create** tab, review the information for your workspace and select **Create**.
+1. In the **Create Log Analytics workspace**, configure the following settings. Accept the remainder as default.
+
+    1. On the **Basics** tab, provide the subscription, resource group, name, and region for the workspace. 
+
+    ![Basics tab for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-basics-1.png)  
+
+    1. On the **Pricing tier** tab, accept the default **Pay-as-you-go plan**.
+
+    ![Pricing tab for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-pricing-1.png) 
+
+    1. On the **Review + Create** tab, review the information for your workspace and select **Create**.
+
+    ![Review + Create for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
 
 For more information, see the detailed steps in [Create a Log Analytics workspace via Azure portal](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -52,65 +62,166 @@ Take the following steps to enable Container Insights on your workspace.
 
 1. Follow the detailed steps in [How to add the Azure Monitor Containers solution](../azure-monitor/insights/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution).
 
-1. Here is a sample output of a Log Analytics workspace with Container Insights enabled:
+    The following template and parameters file were used:
 
-3.	Go to the newly created Log Analytics Resource and copy the workspace Id and Workspace Key
-
-
-1. In the IoT Hub resource associated with your device, go to **Automatic Device Management > IoT Edge**.
-1. Select and click the IoT Edge device associated with your Azure Stack Edge Pro device. 
-
-    ![Select IoT Edge device](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/select-iot-edge-device-1.png)  
-
-1. Select **Set modules**. On **Set modules on device**, select **+ Add** and then select **IoT Edge Module**.
-
-    ![Select IoT Edge module](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/select-iot-edge-module-1.png)
-
-1. In the **Add IoT Edge module**:
-
-    1. Specify a **Name** for your webserver app module that you want to deploy.
-    2. Under **Module settings** tab, provide an **Image URI** for your module image. A module matching the provided name and tags is retrieved. In this case, `nginx:stable` will pull a stable nginx image (tagged as stable) from the public [Docker repository](https://hub.docker.com/_/nginx/).
-
-        ![Add IoT Edge module](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/set-module-settings-1.png)    
-
-    3. In the **Container Create Options** tab, paste the following sample code:  
-
-        ```
-        {
-            "HostConfig": {
-                "PortBindings": {
-                    "80/tcp": [
-                        {
-                            "HostPort": "8080"
-                        }
-                    ]
-                }
-            }
+```yml
+{
+"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+"contentVersion": "1.0.0.0",
+"parameters": {
+    "workspaceResourceId": {
+        "type": "string",
+        "metadata": {
+            "description": "Azure Monitor Log Analytics Workspace Resource ID"
         }
-        ```
+    },
+    "workspaceRegion": {
+        "type": "string",
+        "metadata": {
+            "description": "Azure Monitor Log Analytics Workspace region"
+        }
+    }
+},
+"resources": [
+    {
+        "type": "Microsoft.Resources/deployments",
+        "name": "[Concat('ContainerInsights', '-',  uniqueString(parameters('workspaceResourceId')))]",
+        "apiVersion": "2017-05-10",
+        "subscriptionId": "[split(parameters('workspaceResourceId'),'/')[2]]",
+        "resourceGroup": "[split(parameters('workspaceResourceId'),'/')[4]]",
+        "properties": {
+            "mode": "Incremental",
+            "template": {
+                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {},
+                "variables": {},
+                "resources": [
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "location": "[parameters('workspaceRegion')]",
+                        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+                        "properties": {
+                            "workspaceResourceId": "[parameters('workspaceResourceId')]"
+                        },
+                        "plan": {
+                            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+                            "product": "[Concat('OMSGallery/', 'ContainerInsights')]",
+                            "promotionCode": "",
+                            "publisher": "Microsoft"
+                        }
+                    }
+                ]
+            },
+            "parameters": {}
+        }
+     }
+  ]
+}
+```
 
-        This configuration lets you access the module using the compute network IP over *http* on TCP port 8080 (with the default webserver port being 80). Select **Add**.
+The following parameters file was used:
 
-        ![Specify port information in IoT Edge custom module blade](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/verify-module-status-1.png)
+    ```yaml
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "workspaceResourceId": {
+          "value": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/myaserg/providers/microsoft.operationalinsights/workspaces/myaseloganalyticsws"
+      },
+      "workspaceRegion": {
+        "value": "westus"
+      }
+     }
+    }
+    ```
+    Here is a sample output of a Log Analytics workspace with Container Insights enabled:
 
-    4. Select **Review + create**. Review the module details and select **Create**.
+    ```powershell
+    Requesting a Cloud Shell.Succeeded.
+    Connecting terminal...
+    MOTD: Switch to Bash from PowerShell: bash
+    VERBOSE: Authenticating to Azure ...
+    VERBOSE: Building your Azure drive ...
+    
+    PS /home/alpa> az account set -s fa68082f-8ff7-4a25-95c7-ce9da541242f
+    PS /home/alpa> ls
+    clouddrive  containerSolution.json
+    PS /home/alpa> ls
+    clouddrive  containerSolution.json  containerSolutionParams.json
+    PS /home/alpa> az deployment group create --resource-group myaserg --name Testdeployment1 --template-file containerSolution.json --parameters containerSolutionParams.json
+    {- Finished ..
+      "id": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/myaserg/providers/Microsoft.Resources/deployments/Testdeployment1",
+      "location": null,
+      "name": "Testdeployment1",
+      "properties": {
+        "correlationId": "3a9045fe-2de0-428c-b17b-057508a8c575",
+        "debugSetting": null,
+        "dependencies": [],
+        "duration": "PT11.1588316S",
+        "error": null,
+        "mode": "Incremental",
+        "onErrorDeployment": null,
+        "outputResources": [
+          {
+            "id": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/myaserg/providers/Microsoft.OperationsManagement/solutions/ContainerInsights(myaseloganalyticsws)",
+            "resourceGroup": "myaserg"
+          }
+        ],
+        "outputs": null,
+        "parameters": {
+          "workspaceRegion": {
+            "type": "String",
+            "value": "westus"
+          },
+          "workspaceResourceId": {
+            "type": "String",
+            "value": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/myaserg/providers/microsoft.operationalinsights/workspaces/myaseloganalyticsws"
+          }
+        },
+        "parametersLink": null,
+        "providers": [
+          {
+            "id": null,
+            "namespace": "Microsoft.Resources",
+            "registrationPolicy": null,
+            "registrationState": null,
+            "resourceTypes": [
+              {
+                "aliases": null,
+                "apiProfiles": null,
+                "apiVersions": null,
+                "capabilities": null,
+                "defaultApiVersion": null,
+                "locations": [
+                  null
+                ],
+                "properties": null,
+                "resourceType": "deployments"
+              }
+            ]
+          }
+        ],
+        "provisioningState": "Succeeded",
+        "templateHash": "10500027184662969395",
+        "templateLink": null,
+        "timestamp": "2020-11-06T22:09:56.908983+00:00",
+        "validatedResources": null
+      },
+      "resourceGroup": "myaserg",
+      "tags": null,
+      "type": "Microsoft.Resources/deployments"
+    }
+    PS /home/alpa>
+    ```
 
-## Verify module access
+1. Go to the newly created Log Analytics Resource and copy the workspace Id and Workspace Key.
 
-1. Verify the module is successfully deployed and is running. On the **Modules** tab, the runtime status of the module should be **running**.  
+    ![Agents management in Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/log-analytics-workspace-agents-management-1.png)
 
-    ![Verify module status is running](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/verify-module-status-1.png)
-
-1. To get the external endpoint of the webserver app, [access the Kubernetes dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#access-dashboard). 
-1. In the left-pane of the dashboard, filter by **iotedge** namespace. Go to **Discovery and Load balancing > Services**. Under the list of services listed, locate the external endpoint for the webserver app module. 
-
-    ![Connect to webserver app at external endpoint](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/connect-external-endpoint-1.png)
-
-1. Select the external endpoint to open a new browser window.
-
-    You should see that the webserver app is running.
-
-    ![Verify connection to module over specified port](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/verify-webserver-app-1.png)
+1. 
 
 ## Next steps
 
