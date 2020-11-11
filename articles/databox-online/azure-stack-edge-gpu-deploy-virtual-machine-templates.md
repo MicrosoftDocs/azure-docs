@@ -73,7 +73,7 @@ Configure these prerequisites to create resources which will be needed for VM cr
     
 ### Create a resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which the Azure resources such as storage account, disk, managed disk are deployed and managed.
+Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which the Azure resources such as storage account, disk, managed disk are deployed and managed.
 
 > [!IMPORTANT]
 > All the resources are created in the same location as that of the device and the location is set to **DBELocal**.
@@ -626,4 +626,4 @@ To verify if the environment variable for AzCopy was set correctly, take the fol
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

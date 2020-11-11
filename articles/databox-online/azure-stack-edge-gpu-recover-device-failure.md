@@ -77,7 +77,7 @@ To prepare for a potential device failure, you may have deployed one of the foll
 
 | Backup solutions        | Supported OS   | Reference                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
-| Microsoft Azure Recovery Services (MARS) agent for Azure Backup | Windows        | [About MARS agent](/azure/backup/backup-azure-about-mars)    |
+| Microsoft Azure Recovery Services (MARS) agent for Azure Backup | Windows        | [About MARS agent](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure Integration, Backup and Recovery solution brief](https://www.cohesity.com/solution/cloud/azure) <br>For details, contact Cohesity.                          |
 | Commvault               | Windows, Linux | https://www.commvault.com/azure <br> For details, contact Commvault.
 | Veritas                 | Windows, Linux | http://veritas.com/azure <br> For details, contact Veritas.                    |

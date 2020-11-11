@@ -80,7 +80,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     `Uninstall-Module -Name Azure.Storage`
 
-5. [Download AzCopy 10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#download-azcopy) to your Windows client. Make a note of this location as you will pass it as a parameter while running the script.
+5. [Download AzCopy 10](../storage/common/storage-use-azcopy-v10.md#download-azcopy) to your Windows client. Make a note of this location as you will pass it as a parameter while running the script.
 
 6. Make sure that your Windows client is running TLS 1.2 or later.
 
