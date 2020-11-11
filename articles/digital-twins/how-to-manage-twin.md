@@ -365,7 +365,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 For an example of how to delete all twins at once, download the sample app used in the [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllTwins()` function.
 
-## Manage twins using runnable code sample
+## Runnable digital twin code sample
 
 You can use the runnable code sample below to create a twin, update its details, and delete the twin. 
 

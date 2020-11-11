@@ -226,7 +226,8 @@ You can now call this method to delete a relationship like this:
 ```csharp
 await DeleteRelationship(client, srcId, relId);
 ```
-## Create a twin graph 
+
+## Runnable twin graph sample
 
 The following runnable code snippet uses the relationship operations from this article to create a twin graph out of digital twins and relationships.
 
