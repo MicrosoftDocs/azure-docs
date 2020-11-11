@@ -23,7 +23,7 @@ Instead of duplicating existing information in your system, you'll maintain the 
 
 ## Identity
 
-Identities are created with Azure Communication Service Administration library. Identity serves as identifier in the conversations and is used for creation of access tokens. The same identity might participate in multiple simultaneous sessions across multiple devices. Identity can have multiple active access tokens at the same time. Deletion of identity, resource, or subscription causes invalidation of all its access tokens and deletion of all data that are stored for this identity. Deleted identity can’t issue new access tokens and can't retrieve stored data (for example, chat messages). 
+Identities are created with Azure Communication Service Administration library. Identity serves as identifier in the conversations and is used for creation of access tokens. The same identity might participate in multiple simultaneous sessions across multiple devices. Identity might have multiple active access tokens at the same time. Deletion of identity, resource, or subscription causes invalidation of all its access tokens and deletion of all data that are stored for this identity. Deleted identity can’t neither issue new access tokens nor access previously stored data (for example, chat messages). 
 
 You aren't charged by the number of identities you have, but by the usage of primitives. Number of identities don't have to restrict, how to map your application's identities to the Azure Communication Services Identities. With the freedom of mapping comes responsibility in the terms of privacy. When your application's user wants to be deleted from your system, you need to delete all identities, that were associated with that user.
 
@@ -35,7 +35,7 @@ Azure Communication Services isn't replicating the functionality of IMS. It does
 
 Instead of duplication, you're encouraged to design, how users from your identity domain will be mapped to Azure Communication Service Identities. You can follow any kind of pattern 1:1, 1:N, N:1 or M:N. You can decide whether single user is mapped to single identity or to multiple identities. When new identity is created, you're encouraged to store the mapping of this identity to your application's user or users. As identities require the access tokens for usage of the primitives, the identity needs to be known for your application's user or users.
 
-If you are using relational database for storage of users, the implementation can differ based on your mapping scenario. For scenarios with mapping 1:1 or N:1, you may add a *CommunicationServicesId* column to the table to store your Azure Communication Services identity. In case of scenarios with relationship 1:N or N:M, you might consider creating a separate table in relational database.
+If you're using relational database for storage of users, the implementation can differ based on your mapping scenario. For scenarios with mapping 1:1 or N:1, you may add a *CommunicationServicesId* column to the table to store your Azure Communication Services identity. In scenarios with relationship 1:N or N:M, you might consider creating a separate table in relational database.
 
 ## Access token
 
@@ -49,7 +49,7 @@ The properties of the access token are: *identity, expiration*, and *scopes*. Ac
 |VoIP|	Grants the ability to call identities and phone numbers|
 
 
-If you want to revoke the access token before its expiration, you can use Azure Communication Service Administration library to do so. Revocation of the token isn't immediate and takes up to 15 minutes to propagate. Removal of identity, resource, or subscription will cause revocation of all access tokens. If you wish to remove a user's ability to access specific functionality, first revoke all access tokens and then issue a new access token with a more limited set of scopes.
+If you want to revoke the access token before its expiration, you can use Azure Communication Service Administration library to do so. Revocation of the token isn't immediate and takes up to 15 minutes to propagate. Removal of identity, resource, or subscription will cause revocation of all access tokens. If you wish to remove a user's ability to access specific functionality, revoke all access tokens. Then issue a new access token with a more limited set of scopes.
 Rotation of access keys of Azure Communication Service will cause revocation of all active access tokens that were created with former access key. All identities will lose access to the Azure Communication Service and are required to issue new access tokens. 
 
 We recommend issuing access tokens in your server-side service and not in the client's application. The reasoning is, that issuing requires access key or to be managed identity. It isn't recommended for security reasons to share the access keys with the client's application. Client application should use trusted service endpoint that can authenticate your clients, and issue access token on their behalf. More details about the architecture can be found [here](./client-and-server-architecture.md).

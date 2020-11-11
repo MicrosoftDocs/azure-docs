@@ -86,7 +86,7 @@ var client = new CommunicationIdentityClient(ConnectionString);
 
 ## Create an identity
 
-Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. You should maintain a mapping between your application's users and Communication Services generated identities (e.g. by storing them in your application server's database).
+Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity for later use with mapping to your application's users (for example, by storing them in your application server's database).
 
 ```csharp
 var identityResponse = await client.CreateUserAsync();
@@ -96,7 +96,7 @@ Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 
 ## Issue identity access tokens
 
-Use the `issueToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed with the identity, which you are suppose to store and map to your application's users.
+Use the `issueToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed based on string representation of Azure Communication Service identity.
 
 ```csharp
 // Issue an access token with the "voip" scope for an identity
@@ -111,7 +111,7 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Refresh access tokens
 
-To refresh an access token, use the `CommunicationUser` object to re-issue:
+To refresh an access token, use the `CommunicationUser` object to reissue:
 
 ```csharp  
 // Value existingIdentity represents identity of Azure Communication Services stored during identity creation
@@ -121,7 +121,7 @@ tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { Communic
 
 ## Revoke access tokens
 
-In some cases, you may explicitly revoke access tokens. For example, when a application's user changes the password they use to authenticate to your service. Method `RevokeTokensAsync` invalidates all active access tokens, that were issued to the identity.
+In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `RevokeTokensAsync` invalidates all active access tokens, that were issued to the identity.
 
 ```csharp  
 await client.RevokeTokensAsync(identity);
@@ -130,7 +130,7 @@ Console.WriteLine($"\nSuccessfully revoked all access tokens for identity with I
 
 ## Delete an identity
 
-Deleting an identity revokes all active access tokens and prevents you from issuing subsequent access tokens for the identities. It also removes all the persisted content associated with the identity.
+Deleting an identity revokes all active access tokens and prevents you from issuing access tokens for the identities. It also removes all the persisted content associated with the identity.
 
 ```csharp
 await client.DeleteUserAsync(identity);

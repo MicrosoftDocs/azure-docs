@@ -91,7 +91,7 @@ const identityClient = new CommunicationIdentityClient(connectionString);
 
 ## Create an identity
 
-Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. You should maintain a mapping between your application's users and Communication Services generated identities (e.g. by storing them in your application server's database).
+Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity for later use with mapping to your application's users (for example, by storing them in your application server's database).
 
 ```javascript
 let identityResponse = await identityClient.createUser();
@@ -100,7 +100,7 @@ console.log(`\nCreated an identity with ID: ${identityResponse.communicationUser
 
 ## Issue access tokens
 
-Use the `issueToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed with the identity, which you are suppose to store and map to your application's users. 
+Use the `issueToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed based on string representation of Azure Communication Service identity.
 
 ```javascript
 // Issue an access token with the "voip" scope for an identity
@@ -115,7 +115,7 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Refresh access tokens
 
-To refresh an access token, use the `CommunicationUser` object to re-issue:
+To refresh an access token, use the `CommunicationUser` object to reissue:
 
 ```javascript  
 // Value existingIdentity represents identity of Azure Communication Services stored during identity creation
@@ -135,7 +135,7 @@ console.log(`\nSuccessfully revoked all access tokens for identity with Id: ${id
 
 ## Delete an identity
 
-Deleting an identity revokes all active access tokens and prevents you from issuing subsequent access tokens for the identity. It also removes all the persisted content associated with the identity.
+Deleting an identity revokes all active access tokens and prevents you from issuing access tokens for the identity. It also removes all the persisted content associated with the identity.
 
 ```javascript
 await identityClient.deleteUser(identityResponse);

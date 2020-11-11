@@ -102,7 +102,7 @@ You can initialize the client with any custom HTTP client the implements the `co
 
 ## Create an identity
 
-Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. We recommend to maintain mapping between your application's users and Communication Services generated identities (for example, by storing them in your application server's database).
+Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity for later use with mapping to your application's users (for example, by storing them in your application server's database).
 
 ```java
 CommunicationUser identity = communicationIdentityClient.createUser();
@@ -111,7 +111,7 @@ System.out.println("\nCreated an identity with ID: " + identity.getId());
 
 ## Issue access tokens
 
-Use the `issueToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `user` can be constructed with the identity, which you're suppose to store and map to your application's users. 
+Use the `issueToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `user` can be constructed based on string representation of Azure Communication Service identity.
 
 ```java
 // Issue an access token with the "voip" scope for an identity
