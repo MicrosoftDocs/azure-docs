@@ -10,8 +10,8 @@ ms.date: 11/11/2020
 # What's new in Azure Monitor documentation?
 
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
-#
-# October 2020
+
+## October 2020
 
 ### General
 - [Azure Monitor API retirement](platform/operationalinsights-api-retirement.md) - New article.
@@ -33,7 +33,6 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Monitor availability and responsiveness of any web site](app/monitor-web-app-availability.md) - Added section on location population tags.
 - [Monitor Java applications anywhere - Azure Monitor Application Insights](app/java-standalone-config.md) - Added configuration example.
 - [Monitor Java applications anywhere - Azure Monitor Application Insights](app/java-standalone-telemetry-processors.md) - New article.
-- [Monitor Java applications on any environment - Azure Monitor Application Insights](app/java-in-process-agent-datascrubbing.md) - New article.
 - [Use Application Change Analysis in Azure Monitor to find web-app issues](app/change-analysis.md) - Added sections on virtual machines and Activity log.
   
 ### Autoscale
