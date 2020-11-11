@@ -17,7 +17,7 @@ In contrast, [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-
 
 ### Virtual machine image reference
 
-The Batch service uses [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) to provide compute nodes in the Virtual Machine Configuration. You can specify an image from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), or [use the Shared Image Gallery to prepare a custom image]((batch-sig-images.md).
+The Batch service uses [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) to provide compute nodes in the Virtual Machine Configuration. You can specify an image from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), or [use the Shared Image Gallery to prepare a custom image](batch-sig-images.md).
 
 When you create a virtual machine image reference, you must specify the following properties:
 
