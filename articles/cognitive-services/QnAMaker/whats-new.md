@@ -20,13 +20,12 @@ Learn what's new with QnA Maker.
 
 ### November 2020
 
+* New version of QnA Maker launched in free Public Preview. Read more [here](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
 * Simplified resource creation
 * End to End region support
 * Deep learnt ranking model
 * Machine Reading Comprehension for precise answers
   
-  Check out the [blog](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
-
 ### July 2020
 
 * [Metadata: `OR` logical combination of multiple metadata pairs](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
