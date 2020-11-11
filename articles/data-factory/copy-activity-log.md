@@ -21,6 +21,7 @@ ms.author: yexu
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You can log your copied file names in copy activity, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copied files in copy activity session logs.  
+
 When you enable fault tolerance setting in copy activity to skip faulty data, the skipped files and skipped rows can also be logged.  You can get more details from [fault tolerance in copy activity](copy-activity-fault-tolerance.md). 
 
 ## Configuration
@@ -67,9 +68,9 @@ The following example provides a JSON definition to enable session log in Copy A
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
-enableCopyActivityLog | when set it to true, you will have the opportunity to log copied files, skipped files or skipped rows.  | True<br/>False (default) | No
-logLevel | Info level will log all the copied files, skipped files and skipped rows. Warning level will log skipped files and skipped rows only.  | Info<br/>Warning (default) | No
-enableReliableLogging | When it is true, copy activity in reliable mode will flush logs immediately once each file is copied to the destination.  When you are copying huge amounts of files with reliable logging mode enabled in copy activity, you should expect the copy throughput would be impacted, since double write operations are required for each file copying. One request is to the destination store and another request is to the log storage store.  Copy activity in best effort mode will flush logs with batch of records within a period of time, where the copy throughput will be much less impacted. The completeness and timeliness of logging is not guaranteed in this mode when copy activity failed. There are a few possibilities that the last batch of log events have not been flushed to the log file, so you will see a few files copied to the destination are not logged.  | True<br/>False (default) | No
+enableCopyActivityLog | When set it to true, you will have the opportunity to log copied files, skipped files or skipped rows.  | True<br/>False (default) | No
+logLevel | "Info" will log all the copied files, skipped files and skipped rows. "Warning" will log skipped files and skipped rows only.  | Info<br/>Warning (default) | No
+enableReliableLogging | When it is true, copy activity in reliable mode will flush logs immediately once each file is copied to the destination.  When you are copying huge amounts of files with reliable logging mode enabled in copy activity, you should expect the copy throughput would be impacted, since double write operations are required for each file copying. One request is to the destination store and another request is to the log storage store.  Copy activity in best effort mode will flush logs with batch of records within a period of time, where the copy throughput will be much less impacted. The completeness and timeliness of logging is not guaranteed in this mode since there are a few possibilities that the last batch of log events has not been flushed to the log file when copy activity failed. At this moment, you will see a few files copied to the destination are not logged.  | True<br/>False (default) | No
 logLocationSettings | A group of properties that can be used to specify the location to store the session logs. | | No
 linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the session log files. | The names of an `AzureBlobStorage` or `AzureBlobFS` types linked service, which refers to the instance that you use to store the log files. | No
 path | The path of the log files. | Specify the path that you want to store the log files. If you do not provide a path, the service creates a container for you. | No
@@ -100,17 +101,17 @@ After the copy activity runs completely, you can see the path of log files from 
 
 ### The schema of the log file
 
-The schema of a log file is as following:
+The following is the schema of a log file.
 
 Column | Description 
 -------- | -----------  
-Timestamp | The timestamp when ADF reads, writes or skips the object.
-Level | The log level of this item. It can be 'Warning' or “Info” based on the configuration in copy activity.
-OperationName | ADF copy activity operational behavior on each object. It can be ‘FileRead’,’ FileWrite’, 'FileSkip' and ‘TabularRowSkip’.
+Timestamp | The timestamp when ADF reads, writes, or skips the object.
+Level | The log level of this item. It can be 'Warning' or “Info”.
+OperationName | ADF copy activity operational behavior on each object. It can be ‘FileRead’,’ FileWrite’, 'FileSkip', or ‘TabularRowSkip’.
 OperationItem | The file names or skipped rows.
-Message | More information to illustrate if the file has been read from source or written to the destination. Or why the file or rows has being skipped.
+Message | More information to show if the file has been read from source store, or written to the destination store. It can also be why the file or rows has being skipped.
 
-The example of a log file is as following: 
+The following is an example of a log file. 
 ```
 Timestamp, Level, OperationName, OperationItem, Message
 2020-10-19 08:39:13.6688152,Info,FileRead,"sample1.csv","Start to read file: {""Path"":""sample1.csv"",""ItemType"":""File"",""Size"":104857620,""LastModified"":""2020-10-19T08:22:31Z"",""ETag"":""\""0x8D874081F80C01A\"""",""ContentMD5"":""dGKVP8BVIy6AoTtKnt+aYQ=="",""ObjectName"":null}"
@@ -122,7 +123,7 @@ Timestamp, Level, OperationName, OperationItem, Message
 ```
 From the log file above, you can see sample1.csv has been skipped because it failed to be verified to be consistent between source and destination store. You can get more details about why sample1.csv becomes inconsistent is because it was being changed by other applications when ADF copy activity is copying at the same time. You can also see sample2.csv has been successfully copied from source to destination store.
 
-You can use multiple analysis engine to further analyze the log files.  There are a few examples below to use SQL query to analyze the log file by importing csv log file to SQL database where the table name can be SessionLogDemo.  
+You can use multiple analysis engines to further analyze the log files.  There are a few examples below to use SQL query to analyze the log file by importing csv log file to SQL database where the table name can be SessionLogDemo.  
 
 -   Give me the copied file list. 
 ```sql
@@ -159,7 +160,7 @@ select TIMESTAMP, OperationItem, Message from SessionLogDemo where OperationName
 select TIMESTAMP, OperationItem, Message from SessionLogDemo where OperationName='FileSkip' and Message like '%UserErrorSourceBlobNotExist%'
 ```
 
--   Give me the file name which requires the longest time to copy.
+-   Give me the file name that requires the longest time to copy.
 ```sql
 select top 1 OperationItem, CopyDuration=DATEDIFF(SECOND, min(TIMESTAMP), max(TIMESTAMP)) from SessionLogDemo group by OperationItem order by CopyDuration desc
 ```
