@@ -2,7 +2,7 @@
 title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
-ms.date: 05/04/2020
+ms.date: 09/26/2020
 ---
 
 # What is Azure VMware Solution?
@@ -35,11 +35,11 @@ vSAN data-at-rest encryption is enabled by default and is used to provide vSAN d
 
 ## Host and software lifecycle maintenance
 
-Regular upgrades of the Azure VMware Solution private cloud and VMware software ensures the latest security, stability, and feature sets are running in your private clouds. More details about platform maintenance and upgrades are available in the [upgrade concepts](concepts-upgrades.md) article.
+Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private clouds. More details about platform maintenance and upgrades are available in the [upgrade concepts](concepts-upgrades.md) article.
 
 ## Monitoring your private cloud
 
-Once Azure VMware Solution is deployed into your subscription, [Azure Monitor logs](../azure-monitor/overview.md) are generated automatically. Additionally, you can collect logs on each of your virtual machines within your private cloud. You can [download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-options) on Linux and Windows virtual machines running in your Azure VMware Solution private clouds, as well as enable the [Azure diagnostics extension](../azure-monitor/platform/diagnostics-extension-overview.md). You can even run the same queries you normally run on your virtual machines. To learn more about creating queries, see [Azure Monitor Logs overview](../azure-monitor/platform/data-platform-logs.md). Monitoring patterns inside the Azure VMware Solution are similar to Azure Virtual Machines within the IaaS platform. For additional information and how-tos, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
+Once Azure VMware Solution is deployed into your subscription, [Azure Monitor logs](../azure-monitor/overview.md) are generated automatically. Additionally, you can collect logs on each of your virtual machines within your private cloud. You can [download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-options) on Linux and Windows virtual machines running in your Azure VMware Solution private clouds, as well as enable the [Azure diagnostics extension](../azure-monitor/platform/diagnostics-extension-overview.md). You can even run the same queries you normally run on your virtual machines. To learn more about creating queries, see [Azure Monitor Logs overview](../azure-monitor/platform/data-platform-logs.md). Monitoring patterns inside the Azure VMware Solution are similar to Azure Virtual Machines within the IaaS platform. For more information and how-tos, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
 
 ## Next steps
 
