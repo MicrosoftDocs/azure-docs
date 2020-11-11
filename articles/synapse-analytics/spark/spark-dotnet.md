@@ -69,9 +69,9 @@ The .NET Spark notebook is based on the [.NET interactive](https://github.com/do
 
 ### Install NuGet packages in notebooks
 
-You can install NuGet packages of your choice into your notebook by using the `#r` symbol before the name of the NuGet package. For example:
+You can install NuGet packages of your choice into your notebook by using the `#r` symbol before the name of the NuGet package. The following diagram shows an example:
 
-![Spark .NET notebook NuGet package](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
+![Screenshot that shows using #r with a Spark .NET notebook NuGet package](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
 
 ### .NET for Apache Spark C# kernel features
 
@@ -83,13 +83,13 @@ The following features are available when you use .NET for Apache Spark in the A
 * Access to the standard C# library (such as System, LINQ, Enumerables, and so on).
 * Support for C# 8.0 language features.
 * `spark` as a pre-defined variable to give you access to your Apache Spark session.
-* Support for defining [.NET user-defined functions that can run within Apache Spark](/dotnet/spark/how-to-guides/udf-guide) (view this article to learn how to use UDFs in .NET for Apache Spark interactive experiences).
+* Support for defining [.NET user-defined functions that can run within Apache Spark](/dotnet/spark/how-to-guides/udf-guide). We recommend [Write and call UDFs in .NET for Apache Spark Interactive environments](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue) for learning how to use UDFs in .NET for Apache Spark Interactive experiences.
 * Support for visualizing output from your Spark jobs using different charts (such as line, bar, or histogram) and layouts (such as single, overlaid, and so on) using the `XPlot.Plotly` library.
 * Ability to include NuGet packages into your C# notebook.
 
 ## Next steps
 
 * [.NET for Apache Spark documentation](/dotnet/spark/)
-* [.NET for Apache Spark Interactive guides](/dotnet/spark/how-to-guides/udf-guide)
+* [.NET for Apache Spark Interactive guides](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue)
 * [Azure Synapse Analytics](../../index.yml)
 * [.NET Interactive](https://devblogs.microsoft.com/dotnet/creating-interactive-net-documentation/)
