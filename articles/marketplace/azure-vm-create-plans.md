@@ -175,10 +175,6 @@ Select the link to choose up to six recommended virtual machine sizes to display
 
 Add open public or private ports on a deployed virtual machine.
 
-<!--### Storage option for deployment
-
-For **Disk deployment option**, select the type of disk deployment that your customers can use for the virtual machine. Microsoft recommends limiting the deployment to **Managed disk deployment** only.
--->
 ### Properties
 
 Select if your VM **Supports Accelerated Networking**. For details, see [Accelerated Networking](https://go.microsoft.com/fwlink/?linkid=2124513).
