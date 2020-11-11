@@ -60,5 +60,5 @@ Edgeless RT is an open-source project that builds upon the Open Enclave SDK. It 
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine](/confidential-computing/virtual-machine-solutions)
-[Confidential Containers](/confidential-computing/containercompute/confidential-containers)
+[DC Virtual Machine](/azure/confidential-computing/virtual-machine-solutions)
+[Confidential Containers](/azure/confidential-computing/confidential-containers)

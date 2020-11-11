@@ -1,5 +1,5 @@
 ---
-title: Virtual network isolation and privacy overview
+title: Virtual network isolation and security overview
 titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network with Azure Machine Learning to secure workspace resources and compute environments.
 services: machine-learning
@@ -27,10 +27,10 @@ Here are the other articles in this series:
 ## Prerequisites
 
 This article assumes that you have familiarity with the following topics:
-+ [Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-+ [IP networking](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
++ [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
++ [IP networking](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
-+ [Network Security Groups (NSG)](../virtual-network/security-overview.md)
++ [Network Security Groups (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Network firewalls](../firewall/overview.md)
 
 ## Example scenario

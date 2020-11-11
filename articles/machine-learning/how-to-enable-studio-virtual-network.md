@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
 
 ---
@@ -33,7 +33,7 @@ See the other articles in this series:
 
 
 > [!IMPORTANT]
-> While most of the studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook]() section.
+> If your workspace is in a __sovereign cloud__, such as Azure Government or Azure China 21Vianet, integrated notebooks _do not_ support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) section.
 
 
 ## Prerequisites
@@ -63,9 +63,6 @@ If you do not enable managed identity, you will receive this error, `Error: Unab
 * Submit an AutoML experiment.
 * Start a labeling project.
 
-> [!NOTE]
-> [ML assisted data labelling](how-to-create-labeling-projects.md#use-ml-assisted-labeling) does not support default storage accounts secured behind a virtual network. You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network. 
-
 The studio supports reading data from the following datastore types in a virtual network:
 
 * Azure Blob
@@ -73,7 +70,11 @@ The studio supports reading data from the following datastore types in a virtual
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-### Configure datastores to use managed identity
+### Grant workspace managed identity __Reader__ access to storage private link
+
+This step is only required if you added the Azure storage account to your virtual network with a [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role.
+
+### Configure datastores to use workspace managed identity
 
 Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect to storage accounts. Use the following steps to configure your datastores to use managed identity. 
 
@@ -86,14 +87,17 @@ Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect 
 1. In the datastore settings, select __Yes__ for  __Allow Azure Machine Learning service to access the storage using workspace-managed identity__.
 
 
-These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure resource-based access control (RBAC). __Reader__ access lets the workspace retrieve firewall settings, and ensure that data doesn't leave the virtual network.
+These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure resource-based access control (Azure RBAC). __Reader__ access lets the workspace retrieve firewall settings, and ensure that data doesn't leave the virtual network.
 
 > [!NOTE]
 > These changes may take up to 10 minutes to take effect.
 
 ## Technical notes for managed identity
 
-Using managed identity to access storage services impacts some security considerations. These considerations are unique to the type of storage account you are accessing. This section describes the changes for each storage account type.
+Using managed identity to access storage services impacts some security considerations. This section describes the changes for each storage account type.
+
+> [!IMPORTANT]
+> These considerations are unique to the __type of storage account__ you are accessing.
 
 ### Azure Blob storage
 
@@ -101,9 +105,9 @@ For __Azure Blob storage__, the workspace-managed identity is also added as a [B
 
 ### Azure Data Lake Storage Gen2 access control
 
-You can use both RBAC and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
+You can use both Azure RBAC and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
 
-To use RBAC, add the workspace-managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information, see [Azure role-based access control](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control).
+To use Azure RBAC, add the workspace-managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information, see [Azure role-based access control](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 To use ACLs, the workspace-managed identity can be assigned access just like any other security principle. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
@@ -115,7 +119,7 @@ Azure Data Lake Storage Gen1 only supports POSIX-style access control lists. You
 
 To access data stored in an Azure SQL Database using managed identity, you must create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 
-After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
 ### Azure Machine Learning designer default datastore
 
@@ -124,7 +128,7 @@ The designer uses the storage account attached to your workspace to store output
 To set a new default storage for a pipeline:
 
 1. In a pipeline draft, select the **Settings gear icon** near the title of your pipeline.
-1. Select **Select default datastore**.
+1. Select the **Select default datastore**.
 1. Specify a new datastore.
 
 You can also override the default datastore on a per-module basis. This gives you control over the storage location for each individual module.

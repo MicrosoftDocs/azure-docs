@@ -15,9 +15,17 @@
       href: security-center-services.md
     - name: Feature coverage for Azure PaaS resources
       href: features-paas.md
-  - name: What's new in Security Center?
-    displayName: release notes
-    href: release-notes.md
+  - name: What's new?
+    items:
+    - name: Release notes
+      displayName: changelog, news
+      href: release-notes.md
+    - name: Important upcoming changes
+      displayName: release notes, changelog, news
+      href: upcoming-changes.md
+    - name: Archived release notes (older than six months)
+      displayName: changelog, news
+      href: release-notes-archive.md
   - name: Security Center fundamentals
     items:
     - name: Security Center's overview page
@@ -25,7 +33,7 @@
     - name: Security recommendations
       href: recommendations-reference.md
     - name: Security alerts and the intent kill chain
-      href: alerts-reference.md    
+      href: alerts-reference.md
     - name: How Microsoft secures customer data
       href: security-center-data-security.md
     - name: Permissions
@@ -45,8 +53,6 @@
     - name: Azure Defender for SQL
       displayName: database
       href: defender-for-sql-introduction.md
-    - name: Azure Defender for IoT
-      href: defender-for-iot-introduction.md
     - name: Azure Defender for Key Vault
       displayName: KV, akv
       href: defender-for-key-vault-introduction.md
@@ -88,6 +94,7 @@
   - name: Set up email notifications
     href: security-center-provide-security-contact-details.md
   - name: Create an auto-response to an alert with an ARM template
+    displayName: Resource Manager
     href: quickstart-automation-alert.md
 
 - name: Tutorials
@@ -137,10 +144,6 @@
       href: security-center-monitoring.md
     - name: Reference list of recommendations
       href: recommendations-reference.md
-    - name: Protect network resources
-      href: security-center-network-recommendations.md
-    - name: Protect identity and access
-      href: security-center-identity-access.md
     - name: Manage security recommendations
       items:
       - name: Automate responses to recommendations
@@ -148,10 +151,14 @@
         href: workflow-automation.md
       - name: Exempt a resource from a recommendation
         href: exempt-resource.md
+    - name: Protect network resources
+      href: security-center-network-recommendations.md
+    - name: Protect identity and access
+      href: security-center-identity-access.md
   - name: Azure Defender alerts
     items:
     - name: Azure Defender alerts overview
-      href: security-center-alerts-overview.md      
+      href: security-center-alerts-overview.md
     - name: Reference list of alerts
       href: alerts-reference.md
     - name: Alerts schemas
@@ -176,8 +183,8 @@
     items:
     - name: Vulnerability scanning
       items:
-      - name: Integrated VA scanner for machines 
-        displayName: qualys, vulnerability, arc
+      - name: Integrated VA scanner for machines
+        displayName: qualys, vulnerability, arc, hybrid
         href: deploy-vulnerability-assessment-vm.md
       - name: Scan your VMs with a BYOL VA solution
         displayName: qualys, rapid7, vulnerability
@@ -186,7 +193,7 @@
         displayName: qualys, rapid7, vulnerability
         href: remediate-vulnerability-findings-vm.md
       - name: Disable specific vulnerability findings
-        displayName: qualys, rapid7, vulnerability
+        displayName: qualys, rapid7
         href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
     - name: Secure management ports with just-in-time VM access
       items:
@@ -194,20 +201,25 @@
         displayName: jit, management
         href: just-in-time-explained.md
       - name: Manage just-in-time access
-        displayName: jit, management
+        displayName: jit, management, ports
         href: security-center-just-in-time.md
+    - name: Use the integrated Microsoft Defender for Endpoint license
+      displayName: ATP, mdatp, wdatp
+      href: security-center-wdatp.md
     - name: Manage adaptive application controls
+      displayName: aac, whitelist, allowlist, reviewgroup
       href: security-center-adaptive-application.md
     - name: Use file integrity monitoring
       items:
       - name: Overview of file integrity monitoring
+        displayName: fim, change
         href: security-center-file-integrity-monitoring.md
       - name: Compare baselines using File Integrity Monitoring
+        displayName: fim, change
         href: security-center-file-integrity-monitoring-baselines.md
     - name: Manage adaptive network hardening
+      displayName: anh
       href: security-center-adaptive-network-hardening.md
-    - name: Integrate Microsoft Defender ATP
-      href: security-center-wdatp.md
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
@@ -215,18 +227,25 @@
     items:
     - name: Configure Azure Defender for SQL on Azure VMs
       href: defender-for-sql-usage.md
-      displayName: hybrid, arc      
-    - name: Customize the information protection policy
-      href: security-center-info-protection-policy.md      
+      displayName: hybrid, arc
+    - name: Customize your SQL information protection policy
+      displayName: sql, database, data discovery
+      href: security-center-info-protection-policy.md
   - name: Use Azure Defender for container registries
-    displayName: ACR, registry, images
-    href: defender-for-container-registries-usage.md
+    items:
+    - name: Scan your registry images for vulnerabilities
+      displayName: ACR, registry, images, qualys
+      href: defender-for-container-registries-usage.md
+    - name: Disable specific image vulnerability findings
+      displayName: ACR, registry, images, qualys
+      href: defender-for-container-registries-usage.md#disable-specific-findings-preview
   - name: Export alerts and recommendations
     items:
     - name: Export to a SIEM, SOAR, or ITSM
-      displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel, 
+      displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,
       href: export-to-siem.md
     - name: Export to a Log Analytics workspace or Azure Event Hub
+      displayName: continuous
       href: continuous-export.md
     - name: Download a CSV report of all alerts
       href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
@@ -260,7 +279,7 @@
 - name: Reference
   items:
   - name: REST APIs
-    href: https://docs.microsoft.com/rest/api/securitycenter/
+    href: /rest/api/securitycenter/
   - name: FAQ for Azure Security Center
     items:
     - name: General questions
@@ -272,14 +291,12 @@
     - name: Data collection and agent questions
       href: faq-data-collection-agents.md
     - name: Virtual Machines questions
-      href: faq-vms.md      
+      href: faq-vms.md
     - name: Existing users of Azure Log Analytics
-      href: faq-azure-monitor-logs.md      
-  - name: Archive of what's new in Security Center?
-    href: release-notes-archive.md
+      href: faq-azure-monitor-logs.md
   - name: Azure roadmap blog
     href: https://azure.microsoft.com/updates/?product=security-center
-  - name: Endpoint protection assessment and recommendations 
+  - name: Endpoint protection assessment and recommendations
     href: security-center-endpoint-protection.md
 
 - name: Resources
@@ -289,9 +306,9 @@
   - name: Manage user data
     href: security-center-privacy.md
   - name: Azure Defender for IoT documentation
-    href: https://docs.microsoft.com/azure/asc-for-iot/
+    href: /azure/asc-for-iot/
   - name: Azure security documentation
-    href: /azure/security/
+    href: ../security/index.yml
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?category=security-identity
   - name: Readiness Roadmap

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,9 +19,28 @@ ms.collection: M365-identity-device-management
 
 As explained in the article [What is Conditional Access](overview.md), a Conditional Access policy is an if-then statement, of **Assignments** and **Access controls**. A Conditional Access policy brings signals together, to make decisions, and enforce organizational policies.
 
-How does an organization create these policies? What is required?
+How does an organization create these policies? What is required? How are they applied?
 
 ![Conditional Access (Signals + Decisions + Enforcement = Policies)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
+
+Multiple Conditional Access policies may apply to an individual user at any time. In this case, all policies that apply must be satisfied. For example, if one policy requires multi-factor authentication (MFA) and another requires a compliant device, you must complete MFA, and use a compliant device. All assignments are logically **ANDed**. If you have more than one assignment configured, all assignments must be satisfied to trigger a policy.
+
+All policies are enforced in two phases:
+
+- Phase 1: Collect session details 
+   - Gather session details, like network location and device identity that will be necessary for policy evaluation. 
+   - Phase 1 of policy evaluation occurs for enabled policies and policies in [report-only mode](concept-conditional-access-report-only.md).
+- Phase 2: Enforcement 
+   - Use the session details gathered in phase 1 to identify any requirements that have not been met. 
+   - If there is a policy that is configured to block access, with the block grant control, enforcement will stop here and the user will be blocked. 
+   - The user will be prompted to complete additional grant control requirements that were not satisfied during phase 1 in the following order, until policy is satisfied:  
+      - Multi-factor authentication​ 
+      - Approved client app/app protection policy​ 
+      - Managed device (compliant or hybrid Azure AD join)​ 
+      - Terms of use 
+      - Custom controls  
+   - Once all grant controls have been satisfied, apply session controls (App Enforced, Microsoft Cloud App Security, and token Lifetime) 
+   - Phase 2 of policy evaluation occurs for all enabled policies. 
 
 ## Assignments
 

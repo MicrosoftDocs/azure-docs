@@ -45,11 +45,11 @@ Also there is no server connection in this mode (if you try to use service SDK t
 > [!NOTE]
 > Both REST API and websocket way are supported in SignalR service [management SDK](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md). If you're using a language other than .NET, you can also manually invoke the REST APIs following this [spec](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md).
 >
-> If you're using Azure Functions, you can use [SignalR service bindings for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service) (hereinafter called function binding) to send messages as an output binding.
+> If you're using Azure Functions, you can use [SignalR service bindings for Azure Functions](../azure-functions/functions-bindings-signalr-service.md) (hereinafter called function binding) to send messages as an output binding.
 
 It's also possible for your server application to receive messages and connection events from clients. Service will deliver messages and connection events to preconfigured endpoints (called Upstream) using webhooks. Comparing to default mode, there is no guarantee of stickiness and HTTP requests may be less efficient than websocket connections.
 
-For more information about how to configure upstream, see this [doc](https://docs.microsoft.com/azure/azure-signalr/concept-upstream).
+For more information about how to configure upstream, see this [doc](./concept-upstream.md).
 
 Below is a diagram that illustrates how serverless mode works:
 

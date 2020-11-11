@@ -5,7 +5,7 @@ description: The Anomaly Detector API offers client libraries to detect abnormal
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-zone_pivot_groups: programming-languages-set-seventeen
+zone_pivot_groups: ad-quickstart-one
 
 ms.service: cognitive-services
 ms.subservice: anomaly-detector

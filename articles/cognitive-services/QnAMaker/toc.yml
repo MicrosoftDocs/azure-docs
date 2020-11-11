@@ -50,6 +50,8 @@
     displayName: azure, resource, key, upgrade, pricing, tier,
   - name: Manage QnA Maker App
     href: How-To/manage-qna-maker-app.md
+  - name: Turn on active learning
+    href: How-To/use-active-learning.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base
@@ -82,7 +84,7 @@
     href: Overview/language-support.md
   - name: Limits
     href: limits.md
-  - name: Role-based access control (RBAC)	    
+  - name: Azure role-based access control (Azure RBAC)	    
     href: Concepts/role-based-access-control.md	
   - name: Active learning	
     href: Concepts/active-learning-suggestions.md	
@@ -92,6 +94,8 @@
     href: troubleshooting.md
   - name: Question and answer pairs	
     href: Concepts/question-answer-set.md
+  - name: Precise answering
+    href: reference-precise-answering.md
   - name: Add secured SharePoint files
     href: How-To/add-sharepoint-datasources.md
     displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
@@ -115,12 +119,10 @@
     href: qna-maker-encryption-of-data-at-rest.md
   - name: REST API Reference
     items:
-    - name: Authoring APIs
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
-    - name: GenerateAnswer API
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer
-    - name: Train API
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train
+    - name: QnA Maker 4.0
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/alterations
+    - name: QnA Maker 5.0 Preview 1
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerv5.0-preview.1/alterations
   - name: SDKs
     items:
     - name: C#
@@ -163,6 +165,8 @@
         href: https://rubygems.org/gems/azure_cognitiveservices_qnamaker
 - name: Resources
   items:
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
   - name: Regional Availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Compliance
@@ -171,10 +175,6 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing and limits
     href: https://aka.ms/qnamaker-pricing
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/QnAMaker
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/578689-qna-maker-api
   - name: Search
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blog

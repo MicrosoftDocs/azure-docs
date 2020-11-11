@@ -52,7 +52,7 @@ Visit the [Pricing page](https://azure.microsoft.com/pricing/details/network-wat
 You can view the latest regional availability on the [Azure Service availability page](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
 ### Which permissions are needed to use Network Watcher?
-See the list of [RBAC permissions required to use Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). For deploying resources, you need contributor permissions to the NetworkWatcherRG (see below).
+See the list of [Azure RBAC permissions required to use Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). For deploying resources, you need contributor permissions to the NetworkWatcherRG (see below).
 
 ### How do I enable Network Watcher?
 The Network Watcher service is [enabled automatically](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) for every subscription.

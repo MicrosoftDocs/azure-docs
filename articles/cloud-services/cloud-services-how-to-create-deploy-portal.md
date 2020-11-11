@@ -51,7 +51,7 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Click **Create a resource > Compute**, and then scroll down to and click **Cloud Service**.
 
-    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Screenshot that highlights the Cloud Service option under Create a resource > Compute.](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. In the new **Cloud Service** pane, enter a value for the **DNS name**.
 4. Create a new **Resource Group** or select an existing one.
 5. Select a **Location**.
@@ -69,7 +69,7 @@ If your deployment package was [configured to use certificates](cloud-services-c
 2. Click **Attach certificate**, and then click **OK** on the **Add certificates** pane.
 3. Click **Create** on the **Cloud Service** pane. When the deployment has reached the **Ready** status, you can proceed to the next steps.
 
-    ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Screenshot that highlights the process for uploading a certificate.](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## Verify your deployment completed successfully
 1. Click the cloud service instance.

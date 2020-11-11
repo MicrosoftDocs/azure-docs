@@ -47,13 +47,9 @@ For billing information, see [Managed disk pricing](https://azure.microsoft.com/
 ## Restrictions
 
 - This feature is currently supported only for premium SSDs.
-- You must detach your disk from a running VM before you can change the disk's tier.
+- You must either deallocate your VM or detach your disk from a running VM before you can change the disk's tier.
 - Use of the P60, P70, and P80 performance tiers is restricted to disks of 4,096 GiB or higher.
-- A disk's performance tier can be changed only once every 24 hours.
-
-## Regional availability
-
-The ability to adjust the performance tier of a managed disk is currently available only on premium SSDs in the East US 2, South Central US, West Central US, Australia South East regions.
+- A disk's performance tier can be downgraded only once every 24 hours.
 
 ## Create an empty data disk with a tier higher than the baseline tier
 

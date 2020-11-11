@@ -72,7 +72,7 @@ Deep learning frameworks on the DSVM are listed below.
 | How is it configured / installed on the DSVM?  | Keras is installed in Python 3.6 on Windows and in Python 3.5 in Linux |
 | How to run it      | Activate the correct environment at the terminal, and then run Python. |
 
-## [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## [Microsoft Cognitive Toolkit (CNTK)](/cognitive-toolkit/)
 
 | Category | Value |
 | ------------- | ------------- |

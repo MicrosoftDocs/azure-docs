@@ -21,7 +21,7 @@ Data Lake Storage Gen1 can scale to provide the necessary throughput for all ana
 
 When ingesting data from a source system to Data Lake Storage Gen1, it's important to consider that the source hardware, source network hardware, and network connectivity to Data Lake Storage Gen1 can be the bottleneck.
 
-![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![Diagram that shows that the source hardware, source network hardware, and network connectivity to Data Lake Storage Gen1 can be the bottleneck.](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 It's important to ensure that the data movement is not affected by these factors.
 
@@ -96,7 +96,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 **Run cluster with more nodes and/or larger sized VMs.** A larger cluster will enable you to run more YARN containers as shown in the picture below.
 
-![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![Diagram that shows the use of more YARN containers.](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
 **Use VMs with more network bandwidth.** The amount of network bandwidth can be a bottleneck if there is less network bandwidth than Data Lake Storage Gen1 throughput. Different VMs will have varying network bandwidth sizes. Choose a VM-type that has the largest possible network bandwidth.
 
@@ -104,7 +104,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 **Use smaller YARN containers.** Reduce the size of each YARN container to create more containers with the same amount of resources.
 
-![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![Diagram that shows the use of smaller YARN containers.](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1 GB. It's common to see 3 GB YARN containers. For some workloads, you may need larger YARN containers.
 
@@ -114,7 +114,7 @@ Depending on your workload, there will always be a minimum YARN container size t
 
 **Use all available containers.** Set the number of tasks to be equal or larger than the number of available containers so that all resources are used.
 
-![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![Diagram that shows the use of all available containers.](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 **Failed tasks are costly.** If each task has a large amount of data to process, then failure of a task results in an expensive retry. Therefore, it's better to create more tasks, each of which processes a small amount of data.
 

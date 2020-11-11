@@ -250,7 +250,7 @@ Congratulations, you've created and run a logic app that monitors resource event
 
 You can monitor other configuration changes with event grids and logic apps, for example:
 
-* A virtual machine gets role-based access control (RBAC) rights.
+* A virtual machine gets Azure role-based access control (Azure RBAC) rights.
 * Changes are made to a network security group (NSG) on a network interface (NIC).
 * Disks for a virtual machine are added or removed.
 * A public IP address is assigned to a virtual machine NIC.

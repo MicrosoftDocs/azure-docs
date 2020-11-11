@@ -137,7 +137,7 @@
         - name: Install custom apps
           href: hdinsight-apps-install-custom-applications.md
         - name: Use REST to install apps
-          href: https://msdn.microsoft.com/library/mt706515.aspx
+          href: /rest/api/hdinsight/hdinsight-application
         - name: Publish HDInsight apps to Azure Marketplace
           href: hdinsight-apps-publish-applications.md
     - name: Secure
@@ -263,11 +263,11 @@
     - name: Azure PowerShell
       href: /powershell/module/az.hdinsight
     - name: SDK for .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+      href: /dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true
     - name: SDK for Python
-      href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+      href: /python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true
     - name: SDK for Java
-      href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+      href: /java/api/overview/azure/hdinsight
     - name: SDK for Go
       href: ./hdinsight-go-sdk-overview.md
     - name: .NET (Apache HBase)
@@ -301,7 +301,7 @@
     - name: Enable heap dumps for Apache Hadoop services
       href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
     - name: Get help on the Microsoft Q&A question page
-      href: https://docs.microsoft.com/answers/topics/azure-hdinsight.html
+      href: /answers/topics/azure-hdinsight.html
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Windows tools for HDInsight
@@ -433,8 +433,6 @@
           href: ./spark/apache-spark-use-with-data-lake-store.md
         - name: Connect to Azure SQL Database
           href: ./spark/apache-spark-connect-to-sql-database.md
-        - name: Implement a lambda architecture using Apache Spark and Cosmos DB
-          href: ../cosmos-db/lambda-architecture.md
         - name: Run Azure ML workloads with AutoML
           href: ./spark/apache-spark-run-machine-learning-automl.md
     - name: Troubleshoot
@@ -502,7 +500,7 @@
       items:
       - name: Use MapReduce with Apache Hadoop
         items:
-        - name: MapReduce overview
+        - name: Use MapReduce
           href: ./hadoop/hdinsight-use-mapreduce.md
         - name: Use SSH
           href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md
@@ -647,6 +645,8 @@
         href: ./kafka/apache-kafka-auto-create-topics.md
       - name: Use Apache Kafka with IoT Hub
         href: ./kafka/apache-kafka-connector-iot-hub.md
+      - name: Confluent Schema Registry
+        href: ./kafka/schema-registry.md
       - name: Create streaming pipelines
         items:
         - name: Apache Spark, Apache Kafka, and Azure Cosmos DB
@@ -845,6 +845,8 @@
         href: ./hdinsight-troubleshoot-hive.md
       - name: Apache Hive logs taking up entire disk space on Head node
         href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
+      - name: Security options for Hive
+        href: ./interactive-query/hdinsight-security-options-for-hive.md
 - name: ML Services
   items:
   - name: Overview
@@ -954,6 +956,8 @@
       href: ./domain-joined/apache-domain-joined-architecture.md
     - name: HDInsight virtual network architecture
       href: ./hdinsight-virtual-network-architecture.md
+    - name: Private link
+      href: ./hdinsight-private-link.md
     - name: Transport layer security
       href: ./transport-layer-security.md
     - name: Plan VNETs for HDInsight

@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 
 # Quickstart: Create an Azure Cognitive Search index in Java using REST APIs
 > [!div class="op_single_selector"]
-> * [JavaScript](search-get-started-nodejs.md)
+> * [JavaScript](search-get-started-javascript.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
@@ -49,7 +49,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
    Create a query key, too. It's a best practice to issue query requests with read-only access.
 
-:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Get the service name and admin and query keys" border="false":::
+:::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Get the service name and admin and query keys" border="false":::
 
 Every request sent to your service requires an API key. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
