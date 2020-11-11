@@ -98,6 +98,6 @@ To import the query.
 
 You can refresh your data directly from Excel. In the **Data** menu group in the Excel ribbon, select the **Refresh** button.
  
-## Next Steps
+## Next steps
 
-For more information about Excel’s integrations with external data sources, see [Import data from external data sources (Power Query)](https://support.office.com/en-us/article/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a)
+For more information about Excel’s integrations with external data sources, see [Import data from external data sources (Power Query)](https://support.office.com/article/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a)
