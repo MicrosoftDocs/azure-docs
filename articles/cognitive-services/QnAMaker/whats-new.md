@@ -71,14 +71,12 @@ Learn what's new with QnA Maker.
 
 ### November 2020
 
-* Simplified resource creation. 
-* End to End region support.
-* Deep learnt ranking model.
-* Machine Reading Comprehension for precise answers.
+* Simplified resource creation
+* End to End region support
+* Deep learnt ranking model
+* Machine Reading Comprehension for precise answers
   
   Check out the [blog](https://techcommunity.microsoft.com/t5/azure-ai/introducing-qna-maker-managed-now-in-public-preview/ba-p/1845575).
-
-
 
 > [!div class="nextstepaction"]
 > [Create a QnA Maker service](how-to/set-up-qnamaker-service-azure.md)
