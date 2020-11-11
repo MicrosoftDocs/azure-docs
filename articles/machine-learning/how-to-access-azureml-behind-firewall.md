@@ -19,7 +19,15 @@ In this article, learn how to configure Azure Firewall to control access to your
 
 ## Azure Firewall
 
-When using Azure Firewall, use the following steps:
+When using Azure Firewall, use __destination network address translation (DNAT)__ to create NAT rules for inbound traffic. For outbound traffic, create __network__ and/or __application__ rules. These rule collections are described in more detail in [What are some Azure Firewall concepts](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts).
+
+### Inbound configuration
+
+If you use an Azure Machine Learning __compute instance__ or __compute cluster__, you must create a user-defined route (UDR) for the subnet that contains the Azure Machine Learning resources. This route forces traffic __from__ the IP addresses of the 
+
+Use the guidance in the [forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) section for securing the training environment.
+
+### Outbound configuration
 
 1. Add __Network rules__, allowing traffic __to__ and __from__ the following service tags:
 
@@ -29,14 +37,17 @@ When using Azure Firewall, use the following steps:
     * Storage.region
     * KeyVault.region
     * ContainerRegistry.region
-    * MCR.region
+
+    If you plan on using the default Docker images provided by Microsoft, and enabling user-managed dependencies, you must also add the following service tags:
+
+    * MicrosoftContainerRegistry.region
     * AzureFrontDoor.FirstParty
 
     For entries that contain `region`, replace with the Azure region that you are using. For example, `keyvault.westus`.
 
     For the __protocol__, select `TCP`. For the source and destination __ports__, select `*`.
 
-2. Add __Application rules__ for the following hosts:
+1. Add __Application rules__ for the following hosts:
 
     | **Host name** | **Purpose** |
     | ---- | ---- |
@@ -49,11 +60,11 @@ When using Azure Firewall, use the following steps:
     | **usgovarizona.api.ml.azure.us** | Required if your workspace is in the US-Arizona (Azure Government) region. |
     | **usgovvirginia.api.ml.azure.us** | Required if your workspace is in the US-Virginia (Azure Government) region |
 
+    For __Protocol:Port__, select use __http, https__.
+
     For more information on configuring application rules, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
-3. Configure an outbound route for the subnet that contains Azure Machine Learning resources. Use the guidance in the [forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) section for securing the training environment.
-
-4. To restrict access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+1. To restrict access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
 ## Other firewalls
 
