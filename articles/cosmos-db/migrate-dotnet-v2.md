@@ -1,5 +1,5 @@
 ---
-title: Migrate your application to use the Azure Cosmos DB .NET SDK 2.0 (com.azure.cosmos)
+title: Migrate your application to use the Azure Cosmos DB .NET SDK 2.0 (Microsoft.Azure.Cosmos)
 description: Learn how to upgrade your existing .NET application from the v1 SDK to .NET SDK v2 (com.azure.cosmos package) for Core (SQL) API.
 author: stefArroyo
 ms.author: esarroyo
@@ -14,7 +14,7 @@ ms.date: 10/15/2020
 > To learn about the Azure Cosmos DB .NET SDK v2, see the [Release notes](sql-api-sdk-dotnet.md), the [.NET GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v2), .NET SDK v2 [Performance Tips](performance-tips.md), and the [Troubleshooting guide](troubleshoot-dot-net-sdk.md).
 >
 
-This article highlights some of the considerations of upgrading your existing v1 .NET application to Azure Cosmos DB .NET SDK v2 for Core (SQL) API. Azure Cosmos DB .NET SDK v2 corresponds to the Microsoft.Azure.DocumentDB namespace. You can use the information provided in this document if you are migrating your application from any of the following Azure Cosmos DB .NET Platforms:
+This article highlights some of the considerations to upgrade your existing v1 .NET application to Azure Cosmos DB .NET SDK v2 for Core (SQL) API. Azure Cosmos DB .NET SDK v2 corresponds to the `Microsoft.Azure.DocumentDB` namespace. You can use the information provided in this document if you are migrating your application from any of the following Azure Cosmos DB .NET Platforms to use the V2 SDK `Microsoft.Azure.Cosmos`:
 
 * Azure Cosmos DB .NET Framework v1 SDK for SQL API
 * Azure Cosmos DB .NET Core SDK v1 for SQL API
@@ -23,7 +23,7 @@ This article highlights some of the considerations of upgrading your existing v1
 
 The v2 SDK contains many usability and performance improvements, including:
 
-* Support for TCP Direct Mode for non-Windows clients
+* Support for TCP direct mode for non-Windows clients
 * Multi-regions write support
 * Improvements on query performance
 * Support for geospatial/geometry collections and indexing
@@ -31,7 +31,7 @@ The v2 SDK contains many usability and performance improvements, including:
 * Updates on direct TCP transport stack to reduce the number of connections established
 * Improvements in latency reduction in the RequestTimeout
 
-Most of the retry logic and lower levels of the SDK remain largely unchanged.
+Most of the retry logic and lower levels of the SDK remains largely unchanged.
 
 ## Why migrate to the .NET v2 SDK
 
@@ -41,13 +41,13 @@ Additionally, the older SDKs will be replaced by newer versions and the v1 SDK w
 
 ## Major changes from v1 SDK to v2 SDK
 
-### Direct Mode + TCP
+### Direct mode + TCP
 
 The .NET v2 SDK now supports both direct and gateway mode. Direct mode supports connectivity through TCP protocol and offers better performance as it connects directly to the backend replicas with fewer network hops.
 
 For more details, read through the [Azure Cosmos DB SQL SDK connectivity modes guide](sql-sdk-connection-modes.md).
 
-### Session Token Formatting
+### Session token formatting
 
 The v2 SDK no longer uses the *simple* session token format as used in v1, instead the SDK uses *vector* formatting. The format should be converted when passing to the client application with different versions, since the formats are not interchangeable.
 
@@ -55,14 +55,14 @@ For more information, see [converting session token formats in the .NET SDK](how
 
 ### Using the .NET change feed processor SDK
 
-The .NET change feed processor library 2.1.x requires Microsoft.Azure.DocumentDB 2.0 or later.
+The .NET change feed processor library 2.1.x requires `Microsoft.Azure.DocumentDB` 2.0 or later.
 
 The 2.1.x library has the following key changes:
 
 * Stability and diagnosability improvements
 * Improved handling of errors and exceptions
 * Additional support for partitioned lease collections
-* Advanced extensions for the implementation of the ChangeFeedDocument interface and class for additional error handling and tracing
+* Advanced extensions to implement the `ChangeFeedDocument` interface and class for additional error handling and tracing
 * Added support for using custom store to persist continuation tokens per partition
 
 For more information, see the change feed processor library [release notes](sql-api-sdk-dotnet-changefeed.md).
