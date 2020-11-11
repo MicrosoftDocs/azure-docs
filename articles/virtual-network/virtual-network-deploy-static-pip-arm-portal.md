@@ -63,7 +63,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Select inbound ports | Select **RDP (3389)** |
 
     > [!WARNING]
-    > Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure virtual machines, see **[What is Azure Bastion?](/azure/bastion/bastion-overview)**
+    > Portal 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure virtual machines, see **[What is Azure Bastion?](/azure/bastion/bastion-overview)**
    
 5. Select **Review + create**. 
   
@@ -78,6 +78,12 @@ When no longer needed, delete the resource group and all of the resources it con
 3. Enter **myResourceGroup** for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 
 ## Next steps
+
+To change a public IP address assigned to an existing virtual machine from dynamic to static, or to work with private IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md).
+
+Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses), and there is a [limit](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
+
+If the virtual machine will be added to the back-end pool of a public Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../load-balancer/skus.md).
 
 Azure assigned a public IP address from addresses used in the region you created the virtual machine in. 
 
