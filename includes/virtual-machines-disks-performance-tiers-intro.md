@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Azure Disk Storage currently offers built-in bursting capabilities to provide higher performance for handling short-term unexpected traffic. Premium SSDs have the flexibility to increase disk performance without increasing the actual disk size. This capability allows you to match your workload performance needs and reduce costs. 
+Azure Disk Storage offers built-in bursting capabilities to provide higher performance for handling short-term unexpected traffic. Premium SSDs also have the flexibility to increase disk performance without increasing the actual disk size. This capability allows you to match your workload performance needs and reduce costs. 
 
 > [!NOTE]
 > This feature is currently in preview. 
