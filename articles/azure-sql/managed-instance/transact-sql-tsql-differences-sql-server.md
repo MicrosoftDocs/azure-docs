@@ -9,7 +9,7 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 06/02/2020
+ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
 ---
 
@@ -405,7 +405,7 @@ Operations:
 
 ### PolyBase
 
-External tables that reference the files in HDFS or Azure Blob storage aren't supported. For information about PolyBase, see [PolyBase](/sql/relational-databases/polybase/polybase-guide).
+The only supported type of external source is RDBMS, to Azure SQL Database and other Azure SQL Managed Instance. For information about PolyBase, see [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### Replication
 
