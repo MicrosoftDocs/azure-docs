@@ -23,7 +23,7 @@ Instead of duplicating existing information in your system, you'll maintain the 
 
 ## Identity
 
-Identities are created with Azure Communication Service Administration library and represented with unique GUID. Identity serves as identifier in the conversations and is used for creation of access tokens. The same identity might participate in multiple simultaneous sessions across multiple devices. Single identity can have multiple active access tokens with different set of scopes. Deletion of identity, resource, or subscription causes invalidation of all its access tokens and deletion of all data that are stored for this identity. Deleted identity can’t issue new access tokens and can't retrieve stored data (for example, chat messages). 
+Identities are created with Azure Communication Service Administration library. Identity serves as identifier in the conversations and is used for creation of access tokens. The same identity might participate in multiple simultaneous sessions across multiple devices. Identity can have multiple active access tokens at the same time. Deletion of identity, resource, or subscription causes invalidation of all its access tokens and deletion of all data that are stored for this identity. Deleted identity can’t issue new access tokens and can't retrieve stored data (for example, chat messages). 
 
 You aren't charged by the number of identities you have, but by the usage of primitives. Number of identities don't have to restrict, how to map your application's identities to the Azure Communication Services Identities. With the freedom of mapping comes responsibility in the terms of privacy. When your application's user wants to be deleted from your system, you need to delete all identities, that were associated with that user.
 
@@ -35,7 +35,7 @@ Azure Communication Services isn't replicating the functionality of IMS. It does
 
 Instead of duplication, you're encouraged to design, how users from your identity domain will be mapped to Azure Communication Service Identities. You can follow any kind of pattern 1:1, 1:N, N:1 or M:N. You can decide whether single user is mapped to single identity or to multiple identities. When new identity is created, you're encouraged to store the mapping of this identity to your application's user or users. As identities require the access tokens for usage of the primitives, the identity needs to be known for your application's user or users.
 
-If you want are using relational database for storage of users, the implementation can differ based on your mapping scenario. If you want to have mapping 1:1, you may add a *CommunicationServicesId* column to the table to store your Azure Communication Services identity. If you want to build 1:N or N:M relationship, you might consider creating a separate table in relational database.
+If you are using relational database for storage of users, the implementation can differ based on your mapping scenario. For scenarios with mapping 1:1 or N:1, you may add a *CommunicationServicesId* column to the table to store your Azure Communication Services identity. In case of scenarios with relationship 1:N or N:M, you might consider creating a separate table in relational database.
 
 ## Access token
 
@@ -54,4 +54,4 @@ Rotation of access keys of Azure Communication Service will cause revocation of 
 
 We recommend issuing access tokens in your server-side service and not in the client's application. The reasoning is, that issuing requires access key or to be managed identity. It isn't recommended for security reasons to share the access keys with the client's application. Client application should use trusted service endpoint that can authenticate your clients, and issue access token on their behalf. More details about the architecture can be found [here](./client-and-server-architecture.md).
 
-If you cache access tokens to a backing store, we recommend to use encryption. Access token is sensitive data and can be used to malicious activity if it's not protected. With the possession of the access token, you can initialize the SDK and get access to the API. The accessible API is restricted only based on scopes, that the access token has. We recommend to issue access tokens only with scopes, that are required.
+If you cache access tokens to a backing store, we recommend using encryption. Access token is sensitive data and can be used to malicious activity if it's not protected. With the possession of the access token, you can initialize the SDK and get access to the API. The accessible API is restricted only based on scopes, that the access token has. We recommend issuing access tokens only with scopes, that are required.
