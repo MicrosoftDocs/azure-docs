@@ -15,17 +15,13 @@ This article describes how to add tags to a VM using the portal. Tags are user-d
 
 
 1. Navigate to your VM in the portal.
-1. Select the tags icon to view your tags:
+1. In **Essentials**, select **Click here to add tags**.
+    :::image type="content" source="media/tag/azure-portal-tag.png" alt-text="Screenshot of the Essentials section of the VM page.":::
 
-    ![Tags icon in Azure portal](./media/tag/azure-portal-tags-icon.png)
+1. Add a value for **Name** and **Value**, and then select **Save**.
 
-1. Add a new tag through the portal by defining your own Key/Value pair, and save it.
+    :::image type="content" source="media/tag/key-value.png" alt-text="Screenshot of the page for adding a key value pair as a tag.":::
 
-    ![Add new Tag in Azure portal](./media/tag/azure-portal-add-new-tag.png)
-
-1. Your new tag should now appear in the list of tags for your resource.
-
-    ![New Tag saved in Azure portal](./media/tag/azure-portal-saved-new-tag.png)
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
