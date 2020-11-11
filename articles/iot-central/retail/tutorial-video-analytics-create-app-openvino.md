@@ -103,7 +103,7 @@ This tutorial configures your solution to use the OpenVINO&trade; module for obj
 
 ### Replace the manifest
 
-On the **LVA Edge Gateway** page, select **+ Replace manifest**.
+On the **LVA Edge Gateway v2** page, select **+ Replace manifest**.
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app-openvino/replace-manifest.png" alt-text="Replace Manifest":::
 

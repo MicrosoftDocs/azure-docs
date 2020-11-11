@@ -40,9 +40,9 @@ Follow the documentation links below to understand how to register a user or app
 * Registering a user in Azure Active Directory [link](../../active-directory/fundamentals/add-users-azure-active-directory.md)
 * Registering an application in Azure Active Directory [link](../../active-directory/develop/quickstart-register-app.md)
 
-## Assign your security principal a role in Azure Active Directory
+## Assign your security principal a role
 
-Azure Active Directory uses role-based access control (RBAC) to assign permissions to security principals. These permissions are called role-assignments.
+You can use Azure role-based access control (Azure RBAC) to assign permissions to security principals. These permissions are called role assignments.
 
 In the context of key vault, these role assignments determine a security principal's level of access to the management plane (also known as control plane) of key vault. These role assignments do not provide access to the data plane secrets directly, but they provide access to manage properties of key vault. For example a user or application assigned a **Reader role** will not be permitted to make changes to key vault firewall settings, whereas a user or application assigned a **Contributor role** can make changes. Neither role will have direct access to perform operations on secrets, keys, and certificates such as creating or retrieving their value until they are assigned access to the key vault data plane. This is covered in the next step.
 
@@ -52,7 +52,7 @@ In the context of key vault, these role assignments determine a security princip
 >[!NOTE]
 > When you assign a role assignment to a user at the Azure Active Directory tenant level, this set of permissions will trickle down to all subscriptions, resource-groups, and resources within the scope of the assignment. To follow the principal of least-privilege you can make this role assignment at a more granular scope. For example you can assign a user a Reader role at the subscription level, and an Owner role for a single key vault. Go to the Identity Access Management (IAM) settings of a subscription, resource-group, or key vault to make a role assignment at a more granular scope.
 
-* To learn more about Azure Active Directory roles [link](../../role-based-access-control/built-in-roles.md)
+* To learn more about Azure roles [link](../../role-based-access-control/built-in-roles.md)
 * To learn more about assigning or removing role assignments [link](../../role-based-access-control/role-assignments-portal.md)
 
 ## Configure key vault access policies for your security principal
@@ -86,7 +86,7 @@ Data plane access, or access to perform operations on keys, secrets, and certifi
 Key vault access policies grant users and applications access to perform data plane operations on a key vault.
 
 > [!NOTE]
-> This access model is not compatible with key vault RBAC (Option 2) documented below. You must choose one. You will have the opportunity to make this selection when you click on the Access Policy tab of your key vault.
+> This access model is not compatible with Azure RBAC for key vault (Option 2) documented below. You must choose one. You will have the opportunity to make this selection when you click on the Access Policy tab of your key vault.
 
 Classic access policies are granular, which means you can allow or deny the ability of each individual user or application to perform individual operations within a key vault. Here are a few examples:
 
@@ -99,25 +99,25 @@ However, classic access policies do not allow per-object level permissions, and 
 > [!IMPORTANT]
 > Classic key vault access policies and Azure Active Directory role assignments are independent of each other. Assigning a security principal a ‘Contributor’ role at a subscription level will not automatically allow the security principal the ability to perform data-plane operations on every key vault within the scope of the subscription. The security principal must still must be granted, or grant themselves access policy permissions to perform data plane operations.
 
-### Data Plane Access Option 2:  Key Vault RBAC (Preview)
+### Data Plane Access Option 2:  Azure RBAC for Key Vault (Preview)
 
-A new way to grant access to the key vault data plane is through key-vault role-based access control (RBAC).
+A new way to grant access to the key vault data plane is through Azure role-based access control (Azure RBAC) for key vault.
 
 > [!NOTE]
 > This access model is not compatible with key vault classic access policies shown above. You must choose one. You will have the opportunity to make this selection when you click on the Access Policy tab of your key vault.
 
 Key Vault role assignments are a set of Azure built-in role assignments that encompass common sets of permissions used to access keys, secrets, and certificates. This permission model also enables additional capabilities that are not available in the classic key vault access policy model.
 
-* RBAC permissions can be managed at scale by allowing users to have these roles assigned at a subscription, resource group, or individual key vault level. A user will have the data plane permissions to all key vaults within the scope of the RBAC assignment. This eliminates the need to assign individual access policy permissions per user/application per key vault.
+* Azure RBAC permissions can be managed at scale by allowing users to have these roles assigned at a subscription, resource group, or individual key vault level. A user will have the data plane permissions to all key vaults within the scope of the Azure RBAC assignment. This eliminates the need to assign individual access policy permissions per user/application per key vault.
 
-* RBAC permissions are compatible with Privileged Identity Management or PIM. This allows you to configure just-in-time access controls for privileged roles like Key Vault Administrator. This is a best-security practice and follows the principal of least-privilege by eliminating standing access to your key vaults.
+* Azure RBAC permissions are compatible with Privileged Identity Management or PIM. This allows you to configure just-in-time access controls for privileged roles like Key Vault Administrator. This is a best-security practice and follows the principal of least-privilege by eliminating standing access to your key vaults.
 
-* RBAC permissions are compatible with per-object granular permissions, so you can restrict a user from only performing operations on some of your key vault objects. This allows multiple applications to share a single key vault while still isolating access between applications.
+* Azure RBAC permissions are compatible with per-object granular permissions, so you can restrict a user from only performing operations on some of your key vault objects. This allows multiple applications to share a single key vault while still isolating access between applications.
 
-To learn more about Key Vault RBAC, see the following documents:
+To learn more about Azure RBAC for Key Vault, see the following documents:
 
-* Azure Key Vault RBAC [link](./secure-your-key-vault.md#management-plane-and-azure-rbac)
-* Azure Key Vault RBAC Roles (Preview) [link](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview)
+* Azure RBAC for Key Vault [link](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+* Azure RBAC for Key Vault roles (Preview) [link](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview)
 
 ## Configure Key Vault Firewall
 
