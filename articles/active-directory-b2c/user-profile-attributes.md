@@ -79,7 +79,8 @@ The table below lists the [user resource type](https://docs.microsoft.com/graph/
 |userType        |String|A string value that can be used to classify user types in your directory. Value must be Member. Read-only.|Read only|No|Persisted, Output|
 |userState (externalUserState)<sup>3</sup>|String|For Azure AD B2B account only, indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
-|<sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>For more information, see [MFA phone number](#mfa-phone-number-attribute)<br><sup>3 </sup>Should not be used with Azure AD B2C||||||
+
+<sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>For more information, see [MFA phone number attribute](#mfa-phone-number-attribute)<br><sup>3 </sup>Should not be used with Azure AD B2C
 
 ## MFA phone number attribute
 
