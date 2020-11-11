@@ -82,7 +82,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
                 .buildClient();
 
         // Creates an ServiceBusMessageBatch where the ServiceBus.
-        ServiceBusMessageBatch messageBatch = senderClient.createMessageBatch(new CreateMessageBatchOptions().setMaximumSizeInBytes(1024));        
+        ServiceBusMessageBatch messageBatch = senderClient.createMessageBatch();        
         
     	// create a list of messages
         List<ServiceBusMessage> listOfMessages = createMessages();
@@ -100,7 +100,7 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
             System.out.println("Sent a batch of messages to the queue: " + queueName);
             
             // create a new batch
-            messageBatch = senderClient.createMessageBatch(new CreateMessageBatchOptions().setMaximumSizeInBytes(1024));
+            messageBatch = senderClient.createMessageBatch();
 
             // Add that message that we couldn't before.
             if (!messageBatch.tryAddMessage(message)) {
@@ -108,8 +108,10 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
             }
         }
         
-        senderClient.sendMessages(messageBatch);
-        System.out.println("Sent a batch of messages to the queue: " + queueName);
+        if (messageBatch.getCount() > 0) {
+            senderClient.sendMessages(messageBatch);
+            System.out.println("Sent a batch of messages to the queue: " + queueName);
+        }
 
         //close the client
         senderClient.close();
