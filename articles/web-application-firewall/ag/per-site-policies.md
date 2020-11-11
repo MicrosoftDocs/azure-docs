@@ -102,11 +102,11 @@ $fipconfig = New-AzApplicationGatewayFrontendIPConfig `
   -PublicIPAddress $pip
 
 $frontendport80 = New-AzApplicationGatewayFrontendPort `
-  -Name myFrontendPort `
+  -Name myFrontendPort80 `
   -Port 80
   
 $frontendport8080 = New-AzApplicationGatewayFrontendPort `
-  -Name myFrontendPort `
+  -Name myFrontendPort8080 `
   -Port 8080
 ```
 
@@ -126,36 +126,60 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
   -RequestTimeout 120
 ```
 
-### Create two WAF policies
+### Create three WAF policies
 
-Create two WAF policies, one global and one per-site, and add custom rules. 
+Create three WAF policies, one global, one per-site and one per-URI policy (preview).
 
-The per-site policy restricts the file upload limit to 5 MB. Everything else is the same.
+Then add custom rules for each policy.
 
 ```azurepowershell-interactive
+# wafpolicyGlobal rules
+
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
-$condition = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable -Operator Contains -MatchValue "globalAllow" 
+$condition = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable -Operator Contains -MatchValue "Default.htm" 
 $rule = New-AzApplicationGatewayFirewallCustomRule -Name globalAllow -Priority 5 -RuleType MatchRule -MatchCondition $condition -Action Allow
 
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
-$condition1 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable1 -Operator Contains -MatchValue "globalBlock" 
-$rule1 = New-AzApplicationGatewayFirewallCustomRule -Name globalBlock -Priority 10 -RuleType MatchRule -MatchCondition $condition1 -Action Block
+$condition1 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable1 -Operator Contains -MatchValue "Default" 
+$rule1 = New-AzApplicationGatewayFirewallCustomRule -Name globalBlockDefault -Priority 10 -RuleType MatchRule -MatchCondition $condition1 -Action Block
 
 $variable2 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
-$condition2 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable2 -Operator Contains -MatchValue "siteAllow" 
-$rule2 = New-AzApplicationGatewayFirewallCustomRule -Name siteAllow -Priority 5 -RuleType MatchRule -MatchCondition $condition2 -Action Allow
+$condition2 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable2 -Operator Contains -MatchValue "8080/images/test.htm" 
+$rule2 = New-AzApplicationGatewayFirewallCustomRule -Name globalBlockImages -Priority 20 -RuleType MatchRule -MatchCondition $condition2 -Action Block
 
 $variable3 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
-$condition3 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable3 -Operator Contains -MatchValue "siteBlock" 
-$rule3 = New-AzApplicationGatewayFirewallCustomRule -Name siteBlock -Priority 10 -RuleType MatchRule -MatchCondition $condition3 -Action Block
+$condition3 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable3 -Operator Contains -MatchValue "iisstart" 
+$rule3 = New-AzApplicationGatewayFirewallCustomRule -Name globalBlockiisstart -Priority 30 -RuleType MatchRule -MatchCondition $condition3 -Action Block
+
+# wafpolicySite rules
 
 $variable4 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
-$condition4 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable4 -Operator Contains -MatchValue "URIAllow" 
-$rule4 = New-AzApplicationGatewayFirewallCustomRule -Name URIAllow -Priority 5 -RuleType MatchRule -MatchCondition $condition4 -Action Allow
+$condition4 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable4 -Operator Contains -MatchValue "images/test.htm" 
+$rule4 = New-AzApplicationGatewayFirewallCustomRule -Name siteAllowtest -Priority 5 -RuleType MatchRule -MatchCondition $condition4 -Action Allow
 
 $variable5 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
-$condition5 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable5 -Operator Contains -MatchValue "URIBlock" 
-$rule5 = New-AzApplicationGatewayFirewallCustomRule -Name URIBlock -Priority 10 -RuleType MatchRule -MatchCondition $condition5 -Action Block
+$condition5 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable5 -Operator Contains -MatchValue "images" 
+$rule5 = New-AzApplicationGatewayFirewallCustomRule -Name siteBlockimages -Priority 10 -RuleType MatchRule -MatchCondition $condition5 -Action Block
+
+$variable6 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
+$condition6 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable6 -Operator Contains -MatchValue "8080/video/test.htm" 
+$rule6 = New-AzApplicationGatewayFirewallCustomRule -Name siteBlockvideotest -Priority 20 -RuleType MatchRule -MatchCondition $condition6 -Action Block
+
+# wafpolicyURI rules (Preview)
+
+$variable7 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
+$condition7 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable7 -Operator Contains -MatchValue "video/test.htm" 
+$rule7 = New-AzApplicationGatewayFirewallCustomRule -Name URIAllowvideotest -Priority 5 -RuleType MatchRule -MatchCondition $condition7 -Action Allow
+
+$variable8 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
+$condition8 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable8 -Operator Contains -MatchValue "iisstart" 
+$rule8 = New-AzApplicationGatewayFirewallCustomRule -Name URIAllowiisstart -Priority 10 -RuleType MatchRule -MatchCondition $condition8 -Action Allow
+
+$variable9 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
+$condition9 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable9 -Operator Contains -MatchValue "video"
+$rule9 = New-AzApplicationGatewayFirewallCustomRule -Name URIBlockvideo -Priority 20 -RuleType MatchRule -MatchCondition $condition9 -Action Block
+
+# wafpolicyGlobal
 
 $policySettingGlobal = New-AzApplicationGatewayFirewallPolicySetting `
   -Mode Prevention `
@@ -168,7 +192,9 @@ $wafPolicyGlobal = New-AzApplicationGatewayFirewallPolicy `
   -ResourceGroup myResourceGroupAG `
   -Location eastus `
   -PolicySetting $PolicySettingGlobal `
-  -CustomRule $rule, $rule1
+  -CustomRule $rule, $rule1, $rule2, $rule3
+
+# wafpolicySite
 
 $policySettingSite = New-AzApplicationGatewayFirewallPolicySetting `
   -Mode Prevention `
@@ -181,31 +207,81 @@ $wafPolicySite = New-AzApplicationGatewayFirewallPolicy `
   -ResourceGroup myResourceGroupAG `
   -Location eastus `
   -PolicySetting $PolicySettingSite `
-  -CustomRule $rule2, $rule3
+  -CustomRule $rule4, $rule5, $rule6
+
+# wafpolicyURI (Preview)
+
+$policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
+  -Mode Prevention `
+  -State Enabled `
+  -MaxRequestBodySizeInKb 100 `
+  -MaxFileUploadInMb 5
+
+$wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
+  -Name wafpolicyURI `
+  -ResourceGroup myResourceGroupAG `
+  -Location eastus `
+  -PolicySetting $PolicySettingURI `
+  -CustomRule $rule7, $rule8, $rule9
+```
+
+### Create the path map rules
+
+The path rules and path maps are required on a pathBasedRouting rule.
+
+Create the path based rules using [New-AzApplicationGatewayPathRuleConfig](/powershell/module/az.network/new-azapplicationgatewaypathruleconfig)
+
+Create the url path map using [New-AzApplicationGatewayUrlPathMapConfig](/powershell/module/az.network/new-azapplicationgatewayurlpathmapconfig)
+
+```azurepowershell-interactive
+$PathRuleConfig = New-AzApplicationGatewayPathRuleConfig `
+  -Name images -Paths "/images" `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings `
+  -FirewallPolicy $wafPolicyURI
+
+$PathRuleConfig1 = New-AzApplicationGatewayPathRuleConfig `
+  -Name videos -Paths "/videos" `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings `
+  -FirewallPolicy $wafPolicyURI
+
+$PathRuleConfig2 = New-AzApplicationGatewayPathRuleConfig `
+  -Name iisstart -Paths "/iisstart.htm" `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings `
+  -FirewallPolicy $wafPolicyURI
+
+$URLPathMap = New-AzApplicationGatewayUrlPathMapConfig `
+  -Name URLPathMap `
+  -PathRules $PathRuleConfig, $PathRuleConfig1, $PathRuleConfig2 `
+  -DefaultBackendAddressPool $defaultPool `
+  -DefaultBackendHttpSettings $poolSettings
 ```
 
 ### Create the default listener and rule
 
 A listener is required to enable the application gateway to route traffic appropriately to the backend address pools. In this example, you create a basic listener that listens for traffic at the root URL. 
 
-Create a listener named *mydefaultListener* using [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Create a basic rule named *rule1* using [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+Create a listener named *mydefaultListener* using [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Create a pathBasedRouting rule named *rule1* using [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
 $globalListener = New-AzApplicationGatewayHttpListener `
-  -Name mydefaultListener `
+  -Name mydefaultListener80 `
   -Protocol Http `
   -FrontendIPConfiguration $fipconfig `
   -FrontendPort $frontendport80
 
 $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
   -Name rule1 `
-  -RuleType Basic `
+  -RuleType PathBasedRouting `
   -HttpListener $globallistener `
   -BackendAddressPool $defaultPool `
-  -BackendHttpSettings $poolSettings
+  -BackendHttpSettings $poolSettings `
+  -UrlPathMap $URLPathMap
   
 $siteListener = New-AzApplicationGatewayHttpListener `
-  -Name mydefaultListener `
+  -Name mydefaultListener8080 `
   -Protocol Http `
   -FrontendIPConfiguration $fipconfig `
   -FrontendPort $frontendport8080 `
@@ -221,7 +297,7 @@ $frontendRuleSite = New-AzApplicationGatewayRequestRoutingRule `
 
 ### Create the application gateway with the WAF
 
-Now that you created the necessary supporting resources, specify parameters for the application gateway using [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku). Specify the Firewall Policy using [New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicy). And then create the application gateway named *myAppGateway* using [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
+Now that you created the necessary supporting resources, specify parameters for the application gateway using [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku). Specify the Firewall Policy using [New-AzApplicationGatewayFirewallPolicy](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicy). And then create the application gateway named *myAppGateway* using [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway). The application gateway allows for two front ends, listening on port 80 and port 8080. The port 80 front end allows for pathBasedRouting, where the 'wafpolicyGlobal' policy and also the URI scoped policy 'wafpolicyURI' have been associated. The port 8080 front end allows for Basic routing and the 'wafpolicySite' policy has been associated. 
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -237,54 +313,12 @@ $appgw = New-AzApplicationGateway `
   -BackendHttpSettingsCollection $poolSettings `
   -FrontendIpConfigurations $fipconfig `
   -GatewayIpConfigurations $gipconfig `
-  -FrontendPorts $frontendport80 `
-  -HttpListeners $globallistener `
-  -RequestRoutingRules $frontendRule `
+  -FrontendPorts $frontendport80,$frontendport8080 `
+  -HttpListeners $globallistener,$siteListener `
+  -RequestRoutingRules $frontendRule,$frontendRuleSite `
   -Sku $sku `
-  -FirewallPolicy $wafPolicyGlobal
-```
-
-### Apply a per-URI policy (preview)
-
-To apply a per-URI policy, simply create a new policy and apply it to the path rule config. 
-
-```azurepowershell-interactive
-$policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
-  -Mode Prevention `
-  -State Enabled `
-  -MaxRequestBodySizeInKb 100 `
-  -MaxFileUploadInMb 5
-
-$wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
-  -Name wafpolicyURI `
-  -ResourceGroup myResourceGroupAG `
-  -Location eastus `
-  -PolicySetting $PolicySettingURI `
-  -CustomRule $rule4, $rule5
-
-$AppGw = Get-AzApplicationGateway -Name "myAppGateway"
-
-$PathRuleConfig = New-AzApplicationGatewayPathRuleConfig -Name "base" `
-  -Paths "/base" `
-  -BackendAddressPool $defaultPool `
-  -BackendHttpSettings $poolSettings `
-  -FirewallPolicy $wafPolicyURI
-
-$PathRuleConfig1 = New-AzApplicationGatewayPathRuleConfig `
-  -Name "base" -Paths "/test" `
-  -BackendAddressPool $defaultPool `
-  -BackendHttpSettings $poolSettings
-
-$URLPathMap = New-AzApplicationGatewayUrlPathMapConfig -Name "PathMap" `
-  -PathRules $PathRuleConfig, $PathRuleConfig1 `
-  -DefaultBackendAddressPool $defaultPool `
-  -DefaultBackendHttpSettings $poolSettings
-
-Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw `
-  -Name "RequestRoutingRule" `
-  -RuleType PathBasedRouting `
-  -HttpListener $siteListener `
-  -UrlPathMap $URLPathMap
+  -FirewallPolicy $wafPolicyGlobal `
+  -UrlPathMaps $URLPathMap
 ```
 
 ## Create a virtual machine scale set
@@ -366,34 +400,29 @@ Update-AzVmss `
 
 In this article, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Azure Monitor logs or Event Hub to record data.
 
-### Create the storage account
-
-Create a storage account named *myagstore1* using [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
-
-```azurepowershell-interactive
-$storageAccount = New-AzStorageAccount `
-  -ResourceGroupName myResourceGroupAG `
-  -Name myagstore1 `
-  -Location eastus `
-  -SkuName "Standard_LRS"
-```
-
-### Configure diagnostics
-
 Configure diagnostics to record data into the ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, and ApplicationGatewayFirewallLog logs using [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting).
 
+### Create the storage account
+
+Create a storage account with random guid name, using [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
+
 ```azurepowershell-interactive
+# generate random/unique storage account name
+$saname = -join ((new-guid).guid)[0..24] -replace '-',''
+
+$storageAccount = New-AzStorageAccount `
+  -ResourceGroupName myResourceGroupAG `
+  -Name $saname `
+  -Location eastus `
+  -SkuName "Standard_LRS"
+
 $appgw = Get-AzApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
 
-$store = Get-AzStorageAccount `
-  -ResourceGroupName myResourceGroupAG `
-  -Name myagstore1
-
 Set-AzDiagnosticSetting `
   -ResourceId $appgw.Id `
-  -StorageAccountId $store.Id `
+  -StorageAccountId $storageAccount.Id `
   -Category ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
   -Enabled $true `
   -RetentionEnabled $true `
@@ -402,31 +431,80 @@ Set-AzDiagnosticSetting `
 
 ## Test the application gateway
 
-You can use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the application gateway. Then use this IP address to curl against (replace the 1.1.1.1 shown below). 
+You can use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the application gateway. Then use this IP address to curl against. 
 
 ```azurepowershell-interactive
-Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
+${wafIP} = Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress | foreach IpAddress
 
-#should be blocked
-curl 1.1.1.1/globalBlock
-curl 1.1.1.1/?1=1
+#1 Global Default allow
+$default = "${wafIP}"
+curl $default
+#> myvmss000001
 
-#should be allowed
-curl 1.1.1.1/globalAllow?1=1
+#2 wafpolicyGlobal allow
+$defaultdefaultallow = "${wafIP}/Default.htm"
+curl $defaultdefaultallow
+#> myvmss000001
 
-#should be blocked
-curl 1.1.1.1:8080/siteBlock
-curl 1.1.1.1/?1=1
+#3 wafpolicyGlobal deny [Default]
+$defaultdefaultblock = "${wafIP}/Default"
+curl $defaultdefaultblock
+#> 403 Forbidden
 
-#should be allowed
-curl 1.1.1.1:8080/siteAllow?1=1
+#4 wafpolicyGlobal deny [iisstart]
+$defaultiisstartblock = "${wafIP}/iisstart"
+curl $defaultiisstartblock
+#> 403 Forbidden
 
-#should be blocked
-curl 1.1.1.1/URIBlock
-curl 1.1.1.1/?1=1
+#5 wafpolicyGlobal deny [8080/images/test.htm]
+$defaulttestblock = "${wafIP}/8080/images/test.htm"
+curl $defaulttestblock
+#> 403 Forbidden
 
-#should be allowed
-curl 1.1.1.1/URIAllow?1=1
+#6 wafpolicySite allow [8080/images/test.htm] - Site overrides previous block at Global Default
+$site8080imagestestallow = "${wafIP}:8080/images/test.htm"
+curl $site8080imagestestallow
+#> Images: myvmss000002
+
+#7 wafpolicySite deny [images]
+$site8080imagesblock = "${wafIP}:8080/images"
+curl $site8080imagesblock
+#> 403 Forbidden
+
+#8 wafpolicySite deny [8080/video/test.htm]
+$site8080videodeny = "${wafIP}:8080/8080/video/test.htm"
+curl $site8080videodeny
+#> 403 Forbidden
+
+#9 wafpolicyURI allow [video/test.htm] - URI overrides previous block at Site Default8080
+$uri8080videotestsllow = "${wafIP}:8080/video/test.htm"
+curl $uri8080videotestsllow
+#> Video: myvmss000002
+
+#10 wafpolicyURI allow [video/test.htm] - same as previous works at Default or Default8080
+$urivideotestallow = "${wafIP}/video/test.htm"
+curl $urivideotestallow
+#> Video: myvmss000000
+
+#11 wafpolicyURI deny [video] Default
+$urivideodeny = "${wafIP}/video/"
+curl $urivideodeny
+#> 403 Forbidden
+
+#12 wafpolicyURI deny [video] Default8080
+$uri8080videodeny = "${wafIP}:8080/video/"
+curl $uri8080videodeny
+#> 403 Forbidden
+
+#13 wafpolicyURI allow [iisstart.htm] - URI overrides previous block at Global Default8080
+$uri8080iisstartallow = "${wafIP}:8080/iisstart.htm"
+curl $uri8080iisstartallow
+#> <title>IIS Windows Server</title>
+
+#14 wafpolicyURI allow [iisstart.htm] - URI overrides previous block at Global Default
+$uriiisstartallow = "${wafIP}/iisstart.htm"
+curl $uriiisstartallow
+#> <title>IIS Windows Server</title>
 ```
 
 ![Test base URL in application gateway](../media/tutorial-restrict-web-traffic-powershell/application-gateway-iistest.png)
