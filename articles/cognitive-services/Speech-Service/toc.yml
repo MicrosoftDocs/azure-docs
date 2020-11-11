@@ -43,8 +43,6 @@
         #   href: how-to-pronunciation-assessment.md
     - name: Tutorials
       items:
-        - name: Recognize speech stored in blob storage
-          href: quickstarts/from-blob.md
         - name: Improve accuracy with tenant models
           href: tutorial-tenant-model.md
     - name: Customization
@@ -71,22 +69,22 @@
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/cppref'
+          href: https://aka.ms/csspeech/cppref
         - name: 'C#'
           displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-          href: 'https://aka.ms/csspeech/csharpref'
+          href: https://aka.ms/csspeech/csharpref
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javaref'
+          href: https://aka.ms/csspeech/javaref
         - name: JavaScript
           displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-          href: 'https://aka.ms/csspeech/javascriptref'
+          href: https://aka.ms/csspeech/javascriptref
         - name: Objective-C
           displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-          href: 'https://aka.ms/csspeech/objectivecref'
+          href: https://aka.ms/csspeech/objectivecref
         - name: Python
           displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-          href: 'https://aka.ms/csspeech/pythonref'
+          href: https://aka.ms/csspeech/pythonref
         - name: Release notes
           displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
@@ -124,13 +122,13 @@
             - name: Deployment of synthetic technology
               href: concepts-guidelines-responsible-deployment-synthetic.md
             - name: Disclosure for voice talent
-              href: 'https://aka.ms/disclosure-voice-talent'
+              href: https://aka.ms/disclosure-voice-talent
             - name: Disclosure design guidelines
               href: concepts-disclosure-guidelines.md
             - name: Disclosure design patterns
               href: concepts-disclosure-patterns.md
             - name: Code of conduct
-              href: 'https://aka.ms/custom-neural-code-of-conduct'
+              href: https://aka.ms/custom-neural-code-of-conduct
         - name: Custom Voice portal
           items:
             - name: Get started with Custom Voice
@@ -150,22 +148,22 @@
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/cppref'
+          href: https://aka.ms/csspeech/cppref
         - name: 'C#'
           displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-          href: 'https://aka.ms/csspeech/csharpref'
+          href: https://aka.ms/csspeech/csharpref
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javaref'
+          href: https://aka.ms/csspeech/javaref
         - name: JavaScript
           displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-          href: 'https://aka.ms/csspeech/javascriptref'
+          href: https://aka.ms/csspeech/javascriptref
         - name: Objective-C
           displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-          href: 'https://aka.ms/csspeech/objectivecref'
+          href: https://aka.ms/csspeech/objectivecref
         - name: Python
           displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-          href: 'https://aka.ms/csspeech/pythonref'
+          href: https://aka.ms/csspeech/pythonref
         - name: Release notes
           displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
@@ -200,22 +198,22 @@
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/cppref'
+          href: https://aka.ms/csspeech/cppref
         - name: 'C#'
           displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-          href: 'https://aka.ms/csspeech/csharpref'
+          href: https://aka.ms/csspeech/csharpref
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-          href: 'https://aka.ms/csspeech/javaref'
+          href: https://aka.ms/csspeech/javaref
         - name: JavaScript
           displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-          href: 'https://aka.ms/csspeech/javascriptref'
+          href: https://aka.ms/csspeech/javascriptref
         - name: Objective-C
           displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-          href: 'https://aka.ms/csspeech/objectivecref'
+          href: https://aka.ms/csspeech/objectivecref
         - name: Python
           displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-          href: 'https://aka.ms/csspeech/pythonref'
+          href: https://aka.ms/csspeech/pythonref
         - name: Release notes
           displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
@@ -226,7 +224,7 @@
         - name: Region support
           href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: Speech translation FAQ
-          href: 'https://www.microsoft.com/translator/faq.aspx'
+          href: https://www.microsoft.com/translator/faq.aspx
 - name: Intent recognition
   items:
     - name: Intent recognition documentation
@@ -245,22 +243,22 @@
           items:
             - name: C++
               displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/cppref'
+              href: https://aka.ms/csspeech/cppref
             - name: 'C#'
               displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/csharpref'
+              href: https://aka.ms/csspeech/csharpref
             - name: Java
               displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/javaref'
+              href: https://aka.ms/csspeech/javaref
             - name: JavaScript
               displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/javascriptref'
+              href: https://aka.ms/csspeech/javascriptref
             - name: Objective-C
               displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/objectivecref'
+              href: https://aka.ms/csspeech/objectivecref
             - name: Python
               displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-              href: 'https://aka.ms/csspeech/pythonref'
+              href: https://aka.ms/csspeech/pythonref
             - name: Release notes
               displayName: 'release notes,updates,what''s new,what is new,changes'
               href: releasenotes.md
@@ -316,22 +314,22 @@
                   items:
                     - name: C++
                       displayName: C++ SDK,C++ dev kit,reference,reference docs,ref documentation
-                      href: 'https://aka.ms/csspeech/cppref'
+                      href: https://aka.ms/csspeech/cppref
                     - name: 'C#'
                       displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
-                      href: 'https://aka.ms/csspeech/csharpref'
+                      href: https://aka.ms/csspeech/csharpref
                     - name: Java
                       displayName: Java SDK,Java dev kit,reference,reference docs,ref documentation
-                      href: 'https://aka.ms/csspeech/javaref'
+                      href: https://aka.ms/csspeech/javaref
                     - name: JavaScript
                       displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
-                      href: 'https://aka.ms/csspeech/javascriptref'
+                      href: https://aka.ms/csspeech/javascriptref
                     - name: Objective-C
                       displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
-                      href: 'https://aka.ms/csspeech/objectivecref'
+                      href: https://aka.ms/csspeech/objectivecref
                     - name: Python
                       displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
-                      href: 'https://aka.ms/csspeech/pythonref'
+                      href: https://aka.ms/csspeech/pythonref
                     - name: Release notes
                       displayName: 'release notes,updates,what''s new,what is new,changes'
                       href: releasenotes.md
@@ -350,11 +348,11 @@
                 - name: Speech SDK
                   items:
                     - name: C++
-                      href: 'https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace'
+                      href: https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace
                     - name: 'C#'
-                      href: 'https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription'
+                      href: https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription
                     - name: 'Java'
-                      href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription'
+                      href: https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription
     - name: Voice assistants
       items:
         - name: Voice assistants documentation
@@ -470,19 +468,19 @@
       - name: Reference
         items:
           - name: C++
-            href: 'https://aka.ms/csspeech/cppref'
+            href: https://aka.ms/csspeech/cppref
           - name: 'C#'
-            href: 'https://aka.ms/csspeech/csharpref'
+            href: https://aka.ms/csspeech/csharpref
           - name: Java
-            href: 'https://aka.ms/csspeech/javaref'
+            href: https://aka.ms/csspeech/javaref
           - name: JavaScript
-            href: 'https://aka.ms/csspeech/javascriptref'
+            href: https://aka.ms/csspeech/javascriptref
           - name: Objective-C
-            href: 'https://aka.ms/csspeech/objectivecref'
+            href: https://aka.ms/csspeech/objectivecref
           - name: Python
-            href: 'https://aka.ms/csspeech/pythonref'
+            href: https://aka.ms/csspeech/pythonref
           - name: Go
-            href: 'https://github.com/microsoft/cognitive-services-speech-sdk-go'
+            href: https://github.com/microsoft/cognitive-services-speech-sdk-go
   - name: Speech CLI
     displayName: SPX
     items:
@@ -588,6 +586,6 @@
   - name: Encryption
     href: speech-encryption-of-data-at-rest.md
   - name: Azure roadmap
-    href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacy and cookies
-    href: 'https://privacy.microsoft.com/privacystatement'
+    href: https://privacy.microsoft.com/privacystatement
