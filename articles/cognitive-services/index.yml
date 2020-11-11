@@ -20,7 +20,7 @@ highlightedContent:
   items:
     - title: What are Cognitive Services?
       itemType: overview # controls the icon image and super-title text
-      url: ./welcome.md
+      url: ./what-are-cognitive-services.md
     - title: What's new in docs?
       itemType: whats-new
       url: whats-new-docs.md
@@ -181,24 +181,24 @@ additionalContent:
         - title: SDKs & REST APIs
           links:
             - text: C#
-              url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+              url: /dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
             - text: Go
               url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
             - text: Java
-              url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+              url: /java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
             - text: JavaScript
-              url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+              url: /javascript/api/overview/azure/cognitive-services?view=azure-node-latest
             - text: Python
-              url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
+              url: /python/api/overview/azure/cognitive-services?view=azure-python
             - text: R 
               url: https://github.com/Azure/AzureCognitive
             - text: Apache Spark and Databases 
               url: ./big-data/cognitive-services-for-big-data.md
             - text: Cognitive Services Management REST API
-              url: https://docs.microsoft.com/rest/api/cognitiveservices/
+              url: /rest/api/cognitiveservices/
         - title: Tools
           links:
             - text: Azure CLI
-              url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+              url: /cli/azure/cognitiveservices?view=azure-cli-latest
             - text: PowerShell
-              url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+              url: /powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services

@@ -64,7 +64,7 @@ The following architecture diagram shows the implementation.
 | 8. | The user is now authenticated and has access to the app.|
 
 ## Get Maverics Identity Orchestrator
-
+To get the software you'll use to integrate your legacy on-premises app with Azure AD B2C, contact [Strata](https://www.strata.io/contact/). After you get the software, follow the steps below to determine Orchestrator-specific prerequisites and perform the required installation and configuration steps.
 
 ## Configure your Azure AD B2C tenant
 

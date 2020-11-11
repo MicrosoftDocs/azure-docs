@@ -17,6 +17,9 @@ The data that Azure Monitor collects from virtual machines with the [Log Analyti
 
 ![Log data collection](media/agent-data-sources/overview.png)
 
+> [!IMPORTANT]
+> The data sources described in this article apply only to virtual machines running the Log Analytics agent. 
+
 ## Summary of data sources
 The following table lists the agent data sources that are currently available with the Log Analytics agent.  Each has a link to a separate article providing detail for that data source.   It also provides information on their method and frequency of collection. 
 

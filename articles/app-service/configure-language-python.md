@@ -2,7 +2,7 @@
 title: Configure Linux Python apps
 description: Learn how to configure the Python container in which web apps are run, using both the Azure portal and the Azure CLI. 
 ms.topic: quickstart
-ms.date: 10/06/2020
+ms.date: 11/06/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
 ---
@@ -21,7 +21,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
 - **Azure CLI**: you have two options.
 
-    - Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
+    - Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md).
     - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
     
 > [!NOTE]
@@ -35,7 +35,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
     -  Show the current Python version with [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
         ```
         
@@ -43,13 +43,13 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
     
     - Set the Python version with [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set)
         
-        ```azurecli-interactive
+        ```azurecli
         az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
         ```
     
     - Show all Python versions that are supported in Azure App Service with [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes):
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp list-runtimes --linux | grep PYTHON
         ```
     
@@ -76,6 +76,8 @@ By default, the `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`, and `DISABLE_COLLECTS
 - To run post-build commands, set the `POST_BUILD_COMMAND` setting to contain either a command, such as `echo Post-build command`, or a path to a script file relative to your project root, such as `scripts/postbuild.sh`. All commands must use relative paths to the project root folder.
 
 For additional settings that customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md). 
+
+To access the build and deployment logs, see [Access deployment logs](#access-deployment-logs).
 
 For more information on how App Service runs and builds Python apps in Linux, see [How Oryx detects and builds Python apps](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md).
 
@@ -159,9 +161,13 @@ If your main app module is contained in a different file, use a different name f
 
 ### Default behavior
 
-If the App Service doesn't find a custom command, a Django app, or a Flask app, then it runs a default read-only app, located in the _opt/defaultsite_ folder. The default app appears as follows:
+If the App Service doesn't find a custom command, a Django app, or a Flask app, then it runs a default read-only app, located in the _opt/defaultsite_ folder and shown in the following image.
 
-![Default App Service on Linux web page](media/configure-language-python/default-python-app.png)
+If you deployed code and still see the default app, see [Troubleshooting - App doesn't appear](#app-doesnt-appear).
+
+[![Default App Service on Linux web page](media/configure-language-python/default-python-app.png)](#app-doesnt-appear)
+
+Again, if you expect to see a deployed app instead of the default app, see [Troubleshooting - App doesn't appear](#app-doesnt-appear).
 
 ## Customize startup command
 
@@ -177,7 +183,7 @@ To specify a startup command or command file:
 
 - **Azure CLI**: use the [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) command with the `--startup-file` parameter to set the startup command or file:
 
-    ```azurecli-interactive
+    ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
     ```
         
@@ -253,33 +259,81 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 
 To access logs through the Azure portal, select **Monitoring** > **Log stream** on the left side menu for your app.
 
+## Access deployment logs
+
+When you deploy your code, App Service performs the build process described earlier in the section [Customize build automation](#customize-build-automation). Because the build runs in its own container, build logs are stored separately from the app's diagnostic logs.
+
+Use the following steps to access the deployment logs:
+
+1. On the Azure portal for your web app, select **Deployment** > **Deployment Center (Preview)** on the left menu.
+1. On the **Logs** tab, select the **Commit ID** for the most recent commit.
+1. On the **Log details** page that appears, select the **Show Logs...** link that appears next to "Running oryx build...".
+
+Build issues such as incorrect dependencies in *requirements.txt* and errors in pre- or post-build scripts will appear in these logs. Errors also appear if your requirements file is not exactly named *requirements.txt* or does not appear in the root folder of your project.
+
 ## Open SSH session in browser
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
+When you're successfully connected to the SSH session, you should see the message "SSH CONNECTION ESTABLISHED" at the bottom of the window. If you see errors such as "SSH_CONNECTION_CLOSED" or a message that the container is restarting, an error may be preventing the app container from starting. See [Troubleshooting](#troubleshooting) for steps to investigate possible issues.
+
 ## Troubleshooting
 
-- **You see the default app after deploying your own app code.** The default app appears because you either haven't deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.
+In general, the first step in troubleshooting is to use App Service Diagnostics:
+
+1. On the Azure portal for your web app, select **Diagnose and solve problems** from the left menu.
+1. Select **Availability and performance**.
+1. Examine the information in the **Application Logs**, **Container crash**, and **Container Issues** options, where the most common issues will appear.
+
+Next, examine both the [deployment logs](#access-deployment-logs) and the [app logs](#access-diagnostic-logs) for any error messages. These logs often identify specific issues that can prevent app deployment or app startup. For example, the build can fail if your *requirements.txt* file has the wrong filename or isn't present in your project root folder.
+
+The following sections provide additional guidance for specific issues.
+
+- [App doesn't appear - default app shows](#app-doesnt-appear)
+- [App doesn't appear - "service unavailable" message](#service-unavailable)
+- [Could not find setup.py or requirements.txt](#could-not-find-setuppy-or-requirementstxt)
+- [Passwords don't appear in SSH session when typed](#other-issues)
+- [Commands in the SSH session appear to be cut off](#other-issues)
+- [Static assets don't appear in a Django app](#other-issues)
+- [Fatal SSL Connection is Required](#other-issues)
+
+#### App doesn't appear
+
+- **You see the default app after deploying your own app code.** The [default app](#default-behavior) appears because you either haven't deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.
 
     - Restart the App Service, wait 15-20 seconds, and check the app again.
     
-    - Be sure you're using App Service for Linux rather than a Windows-based instance. From the Azure CLI, run the command `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, replacing `<resource-group-name>` and `<app-service-name>` accordingly. You should see `app,linux` as output; otherwise, recreate the App Service and choose Linux.
+    - Be sure you're using App Service for Linux rather than a Windows-based instance. From the Azure CLI, run the command `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, replacing `<resource-group-name>` and `<app-name>` accordingly. You should see `app,linux` as output; otherwise, recreate the App Service and choose Linux.
     
-    - Use SSH or the Kudu console to connect directly to the App Service and verify that your files exist under *site/wwwroot*. If your files don't exist, review your deployment process and redeploy the app.
+    - Use [SSH](#open-ssh-session-in-browser) to connect directly to the App Service container and verify that your files exist under *site/wwwroot*. If your files don't exist, use the following steps:
+      1. Create an app setting named `SCM_DO_BUILD_DURING_DEPLOYMENT` with the value of 1, redeploy your code, wait a few minutes, then try to access the app again. For more information on creating app settings, see [Configure an App Service app in the Azure portal](configure-common.md).
+      1. Review your deployment process, [check the deployment logs](#access-deployment-logs), correct any errors, and redeploy the app.
     
     - If your files exist, then App Service wasn't able to identify your specific startup file. Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
 
-- **You see the message "Service Unavailable" in the browser.** The browser has timed out waiting for a response from App Service, which indicates that App Service started the Gunicorn server, but the arguments that specify the app code are incorrect.
+- <a name="service-unavailable"></a>**You see the message "Service Unavailable" in the browser.** The browser has timed out waiting for a response from App Service, which indicates that App Service started the Gunicorn server, but the app itself did not start. This condition could indicate that the Gunicorn arguments are incorrect, or that there's an error in the app code.
 
     - Refresh the browser, especially if you're using the lowest pricing tiers in your App Service Plan. The app may take longer to start up when using free tiers, for example, and becomes responsive after you refresh the browser.
 
     - Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
 
-    - Examine the [log stream](#access-diagnostic-logs) for any error messages.
+    - Examine the [app log stream](#access-diagnostic-logs) for any error messages. The logs will show any errors in the app code.
+
+#### Could not find setup.py or requirements.txt
 
 - **The log stream shows "Could not find setup.py or requirements.txt; Not running pip install."**: The Oryx build process failed to find your *requirements.txt* file.
 
-    - Use SSH or the Kudu console to connect directly to the App Service and verify that *requirements.txt* exists directly under *site/wwwroot*. If it doesn't exist, make site the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
+    - Connect to the web app's container via [SSH](#open-ssh-session-in-browser) and verify that *requirements.txt* is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make site the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
+
+#### Other issues
+
+- **Passwords don't appear in the SSH session when typed**: For security reasons, the SSH session keeps your password hidden as you type. The characters are being recorded, however, so type your password as usual and press **Enter** when done.
+
+- **Commands in the SSH session appear to be cut off**: The editor may not be word-wrapping commands, but they should still run correctly.
+
+- **Static assets don't appear in a Django app**: Ensure that you have enabled the [whitenoise module](http://whitenoise.evans.io/en/stable/django.html)
+
+- **You see the message, "Fatal SSL Connection is Required"**: Check any usernames and passwords used to access resources (such as databases) from within the app.
 
 ## Next steps
 
