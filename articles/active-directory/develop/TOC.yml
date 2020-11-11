@@ -703,8 +703,6 @@
       href: msal-national-cloud.md
   - name: Automatic user provisioning (SCIM)
     items:
-    - name: What is automatic user provisioning?
-      href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Develop and integrating a SCIM endpoint
       href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Common provisioning scenarios
