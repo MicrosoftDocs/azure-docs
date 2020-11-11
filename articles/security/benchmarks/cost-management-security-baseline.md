@@ -214,32 +214,17 @@ and control.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40643.).
 
-**Guidance**: Azure
-Cost Management is integrated with Azure AD that supports strong authentication
-controls through multi-factor authentication (MFA), and strong passwordless
-methods.
+**Guidance**: Azure Cost Management is integrated with Azure AD that supports strong authentication controls through multi-factor authentication (MFA), and strong passwordless methods.
 
-- Multi-factor
-     authentication - Enable Azure AD MFA and follow Azure Security Center
-     Identity and Access Management recommendations for some best practices in
-     your MFA setup. MFA can be enforced on all, select users or at the
-     per-user level based on sign-in conditions and risk factors.
+- Multi-factor authentication - Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations for some best practices in your MFA setup. MFA can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
 
-- Passwordless
-     authentication – Three passwordless authentication options are available:
-     Windows Hello for Business, Microsoft Authenticator app, and on-premises
-     authentication methods such as smart cards.
+- Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
 
-For administrator and
-privileged users, ensure the highest level of the strong authentication method
-are used, followed by rolling out the appropriate strong authentication policy
-to other users.
+For administrator and privileged users, ensure the highest level of the strong authentication method are used, followed by rolling out the appropriate strong authentication policy to other users.
 
-How to enable MFA in
-- [Azure](../../active-directory/authentication/howto-mfa-getstarted.md) 
+- [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md) 
 
-Introduction
-- [to passwordless authentication options for Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md) 
+- [Introduction to passwordless authentication options for Azure Active Directory](../../active-directory/authentication/concept-authentication-passwordless.md) 
 
 - [Azure AD default password policy](../../active-directory/authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts)
 
@@ -305,7 +290,7 @@ Alerts
 How
 - [to integrate Azure Activity Logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -436,7 +421,7 @@ that the users or groups have the requisite access required.
 - Understand
 - [Microsoft Customer Agreement administrative roles in Azure](../../cost-management-billing/manage/understand-mca-roles.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -668,7 +653,7 @@ transit between Azure data centers.
 
 - [Double encryption for Azure data in transit](../fundamentals/double-encryption.md#data-in-transit)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Microsoft
 
