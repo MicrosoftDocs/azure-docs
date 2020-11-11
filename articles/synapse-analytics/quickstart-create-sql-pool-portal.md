@@ -54,6 +54,9 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 3. Select **Next: Additional settings**.
 4. Select **None** to provision the dedicated SQL pool without data. Leave the default collation selected.
+
+    If you want to restore your dedicated SQL pool from a restore point, select **Restore point**. For more information on how to perform a restore, see [How-to: Restore an existing dedicated SQL pool](backuprestore/restore-sql-pool.md)
+
 ![dedicated SQL pool create flow - additional settings tab.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
 5. Select **Review + create**.
