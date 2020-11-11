@@ -135,7 +135,7 @@ When configuring exclusion lists for managed rules, you can choose to exclude al
 * Exclusions at a rule level
   * Applying exclusions at a rule level means that the specified exclusions will not be analyzed against that individual rule only, while it will still be analyzed by all other rules in the rule set. This is the most granular level for exclusions, and it can be used to fine-tune the managed rule set based on the information you find in the WAF logs when troubleshooting an event.
 * Exclusions at rule group level
-  * Applying exclusions at a rule group level means that the specified exclusions will not be analyzed against that specific set of rule types. For example, selecting `SQLI` as an excluded rule group indicates the defined request exclusions would not be inspected by any of the SQLI-specific rules, but it would still be inspected by rules in other groups, such as `PHP`, `RFI`, or `XSS`. This type of exclusion can be useful when we are sure the application is not susceptible to specific types of attacks. For example, an application that doesn't have any SQL databases could have all `SQLI` rules excluded without it being detrimental to its security level.
+  * Applying exclusions at a rule group level means that the specified exclusions will not be analyzed against that specific set of rule types. For example, selecting *SQLI* as an excluded rule group indicates the defined request exclusions would not be inspected by any of the SQLI-specific rules, but it would still be inspected by rules in other groups, such as *PHP*, *RFI*, or *XSS*. This type of exclusion can be useful when we are sure the application is not susceptible to specific types of attacks. For example, an application that doesn't have any SQL databases could have all *SQLI* rules excluded without it being detrimental to its security level.
 * Exclusions at rule set level 
   * Applying exclusions at a rule set level means that the specified exclusions will not be analyzed against any of the security rules available in that rule set. This is a comprehensive exclusion, so it should be used carefully.
 
@@ -163,7 +163,7 @@ After performing the same request, we can refer back to the logs and we will see
 
 ![Log](../media/waf-front-door-tuning/actions-log.png)
 
-Interestingly, we see a different SQLI rule match occurs milliseconds afterwards rule ID 942110 was processed. The same request matched on rule ID 942310, and this time the default action *Block* was triggered.
+Interestingly, we see a different SQLI rule match occurs milliseconds after rule ID 942110 was processed. The same request matched on rule ID 942310, and this time the default action *Block* was triggered.
 
 Another advantage of using the *Log* action during WAF tuning or troubleshooting is that you can identify if multiple rules within a specific rule group are matching and blocking a given request. You can then create your exclusions at the appropriate level, i.e. at the rule or rule group level. 
 
