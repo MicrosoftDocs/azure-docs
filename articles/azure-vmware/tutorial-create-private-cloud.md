@@ -1,60 +1,109 @@
 ---
-title: Introduction
-description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
-ms.topic: overview
-ms.date: 11/11/2020
+title: Tutorial - Deploy vSphere Cluster in Azure
+description: Learn to deploy a vSphere Cluster in Azure using Azure VMWare Solution
+ms.topic: tutorial
+ms.date: 09/21/2020
 ---
 
-# What is Azure VMware Solution?
+# Tutorial: Deploy an Azure VMware Solution private cloud in Azure
 
-Azure VMware Solution provides you with private clouds that contain vSphere clusters, built from dedicated bare-metal Azure infrastructure. The minimum initial deployment is three hosts, but additional hosts can be added one at a time, up to a maximum of 16 hosts per cluster.  All provisioned private clouds have vCenter Server, vSAN, vSphere, and NSX-T. You can migrate workloads from your on-premises environments, deploy new virtual machines (VMs), and consume Azure services from your private clouds.
+Azure VMware Solution gives you the ability to deploy a vSphere cluster in Azure. The minimum initial deployment is three hosts. Additional hosts can be added one at a time, up to a maximum of 16 hosts per cluster. 
 
-Azure VMware Solution is a VMware validated solution with on-going validation and testing of enhancements and upgrades. Microsoft manages and maintains private cloud infrastructure and software. It allows you to focus on developing and running workloads in your private cloud. 
+Because Azure VMware Solution doesn't allow you to manage your private cloud with your on-premises vCenter at launch, additional configuration is needed. These procedures and related prerequisites are covered in this tutorial.
 
-The diagram shows the adjacency between private clouds and VNets in Azure, Azure services, and on-premises environments. Network access from private clouds to Azure services or VNets provides SLA-driven integration of Azure service endpoints. ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud. 
+In this tutorial, you learn how to:
 
-![Image of Azure VMware Solution private cloud adjacency to Azure and on-premises](./media/adjacency-overview-drawing-final.png)
+> [!div class="checklist"]
+> * Create an Azure VMware Solution private cloud
+> * Verify the private cloud deployed
 
-## Hosts, clusters, and private clouds
+## Prerequisites
 
-Azure VMware Solution private clouds and clusters are built from a bare-metal, hyper-converged Azure infrastructure host. The high-end hosts have 576-GB RAM and dual Intel 18 core, 2.3-GHz processors. The HE hosts have two vSAN diskgroups with 15.36 TB (SSD) of raw vSAN capacity tier and a 3.2 TB (NVMe) vSAN cache tier.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Appropriate administrative rights and permission to create a private cloud.
+- Ensure you have the appropriate networking configured as described in [Tutorial: Network checklist](tutorial-network-checklist.md).
 
-New private clouds are deployed through the Azure portal or Azure CLI.
+## Register the resource provider
 
-## Networking
+[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
-[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
-For more information, see [Networking concepts](concepts-networking.md).
+## Create a Private Cloud
 
-## Access and security
+You can create an Azure VMware Solution private cloud by using the [Azure portal](#azure-portal) or by using the [Azure CLI](#azure-cli).
 
-Azure VMware Solution private clouds use vSphere role-based access control for enhanced security. You can integrate vSphere SSO LDAP capabilities with Azure Active Directory. For more information, see the [Access and Identity concepts](concepts-identity.md).  
+### Azure portal
 
-vSAN data-at-rest encryption, by default, is enabled and is used to provide vSAN datastore security. For more information, see [Storage concepts](concepts-storage.md).
+[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
-## Host and software lifecycle maintenance
+### Azure CLI
 
-Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private clouds. For more information, see [Private cloud updates and upgrades](concepts-upgrades.md).
+Instead of the Azure portal to create an Azure VMware Solution private cloud, you can use the Azure CLI using the Azure Cloud Shell.  For a list of commands you can use with Azure VMware Solution, see [azure vmware commands](/cli/azure/ext/vmware/vmware).
 
-## Monitoring your private cloud
+#### Open Azure Cloud Shell
 
-Once Azure VMware Solution is deployed into your subscription, [Azure Monitor logs](../azure-monitor/overview.md) are generated automatically. 
+Select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
-In your private cloud, you can:
-- Collect logs on each of your VMs.
-- [Download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-options) on Linux and Windows VMs.
-- Enable the [Azure diagnostics extension](../azure-monitor/platform/diagnostics-extension-overview.md).
-- [Create and run new queries](../azure-monitor/platform/data-platform-logs.md#log-queries).
-- Run the same queries you usually run on your VMs.
+#### Create a resource group
 
-Monitoring patterns inside the Azure VMware Solution are similar to Azure VMs within the IaaS platform. For more information and how-tos, see [Monitoring Azure VMs with Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+
+```azurecli-interactive
+
+az group create --name myResourceGroup --location eastus
+```
+
+#### Create a private cloud
+
+Provide a name for the resource group and the private cloud, a location, and the size of the cluster.
+
+| Property  | Description  |
+| --------- | ------------ |
+| **-g** (Resource Group name)     | The name of the resource group for your private cloud resources.        |
+| **-n** (Private Cloud name)     | The name of your Azure VMware Solution private cloud.        |
+| **--location**     | The location used for your private cloud.         |
+| **--cluster-size**     | The size of the cluster. The minimum value is 3.         |
+| **--network-block**     | The CIDR IP address network block to use for your private cloud. The address block shouldn't overlap with address blocks used in other virtual networks that are in your subscription and on-premises networks.        |
+| **--sku** | The SKU value: AV36 |
+
+```azurecli-interactive
+az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
+```
+
+## Delete an Azure VMware Solution private cloud
+
+If you have an Azure VMware Solution private cloud that you no longer need, you can delete it. An Azure VMware Solution private cloud includes an isolated network domain, one or more vSphere clusters provisioned on dedicated server nodes, and typically many virtual machines. When a private cloud is deleted, all of the virtual machines, their data, and clusters are deleted. The dedicated bare-metal nodes are securely wiped and returned to the free pool. The network domain provisioned for the customer is deleted.  
+
+> [!CAUTION]
+> Deleting the private cloud is an irreversible operation. Once the private cloud is deleted, the data cannot be recovered, as it terminates all running workloads and components and destroys all private cloud data and configuration settings, including public IP addresses.
+
+### Prerequisites
+
+Once a private cloud is deleted, there is no way to recover the virtual machines and their data. If the virtual machine data will be required later, the admin must first back up all of the data before deleting the private cloud.
+
+### Steps to delete an Azure VMware Solution private cloud
+
+1. Access the Azure VMware Solutions page in the Azure portal.
+
+2. Select the private cloud to be deleted.
+ 
+3. Enter the name of the private cloud and select **Yes**. In a few hours the deletion process will complete.  
+
+## Azure VMware commands
+
+For a list of commands you can use with Azure VMware Solution, see [azure vmware commands](/cli/azure/ext/vmware/vmware).
 
 ## Next steps
 
-The next step is to learn key [private cloud and cluster concepts](concepts-private-clouds-clusters.md).
+In this tutorial, you learned how to:
 
-<!-- LINKS - external -->
+> [!div class="checklist"]
+> * Create an Azure VMware Solution private cloud
+> * Verify the private cloud deployed
+> * Delete an Azure VMware Solution private cloud
 
-<!-- LINKS - internal -->
-[concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
+Continue to the next tutorial to learn how to create a jump box. You use the jump box to connect to your environment so that you can manage your private cloud locally.
+
+
+> [!div class="nextstepaction"]
+> [Access an Azure VMware Solution private cloud](tutorial-access-private-cloud.md)
