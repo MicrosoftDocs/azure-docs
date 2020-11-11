@@ -1,8 +1,8 @@
 ---
 title: Backup and restore - Azure CLI - Azure Database for MySQL
 description: Learn how to backup and restore a server in Azure Database for MySQL by using the Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
@@ -14,13 +14,14 @@ ms.custom: devx-track-azurecli
 Azure Database for MySQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
 
 ## Prerequisites
-To complete this how-to guide, you need:
-- An [Azure Database for MySQL server and database](quickstart-create-mysql-server-database-using-azure-cli.md)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+To complete this how-to guide:
 
-> [!IMPORTANT]
-> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+- You need an [Azure Database for MySQL server and database](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Set backup configuration
 
@@ -78,7 +79,7 @@ Additionally, after the restore operation finishes, there are two server paramet
 *   time_zone - This value to set to DEFAULT value **SYSTEM**
 *   event_scheduler - The event_scheduler is set to **OFF** on the restored server
 
-You will need to copy over the value from teh primary server and set it on the restored server by reconfiguring the [server parameter](howto-server-parameters.md)
+You will need to copy over the value from the primary server and set it on the restored server by reconfiguring the [server parameter](howto-server-parameters.md)
 
 The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
 
