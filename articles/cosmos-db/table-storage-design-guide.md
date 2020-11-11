@@ -11,6 +11,7 @@ ms.custom: "seodec18, devx-track-csharp"
 
 ---
 # Azure Table storage table design guide: Scalable and performant tables
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -19,7 +20,7 @@ To design scalable and performant tables, you must consider a variety of factors
 Table storage is designed to support cloud-scale applications that can contain billions of entities ("rows" in relational database terminology) of data, or for datasets that must support high transaction volumes. You therefore need to think differently about how you store your data, and understand how Table storage works. A well-designed NoSQL data store can enable your solution to scale much further (and at a lower cost) than a solution that uses a relational database. This guide helps you with these topics.  
 
 ## About Azure Table storage
-This section highlights some of the key features of Table storage that are especially relevant to designing for performance and scalability. If you're new to Azure Storage and Table storage, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md) and [Get started with Azure Table storage by using .NET](table-storage-how-to-use-dotnet.md) before reading the remainder of this article. Although the focus of this guide is on Table storage, it does include some discussion of Azure Queue storage and Azure Blob storage, and how you might use them along with Table storage in a solution.  
+This section highlights some of the key features of Table storage that are especially relevant to designing for performance and scalability. If you're new to Azure Storage and Table storage, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md) and [Get started with Azure Table storage by using .NET](./tutorial-develop-table-dotnet.md) before reading the remainder of this article. Although the focus of this guide is on Table storage, it does include some discussion of Azure Queue storage and Azure Blob storage, and how you might use them along with Table storage in a solution.  
 
 Table storage uses a tabular format to store data. In the standard terminology, each row of the table represents an entity, and the columns store the various properties of that entity. Every entity has a pair of keys to uniquely identify it, and a timestamp column that Table storage uses to track when the entity was last updated. The timestamp field is added automatically, and you can't manually overwrite the timestamp with an arbitrary value. Table storage uses this last-modified timestamp (LMT) to manage optimistic concurrency.  
 
@@ -118,7 +119,7 @@ The following example shows a simple table design to store employee and departme
 </table>
 
 
-So far, this design looks similar to a table in a relational database. The key differences are the mandatory columns and the ability to store multiple entity types in the same table. In addition, each of the user-defined properties, such as **FirstName** or **Age**, has a data type, such as integer or string, just like a column in a relational database. Unlike in a relational database, however, the schema-less nature of Table storage means that a property need not have the same data type on each entity. To store complex data types in a single property, you must use a serialized format such as JSON or XML. For more information, see [Understanding Table storage data model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+So far, this design looks similar to a table in a relational database. The key differences are the mandatory columns and the ability to store multiple entity types in the same table. In addition, each of the user-defined properties, such as **FirstName** or **Age**, has a data type, such as integer or string, just like a column in a relational database. Unlike in a relational database, however, the schema-less nature of Table storage means that a property need not have the same data type on each entity. To store complex data types in a single property, you must use a serialized format such as JSON or XML. For more information, see [Understanding Table storage data model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Your choice of `PartitionKey` and `RowKey` is fundamental to good table design. Every entity stored in a table must have a unique combination of `PartitionKey` and `RowKey`. As with keys in a relational database table, the `PartitionKey` and `RowKey` values are indexed to create a clustered index that enables fast look-ups. Table storage, however, doesn't create any secondary indexes, so these are the only two indexed properties (some of the patterns described later show how you can work around this apparent limitation).  
 
@@ -130,7 +131,7 @@ The account name, table name, and `PartitionKey` together identify the partition
 In Table storage, an individual node services one or more complete partitions, and the service scales by dynamically load-balancing partitions across nodes. If a node is under load, Table storage can split the range of partitions serviced by that node onto different nodes. When traffic subsides, Table storage can merge the partition ranges from quiet nodes back onto a single node.  
 
 For more information about the internal details of Table storage, and in particular how it manages partitions, see [Microsoft Azure Storage: A highly available
-cloud storage service with strong consistency](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
+cloud storage service with strong consistency](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### Entity group transactions
 In Table storage, entity group transactions (EGTs) are the only built-in mechanism for performing atomic updates across multiple entities. EGTs are also referred to as *batch transactions*. EGTs can only operate on entities stored in the same partition (sharing the same partition key in a particular table), so anytime you need atomic transactional behavior across multiple entities, ensure that those entities are in the same partition. This is often a reason for keeping multiple entity types in the same table (and partition), and not using multiple tables for different entity types. A single EGT can operate on at most 100 entities.  If you submit multiple concurrent EGTs for processing, it's important to ensure that those EGTs don't operate on entities that are common across EGTs. Otherwise, you risk delaying processing.
@@ -152,7 +153,7 @@ The following table includes some of the key values to be aware of when you're d
 | Size of the `RowKey` |A string up to 1 KB in size. |
 | Size of an entity group transaction |A transaction can include at most 100 entities, and the payload must be less than 4 MB in size. An EGT can only update an entity once. |
 
-For more information, see [Understanding the Table service data model](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+For more information, see [Understanding the Table service data model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).  
 
 ### Cost considerations
 Table storage is relatively inexpensive, but you should include cost estimates for both capacity usage and the quantity of transactions as part of your evaluation of any solution that uses Table storage. In many scenarios, however, storing denormalized or duplicate data in order to improve the performance or scalability of your solution is a valid approach to take. For more information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).  
@@ -198,7 +199,7 @@ The following examples assume Table storage is storing employee entities with th
 | `Age` |Integer |
 | `EmailAddress` |String |
 
-Here are some general guidelines for designing Table storage queries. The filter syntax used in the following examples is from the Table storage REST API. For more information, see [Query entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Here are some general guidelines for designing Table storage queries. The filter syntax used in the following examples is from the Table storage REST API. For more information, see [Query entities](/rest/api/storageservices/Query-Entities).  
 
 * A *point query* is the most efficient lookup to use, and is recommended for high-volume lookups or lookups requiring the lowest latency. Such a query can use the indexes to locate an individual entity efficiently by specifying both the `PartitionKey` and `RowKey` values. For example:
   `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
@@ -411,7 +412,7 @@ In previous sections, you learned about how to optimize your table design for bo
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="Diagram of table design patterns":::
 
-The pattern map highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of course many other patterns that are worth considering. For example, one of the key scenarios for Table storage is to use the [materialized view pattern](https://msdn.microsoft.com/library/azure/dn589782.aspx) from the [command query responsibility segregation](https://msdn.microsoft.com/library/azure/jj554200.aspx) pattern.  
+The pattern map highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of course many other patterns that are worth considering. For example, one of the key scenarios for Table storage is to use the [materialized view pattern](/previous-versions/msp-n-p/dn589782(v=pandp.10)) from the [command query responsibility segregation](/previous-versions/msp-n-p/jj554200(v=pandp.10)) pattern.  
 
 ### Intra-partition secondary index pattern
 Store multiple copies of each entity by using different `RowKey` values (in the same partition). This enables fast and efficient lookups, and alternate sort orders by using different `RowKey` values. Updates between copies can be kept consistent by using EGTs.  
@@ -440,7 +441,7 @@ If you query for a range of employee entities, you can specify a range sorted in
 * To find all the employees in the Sales department with an email address starting with the letter "a", use:
   $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-The filter syntax used in the preceding examples is from the Table storage REST API. For more information, see [Query entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+The filter syntax used in the preceding examples is from the Table storage REST API. For more information, see [Query entities](/rest/api/storageservices/Query-Entities).  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -502,7 +503,7 @@ If you query for a range of employee entities, you can specify a range sorted in
 * To find all the employees in the Sales department with an email address that starts with "a", sorted in email address order, use:
   $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-Note that the filter syntax used in the preceding examples is from the Table storage REST API. For more information, see [Query entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Note that the filter syntax used in the preceding examples is from the Table storage REST API. For more information, see [Query entities](/rest/api/storageservices/Query-Entities).  
 
 #### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -562,7 +563,7 @@ In this example, step 4 in the diagram inserts the employee into the **Archive**
 #### Recover from failures
 It's important that the operations in steps 4-5 in the diagram be *idempotent* in case the worker role needs to restart the archive operation. If you're using Table storage, for step 4 you should use an "insert or replace" operation; for step 5, you should use a "delete if exists" operation in the client library you're using. If you're using another storage system, you must use an appropriate idempotent operation.  
 
-If the worker role never completes step 6 in the diagram, then, after a timeout, the message reappears on the queue ready for the worker role to try to reprocess it. The worker role can check how many times a message on the queue has been read and, if necessary, flag it as a "poison" message for investigation by sending it to a separate queue. For more information about reading queue messages and checking the dequeue count, see [Get messages](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
+If the worker role never completes step 6 in the diagram, then, after a timeout, the message reappears on the queue ready for the worker role to try to reprocess it. The worker role can check how many times a message on the queue has been read and, if necessary, flag it as a "poison" message for investigation by sending it to a separate queue. For more information about reading queue messages and checking the dequeue count, see [Get messages](/rest/api/storageservices/Get-Messages).  
 
 Some errors from Table storage and Queue storage are transient errors, and your client application should include suitable retry logic to handle them.  
 
@@ -1030,7 +1031,7 @@ A query against Table storage can return a maximum of 1,000 entities at one time
 - The query didn't complete within five seconds.
 - The query crosses the partition boundary. 
 
-For more information about how continuation tokens work, see [Query timeout and pagination](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
+For more information about how continuation tokens work, see [Query timeout and pagination](/rest/api/storageservices/Query-Timeout-and-Pagination).  
 
 If you're using the Storage Client Library, it can automatically handle continuation tokens for you as it returns entities from Table storage. For example, the following C# code sample automatically handles continuation tokens if Table storage returns them in a response:  
 
@@ -1436,7 +1437,7 @@ You can use shared access signature (SAS) tokens to enable client applications t
 * You can offload some of the work that web and worker roles perform in managing your entities. You can offload to client devices such as end-user computers and mobile devices.  
 * You can assign a constrained and time-limited set of permissions to a client (such as allowing read-only access to specific resources).  
 
-For more information about using SAS tokens with Table storage, see [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+For more information about using SAS tokens with Table storage, see [Using shared access signatures (SAS)](../storage/common/storage-sas-overview.md).  
 
 However, you must still generate the SAS tokens that grant a client application to the entities in Table storage. Do this in an environment that has secure access to your storage account keys. Typically, you use a web or worker role to generate the SAS tokens and deliver them to the client applications that need access to your entities. Because there is still an overhead involved in generating and delivering SAS tokens to clients, you should consider how best to reduce this overhead, especially in high-volume scenarios.  
 
@@ -1533,5 +1534,4 @@ In this asynchronous example, you can see the following changes from the synchro
 * The method signature now includes the `async` modifier, and returns a `Task` instance.  
 * Instead of calling the `Execute` method to update the entity, the method now calls the `ExecuteAsync` method. The method uses the `await` modifier to retrieve results asynchronously.  
 
-The client application can call multiple asynchronous methods like this one, and each method invocation runs on a separate thread.  
-
+The client application can call multiple asynchronous methods like this one, and each method invocation runs on a separate thread.

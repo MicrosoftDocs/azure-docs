@@ -73,7 +73,7 @@ Any of the following conditions might result in a sync group being stuck in the 
     1. If the service status is **Stopped**, right-click the service name, and then select **Start**.
 
 > [!NOTE]
-> If the preceding information doesn't move your sync group out of the processing state, Microsoft Support can reset the status of your sync group. To have your sync group status reset, in the [Microsoft Q&A question page for Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html), create a post. In the post, include your subscription ID and the sync group ID for the group that needs to be reset. A Microsoft Support engineer will respond to your post, and will let you know when the status has been reset.
+> If the preceding information doesn't move your sync group out of the processing state, Microsoft Support can reset the status of your sync group. To have your sync group status reset, in the [Microsoft Q&A question page for Azure SQL Database](/answers/topics/azure-sql-database.html), create a post. In the post, include your subscription ID and the sync group ID for the group that needs to be reset. A Microsoft Support engineer will respond to your post, and will let you know when the status has been reset.
 
 ### <a name="sync-baddata"></a> I see erroneous data in my tables
 
@@ -244,7 +244,7 @@ For more information about SQL Data Sync, see:
         -  [Use PowerShell to sync between a database in Azure SQL Database and a database in a SQL Server instance](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](sql-data-sync-agent-overview.md)
 -   Best practices - [Best practices for SQL Data Sync in Azure](sql-data-sync-best-practices.md)
--   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](sql-data-sync-monitor-sync.md)
+-   Monitor - [Monitor SQL Data Sync with Azure Monitor logs](./monitor-tune-overview.md)
 -   Update the sync schema
     -   With Transact-SQL - [Automate the replication of schema changes in SQL Data Sync in Azure](sql-data-sync-update-sync-schema.md)
     -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](scripts/update-sync-schema-in-sync-group.md)
@@ -252,4 +252,4 @@ For more information about SQL Data Sync, see:
 For more information about SQL Database, see:
 
 -   [SQL Database Overview](sql-database-paas-overview.md)
--   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Database Lifecycle Management](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

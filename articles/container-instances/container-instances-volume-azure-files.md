@@ -3,7 +3,7 @@ title: Mount Azure Files volume to container group
 description: Learn how to mount an Azure Files volume to persist state with Azure Container Instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Mount an Azure file share in Azure Container Instances

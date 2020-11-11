@@ -37,7 +37,7 @@ If you choose docked mode for the portal menu, it will always be visible. You ca
 
 As a new subscriber to Azure services, the first thing you see after you [sign in to the portal](https://portal.azure.com) is **Azure Home**. This page compiles resources that help you get the most from your Azure subscription. We have included links to free online courses, documentation, core services, and useful sites for staying current and managing change for your organization. For quick and easy access to work in progress, we also show a list of your most recently visited resources. You can’t customize this page, but you can choose whether to see **Azure Home** or **Azure Dashboard** as your default view. The first time you sign in, there’s a prompt at the top of the page where you can save your preference.
 
-![Screenshot showing default view selector](./media/azure-portal-overview/azure-portal-default-view.png)
+![Screenshot showing where to save your preference.](./media/azure-portal-overview/azure-portal-default-view.png)
 
 Both the Azure portal menu and the Azure default view can be changed in **Portal settings**. If you change your selection, the change is immediately applied.
 

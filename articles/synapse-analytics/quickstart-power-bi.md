@@ -6,7 +6,7 @@ author: jocaplan
 ms.service: synapse-analytics 
 ms.topic: quickstart
 ms.subservice: business-intelligence
-ms.date: 04/29/2020
+ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick 
 ---

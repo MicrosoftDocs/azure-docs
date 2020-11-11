@@ -102,7 +102,7 @@ console.log(`\nCreated a user with ID: ${userResponse.communicationUserId}`);
 
 ## Issue user access tokens
 
-Use the `issueToken` method to issue an access token for a Communication Services user. If you do not provide the optional `user` parameter a new user will be created and returned with the token.
+Use the `issueToken` method to issue an access token for a Communication Services user. A user needs to be created before a token can be issued.
 
 ```javascript
 // Issue an access token with the "voip" scope for a new user

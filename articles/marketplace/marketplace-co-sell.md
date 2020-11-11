@@ -35,15 +35,15 @@ Offers that attain **Azure IP Co-sell incentivized** status gain these additiona
 
 ## Co-sell publishing steps and requirements
 
-The table below lists the steps and requirements to get your marketplace offer Co-sell ready or Co-sell incentivized. Not all commercial marketplace offer types are configurable for Co-sell yet in Partner Center. You can refer to [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell) for the latest information. 
+The table below lists the steps and requirements to get your marketplace offer Co-sell ready or Co-sell incentivized. Not all commercial marketplace offer types are configurable for Co-sell yet in Partner Center. You can refer to [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) for the latest information. 
 
 |Step    |Offer type    |Requirements    |Co-sell status    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li> Create an account in Partner Center and publish your offer in the commercial marketplace.</li>|All|<li>The offer meets the commercial marketplace publishing requirements.</li><li>You have a complete business profile in Partner Center.</li>|Not ready|
-|<ol start=2><li>Submit required Co-sell materials.</li>|IP offers *with* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Upload required materials in Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-sell ready|
-||IP offers *without* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Request to [work with a Cloud Specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) to provide required Co-sell documentation.|Co-sell ready|
+|<ol start=2><li>Submit required Co-sell materials.</li>|IP offers *with* [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md)|[Upload required materials in Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-sell ready|
+||IP offers *without* [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md)|<li>Request to [work with a Cloud Specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) to provide required Co-sell documentation.|Co-sell ready|
 ||Consulting Services|<li>Request to [work with a Cloud Specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) to provide required Co-sell documentation.</li><li>Active Gold competency.</li>|Co-sell ready|
-|<ol start=3><li>Qualify for IP Co-sell incentives</li>|Azure Applications, Azure Containers, IoT Edge Modules, SaaS, VMs|After achieving Co-sell ready, there are two additional requirements: <ul> Requirement 1: achieve either:<ul><li>*At the organization level:* meet or exceed $100,000 USD of Azure Consumed Revenue over the trailing 12 months.</li><li>*At the offer level:* cumulative marketplace billed revenue of $100,000 USD.</li></ul><br>Requirement 2: more than 50% of your offer's infrastructure must run on Azure:<ul><li>IP offers *with* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): upload an architecture diagram with your Co-sell documents in Partner Center for review.</li><li>IP offers *without* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): upload an architecture diagram to OCP GTM.|Azure IP Co-sell incentivized|
+|<ol start=3><li>Qualify for IP Co-sell incentives</li>|Azure Applications, Azure Containers, IoT Edge Modules, SaaS, VMs|After achieving Co-sell ready, there are two additional requirements: <ul> Requirement 1: achieve either:<ul><li>*At the organization level:* meet or exceed $100,000 USD of Azure Consumed Revenue over the trailing 12 months.</li><li>*At the offer level:* cumulative marketplace billed revenue of $100,000 USD.</li></ul><br>Requirement 2: more than 50% of your offer's infrastructure must run on Azure:<ul><li>IP offers *with* [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md): upload an architecture diagram with your Co-sell documents in Partner Center for review.</li><li>IP offers *without* [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md): upload an architecture diagram to OCP GTM.|Azure IP Co-sell incentivized|
 ||Dynamics|<li>You have an active enrollment in ISV Connect premium tier.</li>|Business Applications Co-sell incentivized|
 
 ## How to submit Co-sell materials in Partner Center
@@ -74,7 +74,16 @@ Start your Co-sell journey directly in Partner Center following the steps below.
 
 1. Save the draft before you continue.
 1. After you've completed all the required sections of the offer, you can submit it for review and publication. In the upper right, select **Review and publish**. Review the offer details, then select **Publish**.
-1. We’ll review the materials you uploaded and determine if your offer qualifies for the Co-sell program.
+1. After ensuring you have met the [criteria for the Co-sell status you are pursuing](#co-sell-publishing-steps-and-requirements), please follow the below guidance to nominate your offer for Co-sell:
+    1. **If you have a Microsoft Partner Manager (e.g., PDM):** reach out to your Partner Manager for assistance. They will guide you through the nomination process for Co-sell ready status and Azure IP Co-sell or Business Applications Co-sell incentivized (if applicable).
+    
+    1. **If you do not have a Microsoft Partner Manager (e.g., PDM):** [self-nominate via the Cloud Enablement Desk (CED)](https://aka.ms/cednominate). Select "Becoming co-sell ready" under the "Desired CED Services" dropdown:
+<ul><ul>
+
+:::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="This image shows the CED dropdown to request a Co-sell review.":::
+
+The CED will reach out to you to complete the process.
+</ul></ul>
 
 ## Next steps
 

@@ -30,7 +30,7 @@ ms.collection: M365-identity-device-management
 
 I performed some actions in the Azure portal and expected to see the audit logs for those actions in the `Activity logs > Audit Logs` blade, but I can’t find them.
 
- ![Reporting](./media/troubleshoot-missing-audit-data/01.png)
+ ![Screenshot shows Audit Log entries.](./media/troubleshoot-missing-audit-data/01.png)
  
 ### Cause
 
@@ -51,7 +51,7 @@ Wait for 15 minutes to two hours and see if the actions appear in the log. If yo
 
 I recently signed into the Azure portal and expected to see the sign-in logs for those actions in the `Activity logs > Sign-ins` blade, but I can’t find them.
 
- ![Reporting](./media/troubleshoot-missing-audit-data/02.png)
+ ![Screenshot shows Sign-ins in the Activity log.](./media/troubleshoot-missing-audit-data/02.png)
  
 ### Cause
 
@@ -72,7 +72,7 @@ Wait for 15 minutes to two hours and see if the actions appear in the log. If yo
 
 I can't view more than 30 days of sign-in and audit data from the Azure portal. Why? 
 
- ![Reporting](./media/troubleshoot-missing-audit-data/03.png)
+ ![Screenshot shows the Date menu.](./media/troubleshoot-missing-audit-data/03.png)
 
 ### Cause
 

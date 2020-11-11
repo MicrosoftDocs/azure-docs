@@ -18,7 +18,7 @@ In this article, you use [Jupyter Notebook](https://jupyter.org/) available with
 
 * Azure Data Lake Storage Gen1 account. Follow the instructions at [Get started with Azure Data Lake Storage Gen1 using the Azure portal](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Azure HDInsight Spark cluster with Data Lake Storage Gen1 as storage. Follow the instructions at [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Azure HDInsight Spark cluster with Data Lake Storage Gen1 as storage. Follow the instructions at [Quickstart: Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## Prepare the data
 

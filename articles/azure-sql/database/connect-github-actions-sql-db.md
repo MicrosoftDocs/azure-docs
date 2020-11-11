@@ -22,7 +22,7 @@ You will need:
 - A GitHub repository with a dacpac package (`Database.dacpac`). If you don't have a GitHub account, [sign up for free](https://github.com/join).  
 - An Azure SQL Database.
     - [Quickstart: Create an Azure SQL Database single database](single-database-create-quickstart.md)
-    - [How to create a dacpac package from your existing SQL Server Database](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+    - [How to create a dacpac package from your existing SQL Server Database](/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 
 ## Workflow file overview
 
@@ -190,4 +190,4 @@ When your Azure SQL database and repository are no longer needed, clean up the r
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about Azure and GitHub integration](https://docs.microsoft.com/azure/developer/github/)
+> [Learn about Azure and GitHub integration](/azure/developer/github/)

@@ -5,7 +5,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 10/23/2020
 
 #Customer intent: I want to create a VPN gateway for my virtual network so that I can connect to my VNet and communicate with resources remotely.
 ---
@@ -98,7 +98,10 @@ these resources using the following steps:
 
 ## Next steps
 
-Advance to the next article to learn how to:
+Once you have a VPN gateway, you can configure connections. The articles below will help you create a few of the most common configurations:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and manage Site-to-site VPN connections](/vpn-gateway-tutorial-vpnconnection-powershell.md)
+> [Site-to-Site VPN connections](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+
+> [!div class="nextstepaction"]
+> [Point-to-Site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

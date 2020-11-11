@@ -20,7 +20,9 @@ This error may occur on many types of service requests that require authenticati
 
 ### Cause #1
 
-Most often, this error indicates that your Azure role-based access control (Azure RBAC) permissions for the service are not set up correctly. Many actions for an Azure Digital Twins instance require you to have the *Azure Digital Twins Owner (Preview)* role **on the instance you are trying to manage**. 
+Most often, this error indicates that your Azure role-based access control (Azure RBAC) permissions for the service are not set up correctly. Many actions for an Azure Digital Twins instance require you to have the *Azure Digital Twins Data Owner* role **on the instance you are trying to manage**. 
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 ### Cause #2
 
@@ -32,11 +34,12 @@ The app registration must have access permissions configured for the Azure Digit
 
 ### Solution #1
 
-The first solution is to verify that your Azure user has the _**Azure Digital Twins Owner (Preview)**_ role on the instance you are trying to manage. If you do not have this role, set it up.
+The first solution is to verify that your Azure user has the _**Azure Digital Twins Data Owner**_ role on the instance you are trying to manage. If you do not have this role, set it up.
 
 Note that this role is different from...
-* the *Owner* role on the entire Azure subscription. *Azure Digital Twins Owner (Preview)* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
-* the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Owner (Preview)* is the role that should be used for management during preview.
+* the former name for this role during preview, *Azure Digital Twins Owner (Preview)* (the role is the same, but the name has changed)
+* the *Owner* role on the entire Azure subscription. *Azure Digital Twins Data Owner* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
+* the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Data Owner* is the role that should be used for management during preview.
 
 #### Check current setup
 
@@ -44,12 +47,12 @@ Note that this role is different from...
 
 #### Fix issues 
 
-If you do not have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the *Azure Digital Twins Owner (Preview)* role on the **Azure Digital Twins instance**. 
+If you do not have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the *Azure Digital Twins Data Owner* role on the **Azure Digital Twins instance**. 
 
-If you are an Owner on the subscription, you can run this command yourself. If you are not, contact an Owner to run this command on your behalf.
+If you're an Owner on the subscription, you can run this command yourself. If you're not, contact an Owner to run this command on your behalf.
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
 For more details about this role requirement and the assignment process, see the [*Set up your user's access permissions* section](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.

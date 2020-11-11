@@ -7,13 +7,19 @@ ms.date: 06/30/2020
 
 # Role-based access control (RBAC) for Azure VMware Solution
 
-In a vCenter and ESXi on-premises deployment, the administrator has access to the vCenter administrator@vsphere.local account and may have additional Active Directory (AD) users/groups assigned. However, in an Azure VMware Solution deployment, the administrator doesn't have access to the administrator user account but can assign AD users and groups to the CloudAdmin role on vCenter.  Also, the Azure VMware Solution private cloud user doesn't have permission to access or configure specific management components supported and managed by Microsoft, such as clusters, hosts, datastores, and distributed virtual switches.
-
-
-In Azure VMware Solution, vCenter has a built-in local user called cloudadmin that is assigned to the built-in CloudAdmin role. The local cloudadmin user is used to set up additional users in AD. The CloudAdmin role, in general, has the privilege to create and manage workloads in your private cloud (virtual machines, resource pools, datastores, and networks). The CloudAdmin role in Azure VMware Solution has a specific set of vCenter privileges that differ from other VMware cloud solutions.   
+In Azure VMware Solution, vCenter has a built-in local user called cloudadmin and assigned to the built-in CloudAdmin role. The local cloudadmin user is used to set up users in AD. In general, the CloudAdmin role creates and manages workloads in your private cloud. In Azure VMware Solution, the CloudAdmin role has vCenter privileges that differ from other VMware cloud solutions.     
 
 > [!NOTE]
-> Azure VMware Solution currently does not offer custom roles on vCenter or the Azure VMware Solution portal. 
+> Azure VMware Solution currently doesn't offer custom roles on vCenter or the Azure VMware Solution portal. 
+
+In a vCenter and ESXi on-premises deployment, the administrator has access to the vCenter administrator@vsphere.local account. They can also have additional Active Directory (AD) users/groups assigned. 
+
+In an Azure VMware Solution deployment, the administrator doesn't have access to the administrator user account. But they can assign AD users and groups to the CloudAdmin role on vCenter.  
+
+The private cloud user doesn't have access to and can't configure specific management components supported and managed by Microsoft. For example, clusters, hosts, datastores, and distributed virtual switches.
+
+
+
 
 ## Azure VMware Solution CloudAdmin role on vCenter
 

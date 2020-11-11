@@ -11,13 +11,14 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
+ms.custom: contperfq2
 ---
 
 # Manage app consent policies
 
 With Azure AD PowerShell, you can view and manage app consent policies.
 
-An app consent policy consists of one or more "includes" condition sets and zero or more "excludes" condition sets. For an event to considered in an app consent policy, it must match *at least* one "includes" condition set, and must not many *any* "excludes" condition set.
+An app consent policy consists of one or more "includes" condition sets and zero or more "excludes" condition sets. For an event to be considered in an app consent policy, it must match *at least* one "includes" condition set, and must not match *any* "excludes" condition set.
 
 Each condition set consists of several conditions. For an event to match a condition set, *all* conditions in the condition set must be met.
 
@@ -51,14 +52,14 @@ It's a good idea to start by getting familiar with the existing app consent poli
 1. View the "includes" condition sets of a policy:
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "includes"
     ```
 
 1. View the "excludes" condition sets:
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "excludes"
     ```
 

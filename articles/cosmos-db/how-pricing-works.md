@@ -9,6 +9,7 @@ ms.date: 08/19/2020
 ---
 
 # Pricing model in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 The pricing model of Azure Cosmos DB simplifies the cost management and planning. With Azure Cosmos DB, you pay for the operations you perform against the database and for the storage consumed by your data.
 
@@ -31,7 +32,7 @@ If you deploy your Azure Cosmos DB account to a non-government region in the US,
 
 Azure Cosmos DB offers many options for developers to it for free. These options include:
 
-* **Azure Cosmos DB free tier**: Azure Cosmos DB free tier makes it easy to get started, develop and test your applications, or even run small production workloads for free. When free tier is enabled on an account, you'll get the first 400 RU/s and 5 GB of storage in the account free, for the lifetime of the account. You can have up to one free tier account per Azure subscription and must opt-in when creating the account. To get started, [create a new account in Azure portal with free tier enabled](create-cosmosdb-resources-portal.md) or use an [ARM Template](manage-sql-with-resource-manager.md#free-tier).
+* **Azure Cosmos DB free tier**: Azure Cosmos DB free tier makes it easy to get started, develop and test your applications, or even run small production workloads for free. When free tier is enabled on an account, you'll get the first 400 RU/s and 5 GB of storage in the account free, for the lifetime of the account. You can have up to one free tier account per Azure subscription and must opt-in when creating the account. To get started, [create a new account in Azure portal with free tier enabled](create-cosmosdb-resources-portal.md) or use an [ARM Template](./manage-with-templates.md#free-tier).
 
 * **Azure free account**: Azure offers a [free tier](https://azure.microsoft.com/free/) that gives you $200 in Azure credits for the first 30 days and a limited quantity of free services for 12 months. For more information, see [Azure free account](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB is a part of Azure free account. Specifically for Azure Cosmos DB, this free account offers 5-GB storage and 400 RU/s of provisioned throughput for the entire year.
 
@@ -54,7 +55,7 @@ You can learn more about optimizing the costs for your Azure Cosmos DB resources
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
+* Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md)
 * Learn about [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
 * Learn about [Azure Cosmos DB Emulator](local-emulator.md)

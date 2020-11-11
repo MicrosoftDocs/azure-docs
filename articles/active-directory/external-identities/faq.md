@@ -48,7 +48,7 @@ This feature is currently not supported. If access to your organization's resour
 An organization might want to add B2B collaboration users, provision them to applications as needed, and then send invitations. You can use the B2B collaboration invitation API to customize the onboarding workflow.
 
 ### Can I make guest users visible in the Exchange Global Address List?
-Yes. Guest objects aren't visible in your organization's global address list (GAL) by default, but you can use Azure Active Directory PowerShell to make them visible. See [Can I make guest objects visible in the global address list?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
+Yes. Guest objects aren't visible in your organization's global address list (GAL) by default, but you can use Azure Active Directory PowerShell to make them visible. See [Can I make guest objects visible in the global address list?](/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### Can I make a guest user a limited administrator?
 Absolutely. For more information, see [Adding guest users to a role](add-guest-to-role.md).
@@ -77,16 +77,16 @@ Yes! You can create a Conditional Access policy that blocks all guest and extern
 Yes. Multi-factor authentication and consumer email accounts are both supported for Azure AD B2B collaboration.
 
 ### Do you support password reset for Azure AD B2B collaboration users?
-If your Azure AD tenant is the home directory for a user, you can [reset the user's password](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) from the Azure portal. But you can't directly reset a password for a guest user who signs in with an account that's managed by another Azure AD directory or external identity provider. Only the guest user or an administrator in the user’s home directory can reset the password. Here are some examples of how password reset works for guest users:
+If your Azure AD tenant is the home directory for a user, you can [reset the user's password](../fundamentals/active-directory-users-reset-password-azure-portal.md) from the Azure portal. But you can't directly reset a password for a guest user who signs in with an account that's managed by another Azure AD directory or external identity provider. Only the guest user or an administrator in the user’s home directory can reset the password. Here are some examples of how password reset works for guest users:
  
 * Guest users who sign in with a Microsoft account (for example guestuser@live.com) can reset their own passwords using Microsoft account self-service password reset (SSPR). See [How to reset your Microsoft account password](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Guest users who sign in with a Google account or another external identity provider can reset their own passwords using their identity provider’s SSPR method. For example, a guest user with the Google account guestuser@gmail.com can reset their password by following the instructions in [Change or reset your password](https://support.google.com/accounts/answer/41078).
-* If the identity tenant is a just-in-time (JIT) or "viral" tenant (meaning it's a separate, unmanaged Azure tenant), only the guest user can reset their password. Sometimes an organization will [take over management of viral tenants](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) that are created when employees use their work email addresses to sign up for services. After the organization takes over a viral tenant, only an administrator in that organization can reset the user's password or enable SSPR. If necessary, as the inviting organization, you can remove the guest user account from your directory and resend an invitation.
+* If the identity tenant is a just-in-time (JIT) or "viral" tenant (meaning it's a separate, unmanaged Azure tenant), only the guest user can reset their password. Sometimes an organization will [take over management of viral tenants](../users-groups-roles/domains-admin-takeover.md) that are created when employees use their work email addresses to sign up for services. After the organization takes over a viral tenant, only an administrator in that organization can reset the user's password or enable SSPR. If necessary, as the inviting organization, you can remove the guest user account from your directory and resend an invitation.
 
 * If the guest user's home directory is your Azure AD tenant, you can reset the user's password. For example, you might have created a user or synced a user from your on-premises Active Directory and set their UserType to Guest. Because this user is homed in your directory, you can reset their password from the Azure portal.
 
 ### Does Microsoft Dynamics 365 provide online support for Azure AD B2B collaboration?
-Yes, Dynamics 365 (online) supports Azure AD B2B collaboration. For more information, see the Dynamics 365 article [Invite users with Azure AD B2B collaboration](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Yes, Dynamics 365 (online) supports Azure AD B2B collaboration. For more information, see the Dynamics 365 article [Invite users with Azure AD B2B collaboration](/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### What is the lifetime of an initial password for a newly created B2B collaboration user?
 Azure AD has a fixed set of character, password strength, and account lockout requirements that apply equally to all Azure AD cloud user accounts. Cloud user accounts are accounts that aren't federated with another identity provider, such as 
@@ -127,9 +127,8 @@ Yes. For more information, see [Conditional Access for B2B collaboration users](
 Yes. Azure AD B2B collaboration supports allow lists and deny lists. 
 
 ### What licenses do we need to use Azure AD B2B?
-For information about what licenses your organization needs to use Azure AD B2B, see [Azure Active Directory B2B collaboration licensing guidance](licensing-guidance.md).
+For information about what licenses your organization needs to use Azure AD B2B, see [External Identities pricing](external-identities-pricing.md).
 
 ### Next steps
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
-

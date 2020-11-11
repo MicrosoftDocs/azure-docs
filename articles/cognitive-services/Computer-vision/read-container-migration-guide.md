@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 10/23/2020
 ms.author: aahi
 ---
 
@@ -24,21 +24,11 @@ If you're using version 2 of the Computer Vision Read OCR container, Use this ar
 
 ## API changes
 
-The Read v3.x containers use version 3 of the Computer Vision API and have the following endpoints:
-
-#### [Version 3.1-preview](#tab/version-3-1)
+The Read v3.1 container uses version 3 of the Computer Vision API and has the following endpoints:
 
 * `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
-
-#### [Version 3.0-preview](#tab/version-3)
-
-* `/vision/v3.0/read/analyzeResults/{operationId}`
-* `/vision/v3.0/read/analyze`
-* `/vision/v3.0/read/syncAnalyze`
-
----
 
 See the [Computer Vision v3 REST API migration guide](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) for detailed information on updating your applications to use version 3 of cloud-based Read API. This information applies to the container as well. Note that sync operations are only supported in containers.
 
@@ -48,8 +38,7 @@ The requirements and recommendations are based on benchmarks with a single reque
 
 |Container  |Minimum | Recommended  |
 |---------|---------|------|
-|Read 3.0-preview     | 8 cores, 16-GB memory         | 8 cores, 24-GB memory
-|Read 3.1-preview | 8 cores, 16-GB memory         | 8 cores, 24-GB memory
+|Read 3.1-preview | 8 cores, 16-GB memory         | 8 cores, 24-GB memory |
 
 Each core must be at least 2.6 gigahertz (GHz) or faster.
 
