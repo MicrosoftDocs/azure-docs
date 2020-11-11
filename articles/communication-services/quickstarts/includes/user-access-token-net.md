@@ -96,7 +96,7 @@ Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 
 ## Issue identity access tokens
 
-Use the `issueToken` method to issue an access token for a Communication Services identity. Parameter `scopes` defines set of actions, which are authorized to be performed with the access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed with the identity's ID, which you are suppose to store and map to your application's users. A user needs to be created before a token can be issued.
+Use the `issueToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `communicationUser` can be constructed with the identity, which you are suppose to store and map to your application's users.
 
 ```csharp
 // Issue an access token with the "voip" scope for an identity
@@ -107,7 +107,7 @@ Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {
 Console.WriteLine(token);
 ```
 
-Access tokens are short-lived credentials that need to be reissued in order to prevent your application's users from experiencing service disruptions. The `expiresOn` response property indicates the lifetime of the access token. 
+Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresOn` response property indicates the lifetime of the access token. 
 
 ## Refresh access tokens
 
@@ -121,7 +121,7 @@ tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { Communic
 
 ## Revoke access tokens
 
-In some cases, you may need to explicitly revoke access tokens, for example, when a application's user changes the password they use to authenticate to your service. Method `RevokeTokensAsync` invalidate all active access tokens, that were issued to the identity.
+In some cases, you may explicitly revoke access tokens. For example, when a application's user changes the password they use to authenticate to your service. Method `RevokeTokensAsync` invalidates all active access tokens, that were issued to the identity.
 
 ```csharp  
 await client.RevokeTokensAsync(identity);

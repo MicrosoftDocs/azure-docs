@@ -23,7 +23,7 @@ ms.author: tchladek
 
 ### Create a new Java application
 
-Open your terminal or command window and navigate to the directory where you'd like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
+Open your terminal or command window. Navigate to the directory where you'd like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
@@ -102,7 +102,7 @@ You can initialize the client with any custom HTTP client the implements the `co
 
 ## Create an identity
 
-Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. You should maintain a mapping between your application's users and Communication Services generated identities (e.g. by storing them in your application server's database).
+Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. We recommend to maintain mapping between your application's users and Communication Services generated identities (for example, by storing them in your application server's database).
 
 ```java
 CommunicationUser identity = communicationIdentityClient.createUser();
@@ -111,7 +111,7 @@ System.out.println("\nCreated an identity with ID: " + identity.getId());
 
 ## Issue access tokens
 
-Use the `issueToken` method to issue an access token for a Communication Services identity. Parameter `scopes` defines set of actions, which are authorized to be performed with the access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `user` can be constructed with the identity's ID, which you are suppose to store and map to your application's users.  A user needs to be created before a token can be issued.
+Use the `issueToken` method to issue an access token for already existing Communication Services identity. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md). New instance of parameter `user` can be constructed with the identity, which you're suppose to store and map to your application's users. 
 
 ```java
 // Issue an access token with the "voip" scope for an identity
@@ -123,11 +123,11 @@ String identityId = response.getUser().getId();
 System.out.println("\nIssued a access token with 'voip' scope for identity with ID: " + identityId + ": " + token);
 ```
 
-Access tokens are short-lived credentials that need to be reissued in order to prevent your application's users from experiencing service disruptions. The `expiresAt` response property indicates the lifetime of the access token.
+Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expiresAt` response property indicates the lifetime of the access token.
 
 ## Refresh access tokens
 
-To refresh an access token, use the `CommunicationUser` object to re-issue:
+To refresh an access token, use the `CommunicationUser` object to reissue:
 
 ```java  
 // Value existingIdentity represents identity of Azure Communication Services stored during identity creation
@@ -137,7 +137,7 @@ response = communicationIdentityClient.issueToken(identity, scopes);
 
 ## Revoke access tokens
 
-In some cases, you may need to explicitly revoke access tokens, for example, when an application's user changes the password they use to authenticate to your service. Use the `revokeTokens` method to invalidate all of a access tokens.
+In some cases, you may explicitly revoke access tokens. For example, when an application's user changes the password they use to authenticate to your service. Method `revokeTokens` invalidates all active access tokens, that were issued to the identity.
 
 ```java  
 communicationIdentityClient.revokeTokens(identity, OffsetDateTime.now());
@@ -146,7 +146,7 @@ System.out.println("\nRevoked access tokens for the user with ID: " + identity.g
 
 ## Delete an identity
 
-Deleting an identity revokes all active access tokens and prevents you from issuing subsequent access tokens for the identity. It also removes all the persisted content associated with the identity.
+Deleting an identity revokes all active access tokens and prevents you from issuing access tokens for the identity. It also removes all the persisted content associated with the identity.
 
 ```java
 communicationIdentityClient.deleteUser(identity);
