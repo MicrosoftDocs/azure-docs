@@ -15,33 +15,32 @@ ms.author: pafarley
 
 # Form Recognizer Pre-Built Invoice Service
 
-Azure Form Recognizer can analyze and extract contact information from invoices using its invoice prebuilt models. The Invoice API enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful [Optical Character Recognition (OCR)](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/concept-recognizing-text) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables and information such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to and lots more. The Prebuilt Invoice API is publicly available in the Form Recognizer v2.1 preview. 
+Azure Form Recognizer can analyze and extract information from invoices using its prebuilt invoice models. The Invoice API enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful [Optical Character Recognition (OCR)](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/concept-recognizing-text) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, and more. The Prebuilt Invoice API is publicly available in the Form Recognizer v2.1 preview. 
 
 ## What does the Invoice service do?
-The Invoice API extracts key fields from invoices and returns them in an organized structured JSON response. Invoices can be from a variety of formats and quality, including  phone-captured images, scanned documents, and digital PDFs. The invoice API will extract the structured output from all these invoices. 
+
+The Invoice API extracts key fields from invoices and returns them in an organized structured JSON response. Invoices can be from a variety of formats and quality, including  phone-captured images, scanned documents, and digital PDFs. The invoice API will extract the structured output from all of these invoices. 
 
 ![Contoso invoice example](./media/invoice-example.jpg)
 
 ## Try it out
 
-To try out the Form Recognizer Invoice Service go the [Sample Labeling Tool online](https://fott-preview.azurewebsites.net/).
+To try out the Form Recognizer Invoice Service go to the online [Sample Labeling Tool](https://fott-preview.azurewebsites.net/).
 
-> [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
-
-You will need an Azure subscription [Create one for free](https://azure.microsoft.com/free/cognitive-services) and a [Form Recognzier resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
+You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognzier resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
 
 ![Analayzed invoice example](./media/analyze-invoice.png)
 
-### Fields extracted:
-The Inovice service will extract the text, tables and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (output below uses the following [sample invoice](https://../media/sample-invoice.jpg))  
+### Fields extracted
+
+The Inovice service will extract the text, tables and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the output below uses this [sample invoice](https://../media/sample-invoice.jpg))  
 
 |Name| Type | Description | Text | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Customer being invoiced | Microsoft Corp |  |
-| CustomerId | string | Reference Id for the customer | CID-12345 |  |
+| CustomerId | string | Reference ID for the customer | CID-12345 |  |
 | PurchaseOrder | string | A purchase order reference number | PO-3333 | |  |
-| InvoiceId | string | Id for this specific invoice (often “Invoice Number”) | INV-100 | |  |
+| InvoiceId | string | Id for this specific invoice (often "Invoice Number") | INV-100 | |  |
 | InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 
 | DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 | 2019-11-15 |
 | VendorName | string | Vendor who has created this invoice | CONTOSO LTD. | |
@@ -93,15 +92,17 @@ The response to the Get Analyze Invoice Result operation will be the structured 
 See here for a [sample invoice file](./media/sample-invoice.jpg) and it's structured output [sample invoice output](./media/sample-invoice-output.json).
 
 The JSON output has 3 parts: 
-1. "readResults" node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
-2. "pageResults" node contains the tables and cells extracted with their bounding boxes, confidence and a reference to the lines and words in "readResults".
-2. "documentResults" node contains the invoice specific values that the model discovered. This is where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total and lots more.
+1. `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
+2. `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence and a reference to the lines and words in "readResults".
+2. `"documentResults"` node contains the invoice specific values that the model discovered. This is where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total and lots more.
 
 ## Next steps
+
 Try your own invoices and samples in the [Form Recognizer Sample Labeling Tool](https://fott-preview.azurewebsites.net/).
 Follow the [Extract invoice data](./QuickStarts/python-invoice.md) quickstart to implement invoice data extraction using Python and the REST API.
 
 ## See also
+
 * [What is Form Recognizer?](./overview.md)
 * [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
 
