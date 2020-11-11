@@ -443,7 +443,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Lighthouse does not store, process or transmit sensitive data
+**Guidance**: Not applicable; Azure Lighthouse does not store, process or transmit sensitive data.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -669,13 +669,13 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40252.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Lighthouse does not support configuring your own time synchronization sources. The Azure Lighthouse service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
+**Guidance**: Azure Lighthouse does not support configuring your own time synchronization sources. The Azure Lighthouse service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ## Incident Response
 
@@ -939,13 +939,13 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40259.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Lighthouse is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
+**Guidance**: Azure Lighthouse does not deploy any customer-facing compute resources which would require Endpoint Detection and Response (EDR) protection. The underlying infrastructure for the Azure Lighthouse service is handled by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ### ES-2: Use centrally managed modern anti-malware software
 
@@ -953,13 +953,13 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40260.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable, Azure Lighthouse or its resources do not interact with virtual machines, containers and/or storage which require anti-malware protection. Thus, there is no need for any configuration changes, additional settings or deployment of any extra services to protect it from malware.
+**Guidance**: Azure Lighthouse does not deploy any customer-facing compute resources which could be configured with an anti-malware solution. The underlying infrastructure for the Azure Lighthouse service is handled by Microsoft, which includes managing any installed anti-malware software.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ### ES-3: Ensure anti-malware software and signatures are updated
 
@@ -967,13 +967,13 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40261.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable, Azure Lighthouse is not comprised of any virtual machines or containers which would require anti-malware protection. Thus it does not require you to configure any additional settings or deploy any extra services to protect it from malware.
+**Guidance**: Azure Lighthouse does not deploy any customer-facing compute resources which could be configured with an anti-malware solution. The underlying infrastructure for the Azure Lighthouse service is handled by Microsoft, which includes managing any installed anti-malware software.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ## Backup and Recovery
 
