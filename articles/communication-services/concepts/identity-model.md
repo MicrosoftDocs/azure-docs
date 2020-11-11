@@ -55,3 +55,9 @@ Rotation of access keys of Azure Communication Service will cause revocation of 
 We recommend issuing access tokens in your server-side service and not in the client's application. The reasoning is, that issuing requires access key or to be managed identity. It isn't recommended for security reasons to share the access keys with the client's application. Client application should use trusted service endpoint that can authenticate your clients, and issue access token on their behalf. More details about the architecture can be found [here](./client-and-server-architecture.md).
 
 If you cache access tokens to a backing store, we recommend using encryption. Access token is sensitive data and can be used to malicious activity if it's not protected. With the possession of the access token, you can initialize the SDK and get access to the API. The accessible API is restricted only based on scopes, that the access token has. We recommend issuing access tokens only with scopes, that are required.
+
+## Next steps
+
+* For an introduction to access token management, see [Create and manage access tokens](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
+* For an introduction to authentication, see [Authenticate to Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication)
+* For an introduction to data residency and privacy, see [Region availability and data residency](https://docs.microsoft.com/azure/communication-services/concepts/privacy)

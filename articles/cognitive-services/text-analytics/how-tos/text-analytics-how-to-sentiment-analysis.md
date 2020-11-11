@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/16/2020
+ms.date: 11/11/2020
 ms.author: aahi
 ---
 
@@ -73,9 +73,9 @@ Document size must be under 5,120 characters per document. You can have up to 1,
 
 Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following reference links to quickly structure and send one. 
 
-#### [Version 3.1-preview.1](#tab/version-3-1)
+#### [Version 3.1-preview.2](#tab/version-3-1)
 
-[Sentiment Analysis v3.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+[Sentiment Analysis v3.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
 
 #### [Version 3.0](#tab/version-3)
 
@@ -90,13 +90,13 @@ Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics r
 > [!NOTE]
 > You can find your key and endpoint for your Text Analytics resource on the azure portal. They will be located on the resource's **Quick start** page, under **resource management**. 
 
-#### [Version 3.1-preview.1](#tab/version-3-1)
+#### [Version 3.1-preview.2](#tab/version-3-1)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
 
 To get opinion mining results, you must include the `opinionMining=true` parameter. For example:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
 
 This parameter is set to `false` by default. 
 
@@ -137,7 +137,7 @@ Sentiment analysis returns a sentiment label and confidence score for the entire
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../concepts/text-offsets.md) for more information.
 
-#### [Version 3.1-preview.1](#tab/version-3-1)
+#### [Version 3.1-preview.2](#tab/version-3-1)
 
 ### Sentiment Analysis v3.1 example response
 
