@@ -1,6 +1,6 @@
 ---
 title: Tag images in a labeling project
-title.suffix: Azure Machine Learning
+titleSuffix: Azure Machine Learning
 description: Learn how to use the data tagging tools in an Azure Machine Learning labeling project.
 author: sdgilley
 ms.author: sgilley
