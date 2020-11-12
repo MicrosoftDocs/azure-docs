@@ -1,6 +1,6 @@
 ---
 title: Understand role-based access control in Azure Active Directory | Microsoft Docs
-description: Learn how to understand Azure AD custom roles in Azure Active Directory (Azure AD) with roles-based access control and resource scopes.
+description: Learn how to understand Azure AD built-in and custom roles applied to restricted scope in Azure Active Directory.
 services: active-directory
 author: curtand
 manager: daveba
