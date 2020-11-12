@@ -501,8 +501,6 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-Note that the default user inside the container is a non-root user. This provides security against processes escaping the container and obtaining escalated permissions on the host node. By default, some platforms like the OpenShift Container Platform already do this by running containers using an arbitrarily assigned user ID. For these platforms, the non-root user will need to have permissions to write to any externally mapped volume that requires writes. For example a logging folder, or a custom model download folder.
-
 ## Query the container's prediction endpoint
 
 > [!NOTE]

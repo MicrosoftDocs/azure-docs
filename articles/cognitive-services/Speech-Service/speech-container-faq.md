@@ -38,7 +38,9 @@ Furthermore, we pre-package executables for machines with the [advanced vector e
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
-Finally, you can set the number of decoders you want inside a *single* container using `DECODER MAX_COUNT` variable. So, basically, we should start with your SKU (CPU/memory), and we can suggest how to get the best out of it. A great starting point is referring to the recommended host machine resource specifications.
+You can set the number of decoders you want inside a *single* container using `DECODER MAX_COUNT` variable. So, basically, we should start with your SKU (CPU/memory), and we can suggest how to get the best out of it. A great starting point is referring to the recommended host machine resource specifications.
+
+Note that the default user inside the container is a non-root user. This provides protection against processes escaping the container and obtaining escalated permissions on the host node. By default, some platforms like the OpenShift Container Platform already do this by running containers using an arbitrarily assigned user ID. For these platforms, the non-root user will need to have permissions to write to any externally mapped volume that requires writes. For example a logging folder, or a custom model download folder.
 
 <br>
 </details>
