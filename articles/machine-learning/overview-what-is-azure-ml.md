@@ -1,6 +1,6 @@
 ---
 title: What is Azure Machine Learning
-description: Overview of Azure Machine Learning - An integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
+description: Azure Machine Learning is an integrated data science solution for data scientists and MLops to model and deploy ML applications at cloud scale.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
