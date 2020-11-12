@@ -286,7 +286,7 @@ You can now send the data source creation request, and then start using it norma
 
 ## Example: Skillset encryption
 
-Create an encrypted skillset using the [Create Skillset Azure Cognitive Search REST API)(https://docs.microsoft.com/rest/api/searchservice/create-skillset). Use the `encryptionKey` property to specify which encryption key to use.
+Create an encrypted skillset using the [Create Skillset Azure Cognitive Search REST API)(https://docs.microsoft.com/rest/api/searchservice/create-skillset]. Use the `encryptionKey` property to specify which encryption key to use.
 
 ```json
 {
