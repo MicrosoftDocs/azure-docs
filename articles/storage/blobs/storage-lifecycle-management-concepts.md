@@ -435,7 +435,7 @@ Last access time tracking is available for the following types of storage accoun
 
 If your storage account is a general-purpose v1 account, use the Azure portal to upgrade to a general-purpose v2 account.
 
-Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not yet supported.
+Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are now supported.
 
 #### Pricing and billing
 
