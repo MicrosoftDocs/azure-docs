@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 11/12/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use a prebuilt Form Recognizer model to extract my invoice data.
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- An invoice document. You can use the [sample invoice](../media/sample-invoice,pdf) for this quickstart.
+- An invoice document. You can use the [sample invoice](../media/sample-invoice.pdf) for this quickstart.
 
 > [!NOTE]
 > This quickstart uses a local file. To use a invoice document accessed by URL instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync).
@@ -35,11 +35,12 @@ To complete this quickstart, you must have:
 
 ## Analyze an invoice
 
-To start analyzing an invoice, you call the **[Analyze Invoice](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync)** API using the Python script below. 
+To start analyzing an invoice, call the **[Analyze Invoice](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeInvoiceAsync)** API using the Python script below. 
 Before you run the script, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
+1. Replace `<path to your invoice>` with the local path where you have a sample invoice saved.
 
 ```python
     ########### Python Form Recognizer Async Invoice #############
@@ -124,16 +125,15 @@ while n_try < n_tries:
 
 The script will print responses to the console until the **Analyze Invoice** operation completes. Then, it will print the extracted text data in JSON format. The `"readResults"` field contains every line of text that was extracted from the invoice, the `"pageResults"` includes the tables and selections marks extracted from the invoice and the `"documentResults"` field contains key/value information for the most relevant parts of the invoice.
 
-See the following invoice document and its corresponding JSON output -
+See the following invoice document and its corresponding JSON output:
 
-1. [Sample invoice](../media/sample-invoice.pdf)
-1. [Sample invoice JSON output](../media/sample-invoice-output.json)
+* [Sample invoice](../media/sample-invoice.pdf)
+* [Sample invoice JSON output](../media/sample-invoice-output.json)
 
 
 ### Sample Python script to extract invoice or a batch of invoices into a CSV file
-This sample python script shows you you how to get started using the Invoice API. It can run with single invoice as a parameter or folder and will output the JSON file “.invoice.json” and a CSV file “-invoiceResutls.csv” with the extracted values results. When running on a folder, it will scan through all “pdf”,”jpg”,”jpeg”,”png”,”bmp”,”tif”,”tiff” files and run them via the API. Once you created created the Pyton file you can run it via command line as following - 
 
-> python InvoiceSamplePythonScript.py {file name or folder name}
+This sample python script shows you how to get started using the Invoice API. It can run with single invoice as a parameter or folder and will output the JSON file ".invoice.json" and a CSV file _invoiceResutls.csv_ with the extracted values results. When running on a folder, it will scan through all "pdf","jpg","jpeg","png","bmp","tif","tiff" files and run them with the API. 
  
 ```python
 ########### Python Form Recognizer Async Invoice #############
@@ -256,7 +256,7 @@ def main(argv):
         fieldnames = ['Filename',
                       'FullFilename','InvoiceTotal','InvoiceTotal_normalized','AmountDue','AmountDue_normalized','SubTotal','SubTotal_normalized','TotalTax','TotalTax_normalized','CustomerName','VendorName',
                       'InvoiceId','CustomerId','PurchaseOrder','InvoiceDate','InvoiceDate_normalized','DueDate','DueDate_normalized',
-                      'VendorAddress','VendorAddressRecipient','BillingAddress','BillingAddressRecipient','ShippingAddress','ShippingAddressRecipient','CustomerAddress','CustomerAddressRecipient','ServiceAddress','ServiceAddressRecipient','RemittanceAddress','RemittanceAddressRecipient']
+                      'VendorAddress','VendorAddressRecipient','BillingAddress','BillingAddressRecipient','ShippingAddress','ShippingAddressRecipient','CustomerAddress','CustomerAddressRecipient','ServiceAddress','ServiceAddressRecipient','RemittanceAddress','RemittanceAddressRecipient', 'ServiceStartDate','ServiceStartDate_normalized','ServiceEndDate','ServiceEndDate_normalized','PreviousUnpaidBalance','PreviousUnpaidBalance_normalized']
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
         counter = 0
@@ -276,10 +276,11 @@ def main(argv):
 if __name__ == '__main__':
     main(sys.argv)
 ```
+
 1. Save the code in a file with a .py extension. For example, *form-recognizer-invoice-to-csv.py*.
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python form-recognizer-invoice.py` {file name or folder name}
-The Python script can run with single invoice as a parameter or folder and will output the JSON file “.invoice.json” and the values extracted from the invoices into a CSV file “-invoiceResutls.csv” with the results. When running on a folder, it will scan through all “pdf”,”jpg”,”jpeg”,”png”,”bmp”,”tif”,”tiff” files and run them via the API.
+The Python script can run with a single invoice or a folder as the parameter and will output the JSON file ".invoice.json" and the values extracted from the invoices into a CSV file "-invoiceResults.csv" with the results. When running on a folder, it will scan through all "pdf","jpg","jpeg","png","bmp","tif","tiff" files and run them with the API.
 
 ## Next steps
 
