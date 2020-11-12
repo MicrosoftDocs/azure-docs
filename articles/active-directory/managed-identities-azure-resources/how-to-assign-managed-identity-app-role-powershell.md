@@ -66,7 +66,9 @@ In this article, you learn how to assign a managed identity to an application ro
     $managedIdentityResourceName = 'myvm'
     $serverAppName = 'TestApi'
     $appRoleId = '0566419e-bb95-4d9d-a4f8-ed9a0f147fa6'
-    Connect-AzureAD # Connect as a global admin
+
+    Connect-AzureAD
+
     $serverServicePrincipalObjectId = (Get-AzureADServicePrincipal -Filter "DisplayName eq '$serverAppName'").ObjectId
     $clientServicePrincipalObjectId = (Get-AzureADServicePrincipal -Filter "DisplayName eq '$managedIdentityResourceName'").ObjectId
     New-AzureADServiceAppRoleAssignment -ObjectId $clientServicePrincipalObjectId -Id $appRoleId -PrincipalId $clientServicePrincipalObjectId -ResourceId $serverServicePrincipalObjectId
