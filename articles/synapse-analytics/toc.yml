@@ -134,6 +134,8 @@
       - name: Troubleshoot Synapse Studio connectivity issues
         href: troubleshoot/troubleshoot-synapse-studio-powershell.md
         displayname: powershell
+      - name: Troubleshoot connectivity between Synapse Studio and storage
+        href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
   - name: How-to guides
     items:
     - name: Secure
