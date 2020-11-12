@@ -108,7 +108,7 @@ Depending on your choice regarding the connection to Hong Kong, the overall arch
 
 All of these options make use of Azure Virtual WAN secured hub for direct Microsoft 365 connectivity in Hong Kong. These architectures also support the compliance requirements for [Microsoft 365 Multi-Geo](/microsoft-365/enterprise/microsoft-365-multi-geo) and keep that traffic near the next Azure Front Door location. As a result, it's also an improvement for the usage of Microsoft 365 out of China.
 
-When using Azure Virtual WAN together with Internet connections, every connection can benefit from additional services like [Microsoft Azure Peering Services (MAPS)](https://docs.microsoft.com/azure/peering-service/about). MAPS was built to optimize traffic coming to the Microsoft Global Network from 3rd Party Internet Service Providers.
+When using Azure Virtual WAN together with Internet connections, every connection can benefit from additional services like [Microsoft Azure Peering Services (MAPS)](../peering-service/about.md). MAPS was built to optimize traffic coming to the Microsoft Global Network from 3rd Party Internet Service Providers.
 
 ### <a name="option-1"></a>Option 1: SDWAN or VPN
 
@@ -148,4 +148,4 @@ See the following articles for more information:
 
 * [Configure a Virtual WAN secured hub](../firewall-manager/secure-cloud-network.md)
 
-* [Azure Peering Service Preview Overview](https://docs.microsoft.com/azure/peering-service/about)
+* [Azure Peering Service Preview Overview](../peering-service/about.md)
