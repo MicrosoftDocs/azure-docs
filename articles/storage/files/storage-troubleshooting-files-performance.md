@@ -75,13 +75,12 @@ The client VM could be located in a different region than the file share.
 
 ## Client unable to achieve maximum throughput supported by the network
 
-One potential cause of this is a lack of SMB multi-channel support. Currently, Azure file shares only support single channel, so there is only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
+One potential cause of this is a lack of SMB Multichannel support on account. Without SMB Multichannel, there is only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core. SMB Multichannel is supported on premium shares and the feature is disabled by default. Currently, standard file shares only support single channel for standard files.
 
 ### Workaround
-
+- For premium file shares, [Enable SMB Multichannel on a FileStorage account](storage-files-enable-smb-multichannel.md).
 - Obtaining a VM with a bigger core may help improve throughput.
 - Running the client application from multiple VMs will increase throughput.
-
 - Use REST APIs where possible.
 
 ## Throughput on Linux clients is significantly lower when compared to Windows clients.
