@@ -27,7 +27,7 @@ Consumption models in Synapse SQL enables you to use different database objects.
 | **Views** | [Yes](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Views can use [query language elements](#query-language) that are available in dedicated model. | [Yes](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Views can use [query language elements](#query-language) that are available in serverless model. |
 | **Schemas** | [Yes](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | [Yes](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |
 | **Temporary tables** | [Yes](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | No |
-| **Procedures** | [Yes](/sql/t-sql/statements/create-procedure-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No |
+| **Procedures** | [Yes](/sql/t-sql/statements/create-procedure-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Yes |
 | **Functions** | [Yes](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Yes, only inline table-valued functions. |
 | **Triggers** | No | No |
 | **External tables** | [Yes](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). See supported [data formats](#data-formats). | [Yes](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). See supported [data formats](#data-formats). |
@@ -38,6 +38,7 @@ Consumption models in Synapse SQL enables you to use different database objects.
 | **[Table partitions](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                     | Yes | No |
 | **[Statistics](develop-tables-statistics.md)**            | Yes | Yes |
 | **[Workload management, resource classes, and concurrency control](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Yes    | No |
+| **[Workload management, resource classes, and concurrency control](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Yes, using scale-up and scale-down actions. | Yes, using [the Azure portal or T-SQL procedure](https://docs.microsoft.com/azure/synapse-analytics/sql/data-processed#cost-control). |
 
 ## Query language
 
@@ -72,7 +73,7 @@ Synapse SQL enable you to use built-in security features to secure your data and
 | --- | --- | --- |
 | **Logins** | N/A (only contained users are supported in databases) | Yes |
 | **Users** |  N/A (only contained users are supported in databases) | Yes |
-| **[Contained users](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** | Yes. **Note:** only one Azure AD user can be unrestricted admin | Yes |
+| **[Contained users](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** | Yes. **Note:** only one Azure AD user can be unrestricted admin | No |
 | **SQL username/password authentication**| Yes | Yes |
 | **Azure Active Directory (Azure AD) authentication**| Yes, Azure AD users | Yes, Azure AD logins and users |
 | **Storage Azure Active Directory (Azure AD) passthrough authentication** | Yes | Yes |
@@ -86,7 +87,7 @@ Synapse SQL enable you to use built-in security features to secure your data and
 | **Permissions - [Server-level](/sql/relational-databases/security/authentication-access/server-level-roles)** | No | Yes, sysadmin and other server-roles are supported |
 | **Permissions - [Column-level security](/azure/synapse-analytics/sql-data-warehouse/column-level-security?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Yes | Yes |
 | **Roles/groups** | Yes (database scoped) | Yes (both server and database scoped) |
-| **Security &amp; identity functions** | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `IS_MEMBER`, `IS_ROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, `OPEN/CLOSE MASTER KEY` | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `HAS_PERMS_BY_NAME`, `IS_MEMBER', 'IS_ROLEMEMBER`, `IS_SRVROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, and `REVERT`. Security functions cannot be used to query external data (store the result in variable that can be used in the query).  |
+| **Security &amp; identity functions** | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `IS_MEMBER`, `IS_ROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, `OPEN/CLOSE MASTER KEY` | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `HAS_PERMS_BY_NAME`, `IS_MEMBER', 'IS_ROLEMEMBER`, `IS_SRVROLEMEMBER`, `SESSION_USER`, `SESSION_CONTEXT`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, and `REVERT`. Security functions cannot be used to query external data (store the result in variable that can be used in the query).  |
 | **DATABASE SCOPED CREDENTIAL** | Yes | Yes |
 | **SERVER SCOPED CREDENTIAL** | No | Yes |
 | **Row-level security** | [Yes](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&view=sql-server-ver15) | No |
@@ -126,7 +127,12 @@ Data that is analyzed can be stored on various storage types. The following tabl
 | **Internal storage** | Yes | No |
 | **Azure Data Lake v2** | Yes | Yes |
 | **Azure Blob Storage** | Yes | Yes |
-| **Azure CosmosDB analytical storage** | No | Yes using [Synapse Link](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (under [gated preview](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#limitations)) |
+| **Azure SQL (remote)** | No | No |
+| **Azure CosmosDB transactional storage** | No | No |
+| **Azure CosmosDB analytical storage** | No | Yes, using [Synapse Link(preview)](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (under [gated preview](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#limitations)) |
+| **Apache Spark tables (in workspace)** | No | PARQUET tables only using [metadata synchronization](develop-storage-files-spark-tables.md) |
+| **Apache Spark tables (remote)** | No | No |
+| **Databricks tables (remote)** | No | No |
 
 ## Data formats
 
