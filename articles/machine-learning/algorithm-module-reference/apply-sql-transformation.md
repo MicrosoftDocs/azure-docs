@@ -25,14 +25,15 @@ Using the Apply SQL Transformation module, you can:
 -   Execute SQL query statements to filter or alter data and return the query results as a data table.  
 
 > [!IMPORTANT]
-> The SQL engine used in this module is **SQLite**. For more information about SQLite syntax, see [SQL as Understood by SQLite](https://www.sqlite.org/index.html) for more information.
-> This module will bump data to SQLite which is in the memory DB, hence the module execution requires much more memory and may hit `Out of memory` error. Make sure your compute have enough RAM.
+> The SQL engine used in this module is **SQLite**. For more information about SQLite syntax, see [SQL as Understood by SQLite](https://www.sqlite.org/index.html).
+
+> This module will bump data to SQLite, which is in the memory DB, hence the module execution requires much more memory and may hit an `Out of memory` error. Make sure your computer has enough RAM.
 
 ## How to configure Apply SQL Transformation  
 
 The module can take up to three datasets as inputs. When you reference the datasets connected to each input port, you must use the names `t1`, `t2`, and `t3`. The table number indicates the index of the input port.  
 
-Following is sample code to show how to join 2 tables, t1 and t2 are two datasets connected to the left and middle input ports of **Apply SQL Transformation**:
+Following is sample code to show how to join two tables. t1 and t2 are two datasets connected to the left and middle input ports of **Apply SQL Transformation**:
 
 ```sql
 SELECT t1.*
