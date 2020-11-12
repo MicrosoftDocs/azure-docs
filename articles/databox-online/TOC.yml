@@ -291,9 +291,9 @@
     items:
     - name: 2011 - Current 
       href: azure-stack-edge-gpu-2011-release-notes.md
-    - name: 2010 - GA
+    - name: 2010 
       href: azure-stack-edge-gpu-2009-release-notes.md 
-    - name: 2008 - Preview
+    - name: 2008 
       href: azure-stack-edge-gpu-2008-release-notes.md 
   
   - name: Shared reference
