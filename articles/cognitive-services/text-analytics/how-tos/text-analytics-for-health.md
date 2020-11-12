@@ -77,16 +77,11 @@ Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate)
 
 
 ## Example API request
-The container provides REST-based query prediction endpoint APIs.  We have also provided a visualization tool in the container that is accessible by appending the **demo** to the endpoint of the container for example:
+
+Use the example cURL request below to submit a query to the hosted web API you have deployed replacing the `serverURL` variable with the appropriate value.
 
 ```bash
-http://<serverURL>:5000/demo
-```
-
-Use the example cURL request below to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
-
-```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1-preview.3/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
