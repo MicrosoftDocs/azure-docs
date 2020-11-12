@@ -138,7 +138,7 @@ Users of Azure Sentinel: note that security events collection within the context
 - Disable Security Events collection in Azure Security Center (by setting **Windows security events** to
 **None** in the configuration of your Log Analytics agent). Then add the Security Events connector in Azure Sentinel. As with the first option, you will be able to query and analyze events in both Azure Sentinel and Azure Defender/ASC, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Azure Sentinel.
 
-### Determining which set of events to store
+### What event types are stored for "Common" and "Minimal"?
 These sets were designed to address typical scenarios. Make sure to evaluate which one fits your needs before implementing it.
 
 To determine the events for the **Common** and **Minimal** options, we worked with customers and industry standards to learn about the unfiltered frequency of each event and their usage. We used the following guidelines in this process:
@@ -181,11 +181,7 @@ You can define the level of security event data to store at the workspace level.
 
 ## Manual agent provisioning <a name="manual-agent"></a>
  
-There are several ways to install the Log Analytics agent manually. When installing manually, make sure you disable auto provisioning.
-
-### Operations Management Suite VM extension deployment 
-
-You can manually install the Log Analytics agent, so Security Center can collect security data from your VMs and provide recommendations and alerts.
+To manually install the Log Analytics agent:
 
 1. Disable auto provisioning.
 
@@ -195,21 +191,21 @@ You can manually install the Log Analytics agent, so Security Center can collect
 
     1. From Security Center's menu, select **Pricing & settings**.
 
-    1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
+    1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions for the workspace.
 
-    1. Set Azure Defender to on, and select **Save**.
+    1. Select **Azure Defender on**, and **Save**.
 
        >[!NOTE]
        >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically. 
 
-1. If  you want to deploy the agents on new VMs using a Resource Manager template, install the Log Analytics agent:
+1. To deploy agents on new VMs using a Resource Manager template, install the Log Analytics agent:
 
    - [Install the Log Analytics agent for Windows](../virtual-machines/extensions/oms-windows.md)
    - [Install the Log Analytics agent for Linux](../virtual-machines/extensions/oms-linux.md)
 
-1. To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md) (the section **Collect event and performance data** is optional).
+1. To deploy agents on your existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md) (the section **Collect event and performance data** is optional).
 
-1. To use PowerShell to deploy the extension, use the instructions from the virtual machines documentation:
+1. To use PowerShell to deploy the agents, use the instructions from the virtual machines documentation:
 
     - [For Windows machines](../virtual-machines/extensions/oms-windows.md?toc=%252fazure%252fazure-monitor%252ftoc.json#powershell-deployment)
     - [For Linux machines](../virtual-machines/extensions/oms-linux.md?toc=%252fazure%252fazure-monitor%252ftoc.json#azure-cli-deployment)
@@ -268,7 +264,7 @@ To turn off automatic provisioning of an agent:
 -  To identify monitoring agent network requirements, see [Troubleshooting monitoring agent network requirements](security-center-troubleshooting-guide.md#mon-network-req).
 -	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-- To identify Unmonitored VMs and computers issues:
+- To identify unmonitored VMs and computers issues:
 
     A VM or computer is unmonitored by Security Center if the machine is not running the Log Analytics agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the System Center Operations Manager agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Log Analytics agent extension is required.
 
