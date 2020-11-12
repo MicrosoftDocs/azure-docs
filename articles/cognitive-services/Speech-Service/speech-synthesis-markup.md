@@ -306,12 +306,12 @@ Use this table to determine which roles are supported for each neural voice.
 | Voice                   | Style                      | Description                                                 |
 |-------------------------|----------------------------|-------------------------------------------------------------|
 | `zh-CN-XiaomoNeural`    | `style="YoungAdultFemale"` | The voice imitates to a young adult female.                 |
-|                         | `style="OlderAdultMale"`   | The voice imitates to a older adult male.                   |
+|                         | `style="OlderAdultMale"`   | The voice imitates to an older adult male.                   |
 |                         | `style="Girl"`             | The voice imitates to a girl.                               |
 |                         | `style="Boy"`              | The voice imitates to a boy.                                |
 | `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | The voice imitates to a young adult female.                 |
-|                         | `role="OlderAdultFemale"`  | The voice imitates to a older adult female.                 |
-|                         | `role="OlderAdultMale"`    | The voice imitates to a older adult male.                   |
+|                         | `role="OlderAdultFemale"`  | The voice imitates to an older adult female.                 |
+|                         | `role="OlderAdultMale"`    | The voice imitates to an older adult male.                   |
 
 **Example**
 
