@@ -170,7 +170,7 @@
     - name: Front Door
       href: /rest/api/frontdoorservice/webapplicationfirewall/policies
     - name: Application Gateway
-      href: ./ag/ag-overview.md#waf-policy
+      href: /rest/api/application-gateway
   - name: .NET
     href: /dotnet/api
   - name: Java
