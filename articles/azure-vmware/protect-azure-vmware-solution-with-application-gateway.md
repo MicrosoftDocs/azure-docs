@@ -28,7 +28,7 @@ The diagram shows how Application Gateway is used to protect Azure IaaS virtual 
 
 The diagram shows the testing scenario used to validate the Application Gateway with Azure VMware Solution web applications.
 
-![Application Gateway integration with Azure VMware Solution running web apps.](media/protect-azure-vmware-solution-with-application-gateway/app-gateway-avs-scenario.png)
+:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Application Gateway integration with Azure VMware Solution that run web applications" border="false":::
 
 The Application Gateway instance is deployed on the hub in a dedicated subnet. It has an Azure public IP address. Activating Standard DDoS protection for the virtual network is recommended. The web server is hosted on an Azure VMware Solution private cloud behind NSX T0 and T1 routers. Azure VMware Solution uses [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to enable communication with the hub and on-premises systems.
 
@@ -167,15 +167,17 @@ This procedure shows you how to define backend address pools using VMs running o
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-07.png" alt-text="Create the rules in the Rules section of the left menu.":::
 
-6. Test the configuration. Access the application gateway on the Azure portal and copy the public IP address in the **Overview** section. Then open a new browser window and enter the URL `http://<app-gw-ip-address>:8080`. 
+6. Test the configuration. Access the application gateway on the Azure portal and copy the public IP address in the **Overview** section. 
+
+   1. Open a new browser window and enter the URL `http://<app-gw-ip-address>:8080`. 
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-08.png" alt-text="Test the configuration from the Azure portal.":::
 
-1. Change the URL to `http://<app-gw-ip-address>:8080/images/test.htm`.
+   1. Change the URL to `http://<app-gw-ip-address>:8080/images/test.htm`.
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-09.png" alt-text="Change the URL.":::
 
-1. Change the URL again to `http://<app-gw-ip-address>:8080/video/test.htm`.
+   1. Change the URL again to `http://<app-gw-ip-address>:8080/video/test.htm`.
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-10.png" alt-text="Change the URL again.":::
 
