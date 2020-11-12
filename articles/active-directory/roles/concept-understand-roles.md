@@ -37,7 +37,7 @@ Identity is new control plane. Our customers wanted to grant permissions through
 
 In general, there are 3 categories of built-in roles in Azure AD.
 
-1. Azure AD specific roles - These roles grant permissions to manage resources within Azure AD only. For example, User Administrator, Application Administrator, Groups Administrator etc. grant permissions to manage resources that live in Azure AD.
+1. Azure AD-specific roles - These roles grant permissions to manage resources within Azure AD only. For example, User Administrator, Application Administrator, Groups Administrator etc. grant permissions to manage resources that live in Azure AD.
 
 1. Service specific roles - For major Microsoft 365 services (non-Azure AD), we have built service-specific roles which grant permissions to manage all functionalities within that service.  For example, Exchange Admin, Intune Admin, SharePoint Admin, Teams Admin etc. can manage functionalities with their respective services. Exchange Admin can manage mailboxes, Intune Admin can manage device policies, SharePoint Admin can manage site collections, Teams Admin can manage call qualities and so on. 
 
@@ -49,33 +49,33 @@ The following table is offered as an aid to understanding this categorization of
 
 Category | Role
 ---- | ----
-Azure AD specific role | Application Administrator
-Azure AD specific role | Application Developer
-Azure AD specific role | Authentication Administrator
-Azure AD specific role | B2C IEF Keyset Administrator
-Azure AD specific role | B2C IEF Policy Administrator
-Azure AD specific role | Cloud Application Administrator
-Azure AD specific role | Cloud Device Administrator
-Azure AD specific role | Conditional Access Administrator
-Azure AD specific role | Device Administrators
-Azure AD specific role | Directory Readers
-Azure AD specific role | Directory Synchronization Accounts
-Azure AD specific role | Directory Writers
-Azure AD specific role | External Id User flow Administrator
-Azure AD specific role | External Id User Flow Attribute Administrator
-Azure AD specific role | External Identity Provider Administrator
-Azure AD specific role | Groups Administrator
-Azure AD specific role | Guest Inviter
-Azure AD specific role | Helpdesk Administrator
-Azure AD specific role | Hybrid Identity Administrator
-Azure AD specific role | License Administrator
-Azure AD specific role | Partner Tier1 Support
-Azure AD specific role | Partner Tier2 Support
-Azure AD specific role | Password Administrator
-Azure AD specific role | Privileged Authentication Administrator
-Azure AD specific role | Privileged Role Administrator
-Azure AD specific role | Reports Reader
-Azure AD specific role | User Account Administrator
+Azure AD-specific role | Application Administrator
+Azure AD-specific role | Application Developer
+Azure AD-specific role | Authentication Administrator
+Azure AD-specific role | B2C IEF Keyset Administrator
+Azure AD-specific role | B2C IEF Policy Administrator
+Azure AD-specific role | Cloud Application Administrator
+Azure AD-specific role | Cloud Device Administrator
+Azure AD-specific role | Conditional Access Administrator
+Azure AD-specific role | Device Administrators
+Azure AD-specific role | Directory Readers
+Azure AD-specific role | Directory Synchronization Accounts
+Azure AD-specific role | Directory Writers
+Azure AD-specific role | External Id User flow Administrator
+Azure AD-specific role | External Id User Flow Attribute Administrator
+Azure AD-specific role | External Identity Provider Administrator
+Azure AD-specific role | Groups Administrator
+Azure AD-specific role | Guest Inviter
+Azure AD-specific role | Helpdesk Administrator
+Azure AD-specific role | Hybrid Identity Administrator
+Azure AD-specific role | License Administrator
+Azure AD-specific role | Partner Tier1 Support
+Azure AD-specific role | Partner Tier2 Support
+Azure AD-specific role | Password Administrator
+Azure AD-specific role | Privileged Authentication Administrator
+Azure AD-specific role | Privileged Role Administrator
+Azure AD-specific role | Reports Reader
+Azure AD-specific role | User Account Administrator
 Cross-service role | Company Administrator
 Cross-service role | Compliance Administrator
 Cross-service role | Compliance Data Administrator
