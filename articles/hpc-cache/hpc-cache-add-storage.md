@@ -98,9 +98,7 @@ Steps to add the Azure roles:
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-- Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az configure](https://review.docs.microsoft.com/en-us/cli/azure/reference-index#az-configure).
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 ### Prerequisite: Storage account access
 
@@ -215,9 +213,7 @@ When finished, click **OK** to add the storage target.
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-- Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az configure](https://review.docs.microsoft.com/en-us/cli/azure/reference-index#az-configure).
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 Use the Azure CLI command [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) to create the storage target.
 
@@ -301,9 +297,7 @@ Read [Edit storage targets](hpc-cache-edit-storage.md) to learn more.
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-- Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az configure](https://review.docs.microsoft.com/en-us/cli/azure/reference-index#az-configure).
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 Use the [az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) option to show the existing storage targets for a cache. Supply the cache name and the resource group (unless you have set it globally).
 

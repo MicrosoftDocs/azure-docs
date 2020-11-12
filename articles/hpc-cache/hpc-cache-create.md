@@ -97,9 +97,7 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 
 ## Create the cache with Azure CLI
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-- Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az configure](https://review.docs.microsoft.com/en-us/cli/azure/reference-index#az-configure).
+[[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 > [!NOTE]
 > The Azure CLI currently does not support creating a cache with customer-managed encryption keys. Use the Azure portal.

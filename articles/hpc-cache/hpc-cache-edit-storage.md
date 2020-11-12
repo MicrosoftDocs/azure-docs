@@ -35,9 +35,7 @@ To remove a storage target, open the **Storage targets** page. Select the storag
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-- Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az configure](https://review.docs.microsoft.com/en-us/cli/azure/reference-index#az-configure).
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 Use [az hpc-cache storage-target remove](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-remove) to delete a storage target from the cache.
 
@@ -76,9 +74,7 @@ After making changes, click **OK** to update the storage target, or click **Canc
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-- Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az configure](https://review.docs.microsoft.com/en-us/cli/azure/reference-index#az-configure).
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 To change a blob storage target's namespace with the Azure CLI, use the command [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update). Only the `--virtual-namespace-path` value can be changed.
 
@@ -116,9 +112,7 @@ Use the **Namespace** page for your Azure HPC Cache to update namespace values. 
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-- Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az configure](https://review.docs.microsoft.com/en-us/cli/azure/reference-index#az-configure).
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 Use the ``--junction`` option in the [az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) command to change the namespace path, NFS export, or export subdirectory.
 
@@ -160,9 +154,7 @@ Use the drop-down selector to choose a new usage model. Click **OK** to update t
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-- Most of the hpc-cache commands require you to pass the cache's resource group. You can set the default resource group by using [az configure](https://review.docs.microsoft.com/en-us/cli/azure/reference-index#az-configure).
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 Use the [az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target?view=azure-cli-latest#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) command.
 
