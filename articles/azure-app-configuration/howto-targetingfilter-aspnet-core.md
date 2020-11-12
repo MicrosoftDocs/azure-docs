@@ -38,7 +38,7 @@ At this point, you can use the feature flag to enable or disable the `Beta` feat
 1. Update to the latest version of the `Microsoft.FeatureManagement.AspNetCore` package.
 
    ```dotnetcli
-   dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.2.0-preview
+   dotnet add package Microsoft.FeatureManagement.AspNetCore
    ```
 
 1. Add a *TestTargetingContextAccessor.cs* file:
