@@ -82,6 +82,9 @@ def run(data):
         return error
 ```
 
+> [!WARNING]
+> You must not use sensitive or private data for sample input or output. The Swagger page for AML-hosted inferencing exposes the sample data. 
+
 ## Power BI compatible endpoint 
 
 The following example demonstrates how to define API shape according to above instruction. This method is supported for consuming the deployed web service from Power BI. ([Learn more about how to consume the web service from Power BI](/power-bi/service-machine-learning-integration).)
