@@ -176,7 +176,7 @@ To test that users can sign in with email, browse to [https://myprofile.microsof
 
 You need *tenant administrator* permissions to complete the following steps:
 
-1. Open an PowerShell session as an administrator, then install the *AzureADPreview* module using the [Install-Module][Install-Module] cmdlet:
+1. Open a PowerShell session as an administrator, then install the *AzureADPreview* module using the [Install-Module][Install-Module] cmdlet:
 
     ```powershell
     Install-Module AzureADPreview
