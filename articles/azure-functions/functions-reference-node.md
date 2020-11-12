@@ -515,7 +515,7 @@ For Windows function apps, target the version in Azure by setting the *WEBSITE_N
 For Linux function apps, run the following Azure CLI command to update the Node version.
 
 ```bash
-az functionapp config set -g $MyResourceGroup -n $MyFunctionnApp --linux-fx-version "node|12"
+az functionapp config set -g $ResourceGroupName -n $FunctionnAppName --linux-fx-version "node|12"
 ```
 
 ## Dependency management
