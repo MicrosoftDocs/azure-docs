@@ -9,7 +9,7 @@ ms.date: 10/13/2020
 
 [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a layer 7 web traffic load balancer that lets you manage traffic to your web applications. It's offered in both Azure VMware Solution v1.0 and v2.0. Both versions tested with web apps running on Azure VMware Solution.
 
-Many capabilities are included: 
+The capabilities include: 
 - Cookie-based session affinity
 - URL-based routing
 - Web Application Firewall (WAF)
@@ -64,9 +64,9 @@ The Application Gateway instance is deployed on the hub in a dedicated subnet. I
 
 10. Add a path-based rule and select **Add**. Repeat to add additional path-based rules. 
 
-11. When you have finished adding path-based rules, select **Add** again; then select **Next:Tags>**. 
+11. When you have finished adding path-based rules, select **Add** again; then select **Next: Tags>**. 
 
-12. Add tags and then select **Next:Review + Create>**.
+12. Add tags and then select **Next: Review + Create>**.
 
 13. A validation will run on your Application Gateway; if it's successful, select **Create** to deploy.
 
@@ -96,7 +96,7 @@ This procedure shows you how to define backend address pools using VMs running o
     Add-Content -Path C:\inetpub\wwwroot\Default.htm -Value $($env:computername)
     ```
 
-2. Add the backend pools. In an existing application gateway instance, select **Backend pools** from the left menu, select  **Add**, and enter the details of the new pools. Select **Add** in the right pane.
+2. In an existing application gateway instance, select **Backend pools** from the left menu, select  **Add**, and enter the new pools' details. Select **Add** in the right pane.
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-02.png" alt-text="Add the backend pools." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-02.png":::
 
@@ -110,7 +110,7 @@ This procedure shows you how to define backend address pools using VMs running o
 
 6. Configure the corresponding backend pool and HTTP settings. Select **Add**.
 
-7. Test the connection. Open your preferred browser and navigate to the different websites hosted on your Azure VMware Solution environment, for example http://www.fabrikam.com.
+7. Test the connection. Open your preferred browser and navigate to the different websites hosted on your Azure VMware Solution environment, for example, http://www.fabrikam.com.
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-avs-07.png" alt-text="Test the connection.":::
 
@@ -147,7 +147,13 @@ This procedure shows you how to define backend address pools using VMs running o
     Add-Content -Path C:\inetpub\wwwroot\video\test.htm -Value $($env:computername)
     ```
 
-2. Add the backend pools. You'll need to add three new backend pools in an existing application gateway instance. Select **Backend pools** from the left menu. Select **Add** and enter the details of the first pool, **contoso-web**. Add one VM as the target. Select **Add**. Repeat this process for **contoso-images** and **contoso-video**, adding one unique VM to each as target. 
+2. Add three new backend pools in an existing application gateway instance. 
+
+   1. Select **Backend pools** from the left menu. 
+   1. Select **Add** and enter the details of the first pool, **contoso-web**. 
+   1. Add one VM as the target. 
+   1. Select **Add**. 
+   1. Repeat this process for **contoso-images** and **contoso-video**, adding one unique VM as the target. 
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-02.png" alt-text="Add three new backend pools." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-02.png":::
 
