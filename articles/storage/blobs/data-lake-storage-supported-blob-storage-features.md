@@ -40,7 +40,7 @@ The following table shows how each Blob storage feature is supported with Data L
 |Immutable storage|Preview|Preview|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
 |Container soft delete|Preview|Preview|[Soft delete for containers (preview)](soft-delete-container-overview.md)|
 |Blob soft delete|Not yet supported|Not yet supported|[Soft delete for blobs](storage-blob-soft-delete.md)|
-|Blobfuse|Preview|Preview|[How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md)|
+|Blobfuse|Generally available|Generally available|[How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md)|
 |Account failover|Not yet supported|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob container ACL|Not supported<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Not supported<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|See the related note below this table.|
 |Customer-provided keys|Not yet supported|Not yet supported|[Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md)|

@@ -151,6 +151,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
 
+### Autoscale
+
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
+
 ### Log queries and language
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-log-queries.md)]
