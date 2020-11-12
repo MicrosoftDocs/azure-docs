@@ -113,7 +113,7 @@ We have a collection of reference architectures available on the [Health Archite
 
 ### Where can I see an example of connecting a web application to Azure API for FHIR?
 
-We have a [Health Architecture GitHub page](https://github.com/microsoft/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to Azure API for FHIR.  
+We have a [Health Architecture GitHub page](https://aka.ms/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to Azure API for FHIR.  
 
 ## Azure API for FHIR Features and Services 
 
