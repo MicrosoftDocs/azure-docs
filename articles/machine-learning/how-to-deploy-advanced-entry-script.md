@@ -23,7 +23,10 @@ This article assumes you already have a trained machine learning model that you 
 
 ## Automatically generate a Swagger schema
 
-To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects. The type and sample are used to automatically create the schema. Azure Machine Learning then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment.
+To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects. The type and sample are used to automatically create the schema. Azure Machine Learning then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment. 
+
+> [!WARNING]
+> You must not use sensitive or private data for sample input or output. The Swagger page for AML-hosted inferencing exposes the sample data. 
 
 These types are currently supported:
 
@@ -81,9 +84,6 @@ def run(data):
         error = str(e)
         return error
 ```
-
-> [!WARNING]
-> You must not use sensitive or private data for sample input or output. The Swagger page for AML-hosted inferencing exposes the sample data. 
 
 ## Power BI compatible endpoint 
 
