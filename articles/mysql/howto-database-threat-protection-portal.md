@@ -1,8 +1,8 @@
 ---
 title: Advanced Threat Protection - Azure portal - Azure Database for MySQL
 description: Learn how to configure Advanced Threat Protection to detect anomalous database activities indicating potential security threats to the database. 
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020

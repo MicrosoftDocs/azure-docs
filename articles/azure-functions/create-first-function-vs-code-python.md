@@ -118,5 +118,7 @@ You have used Visual Studio Code to create a function app with a simple HTTP-tri
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)
 
+[Having issues? Let us know.](https://aka.ms/python-functions-qs-survey)
+
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
