@@ -8,7 +8,7 @@ author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 11/12/2020
 ms.service: storage
-ms.subservice: common
+ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ---
