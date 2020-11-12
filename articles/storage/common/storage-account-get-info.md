@@ -8,7 +8,7 @@ author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 11/12/2020
 ms.service: storage
-ms.subservice: blobs
+ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ---
@@ -60,6 +60,8 @@ private static async Task GetAccountInfoAsync(CloudBlob blob)
     }
 }
 ```
+
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
