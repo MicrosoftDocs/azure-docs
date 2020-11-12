@@ -227,7 +227,7 @@ Do the following steps in the Azure portal to order a device.
     |Source country/region    |    Select the country/region where your data currently resides.         |
     |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, go to [region availability](data-box-overview.md#region-availability).            |
 
-    [![Starting an Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
+    [![Starting an Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
 
 5. Select **Data Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
@@ -241,13 +241,11 @@ Do the following steps in the Azure portal to order a device.
     |Resource group    | The resource group you selected previously. |
     |Import order name | Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.    |
 
-    ![Data Box import Order wizard, Basics screen, with correct info filled in](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Data Box import Order wizard, Basics screen, with correct info filled in](media/data-box-deploy-ordered/select-data-box-import-06.png)<!--Generic subscription. Cut note. Box command.-->
 
-    By default, the device unlock password is encrypted using a Microsoft-managed key. After you complete the order, you can add a customer-managed key. A customer-managed key allows you to use you own key from an Azure Key vault key to protect you device unlock password. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
+7. On the **Data destination** screen, select the **Data destination** - either storage accounts or managed disks.
 
-7. In **Data destination** tab, select **Data destination**.
-
-    If using **storage account(s)** as the storage destination, you see the following screenshot:
+    If using **storage account(s)** as the storage destination, you see the following screen:
 
     ![Data Box import Order wizard, Data destination screen, with storage accounts selected](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
@@ -259,17 +257,18 @@ Do the following steps in the Azure portal to order a device.
 
     |Setting  |Value  |
     |---------|---------|
-    |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box order for managed disk by Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
+    |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box order for managed disks by the Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
 
-    ![Data Box import Order wizard, Data destination screen, with Managed Disks selected](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Data Box import Order wizard, Data destination screen, with Managed Disks selected](media/data-box-deploy-ordered/select-data-box-import-07-b.png)
 
-    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure"
+    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up#tabs=in-us-canada-europe#verify-data-upload-to-azure).
+
    > [!NOTE]
    > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
 
 8. Select **Next: Security** to continue.
 
-    The **Security** screen lets you use your own encryption key and device and share passwords, and choose to use double encryption.
+    The **Security** screen lets you use your own encryption key and your own device and share passwords, and choose to use double encryption.
 
     All settings on the **Security** screen are optional. If you don't change any settings, the default settings will apply.
 
@@ -281,6 +280,8 @@ Do the following steps in the Azure portal to order a device.
 
     A customer-managed key doesn't affect how data on the device is encrypted. The key is only used to encrypt the device unlock passkey.
 
+    If you don't want to use a customer-managed key, skip to Step 15.<!--Very long section to traverse if they don't want to use their own key. Let's help them out. Can we link?-->
+
    ![Security screen showing Encryption type settings](./media/data-box-deploy-ordered/customer-managed-key-01.png)
 
 10. Select **Customer managed key** as the key type. Then select **Select a key vault and key**.
@@ -289,22 +290,15 @@ Do the following steps in the Azure portal to order a device.
 
 11. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated.
 
-    For **Key vault**, you can select an existing key vault from the dropdown list.
+    - For **Key vault**, you can select an existing key vault from the dropdown list.
 
-    ![Select key from Azure Key Vault screen](./media/data-box-deploy-ordered/customer-managed-key-03.png)
+      ![Select key from Azure Key Vault screen](./media/data-box-deploy-ordered/customer-managed-key-03.png)
 
-    If you want to create a new key vault:
-
-    - Select **Create new** by **Key vault**. 
-    - On the **Create key vault** screen:
-      - Enter the resource group and the key vault name. 
-      - Ensure that **Soft delete** and **Purge protection** are enabled.
-      - Accept all other defaults. 
-      - Select **Review + Create**.
+    - You can also select **Create new** to create a new key vault. On the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults, and select **Review + Create**.
 
       ![Create a new Azure Key Vault settings](./media/data-box-deploy-ordered/customer-managed-key-04.png)
 
-    - Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
+      Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
 
       ![New Azure Key Vault review screen](./media/data-box-deploy-ordered/customer-managed-key-05.png)
 
@@ -312,42 +306,35 @@ Do the following steps in the Azure portal to order a device.
 
     ![Select existing key from Azure Key Vault](./media/data-box-deploy-ordered/customer-managed-key-06.png)
 
-    If you want to create a new key:
-
-    - Select **Create new**.
-    - Create a key on the **Create a key** screen.
-      - RSA key size can be 2048 or greater.
-      - Enter a name for your new key.
-      - Accept all other defaults.
-      - Select **Create**.
+    If you want to create a new key, select **Create new**. You must use an RSA key. THe size can b3 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
 
       ![Create a new key option](./media/data-box-deploy-ordered/customer-managed-key-07.png)
 
-      You are notified that a key is created in your key vault.
+      You'll be notified when the key has been created in your key vault.
 
-    - Select the **Version** for the key, and then choose **Select**.
+13. Select the **Version** of the key to use, and then choose **Select**.
 
       ![New key created in key vault](./media/data-box-deploy-ordered/customer-managed-key-08.png)
 
-    On the **Security** page, the **Encryption type** settings show the key vault and key you selected for your customer-managed key.
+    You can also generate a new key version by selecting **Create new**. For more information, see KEY GENERATION PROCEDURE.<!--This is an option, but I don't want to make the procedure longer by taking them to the screen.-->
+
+    On the **Security** screen, the **Encryption type** settings show your key vault and key.
 
     ![Key and key vault for a customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-09.png)
 
-13. Select a user-assigned managed identity to use to manage access to this resource.
+14. Select a user identity that you'll use to manage access to this resource. Choose **Select a user identity**. In the panel on the right, select the subscription and the managed identity to use. Then choose **Select**.
 
     A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).  
-
-    To choose an identity, select **Select a user identity**. Then, in the panel on the right, select the subscription and the managed identity to use, and choose **Select**.
 
     If you need to create a new managed identity, follow the guidance in [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
     
     ![Select a user identity](./media/data-box-deploy-ordered/customer-managed-key-10.png)
 
-    The selected user identity is shown in **Encryption type** settings.
+    The user identity is shown in **Encryption type** settings.
 
     ![A selected user identity shown in Encryption type settings](./media/data-box-deploy-ordered/customer-managed-key-11.png)
 
-14. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
+15. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
 
     The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
 
@@ -371,7 +358,7 @@ Do the following steps in the Azure portal to order a device.
 
        On the **Security** screen, you can use **View or change passwords** to change the passwords.
 
-15. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
+16. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
 
     ![Security screen for Data Box import, enabling software-based encryption for a Data Box order](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
@@ -382,27 +369,27 @@ Do the following steps in the Azure portal to order a device.
 
     Select **Next: Contact details** to continue.
 
-16. In **Contact details**, select **+ Add Shipping Address**.
+17. In **Contact details**, select **+ Add Shipping Address**.
 
-    ![From the Contact details screen, add shipping addresses to your Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![From the Contact details screen, add shipping addresses to your Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-08-a.png)
 
-17. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
+18. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
     ![Screenshot of the Add Shipping Address dialog box with the Ship using options and the Add shipping address option called out.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
     If you selected self-managed shipping, you will receive an email notification after the order is placed successfully. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
-18. Select **Add Shipping Address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
+19. Select **Add Shipping Address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
 
-19. After you return to **Contact details**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
+20. After you return to **Contact details**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
-    ![Email section of Contact details in the Order wizard](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Email section of Contact details in the Order wizard](media/data-box-deploy-ordered/select-data-box-import-08-c.png)
 
-20. Review the information in **Review + Order** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
+21. Review the information in **Review + Order** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
 
-21. Select **Order**. The order takes a few minutes to be created.
+22. Select **Order**. The order takes a few minutes to be created.
 
     ![Review and Order screen of the Order wizard](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
