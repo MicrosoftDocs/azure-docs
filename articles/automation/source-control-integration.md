@@ -3,7 +3,7 @@ title: Use source control integration in Azure Automation
 description: This article tells how to synchronize Azure Automation source control with other repositories.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/10/2019
+ms.date: 11/12/2020
 ms.topic: conceptual
 ---
 # Use source control integration
@@ -41,11 +41,11 @@ Use this procedure to configure source control using the Azure portal.
 
     ![Select source control](./media/source-control-integration/select-source-control.png)
 
-2. Choose **Source Control type**, then click **Authenticate**. 
+2. Choose **Source Control type**, then click **Authenticate**.
 
 3. A browser window opens and prompts you to sign in. Follow the prompts to complete authentication.
 
-4. On the Source Control Summary page, use the fields to fill in the source control properties defined below. Click **Save** when finished. 
+4. On the Source Control Summary page, use the fields to fill in the source control properties defined below. Click **Save** when finished.
 
     |Property  |Description  |
     |---------|---------|
@@ -69,7 +69,7 @@ Use this procedure to configure source control using the Azure portal.
 
 You can also use PowerShell to configure source control in Azure Automation. To use the PowerShell cmdlets for this operation, you need a personal access token (PAT). Use the [New-AzAutomationSourceControl](/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0) cmdlet to create the source control connection. This cmdlet requires a secure string for the PAT. To learn how to create a secure string, see [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
-The following subsections illustrate PowerShell creation of the source control connection for GitHub, Azure Repos (Git), and Azure Repos (TFVC). 
+The following subsections illustrate PowerShell creation of the source control connection for GitHub, Azure Repos (Git), and Azure Repos (TFVC).
 
 #### Create source control connection for GitHub
 
@@ -110,6 +110,8 @@ The following table defines the minimum PAT permissions required for GitHub. For
 |`repo:status`     | Access commit status         |
 |`repo_deployment`      | Access deployment status         |
 |`public_repo`     | Access public repositories         |
+|`repo:invite` | Access repository invitations |
+|`security_events` | Read and write security events |
 |**`admin:repo_hook`**     |         |
 |`write:repo_hook`     | Write repository hooks         |
 |`read:repo_hook`|Read repository hooks|
@@ -131,13 +133,13 @@ The following list defines the minimum PAT permissions required for Azure Repos.
 
 ## Synchronize with source control
 
-Follow these steps to synchronize with source control. 
+Follow these steps to synchronize with source control.
 
-1. Select the source from the table on the Source control page. 
+1. Select the source from the table on the Source control page.
 
-2. Click **Start Sync** to start the sync process. 
+2. Click **Start Sync** to start the sync process.
 
-3. View the status of the current sync job or previous ones by clicking the **Sync jobs** tab. 
+3. View the status of the current sync job or previous ones by clicking the **Sync jobs** tab.
 
 4. On the **Source Control** dropdown menu, select a source control mechanism.
 
@@ -183,7 +185,7 @@ To disconnect from a source control repository:
 
 1. Open **Source control** under **Account Settings** in your Automation account.
 
-2. Select the source control mechanism to remove. 
+2. Select the source control mechanism to remove.
 
 3. On the Source Control Summary page, click **Delete**.
 
