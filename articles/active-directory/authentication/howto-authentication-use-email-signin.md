@@ -205,7 +205,7 @@ You need *tenant administrator* permissions to complete the following steps:
    New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
    ```
 
-5. Find the directoryObject ID for the group to be added to the AltID staged rollout policy.  Note the value returned for the *Id* parameter, because it will be used in the next step.
+5. Find the directoryObject ID for the group to be added to the staged rollout policy. Note the value returned for the *Id* parameter, because it will be used in the next step.
    
    ```powershell
    Get-AzureADMSGroup -SearchString "Name of group to be added to the AltID staged rollout policy"
