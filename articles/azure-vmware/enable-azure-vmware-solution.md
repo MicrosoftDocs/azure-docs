@@ -74,4 +74,4 @@ After configuring the Azure plan and the needed RBAC permissions are in place as
 
 ## Next steps
 
-After you enable your Azure VMware Solution resource, you can [create a private cloud](tutorial-create-private-cloud.md).
+After you enable your Azure VMware Solution resource, and you have the proper networking in place, you can [create a private cloud](tutorial-create-private-cloud.md).
