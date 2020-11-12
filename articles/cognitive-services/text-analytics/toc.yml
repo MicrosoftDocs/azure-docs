@@ -64,7 +64,7 @@
      href: How-tos/text-analytics-how-to-call-api.md
    - name: Language detection
      href: How-tos/text-analytics-how-to-language-detection.md
-   - name: Sentiment analysis
+   - name: Sentiment analysis and opinion mining
      href: How-tos/text-analytics-how-to-sentiment-analysis.md
    - name: Key phrase extraction
      href: How-tos/text-analytics-how-to-keyword-extraction.md
