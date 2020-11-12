@@ -130,7 +130,7 @@ This article provides answers to some of the most common questions about running
    Comprehensive programs that offer Software Assurance equivalent subscription rights as a fixed benefit support the DR benefit. This includes. but is not limited to, the Open Value (OV), Open Value Subscription (OVS), Enterprise Agreement (EA), Enterprise Agreement Subscription (EAS), and the Server and Cloud Enrollment (SCE). Refer to the [product terms](https://www.microsoft.com/licensing/product-licensing/products) and talk to your licensing contacts or account manager for more information. 
 
    
- ## extension
+ ## Extension
 
 1. **Will registering my VM with the new SQL IaaS Agent extension bring additional costs?**
 
