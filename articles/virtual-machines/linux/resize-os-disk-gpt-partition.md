@@ -1,6 +1,6 @@
 ---
 title: Resize an OS disk that has a GPT partition
-description: This article provides instructions on resizing an OS disk that has a GPT partition.
+description: This article provides instructions on how to resize an OS disk that has a GUID Partition Table (GPT) partition in Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: kailashmsft
@@ -20,7 +20,7 @@ ms.custom: seodec18
 # Resize an OS disk that has a GPT partition
 
 > [!NOTE]
-> This scenario applies only to OS disks that have a GUID Partition Table (GPT) partition.
+> This article applies only to OS disks that have a GUID Partition Table (GPT) partition.
 
 This article describes how to increase the size of an OS disk that has a GPT partition in Linux. 
 
@@ -74,14 +74,14 @@ The following instructions apply to Linux-endorsed distributions.
 
 ### Ubuntu
 
-To increase the size of the OS disk in Ubuntu 16.x and 18.x:
+To increase the size of the OS disk in Ubuntu 16.*x* and 18.*x*:
 
 1. Stop the VM.
 1. Increase the size of the OS disk from the portal.
 1. Restart the VM, and then log in to the VM as a **root** user.
 1. Verify that the OS disk now displays an increased file system size.
 
-As shown in the following example, the OS disk has been resized from the portal to 100 GB. The **/dev/sda1** file system mounted on **/** now displays 97 GB.
+In the following example, the OS disk has been resized from the portal to 100 GB. The **/dev/sda1** file system mounted on **/** now displays 97 GB.
 
 ```
 user@myvm:~# df -Th
@@ -106,7 +106,7 @@ To increase the size of the OS disk in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE S
 1. Increase the size of the OS disk from the portal.
 1. Restart the VM.
 
-When the VM has restarted, perform the following steps:
+When the VM has restarted, complete these steps:
 
 1. Access your VM as a **root** user by using the following command:
 
@@ -120,7 +120,7 @@ When the VM has restarted, perform the following steps:
    # zypper install growpart
    ```
 
-1. Use the `lsblk` command to find the partition mounted on the root of the filesystem ("/"). In this case, we see that partition 4 of device sda is mounted on /:
+1. Use the `lsblk` command to find the partition mounted on the root of the file system (**/**). In this case, we see that partition 4 of device sda is mounted on **/**:
 
    ```
    # lsblk
@@ -134,7 +134,7 @@ When the VM has restarted, perform the following steps:
    └─sdb1   8:17   0    4G  0 part /mnt/resource
    ```
 
-1. Resize the required partition using the `growpart` command by using the partition number found in the preceding step.
+1. Resize the required partition by using the `growpart` command and the partition number found in the preceding step:
 
    ```
    # growpart /dev/sda 4
@@ -202,7 +202,7 @@ When the VM has restarted, perform the following steps:
    #resize2fs /dev/sda4
    ```
    
-1. Verify the increased file system size for **df -Th**, by using the following command:
+1. Verify the increased file system size for **df -Th** by using the following command:
    
    ```
    #df -Thl
@@ -235,7 +235,7 @@ When the VM has restarted, perform the following steps:
    [root@dd-rhel7vm ~]# sudo -i
    ```
 
-1. Use the `lsblk` command to find which logical volume (LV) is mounted on the root of the filesystem ("/"). In this case, we see that ***rootvg-rootlv*** is mounted on **/**.  If another filesystem is desired, substitute the LV and mount point through this document.
+1. Use the `lsblk` command to determine which logical volume (LV) is mounted on the root of the file system (**/**). In this case, we see that **rootvg-rootlv** is mounted on **/**.  If another file system is desired, substitute the LV and mount point through this document.
 
    ```shell
    [root@dd-rhel7vm ~]# lsblk -f
