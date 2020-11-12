@@ -20,7 +20,7 @@ Azure Data Share leverages managed identity (previously known as MSI) to access 
 Access controls to Azure Data Share can be set on the Data Share resource level to ensure it is accessed by those that are authorized. 
 
 ## Share data from or to data stores with firewall enabled
-To share data from or to storage accounts with firewall turned on, you need to enable **Allow trusted Microfost services** in your storage account. See [Configure Azure Storage firewalls and virtual networks](
+To share data from or to storage accounts with firewall turned on, you need to enable **Allow trusted Microsoft services** in your storage account. See [Configure Azure Storage firewalls and virtual networks](
 https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services) for details.
 
 
