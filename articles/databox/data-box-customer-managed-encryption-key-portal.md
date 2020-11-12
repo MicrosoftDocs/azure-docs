@@ -16,9 +16,9 @@ Azure Data Box protects the device unlock key (also known as the device password
 
 Using a customer-managed key doesn't affect how data on the device is encrypted. It only affects how the device unlock key is encrypted.
 
-This article shows how to use the [Azure portal](https://portal.azure.com/) to change the type of encryption key used for your existing order, or change the customer-managed key that you're using. This article applies to Azure Data Box and Azure Data Box Heavy devices.
-
 To keep this level of control throughout the order process, use a customer-managed key when you create your order. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+
+This article shows how to change the type of encryption key for an existing Data Box order, or to change the key vault, key, identity type, or user identity that you're using for a customer-managed key, via the [Azure portal](https://portal.azure.com/). This article applies to Azure Data Box and Azure Data Box Heavy devices.
 
 ## Requirements
 
@@ -36,29 +36,29 @@ To change the encryption key used for a Data Box order in the Azure portal, foll
 
     ![Overview screen of a Data Box order](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
 
-2. Go to **Settings > Encryption**. Under **Encryption type**, you can choose how you want to protect your device unlock key. If a customer-managed key isn't added, a Microsoft managed key is used.
+2. Go to **Settings > Encryption**. Under **Encryption type**, you can choose how you want to protect your device unlock key, by using either a Microsoft managed key or a customer-managed key. You can select either key type when you place your Data Box order and change it later.
 
     ![Choose encryption option](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)
 
-    If you want to switch from a customer-managed key to a Microsoft managed key, simply select **Microsoft managed key**, and then select **Save**. No other steps are needed.
+    If you want to switch from a customer-managed key to a Microsoft managed key, simply select **Microsoft managed key**. No other steps are needed.
 
-    If you want to switch to a customer-managed key or to change the customer-managed key you're using, complete the remaining steps.
+    If you want to switch to a customer-managed key or change the key vault, key, identity type, or identity for your existing customer-managed key, complete the following steps.
 
-3. If you're changing to a customer-managed key, select **Customer managed key** as the encryption type. Then select **Select a key vault and key**.
+3. If you're changing to a customer-managed key, select **Customer managed key** as the encryption type. Then select **Select a key vault and key**. If you're changing an existing key, you'll select **Change the key vault and key**.
 
     ![Select customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
-4. On the **Select key from Azure Key Vault** screen, you can select or change the key vault and key. The subscription is automatically populated. 
+4. On the **Select key from Azure Key Vault** screen, you can select or change the key vault and key. The subscription is automatically populated.
 
    - For **Key vault**, you can select an existing key vault from the dropdown list.
 
      ![Select existing Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
-    - You can also select **Create new** to create a new key vault. On the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults. Select **Review + Create**.
+    - Or select **Create new** to create a new key vault. On the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults. Select **Review + Create**.
 
       ![Review and create Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-      Review the information associated with your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
+      Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
 
        ![Create Azure Key Vault with your settings](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
@@ -70,17 +70,19 @@ To change the encryption key used for a Data Box order in the Azure portal, foll
 
     ![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-   Provide the name for your new key, accept the other defaults, and select **Create**. You are notified that a key is created in your key vault.
+   Enter a name for your new key, accept the other defaults, and select **Create**. You'll be notified that a key has been created in your key vault.
 
     ![Name new key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
-6. For **Version**, select the version of the key to use - the current version or an earlier one - for the drop-down list, or select **Create new** to generate a new version.<!--Create new version hasn't been tested. Do we need to show another screen?-->
+6. For **Version**, select the version of the key to use - the current version or an earlier one from the drop-down list, or select **Create new** to generate a new version. For more information, see PROCEDURE FOR GENERATING A KEY.<!--Find the link.-->
 
-    ![Select version for new key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)<!--Select command cropped out?-->
+    ![Select version for new key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
     When you've selected a key vault, key, and key version, click **Select**.
 
-    The **Encryption type** settings show the key vault and key that you chose.
+    ![A key in an Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-a.png)
+
+    The **Encryption type** settings show the key vault and key that you chose.<!--STOPPED HERE, 11/12-->
 
     ![Key and key vault for customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
