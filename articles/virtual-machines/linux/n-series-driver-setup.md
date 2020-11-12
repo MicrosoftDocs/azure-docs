@@ -6,7 +6,7 @@ author: vikancha-MSFT
 ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 11/11/2019
 ms.author: vikancha
 ---
 
@@ -24,7 +24,6 @@ For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM s
 
 Here are steps to install CUDA drivers from the NVIDIA CUDA Toolkit on N-series VMs. 
 
-
 C and C++ developers can optionally install the full Toolkit to build GPU-accelerated applications. For more information, see the [CUDA Installation Guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 To install CUDA drivers, make an SSH connection to each VM. To verify that the system has a CUDA-capable GPU, run the following command:
@@ -36,6 +35,7 @@ You will see output similar to the following example (showing an NVIDIA Tesla K8
 
 ![lspci command output](./media/n-series-driver-setup/lspci.png)
 
+lspci lists the PCIe devices on the VM, including the InfiniBand NIC and GPUs, if any. If lspci doesn't return successfully, you may need to install LIS on CentOS/RHEL (instructions below).
 Then run installation commands specific for your distribution.
 
 ### Ubuntu 
@@ -43,19 +43,14 @@ Then run installation commands specific for your distribution.
 1. Download and install the CUDA drivers from the NVIDIA website. For example, for Ubuntu 16.04 LTS:
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
-
    wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
    sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-
    sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
-
    rm -f /tmp/${CUDA_REPO_PKG}
 
    sudo apt-get update
-
    sudo apt-get install cuda-drivers
-
    ```
 
    The installation can take several minutes.
@@ -74,11 +69,8 @@ We recommend that you periodically update CUDA drivers after deployment.
 
 ```bash
 sudo apt-get update
-
 sudo apt-get upgrade -y
-
 sudo apt-get dist-upgrade -y
-
 sudo apt-get install cuda-drivers
 
 sudo reboot
@@ -90,38 +82,32 @@ sudo reboot
 
    ```
    sudo yum install kernel kernel-tools kernel-headers kernel-devel
-  
-   sudo reboot
-
-2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). Check if LIS is required by verifying the results of lspci. If all GPU devices are listed as expected, installing LIS is not required.
-
-Skip this step if you plan to use CentOS 7.8(or higher) as LIS is no longer required for these versions.
-
-   ```bash
-   wget https://aka.ms/lis
- 
-   tar xvzf lis
- 
-   cd LISISO
- 
-   sudo ./install.sh
- 
    sudo reboot
    ```
+
+2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). Check if LIS is required by verifying the results of lspci. If all GPU devices are listed as expected (and documented above), installing LIS is not required.
+
+   Skip this step if you plan to use CentOS/RHEL 7.8 (or higher versions) as LIS is no longer required for these versions.
+
+      ```bash
+      wget https://aka.ms/lis
+      tar xvzf lis
+      cd LISISO
+
+      sudo ./install.sh
+      sudo reboot
+      ```
  
 3. Reconnect to the VM and continue installation with the following commands:
 
    ```bash
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-
    sudo yum install dkms
-
+   
    CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
-
    wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
    sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-
    rm -f /tmp/${CUDA_REPO_PKG}
 
    sudo yum install cuda-drivers
@@ -188,20 +174,15 @@ To install NVIDIA GRID drivers on NV or NVv3-series VMs, make an SSH connection 
 
    ```bash
    sudo apt-get update
-
    sudo apt-get upgrade -y
-
    sudo apt-get dist-upgrade -y
-
    sudo apt-get install build-essential ubuntu-desktop -y
-   
    sudo apt-get install linux-azure -y
    ```
 3. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV or NVv2 VMs.) To do this, create a file in `/etc/modprobe.d` named `nouveau.conf` with the following contents:
 
    ```
    blacklist nouveau
-
    blacklist lbm-nouveau
    ```
 
@@ -216,9 +197,7 @@ To install NVIDIA GRID drivers on NV or NVv3-series VMs, make an SSH connection 
 
    ```bash
    wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
-
    chmod +x NVIDIA-Linux-x86_64-grid.run
-
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
 
@@ -251,13 +230,9 @@ To install NVIDIA GRID drivers on NV or NVv3-series VMs, make an SSH connection 
  
    ```bash  
    sudo yum update
- 
    sudo yum install kernel-devel
- 
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
- 
    sudo yum install dkms
-   
    sudo yum install hyperv-daemons
    ```
 
@@ -265,26 +240,22 @@ To install NVIDIA GRID drivers on NV or NVv3-series VMs, make an SSH connection 
 
    ```
    blacklist nouveau
-
    blacklist lbm-nouveau
    ```
- 
-3. Reboot the VM, reconnect, and install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). Check if LIS is required by verifying the results of lspci. If all GPU devices are listed as expected, installing LIS is not required. 
 
-Skip this step is you are using CentOS/RHEL 7.8 and above.
- 
-   ```bash
-   wget https://aka.ms/lis
+3. Reboot the VM, reconnect, and install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). Check if LIS is required by verifying the results of lspci. If all GPU devices are listed as expected (and documented above), installing LIS is not required. 
 
-   tar xvzf lis
+   Skip this step if you plan to use CentOS/RHEL 7.8 (or higher versions) as LIS is no longer required for these versions.
 
-   cd LISISO
+      ```bash
+      wget https://aka.ms/lis
+      tar xvzf lis
+      cd LISISO
 
-   sudo ./install.sh
+      sudo ./install.sh
+      sudo reboot
 
-   sudo reboot
-
-   ```
+      ```
  
 4. Reconnect to the VM and run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
  
@@ -292,7 +263,6 @@ Skip this step is you are using CentOS/RHEL 7.8 and above.
 
    ```bash
    wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
-
    chmod +x NVIDIA-Linux-x86_64-grid.run
 
    sudo ./NVIDIA-Linux-x86_64-grid.run
@@ -372,7 +342,7 @@ Then, create an entry for your update script in `/etc/rc.d/rc3.d` so the script 
 
 * You can set persistence mode using `nvidia-smi` so the output of the command is faster when you need to query cards. To set persistence mode, execute `nvidia-smi -pm 1`. Note that if the VM is restarted, the mode setting goes away. You can always script the mode setting to execute upon startup.
 * If you updated the NVIDIA CUDA drivers to the latest version and find RDMA connectivity is no longer working, [reinstall the RDMA drivers](#rdma-network-connectivity) to reestablish that connectivity. 
-* If a certain CentOS/RHEL OS version (or kernel) is not supported for LIS, an error “Unsupported kernel version” is thrown. Please report this error along with the OS and kernel versions.
+* During installation of LIS, if a certain CentOS/RHEL OS version (or kernel) is not supported for LIS, an error “Unsupported kernel version” is thrown. Please report this error along with the OS and kernel versions.
 
 ## Next steps
 
