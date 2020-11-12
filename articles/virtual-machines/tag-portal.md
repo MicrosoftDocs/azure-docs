@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 author: cynthn
 ms.service: virtual-machines
-ms.date: 10/26/2018
+ms.date: 11/11/2020
 ms.author: cynthn
 ---
 
