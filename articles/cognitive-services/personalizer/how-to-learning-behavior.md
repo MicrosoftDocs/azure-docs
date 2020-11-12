@@ -52,9 +52,6 @@ Apprentice mode provides the following **evaluation metrics**:
 * **Personalizer – average reward**: Average of total rewards Personalizer would potentially have reached.
 * **Reward achievement ratio over most recent 1000 events**: Ratio of Baseline and Personalizer reward – normalized over the most recent 1000 events.
 
-## Evaluate Apprentice mode features
-
-Evaluate the features using an [offline evaluation](how-to-offline-evaluation.md).
 
 ## Switch behavior to Online mode
 
