@@ -114,7 +114,7 @@ Ensure that you've met the following prerequisites:
 
 ### Configure the ServiceNow connection
 
-1.Use the link <https://<instance name>.service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor> the URI for the secure export definition.
+1.Use the link https://(instance name).service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor the URI for the secure export definition.
 
 2. Follow the instructions according to the version:
    * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)

@@ -61,8 +61,8 @@
     items: 
     - name: Manage custom models
       href: how-to-manage-model.md
-    - name: Convert industry-standard models
-      href: how-to-convert-models.md  
+    - name: Integrate industry-standard models
+      href: how-to-integrate-models.md  
     - name: Parse and validate models
       href: how-to-parse-models.md
     - name: Add tags 
@@ -111,7 +111,7 @@
     items:
     - name: View metrics in Azure Monitor
       href: troubleshoot-metrics.md
-    - name: Enable diagnostics logs
+    - name: Enable and query diagnostics logs
       href: troubleshoot-diagnostics.md
     - name: Enable alerts
       href: troubleshoot-alerts.md

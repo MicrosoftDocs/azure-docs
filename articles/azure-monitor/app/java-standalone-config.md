@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights Java
 description: Configuration options for Azure Monitor Application Insights Java
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-java
 ---
 
@@ -20,7 +20,7 @@ Connection string and role name are the most common settings needed to get start
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "InstrumentationKey=...",
   "role": {
     "name": "my cloud role name"
   }
@@ -45,14 +45,14 @@ If you specify a relative path, it will be resolved relative to the directory wh
 
 ## Connection string
 
-This is required. You can find your connection string in your Application Insights resource:
+Connection string is required. You can find your connection string in your Application Insights resource:
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
 
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  "connectionString": "InstrumentationKey=..."
 }
 ```
 
@@ -102,7 +102,7 @@ Sampling is performed as a function on the operation ID (also known as trace ID)
 
 For example, if you set sampling to 10%, you will only see 10% of your transactions, but each one of those 10% will have full end-to-end transaction details.
 
-Here is an example how to set the sampling to capture approximately **1/3 of all transactions** - please make sure you set the sampling rate that is correct for your use case:
+Here is an example how to set the sampling to capture approximately **1/3 of all transactions** - make sure you set the sampling rate that is correct for your use case:
 
 ```json
 {
@@ -167,9 +167,9 @@ If you want to add custom dimensions to all of your telemetry:
 
 ## Telemetry processors (preview)
 
-This is a preview feature.
+This feature is in preview.
 
-It allows you to configure rules that will be applied to request, dependency and trace telemetry, e.g.
+It allows you to configure rules that will be applied to request, dependency and trace telemetry, for example:
  * Mask sensitive data
  * Conditionally add custom dimensions
  * Update the telemetry name used for aggregation and display
@@ -223,6 +223,9 @@ then metrics configured by Spring Boot Actuator are also auto-collected.
 
 To disable auto-collection of Micrometer metrics (including Spring Boot Actuator metrics):
 
+> [!NOTE]
+> Custom metrics are billed separately and may generate additional costs. Make sure to check the detailed [pricing information](https://azure.microsoft.com/pricing/details/monitor/). To disable the Micrometer and Spring Actuator metrics, add the below configuration to your config file.
+
 ```json
 {
   "instrumentation": {
@@ -246,7 +249,7 @@ By default, Application Insights Java 3.0 sends a heartbeat metric once every 15
 ```
 
 > [!NOTE]
-> You cannot decrease the frequency of this heartbeat, as the heartbeat data is also used to track Application Insights usage.
+> You cannot decrease the frequency of the heartbeat, as the heartbeat data is also used to track Application Insights usage.
 
 ## HTTP Proxy
 
@@ -281,7 +284,7 @@ If your application is behind a firewall and cannot connect directly to Applicat
 
 "Self-diagnostics" refers to internal logging from Application Insights Java 3.0.
 
-This can be helpful for spotting and diagnosing issues with Application Insights itself.
+This functionality can be helpful for spotting and diagnosing issues with Application Insights itself.
 
 By default, Application Insights Java 3.0 logs at level `INFO` to both the file `applicationinsights.log`
 and the console, corresponding to this configuration:
@@ -310,3 +313,47 @@ and the console, corresponding to this configuration:
 `maxSizeMb` is the max size of the log file before it rolls over.
 
 `maxHistory` is the number of rolled over log files that are retained (in addition to the current log file).
+
+## An example
+
+This is just an example to show what a configuration file looks like with multiple components.
+Please configure specific options based on your needs.
+
+```json
+{
+  "connectionString": "InstrumentationKey=...",
+  "role": {
+    "name": "my cloud role name"
+  },
+  "sampling": {
+    "percentage": 100
+  },
+  "jmxMetrics": [
+  ],
+  "customDimensions": {
+  },
+  "instrumentation": {
+    "logging": {
+      "level": "INFO"
+    },
+    "micrometer": {
+      "enabled": true
+    }
+  },
+  "httpProxy": {
+  },
+  "preview": {
+    "processors": [
+    ]
+  },
+  "selfDiagnostics": {
+    "destination": "file+console",
+    "level": "INFO",
+    "file": {
+      "path": "applicationinsights.log",
+      "maxSizeMb": 5,
+      "maxHistory": 1
+    }
+  }
+}
+```

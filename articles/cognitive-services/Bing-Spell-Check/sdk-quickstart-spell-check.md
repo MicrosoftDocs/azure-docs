@@ -106,4 +106,4 @@ Build and run your project. If you're using Visual Studio, press **F5** to debug
 > [Create a single page web-app](tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](overview.md)
-- [Bing Spell Check C# SDK reference guide](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)
+- [Bing Spell Check C# SDK reference guide](/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)
