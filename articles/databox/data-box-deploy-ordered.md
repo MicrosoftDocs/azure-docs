@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/11/2020
+ms.date: 11/12/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -277,7 +277,9 @@ Do the following steps in the Azure portal to order a device.
 
 9. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
 
-    Configuring a customer-managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect the unlock passkey.<!--Inconsistency: In "Use customer-managed keys...", this key is referred to as "your BitLocker key."-->
+    Configuring a customer-managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect the unlock passkey.
+
+    A customer-managed key doesn't affect how data on the device is encrypted. The key is only used to encrypt the device unlock passkey.
 
    ![Security screen showing Encryption type settings](./media/data-box-deploy-ordered/customer-managed-key-01.png)
 
@@ -285,9 +287,9 @@ Do the following steps in the Azure portal to order a device.
    
     ![Security screen, settings for a customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-02.png)
 
-11. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated.<!--What term should be used for a dialog box? Certainly not "blade"?--> 
+11. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated.
 
-    For **Key vault**, you can select an existing key vault from the dropdown list. The key vault should be in the same region as the resource you're creating.
+    For **Key vault**, you can select an existing key vault from the dropdown list.
 
     ![Select key from Azure Key Vault screen](./media/data-box-deploy-ordered/customer-managed-key-03.png)
 
