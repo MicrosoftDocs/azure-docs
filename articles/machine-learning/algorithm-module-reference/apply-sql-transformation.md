@@ -26,7 +26,6 @@ Using the Apply SQL Transformation module, you can:
 
 > [!IMPORTANT]
 > The SQL engine used in this module is **SQLite**. For more information about SQLite syntax, see [SQL as Understood by SQLite](https://www.sqlite.org/index.html).
-
 > This module will bump data to SQLite, which is in the memory DB, hence the module execution requires much more memory and may hit an `Out of memory` error. Make sure your computer has enough RAM.
 
 ## How to configure Apply SQL Transformation  
