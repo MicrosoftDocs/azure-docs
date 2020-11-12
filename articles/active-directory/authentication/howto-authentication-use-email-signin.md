@@ -221,7 +221,7 @@ For new members added to the group, it may take up to 24 hours before they can u
 
 ### Removing Groups
 
-To remove a group from a staged rollout policy, run the following command.:
+To remove a group from a staged rollout policy, run the following command:
 
 ```powershell
 Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
