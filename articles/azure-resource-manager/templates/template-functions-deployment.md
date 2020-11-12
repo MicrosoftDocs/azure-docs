@@ -323,6 +323,7 @@ param siteName string
 
 resource mySite 'Microsoft.Web/Sites@2016-08-01' = {
   name: siteName
+  ...
 }
 ```
 

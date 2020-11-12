@@ -352,7 +352,7 @@ The output from the preceding example with the default values is:
 
 `createArray (arg1, arg2, arg3, ...)`
 
-Creates an array from the parameters.
+Creates an array from the parameters. The `createArray` function is not supported by Bicep.  Construct an array literal by using `[]`.
 
 ### Parameters
 
@@ -363,9 +363,6 @@ Creates an array from the parameters.
 ### Return value
 
 An array. When no parameters are provided, it returns an empty array.
-
-> [!NOTE]
-> JGAO: The createArray function expects at least one argument in Bicep.
 
 ### Example
 
@@ -420,23 +417,7 @@ The following example shows how to use createArray with different types:
 
 # [Bicep](#tab/bicep)
 
-```bicep
-param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output stringArray array = createArray('a', 'b', 'c')
-output intArray array = createArray(1, 2, 3)
-output objectArray array = createArray(objectToTest)
-output arrayArray array = createArray(arrayToTest)
-```
+createArray() is not supported by Bicep.  Construct an array literal by using [].
 
 ---
 
@@ -889,9 +870,6 @@ You can use this function with an array to specify the number of iterations when
   "count": "[length(parameters('siteNames'))]"
 }
 ```
-
-> [!NOTE]
-> JGAO - research copy
 
 For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 

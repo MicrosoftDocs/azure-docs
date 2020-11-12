@@ -127,19 +127,17 @@ The next example template shows how to set the start time for an Automation sche
     "startTime": "[dateTimeAdd(parameters('baseTime'), 'PT1H')]"
   },
   "resources": [
+    ...
     {
       "type": "Microsoft.Automation/automationAccounts/schedules",
       "apiVersion": "2015-10-31",
       "name": "[concat(parameters('omsAutomationAccountName'), '/', parameters('scheduleName'))]",
-      "location": "eastus2",
-      "tags": {
-      },
+
       "properties": {
         "description": "Demo Scheduler",
         "startTime": "[variables('startTime')]",
-        "isEnabled": "true",
         "interval": 1,
-        "frequency": "hour"
+        "frequency": "Hour"
       }
     }
   ],
@@ -157,15 +155,15 @@ param baseTime string = utcNow('u')
 
 var startTime = dateTimeAdd(baseTime, 'PT1H')
 
+...
+
 resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31' = {
   name: concat(omsAutomationAccountName, '/', scheduleName)
-  location: 'eastus2'
   properties: {
     description: 'Demo Scheduler'
     startTime: startTime
-    isEnabled: 'true'
     interval: 1
-    frequency: 'hour'
+    frequency: 'Hour'
   }
 }
 ```

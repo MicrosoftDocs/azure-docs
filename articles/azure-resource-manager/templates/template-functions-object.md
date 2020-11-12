@@ -133,7 +133,7 @@ The output from the preceding example with the default values is:
 
 `createObject(key1, value1, key2, value2, ...)`
 
-Creates an object from the keys and values.
+Creates an object from the keys and values. The `createObject` function is not supported by Bicep.  Construct an object by using `{}`.
 
 ### Parameters
 
@@ -174,8 +174,19 @@ The following example creates an object from different types of values.
 # [Bicep](#tab/bicep)
 
 ```bicep
-> [!NOTE]
-> JGAO: createObject() doesn't exist.
+output newObject object = {
+  'intProp': 1
+  'stringProp': 'abc'
+  'boolProp': true
+  'arrayProp': [
+    'a'
+    'b'
+    'c'
+  ]
+  'objectProp': {
+    'key1': 'value1'
+  }
+}
 ```
 
 ---
@@ -492,11 +503,8 @@ output stringOutput string =json(jsonString)
 output booleanOutput bool = json(jsonBoolean)
 output intOutput int = json(jsonInt)
 output arrayOutput array = json(jsonArray)
-output concatObjectOutput object = json(concat('{\'a\': \'', concatValue, '\'}'))
+output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
 ```
-
-> [!NOTE]
-> JGAO: the built json doesn't match. \" is not supported.
 
 ---
 
@@ -653,10 +661,7 @@ The following example uses the null function.
 # [Bicep](#tab/bicep)
 
 ```bicep
-
->[!NOTE]
-> JGAO: null() doesn't exist in bicep.
-
+output emptyOutput bool = empty(null)
 ```
 
 ---

@@ -335,9 +335,6 @@ storageAccountSettings: {
   storageAccountKey: listKeys(resourceId('Microsoft.Storage/storageAccounts', storageAccountName), '2019-06-01').keys[0].value
 }
 
-> [!NOTE]
-> JGAO: do I need to specify the deployment script resource type here?
-
 ```
 
 ---
@@ -374,7 +371,7 @@ param accountSasProperties object {
   }
 }
 ...
-sasToken: listAccountSas(toragename, '2018-02-01', accountSasProperties).accountSasToken
+sasToken: listAccountSas(storagename, '2018-02-01', accountSasProperties).accountSasToken
 ```
 
 ---
@@ -484,7 +481,7 @@ You can use the response from pickZones to determine whether to provide null for
 # [Bicep](#tab/bicep)
 
 > [!NOTE]
-> JGAO: copyindex() doesn't exist.
+> Loops and copyIndex() are not implemented yet.  See [Loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
 
 ---
 
@@ -550,11 +547,7 @@ param providerNamespace string
 param resourceType string
 
 output providerOutput array = providers(providerNamespace, resourceType)
-
 ```
-
-> [!NOTE]
-> JGAO: type array vs object.
 
 ---
 
@@ -727,7 +720,6 @@ When referencing a resource that isn't deployed in the same template, provide th
 
 ```bicep
 value: reference(resourceId(storageResourceGroup, 'Microsoft.Storage/storageAccounts', storageAccountName), '2018-07-01')]"
-
 ```
 
 ---
@@ -779,7 +771,6 @@ For example, to get the principal ID for a managed identity that is applied to a
 
 ```bicep
 reference(resourceId('Microsoft.Compute/virtualMachines', vmName),'2019-12-01', 'Full').identity.principalId
-
 ```
 
 ---
@@ -1222,6 +1213,7 @@ Often, you need to use this function when using a storage account or virtual net
   ]
 }
 ```
+# [Bicep](#tab/bicep)
 
 ```bicep
 param location string
@@ -1466,21 +1458,26 @@ param roleNameGuid string {
   }
 }
 
-var Owner = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')
-var Contributor = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
-var Reader = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')
+var roleDefinitionId = {
+  Owner: {
+    id: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')
+  }
+  Contributor: {
+    id: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
+  }
+  Reader: {
+    id: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')
+  }
+}
 
 resource myRoleAssignment 'Microsoft.Authorization/roleAssignments@2018-09-01-preview' = {
   name: roleNameGuid
   properties: {
-    roleDefinitionId: variables(builtInRoleType)
+    roleDefinitionId: roleDefinitionId[builtInRoleType].id
     principalId: principalId
   }
 }
 ```
-
-> [!NOTE]
-> JGAO: how to handle roledefinitionid.
 
 ---
 

@@ -20,7 +20,7 @@ Resource Manager provides several functions for making comparisons in your Azure
 
 `and(arg1, arg2, ...)`
 
-Checks whether all parameter values are true.
+Checks whether all parameter values are true. The `and` function is not supported in Bicep. Use the `&&` operator instead.
 
 ### Parameters
 
@@ -65,9 +65,9 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 # [Bicep](#tab/bicep)
 
 ```bicep
-output andExampleOutput bool = and(bool('true'), bool('false'))
-output orExampleOutput bool = or(bool('true'), bool('false'))
-output notExampleOutput bool = not(bool('true'))
+output andExampleOutput bool = bool('true') && bool('false')
+output orExampleOutput bool = bool('true') || bool('false')
+output notExampleOutput bool = !(bool('true'))
 ```
 
 ---
@@ -155,7 +155,7 @@ The output from the preceding example with the default values is:
 
 `false()`
 
-Returns false.
+Returns false. The `false` function is not available in Bicep.  Use the `false` keyword instead.
 
 ### Parameters
 
@@ -188,10 +188,7 @@ The following example returns a false output value.
 # [Bicep](#tab/bicep)
 
 ```bicep
-
-> [!NOTE]
-> JGAO - false() is not resolving in bicep.
-
+output falseOutput bool = false
 ```
 
 ---
@@ -206,7 +203,7 @@ The output from the preceding example is:
 
 `if(condition, trueValue, falseValue)`
 
-Returns a value based on whether a condition is true or false.
+Returns a value based on whether a condition is true or false. The `if` function is not supported in Bicep. Use the `?:` operator instead.
 
 ### Parameters
 
@@ -256,13 +253,10 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 # [Bicep](#tab/bicep)
 
 ```bicep
-output yesOutput string = equals('a', 'a') ? 'yes' : 'no'
-output noOutput string = equals('a', 'b') ? 'yes' : 'no'
-output objectOutput object = equals('a', 'a') ? json('{\'test\': \'value1\'}') : json('null')
+output yesOutput string = 'a' == 'a' ? 'yes' : 'no'
+output noOutput string = 'a' == 'b' ? 'yes' : 'no'
+output objectOutput object = 'a' == 'a' ? json('{"test": "value1"}') : json('null')
 ```
-
-> [!NOTE]
-> JGAO - verify the escape character.
 
 ---
 
@@ -340,17 +334,16 @@ resource myVmExt 'Microsoft.Compute/virtualMachines/extensions@2017-03-30' = {
     typeHandlerVersion: '1.0'
     autoUpgradeMinorVersion: true
     settings: {
-      workspaceId: not(empty('logAnalytics')) ? reference('logAnalytics', '2015-11-01-preview').customerId : json('null')
+      workspaceId: !(empty('logAnalytics')) ? reference('logAnalytics', '2015-11-01-preview').customerId : json('null')
     }
     protectedSettings: {
-      workspaceKey: not(empty('logAnalytics')) ? listKeys('logAnalytics', '2015-11-01-preview').primarySharedKey : json('null')
+      workspaceKey: !(empty('logAnalytics')) ? listKeys('logAnalytics', '2015-11-01-preview').primarySharedKey : json('null')
     }
   }
 }
-```
 
-> [!NOTE]
-> JGAO - the output is not as expected
+output mgmtStatus string = !(empty(logAnalytics)) ? 'Enabled monitoring for VM!' : 'Nothing to enable'
+```
 
 ---
 
@@ -358,7 +351,7 @@ resource myVmExt 'Microsoft.Compute/virtualMachines/extensions@2017-03-30' = {
 
 `not(arg1)`
 
-Converts boolean value to its opposite value.
+Converts boolean value to its opposite value. The `not` function is not supported in Bicep. Use the `!` operator instead.
 
 ### Parameters
 
@@ -401,9 +394,9 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 # [Bicep](#tab/bicep)
 
 ```bicep
-output andExampleOutput bool = and(bool('true'), bool('false'))
-output orExampleOutput bool = or(bool('true'), bool('false'))
-output notExampleOutput bool = not(bool('true'))
+output andExampleOutput bool = bool('true') && bool('false')
+output orExampleOutput bool = bool('true') || bool('false')
+output notExampleOutput bool = !(bool('true'))
 ```
 
 ---
@@ -438,7 +431,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 # [Bicep](#tab/bicep)
 
 ```bicep
-output checkNotEquals bool = not(equals(1,2))
+output checkNotEquals bool = !(1 == 2)
 ```
 
 ---
@@ -453,7 +446,7 @@ The output from the preceding example is:
 
 `or(arg1, arg2, ...)`
 
-Checks whether any parameter value is true.
+Checks whether any parameter value is true. The `or` function is not supported in Bicep. Use the `||` operator instead.
 
 ### Parameters
 
@@ -498,9 +491,9 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 # [Bicep](#tab/bicep)
 
 ```bicep
-output andExampleOutput bool = and(bool('true'), bool('false'))
-output orExampleOutput bool = or(bool('true'), bool('false'))
-output notExampleOutput bool = not(bool('true'))
+output andExampleOutput bool = bool('true') && bool('false')
+output orExampleOutput bool = bool('true') || bool('false')
+output notExampleOutput bool = !(bool('true'))
 ```
 
 ---
@@ -517,11 +510,11 @@ The output from the preceding example is:
 
 `true()`
 
-Returns true.
+Returns true. The `true` function is not available in Bicep.  Use the `true` keyword instead.
 
 ### Parameters
 
-The true function doesn't accept any parameters.
+The true function doesn't accept any parameters. The `true` function is not available in Bicep.  Use the `true` keyword instead.
 
 ### Return value
 
@@ -550,9 +543,7 @@ The following example returns a true output value.
 # [Bicep](#tab/bicep)
 
 ```bicep
-
-> [!NOTE]
-> JGAO - true() doesn't resolve.
+output trueOutput bool = true
 ```
 
 ---

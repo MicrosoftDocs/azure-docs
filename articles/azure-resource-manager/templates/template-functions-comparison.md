@@ -121,7 +121,7 @@ The output from the preceding example with the default values is:
 
 `equals(arg1, arg2)`
 
-Checks whether two values equal each other.
+Checks whether two values equal each other. The equals function is not supported in Bicep. Use the == operator instead.
 
 ### Parameters
 
@@ -160,7 +160,7 @@ The equals function is often used with the `condition` element to test whether a
 ```bicep
 
 > [!NOTE]
-> JGAO: Conditions are not yet implemented. https://github.com/Azure/bicep/issues/186
+> Conditions are not yet implemented in Bicep. See [Conditions](https://github.com/Azure/bicep/issues/186).
 ```
 
 ---
@@ -254,10 +254,10 @@ param secondObject object = {
   'a': 'b'
 }
 
-output checInts bool = equals(firstInt, secondInt)
-output checkStrings bool = equals(firstString, secondString)
-output checkArrays bool = equals(firstArray, secondArray)
-output checkObjects bool = equals(firstObject, secondObject)
+output checInts bool = firstInt == secondInt
+output checkStrings bool = firstString == secondString
+output checkArrays bool = firstArray == secondArray
+output checkObjects bool = firstObject == secondObject
 ```
 
 ---
@@ -293,7 +293,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 # [Bicep](#tab/bicep)
 
 ```bicep
-output checkNotEquals bool = not(equals(1,2))
+output checkNotEquals bool = ! (1 == 2)
 ```
 
 ---
@@ -308,7 +308,7 @@ The output from the preceding example is:
 
 `greater(arg1, arg2)`
 
-Checks whether the first value is greater than the second value.
+Checks whether the first value is greater than the second value. The greater function is not supported in Bicep. Use the > operator instead.
 
 ### Parameters
 
@@ -372,8 +372,8 @@ param secondInt int = 2
 param firstString string = 'A'
 param secondString string = 'a'
 
-output checkInts bool = greater(firstInt, secondInt)
-output checkStrings bool = greater(firstString, secondString)
+output checkInts bool = firstInt > secondInt
+output checkStrings bool = firstString > secondString
 ```
 
 ---
@@ -389,7 +389,7 @@ The output from the preceding example with the default values is:
 
 `greaterOrEquals(arg1, arg2)`
 
-Checks whether the first value is greater than or equal to the second value.
+Checks whether the first value is greater than or equal to the second value. The greaterOrEquals function is not supported in Bicep. Use the >= operator instead.
 
 ### Parameters
 
@@ -447,15 +447,14 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 # [Bicep](#tab/bicep)
 
-
 ```bicep
 param firstInt int = 1
 param secondInt int = 2
 param firstString string = 'A'
 param secondString string = 'a'
 
-output checkInts bool = greaterOrEquals(firstInt, secondInt)
-output checkStrings bool = greaterOrEquals(firstString, secondString)
+output checkInts bool = firstInt >= secondInt
+output checkStrings bool = firstString >= secondString
 ```
 
 ---
@@ -471,7 +470,7 @@ The output from the preceding example with the default values is:
 
 `less(arg1, arg2)`
 
-Checks whether the first value is less than the second value.
+Checks whether the first value is less than the second value. The less function is not supported in Bicep. Use the < operator instead.
 
 ### Parameters
 
@@ -535,8 +534,8 @@ param secondInt int = 2
 param firstString string = 'A'
 param secondString string = 'a'
 
-output checkInts bool = less(firstInt, secondInt)
-output checkStrings bool = less(firstString, secondString)
+output checkInts bool = firstInt < secondInt
+output checkStrings bool = firstString < secondString
 ```
 
 ---
@@ -552,7 +551,7 @@ The output from the preceding example with the default values is:
 
 `lessOrEquals(arg1, arg2)`
 
-Checks whether the first value is less than or equal to the second value.
+Checks whether the first value is less than or equal to the second value. The lessOrEquals function is not supported in Bicep. Use the <= operator instead.
 
 ### Parameters
 
@@ -616,8 +615,8 @@ param secondInt int = 2
 param firstString string = 'A'
 param secondString string = 'a'
 
-output checkInts bool = lessOrEquals(firstInt, secondInt)
-output checkStrings bool = lessOrEquals(firstString, secondString)
+output checkInts bool = firstInt <= secondInt
+output checkStrings bool = firstString <= secondString
 ```
 
 ---

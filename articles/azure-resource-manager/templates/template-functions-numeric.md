@@ -23,7 +23,7 @@ Resource Manager provides the following functions for working with integers in y
 
 `add(operand1, operand2)`
 
-Returns the sum of the two provided integers.
+Returns the sum of the two provided integers. The `add` function is not supported in Bicep. Use the `+` operator instead.
 
 ### Parameters
 
@@ -79,7 +79,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 param first int = 5
 param second int = 3
 
-output addResult int = add(first, second)
+output addResult int = first + second
 ```
 
 ---
@@ -158,7 +158,7 @@ The following example shows a copy loop and the index value included in the name
 ```bicep
 
 > [!NOTE]
-> JGAO: Loop is implemented differently.  See https://github.com/Azure/bicep/blob/main/docs/spec/loops.md
+> Loops are not implemented yet.  See [Loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
 
 ```
 
@@ -172,7 +172,7 @@ An integer representing the current index of the iteration.
 
 `div(operand1, operand2)`
 
-Returns the integer division of the two provided integers.
+Returns the integer division of the two provided integers. The `div` function is not supported in Bicep. Use the `/` operator instead.
 
 ### Parameters
 
@@ -228,7 +228,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 param first int = 8
 param second int = 3
 
-output addResult int = div(first, second)
+output addResult int = first / second
 ```
 
 ---
@@ -280,7 +280,7 @@ The following example shows how to use float to pass parameters to a Logic App:
 ```bicep
 
 > [!NOTE]
-> JGAO: float() doesn't exist.
+> JGAO: float() is not supported in Bicep.
 ```
 
 ---
@@ -488,7 +488,7 @@ The output from the preceding example with the default values is:
 
 `mod(operand1, operand2)`
 
-Returns the remainder of the integer division using the two provided integers.
+Returns the remainder of the integer division using the two provided integers. The `mod` function is not supported in Bicep. Use the `%` operator instead.
 
 ### Parameters
 
@@ -544,7 +544,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 param first int = 7
 param second int = 3
 
-output modResult int = mod (first, second)
+output modResult int = first % second
 ```
 
 ---
@@ -559,7 +559,7 @@ The output from the preceding example with the default values is:
 
 `mul(operand1, operand2)`
 
-Returns the multiplication of the two provided integers.
+Returns the multiplication of the two provided integers. The `mul` function is not supported in Bicep. Use the `*` operator instead.
 
 ### Parameters
 
@@ -615,7 +615,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 param first int = 5
 param second int = 3
 
-output mulResult int = mul(first, second)
+output mulResult int = first * second
 ```
 
 ---
@@ -630,7 +630,7 @@ The output from the preceding example with the default values is:
 
 `sub(operand1, operand2)`
 
-Returns the subtraction of the two provided integers.
+Returns the subtraction of the two provided integers. The `sub` function is not supported in Bicep. Use the `-` operator instead.
 
 ### Parameters
 
@@ -686,7 +686,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 param first int = 7
 param second int = 3
 
-output subResult int = sub(first, second)
+output subResult int = first - second
 ```
 
 ---
