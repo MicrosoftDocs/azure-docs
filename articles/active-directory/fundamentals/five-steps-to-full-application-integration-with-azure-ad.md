@@ -42,7 +42,7 @@ Finally, you can also integrate the apps you develop in-house. This is covered i
 
 Next, discover the applications employees are frequently using, and prioritize your work for integrating them with Azure AD.
 
-You can start by using Microsoft Cloud App Security&#39;s [cloud discovery tools](/cloud-app-security/tutorial-shadow-it) to discover and manage &quot;shadow&quot; IT in your network (that is, apps not managed by the IT department). You can [use Microsoft Defender Advanced Threat Protection (ATP)](/cloud-app-security/wdatp-integration) to simplify and extend the discovery process.
+You can start by using Microsoft Cloud App Security&#39;s [cloud discovery tools](/cloud-app-security/tutorial-shadow-it) to discover and manage &quot;shadow&quot; IT in your network (that is, apps not managed by the IT department). You can [use Microsoft Defender Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) to simplify and extend the discovery process.
 
 In addition, you can use the [AD FS application activity report](../manage-apps/migrate-adfs-application-activity.md) in the Azure portal to discover all the AD FS apps in your organization, the number of unique users that have signed in to them, and compatibility for integrating them with Azure AD.
 
