@@ -41,6 +41,12 @@
     href: quickstart-create-custom-alerts.md
   - name: Investigate security alerts
     href: quickstart-investigate-security-alerts.md
+- name: Tutorials
+  items:
+    - name: Install components
+      href: tutorial-install-components.md
+    - name: Network setup
+      href: tutorial-network-setup.md
 - name: Concepts
   items:
   - name: Key advantages
@@ -93,6 +99,8 @@
     href: how-to change-the-name-of-your-azure-consoles.md
   - name: Create azure for defender users and roles
     href: how-to-create-azure-for-defender-users-and-roles.md
+  - name: Control what traffic is monitored
+    href: how-to-control-what-traffic-is-monitored.md
   - name: Work with device inventory information
     href: how-to-work-with-asset-inventory-information.md
   - name: Work with maps
@@ -173,6 +181,14 @@
     href: how-to-configure-with-sentinel.md
   - name: Customize your agent
     href: how-to-customize-solution.md
+  - name: Troubleshoot the sensor and on-premises management console
+    href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
+  - name: Define management console network settings
+    href: how-to-define-management-console-network-settings.md
+  - name: Set up SNMP MIB monitoring
+    href: how-to-set-up-snmp-mib-monitoring.md
+  - name: Adjust system properties
+    href: how-to-adjust-system-properties.md
 - name: References
   items:
   - name: Security Module for Azure RTOS API
