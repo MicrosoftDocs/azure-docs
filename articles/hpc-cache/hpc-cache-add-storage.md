@@ -98,9 +98,9 @@ Steps to add the Azure roles:
 
 ### [Azure CLI](#tab/azure-cli)
 
-[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
-
 ### Prerequisite: Storage account access
+
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 Before you add a blob storage target, check that the cache has the correct roles to access the storage account, and that firewall settings will allow the storage target creation.
 
