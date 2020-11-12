@@ -239,7 +239,7 @@ Complete these steps and restart the IoT Edge service to configure your devices.
    hostname: <device fqdn or IP>
    ```
 
-1. For IoT Edge devices in **lower layers**, update the config file to point to the FQDN or IP of the parent device, matching whatever is in the parent device's **hostname** field. For IoT Edge devices in the **top layer**, leave this parameter blank.
+1. For IoT Edge devices in **lower layers**, update the config file to point to the FQDN or IP of the parent device, matching whatever is in the parent device's **hostname** field. For IoT Edge devices in the **top layer**, leave this parameter commented out.
 
    ```yml
    parent_hostname: <parent device fqdn or IP>

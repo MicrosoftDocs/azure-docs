@@ -1,7 +1,7 @@
 ---
 title: Tag images in a labeling project
-titleSuffix: Azure Machine Learning
-description: Learn how to use the data tagging tools in an Azure Machine Learning labeling project.
+title.suffix: Azure Machine Learning
+description: Learn how to use the data tagging tools to rapidly prepare data for a Machine Learning in an Azure Machine Learning labeling project.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -13,7 +13,7 @@ ms.date: 07/27/2020
 
 # Tag images in a labeling project 
 
-After your project administrator [creates a labeling project](./how-to-create-labeling-projects.md#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool (public preview) to rapidly prepare data for a Machine Learning project. This article describes:
+After your project administrator [creates a labeling project](./how-to-create-labeling-projects.md#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
 
 > [!div class="checklist"]
 > * How to access your labeling projects
@@ -138,11 +138,11 @@ To delete a polygon, click the X-shaped target that appears next to the polygon 
 
 If you want to change the tag for a polygon, select the **Move region** tool, click on the polygon, and select the correct tag.
 
-You can edit existing polygons. The **Lock/unlock regions** tool ![Lock/unlock regions tool](./media/how-to-label-images/lock-bounding-boxes-tool.png) or "L" toggles that behavior. If regions are locked, you can only change the shape or location of a new polygon.
+You can edit existing polygons. The **Lock/unlock regions** tool ![Edit polygons with the lock/unlock regions tool](./media/how-to-label-images/lock-bounding-boxes-tool.png) or "L" toggles that behavior. If regions are locked, you can only change the shape or location of a new polygon.
 
-Use the **Add or remove polygon points** tool ![Regions manipulation tool](./media/how-to-label-images/add-remove-points-tool.png) or "U" to adjust an existing polygon. Click on the polygon to add or remove a point. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
+Use the **Add or remove polygon points** tool ![Add or remove polygon points tool](./media/how-to-label-images/add-remove-points-tool.png) or "U" to adjust an existing polygon. Click on the polygon to add or remove a point. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
 
-To delete *all* polygons in the current image, select the **Delete all regions** tool ![Delete regions tool](./media/how-to-label-images/delete-regions-tool.png).
+To delete *all* polygons in the current image, select the **Delete all regions** tool ![Delete all regions tool](./media/how-to-label-images/delete-regions-tool.png).
 
 After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
 

@@ -218,7 +218,7 @@ To send network traffic between your Azure Virtual Network and your on-premises 
 ### Express Route
 Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) is a dedicated WAN link that lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider.
 
-![Express Route](./media/overview/azure-security-fig1.png)
+![Express Route](./media/overview/azure-security-figure-1.png)
 
 With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Microsoft 365, and CRM Online. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
 
@@ -228,7 +228,7 @@ ExpressRoute connections do not go over the public Internet and thus can be cons
 ### Application Gateway
 Microsoft [Azure Application Gateway](../../application-gateway/overview.md) provides an [Application Delivery Controller (ADC)](https://en.wikipedia.org/wiki/Application_delivery_controller) as a service, offering various layer 7 load balancing capabilities for your application.
 
-![Application Gateway](./media/overview/azure-security-fig2.png)
+![Application Gateway](./media/overview/azure-security-figure-2.png)
 
 It allows you to optimize web farm productivity by offloading CPU intensive TLS termination to the Application Gateway (also known as “TLS offload” or “TLS bridging”). It also provides other Layer 7 routing capabilities including round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Azure Application Gateway is a layer-7 load balancer.
 
@@ -239,7 +239,7 @@ Application provides many Application Delivery Controller (ADC) features includi
 ### Web Application Firewall
 Web Application Firewall is a feature of [Azure Application Gateway](../../application-gateway/overview.md) that provides protection to web applications that use application gateway for standard Application Delivery Control (ADC) functions. Web application firewall does this by protecting them against most of the OWASP top 10 common web vulnerabilities.
 
-![Web Application Firewall](./media/overview/azure-security-fig1.png)
+![Web Application Firewall](./media/overview/azure-security-figure-3.png)
 
 -	SQL injection protection
 
