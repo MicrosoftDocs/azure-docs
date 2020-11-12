@@ -1,8 +1,11 @@
 - name: Azure SQL Documentation
   href: index.yml
-
-- name: What is Azure SQL? 
-  href: azure-sql-iaas-vs-paas-what-is-overview.md
+- name: Azure SQL 
+  items: 
+  - name: What is Azure SQL? 
+    href: azure-sql-iaas-vs-paas-what-is-overview.md
+  - name: Migrate to Azure SQL 
+    href: migration-guides/index.yml
 
 - name: Shared SQL DB & SQL MI docs 
   items:
@@ -317,6 +320,17 @@
         href: database/sql-data-sync-sql-server-configure.md
       - name: Migrate SQLite to serverless
         href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md  
+
+  - name: Migration guides
+    items: 
+    - name: From DB2
+      href: migration-guides/database/db2-to-sql-database-guide.md
+    - name: From SQL Server
+      items: 
+      - name: Overview
+        href: migration-guides/database/sql-server-to-sql-database-overview.md
+      - name: Migrate
+        href: migration-guides/database/sql-server-to-sql-database-guide.md
 
   - name: Concepts
     items:
@@ -734,6 +748,19 @@
       - name: MI pub, MI dist, SQL sub
         href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
 
+  - name: Migration guides
+    items: 
+    - name: From DB2
+      href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+    - name: From SQL Server
+      items: 
+      - name: Overview
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+      - name: Migrate
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
+      - name: Performance baseline
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
+        
   - name: Concepts
     items:
     - name: Resource limits
@@ -990,7 +1017,7 @@
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
-- name: SQL Server on Azure VM
+- name: SQL Server on Azure VMs
   items:
   - name: Documentation
     href: virtual-machines/index.yml
@@ -1221,7 +1248,16 @@
         href: https://azure.microsoft.com/roadmap/?category=compute
       - name: Stack Overflow
         href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
-
+  
+  - name: Migration guides
+    items: 
+      - name: Overview
+        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
+      - name: From SQL Server
+        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+      - name: From DB2
+        href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
+        
 - name: Reference
   items:
   - name: T-SQL language reference

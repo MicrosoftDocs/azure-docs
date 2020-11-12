@@ -73,8 +73,9 @@ Log Analytics data export can write append blobs to immutable storage accounts w
 ### Event hub
 Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
 
-The volume of exported data often increase over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units and meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
-
+Considerations:
+1. 'Basic' event hub sku supports lower event size [limit](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend to use 'Standard' or 'Dedicated' event hub as export destination.
+2. The volume of exported data often increase over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units and meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
 
 ## Prerequisites
 Following are prerequisites that must be completed before configuring Log Analytics data export.
@@ -321,7 +322,6 @@ Supported tables are currently limited to those specified below. All data from t
 | ContainerImageInventory | |
 | ContainerInventory | |
 | ContainerLog | |
-| ContainerLog | |
 | ContainerNodeInventory | |
 | ContainerServiceLog | |
 | CoreAzureBackup | |
@@ -339,7 +339,6 @@ Supported tables are currently limited to those specified below. All data from t
 | DnsInventory | |
 | Dynamics365Activity | |
 | Event | Partial support. Some of the data to this table is ingested through storage account. This data is currently not exported. |
-| ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |
