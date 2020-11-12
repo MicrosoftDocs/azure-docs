@@ -44,7 +44,7 @@ This article uses an Azure Digital Twins code sample to deploy an Azure Digital 
 
 Here are the steps to run the deployment script in Cloud Shell.
 1. Go to an [Azure Cloud Shell](https://shell.azure.com/) window in your browser. Sign in using this command:
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
     If the CLI can open your default browser, it will do so and load an Azure sign-in page. Otherwise, open a browser page at *https://aka.ms/devicelogin* and enter the authorization code displayed in your terminal.
@@ -61,7 +61,7 @@ Here are the steps to run the deployment script in Cloud Shell.
 
 4. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. You can copy the command below (recall that to paste into Cloud Shell, you can use **Ctrl+Shift+V** on Windows and Linux, or **Cmd+Shift+V** on macOS. You can also use the right-click menu).
 
-    ```azurecli
+    ```azurecli-interactive
     ./deploy.ps1
     ```
 

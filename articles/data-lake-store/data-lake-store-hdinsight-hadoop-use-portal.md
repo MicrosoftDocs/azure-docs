@@ -91,7 +91,7 @@ To use an existing service principal from the Azure portal:
 1. Select **Service principal**, and then select a service principal.
 1. Upload the certificate (.pfx file) that's associated with your selected service principal, and then enter the certificate password.
 
-[Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
+    ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
 
 1. Select **Access** to configure the folder access.  See [Configure file permissions](#configure-file-permissions).
 

@@ -24,7 +24,7 @@ This article describes the common security threat of subdomain takeover and the 
 
 ## What is subdomain takeover?
 
-Subdomain takeovers are a common, high-severity threat for organizations that regularly create, and delete many resources. A subdomain takeover can occur when you have a [DNS record](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. CNAME records are especially vulnerable to this threat. Subdomain takeovers enable malicious actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
+Subdomain takeovers are a common, high-severity threat for organizations that regularly create, and delete many resources. A subdomain takeover can occur when you have a [DNS record](../../dns/dns-zones-records.md#dns-records) that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. CNAME records are especially vulnerable to this threat. Subdomain takeovers enable malicious actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
 
 A common scenario for a subdomain takeover:
 
@@ -48,7 +48,7 @@ A common scenario for a subdomain takeover:
 
     1. The threat actor provisions an Azure resource with the same FQDN of the resource you previously controlled. In this example, `app-contogreat-dev-001.azurewebsites.net`.
 
-    1. Traffic being sent to the subdomain `myapp.contoso.com` is now routed to the malicious actor’s resource where they control the content.
+    1. Traffic being sent to the subdomain `greatapp.contoso.com` is now routed to the malicious actor’s resource where they control the content.
 
 
 

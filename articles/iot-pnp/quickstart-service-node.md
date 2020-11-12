@@ -1,6 +1,6 @@
 ---
-title: Interact with an IoT Plug and Play device connected to your Azure IoT solution (Node.js) | Microsoft Docs
-description: Use Node.js to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
+title: Quickstart - Interact with an IoT Plug and Play device connected to your Azure IoT solution (Node.js) | Microsoft Docs
+description: Quickstart - Use Node.js to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
 author: elhorton
 ms.author: elhorton
 ms.date: 10/05/2020
@@ -211,7 +211,7 @@ In this scenario, it outputs `Model Id: dtmi:com:example:Thermostat;1`.
     node twin.js
     ```
 
-1. In the **service** terminal output, in the ¬reported` properties section, you see the updated target temperature reported. It might take a while for the device to finish the update. Repeat this step until the device has processed the property update:
+1. In the **service** terminal output, in the `reported` properties section, you see the updated target temperature reported. It might take a while for the device to finish the update. Repeat this step until the device has processed the property update:
 
     ```json
     "reported": {

@@ -41,9 +41,9 @@ To use this Azure Databricks Delta Lake connector, you need to set up a cluster 
 
 The Databricks cluster needs to have access to Azure Blob or Azure Data Lake Storage Gen2 account, both the storage container/file system used for source/sink/staging and the container/file system where you want to write the Delta Lake tables.
 
-- To use **Azure Data Lake Storage Gen2**, you can configure a **service principal** or **storage account access key** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access directly with service principal](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) or [Access directly using the storage account access key](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
+- To use **Azure Data Lake Storage Gen2**, you can configure a **service principal** or **storage account access key** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access directly with service principal](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-with-service-principal-and-oauth-20) or [Access directly using the storage account access key](/azure/databricks/data/data-sources/azure/azure-datalake-gen2#--access-directly-using-the-storage-account-access-key).
 
-- To use **Azure Blob storage**, you can configure a **storage account access key** or **SAS token** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access Azure Blob storage using the RDD API](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
+- To use **Azure Blob storage**, you can configure a **storage account access key** or **SAS token** on the Databricks cluster as part of the Apache Spark configuration. Follow the steps in [Access Azure Blob storage using the RDD API](/azure/databricks/data/data-sources/azure/azure-storage#access-azure-blob-storage-using-the-rdd-api).
 
 During copy activity execution, if the cluster you configured has been terminated, Data Factory automatically starts it. If you author pipeline using Data Factory authoring UI, for operations like data preview, you need to have a live cluster, Data Factory won't start the cluster on your behalf.
 
@@ -53,7 +53,7 @@ During copy activity execution, if the cluster you configured has been terminate
 
 2. In the **Databricks Runtime Version** drop-down, select a Databricks runtime version.
 
-3. Turn on [Auto Optimize](https://docs.microsoft.com/azure/databricks/delta/optimizations/auto-optimize) by adding the following properties to your [Spark configuration](https://docs.microsoft.com/azure/databricks/clusters/configure#spark-config):
+3. Turn on [Auto Optimize](/azure/databricks/delta/optimizations/auto-optimize) by adding the following properties to your [Spark configuration](/azure/databricks/clusters/configure#spark-config):
 
    ```
    spark.databricks.delta.optimizeWrite.enabled true
@@ -62,7 +62,7 @@ During copy activity execution, if the cluster you configured has been terminate
 
 4. Configure your cluster depending on your integration and scaling needs.
 
-For cluster configuration details, see [Configure clusters](https://docs.microsoft.com/azure/databricks/clusters/configure).
+For cluster configuration details, see [Configure clusters](/azure/databricks/clusters/configure).
 
 ## Get started
 
@@ -78,8 +78,8 @@ The following properties are supported for a Azure Databricks Delta Lake linked 
 | :---------- | :----------------------------------------------------------- | :------- |
 | type        | The type property must be set to **AzureDatabricksDeltaLake**. | Yes      |
 | domain      | Specify the Azure Databricks workspace URL, e.g. `https://adb-xxxxxxxxx.xx.azuredatabricks.net`. |          |
-| clusterId   | Specify the cluster ID of an existing cluster. It should be an already created Interactive Cluster. <br>You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [Learn more](https://docs.microsoft.com/azure/databricks/clusters/configure#cluster-tags). |          |
-| accessToken | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](https://docs.microsoft.com/azure/databricks/dev-tools/api/latest/authentication#generate-token). |          |
+| clusterId   | Specify the cluster ID of an existing cluster. It should be an already created Interactive Cluster. <br>You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [Learn more](/azure/databricks/clusters/configure#cluster-tags). |          |
+| accessToken | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](/azure/databricks/dev-tools/api/latest/authentication#generate-token). |          |
 | connectVia  | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No       |
 
 **Example:**
@@ -369,7 +369,7 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
 
 ## Monitoring
 
-Azure Data Factory provides the same [copy activity monitoring experience](copy-activity-monitoring.md) as other connectors. In addition, because loading data from/to delta lake is running on your Azure Databricks cluster, you can further [view detailed cluster logs](https://docs.microsoft.com/azure/databricks/clusters/clusters-manage#--view-cluster-logs) and [monitor performance](https://docs.microsoft.com/azure/databricks/clusters/clusters-manage#--monitor-performance).
+Azure Data Factory provides the same [copy activity monitoring experience](copy-activity-monitoring.md) as other connectors. In addition, because loading data from/to delta lake is running on your Azure Databricks cluster, you can further [view detailed cluster logs](/azure/databricks/clusters/clusters-manage#--view-cluster-logs) and [monitor performance](/azure/databricks/clusters/clusters-manage#--monitor-performance).
 
 ## Lookup activity properties
 

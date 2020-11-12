@@ -3,7 +3,7 @@ title: Troubleshoot common issues
 description: Learn how to troubleshoot common issues when your deploy, run, or manage Azure Container Instances
 ms.topic: article
 ms.date: 06/25/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Troubleshoot common issues in Azure Container Instances

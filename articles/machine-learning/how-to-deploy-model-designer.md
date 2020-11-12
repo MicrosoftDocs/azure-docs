@@ -1,14 +1,14 @@
 ---
 title: Use the studio to deploy models trained in the designer
 titleSuffix: Azure Machine Learning
-description: 'Use Azure Machine Learning studio to deploy models trained in the designer.'
+description: Use Azure Machine Learning studio to deploy machine learning models without writing a single line of code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
 ---
@@ -294,6 +294,7 @@ score_params = dict(
 ## Next steps
 
 * [Train a model in the designer](tutorial-designer-automobile-price-train-score.md)
+* [Deploy models with Azure Machine Learning SDK](how-to-deploy-and-where.md)
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)

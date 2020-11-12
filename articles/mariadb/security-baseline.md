@@ -628,7 +628,7 @@ How to create alerts for Azure Activity Log events: https://docs.microsoft.com/a
 
 How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -780,7 +780,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 - Geo-redundant backup should be enabled for Azure Database for MariaDB
 
-How to view available Azure Policy aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+How to view available Azure Policy aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -824,9 +824,9 @@ Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/pol
 
 **Guidance**: If using custom Azure Policy definitions for your Azure Database for MariaDB servers and related resources, use Azure Repos to securely store and manage your code.
 
-How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
 
-Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true
 
 **Azure Security Center monitoring**: Not applicable
 

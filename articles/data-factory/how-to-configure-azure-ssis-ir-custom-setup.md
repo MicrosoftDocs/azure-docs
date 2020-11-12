@@ -11,7 +11,7 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -20,7 +20,7 @@ ms.date: 10/13/2020
 
 You can customize your Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) in Azure Data Factory (ADF) via custom setups. They allow you to add your own steps during the provisioning or reconfiguration of your Azure-SSIS IR. 
 
-By using custom setups, you can alter the default operating configuration or environment of your Azure-SSIS IR. For example, to start additional Windows services, persist access credentials for file shares, or use strong cryptography/more secure network protocol (TLS 1.2). Or you can install additional components, such as assemblies, drivers, or extensions, on each node of your Azure-SSIS IR. They can be custom-made, Open Source, or 3rd party components. For more information about built-in/preinstalled components, see [Built-in/preinstalled components on Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+By using custom setups, you can alter the default operating configuration or environment of your Azure-SSIS IR. For example, to start additional Windows services, persist access credentials for file shares, or use strong cryptography/more secure network protocol (TLS 1.2). Or you can install additional components, such as assemblies, drivers, or extensions, on each node of your Azure-SSIS IR. They can be custom-made, Open Source, or 3rd party components. For more information about built-in/preinstalled components, see [Built-in/preinstalled components on Azure-SSIS IR](./built-in-preinstalled-components-ssis-integration-runtime.md).
 
 You can do custom setups on your Azure-SSIS IR in either of two ways: 
 * **Standard custom setup with a script**: Prepare a script and its associated files, and upload them all together to a blob container in your Azure storage account. You then provide a Shared Access Signature (SAS) Uniform Resource Identifier (URI) for your container when you set up or reconfigure your Azure-SSIS IR. Each node of your Azure-SSIS IR then downloads the script and its associated files from your container and runs your custom setup with elevated permissions. When your custom setup is finished, each node uploads the standard output of execution and other logs to your container.
@@ -51,7 +51,7 @@ To customize your Azure-SSIS IR, you need the following items:
 
 - [An Azure subscription](https://azure.microsoft.com/)
 
-- [Provision your Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)
+- [Provision your Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md)
 
 - [An Azure storage account](https://azure.microsoft.com/services/storage/). Not required for express custom setups. For standard custom setups, you upload and store your custom setup script and its associated files in a blob container. The custom setup process also uploads its execution logs to the same blob container.
 
@@ -122,15 +122,15 @@ To provision or reconfigure your Azure-SSIS IR with express custom setups on ADF
 
 #### Running cmdkey command
 
-If you select the **Run cmdkey command** type for your express custom setup, you can run the Windows cmdkey command on your Azure-SSIS IR. To do so, enter your targeted computer name or domain name, username or account name, and password or account key in the **/Add**, **/User**, and **/Pass** text boxes, respectively. This will allow you to persist access credentials for SQL Servers, file shares, or Azure Files on your Azure-SSIS IR. For example, to access Azure Files, you can enter `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName`, and `YourAzureStorageAccountKey` for **/Add**, **/User**, and **/Pass**, respectively. This is similar to running the Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) command on your local machine. Only one express custom setup to run cmdkey command is supported for now. To run multiple cmdkey commands, use a standard custom setup instead.
+If you select the **Run cmdkey command** type for your express custom setup, you can run the Windows cmdkey command on your Azure-SSIS IR. To do so, enter your targeted computer name or domain name, username or account name, and password or account key in the **/Add**, **/User**, and **/Pass** text boxes, respectively. This will allow you to persist access credentials for SQL Servers, file shares, or Azure Files on your Azure-SSIS IR. For example, to access Azure Files, you can enter `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName`, and `YourAzureStorageAccountKey` for **/Add**, **/User**, and **/Pass**, respectively. This is similar to running the Windows [cmdkey](/windows-server/administration/windows-commands/cmdkey) command on your local machine. Only one express custom setup to run cmdkey command is supported for now. To run multiple cmdkey commands, use a standard custom setup instead.
 
 #### Adding environment variables
 
-If you select the **Add environment variable** type for your express custom setup, you can add a Windows environment variable on your Azure-SSIS IR. To do so, enter your environment variable name and value in the **Variable name** and **Variable value** text boxes, respectively. This will allow you to use the environment variable in your packages that run on Azure-SSIS IR, for example in Script Components/Tasks. This is similar to running the Windows [set](https://docs.microsoft.com/windows-server/administration/windows-commands/set_1) command on your local machine.
+If you select the **Add environment variable** type for your express custom setup, you can add a Windows environment variable on your Azure-SSIS IR. To do so, enter your environment variable name and value in the **Variable name** and **Variable value** text boxes, respectively. This will allow you to use the environment variable in your packages that run on Azure-SSIS IR, for example in Script Components/Tasks. This is similar to running the Windows [set](/windows-server/administration/windows-commands/set_1) command on your local machine.
 
 #### Installing Azure PowerShell
 
-If you select the **Install Azure PowerShell** type for your express custom setup, you can install the Az module of PowerShell on your Azure-SSIS IR. To do so, enter the Az module version number (x.y.z) you want from a [list of supported ones](https://www.powershellgallery.com/stats/packages/Az?groupby=Version). This will allow you to run Azure PowerShell cmdlets/scripts in your packages to manage Azure resources, for example [Azure Analysis Services (AAS)](https://docs.microsoft.com/azure/analysis-services/analysis-services-powershell).
+If you select the **Install Azure PowerShell** type for your express custom setup, you can install the Az module of PowerShell on your Azure-SSIS IR. To do so, enter the Az module version number (x.y.z) you want from a [list of supported ones](https://www.powershellgallery.com/packages/az). This will allow you to run Azure PowerShell cmdlets/scripts in your packages to manage Azure resources, for example [Azure Analysis Services (AAS)](../analysis-services/analysis-services-powershell.md).
 
 #### Installing licensed components
 
@@ -284,7 +284,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
       * A *Sample* folder, which contains a custom setup to install a basic task on each node of your Azure-SSIS IR. The task does nothing but sleep for a few seconds. The folder also contains a *gacutil* folder, whose entire contents (*gacutil.exe*, *gacutil.exe.config*, and *1033\gacutlrc.dll*) can be copied as is to your container.
 
-      * A *UserScenarios* folder, which contains several custom setup samples from real user scenarios.
+      * A *UserScenarios* folder, which contains several custom setup samples from real user scenarios. If you want to install multiple samples on your Azure-SSIS IR, you can combine their custom setup script (*main.cmd*) files into a single one and upload it with all of their associated files into your container.
 
         ![Contents of the public preview container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 
@@ -330,9 +330,9 @@ To view and reuse some samples of standard custom setups, complete the following
       
         First, upload the 64-bit or the 32-bit version of *librfc32.dll* from the SAP installation folder together with *main.cmd* to your container. The script then copies the SAP assembly to the *%windir%\SysWow64* or *%windir%\System32* folder during setup.
 
-      * A *STORAGE* folder, which contains a custom setup script (*main.cmd*) to install Azure PowerShell on each node of your Azure-SSIS IR. This setup lets you deploy and run SSIS packages that run [Azure PowerShell cmdlets/scripts to manage your Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). 
+      * A *STORAGE* folder, which contains a custom setup script (*main.cmd*) to install Azure PowerShell on each node of your Azure-SSIS IR. This setup lets you deploy and run SSIS packages that run [Azure PowerShell cmdlets/scripts to manage your Azure Storage](../storage/blobs/storage-quickstart-blobs-powershell.md). 
       
-        Copy *main.cmd*, a sample *AzurePowerShell.msi* (or use the latest version), and *storage.ps1* to your container. Use *PowerShell.dtsx* as a template for your packages. The package template combines an [Azure Blob Download Task](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), which downloads a modifiable PowerShell script (*storage.ps1*), and an [Execute Process Task](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/), which executes the script on each node.
+        Copy *main.cmd*, a sample *AzurePowerShell.msi* (or use the latest version), and *storage.ps1* to your container. Use *PowerShell.dtsx* as a template for your packages. The package template combines an [Azure Blob Download Task](/sql/integration-services/control-flow/azure-blob-download-task), which downloads a modifiable PowerShell script (*storage.ps1*), and an [Execute Process Task](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/), which executes the script on each node.
 
       * A *TERADATA* folder, which contains a custom setup script (*main.cmd*), its associated file (*install.cmd*), and installer packages (*.msi*). These files install the Teradata connectors, the Teradata Parallel Transporter (TPT) API, and the ODBC driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Teradata Connection Manager, Source, and Destination to connect to the Teradata server. 
       
@@ -340,7 +340,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
       * A *TLS 1.2* folder, which contains a custom setup script (*main.cmd*) to use strong cryptography and more secure network protocol (TLS 1.2) on each node of your Azure-SSIS IR. The script also disables older SSL/TLS versions.
 
-      * A *ZULU OPENJDK* folder, which contains a custom setup script (*main.cmd*) and PowerShell file (*install_openjdk.ps1*) to install the Zulu OpenJDK on each node of your Azure-SSIS IR. This setup lets you use Azure Data Lake Store and Flexible File connectors to process ORC and Parquet files. For more information, see [Azure Feature Pack for Integration Services](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java). 
+      * A *ZULU OPENJDK* folder, which contains a custom setup script (*main.cmd*) and PowerShell file (*install_openjdk.ps1*) to install the Zulu OpenJDK on each node of your Azure-SSIS IR. This setup lets you use Azure Data Lake Store and Flexible File connectors to process ORC and Parquet files. For more information, see [Azure Feature Pack for Integration Services](/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java). 
       
         First, [download the latest Zulu OpenJDK](https://www.azul.com/downloads/zulu/zulu-windows/) (for example, *zulu8.33.0.1-jdk8.0.192-win_x64.zip*), and then upload it together with *main.cmd* and *install_openjdk.ps1* to your container.
 

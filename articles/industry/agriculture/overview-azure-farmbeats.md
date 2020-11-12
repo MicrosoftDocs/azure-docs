@@ -13,7 +13,7 @@ ms.author: v-umha
 Azure FarmBeats is a business-to-business offering available in Azure Marketplace. It enables aggregation of agriculture data sets across providers. Azure FarmBeats enables you to build artificial intelligence (AI) or machine learning (ML) models based on fused data sets. By using Azure FarmBeats, agriculture businesses can focus on core value-adds instead of the undifferentiated heavy lifting of data engineering.
 
 > [!NOTE]
-> Azure FarmBeats is currently in public preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats is provided without a service level agreement. Use the [Azure FarmBeats Support Forum](https://aka.ms/farmbeatssupport) for support.
+> Azure FarmBeats is currently in public preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats is provided without a service level agreement. Use the [Azure FarmBeats Support Forum](/answers/topics/azure-farmbeats.html) for support.
 
 ![Project Farm Beats](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 
@@ -62,7 +62,7 @@ An administrator can add multiple partners as data providers to Azure FarmBeats.
 Azure FarmBeats is offered at no additional charge and you pay only for the Azure resources you use. You can use the below resources to know more about the offering:
 
 - Stay informed about the latest Azure FarmBeats news by visiting our [Azure FarmBeats blog](https://aka.ms/farmbeatsblog).
-- Seek help by posting a question on our [Azure FarmBeats support forum](https://aka.ms/farmbeatssupport).
+- Seek help by posting a question on our [Azure FarmBeats support forum](/answers/topics/azure-farmbeats.html).
 - Provide feedback by posting or voting for a feature idea on our [Azure FarmBeats feedback forum](https://aka.ms/farmbeatsfeedback).
 
 ## Next steps

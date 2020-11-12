@@ -146,7 +146,7 @@ After you get to the **My Apps** portal, you can:
 
 After you get to the **Apps** page, you can:
 
-- [Change your profile information](my-apps-portal-end-user-update-profile.md)
+- [Change your profile information](./my-account-portal-settings.md)
 
 - [View and update your groups-related information](my-apps-portal-end-user-groups.md)
 

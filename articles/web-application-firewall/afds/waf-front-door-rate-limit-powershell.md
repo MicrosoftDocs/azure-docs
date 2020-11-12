@@ -15,6 +15,9 @@ This article shows how to configure a WAF rate limit rule that controls the numb
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!NOTE]
+> Rate limits are applied for each client IP address. If you have multiple clients accessing your Front Door from different IP addresses, they will have their own rate limits applied.
+
 ## Prerequisites
 Before you begin to set up a rate limit policy, set up your PowerShell environment and create a Front Door profile.
 ### Set up your PowerShell environment
@@ -41,7 +44,7 @@ Install-Module -Name Az.FrontDoor
 ### Create a Front Door profile
 Create a Front Door profile by following the instructions described in [Quickstart: Create a Front Door profile](../../frontdoor/quickstart-create-front-door.md)
 
-## Define url match conditions
+## Define URL match conditions
 Define a URL match condition (URL contains /promo) using [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
 The following example matches */promo* as the value of the *RequestUri* variable:
 
@@ -69,9 +72,7 @@ In the following example, the limit is set to 1000. Requests from any client to 
 
 Find the name of the resource group that contains the Front Door profile using `Get-AzureRmResourceGroup`. Next, configure a security policy with a custom rate limit rule using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) in the specified resource group that contains the Front Door profile.
 
-The below example uses the Resource Group name *myResourceGroupFD1* with the assumption that you've created the Front Door profile using instructions provided in the [Quickstart: Create a Front Door](../../frontdoor/quickstart-create-front-door.md) article.
-
- using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+The below example uses the Resource Group name *myResourceGroupFD1* with the assumption that you've created the Front Door profile using instructions provided in the [Quickstart: Create a Front Door](../../frontdoor/quickstart-create-front-door.md) article, using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
    $ratePolicy = New-AzFrontDoorWafPolicy `
