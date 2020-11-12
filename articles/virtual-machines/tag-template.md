@@ -42,7 +42,6 @@ Next, in the **Edit Parameters** section, you can fill out the values for your t
 
 Click **Create** to deploy this template with your tag values.
 
-[!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 **Next steps**
 

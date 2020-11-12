@@ -14,36 +14,31 @@ ms.author: cynthn
 This article describes how to tag a VM in Azure using PowerShell. Tags are user-defined key/value pairs which can be placed directly on a resource or a resource group. Azure currently supports up to 50 tags per resource and resource group. Tags may be placed on a resource at the time of creation or added to an existing resource. If you want to tag a virtual machine using the Azure CLI, see [How to tag a virtual machine in Azure using the Azure CLI](tag-cli.md).
 
 
-First, navigate to a Virtual Machine through using`Get-AzVM` cmdlet.
+Use the `Get-AzVM` cmdlet to view the current list of tags for your VM.
 
 ```azurepowershell-interactive
-Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM" | Format-List -Property Tags
 ```
 
-If your Virtual Machine already contains tags, you will then see all the tags on your resource:
+If your Virtual Machine already contains tags, you will then see all the tags in list format
 
-```json
-Tags : {
-        "Application": "MyApp1",
-        "Created By": "MyName",
-        "Department": "MyDepartment",
-        "Environment": "Production"
-        }
-```
+To add tags, use the `Set-AzResource` command. When updating tags through PowerShell, tags are updated as a whole. If you are adding one tag to a resource that already has tags, you will need to include all the tags that you want to be placed on the resource. Below is an example of how to add additional tags to a resource through PowerShell Cmdlets.
 
-If you would like to add tags through PowerShell, you can use the `Set-AzResource` command. Note when updating tags through PowerShell, tags are updated as a whole. So if you are adding one tag to a resource that already has tags, you will need to include all the tags that you want to be placed on the resource. Below is an example of how to add additional tags to a resource through PowerShell Cmdlets.
-
-This first cmdlet sets all of the tags placed on *MyTestVM* to the *$tags* variable, using the `Get-AzResource` and `Tags` property.
+Asign all of the current tags for the VM to the `$tags` variable, using the `Get-AzResource` and `Tags` property.
 
 ```azurepowershell-interactive
 $tags = (Get-AzResource -ResourceGroupName myResourceGroup -Name myVM).Tags
 ```
 
-The second command displays the tags for the given variable.
+To see the current tags, type the variable.
 
 ```azurepowershell-interactive
 $tags
+```
 
+Here is what the output might look like:
+
+```output
 Key           Value
 ----          -----
 Department    MyDepartment
@@ -52,22 +47,28 @@ Created By    MyName
 Environment   Production
 ```
 
-The third command adds an additional tag to the *$tags* variable. Note the use of the **+=** to append the new key/value pair to the *$tags* list.
+In the following example, we add a tag called `Location` with the value `myLocation`. Use `+=` to append the new key/value pair to the `$tags` list.
 
 ```azurepowershell-interactive
 $tags += @{Location="myLocation"}
 ```
 
-The fourth command sets all of the tags defined in the *$tags* variable to the given resource. In this case, it is MyTestVM.
+Use `Set-AzResource` to set all of the tags defined in the *$tags* variable on the VM.
 
 ```azurepowershell-interactive
 Set-AzResource -ResourceGroupName myResourceGroup -Name myVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 ```
 
-The fifth command displays all of the tags on the resource. As you can see, *Location* is now defined as a tag with *MyLocation* as the value.
+Use `Get-AzResource` to display all of the tags on the resource.
 
 ```azurepowershell-interactive
 (Get-AzResource -ResourceGroupName myResourceGroup -Name myVM).Tags
+
+```
+
+The output should look something like the following, which now includes the new tag:
+
+```output
 
 Key           Value
 ----          -----
@@ -79,11 +80,7 @@ Location      MyLocation
 ```
 
 
-[!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
-
-## Next steps
+**Next steps**
 
 - To learn more about tagging your Azure resources, see [Azure Resource Manager Overview](../azure-resource-manager/management/overview.md) and [Using Tags to organize your Azure Resources](../azure-resource-manager/management/tag-resources.md).
 - To see how tags can help you manage your use of Azure resources, see [Understanding your Azure Bill](../cost-management-billing/understand/review-individual-bill.md) and [Gain insights into your Microsoft Azure resource consumption](../cost-management-billing/manage/usage-rate-card-overview.md).
-
-
