@@ -1756,6 +1756,8 @@
         href: timeoffmanager-tutorial.md
       - name: Timetabling Solutions
         href: timetabling-solutions-tutorial.md
+      - name: TIMU
+        href: timu-tutorial.md
       - name: TINFOIL SECURITY
         href: tinfoil-security-tutorial.md
       - name: Titanfile
