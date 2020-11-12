@@ -25,7 +25,7 @@ Distributed denial of service (DDoS) attacks attempt to exhaust an application's
 
 - You must have a configured [Azure DDoS Standard protection plan](../ddos-protection/manage-ddos-protection.md#create-a-ddos-protection-plan).
 
-- You must have a configured [virtual network with Azure DDoS Standard enabled](../ddos-protection/manage-ddos-protection.md#enable-ddos-for-a-new-virtual-network).
+- You must have a configured [virtual network with Azure DDoS Standard enabled](../ddos-protection/manage-ddos-protection.md#enable-ddos-protection-for-a-new-virtual-network).
 
 ## Connect to Azure DDoS Protection
 	
