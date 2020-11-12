@@ -19,6 +19,8 @@ ms.author: juliako
 ---
 # Filters and dynamic manifests
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 2](media-services-dynamic-manifest-overview.md)
 > * [Version 3](../latest/filters-dynamic-manifest-overview.md)

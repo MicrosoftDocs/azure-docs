@@ -1,7 +1,7 @@
 ---
 title: Understand the deployment sequence order
 description: Learn about the default order that blueprint artifacts are deployed in during a blueprint assignment and how to customize the deployment order.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
 ---
 # Understand the deployment sequence in Azure Blueprints
@@ -162,8 +162,9 @@ order and no changes would be made.
 
 ## Next steps
 
-- Learn about the [blueprint lifecycle](lifecycle.md).
-- Understand how to use [static and dynamic parameters](parameters.md).
-- Find out how to make use of [blueprint resource locking](resource-locking.md).
+- Learn about the [blueprint lifecycle](./lifecycle.md).
+- Understand how to use [static and dynamic parameters](./parameters.md).
+- Find out how to make use of [blueprint resource locking](./resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

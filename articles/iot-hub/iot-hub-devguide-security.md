@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-javascript]
+ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-js, devx-track-csharp]
 ---
 
 # Control access to IoT Hub
@@ -31,7 +31,7 @@ You must have appropriate permissions to access any of the IoT Hub endpoints. Fo
 
 You can grant [permissions](#iot-hub-permissions) in the following ways:
 
-* **IoT hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal](https://portal.azure.com), programmatically by using the [IoT Hub Resource REST APIs](/rest/api/iothub/iothubresource), or using the [az iot hub policy](/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI. A newly created IoT hub has the following default policies:
+* **IoT hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal](https://portal.azure.com), programmatically by using the [IoT Hub Resource REST APIs](/rest/api/iothub/iothubresource), or using the [az iot hub policy](/cli/azure/iot/hub/policy) CLI. A newly created IoT hub has the following default policies:
   
   | Shared Access Policy | Permissions |
   | -------------------- | ----------- |
@@ -88,7 +88,7 @@ HTTPS implements authentication by including a valid token in the **Authorizatio
 Username (DeviceId is case-sensitive):
 `iothubname.azure-devices.net/DeviceId`
 
-Password (You can generate a SAS token with the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token), or the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
+Password (You can generate a SAS token with the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token), or the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -177,7 +177,7 @@ from hmac import HMAC
 def generate_sas_token(uri, key, policy_name, expiry=3600):
     ttl = time() + expiry
     sign_key = "%s\n%d" % ((parse.quote_plus(uri)), int(ttl))
-    print sign_key
+    print(sign_key)
     signature = b64encode(HMAC(b64decode(key), sign_key.encode('utf-8'), sha256).digest())
 
     rawtoken = {
@@ -221,8 +221,32 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
     return token;
 }
-
 ```
+
+For Java:
+```java
+    public static String generateSasToken(String resourceUri, String key) throws Exception {
+        // Token will expire in one hour
+        var expiry = Instant.now().getEpochSecond() + 3600;
+
+        String stringToSign = URLEncoder.encode(resourceUri, StandardCharsets.UTF_8) + "\n" + expiry;
+        byte[] decodedKey = Base64.getDecoder().decode(key);
+
+        Mac sha256HMAC = Mac.getInstance("HmacSHA256");
+        SecretKeySpec secretKey = new SecretKeySpec(decodedKey, "HmacSHA256");
+        sha256HMAC.init(secretKey);
+        Base64.Encoder encoder = Base64.getEncoder();
+
+        String signature = new String(encoder.encode(
+            sha256HMAC.doFinal(stringToSign.getBytes(StandardCharsets.UTF_8))), StandardCharsets.UTF_8);
+
+        String token = "SharedAccessSignature sr=" + URLEncoder.encode(resourceUri, StandardCharsets.UTF_8)
+                + "&sig=" + URLEncoder.encode(signature, StandardCharsets.UTF_8.name()) + "&se=" + expiry;
+            
+        return token;
+    }
+```
+
 
 > [!NOTE]
 > Since the time validity of the token is validated on IoT Hub machines, the drift on the clock of the machine that generates the token must be minimal.
@@ -268,7 +292,7 @@ The result, which grants access to all functionality for device1, would be:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> It's possible to generate a SAS token with the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token), or the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+> It's possible to generate a SAS token with the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token), or the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 ### Use a shared access policy
 
@@ -346,17 +370,22 @@ Supported certificates include:
 
 * **CA-signed X.509 certificate**. To identify a device and authenticate it with IoT Hub, you can use an X.509 certificate generated and signed by a Certification Authority (CA). Works with either thumbprint or CA authentication.
 
-* **A self-generated and self-signed X-509 certificate**. A device manufacturer or in-house deployer can generate these certificates and store the corresponding private key (and certificate) on the device. You can use tools such as [OpenSSL](https://www.openssl.org/) and [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) utility for this purpose. Only works with thumbprint authentication. 
+* **A self-generated and self-signed X-509 certificate**. A device manufacturer or in-house deployer can generate these certificates and store the corresponding private key (and certificate) on the device. You can use tools such as [OpenSSL](https://www.openssl.org/) and [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) utility for this purpose. Only works with thumbprint authentication.
 
-A device may either use an X.509 certificate or a security token for authentication, but not both.
+A device may either use an X.509 certificate or a security token for authentication, but not both. With X.509 certificate authentication, make sure you have a strategy in place to handle certificate rollover when an existing certificate expires.
 
-For more information about authentication using certificate authority, see [Device Authentication using X.509 CA Certificates](iot-hub-x509ca-overview.md).
+The following functionality is not supported for devices that use X.509 CA authentication:
+
+* HTTPS, MQTT over WebSockets, and AMQP over WebSockets protocols.
+* File uploads (all protocols).
+
+For more information about authentication using certificate authority, see [Device Authentication using X.509 CA Certificates](iot-hub-x509ca-overview.md). For information about how to upload and verify a certificate authority with your IoT hub, see [Set up X.509 security in your Azure IoT hub](iot-hub-security-x509-get-started.md).
 
 ### Register an X.509 certificate for a device
 
 The [Azure IoT Service SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (version 1.0.8+) supports registering a device that uses an X.509 certificate for authentication. Other APIs such as import/export of devices also support X.509 certificates.
 
-You can also use the CLI extension command [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) to configure X.509 certificates for devices.
+You can also use the CLI extension command [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) to configure X.509 certificates for devices.
 
 ### C\# Support
 
@@ -415,7 +444,7 @@ Here are the main steps of the token service pattern:
 4. The device/module uses the token directly with the IoT hub.
 
 > [!NOTE]
-> You can use the .NET class [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) or the Java class [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) to create a token in your token service.
+> You can use the .NET class [SharedAccessSignatureBuilder](/dotnet/api/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder) or the Java class [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) to create a token in your token service.
 
 The token service can set the token expiration as desired. When the token expires, the IoT hub severs the device/module connection. Then, the device/module must request a new token from the token service. A short expiry time increases the load on both the device/module and the token service.
 

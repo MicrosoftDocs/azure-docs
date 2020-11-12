@@ -131,5 +131,5 @@ The point of this expanded example is to illustrate the clarity that hit highlig
 
 + [How full text search works in Azure Cognitive Search (query parsing architecture)](search-lucene-query-architecture.md)
 + [Search explorer](search-explorer.md)
-+ [How to query in .NET](search-query-dotnet.md)
-+ [How to query in REST](search-create-index-rest-api.md)
++ [How to query in .NET](./search-get-started-dotnet.md)
++ [How to query in REST](./search-get-started-powershell.md)

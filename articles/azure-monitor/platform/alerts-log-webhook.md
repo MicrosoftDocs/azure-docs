@@ -1,6 +1,6 @@
 ---
 title: Webhook actions for log alerts in Azure alerts
-description: This article describes how to create a log alert rule by using the Log Analytics workspace or Application Insights, how the alert pushes data as an HTTP webhook, and the details of the different customizations that are possible.
+description: Describes how to configure a log alert pushes with webhook action and available customizations
 author: yanivlavi
 ms.author: yalavi
 services: monitoring
@@ -10,33 +10,26 @@ ms.subservice: alerts
 ---
 
 # Webhook actions for log alert rules
-When a [log alert is created in Azure](alerts-log.md), you have the option of [configuring it by using action groups](action-groups.md) to perform one or more actions. This article describes the different webhook actions that are available and shows how to configure a custom JSON-based webhook.
+
+[Log alert](alerts-log.md) supports [configuring webhook action groups](action-groups.md#webhook). In this article, we'll describe what properties are available and how to configure a custom JSON webhook.
 
 > [!NOTE]
-> You also can use the [common alert schema](https://aka.ms/commonAlertSchemaDocs) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.Please note that the common alert schema does not honour the custom JSON option for log alerts. It defers to the common alert schema payload if that is selected irrespective of the customization you might have done at the alert rule level. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
-
-## Webhook actions
-
-With webhook actions, you can invoke an external process through a single HTTP POST request. The service that's called should support webhooks and determine how to use any payload it receives.
-
-Webhook actions require the properties in the following table.
-
-| Property | Description |
-|:--- |:--- |
-| **Webhook URL** |The URL of the webhook. |
-| **Custom JSON payload** |The custom payload to send with the webhook when this option is chosen during alert creation. For more information, see [Manage log alerts](alerts-log.md).|
+> Custom JSON-based webhook is not currently supported in the API version `2020-05-01-preview`
 
 > [!NOTE]
-> The **View Webhook** button alongside the **Include custom JSON payload for webhook** option for the log alert displays the sample webhook payload for the customization that was provided. It doesn't contain actual data but is representative of the JSON schema that's used for log alerts. 
+> It is recommended you use [common alert schema](alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common schema reverts payload schema to the one described [here](alerts-common-schema-definitions.md#log-alerts). Alerts with the common schema enabled have an upper size limit of 256 KB per alert, bigger alert will not include search results. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
 
-Webhooks include a URL and a payload formatted in JSON that the data sent to the external service. By default, the payload includes the values in the following table. You can choose to replace this payload with a custom one of your own. In that case, use the variables in the table for each of the parameters to include their values in your custom payload.
+## Webhook payload properties
 
+Webhook actions allow you to invoke a single HTTP POST request. The service that's called should support webhooks and know how to use the payload it receives.
+
+Default webhook action properties and their custom JSON parameter names:
 
 | Parameter | Variable | Description |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |Name of the alert rule. |
 | *Severity* |#severity |Severity set for the fired log alert. |
-| *AlertThresholdOperator* |#thresholdoperator |Threshold operator for the alert rule, which uses greater than or less than. |
+| *AlertThresholdOperator* |#thresholdoperator |Threshold operator for the alert rule. |
 | *AlertThresholdValue* |#thresholdvalue |Threshold value for the alert rule. |
 | *LinkToSearchResults* |#linktosearchresults |Link to the Analytics portal that returns the records from the query that created the alert. |
 | *LinkToSearchResultsAPI* |#linktosearchresultsapi |Link to the Analytics API that returns the records from the query that created the alert. |
@@ -49,15 +42,15 @@ Webhooks include a URL and a payload formatted in JSON that the data sent to the
 | *SearchQuery* |#searchquery |Log search query used by the alert rule. |
 | *SearchResults* |"IncludeSearchResults": true|Records returned by the query as a JSON table, limited to the first 1,000 records. "IncludeSearchResults": true is added in a custom JSON webhook definition as a top-level property. |
 | *Dimensions* |"IncludeDimensions": true|Dimensions value combinations that triggered that alert as a JSON section. "IncludeDimensions": true is added in a custom JSON webhook definition as a top-level property. |
-| *Alert Type*| #alerttype | The type of log alert rule configured as [Metric measurement](alerts-unified-log.md#metric-measurement-alert-rules) or [Number of results](alerts-unified-log.md#number-of-results-alert-rules).|
+| *Alert Type*| #alerttype | The type of log alert rule configured as [Metric measurement or Number of results](alerts-unified-log.md#measure).|
 | *WorkspaceID* |#workspaceid |ID of your Log Analytics workspace. |
 | *Application ID* |#applicationid |ID of your Application Insights app. |
-| *Subscription ID* |#subscriptionid |ID of your Azure subscription used. 
+| *Subscription ID* |#subscriptionid |ID of your Azure subscription used. |
 
-> [!NOTE]
-> The provided links passes parameters like *SearchQuery*, *Search Interval StartTime*, and *Search Interval End time* in the URL to the Azure portal or API.
+## Custom webhook payload definition
 
-For example, you might specify the following custom payload that includes a single parameter called *text*. The service that this webhook calls expects this parameter.
+You can use the **Include custom JSON payload for webhook** to get a custom JSON payload using the parameters above. You can also generate additional properties.
+For example, you might specify the following custom payload that includes a single parameter called *text*. The service that this webhook calls expects this parameter:
 
 ```json
 
@@ -72,18 +65,21 @@ This example payload resolves to something like the following when it's sent to 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Because all variables in a custom webhook must be specified within a JSON enclosure, like "#searchinterval," the resultant webhook also has variable data inside enclosures, like "00:05:00."
+Variables in a custom webhook must be specified within a JSON enclosure. For example, referencing "#searchresultcount" in the above webhook example will output based on the alert results.
 
-To include search results in a custom payload, ensure that **IncludeSearchResults** is set as a top-level property in the JSON payload. 
+To include search results, add **IncludeSearchResults** as a top-level property in the custom JSON. Search results are included as a JSON structure, so results can't be referenced in custom defined fields. 
+
+> [!NOTE]
+> The **View Webhook** button next to the **Include custom JSON payload for webhook** option displays preview of what was provided. It doesn't contain actual data, but is representative of the JSON schema that will be used. 
 
 ## Sample payloads
 This section shows sample payloads for webhooks for log alerts. The sample payloads include examples when the payload is standard and when it's custom.
 
-### Standard webhook for log alerts 
-Both of these examples have a dummy payload with only two columns and two rows.
+### Log alert for Log Analytics
+The following sample payload is for a standard webhook action that's used for alerts based on Log Analytics:
 
-#### Log alert for Log Analytics
-The following sample payload is for a standard webhook action *without a custom JSON option* that's used for alerts based on Log Analytics:
+> [!NOTE]
+> The "Severity" field value changes if you've [switched to the current scheduledQueryRules API](alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](api-alerts.md).
 
 ```json
 {
@@ -147,14 +143,10 @@ The following sample payload is for a standard webhook action *without a custom 
 	"WorkspaceId": "12345a-1234b-123c-123d-12345678e",
 	"AlertType": "Metric measurement"
 }
- ```
+```
 
-> [!NOTE]
-> The "Severity" field value might change if you've [switched your API preference](alerts-log-api-switch.md) for log alerts on Log Analytics.
-
-
-#### Log alert for Application Insights
-The following sample payload is for a standard webhook *without a custom JSON option* when it's used for log alerts based on Application Insights:
+### Log alert for Application Insights
+The following sample payload is for a standard webhook when it's used for log alerts based on Application Insights resources:
     
 ```json
 {
@@ -220,8 +212,73 @@ The following sample payload is for a standard webhook *without a custom JSON op
 }
 ```
 
-#### Log alert with custom JSON payload
-For example, to create a custom payload that includes just the alert name and the search results, you can use the following: 
+### Log alert for other resources logs (from API version `2020-05-01-preview`)
+
+> [!NOTE]
+> There are currently no additional charges for the API version `2020-05-01-preview` and resource centric log alerts.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using new API version and resource centric log alerts after the notice period, you will be billed at the applicable rate.
+
+The following sample payload is for a standard webhook when it's used for log alerts based on other resources logs (excluding workspaces and Application Insights):
+
+```json
+{
+	"schemaId": "azureMonitorCommonAlertSchema",
+	"data": {
+		"essentials": {
+			"alertId": "/subscriptions/12345a-1234b-123c-123d-12345678e/providers/Microsoft.AlertsManagement/alerts/12345a-1234b-123c-123d-12345678e",
+			"alertRule": "AcmeRule",
+			"severity": "Sev4",
+			"signalType": "Log",
+			"monitorCondition": "Fired",
+			"monitoringService": "Log Alerts V2",
+			"alertTargetIDs": [
+				"/subscriptions/12345a-1234b-123c-123d-12345678e/resourcegroups/ai-engineering/providers/microsoft.compute/virtualmachines/testvm"
+			],
+			"originAlertId": "123c123d-1a23-1bf3-ba1d-dd1234ff5a67",
+			"firedDateTime": "2020-07-09T14:04:49.99645Z",
+			"description": "log alert rule V2",
+			"essentialsVersion": "1.0",
+			"alertContextVersion": "1.0"
+		},
+		"alertContext": {
+			"properties": null,
+			"conditionType": "LogQueryCriteria",
+			"condition": {
+				"windowSize": "PT10M",
+				"allOf": [
+					{
+						"searchQuery": "Heartbeat",
+						"metricMeasure": null,
+						"targetResourceTypes": "['Microsoft.Compute/virtualMachines']",
+						"operator": "LowerThan",
+						"threshold": "1",
+						"timeAggregation": "Count",
+						"dimensions": [
+							{
+								"name": "ResourceId",
+								"value": "/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm"
+							}
+						],
+						"metricValue": 0.0,
+						"failingPeriods": {
+							"numberOfEvaluationPeriods": 1,
+							"minFailingPeriodsToAlert": 1
+						},
+						"linkToSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+						"linkToFilteredSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+						"linkToSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+						"linkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z"
+					}
+				],
+				"windowStartTime": "2020-07-07T13:54:34Z",
+				"windowEndTime": "2020-07-09T13:54:34Z"
+			}
+		}
+	}
+}
+```
+
+### Log alert with a custom JSON payload
+For example, to create a custom payload that includes just the alert name and the search results, use this configuration: 
 
 ```json
     {

@@ -6,7 +6,7 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Azure Functions development and configuration with Azure SignalR Service
@@ -46,7 +46,9 @@ To learn about how to create an authenticated token, refer to [Using App Service
 
 Use the *SignalR Trigger* binding to handle messages sent from SignalR Service. You can be triggered when clients send messages or clients get connected or disconnected.
 
-For more information, see the [*SignalR trigger* binding reference](../azure-functions/functions-bindings-signalr-service-trigger.md)
+For more information, see the [*SignalR trigger* binding reference](../azure-functions/functions-bindings-signalr-service-trigger.md).
+
+You also need to configure your function endpoint as an upstream so that service will trigger the function where there is message from client. For more information about how to configure upstream, please refer to this [doc](concept-upstream.md).
 
 ### Sending messages and managing group membership
 
@@ -64,7 +66,7 @@ SignalR has a concept of "hubs". Each client connection and each message sent fr
 
 The class based model is dedicated for C#. With class based model can have a consistent SignalR server-side programming experience. It has the following features.
 
-* Less configuration works: The class name is used as `HubName`, the method name is used as `Event` and the `Category` is decided automatically according to method name.
+* Less configuration work: The class name is used as `HubName`, the method name is used as `Event` and the `Category` is decided automatically according to method name.
 * Auto parameter binding: Neither `ParameterNames` nor attribute `[SignalRParameter]` is needed. Parameters are auto bound to arguments of Azure Function method in order.
 * Convenient output and negotiate experience.
 
@@ -100,11 +102,11 @@ public class SignalRTestHub : ServerlessHub
 }
 ```
 
-All the functions that want to leverage class based model need to be the method of class that inherits from **ServerlessHub**. The class name `SignalRTestHub` in the sample is the hub name.
+All functions that want to leverage class based model need to be the method of class that inherits from **ServerlessHub**. The class name `SignalRTestHub` in the sample is the hub name.
 
 ### Define hub method
 
-All the hub methods **must**  have a `[SignalRTrigger]` attribute and **must** use parameterless constructor. Then the **method name** is treated as parameter **event**.
+All the hub methods **must** have an argument of `InvocationContext` decorated by `[SignalRTrigger]` attribute and use parameterless constructor. Then the **method name** is treated as parameter **event**.
 
 By default, `category=messages` except the method name is one of the following names:
 
@@ -191,13 +193,17 @@ By convention, the SDK automatically appends `/negotiate` to the URL and uses it
 
 For more information on how to use the SignalR client SDK, refer to the documentation for your language:
 
-* [.NET Standard](https://docs.microsoft.com/aspnet/core/signalr/dotnet-client)
-* [JavaScript](https://docs.microsoft.com/aspnet/core/signalr/javascript-client)
-* [Java](https://docs.microsoft.com/aspnet/core/signalr/java-client)
+* [.NET Standard](/aspnet/core/signalr/dotnet-client)
+* [JavaScript](/aspnet/core/signalr/javascript-client)
+* [Java](/aspnet/core/signalr/java-client)
 
 ### Sending messages from a client to the service
 
-Although the SignalR SDK allows client applications to invoke backend logic in a SignalR hub, this functionality is not yet supported when you use SignalR Service with Azure Functions. Use HTTP requests to invoke Azure Functions.
+If you have [upstream](concept-upstream.md) configured for your SignalR resource, you can send messages from client to your Azure Functions using any SignalR client. Here is an example in JavaScript:
+
+```javascript
+connection.send('method1', 'arg1', 'arg2');
+```
 
 ## Azure Functions configuration
 

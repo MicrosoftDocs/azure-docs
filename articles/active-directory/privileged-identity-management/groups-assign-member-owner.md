@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -28,19 +28,14 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can help 
 
 Follow these steps to make a user eligible to be a member or owner of a privileged access group.
 
-1. Sign in to [Privileged Identity Management](https://portal.azure.com/) in the Azure portal with  [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role permissions.
+1. [Sign in to Azure AD](https://aad.portal.azure.com) with Global Administrator or group Owner permissions.
+1. Select **Groups** and then select the role-assignable group you want to manage. You can search or filter the list.
 
-    For information about how to grant another administrator access to manage Privileged Identity Management, see [Grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md).
+    ![find a role-assignable group to manage in PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
-1. Open **Azure AD Privileged Identity Management**.
+1. Open the group and select **Privileged access (Preview)**.
 
-1. Select **Privileged access (Preview)**.
-
-1. You can search for a group name and use the **Group type** to filter the list to select the group you want to manage.
-
-    ![List of privileged access groups to manage](./media/groups-assign-member-owner/privileged-access-list.png)
-
-1. Under **Manage**, select **Assignments**.
+    ![Open the Privileged Identity Management experience](./media/groups-assign-member-owner/groups-discover-groups.png)
 
 1. Select **Add assignments**.
 
@@ -48,7 +43,7 @@ Follow these steps to make a user eligible to be a member or owner of a privileg
 
 1. Select the members or owners you want to make eligible for the privileged access group.
 
-    ![Select a member or group pane](./media/groups-assign-member-owner/add-assignments.png)
+    ![Screenshot that shows the "Add assignments" page with the "Select a member or group" pane open and the "Select" button highlighted.](./media/groups-assign-member-owner/add-assignments.png)
 
 1. Select **Next** to set the membership or ownership duration.
 
@@ -72,21 +67,20 @@ Follow these steps to make a user eligible to be a member or owner of a privileg
 
 Follow these steps to update or remove an existing role assignment.
 
-1. Open **Azure AD Privileged Identity Management**.
+1. [Sign in to Azure AD](https://aad.portal.azure.com) with Global Administrator or group Owner permissions.
+1. Select **Groups** and then select the role-assignable group you want to manage. You can search or filter the list.
 
-1. Select **Privileged access (Preview)**.
+    ![find a role-assignable group to manage in PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
-1. You can search for a group name and use the **Group type** to filter the list to select the group you want to manage.
+1. Open the group and select **Privileged access (Preview)**.
 
-    ![List of privileged access groups to manage](./media/groups-assign-member-owner/privileged-access-list.png)
-
-1. Under **Manage**, select **Assignments**.
+    ![Open the Privileged Identity Management experience](./media/groups-assign-member-owner/groups-discover-groups.png)
 
 1. Select the role that you want to update or remove.
 
 1. Find the role assignment on the **Eligible roles** or **Active roles** tabs.
 
-    ![Update or remove role assignment](./media/groups-assign-member-owner/groups-add-assignment.png)
+    ![Update or remove role assignment](./media/groups-assign-member-owner/groups-bring-under-management.png)
 
 1. Select **Update** or **Remove** to update or remove the role assignment.
 

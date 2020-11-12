@@ -5,37 +5,34 @@ services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2020
+ms.date: 08/14/2020
 ms.author: jmprieur
-ms.custom: include file 
-
 ---
 
-## Register secrets or certificates
+## Add a client secret or certificate
 
-As for any confidential client application, you need to register a secret or certificate. You can register your application secrets either through the interactive experience in the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) or by using command-line tools (like PowerShell).
+As with any confidential client application, you need to add a secret or certificate to act as that application's *credentials* so it can authenticate as itself, without user interaction.
 
-### Register client secrets by using the application registration portal
+You can add credentials to your client app's registration by using the [Azure portal](#add-client-credentials-by-using-the-azure-portal) or by using a command-line tool like [PowerShell](#add-client-credentials-by-using-powershell).
 
-The management of client credentials happens on the **Certificates & secrets** page for an application:
+### Add client credentials by using the Azure portal
 
-![Certificates & secrets page](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
+To add credentials to your confidential client application's app registration, follow the steps in [Quickstart: Register an application with the Microsoft identity platform](../articles/active-directory/develop/quickstart-register-app.md) for the type of credential you want to add:
 
-- You create a *client secret* by selecting **New client secret** in the app's registration in the Azure portal. When you create a client secret, you _must_ record the secret's string before navigating away from the **Certificates & secrets** pane. The secret's string is never displayed again.
-- During application registration, you use the **Upload certificate** button to upload the certificate. Azure AD supports only certificates that are directly registered on the application and don't follow certificate chains.
+* [Add a client secret](../articles/active-directory/develop/quickstart-register-app.md#add-a-client-secret)
+* [Add a certificate](../articles/active-directory/develop/quickstart-register-app.md#add-a-certificate)
 
-For details, see [Quickstart: Configure a client application to access web APIs | Add credentials to your application](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application).
+### Add client credentials by using PowerShell
 
-### Register client secrets by using PowerShell
+Alternatively, you can add credentials when you register your application with the Microsoft identity platform by using PowerShell.
 
-Alternatively, you can register your application with Azure AD by using command-line tools. The [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) sample shows how to register an application secret or certificate with an Azure AD application:
+The [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub shows how to add an application secret or certificate when registering an application:
 
-- For details on how to register an application secret, see [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
-- For details on how to register a certificate with an application, see [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).
+- For details on how to add a **client secret** with PowerShell, see [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
+- For details on how to add a **certificate** with PowerShell, see [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).

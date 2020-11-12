@@ -7,7 +7,8 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/06/2020
-ms.author: tagore
+ms.author: tagore 
+ms.custom: devx-track-azurepowershell
 
 ---
 

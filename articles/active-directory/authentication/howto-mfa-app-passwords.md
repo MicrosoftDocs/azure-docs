@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable and use Azure Multi-Factor Authentication with legacy applications using app passwords
 
-Some applications, like Office 2010 or earlier and Apple Mail before iOS 11, don't support multi-factor authentication. The apps aren't configured to accept a secondary form of authentication or prompt. To use these applications in a secure way with Azure Multi-Factor Authentication enabled for user accounts, you can use app passwords. These app passwords replaced your traditional password to allow an app to bypass multi-factor authentication and work correctly.
+Some older, non-browser apps like Office 2010 or earlier and Apple Mail before iOS 11 don't understand pauses or breaks in the authentication process. If a user is enabled for Azure Multi-Factor Authentication and attempts to use one of these older, non-browser apps, they can't successfully authenticate. To use these applications in a secure way with Azure Multi-Factor Authentication enabled for user accounts, you can use app passwords. These app passwords replaced your traditional password to allow an app to bypass multi-factor authentication and work correctly.
 
 Modern authentication is supported for the Microsoft Office 2013 clients and later. Office 2013 clients, including Outlook, support modern authentication protocols and can be enabled to work with two-step verification. After the client is enabled, app passwords aren't required for the client.
 

@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 08/10/2020
+ms.date: 10/28/2020
 ms.topic: reference
 ms.custom: generated
 ---
@@ -22,14 +22,18 @@ part of a **table** in Resource Graph.
 
 - microsoft.alertsmanagement/alerts
 
-## healthresources
+## guestconfigurationresources
 
-- microsoft.resourcehealth/events
+- microsoft.guestconfiguration/guestconfigurationassignments
 
 ## maintenanceresources
 
 - microsoft.maintenance/configurationassignments
 - microsoft.maintenance/updates
+
+## policyresources
+
+- microsoft.policyinsights/policystates
 
 ## resourcecontainers
 
@@ -52,8 +56,10 @@ part of a **table** in Resource Graph.
 - livearena.broadcast/services
 - mailjet.email/services
 - microsoft.aad/domainservices
+- microsoft.aadiam/azureadmetrics
 - microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/tenants
+- microsoft.agfoodplatform/farmbeats
 - microsoft.aisupercomputer/accounts
 - microsoft.aisupercomputer/accounts/jobgroups
 - microsoft.aisupercomputer/accounts/jobgroups/jobs
@@ -61,17 +67,23 @@ part of a **table** in Resource Graph.
 - microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servers
 - microsoft.apimanagement/service
+- microsoft.appassessment/migrateprojects
 - microsoft.appconfiguration/configurationstores
 - microsoft.appplatform/spring
 - microsoft.archive/collections
 - microsoft.attestation/attestationproviders
+- microsoft.authorization/resourcemanagementprivatelinks
+- microsoft.automanage/accounts
+- microsoft.automanage/configurationprofilepreferences
 - microsoft.automation/automationaccounts
 - microsoft.automation/automationaccounts/configurations
 - microsoft.automation/automationaccounts/runbooks
+- microsoft.autonomousdevelopmentplatform/accounts
 - microsoft.autonomoussystems/workspaces
 - microsoft.avs/privateclouds
 - microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectories
+- microsoft.azureactivedirectory/guestusages
 - microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
@@ -80,6 +92,8 @@ part of a **table** in Resource Graph.
 - microsoft.azuredata/sqlmanagedinstances
 - microsoft.azuredata/sqlserverinstances
 - microsoft.azuredata/sqlserverregistrations
+- microsoft.azurestack/edgesubscriptions
+- microsoft.azurestack/linkedsubscriptions
 - microsoft.azurestack/registrations
 - microsoft.azurestackhci/clusters
 - microsoft.baremetal/consoleconnections
@@ -90,6 +104,7 @@ part of a **table** in Resource Graph.
 - microsoft.batchai/fileservers
 - microsoft.batchai/jobs
 - microsoft.batchai/workspaces
+- microsoft.bing/accounts
 - microsoft.bingmaps/mapapis
 - microsoft.biztalkservices/biztalk
 - microsoft.blockchain/blockchainmembers
@@ -102,6 +117,7 @@ part of a **table** in Resource Graph.
 - microsoft.cdn/profiles
 - microsoft.cdn/profiles/endpoints
 - microsoft.certificateregistration/certificateorders
+- microsoft.chaos/chaosexperiments
 - microsoft.classiccompute/domainnames
 - microsoft.classiccompute/virtualmachines
 - microsoft.classicnetwork/networksecuritygroups
@@ -110,9 +126,14 @@ part of a **table** in Resource Graph.
 - microsoft.classicstorage/storageaccounts
 - microsoft.cloudes/accounts
 - microsoft.cloudsearch/indexes
+- microsoft.cloudtest/accounts
+- microsoft.cloudtest/images
+- microsoft.cloudtest/pools
+- microsoft.codespaces/plans
 - microsoft.cognition/syntheticsaccounts
 - microsoft.cognitiveservices/accounts
 - microsoft.compute/availabilitysets
+- microsoft.compute/cloudservices
 - microsoft.compute/diskaccesses
 - microsoft.compute/diskencryptionsets
 - microsoft.compute/disks
@@ -137,6 +158,8 @@ part of a **table** in Resource Graph.
 - microsoft.compute/virtualmachines/extensions
 - microsoft.compute/virtualmachines/runcommands
 - microsoft.compute/virtualmachinescalesets
+- microsoft.confluent/organizations
+- microsoft.connectedcache/cachenodes
 - microsoft.containerinstance/containergroups
 - microsoft.containerregistry/registries
 - microsoft.containerregistry/registries/agentpools
@@ -148,14 +171,17 @@ part of a **table** in Resource Graph.
 - microsoft.containerservice/containerservices
 - microsoft.containerservice/managedclusters
 - microsoft.containerservice/openshiftmanagedclusters
+- microsoft.contoso/clusters
 - microsoft.contoso/employees
 - microsoft.costmanagement/connectors
 - microsoft.customproviders/resourceproviders
+- microsoft.d365customerinsights/instances
 - microsoft.databox/jobs
 - microsoft.databoxedge/databoxedgedevices
 - microsoft.databricks/workspaces
 - microsoft.datacatalog/catalogs
 - microsoft.datacatalog/datacatalogs
+- microsoft.datacollaboration/workspaces
 - microsoft.datadog/monitors
 - microsoft.datafactory/datafactories
 - microsoft.datafactory/factories
@@ -165,13 +191,18 @@ part of a **table** in Resource Graph.
 - microsoft.datamigration/services/projects
 - microsoft.datamigration/slots
 - microsoft.dataprotection/backupvaults
+- microsoft.dataprotection/resourceoperationgatekeepers
 - microsoft.datashare/accounts
 - microsoft.dbformariadb/servers
+- microsoft.dbformysql/flexibleservers
 - microsoft.dbformysql/servers
+- microsoft.dbforpostgresql/flexibleservers
 - microsoft.dbforpostgresql/servergroups
 - microsoft.dbforpostgresql/servers
 - microsoft.dbforpostgresql/serversv2
 - microsoft.dbforpostgresql/singleservers
+- microsoft.delegatednetwork/delegatedsubnets
+- microsoft.delegatednetwork/orchestratorinstances
 - microsoft.deploymentmanager/artifactsources
 - microsoft.deploymentmanager/rollouts
 - microsoft.deploymentmanager/servicetopologies
@@ -185,6 +216,8 @@ part of a **table** in Resource Graph.
 - microsoft.devices/elasticpools/iothubtenants
 - microsoft.devices/iothubs
 - microsoft.devices/provisioningservices
+- microsoft.deviceupdate/accounts
+- microsoft.deviceupdate/accounts/instances
 - microsoft.devops/pipelines
 - microsoft.devspaces/controllers
 - microsoft.devtestlab/labcenters
@@ -205,7 +238,9 @@ part of a **table** in Resource Graph.
 - microsoft.eventhub/clusters
 - microsoft.eventhub/namespaces
 - microsoft.experimentation/experimentworkspaces
+- microsoft.extendedlocation/customlocations
 - microsoft.falcon/namespaces
+- microsoft.footprintmonitoring/profiles
 - microsoft.gaming/titles
 - microsoft.genomics/accounts
 - microsoft.guestconfiguration/automanagedaccounts
@@ -217,9 +252,17 @@ part of a **table** in Resource Graph.
 - microsoft.healthcareapis/services/privateendpointconnections
 - microsoft.hybridcompute/machines
 - microsoft.hybridcompute/machines/extensions
+- microsoft.hybridcompute/privatelinkscopes
 - microsoft.hybriddata/datamanagers
+- microsoft.hybridnetwork/devices
+- microsoft.hybridnetwork/networkfunctions
+- microsoft.hybridnetwork/virtualnetworkfunctions
 - microsoft.importexport/jobs
+- microsoft.industrydatalifecycle/basemodels
+- microsoft.industrydatalifecycle/custodiancollaboratives
 - microsoft.industrydatalifecycle/derivedmodels
+- microsoft.industrydatalifecycle/membercollaboratives
+- microsoft.industrydatalifecycle/pipelinesets
 - microsoft.insights/actiongroups
 - microsoft.insights/activitylogalerts
 - microsoft.insights/alertrules
@@ -231,13 +274,16 @@ part of a **table** in Resource Graph.
 - microsoft.insights/notificationgroups
 - microsoft.insights/notificationrules
 - microsoft.insights/privatelinkscopes
+- microsoft.insights/querypacks
 - microsoft.insights/scheduledqueryrules
 - microsoft.insights/webtests
 - microsoft.insights/workbooks
 - microsoft.insights/workbooktemplates
+- microsoft.intelligentitdigitaltwin/digitaltwins
 - microsoft.iotcentral/iotapps
 - microsoft.iotspaces/graph
 - microsoft.keyvault/hsmpools
+- microsoft.keyvault/managedhsms
 - microsoft.keyvault/vaults
 - microsoft.kubernetes/connectedclusters
 - microsoft.kusto/clusters
@@ -252,6 +298,10 @@ part of a **table** in Resource Graph.
 - microsoft.machinelearning/workspaces
 - microsoft.machinelearningcompute/operationalizationclusters
 - microsoft.machinelearningservices/workspaces
+- microsoft.machinelearningservices/workspaces/inferenceendpoints
+- microsoft.machinelearningservices/workspaces/inferenceendpoints/deployments
+- microsoft.machinelearningservices/workspaces/onlineendpoints
+- microsoft.machinelearningservices/workspaces/onlineendpoints/deployments
 - microsoft.maintenance/maintenanceconfigurations
 - microsoft.maintenance/maintenancepolicies
 - microsoft.managedidentity/groups
@@ -290,9 +340,11 @@ part of a **table** in Resource Graph.
 - microsoft.network/azurefirewalls
 - microsoft.network/bastionhosts
 - microsoft.network/connections
+- microsoft.network/customipprefixes
 - microsoft.network/ddoscustompolicies
 - microsoft.network/ddosprotectionplans
 - microsoft.network/dnszones
+- microsoft.network/dscpconfigurations
 - microsoft.network/expressroutecircuits
 - microsoft.network/expressroutecrossconnections
 - microsoft.network/expressroutegateways
@@ -304,6 +356,7 @@ part of a **table** in Resource Graph.
 - microsoft.network/ipgroups
 - microsoft.network/loadbalancers
 - microsoft.network/localnetworkgateways
+- microsoft.network/mastercustomipprefixes
 - microsoft.network/natgateways
 - microsoft.network/networkexperimentprofiles
 - microsoft.network/networkintentpolicies
@@ -342,19 +395,28 @@ part of a **table** in Resource Graph.
 - microsoft.network/vpnsites
 - microsoft.notificationhubs/namespaces
 - microsoft.notificationhubs/namespaces/notificationhubs
+- microsoft.nutanix/interfaces
+- microsoft.nutanix/nodes
 - microsoft.objectstore/osnamespaces
 - microsoft.offazure/hypervsites
 - microsoft.offazure/importsites
+- microsoft.offazure/mastersites
 - microsoft.offazure/serversites
 - microsoft.offazure/vmwaresites
+- microsoft.openlogisticsplatform/workspaces
 - microsoft.operationalinsights/clusters
+- microsoft.operationalinsights/querypacks
 - microsoft.operationalinsights/workspaces
 - microsoft.operationsmanagement/solutions
 - microsoft.operationsmanagement/views
+- microsoft.orbital/contactprofiles
+- microsoft.orbital/spacecrafts
 - microsoft.peering/peerings
 - microsoft.peering/peeringservices
 - microsoft.portal/dashboards
 - microsoft.portalsdk/rootresources
+- microsoft.powerbi/privatelinkservicesforpowerbi
+- microsoft.powerbi/tenants
 - microsoft.powerbi/workspacecollections
 - microsoft.powerbidedicated/capacities
 - microsoft.projectbabylon/accounts
@@ -363,12 +425,18 @@ part of a **table** in Resource Graph.
 - microsoft.redhatopenshift/openshiftclusters
 - microsoft.relay/namespaces
 - microsoft.remoteapp/collections
+- microsoft.resiliency/chaosexperiments
 - microsoft.resourcegraph/queries
 - microsoft.resources/deploymentscripts
 - microsoft.resources/templatespecs
 - microsoft.resources/templatespecs/versions
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
+- microsoft.scvmm/clouds
+- microsoft.scvmm/virtualmachines
+- microsoft.scvmm/virtualmachinetemplates
+- microsoft.scvmm/virtualnetworks
+- microsoft.scvmm/vmmservers
 - microsoft.search/searchservices
 - microsoft.security/automations
 - microsoft.security/iotsecuritysolutions
@@ -384,6 +452,7 @@ part of a **table** in Resource Graph.
 - microsoft.servicefabricmesh/volumes
 - microsoft.serviceshub/connectors
 - microsoft.signalrservice/signalr
+- microsoft.singularity/accounts
 - microsoft.solutions/appliancedefinitions
 - microsoft.solutions/appliances
 - microsoft.solutions/applicationdefinitions
@@ -408,9 +477,14 @@ part of a **table** in Resource Graph.
 - microsoft.storagesyncdev/storagesyncservices
 - microsoft.storagesyncint/storagesyncservices
 - microsoft.storsimple/managers
+- microsoft.streamanalytics/clusters
 - microsoft.streamanalytics/streamingjobs
+- microsoft.swiftlet/virtualmachines
+- microsoft.swiftlet/virtualmachinesnapshots
+- microsoft.synapse/privatelinkhubs
 - microsoft.synapse/workspaces
 - microsoft.synapse/workspaces/bigdatapools
+- microsoft.synapse/workspaces/sqldatabases
 - microsoft.synapse/workspaces/sqlpools
 - microsoft.terraformoss/providerregistrations
 - microsoft.timeseriesinsights/environments
@@ -435,6 +509,7 @@ part of a **table** in Resource Graph.
 - microsoft.vmwarevirtustream/privateclouds
 - microsoft.vsonline/accounts
 - microsoft.vsonline/plans
+- microsoft.web/apimanagementaccounts
 - microsoft.web/apimanagementaccounts/apis
 - microsoft.web/certificates
 - microsoft.web/connectiongateways
@@ -449,6 +524,7 @@ part of a **table** in Resource Graph.
 - microsoft.web/staticsites
 - microsoft.windowsesu/multipleactivationkeys
 - microsoft.windowsiot/deviceservices
+- microsoft.workloadbuilder/workloads
 - myget.packagemanagement/services
 - paraleap.cloudmonix/services
 - pokitdok.platform/services
@@ -472,15 +548,25 @@ part of a **table** in Resource Graph.
 - wandisco.fusion/fusiongroups/managedonpremzones
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules
+- wandisco.fusion/migrators
+- wandisco.fusion/migrators/livedatamigrations
+- wandisco.fusion/migrators/targets
 
 ## securityresources
 
 - microsoft.security/assessments
 - microsoft.security/assessments/subassessments
+- microsoft.security/locations/alerts
 - microsoft.security/pricings
 - microsoft.security/regulatorycompliancestandards
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
+- microsoft.security/securescores
+- microsoft.security/securescores/securescorecontrols
+
+## servicehealthresources
+
+- microsoft.resourcehealth/events
 
 ## Next steps
 

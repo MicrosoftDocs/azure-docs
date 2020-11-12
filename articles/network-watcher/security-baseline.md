@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -232,9 +232,9 @@ Network Watcher should be enabled
 
 **Guidance**: Maintain an inventory of the user accounts that have administrative access to the control plane (e.g. Azure portal) of Azure Network Watcher. To use Network Watcher capabilities, the account you log into Azure with, must be assigned to the Owner, Contributor, or Network contributor built-in roles, or assigned to a custom role that is assigned the actions listed for specific Network Watcher capabilities.
 
-You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.
+You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure Azure role-based access control (Azure RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.
 
-* [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [Role-based access control permissions required to use Network Watcher capabilities](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
 
@@ -441,15 +441,15 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Responsibility**: Not applicable
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
+**Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure Azure role-based access control (Azure RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
 
 To use Network Watcher capabilities, the account you log into Azure with, must be assigned to the Owner, Contributor, or Network contributor built-in roles, or assigned to a custom role that is assigned the actions listed for specific Network Watcher capabilities.
 
-* [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-* [Understand RBAC permissions in Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
+* [Understand Azure RBAC permissions in Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
 
 **Azure Security Center monitoring**: Not applicable
 

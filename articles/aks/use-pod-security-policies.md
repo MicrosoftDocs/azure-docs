@@ -9,7 +9,7 @@ ms.date: 07/21/2020
 # Preview - Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **The feature described in this document, pod security policy (preview), is set for deprecation and will no longer be available after October 15th, 2020** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md).
+> **The feature described in this document, pod security policy (preview), is set for deprecation and will no longer be available after February 1st, 2021** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The deprecation date has been extended from the previous date of October 15th, 2020.
 >
 > After pod security policy (preview) is deprecated, you must disable the feature on any existing clusters using the deprecated feature to perform future cluster upgrades and stay within Azure support.
 >
@@ -176,7 +176,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
       securityContext:
         privileged: true
 ```
@@ -211,7 +211,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
 ```
 
 Create the pod using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
@@ -244,7 +244,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
       securityContext:
         runAsUser: 2000
 ```

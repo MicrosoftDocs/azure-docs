@@ -2,11 +2,14 @@
 title: Use a shared image gallery in Azure Lab Services | Microsoft Docs
 description: Learn how to configure a lab account to use a shared image gallery so that a user can share an image with other and another user can use the image to create a template VM in the lab. 
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 09/11/2020
 ---
 
 # Use a shared image gallery in Azure Lab Services
 This article shows how educators/lab admins can save a template virtual machine image to a [shared image gallery](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries) so that it can be used by others to create labs. 
+
+> [!IMPORTANT]
+> While using a Shared Image Gallery, Azure Lab Services supports only images with less than 128 GB of OS Disk Space. Images with more than 128 GB of disk space or multiple disks will not be shown in the list of virtual machine images during lab creation.
 
 ## Scenarios
 Here are the couple of scenarios supported by this feature: 

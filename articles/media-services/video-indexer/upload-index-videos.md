@@ -9,8 +9,9 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 11/10/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 ---
 
 # Upload and index your videos  
@@ -21,7 +22,7 @@ When uploading videos with Video Indexer API, you have the following upload opti
 * send the video file as a byte array in the request body,
 * Use existing Azure Media Services asset by providing the [asset ID](../latest/assets-concept.md) (supported in paid accounts only).
 
-Once your video has been uploaded, Video Indexer (optionally) encodes the video (discussed in the article). When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Media Account related charges. 
+Once your video has been uploaded, Video Indexer (optionally) encodes the video (discussed in the article). When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed, for more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 The article shows how to upload and index your videos with these options:
 
@@ -67,15 +68,15 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 > A name of the video must be no greater than 80 characters.
 
 1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website.
-2. To upload a video, press the **Upload** button or link.
+1. To upload a video, press the **Upload** button or link.
 
-    ![Upload](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Upload":::
+1. Once your video has been uploaded, Video Indexer starts indexing and analyzing the video.
 
-    Once your video has been uploaded, Video Indexer starts indexing and analyzing the video.
-
-    ![Uploaded](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload":::
+1. Once Video Indexer is done analyzing, you will get an email with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
 ## <a name="apis"></a>Upload and index with API
 
@@ -113,7 +114,7 @@ A URL that is used to notify the customer (using a POST request) about the follo
         
     - Example: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-##### Notes
+##### Other considerations
 
 - Video Indexer returns any existing parameters provided in the original URL.
 - The provided URL must be encoded.
@@ -162,7 +163,7 @@ If the `videoUrl` is not specified, the Video Indexer expects you to pass the fi
 
 The following C# code snippet demonstrates the usage of all the Video Indexer APIs together.
 
-#### Instructions for running this code sample
+**Instructions for running the following code sample**
 
 After copying this code into your development platform you will need to provide two parameters: API Management authentication key and video URL.
 

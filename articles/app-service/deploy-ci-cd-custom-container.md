@@ -31,7 +31,7 @@ In this tutorial, you configure continuous deployment for a custom container ima
 
 Once Continuous Deployment has been enabled, you can view the newly created webhook on your Azure Container Registry webhooks page.
 
-![Screenshot of ACR webhook](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
+![Screenshot that shows where you can view the newly created webhook on your Azure Container Registry webhooks page.](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
 
 In your Container Registry, click on Webhooks to view the current webhooks.
 
@@ -51,7 +51,7 @@ Copy the Webhook URL. To add a webhook for Docker Hub, follow <a href="https://d
 
 ## Automate with CLI
 
-To configure CI/CD using the Azure CLI, run the [az webapp deployment container config](https://docs.microsoft.com/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) command to generate the webhook URL. The URL can be used to configure your DockerHub or Azure Container Registry.
+To configure CI/CD using the Azure CLI, run the [az webapp deployment container config](/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) command to generate the webhook URL. The URL can be used to configure your DockerHub or Azure Container Registry.
 
 ```azurecli-interactive
 az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true

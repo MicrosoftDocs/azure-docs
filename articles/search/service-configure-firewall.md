@@ -16,7 +16,7 @@ ms.date: 05/11/2020
 Azure Cognitive Search supports IP rules for inbound firewall support. This model provides an additional layer of security for your search service similar to the IP rules you'll find in an Azure virtual network security group. With these IP rules, you can configure your search service to be accessible only from an approved set of machines and/or cloud services. Access to data stored in your search service from these approved sets of machines and services will still require the caller to present a valid authorization token.
 
 > [!Important]
-> IP rules on your Azure Cognitive Search service can be configured using the Azure portal or the [Management REST API version 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/).
+> IP rules on your Azure Cognitive Search service can be configured using the Azure portal or the [Management REST API version 2020-03-13](/rest/api/searchmanagement/).
 
 ## <a id="configure-ip-policy"></a> Configure an IP firewall using the Azure portal
 

@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 08/31/2020
 ms.author: juliako
 
 ---
-# Configure Postman for Media Services v2 REST API calls  
+# Configure Postman for Media Services v2 REST API calls
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
@@ -37,14 +39,14 @@ This environment and collection is used in articles that show how to achieve var
 2. Open the **Postman**.
 3. On the right of the screen, select the **Manage environment** option.
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-create-env.png)
+    ![Screenshot shows the Manage Environment option selected.](./media/media-services-rest-upload-files/postman-create-env.png)
 4. From the **Manage environment** dialog, click **Import**.
 5. Browse and select the **AzureMediaServices.postman_environment.json** file.
 6. The **AzureMedia** environment is added.
 7. Close the dialog.
 8. Select the **AzureMedia** environment.
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-choose-env.png)
+    ![Screenshot shows the AzureMedia environment selected.](./media/media-services-rest-upload-files/postman-choose-env.png)
 
 ## Configure the collection
 
@@ -52,7 +54,7 @@ This environment and collection is used in articles that show how to achieve var
 2. Click **Import** to import the collection file.
 3. Choose the **AzureMediaServicesOperations.postman_collection.json** file.
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-import-collection.png)
+    ![Screenshot shows the IMPORT dialog box with Choose Files selected.](./media/media-services-rest-upload-files/postman-import-collection.png)
 
 ## Next steps
 

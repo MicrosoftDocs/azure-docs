@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ---
 
@@ -20,7 +20,7 @@ Learn how to deploy the Cognitive Services [Speech service](speech-container-how
 
 ## Request access to the container registry
 
-You must first complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/) to request access to the container. 
+You must first complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/csgate/) to request access to the container. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

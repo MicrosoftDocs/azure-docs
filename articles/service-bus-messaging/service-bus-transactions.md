@@ -2,7 +2,8 @@
 title: Overview of transaction processing in Azure Service Bus
 description: This article gives you an overview of transaction processing and the send via feature in Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 10/28/2020
+ms.custom: devx-track-csharp
 ---
 
 # Overview of Service Bus transaction processing
@@ -30,9 +31,9 @@ The disposition of the message (complete, abandon, dead-letter, defer) then occu
 
 ## Transfers and "send via"
 
-To enable transactional handover of data from a queue to a processor, and then to another queue, Service Bus supports *transfers*. In a transfer operation, a sender first sends a message to a *transfer queue*, and the transfer queue immediately moves the message to the intended destination queue using the same robust transfer implementation that the autoforward capability relies on. The message is never committed to the transfer queue's log in a way that it becomes visible for the transfer queue's consumers.
+To enable transactional handover of data from a queue or topic to a processor, and then to another queue or topic, Service Bus supports *transfers*. In a transfer operation, a sender first sends a message to a *transfer queue or topic*, and the transfer queue or topic immediately moves the message to the intended destination queue or topic using the same robust transfer implementation that the autoforward capability relies on. The message is never committed to the transfer queue or topic's log in a way that it becomes visible for the transfer queue or topic's consumers.
 
-The power of this transactional capability becomes apparent when the transfer queue itself is the source of the sender's input messages. In other words, Service Bus can transfer the message to the destination queue "via" the transfer queue, while performing a complete (or defer, or dead-letter) operation on the input message, all in one atomic operation. 
+The power of this transactional capability becomes apparent when the transfer queue or topic itself is the source of the sender's input messages. In other words, Service Bus can transfer the message to the destination queue or topic "via" the transfer queue or topic, while performing a complete (or defer, or dead-letter) operation on the input message, all in one atomic operation. 
 
 ### See it in code
 

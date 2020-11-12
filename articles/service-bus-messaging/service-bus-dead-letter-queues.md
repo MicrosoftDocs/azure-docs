@@ -3,7 +3,7 @@ title: Service Bus dead-letter queues | Microsoft Docs
 description: Describes dead-letter queues in Azure Service Bus. Service Bus queues and topic subscriptions provide a secondary subqueue, called a dead-letter queue.
 ms.topic: article
 ms.date: 06/23/2020
-ms.custom: fasttrack-edit
+ms.custom: "fasttrack-edit, devx-track-csharp"
 ---
 
 # Overview of Service Bus dead-letter queues
@@ -57,7 +57,7 @@ Expired messages are only purged and moved to the DLQ when there is at least one
 
 ## Errors while processing subscription rules
 
-When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) property is enabled for a subscription, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message.
+When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) property is enabled for a subscription, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message. Don't use this option in a production environment in which not all message types have subscribers.
 
 ## Application-level dead-lettering
 

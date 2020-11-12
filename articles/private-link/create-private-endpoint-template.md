@@ -32,7 +32,7 @@ This template creates a private endpoint for an instance of Azure SQL Database.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
-:::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
+:::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 

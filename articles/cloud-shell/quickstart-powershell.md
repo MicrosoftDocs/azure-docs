@@ -257,7 +257,7 @@ publish the public key to `authorized_keys` on the remote machine, such as `/hom
 
 ### Using SSH
 
-Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) to create a new VM configuration using Azure PowerShell cmdlets.
+Follow instructions [here](../virtual-machines/linux/quick-create-powershell.md) to create a new VM configuration using Azure PowerShell cmdlets.
 Before calling into `New-AzVM` to kick off the deployment, add SSH public key to the VM configuration.
 The newly created VM will contain the public key in the `~\.ssh\authorized_keys` location, thereby enabling credential-free SSH session to the VM.
 
@@ -341,6 +341,6 @@ Type `exit` to terminate the session.
 [bashqs]:quickstart.md
 [gallery]:https://www.powershellgallery.com/
 [customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
-[profile]: https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/about/about_profiles
-[azmount]: https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows
+[profile]: /powershell/module/microsoft.powershell.core/about/about_profiles
+[azmount]: ../storage/files/storage-how-to-use-files-windows.md
 [githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/

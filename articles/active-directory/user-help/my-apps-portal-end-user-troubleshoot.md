@@ -47,7 +47,7 @@ If you're having trouble signing into the **My Apps** portal, you can try the fo
 
 - Make sure your password is correct and hasn't expired. For more info, see [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
 
-- Make sure your verification info is current and accurate. For more information, see [What does Azure Multi-Factor Authentication mean for me?](multi-factor-authentication-end-user.md) or [Changing your security info methods and information](security-info-add-update-methods-overview.md).
+- Make sure your verification info is current and accurate. For more information, see [What does Azure Multi-Factor Authentication mean for me?](./multi-factor-authentication-end-user-first-time.md) or [Changing your security info methods and information](./security-info-setup-auth-app.md).
 
 - Add the **My App** portal URL to the **Internet Properties > Security > Trusted sites** setting.
 
@@ -71,7 +71,7 @@ If you're getting an **Access Denied** message after you start an app from the *
 
 - Make sure your password is correct and hasn't expired. For more info, see [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
 
-- Make sure your verification info is current and accurate. For more information, see [What does Azure Multi-Factor Authentication mean for me?](multi-factor-authentication-end-user.md) or [Changing your security info methods and information](security-info-add-update-methods-overview.md).
+- Make sure your verification info is current and accurate. For more information, see [What does Azure Multi-Factor Authentication mean for me?](./multi-factor-authentication-end-user-first-time.md) or [Changing your security info methods and information](./security-info-setup-auth-app.md).
 
 - Clear your browser's cache and try to sign in again.
 
@@ -83,7 +83,7 @@ After you sign in to the **My Apps** portal, you can also update your profile an
 
 - [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
 
-- [Change your profile information](my-apps-portal-end-user-update-profile.md).
+- [Change your profile information](./my-account-portal-settings.md).
 
 - [View and update your groups-related information](my-apps-portal-end-user-groups.md).
 

@@ -3,20 +3,22 @@ title: View metrics with Azure Monitor
 description: This article shows how to monitor metrics with the Azure portal charts and Azure CLI.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako 
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel 
 ms.custom: devx-track-azurecli
 ---
 
 # Monitor Media Services metrics
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For detailed description of this feature and to see why you would want to use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
 
@@ -41,7 +43,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
     Select the resource and press **Apply**. For details about supported resources and metrics, see [Monitor Media Services metrics](media-services-metrics-diagnostic-logs.md).
 
-    ![Metrics](media/media-services-metrics/metrics02.png)
+    ![Screenshot that shows the selected resource and highlights the Apply button.](media/media-services-metrics/metrics02.png)
 
     > [!NOTE]
     > To switch between resources for which you want to monitor metrics, click on the **RESOURCE** box again and repeat this step.

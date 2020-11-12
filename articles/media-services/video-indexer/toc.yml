@@ -13,6 +13,8 @@
     href: invite-users.md
 - name: Tutorials
   items:
+  - name: Create a new account connected to Azure
+    href: connect-to-azure.md
   - name: Use Video Indexer API
     href: video-indexer-use-apis.md
   - name: Logic Apps connector
@@ -102,6 +104,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Regions
+    displayName: location
     href: regions.md
   - name: FAQs
     href: faq.md    
@@ -109,6 +112,8 @@
     href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 
   - name: Release notes
     href: release-notes.md
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=video-indexer
   - name: User voice
     href: https://cognitive.uservoice.com/forums/598144-video-indexer
   - name: Blogs

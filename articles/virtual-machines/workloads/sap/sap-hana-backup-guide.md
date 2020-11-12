@@ -42,7 +42,7 @@ The first scenario shown is a scenario where Azure Backup Service is either usin
 
 Azure Backup integrates and is certified as backup solution for SAP HANA using the proprietary SAP HANA interface called [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). For more details of the solution, its capabilities and the Azure regions where it is available, read the article [Support matrix for backup of SAP HANA databases on Azure VMs](../../../backup/sap-hana-backup-support-matrix.md#scenario-support). For details and principles about Azure Backup service for HANA, read the article [About SAP HANA database backup in Azure VMs](../../../backup/sap-hana-db-about.md). 
 
-The second possibility to leverage Azure Backup service is to create an application consistent backup using disk snapshots of Azure Premium Storage. Other HANA certified Azure storages, like [Azure Ultra disk](../../linux/disks-enable-ultra-ssd.md) and [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) are not supporting this kind of snapshot through Azure Backup service. Reading these articles:
+The second possibility to leverage Azure Backup service is to create an application consistent backup using disk snapshots of Azure Premium Storage. Other HANA certified Azure storages, like [Azure Ultra disk](../../disks-enable-ultra-ssd.md) and [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) are not supporting this kind of snapshot through Azure Backup service. Reading these articles:
 
 - [Plan your VM backup infrastructure in Azure](../../../backup/backup-azure-vms-introduction.md)
 - [Application-consistent backup of Azure Linux VMs](../../../backup/backup-azure-linux-app-consistent.md) 

@@ -10,15 +10,18 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
 ---
 
 # Azure Time Series Insights Gen1 Explorer
 
+> [!CAUTION]
+> This is a Gen1 article.
+
 This article describes the features and options for the Azure Time Series Insights Gen1 [Explorer web app](https://insights.timeseries.azure.com/). The Azure Time Series Insights Explorer demonstrates the powerful data visualization capabilities provided by the service and can be accessed within your own environment.
 
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. 
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.
 
 > [!TIP]
 > For a guided tour through the demonstration environment, read the [Azure Time Series Insights quickstart](time-series-quickstart.md).
@@ -36,7 +39,7 @@ Azure Time Series Insights is a fully managed analytics, storage, and visualizat
 
 Before you can use Azure Time Series Insights Explorer, you must:
 
-- Create a Azure Time Series Insights environment. For more information, read [How to get started with Azure Time Series Insights](./time-series-insights-get-started.md).
+- Create an Azure Time Series Insights environment. For more information, read [How to get started with Azure Time Series Insights](./time-series-insights-get-started.md).
 - [Provide access](time-series-insights-data-access.md) to your account in the environment.
 - Add an [IoT hub](time-series-insights-how-to-add-an-event-source-iothub.md) or [event hub](time-series-insights-how-to-add-an-event-source-eventhub.md) event source to it.
 
@@ -103,7 +106,7 @@ Within minutes of connecting your event source to your Azure Time Series Insight
 
 1. Use the **heatmap** to quickly spot unique or anomalous data series in a given query. Only one search term can be visualized as a heatmap.
 
-    [![Gen1 explorer heatmap charting ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [Time Series Insights explorer heatmap charting](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. When you explore events by selecting or right-clicking, the **EVENTS** panel is made available. Here, you can review all of your raw events and export your events as JSON or CSV files. Azure Time Series Insights stores all raw data.
 

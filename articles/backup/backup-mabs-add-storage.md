@@ -13,7 +13,7 @@ Azure Backup Server V2 and later supports Modern Backup Storage that offers stor
 > To use Modern Backup Storage, you must run Backup Server V2 or V3 on Windows Server 2016 or V3 on Windows Server 2019.
 > If you run Backup Server V2 on an earlier version of Windows Server, Azure Backup Server can't take advantage of Modern Backup Storage. Instead, it protects workloads as it does with Backup Server V1. For more information, see the Backup Server version [protection matrix](backup-mabs-protection-matrix.md).
 >
-> To achieve enhanced backup performances we recommend to deploy MABS v3 with tiered storage on Windows Server 2019. Please refer to the DPM article “[Set up MBS with Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)” for steps to configure tiered storage.
+> To achieve enhanced backup performances we recommend to deploy MABS v3 with tiered storage on Windows Server 2019. Refer to the DPM article “[Set up MBS with Tiered Storage](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage)” for steps to configure tiered storage.
 
 ## Volumes in Backup Server
 
@@ -92,7 +92,7 @@ The changes you make by using PowerShell are reflected in the Backup Server Admi
 
 ## Migrate legacy storage to Modern Backup Storage
 
-After you upgrade to or install Backup Server V2 and upgrade the operating system to Windows Server 2016, update your protection groups to use Modern Backup Storage. By default, protection groups are not changed. They continue to function as they were initially set up.
+After you upgrade to or install Backup Server V2 and upgrade the operating system to Windows Server 2016, update your protection groups to use Modern Backup Storage. By default, protection groups aren't changed. They continue to function as they were initially set up.
 
 Updating protection groups to use Modern Backup Storage is optional. To update the protection group, stop protection of all data sources by using the retain data option. Then, add the data sources to a new protection group.
 
@@ -100,7 +100,7 @@ Updating protection groups to use Modern Backup Storage is optional. To update t
 
    ![Stop protection of member](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. In the **Remove from Group** dialog box, review the used disk space and the available free space for the storage pool. The default is to leave the recovery points on the disk and allow them to expire per their associated retention policy. Click **OK**.
+2. In the **Remove from Group** dialog box, review the used disk space and the available free space for the storage pool. The default is to leave the recovery points on the disk and allow them to expire per their associated retention policy. Select **OK**.
 
    If you want to immediately return the used disk space to the free storage pool, select the **Delete replica on disk** check box to delete the backup data (and recovery points) associated with that member.
 

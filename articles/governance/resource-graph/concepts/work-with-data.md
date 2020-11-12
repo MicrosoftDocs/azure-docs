@@ -1,8 +1,9 @@
 ---
 title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
-ms.date: 08/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 # Working with large Azure resource data sets
 
@@ -64,7 +65,8 @@ of the data set instead.
 
 > [!NOTE]
 > When using **Skip**, it's recommended to order the results by at least one column with `asc` or
-> `desc`. Without sorting, the results returned are random and not repeatable.
+> `desc`. Without sorting, the results returned are random and not repeatable. If `limit` or `take`
+> are used in the query, **Skip** is ignored.
 
 The following examples show how to skip the first _10_ records a query would result in, instead
 starting the returned result set with the 11th record:
@@ -77,8 +79,8 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), the control is **$skip** and is
-part of **QueryRequestOptions**.
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), the
+control is **$skip** and is part of **QueryRequestOptions**.
 
 ## Paging results
 

@@ -59,7 +59,7 @@ See also [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-a
 
 SQL pool supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  However, when you are loading or exporting large volumes of data or fast performance is needed, PolyBase is the best choice.  
 
-PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture and will load and export data magnitudes faster than any other tool.  PolyBase loads can be run using CTAS or INSERT INTO.  
+PolyBase is designed to leverage distributed nature of the system and will load and export data magnitudes faster than any other tool.  PolyBase loads can be run using CTAS or INSERT INTO.   
 
 > [!TIP]
 > Using CTAS will minimize transaction logging and the fastest way to load your data.

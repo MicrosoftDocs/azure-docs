@@ -74,7 +74,7 @@ The following table provides a quick overview of the differences between the sto
 | Data can be read from the secondary location and from the primary location. |No |No |No |Yes |
 | Number of copies of data maintained on separate nodes. |3 |3 |6 |6 |
 
-You can read more about [Azure Storage replication options here](../storage/common/storage-redundancy.md). For more information about managed disks, see [Azure Managed Disks overview](./windows/managed-disks-overview.md).
+You can read more about [Azure Storage replication options here](../storage/common/storage-redundancy.md). For more information about managed disks, see [Azure Managed Disks overview](./managed-disks-overview.md).
 
 ### Storage costs
 Prices vary depending on the storage type and availability that you select.

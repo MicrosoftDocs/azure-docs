@@ -25,7 +25,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 > 
 > * [Create a storage account](../../storage/common/storage-account-create.md)
 >   <br/>
-> * [Create an Azure Machine Learning workspace](../studio/create-workspace.md)
+> * [Create an Azure Machine Learning workspace](../classic/create-workspace.md)
 > 
 > 
 
@@ -250,4 +250,4 @@ For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Anal
 
 
 <!-- Module References -->
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

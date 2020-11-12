@@ -1,6 +1,6 @@
 ---
 title: 'Interpreting your Scorecard | Microsoft Docs'
-description: The FAQ for Azure Internet Analyzer. 
+description: Learn how to interpret your scorecard. The scorecard tab contains the aggregated and analyzed results from your tests.
 services: internet-analyzer
 author: mattcalder
 

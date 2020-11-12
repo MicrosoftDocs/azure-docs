@@ -8,7 +8,7 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.custom: monitoring
+ms.custom: "monitoring, devx-track-csharp"
 ---
 # Azure Storage Analytics metrics (classic)
 
@@ -17,11 +17,11 @@ Azure Storage uses the Storage Analytics solution to store metrics that include 
 - Diagnose issues with requests made against the storage service.
 - Improve the performance of applications that use a service.
 
- Storage Analytics metrics are enabled by default for new storage accounts. You can configure metrics in the [Azure portal](https://portal.azure.com/). For more information, see [Monitor a storage account in the Azure portal](/azure/storage/storage-monitor-storage-account). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the Set Service Properties operations to enable Storage Analytics for each service.  
+ Storage Analytics metrics are enabled by default for new storage accounts. You can configure metrics in the [Azure portal](https://portal.azure.com/). For more information, see [Monitor a storage account in the Azure portal](./storage-monitor-storage-account.md). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the Set Service Properties operations to enable Storage Analytics for each service.  
 
 > [!NOTE]
 > Storage Analytics metrics are available for Azure Blob storage, Azure Queue storage, Azure Table storage, and Azure Files.
-> Storage Analytics metrics are now classic metrics. We recommend that you use [storage metrics in Azure Monitor](monitor-storage.md) instead of Storage Analytics metrics.
+> Storage Analytics metrics are now classic metrics. We recommend that you use [storage metrics in Azure Monitor](../blobs/monitor-blob-storage.md) instead of Storage Analytics metrics.
 
 ## Transaction metrics  
  A robust set of data is recorded at hourly or minute intervals for each storage service and requested API operation, which includes ingress and egress, availability, errors, and categorized request percentages. For a complete list of the transaction details, see [Storage Analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
@@ -106,7 +106,7 @@ The following command retrieves the current hourly metrics level and retention d
 Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
-For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see [Install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see [Install and configure Azure PowerShell](/powershell/azure/).  
 
 ## Enable storage metrics programmatically  
 In addition to using the Azure portal or the Azure PowerShell cmdlets to control storage metrics, you can also use one of the Azure Storage APIs. For example, if you use a .NET language you can use the Azure Storage client library.  
@@ -124,7 +124,7 @@ serviceProperties.HourMetrics.RetentionDays = 10;
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
 
-For more information about using a .NET language to configure storage metrics, see [Azure Storage client libraries for .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx).  
+For more information about using a .NET language to configure storage metrics, see [Azure Storage client libraries for .NET](/dotnet/api/overview/azure/storage).  
 
 For general information about configuring storage metrics by using the REST API, see [Enabling and configuring Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
@@ -138,7 +138,7 @@ After you configure Storage Analytics metrics to monitor your storage account, S
 
 In the **Monitoring (classic)** section of your storage account's menu pane in the Azure portal, you can configure [Alert rules](#metrics-alerts). For example, you can send email alerts to notify you when a specific metric reaches a certain value.
 
-If you want to download the metrics for long-term storage or to analyze them locally, you must use a tool or write some code to read the tables. You must download the minute metrics for analysis. The tables don't appear if you list all the tables in your storage account, but you can access them directly by name. Many storage-browsing tools are aware of these tables and enable you to view them directly. For a list of available tools, see [Azure Storage client tools](/azure/storage/storage-explorers).
+If you want to download the metrics for long-term storage or to analyze them locally, you must use a tool or write some code to read the tables. You must download the minute metrics for analysis. The tables don't appear if you list all the tables in your storage account, but you can access them directly by name. Many storage-browsing tools are aware of these tables and enable you to view them directly. For a list of available tools, see [Azure Storage client tools](./storage-explorers.md).
 
 |Metrics|Table names|Notes| 
 |-|-|-|  
@@ -163,14 +163,17 @@ In this example of minute metrics data, the partition key uses the time at minut
 This sample data shows all the records for a single minute (starting at 11:00AM), so the number of **QueryEntities** requests plus the number of **QueryEntity** requests plus the number of **UpdateEntity** requests adds up to seven. This total is shown in the **user:All** row. Similarly, you can derive the average end-to-end latency 104.4286 on the **user:All** row by calculating ((143.8 * 5) + 3 + 9)/7.  
 
 ## Metrics alerts
-Consider setting up alerts in the [Azure portal](https://portal.azure.com) so you'll be automatically notified of important changes in the behavior of your storage services. If you use a Storage Explorer tool to download this metrics data in a delimited format, you can use Microsoft Excel to analyze the data. For a list of available Storage Explorer tools, see [Azure Storage client tools](/azure/storage/storage-explorers). You can configure alerts in the **Alert (classic)** pane, which is accessible under **Monitoring (classic)** in the storage account menu pane.
+Consider setting up alerts in the [Azure portal](https://portal.azure.com) so you'll be automatically notified of important changes in the behavior of your storage services. If you use a Storage Explorer tool to download this metrics data in a delimited format, you can use Microsoft Excel to analyze the data. For a list of available Storage Explorer tools, see [Azure Storage client tools](./storage-explorers.md). You can configure alerts in the **Alert (classic)** pane, which is accessible under **Monitoring (classic)** in the storage account menu pane.
 
 > [!IMPORTANT]
 > There might be a delay between a storage event and when the corresponding hourly or minute metrics data is recorded. In the case of minute metrics, several minutes of data might be written at once. This issue can lead to transactions from earlier minutes being aggregated into the transaction for the current minute. When this issue happens, the alert service might not have all available metrics data for the configured alert interval, which might lead to alerts firing unexpectedly.
 >
 
 ## Access metrics data programmatically  
-The following listing shows sample C# code that accesses the minute metrics for a range of minutes and displays the results in a console window. The code sample uses the Azure Storage client library version 4.x or later, which includes the **CloudAnalyticsClient** class that simplifies accessing the metrics tables in storage.  
+The following listing shows sample C# code that accesses the minute metrics for a range of minutes and displays the results in a console window. The code sample uses the Azure Storage client library version 4.x or later, which includes the **CloudAnalyticsClient** class that simplifies accessing the metrics tables in storage. 
+
+> [!NOTE]
+> The **CloudAnalyticsClient** class is not included in the Azure Blob storage client library v12 for .NET. On **August 31, 2023** Storage Analytics metrics, also referred to as *classic metrics* will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). If you use classic metrics, we recommend that you transition to metrics in Azure Monitor prior to that date. 
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  

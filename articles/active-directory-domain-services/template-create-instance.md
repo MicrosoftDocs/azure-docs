@@ -2,7 +2,7 @@
 title: Enable Azure DS Domain Services using a template | Microsoft Docs
 description: Learn how to configure and enable Azure Active Directory Domain Services using an Azure Resource Manager template
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
-ms.author: iainfou
+ms.author: joflore
 
 ---
 # Create an Azure Active Directory Domain Services managed domain using an Azure Resource Manager template
@@ -67,10 +67,10 @@ First, register the Azure AD Domain Services resource provider using the [Regist
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-Create an Azure AD service principal using the [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet for Azure AD DS to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Don't change this application ID.
+Create an Azure AD service principal using the [New-AzureADServicePrincipal][New-AzureADServicePrincipal] cmdlet for Azure AD DS to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Don't change this application ID.
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 Now create an Azure AD group named *AAD DC Administrators* using the [New-AzureADGroup][New-AzureADGroup] cmdlet. Users added to this group are then granted permissions to perform administration tasks on the managed domain.
@@ -354,6 +354,6 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [Register-AzResourceProvider]: /powershell/module/Az.Resources/Register-AzResourceProvider
 [New-AzResourceGroup]: /powershell/module/Az.Resources/New-AzResourceGroup
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
-[cloud-shell]: /azure/cloud-shell/cloud-shell-windows-users
+[cloud-shell]: ../cloud-shell/cloud-shell-windows-users.md
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain
 [New-AzResourceGroupDeployment]: /powershell/module/Az.Resources/New-AzResourceGroupDeployment

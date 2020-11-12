@@ -10,7 +10,7 @@ ms.date: 1/27/2020
 This article describes how to use Azure PowerShell to manage and monitor the Azure file shares that are backed up by the Azure Backup service.
 
 > [!WARNING]
-> Make sure the PS version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups. For more details, refer to [the section](backup-azure-afs-automation.md#important-notice-backup-item-identification) outlining the requirement for this change.
+> Make sure the PowerShell version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups. For more details, refer to [the section](backup-azure-afs-automation.md#important-notice-backup-item-identification) outlining the requirement for this change.
 
 ## Modify the protection policy
 
@@ -82,7 +82,7 @@ WorkloadName     Operation         Status         StartTime                 EndT
 afsfileshare     DisableBackup     Completed      1/26/2020 2:43:59 PM      1/26/2020 2:44:21 PM      98d9f8a1-54f2-4d85-8433-c32eafbd793f
 ```
 
-The Job ID attribute in the output corresponds to the Job ID of the job that is created by the backup service for your “stop protection” operation. To track the status of the job, use the [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet.
+The Job ID attribute in the output corresponds to the Job ID of the job that's created by the backup service for your “stop protection” operation. To track the status of the job, use the [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet.
 
 ## Stop protection without retaining recovery points
 

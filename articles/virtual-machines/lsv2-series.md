@@ -20,17 +20,14 @@ The Lsv2-series features high throughput, low latency, directly mapped local NVM
 >
 > To learn more, see Optimize performance on the Lsv2-series virtual machines for [Windows](../virtual-machines/windows/storage-performance.md) or [Linux](../virtual-machines/linux/storage-performance.md).  
 
-ACU: 150-175
-
-Bursting: Supported
-
-Premium Storage: Supported
-
-Premium Storage caching: Not Supported
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
+[ACU](acu.md): 150-175<br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+Bursting: Supported<br>
+<br>
 
 | Size | vCPU | Memory (GiB) | Temp disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe Disk throughput<sup>3</sup> (Read IOPS/MBps) | Uncached data disk throughput (IOPs/MBps)<sup>4</sup> | Max burst uncached data disk throughput (IOPs/MBps)<sup>5</sup>| Max Data Disks | Max NICs | Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -82,7 +79,7 @@ Memory Preserving Updates: Not Supported
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./linux/disks-types.md#ultra-disk)
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
 
 
 ## Next steps

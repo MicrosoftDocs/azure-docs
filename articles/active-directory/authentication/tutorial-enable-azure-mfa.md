@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -132,4 +132,4 @@ In this tutorial, you enabled Azure Multi-Factor Authentication using Conditiona
 > * Test the MFA process as a user
 
 > [!div class="nextstepaction"]
-> [Enable password writeback for self-service password reset (SSPR)](tutorial-enable-writeback.md)
+> [Enable password writeback for self-service password reset (SSPR)](./tutorial-enable-sspr-writeback.md)

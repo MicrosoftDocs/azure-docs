@@ -156,7 +156,7 @@ Added the sinks element and the ability to send diagnostics data to [Application
 ### Azure SDK 2.6 and diagnostics extension 1.3
 For Cloud Service projects in Visual Studio, the following changes were made. (These changes also apply to later versions of Azure SDK.)
 
-* The local emulator now supports diagnostics. This change means you can collect diagnostics data and ensure your application is creating the right traces while you're developing and testing in Visual Studio. The connection string `UseDevelopmentStorage=true` enables diagnostics data collection while you're running your cloud service project in Visual Studio by using the Azure storage emulator. All diagnostics data is collected in the (Development Storage) storage account.
+* The local emulator now supports diagnostics. This change means you can collect diagnostics data and ensure your application is creating the right traces while you're developing and testing in Visual Studio. The connection string `UseDevelopmentStorage=true` enables diagnostics data collection while you're running your cloud service project in Visual Studio by using the Azure Storage Emulator. All diagnostics data is collected in the (Development Storage) storage account.
 * The diagnostics storage account connection string (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) is stored once again in the service configuration (.cscfg) file. In Azure SDK 2.5 the diagnostics storage account was specified in the diagnostics.wadcfgx file.
 
 There are some notable differences between how the connection string worked in Azure SDK 2.4 and earlier and how it works in Azure SDK 2.6 and later.

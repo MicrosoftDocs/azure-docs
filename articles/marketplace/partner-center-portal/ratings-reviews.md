@@ -28,7 +28,7 @@ The dashboard displays a graphical representation of the following customer acti
 - Ratings & reviews  
 - Review comments
 
-Use the **Marketplace storefront** tabs to view your offer Microsoft AppSource and Azure Marketplace metrics separately. To view specific offer metrics, select the offer from the offer dropdown list.
+Use the **Marketplace Insights** tabs to view your offer Microsoft AppSource and Azure Marketplace metrics separately. To view specific offer metrics, select the offer from the offer dropdown list.
 
 ### Ratings & reviews summary
 

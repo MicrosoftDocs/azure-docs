@@ -3,6 +3,7 @@ title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with the application map
 ms.topic: conceptual
 ms.date: 03/15/2019
+ms.custom: devx-track-csharp
 
 ms.reviewer: sdash
 ---
@@ -29,7 +30,7 @@ On clicking "Update map components", the map is refreshed with all components di
 
 If all of the components are roles within a single Application Insights resource, then this discovery step is not required. The initial load for such an application will have all its components.
 
-![Application Map Screenshot](media/app-map/app-map-001.png)
+![Screenshot shows an example of an application map.](media/app-map/app-map-001.png)
 
 One of the key objectives with this experience is to be able to visualize complex topologies with hundreds of components.
 

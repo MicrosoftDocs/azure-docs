@@ -84,6 +84,10 @@ Follow the below steps to  generate the above information:
 
     ```
 
+> [!NOTE]
+> 1. The Datahub API Endpoint name must be in lower case.
+> 2. If you are copying the farmbeats website name url for Datahub API Endpoint, make sure there is no trailing slash (/).
+
 9. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 
 ### Integrate device data by using the generated credentials
@@ -170,7 +174,7 @@ Follow these steps:
 1. On the home page, select **Sensors** from the menu to view the **Sensors** page.
 2. Select the device you want to delete, and select **Delete** in the confirmation window.
 
-    ![Delete button](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
+    ![Screenshot that highlights the Sensors Delete page and the Delete button.](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
 A confirmation message shows that the sensor is successfully deleted.
 

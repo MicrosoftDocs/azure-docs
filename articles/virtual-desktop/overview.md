@@ -3,7 +3,7 @@ title: What is Windows Virtual Desktop? - Azure
 description: An overview of Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -40,7 +40,7 @@ With Windows Virtual Desktop, you can set up a scalable and flexible environment
 
 You can deploy and manage virtual desktops:
 
-* Use the Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources.
+* Use the Azure portal, Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources.
 * Publish full desktop or individual remote apps from a single host pool, create individual app groups for different sets of users, or even assign users to multiple app groups to reduce the number of images.
 * As you manage your environment, use built-in delegated access to assign roles and collect diagnostics to understand various configuration or user errors.
 * Use the new Diagnostics service to troubleshoot errors.
@@ -55,7 +55,7 @@ You can also assign and connect users to your virtual desktops:
 
 There are a few things you need to set up Windows Virtual Desktop and successfully connect your users to their Windows desktops and applications.
 
-We plan to add support for the following OSes, so make sure you have the [appropriate licenses](https://azure.microsoft.com/pricing/details/virtual-desktop/) for your users based on the desktop and apps you plan to deploy:
+We support the following operating systems, so make sure you have the [appropriate licenses](https://azure.microsoft.com/pricing/details/virtual-desktop/) for your users based on the desktop and apps you plan to deploy:
 
 |OS|Required license|
 |---|---|
@@ -65,11 +65,17 @@ We plan to add support for the following OSes, so make sure you have the [approp
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
-* An [Azure Active Directory](/azure/active-directory/)
-* A Windows Server Active Directory in sync with Azure Active Directory. You can configure this with one of the following:
-  * Azure AD Connect (for hybrid organizations)
-  * Azure AD Domain Services (for hybrid or cloud organizations)
-* An Azure subscription that contains a virtual network that either contains or is connected to the Windows Server Active Directory
+* An [Azure Active Directory](/azure/active-directory/).
+* A Windows Server Active Directory in sync with Azure Active Directory. You can configure this using Azure AD Connect (for hybrid organizations) or Azure AD Domain Services (for hybrid or cloud organizations).
+  * A Windows Server AD in sync with Azure Active Directory. User is sourced from Windows Server AD and the Windows Virtual Desktop VM is joined to Windows Server AD domain.
+  * A Windows Server AD in sync with Azure Active Directory. User is sourced from Windows Server AD and the Windows Virtual Desktop VM is joined to Azure AD Domain Services domain.
+  * A Azure AD Domain Services domain. User is sourced from Azure Active Directory, and the Windows Virtual Desktop VM is joined to Azure AD Domain Services domain.
+* An Azure subscription, parented to the same Azure AD tenant, that contains a virtual network that either contains or is connected to the Windows Server Active Directory or Azure AD DS instance.
+
+User requirements to connect to Windows Virtual Desktop:
+
+* The user must be sourced from the same Active Directory that's connected to Azure AD. Windows Virtual Desktop does not support B2B or MSA accounts.
+* The UPN you use to subscribe to Windows Virtual Desktop must exist in the Active Directory domain the VM is joined to.
 
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
@@ -85,9 +91,11 @@ Windows Virtual Desktop comprises the Windows desktops and apps you deliver to u
 
 For optimal performance, make sure your network meets the following requirements:
 
-* Round-trip (RTT) latency from the client's network to the Azure region where host pools have been deployed should be less than 150 ms.
+* Round-trip (RTT) latency from the client's network to the Azure region where host pools have been deployed should be less than 150 ms. Use the [Experience Estimator](https://azure.microsoft.com/services/virtual-desktop/assessment) to view your connection health and recommended Azure region.
 * Network traffic may flow outside country/region borders when VMs that host desktops and apps connect to the management service.
 * To optimize for network performance, we recommend that the session host's VMs are collocated in the same Azure region as the management service.
+
+You can see a typical architectural setup of Windows Virtual Desktop for the enterprise in our [architecture documenation](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 ## Supported Remote Desktop clients
 
@@ -98,14 +106,12 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android](connect-android.md)
+* Microsoft Store Client
 
 > [!IMPORTANT]
 > Windows Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
 
-> [!IMPORTANT]
-> Windows Virtual Desktop doesn't currently support the Remote Desktop client from the Windows Store. Support for this client will be added in a future release.
-
-To learn more about URLs you must unblock to use the Remote Clients, see the [Safe URL list](safe-url-list.md).
+To learn more about URLs you must unblock to use the clients, see the [Safe URL list](safe-url-list.md).
 
 ## Supported virtual machine OS images
 
@@ -124,10 +130,10 @@ Available automation and deployment options depend on which OS and version you c
 
 |Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|
-|Windows 10 multi-session, version 1809|Yes|Yes|No|No|
-|Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise, version 1809|Yes|Yes|No|No|
+|Windows 10 Enterprise (multi-session), version 2004|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise (multi-session), version 1909|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise (multi-session), version 1903|Yes|Yes|No|No|
+|Windows 10 Enterprise (multi-session), version 1809|Yes|Yes|No|No|
 |Windows 7 Enterprise|Yes|Yes|No|No|
 |Windows Server 2019|Yes|Yes|No|No|
 |Windows Server 2016|Yes|Yes|Yes|Yes|

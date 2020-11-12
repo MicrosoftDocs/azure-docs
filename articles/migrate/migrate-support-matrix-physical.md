@@ -26,11 +26,21 @@ To assess physical servers, you create an Azure Migrate project, and add the Ser
 
 ## Physical server requirements
 
-| **Support**                | **Details**               
-| :-------------------       | :------------------- |
-| **Physical server deployment**       | The physical server can be standalone, or deployed in a cluster. |
-| **Permissions**           | **Windows:** Use a domain account for domain-joined machines, and a local account for machines that are not domain-joined. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users. <br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
-| **Operating system** | All operating systems except Windows Server 2003 and SUSE Linux can be assessed for migration. |
+**Physical server deployment:** The physical server can be standalone, or deployed in a cluster.
+
+**Operating system:** All Windows and Linux operating systems can be assessed for migration.
+
+**Permissions:**
+- For Windows servers, use a domain account for domain-joined machines, and a local account for machines that are not domain-joined. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
+- For Linux servers, you need a root account on the Linux servers that you want to discover. Alternately, you can set a non-root account with the required capabilities using the following commands:
+
+**Command** | **Purpose**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | To collect disk configuration data
+setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | To collect disk performance data
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number
+chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID
+
 
 
 ## Azure Migrate appliance requirements
@@ -69,4 +79,4 @@ The following table summarizes port requirements for assessment.
 
 ## Next steps
 
-[Prepare for physical server assessment](tutorial-prepare-physical.md).
+[Prepare for physical server assessment](./tutorial-discover-physical.md).

@@ -1,12 +1,10 @@
 ---
 title: Package and deploy containers
 description: In this tutorial, you learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
-author: suhuruli
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: suhuruli
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Tutorial: Package and deploy containers as a Service Fabric application using Yeoman
 
@@ -273,7 +271,7 @@ Open a browser and navigate to Service Fabric Explorer at http:\//containertestc
 
 In order to connect to the running application, open a web browser and go to the cluster url - for example http:\//containertestcluster.eastus.cloudapp.azure.com:80. You should see the Voting application in the web UI.
 
-![votingapp][votingapp]
+![Screenshot shows the Azure Voting App with buttons for Cats, Dogs, and Reset, and totals.][votingapp]
 
 ## Clean up
 

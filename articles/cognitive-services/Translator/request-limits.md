@@ -26,7 +26,7 @@ The following table lists array element and character limits for each operation 
 |:----|:----|:----|:----|
 | Translate | 10,000	| 100	| 10,000 |
 | Transliterate | 5,000	| 10	| 5,000 |
-| Detect | 10,000 |	100 |	50,000 |
+| Detect | 50,000 |	100 |	50,000 |
 | BreakSentence | 50,000	| 100 |	50,000 |
 | Dictionary Lookup| 100 |	10	| 1,000 |
 | Dictionary Examples | 100 for text and 100 for translation (200 total)| 10|	2,000 |

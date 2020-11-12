@@ -33,14 +33,14 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
    - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, simply enter a dummy **Username** and **Password** that your API can ignore. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** (for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
 
-   ![Add a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
+   ![Configure a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Select **Save**.
 
 > [!IMPORTANT]
 > Previously, you had to configure which user attributes to send to the API ('Claims to send') and which user attributes to accept from the API ('Claims to receive'). Now, all user attributes are sent by default if they have a value and any user attribute can be returned by the API in a 'continuation' response.
 
 ## The request sent to your API
-An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties) user properties. 
+An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](/graph/api/resources/user#properties) user properties. 
 
 **Example request**
 ```http
@@ -81,7 +81,7 @@ Additionally, the **UI Locales ('ui_locales')** claim is sent by default in all 
 > If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check for the value it expects.
 
 > [!TIP] 
-> [**identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with an identity provider such as Google or Facebook. 'email' is always sent.
+> [**identities ('identities')**](/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with an identity provider such as Google or Facebook. 'email' is always sent.
 
 ## Enable the API connector in a user flow
 
@@ -300,11 +300,29 @@ Content-type: application/json
 
 ![Example  validation page](./media/api-connectors-overview/validation-error-postal-code.png)
 
-## Using Azure Functions
-You can use an HTTP trigger in Azure Functions as a simple way create an API endpoint to use with the API connector. You use the Azure Function to, [for example](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), perform validation logic and limit sign-ups to specific domains. You can also call and invoke other web APIs, user stores, and other cloud services from your Azure Function for extensive scenarios.
+
+## Best practices and how to troubleshoot
+
+### Using serverless cloud functions
+Serverless functions, like HTTP triggers in Azure Functions, provide a simple way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), perform validation logic and limit sign-ups to specific domains. The serverless cloud function can also call and invoke other web APIs, user stores, and other cloud services for more complex scenarios.
+
+### Best practices
+Ensure that:
+* Your API is following the API request and response contracts as outlined above. 
+* The **Endpoint URL** of the API connector points to the correct API endpoint.
+* Your API explicitly checks for null values of received claims.
+* Your API responds as quickly as possible to ensure a fluid user experience.
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-scale.md#premium-plan). 
+
+
+### Use logging
+In general, it's helpful to use the logging tools enabled by your web API service, like [Application insights](../../azure-functions/functions-monitoring.md), to monitor your API for unexpected error codes, exceptions, and poor performance.
+* Monitor for HTTP status codes that aren't HTTP 200 or 400.
+* A 401 or 403 HTTP status code typically indicates there's an issue with your authentication. Double-check your API's authentication layer and the corresponding configuration in the API connector.
+* Use more aggressive levels of logging (e.g. "trace" or "debug") in development if needed.
+* Monitor your API for long response times.
 
 ## Next steps
-
 <!-- - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow) -->
 - Learn how to [add a custom approval workflow to self-service sign-up](self-service-sign-up-add-approvals.md)
 - Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).

@@ -91,7 +91,7 @@ path | The path of the log files. | Specify the path that you use to store the l
 > - Only if when you specify multiple files in source dataset, which can be a folder, wildcard or a list of files, copy activity can skip the particular error files. If a single file is specified in source dataset to be copied to the destination, copy activity will fail if any error occurred.
 >
 > For skipping particular files when they are verified to be inconsistent between source and destination store:
-> - You can get more details from data consistency doc [here](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency).
+> - You can get more details from data consistency doc [here](./copy-activity-data-consistency.md).
 
 ### Monitoring 
 
@@ -157,9 +157,9 @@ Copy activity supports three scenarios for detecting, skipping, and logging inco
     For example: Copy data from a SQL server to a SQL database. A primary key is defined in the sink SQL database, but no such primary key is defined in the source SQL server. The duplicated rows that exist in the source cannot be copied to the sink. Copy activity copies only the first row of the source data into the sink. The subsequent source rows that contain the duplicated primary key value are detected as incompatible and are skipped.
 
 >[!NOTE]
->- For loading data into SQL Data Warehouse using PolyBase, configure PolyBase's native fault tolerance settings by specifying reject policies via "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" in copy activity. You can still enable redirecting PolyBase incompatible rows to Blob or ADLS as normal as shown below.
+>- To load data into Azure Synapse Analytics (formerly SQL Data Warehouse) using PolyBase, configure PolyBase's native fault tolerance settings by specifying reject policies via "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" in copy activity. You can still enable redirecting PolyBase incompatible rows to Blob or ADLS as normal as shown below.
 >- This feature doesn't apply when copy activity is configured to invoke [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
->- This feature doesn't apply when copy activity is configured to invoke a [stored procedure from a SQL sink](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
+>- This feature doesn't apply when copy activity is configured to invoke a [stored procedure from a SQL sink](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink).
 
 ### Configuration
 The following example provides a JSON definition to configure skipping the incompatible rows in copy activity:
@@ -296,5 +296,3 @@ See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Copy activity performance](copy-activity-performance.md)
-
-

@@ -77,12 +77,12 @@ After you enable customer-managed keys, you need to associate the customer manag
     > 
     >   * If [Geo disaster recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you are looking to enable customer managed key, then 
     >     * Break the pairing
-    >     * [Set up the access policy](../key-vault/general/managed-identity.md) for the managed identity for both the primary and secondary namespaces to the key vault.
+    >     * [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for both the primary and secondary namespaces to the key vault.
     >     * Set up encryption on the primary namespace.
     >     * Re-pair the primary and secondary namespaces.
     > 
     >   * If you are looking to enable Geo-DR on a Service Bus namespace where customer managed key is already set up, then -
-    >     * [Set up the access policy](../key-vault/general/managed-identity.md) for the managed identity for the secondary namespace to the key vault.
+    >     * [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for the secondary namespace to the key vault.
     >     * Pair the primary and secondary namespaces.
 
 

@@ -13,14 +13,14 @@ ms.service: signalr
 
 # Reacting to Azure SignalR Service events
 
-Azure SignalR Service events allow applications to react to client connections connected or disconnected using modern serverless architectures. It does so without the need for complicated code or expensive and inefficient polling services.  Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), or even to your own custom http listener, and you only pay for what you use.
+Azure SignalR Service events allow applications to react to client connections connected or disconnected using modern serverless architectures. It does so without the need for complicated code or expensive and inefficient polling services.  Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), or even to your own custom http listener. With Azure SignalR, you only pay for what you consume.
 
-Azure SignalR Service events are reliably sent to the Event Grid service which provides reliable delivery services to your applications through rich retry policies and dead-letter delivery. To learn more, see [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
+Azure SignalR Service events are reliably sent to the Event Grid service which provides reliable delivery services to your applications through rich retry policies and dead-letter delivery. To learn more, see [Event Grid message delivery and retry](../event-grid/delivery-and-retry.md).
 
-![Event Grid Model](https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png)
+![Event Grid Model](/azure/event-grid/media/overview/functional-model.png)
 
 ## Serverless state
-Azure SignalR Service events are only active when client connections are in serverless state. Generally speaking, if a client doesn't route to a hub server, it goes into the serverless state. Classic mode work only when the hub, that client connections connect to, doesn't have a hub server. However, serverless mode is recommended to avoid some problem. To learn more details about service mode, see [How to choose Service Mode](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose).
+Azure SignalR Service events are only active when client connections are in a serverless state. If a client does not route to a hub server, it goes into the serverless state. Classic mode only works when the hub that client connections connect to doesn't have a hub server. Serverless mode is recommended as a best practice. To learn more details about service mode, see [How to choose Service Mode](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose).
 
 ## Available Azure SignalR Service events
 Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Azure SignalR Service event subscriptions support two types of events:  

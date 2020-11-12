@@ -4,6 +4,7 @@ description: Learn how software plan discounts are applied to software on virtua
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: banders

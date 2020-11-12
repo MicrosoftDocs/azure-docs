@@ -7,7 +7,7 @@ manager: jillfra
 ms.assetid: da587aac-5e64-4e9a-8405-44cc1924881d
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.custom: vs-azure
+ms.custom: "vs-azure, devx-track-csharp"
 ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016

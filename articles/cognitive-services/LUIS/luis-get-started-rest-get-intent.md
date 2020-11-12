@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Use cURL and REST to get intent - LUIS"
 titleSuffix: Azure Cognitive Services
-description: In this REST API quickstart, use an available public LUIS app to determine a user's intention from conversational text.
+description: In this REST API quickstart, use cURL and REST to determine a user's intention from conversational text.
 services: cognitive-services
 author: nitinme
 manager: diberry

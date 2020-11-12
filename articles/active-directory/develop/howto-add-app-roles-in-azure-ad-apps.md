@@ -119,11 +119,11 @@ Once you've added app roles in your application, you can assign users and groups
 
 When the users assigned to the various app roles sign in to the application, their tokens will have their assigned roles in the `roles` claim.
 
-## More information
+## Next steps
 
 - [Add authorization using app roles & roles claims to an ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Implement authorization in your applications with Microsoft identity platform (Video)](https://www.youtube.com/watch?v=LRoc-na27l0)
+- [Implement authorization in your applications with Microsoft identity platform (Video)](https://www.youtube.com/watch?v=HdBSBSbgYQQ)
 - [Azure Active Directory, now with Group Claims and Application Roles](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory app manifest](./reference-app-manifest.md)
-- [AAD Access tokens](access-tokens.md)
-- [AAD `id_tokens`](id-tokens.md)
+- [Azure AD Access tokens](access-tokens.md)
+- [Azure AD `id_tokens`](id-tokens.md)

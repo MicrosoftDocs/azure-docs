@@ -103,7 +103,7 @@ For triggers that run when records are updated, such as the **When a record is u
 
 1. In the trigger, from the **Add new parameter** list, select **Attribute Filters**.
 
-   ![Add "Attribute Filters" property](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
+   ![Screenshot that shows the "When a record is updated" action and the opened "Add new parameter" list with the "Attribute Filters" property selected.](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
 1. For each **Attribute Filters Item**, select the attribute that you want to monitor for updates, for example:
 

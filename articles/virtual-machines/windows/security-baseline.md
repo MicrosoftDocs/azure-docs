@@ -6,7 +6,7 @@ ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -30,7 +30,7 @@ For more information, see [Azure Security Baselines overview](../../security/ben
 
 Alternatively, if you have a specific use case for a centralized firewall, Azure Firewall can also be used to meet those requirements.
 
-* [Virtual networks and virtual machines in Azure](./network-overview.md)
+* [Virtual networks and virtual machines in Azure](../network-overview.md)
 
 * [How to create a Virtual Network](../../virtual-network/quick-create-portal.md)
 
@@ -78,7 +78,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 * [How to deploy Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Understand Azure Security Center Integrated Threat Intelligence](../../security-center/threat-protection.md)
+* [Understand Azure Security Center Integrated Threat Intelligence](../../security-center/azure-defender.md)
 
 * [Understand Azure Security Center Adaptive Network Hardening](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -144,7 +144,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../../governance/policy/samples/built-in-policies.md#network)
 
 * [How to create an Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -178,7 +178,7 @@ Use Azure Policy to validate (and/or remediate) configurations for network resou
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -250,7 +250,7 @@ If your organization would like to retain the security event log data from the v
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing virtual machine logs has the log retention period set according to your organization's compliance regulations.
 
-* [How to monitor virtual machines in Azure](./monitor.md)
+* [How to monitor virtual machines in Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 * [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/platform/manage-cost-storage.md)
 
@@ -456,7 +456,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to perform custom queries in Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-* [How to monitor virtual machines in Azure](./monitor.md)
+* [How to monitor virtual machines in Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -506,7 +506,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../../governance/management-groups/create.md)
+* [How to create Management Groups](../../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
@@ -608,7 +608,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure Virtual Machines. Use Azure Security recommended or third-party solution for performing vulnerability assessments for your virtual machines.
 
-* [How to implement Azure Security Center vulnerability assessment recommendations](../../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [How to implement Azure Security Center vulnerability assessment recommendations](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -690,7 +690,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 * [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../../governance/management-groups/create.md)
+* [How to create Management Groups](../../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
@@ -748,7 +748,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [An introduction to Azure Automation](../../automation/automation-intro.md)
 
-* [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking.md)
+* [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking/overview.md)
 
 * [Azure Automation State Configuration Overview](../../automation/automation-dsc-overview.md)
 
@@ -773,7 +773,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -815,13 +815,13 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 **Guidance**: High risk applications deployed in your Azure environment may be isolated using virtual network, subnet, subscriptions, management groups etc. and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG).
 
-* [Virtual networks and virtual machines in Azure](./network-overview.md)
+* [Virtual networks and virtual machines in Azure](../network-overview.md)
 
 * [Azure Firewall overview](../../firewall/overview.md)
 
 * [Web Application Firewall overview](../../web-application-firewall/overview.md)
 
-* [Network security overview](../../virtual-network/security-overview.md)
+* [Network security overview](../../virtual-network/network-security-groups-overview.md)
 
 * [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md)
 
@@ -971,7 +971,9 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 * [How to create a Key Vault](../../key-vault/secrets/quick-create-portal.md)
 
-* [How to provide Key Vault authentication with a managed identity](../../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](../../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Yes
 

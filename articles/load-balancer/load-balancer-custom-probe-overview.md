@@ -39,7 +39,7 @@ Health probes support multiple protocols. The availability of a specific health 
 
 ## <a name="probes"></a>Probe configuration
 
-Health probe configuration consists out of the following elements:
+Health probe configuration consists of the following elements:
 
 - Duration of the interval between individual probes
 - Number of probe responses which have to be observed before the probe transitions to a different state
@@ -258,6 +258,6 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 ## Next steps
 
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
-- [Get started creating a public load balancer in Resource Manager by using PowerShell](quickstart-create-standard-load-balancer-powershell.md)
+- [Get started creating a public load balancer in Resource Manager by using PowerShell](quickstart-load-balancer-standard-public-powershell.md)
 - [REST API for health probes](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Request new health probe abilities with [Load Balancer's Uservoice](https://aka.ms/lbuservoice)

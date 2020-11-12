@@ -1,8 +1,8 @@
 ---
 title: Migrate an HBase cluster to a new version - Azure HDInsight 
 description: How to migrate Apache HBase clusters to a newer version in Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
@@ -47,7 +47,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 
 1. [Set up a new destination HDInsight cluster](../hdinsight-hadoop-provision-linux-clusters.md) using the same storage account, but with a different container name:
 
-	![Use the same Storage account, but create a different Container](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
+   ![Use the same Storage account, but create a different Container](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
 1. Flush your source HBase cluster, which is the cluster you're upgrading. HBase writes incoming data to an in-memory store, called a _memstore_. After the memstore reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. When deleting the old cluster, the memstores are recycled, potentially losing data. To manually flush the memstore for each table to disk, run the following script. The latest version of this script is on Azure's [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh).
 
@@ -177,19 +177,49 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 
 	![Check the Turn On Maintenance Mode for HBase checkbox, then confirm](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
+1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.
+
+   Backup the WAL dir under HDFS by running below commands from an ssh session on any of the zookeeper nodes or worker nodes of the original cluster.
+   
+   ```bash
+   hdfs dfs -mkdir /hbase-wal-backup**
+   hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup**
+   ```
+	
 1. Sign in to Ambari on the new HDInsight cluster. Change the `fs.defaultFS` HDFS setting to point to the container name used by the original cluster. This setting is under **HDFS > Configs > Advanced > Advanced core-site**.
 
-	![In Ambari, click Services > HDFS > Configs > Advanced](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
+   ![In Ambari, click Services > HDFS > Configs > Advanced](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
-	![In Ambari, change the container name](./media/apache-hbase-migrate-new-version/change-container-name.png)
+   ![In Ambari, change the container name](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
 1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.
 
    Change the `hbase.rootdir` path to point to the container of the original cluster.
 
-	![In Ambari, change the container name for HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+   ![In Ambari, change the container name for HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+	
+1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature, and only in cases where your original cluster was an HBase cluster with Enhanced Writes feature .
 
+   Clean the zookeeper and WAL FS data for this new cluster. Issue the following commands in any of the zookeeper nodes or worker nodes:
+
+   ```bash
+   hbase zkcli
+   rmr /hbase-unsecure
+   quit
+
+   hdfs dfs -rm -r hdfs://mycluster/hbasewal**
+   ```
+
+1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.
+   
+   Restore the WAL dir to the new cluster's HDFS from an ssh session on  any of the zookeeper nodes or worker nodes of the new cluster.
+   
+   ```bash
+   hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
+   ```
+   
 1. If you're upgrading HDInsight 3.6 to 4.0, follow the steps below, otherwise skip to step 10:
+
     1. Restart all required services in Ambari by selecting	**Services** > **Restart All Required**.
     1. Stop the HBase service.
     1. SSH to the Zookeeper node, and execute the [zkCli](https://github.com/go-zkcli/zkcli) command `rmr /hbase-unsecure` to remove the HBase root znode from Zookeeper.

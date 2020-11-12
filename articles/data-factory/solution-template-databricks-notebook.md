@@ -23,7 +23,7 @@ In this tutorial, you create an end-to-end pipeline that contains the **Validati
 
 - **Copy data** duplicates the source dataset to the sink storage, which is mounted as DBFS in the Azure Databricks notebook. In this way, the dataset can be directly consumed by Spark.
 
-- **Notebook** triggers the Databricks notebook that transforms the dataset. It also adds the dataset to a processed folder or Azure SQL Data Warehouse.
+- **Notebook** triggers the Databricks notebook that transforms the dataset. It also adds the dataset to a processed folder or Azure Azure Synapse Analytics (formerly SQL Data Warehouse).
 
 For simplicity, the template in this tutorial doesn't create a scheduled trigger. You can add one if necessary.
 

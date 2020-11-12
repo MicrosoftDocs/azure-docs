@@ -6,10 +6,10 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 08/31/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
@@ -17,6 +17,10 @@ ms.collection: M365-identity-device-management
 # Optimize reauthentication prompts and understand session lifetime for Azure Multi-Factor Authentication
 
 Azure Active Directory (Azure AD) has multiple settings that determine how often users need to reauthenticate. This reauthentication could be with a first factor such as password, FIDO, or passwordless Microsoft Authenticator, or to perform multi-factor authentication (MFA). You can configure these reauthentication settings as needed for your own environment and the user experience you want.
+
+The Azure AD default configuration for user sign-in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire. If users are trained to enter their credentials without thinking, they can unintentionally supply them to a malicious credential prompt.
+
+It might sound alarming to not ask for a user to sign back in, though any violation of IT policies revokes the session. Some examples include a password change, an incompliant device, or an account disable operation. You can also explicitly [revoke users' sessions using PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
 This article details recommended configurations and how different settings work and interact with each other.
 
@@ -28,9 +32,10 @@ To give your users the right balance of security and ease of use by asking them 
     * Enable single sign-on (SSO) across applications using [managed devices](../devices/overview.md) or [Seamless SSO](../hybrid/how-to-connect-sso.md).
     * If reauthentication is required, use a Conditional Access [sign-in Frequency policy](../conditional-access/howto-conditional-access-session-lifetime.md).
     * For users that sign in from non-managed devices or mobile device scenarios, use Conditional Access to enable persistent browser sessions and sign-in frequency policies.
-* If you have Office 365 apps licenses or the free Azure AD tier:
+* If you have Microsoft 365 apps licenses or the free Azure AD tier:
     * Enable single sign-on (SSO) across applications using [managed devices](../devices/overview.md) or [Seamless SSO](../hybrid/how-to-connect-sso.md).
     * Keep the *Remain signed-in* option enabled and guide your users to accept it.
+* For mobile devices scenarios, make sure your users use the Microsoft Authenticator app. This app is used as a broker to other Azure AD federated apps, and reduces authentication prompts on the device.
 
 Our research shows that these settings are right for most tenants. Some combinations of these settings, such as *Remember MFA* and *Remain singed-in*, can result in prompts for your users to authenticate too often. Regular reauthentication prompts are bad for user productivity and can make them more vulnerable to attacks.
 
@@ -41,6 +46,8 @@ To optimize the frequency of authentication prompts for your users, you can conf
 ### Evaluate session lifetime policies
 
 Without any session lifetime settings, there are no persistent cookies in the browser session. Every time a user closes and open the browser, they get a prompt for reauthentication. In Office clients, the default time period is a rolling window of 90 days. With this default Office configuration, if the user has reset their password or there has been inactivity of over 90 days, the user is required to reauthenticate with all required factors (first and second factor).
+
+A user might see multiple MFA prompts on a device that doesn't have an identity in Azure AD. Multiple prompts result when each application has its own OAuth Refresh Token that isn't shared with other client apps. In this scenario, MFA prompts multiple times as each application requests an OAuth Refresh Token to be validated with MFA.
 
 In Azure AD, the most restrictive policy for session lifetime determines when the user needs to reauthenticate. Consider the following scenario:
 
@@ -65,11 +72,11 @@ For more information on configuring the option to let users remain signed-in, se
 
 ### Remember Multi-Factor Authentication  
 
-This setting lets you configure values between 1-60 days and sets a persistent cookie on the browser when a user selects the **Don't ask again for X days** option at sign-in.
+This setting lets you configure values between 1-365 days and sets a persistent cookie on the browser when a user selects the **Don't ask again for X days** option at sign-in.
 
 ![Screenshot of example prompt to approve a sign-in request](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/approve-sign-in-request.png)
 
-While this setting reduces the number of authentications on web apps, it increases the number of authentications for modern authentication clients, such as Office clients. These clients normally prompt only after password reset or inactivity of 90 days. However, the maximum value of *Remember MFA* is 60 days. When used in combined with **Remain signed-in** or Conditional Access policies, it may increase the number of authentication requests.
+While this setting reduces the number of authentications on web apps, it increases the number of authentications for modern authentication clients, such as Office clients. These clients normally prompt only after password reset or inactivity of 90 days. However, setting this value to less than 90 days shortens the default MFA prompts for Office clients, and increases reauthentication frequency. When used in combined with **Remain signed-in** or Conditional Access policies, it may increase the number of authentication requests.
 
 If you use *Remember MFA* and have Azure AD Premium 1 licenses, consider migrating these settings to Conditional Access Sign-in Frequency. Otherwise, consider using *Keep me signed in?* instead.
 
@@ -110,15 +117,15 @@ To configure Conditional Access policies for sign-in frequency and persistent br
 1. Select **Security**, then **Conditional Access**.
 1. Configure a policy using the recommended session management options detailed in this article.
 
-To review token lifetimes, [use Azure AD PowerShell to query any Azure AD policies](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Disable any policies that you have in place.
+To review token lifetimes, [use Azure AD PowerShell to query any Azure AD policies](../develop/configure-token-lifetimes.md#prerequisites). Disable any policies that you have in place.
 
-If more than one setting is enabled in your tenant, we recommend updating your settings based on the licensing available for you. For example, if you have Azure AD premium licenses you should only use the Conditional Access policy of *Sign-in Frequency* and *Persistent browser session*. If you have Office 365 apps or Azure AD free licenses, you should use the *Remain signed-in?* configuration.
+If more than one setting is enabled in your tenant, we recommend updating your settings based on the licensing available for you. For example, if you have Azure AD premium licenses you should only use the Conditional Access policy of *Sign-in Frequency* and *Persistent browser session*. If you have Microsoft 365 apps or Azure AD free licenses, you should use the *Remain signed-in?* configuration.
 
 If you have enabled configurable token lifetimes, this capability will be removed soon. Plan a migration to a Conditional Access policy.
 
 The following table summarizes the recommendations based on licenses:
 
-|              | Azure AD Free and Office 365 apps | Azure AD Premium |
+|              | Azure AD Free and Microsoft 365 apps | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
 | **SSO**                      | [Azure AD join](../devices/concept-azure-ad-join.md) or [Hybrid Azure AD join](../devices/concept-azure-ad-join-hybrid.md), or [Seamless SSO](../hybrid/how-to-connect-sso.md) for unmanaged devices. | Azure AD join<br />Hybrid Azure AD join |
 | **Reauthentication settings** | Remain signed-in                  | Use Conditional Access policies for sign-in frequency and persistent browser session |

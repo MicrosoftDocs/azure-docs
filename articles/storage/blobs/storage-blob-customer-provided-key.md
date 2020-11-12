@@ -10,6 +10,7 @@ ms.date: 07/20/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Specify a customer-provided key on a request to Blob storage with .NET
@@ -70,5 +71,5 @@ async static Task UploadBlobWithClientKey(string accountName, string containerNa
 
 ## Next steps
 
+- [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md)
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
-- [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md)

@@ -1,22 +1,24 @@
 ---
-title: Text-to-speech - Speech service
+title: Text-to-speech overview - Speech service
 titleSuffix: Azure Cognitive Services
-description: The text-to-speech feature in the Speech service enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose preset voices or create your own custom voice.
+description: The text-to-speech feature in the Speech service enables your applications, tools, or devices to convert text into natural human-like synthesized speech. This article is an overview of the benefits and capabilities of the text-to-speech service.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 09/01/2020
 ms.author: trbye
+ms.custom: cog-serv-seo-aug-2020
+keywords: text to speech
 ---
 
 # What is text-to-speech?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Text-to-speech from the Speech service enables your applications, tools, or devices to convert text into human-like synthesized speech. Choose from standard and neural voices, or create a custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in a select number of languages and locales. For a full list of supported voices, languages, and locales, see [supported languages](language-support.md#text-to-speech).
+In this overview, you learn about the benefits and capabilities of the text-to-speech service, which enables your applications, tools, or devices to convert text into human-like synthesized speech. Choose from standard and neural voices, or create a custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in a select number of languages and locales. For a full list of supported voices, languages, and locales, see [supported languages](language-support.md#text-to-speech).
 
 > [!NOTE]
 > Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to the Speech service.
@@ -70,5 +72,5 @@ For detailed information, see [Pricing](https://azure.microsoft.com/pricing/deta
 
 ## Next steps
 
-- [Get a free Speech service subscription](get-started.md)
+- [Get a free Speech service subscription](overview.md#try-the-speech-service-for-free)
 - [Get the Speech SDK](speech-sdk.md)

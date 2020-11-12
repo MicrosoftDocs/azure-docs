@@ -62,7 +62,7 @@ Next, you'll need to enable Active Directory (AD) authentication. To enable this
 
 1. Remote Desktop Protocol into the domain-joined VM.
 
-2. Follow the instructions in [Enable Azure AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md) to install the AzFilesHybrid module and enable authentication.
+2. Follow the instructions in [Enable AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md) to install the AzFilesHybrid module and enable authentication.
 
 3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Active Directory (AD)** is set to **Enabled**.
 
@@ -80,7 +80,7 @@ To configure share level permissions, assign each user a role with the appropria
 >[!NOTE]
 >The accounts or groups you assign permissions to should have been created in the domain and synchronized with Azure AD. Accounts created in Azure AD won't work.
 
-To assign role-based access control (RBAC) permissions:
+To assign Azure role-based access control (Azure RBAC) permissions:
 
 1. Open the Azure portal.
 
@@ -100,7 +100,7 @@ To assign role-based access control (RBAC) permissions:
 
 ## Assign users permissions on the Azure file share
 
-Once you've assigned RBAC permissions to your users, next you'll need to configure the NTFS permissions.
+Once you've assigned Azure RBAC permissions to your users, next you'll need to configure the NTFS permissions.
 
 You'll need to know two things from the Azure portal to get started:
 
@@ -145,15 +145,15 @@ To configure your NTFS permissions:
 
 1. Open a command prompt on a domain-joined VM.
 
-2. Run the following cmdlet to mount the Azure file share and assign it a drive letter:
+2. Run the following command to mount the Azure file share and assign it a drive letter:
 
-     ```powershell
-     net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
+     ```cmd
+     net use <desired-drive-letter>: <UNC-path> <SA-key> /user:Azure\<SA-name>
      ```
 
-3. Run the following cmdlet to review the access permissions to the Azure file share:
+3. Run the following command to review the access permissions to the Azure file share:
 
-    ```powershell
+    ```cmd
     icacls <mounted-drive-letter>:
     ```
 
@@ -161,9 +161,9 @@ To configure your NTFS permissions:
 
     Both *NT Authority\Authenticated Users* and *BUILTIN\Users* have certain permissions by default. These default permissions let these users read other users' profile containers. However, the permissions described in [Configure storage permissions for use with Profile Containers and Office Containers](/fslogix/fslogix-storage-config-ht) don't let users read each others' profile containers.
 
-4. Run the following cmdlets to let your Windows Virtual Desktop users create their own profile containers while blocking access to their profile container from other users.
+4. Run the following commands to allow your Windows Virtual Desktop users to create their own profile container while blocking access to their profile containers from other users.
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
@@ -175,7 +175,7 @@ To configure your NTFS permissions:
 
      For example:
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"

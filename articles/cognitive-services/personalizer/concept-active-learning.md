@@ -1,6 +1,8 @@
 ---
 title: Learning policy - Personalizer
 description: Learning settings determine the *hyperparameters* of the model training. Two models of the same data that are trained on different learning settings will end up different.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
 ---

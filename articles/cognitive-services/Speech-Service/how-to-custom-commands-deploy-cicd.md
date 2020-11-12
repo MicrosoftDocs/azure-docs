@@ -67,7 +67,7 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
 1. Note that these scripts assume that you are using the region `westus2`, if that's not the case update the arguments of the tasks accordingly
 
     > [!div class="mx-imgBorder"]
-    > ![Send Activity payload](media/custom-commands/cicd-new-pipeline-yaml.png)
+    > ![Screenshot that highlights the region value in the arguments.](media/custom-commands/cicd-new-pipeline-yaml.png)
 
 1. In the "Save and run" button, open the dropdown and click "Save"
 

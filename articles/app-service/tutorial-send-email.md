@@ -80,7 +80,8 @@ Deploy an app with the language framework of your choice to App Service. To foll
 1. At the bottom of the designer, click **New step**, type **Gmail** in the actions search box and find and select **Send email (V2)**.
     
     > [!TIP]
-    > You can search for other types of integrations, such as SendGrid, MailChimp, Office 365, and SalesForce. For more information, see [Logic Apps documentation](https://docs.microsoft.com/azure/logic-apps/).
+    > You can search for other types of integrations, such as SendGrid, MailChimp, Microsoft 365, and SalesForce. For more information, see [Logic Apps documentation](../logic-apps/index.yml).
+
 1. In the **Gmail** dialog, select **Sign in** and sign in to the Gmail account you want to send the email from.
 
     ![Screenshot that shows the Gmail dialog box that you use to sign into the Gmail account you want to send email from.](./media/tutorial-send-email/gmail-sign-in.png)
@@ -148,7 +149,7 @@ Click on the preferred language/framework tab below to see an example.
 
 ### [ASP.NET](#tab/dotnet)
 
-In ASP.NET, you can send the HTTP post with the [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) class. For example:
+In ASP.NET, you can send the HTTP post with the [System.Net.Http.HttpClient](/dotnet/api/system.net.http.httpclient) class. For example:
 
 ```csharp
 // requires using System.Net.Http;
@@ -173,7 +174,7 @@ If you're testing this code on the sample app for [Tutorial: Build an ASP.NET ap
 
 ### [ASP.NET Core](#tab/dotnetcore)
 
-In ASP.NET Core, you can send the HTTP post with the [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) class. For example:
+In ASP.NET Core, you can send the HTTP post with the [System.Net.Http.HttpClient](/dotnet/api/system.net.http.httpclient) class. For example:
 
 ```csharp
 // requires using System.Net.Http;
@@ -195,7 +196,7 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> This code is written for simplicity of demonstration. In practice, don't instantiate an `HttpClient` object for each request. Follow the guidance at [Use IHttpClientFactory to implement resilient HTTP requests](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+> This code is written for simplicity of demonstration. In practice, don't instantiate an `HttpClient` object for each request. Follow the guidance at [Use IHttpClientFactory to implement resilient HTTP requests](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 If you're testing this code on the sample app for [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md), you could use it to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), after the `Todo` item is added.
 

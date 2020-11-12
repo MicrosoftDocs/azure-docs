@@ -2,10 +2,10 @@
 title: Enabling end to end TLS on Azure Application Gateway
 description: This article is an overview of the Application Gateway end to end TLS support.
 services: application-gateway
-author: amsriva
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 5/13/2020
+ms.date: 08/21/2020
 ms.author: victorh
 
 ---
@@ -25,7 +25,7 @@ Application Gateway supports TLS termination at the gateway, after which traffic
 To configure TLS termination, a TLS/SSL certificate is required to be added to the listener to enable the Application Gateway to derive a symmetric key as per TLS/SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. The TLS/SSL certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic.
 
 > [!IMPORTANT] 
-> Please note that the certificate on the listener requires the entire certificate chain to be uploaded. 
+> The certificate on the listener requires the entire certificate chain to be uploaded (the root certificate from the CA, the intermediates and the leaf certificate) to establish the chain of trust. 
 
 
 > [!NOTE] 
@@ -46,10 +46,10 @@ Application gateway supports the following types of certificates:
 - Wildcard Certificate: This certificate supports any number of subdomains based on *.site.com, where your subdomain would replace the *. It doesn’t, however, support site.com, so in case the users are accessing your website without typing the leading "www", the wildcard certificate will not cover that.
 - Self-Signed certificates: Client browsers do not trust these certificates and will warn the user that the virtual service’s certificate is not part of a trust chain. Self-signed certificates are good for testing or environments where administrators control the clients and can safely bypass the browser’s security alerts. Production workloads should never use self-signed certificates.
 
-For more information, see [configure TLS termination with application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+For more information, see [configure TLS termination with application gateway](./create-ssl-portal.md).
 
 ### Size of the certificate
-Check the [Application Gateway limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) section to know the maximum TLS/SSL certificate size supported.
+Check the [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits) section to know the maximum TLS/SSL certificate size supported.
 
 ## End-to-end TLS encryption
 
@@ -57,7 +57,7 @@ You may not want unencrypted communication to the backend servers. You may have 
 
 End-to-end TLS allows you to encrypt and securely transmit sensitive data to the backend while you use Application Gateway's Layer-7 load-balancing features. These features include cookie-based session affinity, URL-based routing, support for routing based on sites, the ability to rewrite or inject X-Forwarded-* headers, and so on.
 
-When configured with end-to-end TLS communication mode, Application Gateway terminates the TLS sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application Gateway then initiates a new TLS connection to the backend server and re-encrypts data using the backend server's public key certificate before transmitting the request to the backend. Any response from the web server goes through the same process back to the end user. End-to-end TLS is enabled by setting protocol setting in [Backend HTTP Setting](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) to HTTPS, which is then applied to a backend pool.
+When configured with end-to-end TLS communication mode, Application Gateway terminates the TLS sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application Gateway then initiates a new TLS connection to the backend server and re-encrypts data using the backend server's public key certificate before transmitting the request to the backend. Any response from the web server goes through the same process back to the end user. End-to-end TLS is enabled by setting protocol setting in [Backend HTTP Setting](./configuration-overview.md#http-settings) to HTTPS, which is then applied to a backend pool.
 
 For the Application Gateway and WAF v1 SKU, the TLS policy applies to both frontend and backend traffic. On the front end, Application Gateway acts as the server and enforces the policy. On the backend, Application Gateway acts as the client and sends the protocol/cipher information as the preference during the TLS handshake.
 

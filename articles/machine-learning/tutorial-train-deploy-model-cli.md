@@ -12,11 +12,11 @@ ms.date: 03/26/2020
 ---
 
 # Tutorial: Train and deploy a model from the CLI
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this tutorial, you use the machine learning extension for the Azure CLI to train, register, and deploy a model.
 
-The Python training scripts in this tutorial use [scikit-learn](https://scikit-learn.org/) to train a basic model. The focus of this tutorial is not on the scripts or the model, but the process of using the CLI to work with Azure Machine Learning.
+The Python training scripts in this tutorial use [scikit-learn](https://scikit-learn.org/) to train a simple model. The focus of this tutorial is not on the scripts or the model, but the process of using the CLI to work with Azure Machine Learning.
 
 Learn how to take the following actions:
 
@@ -34,7 +34,7 @@ Learn how to take the following actions:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
     If you use the [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
 
@@ -70,7 +70,7 @@ The repository contains the following files, which are used to deploy the traine
 
 ## Connect to your Azure subscription
 
-There are several ways that you can authenticate to your Azure subscription from the CLI. The most basic is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
+There are several ways that you can authenticate to your Azure subscription from the CLI. The most simple is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
 
 ```azurecli-interactive
 az login
@@ -96,7 +96,7 @@ az extension update -n azure-cli-ml
 
 ## Create a resource group
 
-A resource group is a basic container of resources on the Azure platform. When working with the Azure Machine Learning, the resource group will contain your Azure Machine Learning workspace. It will also contain other Azure services used by the workspace. For example, if you train your model using a cloud-based compute resource, that resource is created in the resource group.
+A resource group is a container of resources on the Azure platform. When working with the Azure Machine Learning, the resource group will contain your Azure Machine Learning workspace. It will also contain other Azure services used by the workspace. For example, if you train your model using a cloud-based compute resource, that resource is created in the resource group.
 
 To __create a new resource group__, use the following command. Replace `<resource-group-name>` with the name to use for this resource group. Replace `<location>` with the Azure region to use for this resource group:
 
@@ -123,7 +123,7 @@ The response from this command is similar to the following JSON:
 }
 ```
 
-For more information on working with resource groups, see [az group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
+For more information on working with resource groups, see [az group](//cli/azure/group?preserve-view=true&view=azure-cli-latest).
 
 ## Create a workspace
 
@@ -295,7 +295,7 @@ The runconfig file also contains information used to configure the environment u
 > [!TIP]
 > While it is possible to manually create a runconfig file, the one in this example was created using the `generate-runconfig.py` file included in the repository. This file gets a reference to the registered dataset, creates a run config programatically, and then persists it to file.
 
-For more information on run configuration files, see [Set up and use compute targets for model training](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). For a complete JSON reference, see the [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+For more information on run configuration files, see [Use compute targets for model training](how-to-set-up-training-targets.md#whats-a-run-configuration). For a complete JSON reference, see the [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## Submit the training run
 

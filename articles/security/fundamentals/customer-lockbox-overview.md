@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/04/2019
+ms.date: 09/15/2020
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -20,6 +20,50 @@ Customer Lockbox for Microsoft Azure provides an interface for customers to revi
 This article covers how Customer Lockbox requests are initiated, tracked, and stored for later reviews and audits.
 
 Customer Lockbox is now generally available and currently enabled for remote desktop access to virtual machines.
+
+## Supported services and scenarios in preview
+
+The following services are now currently in preview for Customer Lockbox:
+
+- API Management
+​- Azure App Service​​
+- Cognitive Services
+- Container Registry
+- Azure Database for MySQL​
+- Azure Databricks
+- Azure Data Box
+- Azure Data Explorer
+- Azure Data Factory
+- Azure Database for PostgreSQL
+- Azure Functions
+- HDInsight
+- Azure Kubernetes Service
+- Azure Monitor
+- Azure Storage
+- Azure SQL DB
+- Azure subscription transfers
+- Azure Synapse Analytics
+- Virtual machines (now also covering access to memory dumps and managed disks)
+
+To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
+
+## Supported services and scenarios in general availability
+
+The following services and scenarios are currently in general availability for Customer Lockbox.
+
+### Remote desktop access to virtual machines
+
+Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. The following workloads are supported:
+- Platform as a service (PaaS) - Azure Cloud Services (web role and worker role)
+- Infrastructure as a service (IaaS) - Windows and Linux (Azure Resource Manager only)
+- Virtual machine scale set - Windows and Linux
+
+> [!NOTE]
+> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+
+#### Detailed audit logs
+
+For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 
 ## Workflow
 
@@ -86,40 +130,9 @@ As an example:
 
 ![Azure Customer Lockbox - activity logs](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## Supported services and scenarios in general availability
+## Customer Lockbox integration with Azure Security Benchmark
 
-The following services and scenarios are currently in general availability for Customer Lockbox.
-
-### Remote desktop access to virtual machines
-
-Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. The following workloads are supported:
-- Platform as a service (PaaS) - Azure Cloud Services (web role and worker role)
-- Infrastructure as a service (IaaS) - Windows and Linux (Azure Resource Manager only)
-- Virtual machine scale set - Windows and Linux
-
-> [!NOTE]
-> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
-
-#### Detailed audit logs
-
-For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md).
-
-## Supported services and scenarios in preview
-
-The following services are now currently in preview for Customer Lockbox:
-
-- Azure Storage
-
-- Azure SQL DB
-
-- Azure Data Explorer
-
-- Virtual machines (now also covering access to memory dumps and managed disks)
-
-- Azure subscription transfers
-
-To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
-
+We've introduced a new baseline control ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) in Azure Security Benchmark that covers Customer Lockbox applicability. Customers can now leverage benchmark to review Customer Lockbox applicability for a service.
 
 ## Exclusions
 

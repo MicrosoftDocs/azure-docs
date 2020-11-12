@@ -11,7 +11,7 @@ tags: connectors
 
 # Manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Office 365 Outlook connector](/connectors/office365connector/), you can create automated tasks and workflows that manage your Office 365 account by building logic apps. For example, you automate these tasks:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Office 365 Outlook connector](/connectors/office365connector/), you can create automated tasks and workflows that manage your work or school account by building logic apps. For example, you automate these tasks:
 
 * Get, send, and reply to email. 
 * Schedule meetings on your calendar.
@@ -27,9 +27,9 @@ You can use any trigger to start your workflow, for example, when a new email ar
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* An [Office 365 account](https://www.office.com/)
+* A [work or school account](https://www.office.com/)
 
-* The logic app where you want to access your Office 365 Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
+* The logic app where you want to access your work or school account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
 
 ## Add a trigger
 
@@ -41,7 +41,7 @@ A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event
    
    ![Select trigger to start your logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. If you're prompted to sign in, provide your Office 365 credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the trigger's properties.
+1. If you're prompted to sign in, provide your work or school credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the trigger's properties.
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
@@ -75,7 +75,7 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
    ![Select the action to run in your logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. If you're prompted to sign in, provide your Office 365 credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the action's properties.
+1. If you're prompted to sign in, provide your work or school credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the action's properties.
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 

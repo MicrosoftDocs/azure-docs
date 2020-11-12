@@ -3,7 +3,7 @@ title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Application Insights API for custom events and metrics

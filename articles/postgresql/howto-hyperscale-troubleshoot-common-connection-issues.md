@@ -22,7 +22,7 @@ Connection problems may be caused by several things, such as:
 * Service maintenance
 * The coordinator node failing over to new hardware
 
-Generally, connection issues to Hyperscale can be classified as follows:
+Generally, connection issues to Hyperscale (Citus) can be classified as follows:
 
 * Transient errors (short-lived or intermittent)
 * Persistent or non-transient errors (errors that regularly recur)
@@ -33,7 +33,7 @@ Transient errors occur for a number of reasons. The most common include system
 Maintenance, error with hardware or software, and coordinator node vCore
 upgrades.
 
-Enabling high availability for Hyperscale server group nodes can mitigate these
+Enabling high availability for Hyperscale (Citus) server group nodes can mitigate these
 types of problems automatically. However, your application should still be
 prepared to lose its connection briefly. Also other events can take longer to
 mitigate, such as when a large transaction causes a long-running recovery.
@@ -60,7 +60,7 @@ mitigate, such as when a large transaction causes a long-running recovery.
 If the application persistently fails to connect to Hyperscale (Citus), the
 most common causes are firewall misconfiguration or user error.
 
-* Coordinator node firewall configuration: Make sure that the Hyperscale server
+* Coordinator node firewall configuration: Make sure that the Hyperscale (Citus) server
   firewall is configured to allow connections from your client, including proxy
   servers and gateways.
 * Client firewall configuration: The firewall on your client must allow

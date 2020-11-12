@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: quickstart
 author: danimir
 ms.author: danil
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/26/2019
 ---
 # Quickstart: Create a managed instance of SQL Managed Instance
@@ -87,7 +87,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   | **Collation** | Choose the collation that you want to use for your managed instance. If you migrate databases from SQL Server, check the source collation by using `SELECT SERVERPROPERTY(N'Collation')` and use that value.| For information about collations, see [Set or change the server collation](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
+   | **Collation** | Choose the collation that you want to use for your managed instance. If you migrate databases from SQL Server, check the source collation by using `SELECT SERVERPROPERTY(N'Collation')` and use that value.| For information about collations, see [Set or change the server collation](/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Time zone** | Select the time zone that managed instance will observe.|For more information, see [Time zones](timezones-overview.md).|
    | **Use as failover secondary** | Select **Yes**. | Enable this option to use the managed instance as a failover group secondary.|
    | **Primary SQL Managed Instance** (if **Use as failover secondary** is set to **Yes**) | Choose an existing primary managed instance that will be joined in the same DNS zone with the managed instance you're creating. | This step will enable post-creation configuration of the failover group. For more information, see [Tutorial: Add a managed instance to a failover group](failover-group-add-instance-tutorial.md).|
@@ -118,7 +118,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 > 3. Select the SQL Managed Instance deployment operation in progress.
 
 > [!IMPORTANT]
-> - Creation of SQL Managed Instance is a long-running operation that might take a few hours at a time, depending on specific circumstances. See [Management operations duration](management-operations-overview.md#management-operations-duration) for typical creation times.
+> - Creation of SQL Managed Instance is a long-running operation that might take a few hours at a time, depending on specific circumstances. See [Management operations duration](management-operations-overview.md#duration) for typical creation times.
 > - Start of SQL Managed Instance creation could be delayed in cases when there exist other impacting operations, such are long-running restore or scaling operations on other Managed Instances in the same subnet. To learn more, see [Management operations cross-impact](management-operations-overview.md#management-operations-cross-impact).
 > - In order to be able to get the status of managed instance creation, you need to have **read permissions** over the resource group. If you don't have this permission or revoke it while the managed instance is in creation process, this can cause SQL Managed Instance not to be visible in the list of resource group deployments.
 >

@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # Enable and create large file shares
 
-When you enable large file shares on your storage account, your file shares can scale up to 100 TiB. You can enable this scaling on your existing storage accounts for your existing file shares.
+When you enable large file shares on your storage account, your file shares can scale up to 100 TiB, while also increasing IOPS and throughput limits for the standard shares. You can also enable this scaling on your existing storage accounts for your existing file shares. See [file share and file scale targets](storage-files-scale-targets.md#azure-files-scale-targets) for details. 
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - If you intend to use the Azure CLI, [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- If you intend to use Azure PowerShell, [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
+- If you intend to use the Azure PowerShell module, [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## Restrictions
 

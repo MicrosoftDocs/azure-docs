@@ -9,7 +9,7 @@ ms.author: batrived
 
 # Troubleshoot connectivity issues - Azure Event Grid
 
-There are various reasons for client applications not able to connect to an Event Grid topic/domain. The connectivity issues that you experience may be permanent or transient. If the issue happens all the time (permanent), you may want to check the your organization's firewall settings, IP firewall settings, service tags, private endpoints, and more. For transient issues, running commands to check dropped packets, and obtaining network traces may help with troubleshooting the issues.
+There are various reasons for client applications not able to connect to an Event Grid topic/domain. The connectivity issues that you experience may be permanent or transient. If the issue happens all the time (permanent), you may want to check your organization's firewall settings, IP firewall settings, service tags, private endpoints, and more. For transient issues, running commands to check dropped packets, and obtaining network traces may help with troubleshooting the issues.
 
 This article provides tips for troubleshooting connectivity issues with Azure Event Grid.
 
@@ -17,7 +17,7 @@ This article provides tips for troubleshooting connectivity issues with Azure Ev
 
 If the application isn't able to connect to the event grid at all, follow steps from this section to troubleshoot the issue.
 
-### Check if there is a service outage
+### Check if there's a service outage
 
 Check for the Azure Event Grid service outage on the [Azure service status site](https://azure.microsoft.com/status/).
 
@@ -43,14 +43,16 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 ### Verify that IP addresses are allowed in your corporate firewall
 
-When you are working with Azure, sometimes you have to allow specific IP address ranges or URLs in your corporate firewall or proxy to access all Azure services you are using or trying to use. Verify that the traffic is allowed on IP addresses used by Event Grid. For IP addresses used by Azure Event Grid: see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) and [Service tag - AzureEventGrid](network-security.md#service-tags).
+When you're working with Azure, sometimes you have to allow specific IP address ranges or URLs in your corporate firewall or proxy to access all Azure services you're using or trying to use. Verify that the traffic is allowed on IP addresses used by Event Grid. For IP addresses used by Azure Event Grid: see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) and [Service tag - AzureEventGrid](network-security.md#service-tags).
+
+The [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) document also lists IP addresses **by region**. You can allow address ranges for the **topic's region** and the **paired region** in your corporate firewall or proxy. For a paired region for a region, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions). 
 
 > [!NOTE]
 > New IP addresses could be added to AzureEventGrid service tag, though it's not usual. So it's good to do a weekly check on the service tags.
 
 ### Verify that AzureEventGrid service tag is allowed in your network security groups
 
-If your application is running inside a subnet and if there is a associated network security group, confirm if either internet outbound is allowed or AzureEventGrid service tag is allowed. Please see [Service Tags](../virtual-network/service-tags-overview.md)
+If your application is running inside a subnet and if there's an associated network security group, confirm if either internet outbound is allowed or AzureEventGrid service tag is allowed. See [Service Tags](../virtual-network/service-tags-overview.md)
 
 ### Check the IP Firewall settings for your Topic/Domain
 
@@ -58,13 +60,13 @@ Check that the public IP address of the machine on which the application is runn
 
 By default, Event Grid topics/domains are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
-The IP firewall rules are applied at the Event Grid topic/domain level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Grid topic/domain is rejected as forbidden. The response does not mention the IP rule.
+The IP firewall rules are applied at the Event Grid topic/domain level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that doesn't match an allowed IP rule on the Event Grid topic/domain is rejected as forbidden. The response doesn't mention the IP rule.
 
 For more information, see [Configure IP firewall rules for an Azure Event Grid topic/domain](configure-firewall.md).
 
 #### Find the IP addresses blocked by IP Firewall
 
-Enable diagnostic logs for Event Grid topic/domain [Enable diagnostic logs](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic). You will see the IP address for the connection that's denied.
+Enable diagnostic logs for Event Grid topic/domain [Enable diagnostic logs](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic). You'll see the IP address for the connection that's denied.
 
 ```json
 {
@@ -78,7 +80,7 @@ Enable diagnostic logs for Event Grid topic/domain [Enable diagnostic logs](enab
 
 ### Check if the EventGrid topic/domain can be accessed using only a private endpoint
 
-If the Event Grid topic/domain is configured to be accessible only via private endpoint, confirm that the client application is accessing the topic/domain over the private endpoint. To confirm this, check if the client application is running inside a subnet and there is a private endpoint for Event Grid topic/domain in that subnet.
+If the Event Grid topic/domain is configured to be accessible only via private endpoint, confirm that the client application is accessing the topic/domain over the private endpoint. To confirm it, check if the client application is running inside a subnet and there's a private endpoint for Event Grid topic/domain in that subnet.
 
 [Azure Private Link service](../private-link/private-link-overview.md) enables you to access Azure Event Grid over a **private endpoint** in your virtual network. A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
@@ -86,7 +88,7 @@ For more information, see [Configure private endpoints](configure-private-endpoi
 
 ## Troubleshoot transient connectivity issues
 
-If you are experiencing intermittent connectivity issues, go through the following sections for troubleshooting tips.
+If you're experiencing intermittent connectivity issues, go through the following sections for troubleshooting tips.
 
 ### Run the command to check dropped packets
 

@@ -3,13 +3,13 @@ title: Azure Resource Manager template samples - Azure Front Door
 description: Learn about Resource Manager template samples for Azure Front Door, including templates for creating a basic Front Door and configuring Front Door rate limiting.
 services: frontdoor
 documentationcenter: ""
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2020
-ms.author: sharadag
+ms.author: duau
 ---
 # Azure Resource Manager deployment model templates for Front Door
 

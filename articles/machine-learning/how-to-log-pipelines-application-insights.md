@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ---
 # Collect machine learning pipeline log files in Application Insights for alerts and debugging
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 The [OpenCensus](https://opencensus.io/quickstart/python/) python library can be used to route logs to Application Insights from your scripts. Aggregating logs from pipeline runs in one place allows you to build queries and diagnose issues. Using Application Insights will allow you to track logs over time and compare pipeline logs across runs.
 
@@ -32,7 +32,7 @@ Having your logs in once place will provide a history of exceptions and error me
 
 This section is an introduction specific to using OpenCensus from an Azure Machine Learning pipeline. For a detailed tutorial, see [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Add a PythonScriptStep to your Azure ML Pipeline. Configure your [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) with the dependency on opencensus-ext-azure. Configure the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable.
+Add a PythonScriptStep to your Azure ML Pipeline. Configure your [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) with the dependency on opencensus-ext-azure. Configure the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -147,7 +147,7 @@ The result in Application Insights will show the log message and level, file pat
 
 ### Additional helpful queries
 
-Some of the queries below use 'customDimensions.Level'. These severity levels correspond to the level the Python log was originally sent with. For additional query information, see [Azure Monitor Log Queries](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Some of the queries below use 'customDimensions.Level'. These severity levels correspond to the level the Python log was originally sent with. For additional query information, see [Azure Monitor Log Queries](/azure/data-explorer/kusto/query/).
 
 | Use case                                                               | Query                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -160,4 +160,4 @@ Some of the queries below use 'customDimensions.Level'. These severity levels co
 
 Once you have logs in your Application Insights instance, they can be used to set [Azure Monitor alerts](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) based on query results.
 
-You can also add results from queries to an [Azure Dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards#add-logs-analytics-query) for additional insights.
+You can also add results from queries to an [Azure Dashboard](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) for additional insights.

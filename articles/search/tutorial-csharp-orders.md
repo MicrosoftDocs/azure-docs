@@ -8,15 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
-ms.custom: devx-track-javascript
+ms.date: 10/02/2020
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Tutorial: Order search results using the .NET SDK
 
-Up until this point in our series of tutorials, results are returned and displayed in a default order. This can be the order in which the data is located, or possibly a default _scoring profile_ has been defined, which will be used when no ordering parameters are specified. In this tutorial, we will go into how to order results based on a primary property, and then for results that have the same primary property, how to order that selection on a secondary property. As an alternative to ordering based on numerical values, the final example shows how to order based on a custom scoring profile. We will also go a bit deeper into the display of _complex types_.
-
-In order to compare returned results easily, this project builds onto the infinite scrolling project created in the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md) tutorial.
+Throughout this tutorial series, results have been returned and displayed in a [default order](index-add-scoring-profiles.md#what-is-default-scoring). In this tutorial, you will add primary and secondary sort criteria. As an alternative to ordering based on numerical values, the final example shows how to rank results based on a custom scoring profile. We will also go a bit deeper into the display of _complex types_.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -25,34 +23,42 @@ In this tutorial, you learn how to:
 > * Filter results based on a distance from a geographical point
 > * Order results based on a scoring profile
 
+## Overview
+
+This tutorial extends the infinite scrolling project created in the [Add paging to search results](tutorial-csharp-paging.md) tutorial.
+
+A finished version of the code in this tutorial can be found in the following project:
+
+* [5-order-results (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/5-order-results)
+
 ## Prerequisites
 
-To complete this tutorial, you need to:
+* [2b-add-infinite-scroll (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2b-add-infinite-scroll) solution. This project can either be your own version built from the previous tutorial or a copy from GitHub.
 
-Have the infinite scrolling version of the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md) project up and running. This project can either be your own version, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+This tutorial has been updated to use the [Azure.Search.Documents (version 11)](https://www.nuget.org/packages/Azure.Search.Documents/) package. For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
 
 ## Order results based on one property
 
-When we order results based on one property, say hotel rating, we not only want the ordered results, we also want confirmation that the order is correct. In other words, if we order on rating, we should display the rating in the view.
+When ordering results based on one property, such as hotel rating, we not only want the ordered results, we also want confirmation that the order is correct. Adding the rating field to the results allows us to confirm the results are sorted correctly.
 
-In this tutorial, we will also add a bit more to the display of results, the cheapest room rate, and the most expensive room rate, for each hotel. As we delve into ordering, we will also be adding values to make sure what we are ordering on is also displayed in the view.
+In this exercise, we will also add a bit more to the display of results: the cheapest room rate, and the most expensive room rate, for each hotel.
 
-There is no need to modify any of the models to enable ordering. The view and the controller need updated. Start by opening the home controller.
+There is no need to modify any of the models to enable ordering. Only the view and the controller require updates. Start by opening the home controller.
 
 ### Add the OrderBy property to the search parameters
 
-1. All that it takes to order results based on a single numerical property, is to set the **OrderBy** parameter to the name of the property. In the **Index(SearchData model)** method, add the following line to the search parameters.
+1. Add the **OrderBy** option to the name of the property. In the **Index(SearchData model)** method, add the following line to the search parameters.
 
     ```cs
-        OrderBy = new[] { "Rating desc" },
+    OrderBy = new[] { "Rating desc" },
     ```
 
     >[!Note]
     > The default order is ascending, though you can add **asc** to the property to make this clear. Descending order is specified by adding **desc**.
 
-2. Now run the app, and enter any common search term. The results may or may not be in the correct order, as neither you as the developer, not the user, has any easy way of verifying the results!
+1. Now run the app, and enter any common search term. The results may or may not be in the correct order, as neither you as the developer, not the user, has any easy way of verifying the results!
 
-3. Let's make it clear the results are ordered on rating. First, replace the **box1** and **box2** classes in the hotels.css file with the following classes (these classes are all the new ones we need for this tutorial).
+1. Let's make it clear the results are ordered on rating. First, replace the **box1** and **box2** classes in the hotels.css file with the following classes (these classes are all the new ones we need for this tutorial).
 
     ```html
     textarea.box1A {
@@ -110,22 +116,22 @@ There is no need to modify any of the models to enable ordering. The view and th
     }
     ```
 
-    >[!Tip]
-    >Browsers usually cache css files, and this can lead to an old css file being used, and your edits ignored. A good way round this is to add a query string with a version parameter to the link. For example:
+    > [!Tip]
+    > Browsers usually cache css files, and this can lead to an old css file being used, and your edits ignored. A good way round this is to add a query string with a version parameter to the link. For example:
     >
     >```html
     >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
     >```
     >
-    >Update the version number if you think an old css file is being used by your browser.
+    > Update the version number if you think an old css file is being used by your browser.
 
-4. Add the **Rating** property to the **Select** parameter, in the **Index(SearchData model)** method.
+1. Add the **Rating** property to the **Select** parameter, in the **Index(SearchData model)** method.
 
     ```cs
     Select = new[] { "HotelName", "Description", "Rating"},
     ```
 
-5. Open the view (index.cshtml) and replace the rendering loop (**&lt;!-- Show the hotel data. --&gt;**) with the following code.
+1. Open the view (index.cshtml) and replace the rendering loop (**&lt;!-- Show the hotel data. --&gt;**) with the following code.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -140,7 +146,7 @@ There is no need to modify any of the models to enable ordering. The view and th
                 }
     ```
 
-6. The rating needs to be available both in the first displayed page, and in the subsequent pages that are called via the infinite scroll. For the latter of these two situations, we need to update both the **Next** action in the controller, and the **scrolled** function in the view. Starting with the controller, change the **Next** method to the following code. This code creates and communicates the rating text.
+1. The rating needs to be available both in the first displayed page, and in the subsequent pages that are called via the infinite scroll. For the latter of these two situations, we need to update both the **Next** action in the controller, and the **scrolled** function in the view. Starting with the controller, change the **Next** method to the following code. This code creates and communicates the rating text.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -168,7 +174,7 @@ There is no need to modify any of the models to enable ordering. The view and th
         }
     ```
 
-7. Now update the **scrolled** function in the view, to display the rating text.
+1. Now update the **scrolled** function in the view, to display the rating text.
 
     ```javascript
             <script>
@@ -190,7 +196,7 @@ There is no need to modify any of the models to enable ordering. The view and th
 
     ```
 
-8. Now run the app again. Search on any common term, such as "wifi", and verify that the results are ordered by descending order of hotel rating.
+1. Now run the app again. Search on any common term, such as "wifi", and verify that the results are ordered by descending order of hotel rating.
 
     ![Ordering based on rating](./media/tutorial-csharp-create-first-app/azure-search-orders-rating.png)
 
@@ -208,7 +214,7 @@ There is no need to modify any of the models to enable ordering. The view and th
         public double expensive { get; set; }
     ```
 
-2. Calculate the room rates at the end of the **Index(SearchData model)** action, in the home controller. Add the calculations after the storing of temporary data.
+1. Calculate the room rates at the end of the **Index(SearchData model)** action, in the home controller. Add the calculations after the storing of temporary data.
 
     ```cs
                 // Ensure TempData is stored for the next call.
@@ -239,13 +245,13 @@ There is no need to modify any of the models to enable ordering. The view and th
                 }
     ```
 
-3. Add the **Rooms** property to the **Select** parameter in the **Index(SearchData model)** action method of the controller.
+1. Add the **Rooms** property to the **Select** parameter in the **Index(SearchData model)** action method of the controller.
 
     ```cs
      Select = new[] { "HotelName", "Description", "Rating", "Rooms" },
     ```
 
-4. Change the rendering loop in the view to display the rate range for the first page of results.
+1. Change the rendering loop in the view to display the rate range for the first page of results.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -262,7 +268,7 @@ There is no need to modify any of the models to enable ordering. The view and th
                 }
     ```
 
-5. Change the **Next** method in the home controller to communicate the rate range, for subsequent pages of results.
+1. Change the **Next** method in the home controller to communicate the rate range, for subsequent pages of results.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -292,7 +298,7 @@ There is no need to modify any of the models to enable ordering. The view and th
         }
     ```
 
-6. Update the **scrolled** function in the view, to handle the room rates text.
+1. Update the **scrolled** function in the view, to handle the room rates text.
 
     ```javascript
             <script>
@@ -314,7 +320,7 @@ There is no need to modify any of the models to enable ordering. The view and th
             </script>
     ```
 
-7. Run the app, and verify the room rate ranges are displayed.
+1. Run the app, and verify the room rate ranges are displayed.
 
     ![Displaying room rate ranges](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
 
@@ -334,7 +340,7 @@ The question now is how to differentiate between hotels with the same rating. On
     >[!Tip]
     >Any number of properties can be entered in the **OrderBy** list. If hotels had the same rating and renovation date, a third property could be entered to differentiate between them.
 
-2. Again, we need to see the renovation date in the view, just to be certain the ordering is correct. For such a thing as a renovation, probably just the year is required. Change the rendering loop in the view to the following code.
+1. Again, we need to see the renovation date in the view, just to be certain the ordering is correct. For such a thing as a renovation, probably just the year is required. Change the rendering loop in the view to the following code.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -353,7 +359,7 @@ The question now is how to differentiate between hotels with the same rating. On
                 }
     ```
 
-3. Change the **Next** method in the home controller, to forward the year component of the last renovation date.
+1. Change the **Next** method in the home controller, to forward the year component of the last renovation date.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -385,7 +391,7 @@ The question now is how to differentiate between hotels with the same rating. On
         }
     ```
 
-4. Change the **scrolled** function in the view to display the renovation text.
+1. Change the **scrolled** function in the view to display the renovation text.
 
     ```javascript
             <script>
@@ -408,7 +414,7 @@ The question now is how to differentiate between hotels with the same rating. On
             </script>
     ```
 
-5. Run the app. Search on a common term, such as "pool" or "view", and verify that hotels with the same rating are now displayed in descending order of renovation date.
+1. Run the app. Search on a common term, such as "pool" or "view", and verify that hotels with the same rating are now displayed in descending order of renovation date.
 
     ![Ordering on renovation date](./media/tutorial-csharp-create-first-app/azure-search-orders-renovation.png)
 
@@ -427,13 +433,13 @@ To display results based on geographical distance, several steps are required.
         Filter = $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') le {model.radius}",
     ```
 
-2. The above filter does _not_ order the results based on distance, it just removes the outliers. To order the results, enter an **OrderBy** setting that specifies the geoDistance method.
+1. The above filter does _not_ order the results based on distance, it just removes the outliers. To order the results, enter an **OrderBy** setting that specifies the geoDistance method.
 
     ```cs
     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
     ```
 
-3. Although the results were returned by Azure Cognitive Search using a distance filter, the calculated distance between the data and the specified point is _not_ returned. Recalculate this value in the view, or controller, if you want to display it in the results.
+1. Although the results were returned by Azure Cognitive Search using a distance filter, the calculated distance between the data and the specified point is _not_ returned. Recalculate this value in the view, or controller, if you want to display it in the results.
 
     The following code will calculate the distance between two lat/lon points.
 
@@ -456,10 +462,10 @@ To display results based on geographical distance, several steps are required.
         }
     ```
 
-4. Now you have to tie these concepts together. However, these code snippets are as far as our tutorial goes, building a map-based app is left as an exercise for the reader. To take this example further, consider either entering a city name with a radius, or locating a point on a map, and selecting a radius. To investigate these options further, see the following resources:
+1. Now you have to tie these concepts together. However, these code snippets are as far as our tutorial goes, building a map-based app is left as an exercise for the reader. To take this example further, consider either entering a city name with a radius, or locating a point on a map, and selecting a radius. To investigate these options further, see the following resources:
 
-* [Azure Maps Documentation](https://docs.microsoft.com/azure/azure-maps/)
-* [Find an address using the Azure Maps search service](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
+* [Azure Maps Documentation](../azure-maps/index.yml)
+* [Find an address using the Azure Maps search service](../azure-maps/how-to-search-for-address.md)
 
 ## Order results based on a scoring profile
 
@@ -488,7 +494,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
 
     ```
 
-2. The following scoring profile boosts the score significantly, if a supplied parameter includes one or more of the list of tags (which we are calling "amenities"). The key point of this profile is that a parameter _must_ be supplied, containing text. If the parameter is empty, or is not supplied, an error will be thrown.
+1. The following scoring profile boosts the score significantly, if a supplied parameter includes one or more of the list of tags (which we are calling "amenities"). The key point of this profile is that a parameter _must_ be supplied, containing text. If the parameter is empty, or is not supplied, an error will be thrown.
  
     ```cs
             {
@@ -506,7 +512,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
         }
     ```
 
-3. In this third example, the rating gives a significant boost to the score. The last renovated date will also boost the score, but only if that data falls within 730 days (2 years) of the current date.
+1. In this third example, the rating gives a significant boost to the score. The last renovated date will also boost the score, but only if that data falls within 730 days (2 years) of the current date.
 
     ```cs
             {
@@ -543,7 +549,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
 
 1. Open the index.cshtml file, and replace the &lt;body&gt; section with the following code.
 
-    ```cs
+    ```html
     <body>
 
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
@@ -649,7 +655,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
     </body>
     ```
 
-2. Open the SearchData.cs file, and replace the **SearchData** class with the following code.
+1. Open the SearchData.cs file, and replace the **SearchData** class with the following code.
 
     ```cs
     public class SearchData
@@ -688,7 +694,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
     }
     ```
 
-3. Open the hotels.css file, and add the following HTML classes.
+1. Open the hotels.css file, and add the following HTML classes.
 
     ```html
     .facetlist {
@@ -718,7 +724,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
     using System.Linq;
     ```
 
-2.  For this example, we need the initial call to **Index** to do a bit more than just return the initial view. The method now searches for up to 20 amenities to display in the view.
+1. For this example, we need the initial call to **Index** to do a bit more than just return the initial view. The method now searches for up to 20 amenities to display in the view.
 
     ```cs
         public async Task<ActionResult> Index()
@@ -748,7 +754,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
         }
     ```
 
-3. We need two private methods to save the facets to temporary storage, and to recover them from temporary storage and populate a model.
+1. We need two private methods to save the facets to temporary storage, and to recover them from temporary storage and populate a model.
 
     ```cs
         // Save the facet text to temporary storage, optionally saving the state of the check boxes.
@@ -786,7 +792,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
         }
     ```
 
-4. We need to set the **OrderBy** and **ScoringProfile** parameters as necessary. Replace the existing **Index(SearchData model)** method, with the following.
+1. We need to set the **OrderBy** and **ScoringProfile** parameters as necessary. Replace the existing **Index(SearchData model)** method, with the following.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -943,19 +949,19 @@ Let's look at three examples of scoring profiles, and consider how each _should_
 
 1. Run the app. You should see a full set of amenities in the view.
 
-2. For ordering, selecting "By numerical Rating" will give you the numerical ordering you have already implemented in this tutorial, with renovation date deciding among hotels of equal rating.
+1. For ordering, selecting "By numerical Rating" will give you the numerical ordering you have already implemented in this tutorial, with renovation date deciding among hotels of equal rating.
 
-![Ordering "beach" based on rating](./media/tutorial-csharp-create-first-app/azure-search-orders-beach.png)
+   ![Ordering "beach" based on rating](./media/tutorial-csharp-create-first-app/azure-search-orders-beach.png)
 
-3. Now try the "By amenities" profile. Make various selections of amenities, and verify that hotels with those amenities are promoted up the results list.
+1. Now try the "By amenities" profile. Make various selections of amenities, and verify that hotels with those amenities are promoted up the results list.
 
-![Ordering "beach" based on profile](./media/tutorial-csharp-create-first-app/azure-search-orders-beach-profile.png)
+   ![Ordering "beach" based on profile](./media/tutorial-csharp-create-first-app/azure-search-orders-beach-profile.png)
 
-4. Try the "By Renovated date/Rating profile" to see if you get what you expect. Only recently renovated hotels should get a _freshness_ boost.
+1. Try the "By Renovated date/Rating profile" to see if you get what you expect. Only recently renovated hotels should get a _freshness_ boost.
 
 ### Resources
 
-For more information, see the following [Add scoring profiles to an Azure Cognitive Search index](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
+For more information, see the following [Add scoring profiles to an Azure Cognitive Search index](/azure/search/index-add-scoring-profiles).
 
 ## Takeaways
 
@@ -971,4 +977,4 @@ Consider the following takeaways from this project:
 
 You have completed this series of C# tutorials - you should have gained valuable knowledge of the Azure Cognitive Search APIs.
 
-For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure), or the other tutorials in the [Azure Cognitive Search Documentation](https://docs.microsoft.com/azure/search/).
+For further reference and tutorials, consider browsing [Microsoft Learn](/learn/browse/?products=azure), or the other tutorials in the [Azure Cognitive Search Documentation](./index.yml).

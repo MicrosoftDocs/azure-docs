@@ -16,19 +16,19 @@ This article will help you understand the process of creating private endpoints 
 - Private endpoints can be created for new Recovery Services vaults only (that don't have any items registered to the vault). So private endpoints must be created before you attempt to protect any items to the vault.
 - One virtual network can contain private endpoints for multiple Recovery Services vaults. Also, one Recovery Services vault can have private endpoints for it in multiple virtual networks. However, the maximum number of private endpoints that can be created for a vault is 12.
 - Once a private endpoint is created for a vault, the vault will be locked down. It won't be accessible (for backups and restores) from networks apart from ones that contain a private endpoint for the vault. If all private endpoints for the vault are removed, the vault will be accessible from all networks.
-- A private endpoint connection for Backup uses a total of 11 private IPs in your subnet. This number may be higher (up to 25) for certain Azure regions. So we suggest that you have enough private IPs available when you attempt to create private endpoints for Backup.
+- A private endpoint connection for Backup uses a total of 11 private IPs in your subnet, including those used by Azure Backup for storage. This number may be higher (up to 25) for certain Azure regions. So we suggest that you have enough private IPs available when you attempt to create private endpoints for Backup.
 - While a Recovery Services vault is used by (both) Azure Backup and Azure Site Recovery, this article discusses use of private endpoints for Azure Backup only.
 - Azure Active Directory doesn't currently support private endpoints. So IPs and FQDNs required for Azure Active Directory to work in a region will need to be allowed outbound access from the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Azure AD, as applicable.
 - Virtual networks with Network Policies aren't supported for Private Endpoints. You'll need to disable Network Polices before continuing.
-- You need to re-register the Recovery Services resource provider with the subscription if you registered it before May 1 2020. To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and click **Re-register**.
+- You need to re-register the Recovery Services resource provider with the subscription if you registered it before May 1 2020. To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and select **Re-register**.
 
 ## Recommended and supported scenarios
 
-While private endpoints are enabled for the vault, they're used for backup and restore of SQL and SAP HANA workloads in an Azure VM and MARS agent backup only. You can use the vault for backup of other workloads as well (they wouldn't require private endpoints though). In addition to backup of SQL and SAP HANA workloads and backup using the MARS agent, private endpoints are also used to perform file recovery in the case of Azure VM backup. For more information, see the following table:
+While private endpoints are enabled for the vault, they're used for backup and restore of SQL and SAP HANA workloads in an Azure VM and MARS agent backup only. You can use the vault for backup of other workloads as well (they won't require private endpoints though). In addition to backup of SQL and SAP HANA workloads and backup using the MARS agent, private endpoints are also used to perform file recovery for Azure VM backup. For more information, see the following table:
 
 | Backup of workloads in Azure VM (SQL, SAP HANA), Backup  using MARS Agent | Use of private endpoints is recommended to allow backup  and restore without needing to allow-list any IPs/FQDNs for Azure Backup or Azure  Storage  from your virtual networks. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Azure  VM backup**                                         | VM backup doesn't require you to allow access to any IPs or FQDNs. So it doesn't require private endpoints for backup and restore  of disks.  <br><br>   However, file recovery from a vault containing  private endpoints would be restricted to virtual networks that contain a private  endpoint for the vault. <br><br>    When using ACL’ed unmanaged disks, ensure the  storage account containing the disks allows access to **trusted Microsoft services** if it's ACL’ed. |
+| **Azure  VM backup**                                         | VM backup doesn't require you to allow access to any IPs or FQDNs. So it doesn't require private endpoints for backup and restore  of disks.  <br><br>   However, file recovery from a vault containing private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br>    When using ACL’ed unmanaged disks, ensure the  storage account containing the disks allows access to **trusted Microsoft services** if it's ACL’ed. |
 | **Azure  Files backup**                                      | Azure Files backups are stored in the local  storage account. So it doesn't require private endpoints for backup and  restore. |
 
 ## Creating and using Private Endpoints for Backup
@@ -36,7 +36,7 @@ While private endpoints are enabled for the vault, they're used for backup and r
 This section talks about the steps involved in creating and using private endpoints for Azure Backup inside your virtual networks.
 
 >[!IMPORTANT]
-> It is highly recommended that you follow steps in the same sequence as mentioned in this document. Failure to do so may lead to the vault being rendered incompatible to use private endpoints and requiring you to restart the process with a new vault.
+> It's highly recommended that you follow steps in the same sequence as mentioned in this document. Failure to do so may lead to the vault being rendered incompatible to use private endpoints and requiring you to restart the process with a new vault.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -50,74 +50,12 @@ Managed identities allow the vault to create and use private endpoints. This sec
 
     ![Change Identity status to On](./media/private-endpoints/identity-status-on.png)
 
-1. Change the **Status** to **On** and click **Save**.
+1. Change the **Status** to **On** and select **Save**.
 
 1. An **Object ID** is generated, which is the vault’s managed identity.
 
     >[!NOTE]
-    >Once enabled, the Managed Identity must NOT be disabled (even temporarily). Disabling the managed identity may lead to inconsistent behavior.
-
-## DNS changes
-
-Using private endpoints requires Private DNS Zones to allow the Backup extension to resolve private link FQDNs to private IPs. Altogether, three private DNS zones are required. While two of these zones must be mandatorily created, the third can be either opted to be integrated with the private endpoint (while creating the private endpoint) or can be created separately.
-
-You can also use your custom DNS servers. Refer to [DNS changes for custom DNS servers](#dns-changes-for-custom-dns-servers) for details about using custom DNS servers.
-
-### Creating Mandatory DNS zones
-
-There are two mandatory DNS zones that need to be created:
-
-- `privatelink.blob.core.windows.net` (for backup/restore data)
-- `privatelink.queue.core.windows.net` (for service communication)
-
-1. Search for **Private DNS Zone** in the **All services** search bar and select **Private DNS zone** from the drop-down list.
-
-    ![Select Private DNS zone](./media/private-endpoints/private-dns-zone.png)
-
-1. Once in the **Private DNS zone** pane, click the **+Add** button to start creating a new zone.
-
-1. In the **Create private DNS zone** pane, fill in the details required. The subscription must be the same as where the private endpoint will be created.
-
-    The zones must be named as:
-
-    - `privatelink.blob.core.windows.net`
-    - `privatelink.queue.core.windows.net`
-
-    | **Zone**                           | **Service** | **Subscription and Resource Group (RG) details**                  |
-    | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Blob        | **Subscription**: Same as where private  endpoint needs to be created  **RG**: Either the RG of the VNET or that of the Private Endpoint |
-    | `privatelink.queue.core.windows.net` | Queue       | **RG**: Either the RG of the VNET or that of the Private Endpoint |
-
-    ![Create Private DNS zone](./media/private-endpoints/create-private-dns-zone.png)
-
-1. Once done, proceed to review and create the DNS zone.
-
-### Optional DNS zone
-
-Customers can choose to integrate their private endpoints with private DNS zones for Azure Backup (discussed in the section on creating private endpoints) for service communication. If you don't wish to integrate with the private DNS zone, you can opt to use your own DNS server or create a private DNS zone separately. This is in addition to the two mandatory private DNS zones discussed in the previous section.
-
-If you wish to create a separate private DNS zone in Azure, you can do the same using the same steps used for creating mandatory DNS zones. The naming and subscription details are shared below:
-
-| **Zone**                                                     | **Service** | **Subscription and Resource Group details**                  |
-| ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Note**: *geo* here refers to  the region code. For example, *wcus* and *ne* for West Central US and North Europe respectively. | Backup      | **Subscription**: Same as where the Private Endpoint needs to be created  **RG**: Any RG within the subscription |
-
-Refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) for region codes.
-
-For URL naming conventions in national regions:
-
-- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
-- [US Gov](../azure-government/documentation-government-developer-guide.md)
-
-### Linking private DNS zones with your virtual network
-
-The DNS zones created above must now be linked to the virtual network where your servers to be backed up are located. This needs to be done for all the DNS zones you created.
-
-1. Go to your DNS zone (that you created in the previous step) and navigate to **Virtual network links** on the left bar. Once there, click the **+Add** button
-1. Fill in the required details. The **Subscription** and **Virtual network** fields must be filled with corresponding details of the virtual network where your servers exist. The other fields must be left as is.
-
-    ![Add virtual network link](./media/private-endpoints/add-virtual-network-link.png)
+    >Once enabled, the Managed Identity must **not** be disabled (even temporarily). Disabling the managed identity may lead to inconsistent behavior.
 
 ## Grant permissions to the vault to create required private endpoints
 
@@ -125,7 +63,7 @@ To create the required private endpoints for Azure Backup, the vault (the Manage
 
 - The Resource Group that contains the target VNet
 - The Resource Group where the Private Endpoints are to be created
-- The Resource Group that contains the Private DNS zones
+- The Resource Group that contains the Private DNS zones, as discussed in detail [here](#creating-private-endpoints-for-backup)
 
 We recommend that you grant the **Contributor** role for those three resource groups to the vault (managed identity). The following steps describe how to do this for a particular resource group (this needs to be done for each of the three resource groups):
 
@@ -134,7 +72,7 @@ We recommend that you grant the **Contributor** role for those three resource gr
 
     ![Add a role assignment](./media/private-endpoints/add-role-assignment.png)
 
-1. In the **Add role assignment** pane, choose **Contributor** as the **Role**, and use the **Name** of the vault as the **Principal**. Select your vault and click **Save** when done.
+1. In the **Add role assignment** pane, choose **Contributor** as the **Role**, and use the **Name** of the vault as the **Principal**. Select your vault and select **Save** when done.
 
     ![Choose role and principal](./media/private-endpoints/choose-role-and-principal.png)
 
@@ -150,7 +88,7 @@ This section describes the process of creating a private endpoint for your vault
 
     ![Search for Private Link](./media/private-endpoints/search-for-private-link.png)
 
-1. On the left navigation bar, click on **Private Endpoints**. Once in the **Private Endpoints** pane, click **+Add** to start creating a Private Endpoint for your vault.
+1. On the left navigation bar, select **Private Endpoints**. Once in the **Private Endpoints** pane, select **+Add** to start creating a Private Endpoint for your vault.
 
     ![Add private endpoint in Private Link Center](./media/private-endpoints/add-private-endpoint.png)
 
@@ -164,13 +102,15 @@ This section describes the process of creating a private endpoint for your vault
 
         ![Fill in Resource tab](./media/private-endpoints/resource-tab.png)
 
-    1. **Configuration**: In configuration, specify the virtual network and subnet where you want the private endpoint to be created. This would be the Vnet where the VM is present. You can opt to **integrate your private endpoint** with a private DNS zone. Alternately, you can also use your custom DNS server or create a private DNS zone.
+    1. **Configuration**: In configuration, specify the virtual network and subnet where you want the private endpoint to be created. This will be the Vnet where the VM is present. You can opt to **integrate your private endpoint** with a private DNS zone. Alternately, you can also use your custom DNS server or create a private DNS zone.
 
         ![Fill in Configuration tab](./media/private-endpoints/configuration-tab.png)
 
+        Refer to [this section](#dns-changes-for-custom-dns-servers) if you want to use your custom DNS servers instead of integrating with Azure Private DNS Zones.  
+
     1. Optionally, you can add **Tags** for your private endpoint.
 
-    1. Proceed to **Review + create** once done entering details. When the validation completes, click **Create** to create the private endpoint.
+    1. Continue to **Review + create** once done entering details. When the validation completes, select **Create** to create the private endpoint.
 
 ## Approving Private Endpoints
 
@@ -184,66 +124,18 @@ See [Manual approval of private endpoints using the Azure Resource Manager Clien
 
     ![Approve private endpoints](./media/private-endpoints/approve-private-endpoints.png)
 
-## Adding DNS records
-
->[!NOTE]
-> This step is not required if you are using an integrated DNS zone. However, if you have created your own Azure Private DNS zone or are using a custom private DNS zone, please make sure entries are made as described in this section.
-
-Once you've created the optional private DNS zone and the private endpoints for your vault, you'll need to add DNS records to your DNS zone. You can do this either manually or using a PowerShell script. This needs to be done for your Backup DNS zone only, those for Blobs and Queues will automatically be updated.
-
-### Add records manually
-
-This requires you to make entries for each FQDN in your private endpoint into your Private DNS Zone.
-
-1. Go to your **private DNS zone** and navigate to the **Overview** option on the left bar. Once there, click **+Record set** to start adding records.
-
-    ![Select +Record set to add records](./media/private-endpoints/select-record-set.png)
-
-1. In the **Add Record Set** pane that opens, add one entry for each FQDN and private IP as an **A type** record. The list of FQDNs and IPs can be obtained from your Private Endpoint (under **Overview**). As shown in the example below, the first FQDN from the private endpoint is being added to the record set in the private DNS zone.
-
-    ![List of FQDNs and IPs](./media/private-endpoints/list-of-fqdn-and-ip.png)
-
-    ![Add record set](./media/private-endpoints/add-record-set.png)
-
-### Add records using PowerShell script
-
-1. Start the **Cloud Shell** in the Azure portal and select **Upload file** in the PowerShell window.
-
-    ![Select Upload file in PowerShell window](./media/private-endpoints/upload-file-in-powershell.png)
-
-1. Upload this script: [DnsZoneCreation](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/dnszonerecordcreation.ps1)
-
-1. Go to your home folder (for example: `cd /home/user`)
-
-1. Run the following script:
-
-    ```azurepowershell
-    ./dnszonerecordcreation.ps1 -Subscription <SubscriptionId> -VaultPEName <VaultPE Name> -VaultPEResourceGroup <Vault PE RG> -DNSResourceGroup <Private DNS RG> -Privatezone <privatednszone>
-    ```
-
-    These are the parameters:
-
-    - **subscription**: The subscription where the resources (vault's private endpoint and private DNS zone) reside
-    - **vaultPEName**: Name of the private endpoint created for the vault
-    - **vaultPEResourceGroup**: Resource group that contains the vault's private endpoint
-    - **dnsResourceGroup**: Resource group that contains the private DNS zones
-    - **Privatezone**: Name of the private DNS zone
-
 ## Using Private Endpoints for Backup
 
 Once the private endpoints created for the vault in your VNet have been approved, you can start using them for performing your backups and restores.
 
 >[!IMPORTANT]
->Please ensure that you have completed all the steps mentioned above in the document successfully before proceeding. To recap, you must have completed the steps in the following checklist:
+>Ensure that you've completed all the steps mentioned above in the document successfully before proceeding. To recap, you must have completed the steps in the following checklist:
 >
->1. Created a (new) Recovery Services Vault
+>1. Created a (new) Recovery Services vault
 >1. Enabled the vault to use system assigned Managed Identity
->1. Created three Private DNS zones (two if using an integrated DNS zone for Backup)
->1. Linked your Private DNS zones to your Azure Virtual Network
 >1. Assigned relevant permissions to the Managed Identity of the vault
 >1. Created a Private Endpoint for your vault
 >1. Approved the Private Endpoint (if not auto approved)
->1. Added required DNS records to your private DNS zone for Backup (applicable only if not using an integrated private DNS zone)
 
 ### Backup and restore of workloads in Azure VM (SQL, SAP HANA)
 
@@ -260,7 +152,7 @@ However, if you remove private endpoints for the vault after a MARS agent has be
 
 ### Create a Recovery Services vault using the Azure Resource Manager client
 
-You can create the Recovery Services Vault and enable its Managed Identity (enabling the Managed Identity is required, as we'll later see) using the Azure Resource Manager client. A sample for doing this is shared below:
+You can create the Recovery Services vault and enable its Managed Identity (enabling the Managed Identity is required, as we'll later see) using the Azure Resource Manager client. A sample for doing this is shared below:
 
 ```rest
 armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<rgname>/providers/Microsoft.RecoveryServices/Vaults/<vaultname>?api-version=2017-07-01-preview @C:\<filepath>\MSIVault.json
@@ -503,7 +395,11 @@ You need to create three private DNS zones and link them to your virtual network
 >[!NOTE]
 >In the text above, *geo* refers to  the region code. For example, *wcus* and *ne* for West Central US and North Europe respectively.
 
-Refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) for region codes.
+Refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) for region codes. See the following links for URL naming conventions in national regions:
+
+- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
+- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 #### Adding DNS records for custom DNS servers
 
@@ -550,7 +446,7 @@ A. No, private endpoints can be created for new Backup vaults only. So the vault
 Q. I tried to protect an item to my vault, but it failed and the vault still doesn't contain any items protected to it. Can I create private endpoints for this vault?<br>
 A. No, the vault must not have had any attempts to protect any items to it in the past.
 
-Q. I have a vault that is using private endpoints for backup and restore. Can I later add or remove private endpoints for this vault even if I have backup items protected to it?<br>
+Q. I have a vault that's using private endpoints for backup and restore. Can I later add or remove private endpoints for this vault even if I have backup items protected to it?<br>
 A. Yes. If you already created private endpoints for a vault and protected backup items to it, you can later add or remove private endpoints as required.
 
 Q. Can the private endpoint for Azure Backup also be used for Azure Site Recovery?<br>

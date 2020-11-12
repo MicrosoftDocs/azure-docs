@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
 ---
@@ -19,7 +19,11 @@ The Speech service allows your application to convert audio to text, perform spe
 
 The Speech portal to perform custom configurations to your speech experience for all the regions is available here: https://speech.microsoft.com
 
-For invocations of your Speech service, make sure the call matches the region for your subscription.
+Keep in mind the following points when considering regions:
+
+* If your application uses a [Speech SDK](speech-sdk.md), you provide the region identifier, such as `westus`, when creating a speech configuration.
+* If your application uses one of the Speech service's [REST APIs](rest-apis.md), the region is part of the endpoint URI you use when making requests.
+* Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.
 
 ## Speech SDK
 

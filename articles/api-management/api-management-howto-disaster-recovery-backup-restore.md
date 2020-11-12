@@ -148,7 +148,7 @@ where:
 -   `subscriptionId` - ID of the subscription that holds the API Management service you're trying to back up
 -   `resourceGroupName` - name of the resource group of your Azure API Management service
 -   `serviceName` - the name of the API Management service you're making a backup of specified at the time of its creation
--   `api-version` - replace with `2018-06-01-preview`
+-   `api-version` - replace with `2019-12-01`
 
 In the body of the request, specify the target Azure storage account name, access key, blob container name, and backup name:
 
@@ -181,6 +181,7 @@ Backup is a long running operation that may take more than a minute to complete.
 -   [Managed Identity](api-management-howto-use-managed-service-identity.md) configuration.
 -   [Azure Monitor Diagnostic](api-management-howto-use-azure-monitor.md) Configuration.
 -   [Protocols and Cipher](api-management-howto-manage-protocols-ciphers.md) settings.
+-   [Developer portal](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) content.
 
 The frequency with which you perform service backups affect your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 
@@ -197,7 +198,7 @@ where:
 -   `subscriptionId` - ID of the subscription that holds the API Management service you're restoring a backup into
 -   `resourceGroupName` - name of the resource group that holds the Azure API Management service you're restoring a backup into
 -   `serviceName` - the name of the API Management service being restored into specified at its creation time
--   `api-version` - replace with `2018-06-01-preview`
+-   `api-version` - replace with `api-version=2019-12-01`
 
 In the body of the request, specify the backup file location. That is, add the Azure storage account name, access key, blob container name, and backup name:
 
@@ -230,7 +231,7 @@ Check out the following resources for different walkthroughs of the backup/resto
 
 -   [Replicate Azure API Management Accounts](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Azure API Management: Backing Up and Restoring Configuration](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+-   [Azure API Management: Backing Up and Restoring Configuration](/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration)
     _The approach detailed by Stuart does not match the official guidance but it is interesting._
 
 [backup an api management service]: #step1

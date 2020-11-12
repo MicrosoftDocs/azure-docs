@@ -9,11 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue
 
-In this quickstart, you learn how to use the Azure Storage client library version 11 for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue. 
+In this quickstart, you learn how to use the Azure Storage client library version 11 for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue.
 
 > [!NOTE]
 > This quickstart uses a legacy version of the Azure Queue storage client library. To get started with the latest version, see [Quickstart: Azure Queue storage client library v12 for .NET](storage-quickstart-queues-dotnet.md).
@@ -27,9 +28,9 @@ Next, download and install .NET Core 2.0 for your operating system. If you are r
 ### Windows
 
 - Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
-- Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional.  
+- Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional.
 
-For information about choosing between .NET Core and the .NET Framework, see [Choose between .NET Core and .NET Framework for server apps](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
+For information about choosing between .NET Core and the .NET Framework, see [Choose between .NET Core and .NET Framework for server apps](/dotnet/standard/choosing-core-framework-server).
 
 ### Linux
 
@@ -45,13 +46,13 @@ For information about choosing between .NET Core and the .NET Framework, see [Ch
 
 The sample application used in this quickstart is a basic console application. You can explore the sample application on [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
 
-Use [git](https://git-scm.com/) to download a copy of the application to your development environment. 
+Use [git](https://git-scm.com/) to download a copy of the application to your development environment.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 ```
 
-This command clones the repository to your local git folder. To open the Visual Studio solution, look for the *storage-queues-dotnet-quickstart* folder, open it, and double-click on *storage-queues-dotnet-quickstart.sln*. 
+This command clones the repository to your local git folder. To open the Visual Studio solution, look for the *storage-queues-dotnet-quickstart* folder, open it, and double-click on *storage-queues-dotnet-quickstart.sln*.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -67,7 +68,7 @@ After you have copied your connection string, write it to a new environment vari
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the sample. 
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the sample.
 
 ### Linux
 
@@ -93,7 +94,7 @@ The sample application creates a queue and adds a message to it. The application
 
 ### Windows
 
-If you are using Visual Studio as your editor, you can press **F5** to run. 
+If you are using Visual Studio as your editor, you can press **F5** to run.
 
 Otherwise, navigate to your application directory and run the application with the `dotnet run` command.
 
@@ -156,7 +157,7 @@ string storageConnectionString = Environment.GetEnvironmentVariable("storageconn
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
     // If the connection string is valid, proceed with calls to Azure Queues here.
-    ...    
+    ...
 }
 else
 {
@@ -169,11 +170,11 @@ else
 
 ### Create the queue
 
-First, the sample creates a queue and adds a message to it. 
+First, the sample creates a queue and adds a message to it.
 
 ```csharp
-// Create a queue called 'quickstartqueues' and append a GUID value so that the queue name 
-// is unique in your storage account. 
+// Create a queue called 'quickstartqueues' and append a GUID value so that the queue name
+// is unique in your storage account.
 queue = cloudQueueClient.GetQueueReference("quickstartqueues-" + Guid.NewGuid().ToString());
 await queue.CreateAsync();
 
@@ -183,7 +184,7 @@ Console.WriteLine();
 
 ### Add a message
 
-Next, the sample adds a message to the back of the queue. 
+Next, the sample adds a message to the back of the queue.
 
 A message must be in a format that can be included in an XML request with UTF-8 encoding, and may be up to 64 KB in size. If a message contains binary data, we recommend that you Base64-encode the message.
 
@@ -210,8 +211,8 @@ await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null)
 The sample shows how to peek a message from a queue. When you peek a message, you can read the contents of the message. However, the message remains visible to other clients, so that another client can subsequently retrieve and process the message.
 
 ```csharp
-// Peek at the message at the front of the queue. Peeking does not alter the message's 
-// visibility, so that another client can still retrieve and process it. 
+// Peek at the message at the front of the queue. Peeking does not alter the message's
+// visibility, so that another client can still retrieve and process it.
 CloudQueueMessage peekedMessage = await queue.PeekMessageAsync();
 
 // Display the ID and contents of the peeked message.
@@ -226,7 +227,7 @@ The sample also shows how to dequeue a message. When you dequeue a message, you 
 If your code fails to process a message due to a hardware or software failure, then the message becomes visible again after the period of invisibility has lapsed. Another client can retrieve the same message and try again.
 
 ```csharp
-// Retrieve the message at the front of the queue. The message becomes invisible for 
+// Retrieve the message at the front of the queue. The message becomes invisible for
 // a specified interval, during which the client attempts to process it.
 CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
 
@@ -261,21 +262,21 @@ See these additional resources for .NET development with Azure Queues:
 
 ### Binaries and source code
 
-- Download the NuGet packages for the latest version of the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
-    - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-    - [Queues](https://www.nuget.org/packages/Azure.Storage.Queues/)
+- Download the NuGet packages for the latest version of the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage)
+  - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+  - [Queues](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - View the [.NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.
 
 ### Client library reference and samples
 
-- See the [.NET API reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) for more information about the .NET client library.
+- See the [.NET API reference](/dotnet/api/overview/azure/storage) for more information about the .NET client library.
 - Explore [Queue storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) written using the .NET client library.
 
 ## Next steps
 
-In this quickstart, you learned how to add messages to a queue, peek messages from a queue, and dequeue and process messages using .NET. 
+In this quickstart, you learned how to add messages to a queue, peek messages from a queue, and dequeue and process messages using .NET.
 
 > [!div class="nextstepaction"]
-> [Communicate between applications with Azure Queue storage](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Communicate between applications with Azure Queue storage](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).

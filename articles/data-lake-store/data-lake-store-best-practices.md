@@ -29,7 +29,7 @@ Assume you have a folder with 100,000 child objects. If you take the lower bound
 
 When working with big data in Data Lake Storage Gen1, most likely a service principal is used to allow services such as Azure HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In such cases, you must use Azure Active Directory [security groups](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) instead of assigning individual users to folders and files.
 
-Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen1. This also helps ensure you don't exceed the limit of [32 Access and Default ACLs](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](data-lake-store-access-control.md#the-owning-user), [the owning group](data-lake-store-access-control.md#the-owning-group), [the mask](data-lake-store-access-control.md#the-mask), and other).
+Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen1. This also helps ensure you don't exceed the limit of [32 Access and Default ACLs](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits) (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](data-lake-store-access-control.md#the-owning-user), [the owning group](data-lake-store-access-control.md#the-owning-group), [the mask](data-lake-store-access-control.md#the-mask), and other).
 
 ### Security for groups
 
@@ -45,7 +45,7 @@ Data Lake Storage Gen1 supports the option of turning on a firewall and limiting
 
 ![Firewall settings in Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Firewall settings in Data Lake Storage Gen1")
 
-Once firewall is enabled, only Azure services such as HDInsight, Data Factory, SQL Data Warehouse, etc. have access to Data Lake Storage Gen1. Due to the internal network address translation used by Azure, the Data Lake Storage Gen1 firewall does not support restricting specific services by IP and is only intended for restrictions of endpoints outside of Azure, such as on-premises.
+Once firewall is enabled, only Azure services such as HDInsight, Data Factory, Azure Synapse Analytics (formerly SQL Data Warehouse), etc. have access to Data Lake Storage Gen1. Due to the internal network address translation used by Azure, the Data Lake Storage Gen1 firewall does not support restricting specific services by IP and is only intended for restrictions of endpoints outside of Azure, such as on-premises.
 
 ## Performance and scale considerations
 

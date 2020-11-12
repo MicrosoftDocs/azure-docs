@@ -13,7 +13,7 @@ metadata:
   author: KumudD
   ms.author: kumud
   manager: mtillman
-  ms.date: 03/17/2020
+  ms.date: 09/28/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -30,9 +30,9 @@ highlightedContent:
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - title: What is routing preference?
+    - title: What is Azure Orbital?
       itemType: concept
-      url: ../virtual-network/routing-preference-overview.md
+      url: azure-orbital-overview.md
     - title: Working remotely using Azure services
       itemType: concept
       url: working-remotely-support.md
@@ -119,12 +119,12 @@ conceptualContent:
         - url: ../load-balancer/load-balancer-overview.md
           itemType: overview
           text: What is Azure Load Balancer? 
+        - url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
+          itemType: whats-new
+          text: What's new
         - url: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
           itemType: quickstart
           text: Load balance internet traffic to VMs
-        - url: ../load-balancer/tutorial-load-balancer-port-forwarding-portal.md
-          itemType: tutorial
-          text: Configure port forwarding
         - url: ../load-balancer/load-balancer-troubleshoot.md
           itemType: how-to-guide
           text: Troubleshoot Azure Load Balancer
@@ -285,17 +285,17 @@ conceptualContent:
 
     - title: DDoS Protection
       links: 
-        - url: ../virtual-network/ddos-protection-overview.md
+        - url: ../ddos-protection/ddos-protection-overview.md
           itemType: overview
           text:  What is Azure DDoS Protection Standard?
-        - url: ../virtual-network/manage-ddos-protection.md
+        - url: ../ddos-protection/manage-ddos-protection.md
           itemType: how-to-guide
           text:  Manage DDoS Protection
-        - url: ../virtual-network/ddos-protection-partner-onboarding.md
+        - url: ../ddos-protection/ddos-protection-partner-onboarding.md
           itemType: concept
           text:  Onboarding partners
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices
+        url: ../ddos-protection/index.yml
         text: See more
 
     - title: Content delivery network

@@ -1,12 +1,12 @@
 ---
 title: Connect to Azure VMs on-premises failover with Azure Site Recovery
 description: Describes how to connect to Azure VMs after failover from on-premises to Azure using Azure Site Recovery
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
-ms.author: mayg
+ms.author: harshacs
 
 ---
 # Connect to Azure VMs after failover from on-premises 
@@ -98,12 +98,12 @@ Let's look at an example.
 - Woodgrove is using Site Recovery to replicate on-premises machines to Azure.
 - Their on-premises apps use hard-coded IP addresses, so they want to retain the same IP addresses in Azure.
 - On-premises the machines running the apps are running in three subnets:
-    - 192.168.1.0/24.
+    - 192.168.1.0/24
     - 192.168.2.0/24
     - 192.168.3.0/24
 - Their apps running in Azure are located in the Azure VNet **Azure Network** in two subnets:
-- 172.16.1.0/24
-- 172.16.2.0/24.
+    - 172.16.1.0/24
+    - 172.16.2.0/24
 
 In order to retain the addresses, here's what they do.
 

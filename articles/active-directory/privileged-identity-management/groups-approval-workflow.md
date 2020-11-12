@@ -41,7 +41,7 @@ As a delegated approver, you'll receive an email notification when an Azure reso
 
 1. Find and select the request that you want to approve and select **Approve**.
 
-    ![Approve requests - approve or deny pane with details and Justification box](./media/groups-approval-workflow/groups-confirm-approval.png)
+    ![Screenshot that shows the "Approve requests" page with the "Approve" and "Confirm" buttons highlighted.](./media/groups-approval-workflow/groups-confirm-approval.png)
 
 1. In the **Justification** box, enter the business justification.
 

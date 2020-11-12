@@ -6,7 +6,7 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Quickstart: How to use Service Bus topics and subscriptions with Node.js and the azure/service-bus package
@@ -18,7 +18,7 @@ In this tutorial, you learn how to write a Node.js program to send messages to a
 
 > [!NOTE]
 > - This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), or [Node.js Cloud Service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
-> - The new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package does not support creation of topcis and subscriptions yet. Please use the [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) package if you want to programmatically create them.
+> - The new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package does not support creation of topics and subscriptions yet. Please use the [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) package if you want to programmatically create them.
 
 ### Use Node Package Manager (NPM) to install the package
 To install the npm package for Service Bus, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
@@ -81,7 +81,7 @@ Service Bus topics support a maximum message size of 256 KB in the [Standard tie
 Interacting with a Service Bus subscription starts with instantiating the [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) class and using it to instantiate the [SubscriptionClient](/javascript/api/@azure/service-bus/subscriptionclient) class. Once you have the subscription client, you can create a receiver and use  either [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) or [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) method on it to receive messages.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. Create a file called `recieve.js` and paste the below code into it. This code will attempt to receive 10 messages from your subscription. The actual count you receive depends on the number of messages in the subscription and network latency.
+2. Create a file called `receive.js` and paste the below code into it. This code will attempt to receive 10 messages from your subscription. The actual count you receive depends on the number of messages in the subscription and network latency.
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -112,7 +112,7 @@ Interacting with a Service Bus subscription starts with instantiating the [Servi
     });
     ```
 3. Enter the connection string and names of your topic and subscription in the above code.
-4. Then run the command `node receiveMessages.js` in a command prompt to execute this file.
+4. Then run the command `node receive.js` in a command prompt to execute this file.
 
 Congratulations! You just received messages from a Service Bus subscription.
 

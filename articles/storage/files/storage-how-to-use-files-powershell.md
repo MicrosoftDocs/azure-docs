@@ -11,7 +11,7 @@ ms.subservice: files
 ---
 
 # Quickstart: Create and manage an Azure file share with Azure PowerShell 
-This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with PowerShell. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard SMB protocol and enable file sharing across multiple machines, applications, and instances. 
+This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with PowerShell. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard Server Message Block (SMB) protocol, the Network File System (NFS) protocol (preview), and enables file sharing across multiple machines, applications, and instances. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -62,6 +62,7 @@ $shareName = "myshare"
 New-AzRmStorageShare `
     -StorageAccount $storageAcct `
     -Name $shareName `
+    -EnabledProtocol SMB `
     -QuotaGiB 1024 | Out-Null
 ```
 
@@ -157,6 +158,7 @@ $otherShareName = "myshare2"
 New-AzRmStorageShare `
     -StorageAccount $storageAcct `
     -Name $otherShareName `
+    -EnabledProtocol SMB `
     -QuotaGiB 1024 | Out-Null
   
 New-AzStorageDirectory `

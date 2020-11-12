@@ -56,7 +56,7 @@ The user is created and added to your Azure AD organization.
 
 ## Add a new guest user
 
-You can also invite new guest user to collaborate with your organization by selecting **Invite user** from the **New user** page. If your organization's external collaboration settings are configured such that you're allowed to invite guests, the user will be emailed an invitation they must accept in order to begin collaborating. For more information about inviting B2B collaboration users, see [Invite B2B users to Azure Active Directory](../b2b/add-users-administrator.md)
+You can also invite new guest user to collaborate with your organization by selecting **Invite user** from the **New user** page. If your organization's external collaboration settings are configured such that you're allowed to invite guests, the user will be emailed an invitation they must accept in order to begin collaborating. For more information about inviting B2B collaboration users, see [Invite B2B users to Azure Active Directory](../external-identities/add-users-administrator.md)
 
 ## Add a consumer user
 
@@ -99,6 +99,6 @@ After you've added your users, you can do the following basic processes:
 
 - [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
-- [Work with dynamic groups and users](../users-groups-roles/groups-create-rule.md)
+- [Work with dynamic groups and users](../enterprise-users/groups-create-rule.md)
 
-Or you can do other user management tasks, such as [adding guest users from another directory](../b2b/what-is-b2b.md) or [restoring a deleted user](active-directory-users-restore.md). For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+Or you can do other user management tasks, such as [adding guest users from another directory](../external-identities/what-is-b2b.md) or [restoring a deleted user](active-directory-users-restore.md). For more information about other available actions, see [Azure Active Directory user management documentation](../enterprise-users/index.yml).

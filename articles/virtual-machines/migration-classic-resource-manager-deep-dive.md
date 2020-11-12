@@ -29,7 +29,7 @@ First, it's important to understand the difference between data-plane and manage
 
 The data plane is the same between the classic deployment model and Resource Manager stacks. The difference is that during the migration process, Microsoft translates the representation of the resources from the classic deployment model to that in the Resource Manager stack. As a result, you need to use new tools, APIs, and SDKs to manage your resources in the Resource Manager stack.
 
-![Diagram that shows the difference between management/control plane and data plane](~/articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Diagram that shows the difference between management/control plane and data plane](media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Before you start the migration:
 
 The migration workflow is as follows:
 
-![Diagram that shows the migration workflow](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Diagram that shows the migration workflow](windows/media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > The operations described in the following sections are all idempotent. If you have a problem other than an unsupported feature or a configuration error, retry the prepare, abort, or commit operation. Azure tries the action again.
@@ -90,17 +90,17 @@ Azure then starts the migration of metadata from the classic deployment model to
 After the prepare operation is complete, you have the option of visualizing the resources in both the classic deployment model and Resource Manager. For every cloud service in the classic deployment model, the Azure platform creates a resource group name that has the pattern `cloud-service-name>-Migrated`.
 
 > [!NOTE]
-> It is not possible to select the name of a resource group created for migrated resources (that is, "-Migrated"). After migration is complete, however, you can use the move feature of Azure Resource Manager to move resources to any resource group you want. For more information, see [Move resources to new resource group or subscription](~/articles/resource-group-move-resources.md).
+> It is not possible to select the name of a resource group created for migrated resources (that is, "-Migrated"). After migration is complete, however, you can use the move feature of Azure Resource Manager to move resources to any resource group you want. For more information, see [Move resources to new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 The following two screenshots show the result after a successful prepare operation. The first one shows a resource group that contains the original cloud service. The second one shows the new "-Migrated" resource group that contains the equivalent Azure Resource Manager resources.
 
-![Screenshot that shows original cloud service](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
+![Screenshot that shows original cloud service](windows/media/migration-classic-resource-manager/portal-classic.png)
 
-![Screenshot that shows Azure Resource Manager resources in the prepare operation](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
+![Screenshot that shows Azure Resource Manager resources in the prepare operation](windows/media/migration-classic-resource-manager/portal-arm.png)
 
 Here is a behind-the-scenes look at your resources after the completion of the prepare phase. Note that the resource in the data plane is the same. It's represented in both the management plane (classic deployment model) and the control plane (Resource Manager).
 
-![Diagram of the prepare phase](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+![Diagram of the prepare phase](windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
 
 > [!NOTE]
 > VMs that are not in a virtual network in the classic deployment model are stopped and deallocated in this phase of migration.
@@ -120,7 +120,7 @@ If you see any issues, you can always abort the migration and go back to the cla
 ### Abort
 This is an optional step if you want to revert your changes to the classic deployment model and stop the migration. This operation deletes the Resource Manager metadata (created in the prepare step) for your resources. 
 
-![Diagram of abort step](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Diagram of abort step](windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
@@ -131,17 +131,17 @@ This is an optional step if you want to revert your changes to the classic deplo
 After you finish the validation, you can commit the migration. Resources do not appear anymore in the classic deployment model, and are available only in the Resource Manager deployment model. The migrated resources can be managed only in the new portal.
 
 > [!NOTE]
-> This is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or create a forum on [Microsoft Q&A](https://docs.microsoft.com/answers/index.html)
+> This is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or create a forum on [Microsoft Q&A](/answers/index.html)
 >
 >
 
-![Diagram of commit step](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Diagram of commit step](windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## Migration flowchart
 
 Here is a flowchart that shows how to proceed with migration:
 
-![Screenshot that shows the migration steps](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## Translation of the classic deployment model to Resource Manager resources
 You can find the classic deployment model and Resource Manager representations of the resources in the following table. Other features and resources are not currently supported.

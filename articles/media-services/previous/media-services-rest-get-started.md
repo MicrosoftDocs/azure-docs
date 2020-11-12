@@ -17,7 +17,9 @@ ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Get started with delivering content on demand using REST  
+# Get started with delivering content on demand using REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 > [!NOTE]
 > No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
@@ -483,7 +485,7 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 ### Create a job
 Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing. However, for the readability of the code examples in this article, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](/azure/media-services/previous/media-services-mes-presets-overview) supported by the Media Encoder Standard processor.  
+The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](./media-services-mes-presets-overview.md) supported by the Media Encoder Standard processor.  
 
 **HTTP Request**
 

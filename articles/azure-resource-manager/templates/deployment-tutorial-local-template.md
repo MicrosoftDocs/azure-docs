@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Resource Manager template from your lo
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao 
-ms.custom: devx-track-azurecli
+ms.custom:
 ---
 
 # Tutorial: Deploy a local Azure Resource Manager template

@@ -37,11 +37,11 @@ From the users flagged for risk report, you can take the following actions for e
 - Require the user to securely reset their password the next time they sign in
 - Dismiss the user risk without taking any remediation action.
 
-For more information, see [Users flagged for risk security report](concept-user-at-risk.md).
+For more information, see [Users flagged for risk security report](../identity-protection/overview-identity-protection.md).
 
-### Azure AD subscription for Office 365 customers
+### Azure AD subscription for Microsoft 365 customers
 
-You can also use your Office 365 credentials to access the **Azure Admin Center**. After you have activated your access to Azure AD, you are redirected to the Azure AD portal. At the basic subscription level, the amount of detail provided in the reports are limited. Additional data and analytics are available for Azure Premium subscribers.
+You can also use your Microsoft 365 credentials to access the **Azure Admin Center**. After you have activated your access to Azure AD, you are redirected to the Azure AD portal. At the basic subscription level, the amount of detail provided in the reports are limited. Additional data and analytics are available for Azure Premium subscribers.
 
 To access the **Users flagged for risk** reports in the Microsoft 365 admin center:
 
@@ -57,7 +57,7 @@ To access the **Users flagged for risk** reports in the Microsoft 365 admin cent
 Take the following actions to help rectify the impacted accounts and secure your environment:
 
 1.	[Validate correct information](https://aka.ms/MFAValid) for multi-factor authentication and self-service password reset. 
-2.	[Enable multi-factor authentication](https://aka.ms/MFAuth) for all users. 
+2.	[Enable multi-factor authentication](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication) for all users. 
 3.	Use this [remediation script](https://aka.ms/remediate) for every impacted account, to automatically perform the following steps: 
 
     a. Reset password to secure the account and kill active sessions.
@@ -76,17 +76,17 @@ Take the following actions to help rectify the impacted accounts and secure your
 
     h. Produce an audit log for the administrator to review.
 
-4. Investigate your Office 365 tenant and other IT infrastructure, including a review of all tenant settings, user accounts, and the per-user configuration settings for possible modification. Check for indicators of methods of persistence, as well as indicators an intruder may have leveraged an initial foothold to get VPN credentials, or access to other organizational resources. 
+4. Investigate your Microsoft 365 tenant and other IT infrastructure, including a review of all tenant settings, user accounts, and the per-user configuration settings for possible modification. Check for indicators of methods of persistence, as well as indicators an intruder may have leveraged an initial foothold to get VPN credentials, or access to other organizational resources. 
 
 5.	As part of your investigation, consider whether you should notify government authorities, including law enforcement.
 
 Additionally, you should:
 
-- Read and implement this [guidance on addressing unusual activities](https://aka.ms/fixaccount). 
-- [Enable the audit pipeline](https://aka.ms/improvesecurity) to help you to analyze the activity in your tenant. Once complete, your audit store starts populating with activity logs. At this point, you can also leverage the [Security and Compliance Center’s search and investigation resource](https://aka.ms/sccsearch). 
+- Read and implement this [guidance on addressing unusual activities](/archive/blogs/office365security/how-to-fix-a-compromised-hacked-microsoft-office-365-account). 
+- [Enable the audit pipeline](/archive/blogs/office365security/using-office-365-activity-data-to-improve-your-cybersecurity-stance-and-capability) to help you to analyze the activity in your tenant. Once complete, your audit store starts populating with activity logs. At this point, you can also leverage the [Security and Compliance Center’s search and investigation resource](https://aka.ms/sccsearch). 
 - Review the delegate permissions and mail forwarding rules for all your mailboxes. You can use this [PowerShell script](https://aka.ms/delegateforwardrules) to perform this task. 
 
 ## Next steps
 
-* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-* [Users flagged for risk](concept-user-at-risk.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
+* [Users flagged for risk](../identity-protection/overview-identity-protection.md)

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
@@ -123,4 +123,4 @@ In this tutorial, you enabled and configured custom password protection lists fo
 > * Test password changes with a banned password
 
 > [!div class="nextstepaction"]
-> [Enable risk-based Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+> [Enable risk-based Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

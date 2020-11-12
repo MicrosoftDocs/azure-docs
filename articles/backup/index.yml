@@ -36,7 +36,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Back up a VM with the Azure Portal
+          - text: Back up a VM with the Azure portal
             url: quick-backup-vm-portal.md
           - text: Back up a VM with PowerShell
             url: quick-backup-vm-powershell.md
@@ -63,12 +63,20 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Backup Center
+            url: backup-center-overview.md
+          - text: Backup Azure Database for PostgreSQL 
+            url: backup-azure-database-postgresql.md
+          - text: Selective disk backup and restore for Azure VMs
+            url: selective-disk-backup-restore.md
+          - text: Cross Region Restore for SQL Server databases on Azure VMs
+            url: restore-sql-database-azure-vm.md#cross-region-restore
+          - text: Support for backup of VM with up to 32 disks
+            url: backup-support-matrix-iaas.md#vm-storage-support
           - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
           - text: SQL Server on Azure VMs restore as files
             url: restore-sql-database-azure-vm.md#restore-as-files
-          - text: SAP HANA database on Azure VMs backup
-            url: backup-azure-sap-hana-database.md
   # Card
   - title: Back up Azure VMs
     linkLists:
@@ -148,6 +156,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Manage at scale with Backup Center
+            url: backup-center-monitor-operate.md
           - text: Govern at scale with Azure Policy
             url: backup-azure-auto-enable-backup.md
           - text: Monitor and operate at scale with Backup Explorer
