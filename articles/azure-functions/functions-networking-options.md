@@ -29,7 +29,7 @@ You can host function apps in a couple of ways:
 
 You can use access restrictions to define a priority-ordered list of IP addresses that are allowed or denied access to your app. The list can include IPv4 and IPv6 addresses, or specific virtual network subnets using [service endpoints](#use-service-endpoints). When there are one or more entries, an implicit "deny all" exists at the end of the list. IP restrictions work with all function-hosting options.
 
-Access restrictions are available in the [Premium](../articles/azure-functions/functions-premium-plan.md), [Consumption](../articles/azure-functions/functions-scale.md#consumption-plan), and [App Service](../articles/azure-functions/functions-scale.md#app-service-plan).
+Access restrictions are available in the [Premium](functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan), and [App Service](functions-scale.md#app-service-plan).
 
 > [!NOTE]
 > With network restrictions in place, you can deploy only from within your virtual network, or when you've put the IP address of the machine you're using to access the Azure portal on the Safe Recipients list. However, you can still manage the function using the portal.
@@ -48,11 +48,13 @@ If you need someone else to enable service endpoints on the subnet, select the *
 
 You can't use service endpoints to restrict access to apps that run in an App Service Environment. When your app is in an App Service Environment, you can control access to it by applying IP access rules. 
 
-To learn how to set up service endpoints, see [Establish Azure Functions private site access](../articles/azure-functions/functions-create-private-site-access.md).
+To learn how to set up service endpoints, see [Establish Azure Functions private site access](functions-create-private-site-access.md).
 
 ## Private endpoint connections
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+To call other services that have a private endpoint connection, such as storage or service bus, be sure to configure your app to make [outbound calls to private endpoints](#private-endpoints).
 
 ## Virtual network integration
 

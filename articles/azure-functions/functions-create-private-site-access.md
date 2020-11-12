@@ -10,7 +10,7 @@ ms.date: 06/17/2020
 
 # Tutorial: Establish Azure Functions private site access
 
-This tutorial shows you how to enable [private site access](./functions-networking-options.md#private-site-access) with Azure Functions. By using private site access, you can require that your function code is only triggered from a specific virtual network.
+This tutorial shows you how to enable [private site access](./functions-networking-options.md#private-endpoint-connections) with Azure Functions. By using private site access, you can require that your function code is only triggered from a specific virtual network.
 
 Private site access is useful in scenarios when access to the function app needs to be limited to a specific virtual network. For example, the function app may be applicable to only employees of a specific organization, or services which are within the specified virtual network (such as another Azure Function, Azure Virtual Machine, or an AKS cluster).
 
@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 The following diagram shows the architecture of the solution to be created:
 
-![High-level architecture diagram for private site access solution](./media/functions-create-private-site-access/topology.png)
+![High-level architecture diagram for private site access solution](./media/functions-create-private-endpoint-connections/topology.png)
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 1. In the _Basics_ tab, use the VM settings as specified in the table below the image:
 
     >[!div class="mx-imgBorder"]
-    >![Basics tab for a new Windows VM](./media/functions-create-private-site-access/create-vm-3.png)
+    >![Basics tab for a new Windows VM](./media/functions-create-private-endpoint-connections/create-vm-3.png)
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -68,12 +68,12 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 1. Choose the _Networking_ tab and select **Create new** to configure a new virtual network.
 
     >[!div class="mx-imgBorder"]
-    >![Screenshot that shows the "Networking" tab with the "Create new" action highlighted in the "Virtual network" section.](./media/functions-create-private-site-access/create-vm-networking.png)
+    >![Screenshot that shows the "Networking" tab with the "Create new" action highlighted in the "Virtual network" section.](./media/functions-create-private-endpoint-connections/create-vm-networking.png)
 
 1. In _Create virtual network_, use the settings in the table below the image:
 
     >[!div class="mx-imgBorder"]
-    >![Create a new virtual network for the new VM](./media/functions-create-private-site-access/create-vm-vnet-1.png)
+    >![Create a new virtual network for the new VM](./media/functions-create-private-endpoint-connections/create-vm-vnet-1.png)
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -98,7 +98,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 1. Select **Create** to begin the process of creating a new Azure Bastion resource. You will notice an error message in the _Virtual network_ section as there is not yet an AzureBastionSubnet subnet. The subnet is created in the following steps. Use the settings in the table below the image:
 
     >[!div class="mx-imgBorder"]
-    >![Start of creating Azure Bastion](./media/functions-create-private-site-access/create-bastion-basics-1.png)
+    >![Start of creating Azure Bastion](./media/functions-create-private-endpoint-connections/create-bastion-basics-1.png)
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -114,12 +114,12 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 1. The subnet must be of the name **AzureBastionSubnet** and the subnet prefix must be at least **/27**.  Select **OK** to create the subnet.
 
     >[!div class="mx-imgBorder"]
-    >![Create subnet for Azure Bastion host](./media/functions-create-private-site-access/create-bastion-subnet-2.png)
+    >![Create subnet for Azure Bastion host](./media/functions-create-private-endpoint-connections/create-bastion-subnet-2.png)
 
 1. On the _Create a Bastion_ page, select the newly created **AzureBastionSubnet** from the list of available subnets.
 
     >[!div class="mx-imgBorder"]
-    >![Create an Azure Bastion host with specific subnet](./media/functions-create-private-site-access/create-bastion-basics-2.png)
+    >![Create an Azure Bastion host with specific subnet](./media/functions-create-private-endpoint-connections/create-bastion-basics-2.png)
 
 1. Select **Review & Create**. Once validation completes, select **Create**. It will take a few minutes for the Azure Bastion resource to be created.
 
@@ -154,7 +154,7 @@ The next step is to create a function app in Azure using the [Consumption plan](
 
 The next step is to configure [access restrictions](../app-service/app-service-ip-restrictions.md) to ensure only resources on the virtual network can invoke the function.
 
-[Private site](functions-networking-options.md#private-site-access) access is enabled by creating an Azure Virtual Network [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the function app and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure only traffic originating from within the specified virtual network can access the designated resource. In this case, the designated resource is the Azure Function.
+[Private site](functions-networking-options.md#private-endpoint-connections) access is enabled by creating an Azure Virtual Network [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the function app and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure only traffic originating from within the specified virtual network can access the designated resource. In this case, the designated resource is the Azure Function.
 
 1. Within the function app, select the **Networking** link under the _Settings_ section header.
 1. The _Networking_ page is the starting point to configure Azure Front Door, the Azure CDN, and also Access Restrictions.
@@ -174,7 +174,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
 1. Return to the previously created function app.  In the _Overview_ section, copy the URL.
 
     >[!div class="mx-imgBorder"]
-    >![Get the Function app URL](./media/functions-create-private-site-access/access-function-overview.png)
+    >![Get the Function app URL](./media/functions-create-private-endpoint-connections/access-function-overview.png)
 
     If you try to access the function app now from your computer outside of your virtual network, you'll receive an HTTP 403 page indicating that access is forbidden.
 1. Return to the resource group and select the previously created virtual machine. In order to access the site from the VM, you need to connect to the VM via the Azure Bastion service.
@@ -198,14 +198,14 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
 1. Verify the function is deployed.
 
     >[!div class="mx-imgBorder"]
-    >![Deployed function in list of functions](./media/functions-create-private-site-access/verify-deployed-function.png)
+    >![Deployed function in list of functions](./media/functions-create-private-endpoint-connections/verify-deployed-function.png)
 
 ## Invoke the function directly
 
 1. In order to test access to the function, you need to copy the function URL. Select the deployed function, and then select **Get Function Url**. Then click the **Copy** button to copy the URL to your clipboard.
 
     >[!div class="mx-imgBorder"]
-    >![Copy the function URL](./media/functions-create-private-site-access/get-function-url.png)
+    >![Copy the function URL](./media/functions-create-private-endpoint-connections/get-function-url.png)
 
 1. Paste the URL into a web browser. When you now try to access the function app from a computer outside of your virtual network, you receive an HTTP 403 response indicating access to the app is forbidden.
 
@@ -214,7 +214,7 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
 Accessing the function via a web browser (by using the Azure Bastion service) on the configured VM on the virtual network results in success!
 
 >[!div class="mx-imgBorder"]
->![Access the Azure Function via Azure Bastion](./media/functions-create-private-site-access/access-function-via-bastion-final.png)
+>![Access the Azure Function via Azure Bastion](./media/functions-create-private-endpoint-connections/access-function-via-bastion-final.png)
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
