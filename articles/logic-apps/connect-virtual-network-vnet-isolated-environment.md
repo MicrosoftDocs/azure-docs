@@ -283,13 +283,15 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 
 1. To view your environment, select **Go to resource** if Azure doesn't automatically go to your environment after deployment finishes.
 
-1. For an ISE that has *external* endpoint access, you need to a network security group that has an inbound rule to permit traffic from the the managed connectors outbound IP addresses. To set up this rule, follow these steps:
+1. For an ISE that has *external* endpoint access, you need to create a network security group, if you don't have one already, and add an inbound security rule to allow traffic from managed connector outbound IP addresses. To set up this rule, follow these steps:
 
    1. On your ISE menu, under **Settings**, select **Properties**.
 
-   1. Under **Connector outgoing IP addresses**, copy the public IP address ranges, which you can also find in the article, [Limits and configuration - Outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound).
+   1. Under **Connector outgoing IP addresses**, copy the public IP address ranges, which also appear in this article, [Limits and configuration - Outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound).
 
-   1. Create an network security group with an inbound security rule, as described in this step, that permits traffic from the public IP addresses that you copied. For more information, see [Tutoral: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group).
+   1. Create a network security group, if you don't have one already.
+   
+   1. Based on the following information, add an inbound security rule for the public outbound IP addresses that you copied. For more information, see [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group).
 
       | Purpose | Source service tag or IP addresses | Source ports | Destination service tag or IP addresses | Destination ports | Notes |
       |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
