@@ -35,7 +35,7 @@ Before you can enable Azure Arc on Kubernetes cluster, make sure that you have c
 
 1. You have a  Windows client system that will be used to access the Azure Stack Edge Pro device.
   
-    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows).
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
     
@@ -86,7 +86,7 @@ You can also register resource providers via the `az cli`. For more information,
 
     `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
 
-    For information on how to log into the `az cli`, [Start Cloud Shell in Azure portal](../cloud-shell/quickstart-powershell.md?view=azure-cli-latest#start-cloud-shell)
+    For information on how to log into the `az cli`, [Start Cloud Shell in Azure portal](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
 
     Here is an example. 
     
@@ -222,7 +222,7 @@ To remove the Azure Arc management, follow these steps:
 
 
 > [!NOTE]
-> By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster. You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/use-gitops-connected-cluster#additional-parameters.md)
+> By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster. You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters)
 
 ## Next steps
 

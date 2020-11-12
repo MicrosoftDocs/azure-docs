@@ -23,8 +23,8 @@ This article applies to the **Azure Stack Edge 2011** release<!--which maps to s
 
 The following new features are available in the Azure Stack Edge 2011 release. 
 
-- **General availability of Azure Stack Edge Pro R and Azure Stack Edge Mini R devices** - Starting this release, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices will be available. For more information, see [What is Azure Stack Edge Pro R](azure-stack-edge-pro-r-overview.md) and [What is Azure Stack Edge Mini R](azure-stack-edge-mini-r-overview.md).  
-- **Cloud management of Virtual Machines** - Beginning this release, you can manage the virtual machines deployed on your device via the Azure portal. For more information, see [Deploy VMs via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal).
+- **General availability of Azure Stack Edge Pro R and Azure Stack Edge Mini R devices** - Starting this release, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices will be available. For more information, see [What is Azure Stack Edge Pro R](azure-stack-edge-j-series-overview.md) and [What is Azure Stack Edge Mini R](azure-stack-edge-k-series-overview.md).  
+- **Cloud management of Virtual Machines** - Beginning this release, you can manage the virtual machines deployed on your device via the Azure portal. For more information, see [Deploy VMs via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 - **Edge container registry** - In this release, an Edge container registry is available that provides a repository at the edge on your device. You can use this registry to store and manage container images. For more information, see [Enable Edge container registry](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 
 - **Rotate encryption-at-rest keys** - You will now be able to rotate the encryption-at-rest keys that are used to protect the drives on your device. This feature is available only for Azure Stack Edge Pro R and Azure Stack Edge Mini R devices. For more information, see [Rotate encryption-at-rest keys](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#manage-access-to-device-data).
 - **Proactive logging** - Starting this release, you can enable proactive log collection on your device based on the system health indicators to help efficiently troubleshoot any device issues. For more information, see [Proactive log collection on your device](azure-stack-edge-gpu-proactive-log-collection.md).
@@ -34,10 +34,12 @@ The following new features are available in the Azure Stack Edge 2011 release.
 
 The following table provides a summary of known issues in the 2011 release.
 
+| No. | Feature | Issue | Workaround/comments |
+| --- | --- | --- | --- |
 |**1.**|Kubernetes Dashboard | *Https* endpoint for Kubernetes Dashboard with SSL certificate is not supported. | |
 |**2.**|Kubernetes |Edge container Registry does not work when web proxy is enabled.| |
 |**3.**|Kubernetes |Kubernetes doesn't support ":" in environment variable names that are used by .NET applications. This is also required for Event grid IoT Edge module to function on Azure Stack Edge device and other applications. For more information, see [ASP .NET core documentation](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1#environment-variables).|Replace ":" by double underscore. For more information,see [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/53201)|
-|**4.** |Azure Arc + Kubernetes cluster |By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster.  |You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/use-gitops-connected-cluster#additional-parameters.md). |
+|**4.** |Azure Arc + Kubernetes cluster |By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster.  |You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
 
 ## Known issues from previous releases 
 
@@ -65,7 +67,7 @@ The following table provides a summary of known issues carried over from the pre
 |**18.**|IoT Edge |Modules deployed through IoT Edge can't use host network. | |
 |**19.**|Compute + Kubernetes |Compute/Kubernetes does not support NTLM web proxy. ||
 |**20.**|Compute + web proxy + update |If you have compute configured with web proxy, then compute update may fail. |We recommend that you disable compute before the update. |
-|**21.**|Kubernetes + update |Earlier software versions such as 2008 releases have a race condition update issue that causes the update to fail with ClusterConnectionException.   |Using the newer builds should alleviate this issue. If you still see this issue, the workaround is to simply retry the upgrade, and it should work.|
+|**21.**|Kubernetes + update |Earlier software versions such as 2008 releases have a race condition update issue that causes the update to fail with ClusterConnectionException. |Using the newer builds should alleviate this issue. If you still see this issue, the workaround is to simply retry the upgrade, and it should work.|
 
 
 <!--|**18.**|Azure Private Edge Zone (Preview) |There is a known issue with Virtual Network Function VM if the VM was created on Azure Stack Edge device running earlier preview builds such as 2006/2007b and then the device was updated to 2009 GA release. The issue is that the VNF information can't be retrieved or any new VNFs can't be created unless the VNF VMs are deleted before the device is updated.  |Before you update Azure Stack Edge device to 2009 release, use the PowerShell command `get-mecvnf` followed by `remove-mecvnf <VNF guid>` to remove all Virtual Network Function VMs one at a time. After the upgrade, you will need to redeploy the same VNFs.|-->
