@@ -102,7 +102,7 @@ The JSON output has 3 parts:
 ## Next steps
 
 Try your own invoices and samples in the [Form Recognizer Sample Labeling Tool](https://fott-preview.azurewebsites.net/).
-Follow the [Extract invoice data](./QuickStarts/python-invoice.md) quickstart to implement invoice data extraction using Python and the REST API.
+Follow the [Extract invoice data](./QuickStarts/python-invoices.md) quickstart to implement invoice data extraction using Python and the REST API.
 
 ## See also
 
