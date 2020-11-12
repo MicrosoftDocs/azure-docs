@@ -21,7 +21,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:i
 
 In this quickstart, you download and run a code sample that demonstrates how a native iOS or macOS application can sign in users and obtain an access token to call the Microsoft Graph API.
 
-It applies to both iOS and macOS apps. Some steps are needed only for iOS apps and will be indicated as such.
+The quickstart applies to both iOS and macOS apps. Some steps are needed only for iOS apps and will be indicated as such.
 
 ## Prerequisites
 
@@ -271,4 +271,3 @@ Move on to the step-by-step tutorial in which you build an iOS or macOS app that
 
 > [!div class="nextstepaction"]
 > [Tutorial: Sign in users and call Microsoft Graph from an iOS or macOS app](tutorial-v2-ios.md)
-
