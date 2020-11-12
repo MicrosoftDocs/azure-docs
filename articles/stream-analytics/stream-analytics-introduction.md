@@ -1,19 +1,19 @@
 ---
-title: Overview of Azure Stream Analytics
-description: Learn about Stream Analytics, a managed service that helps you analyze streaming data from the Internet of Things (IoT) in real time.
+title: Introduction to Azure Stream Analytics
+description: Learn about Azure Stream Analytics, a managed service that helps you analyze streaming data from the Internet of Things (IoT) in real time.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc, contperfq2
-ms.date: 11/03/2020
+ms.date: 11/12/2020
 #Customer intent: "What is Azure Stream Analytics and why should I care? As an IT Pro or developer, how do I use Stream Analytics to perform analytics on data streams?".
 ---
 
-# What is Azure Stream Analytics?
+# Welcome to Azure Stream Analytics
 
-Azure Stream Analytics is a real-time analytics and complex event-processing engine that is designed to analyze and process high volumes of fast streaming data from multiple sources simultaneously. Patterns and relationships can be identified in information extracted from a number of input sources including devices, sensors, clickstreams, social media feeds, and applications. These patterns can be used to trigger actions and initiate workflows such as creating alerts, feeding information to a reporting tool, or storing transformed data for later use. Also, Stream Analytics is available on Azure IoT Edge runtime, enabling to process data on IoT devices. 
+Azure Stream Analytics is a real-time analytics and complex event-processing engine that is designed to analyze and process high volumes of fast streaming data from multiple sources simultaneously. Patterns and relationships can be identified in information extracted from a number of input sources including devices, sensors, clickstreams, social media feeds, and applications. These patterns can be used to trigger actions and initiate workflows such as creating alerts, feeding information to a reporting tool, or storing transformed data for later use. Also, Stream Analytics is available on Azure IoT Edge runtime, enabling to process data on IoT devices.
 
 The following scenarios are examples of when you can use Azure Stream Analytics:
 
@@ -22,6 +22,11 @@ The following scenarios are examples of when you can use Azure Stream Analytics:
 * Geospatial analytics for fleet management and driverless vehicles
 * Remote monitoring and predictive maintenance of high value assets
 * Real-time analytics on Point of Sale data for inventory control and anomaly detection
+
+You can try Azure Stream Analytics with a free Azure subscription.
+
+> [!div class="nextstepaction"]
+> [Try Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
 ## How does Stream Analytics work?
 
@@ -99,7 +104,7 @@ Stream Analytics can process millions of events every second and it can deliver 
 
 You now have an overview of Azure Stream Analytics. Next, you can dive deep and create your first Stream Analytics job:
 
-* [Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md).
-* [Create a Stream Analytics job by using Azure PowerShell](stream-analytics-quick-create-powershell.md).
-* [Create a Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md).
-* [Create a Stream Analytics job by using Visual Studio Code](quick-create-visual-studio-code.md).
+* [Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
+* [Create a Stream Analytics job by using Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Create a Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
+* [Create a Stream Analytics job by using Visual Studio Code](quick-create-visual-studio-code.md)
