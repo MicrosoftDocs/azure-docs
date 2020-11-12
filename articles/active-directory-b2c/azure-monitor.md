@@ -26,7 +26,7 @@ You can route log events to:
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
-In this article you learn how to transfer the logs to an Azure Log Analytics workspace. Then you can create a dashboard or create alerts that are based on Azure AD B2C users' activities.
+In this article, you learn how to transfer the logs to an Azure Log Analytics workspace. Then you can create a dashboard or create alerts that are based on Azure AD B2C users' activities.
 
 ## Deployment overview
 
@@ -42,7 +42,7 @@ During this deployment, you'll configure both your Azure AD B2C tenant and Azure
 
 ## 1. Create or choose resource group
 
-First, create or choose a resource group that contains the destination Log Analytics workspace that will receive data from Azure AD B2C. You'll specify the resource group name when you deploy the Azure Resource Manager template.
+First, create, or choose a resource group that contains the destination Log Analytics workspace that will receive data from Azure AD B2C. You'll specify the resource group name when you deploy the Azure Resource Manager template.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your **Azure AD tenant**.
@@ -148,7 +148,7 @@ You're ready to [create diagnostic settings](../active-directory/reports-monitor
 
 To configure monitoring settings for Azure AD B2C activity logs:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure AD B2C administrative account. This account must be a member of the security group you specified in the [Delegated resource management](#3-delegated-resource-management) step.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure AD B2C administrative account. This account must be a member of the security group you specified in the [Select a security group](#32-select-a-security-group) step.
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 1. Select **Azure Active Directory**
 1. Under **Monitoring**, select **Diagnostic settings**.
@@ -165,7 +165,7 @@ To configure monitoring settings for Azure AD B2C activity logs:
 > [!NOTE]
 > It can take up to 15 minutes after an event is emitted for it to [appear in a Log Analytics workspace](../azure-monitor/platform/data-ingestion-time.md). Also, learn more about [Active Directory reporting latencies](../active-directory/reports-monitoring/reference-reports-latencies.md), which can impact the staleness of data and play an important role in reporting.
 
-If you see the error message "To setup Diagnostic settings to use Azure Monitor for your Azure AD B2C directory, you need to set up delegated resource management," make sure you sign-in with a user who is a member of the [security group](#32-select-a-security-groups) and [select your subscription](#4-select-your-subscription).
+If you see the error message "To setup Diagnostic settings to use Azure Monitor for your Azure AD B2C directory, you need to set up delegated resource management," make sure you sign-in with a user who is a member of the [security group](#32-select-a-security-group) and [select your subscription](#4-select-your-subscription).
 
 ## 6. Visualize your data
 
@@ -216,7 +216,7 @@ AuditLogs
 
 ![Log Analytics log editor pie](./media/azure-monitor/query-policy-usage-pie.png)
 
-For more samples, see the Azure AD B2C [Siem GitHub repo](https://aka.ms/b2csiem).
+For more samples, see the Azure AD B2C [SIEM GitHub repo](https://aka.ms/b2csiem).
 
 ### 6.2 Create a Workbook
 
@@ -224,7 +224,7 @@ Workbooks provide a flexible canvas for data analysis and the creation of rich v
 
 Follow the instructions below to create a new workbook using a JSON Gallery Template. This workbook provides a **User Insights** and **Authentication** dashboard for Azure AD B2C tenant.
 
-1. From the **Log Analytics workspace** select **Workbooks**.
+1. From the **Log Analytics workspace**, select **Workbooks**.
 1. From the toolbar, select **+ New** option to create a new workbook.
 1. On the **New workbook** page, select the **Advanced Editor** using the **</>** option on the toolbar.
 
@@ -254,7 +254,7 @@ The workbook will display reports in the form of a dashboard.
 Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. You can create alerts based on specific performance metrics or when certain events are created, absence of an event, or a number of events are created within a particular time window. For example, alerts can be used to notify you when average number of sign-in exceeds a certain threshold. For more information, see [Create alerts](../azure-monitor/learn/tutorial-response.md).
 
 
-Use the following instructions to create a new Azure Alert which will send an [email notification](../azure-monitor/platform/action-groups.md#configure-notifications) whenever there is a 25% drop in the **Total Requests** compare to previous period. Alert will run every 5 minutes and look for the drop within last 24 hours windows. The alerts are created using Kusto query language.
+Use the following instructions to create a new Azure Alert, which will send an [email notification](../azure-monitor/platform/action-groups.md#configure-notifications) whenever there is a 25% drop in the **Total Requests** compare to previous period. Alert will run every 5 minutes and look for the drop within last 24 hours windows. The alerts are created using Kusto query language.
 
 
 1. From **Log Analytics workspace**, select **Logs**. 
@@ -277,9 +277,9 @@ Use the following instructions to create a new Azure Alert which will send an [e
 
 1. Select **Run**, to test the query. You should see the results if there is a drop of 25% or more in the total requests within the past 24 hours.
 1. To create an alert rule based on the query above, use the **+ New alert rule** option available in the toolbar.
-1. On the **Create a alert rule** page, select **Condition name** 
+1. On the **Create an alert rule** page, select **Condition name** 
 1. On the **Configure signal logic** page, set following values and then use **Done** button to save the changes.
-    * Alert logic: Set **Number of results** **Greater than** **0** .
+    * Alert logic: Set **Number of results** **Greater than** **0**.
     * Evaluation based on: Select **1440** for Period (in minutes) and **5** for Frequency (in minutes) 
 
     ![Create a alert rule condition](./media/azure-monitor/alert-create-rule-condition.png)
@@ -298,7 +298,7 @@ Here is an example of an alert notification email.
 
 To onboard multiple Azure AD B2C tenant logs to the same Log Analytics Workspace (or Azure storage account, or event hub), you'll need separate deployments with different **Msp Offer Name** values. Make sure your Log Analytics workspace is in the same resource group as the one you configured in [Create or choose resource group](#1-create-or-choose-resource-group).
 
-When working with multiple Log Analytics workspaces, use [Cross Workspace Query](../azure-monitor/log-query/cross-workspace-query.md) to create queries that work across multiple workspaces. For example, the following query performs a join of two Audit logs from different tenants based on the same Category (e.g. Authentication):
+When working with multiple Log Analytics workspaces, use [Cross Workspace Query](../azure-monitor/log-query/cross-workspace-query.md) to create queries that work across multiple workspaces. For example, the following query performs a join of two Audit logs from different tenants based on the same Category (for example, Authentication):
 
 ```kusto
 workspace("AD-B2C-TENANT1").AuditLogs
@@ -308,7 +308,7 @@ workspace("AD-B2C-TENANT1").AuditLogs
 
 ## Change the data retention period
 
-Azure Monitor Logs are designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure. By default, logs are retained for 30 days, but retention duration can be increased to up to 2 years. Learn how to [manage usage and costs with Azure Monitor Logs](../azure-monitor/platform/manage-cost-storage.md). After you select the pricing tier, you can [Change the data retention period](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period).
+Azure Monitor Logs are designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure. By default, logs are retained for 30 days, but retention duration can be increased to up to two years. Learn how to [manage usage and costs with Azure Monitor Logs](../azure-monitor/platform/manage-cost-storage.md). After you select the pricing tier, you can [Change the data retention period](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period).
 
 ## Next steps
 
