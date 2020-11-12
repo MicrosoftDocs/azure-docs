@@ -171,7 +171,7 @@ To test that users can sign in with email, browse to [https://myprofile.microsof
 
 ## Enable staged rollout to test user sign-in with an email address  
 
-[Staged rollout][staged-rollout] allows tenant administrators to enable features for specific groups. It is recommended that tenant administrators use staged rollout to test user sign-in with an email address.  When administrators are ready to deploy this feature to their entire tenant, you should use a Home Realm Discovery policy.  
+[Staged rollout][staged-rollout] allows tenant administrators to enable features for specific groups. It is recommended that tenant administrators use staged rollout to test user sign-in with an email address. When administrators are ready to deploy this feature to their entire tenant, they should use a Home Realm Discovery policy.  
 
 If you turn on this feature for a new member in staged rollout, it can take up to 24 hours for this feature to propagate through your entire tenant.
 
