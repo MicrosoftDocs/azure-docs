@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 The following diagram shows the architecture of the solution to be created:
 
-![High-level architecture diagram for private site access solution](./media/functions-create-private-endpoint-connections/topology.png)
+![High-level architecture diagram for private site access solution](./media/functions-create-private-site-access/topology.png)
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 1. In the _Basics_ tab, use the VM settings as specified in the table below the image:
 
     >[!div class="mx-imgBorder"]
-    >![Basics tab for a new Windows VM](./media/functions-create-private-endpoint-connections/create-vm-3.png)
+    >![Basics tab for a new Windows VM](./media/functions-create-private-site-access/create-vm-3.png)
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -68,12 +68,12 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 1. Choose the _Networking_ tab and select **Create new** to configure a new virtual network.
 
     >[!div class="mx-imgBorder"]
-    >![Screenshot that shows the "Networking" tab with the "Create new" action highlighted in the "Virtual network" section.](./media/functions-create-private-endpoint-connections/create-vm-networking.png)
+    >![Screenshot that shows the "Networking" tab with the "Create new" action highlighted in the "Virtual network" section.](./media/functions-create-private-site-access/create-vm-networking.png)
 
 1. In _Create virtual network_, use the settings in the table below the image:
 
     >[!div class="mx-imgBorder"]
-    >![Create a new virtual network for the new VM](./media/functions-create-private-endpoint-connections/create-vm-vnet-1.png)
+    >![Create a new virtual network for the new VM](./media/functions-create-private-site-access/create-vm-vnet-1.png)
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -98,7 +98,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 1. Select **Create** to begin the process of creating a new Azure Bastion resource. You will notice an error message in the _Virtual network_ section as there is not yet an AzureBastionSubnet subnet. The subnet is created in the following steps. Use the settings in the table below the image:
 
     >[!div class="mx-imgBorder"]
-    >![Start of creating Azure Bastion](./media/functions-create-private-endpoint-connections/create-bastion-basics-1.png)
+    >![Start of creating Azure Bastion](./media/functions-create-private-site-access/create-bastion-basics-1.png)
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
@@ -114,12 +114,12 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 1. The subnet must be of the name **AzureBastionSubnet** and the subnet prefix must be at least **/27**.  Select **OK** to create the subnet.
 
     >[!div class="mx-imgBorder"]
-    >![Create subnet for Azure Bastion host](./media/functions-create-private-endpoint-connections/create-bastion-subnet-2.png)
+    >![Create subnet for Azure Bastion host](./media/functions-create-private-site-access/create-bastion-subnet-2.png)
 
 1. On the _Create a Bastion_ page, select the newly created **AzureBastionSubnet** from the list of available subnets.
 
     >[!div class="mx-imgBorder"]
-    >![Create an Azure Bastion host with specific subnet](./media/functions-create-private-endpoint-connections/create-bastion-basics-2.png)
+    >![Create an Azure Bastion host with specific subnet](./media/functions-create-private-site-access/create-bastion-basics-2.png)
 
 1. Select **Review & Create**. Once validation completes, select **Create**. It will take a few minutes for the Azure Bastion resource to be created.
 
@@ -174,7 +174,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
 1. Return to the previously created function app.  In the _Overview_ section, copy the URL.
 
     >[!div class="mx-imgBorder"]
-    >![Get the Function app URL](./media/functions-create-private-endpoint-connections/access-function-overview.png)
+    >![Get the Function app URL](./media/functions-create-private-site-access/access-function-overview.png)
 
     If you try to access the function app now from your computer outside of your virtual network, you'll receive an HTTP 403 page indicating that access is forbidden.
 1. Return to the resource group and select the previously created virtual machine. In order to access the site from the VM, you need to connect to the VM via the Azure Bastion service.
@@ -198,14 +198,14 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
 1. Verify the function is deployed.
 
     >[!div class="mx-imgBorder"]
-    >![Deployed function in list of functions](./media/functions-create-private-endpoint-connections/verify-deployed-function.png)
+    >![Deployed function in list of functions](./media/functions-create-private-site-access/verify-deployed-function.png)
 
 ## Invoke the function directly
 
 1. In order to test access to the function, you need to copy the function URL. Select the deployed function, and then select **Get Function Url**. Then click the **Copy** button to copy the URL to your clipboard.
 
     >[!div class="mx-imgBorder"]
-    >![Copy the function URL](./media/functions-create-private-endpoint-connections/get-function-url.png)
+    >![Copy the function URL](./media/functions-create-private-site-access/get-function-url.png)
 
 1. Paste the URL into a web browser. When you now try to access the function app from a computer outside of your virtual network, you receive an HTTP 403 response indicating access to the app is forbidden.
 
@@ -214,7 +214,7 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
 Accessing the function via a web browser (by using the Azure Bastion service) on the configured VM on the virtual network results in success!
 
 >[!div class="mx-imgBorder"]
->![Access the Azure Function via Azure Bastion](./media/functions-create-private-endpoint-connections/access-function-via-bastion-final.png)
+>![Access the Azure Function via Azure Bastion](./media/functions-create-private-site-access/access-function-via-bastion-final.png)
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
