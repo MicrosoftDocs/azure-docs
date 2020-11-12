@@ -7,17 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service.
 
+## November 2020
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|------------------------------|----------|-------------|---------------|
+|[customer-managed key encryption over indexers, data sources, and skillsets](search-security-manage-encryption-keys.md) | Security | This addition extends customer-managed encryption over the full range of assets created and managed by a search service. Recall that CMK support adds an additional encryption layer on top of base encryption performed and managed by Microsoft. | Generally available using REST api-version=2020-06-30 |  
+
 ## September 2020
 
 Create an identity for a search service in Azure Active Directory, then use Azure RBAC permissions to grant the identity read-only permissions to Azure data sources. Optionally, choose the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) capability if IP rules are not an option.
-
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |------------------------------|----------|-------------|---------------|

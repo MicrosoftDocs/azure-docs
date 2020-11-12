@@ -283,7 +283,7 @@
       href: storage-troubleshoot-windows-file-connection-problems.md
     - name: Troubleshoot Azure Files on Linux (SMB)
       href: storage-troubleshoot-linux-file-connection-problems.md
-    - name: Troubleshoot Azure file share performance
+    - name: Troubleshoot Azure file shares performance
       href: storage-troubleshooting-files-performance.md
     - name: Troubleshoot Azure Files on Linux (NFS)
       href: storage-troubleshooting-files-nfs.md
