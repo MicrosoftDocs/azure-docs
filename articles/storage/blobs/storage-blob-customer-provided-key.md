@@ -71,5 +71,5 @@ async static Task UploadBlobWithClientKey(string accountName, string containerNa
 
 ## Next steps
 
+- [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md)
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
-- [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md)

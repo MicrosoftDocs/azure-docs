@@ -215,6 +215,17 @@ split(contains(array(columns()),isNull(#item)),
 	disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 
+### AutoMap schema drift with a select
+When you need to load an existing database schema from an unknown or dynamic set of incoming columns, you must map the right-side columns in the Sink transformation. This is only needed when you are loading an existing table. Add this snippet before your Sink to create a Select that auto-maps your columns. Leave your Sink mapping to auto-map.
+
+```
+select(mapColumn(
+		each(match(true()))
+	),
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> automap
+```
+
 ## Next steps
 
 Explore Data Flows by starting with the [data flows overview article](concepts-data-flow-overview.md)

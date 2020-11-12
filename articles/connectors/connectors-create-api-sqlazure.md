@@ -91,11 +91,14 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
    ||||
 
    > [!TIP]
-   > You can find this information in your database's connection string. For example, 
-   > in the Azure portal, find and open your database. On the database menu, 
-   > select either **Connection strings** or **Properties** where you can find this string:
+   > To provide your database and table information, you have these options:
+   > 
+   > * Find this information in your database's connection string. For example, in the Azure portal, find and open your database. On the database menu, select either **Connection strings** or **Properties**, where you can find this string:
    >
-   > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >
+   > * By default, tables in system databases are filtered out, so they might not automatically appear when you select a system database. As an alternative, you can manually enter the table name after you select **Enter custom value** from the database list.
+   >
 
    This example shows how these values might look:
 

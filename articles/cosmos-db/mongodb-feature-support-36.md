@@ -143,7 +143,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |$currentOp|    No|
 |$listLocalSessions    |No|
 |$listSessions    |No|
-|$graphLookup    |No|
+|$graphLookup    |Yes|
 
 ### Boolean expressions
 

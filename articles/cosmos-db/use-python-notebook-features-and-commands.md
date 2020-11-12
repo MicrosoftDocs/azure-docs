@@ -3,6 +3,7 @@ title: Use built-in notebook commands and features in Azure Cosmos DB Python not
 description: Learn how to use built-in commands and features to do common operations using Azure Cosmos DB's built-in Python notebooks.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech

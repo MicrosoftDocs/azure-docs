@@ -6,7 +6,7 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/02/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -94,7 +94,7 @@ Set up your virtual network to meet these requirements:
 
 - Make sure the virtual network's resource group (or the public IP addresses' resource group if you bring your own public IP addresses) can create and delete certain Azure network resources. For more information, see [Set up the resource group](#resource-group). 
 
-- If you customize your Azure-SSIS IR as described in [Custom setup for Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md), your Azure-SSIS IR nodes will get private IP addresses from a predefined range of 172.16.0.0 to 172.31.255.255. So make sure that the private IP address ranges of your virtual or on-premises networks don't collide with this range.
+- If you customize your Azure-SSIS IR as described in [Custom setup for Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md), our internal process to manage its nodes will consume private IP addresses from a predefined range of 172.16.0.0 to 172.31.255.255. Consequently, please make sure that the private IP address ranges of your virtual or on-premises networks don't collide with this range.
 
 This diagram shows the required connections for your Azure-SSIS IR:
 
