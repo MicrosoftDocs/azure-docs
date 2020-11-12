@@ -44,6 +44,8 @@ This check box indicates whether the scope of this parameter is shared across al
 ### Required
 This check box indicates whether a value for this parameter is required for command fulfillment or completion. You must configure responses to prompt the user to provide a value if a parameter is marked as required.
 
+Note that, if you configured a **required parameter** to have a **Default value**, the system will still explicitly prompt for the parameter's value.
+
 ### Type
 Custom Commands supports the following parameter types:
 
@@ -52,7 +54,7 @@ Custom Commands supports the following parameter types:
 * Number
 * String
 
-All these parameter types support default value configuration, which you can configure from the Azure portal.
+All these parameter types except for Geography, support default value configuration, which you can configure from the portal.
 
 ### Configuration
 Configuration is a parameter property defined only for the type String. The following values are supported:

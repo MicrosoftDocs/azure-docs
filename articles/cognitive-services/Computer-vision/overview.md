@@ -34,7 +34,7 @@ Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizi
 
 ## Analyze images for insight
 
-You can analyze images to provide insights about their visual features and characteristics. All of the features in the table below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Follow a [quickstart](#next-steps) to get started.
+You can analyze images to provide insights about their visual features and characteristics. All of the features in the table below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API. Follow a [quickstart](#next-steps) to get started.
 
 
 ### Tag visual features

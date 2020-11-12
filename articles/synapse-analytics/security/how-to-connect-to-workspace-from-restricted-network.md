@@ -23,8 +23,7 @@ Suppose you are an IT administrator who is managing your organization's restrict
 
 ## Step 1: Add network outbound security rules to the restricted network
 
-First, add the following four network outbound security rules with four service tags:  
-
+You'll need to add four network outbound security rules with four service tags. 
 * AzureResourceManager
 * AzureFrontDoor.Frontend
 * AzureActiveDirectory

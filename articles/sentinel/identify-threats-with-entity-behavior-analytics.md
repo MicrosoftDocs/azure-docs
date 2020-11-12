@@ -26,7 +26,7 @@ ms.author: yelevin
 >    - Europe West region
 >    - Australia geography
 >
-> - In all other geographies and regions, these features remain for the time being in **public preview**, and are provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> - In all other geographies and regions, these features remain for the time being in **PREVIEW**. See the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## What is User and Entity Behavior Analytics (UEBA)?
 

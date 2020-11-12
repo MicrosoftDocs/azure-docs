@@ -25,6 +25,10 @@ This article shows examples of the following tasks:
 * Create child runs.
 * Tag and find runs.
 
+> [!TIP]
+> If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
+> If you're looking for information on monitoring models deployed as web services or IoT Edge modules, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
+
 ## Prerequisites
 
 You'll need the following items:

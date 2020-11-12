@@ -70,6 +70,9 @@ We can now bind the **Join Teams Meeting** button to the code that joins the pro
 ```javascript
 meetingButton.addEventListener("click", () => {
     
+    // set display name in the meeting
+    callAgent.updateDisplayName('YOUR_NAME');
+    
     // join with meeting link
     call = callAgent.join({meetingLink: 'MEETING_LINK'}, {});
 
