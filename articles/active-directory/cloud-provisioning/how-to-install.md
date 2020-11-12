@@ -87,6 +87,30 @@ To verify that the agent is running, follow these steps.
 >[!IMPORTANT]
 >The agent has been installed but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud-based provisioning](how-to-configure.md).
 
+## Group Managed Service Accounts
+A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management,the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and recommends the use of a group Managed Service Account for running the agent.  For more information on a gMSA, see [Group Managed Service Accounts](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+
+
+### Installation using a gMSA account
+These installation instructions are for a brand new installation.  If you are upgrading an existing agent and want to switch to using a gMSA account, see [Upgrading and switching to a gMSA account](#upgrading-and-switching-to-a-gMSA-account).
+
+1.	Run agent MSI. This will open the AAD Connect Provisioning Agent Wizard
+2.	Enter your Azure AD global administrator credentials in the Connect Azure AD page
+3.	Enter your EA/DA of all the domains you want to sync in the Connect Active Directory page
+4.	Enter your EA/DA of current domain where agent is installed in the Configure Service Account page
+5.	Click Confirm in the Confirm page
+
+
+### Upgrading and switching to a gMSA account
+
+1.	Run agent MSI. This will initally update the agent service to the latest version.
+2.	Double-click the **Azure AD Connect Provisiong Agent** wizard.
+3.	Enter your Azure AD global administrator credentials in the Connect Azure AD page.
+4.	Enter your EA/DA of all the domains you want to sync in the Connect Active Directory page.
+5.	Enter your EA/DA of current domain where agent is installed in the Configure Service Account page.
+6.	Click Confirm in the Confirm page.
+
+
 
 
 ## Next steps 
