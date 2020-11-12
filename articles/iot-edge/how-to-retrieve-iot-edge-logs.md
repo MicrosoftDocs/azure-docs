@@ -267,7 +267,7 @@ Use the **UploadSupportBundle** direct method to bundle and upload a zip file of
 ::: moniker range=">=iotedge-2020-11"
 
 > [!NOTE]
-> If you wish to upload logs from a device behind a [gateway device](iot-edge-as-gateway.md), you will need to have the [blob storage module](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob?view=iotedge-2018-06) configured on the top layer device.
+> If you wish to upload logs from a device behind a gateway device, you will need to have the [blob storage module](https://docs.microsoft.com/azure/iot-edge/how-to-configure-api-proxy-module) configured on the top layer device.
 
 ::: moniker-end
 
