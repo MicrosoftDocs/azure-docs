@@ -1,5 +1,5 @@
 ---
-title: Resize an OS disk that has a GPT partition | Microsoft Docs
+title: Resize an OS disk that has a GPT partition
 description: This article provides instructions on resizing an OS disk that has a GPT partition.
 services: virtual-machines-linux
 documentationcenter: ''
