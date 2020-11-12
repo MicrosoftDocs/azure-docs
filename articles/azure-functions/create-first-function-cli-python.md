@@ -268,3 +268,5 @@ In a separate terminal window or in the browser, call the remote function again.
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python)
+
+[Having issues? Let us know.](https://aka.ms/python-functions-qs-survey)
