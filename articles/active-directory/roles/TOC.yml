@@ -2,7 +2,9 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure AD roles
+  - name: Understand Azure AD roles
+    href: overview-understanding roles.md
+  - name: Custom roles in Azure AD
     href: custom-overview.md
 - name: Quickstarts
   items:
