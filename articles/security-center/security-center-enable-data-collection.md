@@ -123,7 +123,7 @@ To enable automatic provisioning of an extension other than the Log Analytics ag
 
 
 
-## Windows security event options for the Log Analytics agent
+## Windows security event options for the Log Analytics agent <a name="data-collection-tier"></a> 
 
 Selecting a data collection tier in Azure Security Center only affects the *storage* of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Security Center’s threat protection, regardless of the level of security events you choose to store in your workspace. Choosing to store security events enables investigation, search, and auditing of those events in your workspace.
 
