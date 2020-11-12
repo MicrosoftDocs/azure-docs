@@ -70,7 +70,7 @@ CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enabl
 
 1. Review and finish the general set up of the Azure plan subscription for your customer. For more information, See [Microsoft Partner Center documentation](https://docs.microsoft.com/partner-center/azure-plan-manage).
 
-After configuring the Azure plan and the needed RBAC permissions are in place as a CSP, you'll engage Microsoft using a similar procedure to enable the quota for an Azure plan subscription. Once added to the Azure plan, the customer or the partner administrator can deploy an Azure VMware Solution Private Cloud through Azure Portal. 
+After configuring the Azure plan and the needed RBAC permissions are in place as a CSP, you'll engage Microsoft using a similar procedure to enable the quota for an Azure plan subscription. Once added to the Azure plan, the customer or the partner administrator can deploy an Azure VMware Solution Private Cloud through the Azure portal. 
 
 ## Next steps
 
