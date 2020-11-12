@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 07/05/2016
+ms.date: 11/11/2020
 ms.author: cynthn
 
 ---
@@ -16,8 +16,8 @@ This article describes how to tag a VM in Azure using PowerShell. Tags are user-
 
 First, navigate to a Virtual Machine through using`Get-AzVM` cmdlet.
 
-```azurepowershell
-PS C:\> Get-AzVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
+```azurepowershell-interactive
+Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
 If your Virtual Machine already contains tags, you will then see all the tags on your resource:
@@ -35,14 +35,14 @@ If you would like to add tags through PowerShell, you can use the `Set-AzResourc
 
 This first cmdlet sets all of the tags placed on *MyTestVM* to the *$tags* variable, using the `Get-AzResource` and `Tags` property.
 
-```azurepowershell
-PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```azurepowershell-interactive
+$tags = (Get-AzResource -ResourceGroupName myResourceGroup -Name myVM).Tags
 ```
 
 The second command displays the tags for the given variable.
 
-```azurepowershell
-PS C:\> $tags
+```azurepowershell-interactive
+$tags
 
 Key           Value
 ----          -----
@@ -54,20 +54,20 @@ Environment   Production
 
 The third command adds an additional tag to the *$tags* variable. Note the use of the **+=** to append the new key/value pair to the *$tags* list.
 
-```azurepowershell
-PS C:\> $tags += @{Location="MyLocation"}
+```azurepowershell-interactive
+$tags += @{Location="myLocation"}
 ```
 
 The fourth command sets all of the tags defined in the *$tags* variable to the given resource. In this case, it is MyTestVM.
 
-```azurepowershell
-PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
+```azurepowershell-interactive
+Set-AzResource -ResourceGroupName myResourceGroup -Name myVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 ```
 
 The fifth command displays all of the tags on the resource. As you can see, *Location* is now defined as a tag with *MyLocation* as the value.
 
-```azurepowershell
-PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```azurepowershell-interactive
+(Get-AzResource -ResourceGroupName myResourceGroup -Name myVM).Tags
 
 Key           Value
 ----          -----

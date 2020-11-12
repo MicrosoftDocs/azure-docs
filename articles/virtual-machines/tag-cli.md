@@ -5,35 +5,35 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/28/2017
+ms.date: 11/11/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
 
 ---
 # How to tag a VM using the CLI
 
-This article describes how to tag a VM using the Auzre CLI. Tags are user-defined key/value pairs which can be placed directly on a resource or a resource group. Azure currently supports up to 50 tags per resource and resource group. Tags may be placed on a resource at the time of creation or added to an existing resource. If you want to tag a virtual machine using Azure PowerShell, see [How to tag a virtual machine in Azure using PowerShell](tag-powershell.md).
+This article describes how to tag a VM using the Auzre CLI. Tags are user-defined key/value pairs which can be placed directly on a resource or a resource group. Azure currently supports up to 50 tags per resource and resource group. Tags may be placed on a resource at the time of creation or added to an existing resource. You can also tag a virtual machine using Azure [PowerShell](tag-powershell.md).
 
 
-You can view all properties for a given Virtual Machine, including the tags, using this command:
+You can view all properties for a given VM, including the tags, using `az vm show`.
 
-```azurecli
-az vm show --resource-group MyResourceGroup --name MyTestVM
+```azurecli-interactive
+az vm show --resource-group myResourceGroup --name myVM --query tags
 ```
 
-To add a new VM tag through the Azure CLI, you can use the `azure vm update` command along with the tag parameter **--set**:
+To add a new VM tag through the Azure CLI, you can use the `azure vm update` command along with the tag parameter `--set`:
 
-```azurecli
+```azurecli-interactive
 az vm update \
-    --resource-group MyResourceGroup \
-    --name MyTestVM \
+    --resource-group myResourceGroup \
+    --name myVM \
     --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 ```
 
-To remove tags, you can use the **--remove** parameter in the `azure vm update` command.
+To remove tags, you can use the `--remove` parameter in the `azure vm update` command.
 
-```azurecli
-az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1
+```azurecli-interactive
+az vm update --resource-group myResourceGroup --name myVM --remove tags.myNewTagName1
 ```
 
 Now that we have applied tags to our resources Azure CLI and the Portal, let’s take a look at the usage details to see the tags in the billing portal.
