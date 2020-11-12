@@ -63,7 +63,9 @@ To better understand remote graphics, consider the following:
 * Idle time in remote desktop means no or minimal screen updates; so, network use is minimal during idle times.
 * When remote desktop client window is minimized, no graphical updates are sent from the session host.
 
-The table below guides estimating of the data used by the different graphic scenarios.
+Keep in mind that the stress put on your network depends on both your app workload's output frame rate and your display resolution. If either the frame rate or display resolution increases, the bandwidth requirement will also rise. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution. Different display resolutions require different available bandwidths.
+
+The table below guides estimating of the data used by the different graphic scenarios. These numbers apply to a single monitor configuration with 1920x1080 resolution and default RDP policies.
 
 | Scenario | Bandwidth utilization | Thumbnail| Description of the scenario |
 |---|---|---|---|
@@ -75,10 +77,6 @@ The table below guides estimating of the data used by the different graphic scen
 | Image Gallery | 200-650 Kbps |:::image type="content" source="media/image-gallery.gif" alt-text="Animation of image gallery":::| User is actively working with the image gallery application. browsing, zooming, resizing and rotating images |
 | Video playback | 600-1000 Kbps |:::image type="content" source="media/video.gif" alt-text="Animation of video playback":::| User is watching a 25 FPS video that consumes 1/2 of the screen |
 | Fullscreen Video playback | 450-800 Kbps |:::image type="content" source="media/fs-video.gif" alt-text="Animation of fullscreen video playback":::| User is watching a 25 FPS video that maximized to a fullscreen |
-
-These numbers apply to a single monitor configuration with 1920x1080 resolution and default RDP policies.
-
-Keep in mind that the stress put on your network depends on both your app workload's output frame rate and your display resolution. If either the frame rate or display resolution increases, the bandwidth requirement will also rise. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution. Different display resolutions require different available bandwidths.
 
 ## Dynamic bandwidth allocation
 
