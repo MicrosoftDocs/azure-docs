@@ -17,7 +17,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 ---
-# Automate mangement with the SQL Server IaaS Agent extension
+# Automate management with the SQL Server IaaS Agent extension
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
