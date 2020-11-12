@@ -73,6 +73,8 @@ Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate)
 
 [!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
 
+[!INCLUDE [Authenticate to the container registry](../../../../includes/cognitive-services-containers-access-registry.md)]
+
 
 ## Example API request
 The container provides REST-based query prediction endpoint APIs.  We have also provided a visualization tool in the container that is accessible by appending the **demo** to the endpoint of the container for example:
