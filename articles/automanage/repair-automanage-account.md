@@ -14,7 +14,7 @@ ms.author: alsin
 The [Automanage Account](./automanage-virtual-machines.md#automanage-account) is the security context or the identity under which the automated operations occur. If you have recently moved a subscription containing an Automanage Account to a new tenant, you will need to reconfigure your Automanage Account. To reconfigure your Automanage Account, you will need to reset the identity type and assign the appropriate roles for the account.
 
 ## Step 1: Reset Automanage Account identity type
-Reset the Automanage Account identity type with the ARM template below. Save the file locally as `armdeploy.json` or similar. Note down your Automanage account name and location, as those are required parameters in the ARM template.
+Reset the Automanage Account identity type with the Azure Resource Manager (ARM) template below. Save the file locally as `armdeploy.json` or similar. Note down your Automanage account name and location, as those are required parameters in the ARM template.
 
 1. Create a new ARM deployment with the template below, and use `identityType = None`
     * You may do this with Azure CLI using `az deployment sub create`. Learn more about the `az deployment sub` command [here](https://docs.microsoft.com/cli/azure/deployment/sub).
@@ -54,20 +54,21 @@ Reset the Automanage Account identity type with the ARM template below. Save the
 ```
 
 ## Step 2: Assign appropriate roles for the Automanage Account
-The Automanage Account requires the Contributor and Resource Policy Contributor roles on the subscription containing the VMs that Automanage is managing. You can assign these roles using the Azure Portal, ARM templates, or Azure CLI.
+The Automanage Account requires the Contributor and Resource Policy Contributor roles on the subscription containing the VMs that Automanage is managing. You can assign these roles using the Azure portal, ARM templates, or Azure CLI.
 
-If you are using an ARM template or Azure CLI, you will need the principal ID (also known as Object ID) of your Automanage Account (this is not necessary if you are using the Azure portal). You may find the Principal ID (Object ID) of your Automanage account by:
+If you are using an ARM template or Azure CLI, you will need the principal ID (also known as Object ID) of your Automanage Account (this is not necessary if you are using the Azure portal). You may find the Principal ID (Object ID) of your Automanage account by using the following methods:
 
-1. [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp): `az ad sp list --display-name <name of your Automanage Account>`.
-1. Azure portal: Navigate to **Azure Active Directory** and search for your Automanage Account by name. Click on it when it shows up under **Enterprise Applications**.
+- [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp): Use the command `az ad sp list --display-name <name of your Automanage Account>`.
+
+- Azure portal: Navigate to **Azure Active Directory** and search for your Automanage Account by name. Under **Enterprise Applications**, select the Automanage Account name when it displays.
 
 ### Azure portal
 1. Under **Subscriptions**, navigate to the subscription containing your Automanaged VMs.
-1. Navigate to **Access control (IAM)**
-1. Click **Add role assignments**
-1. Select the **Contributor** role and type the name of your Automanage account
-1. Press **Save**
-1. Repeat steps 3-5, this time with the **Resource Policy Contributor** role
+1. Navigate to **Access control (IAM)**.
+1. Click **Add role assignments**.
+1. Select the **Contributor** role and type the name of your Automanage account.
+1. Press **Save**.
+1. Repeat steps 3-5, this time with the **Resource Policy Contributor** role.
 
 ### ARM template
 Run the following ARM template. You will need the Principal ID of your Automanage Account - steps to get the Principal ID are above. Enter it when prompted.
