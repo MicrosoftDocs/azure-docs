@@ -52,14 +52,10 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
 ## Create a serverless Apache Spark pool
 
 1. In Synapse Studio, on the left-side pane, select **Manage** > **Apache Spark pools**.
-1. Select **New** and enter these settings:
-
-    |Setting | Suggested value | 
-    |---|---|---|
-    |**Apache Spark pool name**|**Spark1**
-    |**Node size**| **Small**|
-    |**Number of nodes**| Set the minimum to 3 and the maximum to 3|
-
+1. Select **New** 
+1. For **Apache Spark pool name** enter **Spark1**.
+1. For **Node size** enter **Small**.
+1. For **Number of nodes** Set the minimum to 3 and the maximum to 3
 1. Select **Review + create** > **Create**. Your Apache Spark pool will be ready in a few seconds.
 
 When you perform Spark activity in Azure Synapse, you specify a Spark pool to use. The pool tells Azure Synapse how many Spark resources to use. You only pay for the resources that you use. When you actively stop using the pool, the resources automatically time out and are recycled.
