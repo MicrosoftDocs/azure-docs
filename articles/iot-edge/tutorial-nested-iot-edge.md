@@ -582,9 +582,9 @@ On the device details page for your lower layer IoT Edge device, you should now 
 
 ## View generated data
 
-The **Simulated Temperature Sensor** module that you pushed generates sample environemtn data. It sends messages that include ambient temperature and humidity, machine temperature and pressure, and a timestamp.
+The **Simulated Temperature Sensor** module that you pushed generates sample environment data. It sends messages that include ambient temperature and humidity, machine temperature and pressure, and a timestamp.
 
-You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+You can watch the messages arrive at your IoT hub by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 You can also view these messages through the [Azure Cloud Shell](https://shell.azure.com/):
 
