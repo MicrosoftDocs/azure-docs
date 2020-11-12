@@ -76,9 +76,11 @@ The first step is to enable the Edge container registry as an add-on.
 1. Make a note of the username and the password from the output of `Get-HcsKubernetesContainerRegistryInfo`. These credentials are used to sign in to the Edge container registry while pushing images.			
 
 
-## Access container registry from outside
+## Manage container registry images
 
-You may want to access the container registry from outside of your Azure Stack Edge device. Follow these steps to access Edge container registry:
+You may want to access the container registry from outside of your Azure Stack Edge device. You may also want to push or pull images in the registry.
+
+Follow these steps to access Edge container registry:
 
 1. Get the endpoint details for the Edge container registry.
     1. In the local UI of the device, go to **Device**.
@@ -107,7 +109,7 @@ You may want to access the container registry from outside of your Azure Stack E
 
 1. After the certificate is installed, restart the Docker client on your system.
 
-1. Log into the Edge container registry. Type:
+1. Sign into the Edge container registry. Type:
 
     `docker login <Edge container registry endpoint> -u <username> -p <password>`
 
@@ -160,7 +162,8 @@ You may want to access the container registry from outside of your Azure Stack E
     ![View the running container](media/azure-stack-edge-gpu-edge-container-registry/view-running-container-1.png)
 
     To stop and remove the container, press `Control+C`.
-   
+
+ 
 
 ## Use Edge container registry images via Kubernetes pods
 
@@ -232,21 +235,55 @@ You can now deploy the image that you pushed in your Edge container registry fro
     PS C:\Windows\System32>
     ```
 
-
-## Delete container images
+## Delete container registry images
 
 Edge Container Registry storage is hosted on a local share within your Azure Stack Edge Pro device which is limited by the available storage on the device. It is your responsibility to delete unused docker images from the container registry using Docker HTTP v2 API (https://docs.docker.com/registry/spec/api/).  
 
-To remove one or more container images, first list all the container images in your registry using the following command: 
+To remove one or more container images, follow these steps:
 
-`docker image ls`
+1. Set the image name to the image you want to delete.
 
-Make a note of the image ID of the images you want to remove. Remove the unwanted images using the following command: 
+	```powershell
+    PS C:\WINDOWS\system32> $imageName="nginx"    
+    ```
 
-`docker image rm [image_id1] [image_id2]`
+1. Set the username and password of the container registry as a PS credential
+
+    ```powershell
+    PS C:\WINDOWS\system32> $username="ase-ecr-user"
+    PS C:\WINDOWS\system32> $password="3bbo2sOtDe8FouD"
+    PS C:\WINDOWS\system32> $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+    PS C:\WINDOWS\system32> $credential = New-Object System.Management.Automation.PSCredential ($username, $securePassword)    
+    ```
+
+1. List the tags associated with the image
+
+    ```powershell
+    PS C:\WINDOWS\system32> $tags = Invoke-RestMethod -Credential $credential -Uri "https://ecr.dbe-hw6h1t2.microsoftdatabox.com:31001/v2/nginx/tags/list" | Select-Object -ExpandProperty tags
+    PS C:\WINDOWS\system32> $tags
+    2.0
+    PS C:\WINDOWS\system32> $tags = Invoke-RestMethod -Credential $credential -Uri "https://ecr.dbe-hw6h1t2.microsoftdatabox.com:31001/v2/$imageName/tags/list" | Select-Object -ExpandProperty tags
+    PS C:\WINDOWS\system32> $tags
+    2.0
+    PS C:\WINDOWS\system32>    
+    ```
+  
+1. List the digest associated with the tag you would like to delete. This uses $tags from the output of above command. If you have multiple tags, select one of them and use in the next command.
+
+    ```powershell
+    PS C:\WINDOWS\system32> $response = Invoke-WebRequest -Method Head -Credential $credential -Uri "https://ecr.dbe-hw6h1t2.microsoftdatabox.com:31001/v2/$imageName/manifests/$tags" -Headers @{ 'Accept' = 'application/vnd.docker.distribution.manifest.v2+json' }
+    PS C:\WINDOWS\system32> $digest = $response.Headers['Docker-Content-Digest']
+    PS C:\WINDOWS\system32> $digest
+    sha256:b4c0378c841cd76f0b75bc63454bfc6fe194a5220d4eab0d75963bccdbc327ff
+    PS C:\WINDOWS\system32>    
+    ```
+1. Delete the image using the digest of the image:tag
+
+    ```powershell
+    PS C:\WINDOWS\system32> Invoke-WebRequest -Method Delete -Credential $credential -Uri "https://ecr.dbe-hw6h1t2.microsoftdatabox.com:31001/v2/$imageName/manifests/$digest" | Select-Object -ExpandProperty StatusDescription    
+    ```
 
 After you delete the unused images, the space associated with the unreferenced images is automatically reclaimed by a process that runs nightly. 
-
 
 ## Next steps
 
