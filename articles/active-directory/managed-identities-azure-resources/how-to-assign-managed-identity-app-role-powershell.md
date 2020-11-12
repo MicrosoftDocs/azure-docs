@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Assign a managed identity access to an application role using PowerShell
 
-Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. Application roles are a form of role-based access control, which allow for authorization rules to be enforced.
+Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. Application roles provide a form of role-based access control, and allow for authorization rules to be enforced.
 
 In this article, you learn how to assign a managed identity to an application role exposed by another application using Azure PowerShell.
 
@@ -40,7 +40,7 @@ In this article, you learn how to assign a managed identity to an application ro
 
 1. Create a new application registration to represent the service that your managed identity will send a request to. If you already have an application that you want your managed identity to communicate with, skip this step.
 
-1. Add an [app role](../develop/howto-add-app-roles-in-azure-ad-apps.md) to the application you created in step 2. This can be done [using the Azure portal](../develop/howto-add-app-roles-in-azure-ad-apps.md#declare-app-roles-using-azure-portal) or using the Graph API. For example, you could add an app role like this:
+1. Add an [app role](../develop/howto-add-app-roles-in-azure-ad-apps.md) to the application you created in step 2. You can create the role [using the Azure portal](../develop/howto-add-app-roles-in-azure-ad-apps.md#declare-app-roles-using-azure-portal) or using the Graph API. For example, you could add an app role like this:
 
     ```json
     {
@@ -56,11 +56,11 @@ In this article, you learn how to assign a managed identity to an application ro
     ```
 
 1. Assemble the information you need to assign the app role:
-    * `managedIdentityResourceName`: the name of the resource exposing the managed identity. This was generated in step 1.
-    * `serverAppName`: the name of the application that exposes the app role. This was generated in step 2.
-    * `appRoleId`: the ID of the app role exposed by the server app. This was generated in step 3 - in that example, the app role ID is `0566419e-bb95-4d9d-a4f8-ed9a0f147fa6`.
+    * `managedIdentityResourceName`: the name of the resource exposing the managed identity, which you generated in step 1.
+    * `serverAppName`: the name of the application that exposes the app role, which you generated in step 2.
+    * `appRoleId`: the ID of the app role exposed by the server app, which you generated in step 3 - in the example, the app role ID is `0566419e-bb95-4d9d-a4f8-ed9a0f147fa6`.
 
-1. Assign the app role to the managed identity by executing the following PowerShell script:
+2. Assign the app role to the managed identity by executing the following PowerShell script:
 
     ```powershell
     $managedIdentityResourceName = 'myvm'
