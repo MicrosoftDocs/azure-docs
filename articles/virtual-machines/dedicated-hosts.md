@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/28/2020
+ms.date: 11/12/2020
 ms.author: cynthn
 ms.reviewer: zivr
 
@@ -64,12 +64,6 @@ The Resource Manager sample template found [here](https://github.com/Azure/azure
 
 ## Manual vs. automatic placement 
 
-> [!IMPORTANT]
-> Automatic placement is currently in public preview.
-> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 When creating a VM in Azure, you can select which dedicated host to use. You can also use the option to automatically place your VMs on existing hosts, within a host group. 
 
 When creating a new host group, make sure the setting for automatic VM placement is selected. When creating your VM, select the host group and let Azure pick the best host for your VM. 
@@ -88,12 +82,6 @@ Known issues and limitations when using automatic VM placement:
 ## Virtual machine scale set support
 
 Virtual machine scale sets let you treat a group of virtual machines as a single resource, and apply  availability, management, scaling and orchestration policies as a group. Your existing dedicated hosts can also be used for virtual machine scale sets. 
-
-> [!IMPORTANT]
-> Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
-> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 When creating a virtual machine scale set you can specify an existing host group to have all of the VM instances created on dedicated hosts.
 
