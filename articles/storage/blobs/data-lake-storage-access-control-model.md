@@ -110,7 +110,7 @@ This table shows a column that represents each level of a fictitious directory h
 
 ## Limits on Azure RBAC role assignments and ACL entries
 
-By using groups, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACl entries per file or directory. The following table describes these limits.
+By using groups, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACL entries per file or directory. The following table describes these limits.
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
 
