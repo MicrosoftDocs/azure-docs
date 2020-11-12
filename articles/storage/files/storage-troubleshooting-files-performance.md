@@ -11,7 +11,7 @@ ms.subservice: files
 ---
 # Troubleshoot Azure file share performance issues
 
-This article lists some common problems related to Azure file shares. It provides potential causes and workarounds when these problems are encountered.
+This article lists some common problems related to Azure file shares. It provides potential causes and workarounds for when you encounter these problems.
 
 ## High latency, low throughput, and general performance issues
 
@@ -114,7 +114,7 @@ Lack of support for directory leases.
 
 ### Cause
 
-An IO depth of greater than 1 is not supported on CentOS Linux or RHEL.
+An I/O depth of greater than 1 is not supported on CentOS Linux or RHEL.
 
 ### Workaround
 
@@ -159,7 +159,7 @@ Workloads that rely on creating a large number of files won't see a substantial 
 
 ### Cause
 
-Higher than expected latency accessing Azure file shares for IO intensive workloads.
+Higher than expected latency accessing Azure file shares for I/O-intensive workloads.
 
 ### Workaround
 
@@ -210,7 +210,7 @@ To learn more about configuring alerts in Azure Monitor, see [Overview of alerts
 1. In the **Dimension values** drop-down list, select the file share or shares that you want to alert on.
 1. Define the alert parameters by selecting values in the **Operator**, **Threshold value**, **Aggregation granularity**, and **Frequency of evaluation** drop-down lists, and then select **Done**.
 
-   Egress, ingress, and transactions metrics are expressed per-minute, though you're provisioned egress, ingress, and IOPS per second. Therefore, for example, if your provisioned egress is 90&nbsp;mebibytes per second (MiB/s) and you want your threshold to be 80&nbsp;percent of provisioned egress, select the following alert parameters: 
+   Egress, ingress, and transactions metrics are expressed per minute, though you're provisioned egress, ingress, and I/O per second. Therefore, for example, if your provisioned egress is 90&nbsp;mebibytes per second (MiB/s) and you want your threshold to be 80&nbsp;percent of provisioned egress, select the following alert parameters: 
    - For **Threshold value**: *75497472* 
    - For **Operator**: *greater than or equal to*
    - For **Aggregation type**: *average*
