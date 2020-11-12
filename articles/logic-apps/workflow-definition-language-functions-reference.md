@@ -4040,7 +4040,7 @@ substring('<text>', <startIndex>, <length>)
 
 > [!NOTE]
 > Make sure that the sum from adding the *startIndex* and *length* parameter values is less than the length of the string that you provide for the *text* parameter.
-> Otherwise, you get an error, unlike similar functions in other languages where the result is the substring from the *startIndex* to the end of the string.
+> Otherwise, you get an error, unlike similar functions in other languages where the result is the substring from the *startIndex* to the end of the string. However, the parameter "length" is an optional parameter. If the length parameter is not provided, then the "substring" function will take all characters from the startIndex to the end of the string.
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
