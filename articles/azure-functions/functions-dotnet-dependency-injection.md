@@ -260,7 +260,7 @@ Use the `dotnet user-secrets set` command to create or update secrets.
 dotnet user-secrets set MySecret "my secret value"
 ```
 
-To access user secrets values in a function app, use `IConfiguration` or `IOptions`.
+To access user secrets values in your function app code, use `IConfiguration` or `IOptions`.
 
 ## Customizing configuration sources
 
