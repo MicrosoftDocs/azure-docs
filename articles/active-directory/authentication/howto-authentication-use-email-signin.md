@@ -84,7 +84,7 @@ For more information, see [Choose the right authentication method for your Azure
 
 ## Enable user sign-in with an email address
 
-Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in name against UPN values, but also against *ProxyAddresses* values for the email address. There's a propagation delay of around 1 hour when you turn on this feature.
+Once users with the *ProxyAddresses* attribute applied are synchronized to Azure AD using Azure AD Connect, you need to enable the feature for users to sign in with email as an alternate login ID for your tenant. This feature tells the Azure AD login servers to not only check the sign-in name against UPN values, but also against *ProxyAddresses* values for the email address.
 
 During preview, you can currently only enable the sign-in with email as an alternate login ID feature using PowerShell. You need *tenant administrator* permissions to complete the following steps:
 
