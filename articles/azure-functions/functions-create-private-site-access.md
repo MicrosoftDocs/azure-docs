@@ -167,7 +167,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
 1. The _Access Restrictions_ page now shows that there is a new restriction. It may take a few seconds for the _Endpoint status_ to change from Disabled through Provisioning to Enabled.
 
     >[!IMPORTANT]
-    > Each function app has an [Advanced Tool (Kudu) site](../app-service/app-service-ip-restrictions.md#scm-site) that is used to manage function app deployments. This site is accessed from a URL like: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Enabling access restrictions on the Kudu site prevents the deployment of the project code from a local developer workstation, and then an agent is needed within the virtual network to perform the deployment.
+    > Each function app has an [Advanced Tool (Kudu) site](../app-service/app-service-ip-restrictions.md#restrict-access-to-an-scm-site) that is used to manage function app deployments. This site is accessed from a URL like: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Enabling access restrictions on the Kudu site prevents the deployment of the project code from a local developer workstation, and then an agent is needed within the virtual network to perform the deployment.
 
 ## Access the functions app
 
