@@ -60,7 +60,7 @@ With the exception of active learning data (detailed below), LUIS follows the [d
 
 ### Europe
 
-Europe Authoring (also known as Programmatic APIs ) resources are hosted in Azure's Europe geography, and support deployment of endpoints to the following Azure geographies:
+Europe Authoring (also known as Programmatic APIs) resources are hosted in Azure's Europe geography, and support deployment of endpoints to the following Azure geographies:
 
 * Europe
 * France

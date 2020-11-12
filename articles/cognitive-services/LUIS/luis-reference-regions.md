@@ -13,13 +13,10 @@ Three authoring regions are supported by corresponding LUIS portals. To publish 
 <a name="luis-website"></a>
 
 ## LUIS Authoring regions
-There are three LUIS authoring portals, based on region. You must author and publish in the same region.
 
-|LUIS|Authoring region|Azure region name|
-|--|--|--|
-|[www.luis.ai][www.luis.ai] |U.S.<br>not Europe<br>not Australia| `westus`|
-|[au.luis.ai][au.luis.ai] |Australia| `australiaeast`|
-|[eu.luis.ai][eu.luis.ai] |Europe|`westeurope`|
+[!INCLUDE [portal consolidation](includes/portal-consolidation.md)]
+
+LUIS has one portal you can use regardless of region, [www.luis.ai](www.luis.ai). You must still author and publish in the same region.
 
 Authoring regions have [paired fail-over regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
