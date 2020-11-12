@@ -195,25 +195,46 @@ Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunxiNeural`
+* `zh-CN-XiaohanNeural`
+* `zh-CN-XiaomoNeural`
+* `zh-CN-XiaoxuanNeural`
+* `zh-CN-XiaoruiNeural`
 
-Changes are applied at the sentence level, and styles vary by voice. If a style isn't supported, the service will return speech in the default neutral speaking style. You can query the styles supported for each voice through the [voice list API](rest-text-to-speech.md#get-a-list-of-voices).
+The intensity of speaking style can be further changed to better fit your use case. You can specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued. 
 
-For Chinese voice XiaoxiaoNeural, the intensity of speaking style can be further changed to better fit your use case. You can specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued.
+Currently, speaking style adjustments are supported for these neural voices:
+* `zh-CN-XiaoxiaoNeural`
+
+Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice will imitate a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice.
+
+Currently, role-play adjustments are supported for these neural voices:
+* `zh-CN-XiaomoNeural`
+* `zh-CN-XiaoxuanNeural`
+
+Above changes are applied at the sentence level, and styles and role-plays vary by voice. If a style or role-play isn't supported, the service will return speech in the default neutral speaking way. You can query the styles and role-play supported for each voice through the [voice list API](rest-text-to-speech.md#get-a-list-of-voices).
 
 **Syntax**
 
 ```xml
+<mstts:express-as style="string"></mstts:express-as>
+```
+```xml
 <mstts:express-as style="string" styledegree="value"></mstts:express-as>
 ```
+```xml
+<mstts:express-as role="string" style="string"></mstts:express-as>
+```
 > [!NOTE]
-> At the moment, `styledegree` only supports XiaoxiaoNeural. 
+> At the moment, `styledegree` only supports zh-CN-XiaoxiaoNeural. `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.
 
 **Attributes**
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `style` | Specifies the speaking style. Currently, speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then style must be provided. If an invalid value is provided, this element will be ignored. |
-| `styledegree` | Specifies the intensity of speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1 which means the predefined style intensity. The minimum unit is 0.01 which results in a slightly tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional (At the moment, `styledegree` only supports XiaoxiaoNeural.)|
+| `styledegree` | Specifies the intensity of speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1 which means the predefined style intensity. The minimum unit is 0.01 which results in a slightly tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional (At the moment, `styledegree` only supports zh-CN-XiaoxiaoNeural.)|
+| `role` | Specifies the speaking role-play. **Accepted values**: <ul><li>Boy</li><li>Girl</li><li>YoungAdultMale</li><li>YoungAdultFemale</li><li>OlderAdultMale</li><li>OlderAdultFemale</li><li>SeniorMale</li><li>SeniorFemale</li></ul> | Optional (At the moment, `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.)|
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
@@ -245,6 +266,52 @@ Use this table to determine which speaking styles are supported for each neural 
 |                         | `style="gentle"`          | Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy         |   
 |                         | `style="lyrical"`         | Expresses emotions in a melodic and sentimental way         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  | 
+| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+|                         | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.            |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+|                         | `style="disgruntled"`     | Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.              |
+|                         | `style="serious"`         | Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.    |
+|                         | `style="depressed"`       | Expresses a melancholic and despondent tone with lower pitch and energy    |
+|                         | `style="embarrassed"`     | Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable   |
+| `zh-CN-XiaohanNeural`   | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+|                         | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.            |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+|                         | `style="disgruntled"`     | Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.              |
+|                         | `style="serious"`         | Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.    |
+|                         | `style="embarrassed"`     | Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable   |
+|                         | `style="affectionate"`    | Expresses a warm and affectionate tone, with higher pitch and vocal energy. The speaker is in a state of attracting the attention of the listener. The “personality” of the speaker is often endearing in nature.          |     
+|                         | `style="gentle"`          | Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy         |   
+| `zh-CN-XiaomoNeural`    | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+|                         | `style="disgruntled"`     | Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.              |
+|                         | `style="serious"`         | Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.    |
+|                         | `style="depressed"`       | Expresses a melancholic and despondent tone with lower pitch and energy    |
+|                         | `style="gentle"`          | Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy         |  
+| `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | Expresses an upbeat and enthusiastic tone, with higher pitch and vocal energy                         |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+|                         | `style="disgruntled"`     | Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.              |
+|                         | `style="serious"`         | Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.    |
+|                         | `style="depressed"`       | Expresses a melancholic and despondent tone with lower pitch and energy    |
+|                         | `style="gentle"`          | Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy         |   
+| `zh-CN-XiaoruiNeural`    | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.            |
+|                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
+|                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                          |
+
+Use this table to determine which roles are supported for each neural voice.
+
+| Voice                   | Style                      | Description                                                 |
+|-------------------------|----------------------------|-------------------------------------------------------------|
+| `zh-CN-XiaomoNeural`    | `style="YoungAdultFemale"` | The voice imitates to a young adult female.                 |
+|                         | `style="OlderAdultMale"`   | The voice imitates to a older adult male.                   |
+|                         | `style="Girl"`             | The voice imitates to a girl.                               |
+|                         | `style="Boy"`              | The voice imitates to a boy.                                |
+| `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | The voice imitates to a young adult female.                 |
+|                         | `role="OlderAdultFemale"`  | The voice imitates to a older adult female.                 |
+|                         | `role="OlderAdultMale"`    | The voice imitates to a older adult male.                   |
 
 **Example**
 
@@ -268,6 +335,23 @@ This SSML snippet illustrates how the `styledegree` attribute is used to change 
     <voice name="zh-CN-XiaoxiaoNeural">
         <mstts:express-as style="sad" styledegree="2">
             快走吧，路上一定要注意安全，早去早回。
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
+This SSML snippet illustrates how the `role` attribute is used to change the role-play for XiaomoNeural.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaomoNeural">
+        女儿看见父亲走了进来，问道：
+        <mstts:express-as role="YoungAdultFemale" style="calm">
+            “您来的挺快的，怎么过来的？”
+        </mstts:express-as>
+        父亲放下手提包，说：
+        <mstts:express-as role="OlderAdultMale" style="calm">
+            “刚打车过来的，路上还挺顺畅。”
         </mstts:express-as>
     </voice>
 </speak>
