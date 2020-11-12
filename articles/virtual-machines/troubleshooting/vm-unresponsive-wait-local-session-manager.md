@@ -31,7 +31,7 @@ There could be multiple reasons a virtual machine is stuck waiting for the Local
 
 ## Solution
 
-In some cases, simply waiting long enough for the process to complete will resolve your issue. If your VM is hung on the wait screen for over an hour, you should collect a memory dump and then contact Microsoft support.
+In some cases, simply waiting long enough for the process to complete will resolve your issue. If your VM is not responding and remains on the wait screen for over an hour, you should collect a memory dump and then contact Microsoft support.
 
 ### Collect the Memory Dump File
 
