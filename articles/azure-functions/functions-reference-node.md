@@ -510,13 +510,9 @@ You can see the current version that the runtime is using by printing `process.v
 
 ### Setting the Node version
 
-#### Windows
+For Windows function apps, target the version in Azure by setting the *WEBSITE_NODE_DEFAULT_VERSION* [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~12`.
 
-Target the version in Azure by setting the *WEBSITE_NODE_DEFAULT_VERSION* [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~12`.
-
-#### Linux
-
-Run the following Azure CLI command to update the Node version used by your function app.
+For Linux function apps, run the following Azure CLI command to update the Node version.
 
 ```bash
 az functionapp config set -g $MyResourceGroup -n $MyFunctionnApp --linux-fx-version "node|12"
