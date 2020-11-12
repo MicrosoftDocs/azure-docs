@@ -78,7 +78,7 @@ The client VM could be located in a different region than the file share.
 One potential cause of this is a lack of SMB Multichannel support on account. Without SMB Multichannel, there is only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core. SMB Multichannel is supported on premium shares and the feature is disabled by default. Currently, standard file shares only support single channel for standard files.
 
 ### Workaround
-- For premium file shares, enable SMB Multichannel. 
+- For premium file shares, [enable SMB Multichannel](storage-files-enable-smb-multichannel.md).
 - Obtaining a VM with a bigger core may help improve throughput.
 - Running the client application from multiple VMs will increase throughput.
 - Use REST APIs where possible.
