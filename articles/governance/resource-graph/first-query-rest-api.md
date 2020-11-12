@@ -114,7 +114,6 @@ with your own value:
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5 | order by name asc"
-         }
      }
      ```
 
