@@ -18,7 +18,7 @@ ms.custom: "devx-track-csharp, scenarios:getting-started, languages:aspnet-core"
 
 # Quickstart: Protect an ASP.NET Core web API with Microsoft identity platform
 
-In this quickstart, you download and run a code sample that demonstrates how to protect an ASP.NET Core web API to sign in users. Users with a personal Microsoft account or an account in any Azure Active Directory (Azure AD) organization can sign into the application.
+In this quickstart, you download an ASP.NET Core web API code sample and review its code that restricts access to resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
 
 > [!div renderon="docs"]
 > ## Prerequisites
