@@ -283,6 +283,19 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 
 1. To view your environment, select **Go to resource** if Azure doesn't automatically go to your environment after deployment finishes.
 
+1. For an ISE that has *external* endpoint access, you need to a network security group that has an inbound rule to permit traffic from the the managed connectors outbound IP addresses. To set up this rule, follow these steps:
+
+   1. On your ISE menu, under **Settings**, select **Properties**.
+
+   1. Under **Connector outgoing IP addresses**, copy the public IP address ranges, which you can also find in the article, [Limits and configuration - Outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound).
+
+   1. Create an network security group with an inbound security rule, as described in this step, that permits traffic from the public IP addresses that you copied. For more information, see [Tutoral: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md#create-a-network-security-group).
+
+      | Purpose | Source service tag or IP addresses | Source ports | Destination service tag or IP addresses | Destination ports | Notes |
+      |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+      | Permit traffic from connector outbound IP addresses | <*connector-public-outbound-IP-addresses*> | * | Address space for the virtual network with ISE subnets | * | |
+      |||||||
+
 1. To check the network health for your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md#check-network-health).
 
    > [!CAUTION]
