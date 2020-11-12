@@ -28,7 +28,7 @@ Another approach is to use Azure AD Groups and Group Claims as shown in the [act
 
 You define app roles by using the [Azure portal](https://portal.azure.com). When a user signs in to the application, Azure AD emits a `roles` claim for each role that the user has been granted individually to the user and from their group membership.
 
-There are two ways to declare app roles by using the the Azure portal:
+There are two ways to declare app roles by using the Azure portal:
 
 * [App roles UI](#app-roles-ui--preview) | Preview
 * [App manifest editor](#app-manifest-editor)
@@ -59,7 +59,7 @@ To create an app role by using the Azure portal's user interface:
     | **Allowed member types** | Specifies whether this app role can be assigned to users, applications, or both.<br/><br/>When available to `applications`, app roles appear as application permissions in an app registration's **Manage** section > **API permissions > Add a permission > My APIs > Choose an API > Application permissions**. | `Users/Groups` |
     | **Value** | Specifies the value of the roles claim that the application should expect in the token. The value should exactly match the string referenced in the application's code. The value cannot contain spaces. | `Survey.Create` |
     | **Description** | A more detailed description of the app role displayed during admin app assignment and consent experiences. | `Writers can create surveys.` |
-    | **Do you want to enable this app role?** | Whether the app role is enabled. To delete an app role, deselect this checkbox and apply the change before attempting the delete operation. | *Checked* |
+    | **Do you want to enable this app role?** | Specifies whether the app role is enabled. To delete an app role, deselect this checkbox and apply the change before attempting the delete operation. | *Checked* |
 
 1. Select **Apply** to save your changes.
 
@@ -137,10 +137,11 @@ To assign users and groups to roles by using the Azure portal:
 1. Select **Add user** to open the **Add Assignment** pane.
 1. Select the **Users and groups** selector from the **Add Assignment** pane. A list of users and security groups is displayed. You can search for a certain user or group as well as select multiple users and groups that appear in the list.
 1. Once you've selected users and groups, select the **Select** button to proceed.
-1. Select **Select Role** in the **Add assignment** pane. All the roles that you've defined for the application are displayed.
+1. Select **Select a role** in the **Add assignment** pane. All the roles that you've defined for the application are displayed.
 1. Choose a role and select the **Select** button.
 1. Select the **Assign** button to finish the assignment of users and groups to the app.
-1. Confirm that the users and groups you added are appear in the **Users and groups** list.
+
+Confirm that the users and groups you added appear in the **Users and groups** list.
 
 ## Assign app roles to applications
 
@@ -189,7 +190,7 @@ Though you can use app roles or groups for authorization, key differences betwee
 
 Developers can use app roles to control whether a user can sign in to an app or an app can obtain an access token for a web API. To extend this security control to groups, developers and admins can also assign security groups to app roles.
 
-App roles are preferred by developers when they want to describe and control the parameters of authorization in their app themselves. For example, an app using groups for authorization will break in the next tenant as both the group ID and name could be different. An app using app roles remains safe. In fact, assigning groups to app roles is very popular with SaaS apps for the same reasons.
+App roles are preferred by developers when they want to describe and control the parameters of authorization in their app themselves. For example, an app using groups for authorization will break in the next tenant as both the group ID and name could be different. An app using app roles remains safe. In fact, assigning groups to app roles is popular with SaaS apps for the same reasons.
 
 ## Next steps
 
