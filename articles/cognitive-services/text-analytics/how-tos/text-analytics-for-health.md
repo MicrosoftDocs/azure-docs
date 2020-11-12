@@ -76,12 +76,12 @@ Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate)
 [!INCLUDE [Authenticate to the container registry](../../../../includes/cognitive-services-containers-access-registry.md)]
 
 
-## Example API request
+## Example API request for the container
 
-Use the example cURL request below to submit a query to the hosted web API you have deployed replacing the `serverURL` variable with the appropriate value.
+Use the example cURL request below to submit a query to the hosted web API you have deployed replacing the `serverURL` variable with the appropriate value.  Please note the version of the API in the URL
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1-preview.3/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
