@@ -17,7 +17,7 @@ For Azure IoT Edge role management for your Azure Stack Edge device, use the upd
 
 This article describes in detail the changes that you need to make when you use this newest version.
 
-The January 2021 update will be available only for Azure Stack Edge Pro. The update includes a graphics processing unit (GPU) and Azure Stack Edge Pro R and Azure Stack Edge Mini R devices. The information in this article applies only to these devices.
+The January 2021 update will be available only for Azure Stack Edge Pro - GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. The information in this article applies only to these devices.
 
 > [!NOTE]
 > You're not required to upgrade to the January 2021 version. If you choose to continue using your current version, there is no impact on IoT Edge role management. However, to take advantage of the new features and to help reduce any security risks, we recommend that you install the newer version. 
@@ -317,11 +317,11 @@ If you're currently using the `Get-AzStackEdgeRole`, `New-AzStackEdgeRole`, `Set
 
 ## Frequently asked questions
 
-**I'm using Azure Stack Edge Pro with field-programmable gate array (FPGA). Does the January 2021 update affect the FPGA model?**
+**I'm using Azure Stack Edge Pro - FPGA. Does the January 2021 update affect the FPGA model?**
 
-No. The January 2021 update applies only to Azure Stack Edge Pro with FPGA, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Azure Stack Edge Pro with FPGA isn't affected by this update and doesn't require any changes to IoT Edge role management.
+No. The January 2021 update applies only to Azure Stack Edge Pro - FPGA, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Azure Stack Edge Pro - FPGA isn't affected by this update and doesn't require any changes to IoT Edge role management.
 
-**After I update my Azure Stack Edge Pro with GPU to the new device software in January 2021, are any of the existing services affected?**
+**After I update Azure Stack Edge Pro - GPU to the new device software in January 2021, are any of the existing services affected?**
 
 No. Your configured services won't be affected after you install the January 2021 device update.
 
