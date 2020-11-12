@@ -1,7 +1,7 @@
 ---
 title: Import data into the designer
 titleSuffix: Azure Machine Learning
-description: Learn how to import data into Azure Machine Learning designer from various data sources.
+description: Learn how to import data into Azure Machine Learning designer using Azure Machine Learning datasets and the Import Data module.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
