@@ -49,7 +49,7 @@ To install the agent, follow these steps.
 
    ![Configuration complete screen](media/how-to-install/install4.png)</br>
 
-1. After this operation finishes, you should see the notice **Your agent configuration was successfully verified.** Select **Exit**.
+1. After this operation finishes, you should see **Your agent configuration was successfully verified.** Select **Exit**.
 
    ![Exit button](media/how-to-install/install5.png)</br>
 1. If you still see the initial **Microsoft Azure AD Connect Provisioning Agent Package** screen, select **Close**.
@@ -94,17 +94,17 @@ A group Managed Service Account is a managed domain account that provides automa
 ### Installation using a gMSA account
 These installation instructions are for a brand new installation.  If you are upgrading an existing agent and want to switch to using a gMSA account, see [Upgrading and switching to a gMSA account](#upgrading-and-switching-to-a-gMSA-account).
 
-1.	Run agent MSI. This will open the AAD Connect Provisioning Agent Wizard
-2.	Enter your Azure AD global administrator credentials in the Connect Azure AD page
-3.	Enter your EA/DA of all the domains you want to sync in the Connect Active Directory page
+1.	Run agent MSI. This will open the Azure AD Connect Provisioning Agent Wizard.
+2.	Enter your Azure AD global administrator credentials in the Connect Azure AD page.
+3.	Enter your EA/DA of all the domains you want to sync in the Connect Active Directory page.
 4.	Enter your EA/DA of current domain where agent is installed in the Configure Service Account page
-5.	Click Confirm in the Confirm page
+5.	Click Confirm in the Confirm page.
 
 
 ### Upgrading and switching to a gMSA account
 
-1.	Run agent MSI. This will initally update the agent service to the latest version.
-2.	Double-click the **Azure AD Connect Provisiong Agent** wizard.
+1.	Run agent MSI. This will update the agent service to the latest version.
+2.	Double-click the **Azure AD Connect Provisioning Agent** wizard.
 3.	Enter your Azure AD global administrator credentials in the Connect Azure AD page.
 4.	Enter your EA/DA of all the domains you want to sync in the Connect Active Directory page.
 5.	Enter your EA/DA of current domain where agent is installed in the Configure Service Account page.

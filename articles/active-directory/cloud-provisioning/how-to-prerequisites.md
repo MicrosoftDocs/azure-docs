@@ -96,7 +96,7 @@ A group Managed Service Account is a managed domain account that provides automa
 3.	At least one domain controller in the domain must be running Windows Server 2012.
 4.	A domain joined server where the agent is being installed needs to be either Windows Server 2012 or later.
 
-For steps on how to upgrade an existing agent to use a gMSA account see 
+For steps on how to upgrade an existing agent to use a gMSA account see [Group Managed Service Accounts](how-to-install.md#group-managed-service-accounts).
 
 ## Next steps 
 
