@@ -9,17 +9,54 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/12/2020
 
 ---
 
-# Batch testing with 1000 utterances in LUIS portal
+# Batch testing in LUIS
 
 Batch testing validates your active trained version to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your active version, displaying results with a chart. Review the batch test results to take appropriate action to improve accuracy, such as adding more example utterances to an intent if your app frequently fails to identify the correct intent or labeling entities within the utterance.
 
 ## Group data for batch test
 
 It is important that utterances used for batch testing are new to LUIS. If you have a data set of utterances, divide the utterances into three sets: example utterances added to an intent, utterances received from the published endpoint, and utterances used to batch test LUIS after it is trained.
+
+## Batch testing using the REST API 
+
+LUIS lets you batch test using the LUIS portal and REST API. The endpoints for the REST API are listed below. For information on batch testing using the LUIS portal, see [Tutorial: batch test data sets](luis-tutorial-batch-testing.md). Use the complete URLs below, replacing the placeholder values with your own LUIS Prediction key and endpoint. 
+
+### Start a batch test
+
+Start a batch test using either an app version ID or a publishing slot. Send a **POST** request to one of the following endpoint format:
+
+Publishing slot
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
+
+App version ID
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
+
+These endpoints will return an operation ID that you will use to check the status, and get results.
+
+### Get the status of an ongoing batch test
+
+Use the operation ID from the batch test you started to get its status from the following endpoint formats: 
+
+Publishing slot
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+
+App version ID
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+
+### Get the results from a batch test
+
+Use the operation ID from the batch test you started to get its results from the following endpoint formats: 
+
+Publishing slot
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result?verbose=true`
+
+App version ID
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+
 
 ## A data set of utterances
 
