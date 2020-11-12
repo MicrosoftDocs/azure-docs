@@ -9,6 +9,8 @@ ms.author: ccompy
 ms.custom: seodec18
 ---
 
+# Overview
+
 Note: this article is on App Service Environment v3 (ASEv3) and not the earlier versions
 
 The App Service Environment (ASE) is a single tenant deployment of the App Service that injects into your Azure Virtual Network (VNet).  ASEv3 only supports exposing apps on a private address in your Vnet. When an ASEv3 is created during preview, three resources are added to your subscription.
@@ -49,3 +51,19 @@ In an ASE you can have Windows apps, Linux apps or both.  The initial preference
 
 ## Dedicated hosts
 The ASE is normally deployed on VMs that are provisioned on a multi-tenant hypervisor. If you need to deploy on dedicated systems, including the hardware, you can provision your ASE onto dedicated hosts. In the initial ASEv3 preview, dedicated hosts come in a pair. Each dedicated host is in a separate availability zone, if the region permits it. Dedicated host-based ASE deployments are priced differently than normal. There is a charge for the dedicated host and then another charge for each App Service plan instance.  
+
+<!--Links-->
+[Intro]: ./overview.md
+[MakeASE]: ./create-ase.md
+[ASENetwork]: ./networking.md
+[UsingASE]: ./using.md
+[UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[AppDeploy]: ../deploy-local-git.md
+[ASEWAF]: app-service-app-service-environment-web-application-firewall.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
+[logalerts]: ../../azure-monitor/platform/alerts-log.md
