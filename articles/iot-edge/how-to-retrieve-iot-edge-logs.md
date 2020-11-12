@@ -135,8 +135,13 @@ az iot hub invoke-module-method \
 
 Use the **UploadModuleLogs** direct method to send the requested logs to a specified Azure Blob Storage container.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
 > [!NOTE]
-> If you wish to upload logs from a device behind a [gateway device](iot-edge-as-gateway.md), you will need to have the [blob storage module](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob?view=iotedge-2018-06) configured on the top layer device.
+> If you wish to upload logs from a device behind a gateway device, you will need to have the [blob storage module](https://docs.microsoft.com/azure/iot-edge/how-to-configure-api-proxy-module) configured on the top layer device.
+
+::: moniker-end
 
 This method accepts a JSON payload similar to **GetModuleLogs**, with the addition of the "sasUrl" key:
 
@@ -258,8 +263,13 @@ In the Azure portal, invoke the method with the method name `UploadModuleLogs` a
 
 Use the **UploadSupportBundle** direct method to bundle and upload a zip file of IoT Edge module logs to an available Azure Blob Storage container. This direct method runs the [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) command on your IoT Edge device to obtain the logs.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
 > [!NOTE]
 > If you wish to upload logs from a device behind a [gateway device](iot-edge-as-gateway.md), you will need to have the [blob storage module](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob?view=iotedge-2018-06) configured on the top layer device.
+
+::: moniker-end
 
 This method accepts a JSON payload with the following schema:
 

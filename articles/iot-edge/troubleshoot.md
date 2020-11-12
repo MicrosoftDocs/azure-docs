@@ -41,7 +41,7 @@ The troubleshooting tool runs many checks that are sorted into these three categ
 * *Connection checks* verify that the IoT Edge runtime can access ports on the host device and that all the IoT Edge components can connect to the IoT Hub. This set of checks returns errors if the IoT Edge device is behind a proxy.
 * *Production readiness checks* look for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
 
-The IoT Edge check tool uses a container to run its diagnostics. The container image, `mcr.microsoft.com/azureiotedge-diagnostics:latest`, is available through the [Microsoft Container Registry](https://github.com/microsoft/containerregistry). If you need to run a check on a device without direct access to the internet, such a gateway device or firewall, your devices will need access to the container image.
+The IoT Edge check tool uses a container to run its diagnostics. The container image, `mcr.microsoft.com/azureiotedge-diagnostics:latest`, is available through the [Microsoft Container Registry](https://github.com/microsoft/containerregistry). If you need to run a check on a device without direct access to the internet, your devices will need access to the container image.
 
 For information about each of the diagnostic checks this tool runs, including what to do if you get an error or warning, see [IoT Edge troubleshoot checks](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
@@ -72,7 +72,7 @@ If you're running an older version of IoT Edge, then upgrading may resolve your 
 
 For instructions on how to update your device, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
 
-## Verifying the installation of IoT Edge on your devices
+## Verify the installation of IoT Edge on your devices
 
 You can verify the installation of IoT Edge on your devices by [monitoring the edgeAgent module twin](https://docs.microsoft.com/azure/iot-edge/how-to-monitor-module-twins?view=iotedge-2018-06).
 
