@@ -32,7 +32,7 @@ highlightedContent:
       url: ./cognitive-services-and-machine-learning.md
     - title: Cognitive Services on-prem containers
       itemType: concept
-      url: ./cognitive-services-container-support.md
+      url: ./containers/index.yml
     - title: Cognitive Services with databases
       itemType: concept
       url: ./big-data/cognitive-services-for-big-data.md
