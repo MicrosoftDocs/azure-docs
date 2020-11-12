@@ -142,7 +142,7 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
 [conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md
