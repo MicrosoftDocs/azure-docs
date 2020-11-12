@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 11/12/2020
 ms.author: alkohli
 ---
 
@@ -138,7 +138,10 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-    To deploy Azure Arc on Azure Stack Edge Pro device, make sure that you are using a [Supported region for Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). Azure Arc is currently in preview. You can also figure out the exact name of the region to pass in the cmdlet by using the `az account list-locations` command.
+
+    > [!NOTE]
+    > - To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). 
+    > - Use the `az account list-locations` command to figure out the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
     
     Here is an example:
    
@@ -217,6 +220,9 @@ To remove the Azure Arc management, follow these steps:
 
     `Remove-HcsKubernetesAzureArcAgent` 
 
+
+> [!NOTE]
+> By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster. You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/use-gitops-connected-cluster#additional-parameters.md)
 
 ## Next steps
 

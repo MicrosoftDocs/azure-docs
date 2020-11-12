@@ -7,35 +7,41 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 11/12/2020
 ms.author: alkohli
 ---
 
-# Azure Stack Edge Pro with GPU 2011 release notes
+# Azure Stack Edge 2011 release notes
 
-The following release notes identify the critical open issues and the resolved issues for general availability (GA) release for your Azure Stack Edge Pro devices with GPU.
+The following release notes identify the critical open issues and the resolved issues for the 2011 release for your Azure Stack Edge devices. These release notes are applicable for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Features and issues that correspond to a specific model are called out wherever applicable.
 
-The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your Azure Stack Edge Pro device, carefully review the information contained in the release notes.
+The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge Pro 2011** release which maps to software version number **2.1.XXXX.XXXX**.
+This article applies to the **Azure Stack Edge 2011** release<!--which maps to software version number **2.1.XXXX.XXXX**-->.
 
 ## What's new
 
 The following new features are available in the Azure Stack Edge 2011 release. 
 
-- **Storage classes** - In this release, Storage classes are available that let you dynamically provision storage. For more information, see [Kubernetes storage management on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-kubernetes-storage.md#dynamicprovisioning). 
-- **Kubernetes dashboard with metrics server** - In this release, a Kubernetes Dashboard is added with a metrics server add-on. You can use the dashboard to get an overview of the applications running on your Azure Stack Edge Pro device, view status of Kubernetes cluster resources, and see any errors that have occurred on the device. The Metrics server aggregates the CPU and memory usage across Kubernetes resources on the device. For more information, see [Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
-- **Azure Arc enabled Kubernetes on Azure Stack Edge Pro** - Beginning this release, you can deploy application workloads on your Azure Stack Edge Pro device via Azure Arc enabled Kubernetes. Azure Arc is a hybrid management tool that allows you to deploy applications on your Kubernetes clusters. For more information, see [Deploy workloads via Azure Arc on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).  
-- Azure Stack Edge Pro R and Azure Stack Edge Mini R
-- Edge container registry
-- Proactive logging
-- Cloud management of VMs
-- Rotate encryption-at-rest keys
+- **General availability of Azure Stack Edge Pro R and Azure Stack Edge Mini R devices** - Starting this release, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices will be available. For more information, see [What is Azure Stack Edge Pro R](azure-stack-edge-pro-r-overview.md) and [What is Azure Stack Edge Mini R](azure-stack-edge-mini-r-overview.md).  
+- **Cloud management of Virtual Machines** - Beginning this release, you can manage the virtual machines deployed on your device via the Azure portal. For more information, see [Deploy VMs via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal).
+- **Edge container registry** - In this release, an Edge container registry is available that provides a repository at the edge on your device. You can use this registry to store and manage container images. For more information, see [Enable Edge container registry](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 
+- **Rotate encryption-at-rest keys** - You will now be able to rotate the encryption-at-rest keys that are used to protect the drives on your device. This feature is available only for Azure Stack Edge Pro R and Azure Stack Edge Mini R devices. For more information, see [Rotate encryption-at-rest keys](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#manage-access-to-device-data).
+- **Proactive logging** - Starting this release, you can enable proactive log collection on your device based on the system health indicators to help efficiently troubleshoot any device issues. For more information, see [Proactive log collection on your device](azure-stack-edge-gpu-proactive-log-collection.md).
 
 
-## Known issues 
+## Known issues in 2011 release
 
-The following table provides a summary of known issues for the Azure Stack Edge Pro device.
+The following table provides a summary of known issues in the 2011 release.
+
+|**1.**|Kubernetes Dashboard | *Https* endpoint for Kubernetes Dashboard with SSL certificate is not supported. | |
+|**2.**|Kubernetes |Edge container Registry does not work when web proxy is enabled.| |
+|**3.**|Kubernetes |Kubernetes doesn't support ":" in environment variable names that are used by .NET applications. This is also required for Event grid IoT Edge module to function on Azure Stack Edge device and other applications. For more information, see [ASP .NET core documentation](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1#environment-variables).|Replace ":" by double underscore. For more information,see [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/53201)|
+|**4.** |Azure Arc + Kubernetes cluster |By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster.  |You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/use-gitops-connected-cluster#additional-parameters.md). |
+
+## Known issues from previous releases 
+
+The following table provides a summary of known issues carried over from the previous releases.
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
@@ -56,16 +62,16 @@ The following table provides a summary of known issues for the Azure Stack Edge 
 |**15.**|Kubernetes |File-based bind mounts are not supported with Azure IoT Edge on Kubernetes on Azure Stack Edge device.|IoT Edge uses a translation layer to translate `ContainerCreate` options to Kubernetes constructs. Creating `Binds` maps to hostpath directory and thus file-based bind mounts cannot be bound to paths in IoT Edge containers. If possible, map the parent directory.|
 |**16.**|Kubernetes |If you bring your own certificates for IoT Edge and add those on your Azure Stack Edge device after the compute is configured on the device, the new certificates are not picked up.|To work around this problem, you should upload the certificates before you configure compute on the device. If the compute is already configured, [Connect to the PowerShell interface of the device and run IoT Edge commands](azure-stack-edge-gpu-connect-powershell-interface.md#use-iotedge-commands). Restart `iotedged` and `edgehub` pods.|
 |**17.**|Certificates |In certain instances, certificate state in the local UI may take several seconds to update. |The following scenarios in the local UI may be affected.<ul><li>**Status** column in **Certificates** page.</li><li>**Security** tile in **Get started** page.</li><li>**Configuration** tile in **Overview** page.</li></ul>  |
-|**17.**|IoT Edge |Modules deployed through IoT Edge can't use host network. | |
-|**18.**|Compute + Kubernetes |Compute/Kubernetes does not support NTLM web proxy. ||
-|**19.**|Compute + web proxy + update |If you have compute configured with web proxy, then compute update may fail. |We recommend that you disable compute before the update. |
+|**18.**|IoT Edge |Modules deployed through IoT Edge can't use host network. | |
+|**19.**|Compute + Kubernetes |Compute/Kubernetes does not support NTLM web proxy. ||
+|**20.**|Compute + web proxy + update |If you have compute configured with web proxy, then compute update may fail. |We recommend that you disable compute before the update. |
+|**21.**|Kubernetes + update |Earlier software versions such as 2008 releases have a race condition update issue that causes the update to fail with ClusterConnectionException.   |Using the newer builds should alleviate this issue. If you still see this issue, the workaround is to simply retry the upgrade, and it should work.|
+
 
 <!--|**18.**|Azure Private Edge Zone (Preview) |There is a known issue with Virtual Network Function VM if the VM was created on Azure Stack Edge device running earlier preview builds such as 2006/2007b and then the device was updated to 2009 GA release. The issue is that the VNF information can't be retrieved or any new VNFs can't be created unless the VNF VMs are deleted before the device is updated.  |Before you update Azure Stack Edge device to 2009 release, use the PowerShell command `get-mecvnf` followed by `remove-mecvnf <VNF guid>` to remove all Virtual Network Function VMs one at a time. After the upgrade, you will need to redeploy the same VNFs.|-->
 
 
-
-
 ## Next steps
 
-- [Prepare to deploy Azure Stack Edge Pro device with GPU](azure-stack-edge-gpu-deploy-prep.md)
+- [Update your device](azure-stack-edge-gpu-install-update.md)
 
