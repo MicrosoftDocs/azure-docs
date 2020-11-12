@@ -7,7 +7,7 @@ ms.date: 10/26/2020
 
 # Integrate Azure VMware Solution in a hub and spoke architecture
 
-This article provides recommendations for integrating an Azure VMware Solution deployment in an existing or a new [Hub and Spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/shared-services) on Azure. 
+This article provides recommendations for integrating an Azure VMware Solution deployment in an existing or a new [Hub and Spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/#hub-spoke-network-topology) on Azure. 
 
 
 The Hub and Spoke scenario assume a hybrid cloud environment with workloads on:
