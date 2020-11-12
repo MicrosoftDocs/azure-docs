@@ -58,7 +58,7 @@ The following IDs are used for a content definition with an ID of `api.signupors
 
 The following example shows the use of some of the user interface elements in the sign-up or sign-in page:
 
-![Sign-up or sign-in page UX elements](./media/localization-string-ids/localization-susi.png)
+![Sign-up or sign-in page UX elements](./media/localization-string-ids/localization-susi-2.png)
 
 ### Sign-up or sign-in identity providers
 
