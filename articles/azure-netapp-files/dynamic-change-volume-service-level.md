@@ -13,13 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 11/12/2020
 ms.author: b-juche
 ---
 # Dynamically change the service level of a volume
 
 > [!IMPORTANT] 
-> The public preview registration for this feature is on hold until further notice. 
+> * The public preview registration for this feature is on hold until further notice. 
+> * Dynamically changing the service level of a replication destination volume is currently not supported.
 
 You can change the service level of an existing volume by moving the volume to another capacity pool that uses the [service level](azure-netapp-files-service-levels.md) you want for the volume. This in-place service-level change for the volume does not require that you migrate data. It also does not impact access to the volume.  
 
