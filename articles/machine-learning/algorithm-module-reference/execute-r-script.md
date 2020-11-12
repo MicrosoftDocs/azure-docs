@@ -1,7 +1,7 @@
 ---
 title: "Execute R Script: Module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Execute R Script module in Azure Machine Learning to run R code.
+description: Learn how to use the Execute R Script module in Azure Machine Learning designer to run custom R code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

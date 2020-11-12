@@ -69,6 +69,29 @@ Supported distributions and versions:
 * **Azure CLI**. [Set up the Azure CLI](/cli/azure/install-azure-cli) environment on your machine.
 * The wget command, if you don't already have it: Run `sudo apt-get install wget`.
 * An existing Azure subscription and an existing general purpose storage account to store the data in.  General purpose storage accounts support Table storage which is required.  A Blob storage account will not work.
+* Python 2
+
+### Python requirement
+
+The Linux Diagnostic Extension requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.	
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+The python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
+
+1. Run the following command to remove any existing aliases.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Run the following command to create the alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### Sample installation
 

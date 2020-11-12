@@ -13,6 +13,9 @@ You can use Update Management in Azure Automation to manage operating system upd
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script.
 
+> [!NOTE]
+> At this time, enabling Update Management directly from an Arc enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and how to enable for your server.
+
 To download and install available *Critical* and *Security* patches automatically on your Azure VM, review [Automatic VM guest patching](../../virtual-machines/windows/automatic-vm-guest-patching.md) for Windows VMs.
 
 Before deploying Update Management and enabling your machines for management, make sure that you understand the information in the following sections.  

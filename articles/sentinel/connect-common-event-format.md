@@ -1,6 +1,6 @@
 ---
 title: Connect CEF data to Azure Sentinel Preview| Microsoft Docs
-description: Connect an external solution that sends Common Event Format (CEF) messages to Azure Sentinel by using a Linux machine as a log forwarder.
+description: Connect an external solution that sends Common Event Format (CEF) messages to Azure Sentinel, using a Linux machine as a log forwarder.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -25,14 +25,14 @@ STEP 1: [Connect CEF by deploying a Syslog/CEF forwarder](connect-cef-agent.md)
 STEP 2: [Perform solution-specific steps](connect-cef-solution-config.md)
 STEP 3: [Verify connectivity](connect-cef-verify.md)
 
-This article describes how the connection works, provides prerequisites, and provides the steps for deploying the agent on security solutions that send Common Event Format (CEF) messages on top of Syslog. 
+This article describes how the connection works, lists prerequisites, and shows the steps for deploying a mechanism for security solutions to send Common Event Format (CEF) messages on top of Syslog. 
 
 > [!NOTE] 
 > Data is stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 In order to make this connection, you need to deploy a Syslog Forwarder server to support the communication between the appliance and Azure Sentinel.  The server consists of a dedicated Linux machine (VM or on-premises) with the Log Analytics agent for Linux installed. 
 
-The following diagram describes the setup in the event of a Linux VM in Azure:
+The following diagram describes the setup in the case of a Linux VM in Azure:
 
  ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
 
@@ -51,18 +51,18 @@ To use TLS communication between the Syslog source and the Syslog Forwarder, you
 Make sure the Linux machine you use as a log forwarder is running one of the following operating systems:
 
 - 64-bit
-  - CentOS 7 and 8, including sub-versions (not 6)
+  - CentOS 7 and 8, including minor versions (not 6)
   - Amazon Linux 2017.09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 and 8, including sub-versions (not 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 and 8, including minor versions (not 6)
   - Debian GNU/Linux 8 and 9
-  - Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
+  - Ubuntu Linux 14.04 LTS, 16.04 LTS, and 18.04 LTS
   - SUSE Linux Enterprise Server 12, 15
 
 - 32-bit
-  - CentOS 7 and 8, including sub-versions (not 6)
+  - CentOS 7 and 8, including minor versions (not 6)
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 and 8, including sub-versions (not 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 and 8, including minor versions (not 6)
   - Debian GNU/Linux 8 and 9
   - Ubuntu Linux 14.04 LTS and 16.04 LTS
  
@@ -80,7 +80,7 @@ Make sure your machine also meets the following requirements:
   - You must have elevated permissions (sudo) on your machine. 
 
 - Software requirements
-  - Make sure you have python 2.7 running on your machine.
+  - Make sure you have python 2.7 or 3 running on your machine.
 
 ## Next steps
 

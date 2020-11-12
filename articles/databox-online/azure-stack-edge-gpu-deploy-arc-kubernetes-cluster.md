@@ -15,7 +15,7 @@ ms.author: alkohli
 
 This article shows you how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge Pro device. 
 
-This procedure is intended for those who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+This procedure is intended for those who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)?](../azure-arc/kubernetes/overview.md).
 
 
 ## Prerequisites
@@ -35,7 +35,7 @@ Before you can enable Azure Arc on Kubernetes cluster, make sure that you have c
 
 1. You have a  Windows client system that will be used to access the Azure Stack Edge Pro device.
   
-    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
     
@@ -125,7 +125,7 @@ You can also register resource providers via the `az cli`. For more information,
     }
     PS /home/user>
     ```
-    For more information on how to create service principal and perform the role assignment, see the steps in [Create an Azure Arc-enabled onboarding Service Principal](https://docs.microsoft.com/azure/azure-arc/kubernetes/create-onboarding-service-principal).
+    For more information on how to create service principal and perform the role assignment, see the steps in [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
 
 ## Enable Arc on Kubernetes cluster

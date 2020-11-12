@@ -167,7 +167,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
 1. The _Access Restrictions_ page now shows that there is a new restriction. It may take a few seconds for the _Endpoint status_ to change from Disabled through Provisioning to Enabled.
 
     >[!IMPORTANT]
-    > Each function app has an [Advanced Tool (Kudu) site](../app-service/app-service-ip-restrictions.md#scm-site) that is used to manage function app deployments. This site is accessed from a URL like: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Enabling access restrictions on the Kudu site prevents the deployment of the project code from a local developer workstation, and then an agent is needed within the virtual network to perform the deployment.
+    > Each function app has an [Advanced Tool (Kudu) site](../app-service/app-service-ip-restrictions.md#restrict-access-to-an-scm-site) that is used to manage function app deployments. This site is accessed from a URL like: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Enabling access restrictions on the Kudu site prevents the deployment of the project code from a local developer workstation, and then an agent is needed within the virtual network to perform the deployment.
 
 ## Access the functions app
 
@@ -192,7 +192,7 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Command line](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
+    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. When publishing your Azure Functions project, choose the function app resource that you created earlier in this tutorial.
 1. Verify the function is deployed.

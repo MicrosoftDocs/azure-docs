@@ -18,15 +18,15 @@ Following good error handling practices is important to avoid loss of data or mi
 - [Enable Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Use structured error handling](#use-structured-error-handling)
 - [Design for idempotency](../articles/azure-functions/functions-idempotent.md)
-- [Implement retry policies](#retry-policies) (where appropriate)
+- [Implement retry policies](#retry-policies-preview) (where appropriate)
 
 ### Use structured error handling
 
 Capturing and logging errors is critical to monitoring the health of your application. The top-most level of any function code should include a try/catch block. In the catch block, you can capture and log errors.
 
-## Retry policies
+## Retry policies (preview)
 
-A retry policy can be defined on any function for any trigger type in your function app.  The retry policy re-executes a function until either successful execution or until the maximum number of retries occur.  Retry policies can be defined for all functions in an app or for individual functions.  By default, a function app won't retry messages (aside from the [specific triggers that have a retry policy on the trigger source](#trigger-specific-retry-support)).  A retry policy is evaluated whenever an execution results in an uncaught exception.  As a best practice, you should catch all exceptions in your code and re-throw any errors that should result in a retry.  Event Hubs and Azure Cosmos DB checkpoints won't be written until the retry policy for the execution has completed, meaning progressing on that partition is paused until the current batch has completed.
+A retry policy can be defined on any function for any trigger type in your function app.  The retry policy re-executes a function until either successful execution or until the maximum number of retries occur.  Retry policies can be defined for all functions in an app or for individual functions.  By default, a function app won't retry messages (aside from the [specific triggers that have a retry policy on the trigger source](#using-retry-support-on-top-of-trigger-resilience)).  A retry policy is evaluated whenever an execution results in an uncaught exception.  As a best practice, you should catch all exceptions in your code and rethrow any errors that should result in a retry.  Event Hubs and Azure Cosmos DB checkpoints won't be written until the retry policy for the execution has completed, meaning progressing on that partition is paused until the current batch has completed.
 
 ### Retry policy options
 
@@ -52,6 +52,8 @@ A retry policy can be defined for a specific function.  Function-specific config
 #### Fixed delay retry
 
 # [C#](#tab/csharp)
+
+Retries require NuGet package [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
 
 ```csharp
 [FunctionName("EventHubTrigger")]
@@ -147,6 +149,8 @@ Here's the retry policy in the *function.json* file:
 #### Exponential backoff retry
 
 # [C#](#tab/csharp)
+
+Retries require NuGet package [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
 
 ```csharp
 [FunctionName("EventHubTrigger")]
@@ -250,12 +254,27 @@ Here's the retry policy in the *function.json* file:
 |minimumInterval|n/a|The minimum retry delay when using `exponentialBackoff` strategy.|
 |maximumInterval|n/a|The maximum retry delay when using `exponentialBackoff` strategy.| 
 
-## Trigger-specific retry support
+### Retry limitations during preview
 
-Some triggers provide retries at the trigger source.  These trigger retries can be used in addition to or as a replacement for the function app host retry policy.  If a fixed number of retries are desired, you should use the trigger-specific retry policy over the generic host retry policy.  The following triggers support retries at the trigger source:
+- For .NET projects, you may need to manually pull in a version of [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23.
+- In the consumption plan, the app may be scaled down to zero while retrying the final messages in a queue.
+- In the consumption plan, the app may be scaled down while performing retries.  For best results, choose a retry interval <= 00:01:00 and <= 5 retries.
+
+## Using retry support on top of trigger resilience
+
+The function app retry policy is independent of any retries or resiliency that the trigger provides.  The function retry policy will only layer on top of a trigger resilient retry.  For example, if using Azure Service Bus, by default queues have a message delivery count of 10.  The default delivery count means after 10 attempted deliveries of a queue message, Service Bus will dead-letter the message.  You can define a retry policy for a function that has a Service Bus trigger, but the retries will layer on top of the Service Bus delivery attempts.  
+
+For instance, if you used the default Service Bus delivery count of 10, and defined a function retry policy of 5.  The message would first dequeue, incrementing the service bus delivery account to 1.  If every execution failed, after five attempts to trigger the same message, that message would be marked as abandoned.  Service Bus would immediately requeue the message, it would trigger the function and increment the delivery count to 2.  Finally, after 50 eventual attempts (10 service bus deliveries * five function retries per delivery), the message would be abandoned and trigger a dead-letter on service bus.
+
+> [!WARNING]
+> It is not recommended to set the delivery count for a trigger like Service Bus Queues to 1, meaning the message would be dead-lettered immediately after a single function retry cycle.  This is because triggers provide resiliency with retries, while the function retry policy is best effort and may result in less than the desired total number of retries.
+
+### Triggers with additional resiliency or retries
+
+The following triggers support retries at the trigger source:
 
 * [Azure Blob storage](../articles/azure-functions/functions-bindings-storage-blob.md)
 * [Azure Queue storage](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (queue/topic)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-By default, these triggers retry requests up to five times. After the fifth retry, both the Azure Queue storage and Azure Service Bus trigger write a message to a [poison queue](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).
+By default, most triggers retry requests up to five times. After the fifth retry, both the Azure Queue storage will write a message to a [poison queue](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).  The default Service Bus queue and topic policy will write a message to a [dead-letter queue](../articles/service-bus-messaging/service-bus-dead-letter-queues.md) after 10 attempts.

@@ -40,6 +40,8 @@
     href: front-door-backend-pool.md
   - name: Caching with Front Door
     href: front-door-caching.md
+  - name: DDoS protection
+    href: front-door-ddos.md
   - name: Front Door FAQ
     href: front-door-faq.md
   - name: Geo-filtering

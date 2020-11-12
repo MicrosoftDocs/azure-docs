@@ -50,7 +50,7 @@ The reset workflow does not require the user to recall the old password and is u
 
 1. In the Azure portal, go to **Overview > Reset admin password**.
 
-    ![Reset password 1](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Screenshot shows the device with Reset device password selected.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Enter the new password and then confirm it. The supplied password must be between 8 and 16 characters. The password must have 3 of the following characters: uppercase, lowercase, numeric, and special characters. Select **Reset**.
@@ -89,6 +89,7 @@ Follow these steps to rotate the encryption-at-rest keys.
 
     Save the `.json` key file in a secure location. This file is used to facilitate a potential future recovery of the device.
 
+    ![Screenshot shows the Reset device password dialog box.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## Manage resource access
 
@@ -103,7 +104,7 @@ When generating the activation key for the Azure Stack Edge Pro device, or perfo
 
 You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge Pro device, creation of a user, configuration of Edge compute role, reset device password will all fail.
 
-For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference).
+For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](/graph/permissions-reference).
 
 ### Register resource providers
 

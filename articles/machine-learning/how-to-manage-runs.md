@@ -1,7 +1,7 @@
 ---
 title: Start, monitor, and cancel training runs in Python
 titleSuffix: Azure Machine Learning
-description: Learn how to start, set the status of, tag, and organize your machine-learning experiments.
+description: Learn how to start, status, and manage your machine learning experiment runs with the Azure Machine Learning Python SDK. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -24,6 +24,10 @@ This article shows examples of the following tasks:
 * Cancel or fail runs.
 * Create child runs.
 * Tag and find runs.
+
+> [!TIP]
+> If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
+> If you're looking for information on monitoring models deployed as web services or IoT Edge modules, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
 
 ## Prerequisites
 

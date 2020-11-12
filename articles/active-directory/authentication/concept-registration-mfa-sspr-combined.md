@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 11/04/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -55,7 +55,7 @@ Combined registration supports the following authentication methods and actions:
 | Hardware token | No | No | Yes |
 | Phone | Yes | Yes | Yes |
 | Alternate phone | Yes | Yes | Yes |
-| Office phone | No | No | No |
+| Office phone | Yes | Yes | Yes |
 | Email | Yes | Yes | Yes |
 | Security questions | Yes | No | Yes |
 | App passwords | Yes | No | Yes |

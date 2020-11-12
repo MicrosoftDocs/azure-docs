@@ -27,7 +27,7 @@ When you connect your machine to Azure Arc enabled servers, it enables the abili
 - Use [Update Management](../../automation/update-management/update-mgmt-overview.md) in Azure Automation to manage operating system updates for your Windows and Linux servers
 
     > [!NOTE]
-    > At this time, enabling Update Management from the selected Arc enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and how to enable for your server.
+    > At this time, enabling Update Management directly from an Arc enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and how to enable for your server.
 
 - Include your non-Azure servers for threat detection and proactively monitor for potential security threats using [Azure Security Center](../../security-center/security-center-introduction.md).
 
