@@ -95,7 +95,7 @@ To access the linked storage with the storage explorer in Azure Synapse Analytic
 
 On the **Resource** tab:
 * For **Resource type**, select **Microsoft.Synapse/storageAccounts**.
-* For **Resource**, select the workspace name that you created previously.
+* For **Resource**, select the storage account name that you created previously.
 * For **Target sub-resource**, select the endpoint type:
   * **blob** is for Azure Blob Storage.
   * **dfs** is for Azure Data Lake Storage Gen2.
