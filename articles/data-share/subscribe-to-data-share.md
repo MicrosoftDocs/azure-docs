@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 10/30/2020
 ---
 # Tutorial: Accept and receive data using Azure Data Share  
 
@@ -26,19 +26,24 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
 * Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you will create a Data Share resource and the Azure subscription where your target Azure data stores are located.
 
-### Receive data into a storage account: 
+### Receive data into a storage account
 
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](../storage/common/storage-account-create.md). 
 * Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Contributor role. 
 * Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role.  
 
-### Receive data into a SQL-based target:
+### Receive data into a SQL-based target
+If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, below is the list of prerequisites. 
 
-* Permission to write to databases on the SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the Contributor role. 
-* Permission for the data share resource's managed identity to access the Azure SQL Database or Azure Synapse Analytics. This can be done through the following steps: 
-    1. Set yourself as the Azure Active Directory Admin for the SQL server.
-    1. Connect to the Azure SQL Database/Data Warehouse using Azure Active Directory.
-    1. Use Query Editor (preview) to execute the following script to add the Data Share Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'. You must connect using Active Directory and not SQL Server authentication. 
+#### Prerequisites for receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)
+You can follow the [step by step demo](https://youtu.be/aeGISgK1xro) to configure prerequisites.
+
+* An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW).
+* Permission to write to databases on the SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role. 
+* Permission for the Data Share resource's managed identity to access the Azure SQL Database or Azure Synapse Analytics. This can be done through the following steps: 
+    1. In Azure portal, navigate to the SQL server and set yourself as the **Azure Active Directory Admin**.
+    1. Connect to the Azure SQL Database/Data Warehouse using [Query Editor](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) or SQL Server Management Studio with Azure Active Directory authentication. 
+    1. Execute the following script to add the Data Share Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'. You must connect using Active Directory and not SQL Server authentication. 
 
         ```sql
         create user "<share_acc_name>" from external provider; 
@@ -48,11 +53,34 @@ Ensure that all pre-requisites are complete before accepting a data share invita
         ```      
         Note that the *<share_acc_name>* is the name of your Data Share resource. If you have not created a Data Share resource as yet, you can come back to this pre-requisite later.         
 
-* Client IP SQL Server Firewall access. This can be done through the following steps: 
+* SQL Server Firewall access. This can be done through the following steps: 
     1. In SQL server in Azure portal, navigate to *Firewalls and virtual networks*
-    1. Click the **on** toggle to allow access to Azure Services.
-    1. Click **+Add client IP** and click **Save**. Client IP address is subject to change. This process might need to be repeated the next time you are receiving data into a SQL target from Azure portal. You can also add an IP range. 
+    1. Click **Yes** for *Allow Azure services and resources to access this server*.
+    1. Click **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
+    1. Click **Save**. 
+ 
+#### Prerequisites for receiving data into Azure Synapse Analytics (workspace) SQL pool
 
+* An Azure Synapse Analytics (workspace) SQL pool.
+* Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
+* Permission for the Data Share resource's managed identity to access the Synapse workspace SQL pool. This can be done through the following steps: 
+    1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Azure Active Directory admin**.
+    1. Open Synapse Studio, select *Manage* from the left navigation. Select *Access control* under Security. Assign yourself **SQL admin** or **Workspace admin** role.
+    1. In Synapse Studio, select *Develop* from the left navigation. Execute the following script in SQL pool to add the Data Share resource Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'. 
+    
+        ```sql
+        create user "<share_acc_name>" from external provider; 
+        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
+        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
+        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
+        ```                   
+       Note that the *<share_acc_name>* is the name of your Data Share resource. If you have not created a Data Share resource as yet, you can come back to this pre-requisite later.  
+
+* Synapse workspace Firewall access. This can be done through the following steps: 
+    1. In Azure portal, navigate to Synapse workspace. Select *Firewalls* from left navigation.
+    1. Click **ON** for *Allow Azure services and resources to access this workspace*.
+    1. Click **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
+    1. Click **Save**. 
 
 ### Receive data into an Azure Data Explorer cluster: 
 
