@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2020
+ms.date: 11/12/2020
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
@@ -115,7 +115,15 @@ When you create your ISE, you can choose to use either internal or external acce
 * **Internal**: Private endpoints permit calls to logic apps in your ISE where you can view and access inputs and outputs from logic apps' runs history *only from inside your virtual network*.
 
   > [!IMPORTANT]
-  > Make sure that you have network connectivity between the private endpoints and the computer from 
+  > If you need to use these connectors where the triggers are webhook-based, choose external endpoints when you create your ISE, *not internal endpoints*:
+  > 
+  > * Azure DevOps
+  > * Azure Event Grid
+  > * Common Data Service
+  > * Office 365
+  > * SAP (ISE version)
+  > 
+  > Also, make sure that you have network connectivity between the private endpoints and the computer from 
   > where you want to access the run history. Otherwise, when you try to view your logic app's run history, 
   > you get an error that says "Unexpected error. Failed to fetch".
   >
