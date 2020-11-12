@@ -83,7 +83,7 @@
           href: azure-stack-edge-gpu-create-kubernetes-cluster.md 
         - name: Stateless app
           href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md 
-        - name: Statically provisioned stateful app 
+        - name: Static provisioned stateful app 
           href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md 
         - name: Dynamic provisioned stateful app
           href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md         
