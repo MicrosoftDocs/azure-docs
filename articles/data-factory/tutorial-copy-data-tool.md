@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
+ms.date: 11/09/2020
 ---
 
 # Copy data from Azure Blob storage to a SQL Database by using the Copy Data tool
@@ -75,7 +75,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 ## Create a data factory
 
-1. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**:
+1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
 
     ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
