@@ -43,7 +43,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
     | Setting | Suggested value | Description |
     | :------ | :-------------- | :---------- |
-    | **dedicated SQL pool name** | Any valid name | Name of the dedicated SQL pool. |
+    | **Dedicated SQL pool name** | Any valid name | Name of the dedicated SQL pool. |
     | **Performance level** | DW100c | Set to the smallest size to reduce costs for this quickstart |
 
   
@@ -54,6 +54,9 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 3. Select **Next: Additional settings**.
 4. Select **None** to provision the dedicated SQL pool without data. Leave the default collation selected.
+
+    If you want to restore your dedicated SQL pool from a restore point, select **Restore point**. For more information on how to perform a restore, see [How-to: Restore an existing dedicated SQL pool](backuprestore/restore-sql-pool.md)
+
 ![dedicated SQL pool create flow - additional settings tab.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
 5. Select **Review + create**.
@@ -65,7 +68,6 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 8. After the provisioning completes, navigating back to the workspace will show a new entry for the newly created dedicated SQL pool.
  ![SQL pool create flow - resource provisioning.](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
-
 
 
 After the dedicated SQL pool is created, it will be available in the workspace for loading data, processing streams, reading from the lake, etc.
