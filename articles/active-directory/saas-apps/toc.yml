@@ -2073,6 +2073,8 @@
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
         href: github-provisioning-tutorial.md
+      - name: GitHub AE
+        href: github-ae-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Harness
@@ -2127,7 +2129,7 @@
         href: myday-provision-tutorial.md
     - name: N - Z
       items:
-      - name: Netskope Administrator Console
+      - name: Netskope User Authentication
         href: netskope-administrator-console-provisioning-tutorial.md
       - name: New Relic by Organization
         href: new-relic-by-organization-provisioning-tutorial.md

@@ -84,6 +84,7 @@ Each SQL managed instance must have the following minimum resource requests:
 - Cores: 1
 
 Each SQL managed instance pod that is created has three containers:
+
 |Container name|CPU Request|Memory Request|CPU Limit|Memory Limit|Notes|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|Not specified|Not specified|The fluentbit container resource requests are _in addition to_ the requests specified for the SQL managed instance.||
@@ -99,6 +100,7 @@ Each PostgreSQL Hyperscale server group node must have the following minimum res
 - Cores: 1
 
 Each PostgreSQL Hyperscale server group coordinator or worker pod that is created has three containers:
+
 |Container name|CPU Request|Memory Request|CPU Limit|Memory Limit|Notes|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|Not specified|Not specified|The fluentbit container resource requests are _in addition to_ the requests specified for the PostgreSQL Hyperscale server group nodes.|
