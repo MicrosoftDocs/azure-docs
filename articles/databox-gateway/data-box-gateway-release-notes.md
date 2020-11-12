@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 11/11/2020
 ms.author: alkohli
 ---
 
@@ -46,4 +46,4 @@ The following table provides a summary of known issues for the Data Box Gateway 
 ## Next steps
 
 - [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
-- [Prepare to deploy Azure Data Box Edge](azure-stack-edge-deploy-prep.md).
+- [Prepare to deploy Azure Data Box Edge](../databox-online/azure-stack-edge-deploy-prep.md).

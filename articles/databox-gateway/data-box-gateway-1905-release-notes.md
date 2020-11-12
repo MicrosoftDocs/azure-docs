@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 11/11/2020
 ms.author: alkohli
 ---
 
@@ -29,7 +29,7 @@ This release corresponds to the software versions:
 
 ## What's new
 
-- **Field Programmable Gate Array (FPGA) logging improvements** -  In this release, we have made logging and alert enhancements related to FPGA. This is a required update for Data Box Edge if you are using the Edge compute feature with the FPGA. For more information, see how to [transform data with Edge compute on your Data Box Edge](azure-stack-edge-deploy-configure-compute-advanced.md).
+- **Field Programmable Gate Array (FPGA) logging improvements** -  In this release, we have made logging and alert enhancements related to FPGA. This is a required update for Data Box Edge if you are using the Edge compute feature with the FPGA. For more information, see how to [transform data with Edge compute on your Data Box Edge](..\databox-online\azure-stack-edge-deploy-configure-compute-advanced.md).
 
 ## Known issues in GA release
 
@@ -39,4 +39,4 @@ No new issues are release noted for this release. All the release noted issues h
 ## Next steps
 
 - [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
-- [Prepare to deploy Azure Data Box Edge](azure-stack-edge-deploy-prep.md)
+- [Prepare to deploy Azure Data Box Edge](../databox-online/azure-stack-edge-deploy-prep.md)

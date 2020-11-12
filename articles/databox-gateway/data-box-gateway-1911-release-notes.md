@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/13/2020
+ms.date: 11/11/2020
 ms.author: alkohli
 ---
 
@@ -35,5 +35,5 @@ No new issues are release noted for this release. All the release noted issues h
 
 ## Next steps
 
-- [Prepare to deploy Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Prepare to deploy Azure Stack Edge](../databox-online/azure-stack-edge-deploy-prep.md)
 - [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
