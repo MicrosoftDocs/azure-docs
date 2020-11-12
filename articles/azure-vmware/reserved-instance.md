@@ -108,7 +108,9 @@ You can make these changes to a reservation after purchase:
 
 You can also split a reservation into smaller chunks or merge reservations. None of the changes cause a new commercial transaction or change the end date of the reservation.
 
-For details about CSP-managed reservations, see [Sell Microsoft Azure reservations to customers using Partner Center, the Azure portal, or APIs](../partner-center/azure-reservations.md).
+For details about CSP-managed reservations, see [Sell Microsoft Azure reservations to customers using Partner Center, the Azure portal, or APIs](https://docs.microsoft.com/partner-center/azure-reservations).
+
+
 
 >[!NOTE]
 >Once you've purchased your reservation, you won't be able to make these types of changes directly:
