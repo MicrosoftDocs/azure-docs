@@ -218,7 +218,7 @@ You need *tenant administrator* permissions to complete the following steps:
    
 For new members added to the group, it may take up to 24 hours before they can use their proxy addresses to sign-in.
 
-### Removing Groups
+### Removing groups
 
 To remove a group from a staged rollout policy, run the following command:
 
@@ -226,7 +226,7 @@ To remove a group from a staged rollout policy, run the following command:
 Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
 ```
 
-### Removing Policies
+### Removing policies
 
 To remove a staged rollout policy, first disable the policy then remove it from the system:
 
