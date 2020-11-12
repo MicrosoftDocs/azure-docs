@@ -17,9 +17,9 @@ ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Pytho
 
 # Quickstart: Add sign-in with Microsoft to a Python web app
 
-In this quickstart, you download and run a code sample that demonstrates how a Python web application can sign in users and obtain an access token to call the Microsoft Graph API from any Azure Active Directory (Azure AD) instance.
+In this quickstart, you download and run a code sample that demonstrates how a Python web application can sign in users and obtain an access token to call the Microsoft Graph API. Users with a personal Microsoft Account or an account in any Azure Active Directory (Azure AD) organization can sign into the application.
 
-(See [How the sample works](#how-the-sample-works) for an illustration.)
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 

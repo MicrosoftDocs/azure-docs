@@ -18,9 +18,9 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 # Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app
 
-In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Azure Active Directory (Azure AD) instance.  
+In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Azure Active Directory (Azure AD) organization.  
 
-(See [How the sample works](#how-the-sample-works) for an illustration.)
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div renderon="docs"]
 > ## Prerequisites
