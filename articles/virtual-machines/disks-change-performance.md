@@ -12,18 +12,18 @@ ms.custom: references_regions
 
 # Performance tiers for managed disks (preview)
 
-The performance of your Azure managed disk is set when you first create your disk, in the form of its performance tier. A performance tier is automatically selected based on the provisioned size of disk you selected. This performance tier can be changed at deployment or afterwards, without changing the size of the disk. Changing the performance tier allows you to prepare for and meet higher demand without using your disk's bursting capability. It can be more cost-effective to change your performance tier rather than rely on bursting, depending on how long the additional performance is necessary.
+The performance of your Azure managed disk is set when you first create your disk, in the form of its performance tier. The performance tier determines the IOPS and throughput your managed disk has. When you set the provisioned size of your disk, a performance tier is automatically selected. The performance tier can be changed at deployment or afterwards, without changing the size of the disk.
 
 > [!NOTE]
 > Changing your performance tier is currently in preview. 
 
-This capability is ideal for events that temporarily require a consistently higher level of performance, like holiday shopping, performance testing, or running a training environment. To handle these events, you can use a higher performance tier for as long as you need it. You can then return to the original tier when you no longer need the additional performance.
+Changing the performance tier allows you to prepare for and meet higher demand without using your disk's bursting capability. It can be more cost-effective to change your performance tier rather than rely on bursting, depending on how long the additional performance is necessary. This is ideal for events that temporarily require a consistently higher level of performance, like holiday shopping, performance testing, or running a training environment. To handle these events, you can use a higher performance tier for as long as you need it. You can then return to the original tier when you no longer need the additional performance.
 
 ## How it works
 
-When you first deploy or provision a disk, the baseline performance tier for that disk is set based on the provisioned disk size. You can use a higher performance tier to meet higher demand. When you no longer need that performance level, you can return to the initial baseline performance tier.
+When you first deploy or provision a disk, the baseline performance tier for that disk is set based on the provisioned disk size. You can use a performance tier higher than the original baseline to meet higher demand. When you no longer need that performance level, you can return to the initial baseline performance tier.
 
-Your billing changes as your tier changes. For example, if you provision a P10 disk (128 GiB), your baseline performance tier is set as P10 (500 IOPS and 100 MBps). You'll be billed at the P10 rate. You can upgrade the tier to match the performance of P50 (7,500 IOPS and 250 MBps) without increasing the disk size. During the time of the upgrade, you'll be billed at the P50 rate. When you no longer need the higher performance, you can return to the P10 tier. The disk will once again be billed at the P10 rate.
+Your billing changes as your performance tier changes. For example, if you provision a P10 disk (128 GiB), your baseline performance tier is set as P10 (500 IOPS and 100 MBps). You'll be billed at the P10 rate. You can upgrade the tier to match the performance of P50 (7,500 IOPS and 250 MBps) without increasing the disk size. During the time of the upgrade, you'll be billed at the P50 rate. When you no longer need the higher performance, you can return to the P10 tier. The disk will once again be billed at the P10 rate.
 
 | Disk size | Baseline performance tier | Can be upgraded to |
 |----------------|-----|-------------------------------------|
@@ -50,7 +50,5 @@ For billing information, see [Managed disk pricing](https://azure.microsoft.com/
 
 ## Next steps
 
-If you need to resize a disk to take advantage of the higher performance tiers, see these articles:
+To learn how to change your performance tier, see these articles:
 
-- [Expand virtual hard disks on a Linux VM with the Azure CLI](linux/expand-disks.md)
-- [Expand a managed disk attached to a Windows virtual machine](windows/expand-os-disk.md)
