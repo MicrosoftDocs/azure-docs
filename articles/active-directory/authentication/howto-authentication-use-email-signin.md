@@ -217,7 +217,7 @@ You need *tenant administrator* permissions to complete the following steps:
    Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
    ```
    
-   
+For new members added to the group, it may take up to 24 hours before they can use their proxy addresses to sign-in.
 
 ### Removing Groups
 
