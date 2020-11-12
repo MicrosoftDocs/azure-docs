@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 11/12/2019
+ms.date: 11/12/2020
 ---
 
 # Apply SQL Transformation
