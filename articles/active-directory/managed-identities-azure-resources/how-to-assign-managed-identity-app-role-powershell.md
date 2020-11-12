@@ -1,6 +1,6 @@
 ---
-title: Assign a managed identity to an app role using PowerShell - Azure AD
-description: Step-by-step instructions for assigning a managed identity on one resource, access to an application's app role, using PowerShell.
+title: Assign a managed identity to an application role using PowerShell - Azure AD
+description: Step-by-step instructions for assigning a managed identity access to another application's role, using PowerShell.
 services: active-directory
 documentationcenter: 
 author: johndowns
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2018
+ms.date: 11/13/2020
 ms.author: jodowns
 ms.collection: M365-identity-device-management
 ---
