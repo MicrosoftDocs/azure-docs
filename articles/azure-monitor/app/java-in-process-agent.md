@@ -128,7 +128,9 @@ See [configuration options](./java-standalone-config.md) for full details.
 
 Our goal in 3.0+ is to allow you to send your custom telemetry using standard APIs.
 
-We support Micrometer, OpenTelemetry API, and the popular logging frameworks. Application Insights Java 3.0 will automatically capture the telemetry, and correlate it along with all of the auto-collected telemetry.
+We support Micrometer, popular logging frameworks, and in the near future we will support OpenTelemetry API.
+Application Insights Java 3.0 will automatically capture the telemetry,
+and correlate it along with all the auto-collected telemetry.
 
 ### Supported custom telemetry
 
@@ -148,82 +150,96 @@ We're not planning to release an SDK with Application Insights 3.0 at this time.
 
 Application Insights Java 3.0 is already listening for telemetry that is sent to the Application Insights Java SDK 2.x. This functionality is an important part of the upgrade story for existing 2.x users, and it fills an important gap in our custom telemetry support until the OpenTelemetry API is GA.
 
-## Sending custom telemetry using Application Insights Java SDK 2.x
+### Sending custom metrics using Micrometer
+
+Add Micrometer to your application:
+
+```xml
+<dependency>
+  <groupId>io.micrometer</groupId>
+  <artifactId>micrometer-core</artifactId>
+  <version>1.6.1</version>
+</dependency>
+```
+
+Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
+
+```java
+static final Counter counter = Metrics.counter("test_counter");
+```
+
+and use that to record metrics:
+
+```java
+counter.increment();
+```
+
+### Sending custom traces and exceptions using Log4j, Logback and java.util.logging 
+
+TODO still in this PR
+
+### Sending custom telemetry using Application Insights Java SDK 2.x
 
 Add `applicationinsights-core-2.6.0.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
 
 ```xml
-  <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>applicationinsights-core</artifactId>
-    <version>2.6.0</version>
-  </dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-core</artifactId>
+  <version>2.6.0</version>
+</dependency>
 ```
 
 Create a TelemetryClient:
 
   ```java
-private static final TelemetryClient telemetryClient = new TelemetryClient();
+static final TelemetryClient telemetryClient = new TelemetryClient();
 ```
 
-and use that for sending custom telemetry.
+and use that to send custom telemetry:
 
-### Events
+##### Events
 
-  ```java
+```java
 telemetryClient.trackEvent("WinGame");
 ```
-### Metrics
 
-You can send metric telemetry via [Micrometer](https://micrometer.io):
+##### Metrics
 
 ```java
-  Counter counter = Metrics.counter("test_counter");
-  counter.increment();
+telemetryClient.trackMetric("queueLength", 42.0);
 ```
 
-Or you can also use Application Insights Java SDK 2.x:
+##### Dependencies
 
 ```java
-  telemetryClient.trackMetric("queueLength", 42.0);
+boolean success = false;
+long startTime = System.currentTimeMillis();
+try {
+    success = dependency.call();
+} finally {
+    long endTime = System.currentTimeMillis();
+    RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setTimestamp(new Date(startTime));
+    telemetry.setDuration(new Duration(endTime - startTime));
+    telemetryClient.trackDependency(telemetry);
+}
 ```
 
-### Dependencies
+##### Logs
 
 ```java
-  boolean success = false;
-  long startTime = System.currentTimeMillis();
-  try {
-      success = dependency.call();
-  } finally {
-      long endTime = System.currentTimeMillis();
-      RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
-      telemetry.setTimestamp(new Date(startTime));
-      telemetry.setDuration(new Duration(endTime - startTime));
-      telemetryClient.trackDependency(telemetry);
-  }
+telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
 ```
 
-### Logs
-You can send custom log telemetry via your favorite logging framework.
-
-Or you can also use Application Insights Java SDK 2.x:
+##### Exceptions
 
 ```java
-  telemetryClient.trackTrace(message, SeverityLevel.Warning, properties);
-```
-
-### Exceptions
-You can send custom exception telemetry via your favorite logging framework.
-
-Or you can also use Application Insights Java SDK 2.x:
-
-```java
-  try {
-      ...
-  } catch (Exception e) {
-      telemetryClient.trackException(e);
-  }
+try {
+    ...
+} catch (Exception e) {
+    telemetryClient.trackException(e);
+}
 ```
 
 ## Upgrading from Application Insights Java SDK 2.x
