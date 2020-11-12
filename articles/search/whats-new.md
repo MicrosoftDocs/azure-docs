@@ -16,7 +16,9 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 ## November 2020
 
-You can now encrypt indexers, data sources, and skillsets using a [customer-managed key](search-security-manage-encryption-keys.md), which means that all assets created and managed by a search service can now be encrypted by keys that you control. Recall that CMK support adds an additional encryption layer on top of base encryption performed and managed by Microsoft.
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|------------------------------|----------|-------------|---------------|
+|[customer-managed key encryption over indexers, data sources, and skillsets](search-security-manage-encryption-keys.md) | Security | This addition extends customer-managed encryption over the full range of assets created and managed by a search service. Recall that CMK support adds an additional encryption layer on top of base encryption performed and managed by Microsoft. | Generally available using REST api-version=2020-06-30 |  
 
 ## September 2020
 
