@@ -4,7 +4,7 @@ description: The Azure Front Door security baseline provides procedural guidance
 author: msmbaldwin
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 11/12/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -86,8 +86,9 @@ Ensure restricted access to management, identity, and security systems that have
 
 - [Azure Components and Reference model](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151) 
 
-Management Group Access ../governance/management-groups/overview.md#management-group-access 
-Azure subscription administrators ../cost-management-billing/manage/add-change-subscription-administrator.md
+- [Management Group Access](../governance/management-groups/overview.md#management-group-access) 
+
+- [Azure subscription administrators](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -115,7 +116,7 @@ Follow the least privileges model for role based permissions assigned to resourc
 
 Use built-in roles to allocate permission and only create custom roles based on business requirements.
 
-What is Azure role-based access control (Azure RBAC) ../role-based-access-control/overview.md 
+- [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) 
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
 
@@ -131,12 +132,12 @@ What is Azure role-based access control (Azure RBAC) ../role-based-access-contro
 
 ### DP-4: Encrypt sensitive information in transit
 
-**Guidance**: Use encryption to protect traffic on external and public networks as it is critical for data protection. Also:
+**Guidance**: Use encryption to protect traffic on external and public networks as it is critical for data protection. Additionally:
 
 - Use access controls,
 
 - protect data in transit against ‘out of band’ attacks (such as traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
-- Ensure for HTTP traffic, that any clients connecting to your Azure resources can negotiate TLS v1.2 or greater.
+- Ensure that any clients connecting to your Azure resources for HTTP traffic can negotiate TLS v1.2 or greater.
 - Use SSH (for Linux) or RDP/TLS (for Windows) for remote management, instead of unencrypted protocols
 
 - Disable obsoleted SSL/TLS/SSH versions, protocols, and weak ciphers
@@ -289,7 +290,7 @@ Export your Azure Security Center alerts and recommendations using the export fe
 
 ### IR-4: Detection and analysis – investigate an incident
 
-**Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents to build a full view of what occurred. Diverse log types should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  Ensure insights and learnings are captured for other analysts and for future historical reference.  
+**Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents to build a full view of what occurred. Diverse log types should be collected to track the activities of a potential attacker across the kill chain to avoid any blind spots.  Ensure insights and learnings are captured for other analysts and for future historical reference.  
 
 The data sources for investigation include the centralized logging sources that are already being collected from the in-scope services and running systems, but can also include:
 
@@ -415,14 +416,11 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Appropriate cryptographic standards
 
-For more information, see the following references:
+More information is available at the referenced links.
+
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
-
-- [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
-
-- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
 - [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-benchmark-v2-data-protection)
 
@@ -450,7 +448,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-3: Define security posture management strategy
 
-**Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
+**Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, and so on.
 
 - [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
 
@@ -490,14 +488,13 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
 
-For more information, see the following references:
+More information is available at the referenced links.
+
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
 - [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
 - [Azure network security overview](../security/fundamentals/network-overview.md)
-
-- [Enterprise network architecture strategy](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -553,7 +550,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Processes for handling incidents and post-incident activities, such as lessons learned and evidence retention
 
-For more information, see the following references:
+More information is available at the referenced links.
 
 - [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
@@ -561,9 +558,7 @@ For more information, see the following references:
 
 - [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-- [Azure Adoption Framework, logging, and reporting decision guide](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
-
-- [Azure enterprise scale, management, and monitoring](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
+- [Azure Adoption Framework, logging, and reporting decision guide](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting)
 
 **Azure Security Center monitoring**: Not applicable
 
