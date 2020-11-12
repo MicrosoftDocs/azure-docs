@@ -40263,6 +40263,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/speech-service/how-to-custom-speech-improve-accuracy.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-evaluate-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-custom-speech.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/custom-speech-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-custom-speech-deploy-model.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/speech-service/how-to-choose-recognition-mode.md",
       "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-to-text",
       "redirect_document_id": false
@@ -54135,6 +54150,21 @@
     {
       "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-jre.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=jre"
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-bulk-register.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/security/fundamentals/choose-ad-authn.md",
