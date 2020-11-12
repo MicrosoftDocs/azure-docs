@@ -268,6 +268,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Plexhosted LLC](https://plexhosted.com/)|
 |[Principle Information Technology Company](https://www.principleinfotech.com/)|
 |[Practical Solutions](https://www.ps4b.com)|
+|[Prayag Lite](https://prayaglite.com/)|
 |[Precise Software Solutions](https://www.precise-soft.com)|
 |[ProArch IT Solutions](https://www.proarch.com/)|
 |[Project Hosts Inc.](https://www.projecthosts.com)|

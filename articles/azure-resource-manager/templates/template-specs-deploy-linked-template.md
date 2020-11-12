@@ -2,7 +2,7 @@
 title: Deploy a template spec as a linked template
 description: Learn how to deploy an existing template spec in a linked deployment.
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/03/2020
 
 ---
 
@@ -156,7 +156,10 @@ New-AzResourceGroup `
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName webRG `
-  -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\deployTS\azuredeploy.json" `
+  -tsResourceGroup templateSpecRg `
+  -tsName storageSpec `
+  -tsVersion 1.0
 ```
 
 # [CLI](#tab/azure-cli)
@@ -168,8 +171,8 @@ az group create \
 
 az deployment group create \
   --resource-group webRG \
-  --template-file "c:\Templates\deployTS\azuredeploy.json"
-
+  --template-file "c:\Templates\deployTS\azuredeploy.json" \
+  --parameters tsResourceGroup=templateSpecRG tsName=storageSpec tsVersion=1.0
 ```
 
 ---

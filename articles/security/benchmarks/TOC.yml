@@ -87,7 +87,7 @@
   - name: Azure Database for PostgreSQL - Hyperscale security baseline
     href: ../../postgresql/postgresql-hyperscale-security-baseline.md
   - name: Azure Databricks security baseline
-    href: ../../azure-databricks/security-baseline.md
+    href: /azure/databricks/scenarios/security-baseline
   - name: Azure DNS security baseline
     href: ../../dns/security-baseline.md
   - name: Azure DevTest Labs security baseline
@@ -119,7 +119,7 @@
   - name: Azure Sentinel security baseline
     href: ../../sentinel/security-baseline.md
   - name: Azure SQL Database security baseline
-    href: ../../sql-database/security-baseline.md
+    href: ../../azure-sql/database/security-baseline.md
   - name: Azure Storage security baseline
     href: ../../storage/common/security-baseline.md
   - name: Azure Traffic Manager security baseline
@@ -128,6 +128,8 @@
     href: ../../web-application-firewall/security-baseline.md
   - name: Batch security baseline
     href: ../../batch/security-baseline.md
+  - name: Cloud Services security baseline
+    href: ../../cloud-services/security-baseline.md
   - name: Cloud Shell security baseline
     href: ../../cloud-shell/security-baseline.md
   - name: Cognitive Services security baseline
@@ -153,7 +155,7 @@
   - name: HDInsight security baseline
     href: ../../hdinsight/security-baseline.md
   - name: Key Vault security baseline
-    href: ../../key-vault/security-baseline.md
+    href: ../../key-vault/general/security-baseline.md
   - name: Logic Apps security baseline
     href: ../../logic-apps/security-baseline.md
   - name: Network Watcher security baseline
@@ -180,4 +182,3 @@
     href: ../../virtual-network/security-baseline.md
   - name: VPN Gateway security baseline
     href: ../../vpn-gateway/security-baseline.md
- 

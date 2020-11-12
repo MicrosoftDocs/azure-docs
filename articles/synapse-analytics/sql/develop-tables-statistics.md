@@ -14,21 +14,21 @@ ms.custom:
 ---
 # Statistics in Synapse SQL
 
-Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the Synapse SQL resources: SQL pool and SQL on-demand (preview).
+Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the Synapse SQL resources: dedicated SQL pool and serverless SQL pool (preview).
 
-## Statistics in SQL pool
+## Statistics in dedicated SQL pool
 
 ### Why use statistics
 
-The more the SQL pool resource knows about your data, the faster it can execute queries. After loading data into SQL pool, collecting statistics on your data is one of the most important things you can do for query optimization.  
+The more dedicated SQL pool knows about your data, the faster it can execute queries. After loading data into a dedicated SQL pool, collecting statistics on your data is one of the most important things you can do for query optimization.  
 
-The SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest.
+The dedicated SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest.
 
 For example, if the optimizer estimates that the date your query is filtering on will return one row, it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
 ### Automatic creation of statistics
 
-SQL pool will analyze incoming user queries for missing statistics when the database AUTO_CREATE_STATISTICS option is set to `ON`.  If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition. 
+The dedicated SQL pool engine will analyze incoming user queries for missing statistics when the database AUTO_CREATE_STATISTICS option is set to `ON`.  If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition. 
 
 This function is used to improve cardinality estimates for the query plan.
 
@@ -160,7 +160,7 @@ These examples show how to use various options for creating statistics. The opti
 #### Create single-column statistics with default options
 
 To create statistics on a column, provide a name for the statistics object and the name of the column.
-This syntax uses all of the default options. By default, SQL pool samples **20 percent** of the table when it creates statistics.
+This syntax uses all of the default options. By default, dedicated SQL pool samples **20 percent** of the table when it creates statistics.
 
 ```sql
 CREATE STATISTICS [statistics_name]
@@ -424,7 +424,7 @@ The UPDATE STATISTICS statement is easy to use. Just remember that it updates *a
 If performance isn't an issue, this method is the easiest and most complete way to guarantee that statistics are up to date.
 
 > [!NOTE]
-> When updating all statistics on a table, SQL pool does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
+> When updating all statistics on a table, dedicated SQL pool does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
 
 For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary tables](develop-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
 For the full syntax, see [Update statistics](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
@@ -506,7 +506,7 @@ DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data
 
 The header is the metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. 
 
-The density vector measures cross-column correlation. SQL pool computes cardinality estimates with any of the data in the statistics object.
+The density vector measures cross-column correlation. Dedicated SQL pool computes cardinality estimates with any of the data in the statistics object.
 
 #### Show header, density, and histogram
 
@@ -540,7 +540,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### DBCC SHOW_STATISTICS() differences
 
-`DBCC SHOW_STATISTICS()` is more strictly implemented in SQL pool compared to SQL Server:
+`DBCC SHOW_STATISTICS()` is more strictly implemented in dedicated SQL pool compared to SQL Server:
 
 - Undocumented features aren't supported.
 - Can't use Stats_stream.
@@ -550,25 +550,25 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - Can't use column names to identify statistics objects.
 - Custom error 2767 isn't supported.
 
-### Next steps
 
-For further improve query performance, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-## Statistics in SQL on-demand (preview)
+## Statistics in serverless SQL pool (preview)
 
 Statistics are created per particular column for particular dataset (storage path).
 
+> [!NOTE]
+> Statistics cannot be created for LOB columns.
+
 ### Why use statistics
 
-The more SQL on-demand (preview) knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. 
+The more serverless SQL pool (preview) knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. 
 
-The SQL on-demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. 
+The serverless SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. 
 
 For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
 ### Automatic creation of statistics
 
-SQL on-demand analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan.
+Serverless SQL pool analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan.
 
 The SELECT statement will trigger automatic creation of statistics.
 
@@ -579,7 +579,7 @@ Automatic creation of statistics is done synchronously so you may incur slightly
 
 ### Manual creation of statistics
 
-SQL on-demand lets you create statistics manually. For CSV files,  you have to create statistics manually because automatic creation of statistics isn't turned on for CSV files. 
+Serverless SQL pool lets you create statistics manually. For CSV files,  you have to create statistics manually because automatic creation of statistics isn't turned on for CSV files. 
 
 See the following examples for instructions on how to manually create statistics.
 
@@ -587,7 +587,7 @@ See the following examples for instructions on how to manually create statistics
 
 Changes to data in files, deleting, and adding files result in data distribution changes and makes statistics out of date. In that case, statistics needs to be updated.
 
-SQL on-demand automatically recreates statistics if data is changed significantly. Every time statistics are automatically created, the current state of the dataset is also saved: file paths, sizes, last modification dates.
+Serverless SQL pool automatically recreates statistics if data is changed significantly. Every time statistics are automatically created, the current state of the dataset is also saved: file paths, sizes, last modification dates.
 
 When statistics are stale, new ones will be created. The algorithm goes through the data and compares it to the current state of the dataset. If the size of the changes is greater than the specific threshold, then old stats are deleted and will be re-created over the new dataset.
 
@@ -646,7 +646,7 @@ Specifies a Transact-SQL statement that will return column values to be used for
 
 To create statistics on a column, provide a query that returns the column for which you need statistics.
 
-By default, if you don't specify otherwise, SQL on-demand uses 100%  of the data provided in the dataset when it creates statistics.
+By default, if you don't specify otherwise, serverless SQL pool uses 100% of the data provided in the dataset when it creates statistics.
 
 For example, to create statistics with default options (FULLSCAN) for a year column of the dataset based on the population.csv file:
 
@@ -818,4 +818,6 @@ CREATE STATISTICS sState
 
 ## Next steps
 
-For further query performance improvements, see [Best practices for SQL pool](best-practices-sql-pool.md#maintain-statistics).
+To further improve query performance for dedicated SQL pool, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and [Best practices for dedicated SQL pool](best-practices-sql-pool.md#maintain-statistics).
+
+To further improve query performance for serverless SQL pool see [Best practices for serverless SQL pool](best-practices-sql-on-demand.md)

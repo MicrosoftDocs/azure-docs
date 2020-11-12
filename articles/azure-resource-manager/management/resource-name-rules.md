@@ -489,6 +489,7 @@ In the following tables, the term alphanumeric refers to:
 > | firewallPolicies | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | firewallPolicies / ruleGroups | firewall policy | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | frontDoors | global | 5-64 | Alphanumerics and hyphens.<br><br>Start and end with alphanumeric. |
+> | frontdoorWebApplicationFirewallPolicies | resource group | 1-128 | Alphanumerics.<br><br>Start with letter. |
 > | loadBalancers | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | loadBalancers / inboundNatRules | load balancer | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | localNetworkGateways | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |

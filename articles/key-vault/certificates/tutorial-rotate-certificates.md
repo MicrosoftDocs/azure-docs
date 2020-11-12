@@ -37,13 +37,13 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a vault
 
-Create a key vault or select your existing vault to  perform operations (see [Steps to create a key vault](../quick-create-portal.md)). In the example, the key vault name is **Example-Vault**.
+Create a key vault or select your existing vault to  perform operations (see [Steps to create a key vault](../secrets/quick-create-portal.md)). In the example, the key vault name is **Example-Vault**.
 
 ![Output after key vault creation finishes](../media/certificates/tutorial-import-cert/vault-properties.png)
 
 ## Create a certificate in Key Vault
 
-Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../quick-create-portal.md)). In this case, you'll work on a certificate called **ExampleCertificate**.
+Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../secrets/quick-create-portal.md)). In this case, you'll work on a certificate called **ExampleCertificate**.
 
 ## Update certificate lifecycle attributes
 
@@ -131,7 +131,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-To learn more about the parameters, see [az keyvault certificate](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
+To learn more about the parameters, see [az keyvault certificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
 
 ## Clean up resources
 
@@ -149,5 +149,5 @@ To delete the resource group by using the portal:
 
 In this tutorial, you updated a certificate's lifecycle attributes. To learn more about Key Vault and how to integrate it with your applications, continue on to the following articles:
 
-- Read more about [Managing certificate creation in Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
+- Read more about [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md).
 - Review the [Key Vault Overview](../general/overview.md).

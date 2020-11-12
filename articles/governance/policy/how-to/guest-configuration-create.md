@@ -25,9 +25,14 @@ Use the following actions to create your own configuration for validating the st
 non-Azure machine.
 
 > [!IMPORTANT]
+> Custom policy definitions with Guest Configuration in the Azure Government and
+> Azure China environments is a Preview feature.
+>
 > The Guest Configuration extension is required to perform audits in Azure virtual machines.
 > To deploy the extension at scale across all Windows machines, assign the following policy definitions:
 > `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> Don't use secrets or confidential information in custom content packages.
 
 ## Install the PowerShell module
 
@@ -586,11 +591,18 @@ New-GuestConfigurationPackage `
 
 ## Policy lifecycle
 
-If you would like to release an update to the policy, there are two fields that require attention.
+If you would like to release an update to the policy, there are three fields that require attention.
+
+> [!NOTE]
+> The `version` property of the Guest Configuration assignment only effects packages that
+> are hosted by Microsoft. The best practice for versioning custom content is to include
+> the version in the file name.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
-  number greater than what is currently published. The property updates the version of the Guest
-  Configuration assignment so the agent recognizes the updated package.
+  number greater than what is currently published.
+- **contentUri**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a URI
+  to the location of the package. Including a package version in the file name will ensure the value
+  of this property changes in each release.
 - **contentHash**: This property is updated automatically by the `New-GuestConfigurationPolicy`
   cmdlet. It's a hash value of the package created by `New-GuestConfigurationPackage`. The property
   must be correct for the `.zip` file you publish. If only the **contentUri** property is updated,
