@@ -32,6 +32,12 @@ from openrowset(
 
 Make sure that you access this file. If your file is protected with SAS key or custom Azure identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
+> [!IMPORTANT]
+> Make sure that you are using some UTF-8 database collation (for example `Latin1_General_100_CI_AS_SC_UTF8`) because string values in PARQUET files are encoded using UTF-8 encoding.
+> Mismatch between text encoding in the PARQUET file and collation might cause unexpected conversion errors.
+> You can easily change default collation of the current database using the following T-SQL statement:
+>   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+
 ### Data source usage
 
 Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage, and use that data source and the relative path to the file in `OPENROWSET` function:
