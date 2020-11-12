@@ -36,11 +36,11 @@ This troubleshooting guide provides you the following information:
 
 Also, check if your webhook is behind an Azure Application Gateway or Web Application Firewall. If it's, disable the following firewall rules and do an HTTP POST again:
 
-    - 920300 (Request missing an accept header)
-    - 942430 (Restricted SQL character anomaly detection (args): # of special characters exceeded (12))
-    - 920230 (Multiple URL encoding detected)
-    - 942130 (SQL injection attack: SQL tautology detected.)
-    - 931130 (Possible remote file inclusion (RFI) attack = Off-domain reference/link)
+- 920300 (Request missing an accept header)
+- 942430 (Restricted SQL character anomaly detection (args): # of special characters exceeded (12))
+- 920230 (Multiple URL encoding detected)
+- 942130 (SQL injection attack: SQL tautology detected.)
+- 931130 (Possible remote file inclusion (RFI) attack = Off-domain reference/link)
 
 
 
