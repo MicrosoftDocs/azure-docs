@@ -56,18 +56,22 @@ Before you create your Azure VMware Solution resource, you'll need to submit a s
 
 ## Enable Azure VMware Solution resource for customers under a CSP Azure plan
 
-Cloud Solution Providers must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. 
+CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. 
 
-In **Partner Center** go to **CSP** and then access the **Customers** area.
+1. In **Partner Center**, select **CSP** to access the **Customers** area.
 
-![Microsoft Partner Center customers area](./media/enable-azure-vmware-solution/csp-customers-screen.png)
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Microsoft Partner Center customers area" lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
 
-Select your customer and then go to **Add products**.
+1. Select your customer and then select **Add products**.
 
-![Microsoft Partner Center](./media/enable-azure-vmware-solution/csp-partner-center.png)
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-partner-center.png" alt-text="Microsoft Partner Center" lightbox="media/enable-azure-vmware-solution/csp-partner-center.png":::
 
-Select **Azure plan** and click **Add to cart**. Review the cart and finish the process to get the Azure plan available for your customer. See [Microsoft Partner Center documentation](https://docs.microsoft.com/partner-center/azure-plan-manage) to review and finish the general set up of the Azure plan subscription.
+1. Select **Azure plan** and then select **Add to cart**. 
 
-After the Azure plan is properly configured and the needed RBAC permissions in place as a Cloud Solution Provider you will have to engage Microsoft using a similar procedure to enable the quota for an Azure plan subscription. 
+1. Review and finish the general set up of the Azure plan subscription for your customer. For more information, See [Microsoft Partner Center documentation](https://docs.microsoft.com/partner-center/azure-plan-manage).
 
-Once the solution is added to the Azure plan then the customer or the partner administrator can proceed with the deployment of an Azure VMware Solution Private Cloud through Azure Portal. 
+After configuring the Azure plan and the needed RBAC permissions are in place as a CSP, you'll engage Microsoft using a similar procedure to enable the quota for an Azure plan subscription. Once added to the Azure plan, the customer or the partner administrator can deploy an Azure VMware Solution Private Cloud through Azure Portal. 
+
+## Next steps
+
+After you enable your Azure VMware Solution resource, you can [create a private cloud](tutorial-create-private-cloud.md).
