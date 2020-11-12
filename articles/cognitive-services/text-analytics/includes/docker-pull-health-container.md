@@ -12,7 +12,7 @@ ms.date: 07/07/2020
 ms.author: aahi
 ---
 
-Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate) to request access to the public preview.
+Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate) to request access to the Text Analytics for health public preview.  This application applies for both the container and the hosted web API public preview.
 The form requests information about you, your company, and the user scenario for which you'll use the container. After you've submitted the form, the Azure Cognitive Services team reviews it to ensure that you meet the criteria for access to the private container registry.
 
 > [!IMPORTANT]
