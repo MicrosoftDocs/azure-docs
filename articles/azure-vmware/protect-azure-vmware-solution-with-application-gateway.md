@@ -171,15 +171,15 @@ This procedure shows you how to define backend address pools using VMs running o
 
    1. Open a new browser window and enter the URL `http://<app-gw-ip-address>:8080`. 
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-08.png" alt-text="Test the configuration from the Azure portal.":::
+      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-08.png" alt-text="Test the configuration from the Azure portal.":::
 
    1. Change the URL to `http://<app-gw-ip-address>:8080/images/test.htm`.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-09.png" alt-text="Change the URL.":::
+      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-09.png" alt-text="Change the URL.":::
 
    1. Change the URL again to `http://<app-gw-ip-address>:8080/video/test.htm`.
 
-    :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-10.png" alt-text="Change the URL again.":::
+      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-avs-10.png" alt-text="Change the URL again.":::
 
 ## Next Steps
 
