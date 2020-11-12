@@ -2,9 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Understand Azure AD roles
-    href: overview-understanding-roles.md
-  - name: Custom roles in Azure AD
+  - name: Overview of Azure AD RBAC
     href: custom-overview.md
 - name: Quickstarts
   items:
@@ -17,6 +15,8 @@
 - name: Concepts
   expanded: true
   items:
+  - name: Understand Azure AD roles
+    href: concept-understand-roles.md
   - name: Delegate Azure AD admin roles
     href: concept-delegation.md
   - name: Compare default user permissions    
