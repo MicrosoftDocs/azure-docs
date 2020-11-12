@@ -1,5 +1,5 @@
 ---
-title: Repair a broken Automanage Account
+title: Repair a broken Azure Automanage Account
 description: Learn how to fix a broken Automanage Account
 author: asinn826
 ms.service: virtual-machines
