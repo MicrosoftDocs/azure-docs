@@ -122,14 +122,14 @@ However, in most of the cases you only want to send activity to the client appli
     1. Copy the JSON below to the **Activity Content**
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
-    > [!div class="mx-imgBorder"]
-    > ![Send activity on success](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-activity.png)
    
 Now you only send activity to client when the request to web endpoint is successful.
 
