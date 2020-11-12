@@ -20,11 +20,11 @@ Use the `Get-AzVM` cmdlet to view the current list of tags for your VM.
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM" | Format-List -Property Tags
 ```
 
-If your Virtual Machine already contains tags, you will then see all the tags in list format
+If your Virtual Machine already contains tags, you will then see all the tags in list format.
 
 To add tags, use the `Set-AzResource` command. When updating tags through PowerShell, tags are updated as a whole. If you are adding one tag to a resource that already has tags, you will need to include all the tags that you want to be placed on the resource. Below is an example of how to add additional tags to a resource through PowerShell Cmdlets.
 
-Asign all of the current tags for the VM to the `$tags` variable, using the `Get-AzResource` and `Tags` property.
+Assign all of the current tags for the VM to the `$tags` variable, using the `Get-AzResource` and `Tags` property.
 
 ```azurepowershell-interactive
 $tags = (Get-AzResource -ResourceGroupName myResourceGroup -Name myVM).Tags
