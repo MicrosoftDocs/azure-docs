@@ -67,9 +67,9 @@ The following JSON fragments are examples of the connection string setting in th
   "version": 2.0,
   "extensions": {
     "durableTask": {
-    "hubName": "MyTaskHub",
-    "storageProvider": {
-      "connectionStringName": "DurableManagementStorage"
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
       }
     }
   }
