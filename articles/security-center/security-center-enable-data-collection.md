@@ -84,7 +84,7 @@ To enable auto provisioning of the Log Analytics agent:
     > [!TIP]
     > To set these options at the workspace level, see [Setting the security event option at the workspace level](#setting-the-security-event-option-at-the-workspace-level).
     > 
-    > For more information of these options, see [Windows security event options for the Log Analytics agent](#windows-security-event-options-for-the-log-analytics-agent).
+    > For more information of these options, see [Windows security event options for the Log Analytics agent <a name="data-collection-tier"></a>](#data-collection-tier).
 
 1. Select **Apply** in the configuration pane.
 
