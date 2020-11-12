@@ -151,9 +151,12 @@ For more information on using a private endpoint and virtual network with your w
 
 ### Customer-managed key and high business impact workspace
 
-By default, metrics and metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. 
+By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys.
 
-Instead of using the Microsoft-managed key, you can use the provide your own key. Doing so creates the Azure Cosmos DB instance that stores metrics and metadata in your Azure subscription. Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the URL of the key within the vault.
+> [!NOTE]
+> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
+
+Instead of using the Microsoft-managed key, you can use the provide your own key. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the URL of the key within the vault.
 
 Before using the `--cmk-keyvault` and `--resource-cmk-uri` parameters, you must first perform the following actions:
 
@@ -172,7 +175,7 @@ To limit the data that Microsoft collects on your workspace, use the `--hbi-work
 > [!IMPORTANT]
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
 
-For more information on customer-managed keys and high business impact workspace, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
+For more information on customer-managed keys and high business impact workspace, see [Enterprise security for Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
 
 ### Use existing resources
 

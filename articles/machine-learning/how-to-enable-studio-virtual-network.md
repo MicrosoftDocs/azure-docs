@@ -1,7 +1,7 @@
 ---
 title: Enable Azure Machine Learning studio in a virtual network
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning studio to access data stored inside of a virtual network.
+description: Learn how to configure Azure Machine Learning studio to access data stored inside of a virtual network.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -94,7 +94,10 @@ These steps add the workspace-managed identity as a __Reader__ to the storage se
 
 ## Technical notes for managed identity
 
-Using managed identity to access storage services impacts some security considerations. These considerations are unique to the type of storage account you are accessing. This section describes the changes for each storage account type.
+Using managed identity to access storage services impacts some security considerations. This section describes the changes for each storage account type.
+
+> [!IMPORTANT]
+> These considerations are unique to the __type of storage account__ you are accessing.
 
 ### Azure Blob storage
 

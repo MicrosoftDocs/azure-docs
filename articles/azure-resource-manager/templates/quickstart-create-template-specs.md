@@ -2,7 +2,7 @@
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
 author: tfitzmac
-ms.date: 10/02/2020
+ms.date: 11/10/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ---
@@ -24,7 +24,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 The template spec is a resource type named **Microsoft.Resources/templateSpecs**. To create your template spec, you can use Azure PowerShell, Azure CLI, or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
 
-With PowerShell and CLI , the ARM template is passed in as a parameter to the command. With ARM template, the ARM template to package within the template spec is embedded within the template spec definition.
+With PowerShell and CLI, the ARM template is passed in as a parameter to the command. With ARM template, the ARM template to package within the template spec is embedded within the template spec definition.
 
 These options are shown below.
 
@@ -83,7 +83,7 @@ These options are shown below.
 1. When you use an ARM template to create the template spec, the template is embedded in the resource definition. Copy the following template and save it locally as **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
 
     > [!NOTE]
-    > In the embedded template, all left brackets must be escaped with a second left bracket. Use `[[` instead of `[`.
+    > In the embedded template, all [template expressions](template-expressions.md) must be escaped with a second left bracket. Use `"[[` instead of `"[`. JSON arrays still use a single left bracket.
 
     ```json
     {

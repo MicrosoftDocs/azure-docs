@@ -34,6 +34,8 @@ Public IP addresses are created with an IPv4 or IPv6 address.
 
 ## SKU
 
+To learn about SKU upgrade, refer to [Public IP upgrade](../virtual-network/virtual-network-public-ip-address-upgrade.md).
+
 Public IP addresses are created with one of the following SKUs:
 
 >[!IMPORTANT]

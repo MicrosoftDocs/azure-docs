@@ -124,6 +124,18 @@ The same principles apply if you deploy two Horizon pods in the same region.  Ma
 
 Horizon's sizing methodology on a host running in Azure VMware Solution is simpler than Horizon on-premises.  That's because the Azure VMware Solution host is standardized.  Exact host sizing helps determine the number of hosts needed to support your VDI requirements.  It's central to determining the cost-per-desktop.
 
+### Sizing tables
+
+The tables show the common workloads for Login VSI Knowledge Worker workloads and Power Worker workloads.
+
+#### Knowledge worker workloads
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="Table of common VDI profiles for VMware Horizon for login VSI Knowledge worker workloads" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
+
+#### Power worker workloads
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Table of common VDI profiles for VMware Horizon for login VSI Power worker workloads" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
+
 ### Azure VMware Solution host instance
 
 * PowerEdge R640 Server - DSS RESTRICTED
