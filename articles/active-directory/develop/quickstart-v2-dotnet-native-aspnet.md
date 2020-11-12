@@ -18,7 +18,7 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 # Quickstart: Call an ASP.NET web API that's protected by Microsoft identity platform
 
-In this quickstart, you download and run a code sample that demonstrates how to protect an ASP.NET web API to sign in users and obtain an access token. Users with a personal Microsoft account or an account in any Azure Active Directory (Azure AD) organization can sign into the application.
+In this quickstart, you download and run a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
 
 The article also uses a Windows Presentation Foundation (WPF) app to demonstrate how you can request an access token to access a web API.
 
