@@ -35,14 +35,13 @@ Before you can enable Azure Arc on Kubernetes cluster, make sure that you have c
 
 1. You have a  Windows client system that will be used to access the Azure Stack Edge Pro device.
   
-    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows).
+    - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows).
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
     
 1. You have completed the procedure described in [Access the Kubernetes cluster on Azure Stack Edge Pro device](azure-stack-edge-gpu-create-kubernetes-cluster.md). You have:
     
-    - Installed `kubectl` on the client  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
-    
+    - Installed `kubectl` on the client.    
     - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge Pro device. 
       - Use `kubectl version` to check the version of kubectl running on the client. Make a note of the full version.
       - In the local UI of your Azure Stack Edge Pro device, go to **Software update** and note the Kubernetes server version number. 
@@ -51,7 +50,6 @@ Before you can enable Azure Arc on Kubernetes cluster, make sure that you have c
       
       - Verify these two versions are compatible. 
 
-<!-- az cli version requirements-->
 
 ## Register Kubernetes resource providers
 
