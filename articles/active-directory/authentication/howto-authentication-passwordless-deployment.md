@@ -136,9 +136,9 @@ It turns any iOS or Android phone into a strong, passwordless credential. Users 
 
 ### Technical considerations for the Microsoft Authenticator app
 
-**AD FS Integration** - When a user enables the Microsoft Authenticator passwordless credential, authentication for that user defaults to sending a notification for approval. Users in a hybrid tenant are prevented from being directed to ADFS for sign-in unless they select "Use your password instead." This process also bypasses any on-premises Conditional Access policies, and pass-through authentication flows. However, if a *login_hint* is specified, the user is forwarded to ADFS and bypass the option to use the passwordless credential.
+**AD FS Integration** - When a user enables a passwordless credential with Azure AD, authentication for that user happens with Azure AD. Users in a hybrid tenant are not directed to ADFS for sign-in. This process also bypasses any on-premises Conditional Access policies, and pass-through authentication flows. 
 
-**Azure Multi-factor authentication server** - End users enabled for Multi-factor authentication through an organization's on-premises Azure MFA server can create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5 or more) of the Microsoft Authenticator with the credential, this change may result in an error.
+**Azure Multi-factor authentication server** - End users enabled for Multi-factor authentication through an organization's on-premises Azure MFA server can create and use a single passwordless phone sign-in credential, if they have been enabled by Authentication Methods policy to use passwordless phone sign-in. If the user attempts to upgrade multiple installations (5 or more) of the Microsoft Authenticator with the credential, this change may result in an error.
 
 **Device Registration** - To use the Authenticator app for passwordless authentication, the device must be registered in the Azure AD tenant and can't be a shared device. A device can only be registered in a single tenant. This limit means that only one work or school account is supported for phone sign-in using the Authenticator app.
 
