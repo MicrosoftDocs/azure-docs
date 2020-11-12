@@ -13,7 +13,7 @@ ms.author: aahi
 
 ## Install the container
 
-There are multiple ways you can install and run the container. 
+There are multiple ways you can install and run the Text Analytics for health container. 
 
 - Use the [Azure portal](text-analytics-how-to-install-containers.md?tabs=healthcare) to create a Text Analytics resource, and use Docker to get your container.
 - Use the following PowerShell and [Azure CLI](/cli/azure/?view=azure-cli-latest) scripts to automate resource deployment container configuration.
