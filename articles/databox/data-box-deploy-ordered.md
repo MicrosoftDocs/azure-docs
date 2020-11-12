@@ -261,7 +261,7 @@ Do the following steps in the Azure portal to order a device.
 
     ![Data Box import Order wizard, Data destination screen, with Managed Disks selected](media/data-box-deploy-ordered/select-data-box-import-07-b.png)
 
-    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up#tabs=in-us-canada-europe#verify-data-upload-to-azure).
+    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up,md#tabs=in-us-canada-europe#verify-data-upload-to-azure).
 
    > [!NOTE]
    > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
