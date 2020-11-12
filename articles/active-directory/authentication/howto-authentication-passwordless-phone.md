@@ -107,7 +107,7 @@ The following known issues exist in the current preview experience.
 
 In one scenario, a user can have an unanswered passwordless phone sign-in verification pending. The user might attempt to sign in again. When this happens, the user might see only the option to enter a password.
 
-To resolve this scenario, use the following steps:
+To resolve this scenario, the following steps can be used:
 
 1. Open the Microsoft Authenticator app.
 2. Respond to any notification prompts.
@@ -116,7 +116,7 @@ Then the user can continue to use passwordless phone sign-in.
 
 ### Federated Accounts
 
-When a user has enabled any passwordless credential, the Azure AD login process stops using the login_hint. Therefore the process no longer accelerates the user toward a federated login location.
+When a user has enabled any passwordless credential, the Azure AD login process stops using the login\_hint. Therefore the process no longer accelerates the user toward a federated login location.
 
 This logic generally prevents a user in a hybrid tenant from being directed to AD Federated Service (FS) for sign-in verification. However, the user retains the option of clicking **Use your password instead**.
 
