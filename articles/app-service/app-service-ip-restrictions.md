@@ -48,7 +48,7 @@ To add an access-restriction rule to your app, do the following:
 
 ### Add an access-restriction rule
 
-To add an access-restriction rule to your app, on the **Access Restrictions** pane, select **Add rule** . After you add a rule, it becomes effective immediately. 
+To add an access-restriction rule to your app, on the **Access Restrictions** pane, select **Add rule**. After you add a rule, it becomes effective immediately. 
 
 Rules are enforced in priority order, starting from the lowest number in the **Priority** column. An implicit *deny all* is in effect after you add even a single rule.
 
