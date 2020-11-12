@@ -176,7 +176,15 @@ counter.increment();
 
 ### Sending custom traces and exceptions using Log4j, Logback and java.util.logging 
 
-TODO still in this PR
+You can send 
+
+Application Insights Java 3.0 will only capture your logs if they meet the thresholds you have set
+in your logging configuration, and also meet the level you have set in the applicationinsights configuration
+(which defaults to INFO).
+
+If you want to attach custom dimensions to your logs, you can use Log4j or Logback's MDC support,
+and Application Insights Java 3.0 will automatically capture those MDC properties as custom dimensions
+on your trace and exception telemetry.
 
 ### Sending custom telemetry using Application Insights Java SDK 2.x
 
