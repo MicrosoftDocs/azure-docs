@@ -52,6 +52,20 @@ This command:
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 - Automatically removes the container after it exits. The container image is still available on the host computer.
 
+### Demo UI to visualize output (Container only)
+The container provides REST-based query prediction endpoint APIs.  We have also provided a visualization tool in the container that is accessible by appending the **demo** to the endpoint of the container for example:
+
+```bash
+http://<serverURL>:5000/demo
+```
+
+Use the example cURL request below to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
+
+```bash
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+
+```
+
 ### Install the container using Azure Web App for Containers
 
 Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/) is an Azure resource dedicated to running containers in the cloud. It brings out-of-the-box capabilities such as autoscaling, support of docker containers and docker compose, HTTPS support and much more.
