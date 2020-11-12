@@ -141,7 +141,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. Add the following value to the Lname Attr field: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
 
-    d. In the **Test User Authentication**, click on **Test SAML Authentication**. If the page that loads says “Server Response Successfully Validated”, you have successfully set up the instance for SAML integration.
+    d. In the **Test User Authentication**, click on **Test SAML Authentication**. If the page that loads say “Server Response Successfully Validated”, you have successfully set up the instance for SAML integration.
     
     e. In **Save and Apply Settings**, Check the box **I have confirmed the configuration above and want to enable applying it globally**.
 
@@ -157,15 +157,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-1. Click on **Test this application** in Azure portal. This will redirect to Looker Analytics Platform Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Looker Analytics Platform Sign-on URL where you can initiate the login flow.  
 
-1. Go to Looker Analytics Platform Sign-on URL directly and initiate the login flow from there.
+* Go to Looker Analytics Platform Sign on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Looker Analytics Platform for which you set up the SSO 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Looker Analytics Platform tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Looker Analytics Platform for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft Access Panel to test the application in any mode. When you click the Looker Analytics Platform tile in the Access Panel, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Looker Analytics Platform for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next steps
 
