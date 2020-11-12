@@ -211,7 +211,7 @@ You need *tenant administrator* permissions to complete the following steps:
    Get-AzureADMSGroup -SearchString "Name of group to be added to the staged rollout policy"
    ```
 
-6. Add the group to the staged rollout policy as shown in the following example.  Replace the value in the *-Id* parameter with  with value returned for the policy ID in step 4 and replace the value in the *-RefObjectId* parameter with the *Id* noted in step 5. It may take up to 1 hour before users in the groups will be able to use proxy address to sign-in.
+6. Add the group to the staged rollout policy as shown in the following example. Replace the value in the *-Id* parameter with the value returned for the policy ID in step 4 and replace the value in the *-RefObjectId* parameter with the *Id* noted in step 5. It may take up to 1 hour before users in the group can use their proxy addresses to sign-in.
 
    ```powershell
    Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
