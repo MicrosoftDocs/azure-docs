@@ -98,3 +98,4 @@ Visit the [studio](https://ml.azure.com), or explore the different authoring opt
   + [Use Jupyter notebooks on a compute instance to train & deploy models](tutorial-1st-experiment-sdk-setup.md)
   + [Use automated machine learning to train & deploy models](tutorial-first-experiment-automated-ml.md)  
   + [Use the designer to train & deploy models](tutorial-designer-automobile-price-train-score.md)
+  + [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
