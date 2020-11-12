@@ -157,11 +157,8 @@ The equals function is often used with the `condition` element to test whether a
 
 # [Bicep](#tab/bicep)
 
-```bicep
-
 > [!NOTE]
 > Conditions are not yet implemented in Bicep. See [Conditions](https://github.com/Azure/bicep/issues/186).
-```
 
 ---
 
