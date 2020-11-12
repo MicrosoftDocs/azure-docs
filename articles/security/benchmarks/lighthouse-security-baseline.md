@@ -364,7 +364,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 Use built-in roles to allocate permission and only create custom role when required.
 
-What is Azure role-based access control (Azure RBAC) ../../role-based-access-control/overview.md 
+- [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) 
 
 - [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md) 
 
@@ -811,13 +811,13 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 **Guidance**: Azure Lighthouse supports below service-specific policies that are available in Azure Security Center to audit and enforce configurations of your Azure resources. This can be configured in Azure Security Center or Azure Policy initiatives.
 
-You can use Azure Blueprints to automate deployment and configuration of services and application environments including Azure Resources Manager templates, Azure RBAC controls, and policies, in a single blueprint definition.
+You can use Azure Blueprints to automate deployment and configuration of services and application environments including Azure Resource Manager templates, Azure RBAC controls, and policies, in a single blueprint definition.
 
 - [Azure Lighthouse Policies](../../lighthouse/samples/policy-reference.md)
 
-Working with security policies in Azure Security Center ../../security-center/tutorial-security-policy.md 
+- [Working with security policies in Azure Security Center](../../security-center/tutorial-security-policy.md) 
 
-Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition 
+- [Illustration of Guardrails implementation in Enterprise Scale Landing Zone](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition) 
 
 - [Tutorial - Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md) 
 
