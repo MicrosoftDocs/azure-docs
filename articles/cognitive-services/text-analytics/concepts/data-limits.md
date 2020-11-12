@@ -44,7 +44,7 @@ The following limits have changed in v3 of the API. Exceeding the limits below w
 | Key Phrase Extraction | 10 |
 | Named Entity Recognition | 5 |
 | Entity Linking | 5 |
-| Text Analytics for health container | 1000 |
+| Text Analytics for health  | 10 for web API; 1000 for container|
 #### [Version 2](#tab/version-2)
 
 | Feature | Max Documents Per Request | 
