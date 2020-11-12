@@ -5,16 +5,17 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 11/10/2020
 ---
 
 # Azure Cosmos DB service quotas
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article provides an overview of the default quotas offered to different resources in the Azure Cosmos DB.
 
 ## Storage and database operations
 
-After you create an Azure Cosmos account under your subscription, you can manage data in your account by [creating databases, containers, and items](databases-containers-items.md).
+After you create an Azure Cosmos account under your subscription, you can manage data in your account by [creating databases, containers, and items](account-databases-containers-items.md).
 
 ### Provisioned throughput
 
@@ -22,24 +23,24 @@ You can provision throughput at a container-level or a database-level in terms o
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) |
-| Maximum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) |
+| Maximum RUs per container ([dedicated throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) |
+| Maximum RUs per database ([shared throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) |
 | Maximum RUs per (logical) partition | 10,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
 | Maximum attachment size per Account (Attachment feature is being deprecated) | 2 GB |
-| Minimum RUs required per 1 GB | 10 RU/s |
+| Minimum RU/s required per 1 GB | 10 RU/s<br>**Note:** if your container or database contains more than 1 TB of data, your account may be eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
 
 A Cosmos container (or shared throughput database) must have a minimum throughput of 400 RU/s. As the container grows, the minimum supported throughput also depends on the following factors:
 
-* The maximum throughput ever provisioned on the container. For example, if your throughput was increased to 50,000 RU/s, then the lowest possible provisioned throughput would be 500 RU/s
-* The current storage in GB in the container. For example, if your container has 100 GB of storage, then the lowest possible provisioned throughput would be 1000 RU/s
-* The minimum throughput on a shared throughput database also depends on the total number of containers that you have ever created in a shared throughput database, measured at 100 RU/s per container. For example, if you have created five containers within a shared throughput database, then the throughput must be at least 500 RU/s
+* The maximum throughput ever provisioned on the container. For example, if your throughput was increased to 50,000 RU/s, then the lowest possible provisioned throughput would be 500 RU/s.
+* The current storage in GB in the container. For example, if your container has 100 GB of storage, then the lowest possible provisioned throughput would be 1000 RU/s. **Note:** if your container or database contains more than 1 TB of data, your account may be eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program).
+* The minimum throughput on a shared throughput database also depends on the total number of containers that you have ever created in a shared throughput database, measured at 100 RU/s per container. For example, if you have created five containers within a shared throughput database, then the throughput must be at least 500 RU/s.
 
 The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Provision throughput on containers and databases](set-throughput.md). 
 
@@ -50,8 +51,8 @@ In summary, here are the minimum provisioned RU limits.
 
 | Resource | Default limit |
 | --- | --- |
-| Minimum  RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimum  RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Minimum  RUs per container ([dedicated throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Minimum  RUs per database ([shared throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Minimum  RUs per container within a shared throughput database | 100 |
 
 Cosmos DB supports elastic scaling of throughput (RUs) per container or database via the SDKs or portal. Each container can scale synchronously and immediately within a scale range of 10 to 100 times, between minimum and maximum values. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
@@ -127,7 +128,6 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 | Maximum length of partition key value | 2048 bytes |
 | Maximum length of ID value | 1023 bytes |
 | Maximum number of properties per item | No practical limit |
-| Maximum nesting depth | No practical limit |
 | Maximum length of property name | No practical limit |
 | Maximum length of property value | No practical limit |
 | Maximum length of string property value | No practical limit |
@@ -139,7 +139,7 @@ There are no restrictions on the item payloads like number of properties and nes
 
 ## Per-request limits
 
-Azure Cosmos DB supports [CRUD and query operations](/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
+Azure Cosmos DB supports [CRUD and query operations](/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
 
 | Resource | Default limit |
 | --- | --- |
@@ -186,7 +186,7 @@ See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article 
 
 ## SQL query limits
 
-Cosmos DB supports querying items using [SQL](how-to-sql-query.md). The following table describes restrictions in query statements, for example in terms of number of clauses or query length.
+Cosmos DB supports querying items using [SQL](./sql-query-getting-started.md). The following table describes restrictions in query statements, for example in terms of number of clauses or query length.
 
 | Resource | Default limit |
 | --- | --- |

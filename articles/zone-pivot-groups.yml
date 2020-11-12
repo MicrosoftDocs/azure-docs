@@ -22,7 +22,7 @@ groups:
     title: Postman
 #Owner: kraigb
 - id: python-frameworks-01
-  title: Web framework 
+  title: Web framework
   prompt: Choose a framework
   pivots:
   - id: python-framework-flask
@@ -201,7 +201,7 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
-- id: programming-languages-set-seventeen
+- id: programming-languages-set-twenty-five
 # Owner: erhopf
   title: Programming languages
   prompt: Choose a programming language or CLI
@@ -211,7 +211,7 @@ groups:
   - id: programming-language-cpp
     title: C++
   - id: programming-language-javascript
-    title: JavaScript  
+    title: JavaScript
   - id: programming-language-curl
     title: REST
 # To be enabled later.
@@ -695,7 +695,7 @@ groups:
   - id: container-linux
     title: Linux container
   - id: container-windows
-    title: Windows container  
+    title: Windows container
 - id: programming-languages-spring-cloud
 # Owner: bmitchell287
   title: Programming languages
@@ -869,3 +869,36 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Security Center's portal pages
+# Owner: mikeray
+- id: client-operating-system-macos-and-linux-windows-powershell
+  title: Operating system / Console
+  prompt: Choose an operating system and console
+  pivots:
+  - id: client-operating-system-macos-and-linux
+    title: macOS & Linux
+  - id: client-operating-system-windows-command
+    title: Windows command shell
+  - id: client-operating-system-powershell
+    title: PowerShell
+# Owner: erhopf
+- id: ad-quickstart-one
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+- id: keyword-quickstart
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  

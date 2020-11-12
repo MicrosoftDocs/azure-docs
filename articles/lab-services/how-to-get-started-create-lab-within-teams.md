@@ -20,6 +20,9 @@ Here is the typical workflow when using Azure Lab Services within Teams
 1. Then, the educators create labs, pre-configures the template VM and publishes the lab to provision VM's to everyone on the team.
 1. Once the lab is published, a VM is assigned to everyone on the team membership list on their first login to Azure Lab Services, either by clicking on the tab containing **Azure Lab Services** App within Teams(SSO) or by accessing the [labs website](https://labs.azure.com). Users can then use the VM to do the class work and homework.
 
+> [!IMPORTANT]
+> Azure Lab Services can be used within Teams only if the lab accounts are created in the same tenant as Teams.
+
 ## Add Azure Lab Services app as a tab to a Team
 
 You, as a Team owner, can add **Azure Lab Services** app directly in your Teams channels, and then the app is available for everyone in the team to use. Follow the below three steps:

@@ -175,4 +175,5 @@ You can find the full list of supported resource types in this [article](./alert
 - [Learn how to deploy metric alerts using Azure Resource Manager templates](./alerts-metric-create-templates.md)
 - [Learn more about action groups](action-groups.md)
 - [Learn more about Dynamic Thresholds condition type](alerts-dynamic-thresholds.md)
+- [Learn more about troubleshooting problems in metric alerts](alerts-troubleshoot-metric.md)
 

@@ -7,7 +7,7 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
-ms.subservice: overview
+ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020 
 ---
@@ -60,7 +60,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ) AS [r];
     ```
 
-    In the script window, the **Connect to** field is set to **SQL on-demand**.
+    In the script window, the **Connect to** field is set to **serverless SQL pool**.
 
 1. Run the script.
 

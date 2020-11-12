@@ -39,7 +39,7 @@ To create a new work account for your company, follow the steps below. You may n
 
 The email address for the user account must be a verified domain name in your directory. You can list all the verified domains in your directory by selecting **Azure Active Directory** -> **Custom domain names** in the left-navigation menu.
 
-To learn more about adding custom domains in Azure Active Directory, see [Add or associate a domain in Azure AD](../../active-directory/active-directory-add-domain.md).
+To learn more about adding custom domains in Azure Active Directory, see [Add or associate a domain in Azure AD](../../active-directory/fundamentals/add-custom-domain.md).
 
 ## Troubleshoot work email sign-in
 
@@ -49,4 +49,4 @@ If you're having trouble signing in to your work account (also known as your Azu
 
 ## Next steps
 
-- [Manage your commercial marketplace account in Partner Center](./manage-account.md) 
+- [Manage your commercial marketplace account in Partner Center](./manage-account.md)

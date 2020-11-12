@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Troubleshoot Change Tracking and Inventory issues
 
-This article describes how to troubleshoot and resolve Azure Automation Change Tracking and Inventory issues. For general information about Change Tracking and Inventory, see [Change Tracking and Inventory overview](../change-tracking.md).
+This article describes how to troubleshoot and resolve Azure Automation Change Tracking and Inventory issues. For general information about Change Tracking and Inventory, see [Change Tracking and Inventory overview](../change-tracking/overview.md).
 
 ## Windows
 
@@ -102,11 +102,11 @@ For more troubleshooting of this issue, see [Issue: You are not seeing any Linux
 
 ##### Log Analytics agent for Linux not configured correctly
 
-The Log Analytics agent for Linux might not be configured correctly for log and command-line output collection by using the OMS Log Collector tool. See [Change Tracking and Inventory overview](../change-tracking.md).
+The Log Analytics agent for Linux might not be configured correctly for log and command-line output collection by using the OMS Log Collector tool. See [Change Tracking and Inventory overview](../change-tracking/overview.md).
 
 ##### FIM conflicts
 
-Azure Security Center's FIM feature might be incorrectly validating the integrity of your Linux files. Verify that FIM is operational and correctly configured for Linux file monitoring. See [Change Tracking and Inventory overview](../change-tracking.md).
+Azure Security Center's FIM feature might be incorrectly validating the integrity of your Linux files. Verify that FIM is operational and correctly configured for Linux file monitoring. See [Change Tracking and Inventory overview](../change-tracking/overview.md).
 
 ## Next steps
 

@@ -78,16 +78,16 @@ Admin contacts of the report can be updated through the **Notification Settings*
 Like generic alert notification settings in Connect Health, it allows you to customize designated notification recipient list about risky IP report from here. You can also notify all global admins while making the change. 
 
 ## Configure threshold settings
-Alerting threshold can be updated through Threshold Settings. To start with, system has threshold set by default. There are four categories in the risk IP report threshold settings:
+Alerting threshold can be updated through Threshold Settings. To start with, system has threshold set by default. The default values are given below. There are four categories in the risk IP report threshold settings:
 
 ![Azure AD Connect Health Portal](./media/how-to-connect-health-adfs/report4d.png)
 
 | Threshold Item | Description |
 | --- | --- |
-| (Bad U/P + Extranet Lockout) / Day  | Threshold setting to report the activity and trigger alert notification when the count of Bad Password plus the count of Extranet Lockout exceeds it per **day**. |
-| (Bad U/P + Extranet Lockout) / Hour | Threshold setting to report the activity and trigger alert notification when the count of Bad Password plus the count of Extranet Lockout exceeds it per **hour**. |
-| Extranet Lockout / Day | Threshold setting to report the activity and trigger alert notification when the count of Extranet Lockout exceeds it per **day**. |
-| Extranet Lockout / Hour| Threshold setting to report the activity and trigger alert notification when the count of Extranet Lockout exceeds it per **hour**. |
+| (Bad U/P + Extranet Lockout) / Day  | Threshold setting to report the activity and trigger alert notification when the count of Bad Password plus the count of Extranet Lockout exceeds it per **day**. Default value is 100.|
+| (Bad U/P + Extranet Lockout) / Hour | Threshold setting to report the activity and trigger alert notification when the count of Bad Password plus the count of Extranet Lockout exceeds it per **hour**. Default Value is 50.|
+| Extranet Lockout / Day | Threshold setting to report the activity and trigger alert notification when the count of Extranet Lockout exceeds it per **day**. Default value is 50.|
+| Extranet Lockout / Hour| Threshold setting to report the activity and trigger alert notification when the count of Extranet Lockout exceeds it per **hour**. Default value is 25|
 
 > [!NOTE]
 > - The change of report threshold will be applied after an hour of the setting change. 

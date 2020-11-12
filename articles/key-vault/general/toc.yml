@@ -39,7 +39,7 @@
 - name: Samples
   items:
   - name: Key Vault Code Samples
-    href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
+    href: /samples/browse/?expanded=azure&products=azure-key-vault
 
 - name: Concepts 
   items:
@@ -66,6 +66,8 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+  - name: Azure Key Vault logging
+    href: logging.md
   - name: Notifications
     items:
     - name: Monitor with Azure Event Grid
@@ -105,7 +107,9 @@
       href: rbac-migration.md  
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
-  - name: How to enable logging
+  - name: Enable soft delete and purge protection
+    href: key-vault-recovery.md
+  - name: Enable logging
     href: howto-logging.md
   - name: Develop
     items:
@@ -114,7 +118,7 @@
     - name: Use Azure Resource Manager to deploy Key Vault
       href: vault-create-template.md
     - name: Save Web App secrets
-      href: vs-secure-secret-appsettings.md
+      href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
     - name: Service-to-service authentication with .NET
       href: service-to-service-authentication.md
     - name: Use Key Vault Connected Service
@@ -125,8 +129,6 @@
       href: alert.md
     - name: Integrate Azure Key Vault with Azure Policy
       href: azure-policy.md
-    - name: Azure Key Vault logging
-      href: logging.md
     - name: Receive notifications via Azure Event Grid and Logic Apps
       href: event-grid-logicapps.md
     - name: Receive notifications via Azure Event Grid and Azure Automation
@@ -139,14 +141,6 @@
       href: private-link-service.md
     - name: Access Key Vault behind a firewall - Azure Key Vault
       href: access-behind-firewall.md
-  - name: Soft-delete
-    items:
-    - name: Key Vault Recovery (Soft Delete & Purge Protection)
-      href: key-vault-recovery.md
-    - name: Use soft-delete with CLI
-      href: soft-delete-cli.md
-    - name: Use soft-delete with PowerShell
-      href: soft-delete-powershell.md
   - name: Move Key Vault
     items: 
     - name: Move Key Vault to Another Resource Group
@@ -183,7 +177,7 @@
   - name: Java
     href: /java/api/overview/azure/keyvault?view=azure-java-stable
   - name: Node.js
-    href: https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+    href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
   - name: Python
     href: /python/api/overview/azure/keyvault/management?view=azure-python
   - name: REST
@@ -212,6 +206,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
-    href: https://blogs.technet.com/b/kv/
+    href: /archive/blogs/kv/
   - name: Product Feedback
     href: https://feedback.azure.com/forums/906355-azure-key-vault

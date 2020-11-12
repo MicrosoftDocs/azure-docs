@@ -281,8 +281,8 @@ Cognitive Search roles are associated with permissions that support service leve
 
 - [Create and manage api-keys for an Azure Cognitive Search service](./search-security-api-keys.md)
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -596,7 +596,7 @@ Ensure appropriate (read) permissions in your tenant and enumerate all Azure sub
 
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) 
 
-- [How to view your Azure subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
+- [How to view your Azure subscriptions](/powershell/module/az.accounts/get-azsubscription) 
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -741,7 +741,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 
 - [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](./security-controls-policy.md)
 
-- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -864,7 +864,7 @@ Use Azure Managed Identities in conjunction with Azure Key Vault to simplify sec
 
 - [Set up an indexer connection to a data source using a managed identity](./search-howto-managed-identities-data-sources.md)
 
-- [Configure customer-managed keys for data encryption using a managed identity](./search-security-manage-encryption-keys.md#3---create-a-service-identity)
+- [Configure customer-managed keys for data encryption using a managed identity](./search-security-manage-encryption-keys.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -932,7 +932,7 @@ For any compute resources that are owned by your organization and used in your s
 
 - [Back up and restore an Azure Cognitive Search index](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
-- [How to backup Key Vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to backup Key Vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -944,7 +944,7 @@ For any compute resources that are owned by your organization and used in your s
 
 - [Back up and restore an Azure Cognitive Search index](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
-- [How to restore Key Vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to restore Key Vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Azure Security Center monitoring**: Not applicable
 

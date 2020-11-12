@@ -48,7 +48,7 @@ Once you're confident that version `2.0` works as expected on your subset of use
 
 Let's start by deploying the application into your Azure Kubernetes Service (AKS) cluster. The following diagram shows what runs by the end of this section - version `1.0` of all components with inbound requests serviced via the Istio ingress gateway:
 
-![The AKS Voting app components and routing.](media/servicemesh/istio/scenario-routing-components-01.png)
+![Diagram that shows version 1.0 of all components with inbound requests serviced via the Istio ingress gateway.](media/servicemesh/istio/scenario-routing-components-01.png)
 
 The artifacts you need to follow along with this article are available in the [Azure-Samples/aks-voting-app][github-azure-sample] GitHub repo. You can either download the artifacts or clone the repo as follows:
 
@@ -175,7 +175,7 @@ Let's deploy a new version of the analytics component. This new version `1.1` di
 
 The following diagram shows what will be running at the end of this section - only version `1.1` of our `voting-analytics` component has traffic routed from the `voting-app` component. Even though version `1.0` of our `voting-analytics` component continues to run and is referenced by the `voting-analytics` service, the Istio proxies disallow traffic to and from it.
 
-![The AKS Voting app components and routing.](media/servicemesh/istio/scenario-routing-components-02.png)
+![Diagram that shows only version 1.1 of the voting-analytics component has traffic routed from the voting-app component.](media/servicemesh/istio/scenario-routing-components-02.png)
 
 Let's deploy version `1.1` of the `voting-analytics` component. Create this component in the `voting` namespace:
 
@@ -356,7 +356,7 @@ The following diagram shows what you will have running at the end of this sectio
 * Version `2.0` of the `voting-app` component, version `2.0` of the `voting-analytics` component and version `2.0` of the `voting-storage` component are able to communicate with each other.
 * Version `2.0` of the `voting-app` component are only accessible to users that have a specific feature flag set. This change is managed using a feature flag via a cookie.
 
-![The AKS Voting app components and routing.](media/servicemesh/istio/scenario-routing-components-03.png)
+![Diagram that shows what you'll have running at the end of this section.](media/servicemesh/istio/scenario-routing-components-03.png)
 
 First, update the Istio Destination Rules and Virtual Services to cater for these new components. These updates ensure that you don't route traffic incorrectly to the new components and users don't get unexpected access:
 
@@ -410,7 +410,7 @@ The vote counts are different between the versions of the app. This difference h
 
 Once you've successfully tested the canary release, update the `voting-app` Virtual Service to route all traffic to version `2.0` of the `voting-app` component. All users then see version `2.0` of the application, regardless of whether the feature flag is set or not:
 
-![The AKS Voting app components and routing.](media/servicemesh/istio/scenario-routing-components-04.png)
+![Diagram that shows that users see version 2.0 of the application, regardless of whether the feature flag is set or not.](media/servicemesh/istio/scenario-routing-components-04.png)
 
 Update all the Destination Rules to remove the versions of the components you no longer want active. Then, update all the Virtual Services to stop referencing those versions.
 

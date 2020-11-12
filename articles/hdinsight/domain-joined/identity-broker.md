@@ -1,15 +1,15 @@
 ---
-title: Use ID Broker (preview) for credential management - Azure HDInsight
+title: Azure HDInsight ID Broker (HIB)
 description: Learn about Azure HDInsight ID Broker to simplify authentication for domain-joined Apache Hadoop clusters.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ---
 
-# Azure HDInsight ID Broker (preview)
+# Azure HDInsight ID Broker (HIB)
 
 This article describes how to set up and use the Azure HDInsight ID Broker feature. You can use this feature to get modern OAuth authentication to Apache Ambari while having multifactor authentication enforcement without needing legacy password hashes in Azure Active Directory Domain Services (Azure AD DS).
 
@@ -38,7 +38,7 @@ In this diagram, the client (that is, a browser or app) needs to acquire the OAu
 
 There still might be many legacy applications that only support basic authentication (that is, username and password). For those scenarios, you can still use HTTP basic authentication to connect to the cluster gateways. In this setup, you must ensure network connectivity from the gateway nodes to the Active Directory Federation Services (AD FS) endpoint to ensure a direct line of sight from gateway nodes.
 
-The following diagram shows the basic authentication flow for federated users. First, the gateway attempts to complete the authentication by using [ROPC flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc). In case there are no password hashes synced to Azure AD, it falls back to discovering the AD FS endpoint and completes the authentication by accessing the AD FS endpoint.
+The following diagram shows the basic authentication flow for federated users. First, the gateway attempts to complete the authentication by using [ROPC flow](../../active-directory/develop/v2-oauth-ropc.md). In case there are no password hashes synced to Azure AD, it falls back to discovering the AD FS endpoint and completes the authentication by accessing the AD FS endpoint.
 
 :::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram that shows architecture with basic authentication.":::
 
@@ -78,7 +78,7 @@ If you add a new role called `idbrokernode` with the following attributes to the
         {
             "autoscale": null,
             "name": "idbrokernode",
-            "targetInstanceCount": 1,
+            "targetInstanceCount": 2,
             "hardwareProfile": {
                 "vmSize": "Standard_A2_V2"
             },
@@ -96,9 +96,12 @@ If you add a new role called `idbrokernode` with the following attributes to the
 .
 ```
 
+To see a complete sample of an ARM template, please see the template published [here](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+
+
 ## Tool integration
 
-HDInsight tools are updated to natively support OAuth. Use these tools for modern OAuth-based access to the clusters. The HDInsight [IntelliJ plug-in](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) can be used for Java-based applications, such as Scala. [Spark and Hive Tools for Visual Studio Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) can be used for PySpark and Hive jobs. The tools support both batch and interactive jobs.
+HDInsight tools are updated to natively support OAuth. Use these tools for modern OAuth-based access to the clusters. The HDInsight [IntelliJ plug-in](../spark/apache-spark-intellij-tool-plugin.md#integrate-with-hdinsight-identity-broker-hib) can be used for Java-based applications, such as Scala. [Spark and Hive Tools for Visual Studio Code](../hdinsight-for-vscode.md) can be used for PySpark and Hive jobs. The tools support both batch and interactive jobs.
 
 ## SSH access without a password hash in Azure AD DS
 
@@ -112,11 +115,11 @@ To SSH to a domain-joined VM or to run the `kinit` command, you must provide a p
 
 If your organization isn't syncing password hashes to Azure AD DS, as a best practice, create one cloud-only user in Azure AD. Then assign it as a cluster admin when you create the cluster, and use that for administration purposes. You can use it to get root access to the VMs via SSH.
 
-To troubleshoot authentication issues, see [this guide](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+To troubleshoot authentication issues, see [this guide](./domain-joined-authentication-issues.md).
 
 ## Clients using OAuth to connect to an HDInsight gateway with HDInsight ID Broker
 
-In the HDInsight ID Broker setup, custom apps and clients that connect to the gateway can be updated to acquire the required OAuth token first. Follow the steps in [this document](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) to acquire the token with the following information:
+In the HDInsight ID Broker setup, custom apps and clients that connect to the gateway can be updated to acquire the required OAuth token first. Follow the steps in [this document](../../storage/common/storage-auth-aad-app.md) to acquire the token with the following information:
 
 *	OAuth resource uri: `https://hib.azurehdinsight.net` 
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
@@ -127,6 +130,8 @@ After you acquire the OAuth token, use it in the authorization header of the HTT
 ```bash
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"
 ``` 
+
+For using Beeline and Livy, you can also follow the samples codes provided [here](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/HIB/HIBSamples) to setup your client to use OAuth and connect to the cluster.
 
 ## Next steps
 

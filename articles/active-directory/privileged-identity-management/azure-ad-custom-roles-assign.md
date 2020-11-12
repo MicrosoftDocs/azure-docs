@@ -26,7 +26,7 @@ ms.collection: M365-identity-device-management
 
 This article tells you how to use Privileged Identity Management (PIM) to create just-in-time and time-bound assignment to custom roles created for managing applications in the Azure Active Directory (Azure AD) administrative experience.
 
-- For more information about creating custom roles to delegate application management in Azure AD, see [Custom administrator roles in Azure Active Directory (preview)](../users-groups-roles/roles-custom-overview.md).
+- For more information about creating custom roles to delegate application management in Azure AD, see [Custom administrator roles in Azure Active Directory (preview)](../roles/custom-overview.md).
 - If you haven't used Privileged Identity Management yet, get more information at [Start using Privileged Identity Management](pim-getting-started.md).
 - For information about how to grant another administrator access to manage Privileged Identity Management, see [Grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
@@ -82,4 +82,4 @@ To verify the role assignment, in an open role, select **Assignments** > **Assig
 - [Activate an Azure AD custom role](azure-ad-custom-roles-assign.md)
 - [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-update-remove.md)
 - [Configure an Azure AD custom role assignment](azure-ad-custom-roles-configure.md)
-- [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Role definitions in Azure AD](../roles/permissions-reference.md)

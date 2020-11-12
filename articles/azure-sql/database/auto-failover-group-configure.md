@@ -659,7 +659,7 @@ Using a private link allows you to associate a logical server to a specific priv
 
 To use a private link with your failover group, do the following:
 
-1. Ensure your primary and secondary servers are in a [paired region](/azure/best-practices-availability-paired-regions). 
+1. Ensure your primary and secondary servers are in a [paired region](../../best-practices-availability-paired-regions.md). 
 1. Create the virtual network and subnet in each region to host private endpoints for primary and secondary servers such that they have non-overlapping IP address spaces. For example, the primary virtual network address range of 10.0.0.0/16 and the secondary virtual network address range of 10.0.0.1/16 overlaps. For more information about virtual network address ranges, see the blog [designing Azure virtual networks](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/).
 1. Create a [private endpoint and Azure Private DNS zone for the primary server](../../private-link/create-private-endpoint-portal.md#create-a-private-endpoint). 
 1. Create a private endpoint for the secondary server as well, but this time choose to reuse the same Private DNS zone that was created for the primary server. 

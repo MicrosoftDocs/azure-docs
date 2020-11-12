@@ -44,7 +44,7 @@ This article describes how to use the Convert to Image Directory module to help 
 
     For scoring, the image dataset folder only needs to contain unclassified images.
 
-1. [Register the image dataset as a file dataset](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) in your workspace, since the input of Convert to Image Directory module must be a **File dataset**.
+1. [Register the image dataset as a file dataset](../how-to-create-register-datasets.md) in your workspace, since the input of Convert to Image Directory module must be a **File dataset**.
 
 1. Add the registered image dataset to the canvas. You can find your registered dataset in the **Datasets** category in the module list in the left of canvas. Currently Designer does not support visualize image dataset.
 
@@ -77,4 +77,4 @@ The output of **Convert to Image Directory** module is in **Image Directory** fo
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.
