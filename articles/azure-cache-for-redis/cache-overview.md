@@ -32,9 +32,6 @@ Azure Cache for Redis improves application performance by supporting common appl
 
 Azure Cache for Redis supports OSS Redis version 4.x and, as a preview, 6.0. We've made the decision to skip Redis 5.0 to bring you the latest version. Previously, Azure Cache for Redis only maintained a single Redis version. It will provide a newer major release upgrade and at least one older stable version going forward. You can [choose which version](cache-how-to-version.md) works the best for your application.
 
-> [!NOTE]
-> Redis 6.0 is currently in preview - [contact us](mailto:azurecache@microsoft.com) if you're interested. This preview is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## Service tiers
 Azure Cache for Redis is available in the following tiers:
@@ -45,7 +42,7 @@ Azure Cache for Redis is available in the following tiers:
 | Standard | An OSS Redis cache running on two VMs in a replicated configuration. |
 | Premium | High-performance OSS Redis caches. This tier offers higher throughput, lower latency, better availability, and more features. Premium caches are deployed on more powerful VMs compared to those for Basic or Standard caches. |
 | Enterprise | High-performance caches powered by Redis Labs' Redis Enterprise software. This tier supports Redis modules including RediSearch, RedisBloom, and RedisTimeSeries. In addition, it offers even higher availability than the Premium tier. |
-| Enterprise | Cost-effective large caches powered by Redis Labs' Redis Enterprise software. This tier extends Redis data storage to non-volatile memory, which is cheaper than DRAM, on a VM. It reduces the overall per-GB memory cost. |
+| Enterprise Flash | Cost-effective large caches powered by Redis Labs' Redis Enterprise software. This tier extends Redis data storage to non-volatile memory, which is cheaper than DRAM, on a VM. It reduces the overall per-GB memory cost. |
 
 ### Feature comparison
 The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/) provides a detailed comparison of each tier. The following table helps describe some of the features supported by tier:

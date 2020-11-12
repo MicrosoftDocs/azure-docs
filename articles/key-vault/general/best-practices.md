@@ -20,7 +20,7 @@ ms.author: mbaldwin
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. Because this data is sensitive and business critical, you need to secure access to your key vaults by allowing only authorized applications and users. This [article](secure-your-key-vault.md) provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access to your key vaults.
 
 Suggestions while controlling access to your vault are as follows:
-1. Lock down access to your subscription, resource group and Key Vaults (RBAC)
+1. Lock down access to your subscription, resource group and Key Vaults (Azure RBAC)
 2. Create Access policies for every vault
 3. Use least privilege access principal to grant access
 4. Turn on Firewall and [VNET Service Endpoints](overview-vnet-service-endpoints.md)
@@ -35,15 +35,15 @@ Make sure you take regular back ups of your vault on update/delete/create of obj
 
 ### Azure PowerShell Backup Commands
 
-* [Backup Certificate](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
-* [Backup Key](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
-* [Backup Secret](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret?view=azurermps-6.13.0)
+* [Backup Certificate](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
+* [Backup Key](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
+* [Backup Secret](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret?view=azurermps-6.13.0)
 
 ### Azure CLI Backup Commands
 
-* [Backup Certificate](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
-* [Backup Key](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
-* [Backup Secret](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
+* [Backup Certificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
+* [Backup Key](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
+* [Backup Secret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
 
 
 ## Turn on Logging

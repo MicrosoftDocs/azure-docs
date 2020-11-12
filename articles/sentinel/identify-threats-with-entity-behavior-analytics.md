@@ -19,6 +19,15 @@ ms.author: yelevin
 ---
 # Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Azure Sentinel
 
+> [!IMPORTANT]
+>
+> - The UEBA and Entity Pages features are now in **General Availability** in the following Azure Sentinel geographies and regions:
+>    - United States geography
+>    - Europe West region
+>    - Australia geography
+>
+> - In all other geographies and regions, these features remain for the time being in **PREVIEW**. See the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## What is User and Entity Behavior Analytics (UEBA)?
 
 ### The concept

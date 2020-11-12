@@ -227,11 +227,11 @@ During the copy process, if there are any errors, you will see a notification.
 
 Select **Download issue list**.
 
-![Download and view errors on Connect and copy 2](media/data-box-deploy-copy-data/view-errors-2.png)
+![Connect and copy, Download issue list](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Open the list to view the details of the error and select the resolution URL to view the recommended resolution.
 
-![Download and view errors on Connect and copy 3](media/data-box-deploy-copy-data/view-errors-3.png)
+![Connect and copy, download and view errors](media/data-box-deploy-copy-data/view-errors-3.png)
 
 For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 

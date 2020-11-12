@@ -20,7 +20,7 @@ Wrangling data flow in Azure Data Factory allows you to do code-free agile data 
 
 Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your wrangling data flows, you'll be prompted with the following error message if a function isn't supported:
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
 
 Below is a list of supported Power Query M functions.
 
@@ -88,7 +88,6 @@ Merging/Joining tables
 Use [Table.Group](/powerquery-m/table-group) to aggregate values.
 * Must be used with an aggregation function
 * Supported aggregation functions:
-    [Table.RowCount](/powerquery-m/table-rowcount),
     [List.Sum](/powerquery-m/list-sum),
     [List.Count](/powerquery-m/list-count),
     [List.Average](/powerquery-m/list-average),
@@ -123,7 +122,7 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 | Table.NestedJoin | Just doing a join will result in a validation error. The columns must be expanded for it to work. |
 | Table.Distinct | Remove duplicate rows isn't supported. |
 | Table.RemoveLastN | Remove bottom rows isn't supported. |
-| Table.RowCount | Not supported, but can be achieved with an add column with all cells empty (condition column can be used) and then using group by on that column. Table.Group is supported. | 
+| Table.RowCount | Not supported, but can be achieved by adding a custom column containing the value 1, then aggregating that column with List.Sum. Table.Group is supported. | 
 | Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in wrangling data flow. |
 | Table.Transpose | Not supported |
 | Table.Pivot | Not supported |
