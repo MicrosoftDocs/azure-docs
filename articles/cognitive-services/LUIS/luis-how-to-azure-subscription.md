@@ -169,16 +169,16 @@ You can control who can see your LUIS prediction runtime endpoint key by calling
 
 [!INCLUDE [Create LUIS resource in Azure portal](includes/create-luis-resource.md)]
 
-### Create resources in Azure CLI
+### Create resources in the Azure CLI
 
-Use [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to create each resource individually.
+Use the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to create each resource individually.
 
 Resource `kind`:
 
 * Authoring: `LUIS.Authoring`
 * Prediction: `LUIS`
 
-1. Sign in to Azure CLI:
+1. Sign in to the Azure CLI:
 
     ```azurecli
     az login
@@ -316,5 +316,5 @@ Add a metric alert for the **total calls** metric for a certain time period. Add
 
 ## Next steps
 
-* Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle
-* Migrate to the new [authoring resource](luis-migration-authoring.md)
+* Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
+* Migrate to the new [authoring resource](luis-migration-authoring.md).
