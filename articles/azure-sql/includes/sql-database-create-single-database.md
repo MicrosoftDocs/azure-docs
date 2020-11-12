@@ -4,7 +4,7 @@ ms.service: sql-database
 ms.subservice: single-database  
 ms.topic: include
 ms.date: 03/10/2020
-ms.author: mathoma
+ms.author: sstein
 ms.reviewer: vanto
 ---
 

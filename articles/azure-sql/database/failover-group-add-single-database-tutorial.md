@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer:
 ms.date: 06/19/2019
 ---
 # Tutorial: Add an Azure SQL Database to an autofailover group
