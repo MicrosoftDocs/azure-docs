@@ -71,7 +71,7 @@ Text Analytics for health only supports English language documents.
 
 Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate) to request access to the Text Analytics for health public preview. You will not be billed for Text Analytics for health usage. 
 
-[Instructions to download and install container](../text-analytics-how-to-install-containers.md?tabs=healthcare)
+[Instructions to download and install container](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare)
 
 [!INCLUDE [Authenticate to the container registry](../../../../includes/cognitive-services-containers-access-registry.md)]
 
