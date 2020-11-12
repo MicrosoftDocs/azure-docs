@@ -27,18 +27,19 @@ POST http://afdwafdemosite.azurefd.net/api/Feedbacks HTTP/1.1
 Host: afdwafdemosite.azurefd.net
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 55
+
 UserId=20&captchaId=7&captchaId=15&comment="1=1"&rating=3
 ```
 
 If you try the request, the WAF blocks traffic that contains your *1=1* string in any parameter or field. This is a string often associated with a SQL injection attack. You can look through the logs and see the timestamp of the request and the rules that blocked/matched.
  
-In the following example, we explore a "FrontdoorWebApplicationFirewallLog" log generated due to a rule match.
+In the following example, we explore a `FrontdoorWebApplicationFirewallLog` log generated due to a rule match.
  
-In the "requestUri" field, you can see the request was made to "/api/Feedbacks/" specifically. Going further, we find the rule ID "942110" in the "ruleName" field. Knowing the rule ID, you could go to the [OWASP ModSecurity Core Rule Set Official Repository](https://github.com/coreruleset/coreruleset) and search by that [rule ID](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) to review its code and understand exactly what this rule matches on. 
+In the "requestUri" field, you can see the request was made to `/api/Feedbacks/` specifically. Going further, we find the rule ID `942110` in the "ruleName" field. Knowing the rule ID, you could go to the [OWASP ModSecurity Core Rule Set Official Repository](https://github.com/coreruleset/coreruleset) and search by that [rule ID](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) to review its code and understand exactly what this rule matches on. 
  
-Then, by checking the "action" field, we see that this rule is set to block requests upon matching, and we confirm that the request was in fact blocked by the WAF because the "policyMode" is set to "prevention". 
+Then, by checking the `action` field, we see that this rule is set to block requests upon matching, and we confirm that the request was in fact blocked by the WAF because the `policyMode` is set to `prevention`. 
  
-Now, let's check the information in the "details" field. This is where you can see the `matchVariableName` and the `matchVariableValue` information. We learn that this rule was triggered because someone input *1=1* in the "comment" field of the web app.
+Now, let's check the information in the `details` field. This is where you can see the `matchVariableName` and the `matchVariableValue` information. We learn that this rule was triggered because someone input *1=1* in the `comment` field of the web app.
  
 ```json
 {
@@ -73,7 +74,7 @@ Now, let's check the information in the "details" field. This is where you can s
  
 There is also value in checking the access logs to expand your knowledge about a given WAF event. Below we review the `FrontdoorAccessLog` log that was generated as a response to the event above.
  
-You can see these are related logs based on the "trackingReference" value being the same. Amongst various fields that provide general insight, such as "userAgent" and "clientIP", we call attention to the "httpStatusCode" and "httpStatusDetails" fields. Here, we can confirm that the client has received an HTTP 403 response, which absolutely confirms this request was denied and blocked. 
+You can see these are related logs based on the `trackingReference` value being the same. Amongst various fields that provide general insight, such as `userAgent` and `clientIP`, we call attention to the `httpStatusCode` and `httpStatusDetails` fields. Here, we can confirm that the client has received an HTTP 403 response, which absolutely confirms this request was denied and blocked. 
  
 ```json
 {
@@ -179,17 +180,15 @@ Using a custom rule allows you to be the most granular when fine-tuning your WAF
 
 When exploring the log, you can see that the `ruleName_s` field contains the name given to the custom rule we created: `redirectcomment`. In the `action_s` field, you can see that the *Redirect* action was taken for this event. In the `details_matches_s` field, we can see the details for both conditions were matched.
 
-TODO PLACEHOLDER-LOG-IN-JSON
-
 ### Disabling rules
 
-Another way to get around a false positive is to disable the rule that matched on the input the WAF thought was malicious. Since you've parsed the WAF logs and have narrowed the rule down to 942110, you can disable it in the Azure portal. See [Customize Web Application Firewall rules using the Azure portal](../ag/application-gateway-customize-waf-rules-portal.md#disable-rule-groups-and-rules.md).
+Another way to get around a false positive is to disable the rule that matched on the input the WAF thought was malicious. Since you've parsed the WAF logs and have narrowed the rule down to 942110, you can disable it in the Azure portal. See [Customize Web Application Firewall rules using the Azure portal](../ag/application-gateway-customize-waf-rules-portal.md#disable-rule-groups-and-rules).
  
 Disabling a rule is a benefit when you are sure that all requests meeting that specific condition are in fact legitimate requests, or when you are sure the rule simply does not apply to your environment (such as, disabling a SQL injection rule because you have non-SQL backends). 
  
 However, disabling a rule is a global setting that applies to all frontend hosts associated to the WAF policy. When you choose to disable a rule, you may be leaving vulnerabilities exposed without protection or detection for any other frontend hosts associated to the WAF policy.
  
-If you want to use Azure PowerShell to disable a managed rule, see the [PSAzureManagedRuleOverride](https://docs.microsoft.com/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?view=azps-4.7.0&preserve-view=true) object documentation. If you want to use Azure CLI, see the [az network front-door waf-policy managed-rules override](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?view=azure-cli-latest&preserve-view=true) documentation.
+If you want to use Azure PowerShell to disable a managed rule, see the [`PSAzureManagedRuleOverride`](https://docs.microsoft.com/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?view=azps-4.7.0&preserve-view=true) object documentation. If you want to use Azure CLI, see the [`az network front-door waf-policy managed-rules override`](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?view=azure-cli-latest&preserve-view=true) documentation.
 
 ![WAF rules](../media/waf-front-door-tuning/waf-rules.png)
 
@@ -258,7 +257,7 @@ Another way to view request and response headers is to look inside the developer
 
 ### Finding request cookie names
 
-If the request contains cookies, the Cookies tab can be selected to view them in Fiddler.  Cookie information can also be used to create exclusions or custom rules in WAF.
+If the request contains cookies, the Cookies tab can be selected to view them in Fiddler. Cookie information can also be used to create exclusions or custom rules in WAF.
 
 ## Next steps
 
