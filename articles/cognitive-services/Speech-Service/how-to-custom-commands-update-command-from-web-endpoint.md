@@ -16,7 +16,7 @@ ms.author: encorona
 
 If your client application requires an update to the state of an ongoing command without voice input, you can use a call to a web endpoint to update the command.
 
-In this article, you'll learn how update an ongoing command from a web endpoint.
+In this article, you'll learn how to update an ongoing command from a web endpoint.
 
 ## Prerequisites
 > [!div class = "checklist"]
@@ -104,7 +104,7 @@ Let's hook up the Azure function with the existing Custom Commands app:
 1. Create a new interaction rule called **IncrementRule** and add a **Call web endpoint** action.
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/custom-commands/increment-rule-web-endpoint.png" alt-text="Screenshot that shows the creation of an interaction rule.":::
-1. In the action configuration, select **IncrementEndpoint**. Configure **On success** to **Send speech response** with the value of `Counter`,  and configure **On failure** with an error message.
+1. In the action configuration, select `IncrementEndpoint`. Configure **On success** to **Send speech response** with the value of `Counter`,  and configure **On failure** with an error message.
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/custom-commands/set-increment-counter-call-endpoint.png" alt-text="Screenshot that shows setting an increment counter for calling a web endpoint.":::
 1. Set the post-execution state of the rule to **Wait for user's input**.

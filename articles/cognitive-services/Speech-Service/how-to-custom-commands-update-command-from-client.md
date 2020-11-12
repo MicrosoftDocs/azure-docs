@@ -52,14 +52,14 @@ Let's review the key attributes of this activity:
 | **value** | The attribute `"value"` contains the attributes required to update the current command. |
 | **updatedCommand** | The attribute `"updatedCommand"` contains the name of the command. Within that attribute, `"updatedParameters"` is a map with the names of the parameters and their updated values. |
 | **cancel** | If the ongoing command needs to be canceled, set the attribute `"cancel"` to `true`. |
-| **updatedGlobalParameters** | The attribute `"updatedGlobalParameters"` is a map just like "updatedParameters", but it's used for global parameters. |
+| **updatedGlobalParameters** | The attribute `"updatedGlobalParameters"` is a map just like `"updatedParameters"`, but it's used for global parameters. |
 | **processTurn** | If the turn needs to be processed after the activity is sent, set the attribute `"processTurn"` to `true`. |
 
 You can test this scenario in the Custom Commands portal:
 
 1. Open the Custom Commands application that you previously created. 
 1. Select **Train** and then **Test**.
-1. Send **turn**.
+1. Send `turn`.
 1. Open the side panel and select **Activity editor**.
 1. Type and send the `RemoteCommand` event specified in the previous section.
     > [!div class="mx-imgBorder"]
@@ -115,7 +115,7 @@ For example, think about the scenario where you want to send the ID and name of 
 
 To test this scenario, let's create a new command in the current application:
 1. Create a new command called `GetDeviceInfo`.
-1. Add an example sentence of **get device info**.
+1. Add an example sentence of `get device info`.
 1. In the completion rule **Done**, add a **Send speech response** action.
    ![Screenshot that shows a response for sending speech with context.](media/custom-commands/send-speech-response-context.png)
 1. Save and train your application.
@@ -123,9 +123,9 @@ To test this scenario, let's create a new command in the current application:
    ![Screenshot that shows an activity for sending client context.](media/custom-commands/send-client-context-activity.png)
 
 Note a few things:
-1. You need to send this activity only once (ideally, right after you start a connection).
-1. You can use complex objects for `ClientContext`.
-1. You can use `ClientContext` in speech responses, for sending activities and for calling web endpoints.
+- You need to send this activity only once (ideally, right after you start a connection).
+- You can use complex objects for `ClientContext`.
+- You can use `ClientContext` in speech responses, for sending activities and for calling web endpoints.
 
 
 ## Next steps
