@@ -37,9 +37,9 @@ Identity is new control plane. Our customers wanted to grant permissions through
 
 In general, there are three categories of built-in roles in Azure AD.
 
-1. Azure AD-specific roles - These roles grant permissions to manage resources within Azure AD only. For example, User Administrator, Application Administrator, Groups Administrator etc. grant permissions to manage resources that live in Azure AD.
+1. Azure AD-specific roles - These roles grant permissions to manage resources within Azure AD only. For example, User Administrator, Application Administrator, Groups Administrator all grant permissions to manage resources that live in Azure AD.
 
-1. Service-specific roles - For major Microsoft 365 services (non-Azure AD), we have built service-specific roles that grant permissions to manage all features within the service.  For example, Exchange Admin, Intune Admin, SharePoint Admin, Teams Admin etc. can manage features with their respective services. Exchange Admin can manage mailboxes, Intune Admin can manage device policies, SharePoint Admin can manage site collections, Teams Admin can manage call qualities and so on.
+1. Service-specific roles - For major Microsoft 365 services (non-Azure AD), we have built service-specific roles that grant permissions to manage all features within the service.  For example, Exchange Admin, Intune Admin, SharePoint Admin, and Teams Admin roles can manage features with their respective services. Exchange Admin can manage mailboxes, Intune Admin can manage device policies, SharePoint Admin can manage site collections, Teams Admin can manage call qualities and so on.
 
 1. Cross-service roles - There are some roles that span services. We have two global roles - Global Administrator and Global Reader. All Microsoft 365 services honor these two roles. Also, there are some security-related roles like Security Admin and Security Reader that grant access across multiple security services within Microsoft 365. For example, using Security Admin roles in Azure AD, you can manage Microsoft 365 Security Center, Microsoft Defender Advanced Threat Protection, and Microsoft Cloud App Security. Similarly, using Compliance Admin, you can manage Compliance-related settings in Microsoft 365 Compliance Center, Exchange, and so on.
 
