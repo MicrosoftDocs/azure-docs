@@ -31,26 +31,30 @@ To see how App Service completely maps to the Azure Security Benchmark, see the 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4437).
 
 **Guidance**: 
-Deploy an Azure App into a subnet within your Azure Virtual Network. This type of deployment is called an App Service Environment (ASE). Use network security groups to secure a Microsoft Azure App Service Environment by blocking inbound and outbound traffic to resources in your virtual network, or to restrict access to apps in an App Service Environment . 
+Deploy an Azure App into a subnet within your Azure Virtual Network. This type of deployment is in the Isolated pricing tier, also called an App Service Environment (ASE). Use network security groups to secure a Microsoft Azure App Service Environment by blocking inbound and outbound traffic to resources in your virtual network, or to restrict access to apps in an App Service Environment . 
 
-Build Allow rules based on your requirements. This is because network security groups include an implicit Deny rule at the lowest priority to deny everything at the Azure portal. No access is available to the virtual machines being used to host the App Service Environment as they're in a Microsoft-managed subscription.
+Build Allow rules based on your requirements. This is because network security groups include an implicit Deny rule at the lowest priority to deny everything at the Azure portal. The virtual machines that are used to host the App Service Environment, are not accessible because they are in a Microsoft-managed subscription.
 
-Protect App Service Environment with an Azure Application Gateway enabled Web Application Firewall (WAF) which operates at Layer 7 with Open Web Application Security Project (OWASP) Top 10 vulnerabilities protection. Use service endpoints in conjunction with the Application Gateway to secure inbound publishing traffic to your app.  
+Protect App Service Environment with an Azure Application Gateway enabled Web Application Firewall (WAF) which operates at Layer 7 with OWASP Top 10 vulnerabilities protection. Use service endpoints in conjunction with the Application Gateway to secure inbound publishing traffic to your app.  
 
-In the multi-tenant App Service, use network security groups to block outbound traffic. Enable your apps to access resources in or through a Virtual Network, with the Virtual Network Integration feature. This feature can also be used to block traffic to public addresses from the app. Virtual Network Integration cannot be used to provide inbound access to an app.  
+In the multi-tenant App Service, (an app not in Isolated tier), use network security groups to block outbound traffic from your app. Enable your apps to access resources in or through a Virtual Network, with the Virtual Network Integration feature. This feature can also be used to block outbound traffic to public addresses from the app. Virtual Network Integration cannot be used to provide inbound access to an app.  
 
-Secure Inbound traffic to your app with:
+Secure inbound traffic to your app with:
 - Access Restrictions - a series of allow or deny rules that control inbound access
-- Service Endpoints - enable you to secure traffic to originating from a set of virtual networks or subnets
-- Private Endpoints - expose your app on an address in your Virtual Network. With these enabled on your app, it is no longer internet accessible
+- Service Endpoints - can deny inbound traffic from outside of specified virtual networks or subnets
+- Private Endpoints - expose your app to your Virtual Network. with a private IP address. With these enabled on your app, it is no longer internet accessible
 
-Use network security groups and route tables with user-defined routes, when using Virtual Network Integration feature with virtual networks in the same region. User-defined routes can be placed on the integration subnet to send outbound traffic as intended.  
+When using Virtual Network Integration feature with virtual networks in the same region, use network security groups and route tables with user-defined routes,. User-defined routes can be placed on the integration subnet to send outbound traffic as intended.  
 
-Consider implementing an Azure Firewall to centrally create, enforce, and log application and network connectivity policies across your subscriptions and virtual networks. Azure Firewall uses a static public IP address for virtual network resources, which allows outside firewalls to identify traffic originating from your virtual network. 
+Consider implementing an Azure Firewall to centrally create, enforce, and log application and network connectivity policies across your subscriptions and virtual networks. Azure Firewall uses a static public IP address for virtual network resources, which allows outside firewalls to identify traffic that originates from your virtual network. 
 
 - [Locking down an App Service Environment](environment/firewall-integration.md)
 
+- [Open Web Application Security Project (OWASP) Top 10 vulnerabilities protection](https://owasp.org/www-project-top-ten/)
+
 - [Network security groups](/azure/virtual-network/security-overview)
+
+- [Integrate your app with an Azure virtual network](web-sites-integrate-with-vnet.md)
 
 - [Networking considerations for an App Service Environment](environment/network-info.md)
 
@@ -67,9 +71,9 @@ Consider implementing an Azure Firewall to centrally create, enforce, and log ap
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4438).
 
-**Guidance**: Implement network protection recommendations from Azure Security Center to secure network resources and configurations related to your App Service Apps and APIs.
+**Guidance**: Implement network protection recommendations from Azure Security Center to secure network resources and configurations related to your App Service apps and APIs.
 
-Use Azure Firewall to send traffic and centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources, which allows outside firewalls to identify traffic originating from your Virtual Network. The Azure Firewall service is also fully integrated with Azure Monitor for logging and analytics.
+Use Azure Firewall to send traffic and centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources, which allows outside firewalls to identify traffic that originates from your Virtual Network. The Azure Firewall service is also fully integrated with Azure Monitor for logging and analytics.
 
 - [Azure Firewall Overview](../firewall/overview.md)
 
@@ -87,24 +91,24 @@ Use Azure Firewall to send traffic and centrally create, enforce, and log applic
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4439).
 
 **Guidance**: Secure an internet accessible app in an App Service Environment (ASE) by:
-- Deploying a Web Application Firewall (WAF) with Azure Application Gateway in front of your internet facing apps
+- Deploying a Web Application Firewall (WAF) with Azure Application Gateway in front of an internet facing app
 - Use Access Restrictions to secure inbound traffic to the Application Gateway
-- Secure applications with Azure Active Directory (Azure AD) to ensure authentication
-- Set minimum TLS version to 1.2
+- Secure the app with Azure Active Directory (Azure AD) to ensure authentication
+- Set the minimum TLS version to 1.2
 - Set the app to HTTPS only
 
 Drive all application traffic outbound through an Azure Firewall device and monitor the logs 
 Additionally, review and follow recommendations in the Locking down an App Service Environment document.
 
-To secure an internet accessible app in the multi-tenant App Service:
-- Deploy a WAF enabled device in front of your apps
+To secure an internet accessible app in the multi-tenant App Service, (i.e, not in the isolated tier)
+- Deploy a Web Application Firewall-enabled device in front of an app
 - Use Access Restrictions or service endpoints to secure inbound traffic to the WAF device
-- Secure applications with Azure AD to ensure authentication
-- Set minimum TLS version to 1.2
+- Secure the app with Azure AD to ensure authentication
+- Set the minimum TLS version to 1.2
 - Set the app to HTTPS only
 - Use Virtual network Integration and the app setting WEBSITE_VIRTUAL NETWORK_ROUTE_ALL to make all outbound traffic subject to network security groups and user-defined routes on the integration subnet.
 
-Similarly, same as the ASE, drive all application traffic outbound through an Azure Firewall device and monitor the logs in a multi-tenant App Service.
+Similar to ASE, drive all application traffic outbound through an Azure Firewall device and monitor the logs in the app
 
 - [Azure Web application firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md)
 
@@ -123,13 +127,13 @@ Similarly, same as the ASE, drive all application traffic outbound through an Az
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4440).
 
-**Guidance**: Secure the App Service Environment as described in the Locking down an App Service Environment documentation. Apply Security Center's Integrated Threat Intelligence functionality to deny communications with known-malicious or unused public IP addresses. Use Access Restrictions to secure inbound traffic to the Application Gateway. 
+**Guidance**: Secure the App Service Environment as described in the Locking down an App Service Environment documentation. Apply the Integrated Threat Intelligence functionality in Azure Security Center to deny communications with known-malicious or unused public IP addresses. Use Access Restrictions to secure inbound traffic to the Application Gateway. 
 
-Secure the multi-tenant App Service with a public internet facing endpoint. It allows traffic only from a specific subnet within your Virtual Network and blocks everything else. Use Access Restrictions to configure network ACLs (IP Restrictions) to lock down allowed inbound traffic.
+Secure the multi-tenant App Service, (an app not in an Isolated tier), with a public internet facing endpoint. It allows traffic only from a specific subnet within your Virtual Network and blocks everything else. Use Access Restrictions to configure network ACLs (IP Restrictions) to lock down allowed inbound traffic.
 
-Define priority among the ordered allow or deny list to manage network access to your app. This list can include IP addresses or Virtual Network subnets. An implicit "deny all" rule exists at the end of the list when it contains one or more entries. This capability works with all App Service hosted work loads including, Web Apps, API apps, Linux apps, Linux container apps, and Functions. 
+Define priority among the ordered allow or deny list to manage network access to your app. This list can include IP addresses or Virtual Network subnets. An implicit "deny all" rule exists at the end of the list when it contains one or more entries. This capability works with all App Service hosted work loads including, Web Apps, API Apps, Linux apps, Linux container apps, and Functions. 
 
-Use service endpoints to restrict access to your web app from an Azure Virtual Network. Limit access to a multi-tenant App Service from selected subnets with service endpoints. 
+Use service endpoints to restrict access to your web app from an Azure Virtual Network. Limit access to a multi-tenant App Service, (an app not in an Isolated tier), from selected subnets with service endpoints. 
 
 - [Azure App Service Static IP Restrictions](app-service-ip-restrictions.md)
 
@@ -148,7 +152,7 @@ Use service endpoints to restrict access to your web app from an Azure Virtual N
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4441).
 
-**Guidance**: Monitors requests and responses sent to and from apps running in App Service with Security Center. Attacks against a web application can be monitored by using a real-time Web Application Firewall-enabled Application Gateway, with integrated logging from Azure Monitor to track Web Application Firewall alerts and easily monitor trends.
+**Guidance**: Monitors requests and responses that are sent to and from App Service apps with Security Center. Attacks against a web application can be monitored by using a real-time Application Gateway that has Web Application Firewall enabled , with integrated logging from Azure Monitor to track Web Application Firewall alerts and easily monitor trends.
 
 - [Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md)
 
@@ -163,9 +167,9 @@ Use service endpoints to restrict access to your web app from an Azure Virtual N
 
 **Guidance**: Not applicable to App Service. This capability is not built into the platform directly. 
 
-Prevent access to a multi-tenant App Service from selected subnets with service endpoints. Service endpoints must be enabled on both the networking side as well as the service that it is being enabled. Note that this does not work to restrict traffic to apps that are hosted in an Application Service Environment. If you are in an Application Service Environment, you can control access to your app with IP address rules.
+Prevent access to a multi-tenant App Service, (an app not in the Isolated tier), from selected subnets with service endpoints. Service endpoints must be enabled on both the networking side as well as the service that it is being enabled. Note that this does not work to restrict traffic to apps that are hosted in an Application Service Environment. In an Application Service Environment, you can control access to your app with IP address rules.
 
-Use a third-party application in the Azure Marketplace offering a complete IDS or IPS capabilities.
+Use a third-party application in the Azure Marketplace that offers complete IDS or IPS capabilities.
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall) 
 
@@ -179,17 +183,20 @@ Use a third-party application in the Azure Marketplace offering a complete IDS o
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4443).
 
 **Guidance**: Manage traffic for an app in an App Service Environment:
+
 - Secure the App Service Environment as described in Locking down an App Service Environment
-- Deploy an Azure Web Application Firewall-enabled Application Gateway in front of your internet facing apps
-- Web applications should only be accessible over HTTPS
+- Deploy an Application Gateway that has an Azure Web Application Firewall in front of your internet facing apps
+- Set the app to only be accessible over HTTPS
 
-Manage traffic for an internet accessible app in the multi-tenant App Service:
+Manage traffic for an internet accessible app in the multi-tenant App Service (not in the isolated tier): 
 
-- Deploy an Azure Web Application Firewall enabled Application Gateway in front of your internet facing apps
-- Use access restrictions or service endpoints to secure inbound traffic to the Web Application Firewall. The access restrictions capability works with all App Service hosted work loads including Web Apps, API apps, Linux apps, Linux container apps, and Functions.
+- Deploy an Application Gateway  that has Azure Web Application Firewall enabled in front of your internet facing apps
+- Use access restrictions or service endpoints to secure inbound traffic to the Web Application Firewall. The access restrictions capability works with all App Service hosted work loads including Web Apps, API Apps, Linux apps, Linux container apps, and Functions.
 
-- Web applications should only be accessible over HTTPS
-- Limit access to your Web Apps with App Service’s static IP restrictions so that it only receives traffic from the VIP on an application gateway as the only address with access.
+- Set the app to be accessible only over HTTPS
+- Limit access to your App Service app with static IP restrictions so that it only receives traffic from the VIP on an application gateway as the only address with access.
+
+Review the referenced links for additional information.
 
 - [Azure App Service Static IP Restrictions](app-service-ip-restrictions.md)
 
@@ -206,7 +213,7 @@ Manage traffic for an internet accessible app in the multi-tenant App Service:
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4444).
 
-**Guidance**: App Service has a number of endpoints which are used to manage the service. These endpoint addresses are also included in the AppServiceManagement IP service tag. The AppServiceManagement tag is only used with an App Service Environment to allow such traffic. 
+**Guidance**: App Service has a number of endpoints that are used to manage the service. These endpoint addresses are also included in the AppServiceManagement IP service tag. The AppServiceManagement tag is only used with an App Service Environment to allow such traffic. 
 
 You can allow or deny the traffic for the corresponding service by specifying the service tag name in the appropriate source or destination field of a rule. App Service inbound addresses are tracked in the AppService IP service tag. There is no IP service tag that contains the outbound addresses used by App Service.
 
@@ -228,9 +235,9 @@ Microsoft manages the address prefixes encompassed by the service tag and automa
 Maintain security configurations using Azure Policy aliases in the "Microsoft.Web" and "Microsoft.Network" namespaces. Create custom policies to audit or enforce the network configuration of your App Service apps. 
 
 Use built-in policy definitions for App Service, such as:
-- App Service should use a virtual network service endpoint
-- Web applications should only be accessible over HTTPS
-- Latest TLS version should be used in your Web Apps
+- The app should use a virtual network service endpoint
+- The app should only be accessible over HTTPS
+- Set the minimum TLS version to the current version
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -243,11 +250,11 @@ Use built-in policy definitions for App Service, such as:
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4446).
 
-**Guidance**: Use tags for network security groups and other related resources including traffic flow in App Service Web Apps.
+**Guidance**: Use tags for network security groups and other related resources, including traffic flow in App Service.
 
-Specify business need, duration, and so on, with the "Description" field or any rules, which allow traffic to or from a network for individual network security groups rules.
+Specify business need, duration, and so on, with the "Description" field for any rules, which allow traffic to or from a network for individual network security groups rules.
 
-Apply any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value", effects to ensure that all resources are created with tags and to notify you of any existing untagged resources. Use Azure PowerShell or Azure CLI to look up or perform actions on resources based on their tags.
+Apply any of the built-in Azure Policy definitions related to tagging effects, such as "Require tag and its value", to ensure that all resources are created with tags and to notify you of any existing untagged resources. Use Azure PowerShell or Azure CLI to look up or perform actions on resources based on their tags.
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -262,17 +269,17 @@ Apply any of the built-in Azure Policy definitions related to tagging, such as "
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4447).
 
-**Guidance**: Use Azure Activity Log to monitor network resource configurations, and detect changes to network settings and any resources related to App Service resources. 
+**Guidance**: Use Azure Activity log to monitor network resource configurations, and detect changes to network settings and to any resources related to App Service. 
 
-Apply one of the several Azure Policy built-in definitions for App Service, such as, a policy which audits any apps not configured to use virtual network endpoint service. Create alerts within Azure Monitor to trigger when changes to critical network settings or resources take place. 
+Apply one of the several Azure Policy built-in definitions for App Service, such as a policy that audits apps for the use of virtual network endpoint service. Create alerts within Azure Monitor to trigger when changes to critical network settings or resources take place. 
 
-Review Security Center's detailed security alerts and recommendations in the portal or through programmatic tools. Export this information or send it to other monitoring tools in your environment. Tools are available to export alerts and recommendations either manually or in an ongoing and continuous fashion. With these tools, you can:
+Review detailed security alerts and recommendations in Security Center, at the portal or through programmatic tools. Export this information or send it to other monitoring tools in your environment. Tools are available to export alerts and recommendations either manually or in an ongoing and continuous fashion. With these tools, you can:
  
-- Continuously export to Log Analytics workspace
+- Continuously export to a Log Analytics workspace
 - Continuously export to Azure Event Hubs (for integrations with third-party SIEMs)
-- Export to CSV (one time)
+- Export to a CSV file (one time)
 
-It is recommended to create a process with automated tools to monitor network resource configurations and quickly detect changes.
+It is recommended that you create a process with automated tools to monitor network resource configurations and quickly detect changes.
 
 - [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
 
@@ -293,7 +300,7 @@ It is recommended to create a process with automated tools to monitor network re
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4448).
 
-**Guidance**: Microsoft maintains the time source used for Azure resources such as App Service. Customer may have to configure network rules to access Network Time Protocol (NTP) server over port 123, and User Datagram Protocol (UDP).
+**Guidance**: Microsoft maintains the time source used for Azure resources such as App Service. You may have to configure network rules to access Network Time Protocol (NTP) server over UDP port 123.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -307,7 +314,7 @@ It is recommended to create a process with automated tools to monitor network re
 **Guidance**: Integrate your App Service Environment (ASE) with Azure Monitor to send logs to Azure Storage, Azure Event Hubs, or Log Analytics. 
 Enable Azure Activity log diagnostic settings for control plane audit logging. Security alerts from Security Center are published to the Azure Activity log. Audit Azure Activity log data, which let’s you determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for Azure App Service and other Azure resources. Save your queries for future use, pin query results to Azure Dashboards, and create log alerts. Also, use the Data Access REST API in Application Insights to access your telemetry programmatically.
 
-Use Microsoft Azure Sentinel, a scalable, cloud-native, security information event management (SIEM) available to connect to various data sources and connectors, based on your business requirements. You can also enable and on-board data a third-party SIEM like Barracuda in Azure Marketplace.
+Use Microsoft Azure Sentinel, a scalable, cloud-native, security information event management (SIEM) available to connect to various data sources and connectors, based on your business requirements. You can also enable and on-board data to a third-party SIEM like Barracuda in Azure Marketplace.
 
 - [Logging ASE Activity](environment/using-an-ase.md#logging)
 
