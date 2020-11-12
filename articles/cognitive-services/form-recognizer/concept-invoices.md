@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Form Recognizer Pre-Built Invoice Service
 
-Azure Form Recognizer can analyze and extract information from invoices using its prebuilt invoice models. The Invoice API enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful [Optical Character Recognition (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, and more. The Prebuilt Invoice API is publicly available in the Form Recognizer v2.1 preview. 
+Azure Form Recognizer can analyze and extract information from invoices using its prebuilt invoice models. The Invoice API enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful [Optical Character Recognition (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, and more. The Prebuilt Invoice API is publicly available in the Form Recognizer v2.1 preview 2. 
 
 ## What does the Invoice service do?
 

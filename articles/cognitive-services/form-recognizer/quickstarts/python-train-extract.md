@@ -89,7 +89,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
         print("POST model failed:\n%s" % str(e))
         quit() 
     ```    
-    # [v2.1 preview](#tab/v2-1)
+    # [v2.1 preview 2](#tab/v2-1)
     ```python
     ########### Python Form Recognizer Labeled Async Train #############
     import json
@@ -98,7 +98,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
     
     # Endpoint URL
     endpoint = r"<endpoint>"
-    post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+    post_url = endpoint + r"/formrecognizer/v2.1-preview.2/custom/models"
     source = r"<SAS URL>"
     prefix = "<Blob folder name>"
     includeSubFolders = False
@@ -377,7 +377,7 @@ This sample JSON output has been shortened for simplicity.
   }
 }
 ```    
-# [v2.1 preview](#tab/v2-1)    
+# [v2.1 preview 2](#tab/v2-1)    
 ```JSON
 {
   "status": "succeeded",

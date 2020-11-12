@@ -17,7 +17,7 @@ ms.author: erhopf
 This article lists human languages supported by the Form Recognizer service.
 
 
-|Language| Language code | Form Recognizer v2.0 | Form Recognizer v2.1 preview|
+|Language| Language code | Form Recognizer v2.0 | Form Recognizer v2.1 preview 2|
 |:-----|:----:|:-----:|:---:|
 |Chinese (Simplified) | `zh-Hans`| | ✔ |
 |Dutch | `nl` | | ✔ |

@@ -64,7 +64,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
-    # [v2.1 preview](#tab/v2-1)    
+    # [v2.1 preview 2](#tab/v2-1)    
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
     ```
@@ -77,7 +77,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
-    # [v2.1 preview](#tab/v2-1)    
+    # [v2.1 preview 2](#tab/v2-1)    
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
     ```
@@ -176,12 +176,12 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
 
 
-# [v2.1 preview](#tab/v2-1) 
+# [v2.1 preview 2](#tab/v2-1) 
 1. First, use the tags editor pane to create the tags you'd like to identify.
    1. Click **+** to create a new tag.
    1. Enter the tag name.
    1. Press Enter to save the tag.
-1. In the main editor, click to select words from the highlighted text elements. In the _v2.1 preview_ you can also click to select _Selection Marks_ like radio buttons and checkboxes as key value pairs. Form Recognizer will identify whether the selection mark is "selected" or "unselected" as the value.
+1. In the main editor, click to select words from the highlighted text elements. In the _v2.1 preview.2_ you can also click to select _Selection Marks_ like radio buttons and checkboxes as key value pairs. Form Recognizer will identify whether the selection mark is "selected" or "unselected" as the value.
 1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
     > [!Tip]
     > Keep the following tips in mind when you're labeling your forms.
@@ -265,7 +265,7 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 
 This feature is currently available in v2.1. preview. 
 
-# [v2.1 preview](#tab/v2-1) 
+# [v2.1 preview 2](#tab/v2-1) 
 
 With Model Compose, you can compose up to 100 models to a single model ID. When you call Analyze with this composed model ID, Form Recognizer will first classify the form you submitted, matching it to the best matching model, and then return results for that model. This is useful when incoming forms may belong to one of several templates.
 
