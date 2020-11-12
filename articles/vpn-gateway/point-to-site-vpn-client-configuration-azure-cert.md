@@ -100,7 +100,7 @@ Use the following steps to configure the native VPN client on Mac for certificat
 
 1. In the **Local ID** field, specify the name of the certificate (from Step 6). In this example, it is `ikev2Client.com`. Then, select **Apply** to save the changes.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/apply-connect.png" alt-text="Screenshot shows the Choose An Identity dialog box where you can select the proper certificate.":::
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/apply-connect.png" alt-text="Screenshot shows Apply.":::
 1. On the **Network** dialog, select **Apply** to save all changes. Then, select **Connect** to start the P2S connection to the Azure virtual network.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)
@@ -137,7 +137,7 @@ The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 does no
    :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/choose-type.png" alt-text="Screenshot shows Choose a connection type.":::
 1. Open the **VpnSettings.xml** file from the **Generic** folder contained in the downloaded client configuration files. Find the tag called **VpnServer** and copy the name, beginning with 'azuregateway' and ending with '.cloudapp.net'.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/vpn-server.png" alt-text="Screenshot shows copy.":::
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/vpn-server.png" alt-text="Screenshot shows copy data.":::
 1. Paste the name in the **Address** field of your new VPN connection in the **Gateway** section. Next, select the folder icon at the end of the **Certificate** field, browse to the **Generic** folder, and select the **VpnServerRoot** file.
 1. In the **Client** section of the connection, for **Authentication**, select **Certificate/private key**. For **Certificate** and **Private key**, choose the certificate and the private key that were created earlier. In **Options**, select **Request an inner IP address**. Then, select **Add**.
 
