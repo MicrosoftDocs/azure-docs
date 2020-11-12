@@ -121,7 +121,7 @@ The health check path should check the critical components of your application. 
 
 #### Security 
 
-Development teams at large enterprises often need to adhere to security requirements for their exposed APIs. To secure the healthcheck endpoint, you should first use features such as [IP restrictions](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), [client certificates](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), or a Virtual Network to restrict access to the application. You can secure the healthcheck endpoint itself by requiring that the `User-Agent` of the incoming request matches `ReadyForRequest/1.0`. The User-Agent cannot be spoofed since the request was already secured by the prior security features.
+Development teams at large enterprises often need to adhere to security requirements for their exposed APIs. To secure the healthcheck endpoint, you should first use features such as [IP restrictions](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a Virtual Network to restrict access to the application. You can secure the healthcheck endpoint itself by requiring that the `User-Agent` of the incoming request matches `ReadyForRequest/1.0`. The User-Agent cannot be spoofed since the request was already secured by the prior security features.
 
 ### Behavior
 
