@@ -141,14 +141,17 @@ Open your text editor of choice and save the JSON below to your local drive:
 {
   "put": [
     {
-      "id": "dtmi:com:example:Thermostat;1",
-      "name": "Thermostat",
-      "description": "Reports current temperature and provides desired temperature control.",
+      "id": "dtmi:com:example:TemperatureController;1",
+      "name": "Temperature Controller",
+      "description": "Device with two thermostats and remote reboot.",
       "variables": {
         "workingSet": {
-          "kind": "numberic",
+          "kind": "numeric",
           "value": {
             "tsx": "coalesce($event.workingSet.Long, toLong($event.workingSet.Double))"
+          }, 
+          "aggregation": {
+            "tsx": "avg($value)"
           }
         },
         "temperature": {
@@ -178,11 +181,11 @@ In your Time Series Insights Explorer navigate to the Model tab by clicking on t
 
 Select **Choose file**, select the JSON you saved previously, and click **Upload**
 
-You should see the newly defined Thermostat Type.
+You should see the newly defined Temperature Controller Type.
 
 ### Create a hierarchy
 
-You can optionally create a hierarchy to organize the instances under their TemeraptureController parent.
+Create a hierarchy to organize the tags under their TemeraptureController parent. The following is a simple, single-level example, but IoT solutions commonly have many levels of nesting to contextualize tags within their physical and semantic position within a firm.
 
 Click on *Hierarchies* and select *Add a hierarchy*. Enter `Device Fleet` as the name and create one level called `Device Name` and then click *Save*.
 
@@ -190,25 +193,24 @@ Click on *Hierarchies* and select *Add a hierarchy*. Enter `Device Fleet` as the
 
 ### Assign your instances to the correct type
 
-Next you'll change the Type of your instances and optionally situate them within the hierarchy
-
-Select the *Instances* tab and click on the *Edit* icon on the far right.
+Next you'll change the Type of your instances and situate them within the hierarchy
+Select the *Instances* tab, find the instance that represents the device's working set of memory, and click on the *Edit* icon on the far right.
 
 ![Edit instances](./media/tutorial-configure-tsi/edit-instance.png)
 
-Click on the Type dropdown and select `Thermostat`. 
+Click on the Type dropdown and select `Temperature Controller`. Update the name of the instance to represent all top-level tags associated with your device by entering `defaultComponent, <your device name>`.
 
 ![Change instance type](./media/tutorial-configure-tsi/change-type.png)
 
-If you created a hierarchy, select *Instance fields* and check the `Device Fleet` box. Enter `Temperature Controller` as the Value of their parent device, and then click *Save*.
+Before clicking save, select the *Instance Fields* tab of the modal and check the `Device Fleet` box. Enter `<your deivce name> - Temp Controller` to group the telemetry together, and then click *Save*.
 
 ![Assign to hierarchy](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
 
-Repeat the above steps for your second Thermostat.
+Now repeat the above to assign your thermostat tags the correct Type and Hierarchy.
 
 ### View your data
 
-Navigate back to the charting pane and expand the Device Fleet and TemperatureController. Click on thermostat1, select the `Temperature` variable, and then click *Add* to chart the value. Do the same for thermostat2.
+Navigate back to the charting pane and expand Device Fleet > your device. Click on thermostat1, select the `Temperature` variable, and then click *Add* to chart the value. Do the same for thermostat2 and the defaultComponent's `workingSet`.
 
 ![Change instance type for thermostat2](./media/tutorial-configure-tsi/charting-values.png)
 
