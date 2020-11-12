@@ -100,7 +100,13 @@ Optionally, you can configure your own managed identities for use with Azure Vir
 
 To restrict physical access to Azure Machine Learning resources, you can use Azure Virtual Network (VNet). VNets allow you to create network environments that are partially, or fully, isolated from the public internet. This reduces the attack surface for your solution, as well as the chances of data exfiltration.
 
-For more information, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
+For more information, see the following documents:
+
+* [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
+* [Secure workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure training environment](how-to-secure-training-vnet.md)
+* [Secure inference environment](how-to-secure-inferencing-vnet.md)
+* [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
