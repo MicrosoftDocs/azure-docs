@@ -28,7 +28,7 @@ Azure Files SMB Multichannel enables clients to use multiple network connections
 - **Cost optimization**:
     Workloads can achieve higher scale from a single VM, or a small set of VMs, while connecting to premium shares. This could reduce the total cost of ownership by reducing the number of VMs necessary to run and manage a workload.
 
-To learn more about SMB Multichannel, refer to the [Windows documentation](https://docs.microsoft.com/azure-stack/hci/manage/manage-smb-multichannel).
+To learn more about SMB Multichannel, refer to the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel).
 
 This feature provides greater performance benefits to multi-threaded applications but typically does not help single-threaded applications. See the [Performance comparison]( storage-files-smb-multichannel-performance.md#performance-comparison) section for more details.
 
