@@ -17,7 +17,7 @@ Suppose you are an IT administrator who is managing your organization's restrict
 ## Prerequisites
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure Synapse Analytics workspace**: You can create one from from Azure Synapse Analytics. You need the workspace name in step 4.
+* **Azure Synapse Analytics workspace**: You can create one from Azure Synapse Analytics. You need the workspace name in step 4.
 * **A restricted network**: The IT admin maintains the restricted network for the organization, and has permission to configure the network policy. You need the virtual network name and its subnet in step 3.
 
 
@@ -91,7 +91,7 @@ On the **Resource** tab:
 
 ## Step 5: Create private endpoints for workspace linked storage
 
-To access the linked storage with the storage explorer in Azure Synapse Analytics Studio workspace, you must create one private endpoint. The steps for this are similar to the those of step 3. 
+To access the linked storage with the storage explorer in Azure Synapse Analytics Studio workspace, you must create one private endpoint. The steps for this are similar to those of step 3. 
 
 On the **Resource** tab:
 * For **Resource type**, select **Microsoft.Synapse/storageAccounts**.
