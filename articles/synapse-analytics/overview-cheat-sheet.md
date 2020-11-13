@@ -31,11 +31,9 @@ A workspace allows you to perform analytics with SQL and Apache spark. Resources
 
 To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace.
 
-## SQL Terminology
-| Term                         | Definition      |
-|:---                                 |:---                 |
-| **SQL Request**  |   Operation such as a query run through dedicated SQL pool or serverless SQL pool. |
-|**SQL script**| Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.|
+* **SQL Request** - Operation such as a query run through dedicated SQL pool or serverless SQL pool.
+* **SQL script** - Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.
+
 
 ## Spark Terminology
 | Term                         | Definition      |
@@ -53,9 +51,10 @@ To use Spark analytics, create and use **serverless Apache Spark pools** in your
 |**Data Integration**| Gives the capability to ingest data between various sources and orchestrate activities running within a workspace or outside a workspace.| 
 |**Data Flow**|  Provides a fully visual experience with no coding required to do big data transformation. All optimization and execution are handled in a serverless fashion. |
 |**Pipeline**| Logical grouping of activities that perform a task together.|
-|**Activity**| Defines actions to perform on data such as copying data, running a Notebook or a SQL script.|
-|**Trigger**| Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based).|
-|**Integration dataset**|  Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.|
+
+* **Activity** - Defines actions to perform on data such as copying data, running a Notebook or a SQL script.
+* **Trigger** -  Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based)
+* **Integration dataset** -   Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.
 
 ## General Terminology
 | Term                         | Definition      |
