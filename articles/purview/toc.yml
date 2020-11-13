@@ -12,10 +12,6 @@ items:
   items:
   - name: Create a Purview account
     href: create-catalog-portal.md
-  - name: Add Users to the Purview account
-    href: catalog-permissions.md
-  - name: Add a security principal
-    href: add-security-principal.md
 - name: Tutorials
   items:
   - name: Starter kit
@@ -145,6 +141,8 @@ items:
       href: how-to-link-azure-data-share.md
   - name: Security
     items:
+    - name: Add a security principal
+      href: add-security-principal.md
     - name: Create a private endpoint
       href: catalog-private-end-point.md
   - name: Insights

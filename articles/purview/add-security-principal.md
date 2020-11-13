@@ -1,17 +1,17 @@
 ---
-title: "Quickstart: Add a security principal to a role"
+title: "Add a security principal to a role"
 description: This article gives an overview of how to add or remove a security principal from a role
 author: yarong
 ms.author: yarong
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/21/2020
 ---
 
-# Quickstart: Add a security principal to a role
+# Add a security principal to a role
 
-In this quickstart, you add a security principal to a data plane role in the Azure portal.
+In this article, you add a security principal to a data plane role in the Azure portal.
 
 A security principal can be a user, Azure Active Directory group, service principal, or managed identity. Azure Purview uses Azure's role-based access control (RBAC) to manage permissions for security principals. You use the Azure portal to add or remove security principals from [Purview's pre-defined roles](./catalog-permissions.md). 
 
@@ -63,9 +63,6 @@ If you no longer need the role assignment you made in the Azure portal, remove i
 
 ## Next steps
 
-In this quickstart, you learned how to add a security principal to an Azure Purview role.
+In this article, you learned how to add a security principal to an Azure Purview role. Advance to the next article to learn how to run the starter kit and scan data into the catalog.
 
-Advance to the next article to learn how to run the starter kit and scan data into the catalog.
-
-> [!div class="nextstepaction"]
-> [Run the starter kit and scan data](starter-kit-tutorial-1.md)
+* [Run the starter kit and scan data](starter-kit-tutorial-1.md)

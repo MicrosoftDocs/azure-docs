@@ -5,13 +5,16 @@ author: yarong
 ms.author: yarong
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/20/2020
 ---
 # Role-Based Access Control in the Catalog
 
+This article describes how Role-Based Access Control (RBAC) is implemented in Azure Purview.
+
 ## Azure Purview's pre-defined Data Plane roles
-Azure Purview defines a set of pre-defined Data Plane roles that can be used to control who can access what, in 
+
+Azure Purview defines a set of pre-defined Data Plane roles that can be used to control who can access what, in
 Azure Purview. These roles are:
 
 * **Azure Purview Data Reader Role** - Can read all content in Azure Purview except for scan bindings
@@ -20,7 +23,7 @@ Azure Purview. These roles are:
 
 In order to do anything in Azure Purview someone has to be in at least one of these roles. It's possible to be in multiple of these roles, this will be especially common with Data Source Administrator.
 
-When an Azure Purview Account is created, the principal who created it will receive special treatment. The account creator will be treated as if they are in both the Azure Purview Data Curator and Data Source Administrator Roles. But the account creator is not assigned to these roles in the role store. Azure Purview recognizes that the principal is the creator of the account and extends these capabilities to them based on their identity.
+When an Azure Purview Account is created, the creator will be treated as if they are in both the Azure Purview Data Curator and Data Source Administrator Roles. But the account creator is not assigned to these roles in the role store. Azure Purview recognizes that the principal is the creator of the account and extends these capabilities to them based on their identity.
 
 All other users can only use the Azure Purview Account if they are placed in at least one of these roles. This means that when an Azure Purview Account is created, no one but the creator can access the account or use its APIs until they are put in one or more of the previous defined roles.
 
@@ -57,11 +60,8 @@ For users who have access to their company's [Azure portal](https://portal.azure
 |I need to set up data scans managed by Azure Purview, either in the cloud or on-premises|Azure Purview Data Source Administrator Role|
 |I need to put users into roles in Azure Purview | Owner or User Access Administrator |
 
-
-
-
-
 Advance to the next article to learn how to add a security principal to a role.
 
-> [!div class="nextstepaction"]
-> [Add a security principal](add-security-principal.md)
+## Next steps
+
+* [Add a security principal](add-security-principal.md)
