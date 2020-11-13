@@ -130,7 +130,7 @@ Follow these steps to add the user running the script to the Azure Purview accou
 
 1. Click "+ Add"
 
-1. Select "Add role assigment"
+1. Select "Add role assignment"
 
 1. For the Role type in "Azure Purview Data Curator Role"
  

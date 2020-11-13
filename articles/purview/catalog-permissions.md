@@ -8,7 +8,7 @@ ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 10/20/2020
 ---
-# Role-Based Access Control in the Catalog
+# Role-based access control in Azure Purview
 
 This article describes how Role-Based Access Control (RBAC) is implemented in Azure Purview.
 
