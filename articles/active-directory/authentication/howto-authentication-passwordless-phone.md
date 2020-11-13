@@ -118,7 +118,7 @@ Then the user can continue to use passwordless phone sign-in.
 
 When a user has enabled any passwordless credential, the Azure AD login process stops using the login\_hint. Therefore the process no longer accelerates the user toward a federated login location.
 
-This logic generally prevents a user in a hybrid tenant from being directed to AD Federated Service (FS) for sign-in verification. However, the user retains the option of clicking **Use your password instead**.
+This logic generally prevents a user in a hybrid tenant from being directed to Active Directory Federated Services (AD FS) for sign-in verification. However, the user retains the option of clicking **Use your password instead**.
 
 ### Azure MFA server
 
