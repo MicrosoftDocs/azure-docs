@@ -31,11 +31,11 @@ To see how App Service completely maps to the Azure Security Benchmark, see the 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4437).
 
 **Guidance**: 
-Deploy an Azure App into a subnet within your Azure Virtual Network. This type of deployment is in the Isolated pricing tier, also called an App Service Environment (ASE). Use network security groups to secure a Microsoft Azure App Service Environment by blocking inbound and outbound traffic to resources in your virtual network, or to restrict access to apps in an App Service Environment . 
+When using App Service in the Isolated pricing tier, also called an App Service Environment (ASE) you can deploy directly into a subnet within your Azure Virtual Network. Use network security groups to secure your Azure App Service Environment by blocking inbound and outbound traffic to resources in your virtual network, or to restrict access to apps in an App Service Environment . 
 
-Build Allow rules based on your requirements. This is because network security groups include an implicit Deny rule at the lowest priority to deny everything at the Azure portal. The virtual machines that are used to host the App Service Environment, are not accessible because they are in a Microsoft-managed subscription.
+By default, network security groups include an implicit deny rule at the lowest priority which requires you to explicitly add allow rules. Add allow rules for your network security group based on a least privileged networking approach. The underlying virtual machines that are used to host the App Service Environment are not directly accessible because they are in a Microsoft-managed subscription.
 
-Protect App Service Environment with an Azure Application Gateway enabled Web Application Firewall (WAF) which operates at Layer 7 with OWASP Top 10 vulnerabilities protection. Use service endpoints in conjunction with the Application Gateway to secure inbound publishing traffic to your app.  
+Protect an App Service Environment by routing traffic through a Web Application Firewall (WAF) enabled Azure Application Gateway. Use service endpoints in conjunction with the Application Gateway to secure inbound publishing traffic to your app.  
 
 In the multi-tenant App Service, (an app not in Isolated tier), use network security groups to block outbound traffic from your app. Enable your apps to access resources in or through a Virtual Network, with the Virtual Network Integration feature. This feature can also be used to block outbound traffic to public addresses from the app. Virtual Network Integration cannot be used to provide inbound access to an app.  
 
@@ -97,8 +97,7 @@ Use Azure Firewall to send traffic and centrally create, enforce, and log applic
 - Set the minimum TLS version to 1.2
 - Set the app to HTTPS only
 
-Drive all application traffic outbound through an Azure Firewall device and monitor the logs 
-Additionally, review and follow recommendations in the Locking down an App Service Environment document.
+Drive all application traffic outbound through an Azure Firewall device and monitor the logs. 
 
 To secure an internet accessible app in the multi-tenant App Service, (i.e, not in the isolated tier)
 - Deploy a Web Application Firewall-enabled device in front of an app
@@ -108,15 +107,17 @@ To secure an internet accessible app in the multi-tenant App Service, (i.e, not 
 - Set the app to HTTPS only
 - Use Virtual network Integration and the app setting WEBSITE_VIRTUAL NETWORK_ROUTE_ALL to make all outbound traffic subject to network security groups and user-defined routes on the integration subnet.
 
-Similar to ASE, drive all application traffic outbound through an Azure Firewall device and monitor the logs in the app
+Similar to ASE, drive all application traffic outbound through an Azure Firewall device and monitor the logs in the app.
+
+Additionally, review and follow recommendations in the Locking down an App Service Environment document.
+
+- [Locking down an App Service Environment](environment/firewall-integration.md)
 
 - [Azure Web application firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md)
 
 - [Azure App Service Access Restrictions](app-service-ip-restrictions.md)
 
 - [Track WAF alerts and easily monitor trends with Azure Monitor ](../azure-monitor/overview.md)
-
-- [Locking down an App Service Environment](environment/firewall-integration.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1117,15 +1118,13 @@ Similarly, use WebJobs in App Service to inventory unapproved software applicati
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4496).
 
-**Guidance**: WebJobs in App Service enable customers to run a program or script in the same instance as a web app, API app, or mobile app. You are responsible for defining your configuration to restrict or limit any scripts, which are currently allowed. Note that WebJobs are not yet supported for App Service on Linux.
+**Guidance**: WebJobs in App Service enable customers to run a program or script in the same instance as a web app, API app, or mobile app. You are responsible for defining your configuration to restrict or limit any scripts which are not allowed by the organization. App Service does not provide a mechanism to limit script execution natively. Note that WebJobs are not yet supported for App Service on Linux.
 
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
-
-- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
+- [Run background tasks with WebJobs in Azure App Service](webjobs-create.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### 6.13: Physically or logically segregate high risk applications
 
@@ -1404,6 +1403,8 @@ Ensure that regular and automated back-ups are occurring at a frequency as defin
 
 - [Understand Azure App Service backup capability](manage-backup.md)
 
+- [Customer-managed keys for Azure Storage encryption](https://docs.microsoft.com/azure/storage/common/customer-managed-keys-overview?toc=/azure/storage/blobs/toc.json)
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -1413,13 +1414,25 @@ Ensure that regular and automated back-ups are occurring at a frequency as defin
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4515).
 
-**Guidance**: Use the backup feature within App Service to backup your apps. Backup customer-managed keys within Azure Key Vault. Although customer-managed keys re supported on the Azure Storage account, but not necessarily at the App Service itself.
+**Guidance**: 
+Use the backup and restore feature of App Service to backup your applications. The backup features requires an Azure Storage Account to store your application's backup information.
+
+- Azure Storage provides encryption at rest - Use system-provided keys or your own, customer-managed keys. This is where your application data is stored when it is not running in a web app in Azure.
+- Running from a deployment package is a deployment feature of App Service. It allows you to deploy your site content from an Azure Storage Account using a Shared Access Signature (SAS) URL.
+
+- Key Vault references are a security feature of App Service. It allows you to import secrets at runtime as application settings. Use this to encrypt the SAS URL of your Azure Storage Account.
+
+More information is available at the referenced links.
+
+- [Back up your app in Azure](manage-backup.md)
+
+- [Restore an app running in Azure App Service](web-sites-restore.md)
+
+- [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
+
+- [Encryption Model and key management table](../security/fundamentals/encryption-atrest.md)
 
 - [Encryption at rest using customer-managed keys](configure-encrypt-at-rest-using-cmk.md)
-
-- [How to perform backups for Azure App Service](manage-backup.md)
-
-- [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1430,11 +1443,11 @@ Ensure that regular and automated back-ups are occurring at a frequency as defin
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4516).
 
-**Guidance**: Periodically test the restore process for your App Service app and backed up customer-managed keys.
+**Guidance**: Periodically test the restore process for any backups of your App Service applications.
+
+- [Back up your app in Azure](manage-backup.md)
 
 - [How to restore an Azure App Service web app](web-sites-restore.md)
-
-- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
 
 **Azure Security Center monitoring**: Not applicable
 
