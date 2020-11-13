@@ -64,7 +64,7 @@ Enabling customer managed keys will also enable a system assigned managed identi
 
 To enable customer-managed keys, you must use an Azure Key Vault to store your keys. You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
 
-Only RSA keys of size 2048 are supported with Cognitive Services encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/general/about-keys-secrets-certificates.md#key-vault-keys).
+Only RSA keys of size 2048 are supported with Cognitive Services encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/general/about-keys-secrets-certificates.md).
 
 > [!NOTE]
 > If the entire key vault is deleted, your data will no longer be displayed and all your models will be undeployed. All uploaded data will be deleted from Custom Translator. 
