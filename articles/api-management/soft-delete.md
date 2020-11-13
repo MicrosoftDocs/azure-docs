@@ -19,6 +19,9 @@ With API Management soft-delete (preview), you can recover and restore recently 
 
 The soft-delete feature is available through [REST API](/rest/api/apimanagement/2020-06-01/apimanagementservice/restore) and [ARM template](/azure/templates/microsoft.apimanagement/2020-06-01-preview/service).
 
+> [!TIP]
+> Refer to [Azure REST API Reference](/rest/api/azure/) for tips and tools for calling Azure REST APIs.
+
 ## Soft-delete behavior
 
 Upon deleting an API Management instance, the service will exist in a deleted state, making it inaccessible to any APIM  operations. While in this state, the APIM instance can only be listed and/or recovered.
