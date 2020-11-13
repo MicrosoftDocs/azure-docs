@@ -26,7 +26,7 @@ To create and manage an SHIR, please append the following to your URL: `?feature
 
 ## Create a self-hosted integration runtime
 
-1. On the home page of Purview Studio, select Management Center from the leftmost navigation pane.
+1. On the home page of Purview Studio, select **Management Center** from the left navigation pane.
 
     :::image type="content" source="media/manage-integration-runtimes/image1.png" alt-text="Navigate to management center.":::
 
