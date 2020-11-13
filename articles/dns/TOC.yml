@@ -151,7 +151,7 @@
     - name: Ruby
       href: https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0
     - name: Python
-      href: https://azure.github.io/azure-sdk-for-python/ref/DNS.html
+      href: https://azure.github.io/azure-sdk-for-python/dns.html
     - name: REST
       href: /rest/api/dns/
     - name: Resource Manager template
