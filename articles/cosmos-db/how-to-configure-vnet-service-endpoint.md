@@ -318,7 +318,7 @@ At the moment the [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-
 
 ### Can I specify both virtual network service endpoint and IP access control policy on an Azure Cosmos account? 
 
-You can enable both the virtual network service endpoint and an IP access control policy (aka firewall) on your Azure Cosmos account. These two features are complementary and collectively ensure isolation and security of your Azure Cosmos account. Using IP firewall ensures that static IPs can access your account. 
+You can enable both the virtual network service endpoint and an IP access control policy (also known as firewall) on your Azure Cosmos account. These two features are complementary and collectively ensure isolation and security of your Azure Cosmos account. Using IP firewall ensures that static IPs can access your account. 
 
 ### How do I limit access to subnet within a virtual network? 
 
