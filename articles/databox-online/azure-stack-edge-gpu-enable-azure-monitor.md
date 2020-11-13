@@ -135,7 +135,7 @@ Take the following steps to enable Container Insights on your workspace.
         }
     }
     ```
-S    
+    
     Here is a sample output of a Log Analytics workspace with Container Insights enabled:
     
     ```powershell
