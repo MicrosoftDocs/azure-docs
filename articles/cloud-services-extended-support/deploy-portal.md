@@ -65,4 +65,5 @@ ms.custom:
 
 ## Next steps
 
+[Enable Remote Desktop](enable-rdp.md) for your Cloud Services (extended support) instances.
 
