@@ -1,6 +1,6 @@
 ---
 title: LDAP synchronization with Azure Active Directory
-description: Architectural guidance on achieving this synchronization pattern
+description: Architectural guidance on achieving LDAP synchronization with Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba

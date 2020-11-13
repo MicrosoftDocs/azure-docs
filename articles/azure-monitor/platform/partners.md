@@ -298,6 +298,16 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 
 [Turbonomic introduction](https://turbonomic.com/)
 
+## BMC Helix
+
+![BMC Helix Logo](./media/partners/BMCHelix.png)
+
+BMC Helix is an autonomous enterprise service and operations SaaS platform. Integrated with 360-degree intelligence, it empowers businesses to proactively and predictively discover, monitor, service, remediate, optimize, and deliver omni-channel experiences for IT and lines-of-business.
+Furthermore, by seamlessly integrating ITSM and IT Operations Management (ITOM), BMC Helix enables IT and business users to eliminate IT silos, make data-driven business decisions, and deliver industry leading customer experiences.
+Customers can deploy the BMC Helix platform with the cloud deployment of their choice – public, private, or hybrid. Additionally, customers have a choice of AI/ML solutions to leverage from industry leading providers.
+
+[Learn more about BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
+
 ## Next steps
 
 - [Learn more about Azure Monitor](../overview.md)
