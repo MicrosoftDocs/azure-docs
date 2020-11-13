@@ -1,7 +1,7 @@
 ---
 title: Debug & troubleshoot ML pipelines
 titleSuffix: Azure Machine Learning
-description: Debug your Azure Machine Learning pipelines in Python. Learn common pitfalls for developing pipelines, and tips to help you debug your scripts before and during remote execution.
+description: Debug your Azure Machine Learning pipelines in Python. Learn common pitfalls and tips to help debug your scripts before and during remote execution.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
