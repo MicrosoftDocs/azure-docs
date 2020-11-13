@@ -1,6 +1,6 @@
 ---
-title: Restore an existing dedicated SQL pool 
-description: How-to guide for restoring an existing dedicated SQL pool.
+title: Restore an existing dedicated SQL pool in Azure Synapse Analytics
+description: How-to guide for restoring an existing dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: anumjs
 manager: craigg
