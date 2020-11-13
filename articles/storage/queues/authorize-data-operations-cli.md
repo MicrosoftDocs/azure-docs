@@ -33,13 +33,13 @@ To use the `--auth-mode` parameter, make sure that you have installed Azure CLI 
 > [!IMPORTANT]
 > If you omit the `--auth-mode` parameter or set it to `key`, then the Azure CLI attempts to use the account access key for authorization. In this case, Microsoft recommends that you provide the access key either on the command or in the **AZURE_STORAGE_KEY** environment variable. For more information about environment variables, see the section titled [Set environment variables for authorization parameters](#set-environment-variables-for-authorization-parameters).
 >
-> If you do not provide the access key, then the Azure CLI attempts to call the Azure Storage resource provider to retrieve it for each operation. Performing many data operations that require a call to the resource provider may result in throttling. For more information about resource provider limits, see [Scalability and performance targets for the Azure Storage resource provider](scalability-targets-resource-provider.md).
+> If you do not provide the access key, then the Azure CLI attempts to call the Azure Storage resource provider to retrieve it for each operation. Performing many data operations that require a call to the resource provider may result in throttling. For more information about resource provider limits, see [Scalability and performance targets for the Azure Storage resource provider](../common/scalability-targets-resource-provider.md).
 
 ## Authorize with Azure AD credentials
 
 When you sign in to Azure CLI with Azure AD credentials, an OAuth 2.0 access token is returned. That token is automatically used by Azure CLI to authorize subsequent data operations against Blob or Queue storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
-You can assign permissions to queue data to an Azure AD security principal via Azure role-based access control (Azure RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
+You can assign permissions to queue data to an Azure AD security principal via Azure role-based access control (Azure RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
 
 ### Permissions for calling data operations
 
@@ -51,7 +51,7 @@ For details about the permissions required for each Azure Storage operation on a
 
 The following example shows how to create a queue from Azure CLI using your Azure AD credentials. To create the queue, you'll need to log in to the Azure CLI, and you'll need a resource group and a storage account.
 
-1. Before you create the queue, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](./storage-auth-aad-rbac-portal.md).
+1. Before you create the queue, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > Azure role assignments may take a few minutes to propagate.
@@ -96,7 +96,7 @@ You can specify authorization parameters in environment variables to avoid inclu
 
 | Environment variable                  | Description                                                                                                                                                                                                                                                                                                                                                                     |
 |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    AZURE_STORAGE_ACCOUNT              |    The storage account name. This variable should be used in conjunction with either the storage account key or a SAS token. If neither are present, the Azure CLI attempts to retrieve the storage account access key by using the authenticated Azure AD account. If a large number of commands are executed at one time, the Azure Storage resource provider throttling limit may be reached. For more information about  resource provider limits, see [Scalability and performance targets for the Azure Storage resource provider](scalability-targets-resource-provider.md).             |
+|    AZURE_STORAGE_ACCOUNT              |    The storage account name. This variable should be used in conjunction with either the storage account key or a SAS token. If neither are present, the Azure CLI attempts to retrieve the storage account access key by using the authenticated Azure AD account. If a large number of commands are executed at one time, the Azure Storage resource provider throttling limit may be reached. For more information about resource provider limits, see [Scalability and performance targets for the Azure Storage resource provider](../common/scalability-targets-resource-provider.md).             |
 |    AZURE_STORAGE_KEY                  |    The storage account key. This variable must be used in conjunction with the storage account name.                                                                                                                                                                                                                                                                          |
 |    AZURE_STORAGE_CONNECTION_STRING    |    A connection string that includes the storage account key or a SAS token. This variable must be used in conjunction with the storage account name.                                                                                                                                                                                                                       |
 |    AZURE_STORAGE_SAS_TOKEN            |    A shared access signature (SAS) token. This variable must be used in conjunction with the storage account name.                                                                                                                                                                                                                                                            |
@@ -104,5 +104,5 @@ You can specify authorization parameters in environment variables to avoid inclu
 
 ## Next steps
 
-- [Use Azure CLI to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-cli.md)
-- [Authorize access to blob and queue data with managed identities for Azure resources](storage-auth-aad-msi.md)
+- [Use Azure CLI to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-cli.md)
+- [Authorize access to blob and queue data with managed identities for Azure resources](../common/storage-auth-aad-msi.md)
