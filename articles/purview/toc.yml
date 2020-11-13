@@ -12,6 +12,8 @@ items:
   items:
   - name: Create a Purview account
     href: create-catalog-portal.md
+  - name: Use Purview Studio
+    href: use-purview-studio.md
 - name: Tutorials
   items:
   - name: Starter kit

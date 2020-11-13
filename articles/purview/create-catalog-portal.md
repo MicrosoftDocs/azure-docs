@@ -40,7 +40,7 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
 ## Create an Azure Purview account instance
 
-1. Go to the [**Purview accounts**](https://aka.ms/babylonportal) page in the Azure portal, and then select **Add** to create a new Azure Purview account.
+1. Go to the [**Purview accounts**] page in the Azure portal, and then select **Add** to create a new Azure Purview account. Alternatively, you can go to marketplace search on **Purview Accounts** and select **Create**
 
    :::image type="content" source="./media/create-catalog-portal/add-babylon-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
 
@@ -48,20 +48,24 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
 1. Select a **Resource group**, and then enter a **Purview account name** for your catalog. Spaces and symbols aren't allowed.
 
-1. Make a choice for **Location**, and then select **Next: Tags**.
+1. Make a choice for **Location**, and then select **Next: Configuration**.
+1. Select the Data Map size - the allowed values are 4 CU and 16 CU and then select **Next Tags**
+    
+ :::image type="content" source="./media/create-catalog-portal/add-configuration.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
+
 1. Optionally, add one or more tags. These tags are for use only in the Azure portal, not the catalog.
 1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the catalog creation. The newly created Azure Purview account instance appears in the list on your **Purview accounts** page.
 1. When the new account is ready, select **Go to resource**.
 
 1. Select **Launch purview account**.
 
-   :::image type="content" source="./media/create-catalog-portal/launch-babylon-account.png" alt-text="Screenshot of the selection to launch the Azure Purview account catalog.":::
+   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Screenshot of the selection to launch the Azure Purview account catalog.":::
 
 ## Clean up resources
 
 If you no longer need this Azure Purview account, delete it with the following steps:
 
-1. Go to the [**Purview accounts**](https://aka.ms/babylonportal) page in the Azure portal.
+1. Go to the [**Purview accounts**] page in the Azure portal.
 
 2. Select the Azure Purview account that you created at the beginning of this quickstart. Select **Delete**, enter the name of the account, and then select **Delete**.
 
@@ -72,4 +76,8 @@ In this quickstart, you learned how to create an Azure Purview account.
 Advance to the next article to learn how to allow users to access your Azure Purview Account. 
 
 > [!div class="nextstepaction"]
+<<<<<<< HEAD
 > [Add users to your Azure Purview Account](catalog-permissions.md)
+=======
+> [Add a security principal](use-purview-studio.md)
+>>>>>>> cf471145fa001bc92aa2b55400a6bc93348a9512
