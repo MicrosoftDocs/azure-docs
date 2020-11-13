@@ -37,7 +37,7 @@ When you configure registry encryption with a customer-managed key, you have two
 
 * **Manually update the key version** - To use a specific version of a key for registry encryption, specify that key version when you enable registry encryption with a customer-managed key. When a registry is encrypted with a specific key version, Azure Container Registry uses that version for encryption until you manually rotate the customer-managed key.
 
-For details, see [Choose key ID with or without version](#choose-key-ID-with-or-without-version) and [Update key version](#update-key-version), later in this article.
+For details, see [Choose key ID with or without key version](#choose-key-id-with-or-without-key-version) and [Update key version](#update-key-version), later in this article.
 
 ## Prerequisites
 
