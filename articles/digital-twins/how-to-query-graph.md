@@ -326,37 +326,40 @@ Once you have decided on a query string, you execute it by making a call to the 
 The following code snippet illustrates this call from the client app:
 
 ```csharp
+    string adtInstanceEndpoint = "https://<your-instance-hostname>";
 
-var adtInstanceEndpoint = new Uri(your-Azure-Digital-Twins-instance-URL>);
-var tokenCredential = new DefaultAzureCredential();
+    var credential = new DefaultAzureCredential();
+    DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceEndpoint), credential);
 
-var client = new DigitalTwinsClient(adtInstanceEndpoint, tokenCredential);
-
-string query = "SELECT * FROM digitaltwins";
-AsyncPageable<string> result = await client.QueryAsync<string>(query);
+    // Run a query for all twins   
+    string query = "SELECT * FROM digitaltwins";
 ```
-
 This call returns query results in the form of a string object.
 
 Query calls support paging. Here is a complete example using `BasicDigitalTwin` as query result type with error handling and paging:
 
 ```csharp
-string query = "SELECT * FROM digitaltwins";
 try
 {
-    AsyncPageable<BasicDigitalTwin> qresult = client.QueryAsync<BasicDigitalTwin>(query);
-    await foreach (BasicDigitalTwin item in qresult)
-    {
-        // Do something with each result
-    }
+    AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
+    await foreach(BasicDigitalTwin twin in result)
+        {
+            // You can include your own logic to print the result
+            // Below logic prints twin ID's and its contents
+            Console.WriteLine($"Twin ID: {twin.Id} \nTwin data");
+            IDictionary<string, object> contents = twin.Contents;
+            foreach (KeyValuePair<string, object> kvp in contents)
+            {
+                Console.WriteLine($"{kvp.Key}  {kvp.Value}");
+            }
+        }
 }
 catch (RequestFailedException e)
 {
-    Log.Error($"Error {e.Status}: {e.Message}");
+    Console.WriteLine($"Error {e.Status}: {e.Message}");
     throw;
 }
 ```
-
 ## Query limitations
 
 There may be a delay of up to 10 seconds before changes in your instance are reflected in queries. For example, if you complete an operation like creating or deleting twins with the DigitalTwins API, the result may not be immediately reflected in Query API requests. Waiting for a short period should be sufficient to resolve.
