@@ -4322,8 +4322,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/search/search-getstarted-postman.md",
-      "redirect_url": "/azure/search/search-getstarted-rest",
+      "source_path": "articles/search/search-get-started-postman.md",
+      "redirect_url": "/azure/search/search-get-started-rest",
       "redirect_document_id": true
     },
     {

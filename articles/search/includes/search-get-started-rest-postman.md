@@ -28,7 +28,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](../media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -51,7 +51,7 @@ Content-Type: application/json
 
 In Postman, formulate a request that looks like the following screenshot. Choose **GET** as the command, provide the URL, and click **Send**. This command connects to Azure Cognitive Search, reads the indexes collection, and returns HTTP status code 200 on a successful connection. If your service has indexes already, the response will also include index definitions.
 
-![Postman request URL and header](media/search-get-started-postman/postman-url.png "Postman request URL and header")
+![Postman request URL and header](../media/search-get-started-postman/postman-url.png "Postman request URL and header")
 
 ## 1 - Create an index
 
@@ -69,7 +69,7 @@ To do this in Postman:
 
 4. Click **Send**.
 
-![Index JSON document in request body](media/search-get-started-postman/postman-request.png "Index JSON document in request body")
+![Index JSON document in request body](../media/search-get-started-postman/postman-request.png "Index JSON document in request body")
 
 ### Index definition
 
@@ -123,7 +123,7 @@ To do this in Postman:
 
 4. Click **Send**.
 
-![JSON documents in request body](media/search-get-started-postman/postman-docs.png "JSON documents in request body")
+![JSON documents in request body](../media/search-get-started-postman/postman-docs.png "JSON documents in request body")
 
 ### JSON documents to load into the index
 
@@ -236,7 +236,7 @@ To do this in Postman:
 
 This query is an empty and returns a count of the documents in the search results. The request and response should look similar to the following screenshot for Postman after you click **Send**. The status code should be 200.
 
- ![GET with search string on the URL](media/search-get-started-postman/postman-query.png "GET with search string on the URL")
+ ![GET with search string on the URL](../media/search-get-started-postman/postman-query.png "GET with search string on the URL")
 
 Try a few other query examples to get a feel for the syntax. You can do a string search, verbatim $filter queries, limit the results set, scope the search to specific fields, and more.
 
@@ -259,6 +259,7 @@ https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?
 ```
 
 ## Get index properties
+
 You can also use [Get Statistics](/rest/api/searchservice/get-index-statistics) to query for document counts and index size: 
 
 ```
@@ -267,6 +268,6 @@ https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/
 
 Adding `/stats` to your URL returns index information. In Postman, your request should look similar to the following, and the response includes a document count and space used in bytes.
 
- ![Get index information](media/search-get-started-postman/postman-system-query.png "Get index information")
+ ![Get index information](../media/search-get-started-postman/postman-system-query.png "Get index information")
 
 Notice that the api-version syntax differs. For this request, use `?` to append the api-version. The `?` separates the URL path from the query string, while & separates each 'name=value' pair in the query string. For this query, api-version is the first and only item in the query string.

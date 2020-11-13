@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.date: 11/17/2020
 ---
 
-# Quickstart: Create an Azure Cognitive Search index in Postman using REST APIs
+# Quickstart: Create an Azure Cognitive Search index using REST APIs
 
 This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and an API client for sending and receiving requests. With an API client and these instructions, you can send requests and view responses before writing any code.
 
@@ -41,7 +41,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-Now that you know how to perform core tasks, you can move forward with additional REST API calls for more advanced features, such as indexers or [setting up a cognitive search pipeline](cognitive-search-tutorial-blob.md). For your next step, we recommend the following link:
+Now that you know how to perform core tasks, you can move forward with additional REST API calls for more advanced features, such as indexers or [setting up an enrichment pipeline](cognitive-search-tutorial-blob.md) that adds content transformations to indexing. For your next step, we recommend the following link:
 
 > [!div class="nextstepaction"]
-> [REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md)
+> [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md)
