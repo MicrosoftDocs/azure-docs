@@ -341,8 +341,6 @@ Once you have created a data share, you'll then switch hats and become the *data
 
     ![Add dataset sql](media/lab-data-flow-data-share/add-dataset-sql.png)
 
-> [!NOTE]
-> SQL Data Warehouse is now known as Azure Synapse Analytics
 
 1. You'll be given a script to run before you can proceed. The script provided creates a user in the SQL database to allow the Azure Data Share MSI to authenticate on its behalf. 
 

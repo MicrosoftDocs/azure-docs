@@ -74,7 +74,7 @@
           href: tutorial-routing-view-message-routing-results.md
     - name: Message enrichments
       href: tutorial-message-enrichments.md
-    - name: Use metrics and diagnostic logs
+    - name: Use metrics and logs
       href: tutorial-use-metrics-and-diags.md
     - name: Perform manual failover
       href: tutorial-manual-failover.md
@@ -471,7 +471,7 @@
       items:
         - name: Operations monitoring
           href: iot-hub-operations-monitoring.md
-        - name: Migrate to diagnostics settings
+        - name: Migrate to Azure Monitor
           href: iot-hub-migrate-to-diagnostics-settings.md
         - name: TLS 1.0 and 1.1 deprecation
           href: iot-hub-tls-deprecating-1-0-and-1-1.md

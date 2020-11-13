@@ -13,12 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: inhenkel
 
 ---
 
-# Monitor Media Services metrics and diagnostic logs via Azure Monitor
+# Monitor Media Services metrics and diagnostic logs with Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -64,8 +64,10 @@ The following Media Services [Streaming Endpoints](/rest/api/media/streamingendp
 |Requests|Requests|Provides the total number of HTTP requests served by the Streaming Endpoint.|
 |Egress|Egress|Egress bytes total per minute per Streaming Endpoint.|
 |SuccessE2ELatency|Success end to end Latency|Time duration from when the Streaming Endpoint received the request to when the last byte of the response was sent.|
+|CPU usage| CPU usage for premium streaming endpoints. This data is not available for standard streaming endpoints. |
+|Egress bandwidth | Egress bandwidth in bits per second.|
 
-### Why would I want to use metrics?
+### Metrics are useful
 
 Here are examples of how monitoring Media Services metrics can help you understand how your apps are performing. Some questions that can be addressed with Media Services metrics are:
 
@@ -76,6 +78,8 @@ Here are examples of how monitoring Media Services metrics can help you understa
 * How can I see the breakdown of requests failing and what is causing the failure?
 * How can I see how many HLS or DASH requests are being pulled from the packager?
 * How do I set an alert to know when the threshold value of # of failed requests was hit?
+
+Concurrency becomes a concern for the number of Streaming Endpoints used in a single account over time. You need to keep in mind the relationship between the number of concurrent streams with complex publishing parameters like dynamic packaging to multiple protocols, multiple DRM encryptions etc. Each additional published live stream adds to the CPU and output bandwidth on the Streaming Endpoint. With that in mind, you should use Azure Monitor to closely watch the Streaming Endpoint's utilization (CPU and Egress capacity) to make certain that you are scaling it appropriately (or split traffic out between multiple Streaming Endpoints if you are getting into very high concurrency).
 
 ### Example
 
