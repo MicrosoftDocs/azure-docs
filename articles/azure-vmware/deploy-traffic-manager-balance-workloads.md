@@ -25,7 +25,7 @@ As shown in the following figure, Azure Traffic Manager provides load balancing 
 
 Connection over the virtual network between the two AVS private cloud regions, West US and West Europe, and an on-premises server in East US, uses an ExpressRoute gateway.   
 
-![Traffic Manager integration with AVS](media/traffic-manager/traffic-manager-topology.png)
+![Diagram of the architecture of Traffic Manager integration with Azure VMware Solution](media/traffic-manager/traffic-manager-topology.png)
  
 ## Prerequisites
 
@@ -50,15 +50,15 @@ The following steps verify the correct configuration of your application gateway
     - AVS-GW-EUS (on premises)
     - AVS-GW-WEU
 
-    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="List of application gateways." lightbox="media/traffic-manager/app-gateways-list-1.png":::
+    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Screenshot of Application gateway page showing list of configured application gateways." lightbox="media/traffic-manager/app-gateways-list-1.png":::
 
 2. Select one of your previously deployed application gateways. A window opens showing various information on the application gateway. Select **Backend pools** to verify the configuration of one of the backend pools.
 
-   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Application gateway details." lightbox="media/traffic-manager/backend-pool-config.png":::
+   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Screenshot of Application gateway page showing details of the selected application gateway." lightbox="media/traffic-manager/backend-pool-config.png":::
  
 3. In this case, we see one virtual machine backend pool member configured as a web server with an IP address of 172.29.1.10.
  
-    :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Edit backend pool.":::
+    :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Screenshot of Edit backend pool page with target IP address highlighted.":::
 
     You can similarly verify the configuration of the other application gateways and backend pool members. 
 
@@ -70,15 +70,15 @@ In our scenario, an NSX-T segment is configured in the AVS environment where the
 
 1. Select **Segments** to view your configured segments. In this case, we see that Contoso-segment1 is connected to Contoso-T01 gateway, a Tier-1 flexible router.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Segment profiles in NSX-T Manager.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Screenshot showing segment profiles in NSX-T Manager.":::    
 
 2. Select **Tier-1 Gateways** to see a list of your Tier-1 gateways with the number of linked segments. Select the segment linked to Contoso-T01. A window opens showing the logical interface configured on the Tier-01 router. This serves as gateway to the backend pool member virtual machine connected to the segment.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Linked segments.":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Screenshot showing gateway address of the selected segment.":::    
 
 3. In the VM vSphere client, select the virtual machine to view its details. Note its IP address matches what we saw in step 3 of the preceding section: 172.29.1.10.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Virtual machine details.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Screenshot showing VM details in VSphere Client.":::    
 
 4. Select the virtual machine, then click **ACTIONS > Edit Settings** to verify connection to the NSX-T segment.
 
@@ -95,29 +95,23 @@ In our scenario, an NSX-T segment is configured in the AVS environment where the
 1. Select the Traffic Manager profile from the search results pane, select **Endpoints** and then **+ Add**.
 
 2. Enter the required details: Type, Name, Fully Qualified domain name 
-(FQDN) or IP, and Weight (in this scenario, we're assigning a weight of 1 to each endpoint). Select **Add**.
-
-   :::image type="content" source="media/traffic-manager/traffic-manager-profile.png" alt-text="Traffic Manager profile-add endpoint.":::  
- 
-   This creates the external endpoint. The monitor status must be **Online**. 
-
-   Repeat the same steps to create two more external endpoints, one in a different region and the other on-premises. Once created, all three will display in the Traffic Manager profile, and the status of all three should be **Online**.
+(FQDN) or IP, and Weight (in this scenario, we're assigning a weight of 1 to each endpoint). Select **Add**. This creates the external endpoint. The monitor status must be **Online**. Repeat the same steps to create two more external endpoints, one in a different region and the other on-premises. Once created, all three will display in the Traffic Manager profile, and the status of all three should be **Online**.
 
 3. Select **Overview**. Copy the URL under **DNS Name**.
 
-   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Traffic Manager Overview with DNS name."::: 
+   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Screenshot showing a Traffic Manager endpoint overview with DNS name highlighted."::: 
 
 4. Paste the DNS name URL in a  browser. The following screenshot shows traffic directing to the West Europe region.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Traffic routed to West Europe."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Screenshot of browser window showing traffic routed to West Europe."::: 
 
 5. Refresh your browser. The following screenshot shows traffic now directing to another set of backend pool members in the West US region.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Traffic routed to West US."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Screenshot of browser window showing traffic routed to West US."::: 
 
 6. Refresh your browser again. The following screenshot shows traffic now directing to the final set of backend pool members on premises.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Traffic routed to on-premises.":::
+   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Screenshot of browser window showing traffic routed to on-premises.":::
 
 ## Next steps
 
