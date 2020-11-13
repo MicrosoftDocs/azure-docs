@@ -25,11 +25,11 @@ Entity linking is the ability to identify and disambiguate the identity of an en
 
 Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product and organization.  
 
-### Personally Idenfiable Information (PII)
+### Personally Identifiable Information (PII)
 
 The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as phone number, email address, mailing address, passport number etc.  
 
-## Named Entity Recognition versions and features
+## Named Entity Recognition features and versions
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
