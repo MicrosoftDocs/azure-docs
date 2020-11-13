@@ -54,7 +54,7 @@ The ASE is normally deployed on VMs that are provisioned on a multi-tenant hyper
 
 <!--Links-->
 [Intro]: ./overview.md
-[MakeASE]: ./create-ase.md
+[MakeASE]: ./creation.md
 [ASENetwork]: ./networking.md
 [UsingASE]: ./using.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
