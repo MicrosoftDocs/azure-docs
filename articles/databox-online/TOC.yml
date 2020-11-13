@@ -151,7 +151,7 @@
   items:
   - name: Shared concepts
     items:
-    - name: Understand Kubernetes (Preview)
+    - name: Understand Kubernetes
       items:
       - name: What is Kubernetes?
         href: azure-stack-edge-gpu-kubernetes-overview.md  
@@ -177,7 +177,7 @@
         href: azure-stack-edge-gpu-deploy-sample-module.md 
       - name: GPU module via Marketplace
         href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md 
-    - name: Deploy Kubernetes workloads (Preview)
+    - name: Deploy Kubernetes workloads
       items:
       - name: Via kubectl
         items: 
