@@ -18,7 +18,6 @@ In this tutorial, you learn how to use the [@azure/service-bus](https://www.npmj
 
 > [!NOTE]
 > - This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), or [Node.js Cloud Service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
-> - The new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package does not support creation of topics and subscriptions yet. Please use the [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) package if you want to programmatically create them.
 
 ### Use Node Package Manager (NPM) to install the package
 To install the npm package for Service Bus, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
@@ -56,7 +55,7 @@ The following sample code shows you how to send a batch of messages to a Service
     	// create a Service Bus client using the connection string to the Service Bus namespace
     	const sbClient = new ServiceBusClient(connectionString);
      
-    	// createSender() can also be used to create a sender for a topic.
+    	// createSender() can also be used to create a sender for a queue.
     	const sender = sbClient.createSender(topicName);
      
     	try {
@@ -119,9 +118,9 @@ The following sample code shows you how to send a batch of messages to a Service
 
 ## Receive messages from a subscription
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. Create a file called **receivefromsubscription.ts** and paste the following code into it. See code comments for details. 
+2. Create a file called **receivefromsubscription.js** and paste the following code into it. See code comments for details. 
 
-    ```typescript
+    ```javascript
     const { delay, ServiceBusClient, ServiceBusMessage } = require("@azure/service-bus");
     
     const connectionString = "<SERVICE BUS NAMESPACE CONNECTION STRING>"
@@ -132,7 +131,7 @@ The following sample code shows you how to send a batch of messages to a Service
     	// create a Service Bus client using the connection string to the Service Bus namespace
     	const sbClient = new ServiceBusClient(connectionString);
      
-    	// createSender() can also be used to create a sender for a topic.
+    	// createReceiver() can also be used to create a receiver for a queue.
     	const receiver = sbClient.createReceiver(topicName, subscriptionName);
     
     	// function to handle messages
