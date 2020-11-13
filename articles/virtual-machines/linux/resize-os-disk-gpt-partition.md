@@ -114,7 +114,7 @@ When the VM has restarted, complete these steps:
    # sudo -i
    ```
 
-1. Use the following command to install the **growpart** package, which will be used to resize the partition:
+1. Use the following command to install the **growpart** package, which you'll use to resize the partition:
 
    ```
    # zypper install growpart
@@ -134,7 +134,7 @@ When the VM has restarted, complete these steps:
    └─sdb1   8:17   0    4G  0 part /mnt/resource
    ```
 
-1. Resize the required partition by using the `growpart` command and the partition number found in the preceding step:
+1. Resize the required partition by using the `growpart` command and the partition number determined in the preceding step:
 
    ```
    # growpart /dev/sda 4
@@ -296,7 +296,7 @@ When the VM has restarted, complete these steps:
       [root@dd-rhel7vm ~]# yum install cloud-utils-growpart
       ```
 
-1. Determine which disk and partition holds the LVM physical volume or volumes (PV) in the volume group named rootvg by using the `pvscan` command. Note the size and free space listed between the brackets (**[** and **]**).
+1. Determine which disk and partition holds the LVM physical volume or volumes (PV) in the volume group named **rootvg** by using the `pvscan` command. Note the size and free space listed between the brackets (**[** and **]**).
 
    ```bash
    [root@dd-rhel7vm ~]# pvscan
@@ -353,7 +353,7 @@ When the VM has restarted, complete these steps:
    PV /dev/sda4   VG rootvg          lvm2 [<95.02 GiB / <70.02 GiB free]
    ```
 
-1. Expand the desired logical volume (LV) by the desired amount. The amount doesn't need to be all the free space in the volume group. In the following example, **/dev/mapper/rootvg-rootlv** is resized from 2 GB to 12 GB (an increase of 10 GB). This command will also resize the file system.
+1. Expand the desired logical volume (LV) by the amount you want. The amount doesn't need to be all the free space in the volume group. In the following example, **/dev/mapper/rootvg-rootlv** is resized from 2 GB to 12 GB (an increase of 10 GB). This command will also resize the file system.
 
    ```bash
    [root@dd-rhel7vm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
@@ -431,7 +431,7 @@ When the VM has restarted, complete these steps:
     gdisk /dev/sda
     ```
 
-1. You'll see a message prompting you for the next command: `Command: ? for help`. Select the **w** key:
+1. You'll see a message that prompts you for the next command: `Command: ? for help`. Select the **w** key:
 
    ```
    w
@@ -456,7 +456,7 @@ correct this problem? (Y/N)`. Select the **Y** key:
    partprobe
    ```
 
-1. The previous steps were to ensure that the secondary GPT header is placed at the end. Next, start the process of resizing by using the `gdisk` tool again. Use the following command:
+1. You completed the previous steps to ensure that the secondary GPT header is placed at the end. Next, start the process of resizing by using the `gdisk` tool again. Use the following command:
 
    ```
    gdisk /dev/sda
