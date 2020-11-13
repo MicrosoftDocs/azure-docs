@@ -274,20 +274,27 @@ static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
     foreach (AnalyzeSentimentResult review in reviews)
     {
         Console.WriteLine($"Document sentiment: {review.DocumentSentiment.Sentiment}\n");
+        Console.WriteLine($"\tPositive score: {review.DocumentSentiment.ConfidenceScores.Positive:0.00}");
+        Console.WriteLine($"\tNegative score: {review.DocumentSentiment.ConfidenceScores.Negative:0.00}");
+        Console.WriteLine($"\tNeutral score: {review.DocumentSentiment.ConfidenceScores.Neutral:0.00}\n");
         foreach (SentenceSentiment sentence in review.DocumentSentiment.Sentences)
         {
             Console.WriteLine($"\tText: \"{sentence.Text}\"");
             Console.WriteLine($"\tSentence sentiment: {sentence.Sentiment}");
-            Console.WriteLine($"\tPositive score: {sentence.ConfidenceScores.Positive:0.00}");
-            Console.WriteLine($"\tNegative score: {sentence.ConfidenceScores.Negative:0.00}");
-            Console.WriteLine($"\tNeutral score: {sentence.ConfidenceScores.Neutral:0.00}\n");
+            Console.WriteLine($"\tSentence positive score: {sentence.ConfidenceScores.Positive:0.00}");
+            Console.WriteLine($"\tSentence negative score: {sentence.ConfidenceScores.Negative:0.00}");
+            Console.WriteLine($"\tSentence neutral score: {sentence.ConfidenceScores.Neutral:0.00}\n");
 
             foreach (MinedOpinion minedOpinion in sentence.MinedOpinions)
             {
                 Console.WriteLine($"\tAspect: {minedOpinion.Aspect.Text}, Value: {minedOpinion.Aspect.Sentiment}");
+                Console.WriteLine($"\tAspect positive score: {minedOpinion.Aspect.ConfidenceScores.Positive:0.00}");
+                Console.WriteLine($"\tAspect negative score: {minedOpinion.Aspect.ConfidenceScores.Negative:0.00}");
                 foreach (OpinionSentiment opinion in minedOpinion.Opinions)
                 {
                     Console.WriteLine($"\t\tRelated Opinion: {opinion.Text}, Value: {opinion.Sentiment}");
+                    Console.WriteLine($"\t\tRelated Opinion positive score: {opinion.ConfidenceScores.Positive:0.00}");
+                    Console.WriteLine($"\t\tRelated Opinion negative score: {opinion.ConfidenceScores.Negative:0.00}");
                 }
             }
         }
@@ -301,117 +308,226 @@ static void SentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 ```console
 Document sentiment: Positive
 
-        Text: "The food and service were unacceptable, but the concierge were nice."
-        Sentence sentiment: Positive
         Positive score: 0.84
         Negative score: 0.16
         Neutral score: 0.00
 
+        Text: "The food and service were unacceptable, but the concierge were nice."
+        Sentence sentiment: Positive
+        Sentence positive score: 0.84
+        Sentence negative score: 0.16
+        Sentence neutral score: 0.00
+
         Aspect: food, Value: Negative
+        Aspect positive score: 0.01
+        Aspect negative score: 0.99
                 Related Opinion: unacceptable, Value: Negative
+                Related Opinion positive score: 0.01
+                Related Opinion negative score: 0.99
         Aspect: service, Value: Negative
+        Aspect positive score: 0.01
+        Aspect negative score: 0.99
                 Related Opinion: unacceptable, Value: Negative
+                Related Opinion positive score: 0.01
+                Related Opinion negative score: 0.99
         Aspect: concierge, Value: Positive
+        Aspect positive score: 1.00
+        Aspect negative score: 0.00
                 Related Opinion: nice, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
 
 
 Document sentiment: Positive
 
+        Positive score: 1.00
+        Negative score: 0.00
+        Neutral score: 0.00
+
         Text: "The rooms were beautiful."
         Sentence sentiment: Positive
-        Positive score: 1.00
-        Negative score: 0.00
-        Neutral score: 0.00
+        Sentence positive score: 1.00
+        Sentence negative score: 0.00
+        Sentence neutral score: 0.00
 
         Aspect: rooms, Value: Positive
+        Aspect positive score: 1.00
+        Aspect negative score: 0.00
                 Related Opinion: beautiful, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
         Text: "The AC was good and quiet."
         Sentence sentiment: Positive
-        Positive score: 1.00
-        Negative score: 0.00
-        Neutral score: 0.00
+        Sentence positive score: 1.00
+        Sentence negative score: 0.00
+        Sentence neutral score: 0.00
 
         Aspect: AC, Value: Positive
+        Aspect positive score: 1.00
+        Aspect negative score: 0.00
                 Related Opinion: good, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
                 Related Opinion: quiet, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
 
 
 Document sentiment: Negative
 
-        Text: "The breakfast was good, but the toilet was smelly."
-        Sentence sentiment: Negative
         Positive score: 0.01
         Negative score: 0.99
         Neutral score: 0.00
 
+        Text: "The breakfast was good, but the toilet was smelly."
+        Sentence sentiment: Negative
+        Sentence positive score: 0.01
+        Sentence negative score: 0.99
+        Sentence neutral score: 0.00
+
         Aspect: breakfast, Value: Positive
+        Aspect positive score: 1.00
+        Aspect negative score: 0.00
                 Related Opinion: good, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
         Aspect: toilet, Value: Negative
+        Aspect positive score: 0.00
+        Aspect negative score: 1.00
                 Related Opinion: smelly, Value: Negative
+                Related Opinion positive score: 0.00
+                Related Opinion negative score: 1.00
 
 
 Document sentiment: Positive
+
+        Positive score: 1.00
+        Negative score: 0.00
+        Neutral score: 0.00
 
         Text: "Loved this hotel - good breakfast - nice shuttle service - clean rooms."
         Sentence sentiment: Positive
-        Positive score: 1.00
-        Negative score: 0.00
-        Neutral score: 0.00
+        Sentence positive score: 1.00
+        Sentence negative score: 0.00
+        Sentence neutral score: 0.00
 
         Aspect: hotel, Value: Positive
+        Aspect positive score: 1.00
+        Aspect negative score: 0.00
                 Related Opinion: good, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
         Aspect: breakfast, Value: Positive
+        Aspect positive score: 1.00
+        Aspect negative score: 0.00
                 Related Opinion: nice, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
         Aspect: shuttle service, Value: Positive
+        Aspect positive score: 1.00
+        Aspect negative score: 0.00
                 Related Opinion: loved, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
         Aspect: rooms, Value: Positive
+        Aspect positive score: 1.00
+        Aspect negative score: 0.00
                 Related Opinion: good, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
                 Related Opinion: nice, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
                 Related Opinion: clean, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
                 Related Opinion: loved, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
 
 
 Document sentiment: Positive
 
-        Text: "I had a great unobstructed view of the Microsoft campus."
-        Sentence sentiment: Positive
         Positive score: 1.00
         Negative score: 0.00
         Neutral score: 0.00
 
+        Text: "I had a great unobstructed view of the Microsoft campus."
+        Sentence sentiment: Positive
+        Sentence positive score: 1.00
+        Sentence negative score: 0.00
+        Sentence neutral score: 0.00
+
         Aspect: view, Value: Positive
+        Aspect positive score: 0.97
+        Aspect negative score: 0.03
                 Related Opinion: great, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
                 Related Opinion: unobstructed, Value: Positive
+                Related Opinion positive score: 0.93
+                Related Opinion negative score: 0.07
 
 
 Document sentiment: Negative
 
-        Text: "Nice rooms but bathrooms were old and the toilet was dirty when we arrived."
-        Sentence sentiment: Negative
         Positive score: 0.00
         Negative score: 1.00
         Neutral score: 0.00
 
+        Text: "Nice rooms but bathrooms were old and the toilet was dirty when we arrived."
+        Sentence sentiment: Negative
+        Sentence positive score: 0.00
+        Sentence negative score: 1.00
+        Sentence neutral score: 0.00
+
         Aspect: rooms, Value: Positive
+        Aspect positive score: 1.00
+        Aspect negative score: 0.00
                 Related Opinion: nice, Value: Positive
+                Related Opinion positive score: 1.00
+                Related Opinion negative score: 0.00
         Aspect: bathrooms, Value: Negative
+        Aspect positive score: 0.00
+        Aspect negative score: 1.00
                 Related Opinion: old, Value: Negative
+                Related Opinion positive score: 0.00
+                Related Opinion negative score: 1.00
         Aspect: toilet, Value: Negative
+        Aspect positive score: 0.00
+        Aspect negative score: 1.00
                 Related Opinion: dirty, Value: Negative
+                Related Opinion positive score: 0.00
+                Related Opinion negative score: 1.00
 
 
 Document sentiment: Neutral
 
-        Text: "We changed rooms as the toilet smelled."
-        Sentence sentiment: Neutral
         Positive score: 0.01
         Negative score: 0.03
         Neutral score: 0.96
 
+        Text: "We changed rooms as the toilet smelled."
+        Sentence sentiment: Neutral
+        Sentence positive score: 0.01
+        Sentence negative score: 0.03
+        Sentence neutral score: 0.96
+
         Aspect: rooms, Value: Negative
+        Aspect positive score: 0.01
+        Aspect negative score: 0.99
                 Related Opinion: smelled, Value: Negative
+                Related Opinion positive score: 0.01
+                Related Opinion negative score: 0.99
         Aspect: toilet, Value: Negative
+        Aspect positive score: 0.01
+        Aspect negative score: 0.99
                 Related Opinion: smelled, Value: Negative
+                Related Opinion positive score: 0.01
+                Related Opinion negative score: 0.99
+
+
+Press any key to exit.
 ```
 
 # [Version 3.0](#tab/version-3)
