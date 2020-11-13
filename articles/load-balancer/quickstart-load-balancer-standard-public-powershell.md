@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 11/13/2020
 ms.author: allensu
 ms:custom: seodec18
 ---
@@ -27,10 +27,6 @@ Get started with Azure Load Balancer by using Azure PowerShell to create a publi
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
@@ -39,15 +35,8 @@ An Azure resource group is a logical container into which Azure resources are de
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
 
-* Named **CreatePubLBQS-rg**.
-* In the **eastus** location.
-
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'CreatePubLBQS-rg'
-$loc = 'eastus'
-
-New-AzResourceGroup -Name $rg -Location $loc
+New-AzResourceGroup -Name CreatePubLBQS-rg -Location eastus
 ```
 ---
 
@@ -62,20 +51,15 @@ To access your web app on the Internet, you need a public IP address for the loa
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to:
 
-* Create a standard zone redundant public IP address named **myPublicIP**.
-* In **CreatePubLBQS-rg**.
-
 ```azurepowershell-interactive
-## Variables for the command ##
-$rg = 'CreatePubLBQS-rg'
-$loc = 'eastus'
-$pubIP = 'myPublicIP'
-$sku = 'Standard'
-$all = 'static'
-
-
-$publicIp = 
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku
+@parameters =@{
+    Name = 'myPublicIP'
+    ResourceGroupName = 'CreatePubLBQS-rg'
+    Location = 'eastus'
+    Sku = 'Standard'
+    AllocationMethod = 'static'
+}
+New-AzPublicIpAddress @parameters
 ```
 
 To create a zonal public IP address in zone 1, use the following command:
@@ -87,10 +71,15 @@ $loc = 'eastus'
 $pubIP = 'myPublicIP'
 $sku = 'Standard'
 $all = 'static'
-
-
-$publicIp = 
-New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku -Zone 1
+@parameters =@{
+    Name = 'myPublicIP'
+    ResourceGroupName = 'CreatePubLBQS-rg'
+    Location = 'eastus'
+    Sku = 'Standard'
+    AllocationMethod = 'static'
+    Zone = '1'
+}
+New-AzPublicIpAddress @parameters
 ```
 
 ## Create standard load balancer
@@ -102,12 +91,14 @@ This section details how you can create and configure the following components o
   * A health probe that determines health of the backend VM instances.
   * A load balancer rule that defines how traffic is distributed to the VMs.
 
-### Create frontend IP
 
-Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig):
 
-* Named **myFrontEnd**.
-* Attached to public IP **myPublicIP**.
+* Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig).
+* Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig).
+* Create a health probe with [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig).
+* Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig).
+* Create a public load balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
+
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
@@ -121,11 +112,11 @@ Get-AzPublicIpAddress -Name $pubIP -ResourceGroupName $rg
 
 $feip = 
 New-AzLoadBalancerFrontendIpConfig -Name $fe -PublicIpAddress $publicIp
-```
 
-### Configure back-end address pool
 
-Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig): 
+
+
+
 
 * Named **myBackEndPool**.
 * The VMs attach to this back-end pool in the remaining steps.
@@ -144,7 +135,7 @@ A health probe checks all virtual machine instances to ensure they can send netw
 
 A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
 
-Create a health probe with [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig):
+
 
 * Monitors the health of the virtual machines.
 * Named **myHealthProbe**.
@@ -197,7 +188,7 @@ New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPo
 
 ### Create load balancer resource
 
-Create a public load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer):
+
 
 * Named **myLoadBalancer**
 * In **eastus**.
