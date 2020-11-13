@@ -12,7 +12,7 @@ ms.custom: "include file"
 ---
 
 Event Hub organizes sequences of events into one or more partitions. As newer
-events arrive, they are added to the end of this sequence. A partition can be
+events arrive, they're added to the end of this sequence. A partition can be
 thought of as a "commit log."
 
 Partitions hold event data containing the body of the event, a user-defined
@@ -26,7 +26,7 @@ events.](./media/event-hubs-partitions/partition.png)
 Event Hubs is designed to help with processing of very large volumes of events,
 and partitioning helps with that in two ways:
 
-First, even though Event Hubs is a PaaS service, there is a physical reality
+First, even though Event Hubs is a PaaS service, there's a physical reality
 underneath, and maintaining a log that preserves the order of events requires
 that these events are being kept together in the underlying storage and its
 replicas and that results in a throughput ceiling for such a log. Partitioning
@@ -61,7 +61,7 @@ large volumes of historic customer data getting trapped in a deep store that is
 only indexed by a timestamp and only allows for sequential access. The
 architectural philosophy here is that historic data needs richer indexing and
 more direct access than the real-time eventing interface that Event Hubs or
-Kafka provide. Event stream engines are not well-suited to play the role of data
+Kafka provide. Event stream engines are not well suited to play the role of data
 lakes or long-term archives for event sourcing. 
 
 Because partitions are independent and contain their own sequence of data, they
@@ -104,18 +104,18 @@ a multiplexed log store for many such streams.
 
 The partition count of an Event Hub can be increased after the Event Hub has
 been created, but the distribution of streams across partitions will change when
-this is done as the mapping of partition keys to partitions changes, so you
+it's done as the mapping of partition keys to partitions changes, so you
 should try hard to avoid such changes if the relative order of events matters in
 your application.
 
 Setting the number of partitions to the maximum permitted value is tempting, but
 always keep in mind that your event streams need to be structured such that you
 can indeed take advantage of multiple partitions. If you need absolute order
-preservation across all events or a only a handful of sub-streams, you may not
+preservation across all events or only a handful of substreams, you may not
 be able to take advantage of many partitions. Also, many partitions make the
 processing side more complex. 
 
-While partitions can be sent to directly, this is not recommended. Instead, you
+While partitions can be sent to directly, it's not recommended. Instead, you
 can use higher level constructs introduced in the [Event
 publishers](../articles/event-hubs/event-hubs-features.md#event-publishers)
 section. 
