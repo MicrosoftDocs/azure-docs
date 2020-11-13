@@ -57,10 +57,9 @@ To use Spark analytics, create and use **serverless Apache Spark pools** in your
 * **Integration dataset** -   Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.
 
 ## General Terminology
-| Term                         | Definition      |
-|:---                                 |:---                 |
-|**Artifacts**| Concept that encapsulates all objects necessary for a user to manage data sources, develop, orchestrate, and visualize.|
-|**Linked service**| Connection strings that define the connection information needed for the workspace to connect to external resources.|
+
+* **Artifacts** - Concept that encapsulates all objects necessary for a user to manage data sources, develop, orchestrate, and visualize.
+* **Linked service** - Connection strings that define the connection information needed for the workspace to connect to external resources.
 
 ## Next steps
 
