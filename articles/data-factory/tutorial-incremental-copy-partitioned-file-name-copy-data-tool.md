@@ -1,6 +1,6 @@
 ---
 title: Incrementally copy new files based on time partitioned file name
-description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files only based on time partitioned file name.
+description: Create an Azure Data Factory and then use the Copy Data tool to incrementally load new files only based on time partitioned file name.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
