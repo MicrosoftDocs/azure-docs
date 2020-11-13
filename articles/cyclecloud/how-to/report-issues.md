@@ -15,9 +15,19 @@ When an anticipated issue (such as failure to acquire a resource due to misconfi
 
 In most cases, users should be able to troubleshoot and address the issues by themselves. However, a reporting mechanism allows users to file a support request with Azure CycleCloud.
 
+## Cluster Support
+
+The Cluster page includes a **Support** button for capturing pertinent support data for use in diagnostics:
+:::image type="content" source="../images/cluster-support-button.png" alt-text="Cluster support button":::
+
+Pressing the button displays a panel with a cluster report that can be copied and shared. The panel includes a direct link for filing a support request:
+:::image type="content" source="../images/cluster-support-details.png" alt-text="Cluster Support Details":::
+
+When CycleCloud identifies issues with the cluster, the **Issues** status line indicates the number of distinct issues and presents a **Show** link that opens the **Cluster Issues** panel. The panel includes detailed information about node-specific issues and possible remediation steps. The **Support** button displays the same panel with cluster support information ready for sharing.
+
 ## Node Status
 
-Node status appears as one or more status cards that include a short **description** and the **aspect**, as well as a **recommendation**, a **link**, and **detail** (when available).
+Node issues appear as one or more status cards that include a short **description** and the **aspect**, as well as a **recommendation**, a **link**, and **detail** (when available).
 
 :::image type="content" source="../images/node-status-card.png" alt-text="Node status card":::
 
@@ -29,34 +39,30 @@ Node status appears as one or more status cards that include a short **descripti
 
 The user interface only reports status on errors or on startup phases that are in-progress. In-progress statuses that may be resolved are indicated with a spinner icon. In certain situations during node startup, CycleCloud retries an operation even though it has failed.
 
+## Reporting Issues on a Cluster
+
+To file a support request for a cluster:
+
+1. Open the **Support Details** panel by pressing on the **Support** button
+1. Copy the report contents by pressing the **Copy to Clipboard** button
+1. Start the support request process by following the **file a support request** link, using the generated details
+
+The following animation shows how to report issues identified by CycleCloud:
+
+:::image type="content" source="../images/cluster-issues-flow.gif" alt-text="Reporting an issue for an entire cluster":::
+
 ## Reporting an Issue For a Specific Node
 
-A node's detail panel provides status information for both in-progress phases as well as any errors that may occur during startup. The panel shows this information prominently as color-coded status cards. Whether or not an error occurs, a "Report issue" button allows the user to generate a report with pertinent contextual information. The report dialog also lets the user prevent the node from shutting down in order to investigate and troubleshoot. The contents of the report can be used to file a support request. Note that the report uses the same status information as the node status cards.
+A node's detail panel provides status information for both in-progress phases as well as any errors that may occur during startup. The panel shows this information prominently as color-coded status cards. Whether or not an error occurs, a **Support** button allows the user to generate a report with pertinent support information. The support panel also lets the user prevent the node from shutting down in order to investigate and troubleshoot. The contents of the report can be used to file a support request.
 
 To file a support request for a specific node:
 
-1. Open **Node Detail** panel by selecting the node and pressing on "Show Detail", or by double-clicking the node
-2. Open the node's **Report** dialog by pressing on the "Report Issue" button
+1. Open **Node Detail** panel by selecting the node and pressing on **Show Detail**, or by double-clicking the node
+2. Open the node's **Support Details** panel by pressing on the **Support** button
 3. Prevent the node from auto-shutdown by ensuring that the Keep Alive toggle is set to Enabled
-4. Copy the report contents by pressing the "Copy to Clipboard" button
-5. Start the support request process by opening the "file a support request" link, using the report
+4. Copy the report contents by pressing the **Copy to Clipboard** button
+5. Start the support request process by opening the **file a support request** link, using the report
 
 The following animation illustrates these steps:
 
 :::image type="content" source="../images/node-detail-error-flow.gif" alt-text="Reporting an issue for a specific node":::
-
-## Cluster Issues
-
-When issues occur on a cluster, the **Issues** status line indicates the number of distinct issues and includes a link that opens the **Cluster Issues** panel. The panel shows detailed information about the issues. In contrast to the issues in the **Node Detail** panel, this panel groups issues across nodes to avoid repetitiveness. The "Report issue" allows the user to generate a report and file a support request.
-
-To file a support request for a cluster:
-
-1. Open the **Cluster Issues** dialog by opening the "Show" link in the **Issues** status line
-2. Open the **Report** dialog by pressing on the "Report Issue" button
-3. Prevent the node from auto-shutdown by ensuring that the Keep Alive toggle is set to Enabled
-4. Copy the report contents by pressing the "Copy to Clipboard" button
-5. Start the support request process by opening the "file a support request" link, using the report
-
-The following animation illustrates these steps:
-
-:::image type="content" source="../images/cluster-issues-flow.gif" alt-text="Reporting an issue for an entire cluster":::
