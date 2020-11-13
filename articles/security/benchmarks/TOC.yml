@@ -94,6 +94,8 @@
     href: ../../devtest-labs/security-baseline.md
   - name: Azure Firewall security baseline
     href: ../../firewall/security-baseline.md
+  - name: Azure Front Door security baseline
+    href: ../../frontdoor/security-baseline.md
   - name: Azure Functions security baseline
     href: ../../azure-functions/security-baseline.md
   - name: Azure IoT Hub security baseline
