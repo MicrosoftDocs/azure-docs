@@ -44,7 +44,7 @@ First, review them in OCP GTM. You should have received an email with a link uni
 
 ## Migrate your solutions from OCP GTM to commercial marketplace
 
-1. Begin the migration by signing into [Partner Center](https://partner.microsoft.com/en-US/solutions/migration).
+1. Begin the migration by signing into [Partner Center](https://partner.microsoft.com/solutions/migration).
 2. Check the **Overview** page to review information about your solution migrations.
 :::image type="content" source="media/co-sell-migrate/migration-overview.png" alt-text="Partner Center Overview page, Summary tab.":::
 3. To begin migration of your solutions, select the **Solutions** tab, which lets you view all the solutions associated to your MPN IDs.
@@ -52,7 +52,7 @@ First, review them in OCP GTM. You should have received an email with a link uni
     > [!NOTE]
     > This tab will note if there aren't any solutions pending to migrate to the commercial marketplace. To continue co-selling with Microsoft, ensure the migrated solutions are published in the commercial marketplace.
 
-    Learn more about the solution status by reviewing the tool tips. All solutions pending action are listed under **Action Required**.<a target="beginmigration"></a>
+    Learn more about the solution status by reviewing the tool tips. All solutions pending action are listed under **Action Required**.<a name="beginmigration"></a>
 4. Select **Begin migration** for the solution to migrate to commercial marketplace in Partner Center, then select one of the following options:
 :::image type="content" source="media/co-sell-migrate/migration-options.png" alt-text="The three options for migration.":::
 
