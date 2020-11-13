@@ -19,7 +19,9 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 # Quickstart: Acquire a token and call Microsoft Graph API using console app's identity
 
-In this quickstart, you'll learn how to write a .NET Core application that can get an access token using the app's own identity and then call the Microsoft Graph API to display a [list of users](/graph/api/user-list) in the directory. This scenario is useful for situations where headless, unattended job or a windows service needs to run with an application identity, instead of a user's identity. (See [How the sample works](#how-the-sample-works) for an illustration.)
+In this quickstart, you download and run a code sample that demonstrates how a .NET Core console application can obtain an access token to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code sample also demonstrates how a job or a windows service can run with an application identity, instead of a user's identity. 
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 

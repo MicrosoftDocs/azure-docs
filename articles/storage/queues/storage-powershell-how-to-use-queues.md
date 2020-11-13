@@ -18,12 +18,12 @@ Azure Queue storage is a service for storing large numbers of messages that can 
 
 > [!div class="checklist"]
 >
-> * Create a queue
-> * Retrieve a queue
-> * Add a message
-> * Read a message
-> * Delete a message
-> * Delete a queue
+> - Create a queue
+> - Retrieve a queue
+> - Add a message
+> - Read a message
+> - Delete a message
+> - Delete a queue
 
 This how-to requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
@@ -123,7 +123,7 @@ If you use the [Azure Storage Explorer](https://storageexplorer.com), you can co
 
 ## Read a message from the queue, then delete it
 
-Messages are read in best-try first-in-first-out order. This is not guaranteed. When you read the message from the queue, it becomes invisible to all other processes looking at the queue. This ensures that if your code fails to process the message due to hardware or software failure, another instance of your code can get the same message and try again.  
+Messages are read in best-try first-in-first-out order. This is not guaranteed. When you read the message from the queue, it becomes invisible to all other processes looking at the queue. This ensures that if your code fails to process the message due to hardware or software failure, another instance of your code can get the same message and try again.
 
 This **invisibility timeout** defines how long the message remains invisible before it is available again for processing. The default is 30 seconds.
 
@@ -181,17 +181,17 @@ In this how-to article, you learned about basic Queue storage management with Po
 
 > [!div class="checklist"]
 >
-> * Create a queue
-> * Retrieve a queue
-> * Add a message
-> * Read the next message
-> * Delete a message
-> * Delete a queue
+> - Create a queue
+> - Retrieve a queue
+> - Add a message
+> - Read the next message
+> - Delete a message
+> - Delete a queue
 
 ### Microsoft Azure PowerShell Storage cmdlets
 
-* [Storage PowerShell cmdlets](/powershell/module/az.storage)
+- [Storage PowerShell cmdlets](/powershell/module/az.storage)
 
 ### Microsoft Azure Storage Explorer
 
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.

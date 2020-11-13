@@ -16,10 +16,10 @@ Azure Monitor for VMs collects its data from one or more Log Analytics workspace
 ## Overview
 A single subscription can use any number of workspaces depending on your requirements The only requirement of the workspace is that it be located in a supported location and be configured with the *VMInsights* solution.
 
-Once the workspace has been configured, you can use any of the available options to install the required agents on VM and VMMS and specify a workspace for them to send their data. Azure Monitor for VMs will collect data from any configured workspace in its subscription.
+Once the workspace has been configured, you can use any of the available options to install the required agents on VM and VMSS and specify a workspace for them to send their data. Azure Monitor for VMs will collect data from any configured workspace in its subscription.
 
 > [!NOTE]
-> When you enable Azure Monitor for VMs on a single VM or VMMS using the Azure portal, you're given the option to select an existing workspace or create a new one. The *VMInsights* solution will be installed in this workspace if it isn't already. You can then use this workspace for other agents.
+> When you enable Azure Monitor for VMs on a single VM or VMSS using the Azure portal, you're given the option to select an existing workspace or create a new one. The *VMInsights* solution will be installed in this workspace if it isn't already. You can then use this workspace for other agents.
 
 
 ## Create Log Analytics workspace
@@ -85,7 +85,7 @@ To configure multiple workspaces, select the **Workspace configuration** tab in 
 [![Workspace configuration](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
 
 
-When you enable Azure Monitor for VMs on a single VM or VMMS using the Azure portal, you're given the option to select an existing workspace or create a new one. The *VMInsights* solution will be installed in this workspace if it isn't already. You can then use this workspace for other agents.
+When you enable Azure Monitor for VMs on a single VM or VMSS using the Azure portal, you're given the option to select an existing workspace or create a new one. The *VMInsights* solution will be installed in this workspace if it isn't already. You can then use this workspace for other agents.
 
 [![Enable single VM in portal](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png#lightbox)
 

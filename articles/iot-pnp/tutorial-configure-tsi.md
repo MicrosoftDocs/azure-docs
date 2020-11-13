@@ -1,5 +1,5 @@
 ---
-title: Use Time Series Insights to store and analyze your IoT Plug and Play device telemetry  | Microsoft Docs
+title: Use Time Series Insights to store and analyze your Azure IoT Plug and Play device telemetry  | Microsoft Docs
 description: Set up a Time Series Insights environment and connect your IoT Hub to view and analyze telemetry from your IoT Plug and Play devices.
 author: lyrana
 ms.author: lyhughes
@@ -179,7 +179,7 @@ Repeat the above steps for your second Thermostat.
 
 Navigate back to the charting pane and expand the Device Fleet and TemperatureController. Click on thermostat1, select the `Temperature` variable, and then click *Add* to chart the value. Do the same for thermostat2.
 
-![Change instance type](./media/tutorial-configure-tsi/charting-values.png)
+![Change instance type for thermostat2](./media/tutorial-configure-tsi/charting-values.png)
 
 ## Next steps
 
