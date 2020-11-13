@@ -75,14 +75,25 @@ its password. Here's how:
 
 To configure Azure Purview to trust your new service principal:
 
-1. Go to the [Azure Purview accounts page](https://aka.ms/babylonportal) in the Azure portal.
-1. Find and select your Azure Purview account in the list.
-1. From your Azure Purview account page, select **Launch Purview account**.
-1. On your Azure Purview catalog page, select **Management Center** from the left pane.
-1. Select **Assign roles** from the left pane.
-1. Select **Add user**, and then select **Catalog administrator**.
-1. Enter the name of your new service principal in the search box. This name is the same as the application name you used in the previous section.
-1. Select the service principal/application name that appears in the list (along with its application ID), and then select **Apply**.
+1. Go to the [**Purview accounts**](https://aka.ms/babylonportal) page in the Azure portal.
+
+1. Select the Azure Purview account you want to modify.
+
+1. On the **Purview account** page, select the tab **Access control (IAM)**
+
+1. Click "+ Add"
+
+1. Select "Add role assignment"
+
+1. For the Role type in "Azure Purview Data Curator Role"
+ 
+1. For "Assign access to" leave the default, "User, group, or service principal"
+
+1. For "Select" enter the name of the user, Azure Active Directory group or service principal you wish to assign and then click on their name in the results pane.
+
+1. Click on "Save"
+
+Please see [Azure Purview add a security principal to a role](./add-security-principal.md) for more details.
 
    You've now configured the service principal as an application administrator, which enables it to send content to the catalog.
 

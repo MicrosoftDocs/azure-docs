@@ -17,7 +17,7 @@ Azure Data Explorer supports the following:
 * Full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications
 
 ## Prerequisites
-* You need to be a Data Source Administrator to setup and schedule scans
+* You need to be a Data Source Administrator to setup and schedule scans, please see [Catalog Permissions](catalog-permissions.md) for details.
 
 ## Register an Azure Data Explorer account
 1. Navigate to your Purview catalog.

@@ -12,8 +12,6 @@ items:
   items:
   - name: Create a Purview account
     href: create-catalog-portal.md
-  - name: Add a security principal
-    href: add-security-principal.md
 - name: Tutorials
   items:
   - name: Starter kit
@@ -45,7 +43,7 @@ items:
     href: catalog-lineage-user-guide.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
-  - name: Resource sets
+  - name: Understanding Resource sets
     href: concept-resource-sets.md
   - name: Supported stores and classifications
     href: supported-stores-and-classifications.md
@@ -143,6 +141,8 @@ items:
       href: how-to-link-azure-data-share.md
   - name: Security
     items:
+    - name: Add a security principal
+      href: add-security-principal.md
     - name: Create a private endpoint
       href: catalog-private-end-point.md
   - name: Insights

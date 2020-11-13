@@ -1,5 +1,5 @@
 ---
-title: Understand resource sets
+title: Understanding resource sets
 description: This article explains what resource sets are and how Azure Purview creates them.
 author: yaronyg
 ms.author: yarong
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/19/2020
 ---
 
-# Understand resource sets
+# Understanding resource sets
 
 This article helps you understand how Azure Purview uses resource sets to map data assets to logical resources.
 

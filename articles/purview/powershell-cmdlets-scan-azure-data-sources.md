@@ -89,7 +89,7 @@ Set-AzDataCatalogSessionSettings [-DataCatalogSession]
 **Parameters:**
 
 - *TenantId*: The tenant ID for the service principal ID that's authorized to access the data source account.
-- *ServicePrincipalApplicationId*: The service principal ID that's authorized to access the data source account. Make sure this ID is a catalog administrator.
+- *ServicePrincipalApplicationId*: The service principal ID that's authorized to access the data source account. Make sure this ID is in the Azure Purview Data Source Administrator Role.
 - *ServicePrincipalKey*: The service principal key for the principal ID.
 - *DataCatalogAccountName*: The data catalog name.
 - *Environment*: The environment in which the Purview account is created.
