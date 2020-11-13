@@ -69,7 +69,7 @@ The Advanced Networking options allow you to control access to and from your clu
 
 ::: moniker range=">=cyclecloud-8"
 :::image type="content" source="../images_8x/quickstart-advanced-settings.png" alt-text="New Cluster Advanced Settings screen":::
-::: moniker-en
+::: moniker-end
 
 
 ::: moniker range=">=cyclecloud-8"

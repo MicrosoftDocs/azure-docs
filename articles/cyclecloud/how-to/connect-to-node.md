@@ -13,11 +13,11 @@ You can remotely access a cluster node using SSH for Linux nodes, and RDP for Wi
 ::: moniker range="=cyclecloud-7"
 The **Connect** button in the cluster management pane provides a connection string for accessing the node.  For example, to access a cluster head node, select the master node in the cluster management pane and click the **Connect** button:
 
-![CycleCloud Master Node Connect Button](~/images_7x/cluster-connect-button.png)
+:::image type="content" source="~/images_7x/cluster-connect-button.png" alt-text="CycleCloud Master Node Connect Button":::
 
 The pop-up window shows the connection string you would use to connect to the cluster:
 
-![CycleCloud Master Node Connection Screen](~/images_7x/connect-to-master-node.png)
+:::image type="content" source="~/images_7x/connect-to-master-node.png" alt-text="CycleCloud Master Node Connection Screen":::
 
 Copy the appropriate connectionstring and use either your SSH client or the CycleCloud CLI to connect to the master node. 
 ::: moniker-end
@@ -25,11 +25,11 @@ Copy the appropriate connectionstring and use either your SSH client or the Cycl
 ::: moniker range=">=cyclecloud-8"
 The **Connect** button in the cluster management pane provides a connection string for accessing the node.  For example, to access a cluster head node, select the scheduler node in the cluster management pane and click the **Connect** button:
 
-![CycleCloud Scheduler Node Connect Button](~/images_8x/cluster-connect-button.png) 
+:::image type="content" source="~/images_8x/cluster-connect-button.png" alt-text="CycleCloud Scheduler Node Connect Button":::
 
 The pop-up window shows the connection string you would use to connect to the cluster:
 
-![CycleCloud Master Node Connection Screen](~/images_8x/connect-to-scheduler-node.png)
+:::image type="content" source="~/images_8x/connect-to-scheduler-node.png" alt-text="CycleCloud Master Node Connection Screen":::
 
 Copy the appropriate connectionstring and use either your SSH client or the CycleCloud CLI to connect to the master node. 
 ::: moniker-end

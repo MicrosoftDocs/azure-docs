@@ -31,11 +31,11 @@ Fill out the new cluster form and hit **Save** to create the new cluster. The fo
 - **Return Proxy** if checked, nodes will communicate back to the CycleCloud application server via a proxy running on the cluster head node. Select this option if direct network access to CycleCloud is blocked from the cluster nodes.
 
 ::: moniker range="=cyclecloud-7"
-![CycleCloud New Cluster Form](../images_7x/create-cluster-form.png)
+:::image type="content" source="../images_7x/create-cluster-form.png" alt-text="CycleCloud New Cluster Form":::
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-![CycleCloud New Cluster Form](../images_8x/create-cluster-form.png)
+:::image type="content" source="../images_8x/create-cluster-form.png" alt-text="CycleCloud New Cluster Form":::
 ::: moniker-end
 
 ## Using the CycleCloud CLI
