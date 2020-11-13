@@ -15,22 +15,25 @@ ms.author: aahi
 
 # How to use Named Entity Recognition in Text Analytics
 
-The Text Analytics API lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web. The API supports both named entity recognition (NER) and entity linking.
+The Text Analytics API lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web. The API supports both named entity recognition (NER), personally identifiable information (PII) and entity linking.
 
 ### Entity Linking
 
 Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word "Mars" refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base in an appropriate language, to link recognized entities in text. Entity Linking uses [Wikipedia](https://www.wikipedia.org/) as this knowledge base.
 
-
 ### Named Entity Recognition (NER)
 
 Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product and organization.  
 
-## Named Entity Recognition versions and features
+### Personally Identifiable Information (PII)
+
+The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as phone number, email address, mailing address, passport number etc.  
+
+## Named Entity Recognition features and versions
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Feature                                                         | NER v3.0 | NER v3.1-preview.2 |
+| Feature                                                         | NER v3.0 | NER v3.1-preview.3 |
 |-----------------------------------------------------------------|--------|----------|
 | Methods for single, and batch requests                          | X      | X        |
 | Expanded entity recognition across several categories           | X      | X        |
@@ -43,7 +46,7 @@ See [language support](../language-support.md) for information.
 
 Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3.0 can recognize entities in the [general entity category](../named-entity-types.md).
 
-Named Entity Recognition v3.1-preview.2 includes the detection capabilities of v3.0, and the ability to detect personal information (`PII`) using the `v3.1-preview.2/entities/recognition/pii` endpoint. You can use the optional `domain=phi` parameter to detect confidential health information (`PHI`). See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information.
+Named Entity Recognition v3.1-preview.3 includes the detection capabilities of v3.0, and the ability to detect personal information (`PII`) using the `v3.1-preview.3/entities/recognition/pii` endpoint. You can use the optional `domain=phi` parameter to detect confidential health information (`PHI`). See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information.
 
 
 ## Sending a REST API request
@@ -64,26 +67,26 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 ### Request endpoints
 
-#### [Version 3.1-preview.2](#tab/version-3-preview)
+#### [Version 3.1-preview.3](#tab/version-3-preview)
 
-Named Entity Recognition `v3.1-preview.2` uses separate endpoints for NER, PII and entity linking requests. Use a URL format below based on your request:
+Named Entity Recognition `v3.1-preview.3` uses separate endpoints for NER, PII and entity linking requests. Use a URL format below based on your request:
 
-Entity linking
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
+**Entity linking**
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
 
 [Named Entity Recognition version 3.1-preview reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
 
-NER
-* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/general`
+**Named Entity Recognition**
+* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/general`
 
 [Named Entity Recognition version 3.1-preview reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
 
-Personally Identifiable Information (PII)
-* Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
+**Personally Identifiable Information (PII)**
+* Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii`
 
 You can also use the optional `domain=phi` parameter to detect health (`PHI`) information in text. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
 
 Please note the addition of the `redactedText` property in the response JSON which contains the modified input text where the detected PII entities are replaced by an * for each character of the entities.
 
@@ -93,12 +96,12 @@ Please note the addition of the `redactedText` property in the response JSON whi
 
 Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
 
-Entity linking
+**Entity linking**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
 [Named Entity Recognition version 3.0 reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
 
-NER
+**Named Entity Recognition**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
 [Named Entity Recognition version 3.0 reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
