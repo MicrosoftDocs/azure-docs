@@ -62,7 +62,7 @@ In this scenario, there is an existing forest synced using Azure AD Connect sync
 ![Screenshot that shows the "Connect Active Directory" screen.](media/how-to-install/install3.png)</br>
 
 9. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
-![Screenshot that shows the "Configuration complete" screen.](media/how-to-install/install4.png)</br>
+![Screenshot that shows the "Configuration complete" screen.](media/how-to-install/install4a.png)</br>
 
 10. Once this operation completes you should see a notice: **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install5.png)</br>

@@ -65,7 +65,7 @@ You can use the environment you create in this tutorial for testing or for getti
 
 9. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.
 
-   ![Screenshot that shows the "Configuration complete" screen.](media/how-to-install/install4.png)
+   ![Screenshot that shows the "Configuration complete" screen.](media/how-to-install/install4a.png)
 
 10. Once this operation completes you should see a notice: **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install5.png)</br>
