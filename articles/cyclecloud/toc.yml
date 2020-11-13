@@ -135,7 +135,9 @@
     - name: Use the REST API
       href: ./how-to/use-rest-api.md
   - name: Troubleshoot
-    href: ./how-to/troubleshoot.md
+    items:
+    - name: Report an Issue
+      href: ./how-to/report-issues.md
 
 - name: Reference
   items:
