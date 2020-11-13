@@ -6,8 +6,8 @@ ms.subservice: migration
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+author: stevestein
+ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
 ---
