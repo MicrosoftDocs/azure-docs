@@ -93,7 +93,7 @@ Set the *Type* to _**OAuth 2.0**_, and hit the button for *Get New Access Token*
 :::image type="content" source="media/how-to-use-postman/postman-authorization-values.png" alt-text="The 'CREATE A NEW COLLECTION' Postman window, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and the 'Get New Access Token' button is highlighted.":::
 
 In the *GET NEW ACCESS TOKEN* window that appears, fill in the following fields.
-* **Token Name**: Name the token however you'd like.
+* **Token Name**: Name the token whatever you want.
 * **Grant Type**: Select *Implicit*.
 * **Callback URL**: Enter *https://www.getpostman.com/oauth2/callback*.
 * **Auth URL**: Enter *https://login.microsoftonline.com/common/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0*.
@@ -152,7 +152,7 @@ To proceed with an example query, this article will use the Query API (and its [
 1. Check that the parameters shown for the request in the *Params* tab match those described in the reference documentation. For this request in Postman, the `api-version` parameter was auto-filled when the request URL was entered in the previous step. For the Query API, this is the only required parameter, so this step is done.
 1. In the *Authorization* tab, set the *Type* to *Inherit auth from parent*. This indicates that this request will use the authentication you set up earlier for the entire collection.
 1. Check that the headers shown for the request in the *Headers* tab match those described in the reference documentation. For this request, several headers have been auto-filled. For the Query API, none of the header options are required, so this step is done.
-1. Check that the body shown for the request in the *Body* tab match the needs described in the reference documentation. For the Query API, a JSON body is required to provide the query text. Here is an example of a body for this request that queries for all the digital twins in the instance:
+1. Check that the body shown for the request in the *Body* tab match the needs described in the reference documentation. For the Query API, a JSON body is required to provide the query text. Here is an example body for this request that queries for all the digital twins in the instance:
 
    :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="In the details of the new request, the Body tab is shown. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'.":::
 
@@ -166,10 +166,10 @@ After sending the request, the response details will appear in the Postman windo
 
 :::image type="content" source="media/how-to-use-postman/postman-request-response.png" alt-text="Below the details of the sent request, the details of the response are highlighted. There is a Status of 200 OK and body text describing digital twins that were returned by the query.":::
 
-You can also compare the response to the expected response data given in the request's reference documentation, to verify the result or learn more about any errors that arise.
+You can also compare the response to the expected response data given in the reference documentation, to verify the result or learn more about any errors that arise.
 
 ## Next steps
 
 To learn more about the Digital Twins APIs, read [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
 
-You can also view the reference documentation for the REST APIs [here](/rest/api/azure-digitaltwins/).
+To view the reference documentation for the REST APIs, go [here](/rest/api/azure-digitaltwins/).
