@@ -20,7 +20,7 @@ Availability Sets still make sense for two common use-cases.
 
 The first is to guarantee failure isolation for small sets of key VMs such as failover-pairs for cluster head-nodes.  For head-nodes, the richer control over each individual Virtual Machine in an Availability Set may be valuable as an alternative to simply using replica instances in a VMSS.
 
-The second common use case is to place a mix of Nodes and NodeArrays in the same Infiniband group to enable Infiniband interconnect between disparate roles in the Cluster. For example, some clusters may benefit from co-locating a shared filesystem supporting IB in the same IB network as the compute Nodes and/or the master Node. This is currently not supported with VMSS, but is well supported with Availability Sets.
+The second common use case is to place a mix of Nodes and NodeArrays in the same Infiniband group to enable Infiniband interconnect between disparate roles in the Cluster. For example, some clusters may benefit from co-locating a shared filesystem supporting IB in the same IB network as the compute Nodes and/or the scheduler Node. This is currently not supported with VMSS, but is well supported with Availability Sets.
 
 ## Creating and/or Adding Nodes to an Availability Set
 

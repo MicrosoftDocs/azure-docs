@@ -15,7 +15,13 @@ Once a cluster has been created via the UI or is imported, it can be started eit
 Select the cluster you want to start in the sidebar, click on **Start** and then confirm. The cluster nodes will move into the *Acquiring* state and will work their way through the orchestration phases. If a node encounters an error during orchestration and has failed, the error will be logged in
 the event log on the Clusters page. You can edit your node settings and retry the operation.
 
-:::image type="content" source="~/images/start-cluster.png" alt-text="start cluster dialog":::
+::: moniker range="=cyclecloud-7"
+:::image type="content" source="~/images_7x/start-cluster.png" alt-text="start cluster dialog":::
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+:::image type="content" source="~/images_8x/start-cluster.png" alt-text="start cluster dialog":::
+::: moniker-en
 
 ## Starting via CycleCloud CLI
 

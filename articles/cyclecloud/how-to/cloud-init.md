@@ -14,7 +14,7 @@ CycleCloud supports [cloud-init](https://docs.microsoft.com/azure/virtual-machin
 Below is a simple example of specifying a bash script to run on boot using the `CloudInit` attribute in a cluster template:
 
 ```ini
-[node master]
+[node scheduler]
 CloudInit = '''#!/bin/bash
 echo "cloud-init works" > /tmp/cloud-init.txt
 '''
