@@ -44,9 +44,9 @@ The following list summarizes the features of **Home**. Each number in the list 
     
 1. The [Quick access](#quick-access) buttons take you to other pages and they depend on the data plane role assigned to the user in in IAM Store.
 
-    For Data source Admin, the quick access buttons are: Register Data Sources and Knowledge Center.
-    For Data Curator, they are Knowledge Center, Browse Assets, Manage Glossary and View Insights.
-    For Data Reader, they are Knowledge Center, Browse Assets, View Glossary and View Insights.
+    - For Data source Admin, the quick access buttons are: Register Data Sources and Knowledge Center.
+    - For Data Curator, they are Knowledge Center, Browse Assets, Manage Glossary and View Insights.
+    - For Data Reader, they are Knowledge Center, Browse Assets, View Glossary and View Insights.
   
   
 1. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the catalog for assets](#search-the-catalog-for-assets) and [Browse by asset type](#browse-by-asset-type).  **My items** tab is a list of data assets owned by the logged-on user.
