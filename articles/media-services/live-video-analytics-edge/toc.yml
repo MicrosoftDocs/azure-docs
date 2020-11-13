@@ -94,7 +94,9 @@
   - name: Invoke direct methods with the portal
     href: use-azure-portal-to-invoke-direct-methods.md
   - name: Deploy on Azure Stack Edge
-    href: deploy-azure-stack-edge-how-to.md    
+    href: deploy-azure-stack-edge-how-to.md
+  - name: Configure a signal gate
+    href: configure-signal-gate-how-to.md
   - name: Troubleshoot
     href: troubleshoot-how-to.md
 - name: Reference

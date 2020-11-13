@@ -30,7 +30,7 @@ This library of built-in Azure Polices enable an organisation to quickly enforce
 * Monitoring the use of custom Azure role-based access control (Azure RBAC)
 * Restricting the Azure regions that resources can be created in
 
-If governance or regulatory controls are not met by a built-in Azure Policy definition, a custom definition can be created and assigned. All Azure Policy definitions are defined in JSON and follow a standard [definition structure](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure). Existing Azure Policy definitions can also be duplicated and used to form the basis of a custom Policy definition.
+If governance or regulatory controls are not met by a built-in Azure Policy definition, a custom definition can be created and assigned. All Azure Policy definitions are defined in JSON and follow a standard [definition structure](../governance/policy/concepts/definition-structure.md). Existing Azure Policy definitions can also be duplicated and used to form the basis of a custom Policy definition.
 
 Assigning individual Azure Policies to resources, especially in complex environments or in environments with strict regulatory requirements, can create large overhead for your administrators. To assist with these challenges, a set of Azure Policies can be grouped together to form an Azure Policy Initiative. Policy Initiatives are used to combine related Azure policies that, when applied together as a group, form the basis of a specific security or compliance objective. Microsoft is adding built-in Azure Policy Initiative definitions, including definitions designed to meet specific regulatory requirements:
 
@@ -89,13 +89,13 @@ Azure Blueprints extend the capability of Azure Policy by combining them with:
 
 * Azure RBAC
 * Azure Resource Groups
-* [Azure Resource Manager Templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
+* [Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
 
 Blueprints allow for the creation of environment designs that deploy Azure resources from Resource Manager templates, configure Azure RBAC, and enforce and audit configuration by assigning Azure Policy. Blueprints form an editable and redeployable environment template. Once the Blueprint has been created, it can then be assigned to an Azure Subscription. Once assigned, all of the Azure resources defined within the Blueprint will be created and the Azure Policies applied. The deployment and configuration of resources defined in an Azure Blueprint can be monitored from the Azure Blueprint console in the Azure portal.
 
 Azure Blueprints that have been edited must be republished in the Azure portal. Each time a Blueprint is republished, the version number of the Blueprint is incremented. The version number allows you to determine which specific version of a Blueprint has been deployed to an organisation's Azure Subscriptions. If desired, the currently assigned version of the Blueprint can be updated to the latest version.
 
-Resources deployed using an Azure Blueprint can be configured with [Azure Resource Locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) at the time of deployment. Resource locks prevent resources from being accidentally modified or deleted.
+Resources deployed using an Azure Blueprint can be configured with [Azure Resource Locks](../azure-resource-manager/management/lock-resources.md) at the time of deployment. Resource locks prevent resources from being accidentally modified or deleted.
 
 Microsoft is developing Azure Blueprint templates for a range of industries and regulatory requirements. The current library of available Azure Blueprint definitions can be viewed in the Azure portal or the [Azure Security and Compliance Blueprint](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview/) page in the Service Trust Portal.
 
@@ -115,9 +115,9 @@ Microsoft is developing Azure PowerShell and CLI cmdlets to create and manage Az
 
 This article explained how governance and security can be enforced with Azure Policy and Azure Blueprints. Now that you've been exposed at a high level, learn how to use each service in more detail:
 
-* [Azure Policy Overview](https://docs.microsoft.com/azure/governance/policy/overview)
+* [Azure Policy Overview](../governance/policy/overview.md)
 * [Azure Blueprints Overview](https://azure.microsoft.com/services/blueprints/)
-* [Azure Policy Samples](https://docs.microsoft.com/azure/governance/policy/samples/index)
+* [Azure Policy Samples](../governance/policy/samples/index.md)
 * [Azure Policy Samples Repository](https://github.com/Azure/azure-policy)
-* [Azure Policy Definition Structure](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure)
-* [Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Azure Policy Definition Structure](../governance/policy/concepts/definition-structure.md)
+* [Azure Policy Effects](../governance/policy/concepts/effects.md)

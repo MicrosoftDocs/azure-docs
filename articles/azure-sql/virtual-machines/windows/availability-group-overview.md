@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: "10/07/2020"
 ms.author: mathoma
-ms.custom: "seo-lt-2019, devx-track-azurecli"
+ms.custom: "seo-lt-2019"
 
 ---
 
@@ -35,7 +35,7 @@ The following diagram illustrates an availability group for SQL Server on Azure 
 
 ## VM redundancy 
 
-To increase redundancy and high availability, the SQL Server VMs should either be in the same [availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview), or different [availability zones](/azure/availability-zones/az-overview).
+To increase redundancy and high availability, the SQL Server VMs should either be in the same [availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview), or different [availability zones](../../../availability-zones/az-overview.md).
 
 An availability set is a grouping of resources which are configured such that no two land in the same availability zone. This prevents impacting multiple resources in the group during deployment roll outs. 
 
@@ -70,27 +70,26 @@ To get started, see [configure a DNN listener](availability-group-distributed-ne
 
 There are multiple options for deploying an availability group to SQL Server on Azure VMs, some with more automation than others. 
 
-The following table provides a comparison of the options available: 
+The following table provides a comparison of the options available:
 
-| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](availability-group-az-cli-configure.md)**|**[Quickstart Templates](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Azure portal | Azure CLI / PowerShell | Quickstart Templates | Manual |
+|---------|---------|---------|---------|---------|
 |**SQL Server version** |2016 + |2016 +|2016 +|2012 +|
 |**SQL Server edition** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Windows Server version**| 2016 + | 2016 + | 2016 + | All| 
+|**Windows Server version**| 2016 + | 2016 + | 2016 + | All|
 |**Creates the cluster for you**|Yes|Yes | Yes |No|
 |**Creates the availability group for you** |Yes |No|No|No|
 |**Creates listener and load balancer independently** |No|No|No|Yes|
 |**Possible to create DNN listener using this method?**|No|No|No|Yes|
-|**WSFC quorum configuratio**n|Cloud witness|Cloud witness|Cloud witness|All|
+|**WSFC quorum configuration**|Cloud witness|Cloud witness|Cloud witness|All|
 |**DR with multiple regions** |No|No|No|Yes|
 |**Multisubnet support** |Yes|Yes|Yes|Yes|
 |**Support for an existing AD**|Yes|Yes|Yes|Yes|
 |**DR with multizone in the same region**|Yes|Yes|Yes|Yes|
 |**Distributed AG with no AD**|No|No|No|Yes|
 |**Distributed AG with no cluster** |No|No|No|Yes|
-||||||
 
-
+For more information, see [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md), and [Manual](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## Considerations 
 
@@ -98,6 +97,6 @@ On an Azure IaaS VM guest failover cluster, we recommend a single NIC per server
 
 ## Next steps
 
-Review the [HADR best practices](hadr-cluster-best-practices.md) and then get started with deploying your availability group using the [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](availability-group-az-cli-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md) or [manually](availability-group-manually-configure-prerequisites-tutorial.md).
+Review the [HADR best practices](hadr-cluster-best-practices.md) and then get started with deploying your availability group using the [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md) or [manually](availability-group-manually-configure-prerequisites-tutorial.md).
 
-Alternatively, you can deploy a [clusterless availability group](availability-group-clusterless-workgroup-configure.md) or an availability group in [multiple regions](availability-group-manually-configure-multiple-regions.md). 
+Alternatively, you can deploy a [clusterless availability group](availability-group-clusterless-workgroup-configure.md) or an availability group in [multiple regions](availability-group-manually-configure-multiple-regions.md).

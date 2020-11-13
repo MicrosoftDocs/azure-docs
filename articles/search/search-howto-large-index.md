@@ -23,7 +23,7 @@ The following sections explore techniques for indexing large amounts of data usi
 
 ## Use the push API
 
-When pushing data into an index using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [Index method](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index), there are several key considerations that impact indexing speed. Those factors are outlined in the section below, and range from setting service capacity to code optimizations.
+When pushing data into an index using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method](/dotnet/api/azure.search.documents.searchclient.indexdocuments), there are several key considerations that impact indexing speed. Those factors are outlined in the section below, and range from setting service capacity to code optimizations.
 
 For more information and code samples that illustrate push model indexing, see [Tutorial: Optimize indexing speeds](tutorial-optimize-indexing-push-api.md).
 
@@ -48,7 +48,7 @@ The schema of your index plays an important role in indexing data. The more fiel
 
 ### Check the batch size
 
-One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you're using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [Index method](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
+One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you're using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method](/dotnet/api/azure.search.documents.searchclient.indexdocuments) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
 
 Using batches to index documents will significantly improve indexing performance. Determining the optimal batch size for your data is a key component of optimizing indexing speeds. The two primary factors influencing the optimal batch size are:
 

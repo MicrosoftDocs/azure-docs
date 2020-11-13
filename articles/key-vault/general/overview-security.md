@@ -22,7 +22,7 @@ You use Azure Key Vault to protect encryption keys and secrets like certificates
 When you create a key vault in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. Anyone trying to manage or retrieve content from a vault must be authenticated by Azure AD.
 
 - Authentication establishes the identity of the caller.
-- Authorization determines which operations the caller can perform. Authorization in Key Vault uses a combination of [Role based access control](../../role-based-access-control/overview.md) (RBAC) and Azure Key Vault access policies.
+- Authorization determines which operations the caller can perform. Authorization in Key Vault uses a combination of [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and Azure Key Vault access policies.
 
 ### Access model overview
 
@@ -31,7 +31,7 @@ Access to vaults takes place through two interfaces or planes. These planes are 
 - The *management plane* is where you manage Key Vault itself and it is the interface used to create and delete vaults. You can also read key vault properties and manage access policies.
 - The *data plane* allows you to work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
 
-To access a key vault in either plane, all callers (users or applications) must be authenticated and authorized. Both planes use Azure Active Directory (Azure AD) for authentication. For authorization, the management plane uses role-based access control (RBAC) and the data plane uses a Key Vault access policy.
+To access a key vault in either plane, all callers (users or applications) must be authenticated and authorized. Both planes use Azure Active Directory (Azure AD) for authentication. For authorization, the management plane uses Azure role-based access control (Azure RBAC) and the data plane uses a Key Vault access policy.
 
 The model of a single mechanism for authentication to both planes has several benefits:
 
@@ -47,7 +47,7 @@ When you create a key vault in a resource group, you manage access by using Azur
 - **Resource group**: An Azure role assigned at the resource group level applies to all resources in that resource group.
 - **Specific resource**: An Azure role assigned for a specific resource applies to that resource. In this case, the resource is a specific key vault.
 
-There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
+There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > If a user has `Contributor` permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has `Contributor` role access to your key vaults. Ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
@@ -88,4 +88,4 @@ For recommendation on securely managing storage accounts, review the [Azure Stor
 ## Next Steps
 
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
-- [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
+- [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)

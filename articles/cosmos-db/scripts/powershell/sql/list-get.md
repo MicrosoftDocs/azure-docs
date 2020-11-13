@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # List and get databases and containers for Azure Cosmos DB - SQL (Core) API
+[!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

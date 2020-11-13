@@ -36,7 +36,7 @@ This diagram illustrates each component of this scenario:
 
 ## Prerequisites
 
-- A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Content Moderator service and get your key.
+- A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](../cognitive-services-apis-create-account.md) to subscribe to the Content Moderator service and get your key.
 - A [Facebook account](https://www.facebook.com/).
 
 ## Create a review team
@@ -61,14 +61,14 @@ Test your workflow using the **Execute Workflow** button.
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps:
 
-1. Create an Azure Function App as shown on the [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page.
+1. Create an Azure Function App as shown on the [Azure Functions](../../azure-functions/functions-create-function-app-portal.md) page.
 1. Go to the newly created Function App.
 1. Within the App, go to the **Platform features** tab and select **Configuration**. In the **Application settings** section of the next page, select **New application setting** to add the following key/value pairs:
     
     | App Setting name | value   | 
     | -------------------- |-------------|
     | `cm:TeamId`   | Your Content Moderator TeamId  | 
-    | `cm:SubscriptionKey` | Your Content Moderator subscription key - See [Credentials](review-tool-user-guide/credentials.md) |
+    | `cm:SubscriptionKey` | Your Content Moderator subscription key - See [Credentials](./review-tool-user-guide/configure.md#credentials) |
     | `cm:Region` | Your Content Moderator region name, without the spaces. You can find this name in the **Location** field of the **Overview** tab of your Azure resource.|
     | `cm:ImageWorkflow` | Name of the workflow to run on Images |
     | `cm:TextWorkflow` | Name of the workflow to run on Text |

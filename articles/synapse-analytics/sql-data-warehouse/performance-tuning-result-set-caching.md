@@ -31,11 +31,15 @@ When result set caching is enabled, Synapse SQL automatically caches query resul
 
 Once result set caching is turned ON for a database, results are cached for all queries until the cache is full, except for these queries:
 
-- Queries using non-deterministic functions such as DateTime.Now()
+- Queries with built-in functions or runtime expressions that are non-deterministic even when there’s no change in base tables’ data or query. For example, DateTime.Now(), GetDate().
 - Queries using user defined functions
 - Queries using tables with row level security or column level security enabled
 - Queries returning data with row size larger than 64KB
 - Queries returning large data in size (>10GB) 
+>[!NOTE]
+> - Some non-deterministic functions and runtime expressions can be deterministic to repetitive queries against the same data. For example, ROW_NUMBER().  
+> - Use ORDER BY in your query if the order/sequence of rows in the query result set is important to your application logic.
+> - If data in the ORDER BY columns are not unique, there's no garanteed row order for rows with the same values in the ORDER BY columns, regardless if result set caching is enabled or disabled.
 
 > [!IMPORTANT]
 > The operations to create result set cache and retrieve data from the cache happen on the control node of a Synapse SQL pool instance.

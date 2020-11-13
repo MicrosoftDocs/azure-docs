@@ -1,6 +1,6 @@
 ---
 title: Copy on-premises data using the Azure Copy Data tool
-description: Create an Azure data factory and then use the Copy Data tool to copy data from a SQL Server database to Azure Blob storage.
+description: Create an Azure Data Factory and then use the Copy Data tool to copy data from a SQL Server database to Azure Blob storage.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/09/2020
+ms.date: 11/09/2020
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool
@@ -44,7 +44,7 @@ To view the permissions you have in the subscription, go to the Azure portal. Se
 ### SQL Server 2014, 2016, and 2017
 In this tutorial, you use a SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this SQL Server database (source) to Blob storage (sink). You then create a table named **emp** in your SQL Server database and insert a couple of sample entries into the table.
 
-1. Start SQL Server Management Studio. If it's not already installed on your machine, go to [Download SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. Start SQL Server Management Studio. If it's not already installed on your machine, go to [Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Connect to your SQL Server instance by using your credentials.
 
@@ -104,7 +104,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 ## Create a data factory
 
-1. On the menu on the left, select **+ Create a resource** > **Analytics** > **Data Factory**.
+1. On the menu on the left, select **Create a resource** > **Integration** > **Data Factory**.
 
    ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
 

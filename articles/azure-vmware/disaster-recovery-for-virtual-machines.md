@@ -1,17 +1,17 @@
 ---
-title: Complete a disaster recovery of virtual machines
-description: This article shows how to complete a disaster recovery of virtual machines by using Azure VMware Solution
+title: Complete disaster recovery of virtual machines
+description: This article shows how to complete disaster recovery of virtual machines by using Azure VMware Solution
 ms.topic: how-to
 ms.date: 09/22/2020
 ---
 
-# Complete a disaster recovery of virtual machines using Azure VMware Solution
+# Complete disaster recovery of virtual machines using Azure VMware Solution
 
-This article contains the process to complete a disaster recovery of your virtual machines (VMs) with VMware HCX solution and using an Azure VMware Solution private cloud as the recovery or target site.
+This article contains the process to complete disaster recovery of your virtual machines (VMs) with VMware HCX solution and using an Azure VMware Solution private cloud as the recovery or target site.
 
 VMware HCX provides various operations that provide fine control and granularity in replication policies. Available Operations include:
 
-- **Reverse** – After a disaster has occurred. Reverse helps make Site B the source site and Site A where the protected VM now lives.
+- **Reverse** – After a disaster has occurred. Reverse helps make Site B the source site and Site A, where the protected VM now lives.
 
 - **Pause** – Pause the current replication policy associated with the VM selected.
 
@@ -21,7 +21,7 @@ VMware HCX provides various operations that provide fine control and granularity
 
 - **Sync Now** – Out of bound sync source VM to the protected VM.
 
-In this guide the following replication scenarios are covered:
+This guide covers the following replication scenarios:
 
 - Protect a VM or a group of VMs.
 
@@ -51,13 +51,13 @@ In this guide the following replication scenarios are covered:
 
    - **Enable Quiescence:** Pauses the VM to ensure a consistent copy is synced to the remote site.
 
-   - **Destination Storage:** Remote datastore for the protected VMs, and in an Azure VMware Solution private cloud, this should be the vSAN datastore.
+   - **Destination Storage:** Remote datastore for the protected VMs, and in an Azure VMware Solution private cloud, which should be the vSAN datastore.
 
    - **Compute Container:** Remote vSphere Cluster or Resource Pool.
 
-   - **Destination Folder:** Remote destination folder, which is optional, and if no folder is selected the VMs will be placed directly under the selected cluster.
+   - **Destination Folder:** Remote destination folder, which is optional, and if no folder is selected, the VMs are placed directly under the selected cluster.
 
-   - **RPO:** Synchronization interval between the source VM and the protected VM and can be anywhere from 5 minutes to 24 hours.
+   - **RPO:** Synchronization interval between the source VM and the protected VM. It can be anywhere from 5 minutes to 24 hours.
 
    - **Snapshot interval:** Interval between snapshots.
 
@@ -79,9 +79,9 @@ In this guide the following replication scenarios are covered:
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="list of snapshots" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
 
-   The yellow triangle means the snapshots and the virtual haven't been tested in a Test Recovery operation.
+   The yellow triangle means the snapshots and the virtual machines haven't been tested in a Test Recovery operation.
 
-   There are key differences between a VM that is powered off and one that is powered on. The image shows the syncing process for a powered on VM. It starts the syncing process until it finishes the first snapshot, which is a full copy of the VM, and then completes the next ones in the configured interval. For a powered off VM, it syncs a copy and then the VM appears as inactive and protection operation shows as completed.  When the VM is powered on, it starts the syncing process to the remote site.
+   There are key differences between a VM that is powered off and one powered on. The image shows the syncing process for a powered-on VM. It starts the syncing process until it finishes the first snapshot, which is a full copy of the VM, and then completes the next ones in the configured interval. It syncs a copy for a powered off VM, and then the VM appears as inactive, and protection operation shows as completed.  When the VM is powered on, it starts the syncing process to the remote site.
 
 ## Complete a test recover of VMs
 
@@ -125,7 +125,7 @@ In this guide the following replication scenarios are covered:
 1. Log into **vSphere Client** on your Azure VMware Solution private cloud, and access **HCX plugin**.
    
    >[!NOTE]
-   >Make sure the original VMs on the source site are powered off before you start the reverse replication. The operation fails if the VMs aren't powered off.
+   > Ensure the original VMs on the source site are powered off before you start the reverse replication. The operation fails if the VMs aren't powered off.
 
 1. From the list, select the VMs to be replicated back to the source site, open the **ACTIONS** menu, and select **Reverse**. 
 1. Select **Reverse** to start the replication.
@@ -140,7 +140,7 @@ In this guide the following replication scenarios are covered:
 
 VMware HCX currently doesn't have a built-in mechanism to create and automate a disaster recovery plan. However, VMware HCX provides a set of REST APIs, including APIs for the Disaster Recovery operation. The API specification can be accessed within VMware HCX Manager in the URL.
 
-The following operations in Disaster Recovery are covered by these APIs.
+These APIs cover the following operations in Disaster Recovery.
 
 - Protect
 
@@ -236,4 +236,4 @@ An example of a recover operation payload in JSON is shown below.
 ]
 ```
 
-Using these APIs a customer can build a custom mechanism to automate the creation and the execution of a disaster recovery plan.
+With these APIs, you can build a custom mechanism to automate a disaster recovery plan's creation and execution.

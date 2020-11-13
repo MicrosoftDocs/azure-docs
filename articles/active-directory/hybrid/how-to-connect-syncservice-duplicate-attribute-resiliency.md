@@ -169,10 +169,9 @@ None of these known issues causes data loss or service degradation. Several of t
 The link for *steps on how to resolve this issue* is incorrect:  
     ![Active Users](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Active Users")  
 
-It should point to [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
+It should point to [https://aka.ms/duplicateattributeresiliency]().
 
 ## See also
 * [Azure AD Connect sync](how-to-connect-sync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)
 * [Identify directory synchronization errors in Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
-

@@ -15,6 +15,11 @@ ms.author: aahi
 
 # Quickstart: Search for videos using the Bing Video Search REST API and PHP
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 Use this quickstart to make your first call to the Bing Video Search API. This simple PHP application sends an HTTP video search query to the API, and displays the JSON response. The example code is written to work under PHP 5.6.
 
 Although this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
@@ -27,7 +32,7 @@ Although this application is written in PHP, the API is a RESTful Web service co
 
 ## Running the application
 
-The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) returns video results from the Bing search engine.
+The [Bing Video Search API](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) returns video results from the Bing search engine.
 
 1. Enable secure HTTP support in your `php.ini` file by uncommenting the `;extension=php_openssl.dll` line, as described in the following code.
 2. Create a new PHP project in your favorite IDE or editor.

@@ -17,7 +17,7 @@ ms.date: 12/18/2018
 
 In this tutorial, you walk through an end-to-end analytics scenario. The scenario demonstrates how analytics over tenant data can empower software vendors to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps:
 
-1. **Extract data** from each tenant database into an analytics store, in this case, a SQL pool.
+1. **Extract data** from each tenant database into an analytics store, in this case, a dedicated SQL pool.
 2. **Optimize the extracted data** for analytics processing.
 3. Use **Business Intelligence** tools to draw out useful insights, which can guide decision making.
 
@@ -39,7 +39,7 @@ SaaS applications hold a potentially vast amount of tenant data in the cloud. Th
 
 Accessing the data for all tenants is simple when all the data is in just one multi-tenant database. But access is more complex when distributed at scale across thousands of databases. One way to tame the complexity is to extract the data to an analytics database or a data warehouse for query.
 
-This tutorial presents an end-to-end analytics scenario for the Wingtip Tickets application. First, [Azure Data Factory (ADF)](../../data-factory/introduction.md) is used as the orchestration tool to extract tickets sales and related data from each tenant database. This data is loaded into staging tables in an analytics store. The analytics store could either be a SQL Database or a SQL pool. This tutorial uses [Azure Synapse Analytics (formerly SQL Data Warehouse)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) as the analytics store.
+This tutorial presents an end-to-end analytics scenario for the Wingtip Tickets application. First, [Azure Data Factory (ADF)](../../data-factory/introduction.md) is used as the orchestration tool to extract tickets sales and related data from each tenant database. This data is loaded into staging tables in an analytics store. The analytics store could either be a SQL Database or a dedicated SQL pool. This tutorial uses [Azure Synapse Analytics (formerly SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) as the analytics store.
 
 Next, the extracted data is transformed and loaded into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables:
 
@@ -64,10 +64,10 @@ This tutorial provides basic examples of insights that can be gleaned from the W
 
 To complete this tutorial, make sure the following prerequisites are met:
 
-- The Wingtip Tickets SaaS Database Per Tenant application is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](../../sql-database/saas-dbpertenant-get-started-deploy.md).
+- The Wingtip Tickets SaaS Database Per Tenant application is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](./saas-dbpertenant-get-started-deploy.md).
 - The Wingtip Tickets SaaS Database Per Tenant scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) are downloaded from GitHub. See download instructions. Be sure to *unblock the zip file* before extracting its contents.
 - Power BI Desktop is installed. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/).
-- The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](../../sql-database/saas-dbpertenant-provision-and-catalog.md).
+- The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](./saas-dbpertenant-provision-and-catalog.md).
 
 ### Create data for the demo
 
@@ -79,9 +79,9 @@ This tutorial explores analytics over ticket sales data. In this step, you gener
 
 ### Deploy Azure Synapse Analytics, Data Factory, and Blob Storage
 
-In the Wingtip Tickets app, the tenants' transactional data is distributed over many databases. Azure Data Factory (ADF) is used to orchestrate the Extract, Load, and Transform (ELT) of this data into the data warehouse. To load data into Azure Synapse Analytics (formerly SQL Data Warehouse) most efficiently, ADF extracts data into intermediate blob files and then uses [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) to load the data into the data warehouse.
+In the Wingtip Tickets app, the tenants' transactional data is distributed over many databases. Azure Data Factory (ADF) is used to orchestrate the Extract, Load, and Transform (ELT) of this data into the data warehouse. To load data into Azure Synapse Analytics (formerly SQL Data Warehouse) most efficiently, ADF extracts data into intermediate blob files and then uses [PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md) to load the data into the data warehouse.
 
-In this step, you deploy the additional resources used in the tutorial: a SQL pool called _tenantanalytics_, an Azure Data Factory called _dbtodwload-\<user\>_, and an Azure storage account called _wingtipstaging\<user\>_. The storage account is used to temporarily hold extracted data files as blobs before they are loaded into the data warehouse. This step also deploys the data warehouse schema and defines the ADF pipelines that orchestrate the ELT process.
+In this step, you deploy the additional resources used in the tutorial: a dedicated SQL pool called _tenantanalytics_, an Azure Data Factory called _dbtodwload-\<user\>_, and an Azure storage account called _wingtipstaging\<user\>_. The storage account is used to temporarily hold extracted data files as blobs before they are loaded into the data warehouse. This step also deploys the data warehouse schema and defines the ADF pipelines that orchestrate the ELT process.
 
 1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* and set:
     - **$DemoScenario** = **2** Deploy tenant analytics data warehouse, blob storage, and data factory
@@ -91,7 +91,7 @@ Now review the Azure resources you deployed:
 
 #### Tenant databases and analytics store
 
-Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect to **tenants1-dpt-&lt;user&gt;** and **catalog-dpt-&lt;user&gt;** servers. Replace &lt;user&gt; with the value used when you deployed the app. Use Login = *developer* and Password = *P\@ssword1*. See the [introductory tutorial](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) for more guidance.
+Use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to **tenants1-dpt-&lt;user&gt;** and **catalog-dpt-&lt;user&gt;** servers. Replace &lt;user&gt; with the value used when you deployed the app. Use Login = *developer* and Password = *P\@ssword1*. See the [introductory tutorial](./saas-dbpertenant-wingtip-app-overview.md) for more guidance.
 
 ![Connect to SQL Database from SSMS](./media/saas-tenancy-tenant-analytics-adf/ssmsSignIn.JPG)
 
@@ -142,18 +142,18 @@ This section explores the objects created in the data factory. The following fig
 
 ![adf_overview](./media/saas-tenancy-tenant-analytics-adf/adf-data-factory.PNG)
 
-In the overview page, switch to **Author** tab on the left panel and observe that there are three [pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) and three [datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) created.
+In the overview page, switch to **Author** tab on the left panel and observe that there are three [pipelines](../../data-factory/concepts-pipelines-activities.md) and three [datasets](../../data-factory/concepts-datasets-linked-services.md) created.
 ![adf_author](./media/saas-tenancy-tenant-analytics-adf/adf_author_tab.JPG)
 
 The three nested pipelines are: SQLDBToDW, DBCopy, and TableCopy.
 
 **Pipeline 1 - SQLDBToDW** looks up the names of the tenant databases stored in the Catalog database (table name: [__ShardManagement].[ShardsGlobal]) and for each tenant database, executes the **DBCopy** pipeline. Upon completion, the provided **sp_TransformExtractedData** stored procedure schema, is executed. This stored procedure transforms the loaded data in the staging tables and populates the star-schema tables.
 
-**Pipeline 2 - DBCopy** looks up the names of the source tables and columns from a configuration file stored in blob storage.  The **TableCopy** pipeline is then run for each of the four tables: TicketFacts, CustomerFacts, EventFacts, and VenueFacts. The **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** activity executes in parallel for all 20 databases. ADF allows a maximum of 20 loop iterations to be run in parallel. Consider creating multiple pipelines for more databases.
+**Pipeline 2 - DBCopy** looks up the names of the source tables and columns from a configuration file stored in blob storage.  The **TableCopy** pipeline is then run for each of the four tables: TicketFacts, CustomerFacts, EventFacts, and VenueFacts. The **[Foreach](../../data-factory/control-flow-for-each-activity.md)** activity executes in parallel for all 20 databases. ADF allows a maximum of 20 loop iterations to be run in parallel. Consider creating multiple pipelines for more databases.
 
 **Pipeline 3 - TableCopy** uses row version numbers in SQL Database (_rowversion_) to identify rows that have been changed or updated. This activity looks up the start and the end row version for extracting rows from the source tables. The **CopyTracker** table stored in each tenant database tracks the last row extracted from each source table in each run. New or changed rows are copied to the corresponding staging tables in the data warehouse: **raw_Tickets**, **raw_Customers**, **raw_Venues**, and **raw_Events**. Finally the last row version is saved in the **CopyTracker** table to be used as the initial row version for the next extraction.
 
-There are also three parameterized linked services that link the data factory to the source SQL Databases, the target SQL pool, and the intermediate Blob storage. In the **Author** tab, click on **Connections** to explore the linked services, as shown in the following image:
+There are also three parameterized linked services that link the data factory to the source SQL Databases, the target dedicated SQL pool, and the intermediate Blob storage. In the **Author** tab, click on **Connections** to explore the linked services, as shown in the following image:
 
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
@@ -271,4 +271,4 @@ Congratulations!
 
 ## Additional resources
 
-- Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- Additional [tutorials that build upon the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

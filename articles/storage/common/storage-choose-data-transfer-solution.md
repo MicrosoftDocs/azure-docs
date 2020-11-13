@@ -66,14 +66,14 @@ You can also go to your Azure Storage account in Azure portal and select the **D
 ## Next steps
 
 - [Get an introduction to Azure Storage Explorer](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
-- [Read an overview of AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+- [Read an overview of AzCopy](./storage-use-azcopy-v10.md).
 - [Quickstart: Upload, download, and list blobs with PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Quickstart: Create, download, and list blobs with Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 - Learn about:
 
-    - [Azure Data Box, Azure Data Box Disk, and Azure Data Box Heavy for offline transfers](/azure/databox/).
-    - [Azure Data Box Gateway and Azure Stack Edge for online transfers](/azure/databox-online/).
-- [Learn what is Azure Data Factory](/azure/data-factory/copy-activity-overview).
+    - [Azure Data Box, Azure Data Box Disk, and Azure Data Box Heavy for offline transfers](../../databox/index.yml).
+    - [Azure Data Box Gateway and Azure Stack Edge for online transfers](../../databox-online/index.yml).
+- [Learn what is Azure Data Factory](../../data-factory/copy-activity-overview.md).
 - Use the REST APIs to transfer data
 
     - [In .NET](/dotnet/api/overview/azure/storage)

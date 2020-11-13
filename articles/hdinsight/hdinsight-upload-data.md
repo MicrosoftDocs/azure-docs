@@ -83,7 +83,7 @@ There are also several applications that provide a graphical interface for worki
 
 ## Mount Azure Storage as Local Drive
 
-See [Mount Azure Storage as Local Drive](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
+See [Mount Azure Storage as Local Drive](/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
 
 ## Upload using services
 
