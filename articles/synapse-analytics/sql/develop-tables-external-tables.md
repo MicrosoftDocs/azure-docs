@@ -393,8 +393,6 @@ Using Data Lake exploration capabilities you can now create and query an externa
 
 - You must have at least [permissions to create](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) and query external tables on the SQL pool or SQL OD
 
-- The linked service associated with the ADLS Gen2 Account **must have access to the file**. For example, if the linked service authentication mechanism is Managed Identity, the workspace Managed Identity must have at least Storage blob reader permission on the storage account
-
 From the Data panel, select the file that you would like to create the external table from:
 > [!div class="mx-imgBorder"]
 >![externaltable1](./media/develop-tables-external-tables/external-table-1.png)

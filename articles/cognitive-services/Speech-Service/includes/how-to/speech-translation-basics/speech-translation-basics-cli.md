@@ -10,7 +10,7 @@ One of the core features of the Speech service is the ability to recognize human
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../get-started.md).
+This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 [!INCLUDE [SPX Setup](../../spx-setup.md)]
 
