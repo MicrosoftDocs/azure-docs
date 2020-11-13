@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Use .NET for Apache Spark with Azure Synapse Analytics
 
-[.NET for Apache Spark](https://dot.net/spark) provides free, open-source, and cross-platform .NET support for Spark. 
+[.NET for Apache Spark](https://dot.net/spark) provides free, [open-source](https://github.com/dotnet/spark), and cross-platform .NET support for Spark. 
 
 It provides .NET bindings for Spark, which allows you to access Spark APIs through C# and F#. With .NET for Apache Spark, you can also write and execute user-defined functions for Spark written in .NET. The .NET APIs for Spark enable you to access all aspects of Spark DataFrames that help you analyze your data, including Spark SQL, Delta Lake, and Structured Streaming.
 
@@ -65,7 +65,13 @@ When you create a new notebook, you choose a language kernel that you wish to ex
 
 To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **.NET Spark (C#)** as your kernel and attach the notebook to an existing serverless Apache Spark pool.
 
-The .NET Spark notebook is based on the .NET interactive experiences and provides interactive C# experiences with the ability to use .NET for Spark out of the box with the Spark session variable `spark` already predefined.
+The .NET Spark notebook is based on the [.NET interactive](https://github.com/dotnet/interactive) experiences and provides interactive C# experiences with the ability to use .NET for Spark out of the box with the Spark session variable `spark` already predefined.
+
+### Install NuGet packages in notebooks
+
+You can install NuGet packages of your choice into your notebook by using the `#r` symbol before the name of the NuGet package. The following diagram shows an example:
+
+![Screenshot that shows using #r to install a Spark .NET notebook NuGet package](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
 
 ### .NET for Apache Spark C# kernel features
 
@@ -75,14 +81,15 @@ The following features are available when you use .NET for Apache Spark in the A
 * Simple C# statements (such as assignments, printing to console, throwing exceptions, and so on).
 * Multi-line C# code blocks (such as if statements, foreach loops, class definitions, and so on).
 * Access to the standard C# library (such as System, LINQ, Enumerables, and so on).
-* Support for [C# 8.0 language features](/dotnet/csharp/whats-new/csharp-8?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* 'spark' as a pre-defined variable to give you access to your Apache Spark session.
-* Support for defining [.NET user-defined functions that can run within Apache Spark](https://github.com/dotnet/spark/blob/master/examples/Microsoft.Spark.CSharp.Examples/Sql).
+* Support for C# 8.0 language features.
+* `spark` as a pre-defined variable to give you access to your Apache Spark session.
+* Support for defining [.NET user-defined functions that can run within Apache Spark](/dotnet/spark/how-to-guides/udf-guide). We recommend [Write and call UDFs in .NET for Apache Spark Interactive environments](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue) for learning how to use UDFs in .NET for Apache Spark Interactive experiences.
 * Support for visualizing output from your Spark jobs using different charts (such as line, bar, or histogram) and layouts (such as single, overlaid, and so on) using the `XPlot.Plotly` library.
 * Ability to include NuGet packages into your C# notebook.
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [.NET for Apache Spark documentation](/dotnet/spark/)
+* [.NET for Apache Spark Interactive guides](/dotnet/spark/how-to-guides/dotnet-interactive-udf-issue)
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
 * [.NET Interactive](https://devblogs.microsoft.com/dotnet/creating-interactive-net-documentation/)

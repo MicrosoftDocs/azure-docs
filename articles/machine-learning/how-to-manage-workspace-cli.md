@@ -98,7 +98,7 @@ The response from this command is similar to the following JSON:
 }
 ```
 
-For more information on working with resource groups, see [az group](//cli/azure/group?preserve-view=true&view=azure-cli-latest).
+For more information on working with resource groups, see [az group](/cli/azure/group?preserve-view=true&view=azure-cli-latest).
 
 ### Automatically create required resources
 
