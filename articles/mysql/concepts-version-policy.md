@@ -34,8 +34,8 @@ The table below provides the retirement details for MySQL major versions. The da
 
 | Version | What's New | Azure support start date | Retirement date|
 | ----- | ----- | ------ | ----- |
-| [MySQL 5.6](https://dev.mysql.com/doc/relnotes/mysql/5.6/)| [Features](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | March 20, 2018 | February 2021
-| [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/) | [Features](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | March 20, 2018 | October 2023
+| [MySQL 5.6](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/)| [Features](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | March 20, 2018 | February 2021
+| [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/) | [Features](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | March 20, 2018 | October 2023
 | [MySQL 8](https://mysqlserverteam.com/whats-new-in-mysql-8-0-generally-available/) | [Features](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)) | December 11, 2019 | April 2026
 
 

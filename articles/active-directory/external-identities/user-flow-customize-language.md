@@ -1,6 +1,6 @@
 ---
 title: Language customization in Azure AD user flows
-description: Learn about customizing the language experience in your user flows.
+description: Learn about customizing the language experience in your user flows in Azure Active Directory.
 services: active-directory
 author: msmimart
 manager: celestedg
