@@ -11,7 +11,7 @@ ms.author: saveenr
 ms.reviewer: jrasnick
 ---
 
-# What is Azure Synapse Analytics (workspaces preview)?
+# What is Azure Synapse Analytics?
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
