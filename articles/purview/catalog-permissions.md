@@ -1,69 +1,67 @@
 ---
-title: Set catalog permissions in Azure Purview
-description: This article provides an overview of Azure Purview portal-managed permissions and roles.
-author: rogerbu
-ms.author: rogerbu
+title: Catalog Permissions
+description: This article gives an overview of how to configure Role-Based Access Control (RBAC) in the Azure Purview
+author: yarong
+ms.author: yarong
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: conceptual
-ms.date: 11/07/2020
+ms.topic: quickstart
+ms.date: 10/20/2020
 ---
+# Role-Based Access Control in the Catalog
 
-# Catalog permissions
+## Azure Purview's pre-defined Data Plane roles
+Azure Purview defines a set of pre-defined Data Plane roles that can be used to control who can access what, in 
+Azure Purview. These roles are:
 
-Azure Purview uses [role-based access control (RBAC)](../role-based-access-control/overview.md) to manage catalog permissions for security principals. A security principal is an object that represents a user, Azure Active Directory group, service principal, or managed identity. For each Azure Purview security role, you can add or remove any of these types of security principals.
+* **Azure Purview Data Reader Role** - Can read all content in Azure Purview except for scan bindings
+* **Azure Purview Data Curator Role** - Can read all content in Azure Purview except for scan bindings, can edit information about assets, can edit classification definitions and glossary terms, and can apply classifications and glossary terms to assets.
+* **Azure Purview Data Source Administrator Role** - Can manage all aspects of scanning data into Azure Purview but does not have read or write access to the data.
 
-You use the Azure Purview portal to set permissions to call all of the APIs in the catalog, except for [setting up scans](add-security-principal.md#assign-permission-to-scan-content-into-the-catalog), which you set in the Azure portal.
+In order to do anything in Azure Purview someone has to be in at least one of these roles. It's possible to be in multiple of these roles, this will be especially common with Data Source Administrator.
 
-## Azure Purview security roles
+When an Azure Purview Account is created, the principal who created it will receive special treatment. The account creator will be treated as if they are in both the Azure Purview Data Curator and Data Source Administrator Roles. But the account creator is not assigned to these roles in the role store. Azure Purview recognizes that the principal is the creator of the account and extends these capabilities to them based on their identity.
 
-Azure Purview defines the following five security roles:
+All other users can only use the Azure Purview Account if they are placed in at least one of these roles. This means that when an Azure Purview Account is created, no one but the creator can access the account or use its APIs until they are put in one or more of the previous defined roles.
 
-- **Catalog administrator**: Allows a user to call all APIs on the catalog that are managed via the Azure Purview portal. This role doesn't make the Catalog administrator an owner or contributor in the Azure portal.
+So the first order of business after creating an Azure Purview account is to assign people into these roles.
 
-- **Data source administrator**: Allows a user to set up scans and connect Atlas hooks.
+The role assignment is managed via [Azure's RBAC](../role-based-access-control/overview.md).
 
-- **Curator**: Allows a user to edit content after it's entered into the catalog.
+Only two built-in roles in Azure can assign users roles, those are either Owners or User Access Administrators. So to put people into these roles for Azure Purview one must either find someone who is an Owner or User Access Administrator or become one yourself.
 
-- **Contributor**: Allows a user to have read-only access to the catalog.
+## An example of assigning someone to a role
 
-- **Automated data source process**: Allows a user to provision service principals or managed identities into the catalog so that they can push information to the catalog. This role is currently primarily used when giving ADF access to push lineage into the catalog.
+1. Go to https://portal.azure.com and navigate to your Azure Purview Account
+1. On the left-hand side click on "Access control (IAM)"
+1. Then follow the general instructions given [here](../role-based-access-control/quickstart-assign-role-user-portal.md#create-a-resource-group)
 
-All roles are global. For example, if a user is assigned to the Contributor role, that user can read all entries in the catalog.
+## Role definitions and actions
 
-To scan content into the catalog, a security principal must have a Catalog administrator or Data source administrator role assignment in the Azure Purview portal. It must also have an Owner or Contributor role assignment in the Azure portal. For example, if a Catalog administrator user creates a catalog in Azure Purview, it's not authorized to set up a scan until you assign it to an Owner or Contributor role in the Azure portal.
+A role is defined as a collection of actions. See [here](../role-based-access-control/role-definitions.md) for more information on how roles are defined. And see [here](../role-based-access-control/built-in-roles.md) for the Role Definitions for Azure Purview's roles.
 
-For information about how to control security principal role assignments, see [Add a security principal to a role](add-security-principal.md).
+## Getting added to a Data Plane Role in an Azure Purview Account
 
-## Security roles reference
+If you want to be given access to an Azure Purview Account so you can use its studio or call its APIs you need to be added into an Azure Purview Data Plane Role. The only people who can do this are those who are Owners or User Access Administrators on the Azure Purview Data Plane Role. For most users the next step is to find a local administrator who can help you find the right people who can give you access.
 
-The following table shows the catalog actions that each security role allows:
+For users who have access to their company's [Azure portal](https://portal.azure.com) they can look up the particular Azure Purview Account they want to join, click on its "Access control (IAM)" tab and see who the Owners or User Access Administrators (UAAs) are. But note that in some cases Azure Active Directory groups or Service Principals might be used as Owners or UAAs, in which case it might not be possible to contact them directly. Instead one has to find an administrator to help.
 
-| Catalog activity | Catalog admin role | Data source admin role | Automated data source process role | Curator role | Contributor role |
-|--|--|--|--|--|--|
-| Read Azure Data Catalog portal role membership | Yes | Yes | No | Yes | Yes |
-| Create, update, and delete Azure Data Catalog portal role membership | Yes | No | No | No | No |
-| Remove self from Azure Data Catalog portal roles (where directly provisioned) | Yes | Yes | Yes | Yes | Yes |
-| Create, update, and delete identities in automated data source process role | Yes | Yes | No | No | No |
-| Access Data Catalog portal, search API, and catalog analytics | Yes | Yes | No | Yes | Yes |
-| Read entries in the catalog | Yes | Yes | Yes | Yes | Yes |
-| Create, update, and delete entries in the catalog | Yes | Yes | Yes | Yes | No |
-| Create, update, and delete lineage via the REST API | Yes | Yes | Yes | No | No |
-| Read classification definitions | Yes | Yes | Yes | Yes | Yes |
-| Create, update, and delete classification definitions | Yes | Yes | Yes | Yes | No |
-| Create, read, update, and delete classification instances on an entity | Yes | Yes | Yes | Yes | No |
-| Create, read, update, and delete managed scanning configurations | Yes | Yes | No | No | No |
-| Create multiple Atlas glossaries | Yes | No | No | No | No |
-| Read term and category definitions | Yes | Yes | Yes | Yes | Yes |
-| Create, update, and delete term and category definitions | Yes | No | No | Yes | No |
-| Associate glossary terms with entities | Yes | Yes | Yes | Yes | No |
-| Create, read, update, and delete classification rules | Yes | Yes | No | No | No |
-| Use business rules API | Yes | Yes | No | No | No |
-| Read Kafka connection strings | Yes | Yes | Yes | No | No |
-| Create, read, update, and delete resource set policies | Yes | Yes | No | No | No |
-| Read data factory connection list | Yes | Yes | Yes | Yes | Yes |
-| Create, update, and delete data factory connection list | Yes | Yes | No | No | No |
+## Who should be assigned to what role?
 
-## Next steps
+|User Scenario|Appropriate Role|
+|-------------|-----------------|
+|I just need to find assets, I don't want to edit anything|Azure Purview Data Reader Role|
+|I need to edit information about assets, put classifications on them, associate them with glossary entries, etc.|Azure Purview Data Curator Role|
+|I need to edit the glossary or set up new classification definitions|Azure Purview Data Curator Role|
+|My application's Service Principal needs to push data to Azure Purview|Azure Purview Data Curator Role|
+|I need to set up data scans managed by Azure Purview, either in the cloud or on-premises|Azure Purview Data Source Administrator Role|
+|I need to put users into roles in Azure Purview | Owner or User Access Administrator |
 
-[Quickstart: Add a security principal to a role](add-security-principal.md)
+
+
+
+
+Advance to the next article to learn how to add a security principal to a role.
+
+> [!div class="nextstepaction"]
+> [Add a security principal](add-security-principal.md)

@@ -161,7 +161,7 @@ Lineage of Azure Blob/ADLS Gen1/Gen2 -\> SQL table:
 
 ### Lineage for resource sets
 
-A resource set is a logical object in the catalog that represents many partition files in the underlying storage. For more information, see [Resource sets in Azure Data Catalog](concept-resource-sets.md). When Azure Purview captures lineage from the Azure Data Factory, it applies the rules to normalize the individual partition files and create a single logical object.
+A resource set is a logical object in the catalog that represents many partition files in the underlying storage. For more information, see [Understanding Resource sets](concept-resource-sets.md). When Azure Purview captures lineage from the Azure Data Factory, it applies the rules to normalize the individual partition files and create a single logical object.
 
 In the following example, an Azure Data Lake Gen2 resource set is produced from an Azure Blob:
 

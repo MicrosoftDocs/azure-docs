@@ -638,20 +638,19 @@ On the **Glossary terms** page, delete one or more terms in these ways:
 
 ## Access permissions
 
-Azure Data Catalog access permissions provide a basic access permissions infrastructure. The infrastructure has two sections. One handles creations and deletions of catalogs and scans. The other handles access to all other API endpoints.
+Azure Purview has both control plane and data plane permissions. Control plane permissions control the ability to create and delete Azure Purview accounts. Data Plane permissions control who is allowed to access the information in the account, call APIs, configure scanning, etc. 
 
-### Azure portal-managed permissions
+### Azure control plane managed permissions
 
-To create a catalog, you must have resource creation permissions in the resource group where the catalog is created. These permissions are managed via the **Access control (IAM)** section of the resource group. You need to be in the contributor or owner roles to create a new catalog instance.
+To create a catalog in the first place, one must have resource creation permissions in the resource group that the catalog is to be created in. This is managed via the Access control (IAM) section of the resource group the catalog is to be created in. One needs to be in the contributor or owner roles to create a new catalog instance.
 
-After a catalog has been created, it can be deleted by anyone who is in the Owner or Contributor role on the catalog itself.
+Once a catalog has been created, it can be deleted by anyone who is in the owner or contributor role on the catalog itself.
 
-For information about how to add someone to an Owner Contributor role on a resource group, see [Add or remove Azure role assignments using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+For general information on how to add someone to a contributor or owner role on a resource group, see [Role Based Access Control Assignment Portal](../role-based-access-control/role-assignments-portal.md).
 
-To create, update, and delete a scan, a user must be in two roles:
+### Azure data plane managed permissions
 
-- The Owner or Contributor role in the Azure portal.
-- The Catalog Admin or Data Source Admin role in the Azure Babylon portal.
+With the exception of the user who actually created the Azure Purview Account, who gets special permissions, any other user who wishes to use the Azure Purview Studio or call Azure Purview's REST APIs needs to be in a data plane role. Please see [Catalog Permissions](./catalog-permissions.md) for more information.
 
 ## Classifications
 

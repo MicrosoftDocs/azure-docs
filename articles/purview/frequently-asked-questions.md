@@ -25,6 +25,12 @@ This FAQ answers common questions that customers and field teams often ask. It's
 
 The audience for this FAQ is customers, Data & AI global black belt specialists, and other customer representatives from the field.
 
+## How do I give users access to Azure Purview?
+## Why can't I get access to Azure Purview?
+Both of these questions have the same basic answer, to enable someone to access Azure Purview they need to be in a Data Plane Role. Only an Owner or User Access Administrator can put someone into a Data Plane Role. Please see [Catalog Permissions](catalog-permissions.md) for details.
+
+Note that the creator of an Azure Purview account has special access to the account even thought they are not in a Data Plane Role. But this special access only applies to them.
+
 ## What are the Azure data sources available for metadata scanning and classification?
 
 |Data source |Availability|
