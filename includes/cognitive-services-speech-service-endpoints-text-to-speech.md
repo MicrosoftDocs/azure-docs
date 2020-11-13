@@ -34,7 +34,7 @@ Use this table to determine availability of standard and neural voices by region
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
 
 > [!TIP]
-> [Voices in preview](language-support.md#preview-neural-voices) are only available in these 3 regions: East US, West Europe and Southeast Asia.
+> [Voices in preview](language-support.md#neural-voices-in-preview) are only available in these 3 regions: East US, West Europe and Southeast Asia.
 
 ### Custom voices
 
