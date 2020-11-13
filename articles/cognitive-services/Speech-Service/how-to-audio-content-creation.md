@@ -28,7 +28,7 @@ Audio Content Creation is a free tool, but you will pay for the Azure Speech ser
 
 ### Step 1 - Create an Azure account
 
-To work with Audio Content Creation, you need to have a [Microsoft account](https://account.microsoft.com/account) and an [Azure account](https://azure.microsoft.com/free/ai/). Follow these instructions to [set up the account](./overview.md#new-resource). 
+To work with Audio Content Creation, you need to have a [Microsoft account](https://account.microsoft.com/account) and an [Azure account](https://azure.microsoft.com/free/ai/). Follow these instructions to [set up the account](./overview.md#try-the-speech-service-for-free). 
 
 [Azure portal](https://portal.azure.com/) is the centralized place for you to manage your Azure account. You can create the speech resource, manage the product access, and monitor everything from simple web apps to complex cloud deployments. 
 
