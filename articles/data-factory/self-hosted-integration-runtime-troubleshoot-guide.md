@@ -2,10 +2,10 @@
 title: Troubleshoot self-hosted integration runtime in Azure Data Factory
 description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory. 
 services: data-factory
-author: lrtoyou1223
+author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/22/2020
+ms.date: 10/29/2020
 ms.author: lle
 ---
 
@@ -178,7 +178,7 @@ From the error below, you can clearly see the assembly *System.ValueTuple* is no
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
-For more information about GAC, see [this article](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+For more information about GAC, see [this article](/dotnet/framework/app-domains/gac).
 
 
 ### How to audit Self-hosted IR key missing
@@ -466,7 +466,7 @@ The following is the expected response:
 
 > [!NOTE] 
 > Proxy considerations:
-> *    Check whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
+> *    Check whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
 > *    Check whether the TLS/SSL certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
 > *    If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
 
@@ -629,25 +629,64 @@ This notification impacts the following scenarios:
 ##### Scenario 1: Outbound communication from Self-hosted Integration Runtime running on premises behind the corporate firewall
 How to determine if you are impacted:
 - You are not impacted if you are defining firewall rules based on FQDN names using the approach described in this document: [firewall configuration and allow list setting up for ip address](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
-- You are impacted however if you are explicitly whitelisting outbound IPs on your corporate firewall.
+- You are impacted however if you are explicitly enabling the allow list for outbound IPs on your corporate firewall.
 
-Action to take if you are impacted: notify your network infrastructure team to update your network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+Action to take if you are impacted: notify your network infrastructure team to update your network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ##### Scenario 2: Outbound communication from Self-hosted Integration Runtime running on an Azure VM inside customer managed Azure virtual network
 How to determine if you are impacted:
 - Check if you have any outbound NSG rules in your private network which contains Self-hosted Integration Runtime. If there are no outbound restrictions, then there is no impact.
 - If you have outbound rule restrictions, check if you use service tag or not. If you use service tag, then no need to change or add anything as the new IP ranges is under existing service tag. 
  ![Destination check](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
-- You are impacted however if you are explicitly whitelisting outbound IP addresses on your NSG rules setting on the Azure virtual network.
+- You are impacted however if you are explicitly enabling the allow list for outbound IP addresses on your NSG rules setting on the Azure virtual network.
 
-Action to take if you are impacted: notify your network infrastructure team to update NSG rules on your Azure virtual network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+Action to take if you are impacted: notify your network infrastructure team to update NSG rules on your Azure virtual network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ##### Scenario 3: Outbound communication from SSIS Integration Runtime in customer managed Azure virtual network
 - Check if you have any outbound NSG rules in your private network which contains SSIS Integration Runtime. If there are no outbound restrictions, then there is no impact.
 - If you have outbound rule restrictions, check if you use service tag or not. If you use service tag, then no need to change or add anything as the new IP ranges is under existing service tag.
-- You are impacted however if you are explicitly whitelisting outbound IP address on your NSG rules setting on the Azure virtual network.
+- You are impacted however if you are explicitly enabling the allow list for outbound IP address on your NSG rules setting on the Azure virtual network.
 
-Action to take if you are impacted: notify your network infrastructure team to update NSG rules on your Azure virtual network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+Action to take if you are impacted: notify your network infrastructure team to update NSG rules on your Azure virtual network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+
+### Could not establish trust relationship for the SSLTLS secure channel 
+
+#### Symptoms
+
+The self-hosted IR couldn't connect to ADF service.
+
+By checking SHIR event log, or client notification logs in CustomLogEvent table, the following error message will be found:
+
+`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.The remote certificate is invalid according to the validation procedure.`
+
+How to check the server certificate of ADF service:
+
+The simplest way is to open ADF service URL in browser, for example, open https://eu.frontend.clouddatahub.net/ on the machine where SHIR is installed, and then view the server certificate information:
+
+  ![Check server certificate of ADF service](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+
+  ![Check server certificate path](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+
+#### Cause
+
+Two possible reasons for this issue:
+
+- The Root CA of ADF service server certificate is not trusted on the machine where the SHIR is installed. 
+- You are using proxy in your environment and the server certificate of ADF service is replaced by the proxy, while the replaced server certificate is not trusted by the machine where the SHIR is installed.
+
+#### Solution
+
+- For reason 1, make sure the ADF server certificate and its certificate chain is trusted by the machine where the SHIR is installed.
+- For reason 2, either trust the replaced root CA on SHIR machine, or configure the proxy not to replace ADF server certificate.
+
+Refer to [this article](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) for details to trust a certificate on Windows.
+
+#### Additional info
+We are rolling out a new SSL certificate, which is signed from DigiCert, please check whether the DigiCert Global Root G2 is in the trusted root CA.
+
+  ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
+
+If not, download it from [here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
 ## Self-hosted IR sharing
 
@@ -669,7 +708,7 @@ For more help with troubleshooting, try the following resources:
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Mapping data flows performance guide](concepts-data-flow-performance.md)

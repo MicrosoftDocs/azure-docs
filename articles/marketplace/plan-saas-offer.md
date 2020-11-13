@@ -151,7 +151,7 @@ To help create your offer more easily, prepare some of these items ahead of time
 - **Search results summary**: Describe the purpose or function of your offer as a single sentence with no line breaks in 100 characters or less. This summary is used in the commercial marketplace listing(s) search results.
 - **Description**: This description will be displayed in the commercial marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
     
-    This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+    This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](/windows/uwp/publish/write-a-great-app-description).
 
 - **Getting Started Instructions**: If you choose to sell your offer through Microsoft (transactable offer), this field is required. These are instructions to help customers connect to your SaaS offer. You can add up to 3,000 characters of text and links to more detailed online documentation.
 - **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online stores. You don't need to include the offer **Name** and **Description**: that text is automatically included in search.
@@ -184,7 +184,7 @@ To help create your offer more easily, prepare some of these items ahead of time
   - Thumbnail: 1280 x 720 .png file
 
 > [!Note]
-> Your offer must meet the general [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general) and the [software as a service policies](https://docs.microsoft.com/legal/marketplace/certification-policies#1000-software-as-a-service-saas) to be published to the commercial marketplace.
+> Your offer must meet the general [commercial marketplace certification policies](/legal/marketplace/certification-policies#100-general) and the [software as a service policies](/legal/marketplace/certification-policies#1000-software-as-a-service-saas) to be published to the commercial marketplace.
 
 ## Preview audience
 A preview audience can access your offer prior to being published live in the online stores in order to test the end-to-end functionality before you publish it live. On the **Preview audience** page, you can define a limited preview audience. This setting is not available if you choose to process transactions independently instead of selling your offer through Microsoft. If so, you can skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).

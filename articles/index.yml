@@ -739,7 +739,7 @@ productDirectory:
       url: azure-app-configuration/index.yml
     # Card
     - title: Azure Data Studio
-      summary: A lightweight editor that can run on-demand SQL queries and view and save results as text, JSON, or Excel.
+      summary: A lightweight editor that can run serverless SQL pool queries and view and save results as text, JSON, or Excel.
       imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
       azureCategories:
         - developer-tools

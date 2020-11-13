@@ -98,5 +98,26 @@ There are several possible causes for this symptom:
             * *Accepted protocols* are HTTP and HTTPS. *Forwarding protocol* is HTTP. Match request won't work, since HTTPS is an allowed protocol and if a request came in as HTTPS, Front Door would try to forward it using HTTPS.
 
             * *Accepted protocols* are HTTP. *Forwarding protocol* is either match request or HTTP.
-
     - *Url Rewrite* is disabled by default. This field is used only if you want to narrow the scope of backend-hosted resources that you want to make available. When disabled, Front Door will forward the same request path it receives. It's possible to misconfigure this field. So when Front Door is requesting a resource from the backend that isn't available, it will return an HTTP 404 status code.
+
+## Request to frontend host name returns 411 status code
+
+### Symptom
+
+You have created a Front Door and configured a frontend host, a backend pool with at least one backend in it, and a routing rule that connects the frontend host to the backend pool. Your content does not seem to be available when sending a request to the configured frontend host because an HTTP 411 status code is returned.
+
+Responses to these requests might also contain an HTML error page in the response body that includes an explanatory statement. For example: `HTTP Error 411. The request must be chunked or have a content length`
+
+### Cause
+
+There are several possible causes for this symptom; however, the overall reason is that your HTTP request is not fully RFC-compliant. 
+
+An example of non-compliance is a `POST` request sent without either a `Content-Length` or a `Transfer-Encoding` header (for example, using `curl -X POST https://example-front-door.domain.com`). This request doesn't meet the requirements set out in [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2) and would be blocked by your Front Door with an HTTP 411 response.
+
+This behavior is separate from the WAF functionality of Front Door. Currently, there's no way to disable this behavior. All HTTP requests must meet the requirements, even if the WAF functionality is not in use.
+
+### Troubleshooting steps
+
+- Verify that your requests comply with the requirements set out in the necessary RFCs.
+
+- Take note of any HTML message body that is returned in response to your request, because they often explain exactly *how* your request is non-compliant.

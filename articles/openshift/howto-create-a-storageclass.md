@@ -28,7 +28,7 @@ Deploy an Azure Red Hat OpenShift 4 cluster into your subscription, see [Create 
 
 ### Set up Azure storage account
 
-This step will create a resource group outside of the Azure Red Hat OpenShift cluster’s resource group. This resource group will contain the Azure Files shares that are created by Azure Red Hat OpenShift’s dynamic provisioner.
+This step will create a resource group outside of the Azure Red Hat OpenShift (ARO) cluster’s resource group. This resource group will contain the Azure Files shares that are created by Azure Red Hat OpenShift’s dynamic provisioner.
 
 ```bash
 AZURE_FILES_RESOURCE_GROUP=aro_azure_files

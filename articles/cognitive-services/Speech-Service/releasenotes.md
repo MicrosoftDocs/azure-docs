@@ -15,6 +15,93 @@ ms.custom: seodec18
 
 # Speech Service release notes
 
+## Text-to-speech 2020-October release
+
+**New features**
+- Jenny supports a new `newscast` style. See [how to use the speaking styles in SSML](speech-synthesis-markup.md#adjust-speaking-styles).
+- **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This benefits customers whose scenario relies on hi-fi audio or long interactions, including video dubbing, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
+- **[Custom Voice](https://speech.microsoft.com/customvoice) & [Audio Content Creation Studio](https://speech.microsoft.com/audiocontentcreation) localized to 17 locales**. Users can easily switch the UI to a local language for a more friendly experience.   
+- **Audio Content Creation**: Added style degree control for XiaoxiaoNeural; Refined the customized break feature to include incremental breaks of 50ms. 
+
+**General TTS voice quality improvements**
+- Improved word-level pronunciation accuracy in `pl-PL` (error rate reduction: 51%) and `fi-FI` (error rate reduction: 58%)
+- Improved `ja-JP` single word reading for the dictionary scenario. Reduced pronunciation error by 80%.
+- `zh-CN-XiaoxiaoNeural`: Improved sentiment/CustomerService/Newscast/Cheerful/Angry style voice quality.
+- `zh-CN`: Improved Erhua pronunciation and light tone and refined space prosody, which greatly improves the intelligibility. 
+
+## Speech SDK 1.14.0: 2020-October release
+
+**Note**: The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+
+**New features**
+- **Linux**: Added support for Debian 10 and Ubuntu 20.04 LTS.
+- **Python/Objective-C**: Added support for the `KeywordRecognizer` API. Documentation will be [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics).
+- **C++/Java/C#**: Added support to set any `HttpHeader` key/value via `ServicePropertyChannel::HttpHeader`.
+- **JavaScript**: Added support for the `ConversationTranscriber` API. Read documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript). 
+- **C++/C#**: Added new `AudioDataStream FromWavFileInput` method (to read .WAV files) [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) and [here (C#)](
+https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
+-  **C++/C#/Java/Python/Objective-C/Swift**: Added a `stopSpeakingAsync()` method to stop text-to-speech synthesis. Read the Reference documentation [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [here (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [here (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [here (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python),  and [here (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+- **C#, C++, Java**: Added a `FromDialogServiceConnector()` function to the `Connection` class that can be used to monitor connection and disconnection events for `DialogServiceConnector`. Read the Reference documentation [here (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), and [here (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
+<!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
+
+**Breaking change**
+- **JavaScript**: PullAudioOutputStream.read() has a return type change from an internal Promise to a Native JavaScript Promise.
+
+**Bug fixes**
+- **All**: Fixed 1.13 regression in `SetServiceProperty` where values with certain special characters were ignored.
+- **C#**: Fixed Windows console samples on Visual Studio 2019 failing to find native DLLs.
+- **C#**: Fixed crash with memory management if stream is used as `KeywordRecognizer` input.
+- **ObjectiveC/Swift**: Fixed crash with memory management if stream is used as recognizer input.
+- **Windows**: Fixed co-existence issue with BT HFP/A2DP on UWP.
+- **JavaScript**: Fixed mapping of session IDs to improve logging and aid in internal debug/service correlations.
+- **JavaScript**: Added fix for `DialogServiceConnector` disabling `ListenOnce` calls after the first call is made.
+- **JavaScript**: Fixed issue where result output would only ever be "simple".
+- **JavaScript**: Fixed continuous recognition issue in Safari on macOS.
+- **JavaScript**: CPU load mitigation for high request throughput scenario.
+- **JavaScript**: Allow access to details of Voice Profile Enrollment result.
+- **JavaScript**: Added fix for continuous recognition in `IntentRecognizer`.
+- **C++/C#/Java/Python/Swift/ObjectiveC**: Fixed incorrect url for australiaeast and brazilsouth in `IntentRecognizer`.
+- **C++/C#**: Added `VoiceProfileType` as an argument when creating a `VoiceProfile` object.
+- **C++/C#/Java/Python/Swift/ObjectiveC**: Fixed potential `SPX_INVALID_ARG` when trying to read `AudioDataStream` from a given position.
+- **IOS**: Fixed crash with speech recognition on Unity
+
+**Samples**
+- **ObjectiveC**: Added sample for keyword recognition [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/speech-samples).
+- **C#/JavaScript**: Added quickstart for conversation transcription [here (C#)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/conversation-transcription) and [here (JavaScript)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/conversation-transcription).
+<!-- - **C++/C#/Java/Python/Swift/ObjectiveC**: Added sample for pronunciation assessment [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples) -->
+- **Xamarin**: Updated quickstart to latest Visual Studio template [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin).
+
+**Known Issue**
+- DigiCert Global Root G2 certificate is not supported by default in HoloLens 2 and Android 4.4 (KitKat) and needs to be added to the system to make the Speech SDK functional. The certificate will be added to HoloLens 2 OS images in the near future. Android 4.4 customers need to add the updated the certificate to the system.
+
+**COVID-19 abridged testing:**
+Due to working remotely over the last few weeks, we couldn't do as much manual verification testing as we normally do. We haven't made any changes we think could have broken anything, and our automated tests all passed. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
+Stay healthy!
+
+## Speech CLI (also known as SPX): 2020-October release
+SPX is the command line interface to use the Azure Speech service without writing code. 
+Download the latest version [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). <br>
+
+**New features**
+- `spx csr dataset upload --kind audio|language|acoustic` – create datasets from local data, not just from URLs.
+- `spx csr evaluation create|status|list|update|delete` – compare new models against baseline truth/other models.
+- `spx * list` – supports non-paged experience (doesn't require --top X --skip X).
+- `spx * --http header A=B` – support custom headers (added for Office for custom authentication). 
+- `spx help` – improved text and back-tick text color coded (blue).
+
+## Text-to-speech 2020-September release
+
+### New features
+
+* **Neural TTS** 
+	* **Extended to support 18 new languages/locales.** They are Bulgarian, Czech, German (Austria),  German (Switzerland), Greek, English (Ireland), French (Switzerland), Hebrew, Croatian, Hungarian, Indonesian, Malay, Romanian, Slovak, Slovenian, Tamil, Telugu and Vietnamese. 
+	* **Released 14 new voices to enrich the variety in the existing languages.** See [full language and voice list](language-support.md#neural-voices).
+	* **New speaking styles for `en-US` and `zh-CN` voices.** Jenny, the new voice in English (US), supports chatbot, customer service, and assistant styles. 10 new speaking styles are available with our zh-CN voice, XiaoXiao. In addition, the XiaoXiao neural voice supports `StyleDegree` tuning. See [how to use the speaking styles in SSML](speech-synthesis-markup.md#adjust-speaking-styles).
+
+* **Containers: Neural TTS Container released in public preview with 16 voices available in 14 languages.** Learn more on [how to deploy Speech Containers for Neural TTS](speech-container-howto.md)  
+
+Read the [full announcement of the TTS updates for Ignite 2020](https://techcommunity.microsoft.com/t5/azure-ai/ignite-2020-neural-tts-updates-new-language-support-more-voices/ba-p/1698544) 
+
 ## Text-to-speech 2020-August release
 
 ### New features
@@ -27,7 +114,7 @@ ms.custom: seodec18
 
     * Pronunciation:  the pronunciation tuning feature is updated to the latest phoneme set. You can pick the right phoneme element from the library and refine the pronunciation of the words you have selected. 
 
-    * Download: The audio "Download"/"Export" feature is enhanced to support generating audio by paragraph. You can edit content in the same file/SSML, while generating multiple audio outputs. The file structure of "Download" is refined as well. Now, you can easily get all audios in one folder. 
+    * Download: The audio "Download"/"Export" feature is enhanced to support generating audio by paragraph. You can edit content in the same file/SSML, while generating multiple audio outputs. The file structure of "Download" is refined as well. Now, you can easily get all audio files in one folder. 
 
     * Task status : The multi-file export experience is improved. When you export multiple files in the past, if one of the files has failed, the entire task will fail. But now, all other files will be successfully exported. The task report is enriched with more detailed and structured information. You can check the logs for all failed files and sentences now with the report. 
 

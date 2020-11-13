@@ -10,6 +10,7 @@ ms.author: mjbrown
 ---
 
 # Throughput (RU/s) operations with PowerShell for a keyspace or table for Azure Cosmos DB - Cassandra API
+[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
