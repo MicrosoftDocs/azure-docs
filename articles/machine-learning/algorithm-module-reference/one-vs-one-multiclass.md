@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
+ms.date: 11/13/2020
 ---
 # One-vs-One Multiclass
 
