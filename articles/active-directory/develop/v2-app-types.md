@@ -17,7 +17,7 @@ ms.custom: aaddev, fasttrack-edit, contperfq2
 
 # Application types for Microsoft identity platform
 
-The Microsoft identity platform endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Microsoft identity platform, regardless of your preferred language or platform. The information is designed to help you understand high-level scenarios before you start working with the code in the [application scenarios.md#application-scenarios](authentication-flows-app-scenarios.md).
+The Microsoft identity platform endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Microsoft identity platform, regardless of your preferred language or platform. The information is designed to help you understand high-level scenarios before you start working with the code in the [application scenarios](authentication-flows-app-scenarios.md#application-scenarios).
 
 ## The basics
 
