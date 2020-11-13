@@ -145,9 +145,10 @@ The Hide Snapshot Path option controls whether the snapshot path is visible. Dur
 > [!NOTE]
 > For a [destination volume](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) in cross-region replication, the Hide Snapshot Path option is enabled by default, and the setting cannot be modified. 
 
-1. To view the Hide Snapshot Path status of a volume, select the volume. The **Hide snapshot path** field shows whether the option is enabled.  
-2. To edit the Hide Snapshot Path option, clicking **Edit** on the volume page and modify the **Hide snapshot path** option as needed.
-    ![Edit volume snapshot options](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+1. To view the Hide Snapshot Path status of a volume, select the volume. The **Hide snapshot path** field shows whether the option is enabled.   
+    ![Screenshot that describes the Hide Snapshot Path field.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. To edit the Hide Snapshot Path option, click **Edit** on the volume page and modify the **Hide snapshot path** option as needed.   
+    ![Screenshot that describes the Edit volume snapshot option.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 
 ## Restore a snapshot to a new volume
 
