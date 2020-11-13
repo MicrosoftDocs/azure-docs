@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/10/2020
 ---
 
 # How to choose between provisioned throughput and serverless
@@ -14,9 +14,6 @@ ms.date: 08/19/2020
 Azure Cosmos DB is available in two different capacity modes: [provisioned throughput](set-throughput.md) and [serverless](serverless.md). You can perform the exact same database operations in both modes, but the way you get billed for these operations is radically different. The following video explains the core differences between these modes and how they fit different types of workloads:
 
 > [!VIDEO https://www.youtube.com/embed/CgYQo6uHyt0]
-
-> [!NOTE]
-> Serverless is currently supported on the Azure Cosmos DB Core (SQL) API only.
 
 ## Detailed comparison
 

@@ -100,7 +100,7 @@
   items:
   - name: Troubleshooting
     items:
-    - name: Get help with deployment or provisioning failures
+    - name: Open a support request for deployment failures
       href: fix-deployment-provisioning-failures.md
   - name: FAQ
     href: faq.md
