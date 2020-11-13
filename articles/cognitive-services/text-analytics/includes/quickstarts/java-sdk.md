@@ -220,7 +220,7 @@ To perform sentiment analysis with opinion mining, create a new function called 
 ```java
 static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
 {
-    // The text that needs be analyzed.
+    // The document that needs be analyzed.
     String document = "Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.";
 
     System.out.printf("Document = %s%n", document);
