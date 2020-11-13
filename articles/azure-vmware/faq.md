@@ -2,7 +2,7 @@
 title: Frequently asked questions
 description: Provides answers to some of the common questions about Azure VMware Solution.
 ms.topic: conceptual
-ms.date:  09/25/2020
+ms.date:  11/12/2020
 ms.author: dikamath
 ---
 
@@ -225,9 +225,15 @@ You'll have full administrator privileges on NSX-T and can manage role-based acc
 
 For general questions on pricing, see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. 
 
+#### Can Azure VMware Solution be purchased through a Microsoft CSP?
+
+Yes, customers can deploy Azure VMware Solution within an Azure subscription managed by a CSP.
+
 #### Who supports Azure VMware Solution?
 
-Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+
+For CSP managed subscriptions, the first level of support will be provided by the Solution Provider in the same fashion as CSP does for other Azure services.
 
 #### What accounts do I need to create an Azure VMware Solution private cloud?
 
@@ -242,6 +248,10 @@ Microsoft and Red Hat share an integrated, colocated support team that provides 
 VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in Preview, it's a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You can switch off or opt out of the service.
 
 #### How do I request a host quota increase for Azure VMware Solution?
+
+For CSP managed subscriptions, customer must perform the request to the partner and the partner team will engage with Microsoft to get the quota increased for the subscription. 
+
+For EA subscriptions, customer must follow this procedure.
 
 * You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 * You'll need an Azure account in an Azure subscription.
@@ -279,9 +289,12 @@ Before you create your Azure VMware Solution resource, you must submit a support
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   `"
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+
+#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+
+Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
 
 
 ## Customer communication
