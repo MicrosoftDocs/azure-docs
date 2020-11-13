@@ -41,10 +41,10 @@ landingContent:
     linkLists:            
       - linkListType: whats-new
         links:
-          - text: CycleCloud 7.9.6 is now available
+          - text: CycleCloud 8.1.0 is now generally available
             url: release-notes.md
-          - text: CycleCloud 8 is now available for public preview
-            url: release-notes-preview.md
+            text: CycleCloud 7.9.8 is now available
+            url: release-notes-previous.md
           - text: Cloud-init is now supported
             url: how-to/cloud-init.md
 
