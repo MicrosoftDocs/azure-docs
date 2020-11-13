@@ -2,7 +2,7 @@
 title: Authenticate against Azure resources with Arc enabled servers
 description: This article describes Azure Instance Metadata Service support for Arc enabled servers and how you can authenticate against Azure resources and local using a secret.
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/13/2020
 ---
 
 # Authenticate against Azure resources with Arc enabled servers
@@ -11,9 +11,9 @@ Applications or processes running directly on an Azure Arc enabled servers can l
 
 Refer to the [managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, as well as the distinction between system-assigned and user-assigned identities.
 
-In this article, we show you how a server can use a system-assigned managed identity to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Azure Active Directory (AD).
+In this article, we show you how a server can use a system-assigned managed identity to access Azure [Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Azure Active Directory (AD).
 
-## Security
+## Security overview
 
 While onboarding your server to Azure Arc enabled servers, several actions are performed to configure the resource to support using a managed identity, similar to what is performed for an Azure VM:
 
@@ -38,10 +38,10 @@ The system environment variable **IDENTITY_ENDPOINT** is used to discover the id
 - An understanding of Managed identities.
 - A server connected and registered with Arc enabled servers.
 - "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Use Role-Based Access Control](../../role-based-access-control/role-assignments-portal.md) to manage access to your Azure subscription resources.
-- An [Azure Key Vault](../../key-vault/general/overview.md) to store and retrieve your credential. and assign the Azure Arc identity access to the KeyVault.
+- An Azure Key Vault to store and retrieve your credential. and assign the Azure Arc identity access to the KeyVault.
 
     - If you don't have a Key Vault created, see [Create Key Vault](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#create-a-key-vault-).
-    - To configure access by the managed identity used by the server, see [Grant access](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). For step number 5, you are going to enter the name of the Arc enabled server.
+    - To configure access by the managed identity used by the server, see [Grant access for Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) or [Grant access for Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). For step number 5, you are going to enter the name of the Arc enabled server.
 
 ## Acquiring an access token using REST API
 
