@@ -1,6 +1,6 @@
 ---
 title: Shared metadata tables
-description: Azure Synapse Analytics provides a shared metadata model where creating a table in Apache Spark will make it accessible from its SQL on-demand (preview) and SQL pool engines without duplicating the data. 
+description: Azure Synapse Analytics provides a shared metadata model where creating a table in serverless Apache Spark pool will make it accessible from serverless SQL pool (preview) and dedicated SQL pool without duplicating the data. 
 services: sql-data-warehouse 
 author: MikeRys 
 ms.service:  synapse-analytics 
@@ -16,19 +16,19 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics allows the different workspace computational engines to share databases and Parquet-backed tables between its Apache Spark pools (preview) and SQL on-demand (preview) engine.
+Azure Synapse Analytics allows the different workspace computational engines to share databases and Parquet-backed tables between its Apache Spark pools (preview) and serverless SQL pool (preview).
 
 Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet as the storage format. These tables will immediately become available for querying by any of the Azure Synapse workspace Spark pools. They can also be used from any of the Spark jobs subject to permissions.
 
-The Spark created, managed, and external tables are also made available as external tables with the same name in the corresponding synchronized database in SQL on-demand. [Exposing a Spark table in SQL](#expose-a-spark-table-in-sql) provides more detail on the table synchronization.
+The Spark created, managed, and external tables are also made available as external tables with the same name in the corresponding synchronized database in serverless SQL pool. [Exposing a Spark table in SQL](#expose-a-spark-table-in-sql) provides more detail on the table synchronization.
 
-Since the tables are synchronized to SQL on-demand asynchronously, there will be a delay until they appear.
+Since the tables are synchronized to serverless SQL pool asynchronously, there will be a delay until they appear.
 
 ## Manage a Spark created table
 
-Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark.
+Use Spark to manage Spark created databases. For example, delete it through a serverless Apache Spark pool job, and create tables in it from Spark.
 
-If you create objects in such a database from SQL on-demand or try to drop the database, the operation will succeed, but the original Spark database will not be changed.
+If you create objects in such a database from serverless SQL pool or try to drop the database, the operation will succeed, but the original Spark database will not be changed.
 
 ## Expose a Spark table in SQL
 
@@ -90,9 +90,9 @@ For more information on how to set permissions on the folders and files, see [Az
 
 ## Examples
 
-### Create a managed table backed by Parquet in Spark and query from SQL on-demand
+### Create a managed table backed by Parquet in Spark and query from serverless SQL pool
 
-In this scenario, you have a Spark database named `mytestdb`. See [Create and connect to a Spark database with SQL on-demand](database.md#create-and-connect-to-spark-database-with-sql-on-demand).
+In this scenario, you have a Spark database named `mytestdb`. See [Create and connect to a Spark database with serverless SQL pool](database.md#create-and-connect-to-spark-database-with-serverless-sql-pool).
 
 Create a managed Spark table with SparkSQL by running the following command:
 
@@ -100,7 +100,7 @@ Create a managed Spark table with SparkSQL by running the following command:
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-This command creates the table `myParquetTable` in the database `mytestdb`. After a short delay, you can see the table in SQL on-demand. For example, run the following statement from SQL on-demand.
+This command creates the table `myParquetTable` in the database `mytestdb`. After a short delay, you can see the table in your serverless SQL pool. For example, run the following statement from your serverless SQL pool.
 
 ```sql
     USE mytestdb;
@@ -135,7 +135,7 @@ var df = spark.CreateDataFrame(data, schema);
 df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
 ```
 
-Now you can read the data from SQL on-demand as follows:
+Now you can read the data from your serverless SQL pool as follows:
 
 ```sql
 SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
@@ -149,7 +149,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### Create an external table backed by Parquet in Spark and query from SQL on-demand
+### Create an external table backed by Parquet in Spark and query from serverless SQL pool
 
 In this example, create an external Spark table over the Parquet data files that got created in the previous example for the managed table.
 
@@ -163,7 +163,7 @@ CREATE TABLE mytestdb.myExternalParquetTable
 
 Replace the placeholder `<fs>` with the file system name that is the workspace default file system and the placeholder `<synapse_ws>` with the name of the synapse workspace you're using to run this example.
 
-The previous example creates the table `myExtneralParquetTable` in the database `mytestdb`. After a short delay, you can see the table in SQL on-demand. For example, run the following statement from SQL on-demand.
+The previous example creates the table `myExtneralParquetTable` in the database `mytestdb`. After a short delay, you can see the table in your serverless SQL pool. For example, run the following statement from your serverless SQL pool.
 
 ```sql
 USE mytestdb;
@@ -172,7 +172,7 @@ SELECT * FROM sys.tables;
 
 Verify that `myExternalParquetTable` is included in the results.
 
-Now you can read the data from SQL on-demand as follows:
+Now you can read the data from your serverless SQL pool as follows:
 
 ```sql
 SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';

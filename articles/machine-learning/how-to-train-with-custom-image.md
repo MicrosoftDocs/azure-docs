@@ -1,7 +1,7 @@
 ---
 title: Train a model by using a custom Docker image
 titleSuffix: Azure Machine Learning
-description: Learn how to train models with custom Docker images in Azure Machine Learning.
+description: Learn how to use your own Docker images, or curated ones from Microsoft, to train models in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -133,7 +133,7 @@ print(compute_target.get_status().serialize())
 
 ## Configure your training job
 
-For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
+For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/train/fastai/pets-resnet34/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
 
 Create a `ScriptRunConfig` resource to configure your job for running on the desired [compute target](how-to-set-up-training-targets.md).
 

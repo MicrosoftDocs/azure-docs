@@ -31,7 +31,8 @@ Currently, the supported list of Kubernetes services and distributions are the f
 - Open source, upstream Kubernetes typically deployed using kubeadm
 
 > [!IMPORTANT]
-> * The minimum supported version of Kubernetes is v1.14.
+> * The minimum supported version of Kubernetes is v1.17.
+> * The minimum supported version of OCP is 4.3.
 > * See the [connectivity requirements](connectivity.md) to understand what connectivity is required between your environment and Azure.
 > * See the [storage configuration guidance](storage-configuration.md) to understand the details of how to configure your persistent storage.
 > * If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.** The cluster should not span multiple availability zones. 

@@ -170,7 +170,7 @@ For VMware replication to Azure, you can modify disk size of source VMs. If you 
 
 ### Can I migrate on-premises machines to a new vCenter Server without impacting ongoing replication?
 
-No. A change of VMware Vcenter or migration will impact ongoing replication. Set up Site Recovery with the new vCenter Server and enable replication for machines again.
+Refer to our [guidance](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server) to migrate machines to a new vCenter
 
 ### Can I replicate to a cache or target storage account that has a virtual network (with Azure Firewalls) configured on it?
 

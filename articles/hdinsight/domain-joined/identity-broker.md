@@ -1,15 +1,15 @@
 ---
-title: Use ID Broker (preview) for credential management - Azure HDInsight
+title: Azure HDInsight ID Broker (HIB)
 description: Learn about Azure HDInsight ID Broker to simplify authentication for domain-joined Apache Hadoop clusters.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ---
 
-# Azure HDInsight ID Broker (preview)
+# Azure HDInsight ID Broker (HIB)
 
 This article describes how to set up and use the Azure HDInsight ID Broker feature. You can use this feature to get modern OAuth authentication to Apache Ambari while having multifactor authentication enforcement without needing legacy password hashes in Azure Active Directory Domain Services (Azure AD DS).
 
