@@ -11,7 +11,7 @@ Applications or processes running directly on an Azure Arc enabled servers can l
 
 Refer to the [managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, as well as the distinction between system-assigned and user-assigned identities.
 
-In this article, we show you how a server can use a system-assigned managed identity to access Azure [Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Azure Active Directory (AD). For example, TLS/SSL certificates used by your IIS web servers can be stored in Azure Key Vault, and securely deploy these certificates to Windows or Linux servers or virtual machines outside of Azure.
+In this article, we show you how a server can use a system-assigned managed identity to access Azure [Key Vault](../../key-vault/general/overview.md). Serving as a bootstrap, Key Vault makes it possible for your client application to then use a secret to access resources not secured by Azure Active Directory (AD). For example, TLS/SSL certificates used by your IIS web servers can be stored in Azure Key Vault, and securely deploy the certificates to Windows or Linux servers outside of Azure.
 
 ## Security overview
 
@@ -41,7 +41,7 @@ The system environment variable **IDENTITY_ENDPOINT** is used to discover the id
 - An Azure Key Vault to store and retrieve your credential. and assign the Azure Arc identity access to the KeyVault.
 
     - If you don't have a Key Vault created, see [Create Key Vault](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#create-a-key-vault-).
-    - To configure access by the managed identity used by the server, see [Grant access for Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) or [Grant access for Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). For step number 5, you are going to enter the name of the Arc enabled server.
+    - To configure access by the managed identity used by the server, see [Grant access for Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#grant-access) or [Grant access for Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#grant-access). For step number 5, you are going to enter the name of the Arc enabled server. To complete this using PowerShell, see [Assign an access policy using PowerShell](../../key-vault/general/assign-access-policy-powershell.md).
 
 ## Acquiring an access token using REST API
 
@@ -52,6 +52,21 @@ For an Arc enabled server, the steps to use the token are:
 1. In PowerShell, invoke the web request to get the token for the local host in the specific port for the server by specifying the following request using the uri or the environment variable **IDENTITY_ENDPOINT**:
 
     ```powershell
-    Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com%2F" -Headers @{ Metadata = "true" }
+    try {
+    Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com%2F" -Headers @{Metadata="true"} -Verbose:0
+    }
+    catch {
+        $response = $_.Exception.Response
+    }
+    # Identify the location on the local server/machine where the challenge token is stored.
+    $challengeToken = $response.Headers["WWW-Authenticate"].TrimStart("Basic realm=")
+    # Show the path to the Challenge Token
+    $challengeToken
+    # Read the token
+    $token = Get-Content $challengeToken
+    # Acquire the Access token
+    $responseAccessToken = Invoke-RestMethod -UseBasicParsing -Uri "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com%2F" -Headers @{Metadata="true"; Authorization="Basic $token"}
+    # Show the Access token
+    $responseAccessToken
     ```
 
