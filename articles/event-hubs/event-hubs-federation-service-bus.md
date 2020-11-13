@@ -21,9 +21,9 @@ Replication applications and tasks use the Azure Functions runtime and all the f
 
 In this article we lean on the concept of [configured tasks](event-hubs-federation-replicator-functions.md#configured-replication-tasks), which do not require you to write code, but rather leverage code that is already available. "Custom tasks" are explained in the sample application repositories linked below in [next steps](#next-steps) 
 
-### Start a new replication project 
+## Start a new replication project 
 
-Once you've [created a replication application in Azure Functions](event-hubs-federation-replicator-functions.md#configuring-a-replication-application), the easiest way to start new replication project is to clone the sample repository and use it as a baseline for developing your own tasks. You'll do this with `git` and providing a target directory, or you can clone the repository directly on Github.
+Once you've [created a replication application in Azure Functions](event-hubs-federation-replicator-functions.md#configuring-a-replication-application), the easiest way to start new replication project is to clone the sample repository and use it as a baseline for developing your own tasks. You'll do this with `git` and providing a target directory, or you can clone the repository directly on GitHub.
 
 ``` powershell 
 git clone https://github.com/Azure-Samples/azure-messaging-replication-dotnet {project-dir}
@@ -31,7 +31,7 @@ git clone https://github.com/Azure-Samples/azure-messaging-replication-dotnet {p
 
 In the `functions/config` folder of the repository you will find the [ConfigBaseApp](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/main/config/ConfigBaseApp) template project. Copy that entire project into a new, parallel directory. The [EventHubToEventHubCopy](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/main/config/EventHubToEventHubCopy) project shows an already completed copy task and you can use that as a reference.
 
-### Creating replication tasks 
+## Create replication tasks 
 
 To create a new replication task, first create a new folder underneath the project folder. The name of the new folder is the name of the function, for instance `EventHubAToQueueB`. The name has no real functional correlation with the messaging entities being used and serves only for you to identify them. You can create dozens of functions in the same project.
 
@@ -61,7 +61,7 @@ In that file, you need to complete three configuration steps that depend on whic
 1. [Configure the input direction](#configure-the-input-direction)
 2. [Configure the queue output direction](#service-bus-queue-output) or [topic output](#service-bus-topic-output)
 
-#### Configure the input direction
+### Configure the input direction
 
 To receive events from an Event Hub, add configuration information to the top section within "bindings" that sets
 
@@ -82,7 +82,7 @@ To receive events from an Event Hub, add configuration information to the top se
     ...
 ```
 
-#### Service Bus Queue output
+### Service Bus Queue output
 
 If you want to forward events to a Service Bus Queue, add configuration information to the bottom section within "bindings" that sets
 
@@ -106,7 +106,7 @@ If you want to forward events to a Service Bus Queue, add configuration informat
     ...
 ```
 
-#### Service Bus Topic output
+### Service Bus Topic output
 
 If you want to forward events to a Service Bus Topic, add configuration information to the bottom section within "bindings" that sets
 
@@ -130,18 +130,18 @@ If you want to forward events to a Service Bus Topic, add configuration informat
     ...
 ```
 
-### Build, Configure, Deploy
+## Build, Configure, Deploy
 
 Once you've created the tasks you need, you need to build the project, configure
 the (existing) application, and deploy the tasks.
 
-#### Build
+### Build
 
 The `Build-FunctionApp.ps1` PowerShell script will build the project and put all
 required files into the `./bin` folder immediately underneath the project root.
 This needs to be run after every change. 
 
-#### Configure
+### Configure
 
 The `Configure-Function.ps1` PowerShell script calls the shared `Update-PairingConfiguration.ps1` PowerShell script and needs to be run once for each task in an existing Function
 app, for the configured pairing.
@@ -187,7 +187,7 @@ Configure-Function.ps1 -ResourceGroupName "myreplicationapp"
 
 The script assumes that the messaging resources already exist. The configuration script will add the required configuration entries to the application configuration.
 
-#### Deploy
+### Deploy
 
 Once the build and Configure tasks are complete, the directory can be deployed into the Azure Functions app as-is. The `Deploy-FunctionApp.ps1` script simply calls the publish task of the Azure Functions tools:
 

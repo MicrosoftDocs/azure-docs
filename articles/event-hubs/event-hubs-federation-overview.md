@@ -9,13 +9,13 @@ ms.date: 09/15/2020
 
 Many sophisticated solutions require the same event streams to be made available
 for consumption in multiple locations and/or event streams to be collected in
-multiple locations and then consolidated into a specific locations for
-consumption. There is also often the need to enrich or reduce event streams or
-perform event format conversions, also for within a single region and solution.
+multiple locations and then consolidated into a specific location for
+consumption. There's also often the need to enrich or reduce event streams or
+do event format conversions, also for within a single region and solution.
 
 Practically, that means your solution will maintain multiple Event Hubs, often
 in different regions or namespaces, and replicate events between them, and/or
-that you will exchange events with sources and targets like [Azure Service
+that you'll exchange events with sources and targets like [Azure Service
 Bus](../service-bus-messaging/service-bus-messaging-overview.md), [Azure IoT
 Hub](../iot-fundamentals/iot-introduction.md), or [Apache
 Kafka](https://kafka.apache.org). 
@@ -30,22 +30,21 @@ flow path.
 
 ## Federation Patterns
 
-There are numerous potential motivations for why you may want to move events
+There are many potential motivations for why you may want to move events
 between different Event Hubs or other sources and targets, and we enumerate the
 most important patterns in this section and also link to concrete guidance for
 the respective pattern. 
 
-### Resiliency against regional availability events 
+## Resiliency against regional availability events 
 
 ![Regional
 Availability](media/event-hubs-federation-overview/regional-availability.jpg)
 
 While maximum availability and reliability are the top operational priorities
-for Event Hubs, there are nevertheless a lot of ways in which a producer or
-consumer might be prevented from talking to its assigned "primary" Event Hub due
-to networking or name resolution issues, or where an Event Hub might indeed be
-temporarily unresponsive or returning errors. Such conditions are generally not
-"disastrous" such that you will want to abandon the regional deployment
+for Event Hubs, there are nevertheless many ways in which a producer or
+consumer might be prevented from talking to its assigned "primary" Event Hub because of networking or name resolution issues, or where an Event Hub might indeed be
+temporarily unresponsive or returning errors. Such conditions aren't
+"disastrous" such that you'll want to abandon the regional deployment
 altogether as you might do in a disaster recovery situation, but the business
 scenario of some applications might already be impacted by availability events
 that last not more than a few minutes or even seconds. 
@@ -53,7 +52,7 @@ that last not more than a few minutes or even seconds.
 Guidance: 
 - [Replication pattern](event-hubs-federation-patterns.md#replication)
 
-### Latency optimization 
+## Latency optimization 
 
 ![Latency
 Optimization](media/event-hubs-federation-overview/latency-optimization.jpg)  
@@ -63,13 +62,13 @@ by event consumers. For scenarios where an event stream in a region is shared by
 multiple consumers, and needs to be accessed repeatedly during analytics
 processing residing in a different region, or with throughout demands that would
 starve out concurrent consumers, it may be beneficial to place a copy of the
-event stream near the analytics processor in order to reduce the roundtrip
+event stream near the analytics processor to reduce the roundtrip
 latency. 
 
 Guidance: 
 - [Replication pattern](event-hubs-federation-patterns.md#replication)
 
-### Validation, reduction, and enrichment
+## Validation, reduction, and enrichment
 
 ![Validation, reduction,
 enrichment](media/event-hubs-federation-overview/validation-enrichment.jpg)  
@@ -83,9 +82,9 @@ some may have to be enriched by adding data based on reference data lookups.
 Guidance: 
 - [Editor pattern](event-hubs-federation-patterns.md#editor)
 
-### Integration with analytics services
+## Integration with analytics services
 
-![Integration](media/event-hubs-federation-overview/integration.jpg)
+![Integration with analytics services](media/event-hubs-federation-overview/integration.jpg)
 
 Several of Azure's cloud-native analytics services like Azure Stream Analytics
 or Azure Synapse work best with streamed or pre-batched data served up from
@@ -98,14 +97,14 @@ packages.
 Guidance: 
 - [Replication pattern](event-hubs-federation-patterns.md#replication)
 
-### Consolidation and normalization of event streams
+## Consolidation and normalization of event streams
 
-![Consolidation](media/event-hubs-federation-overview/consolidation.jpg)
+![Consolidation and normalization of event streams](media/event-hubs-federation-overview/consolidation.jpg)
 
 Global solutions are often composed of regional footprints that are largely
 independent including having their own analytics capabilities, but
 supra-regional and global analytics perspectives will require an integrated
-perspective and therefore a central consolidation of the same event streams that
+perspective and that's why a central consolidation of the same event streams that
 are evaluated in the respective regional footprints for the local perspective. 
 
 Normalization is a flavor of the consolidation scenario, whereby two or more
@@ -121,14 +120,14 @@ Guidance:
 - [Merge pattern](event-hubs-federation-patterns.md#merge)
 - [Editor pattern](event-hubs-federation-patterns.md#editor)
 
-### Splitting and routing of event streams
+## Splitting and routing of event streams
 
-![Splitting](media/event-hubs-federation-overview/splitting.jpg)
+![Splitting and routing of event streams](media/event-hubs-federation-overview/splitting.jpg)
 
 Azure Event Hubs is occasionally used in "publish-subscribe" style scenarios
 where an incoming torrent of ingested events far exceeds the capacity of Azure
 Service Bus or Azure Event Grid, both of which have native publish-subscribe
-filtering and distribution capabilities and are generally preferred for this
+filtering and distribution capabilities and are preferred for this
 pattern. 
 
 While a true "publish-subscribe" capability leaves it to subscribers to pick the
@@ -136,12 +135,12 @@ events they want, the splitting pattern has the producer map events to
 partitions by a predetermined distribution model and designated consumers then
 exclusively pull from "their" partition. With the Event Hub buffering the
 overall traffic, the content of a particular partition, representing a fraction
-of he original throughput volume, may then be replicated into a queue for
+of the original throughput volume, may then be replicated into a queue for
 reliable, transactional, competing consumer consumption.
 
 Many scenarios where Event Hubs is primarily used for moving events within an
 application within a region have some cases where select events, maybe just from
-a single partition, also have to be made available elsewhere. This is similar to
+a single partition, also have to be made available elsewhere. This scenario is similar to
 the splitting scenario, but might use a scalable router that considers all the
 messages arriving in an Event Hub and cherry-picks just a few for onward routing
 and might differentiate routing targets by event metadata or content. 
@@ -149,7 +148,7 @@ and might differentiate routing targets by event metadata or content.
 Guidance:
 - [Routing pattern](event-hubs-federation-patterns.md#routing)
 
-### Replication applications in Azure Functions
+## Replication applications in Azure Functions
 
 Implementing the patterns above requires a scalable and reliable execution
 environment for the replication tasks that you want to configure and run. On
@@ -181,8 +180,7 @@ Storage](/azure-functions/functions-bindings-storage-queue.md), as well as
 custom extensions for
 [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension), and
 [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). Most
-triggers will dynamically adapt to the throughput needs by scaling the number of
-concurrently executing instance up and down based on documented metrics. 
+triggers will dynamically adapt to the throughput needs by scaling the number of concurrently executing instances up and down based on documented metrics. 
 
 With the Azure Functions consumption plan, the prebuilt triggers can even scale
 down to zero while no messages are available for replication, which means you
@@ -194,7 +192,7 @@ where the infrastructure is kept running.
 In contrast to all of this, most common replication engines for messaging and
 eventing, such as Apache Kafka's
 [MirrorMaker](http://kafka.apache.org/documentation/#basic_ops_mirror_maker)
-require you to provide a hosting environment and manage scaling the replication
+require you to provide a hosting environment and scale the replication
 engine yourself. That includes configuring and integrating the security and
 networking features and facilitating the flow of monitoring data, and then you
 usually still don't have an opportunity to inject custom replication tasks into
