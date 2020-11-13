@@ -115,7 +115,7 @@ When you create your ISE, you can choose to use either internal or external acce
 * **Internal**: Private endpoints permit calls to logic apps in your ISE where you can view and access inputs and outputs from logic apps' runs history *only from inside your virtual network*.
 
   > [!IMPORTANT]
-  > If you need to use these connectors where the triggers are webhook-based, choose external endpoints when you create your ISE, *not internal endpoints*:
+  > If you need to use these webhook-based triggers, use external endpoints, *not* internal endpoints, when you create your ISE:
   > 
   > * Azure DevOps
   > * Azure Event Grid
