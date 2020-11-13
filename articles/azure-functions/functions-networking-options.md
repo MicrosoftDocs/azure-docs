@@ -25,18 +25,36 @@ You can host function apps in a couple of ways:
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## Inbound IP restrictions
+## Inbound access restrictions
 
-You can use IP restrictions to define a priority-ordered list of IP addresses that are allowed or denied access to your app. The list can include IPv4 and IPv6 addresses. When there are one or more entries, an implicit "deny all" exists at the end of the list. IP restrictions work with all function-hosting options.
+You can use access restrictions to define a priority-ordered list of IP addresses that are allowed or denied access to your app. The list can include IPv4 and IPv6 addresses, or specific virtual network subnets using [service endpoints](#use-service-endpoints). When there are one or more entries, an implicit "deny all" exists at the end of the list. IP restrictions work with all function-hosting options.
+
+Access restrictions are available in the [Premium](functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan), and [App Service](functions-scale.md#app-service-plan).
 
 > [!NOTE]
-> With network restrictions in place, you can use the portal editor only from within your virtual network, or when you've put the IP address of the machine you're using to access the Azure portal on the Safe Recipients list. However, you can still access any features on the **Platform features** tab from any machine.
+> With network restrictions in place, you can deploy only from within your virtual network, or when you've put the IP address of the machine you're using to access the Azure portal on the Safe Recipients list. However, you can still manage the function using the portal.
 
 To learn more, see [Azure App Service static access restrictions](../app-service/app-service-ip-restrictions.md).
 
-## Private site access
+### Use service endpoints
+
+By using service endpoints, you can restrict access to selected Azure virtual network subnets. To restrict access to a specific subnet, create a restriction rule with a **Virtual Network** type. You can then select the subscription, virtual network, and subnet that you want to allow or deny access to. 
+
+If service endpoints aren't already enabled with Microsoft.Web for the subnet that you selected, they'll be automatically enabled unless you select the **Ignore missing Microsoft.Web service endpoints** check box. The scenario where you might want to enable service endpoints on the app but not the subnet depends mainly on whether you have the permissions to enable them on the subnet. 
+
+If you need someone else to enable service endpoints on the subnet, select the **Ignore missing Microsoft.Web service endpoints** check box. Your app will be configured for service endpoints in anticipation of having them enabled later on the subnet. 
+
+![Screenshot of the "Add IP Restriction" pane with the Virtual Network type selected.](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+
+You can't use service endpoints to restrict access to apps that run in an App Service Environment. When your app is in an App Service Environment, you can control access to it by applying IP access rules. 
+
+To learn how to set up service endpoints, see [Establish Azure Functions private site access](functions-create-private-site-access.md).
+
+## Private endpoint connections
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
+
+To call other services that have a private endpoint connection, such as storage or service bus, be sure to configure your app to make [outbound calls to private endpoints](#private-endpoints).
 
 ## Virtual network integration
 
@@ -64,7 +82,7 @@ To learn more, see [Virtual network service endpoints](../virtual-network/virtua
 
 ## Restrict your storage account to a virtual network (preview)
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage.  You can replace this storage account with one that is secured with service endpoints or private endpoint.  This preview feature currently only works with Windows Premium plans in West Europe.  To setup a function with a storage account restricted to a private network:
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage.  You can replace this storage account with one that is secured with service endpoints or private endpoint.  This preview feature currently only works with Windows Premium plans in West Europe.  To set up a function with a storage account restricted to a private network:
 
 > [!NOTE]
 > Restricting the storage account only currently works for Premium functions using Windows in West Europe
@@ -75,7 +93,7 @@ When you create a function app, you must create or link to a general-purpose Azu
 1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-file-share) in the secured storage account.
 1. Enable service endpoints or private endpoint for the storage account.  
     * Be sure to enable the subnet dedicated to your function apps if using a service endpoint.
-    * Be sure to create a DNS record and configure your app to [work with private endpoint endpoints](#azure-dns-private-zones) if using private endpoint.  The storage account will need a private endpoint for the `file` and `blob` sub-resources.  If using certain capabilities like Durable Functions you will also need `queue` and `table` accessible through a private endpoint connection.
+    * Be sure to create a DNS record and configure your app to [work with private endpoint endpoints](#azure-dns-private-zones) if using private endpoint.  The storage account will need a private endpoint for the `file` and `blob` subresources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.
 1. (Optional) Copy the file and blob content from the function app storage account to the secured storage account and file share.
 1. Copy the connection string for this storage account.
 1. Update the **Application Settings** under **Configuration** for the function app to the following:
@@ -154,7 +172,7 @@ When you integrate a function app in a Premium plan or an App Service plan with 
 ## Automation
 The following APIs let you programmatically manage regional virtual network integrations:
 
-+ **Azure CLI**: Use the [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) commands to add, list, or remove a regional virtual network integrations.  
++ **Azure CLI**: Use the [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) commands to add, list, or remove a regional virtual network integration.  
 + **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## Troubleshooting
