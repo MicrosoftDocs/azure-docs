@@ -1,6 +1,6 @@
 ---
 title: Application types for Microsoft identity platform | Azure
-description: The types of apps and scenarios supported by the Microsoft identity platform (v2.0) endpoint.
+description: The types of apps and scenarios supported by the Microsoft identity platform endpoint.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev, fasttrack-edit
+ms.custom: aaddev, fasttrack-edit, contperfq2
 ---
 
 # Application types for Microsoft identity platform
 
-The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Microsoft identity platform, regardless of your preferred language or platform. The information is designed to help you understand high-level scenarios before you [start working with the code](v2-overview.md#getting-started).
+The Microsoft identity platform endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Microsoft identity platform, regardless of your preferred language or platform. The information is designed to help you understand high-level scenarios before you start working with the code in the [application scenarios.md#application-scenarios](authentication-flows-app-scenarios.md).
 
 ## The basics
 
