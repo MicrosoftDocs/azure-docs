@@ -20,7 +20,7 @@ ms.custom: devx-track-js
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [Postman](search-get-started-rest.md)
 
 
 Use the [Javascript/Typscript SDK for Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest) to create a Node.js application in JavaScript that creates, loads, and queries a search index.

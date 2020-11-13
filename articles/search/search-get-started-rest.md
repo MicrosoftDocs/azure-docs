@@ -21,13 +21,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ::: zone pivot="url-test-tool-rest-postman"
 
-[!INCLUDE [Send requests using Postman](../includes/search-get-started-rest-postman.md)]
+[!INCLUDE [Send requests using Postman](includes/search-get-started-rest-postman.md)]
 
 ::: zone-end
 
 ::: zone pivot="url-test-tool-rest-vscode-ext"
 
-[!INCLUDE [Send requests using Visual Studio Code](../includes/search-get-started-rest-vscode-ext.md)]
+[!INCLUDE [Send requests using Visual Studio Code](includes/search-get-started-rest-vscode-ext.md)]
 
 ::: zone-end
 

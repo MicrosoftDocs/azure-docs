@@ -19,7 +19,7 @@ ms.custom: devx-track-python
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](./search-get-started-powershell.md)
 > * [C#](./search-get-started-dotnet.md)
-> * [Postman (REST)](search-get-started-postman.md)
+> * [Postman (REST)](search-get-started-rest.md)
 > * [Portal](search-get-started-portal.md)
 > 
 
