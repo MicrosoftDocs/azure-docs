@@ -185,6 +185,31 @@ Recent changes to SMB Multichannel config settings without a remount.
 -	After any changes to Windows SMB client or account SMB multichannel configuration settings, you have to unmount the share, wait for 60 secs, and remount the share to trigger the multichannel.
 -	For Windows client OS, generate IO load with high queue depth say QD=8, for example copying a file to trigger SMB Multichannel.  For server OS, SMB Multichannel is triggered with QD=1, which means as soon as you start any IO to the share.
 
+## High latency on web sites hosted on file shares 
+
+### Cause  
+
+High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change (ReadDirectoryChangesW) on the share that SMB client is registered for  pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
+
+To confirm, you can use Azure Metrics in the portal - 
+
+1. In the Azure portal, go to your storage account. 
+1. In the left menu, under Monitoring, select Metrics. 
+1. Select File as the metric namespace for your storage account scope. 
+1. Select Transactions as the metric. 
+1. Add a filter for ResponseType and check to see if any requests have a response code of SuccessWithThrottling (for SMB) or ClientThrottlingError (for REST).
+
+### Solution 
+
+- If file change notification is not used,  disable file change notification (preferred).
+    - [Disable file change notification](https://support.microsoft.com/help/911272/fix-asp-net-2-0-connected-applications-on-a-web-site-may-appear-to-sto) by updating FCNMode. 
+    - Update the IIS Worker Process (W3WP) polling interval to 0 by setting `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` in your registry and restart the W3WP process. To learn about this setting, see [Common registry keys that are used by many parts of IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
+- Increase frequency of the file change notification polling interval to reduce volume.
+    - Update the W3WP worker process polling interval to a higher value (e.g. 10mins or 30mins) based on your requirement. Set `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [in your registry](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) and restart the W3WP process.
+- If your web site's mapped  physical directory has nested directory structure, you can try to limit scope of file change notification to reduce the notification volume.
+    - By default, IIS uses configuration from Web.config files in the physical directory to which the virtual directory is mapped, as well as in any child directories in that physical directory. If you do not want to use Web.config files in child directories, specify false for the allowSubDirConfig attribute on the virtual directory. More details can be found [here](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+
+Set IIS  virtual directory "allowSubDirConfig" setting in Web.Config to false to exclude mapped physical child directories from the scope.  
 
 ## How to create an alert if a file share is throttled
 
