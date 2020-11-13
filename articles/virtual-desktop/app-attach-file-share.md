@@ -28,6 +28,7 @@ The following table gives an example of how many resources a single 1 GB MSIX im
 |----------------------|--------------|
 | Steady state IOPs    | 1 IOPs       |
 | Machine boot sign in | 10 IOPs      |
+| Latency              | 400 ms       |
 
 Requirements can vary widely depending how many MSIX-packaged applications are stored in the MSIX image. For larger MSIX images, you'll need to allocate more bandwidth.
 
@@ -44,10 +45,10 @@ Here are some other things we recommend you do to optimize MSIX app attach perfo
    
     - <MSIXAppAttachFileShare\>\*.VHD
     - <MSIXAppAttachFileShare\>\*.VHDX
-    - <MSIXAppAttachFileShare\>TEMP\*.VHD
-    - <MSIXAppAttachFileShare\>TEMP\*.VHDX
     - \\\\storageaccount.file.core.windows.net\\share\*\*.VHD
     - \\\\storageaccount.file.core.windows.net\\share\*\*.VHDX
+    - <MSIXAppAttachFileShare>*.CIM
+    - \\\\storageaccount.file.core.windows.net\\share\*\*.CIM
 
 - Separate the storage fabric for MSIX app attach from FSLogix profile containers.
 - All VM system accounts and user accounts must have read-only permissions to access the file share.
@@ -55,27 +56,31 @@ Here are some other things we recommend you do to optimize MSIX app attach perfo
 
 ## How to set up the file share
 
-The setup process for MSIX app attach file share is largely the same as [the setup process for FSLogix profile file shares](create-host-pools-user-profile.md). However, you will need to assign your users a different permission type, as MSIX app attach requires read-only permissions to access the file share.
+The setup process for MSIX app attach file share is largely the same as [the setup process for FSLogix profile file shares](create-host-pools-user-profile.md). However, you'll need to assign users different permissions. MSIX app attach requires read-only permissions to access the file share.
 
-If you're storing your MSIX applications in Azure Files, then for your session hosts, you'll need to assign the VMs a managed service identity (MSI) to use in defining role-based access control (RBAC) permissions on the share.
+If you're storing your MSIX applications in Azure Files, then for your session hosts, you'll need to assign all session host VMs both storage account role-based access control (RBAC) and file share New Technology File System (NTFS) permissions on the share.
 
-To assign an MSI that will let the VM access the file share:
+To assign session host VMs permissions for the storage account and file share:
 
-1. Open the **Virtual machines** tab in the Azure portal, select the session host VM you want to assign an identity to, then go to **VM** > **Identity**.
+1. Create an Azure Active Directory Domain Services (AD DS) security group.
 
-2. Add a system-assigned identity to the VM.
+2. Add the computer accounts for all session host VMs as members of the group.
 
-3. Select **Access Control (IAM)**.
+3. Sync the Azure AD DS group to Azure AD.
 
-4. Select **Azure role assignments**.
+4. Create a storage account.
 
-5. Go to **Scope** > **Storage**.
+5. Create a file share under the storage account.
 
-6. Select the name of the storage account you want to assign.
+6. Join the storage account to AD DS
 
-7. Go to **Role select**, then select the **Storage File Data SMB Share Reader** role. This will grant the storage account for the VM access to the MSIX application.
+7. Assign the synced AD DS group to Azure AD, and assign the storage account the Storage File Data SMB Share Contributor role.
 
-8.  When you're done, select **Save**.
+8. Mount the file share to any session host.
+
+9. Grant NTFS permissions on the file share to the AD DS group.
+
+10. Set up NTFS permissions for the user accounts. You'll need an operating unit (OU) sourced from the AD DS that the accounts in the VM belong to.
 
 Once you've assigned the identity to your storage, follow the instructions in the articles in [Next steps](#next-steps) to grant other required permissions to the identity you've assigned to the VMs.
 
