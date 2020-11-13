@@ -29,6 +29,10 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
     ```
 1. In the notebook, choose a serverless Spark pool in the **Attach to** menu
 1. Select **Run** on the cell
+1. If you just want to see the schema of the dataframe run a cell with the following code:
+    ```
+    data_df.printSchema()
+    ```
 
 ## Load the NYC Taxi data into the Spark nyctaxi database
 
