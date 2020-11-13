@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 11/19/2020
 ms.author: aahi
 ---
 
@@ -20,19 +20,11 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ### General API updates
 
-* A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) with Text Analytics API v3.1-preview.3 for the new asynchronous `Analyze API` to support batch processing of NER, PII and KPE.
-* A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) with Text Analytics API v3.1-preview.3 for the new asynchronous `Text Analytics for health` hosted API with support for batch processing.
-* Both new features listed above are available in `West US2`, `East US2`, `Central US`, `North Europe` and `West Europe` regions.
-* pt-BR (Portuguese) support for Sentiment Analysis v3.x, starting with model version `2020-04-01`. It adds to the existing pt-PT support for Portuguese.
-
-> [!div class="nextstepaction"]
-> [Learn more about Text Analytics API v3.1-Preview.3](quickstarts/text-analytics-sdk.md)
-
-> [!div class="nextstepaction"]
-> [Learn more about Sentiment Analysis v3](how-tos/text-analytics-how-to-sentiment-analysis.md)
-
-> [!div class="nextstepaction"]
-> [Learn more about Text Analytics for health](how-tos/text-analytics-for-health.md)
+* A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) with Text Analytics API v3.1-preview.3 for the new asynchronous Analyze API, which supports batch processing for: NER, PII, and key phrase extraction operations.
+* A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) with Text Analytics API v3.1-preview.3 for the new asynchronous [Text Analytics for health](how-tos/text-analytics-for-health.md) hosted API with support for batch processing.
+* Both new features listed above are available in:  West US2, East US2, Central US, North Europe and West Europe regions.
+* pt-BR (Portuguese) support for [Sentiment Analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x, starting with model version `2020-04-01`. It adds to the existing pt-PT support for Portuguese.
+* [Updated quickstarts](quickstarts/text-analytics-sdk.md) for v3.1-preview.3 of the API. 
 
 ## October 2020
 

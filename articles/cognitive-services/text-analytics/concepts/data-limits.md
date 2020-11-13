@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/14/2020
+ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
 ---
@@ -28,10 +28,10 @@ Use this article to find the limits for the size, and rates that you can send da
 | Limit | Value |
 |------------------------|---------------|
 | Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Also applies to the Text Analytics for health container. |
-| Analyze API (preview) - Maximum size of a single document | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Does not apply to Text Analytics for health. Analyze API will reject the whole request if any document exceeds the max size (125K characters)|
+| Maximum size of a single document - Analyze API (preview)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Does not apply to Text Analytics for health. |
 | Maximum size of entire request | 1 MB. Also applies to the Text Analytics for health container. |
 
-The maximum number of documents you can send in a single request will depend on the API version and feature you're using.
+The maximum number of documents you can send in a single request will depend on the API version and feature you're using. The Analyze feature of the API will reject the entire request if any document exceeds the max size (125K characters)
 
 #### [Version 3](#tab/version-3)
 
@@ -46,7 +46,8 @@ The following limits are for the current v3 API. Exceeding the limits below will
 | Key Phrase Extraction | 10 |
 | Named Entity Recognition | 5 |
 | Entity Linking | 5 |
-| Text Analytics for health  | 10 for web API; 1000 for container|
+| Text Analytics for health  | 10 for the web-based API, 1000 for the container. |
+
 #### [Version 2](#tab/version-2)
 
 | Feature | Max Documents Per Request | 
@@ -56,8 +57,8 @@ The following limits are for the current v3 API. Exceeding the limits below will
 | Key Phrase Extraction | 1000 |
 | Named Entity Recognition | 1000 |
 | Entity Linking | 1000 |
+| Analyze API | 25 for all features |
 
-For Analyse API, Max Documents Per Request is 25 for all features.
 ---
 
 ## Rate limits
@@ -73,7 +74,7 @@ Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/p
 | S3            | 500                 | 500                 |
 | S4            | 1000                | 1000                |
 
-Requests are measured for each Text Analytics feature separately. For example, you can send the maximum number of requests for your pricing tier to each feature, at the same time. So if you send 1000 requests at time=T1 then for next 59 seconds you cannot send another request in S tier.
+Requests are measured for each Text Analytics feature separately. For example, you can send the maximum number of requests for your pricing tier to each feature, at the same time. As an example, if you're in the `S` tier and send 1000 requests at once, you wouldn't be able to send another request for 59 seconds.
 
 
 ## See also

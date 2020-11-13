@@ -52,10 +52,14 @@ This command:
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 - Automatically removes the container after it exits. The container image is still available on the host computer.
 
-### Demo UI to visualize output (Container only)
-The container provides REST-based query prediction endpoint APIs.  We have also provided a visualization tool in the container that is accessible by appending the **demo** to the endpoint of the container for example:
+### Demo UI to visualize output
 
-```bash
+> [!NOTE]
+> The demo is only available with the Text Analytics for health container.
+
+The container provides REST-based query prediction endpoint APIs.  We have also provided a visualization tool in the container that is accessible by appending `/demo` to the endpoint of the container. For example:
+
+```
 http://<serverURL>:5000/demo
 ```
 
