@@ -133,7 +133,7 @@ ForecastTCN (Preview)| ForecastTCN is a neural network model designed to tackle 
 
 Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. For forecasting tasks, there are additional parameters that must be set that affect the experiment. 
 
-The following table summarizes these additional parameters. See the [ForecastingParameter class reference documentation](python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) for syntax design patterns.
+The following table summarizes these additional parameters. See the [ForecastingParameter class reference documentation](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) for syntax design patterns.
 
 | Parameter&nbsp;name | Description | Required |
 |-------|-------|-------|
@@ -144,7 +144,7 @@ The following table summarizes these additional parameters. See the [Forecasting
 |`target_lags`|Number of rows to lag the target values based on the frequency of the data. The lag is represented as a list or single integer. Lag should be used when the relationship between the independent variables and dependent variable doesn't match up or correlate by default. ||
 |`feature_lags`| The features to lag will be automatically decided by automated ML when `target_lags` are set and `feature_lags` is set to `auto`. Enabling feature lags may help to improve accuracy. Feature lags are disabled by default. ||
 |`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model. Learn more about [target rolling window aggregation](#target-rolling-window-aggregation).||
-|`short_series_handling_config`| Enables short time series handling to avoid failing during training due to insufficient data. Short series handling is set to `auto` by default. Learn more about [short series handling](#short-sereis-handling).|
+|`short_series_handling_config`| Enables short time series handling to avoid failing during training due to insufficient data. Short series handling is set to `auto` by default. Learn more about [short series handling](#short-series-handling).|
 
 
 The following code, 
@@ -283,7 +283,7 @@ View a Python code example leveraging the [target rolling window aggregate featu
 
 ### Short series handling
 
-Automated ML considers a time series a **short series** if there are not enough data points to conduct the train and validation phases of model development. The number of data points varies for each experiments, and depends on  the max_horizon, the number of cross validation splits, and the length of the model lookback, the maximum of history that's needed to construct the time-series features. For the exact calculation see the [short_series_handling_config reference documentation](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling).
+Automated ML considers a time series a **short series** if there are not enough data points to conduct the train and validation phases of model development. The number of data points varies for each experiment, and depends on  the max_horizon, the number of cross validation splits, and the length of the model lookback, that is the maximum of history that's needed to construct the time-series features. For the exact calculation see the [short_series_handling_config reference documentation](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling).
 
 Automated ML offers short series handling by default with the `short_series_handling_config` parameter in the `ForecastingParameters` object. 
 
