@@ -151,7 +151,7 @@
   items:
   - name: Shared concepts
     items:
-    - name: Understand Kubernetes (Preview)
+    - name: Understand Kubernetes
       items:
       - name: What is Kubernetes?
         href: azure-stack-edge-gpu-kubernetes-overview.md  
@@ -177,17 +177,19 @@
         href: azure-stack-edge-gpu-deploy-sample-module.md 
       - name: GPU module via Marketplace
         href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md 
-    - name: Deploy Kubernetes workloads (Preview)
+    - name: Deploy Kubernetes workloads
       items:
       - name: Via kubectl
         items: 
         - name: Kubernetes cluster access
-          href: azure-stack-edge-gpu-create-kubernetes-cluster.md 
+          href: azure-stack-edge-gpu-create-kubernetes-cluster.md
+        - name: Compute acceleration
+          href: azure-stack-edge-gpu-deploy-compute-acceleration.md 
         - name: Stateless app
           href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md 
-        - name: Static provisioned stateful app 
+        - name: Statically provisioned stateful app 
           href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md 
-        - name: Dynamic provisioned stateful app
+        - name: Dynamically provisioned stateful app
           href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md         
       - name: Via IoT Edge
         items:
@@ -234,7 +236,9 @@
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-j-series-certificate-troubleshooting.md 
     - name: Manage Edge compute 
-      href: azure-stack-edge-j-series-manage-compute.md 
+      href: azure-stack-edge-j-series-manage-compute.md
+    - name: Manage Edge container registry
+      href: azure-stack-edge-gpu-edge-container-registry.md 
     - name: Manage storage gateway
       items:
       - name: Add, connect to share
@@ -271,6 +275,8 @@
         href: azure-stack-edge-monitor.md 
       - name: Using Kubernetes dashboard
         href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md 
+      - name: Using Azure Monitor
+        href: azure-stack-edge-gpu-enable-azure-monitor.md
     - name: Troubleshoot
       items:
       - name: Device issues 
@@ -283,9 +289,11 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2010 - GA
+    - name: 2011 - Current 
+      href: azure-stack-edge-gpu-2011-release-notes.md
+    - name: 2010 
       href: azure-stack-edge-gpu-2009-release-notes.md 
-    - name: 2008 - Preview
+    - name: 2008 
       href: azure-stack-edge-gpu-2008-release-notes.md 
   
   - name: Shared reference
