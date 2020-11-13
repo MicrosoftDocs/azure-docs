@@ -94,7 +94,7 @@ To expand the MSIX image:
 
 ## Upload MSIX image to share
 
-After you've created the MSIX package, you'll need to upload the VHD/VHDx image to a share where your users' virtual machines can access it.
+After you've created the MSIX package, you'll need to upload the resulting VHD, VHDX, or CIM file to a share where your users' virtual machines can access it.
 
 ## Next steps
 
