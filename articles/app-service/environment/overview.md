@@ -27,7 +27,7 @@ App Service environments (ASEs) are appropriate for application workloads that r
 - High scale.
 - Isolation and secure network access.
 - High memory utilization.
-- Customers can create multiple ASEs within a single Azure region or across multiple Azure regions. This flexibility makes ASEs ideal for horizontally scaling stateless application tiers in support of high requests per second (RPS) workloads.
+- High requests per second (RPS). You can make multiple ASEs in a single Azure region or across multiple Azure regions. This flexibility makes ASEs ideal for horizontally scaling stateless applications with a high RPS requirement.
 
 ASE's host applications from only one customer and do so in one of their VNets. Customers have fine-grained control over inbound and outbound application network traffic. Applications can establish high-speed secure connections over VPNs to on-premises corporate resources.
 
@@ -40,13 +40,13 @@ Apps running on ASEs can have their access gated by upstream devices, such as we
 
 The App Service Environment has many use cases including:
 
-- Internal line of business applications
+- Internal line-of-business applications
 - Applications that need more than 30 ASP instances
 - Single tenant system to satisfy internal compliance or security requirements
 - Network isolated application hosting
 - Multi-tier applications
 
-There're a number of networking features that enable apps in the multi-tenant App Service to reach network isolated resources or become network isolated themselves. These features are enabled at the application level.  With an ASE, there's no additional configuration on the apps for them to be in the VNet. The apps are deployed into a network isolated environment that is already in a VNet. On top of the ASE hosting network isolated apps, it's also a single-tenant system. There're no other customers using the ASE. If you really need a complete isolation story, you can also get your ASE deployed onto dedicated hardware. Between network isolated application hosting, single tenancy, and the ability 
+There are a number of networking features that enable apps in the multi-tenant App Service to reach network isolated resources or become network isolated themselves. These features are enabled at the application level.  With an ASE, there's no additional configuration on the apps for them to be in the VNet. The apps are deployed into a network isolated environment that is already in a VNet. On top of the ASE hosting network isolated apps, it's also a single-tenant system. There are no other customers using the ASE. If you really need a complete isolation story, you can also get your ASE deployed onto dedicated hardware. Between network isolated application hosting, single tenancy, and the ability 
 
 ## Dedicated environment
 An ASE is dedicated exclusively to a single subscription and can host 200 App Service Plan instances. The range can span 100 instances in a single App Service plan to 100 single-instance App Service plans, and everything in between.
@@ -73,7 +73,7 @@ Apps also frequently need to access corporate resources such as internal databas
 ## Preview
 The App Service Environment v3 is in public preview.  Some features are being added during the preview progression. The current limitations of ASEv3 include:
 
-- Inability to scale an App Service plan beyond 5 instances
+- Inability to scale an App Service plan beyond five instances
 - Inability to get a container from a private registry
 - Inability for currently unsupported App Service features to go through customer VNet
 - No external deployment model with an internet accessible endpoint
@@ -85,4 +85,4 @@ The App Service Environment v3 is in public preview.  Some features are being ad
 ### ASEv3 preview architecture
 In ASEv3 preview, the ASE will use private endpoints to support inbound traffic. The private endpoint will be replaced with load balancers by GA. While in preview, the ASE won't have built in support for an internet accessible endpoint. You could add an Application Gateway for such a purpose. The ASE needs resources in two subnets.  Inbound traffic will flow through a private endpoint. The private endpoint can be placed in any subnet so long as it has an available address that can be used by private endpoints.  The outbound subnet must be empty and delegated to Microsoft.Web/hostingEnvironments. While used by the ASE, the outbound subnet can't be used for anything else.
 
-With ASEv3, there're no inbound or outbound networking requirements on the ASE subnet. You can control the traffic with Network Security Groups and Route Tables and it only will affect your application traffic. Don't delete the private endpoint associated with your ASE as that action can't be undone. The private endpoint used for the ASE is used for all of the apps in the ASE. 
+With ASEv3, there are no inbound or outbound networking requirements on the ASE subnet. You can control the traffic with Network Security Groups and Route Tables and it only will affect your application traffic. Don't delete the private endpoint associated with your ASE as that action can't be undone. The private endpoint used for the ASE is used for all of the apps in the ASE. 
