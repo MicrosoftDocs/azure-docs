@@ -435,6 +435,9 @@ The `ph` element is used to for phonetic pronunciation in SSML documents. The `p
 
 Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter may represent multiple spoken sounds. Consider the different pronunciations of the letter "c" in the words "candy" and "cease", or the different pronunciations of the letter combination "th" in the words "thing" and "those".
 
+> [!NOTE]
+> Phonemes tag is not supported for these 5 voices (et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural and mt-MT-GarceNeural) at the moment.
+
 **Syntax**
 
 ```XML
@@ -480,6 +483,10 @@ Sometimes the text-to-speech service cannot accurately pronounce a word. For exa
 
 > [!NOTE]
 > Custom lexicon currently supports UTF-8 encoding. 
+
+> [!NOTE]
+> Custom lexicon is not supported for these 5 voices (et-EE-AnuNeural, ga-IE-OrlaNeural, lt-LT-OnaNeural, lv-LV-EveritaNeural and mt-MT-GarceNeural) at the moment.
+
 
 **Syntax**
 
