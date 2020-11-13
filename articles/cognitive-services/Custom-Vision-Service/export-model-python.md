@@ -16,7 +16,7 @@ ms.custom: devx-track-python
 
 # Tutorial: Run TensorFlow model in Python
 
-After you have [exported your TensorFlow model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
+After you have [exported your TensorFlow model](./export-your-model.md) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
 
 > [!NOTE]
 > This tutorial applies only to models exported from image classification projects.
