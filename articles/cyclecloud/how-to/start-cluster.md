@@ -21,7 +21,7 @@ the event log on the Clusters page. You can edit your node settings and retry th
 
 ::: moniker range=">=cyclecloud-8"
 :::image type="content" source="~/images_8x/start-cluster.png" alt-text="start cluster dialog":::
-::: moniker-en
+::: moniker-end
 
 ## Starting via CycleCloud CLI
 
