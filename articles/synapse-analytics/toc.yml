@@ -1,6 +1,6 @@
-- name: Azure Synapse (workspaces preview)
-  href: sql-data-warehouse/index.yml
-- name: Switch to Azure Synapse (formerly SQL DW)
+- name: Azure Synapse Analytics
+  href: index.yml
+- name: Switch to dedicated SQL pool (formerly SQL DW)
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Overview
   items:
@@ -637,7 +637,7 @@
         href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure SQL Managed Instance
         href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Azure Synapse Analytics (formerly SQL Data Warehouse)
+      - name: Azure Synapse Analytics
         href: ../data-factory/connector-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure Table Storage
         href: ../data-factory/connector-azure-table-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

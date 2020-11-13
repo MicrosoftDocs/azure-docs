@@ -7,12 +7,12 @@ metadata:
   description: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # Required; article description that is displayed in search results. < 160 chars.
   services: synapse-analytics
   ms.service: synapse-analytics #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: sql-dw 
+  ms.subservice: overview 
   ms.topic: landing-page # Required
   ms.collection: collection
   author: julieMSFT #Required; your GitHub user alias, with correct capitalization.
   ms.author: jrasnick #Required; microsoft alias of author; optional team alias.
-  ms.date: 04/15/2020 #Required; mm/dd/yyyy format.
+  ms.date: 12/01/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -20,11 +20,25 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Azure Synapse Analytics (formerly Azure SQL Data Warehouse) 
+  - title: About Azure Synapse Analytics
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Synapse? (formerly Azure SQL Data Warehouse)
+          - text: What is Azure Synapse
+            url: ../overview-what-is.md
+          - text: Tips and best practices
+            url: ../overview-cheat-sheet.md
+          - text: FAQ
+            url: ../overview-faq.md
+          - text: Release notes
+            url: ../release-notes.md
+
+  # Card (optional)
+  - title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is dedicated SQL pool? (formerly SQL DW)
             url: sql-data-warehouse-overview-what-is.md
           - text: Tips and best practices
             url: cheat-sheet.md
@@ -35,20 +49,6 @@ landingContent:
           - text: Reference Architecture
             url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
 
-  # Card (optional)
-  - title: About Azure Synapse Analytics (workspaces preview) 
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Synapse (workspaces preview)
-            url: ../overview-what-is.md
-          - text: Tips and best practices
-            url: ../overview-cheat-sheet.md
-          - text: FAQ
-            url: ../overview-faq.md
-          - text: Release notes
-            url: ../release-notes.md
- 
   # Card
   - title: Getting started
     linkLists:
