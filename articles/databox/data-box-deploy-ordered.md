@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/12/2020
+ms.date: 11/13/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -306,7 +306,7 @@ Do the following steps in the Azure portal to order a device.
 
     ![Select existing key from Azure Key Vault](./media/data-box-deploy-ordered/customer-managed-key-06.png)
 
-    If you want to create a new key, select **Create new**. You must use an RSA key. THe size can b3 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
+    If you want to create a new key, select **Create new**. You must use an RSA key. The size can be 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
 
       ![Create a new key option](./media/data-box-deploy-ordered/customer-managed-key-07.png)
 
@@ -316,9 +316,15 @@ Do the following steps in the Azure portal to order a device.
 
       ![New key created in key vault](./media/data-box-deploy-ordered/customer-managed-key-08.png)
 
-    You can also generate a new key version by selecting **Create new**. For more information, see KEY GENERATION PROCEDURE.<!--This is an option, but I don't want to make the procedure longer by taking them to the screen.-->
+    If you want to create a new key version, select **Create new**.
 
-    On the **Security** screen, the **Encryption type** settings show your key vault and key.
+    ![Open a dialog box for creating a new key version](./media/data-box-deploy-ordered/customer-managed-key-08-a.png)
+
+    Choose settings for the new key version, and select **Create**.
+
+    ![Create a new key version](./media/data-box-deploy-ordered/customer-managed-key-08-b.png)
+
+    The **Encryption type** settings on the **Security** screen show your key vault and key.
 
     ![Key and key vault for a customer-managed key](./media/data-box-deploy-ordered/customer-managed-key-09.png)
 
