@@ -20,7 +20,7 @@ MSIX app attach (preview) doesn't have any dependencies on the type of storage f
 
 ## Performance requirements
 
-MSIX app attach image size limits for your system depend on the storage type you're using to store the VHD or VHDx files, as well as the size limitations of the VHD or VHDx format and the file system.
+MSIX app attach image size limits for your system depend on the storage type you're using to store the VHD or VHDx files, as well as the size limitations of the VHD, VHSD or CIM files and the file system.
 
 The following table gives an example of how many resources a single 1 GB MSIX image with one MSIX app inside of it requires for each VM:
 
@@ -41,13 +41,13 @@ Azure offers multiple storage options that can be used for MISX app attach. We r
 Here are some other things we recommend you do to optimize MSIX app attach performance:
 
 - The storage solution you use for MSIX app attach should be in the same datacenter location as the session hosts.
-- To avoid performance bottlenecks, exclude the following VHD and VHDX files from antivirus scans:
+- To avoid performance bottlenecks, exclude the following VHD, VHDX, and CIM files from antivirus scans:
    
     - <MSIXAppAttachFileShare\>\*.VHD
     - <MSIXAppAttachFileShare\>\*.VHDX
     - \\\\storageaccount.file.core.windows.net\\share\*\*.VHD
     - \\\\storageaccount.file.core.windows.net\\share\*\*.VHDX
-    - <MSIXAppAttachFileShare>*.CIM
+    - <MSIXAppAttachFileShare>.CIM
     - \\\\storageaccount.file.core.windows.net\\share\*\*.CIM
 
 - Separate the storage fabric for MSIX app attach from FSLogix profile containers.
@@ -62,21 +62,21 @@ If you're storing your MSIX applications in Azure Files, then for your session h
 
 To assign session host VMs permissions for the storage account and file share:
 
-1. Create an Azure Active Directory Domain Services (AD DS) security group.
+1. Create an Active Directory Domain Services (AD DS) security group.
 
 2. Add the computer accounts for all session host VMs as members of the group.
 
-3. Sync the Azure AD DS group to Azure AD.
+3. Sync the AD DS group to Azure Active Directory (Azure AD).
 
 4. Create a storage account.
 
-5. Create a file share under the storage account.
+5. Create a file share under the storage account by following the instructions in [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md#[portal](#tab/azure-portal)).
 
-6. Join the storage account to AD DS
+6. Join the storage account to AD DS by following the instructions in [Part one: enable AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module).
 
 7. Assign the synced AD DS group to Azure AD, and assign the storage account the Storage File Data SMB Share Contributor role.
 
-8. Mount the file share to any session host.
+8. Mount the file share to any session host by following the instructions in [Part two: assign share-level permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
 9. Grant NTFS permissions on the file share to the AD DS group.
 
