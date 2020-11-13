@@ -38,7 +38,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33152.).
 
-**Guidance**: By design even though Azure Data Share resources can be deployed into a virtual network, the traffic to and from the Azure Data Share resources cannot be enforced by or passed through a network security group. The resources can be only accessed through Azure Resource Manager.
+**Guidance**: Not applicable; By design even though Azure Data Share resources can be deployed into a virtual network, the traffic to and from the Azure Data Share resources cannot be enforced by or passed through a network security group. The resources can be only accessed through Azure Resource Manager.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -185,7 +185,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -509,7 +509,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
@@ -520,7 +520,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 4.4: Encrypt all sensitive information in transit
 
@@ -531,7 +531,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
@@ -542,7 +542,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ### 4.6: Use Azure RBAC to manage access to resources
 
@@ -611,7 +611,7 @@ Use a third-party solution for performing vulnerability assessments on network d
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Microsoft
+**Responsibility**: Customer
 
 ### 5.2: Deploy automated operating system patch management solution
 
@@ -670,7 +670,7 @@ Use a third-party solution for performing vulnerability assessments on network d
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### 6.2: Maintain asset metadata
 
@@ -980,7 +980,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not applicable
 
 ## Malware defense
 
