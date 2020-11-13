@@ -16,7 +16,7 @@ ms.date: 09/09/2020
 
 In this article, you'll learn about security features available for Azure Machine Learning.
 
-When you use a cloud service, a best practice is to restrict access to only the users who need it. Start by understanding the authentication and authorization model used by the service. You might also want to restrict network access or securely join resources in your on-premises network with the cloud. Data encryption is also vital, both at rest and while data moves between services. You may also want to create polices to enforce certain configurations or log when non-compliant configurations are created. Finally, you need to be able to monitor the service and produce an audit log of all activity.
+When you use a cloud service, a best practice is to restrict access to only the users who need it. Start by understanding the authentication and authorization model used by the service. You might also want to restrict network access or securely join resources in your on-premises network with the cloud. Data encryption is also vital, both at rest and while data moves between services. You may also want to create policies to enforce certain configurations or log when non-compliant configurations are created. Finally, you need to be able to monitor the service and produce an audit log of all activity.
 
 > [!NOTE]
 > The information in this article works with the Azure Machine Learning Python SDK version 1.0.83.1 or higher.
@@ -100,7 +100,13 @@ Optionally, you can configure your own managed identities for use with Azure Vir
 
 To restrict physical access to Azure Machine Learning resources, you can use Azure Virtual Network (VNet). VNets allow you to create network environments that are partially, or fully, isolated from the public internet. This reduces the attack surface for your solution, as well as the chances of data exfiltration.
 
-For more information, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
+For more information, see the following documents:
+
+* [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
+* [Secure workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure training environment](how-to-secure-training-vnet.md)
+* [Secure inference environment](how-to-secure-inferencing-vnet.md)
+* [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
@@ -118,10 +124,11 @@ You may also want to encrypt [diagnostic information logged from your deployed e
 
 There are several monitoring scenarios with Azure Machine Learning, depending on the role and what is being monitored.
 
-| Role | Monitoring to use |
-| ---- | ----- |
-| Admin, DevOps, MLOps | [Azure Monitor metrics](#azure-monitor), [activity log](#activity-log), [vulnerability scanning](#vulnerability-scanning) |
-| Data Scientist, MLOps | [Monitor runs](#monitor-runs) |
+| Role | Monitoring to use | Description |
+| ---- | ----- | ----- |
+| Admin, DevOps, MLOps | [Azure Monitor metrics](#azure-monitor), [activity log](#activity-log), [vulnerability scanning](#vulnerability-scanning) | Service level information |
+| Data Scientist, MLOps | [Monitor runs](#monitor-runs) | Information logged during training runs |
+| MLOps | [Collect model data](how-to-enable-data-collection.md), [Monitor with Application Insights](how-to-enable-app-insights.md) | Information logged by models deployed as web services or IoT Edge modules|
 
 ### Monitor runs
 
