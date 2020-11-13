@@ -9,9 +9,11 @@ ms.author: ccompy
 ms.custom: seodec18
 ---
 
-# Overview
+# Create an App Service Environment
 
-Note: this article is on App Service Environment v3 (ASEv3) and not the earlier versions
+> [!NOTE]
+> This article is about the App Service Environment v3 (preview)
+> 
 
 The App Service Environment (ASE) is a single tenant deployment of the App Service that injects into your Azure Virtual Network (VNet).  ASEv3 only supports exposing apps on a private address in your Vnet. When an ASEv3 is created during preview, three resources are added to your subscription.
 
