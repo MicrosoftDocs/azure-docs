@@ -85,7 +85,7 @@ Follow these steps to access Edge container registry:
 1. Get the endpoint details for the Edge container registry.
     1. In the local UI of the device, go to **Device**.
     1. Locate the **Edge container registry endpoint**.
-        ![Edge container registry endpoint on Device page](media/azure-stack-edge-gpu-edge-container-registry/get-ecr-endpoint-1.png) 
+        ![Edge container registry endpoint on Device page](media/azure-stack-edge-gpu-edge-container-registry/get-edge-container-registry-endpoint-1.png) 
     1. Copy this endpoint and create a corresponding DNS entry into the `C:\Windows\System32\Drivers\etc\hosts` file of your client to connect to the Edge container registry endpoint. 
 
         <IP address of the Kubernetes main node>    <Edge container registry endpoint> 
@@ -96,7 +96,7 @@ Follow these steps to access Edge container registry:
     1. In the local UI of the device, go to **Certificates**.
     1. Locate the entry for **Edge container registry certificate**. To the right of this entry, select the **Download** to download the Edge container registry certificate on your client system that you'll use to access your device. 
 
-        ![Download Edge container registry endpoint certificate](media/azure-stack-edge-gpu-edge-container-registry/download-ecr-endpoint-certificate-1.png)  
+        ![Download Edge container registry endpoint certificate](media/azure-stack-edge-gpu-edge-container-registry/download-edge-container-registry-endpoint-certificate-1.png)  
 
 1. Install the downloaded certificate on the client. If using a Windows client, follow these steps: 
     1. Select the certificate and in the **Certificate Import Wizard**, select store location as **Local machine**. 

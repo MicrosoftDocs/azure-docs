@@ -135,8 +135,7 @@ Take the following steps to enable Container Insights on your workspace.
         }
     }
     ```
-1.  Deploy the template and the corresponding parameters file. In this example, cloud shell was used. 
-    
+S    
     Here is a sample output of a Log Analytics workspace with Container Insights enabled:
     
     ```powershell
