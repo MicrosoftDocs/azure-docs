@@ -31,37 +31,31 @@ A workspace allows you to perform analytics with SQL and Apache spark. Resources
 
 To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace.
 
-## SQL Terminology
-| Term                         | Definition      |
-|:---                                 |:---                 |
-| **SQL Request**  |   Operation such as a query run through dedicated SQL pool or serverless SQL pool. |
-|**SQL script**| Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.|
+* **SQL Request** - Operation such as a query run through dedicated SQL pool or serverless SQL pool.
+* **SQL script** - Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.
+
 
 ## Spark Terminology
-| Term                         | Definition      |
-|:---                                 |:---                 |
-|**Apache Spark for Synapse** | Spark run-time used in a serverless Spark pool. The current version supported is Spark 2.4 with Python 3.6.1, Scala 2.11.12, .NET support for Apache Spark 0.5 and Delta Lake 0.3.  | 
-| **Apache Spark pool**  | 0-to-N Spark provisioned resources with their corresponding databases can be deployed in a workspace. A Spark pool can be auto-paused, resumed, and scaled.  |
-| **Spark application**  |   It consists of a driver process and a set of executor processes. A Spark application runs on a serverless Spark pool.            |
-| **Spark session**  |   Unified entry point of a spark application. It provides a way to interact with Spark's various functionalities and with a lesser number of constructs. To run a notebook, a session needs to be created. A session can be configured to run on a specific number of executors of a specific size. The default configuration for a notebook session is to run on 2 medium-sized executors. |
-|**Notebook**| Interactive and reactive Data Science and Engineering interface supporting Scala, PySpark, C#, and SparkSQL. |
-|**Spark job definition**|Interface to submit a Spark job by with assembly jar containing the code and its dependencies.|
+
+* **Apache Spark for Synapse** - Spark run-time used in a serverless Spark pool. The current version supported is Spark 2.4 with Python 3.6.1, Scala 2.11.12, .NET support for Apache Spark 0.5 and Delta Lake 0.3.  
+* **Apache Spark pool** - 0-to-N Spark provisioned resources with their corresponding databases can be deployed in a workspace. A Spark pool can be auto-paused, resumed, and scaled.  
+* **Spark application** - It consists of a driver process and a set of executor processes. A Spark application runs on a serverless Spark pool.            
+* **Spark session**- Unified entry point of a spark application. It provides a way to interact with Spark's various functionalities and with a lesser number of constructs. To run a notebook, a session needs to be created. A session can be configured to run on a specific number of executors of a specific size. The default configuration for a notebook session is to run on 2 medium-sized executors.
+* **Notebook** -  Interactive and reactive Data Science and Engineering interface supporting Scala, PySpark, C#, and SparkSQL.
+* **Spark job definition** - Interface to submit a Spark job by with assembly jar containing the code and its dependencies.
 
 ## Pipelines Terminology
-| Term                         | Definition      |
-|:---                                 |:---                 |
-|**Data Integration**| Gives the capability to ingest data between various sources and orchestrate activities running within a workspace or outside a workspace.| 
-|**Data Flow**|  Provides a fully visual experience with no coding required to do big data transformation. All optimization and execution are handled in a serverless fashion. |
-|**Pipeline**| Logical grouping of activities that perform a task together.|
-|**Activity**| Defines actions to perform on data such as copying data, running a Notebook or a SQL script.|
-|**Trigger**| Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based).|
-|**Integration dataset**|  Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.|
+* **Data Integration** - Gives the capability to ingest data between various sources and orchestrate activities running within a workspace or outside a workspace.
+* **Data Flow** - Provides a fully visual experience with no coding required to do big data transformation. All optimization and execution are handled in a serverless fashion.
+* **Pipeline** - Logical grouping of activities that perform a task together.
+* **Activity** - Defines actions to perform on data such as copying data, running a Notebook or a SQL script.
+* **Trigger** -  Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based)
+* **Integration dataset** -   Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.
 
 ## General Terminology
-| Term                         | Definition      |
-|:---                                 |:---                 |
-|**Artifacts**| Concept that encapsulates all objects necessary for a user to manage data sources, develop, orchestrate, and visualize.|
-|**Linked service**| Connection strings that define the connection information needed for the workspace to connect to external resources.|
+
+* **Artifacts** - Concept that encapsulates all objects necessary for a user to manage data sources, develop, orchestrate, and visualize.
+* **Linked service** - Connection strings that define the connection information needed for the workspace to connect to external resources.
 
 ## Next steps
 
