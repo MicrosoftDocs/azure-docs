@@ -73,8 +73,6 @@ Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate)
 
 [Instructions to download and install container](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare)
 
-[!INCLUDE [Authenticate to the container registry](../../../../includes/cognitive-services-containers-access-registry.md)]
-
 
 ## Example API request for the container
 
