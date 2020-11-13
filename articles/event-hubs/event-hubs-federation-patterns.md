@@ -91,7 +91,7 @@ from about the same position where processing was interrupted.
 
 To realize either scenario and using the event processor of your respective
 Azure SDK, [you will create a new checkpoint
-store](event-processor-balance-partition-load#checkpointing) and provide an
+store](event-processor-balance-partition-load.md#checkpointing) and provide an
 initial partition position, based on the timestamp that you want to resume
 processing from. 
 
@@ -178,7 +178,7 @@ for such modifications are:
 All those patterns can be implemented using Azure Functions, using the [Event
 Hubs Trigger](../azure-functions/functions-bindings-event-hubs-trigger.md) for
 acquiring events and the [Event Hub output
-binding](../azure-functions/functions-bindings-event-hubs-output) for delivering
+binding](../azure-functions/functions-bindings-event-hubs-output.md) for delivering
 them. 
 
 ## Routing
