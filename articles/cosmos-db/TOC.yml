@@ -56,7 +56,7 @@
           href: database-encryption-at-rest.md
         - name: Service tags
           href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Role-based access control
+        - name: Azure role-based access control
           displayName: rbac
           href: role-based-access-control.md
         - name: Azure Policy support

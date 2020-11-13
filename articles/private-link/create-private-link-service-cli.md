@@ -74,7 +74,7 @@ A load balancer rule defines the front-end IP configuration for the incoming tra
 ```
 ### Create backend servers
 
-In this example, we don't cover virtual machine creation. You can follow the steps in [Create an internal load balancer to load balance VMs using Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md#create-servers-for-the-backend-address-pool) to create two virtual machines to be used as backend servers for the load balancer. 
+In this example, we don't cover virtual machine creation. You can follow the steps in [Quickstart: Create an internal load balancer to load balance VMs using Azure CLI](/load-balancer/quickstart-load-balancer-standard-internal-cli#create-backend-servers) to create two virtual machines to be used as backend servers for the load balancer. 
 
 
 ### Disable Private Link service network policies on subnet 
