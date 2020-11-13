@@ -1,75 +1,67 @@
 ---
-title: "Quickstart: Create an Azure Purview account"
-description: This quickstart describes how to create an Azure Purview account. 
-author: hophan
-ms.author: hophan
+title: "Quickstart: Use Purview Studio"
+description: This quickstart describes how to use a purview studio. 
+author: nayenama
+ms.author: nayenama
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: quickstart
-ms.date: 10/23/2020
-# Customer intent: As a data steward, I want create a new Azure Data Catalog so that I can scan and classify my data.
+ms.date: 11/12/2020
+
 ---
 
-# Quickstart: Create an Azure Purview account
+# Quickstart: Use Purview Studio
 
-In this quickstart, you create an Azure Purview account.
+In this quickstart, Use Purview Studio.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Active Purview account is already created in Azure portal and the use has permissions to access Purview Studio
 
-* Your own [Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+## Launch purview account
 
-## Sign in to Azure
+* To Launch Purview account go to Purview accounts in Azure portal, click the account you want to launch and launch the account.
 
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Screenshot of the selection to launch the Azure Purview account catalog.":::
 
-## Configure your subscription
+* Another way to launch Purview account is to go to https://web.purview.azure.com and select Azure active directory and account name to launch the account.
 
-If necessary, follow these steps to configure your subscription to enable Azure Purview to run in your subscription:
+## Home page
 
-   1. In the Azure portal, search for and select **Subscriptions**.
+**Home** is the starting page for the Azure Purview client.
 
-   1. From the list of subscriptions, select the subscription you want to use. Administrative access permission for the subscription is required.
+ :::image type="content" source="./media/use-purview-studio/purview-homepage.png" alt-text="Screenshot of the homepage.":::
 
-      :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Screenshot showing how to select a subscription in the Azure portal.":::
+The following list summarizes the features of **Home**. Each number in the list corresponds to a highlighted number in the preceding screenshot.
 
-   1. For your subscription, select **Resource providers**. On the **Resource providers** pane, search for the **Microsoft.ProjectBabylon** resource provider. If it isn't registered, register it by selecting **Register**.
+1. Friendly name of the catalog. You can set the same in Management Center --> Account Information.
 
-      :::image type="content" source="./media/create-catalog-portal/register-babylon-resource-provider.png" alt-text="Screenshot showing how to register the  Microsoft dot Azure Purview resource provider in the Azure portal.":::
+1. Catalog analytics shows the number of:
+    - Users, groups, and applications
+    - Data sources
+    - Assets
+    - Glossary terms
+    
+1. The [Quick access](#quick-access) buttons take you to other pages and they depend on the data plane role assigned to the user in in IAM Store.
 
-## Create an Azure Purview account instance
+    For Data source Admin, the quick access buttons are: Register Data Sources and Knowledge Center.
+    For Data Curator, they are Knowledge Center, Browse Assets, Manage Glossary and View Insights.
+    For Data Reader, they are Knowledge Center, Browse Assets, View Glossary and View Insights.
+  
+  
+1. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the catalog for assets](#search-the-catalog-for-assets) and [Browse by asset type](#browse-by-asset-type).  **My items** tab is a list of data assets owned by the logged-on user.
+1. **Useful Links** contains links to region status, documentation, pricing, overview and purview status
+1. The top section contains information about Release notes/updates, change purview account, notifications, help and feedback sections
 
-1. Go to the [**Purview accounts**](https://aka.ms/babylonportal) page in the Azure portal, and then select **Add** to create a new Azure Purview account.
+## Knowledge Center
 
-   :::image type="content" source="./media/create-catalog-portal/add-babylon-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
+Knowledge center is where you can find all the videos and tutorials related to Purview.
 
-   You can add only one Azure Purview account at a time.
+## Guided Tours
 
-1. Select a **Resource group**, and then enter a **Purview account name** for your catalog. Spaces and symbols aren't allowed.
+Each UX in Azure Purview Studio will have guided tours to give overview of the page. To start the guided tour select help on top bar and click guided tours.
 
-1. Make a choice for **Location**, and then select **Next: Tags**.
-1. Optionally, add one or more tags. These tags are for use only in the Azure portal, not the catalog.
-1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the catalog creation. The newly created Azure Purview account instance appears in the list on your **Purview accounts** page.
-1. When the new account is ready, select **Go to resource**.
-
-1. Select **Launch purview account**.
-
-   :::image type="content" source="./media/create-catalog-portal/launch-babylon-account.png" alt-text="Screenshot of the selection to launch the Azure Purview account catalog.":::
-
-## Clean up resources
-
-If you no longer need this Azure Purview account, delete it with the following steps:
-
-1. Go to the [**Purview accounts**](https://aka.ms/babylonportal) page in the Azure portal.
-
-2. Select the Azure Purview account that you created at the beginning of this quickstart. Select **Delete**, enter the name of the account, and then select **Delete**.
-
-## Next steps
-
-In this quickstart, you learned how to create an Azure Purview account.
-
-Advance to the next article to learn how to add a security principal to a role.
+:::image type="content" source="./media/use-purview-studio/guided-tour.png" alt-text="Screenshot of guided tours.":::
 
 > [!div class="nextstepaction"]
 > [Add a security principal](add-security-principal.md)
