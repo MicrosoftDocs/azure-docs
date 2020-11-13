@@ -1,6 +1,6 @@
 ---
 title: Invoke Spark programs from Azure Data Factory
-description: Learn how to invoke Spark programs from an Azure data factory by using the MapReduce activity.
+description: Learn how to invoke Spark programs from an Azure Data Factory by using the MapReduce activity.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -65,7 +65,7 @@ To create a data factory, follow these steps:
 1. On the **New data factory** blade, under **Name**, enter **SparkDF**.
 
    > [!IMPORTANT]
-   > The name of the Azure data factory must be globally unique. If you see the error "Data factory name SparkDF is not available," change the name of the data factory. For example, use yournameSparkDFdate, and create the data factory again. For more information on naming rules, see [Data Factory: Naming rules](data-factory-naming-rules.md).
+   > The name of the Azure Data Factory must be globally unique. If you see the error "Data factory name SparkDF is not available," change the name of the data factory. For example, use yournameSparkDFdate, and create the data factory again. For more information on naming rules, see [Data Factory: Naming rules](data-factory-naming-rules.md).
 
 1. Under **Subscription**, select the Azure subscription where you want the data factory to be created.
 
