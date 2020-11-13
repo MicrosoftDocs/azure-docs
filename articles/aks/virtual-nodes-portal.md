@@ -209,5 +209,5 @@ Virtual nodes are one component of a scaling solution in AKS. For more informati
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider&preserve-view=true#az-provider-list
+[az-provider-list]: /cli/azure/provider?view=azure-cli-latest#az-provider-list
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest&preserve-view=true#az-provider-register
