@@ -22,6 +22,8 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
++ The [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
+
 + The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
 
 + One of the following tools for creating Azure resources:
