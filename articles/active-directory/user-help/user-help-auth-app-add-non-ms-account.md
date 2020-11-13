@@ -189,25 +189,6 @@ Add your Amazon account by turning on two-factor verification and then adding th
     >[!NOTE]
     >For more information about two-factor verification and your Amazon account, see [About Two-Step Verification](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) and [Signing in with Two-Step Verification](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).
 
-## Add a Phone Sign-in account
-
-Add your Phone Sign-in credentials to the Authenticator app without needing a password or a pre-existing two factor authentication account in the app.​
-
-1. Open the Microsoft Authenticator app, select the **+** icon on the **Accounts** page, and then select **Work or school account**.
-
-    :::image type="content" source="media/user-help-auth-app-add-non-ms-account/add-account.png" alt-text="The Add account icon is a plus sign":::
-
-1. Select **Sign in with your email** if it is available. Contact the administrator for your work or school account if it isn't available but you think it should be. If you have a QR code, you can select **Scan QR code**.
-1. Sign in with the email for the account you want to use. You should have a temporary access passcode that you can use to sign in. Contact the administrator for your work or school account if you don't.
-
-    :::image type="content" source="media/user-help-auth-app-add-non-ms-account/temporary-access-pass.png" alt-text="Your account administrator should give you a temporary access pass":::
-
-1. Meet any requirements for your work or school account's IT department, such as enabling screen lock on your device. Select **Next** when you finish.
-
-    :::image type="content" source="media/user-help-auth-app-add-non-ms-account/requirements-page.png" alt-text="Fulfill any further requirements, such as screen lock, and you're done.":::
-
-1. Your credentials should be set up and ready to use.
-
 ## Next steps
 
 - After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](user-help-auth-app-sign-in.md).
