@@ -29,13 +29,13 @@ As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other 
 
   ![Azure Spring Cloud overview](media/spring-cloud-principles/azure-spring-cloud-overview.png)
 
-* Azure Spring Cloud is a fully managed service for Spring Boot apps that lets you focus on building and running apps that run your business without the hassle of managing infrastructure.
+* Azure Spring Cloud is a fully managed service for Spring Boot apps that lets you focus on building and running apps without the hassle of managing infrastructure.
 
 * Simply deploy your JARs or code, and Azure Spring Cloud will automatically wire your apps with Spring service runtime and built-in app lifecycle.
 
-* Monitoring is simple. Once deployed you can easily monitor app performance, fix errors, and rapidly improve applications. 
+* Monitoring is simple. After deployment you can monitor app performance, fix errors, and rapidly improve applications. 
 
-* Full integration into Azure's ecosystems and services.
+* Full integration to Azure's ecosystems and services.
 
 * Azure Spring Cloud is enterprise ready with fully managed infrastructure, built-in lifecycle management, and ease of monitoring.
 
