@@ -185,7 +185,7 @@ Only you can see and use the compute instances you create.  Your **User files** 
 
 ### View logs and output
 
-Use [Notebook widgets](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
+Use [Notebook widgets](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
 
 ## Change the notebook environment
 
@@ -215,7 +215,7 @@ The Notebook will automatically find all Jupyter kernels installed on the connec
 1. Select [**Open terminal**](#terminal) in the Notebook toolbar.
 1. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
     ```shell
-    conda create --name newenv
+    conda create -y --name newenv
     ```
 1. Activate the environment.  For example, after creating `newenv`:
 
@@ -225,8 +225,8 @@ The Notebook will automatically find all Jupyter kernels installed on the connec
 1. Install pip and ipykernel package to the new environment and create a kernel for that conda env
 
     ```shell
-    conda install pip
-    conda install ipykernel
+    conda install -y pip
+    conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

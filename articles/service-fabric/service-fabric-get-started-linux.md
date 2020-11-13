@@ -17,9 +17,9 @@ ms.custom: devx-track-js
 > * [Linux](service-fabric-get-started-linux.md)
 > * [Mac OS X](service-fabric-get-started-mac.md)
 
-To deploy and run (Azure Service Fabric applications)[service-fabric-application-model.md] on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development. 
+To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development. 
 
-The steps in this article assume that you install natively on Linux or use the (Service Fabric OneBox container image)[https://hub.docker.com/_/microsoft-service-fabric-onebox], i.e. `mcr.microsoft.com/service-fabric/onebox:u18`.
+The steps in this article assume that you install natively on Linux or use the [Service Fabric OneBox container image](https://hub.docker.com/_/microsoft-service-fabric-onebox), i.e. `mcr.microsoft.com/service-fabric/onebox:u18`.
 
 You can manage Service Fabric entities hosted in the cloud or on-premises with the Azure Service Fabric command-line interface (CLI). For information on how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
 
@@ -175,7 +175,7 @@ The Service Fabric runtime that comes with the SDK installation includes the pac
 
 # [Container-based local cluster](#tab/localclusteroneboxcontainer)
 
-Start a container-based [one box Service Fabric cluster](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
+Start a container-based [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) cluster.
 
 1. Install Moby to be able to deploy Docker containers.
     ```bash

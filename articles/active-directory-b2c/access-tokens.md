@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 10/26/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -70,7 +70,7 @@ In the following example, you replace these values:
 - `<redirect-uri>` - The **Redirect URI** that you entered when you registered the client application.
 
 ```http
-GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
+GET https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms

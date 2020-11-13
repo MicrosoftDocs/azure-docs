@@ -27,9 +27,9 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 3. Choose options from the drop-down lists. 
 
-   As you modify the value of these drop-down lists, the cost estimate changes. That estimate appears in the upper corner as well as the bottom of the estimate. 
-    
-   ![Monitor costs with Cost Analysis pane](media/storage-plan-manage-costs/price-calculator-storage-type.png)
+   As you modify the value of these drop-down lists, the cost estimate changes. That estimate appears in the upper corner as well as the bottom of the estimate.
+
+   ![Screenshot showing your estimate](media/storage-plan-manage-costs/price-calculator-storage-type.png)
 
    As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations. 
 
@@ -51,19 +51,19 @@ This section covers each option in more detail.
 
 You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. 
 
-To learn more, see [Optimize costs for Blob storage with reserved capacity](https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity).
+To learn more, see [Optimize costs for Blob storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 
 #### Organize data into access tiers
 
 You can reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the *cold* or *archive* tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data.    
 
-To learn more, see [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
+To learn more, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
 
 #### Automatically move data between access tiers
 
 Use lifecycle management policies to periodically move data between tiers to save the most money. These policies can move data to by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
 
-To learn more, see [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+To learn more, see [Manage the Azure Blob storage lifecycle](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
 ## Create budgets
 
@@ -84,13 +84,13 @@ To view Azure Storage costs in cost analysis:
 
 2. Open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Cost analysis**. You can then change the scope for a specific subscription from the **Scope** dropdown.
 
-   ![Monitor costs with Cost Analysis pane](./media/storage-plan-manage-costs/cost-analysis-pane.png)
+   ![Screenshot showing scope](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
 4. To view only costs for Azure Storage, select **Add filter** and then select **Service name**. Then, choose **storage** from the list. 
 
    Here's an example showing costs for just Azure Storage:
 
-   ![Monitor storage costs with Cost Analysis pane](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
+   ![Screenshot showing filter by storage](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and by resource group also appear. 
 You can add other filters as well (For example: a filter to see costs for specific storage accounts).

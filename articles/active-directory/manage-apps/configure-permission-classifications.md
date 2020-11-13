@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
+ms.custom: contperfq2
 ---
 
 # Configure permission classifications

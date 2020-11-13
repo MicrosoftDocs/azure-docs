@@ -9,6 +9,7 @@ ms.author: mjbrown
 ---
 
 # Security in Azure Cosmos DB - overview
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 This article discusses database security best practices and key features offered by Azure Cosmos DB to help you prevent, detect, and respond to database breaches.
 
@@ -64,7 +65,7 @@ Let's dig into each one in detail.
 |Automated online backups|Azure Cosmos databases are backed up regularly and stored in a geo redundant store. <br><br>Learn more in [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md).|
 |Restore deleted data|The automated online backups can be used to recover data you may have accidentally deleted up to ~30 days after the event. <br><br>Learn more in [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md)|
 |Protect and isolate sensitive data|All data in the regions listed in What's new? is now encrypted at rest.<br><br>Personal data and other confidential data can be isolated to specific container and read-write, or read-only access can be limited to specific users.|
-|Monitor for attacks|By using [audit logging and activity logs](logging.md), you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources, who initiated the operation, when the operation occurred, the status of the operation, and much more as shown in the screenshot following this table.|
+|Monitor for attacks|By using [audit logging and activity logs](./monitor-cosmos-db.md), you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources, who initiated the operation, when the operation occurred, the status of the operation, and much more as shown in the screenshot following this table.|
 |Respond to attacks|Once you have contacted Azure support to report a potential attack, a 5-step incident response process is kicked off. The goal of the 5-step process is to restore normal service security and operations as quickly as possible after an issue is detected and an investigation is started.<br><br>Learn more in [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|
 |Geo-fencing|Azure Cosmos DB ensures data governance for sovereign regions (for example, Germany, China, US Gov).|
 |Protected facilities|Data in Azure Cosmos DB is stored on SSDs in Azure's protected data centers.<br><br>Learn more in [Microsoft global datacenters](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
@@ -100,6 +101,6 @@ Primary, secondary, read only, and read-write primary keys can be retrieved and 
 
 For more information about primary keys and resource tokens, see [Securing access to Azure Cosmos DB data](secure-access-to-data.md).
 
-For more information about audit logging, see [Azure Cosmos DB diagnostic logging](logging.md).
+For more information about audit logging, see [Azure Cosmos DB diagnostic logging](./monitor-cosmos-db.md).
 
 For more information about Microsoft certifications, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).

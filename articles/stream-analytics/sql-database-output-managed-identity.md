@@ -55,7 +55,7 @@ After you've created a managed identity, you select an Active Directory admin.
 
    ![Add Active Directory admin](./media/sql-db-output-managed-identity/add-admin.png)
 
-   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they're not supported as Azure Active Directory administrators. See the list of supported admins in the **Azure Active Directory Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server. Also, the selected user or group is the user who will be able to create the **Contained Database User** in the next section.
+   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they're not supported as Azure Active Directory administrators. See the list of supported admins in the **Azure Active Directory Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations). Azure role-based access control (Azure RBAC) applies only to the portal and is not propagated to SQL Server. Also, the selected user or group is the user who will be able to create the **Contained Database User** in the next section.
 
 1. Select **Save** on the **Active Directory admin** page. The process for changing admin takes a few minutes.
 
@@ -118,6 +118,10 @@ Ensure you have created a table in your SQL Database with the appropriate output
 1. Select **Add > SQL Database**. In the output properties window of the SQL Database output sink, select **Managed Identity** from the Authentication mode drop-down.
 
 1. Fill out the rest of the properties. To learn more about creating an SQL Database output, see [Create a SQL Database output with Stream Analytics](sql-database-output.md). When you are finished, select **Save**. 
+
+## Remove Managed Identity
+
+The Managed Identity created for a Stream Analytics job is deleted only when the job is deleted. There is no way to delete the Managed Identity without deleting the job. If you no longer want to use the Managed Identity, you can change the authentication method for the output. The Managed Identity will continue to exist until the job is deleted, and will be used if you decide to used Managed Identity authentication again.
 
 ## Next steps
 

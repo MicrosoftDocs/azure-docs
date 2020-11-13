@@ -249,7 +249,7 @@ The JsonPathContentTemplate allows matching on and extracting values from an Eve
 #### IotJsonPathContentTemplate
 The IotJsonPathContentTemplate is similar to the JsonPathContentTemplate except the DeviceIdExpression and TimestampExpression aren't required.
 
-The assumption when using this template is the messages being evaluated were sent using the [Azure IoT Hub Device SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks). When using these SDKs, the device identity (assuming the device identifier from Azure Iot Hub/Central is registered as an identifer for a device resource on the destination FHIR server) and the timestamp of the message are known. If you're using Azure IoT Hub Device SDKs but are using custom properties in the message body for the device identity or measurement timestamp, you can still use the JsonPathContentTemplate.
+The assumption when using this template is the messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks). When using these SDKs, the device identity (assuming the device identifier from Azure Iot Hub/Central is registered as an identifer for a device resource on the destination FHIR server) and the timestamp of the message are known. If you're using Azure IoT Hub Device SDKs but are using custom properties in the message body for the device identity or measurement timestamp, you can still use the JsonPathContentTemplate.
 
 *Note: When using the IotJsonPathContentTemplate, the TypeMatchExpression should resolve to the entire message as a JToken. See the examples below.* 
 ##### Examples
@@ -560,7 +560,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 Check out frequently asked questions on Azure IoT Connector for FHIR (preview).
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Azure IoT Connector for FHIR FAQs](fhir-faq.md)
 
 *In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
 

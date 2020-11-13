@@ -27,7 +27,7 @@ The sample application provides an end-to-end experience that shows how to confi
 
 ## Assign a role to an Azure AD security principal
 
-To authenticate a security principal from your Azure Storage application, first configure Azure role-based access control (Azure RBAC) settings for that security principal. Azure Storage defines built-in roles that encompass permissions for containers and queues. When the Azure role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with Azure RBAC](storage-auth-aad-rbac.md).
+To authenticate a security principal from your Azure Storage application, first configure Azure role-based access control (Azure RBAC) settings for that security principal. Azure Storage defines built-in roles that encompass permissions for containers and queues. When the Azure role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
 
 ## Register your application with an Azure AD tenant
 
@@ -44,7 +44,7 @@ After you've registered your application, you'll see the application ID (or clie
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Screenshot showing the client ID":::
 
-For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
+For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md).
 
 ### Grant your registered app permissions to Azure Storage
 
@@ -89,7 +89,7 @@ Next, configure implicit grant flow for your application. Follow these steps:
 
 Once you have registered your application and granted it permissions to access data in Azure Blob storage or Queue storage, you can add code to your application to authenticate a security principal and acquire an OAuth 2.0 token. To authenticate and acquire the token, you can use either one of the [Microsoft identity platform authentication libraries](../../active-directory/develop/reference-v2-libraries.md) or another open-source library that supports OpenID Connect 1.0. Your application can then use the access token to authorize a request against Azure Blob storage or Queue storage.
 
-For a list of scenarios for which acquiring tokens is supported, see the [authentication flows](/en-us/azure/active-directory/develop/msal-authentication-flows) section of the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) documentation.
+For a list of scenarios for which acquiring tokens is supported, see the [authentication flows](../../active-directory/develop/msal-authentication-flows.md) section of the [Microsoft Authentication Library (MSAL)](../../active-directory/develop/msal-overview.md) documentation.
 
 ## Well-known values for authentication with Azure AD
 
@@ -286,6 +286,6 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 ## Next steps
 
-- [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/)
-- [Manage access rights to storage data with Azure RBAC](storage-auth-aad-rbac.md)
+- [Microsoft identity platform](../../active-directory/develop/index.yml)
+- [Manage access rights to storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md)
 - [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md)

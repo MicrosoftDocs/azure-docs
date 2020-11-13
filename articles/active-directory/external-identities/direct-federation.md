@@ -63,7 +63,7 @@ For example, when setting up direct federation for **fabrikam.com**, the authent
 If you specify the metadata URL in the identity provider settings, Azure AD will automatically renew the signing certificate when it expires. However, if the certificate is rotated for any reason before the expiration time, or if you don't provide a metadata URL, Azure AD will be unable to renew it. In this case, you'll need to update the signing certificate manually.
 
 ### Limit on federation relationships
-Currently, a maximum of 1,000 federation relationships is supported. This limit includes both [internal federations](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) and direct federations.
+Currently, a maximum of 1,000 federation relationships is supported. This limit includes both [internal federations](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) and direct federations.
 
 ### Limit on multiple domains
 We don’t currently support direct federation with multiple domains from the same tenant.
@@ -84,7 +84,7 @@ First, your partner organization needs to configure their identity provider with
 
 ### SAML 2.0 configuration
 
-Azure AD B2B can be configured to federate with identity providers that use the SAML protocol with specific requirements listed below. For more information about setting up a trust between your SAML identity provider and Azure AD, see  [Use a SAML 2.0 Identity Provider (IdP) for Single Sign-On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
+Azure AD B2B can be configured to federate with identity providers that use the SAML protocol with specific requirements listed below. For more information about setting up a trust between your SAML identity provider and Azure AD, see  [Use a SAML 2.0 Identity Provider (IdP) for Single Sign-On](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
 > The target domain for direct federation must not be DNS-verified on Azure AD. The authentication URL domain must match the target domain or it must be the domain of an allowed identity provider. See the [Limitations](#limitations) section for details. 

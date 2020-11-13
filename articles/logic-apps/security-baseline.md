@@ -180,7 +180,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 - DDoS Protection Standard should be enabled
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -576,7 +576,7 @@ For logic apps that need direct access to resources in an Azure virtual network,
 
 When you create your ISE, you can choose to use either internal or external access endpoints. Your selection determines whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network.
 
-Additionally, implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory role-based access control.
+Additionally, implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure role-based access control (Azure RBAC).
 
 - [Understand connectors for Logic Apps](../connectors/apis-list.md)
 
@@ -642,9 +642,9 @@ Microsoft manages the underlying infrastructure for Azure Logic Apps and has imp
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: You can permit only specific users or groups to run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, use Azure Role-Based Access Control (RBAC) so that you can assign customized or built-in roles to the members in your Azure subscription:
+**Guidance**: You can permit only specific users or groups to run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, use Azure role-based access control (Azure RBAC) so that you can assign customized or built-in roles to the members in your Azure subscription:
 
 - Logic App Contributor: Lets you manage logic apps, but you can't change access to them.
 - Logic App Operator: Lets you read, enable, and disable logic apps, but you can't edit or update them.
@@ -881,7 +881,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Resources related to your Logic Apps that are required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or Network Security Group.
 
-Logic Apps that are required for business operations, but may incur higher risk for the organization, should be isolated wherever possible via separate resource groups with specific permissions and RBAC boundaries.
+Logic Apps that are required for business operations, but may incur higher risk for the organization, should be isolated wherever possible via separate resource groups with specific permissions and Azure RBAC boundaries.
 
 - [How to create a virtual network](../virtual-network/quick-create-portal.md) 
 
@@ -889,7 +889,7 @@ Logic Apps that are required for business operations, but may incur higher risk 
 
 - [How to create Management Groups](../governance/management-groups/create-management-group-portal.md) 
 
-- [How to secure access to Logic Apps via RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+- [How to secure access to Logic Apps via Azure RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Azure Security Center monitoring**: Not applicable
 
