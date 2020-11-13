@@ -1,6 +1,6 @@
 ---
 title: Call logic apps with Azure Functions
-description: Use Azure Functions to call or trigger logic apps by listening to Azure Service Bus
+description: Call or trigger logic apps by using Azure Functions and Azure Service Bus
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
