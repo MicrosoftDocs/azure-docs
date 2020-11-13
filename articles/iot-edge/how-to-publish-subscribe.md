@@ -10,6 +10,7 @@ ms.reviewer: ebertra
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
+monikerRange: ">=iotedge-2020-11"
 ---
 
 # Publish and subscribe with Azure IoT Edge

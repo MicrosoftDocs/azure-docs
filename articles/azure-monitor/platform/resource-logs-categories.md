@@ -492,7 +492,6 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|
 |---|---|
 |NetworkSecurityGroupEvent|Network Security Group Event|
-|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
 |NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
 
 
