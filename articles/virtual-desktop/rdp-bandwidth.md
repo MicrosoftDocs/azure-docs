@@ -65,18 +65,18 @@ To better understand remote graphics, consider the following:
 
 Keep in mind that the stress put on your network depends on both your app workload's output frame rate and your display resolution. If either the frame rate or display resolution increases, the bandwidth requirement will also rise. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution. Different display resolutions require different available bandwidths.
 
-The table below guides estimating of the data used by the different graphic scenarios. These numbers apply to a single monitor configuration with 1920x1080 resolution and default RDP policies.
+The table below guides estimating of the data used by the different graphic scenarios. These numbers apply to a single monitor configuration with 1920x1080 resolution and with both default graphics mode and H.264/AVC 444 graphics mode.
 
-| Scenario | Bandwidth utilization | Thumbnail| Description of the scenario |
-|---|---|---|---|
-| Idle | 0.04 Kbps |:::image type="content" source="media/idle.png" alt-text="Screenshot of the idle connection":::| User is paused their work and there's no active screen updates |
-| Microsoft Word | 15-20 Kbps |:::image type="content" source="media/word.gif" alt-text="Animation of Microsoft Word":::| User is actively working with Microsoft Word, typing, pasting graphics and switching between documents |
-| Microsoft Excel | 20 -30 Kbps |:::image type="content" source="media/excel.gif" alt-text="Animation of Microsoft Excel":::| User is actively working with Microsoft Excel, multiple cells with formulas and charts are updated simultaneously |
-| Microsoft PowerPoint | 200-400 Kbps |:::image type="content" source="media/powerpoint.gif" alt-text="Animation of Microsoft Powerpoint":::| User is actively working with Microsoft PowerPoint, typing, pasting. USer also modifying rich graphics, and using slide transition effects |
-| Web Browsing | 300-700 Kbps |:::image type="content" source="media/web.gif" alt-text="Animation of web browsing":::| User is actively working with a graphically rich website that contains multiple static and animated images. User scrolls the pages both horizontally and vertically |
-| Image Gallery | 200-650 Kbps |:::image type="content" source="media/image-gallery.gif" alt-text="Animation of image gallery":::| User is actively working with the image gallery application. browsing, zooming, resizing and rotating images |
-| Video playback | 600-1000 Kbps |:::image type="content" source="media/video.gif" alt-text="Animation of video playback":::| User is watching a 25 FPS video that consumes 1/2 of the screen |
-| Fullscreen Video playback | 450-800 Kbps |:::image type="content" source="media/fs-video.gif" alt-text="Animation of fullscreen video playback":::| User is watching a 25 FPS video that maximized to a fullscreen |
+| Scenario | Default mode | H.264/AVC 444 mode | Thumbnail | Description of the scenario |
+|:---|---:|---:|---|---|
+| Idle | 0.3 Kbps | 0.3 Kbps |:::image type="content" source="media/idle.png" alt-text="Screenshot of the idle connection":::| User is paused their work and there's no active screen updates |
+| Microsoft Word | 100-150 Kbps | 200-300 Kbps |:::image type="content" source="media/word.gif" alt-text="Animation of Microsoft Word":::| User is actively working with Microsoft Word, typing, pasting graphics and switching between documents |
+| Microsoft Excel | 150-200 Kbps | 400-500 Kbps |:::image type="content" source="media/excel.gif" alt-text="Animation of Microsoft Excel":::| User is actively working with Microsoft Excel, multiple cells with formulas and charts are updated simultaneously |
+| Microsoft PowerPoint | 4-4.5 Mbps | 1.6-1.8 Mbps |:::image type="content" source="media/powerpoint.gif" alt-text="Animation of Microsoft Powerpoint":::| User is actively working with Microsoft PowerPoint, typing, pasting. USer also modifying rich graphics, and using slide transition effects |
+| Web Browsing | 6-6.5 Mbps | 0.9-1 Mbps |:::image type="content" source="media/web.gif" alt-text="Animation of web browsing":::| User is actively working with a graphically rich website that contains multiple static and animated images. User scrolls the pages both horizontally and vertically |
+| Image Gallery | 3.3-3.6 Mbps | 0.7-0.8 Mbps |:::image type="content" source="media/image-gallery.gif" alt-text="Animation of image gallery":::| User is actively working with the image gallery application. browsing, zooming, resizing and rotating images |
+| Video playback | 8.5-9.5 Mbps | 2.5-2.8 Mbps |:::image type="content" source="media/video.gif" alt-text="Animation of video playback":::| User is watching a 30 FPS video that consumes 1/2 of the screen |
+| Fullscreen Video playback | 7.5-8.5 Mbps | 2.5-3.1 Mbps |:::image type="content" source="media/fs-video.gif" alt-text="Animation of fullscreen video playback":::| User is watching a 30 FPS video that maximized to a fullscreen |
 
 ## Dynamic bandwidth allocation
 
