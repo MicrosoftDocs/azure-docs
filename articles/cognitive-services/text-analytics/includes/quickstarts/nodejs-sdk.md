@@ -249,15 +249,16 @@ async function sentimentAnalysisWithOpinionMining(client){
             console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
             console.log(`\t\tSentences Scores:`);
             console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
-            console.log("    Mined opinions");
+            console.log("\tMined opinions");
             for (const { aspect, opinions } of sentence.minedOpinions) {
                 console.log(`      - Aspect text: ${aspect.text}`);
                 console.log(`        Aspect sentiment: ${aspect.sentiment}`);
                 console.log("        Aspect confidence scores:", aspect.confidenceScores);
-                console.log("        Aspect opinions");
-                for (const { text, sentiment } of opinions) {
-                console.log(`        - Text: ${text}`);
-                console.log(`          Sentiment: ${sentiment}`);
+                console.log("        Aspect opinions:");
+                for (const { text, sentiment, confidenceScores } of opinions) {
+                    console.log(`        - Opinion text: ${text}`);
+                    console.log(`          Opinion sentiment: ${sentiment}`);
+                    console.log("          Opinion confidence scores:", confidenceScores);
                 }
             }
         });
@@ -272,32 +273,35 @@ Run your code with `node index.js` in your console window.
 
 ```console
 ID: 0
-        // Document Sentiment: positive
-        // Document Scores:
-                // Positive: 0.84  Negative: 0.16  Neutral: 0.00
-        // Sentences Sentiment(1):
-                // Sentence sentiment: positive
-                // Sentences Scores:
-                // Positive: 0.84  Negative: 0.16  Neutral: 0.00
-    // Mined opinions
-      // - Aspect text: food
-        // Aspect sentiment: negative
-        // Aspect confidence scores: { positive: 0.01, negative: 0.99 }
-        // Aspect opinions
-        // - Text: unacceptable
-          // Sentiment: negative
-      // - Aspect text: service
-        // Aspect sentiment: negative
-        // Aspect confidence scores: { positive: 0.01, negative: 0.99 }
-        // Aspect opinions
-        // - Text: unacceptable
-          // Sentiment: negative
-      // - Aspect text: concierge
-        // Aspect sentiment: positive
-        // Aspect confidence scores: { positive: 1, negative: 0 }
-        // Aspect opinions
-        // - Text: nice
-          // Sentiment: positive
+        Document Sentiment: positive
+        Document Scores:
+                Positive: 0.84  Negative: 0.16  Neutral: 0.00
+        Sentences Sentiment(1):
+                Sentence sentiment: positive
+                Sentences Scores:
+                Positive: 0.84  Negative: 0.16  Neutral: 0.00
+        Mined opinions
+      - Aspect text: food
+        Aspect sentiment: negative
+        Aspect confidence scores: { positive: 0.01, negative: 0.99 }
+        Aspect opinions:
+        - Opinion text: unacceptable
+          Opinion sentiment: negative
+          Opinion confidence scores: { positive: 0.01, negative: 0.99 }
+      - Aspect text: service
+        Aspect sentiment: negative
+        Aspect confidence scores: { positive: 0.01, negative: 0.99 }
+        Aspect opinions:
+        - Opinion text: unacceptable
+          Opinion sentiment: negative
+          Opinion confidence scores: { positive: 0.01, negative: 0.99 }
+      - Aspect text: concierge
+        Aspect sentiment: positive
+        Aspect confidence scores: { positive: 1, negative: 0 }
+        Aspect opinions:
+        - Opinion text: nice
+          Opinion sentiment: positive
+          Opinion confidence scores: { positive: 1, negative: 0 }
 ```
 
 # [Version 3.0](#tab/version-3)
