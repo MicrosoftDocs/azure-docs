@@ -599,7 +599,7 @@
       - name: Overview
         href: ./linux/dedicated-hosts.md
       - name: CLI
-        href: dedicated-hosts-cli.md
+        href: ./linux/dedicated-hosts-cli.md
       - name: Portal
         href: dedicated-hosts-portal.md
       - name: PowerShell
@@ -625,9 +625,9 @@
       - name: Windows 
         items:
         - name: Use Azure Hybrid Benefit license
-          href: hybrid-use-benefit-licensing.md
+          href: ./windows/hybrid-use-benefit-licensing.md
         - name: Use Multitenant Hosting Rights for Windows 10
-          href: windows-desktop-multitenant-hosting-deployment.md
+          href: ./windows/windows-desktop-multitenant-hosting-deployment.md
     - name: Reserved instances
       items:
       - name: Prepay for VMs
@@ -753,9 +753,9 @@
       - name: Serial console
         items:
         - name: Linux
-          href: ./troubleshooting/serial-console-linux.md)
+          href: ./troubleshooting/serial-console-linux.md
         - name: Windows
-          href: ./troubleshooting/serial-console-windows.md)
+          href: ./troubleshooting/serial-console-windows.md
     - name: Enable nested virtualization
       href: ./windows/nested-virtualization.md
     - name: File storage
@@ -937,11 +937,11 @@
     - name: Capture VM to managed image
       items:
       - name: Linux
-        href: ./linux/capture-image-resource.md
+        href: ./linux/capture-image.md
       - name: Windows
         href: ./windows/capture-image-resource.md
     - name: Create a VM from a managed image
-    - href: ./windows/create-vm-generalized-managed.md
+      href: ./windows/create-vm-generalized-managed.md
   - name: Build image with Packer
     items: 
     - name: Linux
@@ -982,7 +982,7 @@
     - name: PowerShell
       href: ./windows/proximity-placement-groups.md
   - name: Create VM in availability zone
-    href: create-cli-availability-zone.md
+    href: ./linux/create-cli-availability-zone.md
 - name: Maintenance and updates
   items: 
   - name: Overview
@@ -1020,15 +1020,15 @@
       - name: Maintenance control
         items:
         - name: Overview (Preview)
-          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-control.md
+          href: virtual-machine-scale-sets-maintenance-control.md
         - name: PowerShell (Preview)
-          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-control-powershell.md
+          href: virtual-machine-scale-sets-maintenance-control-powershell.md
 - name: Disks
   items:
   - name: Introduction to managed disks
-    href: ../managed-disks-overview.md
+    href: managed-disks-overview.md
   - name: Select a disk type for IaaS VMs
-    href: ../disks-types.md
+    href: disks-types.md
   - name: Encryption
     items:
     - name: Overview
@@ -1080,17 +1080,25 @@
     - name: Resize Linux GPT OS partitions
       href: linux/resize-os-disk-gpt-partition.md
     - name: Disk encryption troubleshooting
-      href: disk-encryption-troubleshooting.md
+      items:
+      - name: Linux
+        href: ./linux/disk-encryption-troubleshooting.md
+      - name: Windows
+        href: ./windows/disk-encryption-troubleshooting.md
     - name: Disk encryption FAQ
-      href: disk-encryption-faq.md
+      items: 
+      - name: Linux
+        href: ./linux/disk-encryption-faq.md
+      - name: Windows
+        href: ./windows/disk-encryption-faq.md
     - name: Disk encryption - previous version
       items:
       - name: Overview
         items:
         - name: Linux
-          href: disk-encryption-overview-aad.md
+          href: ./linux/disk-encryption-overview-aad.md
         - name: Windows
-          href: disk-encryption-overview-aad.md
+          href: ./windows/disk-encryption-overview-aad.md
       - name: Key vault for Azure Disk Encryption
         items:
         - name: Linux
@@ -1108,9 +1116,9 @@
   - name: Virtual machine and disk performance
     items:
     - name: Linux
-      href: disk-performance-linux.md
+      href: ./linux/disk-performance-linux.md
     - name: Windows
-      href: disk-performance-windows.md
+      href: ./windows/disk-performance-windows.md
   - name: Designing for high performance
     href: premium-storage-performance.md
   - name: Disk bursting
@@ -1136,13 +1144,13 @@
       - name: Linux
         items:
         - name: Azure CLI
-          href: add-disk.md
+          href: ./linux/add-disk.md
         - name: Azure portal
           href: ./linux/attach-disk-portal.md
       - name: Windows
         items:
         - name: Azure PowerShell
-          href: attach-disk-ps.md
+          href: ./windows/attach-disk-ps.md
         - name: Azure portal
           href: ./windows/attach-managed-disk-portal.md
     - name: Change disk tier
@@ -1237,7 +1245,7 @@
         - name: Windows
           href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
       - name: Migrate to Managed Disks
-        href: migrate-to-managed-disks.md
+        href: ./windows/migrate-to-managed-disks.md
       - name: Unmanaged VM to Managed Disks
         items:
         - name: CLI
@@ -1551,7 +1559,7 @@
 - name: Infrastructure automation
   items:
   - name: Overview
-    href: ../infrastructure-automation.md
+    href: infrastructure-automation.md
   - name: Custom data
     href: custom-data.md
   - name: Ansible
