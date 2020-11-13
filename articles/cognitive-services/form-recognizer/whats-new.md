@@ -17,6 +17,28 @@ ms.author: pafarley
 
 The Form Recognizer service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
 
+## Nov 2020
+
+### New features
+
+- **New Prebuilt Invoice** 
+ The new prebuilt Invoice enables customers to take invoices in a variety of formats and return structured data to automate the invoice processing. It combines our powerful Optical Character Recognition (OCR) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts the text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, invoice amount due, tax amount, ship to, bill to, and more. 
+![Invoice example](./media/invoice-example.jpg)
+
+> [Learn more about Prebuilt Invoice](concept-invoices.md)
+
+- **Enhanced table extraction** 
+ Form Recognizer now includes an enhnaced tables extraction which commbines our powerful Optical Character Recognition (OCR) capabilities with a deep learning table extraction model enabling Form Recognizer to extract data from tables including complex tables with merged columns, rows, no borders and lots more. 
+ 
+ <<< add tables examples image>>>
+ 
+ > [Learn more about Layout](concept-layout.md)
+
+- **SDK Client Libraries for the 2.1 release**
+PATRICK Please Update this one - The [client libraries](quickstarts/client-library-21.md) for NET, Python, Java, and JavaScript have entered General Availability. 
+- **New languages supported Traditional Chinese, Japanese and Korean**, the following new [languages](language-support.md) are now supported: for `Layout` and `Custom`: Chinese Traditional (`zh-Hant`), Chinese Simplified (`zh-Hans`), Japanese (`ja`) and Korean (`ko`)
+
+
 ## August 2020
 
 ### New features
