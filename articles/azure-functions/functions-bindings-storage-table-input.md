@@ -407,7 +407,7 @@ module.exports = function (context, myQueueItem) {
 
 The following function uses a queue trigger to read a single table row as input to a function.
 
-In this example, binding configuration specifies an explicit value for the table's `partitionKey` and uses an expression to pass to the `rowKey`. The `rowKey` expression, `{queueTrigger}` indicates that the row key comes from the queue message string.
+In this example, the binding configuration specifies an explicit value for the table's `partitionKey` and uses an expression to pass to the `rowKey`. The `rowKey` expression, `{queueTrigger}`, indicates that the row key comes from the queue message string.
 
 Binding configuration in _function.json_:
 
