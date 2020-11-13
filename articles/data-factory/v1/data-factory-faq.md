@@ -45,7 +45,7 @@ See **Azure Data Factory Limits** section of the [Azure Subscription and Service
 You can author/create data factories using one of the following tools/SDKs:
 
 * **Visual Studio**
-    You can use Visual Studio to create an Azure data factory. See [Build your first data pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) for details.
+    You can use Visual Studio to create an Azure Data Factory. See [Build your first data pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) for details.
 * **Azure PowerShell**
     See [Create and monitor Azure Data Factory using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) for a tutorial/walkthrough for creating a data factory using PowerShell. See [Data Factory Cmdlet Reference][adf-powershell-reference] content on MSDN Library for a comprehensive documentation of Data Factory cmdlets.
 * **.NET Class Library**
@@ -53,10 +53,10 @@ You can author/create data factories using one of the following tools/SDKs:
 * **REST API**
     You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories. See [Data Factory REST API Reference][msdn-rest-api-reference] for a comprehensive documentation of Data Factory REST API.
 * **Azure Resource Manager Template**
-    See [Tutorial: Build your first Azure data factory using Azure Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md) fo details.
+    See [Tutorial: Build your first Azure Data Factory using Azure Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md) fo details.
 
 ### Can I rename a data factory?
-No. Like other Azure resources, the name of an Azure data factory cannot be changed.
+No. Like other Azure resources, the name of an Azure Data Factory cannot be changed.
 
 ### Can I move a data factory from one Azure subscription to another?
 Yes. Use the **Move** button on your data factory blade as shown in the following diagram:
