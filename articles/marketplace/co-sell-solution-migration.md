@@ -38,101 +38,79 @@ After you've enrolled in the commercial marketplace, prepare to merge your solut
 
 First, review them in OCP GTM. You should have received an email with a link unique to your OCP GTM experience. Then follow these steps to publish your offers.
 
-1. Visit your company's publisher list. It includes the account owner, managers and developers who have publishing access. Learn more about [Partner Center user roles](/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions).
-2. Ask one of the listed contacts to add users to the commercial marketplace as *managers* or *developers*.
+1. Visit your company's [publisher list](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fen-us%2Fdashboard%2Faccount%2Fv3%2Fpublishers%2Flist&data=02%7C01%7Cmasmc%40microsoft.com%7Ccb7d81a3709d4ed7309f08d858d2d0f0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637357009757504832&sdata=Mepi6O54TN3%2FbkLVWFGU%2B7dSlxkhvTIIdCJ4DDTUtN0%3D&reserved=0). It includes the account owner, managers and developers who have publishing access. Learn more about [Partner Center user roles](/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions).
+2. Ask one of the listed contacts to [add users](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fen-us%2Fdashboard%2Faccount%2Fusermanagement&data=02%7C01%7Cmasmc%40microsoft.com%7Ccb7d81a3709d4ed7309f08d858d2d0f0%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637357009757504832&sdata=Qd4CPaQdpWAb8xmvbwig0GFQkTh5ihVJ8nIrVgLwtcs%3D&reserved=0) to the commercial marketplace as *managers* or *developers*.
 3. Work with your developers to move your solutions from your OCP GTM account to the commercial marketplace.
 
 ## Migrate your solutions from OCP GTM to commercial marketplace
 
 1. Begin the migration by signing into [Partner Center](https://partner.microsoft.com/en-US/solutions/migration).
 2. Check the **Overview** page to review information about your solution migrations.
-    :::image type="content" source="media/co-sell-migrate/migration-overview.png" alt-text="Partner Center Overview page, Summary tab.":::
+:::image type="content" source="media/co-sell-migrate/migration-overview.png" alt-text="Partner Center Overview page, Summary tab.":::
 3. To begin migration of your solutions, select the **Solutions** tab, which lets you view all the solutions associated to your MPN IDs.
-
-    :::image type="content" source="media/co-sell-migrate/solutions-tab.png" alt-text="Partner Center Overview page, Solutions tab.":::
-
+:::image type="content" source="media/co-sell-migrate/solutions-tab.png" alt-text="Partner Center Overview page, Solutions tab.":::
     > [!NOTE]
     > This tab will note if there aren't any solutions pending to migrate to the commercial marketplace. To continue co-selling with Microsoft, ensure the migrated solutions are published in the commercial marketplace.
 
-     Learn more about the solution status by reviewing the tool tips. All solutions pending action are listed under **Action Required**.
+    Learn more about the solution status by reviewing the tool tips. All solutions pending action are listed under **Action Required**.<a target="beginmigration"></a>
+4. Select **Begin migration** for the solution to migrate to commercial marketplace in Partner Center, then select one of the following options:
+:::image type="content" source="media/co-sell-migrate/migration-options.png" alt-text="The three options for migration.":::
 
-  1. Select **Begin migration** for the solution to migrate to commercial marketplace in Partner Center, then select one of the following options:
+### This is similar to an existing offer in commercial marketplace
 
-    - This is similar to an existing offer in commercial marketplace
-    - This offer will be new to commercial marketplace
-    - This offer is no longer relevant
-     ![](RackMultipart20201112-4-8ih11c_html_a143e5fab42716c6.gif)
+Select this option when you may already have an offer published in the commercial marketplace that is the same as a solution published to OCP GTM. This avoids creating duplicate offers.
 
-Existing offer in commercial marketplace
+1. Select **This is similar to an existing offer in commercial marketplace** (see **Begin your migration** image [above](#beginmigration)). You will see live commercial marketplace offers that your OCP GTM solution can be associated with. Select the live offer from the list or enter the marketplace URL.
+<!--:::image type="content" source="media/co-sell-migrate/migration-similar.png" alt-text="The first type of migration options, This is similar to an existing offer in commercial marketplace.":::-->
+2. Select **Continue** to be redirected to Support to submit a migration request ticket. The indicated OCP GTM solution metadata will be merged into the selected commercial marketplace offer.
+3. On the Step 1 tab, either enter the URL or select the offer, then select **Continue**.
+:::image type="content" source="media/co-sell-migrate/migration-step-1.png" alt-text="Information to add in step 1.":::
+4. On the Step 2 tab, select **Save & contact support**.
+:::image type="content" source="media/co-sell-migrate/migration-step-2.png" alt-text="The button to save and contact support.":::
 
-  1. You may already have an offer published in the commercial marketplace that is the same as a solution published to OCP GTM. To avoid creating duplicate offers in commercial marketplace, select 'This is similar to an existing offer in commercial marketplace'. You will see live commercial marketplace offers that your OCP GTM solution can be associated with. Select the live offer from the list or enter the Marketplace URL. Click continue, and you will be redirected to Support to submit a migration request ticket. The indicated OCP GTM solution metadata will be merged into the selected commercial marketplace offer.
+### This offer will be new to commercial marketplace
 
-![](RackMultipart20201112-4-8ih11c_html_6f7eb5c7a11acfa5.gif) ![](RackMultipart20201112-4-8ih11c_html_a169c3bba4755ce8.gif)
+Select this option when you may have an OCP GTM solution that does not yet have a corresponding offer published to the commercial marketplace. You will need to publish this solution to the commercial marketplace to continue co-selling with Microsoft, and migrating this solution will save you time by retaining Microsoft seller-facing metadata. This option requires you to select an offer type.
 
-![](RackMultipart20201112-4-8ih11c_html_107196e75367d02d.gif) ![](RackMultipart20201112-4-8ih11c_html_5725f98f93f5e9f6.gif) ![](RackMultipart20201112-4-8ih11c_html_d02e40cf02dd4a95.gif) ![](RackMultipart20201112-4-8ih11c_html_796091f3eceaf82b.gif) ![](RackMultipart20201112-4-8ih11c_html_cb4e0eb510193af6.gif)
+1. Select **This offer will be new to commercial marketplace** (see **Begin your migration** image [above](#beginmigration)), then **Continue**.
+<!--:::image type="content" source="media/co-sell-migrate/migration-new.png" alt-text="The second type of migration options, This offer will be new to commercial marketplace.":::-->
+2. On the Step 1 tab, select your offer type, then **Continue**.
+:::image type="content" source="media/co-sell-migrate/migration-new-step-1.png" alt-text="Select the offer type.":::
+3. On the Step 2 tab, select the publisher profile you want to host this offer on in the commercial marketplace in Partner Center and select **Create Offer**. If you do not have a publisher account, go to Partner Center to set up one and then select the publisher account.
+:::image type="content" source="media/co-sell-migrate/migration-new-step-2.png" alt-text="Select the publisher account.":::
 
-![](RackMultipart20201112-4-8ih11c_html_8359febc8ae65f93.gif)
+Your offer will be migrated into the commercial marketplace in Partner Center as a draft. Your offer must be completed and fully published to retain its co-sell status, incentives, and referral pipeline. For steps to publish in commercial marketplace in Partner Center, see [Publishing a draft offer in the commercial marketplace](#publishing-a-draft-offer-in-the-commercial-marketplace) below.
 
-You should be contacted by our support team within 2 business days to help with you merge your solution. Completing the merge may take up to 10 business days.
+### This offer is no longer relevant
 
- ![](RackMultipart20201112-4-8ih11c_html_39c19b327151cbc.gif)
+Select this option when some of your OCP GTM solutions are obsolete or no longer relevant to co-sell with Microsoft. You will be asked to confirm discarding it. You can undo the discard later.
 
-Offer will be new to commercial marketplace
+1. Select **This offer is no longer relevant** (see **Begin your migration** image [above](#beginmigration)), then **Continue**.
+<!--:::image type="content" source="media/co-sell-migrate/migration-not-relevant.png" alt-text="The third type of migration options, This offer is no longer relevant.":::-->
+2. Select **Discard**.
+:::image type="content" source="media/co-sell-migrate/migration-discard.png" alt-text="Confirm the discard.":::
+3. To undo your discard, select **Undo Discard**.
+:::image type="content" source="media/co-sell-migrate/migration-discard-undo.png" alt-text="The Undo Discard link.":::
 
-  1. You may have an OCP GTM solution that does not yet have a corresponding offer published to the commercial marketplace. You will need to publish this solution to the commercial marketplace to continue co-selling with Microsoft, and migrating this solution will save you time by retaining Microsoft seller-facing metadata. If you select that the offer will be new to commercial marketplace, you will be required to select the offer type that best matches with your offer.
+If you need additional help, review the Get Help tab to contact our Support team.
 
-![](RackMultipart20201112-4-8ih11c_html_6f7eb5c7a11acfa5.gif) ![](RackMultipart20201112-4-8ih11c_html_48a628f2dc5ed87f.gif) ![](RackMultipart20201112-4-8ih11c_html_d7d5cb49804455db.gif) ![](RackMultipart20201112-4-8ih11c_html_19f1ee2f0620abbd.gif) ![](RackMultipart20201112-4-8ih11c_html_19f1ee2f0620abbd.gif) ![](RackMultipart20201112-4-8ih11c_html_c8ed6df939ec3448.gif)
- ![](RackMultipart20201112-4-8ih11c_html_8f3e4a934d0c33ac.gif)
+:::image type="content" source="media/co-sell-migrate/get-support-link.png" alt-text="The support link on the Get Help tab.":::
 
-  1. Select the publisher profile you want to host this offer on in commercial marketplace in Partner Center, and click 'Create offer'. If you do not have a publisher account, go to Partner Center to set up one and then select the publisher account.
+## Publishing a draft offer in the commercial marketplace
 
-![](RackMultipart20201112-4-8ih11c_html_19f1ee2f0620abbd.gif) ![](RackMultipart20201112-4-8ih11c_html_ab605887edff5dc9.gif) ![](RackMultipart20201112-4-8ih11c_html_ad7b8b7b898762fe.gif)
-
-  1. Your offer will be migrated into commercial marketplace in Partner Center as a 'draft'. Your offer must be completed and fully published to retain its co-sell status, incentives, and referral pipeline. For steps to publish in commercial marketplace in Partner Center, review section 'Publishing draft offer in commercial marketplace'.
-
-Offer is no longer relevant
-
-  1. You may find that some of your OCP GTM solutions are obsolete or no longer relevant to co-sell with Microsoft. If you select that your offer is no longer relevant, you will be asked to confirm discarding it. You can undo the discard later.
-
-![](RackMultipart20201112-4-8ih11c_html_98ff28b0d9c23ccc.gif) ![](RackMultipart20201112-4-8ih11c_html_fb1b2ab1369188f.gif)
-
-![](RackMultipart20201112-4-8ih11c_html_4627d4527c20ec00.gif) ![](RackMultipart20201112-4-8ih11c_html_b3afea5940a4d3cc.png)
-
-To undo your discard, click 'Undo Discard'.
-
-![](RackMultipart20201112-4-8ih11c_html_bc7312ca16070cc9.gif) ![](RackMultipart20201112-4-8ih11c_html_fa598ccc1c5f7850.png)
-
- ![](RackMultipart20201112-4-8ih11c_html_3bd5c19d53824f4d.gif) ![](RackMultipart20201112-4-8ih11c_html_fd0d4ac3b2954deb.gif)
-
-  1. If you need additional help, review the &quot;Get Help&quot; tab to get help from our Support team ![](RackMultipart20201112-4-8ih11c_html_d29e41dd9192250e.gif)
-
-Publishing draft offer in commercial marketplace
-
-  1. If you selected that your offer is new to commercial marketplace, your OCP GTM offer will copy over to commercial marketplace as a 'draft'. Your offer must be fully published in the commercial marketplace in Partner Center in order to retain its co-sell status, incentives, and referral pipeline.
-  2. You can find your draft offer under the Overview page. You can search for your draft offer using the offer name, click on the draft offer, and complete all the required information in each tab. You must complete the customer-facing and (optionally) reseller-facing offer details. The &quot;Learn more&quot; links and tooltips in Partner Center will guide you through the requirements and details.
-
-![](RackMultipart20201112-4-8ih11c_html_14d4696230503fcc.gif) ![](RackMultipart20201112-4-8ih11c_html_84448a7acd7ba42c.png) Compl
-
-![](RackMultipart20201112-4-8ih11c_html_deda8f12ad1ff1c8.gif) ![](RackMultipart20201112-4-8ih11c_html_bd0a2a6ee371d983.gif)
-
-  1. Some of the Microsoft seller-facing details were copied over from the OCP GTM solution. Complete the remaining required information in the 'Co-sell with Microsoft' tab in order to continue co-selling your offer. Once complete, click 'Review and publish' to move to the next step.
-
-![](RackMultipart20201112-4-8ih11c_html_91543461fcff84ca.gif) ![](RackMultipart20201112-4-8ih11c_html_cd9b228f097214d7.gif) ![](RackMultipart20201112-4-8ih11c_html_9392f9a39c446275.gif) ![](RackMultipart20201112-4-8ih11c_html_8fac58ca96691699.png)
-
-  1. You can review all the submitted information. Once reviewed, click 'Publish' to submit your draft offer for certification review. You can then track the status of your offer in the Offer Overview tab. Note: you will need to complete the next step to retain your solution's co-sell status.
-
-![](RackMultipart20201112-4-8ih11c_html_6933f192835b54c8.gif) ![](RackMultipart20201112-4-8ih11c_html_60059c9e620457cb.png)
-
-![](RackMultipart20201112-4-8ih11c_html_de18848fe523a6ee.png)
-
-  1. After certification review, you will receive a notification with either actionable feedback or indicating that your offer is ready for preview and signoff. If feedback is provided, address it, and click 'Publish' to initiate a recertification. Once your offer passes certification, preview the offer with the link provided and make any final tweaks, if needed. Once satisfied with your offer, click &quot;Go live&quot; to approve publication of your offer to relevant commercial marketplace storefront(s). Once this step is completed, your offer will retain the co-sell status from the original OCP GTM solution.
-1. Learn more about [FAQs](https://microsoft.sharepoint.com/teams/PartnerExperience/PIX/Shared%20Documents/OCP%20GTM%20to%20PC%20Migration/aka.ms/faqmigration)
-
-DO NOT INCLUDE
-
-i[FAQs](https://microsoft.sharepoint.com/:w:/t/PartnerNorthStar/Ed5IG3igMxZJtyq-gxlt0LsBiBY3Rfznx7uGW5eGsN-g6Q?e=pUrt0H)
-
-TBD
+1. If you selected that your offer is new to the commercial marketplace, your OCP GTM offer will copy over as a draft. Your offer must be fully published in the commercial marketplace in Partner Center in order to retain its co-sell status, incentives, and referral pipeline.
+2. You can find your draft offer on the **Overview** page. Search for your draft offer name and select it.
+:::image type="content" source="media/co-sell-migrate/offer-overview.png" alt-text="The offer overview page in Partner Center.":::
+3. Complete all the required information in each tab. You must complete the customer-facing and (optionally) reseller-facing offer details. The **Learn more** links and tooltips in Partner Center will guide you through the requirements and details.
+:::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="The offer overview setup tabs in Partner Center.":::
+4. Some of the Microsoft seller-facing details were copied over from the OCP GTM solution. Complete the remaining required information in the **Co-sell with Microsoft** tab to continue co-selling your offer. Once complete, select **Review and publish** to continue.
+:::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="The offer co-sell tab in Partner Center.":::
+5. After reviewing all submitted information, select **Publish** to submit your draft offer for certification review.
+:::image type="content" source="media/co-sell-migrate/co-sell-review-publish.png" alt-text="The offer review tab and Publish button in Partner Center.":::
+6. Track the status of your submission on the **Overview** tab.
+:::image type="content" source="media/co-sell-migrate/offer-overview-page.png" alt-text="The offer publish status bar on the Overview tab in Partner Center.":::
+7. We will notify you when our certification review is complete. If we provide actionable feedback, address it, then select **Publish** to initiate a recertification.
+8. Once your offer passes certification, preview the offer with the link provided and make any final adjustments you may want. When you're ready, select **Go live** to publish your offer to relevant commercial marketplace storefront(s). Once live, your offer will retain its co-sell status from the original OCP GTM solution.
 
 ## Next steps
 
