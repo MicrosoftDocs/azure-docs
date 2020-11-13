@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 09/15/2020
 ---
 
-## Event replication between Event Hubs 
+# Event replication between Event Hubs 
 
 This article explains how to replicate data between pairs of Event Hubs, covering several of the patterns explained in the [federation overview](event-hubs-federation-overview.md) article. 
 
@@ -41,7 +41,13 @@ Next, create a `function.json` file in the folder. The file configures the funct
             "direction": "out",
             "name": "output"
         }
-    ],
+    ], 
+    "retry": {
+        "strategy": "exponentialBackoff",
+        "maxRetryCount": -1,
+        "minimumInterval": "00:00:05",
+        "maximumInterval": "00:05:00"
+    },
     "disabled": false,
     "scriptFile": "../dotnet/bin/Azure.Messaging.Replication.dll",
     "entryPoint": "Azure.Messaging.Replication.EventHubReplicationTasks.ForwardToEventHub"
@@ -105,13 +111,13 @@ the (existing) application, and deploy the tasks.
 
 #### Build
 
-The `Build-FunctionApp.ps1` Powershell script will build the project and put all
+The `Build-FunctionApp.ps1` PowerShell script will build the project and put all
 required files into the `./bin` folder immediately underneath the project root.
 This needs to be run after every change. 
 
 #### Configure
 
-The `Configure-Function.ps1` Powershell script calls the shared [Update-PairingConfiguration.ps1](../../../scripts/powershell/README.md) Powershell script and needs to be run once for each task in an existing Function
+The `Configure-Function.ps1` PowerShell script calls the shared `Update-PairingConfiguration.ps1` PowerShell script and needs to be run once for each task in an existing Function
 app, for the configured pairing.
 
 For instance, assume a task `EventHubAToEventHubB` that is configured like this:
@@ -135,6 +141,12 @@ For instance, assume a task `EventHubAToEventHubB` that is configured like this:
             "name": "output"
         }
     ],
+    "retry": {
+        "strategy": "exponentialBackoff",
+        "maxRetryCount": -1,
+        "minimumInterval": "00:00:05",
+        "maximumInterval": "00:05:00"
+    },
     "disabled": false,
     "scriptFile": "../dotnet/bin/Azure.Messaging.Replication.dll",
     "entryPoint": "Azure.Messaging.Replication.EventHubReplicationTasks.ForwardToEventHub"
@@ -163,7 +175,7 @@ Once the build and Configure tasks are complete, the directory can be deployed i
 func azure functionapp publish $FunctionAppName
 ```
 
-Replication applications are regular Azure Function applications and you can therefore use any of the [available deployment options](https://docs.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies). For testing, you can also run the [application locally](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-local), but with the messaging services in the cloud.
+Replication applications are regular Azure Function applications and you can therefore use any of the [available deployment options](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies). For testing, you can also run the [application locally](https://docs.microsoft.com/azure/azure-functions/functions-develop-local), but with the messaging services in the cloud.
 
 In CI/CD environments, you simply need to integrate the steps described above into a build script.
 

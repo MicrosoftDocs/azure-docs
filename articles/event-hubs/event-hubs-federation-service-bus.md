@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 09/15/2020
 ---
 
-## Event replication between Event Hubs and Service Bus
+# Event replication between Event Hubs and Service Bus
 
 This article explains how to replicate data between Event Hubs and Service Bus, covering several of the patterns explained in the [federation overview](event-hubs-federation-overview.md) article. 
 
@@ -59,7 +59,7 @@ Next, create a `function.json` file in the folder. The file configures the funct
 In that file, you need to complete three configuration steps that depend on which entities you want to connect:
 
 1. [Configure the input direction](#configure-the-input-direction)
-2. [Configure the output direction](#configure-the-output-direction)
+2. [Configure the queue output direction](#service-bus-queue-output) or [topic output](#service-bus-topic-output)
 
 #### Configure the input direction
 
@@ -137,13 +137,13 @@ the (existing) application, and deploy the tasks.
 
 #### Build
 
-The `Build-FunctionApp.ps1` Powershell script will build the project and put all
+The `Build-FunctionApp.ps1` PowerShell script will build the project and put all
 required files into the `./bin` folder immediately underneath the project root.
 This needs to be run after every change. 
 
 #### Configure
 
-The `Configure-Function.ps1` Powershell script calls the shared [Update-PairingConfiguration.ps1](../../../scripts/powershell/README.md) Powershell script and needs to be run once for each task in an existing Function
+The `Configure-Function.ps1` PowerShell script calls the shared `Update-PairingConfiguration.ps1` PowerShell script and needs to be run once for each task in an existing Function
 app, for the configured pairing.
 
 For instance, assume a task `EventHubAToQueueB` that is configured like this:
@@ -195,7 +195,7 @@ Once the build and Configure tasks are complete, the directory can be deployed i
 func azure functionapp publish $FunctionAppName
 ```
 
-Replication applications are regular Azure Function applications and you can therefore use any of the [available deployment options](https://docs.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies). For testing, you can also run the [application locally](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-local), but with the messaging services in the cloud.
+Replication applications are regular Azure Function applications and you can therefore use any of the [available deployment options](../azure-functions/functions-deployment-technologies.md). For testing, you can also run the [application locally](../azure-functions/functions-develop-local.md), but with the messaging services in the cloud.
 
 In CI/CD environments, you simply need to integrate the steps described above into a build script.
 
