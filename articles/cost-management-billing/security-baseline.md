@@ -385,7 +385,7 @@ You can enable just-in-time (JIT) privileged access to Azure resources and Azure
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Cost Management doesn't support AAD emergency accounts or doesn't need AAD emergency accounts.
+**Guidance**: Not applicable; Cost Management doesn't support Azure AD emergency accounts or doesn't need Azure AD emergency accounts.
 
 **Azure Security Center monitoring**: Not applicable
 
