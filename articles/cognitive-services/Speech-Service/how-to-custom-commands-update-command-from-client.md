@@ -138,8 +138,8 @@ To test this scenario, let's create a new command in our current application.
 
 Note a few things.
 1. You only need to send this activity once (ideally right after you started a connection).
-1. You can use complex objects for ClientContext.
-1. You can use ClientContext in speech responses, for sending activities and when calling web endpoints.
+1. You can use complex objects for clientContext.
+1. You can use clientContext in speech responses, for sending activities and when calling web endpoints.
 
 ## Next steps
 
