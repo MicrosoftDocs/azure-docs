@@ -303,7 +303,7 @@ First, let's create a static wrapper around the remote ray cast queries. This sc
 
 Sending requests for ray casting on click is an efficient strategy for querying remote objects. However, it's not an ideal user experience because the cursor collides with the box collider, not the model itself.
 
-You could also create a new MRTK pointer that casts its rays in the remote session more frequently. Although this is a more complex approach, the user experience would be better. This strategy is outside the scope of this tutorial, but an example of this approach can be seen in the Showcase App, found in the [ARR samples repository](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+You could also create a new MRTK pointer that casts its rays in the remote session more frequently. Although this is a more complex approach, the user experience would be better. This strategy is outside the scope of this tutorial, but an example of this approach can be seen in the Showcase App, found in the [ARR samples repository](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase).
 
 When a ray cast is completed successfully in the **RemoteRayCastPointerHandler**, the hit `Entity` is emitted from the `OnRemoteEntityClicked` Unity event. To respond to that event, we'll create a helper script that accepts the `Entity` and performs an action on it. Let's start by getting the script to print the name of the `Entity` to the debug log.
 

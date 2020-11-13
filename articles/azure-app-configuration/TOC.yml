@@ -106,8 +106,10 @@
           href: concept-disaster-recovery.md
 - name: How-to guides
   items:
-    - name: Enable a feature for a subset of users
+    - name: Enable a feature for a percentage of users
       href: howto-feature-filters-aspnet-core.md
+    - name: Enable a feature for specified users/groups
+      href: howto-targetingfilter-aspnet-core.md
     - name: Use labels for per-environment configuration
       href: howto-labels-aspnet-core.md
     - name: Import or export configuration data
