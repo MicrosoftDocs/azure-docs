@@ -67,9 +67,9 @@ python ./src/hello.py
 ```
 
 > [!div class="nextstepaction"]
-> [I ran the script locally](?id=success-run-local#test) [I ran into an issue](https://www.research.net/r/7C2NTH7)
+> [I ran the script locally](?id=success-run-local#control-script) [I ran into an issue](https://www.research.net/r/7C2NTH7)
 
-## Create a control script
+## <a name="control-script"></a> Create a control script
 
 A *control script* allows you to run your `hello.py` script in the cloud. You use the control script to control how and where your machine learning code is run.  
 
