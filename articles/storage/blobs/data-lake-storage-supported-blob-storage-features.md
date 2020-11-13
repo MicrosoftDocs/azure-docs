@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/28/2020
+ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
 ---
@@ -47,8 +47,8 @@ The following table shows how each Blob storage feature is supported with Data L
 |Custom domains|Not yet supported|Not yet supported|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
 |Encryption scopes|Not yet supported|Not yet supported|[Create and manage encryption scopes (preview)](encryption-scope-manage.md)|
 |Change feed|Not yet supported|Not yet supported|[Change feed support in Azure Blob storage](storage-blob-change-feed.md)|
-|Object replication|Not yet supported|Not yet supported|[Configure object replication for block blobs (preview)](object-replication-configure.md)|
-|Blob versioning|Not yet supported|Not yet supported|[Enable and manage blob versioning (preview)](versioning-enable.md)|
+|Object replication|Not yet supported|Not yet supported|[Configure object replication for block blobs](object-replication-configure.md)|
+|Blob versioning|Not yet supported|Not yet supported|[Enable and manage blob versioning](versioning-enable.md)|
 
 <div id="blob-container-ACL"><sup>1</sup> You can set ACLs on the root folder of the container but not the container itself.</div><br>
 
