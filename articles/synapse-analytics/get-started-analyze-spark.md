@@ -18,7 +18,10 @@ ms.date: 07/20/2020
 
 In this tutorial, you'll learn the basic steps to load and analyze data with Apache Spark for Azure Synapse.
 
-1. In the **Data** hub, click on **Add a new resource**(plus button above **Linked**) >> **Browse Samples**. Find **NYC Taxi & Limousine Commission - yellow taxi trip records** and click on it. On the bottom of the page press **Continue** and after that **Add dataset**. Now in **Data** hub under **Linked** select right-click on **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** and select **New notebook**
+1. In the **Data** hub, click on **Add a new resource**(plus button above **Linked**) >> **Browse Samples**. 
+1. Find **NYC Taxi & Limousine Commission - yellow taxi trip records** and click on it. 
+1. On the bottom of the page press **Continue** and after that **Add dataset**. 
+1. Now in **Data** hub under **Linked** right-click on **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** and select **New notebook**
 1. This will create a new Notebook with the following code:
     ```
     from azureml.opendatasets import NycTlcYellow
@@ -29,10 +32,14 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
     ```
 1. In the notebook, choose a serverless Spark pool in the **Attach to** menu
 1. Select **Run** on the cell
+1. If you just want to see the schema of the dataframe run a cell with the following code:
+    ```
+    data_df.printSchema()
+    ```
 
 ## Load the NYC Taxi data into the Spark nyctaxi database
 
-We have data available in a table in **SQLDB1**. Load it into a Spark database named **nyctaxi**.
+We have data available in a table in **SQLPOOL1**. Load it into a Spark database named **nyctaxi**.
 
 1. In Synapse Studio, go to the **Develop** hub.
 1. Select **+** > **Notebook**.
@@ -42,13 +49,13 @@ We have data available in a table in **SQLDB1**. Load it into a Spark database n
     ```scala
     %%spark
     spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
-    val df = spark.read.sqlanalytics("SQLDB1.dbo.Trip") 
+    val df = spark.read.sqlanalytics("SQLPOOL1.dbo.Trip") 
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
 1. Go to the **Data** hub, right-click **Databases**, and then select **Refresh**. You should see these databases:
 
-    - **SQLDB1** (dedicated SQL pool)
+    - **SQLPOOL1** (dedicated SQL pool)
     - **nyctaxi** (serverless Apache Spark pool)
 
 ## Analyze the NYC Taxi data using Spark and notebooks
@@ -62,7 +69,7 @@ We have data available in a table in **SQLDB1**. Load it into a Spark database n
    display(df)
    ```
 
-1. Run the following code to do the same analysis that we did earlier with the dedicated SQL pool **SQLDB1**. This code saves the results of the analysis into a table called **nyctaxi.passengercountstats** and visualizes the results.
+1. Run the following code to do the same analysis that we did earlier with the dedicated SQL pool **SQLPOOL1**. This code saves the results of the analysis into a table called **nyctaxi.passengercountstats** and visualizes the results.
 
    ```py
    %%pyspark
@@ -102,16 +109,16 @@ matplotlib.pyplot.show()
 
 ## Load data from a Spark table into a dedicated SQL pool table
 
-Earlier we copied data from the dedicated SQL pool table **SQLDB1.dbo.Trip** into the Spark table **nyctaxi.trip**. Then, using
+Earlier we copied data from the dedicated SQL pool table **SQLPOOL1.dbo.Trip** into the Spark table **nyctaxi.trip**. Then, using
 Spark, we aggregated the data into the Spark table **nyctaxi.passengercountstats**. Now we'll copy the data
-from **nyctaxi.passengercountstats** into a dedicated SQL pool table called **SQLDB1.dbo.PassengerCountStats**.
+from **nyctaxi.passengercountstats** into a dedicated SQL pool table called **SQLPOOL1.dbo.PassengerCountStats**.
 
 Run the following cell in your notebook. It copies the aggregated Spark table back into the dedicated SQL pool table.
 
 ```scala
 %%spark
 val df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
+df.write.sqlanalytics("SQLPOOL1.dbo.PassengerCountStats", Constants.INTERNAL )
 ```
 
 ## Next steps

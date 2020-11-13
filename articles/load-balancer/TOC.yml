@@ -67,9 +67,9 @@
     href: load-balancer-ha-ports-overview.md
   - name: Multiple frontends
     href: load-balancer-multivip-overview.md
-  - name: Outbound proxy
+  - name: SNAT for outbound connections to internet
     href: load-balancer-outbound-connections.md
-  - name: Outbound rules
+  - name: Configuring outbound rules
     href: outbound-rules.md
   - name: TCP reset on idle timeout
     href: load-balancer-tcp-reset.md
