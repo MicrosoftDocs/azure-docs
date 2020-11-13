@@ -37,6 +37,9 @@ In this article, you'll learn how to display and configure Azure IoT Connector f
  
 ## Metric types for Azure IoT Connector for FHIR (preview) 
 
+> [!TIP]
+> To learn about data flow in Azure IoT Connector for FHIR, view [Azure IoT Connector for FHIR (preview) data flow](./iot-data-flow.md) and [Azure IoT Connector for FHIR (preview) troubleshooting guide](./iot-troubleshoot-guide.md) to learn more about error messages and fixes.
+
 The IoT Connector metrics you can display are listed in the following table:
 
 |Metric type|Metric purpose| 
