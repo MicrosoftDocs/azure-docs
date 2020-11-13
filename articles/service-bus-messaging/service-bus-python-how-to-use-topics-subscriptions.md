@@ -20,85 +20,79 @@ This article shows you how to use Python to send messages a Service Bus topic an
 
 ## Send messages to a topic
 
-### Add the following import statement 
+1. Add the following import statement. 
 
-```python
-from azure.servicebus import ServiceBusClient, ServiceBusMessage
-```
+    ```python
+    from azure.servicebus import ServiceBusClient, ServiceBusMessage
+    ```
+2. Add the following constants. 
 
-### Add the following constants 
+    ```python
+    CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
+    TOPIC_NAME = "<TOPIC NAME>"
+    SUBSCRIPTION_NAME = "<SUBSCRIPTION NAME>"
+    ```
+    
+    Replace `<NAMESPACE CONNECTION STRING>` with the connection string for your namespace, `<TOPIC NAME>` with the name of the topic, and `<SUBSCRIPTION NAME>` with the name of the subscription to the topic. 
+3. Add a method to send a single message.
 
-```python
-CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
-TOPIC_NAME = "<TOPIC NAME>"
-SUBSCRIPTION_NAME = "<SUBSCRIPTION NAME>"
-```
+    ```python
+    def send_single_message(sender):
+        # create a Service Bus message
+        message = ServiceBusMessage("Single Message")
+        # send the message to the topic
+        sender.send_messages(message)
+        print("Sent a single message")
+    ```
 
-Replace `<NAMESPACE CONNECTION STRING>` with the connection string for your Service Bus namespace, `<TOPIC NAME>` with the name of the topic, and `<SUBSCRIPTION NAME>` with the name of the subscription to the topic. 
+    The sender is a object that acts as a client for the topic you created. You'll create it later and send as an argument to this function. 
+4. Add a method to send a list of messages.
 
-### Add a method to send a single message
+    ```python
+    def send_a_list_of_messages(sender):
+        # create a list of messages
+        messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+        # send the list of messages to the topic
+        sender.send_messages(messages)
+        print("Sent a list of 5 messages")
+    ```
+5. Add a method to send a batch of messages.
 
-```python
-def send_single_message(sender):
-    # create a Service Bus message
-    message = ServiceBusMessage("Single Message")
-    # send the message to the topic
-    sender.send_messages(message)
-    print("Sent a single message")
-```
+    ```python
+    def send_batch_message(sender):
+        # create a batch of messages
+        batch_message = sender.create_message_batch()
+        for _ in range(10):
+            try:
+                # add a message to the batch
+                batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+            except ValueError:
+                # ServiceBusMessageBatch object reaches max_size.
+                # New ServiceBusMessageBatch object can be created here to send more data.
+                break
+        # send the batch of messages to the topic
+        sender.send_messages(batch_message)
+        print("Sent a batch of 10 messages")
+    ```
+6. Create a Service Bus client and then a topic sender object to send messages.
 
-The sender is a `ServiceBusClient` object that acts as a client for the topic you created. You'll create it later and send as an argument to this function. 
-
-
-### Add a method to send a list of messages
-
-```python
-def send_a_list_of_messages(sender):
-    # create a list of messages
-    messages = [ServiceBusMessage("Message in list") for _ in range(5)]
-    # send the list of messages to the topic
-    sender.send_messages(messages)
-    print("Sent a list of 5 messages")
-```
-
-### Add a method to send a batch of messages
-
-```python
-def send_batch_message(sender):
-    # create a batch of messages
-    batch_message = sender.create_message_batch()
-    for _ in range(10):
-        try:
-            # add a message to the batch
-            batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
-        except ValueError:
-            # ServiceBusMessageBatch object reaches max_size.
-            # New ServiceBusMessageBatch object can be created here to send more data.
-            break
-    # send the batch of messages to the topic
-    sender.send_messages(batch_message)
-    print("Sent a batch of 10 messages")
-```
-
-### Create a Service Bus client and invoke sending functions
-
-```python
-# create a Service Bus client using the connection string
-servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
-with servicebus_client:
-    # get a Topic Sender object to send messages to the topic
-    sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
-    with sender:
-        # send one message        
-        send_single_message(sender)
-        # send a list of messages
-        send_a_list_of_messages(sender)
-        # send a batch of messages
-        send_batch_message(sender)
-
-print("Done sending messages")
-print("-----------------------")
-```
+    ```python
+    # create a Service Bus client using the connection string
+    servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
+    with servicebus_client:
+        # get a Topic Sender object to send messages to the topic
+        sender = servicebus_client.get_topic_sender(topic_name=TOPIC_NAME)
+        with sender:
+            # send one message        
+            send_single_message(sender)
+            # send a list of messages
+            send_a_list_of_messages(sender)
+            # send a batch of messages
+            send_batch_message(sender)
+    
+    print("Done sending messages")
+    print("-----------------------")
+    ```
  
 ## Receive messages from a subscription
 Add the following code after the print statement. 

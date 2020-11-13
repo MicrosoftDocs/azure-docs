@@ -20,84 +20,78 @@ This article shows you how to use Python to send messages to, and receive messag
 
 ## Send messages to a queue
 
-### Add the following import statement 
+1. Add the following import statement. 
 
-```python
-from azure.servicebus import ServiceBusClient, ServiceBusMessage
-```
+    ```python
+    from azure.servicebus import ServiceBusClient, ServiceBusMessage
+    ```
+2. Add the following constants. 
 
-### Add the following constants 
+    ```python
+    CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
+    QUEUE_NAME = "<QUEUE NAME>"
+    ```
 
-```python
-CONNECTION_STR = "<NAMESPACE CONNECTION STRING>"
-QUEUE_NAME = "<QUEUE NAME>"
-```
+    Replace `<NAMESPACE CONNECTION STRING>` with the connection string for your Service Bus namespace and `<QUEUE NAME>` with the name of the queue. 
+3. Add a method to send a single message.
 
-Replace `<NAMESPACE CONNECTION STRING>` with the connection string for your Service Bus namespace and `<QUEUE NAME>` with the name of the queue. 
+    ```python
+    def send_single_message(sender):
+        # create a Service Bus message
+        message = ServiceBusMessage("Single Message")
+        # send the message to the queue
+        sender.send_messages(message)
+        print("Sent a single message")
+    ```
 
-### Add a method to send a single message
+    The sender is a object that acts as a client for the queue you created. You'll create it later and send as an argument to this function. 
+4. Add a method to send a list of messages.
 
-```python
-def send_single_message(sender):
-    # create a Service Bus message
-    message = ServiceBusMessage("Single Message")
-    # send the message to the queue
-    sender.send_messages(message)
-    print("Sent a single message")
-```
+    ```python
+    def send_a_list_of_messages(sender):
+        # create a list of messages
+        messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+        # send the list of messages to the queue
+        sender.send_messages(messages)
+        print("Sent a list of 5 messages")
+    ```
+5. Add a method to send a batch of messages.
 
-The sender is a `ServiceBusClient` object that acts as a client for the queue you created. You'll create it later and send as an argument to this function. 
+    ```python
+    def send_batch_message(sender):
+        # create a batch of messages
+        batch_message = sender.create_message_batch()
+        for _ in range(10):
+            try:
+                # add a message to the batch
+                batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+            except ValueError:
+                # ServiceBusMessageBatch object reaches max_size.
+                # New ServiceBusMessageBatch object can be created here to send more data.
+                break
+        # send the batch of messages to the queue
+        sender.send_messages(batch_message)
+        print("Sent a batch of 10 messages")
+    ```
+6. Create a Service Bus client and then a queue sender object to send messages.
 
-
-### Add a method to send a list of messages
-
-```python
-def send_a_list_of_messages(sender):
-    # create a list of messages
-    messages = [ServiceBusMessage("Message in list") for _ in range(5)]
-    # send the list of messages to the queue
-    sender.send_messages(messages)
-    print("Sent a list of 5 messages")
-```
-
-### Add a method to send a batch of messages
-
-```python
-def send_batch_message(sender):
-    # create a batch of messages
-    batch_message = sender.create_message_batch()
-    for _ in range(10):
-        try:
-            # add a message to the batch
-            batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
-        except ValueError:
-            # ServiceBusMessageBatch object reaches max_size.
-            # New ServiceBusMessageBatch object can be created here to send more data.
-            break
-    # send the batch of messages to the queue
-    sender.send_messages(batch_message)
-    print("Sent a batch of 10 messages")
-```
-
-### Create a Service Bus client and invoke sending functions
-
-```python
-# create a Service Bus client using the connection string
-servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
-with servicebus_client:
-    # get a Queue Sender object to send messages to the queue
-    sender = servicebus_client.get_queue_sender(queue_name=QUEUE_NAME)
-    with sender:
-        # send one message        
-        send_single_message(sender)
-        # send a list of messages
-        send_a_list_of_messages(sender)
-        # send a batch of messages
-        send_batch_message(sender)
-
-print("Done sending messages")
-print("-----------------------")
-```
+    ```python
+    # create a Service Bus client using the connection string
+    servicebus_client = ServiceBusClient.from_connection_string(conn_str=CONNECTION_STR, logging_enable=True)
+    with servicebus_client:
+        # get a Queue Sender object to send messages to the queue
+        sender = servicebus_client.get_queue_sender(queue_name=QUEUE_NAME)
+        with sender:
+            # send one message        
+            send_single_message(sender)
+            # send a list of messages
+            send_a_list_of_messages(sender)
+            # send a batch of messages
+            send_batch_message(sender)
+    
+    print("Done sending messages")
+    print("-----------------------")
+    ```
  
 ## Receive messages from a queue
 Add the following code after the print statement. 
