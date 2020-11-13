@@ -10,7 +10,7 @@ ms.date: 06/17/2020
 
 # Tutorial: Establish Azure Functions private site access
 
-This tutorial shows you how to enable [private site access](./functions-networking-options.md#private-site-access) with Azure Functions. By using private site access, you can require that your function code is only triggered from a specific virtual network.
+This tutorial shows you how to enable [private site access](./functions-networking-options.md#private-endpoint-connections) with Azure Functions. By using private site access, you can require that your function code is only triggered from a specific virtual network.
 
 Private site access is useful in scenarios when access to the function app needs to be limited to a specific virtual network. For example, the function app may be applicable to only employees of a specific organization, or services which are within the specified virtual network (such as another Azure Function, Azure Virtual Machine, or an AKS cluster).
 
@@ -154,7 +154,7 @@ The next step is to create a function app in Azure using the [Consumption plan](
 
 The next step is to configure [access restrictions](../app-service/app-service-ip-restrictions.md) to ensure only resources on the virtual network can invoke the function.
 
-[Private site](functions-networking-options.md#private-site-access) access is enabled by creating an Azure Virtual Network [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the function app and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure only traffic originating from within the specified virtual network can access the designated resource. In this case, the designated resource is the Azure Function.
+[Private site](functions-networking-options.md#private-endpoint-connections) access is enabled by creating an Azure Virtual Network [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the function app and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure only traffic originating from within the specified virtual network can access the designated resource. In this case, the designated resource is the Azure Function.
 
 1. Within the function app, select the **Networking** link under the _Settings_ section header.
 1. The _Networking_ page is the starting point to configure Azure Front Door, the Azure CDN, and also Access Restrictions.
