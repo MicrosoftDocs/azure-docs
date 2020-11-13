@@ -212,7 +212,7 @@ Currently, role-play adjustments are supported for these neural voices:
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
-Above changes are applied at the sentence level, and styles and role-plays vary by voice. If a style or role-play isn't supported, the service will return speech in the default neutral speaking way. You can query the styles and role-play supported for each voice through the [voice list API](rest-text-to-speech.md#get-a-list-of-voices) or throught the code-free [Audio Content Creation platform](https://aka.ms/audiocontentcreation).
+Above changes are applied at the sentence level, and styles and role-plays vary by voice. If a style or role-play isn't supported, the service will return speech in the default neutral speaking way. You can query the styles and role-play supported for each voice through the [voice list API](rest-text-to-speech.md#get-a-list-of-voices) or through the code-free [Audio Content Creation](https://aka.ms/audiocontentcreation) platform.
 
 **Syntax**
 
