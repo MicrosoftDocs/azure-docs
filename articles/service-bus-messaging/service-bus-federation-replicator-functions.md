@@ -23,7 +23,7 @@ This makes replication tasks different from aggregation tasks, which are general
 
 ## Replication applications and tasks in Azure Functions
 
-In Azure Functions, a replication task is implemented using a [trigger](../azure-functions/functions-triggers-bindings.md) that acquires one or more input message from a configured source and an [output binding](../azure-functions/functions-triggers-bindings#binding-direction) that forwards messages copied from the source to a configured target. 
+In Azure Functions, a replication task is implemented using a [trigger](../azure-functions/functions-triggers-bindings.md) that acquires one or more input message from a configured source and an [output binding](../azure-functions/functions-triggers-bindings.md#binding-direction) that forwards messages copied from the source to a configured target. 
 
 For simple replication tasks that only copy messages between Service Bus, or between an Event Hub and Service Bus, you do not have to write code. In a coming update of Azure Functions, you also won't even have to see code for such tasks. 
 
@@ -31,7 +31,7 @@ For simple replication tasks that only copy messages between Service Bus, or bet
 
 A replication application is an execution host for one or more replication tasks. 
 
-It's an Azure Functions application that is configured to run either on the consumption plan or (recommended) on an Azure Functions Premium plan. All replication applications must run under a [system- or user-assigned managed identity](../app-service/overview-managed-identity). 
+It's an Azure Functions application that is configured to run either on the consumption plan or (recommended) on an Azure Functions Premium plan. All replication applications must run under a [system- or user-assigned managed identity](../app-service/overview-managed-identity.md). 
 
 The linked Azure Resource Manager (ARM) templates create and configure a replication application with:
 
@@ -54,13 +54,11 @@ Replication tasks are deployed as into the replication application through the s
 
 With Azure Functions Premium, multiple replication applications can share the same underlying resource pool, called an App Service Plan. That means you can easily collocate replication tasks written in .NET with replication tasks that are written in Java, for instance. That will matter if you want to take advantage of specific libraries such as Apache Camel that are only available for Java and if those are the best option for a particular integration path, even though you would commonly prefer a different language and runtime for you other replication tasks. 
 
-In a coming version, the Azure Functions runtime environment will provide a set of "standard tasks" where you only need to focus on the configuration. 
-
 Tasks that you build yourself are called "custom tasks". Custom tasks can be built in any language supported by Azure Functions. Because Azure Functions automatically takes care of updating and maintaining standard tasks, but you need to control this for your own code, custom tasks need to be hosted in a separate replication application, which still might share the same App Service Plan.
 
 #### Custom replication tasks
 
-Custom replication tasks implement extra functionality not provided by standard tasks, often implementing one or more common [replication task pattern](service-bus-federation-overview.md#replication-task-patterns), or integrating special routing targets.
+Custom replication tasks implement extra functionality not provided by standard tasks.
 
 For custom tasks, you should take advantage of Azure Functions' ability to build and deploy functions in multiple languages and host them in the same App Service Plan. Build a simple Java function to use one of hundreds of [Apache Camel](https://camel.apache.org/) connectors, use JavaScript to reshape JSON data, or use your favorite Python libraries to enrich the message payload with reference data or annotations.
 
@@ -68,9 +66,9 @@ For sending data between Service Bus entities, the boilerplate code for a custom
 
 # [C#](#tab/csharp)
 
-The function binds to an [Service Bus trigger](../azure-functions/functions-bindings-service-bus-trigger.md), specifying a configuration key *"ServiceBusSource"* for the connection string in the [ServiceBusTriggerAttribute](https://github.com/Azure/azure-functions-messagehubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBuss/ServiceBusTriggerAttribute.cs). The name of the source Service Bus instance can be set in the attribute or be overridden in the connection string.
+The function binds to an [Service Bus trigger](../azure-functions/functions-bindings-service-bus-trigger.md), specifying a configuration key *"ServiceBusSource"* for the connection string in the [ServiceBusTriggerAttribute](https://github.com/Azure/azure-functions-messagehubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs). The name of the source Service Bus instance can be set in the attribute or be overridden in the connection string.
 
-The target Service Bus is bound with an [output binding](../azure-functions/functions-bindings-service-bus-output?tabs=csharp), specifying a configuration key *"ServiceBusTarget"* for the connection string in the [ServiceBusAttribute](https://github.com/Azure/azure-functions-messagehubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBuss/ServiceBusAttribute.cs) on the return value. The name of the target Service Bus instance can be set in the attribute or be overridden in the connection string.
+The target Service Bus is bound with an [output binding](../azure-functions/functions-bindings-service-bus-output.md?tabs=csharp), specifying a configuration key *"ServiceBusTarget"* for the connection string in the [ServiceBusAttribute](https://github.com/Azure/azure-functions-messagehubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs) on the return value. The name of the target Service Bus instance can be set in the attribute or be overridden in the connection string.
  
 The body of the function can modify the `Message` object or create a new one with a transformed payload.
 
@@ -145,6 +143,8 @@ The body of the function inside the `foreach` loop can modify the `Message` obje
 # [Python](#tab/python)
 
 (TBD)
+
+---
 
 ## Custom replication application samples
 

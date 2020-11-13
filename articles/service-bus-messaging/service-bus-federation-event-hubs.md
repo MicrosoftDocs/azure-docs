@@ -11,7 +11,7 @@ This article explains how to replicate data from Service Bus entities to Event H
 
 Replication applications and tasks use the Azure Functions runtime and all the fundamentals for how to create such tasks are covered in the [Event replication tasks and applications](service-bus-federation-replicator-functions.md) article.
 
-In this article we lean on the concept of [configured tasks](event-hubs-federation-replicator-functions.md#configured-replication-tasks), which do not require you to write code, but rather leverage code that is already available. "Custom tasks" are explained in the sample application repositories linked below in [next steps](#next-steps) 
+In this article we lean on the concept of [configured tasks](service-bus-federation-replicator-functions.md#replication-tasks), which do not require you to write code, but rather leverage code that is already available. "Custom tasks" are explained in the sample application repositories linked below in [next steps](#next-steps) 
 
 ### Start a new replication project 
 
@@ -131,13 +131,13 @@ the (existing) application, and deploy the tasks.
 
 #### Build
 
-The `Build-FunctionApp.ps1` Powershell script will build the project and put all
+The `Build-FunctionApp.ps1` PowerShell script will build the project and put all
 required files into the `./bin` folder immediately underneath the project root.
 This needs to be run after every change. 
 
 #### Configure
 
-The `Configure-Function.ps1` Powershell script calls the shared [Update-PairingConfiguration.ps1](../../../scripts/powershell/README.md) Powershell script and needs to be run once for each task in an existing Function
+The `Configure-Function.ps1` PowerShell script calls the shared `Update-PairingConfiguration.ps1` PowerShell script and needs to be run once for each task in an existing Function
 app, for the configured pairing.
 
 For instance, assume a task `QueueAToQueueB` that is configured like this:
@@ -189,7 +189,7 @@ Once the build and Configure tasks are complete, the directory can be deployed i
 func azure functionapp publish $FunctionAppName
 ```
 
-Replication applications are regular Azure Function applications and you can therefore use any of the [available deployment options](https://docs.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies). For testing, you can also run the [application locally](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-local), but with the messaging services in the cloud.
+Replication applications are regular Azure Function applications and you can therefore use any of the [available deployment options](../azure-functions/functions-deployment-technologies.md). For testing, you can also run the [application locally](../azure-functions/functions-develop-local.md), but with the messaging services in the cloud.
 
 In CI/CD environments, you simply need to integrate the steps described above into a build script.
 

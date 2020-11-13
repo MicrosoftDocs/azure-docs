@@ -23,7 +23,7 @@ This makes replication tasks different from aggregation tasks, which are general
 
 ## Replication applications and tasks in Azure Functions
 
-In Azure Functions, a replication task is implemented using a [trigger](../azure-functions/functions-triggers-bindings.md) that acquires one or more input event from a configured source and an [output binding](../azure-functions/functions-triggers-bindings#binding-direction) that forwards events copied from the source to a configured target. 
+In Azure Functions, a replication task is implemented using a [trigger](../azure-functions/functions-triggers-bindings.md) that acquires one or more input event from a configured source and an [output binding](../azure-functions/functions-triggers-bindings.md#binding-direction) that forwards events copied from the source to a configured target. 
 
 For simple replication tasks that only copy events between Event Hubs, or between an Event Hub and Service Bus, you do not have to write code. In a coming update of Azure Functions, you also won't even have to see code for such tasks. 
 
@@ -31,7 +31,7 @@ For simple replication tasks that only copy events between Event Hubs, or betwee
 
 A replication application is an execution host for one or more replication tasks. 
 
-It's an Azure Functions application that is configured to run either on the consumption plan or (recommended) on an Azure Functions Premium plan. All replication applications must run under a [system- or user-assigned managed identity](../app-service/overview-managed-identity). 
+It's an Azure Functions application that is configured to run either on the consumption plan or (recommended) on an Azure Functions Premium plan. All replication applications must run under a [system- or user-assigned managed identity](../app-service/overview-managed-identity.md). 
 
 The linked Azure Resource Manager (ARM) templates create and configure a replication application with:
 
@@ -86,6 +86,12 @@ along with the kind of pre-built task you want to execute, for instance:
             "name": "output"
         }
     ],
+    "retry": {
+        "strategy": "exponentialBackoff",
+        "maxRetryCount": -1,
+        "minimumInterval": "00:00:05",
+        "maximumInterval": "00:05:00"
+    },
     "disabled": false,
     "scriptFile": "../dotnet/bin/Azure.Messaging.Replication.dll",
     "entryPoint": "Azure.Messaging.Replication.EventHubReplicationTasks.ForwardToEventHub"
@@ -101,7 +107,7 @@ Further details for how to configure and deploy such tasks, including the one ab
 
 #### Custom replication tasks
 
-Custom replication tasks implement extra functionality not provided by configured tasks, often implementing one or more common [replication task pattern](event-hubs-federation-overview.md#replication-task-patterns), or integrating special routing targets.
+Custom replication tasks implement extra functionality not provided by configured tasks, often implementing one or more common [editor task pattern](event-hubs-federation-patterns.md#editor), or integrating special routing targets.
 
 For sending data between Event Hubs, the boilerplate code for a custom replication task that performs some action on the forwarded event on the "hot path" is quite simple. 
 
@@ -109,7 +115,7 @@ For sending data between Event Hubs, the boilerplate code for a custom replicati
 
 The following function binds to an [EventHub trigger](../azure-functions/functions-bindings-event-hubs-trigger.md), specifying a configuration key *"Eh1ToEh2-source-connection"* for the connection string in the [EventHubTriggerAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs). The name of the source Event Hub instance can be set in the attribute or be overridden in the connection string.
 
-The target Event Hub is bound with an [output binding](../azure-functions/functions-bindings-event-hubs-output?tabs=csharp), specifying a configuration key *"Eh1ToEh2-target-connection"* for the connection string in the [EventHubAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubAttribute.cs) on the return value. The name of the target Event Hub instance can be set in the attribute or be overridden in the connection string.
+The target Event Hub is bound with an [output binding](../azure-functions/functions-bindings-event-hubs-output.md?tabs=csharp), specifying a configuration key *"Eh1ToEh2-target-connection"* for the connection string in the [EventHubAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubAttribute.cs) on the return value. The name of the target Event Hub instance can be set in the attribute or be overridden in the connection string.
  
 The body of the function can modify the `EventData` object or create a new one with a transformed payload.
 

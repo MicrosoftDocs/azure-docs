@@ -1,7 +1,7 @@
 ---
-title: Event replication and cross-region federation - Azure Event Hubs |
-Microsoft Docs description: This article provides an overview of event
-replication and cross-region federation with Azure Event Hubs. ms.topic: article
+title: Event replication and cross-region federation - Azure Event Hubs | Microsoft Docs 
+description: This article provides an overview of event replication and cross-region federation with Azure Event Hubs. 
+ms.topic: article
 ms.date: 09/15/2020
 ---
 
@@ -174,7 +174,7 @@ Monitor](../azure-monitor/overview.md).
 Most importantly, Azure Functions has prebuilt, scalable triggers and output
 bindings for [Azure Event
 Hubs](../azure-functions/functions-bindings-event-hubs.md), [Azure IoT
-Hub](../azure-functions/functions-bindings-event-iot), [Azure Service
+Hub](../azure-functions/functions-bindings-event-iot.md), [Azure Service
 Bus](../azure-functions/functions-bindings-service-bus.md), [Azure Event
 Grid](../azure-functions/functions-bindings-event-grid.md), and [Azure Queue
 Storage](/azure-functions/functions-bindings-storage-queue.md), as well as
