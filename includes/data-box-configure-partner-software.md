@@ -18,8 +18,8 @@ If this is the first time you are using Storage Explorer, you need to perform th
 
 1. From the top command bar, go to **Edit > Target Azure Stack**.
 
-    ![Data Box dashboard](media/data-box-configure-partner-software/data-box-connect-via-rest-6.png)
+    ![Screenshot shows Target Azure Stack selected from the Edit menu.](media/data-box-configure-partner-software/data-box-connect-via-rest-6.png)
 
 2. Restart the Storage Explorer for the changes to take effect.
 
-    ![Data Box dashboard](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)
+    ![Screenshot shows the Restart Now button.](media/data-box-configure-partner-software/data-box-connect-via-rest-7.png)

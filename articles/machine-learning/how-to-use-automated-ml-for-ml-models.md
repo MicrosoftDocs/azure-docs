@@ -1,7 +1,7 @@
 ---
 title: Use AutoML to create models & deploy 
 titleSuffix: Azure Machine Learning
-description: Create, review, and deploy automated machine learning models with Azure Machine Learning.
+description: Create, review, and deploy automated machine learning models with the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ author: aniththa
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, automl
 ---
 
 # Create, review, and deploy automated machine learning models with Azure Machine Learning
@@ -157,6 +157,9 @@ Impute with| Select what value to impute missing values with in your data.
 ## Run experiment and view results
 
 Select **Finish** to run your experiment. The experiment preparing process can take up to 10 minutes. Training jobs can take an additional 2-3 minutes more for each pipeline to finish running.
+
+> [!NOTE]
+> The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended models final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
 
 ### View experiment details
 

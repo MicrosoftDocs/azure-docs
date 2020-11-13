@@ -97,7 +97,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Created confirmation":::
 
-1. In the Visual Studio Code Explorer window, return to the _Static Web Apps_ section and right-click on **Production** and select **Open in Portal** to view app in the Azure portal.
+1. In the Visual Studio Code Explorer window, navigate to the node that has your subscription name and expand it. Please note that it might take a few minutes for the deployment to complete. Then return to the Static Web Apps section and select the name of your app and then right-click on my-first-static-web-app and select Open in Portal to view app in the Azure portal.
 
     :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Open portal":::
 

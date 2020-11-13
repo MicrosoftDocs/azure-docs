@@ -555,6 +555,9 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 Statistics are created per particular column for particular dataset (storage path).
 
+> [!NOTE]
+> Statistics cannot be created for LOB columns.
+
 ### Why use statistics
 
 The more serverless SQL pool (preview) knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. 

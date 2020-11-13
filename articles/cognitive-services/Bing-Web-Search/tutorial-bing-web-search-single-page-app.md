@@ -31,7 +31,7 @@ This sample app can:
 > * Manage subscription keys
 > * Handle errors
 
-To use this app, an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs is required.
+To use this app, an [Azure Cognitive Services account](../cognitive-services-apis-create-account.md) with Bing Search APIs is required.
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ The `index.html` includes a form that enables users to search and select search 
 
 ## Query options
 
-The HTML form includes options that map to query parameters in the [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). This table provides a breakdown of how users can filter search results using the sample app:
+The HTML form includes options that map to query parameters in the [Bing Web Search API v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). This table provides a breakdown of how users can filter search results using the sample app:
 
 | Parameter | Description |
 |-----------|-------------|
@@ -94,7 +94,7 @@ The HTML form includes options that map to query parameters in the [Bing Web Sea
 | `offset` | Hidden field. The offset of the first search result in the request, which is used for paging. It's reset to `0` with each new request. |
 
 > [!NOTE]
-> The Bing Web Search API offers additional query parameters to help refine search results. This sample only uses a few. For a complete list of available parameters, see [Bing Web Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
+> The Bing Web Search API offers additional query parameters to help refine search results. This sample only uses a few. For a complete list of available parameters, see [Bing Web Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
 
 The `bingSearchOptions()` function converts these options to match the format required by the Bing Search API.
 
@@ -298,7 +298,7 @@ Errors are handled by calling `renderErrorMessage()`. If the response passes all
 
 ## Display search results
 
-There are [use and display requirements](useanddisplayrequirements.md) for results returned by the Bing Web Search API. Since a response may include various result types, it isn't enough to iterate through the top-level `WebPages` collection. Instead, the sample app uses `RankingResponse` to order the results to spec.
+There are [use and display requirements](./use-display-requirements.md) for results returned by the Bing Web Search API. Since a response may include various result types, it isn't enough to iterate through the top-level `WebPages` collection. Instead, the sample app uses `RankingResponse` to order the results to spec.
 
 > [!NOTE]
 > If you only want a single result type, use the `responseFilter` query parameter, or consider using one of the other Bing Search endpoints, such as Bing Image Search.

@@ -23,6 +23,9 @@ In this tutorial, you'll learn how to integrate Amazon Web Services (AWS) with A
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
+> [!Note]
+> Azure AD does not support single sign-on integration with AWS SSO, it is a different product from AWS. Although AWS mention about it [here](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html), Azure AD recommends customers to use AWS IAM integration instead so that you can achieve better security controls using Conditional Access policies on individual accounts and also do better governance of these applications.
+
 ![Diagram of Azure AD and AWS relationship](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
 You can configure multiple identifiers for multiple instances. For example:
