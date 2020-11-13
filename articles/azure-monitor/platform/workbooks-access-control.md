@@ -2,14 +2,10 @@
 title: Azure Monitor Workbooks access control
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks with role based access control
 services: azure-monitor
-author: mrbullwinkle
-manager: carmonm
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
 ---
 
 # Access control
@@ -37,4 +33,4 @@ Add `microsoft.insights/workbooks/write` to save shared workbooks. For more deta
 
 ## Next steps
 
-* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.

@@ -4,13 +4,15 @@ description: 'Tutorial: Learn how to set up Azure Cosmos DB global distribution 
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 
 ---
 # Tutorial: Set up Azure Cosmos DB global distribution using the SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In this article, we show how to use the Azure portal to set up Azure Cosmos DB global distribution and then connect using the SQL API.
 
@@ -18,7 +20,7 @@ This article covers the following tasks:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the [SQL APIs](sql-api-introduction.md)
+> * Configure global distribution using the [SQL APIs](./introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
@@ -235,4 +237,3 @@ You can now proceed to the next tutorial to learn how to develop locally using t
 > [Develop locally with the emulator](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
-

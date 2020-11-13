@@ -7,11 +7,11 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=3
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: overview
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 04/08/2019
+ms.reviewer:
+ms.date: 09/21/2020
 ---
 
 # What is Azure SQL Database?
@@ -21,7 +21,7 @@ Azure SQL Database is a fully managed platform as a service (PaaS) database engi
 
 With Azure SQL Database, you can create a highly available and high-performance data storage layer for the applications and solutions in Azure. SQL Database can be the right choice for a variety of modern cloud applications because it enables you to process both relational data and [non-relational structures](../multi-model-features.md), such as graphs, JSON, spatial, and XML.
 
-Azure SQL Database is based on the latest stable version of the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). You can use advanced query processing features, such as [high-performance in-memory technologies](../in-memory-oltp-overview.md) and [intelligent query processing](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). In fact, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. You get the newest SQL Server capabilities with no overhead for patching or upgrading, tested across millions of databases. 
+Azure SQL Database is based on the latest stable version of the [Microsoft SQL Server database engine](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json). You can use advanced query processing features, such as [high-performance in-memory technologies](../in-memory-oltp-overview.md) and [intelligent query processing](/sql/relational-databases/performance/intelligent-query-processing?toc=%252fazure%252fsql-database%252ftoc.json). In fact, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. You get the newest SQL Server capabilities with no overhead for patching or upgrading, tested across millions of databases. 
 
 SQL Database enables you to easily define and scale performance within two different purchasing models: a [vCore-based purchasing model](service-tiers-vcore.md) and a [DTU-based purchasing model](service-tiers-dtu.md). SQL Database is a fully managed service that has built-in high availability, backups, and other common maintenance operations. Microsoft handles all patching and updating of the SQL and operating system code. You don't have to manage the underlying infrastructure.
 
@@ -32,7 +32,7 @@ If you're new to Azure SQL Database, check out the *Azure SQL Database Overview*
 
 Azure SQL Database provides the following deployment options for a database:
 
-- [Single database](single-database-overview.md) represents a fully managed, isolated database. You might use this option if you have modern cloud applications and microservices that need a single reliable data source. A single database is similar to a [contained database](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) in the [SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
+- [Single database](single-database-overview.md) represents a fully managed, isolated database. You might use this option if you have modern cloud applications and microservices that need a single reliable data source. A single database is similar to a [contained database](/sql/relational-databases/databases/contained-databases?toc=%252fazure%252fsql-database%252ftoc.json) in the [SQL Server database engine](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json).
 - [Elastic pool](elastic-pool-overview.md) is a collection of [single databases](single-database-overview.md) with a shared set of resources, such as CPU or memory. Single databases can be moved into and out of an elastic pool.
 
 > [!IMPORTANT]
@@ -87,7 +87,7 @@ Azure SQL Database provides advanced monitoring and troubleshooting features tha
  - The built-in monitoring capabilities provided by the latest version of the SQL Server database engine. They enable you to find real-time performance insights. 
  - PaaS monitoring capabilities provided by Azure that enable you to monitor and troubleshoot a large number of database instances.
 
-[Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), a built-in SQL Server monitoring feature, records the performance of your queries in real time, and enables you to identify the potential performance issues and the top resource consumers. Automatic tuning and recommendations provide advice regarding the queries with the regressed performance and missing or duplicated indexes. Automatic tuning in SQL Database enables you to either manually apply the scripts that can fix the issues, or let SQL Database apply the fix. SQL Database can also test and verify that the fix provides some benefit, and retain or revert the change depending on the outcome. In addition to Query Store and automatic tuning capabilities, you can use standard [DMVs and XEvent](monitoring-with-dmvs.md) to monitor the workload performance.
+[Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store), a built-in SQL Server monitoring feature, records the performance of your queries in real time, and enables you to identify the potential performance issues and the top resource consumers. Automatic tuning and recommendations provide advice regarding the queries with the regressed performance and missing or duplicated indexes. Automatic tuning in SQL Database enables you to either manually apply the scripts that can fix the issues, or let SQL Database apply the fix. SQL Database can also test and verify that the fix provides some benefit, and retain or revert the change depending on the outcome. In addition to Query Store and automatic tuning capabilities, you can use standard [DMVs and XEvent](monitoring-with-dmvs.md) to monitor the workload performance.
 
 Azure provides [built-in performance monitoring](performance-guidance.md) and [alerting](alerts-insights-configure-portal.md) tools, combined with performance ratings, that enable you to monitor the status of thousands of databases. Using these tools, you can quickly assess the impact of scaling up or down, based on your current or projected performance needs. Additionally, SQL Database can [emit metrics and resource logs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) for easier monitoring. You can configure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
 
@@ -103,7 +103,7 @@ Azure SQL Database enables your business to continue operating during disruption
 
 Disaster recovery assumes that a catastrophic event is geographically localized enough to have another machine or set of machines with a copy of your data far away. In SQL Server, you can use Always On Availability Groups running in async mode to get this capability. People often don't want to wait for replication to happen that far away before committing a transaction, so there's potential for data loss when you do unplanned failovers.
 
-Databases in the Premium and Business Critical service tiers already [do something similar](high-availability-sla.md#premium-and-business-critical-service-tier-availability) to the synchronization of an availability group. Databases in lower service tiers provide redundancy through storage by using a [different but equivalent mechanism](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability). Built-in logic helps protect against a single machine failure. The active geo-replication feature gives you the ability to protect against disaster where a whole region is destroyed.
+Databases in the Premium and Business Critical service tiers already [do something similar](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) to the synchronization of an availability group. Databases in lower service tiers provide redundancy through storage by using a [different but equivalent mechanism](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability). Built-in logic helps protect against a single machine failure. The active geo-replication feature gives you the ability to protect against disaster where a whole region is destroyed.
 
 Azure Availability Zones tries to protect against the outage of a single datacenter building within a single region. It helps you protect against the loss of power or network to a building. In SQL Database, you place the different replicas in different availability zones (different buildings, effectively).
 
@@ -153,18 +153,15 @@ You can use [adaptive query processing](/sql/relational-databases/performance/in
 
 ## Advanced security and compliance
 
-SQL Database provides a range of [built-in security and compliance features](../../active-directory/identity-protection/security-overview.md) to help your application meet various security and compliance requirements.
+SQL Database provides a range of [built-in security and compliance features](../../active-directory/identity-protection/concept-identity-protection-security-overview.md) to help your application meet various security and compliance requirements.
 
 > [!IMPORTANT]
 > Microsoft has certified Azure SQL Database (all deployment options) against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), where you can find the most current list of SQL Database compliance certifications.
 
 ### Advance threat protection
 
-Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
+Azure Defender for SQL is a unified package for advanced SQL security capabilities. It includes functionality for managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
 
-- [Data discovery and classification](data-discovery-and-classification-overview.md):
-
-  This feature provides capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. It provides visibility into your database classification state, and tracks the access to sensitive data within the database and beyond its borders.
 - [Vulnerability assessment](sql-vulnerability-assessment.md):
 
   This service can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database fortifications.
@@ -178,7 +175,11 @@ Advanced data security is a unified package for advanced SQL security capabiliti
 
 ### Data encryption
 
-SQL Database helps secure your data by providing encryption. For data in motion, it uses [transport layer security](https://support.microsoft.com/kb/3135244). For data at rest, it uses [transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). For data in use, it uses [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+SQL Database helps secure your data by providing encryption. For data in motion, it uses [transport layer security](https://support.microsoft.com/kb/3135244). For data at rest, it uses [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). For data in use, it uses [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+
+### Data discovery and classification
+
+[Data discovery and classification](data-discovery-and-classification-overview.md) provides capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. It provides visibility into your database classification state, and tracks the access to sensitive data within the database and beyond its borders.
 
 ### Azure Active Directory integration and multi-factor authentication
 
@@ -191,9 +192,9 @@ SQL Database makes building and maintaining applications easier and more product
 |Tool|Description|
 |:---|:---|
 |[The Azure portal](https://portal.azure.com/)|A web-based application for managing all Azure services.|
-|[Azure Data Studio](/sql/azure-data-studio/)|A cross-platform database tool that runs on Windows, MacOS, and Linux.|
-|[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|A free, downloadable client application for managing any SQL infrastructure, from SQL Server to SQL Database.|
-|[SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|A free, downloadable client application for developing SQL Server relational databases, databases in Azure SQL Database, Integration Services packages, Analysis Services data models, and Reporting Services reports.|
+|[Azure Data Studio](/sql/azure-data-studio/)|A cross-platform database tool that runs on Windows, macOS, and Linux.|
+|[SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)|A free, downloadable client application for managing any SQL infrastructure, from SQL Server to SQL Database.|
+|[SQL Server Data Tools in Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt)|A free, downloadable client application for developing SQL Server relational databases, databases in Azure SQL Database, Integration Services packages, Analysis Services data models, and Reporting Services reports.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|A free, downloadable, open-source code editor for Windows, macOS, and Linux. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and Azure Azure Synapse Analytics (formerly SQL Data Warehouse).|
 
 SQL Database supports building applications with Python, Java, Node.js, PHP, Ruby, and .NET on macOS, Linux, and Windows. SQL Database supports the same [connection libraries](connect-query-content-reference-guide.md#libraries) as SQL Server.
@@ -212,7 +213,7 @@ No. The impact of patching is generally not noticeable if you [employ retry logi
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ask database administration questions.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Ask development questions.
-- [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Ask technical questions.
+- [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html): Ask technical questions.
 - [Feedback](https://aka.ms/sqlfeedback): Report bugs and request features.
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuss SQL Server.
 
@@ -231,4 +232,3 @@ No. The impact of patching is generally not noticeable if you [employ retry logi
 
 - For information about new capabilities as they're announced, see [Azure Roadmap for SQL Database](https://azure.microsoft.com/roadmap/?category=databases).
 - See the [Azure SQL Database blog](https://azure.microsoft.com/blog/topics/database), where SQL Server product team members blog about SQL Database news and features.
-

@@ -18,10 +18,10 @@ To back up a SQL Server database and recover it from Azure:
 
 * If you have a database with files on a remote file share, protection will fail with Error ID 104. MABS doesn't support protection for SQL Server data on a remote file share.
 * MABS can't protect databases that are stored on remote SMB shares.
-* Ensure that the [availability group replicas are configured as read-only](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Ensure that the [availability group replicas are configured as read-only](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
 * You must explicitly add the system account **NTAuthority\System** to the Sysadmin group on SQL Server.
-* When you perform an alternate location recovery for a partially contained database, you must ensure that the target SQL instance has the [Contained Databases](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) feature enabled.
-* When you perform an alternate location recovery for a file stream database, you must ensure that the target SQL instance has the [file stream database](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) feature enabled.
+* When you perform an alternate location recovery for a partially contained database, you must ensure that the target SQL instance has the [Contained Databases](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) feature enabled.
+* When you perform an alternate location recovery for a file stream database, you must ensure that the target SQL instance has the [file stream database](/sql/relational-databases/blob/enable-and-configure-filestream) feature enabled.
 * Protection for SQL Server AlwaysOn:
   * MABS detects Availability Groups when running inquiry at protection group creation.
   * MABS detects a failover and continues protection of the database.
@@ -39,7 +39,7 @@ To back up a SQL Server database and recover it from Azure:
     * If the backup fails on the selected node, then the backup operation fails.
     * Recovery to the original location isn't supported.
 * SQL Server 2014 or above backup issues:
-  * SQL server 2014 added a new feature to create a [database for on-premises SQL Server in Windows Azure Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). MABS can't be used to protect this configuration.
+  * SQL server 2014 added a new feature to create a [database for on-premises SQL Server in Windows Azure Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). MABS can't be used to protect this configuration.
   * There are some known issues with "Prefer secondary" backup preference for the SQL AlwaysOn option. MABS always takes a backup from secondary. If no secondary can be found, then the backup fails.
 
 ## Before you start

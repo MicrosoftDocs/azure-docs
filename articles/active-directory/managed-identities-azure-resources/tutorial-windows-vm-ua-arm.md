@@ -43,19 +43,42 @@ You learn how to:
 - [Create a Windows virtual machine](../../virtual-machines/windows/quick-create-portal.md)
 
 - To perform the required resource creation and role management steps in this tutorial, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Use Role-Based Access Control to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
-- [Install the latest version of the Azure PowerShell module](/powershell/azure/install-az-ps). 
-- Run `Connect-AzAccount` to create a connection with Azure.
-- Install the [latest version of PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
-- Run `Install-Module -Name PowerShellGet -AllowPrerelease` to get the pre-release version of the `PowerShellGet` module (you may need to `Exit` out of the current PowerShell session after you run this command to install the `Az.ManagedServiceIdentity` module).
-- Run `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` to install the prerelease version of the `Az.ManagedServiceIdentity` module to perform the user-assigned identity operations in this article.
 
+- To run the example scripts, you have two options:
+    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
+    - Run scripts locally with Azure PowerShell, as described in the next section.
+
+### Configure Azure PowerShell locally
+
+To use Azure PowerShell locally for this article (rather than using Cloud Shell), complete the following steps:
+
+1. Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
+
+1. Sign in to Azure:
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. Install the [latest version of PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+
+    ```azurepowershell
+    Install-Module -Name PowerShellGet -AllowPrerelease
+    ```
+
+    You may need to `Exit` out of the current PowerShell session after you run this command for the next step.
+
+1. Install the prerelease version of the `Az.ManagedServiceIdentity` module to perform the user-assigned managed identity operations in this article:
+
+    ```azurepowershell
+    Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
+    ```
 
 ## Enable
 
 For a scenario that is based on a user-assigned identity, you need to perform the following steps:
 
 - Create an identity
- 
 - Assign the newly created identity
 
 ### Create identity

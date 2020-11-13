@@ -63,14 +63,14 @@ For example, when setting up direct federation for **fabrikam.com**, the authent
 If you specify the metadata URL in the identity provider settings, Azure AD will automatically renew the signing certificate when it expires. However, if the certificate is rotated for any reason before the expiration time, or if you don't provide a metadata URL, Azure AD will be unable to renew it. In this case, you'll need to update the signing certificate manually.
 
 ### Limit on federation relationships
-Currently, a maximum of 1,000 federation relationships is supported. This limit includes both [internal federations](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) and direct federations.
+Currently, a maximum of 1,000 federation relationships is supported. This limit includes both [internal federations](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) and direct federations.
 
 ### Limit on multiple domains
 We don’t currently support direct federation with multiple domains from the same tenant.
 
 ## Frequently asked questions
 ### Can I set up direct federation with a domain for which an unmanaged (email-verified) tenant exists? 
-Yes. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../users-groups-roles/domains-admin-takeover.md), you can set up direct federation with that domain. Unmanaged, or email-verified, tenants are created when a user redeems a B2B invitation or performs a self-service sign-up for Azure AD using a domain that doesn’t currently exist. You can set up direct federation with these domains. If you try to set up direct federation with a DNS-verified domain, either in the Azure portal or via PowerShell, you'll see an error.
+Yes. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../enterprise-users/domains-admin-takeover.md), you can set up direct federation with that domain. Unmanaged, or email-verified, tenants are created when a user redeems a B2B invitation or performs a self-service sign-up for Azure AD using a domain that doesn’t currently exist. You can set up direct federation with these domains. If you try to set up direct federation with a DNS-verified domain, either in the Azure portal or via PowerShell, you'll see an error.
 ### If direct federation and email one-time passcode authentication are both enabled, which method takes precedence?
 When direct federation is established with a partner organization, it takes precedence over email one-time passcode authentication for new guest users from that organization. If a guest user redeemed an invitation using one-time passcode authentication before you set up direct federation, they'll continue to use one-time passcode authentication. 
 ### Does direct federation address sign-in issues due to a partially synced tenancy?
@@ -84,7 +84,7 @@ First, your partner organization needs to configure their identity provider with
 
 ### SAML 2.0 configuration
 
-Azure AD B2B can be configured to federate with identity providers that use the SAML protocol with specific requirements listed below. For more information about setting up a trust between your SAML identity provider and Azure AD, see  [Use a SAML 2.0 Identity Provider (IdP) for Single Sign-On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
+Azure AD B2B can be configured to federate with identity providers that use the SAML protocol with specific requirements listed below. For more information about setting up a trust between your SAML identity provider and Azure AD, see  [Use a SAML 2.0 Identity Provider (IdP) for Single Sign-On](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
 > The target domain for direct federation must not be DNS-verified on Azure AD. The authentication URL domain must match the target domain or it must be the domain of an allowed identity provider. See the [Limitations](#limitations) section for details. 

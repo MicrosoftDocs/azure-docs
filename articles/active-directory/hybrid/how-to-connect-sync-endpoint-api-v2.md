@@ -113,13 +113,13 @@ The following steps can be used to increase the membership limit:
 2. In the editor, choose **Outbound** for Direction 
 3. Click on the **Out to AAD – Group Join** sync rule 
 4. Click the **Edit** button 
- ![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
+ ![Screenshot that shows the "View and manage your synchronization rules" with "Out to AAD - Group Join" selected.](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
 
 6. Click the **Yes** button to disable the default rule and create an editable copy.
- ![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
+ ![Screenshot that shows the "Edit Reserved Rule Confirmation" window with the "Yes" button selected.](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
 
 7. In the pop-up window on the **Description** page, set the precedence to an available value between 1 and 99
-![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
+![Screenshot that shows the "Edit outbound synchronization rule" window with "Precedence" highlighted.](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
 8. On the **Transformations** page, update the **Source** value for the **member** transformation, replacing ‘50000’ with a value between 50001 and 250000. This replacement will increase the maximum membership size of groups that will sync to Azure AD. We suggest starting with a number of 100k, to understand the impact that syncing large groups will have on your sync performance. 
  

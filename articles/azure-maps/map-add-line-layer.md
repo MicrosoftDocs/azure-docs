@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: 
-ms.custom: codepen, devx-track-javascript
+ms.custom: codepen, devx-track-js
 ---
 
 # Add a line layer to the map
@@ -18,7 +18,7 @@ A line layer can be used to render `LineString` and `MultiLineString` features a
 > [!TIP]
 > Line layers by default will render the coordinates of polygons as well as lines in a data source. To limit the layer such that it only renders LineString features set the `filter` property of the layer to `['==', ['geometry-type'], 'LineString']` or `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` if you want to include MultiLineString features as well.
 
-The following code shows how to create a line. Add the line to a data source, then render it with a line layer using the [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer) class.
+The following code shows how to create a line. Add the line to a data source, then render it with a line layer using the [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) class.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -85,7 +85,7 @@ The Line layer has several styling options. Here is a tool to try them out.
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer) 
+> [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) 
 
 > [!div class="nextstepaction"]
 > [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)

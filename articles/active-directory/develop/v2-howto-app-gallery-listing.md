@@ -1,5 +1,5 @@
 ---
-title: Publish your app to the Azure AD app gallery
+title: Publish your app to the Azure Active Directory app gallery
 description: Learn how to list an application that supports single sign-on in the Azure Active Directory app gallery.
 services: active-directory
 author: kenwith
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/14/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
@@ -55,11 +55,28 @@ The steps to publishing your app in the Azure AD app gallery are:
 5. Submit your app.
 6. Join the Microsoft partner network.
 
+## What is the Azure AD application gallery?
+
+- Customers find the best possible single sign-on experience.
+- Configuration of the application is simple and minimal.
+- A quick search finds your application in the gallery.
+- Free, Basic, and Premium Azure AD customers can all use this integration.
+- Mutual customers get a step-by-step configuration tutorial.
+- Customers who use the System for Cross-domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) can use provisioning for the same app.
 
 ## Prerequisites
 
 You need a permanent account for testing with at least two users registered.
 
+- For federated applications (Open ID and SAML/WS-Fed), the application must support the software-as-a-service (SaaS) model for getting listed in the Azure AD app gallery. The enterprise gallery applications must support multiple customer configurations and not any specific customer.
+- For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) must be properly implemented for the application. The user can send the sign-in request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token.
+- For SAML 2.0/WS-Fed, your application must have the capability to do the SAML/WS-Fed SSO integration in SP or IDP mode. Make sure this capability is working correctly before you submit the request.
+- For password SSO, make sure that your application supports form authentication so that password vaulting can be done to get single sign-on to work as expected.
+- You need a permanent account for testing with at least two users registered.
+
+**How to get Azure AD for developers?**
+
+You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## Step 1 - Choose the right single sign-on standard for your app
 
@@ -75,6 +92,7 @@ The following table compares the main standards: Open Authentication 2.0 (OAuth 
 | Mobile-based single sign-out| √| √* |
 | Conditional Access policies for mobile applications| √| X |
 | Seamless MFA experience for mobile applications| √| X |
+| SCIM Provisioning| √| √ |
 | Access Microsoft Graph| √| X |
 
 *Possible, but Microsoft doesn't provide samples or guidance.
@@ -235,11 +253,11 @@ If you want to add your application to list in the gallery by using **SAML 2.0**
 
 ![Listing a SAML 2.0 or WS-Fed application in the gallery](./media/howto-app-gallery-listing/saml.png)
 
-If you want to add your application to list in the gallery by using password SSO, select **Password SSO** as shown.
+If you want to add your application to list in the gallery by using password SSO, select **Password SSO(UserName & Password)** as shown.
 
 ![Listing a password SSO application in the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
-If you are implementing a SCIM 2.0 endpoint for user provisioning, select the option as shown. 
+If you are implementing a [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2.0 endpoint for user provisioning, select the option as shown. 
 
    ![Request for user provisioning](./media/howto-app-gallery-listing/user-provisioning.png)
 
@@ -251,6 +269,16 @@ You can update or remove an existing gallery app in the [Microsoft Application N
 
 > [!NOTE]
 > If you have any issues with access, review the previous section on creating your account. If that doesn't work, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+### List requests by customers
+
+Customers can submit a request to list an application by selecting **App requests by Customers** > **Submit new request**.
+
+![Shows the customer-requested apps tile](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Here's the flow of customer-requested applications.
+
+![Shows the customer-requested apps flow](./media/howto-app-gallery-listing/customer-request-2.png)
 
 
 ### Timelines

@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.custom: mqtt, devx-track-javascript
+ms.custom: mqtt, devx-track-js
 ---
 
 # Upload files from your device to the cloud with IoT Hub (Node.js)

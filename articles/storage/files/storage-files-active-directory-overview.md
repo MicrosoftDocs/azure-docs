@@ -41,7 +41,7 @@ It's helpful to understand some key terms relating to Azure AD Domain Service au
 
 -   **Azure role-based access control (Azure RBAC)**
 
-    Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs. For more information on RBAC, see [What is Azure role-based access control (Azure RBAC) in Azure?](../../role-based-access-control/overview.md).
+    Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using Azure RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs. For more information on Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
 ## Common use cases
 
@@ -99,7 +99,7 @@ For on-premises AD DS authentication, you must set up your AD domain controllers
 
 The following diagram depicts on-premises AD DS authentication to Azure file shares over SMB. The on-prem AD DS must be synced to Azure AD using Azure AD Connect sync. Only hybrid users that exist in both on-premises AD DS and Azure AD can be authenticated and authorized for Azure file share access. This is because the share level permission is configured against the identity represented in Azure AD where the directory/file level permission is enforced with that in AD DS. Make sure that you configure the permissions correctly against the same hybrid user.
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagram":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagram that depicts on-premises AD DS authentication to Azure file shares over SMB.":::
 
 ### Azure AD DS
 
@@ -109,7 +109,7 @@ The following diagram represents the workflow for Azure AD DS authentication to 
 
 - First, you don’t need to create the identity in Azure AD DS to represent the storage account. This is performed by the enablement process in the background.
 
-- Second, all users exist in Azure AD can be authenticated and authorized. The user can be cloud only or hybrid. The sync from Azure AD to Azure AD DS is managed by the platform without requiring any user configuration. However, the client must be domain joined to Azure AD DS, it cannot be Azure AD joined or registered. 
+- Second, all users that exist in Azure AD can be authenticated and authorized. The user can be cloud only or hybrid. The sync from Azure AD to Azure AD DS is managed by the platform without requiring any user configuration. However, the client must be domain joined to Azure AD DS, it cannot be Azure AD joined or registered. 
 
 :::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagram":::
 

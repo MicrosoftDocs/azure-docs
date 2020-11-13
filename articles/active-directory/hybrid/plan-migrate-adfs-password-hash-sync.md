@@ -140,9 +140,9 @@ Before you convert from federated identity to managed identity, look closely at 
 |-|-|
 | You plan to keep using AD FS with other applications (other than Azure AD and Microsoft 365). | After you convert your domains, you'll use both AD FS and Azure AD. Consider the user experience. In some scenarios, users might be required to authenticate twice: once to Azure AD (where a user gets SSO access to other applications, like Microsoft 365), and again for any applications that are still bound to AD FS as a relying party trust. |
 | Your AD FS instance is heavily customized and relies on specific customization settings in the onload.js file (for example, if you changed the sign-in experience so that users use only a **SamAccountName** format for their username instead of a User Principal Name (UPN), or your organization has heavily branded the sign-in experience). The onload.js file can't be duplicated in Azure AD. | Before you continue, you must verify that Azure AD can meet your current customization requirements. For more information and for guidance, see the sections on AD FS branding and AD FS customization.|
-| You use AD FS to block earlier versions of authentication clients.| Consider replacing AD FS controls that block earlier versions of authentication clients by using a combination of [Conditional Access controls](../conditional-access/concept-conditional-access-conditions.md) and [Exchange Online Client Access Rules](https://aka.ms/EXOCAR). |
+| You use AD FS to block earlier versions of authentication clients.| Consider replacing AD FS controls that block earlier versions of authentication clients by using a combination of [Conditional Access controls](../conditional-access/concept-conditional-access-conditions.md) and [Exchange Online Client Access Rules](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules). |
 | You require users to perform multi-factor authentication against an on-premises multi-factor authentication server solution when users authenticate to AD FS.| In a managed identity domain, you can't inject a multi-factor authentication challenge via the on-premises multi-factor authentication solution into the authentication flow. However, you can use the Azure Multi-Factor Authentication service for multi-factor authentication after the domain is converted.<br /><br /> If your users don't currently use Azure Multi-Factor Authentication, a onetime user registration step is required. You must prepare for and communicate the planned registration to your users. |
-| You currently use access control policies (AuthZ rules) in AD FS to control access to Microsoft 365.| Consider replacing the policies with the equivalent Azure AD [Conditional Access policies](../conditional-access/overview.md) and [Exchange Online Client Access Rules](https://aka.ms/EXOCAR).|
+| You currently use access control policies (AuthZ rules) in AD FS to control access to Microsoft 365.| Consider replacing the policies with the equivalent Azure AD [Conditional Access policies](../conditional-access/overview.md) and [Exchange Online Client Access Rules](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules).|
 
 ### Common AD FS customizations
 
@@ -298,7 +298,7 @@ First, change the sign-in method:
 
 5. On the **Enable single sign-on** page, enter the credentials of Domain Administrator account, and then select **Next**.
 
-   ![Screenshot of the Enable single sign-on page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
+   ![Screenshot of the Enable single sign-on page where you can enter the Domain Administrator account credentials.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
 
    > [!NOTE]
    > Domain Administrator account credentials are required to enable seamless SSO. The process completes the following actions, which require these elevated permissions. The Domain Administrator account credentials aren't stored in Azure AD Connect or in Azure AD. The Domain Administrator account credentials are used only to turn on the feature. The credentials are discarded when the process successfully finishes.
@@ -320,7 +320,7 @@ First, change the sign-in method:
    * **Seamless single sign-on** is set to **Enabled**.
    * **Password Sync** is set to **Enabled**.<br /> 
 
-   ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Screenshot that shows the settings in the User sign-in section of the Azure AD portal.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Skip to [Testing and next steps](#testing-and-next-steps).
 

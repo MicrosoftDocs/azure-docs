@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 06/22/2020
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -28,11 +28,11 @@ Policies are enforced for business-to-business (B2B) collaboration users. Howeve
 
 ## Does a SharePoint Online policy also apply to OneDrive for Business?
 
-Yes. A SharePoint Online policy also applies to OneDrive for Business. For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365-preview) instead.
+Yes. A SharePoint Online policy also applies to OneDrive for Business. For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365) instead.
 
 ## Why can’t I set a policy directly on client apps, like Word or Outlook?
 
-A Conditional Access policy sets requirements for accessing a service. It's enforced when authentication to that service occurs. The policy is not set directly on a client application. Instead, it is applied when a client calls a service. For example, a policy set on SharePoint applies to clients calling SharePoint. A policy set on Exchange applies to Outlook. For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365-preview) instead.
+A Conditional Access policy sets requirements for accessing a service. It's enforced when authentication to that service occurs. The policy is not set directly on a client application. Instead, it is applied when a client calls a service. For example, a policy set on SharePoint applies to clients calling SharePoint. A policy set on Exchange applies to Outlook. For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365) instead.
 
 ## Does a Conditional Access policy apply to service accounts?
 
@@ -50,7 +50,7 @@ Microsoft Teams also is supported separately as a cloud app in Conditional Acces
 
 Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms.
 
-For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365-preview) instead.
+For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365) instead.
 
 ## Why are some tabs not working in Microsoft Teams after enabling Conditional Access policies?
 
@@ -60,4 +60,4 @@ To see the affected tabs you must use the Teams web client in Edge, Internet Exp
 
 ## Next steps
 
-- To configure Conditional Access policies for your environment, see the [Best practices for Conditional Access in Azure Active Directory](best-practices.md). 
+- To configure Conditional Access policies for your environment, see the article [Plan a Conditional Access deployment](plan-conditional-access.md). 

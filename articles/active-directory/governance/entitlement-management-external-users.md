@@ -82,7 +82,7 @@ To ensure people outside of your organization can request access packages and ge
 
 - Allowing guests to invite other guests to your directory means that guest invites can occur outside of entitlement management. We recommend setting **Guests can invite** to **No** to only allow for properly governed invitations.
 - If you are using the B2B allow list, you must make sure any domain you want to partner with using entitlement management is added to the list. Alternatively, if you are using the B2B deny list, you must make sure any domain you want to partner with is not added to the list.
-- If you create an entitlement management policy for **All users** (All connected organizations + any new external users), any B2B allow or deny list settings you have will take precedence. Therefore, be sure to include the domains you intend to include in this policy to your allow list if you are using one, and exclude them from your deny list if you are using a deny list.
+- If you create an entitlement management policy for **All users** (All connected organizations + any new external users), and a user doesn’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. Any B2B allow or deny list settings you have will take precedence. Therefore, be sure to include the domains you intend to include in this policy to your allow list if you are using one, and exclude them from your deny list if you are using a deny list.
 - If you want to create an entitlement management policy that includes **All users** (All connected organizations + any new external users), you must first enable email one-time passcode authentication for your directory. For more information, see [Email one-time passcode authentication (preview)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
 - For more information about Azure AD B2B external collaboration settings, see [Enable B2B external collaboration and manage who can invite guests](../external-identities/delegate-invitations.md).
 
@@ -108,7 +108,7 @@ To ensure people outside of your organization can request access packages and ge
 
 - If you want external users to be able to access the SharePoint Online site and resources associated with a Microsoft 365 group, make sure you turn on SharePoint Online external sharing. For more information, see [Turn external sharing on or off](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- For information about how to set the guest policy for Microsoft 365 groups at the directory level in PowerShell, see [Example: Configure Guest policy for groups at the directory level](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- For information about how to set the guest policy for Microsoft 365 groups at the directory level in PowerShell, see [Example: Configure Guest policy for groups at the directory level](../enterprise-users/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### Review your Teams sharing settings
 

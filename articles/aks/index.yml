@@ -28,8 +28,6 @@ landingContent:
         links:
           - text: Kubernetes core concepts for AKS
             url: concepts-clusters-workloads.md
-          - text: Baseline architecture for an AKS cluster
-            url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
           - text: Clusters and workloads
             url: concepts-clusters-workloads.md
           - text: Access and identity
@@ -56,14 +54,14 @@ landingContent:
             url: kubernetes-walkthrough-rm-template.md
 
   # Card
-  - title: Develop and debug applications with Local Process with Kubernetes
+  - title: Develop and debug applications with Bridge to Kubernetes
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use Local Process with Kubernetes with Visual Studio Code (preview)
-            url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-          - text: Use Local Process with Kubernetes with Visual Studio (preview)
-            url: /visualstudio/containers/local-process-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio Code
+            url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio
+            url: /visualstudio/containers/bridge-to-kubernetes
 
   # Card
   - title: Deploy, manage, and update applications
@@ -84,6 +82,19 @@ landingContent:
             url: tutorial-kubernetes-app-update.md
           - text: 7. Upgrade Kubernetes in AKS
             url: tutorial-kubernetes-upgrade-cluster.md
+  # Card
+  - title: Architecture guidance
+    linkLists:
+      - linkListType: architecture
+        links:
+            - text: Baseline architecture for an AKS cluster
+              url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+            - text: AKS solutions
+              url: /azure/architecture/reference-architectures/containers/aks-start-here
+            - text: Best practices for cluster operators and developers
+              url: best-practices.md
+            - text: Checking for best practices
+              url: kube-advisor-tool.md
 
     # Card
   - title: Build your skills with Microsoft Learn

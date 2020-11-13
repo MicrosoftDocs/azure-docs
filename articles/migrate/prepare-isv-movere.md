@@ -21,7 +21,7 @@ Your Azure user account needs these permissions:
 
 1. In Azure AD, check the role for your account.
 2. If you have the user role, select **User settings** on the left and verify whether users can register applications. If it's set to **Yes**, any users in the Azure AD tenant can register an app. If it's set to **No**, then only admin users can register apps.   
-3. If you don't have permissions, an admin user can provide your user account with the [Application Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-administrator) role, so that you can register the app.
+3. If you don't have permissions, an admin user can provide your user account with the [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) role, so that you can register the app.
 4. After the tool is linked to Azure Migrate, the admin can remove the role from your account.
 
 ### Set permissions to assign a role to an Azure AD app

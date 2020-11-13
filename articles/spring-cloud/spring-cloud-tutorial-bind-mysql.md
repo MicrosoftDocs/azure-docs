@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Bind an Azure Database for MySQL instance to your Azure Spring Cloud application 
 
+**This article applies to:** ✔️ Java
+
 With Azure Spring Cloud, you can bind select Azure services to your applications automatically, instead of having to configure your Spring Boot application manually. This article shows you how to bind your application to your Azure Database for MySQL instance.
 
 ## Prerequisites

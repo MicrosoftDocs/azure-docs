@@ -1,18 +1,18 @@
 ---
-title: Connect to and manage Microsoft Azure Stack Edge device via the Windows PowerShell interface | Microsoft Docs
-description: Describes how to connect to and then manage Azure Stack Edge via the Windows PowerShell interface.
+title: Connect to and manage Microsoft Azure Stack Edge Pro GPU device via the Windows PowerShell interface | Microsoft Docs
+description: Describes how to connect to and then manage Azure Stack Edge Pro GPU via the Windows PowerShell interface.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 10/06/2020
 ms.author: alkohli
 ---
-# Manage an Azure Stack Edge GPU device via Windows PowerShell
+# Manage an Azure Stack Edge Pro GPU device via Windows PowerShell
 
-Azure Stack Edge solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Azure Stack Edge device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
+Azure Stack Edge Pro solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Azure Stack Edge Pro device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 
 This article focuses on how you can connect to the PowerShell interface of the device and the tasks you can do using this interface. 
 
@@ -79,11 +79,11 @@ If the compute role is configured on your device, you can also get the GPU drive
 
 ## Enable Multi-Process Service (MPS)
 
-A Multi-Process Service (MPS) on Nvidia GPUs provides a mechanism where GPUs can be shared by multiple jobs, where each job is allocated some percentage of the GPU's resources. To enable MPS on your Azure Stack Edge device, follow these steps:
+A Multi-Process Service (MPS) on Nvidia GPUs provides a mechanism where GPUs can be shared by multiple jobs, where each job is allocated some percentage of the GPU's resources. MPS is a preview feature on your Azure Stack Edge Pro GPU device. To enable MPS on your device, follow these steps:
 
 1. Before you begin, make sure: that 
 
-    1. You've configured and [Activated your Azure Stack Edge device](azure-stack-edge-gpu-deploy-activate.md) with an Azure Stack Edge/Data Box Gateway resource in Azure.
+    1. You've configured and [Activated your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-activate.md) with an Azure Stack Edge Pro/Data Box Gateway resource in Azure.
     1. You've [Configured compute on this device in the Azure portal](azure-stack-edge-deploy-configure-compute.md#configure-compute).
     
 1. [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
@@ -122,7 +122,7 @@ By default, Kubernetes on your Azure Stack Edge device uses subnets 172.27.0.0/1
 
 You want to perform this configuration before you configure compute from the Azure portal as the Kubernetes cluster is created in this step.
 
-1. Connect to the PowerShell interface of the device.
+1. [Connect to the PowerShell interface of the device](#connect-to-the-powershell-interface).
 1. From the PowerShell interface of the device, run:
 
     `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
@@ -182,7 +182,7 @@ users:
 ```
 -->
 
-On an Azure Stack Edge device that has the compute role configured, you can troubleshoot or monitor the device using two different set of commands.
+On an Azure Stack Edge Pro device that has the compute role configured, you can troubleshoot or monitor the device using two different set of commands.
 
 - Using `iotedge` commands. These commands are available for basic operations for your device.
 - Using `kubectl` commands. These commands are available for an extensive set of operations for your device.
@@ -236,7 +236,7 @@ webserverapp           Running Up 10 days  nginx:stable                         
 
 ### Use kubectl commands
 
-On an Azure Stack Edge device that has the compute role configured, all the `kubectl` commands are available to monitor or troubleshoot modules. To see a list of available commands, run `kubectl --help` from the command window.
+On an Azure Stack Edge Pro device that has the compute role configured, all the `kubectl` commands are available to monitor or troubleshoot modules. To see a list of available commands, run `kubectl --help` from the command window.
 
 ```PowerShell
 C:\Users\myuser>kubectl --help
@@ -420,7 +420,65 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 [10.100.10.10]: PS>
 ```
 
+## Connect to BMC
 
+Baseboard management controller (BMC) is used to remotely monitor and manage your device. This section describes the cmdlets that can be used to manage BMC configuration. Prior to running any of these cmdlets, [Connect to the PowerShell interface of the device](#connect-to-the-powershell-interface).
+
+- `Get-HcsNetBmcInterface`: Use this cmdlet to get the network configuration properties of the BMC, for example, `IPv4Address`, `IPv4Gateway`, `IPv4SubnetMask`, `DhcpEnabled`. 
+    
+    Here is a sample output:
+    
+    ```powershell
+    [10.100.10.10]: PS>Get-HcsNetBmcInterface
+    IPv4Address   IPv4Gateway IPv4SubnetMask DhcpEnabled
+    -----------   ----------- -------------- -----------
+    10.128.53.186 10.128.52.1 255.255.252.0        False
+    [10.100.10.10]: PS>
+    ```
+- `Set-HcsNetBmcInterface`: You can use this cmdlet in the following two ways.
+
+    - Use the cmdlet to enable or disable DHCP configuration for BMC by using the appropriate value for `UseDhcp` parameter. 
+
+        ```powershell
+        Set-HcsNetBmcInterface -UseDhcp $true
+        ```
+
+        Here is a sample output: 
+
+        ```powershell
+        [10.100.10.10]: PS>Set-HcsNetBmcInterface -UseDhcp $true
+        [10.100.10.10]: PS>Get-HcsNetBmcInterface
+        IPv4Address IPv4Gateway IPv4SubnetMask DhcpEnabled
+        ----------- ----------- -------------- -----------
+        10.128.54.8 10.128.52.1 255.255.252.0         True
+        [10.100.10.10]: PS>
+        ```
+
+    - Use this cmdlet to configure the static configuration for the BMC. You can specify the values for `IPv4Address`, `IPv4Gateway`, and `IPv4SubnetMask`. 
+    
+        ```powershell
+        Set-HcsNetBmcInterface -IPv4Address "<IPv4 address of the device>" -IPv4Gateway "<IPv4 address of the gateway>" -IPv4SubnetMask "<IPv4 address for the subnet mask>"
+        ```        
+        
+        Here is a sample output: 
+
+        ```powershell
+        [10.100.10.10]: PS>Set-HcsNetBmcInterface -IPv4Address 10.128.53.186 -IPv4Gateway 10.128.52.1 -IPv4SubnetMask 255.255.252.0
+        [10.100.10.10]: PS>Get-HcsNetBmcInterface
+        IPv4Address   IPv4Gateway IPv4SubnetMask DhcpEnabled
+        -----------   ----------- -------------- -----------
+        10.128.53.186 10.128.52.1 255.255.252.0        False
+        [10.100.10.10]: PS>
+        ```    
+
+- `Set-HcsBmcPassword`: Use this cmdlet to modify the BMC password for `EdgeUser`. The user name - `EdgeUser`- is case-sensitive.
+
+    Here is a sample output: 
+
+    ```powershell
+    [10.100.10.10]: PS> Set-HcsBmcPassword -NewPassword "Password1"
+    [10.100.10.10]: PS>
+    ```
 
 ## Exit the remote session
 
@@ -428,4 +486,4 @@ To exit the remote PowerShell session, close the PowerShell window.
 
 ## Next steps
 
-- Deploy [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md) in Azure portal.
+- Deploy [Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md) in Azure portal.

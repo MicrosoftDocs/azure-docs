@@ -3,7 +3,7 @@ title: Receive events from Azure Event Grid to an HTTP endpoint
 description: Describes how to validate an HTTP endpoint, then receive and deserialize Events from Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.custom: devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-js, devx-track-csharp
 ---
 
 # Receive events to an HTTP endpoint

@@ -1,7 +1,7 @@
 ---
 title: Guidance to mitigate speculative execution in Azure
 titleSuffix: Azure Cloud Services
-description: Guidance for mitigating speculative execution side-channel vulnerabilities in Azure.
+description: In this article, learn now to mitigate speculative execution side-channel vulnerabilities in Azure.
 services: cloud-services
 documentationcenter: ''
 author: cynthn

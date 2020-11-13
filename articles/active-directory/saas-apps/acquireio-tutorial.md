@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate AcquireIO with Azure Active Dire
 * Enable your users to be automatically signed-in to AcquireIO with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -130,15 +130,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. From the left side of menu, click on **App Store**.
 
-	 ![AcquireIO configuration](./media/acquireio-tutorial/config01.png)
+	 ![Screenshot that highlights App Store.](./media/acquireio-tutorial/config01.png)
 
 1. Scroll down up to **Active Directory** and click on **Install**.
 
-    ![AcquireIO configuration](./media/acquireio-tutorial/config02.png)
+    ![Screenshot that highlights the Active Directory section and the Install button.](./media/acquireio-tutorial/config02.png)
 
 1. On the Active Directory pop-up, perform the following steps:
 
-    ![AcquireIO configuration](./media/acquireio-tutorial/config03.png)
+    ![Screnshot that shows the Active Directory screen.](./media/acquireio-tutorial/config03.png)
 
 	a. Click **Copy** to copy the Reply URL for your instance and paste it in **Reply URL** textbox in **Basic SAML Configuration** section on Azure portal.
 
@@ -158,7 +158,7 @@ To enable Azure AD users to sign in to AcquireIO, they must be provisioned into 
 
 1. From the left side of menu, click **Profiles** and navigate to **Add Profile**.
 
-	 ![AcquireIO configuration](./media/acquireio-tutorial/config04.png)
+	 ![Screenshot that highlights Profiles in menu on the left side of the screen as well as the Add Profile option.](./media/acquireio-tutorial/config04.png)
 
 1. On the **Add customer** pop-up, perform the following steps:
 
@@ -174,14 +174,14 @@ To enable Azure AD users to sign in to AcquireIO, they must be provisioned into 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the AcquireIO tile in the Access Panel, you should be automatically signed in to the AcquireIO for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the AcquireIO tile in the Access Panel, you should be automatically signed in to the AcquireIO for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try AcquireIO with Azure AD](https://aad.portal.azure.com/)

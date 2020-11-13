@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Call Azure functions from Azure Logic Apps

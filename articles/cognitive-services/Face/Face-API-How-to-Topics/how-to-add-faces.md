@@ -134,6 +134,5 @@ The following features were explained and demonstrated:
 
 ## Related topics
 
-- [Identify faces in an image](HowtoIdentifyFacesinImage.md)
 - [Detect faces in an image](HowtoDetectFacesinImage.md)
 - [Use the large-scale feature](how-to-use-large-scale.md)

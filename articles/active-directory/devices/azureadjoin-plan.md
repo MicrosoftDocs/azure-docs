@@ -117,7 +117,7 @@ There are two approaches for managing Azure AD joined devices:
 - **MDM-only** - A device is exclusively managed by an MDM provider like Intune. All policies are delivered as part of the MDM enrollment process. For Azure AD Premium or EMS customers, MDM enrollment is an automated step that is part of an Azure AD join.
 - **Co-management** -  A device is managed by an MDM provider and SCCM. In this approach, the SCCM agent is installed on an MDM-managed device to administer certain aspects.
 
-If you are using group policies, evaluate your MDM policy parity by using the [MDM Migration Analysis Tool (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
+If you are using Group Policies, evaluate your GPO and MDM policy parity by using [Group Policy analytics](/mem/intune/configuration/group-policy-analytics) in Microsoft Endpoint Manager. 
 
 Review supported and unsupported policies to determine whether you can use an MDM solution instead of Group policies. For unsupported policies, consider the following:
 
@@ -183,9 +183,10 @@ Azure AD joined devices don't support on-premises applications relying on machin
 
 Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or Hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device is not supported. For more information, see [Connect to remote Azure AD joined pc](/windows/client-management/connect-to-remote-aadj-pc)
 
-Starting Windows 10 2004 update, users can alo use remote desktop from an Azure AD registered Windows 10 device to an Azure AD joined device. 
+Starting Windows 10 2004 update, users can also use remote desktop from an Azure AD registered Windows 10 device to an Azure AD joined device. 
 
 ## Understand your provisioning options
+**Note**: Azure AD joined devices cannot be deployed using  System Preparation Tool (Sysprep) or similar imaging tools
 
 You can provision Azure AD join using the following approaches:
 
@@ -247,7 +248,7 @@ Before you can configure your mobility settings, you may have to add an MDM prov
 1. Click **Add application**.
 1. Select your MDM provider from the list.
 
-   ![Add an application](./media/azureadjoin-plan/04.png)
+   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Screenshot of the Azure Active Directory Add an application page. Several M D M providers are listed." border="false":::
 
 Select your MDM provider to configure the related settings. 
 
@@ -270,7 +271,7 @@ There are three URLs that are related to your MDM configuration:
 - MDM discovery URL 
 - MDM compliance URL
 
-![Add an application](./media/azureadjoin-plan/06.png)
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Screenshot of part of the Azure Active Directory M D M configuration section, with U R L fields for M D M terms of use, discovery, and compliance." border="false":::
 
 Each URL has a predefined default value. If these fields are empty, please contact your MDM provider for more information.
 

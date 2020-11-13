@@ -4,13 +4,13 @@ description: Azure Security Benchmark V2 Data Protection
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
 ---
 
-# Security Control: Data Protection
+# Security Control V2: Data Protection
 
 Data Protection covers control of data protection at rest, in transit, and via authorized access mechanisms. This includes discover, classify, protect, and monitor sensitive data assets using access control, encryption, and logging in Azure.
 
@@ -18,7 +18,7 @@ Data Protection covers control of data protection at rest, in transit, and via a
 
 | Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| DP-1 | 14.5, 14.7 | SI-4, SC-28 |
+| DP-1 | 13.1, 14.5, 14.7 | SC-28 |
 
 Discover, classify, and label your sensitive data so that you can design the appropriate controls to ensure sensitive information is stored, processed, and transmitted securely by the organization's technology systems. 
 
@@ -28,11 +28,11 @@ You can use Azure SQL Information Protection to assist in the classification and
 
 - [Tag sensitive information using Azure Information Protection](/azure/information-protection/what-is-information-protection) 
 
-- [How to implement Azure SQL Data Discovery](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [How to implement Azure SQL Data Discovery](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Responsibility**: Shared
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -58,7 +58,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 **Responsibility**: Shared
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -82,15 +82,15 @@ If required for compliance of data loss prevention (DLP), you can use a host-bas
 
 - [Enable Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
 
-- [Enable Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [Enable Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Responsibility**: Shared
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Security operations center (SOC)](/azure/cloud-adoption-framework/organize/cloud-security) 
+- [Security operations](/azure/cloud-adoption-framework/organize/cloud-security) 
 
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Application security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -114,7 +114,7 @@ By default, Azure provides encryption for data in transit between Azure data cen
 
 **Responsibility**: Shared
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -136,7 +136,7 @@ Azure provides encryption for data at rest by default. For highly sensitive data
 
 - [Understand encryption at rest in Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
-- [How to configure customer managed encryption keys](../../storage/common/storage-encryption-keys-portal.md)
+- [How to configure customer managed encryption keys](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Encryption model and key management table](../fundamentals/encryption-models.md)
 
@@ -144,7 +144,7 @@ Azure provides encryption for data at rest by default. For highly sensitive data
 
 **Responsibility**: Shared
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -153,4 +153,3 @@ Azure provides encryption for data at rest by default. For highly sensitive data
 - [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Data Security](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

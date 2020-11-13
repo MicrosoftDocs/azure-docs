@@ -1,6 +1,6 @@
 ---
 title: Add a self-service sign-up user flow - Azure AD
-description: Federate with Facebook to enable external users (guests) to sign in to your Azure AD apps with their own Facebook accounts.
+description: Create user flows for apps that are built by your organization. Then, users who visit that app can gain a guest account using the options configured in the user flow.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B

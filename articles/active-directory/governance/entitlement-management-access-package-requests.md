@@ -27,7 +27,7 @@ In Azure AD entitlement management, you can see who has requested access package
 
 ## View requests
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

@@ -42,7 +42,7 @@ Here's what we did in the test pass:
 * Hyper-V Replica utilizes self-maintained memory cache to minimize IOPS overhead for tracking. It stores writes to the VHDX in memory, and flushes them into the log file before the time that the log is sent to the recovery site. A disk flush also happens if the writes hit a predetermined limit.
 * The graph below shows the steady state IOPS overhead for replication. We can see that the IOPS overhead due to replication is around 5%, which is quite low.
 
-  ![Primary results](./media/hyper-v-vmm-performance-results/IC744913.png)
+  ![Graph that shows the steady state IOPS overhead for replication.](./media/hyper-v-vmm-performance-results/IC744913.png)
 
 Hyper-V Replica uses memory on the primary server, to optimize disk performance. As shown in the following graph, memory overhead on all servers in the primary cluster is marginal. The memory overhead shown is the percentage of memory used by replication, compared to the total installed memory on the Hyper-V server.
 
@@ -50,20 +50,20 @@ Hyper-V Replica uses memory on the primary server, to optimize disk performance.
 
 Hyper-V Replica has minimum CPU overhead. As shown in the graph, replication overhead is in the range of 2-3%.
 
-![Primary results](./media/hyper-v-vmm-performance-results/IC744915.png)
+![Graph that shows replication overhead is in the range of 2-3%.](./media/hyper-v-vmm-performance-results/IC744915.png)
 
 ## Secondary server performance
 
 Hyper-V Replica uses a small amount of memory on the recovery server, to optimize the number of storage operations. The graph summarizes the memory usage on the recovery server. The memory overhead shown is the percentage of memory used by replication, compared to the total installed memory on the Hyper-V server.
 
-![Secondary results](./media/hyper-v-vmm-performance-results/IC744916.png)
+![Graph that summarizes the memory usage on the recovery server.](./media/hyper-v-vmm-performance-results/IC744916.png)
 
 The amount of I/O operations on the recovery site is a function of the number of write operations on the primary site. Let’s look at the total I/O operations on the recovery site in comparison with the total I/O operations and write operations on the primary site. The graphs show that the total IOPS on the recovery site is
 
 * Around 1.5 times the write IOPS on the primary.
 * Around 37% of the total IOPS on the primary site.
 
-![Secondary results](./media/hyper-v-vmm-performance-results/IC744917.png)
+![Graph that shows a comparison of IOPS on primary and secondary sites.](./media/hyper-v-vmm-performance-results/IC744917.png)
 
 ![Secondary results](./media/hyper-v-vmm-performance-results/IC744918.png)
 

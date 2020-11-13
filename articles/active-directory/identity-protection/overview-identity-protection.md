@@ -51,8 +51,8 @@ Identity Protection identifies risks in the following classifications:
 | Anonymous IP address | Sign in from an anonymous IP address (for example: Tor browser, anonymizer VPNs). |
 | Unfamiliar sign-in properties | Sign in with properties we've not seen recently for the given user. |
 | Malware linked IP address | Sign in from a malware linked IP address. |
-| Leaked Credentials | This risk detection indicates that the user's valid credentials have been leaked. |
-| Password spray | Indicates that multiple usernames are being attacked using common passwords in a unified brute force manner. |
+| Leaked Credentials | Indicates that the user's valid credentials have been leaked. |
+| Password spray | Indicates that multiple usernames are being attacked using common passwords in a unified, brute-force manner. |
 | Azure AD threat intelligence | Microsoft's internal and external threat intelligence sources have identified a known attack pattern. |
 
 More detail on these risks and how/when they are calculated can be found in the article, [What is risk](concept-identity-protection-risks.md).
@@ -94,7 +94,7 @@ Identity Protection requires users be a Security Reader, Security Operator, Secu
 
 Currently, the security operator role cannot access the Risky sign-ins report.
 
-Conditional Access administrators can also create policies that factor in sign-in risk as a condition, find more information in the article [Conditional Access: Conditions](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
+Conditional Access administrators can also create policies that factor in sign-in risk as a condition. Find more information in the article [Conditional Access: Conditions](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## License requirements
 
@@ -105,12 +105,14 @@ Conditional Access administrators can also create policies that factor in sign-i
 | Risk policies | User risk policy (via Identity Protection)  | No | No |Yes | 
 | Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access)  | No |  No |Yes |
 | Security reports | Overview |  No | No |Yes |
-| Security reports | Risky users  | Limited Information | Limited Information | Full access|
-| Security reports | Risky sign-ins  | Limited Information | Limited Information | Full access|
-| Security reports | Risk detections   | No | Limited Information| Full access|
+| Security reports | Risky users  | Limited Information. Only users with medium and high risk are shown. No details drawer or risk history. | Limited Information. Only users with medium and high risk are shown. No details drawer or risk history. | Full access|
+| Security reports | Risky sign-ins  | Limited Information. No risk detail or risk level is shown. | Limited Information. No risk detail or risk level is shown. | Full access|
+| Security reports | Risk detections   | No | Limited Information. No details drawer.| Full access|
 | Notifications | Users at risk detected alerts  | No | No |Yes |
 | Notifications | Weekly digest| No | No | Yes | 
 | | MFA registration policy | No | No | Yes |
+
+More information on these rich reports can be found in the article, [How To: Investigate risk](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 
 ## Next steps
 

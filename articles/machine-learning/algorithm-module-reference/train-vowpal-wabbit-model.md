@@ -12,7 +12,7 @@ ms.date: 07/02/2020
 ---
 
 # Train Vowpal Wabbit Model
-This article describes how to use the **Train Vowpal Wabbit Model** module in Azure Machine Learning designer (preview), to create a machine learning model by using Vowpal Wabbit.  
+This article describes how to use the **Train Vowpal Wabbit Model** module in Azure Machine Learning designer, to create a machine learning model by using Vowpal Wabbit.  
 
 To use Vowpal Wabbit for machine learning, format your input according to Vowpal Wabbit requirements, and prepare the data in the required format. Use this module to specify Vowpal Wabbit command-line arguments. 
 

@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.custom: seo-javascript-september2019, devx-track-javascript
+ms.custom: seo-javascript-september2019, devx-track-js
 ---
 
 # How to use Azure Queue storage from Node.js
@@ -156,13 +156,13 @@ The following example updates the text of a message.
 
 # [JavaScript v12](#tab/javascript)
 
-Change the contents of a message in-place in the queue by calling [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-). 
+Change the contents of a message in-place in the queue by calling [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-).
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # [JavaScript v2](#tab/javascript2)
 
-Change the contents of a message in-place in the queue by calling **updateMessage**. 
+Change the contents of a message in-place in the queue by calling **updateMessage**.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -230,8 +230,8 @@ Using **getMessages** when there are no messages in the queue won't return an er
 
 There are two ways you can customize message retrieval from a queue:
 
-* [options.numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) - Retrieve a batch of messages (up to 32.)
-* [options.visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) - Set a longer or shorter invisibility timeout.
+- [options.numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) - Retrieve a batch of messages (up to 32.)
+- [options.visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) - Set a longer or shorter invisibility timeout.
 
 The following example uses the **receiveMessages** method to get five messages in one call. Then it processes each message using a `for` loop. It also sets the invisibility timeout to five minutes for all messages returned by this method.
 
@@ -241,8 +241,8 @@ The following example uses the **receiveMessages** method to get five messages i
 
 There are two ways you can customize message retrieval from a queue:
 
-* `options.numOfMessages` - Retrieve a batch of messages (up to 32.)
-* `options.visibilityTimeout` - Set a longer or shorter invisibility timeout.
+- `options.numOfMessages` - Retrieve a batch of messages (up to 32.)
+- `options.visibilityTimeout` - Set a longer or shorter invisibility timeout.
 
 The following example uses the **getMessages** method to get 15 messages in one call. Then it processes each message using a `for` loop. It also sets the invisibility timeout to five minutes for all messages returned by this method.
 
@@ -343,8 +343,8 @@ To clear all messages from a queue without deleting it, call **clearMessages**.
 
 Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.
 
-* Visit the [Azure Storage Team Blog][Azure Storage Team Blog] to learn what's new
-* Visit the [Azure Storage client library for JavaScript][Azure Storage client library for JavaScript] repository on GitHub
+- Visit the [Azure Storage Team Blog][Azure Storage Team Blog] to learn what's new
+- Visit the [Azure Storage client library for JavaScript][Azure Storage client library for JavaScript] repository on GitHub
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

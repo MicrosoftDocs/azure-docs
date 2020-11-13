@@ -1,21 +1,21 @@
 ---
 title: Security overview
-description: Security information about Azure Arc enabled servers (preview).
+description: Security information about Azure Arc enabled servers.
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/23/2020
 ---
 
-# Azure Arc for servers (preview) security overview
+# Azure Arc for servers security overview
 
 This article describes the security configuration and considerations you should evaluate before deploying Azure Arc enabled servers in your enterprise.
 
 ## Identity and access control
 
-Each Azure Arc enabled server has a managed identity as part of a resource group inside an Azure subscription that represents the server running on-premises or other cloud environment. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) page in the Azure portal, you can verify who has access to your Azure Arc enabled server.
+Each Azure Arc enabled server has a managed identity as part of a resource group inside an Azure subscription, this identity represents the server running on-premises or other cloud environment. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) page in the Azure portal, you can verify who has access to your Azure Arc enabled server.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Azure Arc enabled server access control" border="false" lightbox="./media/security-overview/access-control-page.png":::
 
-Users and applications granted [contributor](../../role-based-access-control/built-in-roles.md#contributor) or administrator role access to the resource can make changes to the resource, including deploying or deleting [extensions](manage-vm-extensions.md) on the machine. Extensions can include arbitrary scripts that run in a privileged context, so consider any contributor on the Azure resource to be an indirect administrator of the non-Azure server.
+Users and applications granted [contributor](../../role-based-access-control/built-in-roles.md#contributor) or administrator role access to the resource can make changes to the resource, including deploying or deleting [extensions](manage-vm-extensions.md) on the machine. Extensions can include arbitrary scripts that run in a privileged context, so consider any contributor on the Azure resource to be an indirect administrator of the server.
 
 The **Azure Connected Machine Onboarding** role is available for at-scale onboarding, and is only able to read or create new Arc enabled servers in Azure. It cannot be used to delete servers already registered or manage extensions. As a best practice, we recommend only assigning this role to the Azure Active Directory (Azure AD) service principal used to onboard machines at scale.
 
@@ -23,9 +23,9 @@ Users as a member of the **Azure Connected Machine Resource Administrator** role
 
 ## Agent security and permissions
 
-To manage the Azure Connected Machine agent (azcmagent), on Windows your user account needs to be a member of the local Administrators group, and on Linux you must have root access permissions.
+To manage the Azure Connected Machine agent (azcmagent) on Windows your user account needs to be a member of the local Administrators group. On Linux, you must have root access permissions.
 
-The Azure Connected Machine agent is composed of three services which run on your machine.
+The Azure Connected Machine agent is composed of three services, which run on your machine.
 
 * The Hybrid Instance Metadata Service (himds) service is responsible for all core functionality of Arc. This includes sending heartbeats to Azure, exposing a local instance metadata service for other apps to learn about the machine’s Azure resource ID, and retrieve Azure AD tokens to authenticate to other Azure services. This service runs as an unprivileged virtual service account on Windows, and as the **himds** user on Linux.
 
@@ -51,4 +51,4 @@ The Azure Connected Machine agent uses public key authentication to communicate 
 
 ## Next steps
 
-Before evaluating or enabling Arc enabled servers (preview) across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
+Before evaluating or enabling Arc enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.

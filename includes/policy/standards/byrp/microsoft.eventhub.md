@@ -2,7 +2,7 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 10/20/2020
 ms.author: dacoulte
 ms.custom: generated
 ---

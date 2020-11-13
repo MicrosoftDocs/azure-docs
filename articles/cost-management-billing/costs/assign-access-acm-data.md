@@ -13,11 +13,11 @@ ms.custom: secdec18
 
 # Assign access to Cost Management data
 
-For users with Azure Enterprise agreements, a combination of permissions granted in the Azure portal and the Enterprise (EA) portal define a user's level of access to Azure Cost Management data. For users with other Azure account types, defining a user's level of access to Cost Management data is simpler by using Azure role-based access control. This article walks you through assigning access to Cost Management data. After the combination of permissions is assigned, the user views data in Cost Management based on their access scope and on the scope that they select in the Azure portal.
+For users with Azure Enterprise agreements, a combination of permissions granted in the Azure portal and the Enterprise (EA) portal define a user's level of access to Azure Cost Management data. For users with other Azure account types, defining a user's level of access to Cost Management data is simpler by using Azure role-based access control (Azure RBAC). This article walks you through assigning access to Cost Management data. After the combination of permissions is assigned, the user views data in Cost Management based on their access scope and on the scope that they select in the Azure portal.
 
 The scope that a user selects is used throughout Cost Management to provide data consolidation and to control access to cost information. When using scopes, users don't multi-select them. Instead, they select a larger scope that child scopes roll up to and then they filter-down to what they want to view. Data consolidation is important to understand because some people shouldn't access a parent scope that child scopes roll up to.
 
-Watch the [Cost Management controlling access](https://www.youtube.com/watch?v=_uQzQ9puPyM) video to learn about assigning access to view costs and charges with Azure role-based access control. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+Watch the [Cost Management controlling access](https://www.youtube.com/watch?v=_uQzQ9puPyM) video to learn about assigning access to view costs and charges with Azure role-based access control (Azure RBAC). To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
@@ -66,7 +66,7 @@ To enable an option in the Azure portal:
 1. Under **Settings**, select the **Policies** menu item and then configure the setting.  
     ![Billing scope policies showing view charges options](./media/assign-access-acm-data/azure-portal-policies-view-charges.png)
 
-After the view charge options are enabled, most scopes also require role-based access control (RBAC) permission configuration in the Azure portal.
+After the view charge options are enabled, most scopes also require Azure role-based access control (Azure RBAC) permission configuration in the Azure portal.
 
 ## Enable access to costs in the EA portal
 
@@ -79,7 +79,7 @@ To enable an option in the EA portal:
 3. For the cost management scopes that you want to provide access to, enable the charge option to **DA view charges** and/or **AO view charges**.  
     ![Enrollment tab showing DA and AO view charges options](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-After the view charge options are enabled, most scopes also require role-based access control (RBAC) permission configuration in the Azure portal.
+After the view charge options are enabled, most scopes also require Azure role-based access control (Azure RBAC) permission configuration in the Azure portal.
 
 ## Enterprise administrator role
 
@@ -177,9 +177,9 @@ Access to a resource group requires at least the Cost Management Reader (or Read
 
 ## Cross-tenant authentication issues
 
-Currently, Azure Cost Management has limited support for cross-tenant authentication. In some circumstances when you try to authenticate across tenants, you may receive an **Access denied** error in cost analysis. This issue might occur if you configure role-based access control (RBAC) to another tenant's subscription and then try to view cost data.
+Currently, Azure Cost Management has limited support for cross-tenant authentication. In some circumstances when you try to authenticate across tenants, you may receive an **Access denied** error in cost analysis. This issue might occur if you configure Azure role-based access control (Azure RBAC) to another tenant's subscription and then try to view cost data.
 
-*To work around the problem*: After you configure cross-tenant RBAC, wait an hour. Then, try to view costs in cost analysis or grant Cost Management access to users in both tenants.  
+*To work around the problem*: After you configure cross-tenant Azure RBAC, wait an hour. Then, try to view costs in cost analysis or grant Cost Management access to users in both tenants.  
 
 
 ## Next steps

@@ -28,14 +28,14 @@ This article is for administrators who need to activate their Azure AD role in P
 
 Beginning in November 2019, the Azure AD roles portion of Privileged Identity Management is being updated to a new version that matches the experiences for Azure resource roles. This creates additional features as well as [changes to the existing API](azure-ad-roles-features.md#api-changes). While the new version is being rolled out, which procedures that you follow in this article depend on version of Privileged Identity Management you currently have. Follow the steps in this section to determine which version of Privileged Identity Management you have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with the [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 1. Open **Azure AD Privileged Identity Management**. If you have a banner on the top of the overview page, follow the instructions in the **New version** tab of this article. Otherwise, follow the instructions in the **Previous version** tab.
 
     [![Select Azure AD > Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 # [New version](#tab/new)
 
-## Activate a role
+## Activate a role for new version
 
 When you need to assume an Azure AD role, you can request activation by opening **My roles** in Privileged Identity Management.
 
@@ -75,7 +75,7 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## View the status of your requests
+## View the status of your requests for new version
 
 You can view the status of your pending requests to activate.
 
@@ -87,7 +87,7 @@ You can view the status of your pending requests to activate.
 
 1. Scroll to the right to view the **Request Status** column.
 
-## Cancel a pending request
+## Cancel a pending request for new version
 
 If you do not require activation of a role that requires approval, you can cancel a pending request at any time.
 
@@ -101,7 +101,7 @@ If you do not require activation of a role that requires approval, you can cance
 
    ![My request list with Cancel action highlighted](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## Troubleshoot
+## Troubleshoot for new version
 
 ### Permissions are not granted after activating a role
 

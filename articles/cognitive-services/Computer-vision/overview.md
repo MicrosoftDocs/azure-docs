@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ms.custom: [seodec18, cog-serv-seo-aug-2020]
 keywords: computer vision, computer vision applications, computer vision service
@@ -34,7 +34,7 @@ Computer Vision includes [Optical Character Recognition (OCR)](concept-recognizi
 
 ## Analyze images for insight
 
-You can analyze images to provide insights about their visual features and characteristics. All of the features in the table below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Follow a [quickstart](#next-steps) to get started.
+You can analyze images to provide insights about their visual features and characteristics. All of the features in the table below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API. Follow a [quickstart](#next-steps) to get started.
 
 
 ### Tag visual features
@@ -87,7 +87,11 @@ You can use Computer Vision to [detect adult content](concept-detecting-adult-co
 
 ## Use containers
 
-[Use Computer Vision containers](computer-vision-how-to-install-containers.md) to recognize printed and handwritten text locally by installing a standardized Docker container closer to your data.
+Use Computer Vision Docker containers to use the service on-premises. Currently there are two containers available:
+
+* The [Computer Vision read container](computer-vision-how-to-install-containers.md) lets you recognize printed and handwritten text in images.
+
+* The [Computer Vision spatial analysis container](spatial-analysis-container.md) lets you to analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments.
 
 ## Image requirements
 

@@ -1,0 +1,60 @@
+### YamlMime:Landing
+
+title: Azure Machine Learning Studio (classic) documentation
+summary: Machine Learning Studio (classic) is a drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions. 
+
+metadata:
+  title: Machine Learning Studio (classic) documentation - Azure
+  description: Machine Learning Studio (classic) is a drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions.
+  services: machine-learning
+  ms.service: machine-learning
+  ms.subservice: studio
+  ms.topic: landing-page
+  ms.collection: collection
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 03/05/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # GET STARTED CARD
+  - title: Get started with Studio (classic)
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is Studio (classic)?
+            url: studio-classic-overview.md
+          - text: Create your first ML experiment
+            url: create-experiment.md
+          - text: Create a predictive solution
+            url: tutorial-part1-credit-risk.md                     
+
+  # REFERENCE
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: PowerShell modules
+            url: powershell-module.md
+          - text: Algorithm & modules
+            url: /azure/machine-learning/studio-module-reference/index
+          - text: REST management APIs
+            url: /rest/api/machinelearning/
+          - text: Web service error codes
+            url: web-service-error-codes.md
+
+  # MORE
+  - title: More Azure ML technologies
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure Machine Learning
+            url: ../index.yml
+          - text: Data Science Virtual Machine
+            url: ../data-science-virtual-machine/index.yml
+          - text: Compare our ML products
+            url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context

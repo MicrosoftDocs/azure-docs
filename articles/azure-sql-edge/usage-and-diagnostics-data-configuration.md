@@ -56,6 +56,9 @@ group by data_source_type
 
 Usage and diagnostic data collection on Azure SQL Edge can be disabled using either of the below methods.
 
+> [!NOTE]
+> Usage and diagnostic data cannot be disabled for the Developer version.
+
 ### Disable usage and diagnostics using environment variables
 
 To disable Usage and Diagnostics data collection on Azure SQL Edge, add the following environment variable and set its value to `*False*`. For more information on configuring Azure SQL Edge using environment variables, refer [Configure using Environment Variables](configure.md#configure-by-using-environment-variables).
@@ -63,7 +66,7 @@ To disable Usage and Diagnostics data collection on Azure SQL Edge, add the foll
 `MSSQL_TELEMETRY_ENABLED = TRUE | FALSE`
 
 - TRUE - Enables collection of usage and diagnostics data. This is the default configuration.
-- FALSE - Disables collection of usage and diagnostics data
+- FALSE - Disables collection of usage and diagnostics data.
 
 ### Disable usage and diagnostics using mssql.conf file
 
@@ -94,7 +97,7 @@ To enable Local Audit usage and diagnostics data on Azure SQL Edge
    
      `*MSSQL_TELEMETRY_DIR = <host mount path>/audit*`
    
-   - Using mssql.conf file - Add the following lines in the mssql.conf file and and specify the target directory for the audit files.
+   - Using mssql.conf file - Add the following lines in the mssql.conf file and specify the target directory for the audit files.
        ```ini
        [telemetry]
        userrequestedlocalauditdirectory  = <host mount path>/audit

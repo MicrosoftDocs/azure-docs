@@ -129,16 +129,16 @@ You can drill further by clicking an ESXi host or an event type.
 
 When you click an ESXi host name, you view information from that ESXi host. If you want to narrow results with the event type, add `“ProcessName_s=EVENT TYPE”` in your search query. You can select **ProcessName** in the search filter. That narrows the information for you.
 
-![drill](./media/vmware/eventhostdrilldown.png)
+![Screenshot of the ESXi Host Per Event Count and Breakdown Per Event Type blades in the VMware Monitoring dashboard view.](./media/vmware/eventhostdrilldown.png)
 
 #### Find high VM activities
 A virtual machine can be created and deleted on any ESXi host. It's helpful for an administrator to identify how many VMs an ESXi host creates. That in-turn, helps to understand performance and capacity planning. Keeping track of VM activity events is crucial when managing your environment.
 
-![drill](./media/vmware/vmactivities1.png)
+![Screenshot of the Virtual Machine Activities blade in the VMware Monitoring dashboard, showing a graph of VM creation and deletion by the ESXi host.](./media/vmware/vmactivities1.png)
 
 If you want to see additional ESXi host VM creation data, click an ESXi host name.
 
-![drill](./media/vmware/createvm.png)
+![Screenshot of a pane from the VMware Monitoring dashboard showing a table with a row of data for each virtual machine creation by an ESXi host.](./media/vmware/createvm.png)
 
 #### Common log queries
 The solution includes other useful queries that can help you manage your ESXi hosts, such as high storage space, storage latency, and path failure.

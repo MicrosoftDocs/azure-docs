@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,11 +19,6 @@ ms.collection: M365-identity-device-management
 
 Azure AD provides you with a central place to manage device identities.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Devices**.
-
-[![All devices view in the Azure portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
-
 The **All devices** page enables you to:
 
 - Identify devices, including:
@@ -35,6 +30,13 @@ The **All devices** page enables you to:
 - Configure your device identity settings.
 - Enable or disable Enterprise State Roaming.
 - Review device-related audit logs
+
+[![All devices view in the Azure portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
+
+You can access the devices portal using the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Devices**.
 
 ## Manage devices
 
@@ -144,6 +146,13 @@ You will now have the ability to **Add filters** to your **All devices** view.
 
 To manage device identities using the Azure AD portal, those devices need to be either [registered or joined](overview.md) to Azure AD. As an administrator, you can control the process of registering and joining devices by configuring the following device settings.
 
+You must be assigned one of the following roles to view or manage device settings in the Azure portal:
+
+- Global administrator
+- Cloud device administrator
+- Global reader
+- Directory reader
+
 ![Device settings related to Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
 - **Users may join devices to Azure AD** - This setting enables you to select the users who can register their devices as Azure AD joined devices. The default is **All**.
@@ -183,11 +192,11 @@ The audit log has a default list view that shows:
 - The initiator / actor (who) of an activity
 - The activity (what)
 
-![Audit logs](./media/device-management-azure-portal/63.png)
+:::image type="content" source="./media/device-management-azure-portal/63.png" alt-text="Screenshot of a table in the Activity section of the Devices page that lists the date, target, actor, and activity for four audit logs." border="false":::
 
 You can customize the list view by clicking **Columns** in the toolbar.
 
-![Audit logs](./media/device-management-azure-portal/64.png)
+:::image type="content" source="./media/device-management-azure-portal/64.png" alt-text="Screenshot showing the toolbar of the Devices page. The Columns item is highlighted." border="false":::
 
 To narrow down the reported data to a level that works for you, you can filter the audit data using the following fields:
 
@@ -200,7 +209,7 @@ To narrow down the reported data to a level that works for you, you can filter t
 
 In addition to the filters, you can search for specific entries.
 
-![Audit logs](./media/device-management-azure-portal/65.png)
+:::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Screenshot of audit data filter controls, with category, activity resource type, activity, date range, target, and actor fields and a search field." border="false":::
 
 ## Next steps
 

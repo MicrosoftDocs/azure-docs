@@ -11,11 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
+ms.custom: contperfq2
 ---
 
 # Troubleshoot problems signing in to an application from Azure AD My Apps
 
-My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. 
+My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. My Apps is accessed using a web browser at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 To learn more about using Azure AD as an identity provider for an app, see the [What is Application Management in Azure AD](what-is-application-management.md). To get up to speed quickly, check out the [Quickstart Series on Application Management](view-applications-portal.md).
 

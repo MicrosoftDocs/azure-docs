@@ -12,7 +12,7 @@ ms.author: jencook
 
 # Frequently asked questions for Azure Confidential Computing
 
-This article provides answers to some of the most common questions about running [confidential computing workloads on Azure](overview.md).
+This article provides answers to some of the most common questions about running [confidential computing workloads on Azure virtual machines](overview.md).
 
 If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select Get support.
 
@@ -27,7 +27,7 @@ Here are some ways you can deploy a DCsv2 VM:
 
 **Will all OS images work with Azure confidential computing?**
 
-No. The virtual machines can only be deployed on Generation 2 operating machines with Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter, and Windows Server 2016 Datacenter. Read more about Gen 2 VMs on [Linux](../virtual-machines/linux/generation-2.md) and [Windows](../virtual-machines/windows/generation-2.md)
+No. The virtual machines can only be deployed on Generation 2 operating machines with Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter, and Windows Server 2016 Datacenter. Read more about Gen 2 VMs on [Linux](../virtual-machines/generation-2.md) and [Windows](../virtual-machines/generation-2.md)
 
 **DCsv2 virtual machines are grayed out in the portal and I can't select one**
 
@@ -51,6 +51,10 @@ DC-Series VMs run on older 6-core Intel Processors with Intel SGX and have less 
 **Are DCsv2 virtual machines available globally?**
 
 No. At this time, these virtual machines are only available in select regions. Check the [products by regions page](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for the latest available regions. 
+
+**Is hyper-threading OFF on these machines?**
+
+Hyper-threading is disabled for all Azure confidential computing clusters.
 
 **How do I install the Open Enclave SDK on the DCsv2 virtual machines?**
    

@@ -68,6 +68,8 @@ For example, in a remote monitoring solution for an oil pumping station, the clo
 
 For real-life examples of how organizations use Azure IoT, see [Microsoft Technical Case Studies for IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
+For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture).
+
 ## Next steps
 
 For some actual business cases and the architecture used, see the [Microsoft Azure IoT Technical Case Studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured).
@@ -75,5 +77,3 @@ For some actual business cases and the architecture used, see the [Microsoft Azu
 For some sample projects that you can try out with an IoT DevKit, see the [IoT DevKit Project Catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/). 
 
 For a more comprehensive explanation of the different services and how they're used, see [Azure IoT services and technologies](iot-services-and-technologies.md).
-
-For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture).

@@ -82,7 +82,7 @@ This individual is appointed by the authorizing official. The BCAP, VDSS, and VD
 The SACA reference architecture is designed to deploy the VDSS and VDMS components in Azure and to enable the TCCM. This architecture is modular. All of the pieces of VDSS and VDMS can live in a centralized hub. Some of the controls can be met in the mission-owner space or even on-premises. Microsoft recommends that you co-locate the VDSS and VDMS components into a central virtual network that all mission owners can connect through. The following diagram shows this architecture: 
 
 
-![SACA reference architecture diagram](media/sacav2generic.png)
+![Architecture diagram that shows the VDSS and VDMS components co-located into a central virtual network.](media/sacav2generic.png)
 
 When you plan your SCCA compliancy strategy and technical architecture, consider the following topics from the beginning because they affect every customer. The following issues have come up with DoD customers and tend to slow down planning and execution. 
 
@@ -90,7 +90,7 @@ When you plan your SCCA compliancy strategy and technical architecture, consider
    - DISA BCAP:
         - DISA has two operational BCAPs at the Pentagon and at Camp Roberts, CA. A third is planned to come online soon. 
         - DISA’s BCAPs all have Azure ExpressRoute circuits to Azure, which can be used by DoD customers for connectivity. 
-        - DISA has an enterprise-level Microsoft peering session for DoD customers who want to subscribe to Microsoft software as a service (SaaS) tools, such as Office 365. By using the DISA BCAP, you can enable connectivity and peering to your SACA instance. 
+        - DISA has an enterprise-level Microsoft peering session for DoD customers who want to subscribe to Microsoft software as a service (SaaS) tools, such as Microsoft 365. By using the DISA BCAP, you can enable connectivity and peering to your SACA instance. 
    - Build your own BCAP:
         - This option requires you to lease space in a co-located data center and set up an ExpressRoute circuit to Azure. 
         - This option requires additional approval. 
@@ -119,17 +119,17 @@ As mentioned earlier, you can build this SACA reference by using a variety of ap
 - There are Azure services that can meet requirements for log analytics, host-based protection, and IDS functionality. It's possible that some services aren’t generally available in Microsoft IL5 regions. In this case, you might need to use third-party tools if these Azure services can’t meet your requirements. Look at the tools you're comfortable with and the feasibility of using Azure native tooling.
 - We recommend that you use as many Azure native tools as possible. They're built with cloud security in mind and seamlessly integrate with the rest of the Azure platform. Use the Azure native tools in the following list to meet various requirements of SCCA:
 
-    - [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview )
-    - [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) 
-    - [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) 
-    - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 
-    - [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-    - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview)
-    - [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview) 
-    - [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview)
-    - [Azure security groups](https://docs.microsoft.com/azure/virtual-network/security-overview)
-    - [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)
-    - [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/overview)
+    - [Azure Monitor](../../azure-monitor/overview.md)
+    - [Azure Security Center](../../security-center/security-center-introduction.md) 
+    - [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) 
+    - [Azure Key Vault](../../key-vault/general/overview.md) 
+    - [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
+    - [Azure Application Gateway](../../application-gateway/overview.md)
+    - [Azure Firewall](../../firewall/overview.md) 
+    - [Azure Front Door](../../frontdoor/front-door-overview.md)
+    - [Azure security groups](../../virtual-network/network-security-groups-overview.md)
+    - [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)
+    - [Azure Sentinel](../../sentinel/overview.md)
 - Sizing
     - A sizing exercise must be completed. Look at the number of concurrent connections you might have through the SACA instance and the network throughput requirements. 
     - This step is critical. It helps to size the VMs and identify the licenses that are required from the various vendors you use in your SACA instance. 
@@ -194,15 +194,3 @@ Two separate F5 deployment templates cover two different architectures. The firs
 ![F5 SACA diagram](media/f5saca.png)
 
 For the F5 documentation and deployment script, see [this GitHub link](https://github.com/f5devcentral/f5-azure-saca).
-
-
-
-
-
-
-
-
-
-
-
-

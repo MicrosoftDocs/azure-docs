@@ -100,7 +100,7 @@ The **Donut** tile displays a single number that summarizes a value column in a 
 ## Line chart tile
 This tile is a line chart that displays multiple series from a log query over time. 
 
-![Line chart and callout tile](media/view-designer-tiles/tile-line-chart.png)
+![Screenshot of a line chart tile in the Azure Monitor View Designer.](media/view-designer-tiles/tile-line-chart.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -121,7 +121,7 @@ This tile is a line chart that displays multiple series from a log query over ti
 ## Line chart and callout tile
 This tile has both a line chart that displays multiple series from a log query over time and a callout with a summarized value. 
 
-![Line chart and callout tile](media/view-designer-tiles/tile-line-chart-callout.png)
+![Screenshot of a line chart and callout tile in the Azure Monitor View Designer.The callout augments the line chart by showing a summarized value.](media/view-designer-tiles/tile-line-chart-callout.png)
 
 | Setting | Description |
 |:--- |:--- |

@@ -105,12 +105,11 @@ For portal-based indexing (as described in the quickstart), choosing the "run on
 ## Tip 8: Increase indexing throughput
 
 For [parallel indexing](search-howto-large-index.md), place your data into multiple containers or multiple virtual folders inside the same container. Then create multiple datasource and indexer pairs. All indexers can use the same skillset and write into the same target search index, so your search app doesn’t need to be aware of this partitioning.
-For more information, see [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## See also
+
 + [Quickstart: Create an AI enrichment pipeline in the portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn AI enrichment REST APIs](cognitive-search-tutorial-blob.md)
 + [Specifying data source credentials](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
-+ [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to map enriched fields to an index](cognitive-search-output-field-mapping.md)

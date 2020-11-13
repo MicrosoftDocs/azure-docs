@@ -102,7 +102,7 @@ There may be situations where you do not want these overrides to take place imme
 
 1. During upgrade, **uncheck** the option **Start the synchronization process when configuration completes**. This disables the synchronization scheduler and prevents synchronization cycle from taking place automatically before the overrides are removed.
 
-   ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
+   ![Screenshot that highlights the Start the synchronization process when configuration completes option that you need to clear.](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
 2. After upgrade completes, run the following cmdlet to find out what overrides have been added: `Get-ADSyncSchedulerConnectorOverride | fl`
 

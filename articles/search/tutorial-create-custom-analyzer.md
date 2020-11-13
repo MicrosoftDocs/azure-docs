@@ -7,7 +7,7 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/22/2020
+ms.date: 09/25/2020
 ---
 
 # Tutorial: Create a custom analyzer for phone numbers
@@ -54,7 +54,7 @@ For each request, you need to:
 
 1. Replace `<YOUR-ADMIN-API-KEY>` with either the primary or secondary key of your search service.
 
-  ![Postman request URL and header](media/search-get-started-postman/postman-url.png "Postman request URL and header")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Postman request URL and header" border="false":::
 
 If you're unfamiliar with Postman, see [Explore Azure Cognitive Search REST APIs using Postman](search-get-started-postman.md).
 
@@ -234,11 +234,11 @@ Analyzers consist of three components:
 
 In the diagram below, you can see how these three components work together to tokenize a sentence:
 
-  ![Diagram of Analyzer process to tokenize a sentence](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Diagram of Analyzer process to tokenize a sentence":::
 
 These tokens are then stored in an inverted index, which allows for fast, full-text searches.  An inverted index enables full-text search by mapping all unique terms extracted during lexical analysis to the documents in which they occur. You can see an example in the diagram below:
 
-  ![Example inverted index](media/tutorial-create-custom-analyzer/inverted-index-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Example inverted index":::
 
 All of search comes down to searching for the terms stored in the inverted index. When a user issues a query:
 
@@ -246,7 +246,7 @@ All of search comes down to searching for the terms stored in the inverted index
 1. The inverted index is then scanned for documents with matching terms.
 1. Finally, the retrieved documents are ranked by the [similarity algorithm](index-ranking-similarity.md).
 
-  ![Diagram of Analyzer process ranking similarity](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Diagram of Analyzer process ranking similarity":::
 
 If the query terms don't match the terms in your inverted index, results won't be returned. To learn more about how queries work, see this article on [full text search](search-lucene-query-architecture.md).
 

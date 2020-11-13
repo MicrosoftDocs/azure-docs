@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python
 
 # Use the interpretability package to explain ML models & predictions in Python (preview)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this how-to guide, you learn to use the interpretability package of the Azure Machine Learning Python SDK to perform the following tasks:
 
@@ -37,10 +37,9 @@ For more information on the supported interpretability techniques and machine le
 ## Generate feature importance value on your personal machine 
 The following example shows how to use the interpretability package on your personal machine without contacting Azure services.
 
-1. Install `azureml-interpret` and `azureml-contrib-interpret` packages.
+1. Install the `azureml-interpret` package.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 
 2. Train a sample model in a local Jupyter notebook.
@@ -234,15 +233,14 @@ The following example shows how you can use the `ExplanationClient` class to ena
 * Use the `ExplanationClient` in the remote run to upload the interpretability context.
 * Download the context later in a local environment.
 
-1. Install `azureml-interpret` and `azureml-contrib-interpret` packages.
+1. Install the `azureml-interpret` package.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 1. Create a training script in a local Jupyter notebook. For example, `train_explain.py`.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     from azureml.core.run import Run
     from interpret.ext.blackbox import TabularExplainer
 
@@ -270,12 +268,12 @@ The following example shows how you can use the `ExplanationClient` class to ena
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Set up an Azure Machine Learning Compute as your compute target and submit your training run. See [Create compute targets with Python SDK](how-to-create-attach-compute-sdk.md#amlcompute) for instructions. You might also find the [example notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) helpful.
+1. Set up an Azure Machine Learning Compute as your compute target and submit your training run. See [Create and manage Azure Machine Learning compute clusters](how-to-create-attach-compute-cluster.md) for instructions. You might also find the [example notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) helpful.
 
 1. Download the explanation in your local Jupyter notebook.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     
     client = ExplanationClient.from_run(run)
     
@@ -327,29 +325,12 @@ You can load the individual feature importance plot for any data point by clicki
 
 [![Visualization Dashboard ICE Plots](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
 
-> [!NOTE]
-> Before the Jupyter kernel starts, make sure you enable widget extensions for the visualization dashboard.
-
-* Jupyter notebooks
-
-    ```shell
-    jupyter nbextension install --py --sys-prefix azureml.contrib.interpret.visualize
-    jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
-    ```
-
-* JupyterLab
-
-    ```shell
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager
-    jupyter labextension install microsoft-mli-widget
-    ```
-
 To load the visualization dashboard, use the following code.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
 
-ExplanationDashboard(global_explanation, model, dataset=x_test)
+ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
 ### Visualization in Azure Machine Learning studio
@@ -365,10 +346,10 @@ Follow one of these paths to access the visualization dashboard in Azure Machine
   1. Select a particular experiment to view all the runs in that experiment.
   1. Select a run, and then the **Explanations** tab to the explanation visualization dashboard.
 
-   [![Visualization Dashboard Local Feature Importance](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Visualization Dashboard Local Feature Importance in AzureML studio in experiments](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * **Models** pane
-  1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), you can select **Models** in the left pane to view it.
+  1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-and-where.md), you can select **Models** in the left pane to view it.
   1. Select a model, and then the **Explanations** tab to view the explanation visualization dashboard.
 
 ## Interpretability at inference time
@@ -433,7 +414,7 @@ You can deploy the explainer along with the original model and use it at inferen
 
 1. Deploy the image to a compute target, by following these steps:
 
-   1. If needed, register your original prediction model by following the steps in [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+   1. If needed, register your original prediction model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-and-where.md).
 
    1. Create a scoring file.
 
@@ -567,4 +548,3 @@ You can deploy the explainer along with the original model and use it at inferen
 [Learn more about model interpretability](how-to-machine-learning-interpretability.md)
 
 [Check out Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
-

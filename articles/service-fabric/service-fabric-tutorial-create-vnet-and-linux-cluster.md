@@ -4,7 +4,7 @@ description: Learn how to deploy a Linux Service Fabric cluster into an existing
 
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Deploy a Linux Service Fabric cluster into an Azure virtual network
 

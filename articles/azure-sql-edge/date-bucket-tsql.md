@@ -1,6 +1,6 @@
 ---
-title: Date_Bucket (Transact-SQL) - Azure SQL Edge (Preview)
-description: Learn about using Date_Bucket in Azure SQL Edge (Preview)
+title: Date_Bucket (Transact-SQL) - Azure SQL Edge
+description: Learn about using Date_Bucket in Azure SQL Edge
 keywords: Date_Bucket, SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -37,7 +37,10 @@ The part of *date* that is used with the ‘number’ parameter. Ex. Year, month
 |*datePart*|Abbreviations|  
 |---|---|
 |**day**|**dd**, **d**|  
-|**week**|**wk**, **ww**|  
+|**week**|**wk**, **ww**| 
+|**month**|**mm**, **m**|
+|**quarter**|**qq**, **q**|  
+|**year**|**yy**, **yyyy**|  
 |**hour**|**hh**|  
 |**minute**|**mi**, **n**|  
 |**second**|**ss**, **s**|  

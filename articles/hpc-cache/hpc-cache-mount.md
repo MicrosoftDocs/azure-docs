@@ -4,7 +4,7 @@ description: How to connect clients to an Azure HPC Cache service
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
 ---
 
@@ -15,7 +15,7 @@ After the cache is created, NFS clients can access it with a simple `mount` comm
 The mount command is made up of these elements:
 
 * One of the cache's mount addresses (listed on the cache overview page)
-* The virtual namespace path that you set when you created the storage target
+* A virtual namespace path that you set for the storage target (listed on the cache namespace page)
 * The local path to use on the client
 * Command parameters that optimize the success of this kind of NFS mount
 
@@ -74,17 +74,17 @@ Follow this procedure to create the mount command.
 
 1. Choose the **Virtual namespace path** to use for the client. These paths link to exports on the back-end storage system.
 
-   ![screenshot of the namespace paths field, with selector open](media/mount-select-target.png)
+   ![Screenshot that shows the "Virtual namespace path" field, with selector open.](media/mount-select-target.png)
 
-   You can view and change virtual namespace paths on the Storage targets portal page. Read [Add storage targets](hpc-cache-add-storage.md) to see how.
+   You can view and change virtual namespace paths on the **Namespace** portal page. Read [Set up the aggregated namespace](add-namespace-paths.md) to see how.
 
    To learn more about Azure HPC Cache's aggregated namespace feature, read [Plan the aggregated namespace](hpc-cache-namespace.md).
 
 1. The **Mount command** field in step three automatically populates with a customized mount command that uses the mount address, virtual namespace path, and client path that you set in the previous fields.
 
-   Click the copy symbol at the right side of the field to automatically copy it to your clipboard.
+   Click the copy symbol to the right side of the field to automatically copy it to your clipboard.
 
-   ![screenshot of the namespace paths field, with selector open](media/mount-command-copy.png)
+   ![screenshot of the prototype mount command field, showing hover text for the "copy to clipboard" button](media/mount-command-copy.png)
 
 1. Use the copied mount command on the client machine to connect it to the Azure HPC Cache. You can issue the command directly from the client command line, or include the mount command in a client setup script or template.
 
@@ -119,16 +119,16 @@ For a robust client mount, pass these settings and arguments in your mount comma
 
 ### Find mount command components
 
-If you want to create a mount command without using the **Mount instructions** page, you can find the mount addresses on the cache **Overview** page and the virtual namespace paths on the **Storage target** page.
+If you want to create a mount command without using the **Mount instructions** page, you can find the mount addresses on the cache **Overview** page and the virtual namespace paths on the **Namespace** page.
 
 ![screenshot of Azure HPC Cache instance's Overview page, with a highlight box around the mount addresses list on the lower right](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE]
 > The cache mount addresses correspond to network interfaces inside the cache's subnet. In a resource group, these NICs are listed with names ending in `-cluster-nic-` and a number. Do not alter or delete these interfaces, or the cache will become unavailable.
 
-The virtual namespace paths are shown on each storage target's details page. Click an individual storage target name to see its details, including aggregated namespace paths associated with it.
+The virtual namespace paths are shown on the cache's **Namespace** settings page.
 
-![screenshot of a storage target's detail page (header "Update storage target"). There is a highlight box around an entry in the Virtual namespace path column of the table](media/hpc-cache-view-namespace-paths.png)
+![screenshot of the portal Settings > Namespace page with a highlight box around the first column of the table: "Namespace path"](media/view-namespace-paths.png)
 
 ## Next steps
 

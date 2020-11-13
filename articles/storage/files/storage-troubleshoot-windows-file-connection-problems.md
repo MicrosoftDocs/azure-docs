@@ -10,7 +10,7 @@ ms.subservice: files
 ---
 # Troubleshoot Azure Files problems in Windows (SMB)
 
-This article lists common problems that are related to Microsoft Azure Files when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) that provides steps to assist you with problems connecting/mapping/mounting Azure Files shares.
+This article lists common problems that are related to Microsoft Azure Files when you connect from Windows clients. It also provides possible causes and resolutions for these problems. In addition to the troubleshooting steps in this article, you can also use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) to ensure that the Windows client environment has correct prerequisites. AzFileDiagnostics automates detection of most of the symptoms mentioned in this article and helps set up your environment to get optimal performance.
 
 > [!IMPORTANT]
 > The content of this article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
@@ -167,27 +167,86 @@ Verify virtual network and firewall rules are configured properly on the storage
 
 ### Solution for cause 2
 
-Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## Unable to delete a file or directory in an Azure file share
-When you try to delete a file, you may receive the following error:
+One of the key purposes of a file share is that multiple users and applications may simultaneously interact with files and directories in the share. To assist with this interaction, file shares provide several ways of mediating access to files and directories.
 
-The specified resource is marked for deletion by an SMB client.
+When you open a file from a mounted Azure file share over SMB, your application/operating system request a file handle, which is a reference to the file. Among other things, your application specifies a file sharing mode when it requests a file handle, which specifies the level of exclusivity of your access to the file enforced by Azure Files: 
 
-### Cause
-This issue typically occurs if the file or directory has an open handle. 
+- `None`: you have exclusive access. 
+- `Read`: others may read the file while you have it open.
+- `Write`: others may write to the file while you have it open. 
+- `ReadWrite`: a combination of both the `Read` and `Write` sharing modes.
+- `Delete`: others may delete the file while you have it open. 
 
-### Solution
+Although as a stateless protocol, the FileREST protocol does not have a concept of file handles, it does provide a similar mechanism to mediate access to files and folders that your script, application, or service may use: file leases. When a file is leased, it is treated as equivalent to a file handle with a file sharing mode of `None`. 
 
-If the SMB clients have closed all open handles and the issue continues to occur, perform the following:
+Although file handles and leases serve an important purpose, sometimes file handles and leases may be orphaned. When this happens, this can cause problems modifying or deleting files. You may see error messages like:
 
-- Use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet to view open handles.
+- The process cannot access the file because it is being used by another process.
+- The action can't be completed because the file is open in another program.
+- The document is locked for editing by another user.
+- The specified resource is marked for deletion by an SMB client.
 
-- Use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet to close open handles. 
+The resolution to this issue depends on whether this is being caused by an orphaned file handle or lease. 
+
+### Cause 1
+A file handle is preventing a file/directory from being modified or deleted. You can use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet to view open handles. 
+
+If all SMB clients have closed their open handles on a file/directory and the issue continues to occur, you can force close a file handle.
+
+### Solution 1
+To force a file handle to be closed, use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet. 
 
 > [!Note]  
 > The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+### Cause 2
+A file lease is prevent a file from being modified or deleted. You can check if a file has a file lease with the following PowerShell, replacing `<resource-group>`, `<storage-account>`, `<file-share>`, and `<path-to-file>` with the appropriate values for your environment:
+
+```PowerShell
+# Set variables 
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$fileShareName = "<file-share>"
+$fileForLease = "<path-to-file>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName
+
+# Get reference to file
+$file = Get-AzStorageFile `
+        -Context $storageAccount.Context `
+        -ShareName $fileShareName `
+        -Path $fileForLease
+
+$fileClient = $file.ShareFileClient
+
+# Check if the file has a file lease
+$fileClient.GetProperties().Value
+```
+
+If a file has a lease, the returned object should contain the following properties:
+
+```Output
+LeaseDuration         : Infinite
+LeaseState            : Leased
+LeaseStatus           : Locked
+```
+
+### Solution 2
+To remove a lease from a file, you can release the lease or break the lease. To release the lease, you need the LeaseId of the lease, which you set when you create the lease. You do not need the LeaseId to break the lease.
+
+The following example shows how to break the lease for the file indicated in cause 2 (this example continues with the PowerShell variables from cause 2):
+
+```PowerShell
+$leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($fileClient)
+$leaseClient.Break() | Out-Null
+```
 
 <a id="slowfilecopying"></a>
 ## Slow file copying to and from Azure Files in Windows
@@ -337,7 +396,7 @@ The cmdlet performs these checks below in sequence and provides guidance for fai
 1. CheckADObjectPasswordIsCorrect: Ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb1 or kerb2 key. If the password is incorrect, you can run [Update-AzStorageAccountADObjectPassword](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-update-password) to reset the password. 
 2. CheckADObject: Confirm that there is an object in the Active Directory that represents the storage account and has the correct SPN (service principal name). If the SPN isn't correctly setup, please run the Set-AD cmdlet returned in the debug cmdlet to configure the SPN.
 3. CheckDomainJoined: Validate that the client machine is domain joined to AD. If your machine is not domain joined to AD, please refer to this [article](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) for domain join instruction.
-4. CheckPort445Connectivity: Check that Port 445 is opened for SMB connection. If the required Port is not open, please refer to the troubleshooting tool [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) for connectivity issues with Azure Files.
+4. CheckPort445Connectivity: Check that Port 445 is opened for SMB connection. If the required Port is not open, please refer to the troubleshooting tool [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) for connectivity issues with Azure Files.
 5. CheckSidHasAadUser: Check that the logged on AD user is synced to Azure AD. If you want to look up whether a specific AD user is synchronized to Azure AD, you can specify the -UserName and -Domain in the input parameters. 
 6. CheckGetKerberosTicket: Attempt to get a Kerberos ticket to connect to the storage account. If there isn't a valid Kerberos token, run the klist get cifs/storage-account-name.file.core.windows.net cmdlet and examine the error code to root-cause the ticket retrieval failure.
 7. CheckStorageAccountDomainJoined: Check if the AD authentication has been enabled and the account's AD properties are populated. If not, refer to the instruction [here](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable) to enable AD DS authentication on Azure Files. 

@@ -1,6 +1,6 @@
 ---
 title: Upgrade Windows Server/System Center VMM 2012 R2 to Windows Server 2016-Azure Site Recovery 
-description: Learn how to set up disaster recovery to Azure for Azure Stack VMs with the Azure Site Recovery service.
+description: Learn how to upgrade Windows Server 2012 R2 hosts & SCVMM 2012 R2 that are configured with Azure Site Recovery, to Windows Server 2016 & SCVMM 2016.
 services: site-recovery
 author: Sharmistha-Rai
 manager: gaggupta

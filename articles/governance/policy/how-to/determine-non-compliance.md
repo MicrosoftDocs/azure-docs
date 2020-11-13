@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-ms.date: 07/06/2020
+ms.date: 09/30/2020
 ms.topic: how-to
 ---
 # Determine causes of non-compliance
@@ -120,15 +120,25 @@ The following matrix maps each possible _reason_ to the responsible
 |Current value must not case-insensitive match the target value. |notMatchInsensitively or **not** matchInsensitively |
 |No related resources match the effect details in the policy definition. |A resource of the type defined in **then.details.type** and related to the resource defined in the **if** portion of the policy rule doesn't exist. |
 
+## Component details for Resource Provider modes
+
+For assignments with a
+[Resource Provider mode](../concepts/definition-structure.md#resource-manager-modes), select the
+_Non-compliant_ resource to open a deeper view. Under the **Component Compliance** tab is additional
+information specific to the Resource Provider mode on the assigned policy showing the
+_Non-compliant_ **Component** and **Component ID**.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot of Component Compliance tab and compliance details for a Resource Provider mode assignment." border="false":::
+
 ## Compliance details for Guest Configuration
 
 For _auditIfNotExists_ policies in the _Guest Configuration_ category, there could be multiple
-settings evaluated inside the VM and you'll need to view per-setting details. For example, if you're
-auditing for a list of password policies and only one of them has status _Non-compliant_, you'll
-need to know which specific password policies are out of compliance and why.
+settings evaluated inside the virtual machine and you'll need to view per-setting details. For
+example, if you're auditing for a list of password policies and only one of them has status
+_Non-compliant_, you'll need to know which specific password policies are out of compliance and why.
 
-You also might not have access to sign in to the VM directly but you need to report on why the VM is
-_Non-compliant_.
+You also might not have access to sign in to the virtual machine directly but you need to report on
+why the virtual machine is _Non-compliant_.
 
 ### Azure portal
 

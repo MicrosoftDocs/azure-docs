@@ -1,23 +1,23 @@
 ---
 title: Create a storage account
 titleSuffix: Azure Storage
-description: Learn to create a storage account using the Azure portal, Azure PowerShell, or the Azure CLI. An Azure storage account provides a unique namespace in Microsoft Azure to store and access your data.
+description: Learn to create a storage account to store blobs, files, queues, and tables. An Azure storage account provides a unique namespace in Microsoft Azure for reading and writing your data.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/07/2020
+ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Create an Azure Storage account
+# Create a storage account
 
 An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. Data in your Azure storage account is durable and highly available, secure, and massively scalable.
 
-In this how-to article, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).  
+In this how-to article, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), [Azure CLI](/cli/azure), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -60,7 +60,7 @@ The button launches an interactive shell that you can use to run the steps outli
 
 ### Install the CLI locally
 
-You can also install and use the Azure CLI locally. This how-to article requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+You can also install and use the Azure CLI locally. The examples in this article require Azure CLI version 2.0.4 or later. Run `az --version` to find your installed version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 # [Template](#tab/template)
 
@@ -100,11 +100,9 @@ N/A
 
 ## Create a storage account
 
-Now you are ready to create a storage account.
-
 Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This article shows how to create a new resource group.
 
-A **general-purpose v2** storage account provides access to all of the Azure Storage services: blobs, files, queues, tables, and disks. The steps outlined here create a general-purpose v2 storage account, but the steps to create any type of storage account are similar.
+A **general-purpose v2** storage account provides access to all of the Azure Storage services: blobs, files, queues, tables, and disks. The steps outlined here create a general-purpose v2 storage account, but the steps to create any type of storage account are similar. For more information about types of storage accounts and other storage account settings, see [Azure storage account overview](storage-account-overview.md).
 
 # [Portal](#tab/azure-portal)
 
@@ -182,7 +180,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `--enable-hierarchical-namespace true` in this list of parameters. 
+> If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `--enable-hierarchical-namespace true` in this list of parameters.
 
 To create a general-purpose v2 storage account with a different replication option, substitute the desired value in the table below for the **sku** parameter.
 
@@ -221,13 +219,11 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 To learn how to modify this template or create new ones, see:
 
-- [Azure Resource Manager documentation](/azure/azure-resource-manager/).
+- [Azure Resource Manager documentation](../../azure-resource-manager/index.yml).
 - [Storage account template reference](/azure/templates/microsoft.storage/allversions).
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 ---
-
-For more information about available replication options, see [Storage replication options](storage-redundancy.md).
 
 ## Delete a storage account
 
@@ -279,30 +275,10 @@ Alternately, you can delete the resource group, which deletes the storage accoun
 > [!WARNING]
 > It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.
 >
-> If you try to delete a storage account associated with an Azure virtual machine, you may get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+> If you try to delete a storage account associated with an Azure virtual machine, you may get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](../../virtual-machines/troubleshooting/index.yml).
 
 ## Next steps
 
-In this how-to article, you've created a general-purpose v2 standard storage account. To learn how to upload and download blobs to and from your storage account, continue to one of the Blob storage quickstarts.
-
-# [Portal](#tab/azure-portal)
-
-> [!div class="nextstepaction"]
-> [Work with blobs using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
-
-# [PowerShell](#tab/azure-powershell)
-
-> [!div class="nextstepaction"]
-> [Work with blobs using PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
-
-# [Azure CLI](#tab/azure-cli)
-
-> [!div class="nextstepaction"]
-> [Work with blobs using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
-
-# [Template](#tab/template)
-
-> [!div class="nextstepaction"]
-> [Work with blobs using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
-
----
+- [Storage account overview](storage-account-overview.md)
+- [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
+- [Move an Azure Storage account to another region](storage-account-move.md)

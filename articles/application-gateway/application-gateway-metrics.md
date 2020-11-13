@@ -11,7 +11,7 @@ ms.author: absha
 ---
 # Metrics for Application Gateway
 
-Application Gateway publishes data points, called metrics, to [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for the performance of your Application Gateway and backend instances. These metrics are numerical values in an ordered set of time-series data that describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric is not reported. For more information, see [Azure Monitor metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Application Gateway publishes data points, called metrics, to [Azure Monitor](../azure-monitor/overview.md) for the performance of your Application Gateway and backend instances. These metrics are numerical values in an ordered set of time-series data that describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric is not reported. For more information, see [Azure Monitor metrics](../azure-monitor/platform/data-platform-metrics.md).
 
 ## Metrics supported by Application Gateway V2 SKU
 
@@ -226,7 +226,7 @@ A list of alerts appears after you create a metric alert. It provides an overvie
 
 ![List of alerts and rules][9]
 
-To learn more about alert notifications, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+To learn more about alert notifications, see [Receive alert notifications](../azure-monitor/platform/alerts-overview.md).
 
 To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../azure-monitor/platform/alerts-webhooks.md).
 

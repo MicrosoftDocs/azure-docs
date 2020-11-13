@@ -7,7 +7,7 @@ ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: [mqtt, device-developer, devx-track-javascript]
+ms.custom: [mqtt, device-developer, devx-track-js]
 
 # As a device developer, I want to try out using Node.js device code that uses the Azure IoT Node.js SDK. I want to understand how to send telemetry from a device, synchronize properties with the device, and control the device using synchronous and asynchronous commands.
 ---
@@ -332,12 +332,12 @@ You can see how the device responds to commands and property updates:
 
 ## Next steps
 
-As a device developer, now that you've learned the basics of how to create a device using Node.js, some suggested next steps are to:
-
-* Read [What are device templates?](./concepts-device-templates.md) to learn more about the role of device templates when you're implementing your device code.
-* Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
-
 If you'd prefer to continue through the set of IoT Central tutorials and learn more about building an IoT Central solution, see:
 
 > [!div class="nextstepaction"]
 > [Create a gateway device template](./tutorial-define-gateway-device-type.md)
+
+As a device developer, now that you've learned the basics of how to create a device using Node.js, some suggested next steps are to:
+
+* Read [What are device templates?](./concepts-device-templates.md) to learn more about the role of device templates when you're implementing your device code.
+* Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.

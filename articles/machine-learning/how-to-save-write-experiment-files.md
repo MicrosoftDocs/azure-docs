@@ -15,7 +15,7 @@ ms.date: 03/10/2020
 
 ---
 # Where to save and write files for Azure Machine Learning experiments
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn where to save input files, and where to write output files from your experiments to prevent storage limit errors and experiment latency.
 
@@ -25,13 +25,13 @@ When launching training runs on a [compute target](concept-compute-target.md), t
 
 Before you can initiate an experiment on a compute target or your local machine, you must ensure that the necessary files are available to that compute target, such as dependency files and data files your code needs to run.
 
-Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using a [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
+Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using a [datastore](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).
 
 The storage limit for experiment snapshots is 300 MB and/or 2000 files.
 
 For this reason, we recommend:
 
-* **Storing your files in an Azure Machine Learning [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).** This prevents experiment latency issues, and has the advantages of accessing data from a remote compute target, which means authentication and mounting are managed by Azure Machine Learning. Learn more about specifying a datastore as your source directory, and uploading files to your datastore in the [Access data from your datastores](how-to-access-data.md) article.
+* **Storing your files in an Azure Machine Learning [datastore](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).** This prevents experiment latency issues, and has the advantages of accessing data from a remote compute target, which means authentication and mounting are managed by Azure Machine Learning. Learn more about specifying a datastore as your source directory, and uploading files to your datastore in the [Access data from your datastores](how-to-access-data.md) article.
 
 * **If you only need a couple data files and dependency scripts and can't use a datastore,** place the files in the same folder directory as your training script. Specify this folder as your `source_directory` directly in your training script, or in the code that calls your training script.
 
@@ -74,4 +74,4 @@ If you don't require a datastore, write files to the `./outputs` and/or `./logs`
 
 * Learn more about [accessing data from your datastores](how-to-access-data.md).
 
-* Learn more about creating compute targets with the [Python SDK](how-to-create-attach-compute-sdk.md) or using [studio](how-to-create-attach-compute-studio.md).
+* Learn more about [Create compute targets for model training and deployment](how-to-create-attach-compute-studio.md)

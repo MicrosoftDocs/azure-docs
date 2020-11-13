@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: "sqldbrb=1, devx-track-dotnet"
 ms.devlang:
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi

@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 09/28/2020
 ms.author: jingwang
 ---
 
@@ -29,6 +29,7 @@ The HDFS connector is supported for the following activities:
 
 - [Copy activity](copy-activity-overview.md) with [supported source and sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
+- [Delete activity](delete-activity.md)
 
 Specifically, the HDFS connector supports:
 
@@ -166,7 +167,9 @@ The following properties are supported for HDFS under `storeSettings` settings i
 | OPTION 3: a list of files<br>- fileListPath | Indicates to copy a specified file set. Point to a text file that includes a list of files you want to copy (one file per line, with the relative path to the path configured in the dataset).<br/>When you use this option, do not specify file name in the dataset. For more examples, see [File list examples](#file-list-examples). |No |
 | ***Additional settings*** |  | |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When `recursive` is set to *true* and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. <br>Allowed values are *true* (default) and *false*.<br>This property doesn't apply when you configure `fileListPath`. |No |
+| deleteFilesAfterCompletion | Indicates whether the binary files will be deleted from source store after successfully moving to the destination store. The file deletion is per file, so when copy activity fails, you will see some files have already been copied to the destination and deleted from source, while others are still remaining on source store. <br/>This property is only valid in binary files copy scenario. The default value: false. |No |
 | modifiedDatetimeStart    | Files are filtered based on the attribute *Last Modified*. <br>The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of *2018-12-01T05:00:00Z*. <br> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
+| modifiedDatetimeEnd      | Same as above.  
 | enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as additional source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
 | partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it is not specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path is not specified, no extra column will be generated. | No                                            |
 | maxConcurrentConnections | The number of connections that can connect to the storage store concurrently. Specify a value only when you want to limit the concurrent connection to the data store. | No                                            |
@@ -271,6 +274,34 @@ There are two options for setting up the on-premises environment to use Kerberos
 * Option 1: [Join a self-hosted integration runtime machine in the Kerberos realm](#kerberos-join-realm)
 * Option 2: [Enable mutual trust between the Windows domain and the Kerberos realm](#kerberos-mutual-trust)
 
+For either option, make sure you turn on webhdfs for Hadoop cluster:
+
+1. Create the HTTP principal and keytab for webhdfs.
+
+    > [!IMPORTANT]
+    > The HTTP Kerberos principal must start with "**HTTP/**" according to Kerberos HTTP SPNEGO specification.
+
+    ```bash
+    Kadmin> addprinc -randkey HTTP/<namenode hostname>@<REALM.COM>
+    Kadmin> ktadd -k /etc/security/keytab/spnego.service.keytab HTTP/<namenode hostname>@<REALM.COM>
+    ```
+
+2. HDFS configuration options: add the following three properties in `hdfs-site.xml`.
+    ```xml
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.principal</name>
+        <value>HTTP/_HOST@<REALM.COM></value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.keytab</name>
+        <value>/etc/security/keytab/spnego.service.keytab</value>
+    </property>
+    ```
+
 ### <a name="kerberos-join-realm"></a>Option 1: Join a self-hosted integration runtime machine in the Kerberos realm
 
 #### Requirements
@@ -279,13 +310,24 @@ There are two options for setting up the on-premises environment to use Kerberos
 
 #### How to configure
 
+**On the KDC server:**
+
+Create a principal for Azure Data Factory to use, and specify the password.
+
+> [!IMPORTANT]
+> The username should not contain the hostname.
+
+```bash
+Kadmin> addprinc <username>@<REALM.COM>
+```
+
 **On the self-hosted integration runtime machine:**
 
 1.	Run the Ksetup utility to configure the Kerberos Key Distribution Center (KDC) server and realm.
 
     The machine must be configured as a member of a workgroup, because a Kerberos realm is different from a Windows domain. You can achieve this configuration by setting the Kerberos realm and adding a KDC server by running the following commands. Replace *REALM.COM* with your own realm name.
 
-    ```console
+    ```cmd
     C:> Ksetup /setdomain REALM.COM
     C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
     ```
@@ -294,7 +336,7 @@ There are two options for setting up the on-premises environment to use Kerberos
 
 2.	Verify the configuration with the `Ksetup` command. The output should be like:
 
-    ```output
+    ```cmd
     C:> Ksetup
     default realm = REALM.COM (external)
     REALM.com:
@@ -426,6 +468,10 @@ There are two options for setting up the on-premises environment to use Kerberos
 ## Lookup activity properties
 
 For information about Lookup activity properties, see [Lookup activity in Azure Data Factory](control-flow-lookup-activity.md).
+
+## Delete activity properties
+
+For information about Delete activity properties, see [Delete activity in Azure Data Factory](delete-activity.md).
 
 ## Legacy models
 

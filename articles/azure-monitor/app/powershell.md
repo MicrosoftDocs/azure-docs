@@ -469,5 +469,5 @@ Other automation articles:
 * [Set up Alerts](powershell-alerts.md)
 * [Create web tests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Send Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
-* [Create release annotations](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [Create release annotations](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

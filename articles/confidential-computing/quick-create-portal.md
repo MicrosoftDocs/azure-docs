@@ -58,7 +58,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
     * **Choose Image**: For this tutorial, select Ubuntu 18.04 LTS. You may also select Windows Server 2019, Windows Server 2016, or and Ubuntu 16.04 LTS. If you choose to do so, you'll be redirected in this tutorial accordingly.
     
-    * **Toggle the image for Gen 2**: Confidential compute virtual machines only run on [Generation 2](../virtual-machines/linux/generation-2.md) images. Ensure the image you select is a Gen 2 image. Click the **Advanced** tab above where you're configuring the virtual machine. Scroll down until you find the section labeled "VM Generation". Select Gen 2 and then go back to the **Basics** tab.
+    * **Toggle the image for Gen 2**: Confidential compute virtual machines only run on [Generation 2](../virtual-machines/generation-2.md) images. Ensure the image you select is a Gen 2 image. Click the **Advanced** tab above where you're configuring the virtual machine. Scroll down until you find the section labeled "VM Generation". Select Gen 2 and then go back to the **Basics** tab.
     
 
         ![Advanced Tab](media/quick-create-portal/advanced-tab-virtual-machine.png)
@@ -195,9 +195,7 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 In this quickstart, you deployed a confidential computing virtual machine, and installed the Open Enclave SDK. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions.md). 
 
-If you deployed a Windows VM, learn how to build applications with the [OE SDK Samples for Windows](https://github.com/openenclave/openenclave/blob/master/samples/README_Windows.md) on GitHub. 
-
-Discover how you can build confidential computing applications on Linux, by continuing to the Open Enclave SDK Linux samples on GitHub. 
+Discover how you can build confidential computing applications, by continuing to the Open Enclave SDK samples on GitHub. 
 
 > [!div class="nextstepaction"]
-> [Building Open Enclave SDK Samples on Linux](https://github.com/openenclave/openenclave/blob/master/samples/README_Linux.md)
+> [Building Open Enclave SDK Samples](https://github.com/openenclave/openenclave/blob/master/samples/README.md)

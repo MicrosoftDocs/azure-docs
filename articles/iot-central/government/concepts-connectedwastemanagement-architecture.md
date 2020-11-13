@@ -29,7 +29,7 @@ Concepts:
 Let's take a look at key components that generally play a part in a water consumption monitoring solution.
 
 ## Devices and connectivity 
-Devices used in open environments, like waste bins, may be connected through low-power wide area networks (LPWAN), through a third-party network operator. For these types of devices, you can use the [Azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) to send your device data to your IoT application in Azure IoT Central. Alternatively, you may have device gateways that are IP capable and can connect directly to IoT Central.
+Devices used in open environments, like waste bins, may be connected through low-power wide area networks (LPWAN), through a third-party network operator. For these types of devices, you can use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. Alternatively, you may have device gateways that are IP capable and can connect directly to IoT Central.
 
 ## IoT Central 
 Azure IoT Central is an IoT App platform, which gets you started up and running on your IoT solution quickly. You can brand, customize, and integrate your solution with third-party services.
@@ -47,5 +47,4 @@ The IoT data can be used to power a variety of business applications within a wa
 ## Next steps
 * Learn how to [create a connected waste management](./tutorial-connected-waste-management.md) IoT Central application
 * Learn more about [IoT Central government templates](./overview-iot-central-government.md)
-* To learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
-
+* To learn more about IoT Central, see [IoT Central overview](../core/overview-iot-central.md)

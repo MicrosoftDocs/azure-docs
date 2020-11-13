@@ -43,7 +43,7 @@ Follow these steps to open the settings for an Azure AD role.
 1. Select **Setting** to open the **Settings** page. Select the role for the settings you want to configure.
 1. Select **Edit** to open the **Role settings** page.
 
-    ![Open the Azure AD custom role to edit settings](./media/azure-ad-custom-roles-configure/edit-settings.png)
+    ![Screenshot that shows the "Role setting details" page with the "Edit" action selected.](./media/azure-ad-custom-roles-configure/edit-settings.png)
 
 ## Role settings
 
@@ -102,4 +102,4 @@ If you want to require approval to activate a role, follow these steps.
 - [Activate an Azure AD custom role](azure-ad-custom-roles-activate.md)
 - [Assign an Azure AD custom role](azure-ad-custom-roles-assign.md)
 - [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-update-remove.md)
-- [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Role definitions in Azure AD](../roles/permissions-reference.md)

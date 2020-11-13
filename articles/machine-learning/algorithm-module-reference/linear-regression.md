@@ -12,7 +12,7 @@ ms.author: keli19
 ms.date: 04/22/2020
 ---
 # Linear Regression module
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a linear regression model for use in a pipeline.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
 
@@ -20,7 +20,7 @@ You use this module to define a linear regression method, and then train a model
 
 ## About linear regression
 
-Linear regression is a common statistical method, which has been adopted in machine learning and enhanced with many new methods for fitting the line and measuring error. In the most basic sense, regression refers to prediction of a numeric target. Linear regression is still a good choice when you want a simple model for a basic predictive task. Linear regression also tends to work well on high-dimensional, sparse data sets lacking complexity.
+Linear regression is a common statistical method, which has been adopted in machine learning and enhanced with many new methods for fitting the line and measuring error. Simply put,  regression refers to prediction of a numeric target. Linear regression is still a good choice when you want a simple model for a basic predictive task. Linear regression also tends to work well on high-dimensional, sparse data sets lacking complexity.
 
 Azure Machine Learning supports a variety of regression models, in addition to linear regression. However, the term "regression" can be interpreted loosely, and some types of regression provided in other tools are not supported.
 
@@ -64,7 +64,7 @@ This module supports two methods for fitting a regression model, with different 
 
 3. In **L2 regularization weight**, type the value to use as the weight for L2 regularization. We recommend that you use a non-zero value to avoid overfitting.
 
-     To learn more about how regularization affects model fitting, see this article: [L1 and L2 Regularization for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+     To learn more about how regularization affects model fitting, see this article: [L1 and L2 Regularization for Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
 4. Select the option, **Include intercept term**, if you want to view the term for the intercept.
 
@@ -114,7 +114,7 @@ After training is complete:
 
 7. In **L2 regularization weight**, type the value to use as the weight for L2 regularization. We recommend that you use a non-zero value to avoid overfitting.
 
-    To learn more about how regularization affects model fitting, see this article: [L1 and L2 Regularization for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+    To learn more about how regularization affects model fitting, see this article: [L1 and L2 Regularization for Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
 
 9. Select the option, **Decrease learning rate**, if you want the learning rate to decrease as iterations progress.  
@@ -147,4 +147,4 @@ After training is complete:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

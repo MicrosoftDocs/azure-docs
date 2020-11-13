@@ -236,7 +236,7 @@ You should get the following results once the command completes:
     done
     ```
 
-The above command creates the VMs, and creates a default VNet for those VMs. For more information on the different configurations, see the [az vm create](https://docs.microsoft.com/cli/azure/vm) article.
+The above command creates the VMs, and creates a default VNet for those VMs. For more information on the different configurations, see the [az vm create](/cli/azure/vm) article.
 
 You should get results similar to the following once the command completes for each VM:
 
@@ -902,7 +902,7 @@ On all SQL Server instances, save the credentials used for the SQL Server login.
 
 1. Once the secondary replicas are joined, you can see them in SSMS Object Explorer by expanding the **Always On High Availability** node:
 
-    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
+    ![Screenshot shows the primary and secondary availability replicas.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### Add a database to the availability group
 

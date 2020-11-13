@@ -1,9 +1,9 @@
 ---
-title: Enroll X.509 device to Azure Device Provisioning Service using C#
+title: Quickstart - Enroll X.509 device to Azure Device Provisioning Service using C#
 description: This quickstart uses group enrollments. In this quickstart, enroll X.509 devices to the Azure IoT Hub Device Provisioning Service (DPS) using C#.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 09/28/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
@@ -154,12 +154,15 @@ This section shows how to create a .NET Core console app that adds an enrollment
    }
    ```
 
-1. Finally, replace the body of the `Main` method with the following lines:
+1. Finally, replace the `Main` method with the following lines:
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. Build the solution.

@@ -51,6 +51,7 @@ Azure file shares can be used to:
 * **Familiar programmability**. Applications running in Azure can access data in the share via file [system I/O APIs](https://msdn.microsoft.com/library/system.io.file.aspx). Developers can therefore leverage their existing code and skills to migrate existing applications. In addition to System IO APIs, you can use [Azure Storage Client Libraries](https://msdn.microsoft.com/library/azure/dn261237.aspx) or the [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api).
 
 ## Next Steps
+* [Learn about the available file share protocols](storage-files-compare-protocols.md)
 * [Create Azure file Share](storage-how-to-create-file-share.md)
 * [Connect and mount an SMB share on Windows](storage-how-to-use-files-windows.md)
 * [Connect and mount an SMB share on Linux](storage-how-to-use-files-linux.md)

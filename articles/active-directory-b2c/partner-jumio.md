@@ -24,7 +24,7 @@ To get started, you'll need:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
-- An [Azure AD B2C tenant](https://review.docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that's linked to your Azure subscription.
+- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that's linked to your Azure subscription.
 
 ## Scenario description
 

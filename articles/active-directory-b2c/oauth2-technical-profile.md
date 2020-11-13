@@ -106,23 +106,8 @@ The **CryptographicKeys** element contains the following attribute:
 
 ## Redirect URI
 
-When you configure the redirect URL of your identity provider, enter `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`. Make sure to replace **tenant** with your tenant's name (for example, contosob2c.onmicrosoft.com) and **policyId** with the identifier of your policy (for example, b2c_1a_policy). The redirect URI needs to be in all lowercase.
-
-If you are using the **b2clogin.com** domain instead of **login.microsoftonline.com** Make sure to use b2clogin.com instead of login.microsoftonline.com.
+When you configure the redirect URI of your identity provider, enter `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/oauth2/authresp`. Make sure to replace `{tenant-name}` with your tenant's name (for example, contosob2c). The redirect URI needs to be in all lowercase.
 
 Examples:
 
 - [Add Google+ as an OAuth2 identity provider using custom policies](identity-provider-google-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -14,48 +14,48 @@ ms.author: marhamil
 
 ![Azure Cognitive Services for Big Data](media/cognitive-services-big-data-overview.svg)
 
-The Azure Cognitive Services for Big Data lets users channel terabytes of data through Cognitive Services using [Apache Spark&trade;](https://docs.microsoft.com/dotnet/spark/what-is-spark). With the Cognitive Services for Big Data, it's easy to create large-scale intelligent applications with any datastore.
+The Azure Cognitive Services for Big Data lets users channel terabytes of data through Cognitive Services using [Apache Spark&trade;](/dotnet/spark/what-is-spark). With the Cognitive Services for Big Data, it's easy to create large-scale intelligent applications with any datastore.
 
 With Cognitive Services for Big Data you can embed continuously improving, intelligent models directly into Apache Spark&trade; and SQL computations. These tools liberate developers from low-level networking details, so that they can focus on creating smart, distributed applications.
 
 ## Features and benefits
 
-Cognitive Services for Big Data can use services from any region in the world, as well as [containerized Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support). Containers support low or no connectivity deployments with ultra-low latency responses. Containerized Cognitive Services can be run locally, directly on the worker nodes of your Spark cluster, or on an external orchestrator like Kubernetes.
+Cognitive Services for Big Data can use services from any region in the world, as well as [containerized Cognitive Services](../cognitive-services-container-support.md). Containers support low or no connectivity deployments with ultra-low latency responses. Containerized Cognitive Services can be run locally, directly on the worker nodes of your Spark cluster, or on an external orchestrator like Kubernetes.
 
 ## Supported services
 
-[Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), accessed through APIs and SDKs, help developers build intelligent applications without having AI or data science skills. With Cognitive Services you can make your applications see, hear, speak, understand, and reason. To use the Cognitive Services, your application must send data to the service over the network. Once received, the service sends an intelligent response in return. The following services are available for big data workloads:
+[Cognitive Services](../index.yml), accessed through APIs and SDKs, help developers build intelligent applications without having AI or data science skills. With Cognitive Services you can make your applications see, hear, speak, understand, and reason. To use the Cognitive Services, your application must send data to the service over the network. Once received, the service sends an intelligent response in return. The following services are available for big data workloads:
 
 ### Vision
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Computer Vision")| The Computer Vision service provides you with access to advanced algorithms for processing images and returning information. |
-|[Face](https://docs.microsoft.com/azure/cognitive-services/face/ "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition. |
+|[Computer Vision](../computer-vision/index.yml "Computer Vision")| The Computer Vision service provides you with access to advanced algorithms for processing images and returning information. |
+|[Face](../face/index.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition. |
 
 ### Speech
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech service")|The Speech service provides access to features like speech recognition, speech synthesis, speech translation, and speaker verification and identification.|
+|[Speech service](../speech-service/index.yml "Speech service")|The Speech service provides access to features like speech recognition, speech synthesis, speech translation, and speaker verification and identification.|
 
 ### Decision
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomaly Detector") | The Anomaly Detector (Preview) service allows you to monitor and detect abnormalities in your time series data.|
+|[Anomaly Detector](../anomaly-detector/index.yml "Anomaly Detector") | The Anomaly Detector (Preview) service allows you to monitor and detect abnormalities in your time series data.|
 
 ### Language
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Text Analytics")| The Text Analytics service provides natural language processing over raw text for sentiment analysis, key-phrase extraction, and language detection.|
+|[Text Analytics](../text-analytics/index.yml "Text Analytics")| The Text Analytics service provides natural language processing over raw text for sentiment analysis, key-phrase extraction, and language detection.|
 
 ### Search
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Bing Image Search")|The Bing Image Search service returns a display of images determined to be relevant to the user's query.|
+|[Bing Image Search](/azure/cognitive-services/bing-image-search "Bing Image Search")|The Bing Image Search service returns a display of images determined to be relevant to the user's query.|
 
 ## Supported programming languages for Cognitive Services for Big Data
 
@@ -75,19 +75,19 @@ The Cognitive Services for Big Data requires Apache Spark. There are several Apa
 
 ### Azure Databricks
 
-[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. It provides one-click setup, streamlined work-flows, and an interactive workspace that supports collaboration between data scientists, data engineers, and business analysts.
+[Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. It provides one-click setup, streamlined work-flows, and an interactive workspace that supports collaboration between data scientists, data engineers, and business analysts.
 
 ### Azure Synapse Analytics
 
-[Azure Synapse Analytics](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/synapse-analytics) (formerly SQL Data Warehouse) is as enterprise data warehouse that uses massive parallel processing. With Synapse Analytics, you can quickly run complex queries across petabytes of data. Azure Synapse Analytics provides managed Spark Pools to run Spark Jobs with an intuitive Jupyter Notebook Interface.
+[Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics) (formerly SQL Data Warehouse) is as enterprise data warehouse that uses massive parallel processing. With Synapse Analytics, you can quickly run complex queries across petabytes of data. Azure Synapse Analytics provides managed Spark Pools to run Spark Jobs with an intuitive Jupyter Notebook Interface.
 
 ### Azure Kubernetes Service
 
-[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/) orchestrates Docker Containers and distributed applications at massive scales. AKS is a managed Kubernetes offering that simplifies using Kubernetes in Azure. Kubernetes can enable fine-grained control of Cognitive Service scale, latency, and networking. However, we recommend using Azure Databricks or Synapse Analytics if you're unfamiliar with Apache Spark.
+[Azure Kubernetes Service (AKS)](../../aks/index.yml) orchestrates Docker Containers and distributed applications at massive scales. AKS is a managed Kubernetes offering that simplifies using Kubernetes in Azure. Kubernetes can enable fine-grained control of Cognitive Service scale, latency, and networking. However, we recommend using Azure Databricks or Synapse Analytics if you're unfamiliar with Apache Spark.
 
 ### Data Connectors
 
-Once you have a Spark Cluster, the next step is connecting to your data. Apache Spark has a broad collection of database connectors. These connectors allow applications to work with large datasets no matter where they're stored. For more information about supported databases and connectors, see the [list of supported datasources for Azure Databricks](https://docs.microsoft.com/azure/databricks/data/data-sources/).
+Once you have a Spark Cluster, the next step is connecting to your data. Apache Spark has a broad collection of database connectors. These connectors allow applications to work with large datasets no matter where they're stored. For more information about supported databases and connectors, see the [list of supported datasources for Azure Databricks](/azure/databricks/data/data-sources/).
 
 ## Concepts
 
@@ -120,12 +120,14 @@ Cognitive Services for Big Data is an example of how we can integrate intelligen
 - [Learn more about how Cognitive Services work on Apache Spark&trade;](https://azure.microsoft.com/blog/dear-spark-developers-welcome-to-azure-cognitive-services/)
 - [Saving Snow Leopards with Deep Learning and Computer Vision on Spark](http://www.datawizard.io/2017/06/27/saving-snow-leopards-with-deep-learning-and-computer-vision-on-spark/)
 - [Microsoft Research Podcast: MMLSpark, empowering AI for Good with Mark Hamilton](https://blubrry.com/microsoftresearch/49485070/092-mmlspark-empowering-ai-for-good-with-mark-hamilton/)
+- [Academic Whitepaper: Large Scale Intelligent Microservices](https://arxiv.org/abs/2009.08044)
 
 ## Webinars and videos
 
 - [The Azure Cognitive Services on Spark: Clusters with Embedded Intelligent Services](https://databricks.com/session/the-azure-cognitive-services-on-spark-clusters-with-embedded-intelligent-services)
 - [Spark Summit Keynote: Scalable AI for Good](https://databricks.com/session_eu19/scalable-ai-for-good)
 - [The Cognitive Services for Big Data in Cosmos DB](https://medius.studios.ms/Embed/Video-nc/B19-BRK3004?latestplayer=true&l=2571.208093)
+- [Lightning Talk on Large Scale Intelligent Microservices](https://www.youtube.com/watch?v=BtuhmdIy9Fk&t=6s)
 
 ## Next steps
 

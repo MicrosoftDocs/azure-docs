@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -75,8 +75,9 @@ Entitlement management introduces to Azure AD the concept of an *access package*
 
 You can also control access to other resources that rely upon Azure AD security groups or Microsoft 365 Groups.  For example:
 
-- You can give users licenses for Microsoft 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
-- You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group
+- You can give users licenses for Microsoft 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../enterprise-users/licensing-groups-assign.md) for that group.
+- You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group.
+- You can give users access to manage Azure AD roles by using groups assignable to Azure AD roles in an access package and [assigning an Azure AD role to that group](../roles/groups-assign-role.md).
 
 ## How do I control who gets access?
 

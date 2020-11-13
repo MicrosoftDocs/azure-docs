@@ -1,20 +1,13 @@
 ---
 title: Oracle solutions on Azure virtual machines | Microsoft Docs
 description: Learn about supported configurations and limitations of Oracle virtual machine images on Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
-author: rgardler
-manager: 
-tags: azure-resource-management
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-
+author: dbakevlar
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 05/12/2020
-ms.author: rogardle
+ms.author: kegorman
+ms.reviewer: cynthn
+
 ---
 # Oracle VM images and their deployment on Microsoft Azure
 
@@ -128,7 +121,7 @@ With Oracle Data Guard, high availability can be achieved with a primary databas
 
 The tutorial [Implement Oracle GoldenGate on Azure](configure-oracle-golden-gate.md) walks you through the basic setup procedure on Azure.
 
-In addition to having an HA and DR solution architected in Azure, you should have a backup strategy in place to restore your database. The tutorial [Backup and recover an Oracle Database](oracle-backup-recovery.md) walks you through the basic procedure for establishing a consistent backup.
+In addition to having an HA and DR solution architected in Azure, you should have a backup strategy in place to restore your database. The tutorial [Backup and recover an Oracle Database](./oracle-overview.md) walks you through the basic procedure for establishing a consistent backup.
 
 ## Support for JD Edwards
 

@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Sentinel workspaces at scale
 description: Learn how to effectively manage Azure Sentinel on delegated customer resources.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: how-to
 ---
 
@@ -31,7 +31,10 @@ This centralized model of deployment has the following advantages:
 - Reduces network latency.
 - Easy to add or remove new subsidiaries or customers.
 
-## Granular role-based access control (RBAC)
+> [!NOTE]
+> You can manage delegated resources that are located in different [regions](../../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.
+
+## Granular Azure role-based access control (Azure RBAC)
 
 Each customer subscription that an MSSP will manage must be [onboarded to Azure Lighthouse](onboard-customer.md). This allows designated users in the managing tenant to access and perform management operations on Azure Sentinel workspaces deployed in customer tenants.
 

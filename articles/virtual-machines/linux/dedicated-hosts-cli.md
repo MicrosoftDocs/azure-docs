@@ -1,41 +1,41 @@
 ---
-title: Deploy Linux VMs to dedicated hosts using the CLI 
-description: Deploy VMs to dedicated hosts using the Azure CLI.
+title: Deploy VMs and scale set instances to dedicated hosts using the CLI 
+description: Deploy VMs and scale set instances to dedicated hosts using the Azure CLI.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 09/25/2020
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
-# Deploy VMs to dedicated hosts using the Azure CLI
+# Deploy to dedicated hosts using the Azure CLI
  
 
-This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
+This article guides you through how to create an Azure [dedicated host](../dedicated-hosts.md) to host your virtual machines (VMs). 
 
 Make sure that you have installed Azure CLI version 2.0.70 or later, and signed in to an Azure account using `az login`. 
 
 
 ## Limitations
 
-- Virtual machine scale sets are not currently supported on dedicated hosts.
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
 ## Create resource group 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Create the resource group with az group create. The following example creates a resource group named *myDHResourceGroup* in the *East US* location.
 
-```bash
+```azurecli-interactive
 az group create --name myDHResourceGroup --location eastus 
 ```
  
 ## List Available host SKUs in a region
+
 Not all host SKUs are available in all regions, and availability zones. 
 
 List host availability, and any offer restrictions before you start provisioning dedicated hosts. 
 
-```bash
+```azurecli-interactive
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table  
 ```
  
@@ -49,9 +49,10 @@ In either case, you are need to provide the fault domain count for your host gro
 
 You can also decide to use both availability zones and fault domains. 
 
+
 In this example, we will use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group using both availability zones and fault domains. 
 
-```bash
+```azurecli-interactive
 az vm host group create \
    --name myHostGroup \
    -g myDHResourceGroup \
@@ -59,11 +60,22 @@ az vm host group create \
    --platform-fault-domain-count 2 
 ``` 
 
+Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](../dedicated-hosts.md#manual-vs-automatic-placement).
+
+> [!IMPORTANT]
+> Automatic placement is currently in public preview.
+>
+> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
+>
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+>
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ### Other examples
 
 You can also use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group in availability zone 1 (and no fault domains).
 
-```bash
+```azurecli-interactive
 az vm host group create \
    --name myAZHostGroup \
    -g myDHResourceGroup \
@@ -73,7 +85,7 @@ az vm host group create \
  
 The following uses [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group by using fault domains only (to be used in regions where availability zones are not supported). 
 
-```bash
+```azurecli-interactive
 az vm host group create \
    --name myFDHostGroup \
    -g myDHResourceGroup \
@@ -88,7 +100,7 @@ For more information about the host SKUs and pricing, see [Azure Dedicated Host 
 
 Use [az vm host create](/cli/azure/vm/host#az-vm-host-create) to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.  
 
-```bash
+```azurecli-interactive
 az vm host create \
    --host-group myHostGroup \
    --name myHost \
@@ -102,28 +114,57 @@ az vm host create \
 ## Create a virtual machine 
 Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az-vm-create). If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine.
 
-```bash
+```azurecli-interactive
 az vm create \
    -n myVM \
    --image debian \
-   --generate-ssh-keys \
    --host-group myHostGroup \
-   --host myHost \
    --generate-ssh-keys \
    --size Standard_D4s_v3 \
    -g myDHResourceGroup \
    --zone 1
 ```
+
+To place the VM on a specific host, use `--host` instead of specifying the host group with `--host-group`.
  
 > [!WARNING]
 > If you create a virtual machine on a host which does not have enough resources, the virtual machine will be created in a FAILED state. 
+
+## Create a scale set (preview)
+
+> [!IMPORTANT]
+> Virtual Machine Scale Sets on Dedicated Hosts is currently in public preview.
+>
+> To participate in the preview, complete the preview onboarding survey at [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
+>
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+>
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+When you deploy a scale set, you specify the host group.
+
+```azurecli-interactive
+az vmss create \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
+  --image UbuntuLTS \
+  --upgrade-policy-mode automatic \
+  --admin-username azureuser \
+  --host-group myHostGroup \
+  --generate-ssh-keys \
+  --size Standard_D4s_v3 \
+  -g myDHResourceGroup \
+  --zone 1
+```
+
+If you want to manually choose which host to deploy the scale set to, add `--host` and the name of the host.
 
 
 ## Check the status of the host
 
 You can check the host health status and how many virtual machines you can still deploy to the host using [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view).
 
-```bash
+```azurecli-interactive
 az vm host get-instance-view \
    -g myDHResourceGroup \
    --host-group myHostGroup \
@@ -230,7 +271,7 @@ az vm host get-instance-view \
 ## Export as a template 
 You can export a template if you now want to create an additional development environment with the same parameters, or a production environment that matches it. Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can build JSON templates manually or export an existing environment to create the JSON template for you. Use [az group export](/cli/azure/group#az-group-export) to export your resource group.
 
-```bash
+```azurecli-interactive
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
@@ -238,7 +279,7 @@ This command creates the `myDHResourceGroup.json` file in your current working d
  
 To create an environment from your template, use [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create).
 
-```bash
+```azurecli-interactive
 az group deployment create \ 
     --resource-group myNewResourceGroup \ 
     --template-file myDHResourceGroup.json 
@@ -251,32 +292,32 @@ You are being charged for your dedicated hosts even when no virtual machines are
 
 You can only delete a host when there are no any longer virtual machines using it. Delete the VMs using [az vm delete](/cli/azure/vm#az-vm-delete).
 
-```bash
+```azurecli-interactive
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
 After deleting the VMs, you can delete the host using [az vm host delete](/cli/azure/vm/host#az-vm-host-delete).
 
-```bash
+```azurecli-interactive
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost 
 ```
  
 Once you have deleted all of your hosts, you may delete the host group using [az vm host group delete](/cli/azure/vm/host/group#az-vm-host-group-delete).  
  
-```bash
+```azurecli-interactive
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup  
 ```
  
 You can also delete the entire resource group in a single command. This will delete all resources created in the group, including all of the VMs, hosts and host groups.
  
-```bash
+```azurecli-interactive
 az group delete -n myDHResourceGroup 
 ```
 
 ## Next steps
 
-- For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
+- For more information, see the [Dedicated hosts](../dedicated-hosts.md) overview.
 
-- You can also create dedicated hosts using the [Azure portal](dedicated-hosts-portal.md).
+- You can also create dedicated hosts using the [Azure portal](../dedicated-hosts-portal.md).
 
 - There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
