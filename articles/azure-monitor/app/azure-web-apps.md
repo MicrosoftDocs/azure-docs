@@ -367,6 +367,17 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
     * Confirm that there are no entries for `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly`, and `AppContainsAspNetTelemetryCorrelationAssembly`.
         * If any of these entries exist, remove the following packages from your application: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`, and `Microsoft.AspNet.TelemetryCorrelation`.
+        * For .NetCore apps only: in case you have previously instrumented (or attempted to instrument) your app with the ASP.NETCore SDK, enabling the App Service integration may not take effect and the data may not appear in Application Insights. To fix the issue, in portal turn on "Interop with Application Insights SDK" and you will start seeing the data in Application Insights (this functionality is in preview). 
+        ![Enable the setting the existing app](./media/azure-web-apps/netcore-sdk-interop.png)
+
+        The data is now going to be sent using codeless approach even if Application Insights SDK was originally used or attempted to be used.
+
+        > [!IMPORTANT]If the application used Application Insights SDK to send any telemetry, such telemetry will be disabled – in other words, custom telemetry, if any, will be disabled (such as for example any Track*() methods)
+
+
+### PHP and WordPress are not supported
+
+PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side JavaScript to your web pages can be accomplished by using the [JavaScript SDK](./javascript.md).
 
 The table below provides a more detailed explanation of what these values mean, their underlying causes, and recommended fixes:
 
@@ -376,7 +387,7 @@ The table below provides a more detailed explanation of what these values mean, 
 |`AppAlreadyInstrumented:true` | If the application is targeting .NET Core 2.1 or 2.2, and refers to [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-package, then it brings in Application Insights, and extension will back-off. | Customers on .NET Core 2.1,2.2 are [recommended](https://github.com/aspnet/Announcements/issues/287) to use Microsoft.AspNetCore.App meta-package instead.|
 |`AppAlreadyInstrumented:true` | This value can also be caused by the presence of the above dlls in the app folder from a previous deployment. | Clean the app folder to ensure that these dlls are removed. Check both your local app's bin directory, and the wwwroot directory on the App Service. (To check the wwwroot directory of your App Service web app: Advanced Tools (Kudu) > Debug console > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | This value indicates that extension detected references to `Microsoft.AspNet.TelemetryCorrelation` in the application, and will back-off. | Remove the reference.
-|`AppContainsDiagnosticSourceAssembly**:true`|This value indicates that extension detected references to `System.Diagnostics.DiagnosticSource` in the application, and will back-off.| Remove the reference.
+|`AppContainsDiagnosticSourceAssembly**:true`|This value indicates that extension detected references to `System.Diagnostics.DiagnosticSource` in the application, and will back-off.| For .Net remove the reference. For .NetCore enable interop in portal (scroll down for instructions)
 |`IKeyExists:false`|This value indicates that the instrumentation key is not present in the AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Possible causes: The values may have been accidentally removed, forgot to set the values in automation script, etc. | Make sure the setting is present in the App Service application settings.
 
 ### APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported
@@ -395,10 +406,6 @@ For the latest information on the Application Insights agent/extension, check ou
 When you create a web app with the `ASP.NET` or `.NET Core` runtimes in Azure App Services it deploys a single static HTML page as a starter website. The static webpage also loads a .NET managed web part in IIS. This allows for testing codeless server-side monitoring, but does not support automatic client-side monitoring.
 
 If you wish to test out codeless server and client-side monitoring for ASP.NET or ASP.NET Core in a Azure App Services web app we recommend following the official guides for [creating a ASP.NET Core web app](../../app-service/quickstart-dotnetcore.md) and [creating an ASP.NET Framework web app](../../app-service/quickstart-dotnet-framework.md) and then use the instructions in the current article to enable monitoring.
-
-### PHP and WordPress are not supported
-
-PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side JavaScript to your web pages can be accomplished by using the [JavaScript SDK](./javascript.md).
 
 ### Connection string and instrumentation key
 
