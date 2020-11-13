@@ -30,9 +30,9 @@ This diagram highlights the pieces that make up the [Custom Speech portal](https
 
 1. [Inspect recognition quality](how-to-custom-speech-inspect-data.md). Use the [Custom Speech portal](https://speech.microsoft.com/customspeech) to play back uploaded audio and inspect the speech recognition quality of your test data. For quantitative measurements, see [Inspect data](how-to-custom-speech-inspect-data.md).
 
-1. [Evaluate and improve accuracy](how-to-custom-speech-evaluate-data.md). Evaluate and improve the accuracy of the speech-to-text model. The [Custom Speech portal](https://speech.microsoft.com/customspeech) will provide a *Word Error Rate*, which you can use to determine if additional training is required. If you're satisfied with the accuracy, you can use the Speech service APIs directly. If you want to improve accuracy by a relative average of 5% - 20%, use the **Training** tab in the portal to upload additional training data, like human-labeled transcripts and related text.
+1. [Evaluate and improve accuracy](how-to-custom-speech-evaluate-data.md). Evaluate and improve the accuracy of the speech-to-text model. The [Custom Speech portal](https://speech.microsoft.com/customspeech) will provide a *Word Error Rate*, which you can use to determine if additional training is required. If you're satisfied with the accuracy, you can use the Speech service APIs directly. If you want to improve accuracy by a relative average of 5% to 20%, use the **Training** tab in the portal to upload additional training data, like human-labeled transcripts and related text.
 
-1. [Train and deploy a model](how-to-custom-speech-train-model.md). Improve the accuracy of your speech-to-text model by providing written transcripts (10-1,000 hours) and related text (<200 MB) along with your audio test data. This data helps to train the speech-to-text model. After training, retest. If you're satisfied with the result, you can deploy your model to a custom endpoint.
+1. [Train and deploy a model](how-to-custom-speech-train-model.md). Improve the accuracy of your speech-to-text model by providing written transcripts (10 to 1,000 hours) and related text (<200 MB) along with your audio test data. This data helps to train the speech-to-text model. After training, retest. If you're satisfied with the result, you can deploy your model to a custom endpoint.
 
 ## Set up your Azure account
 
@@ -58,7 +58,7 @@ To create your first project, select **Speech-to-text/Custom speech**, and then 
 
 ## Model lifecycle
 
-Custom Speech uses both *base models* and *custom models*. Each language has one or more base models. Generally, when a new speech model is released to the regular speech service, it's also imported to the Custom Speech service as a new base model. They're updated every 3-6 months. Older models typically become less useful over time because the newest model typically has substantially higher accuracy.
+Custom Speech uses both *base models* and *custom models*. Each language has one or more base models. Generally, when a new speech model is released to the regular speech service, it's also imported to the Custom Speech service as a new base model. They're updated every 3 to 6 months. Older models typically become less useful over time because the newest model typically has substantially higher accuracy.
 
 In contrast, custom models are created by adapting a chosen base model to a particular customer scenario. You can keep using a particular custom model for a long time after you have one that meets your needs. Or you can keep retraining it over time with additional data. 
 
