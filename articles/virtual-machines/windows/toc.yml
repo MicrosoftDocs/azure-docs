@@ -648,8 +648,16 @@
     - name: Swap the OS disk
       href: os-disk-swap.md
     - name: Tag a VM
-      href: tag.md
-    - name: Time sync
+      items:
+      - name: Portal
+        href: ../tag-portal.md
+      - name: PowerShell
+        href: ../tag-powershell.md
+      - name: CLI
+        href: ../tag-cli.md
+      - name: Template
+        href: ../tag-template.md
+      - name: Time sync
       href: time-sync.md
     - name: Run scripts on a VM
       href: run-scripts-in-vm.md

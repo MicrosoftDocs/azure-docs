@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 11/12/2020
 ---
 # Tutorial: Accept and receive data using Azure Data Share  
 
@@ -61,7 +61,7 @@ You can follow the [step by step demo](https://youtu.be/aeGISgK1xro) to configur
  
 #### Prerequisites for receiving data into Azure Synapse Analytics (workspace) SQL pool
 
-* An Azure Synapse Analytics (workspace) SQL pool.
+* An Azure Synapse Analytics (workspace) dedicated SQL pool. Receiving data into serverless SQL pool is not currently supported.
 * Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
 * Permission for the Data Share resource's managed identity to access the Synapse workspace SQL pool. This can be done through the following steps: 
     1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Azure Active Directory admin**.
