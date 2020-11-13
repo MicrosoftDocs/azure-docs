@@ -1,23 +1,23 @@
 ---
-title: Connect to Office 365 Outlook
-description: Automate tasks and workflows that manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps 
+title: Integrate with Office 365 Outlook
+description: Automate tasks and workflows that manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/13/2020
 tags: connectors
 ---
 
 # Manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Office 365 Outlook connector](/connectors/office365connector/), you can create automated tasks and workflows that manage your work or school account by building logic apps. For example, you automate these tasks:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Office 365 Outlook connector](/connectors/office365connector/), you can create automated tasks and workflows that manage your work or school account by building logic apps. For example, you can automate these tasks:
 
-* Get, send, and reply to email. 
+* Get, send, and reply to email.
 * Schedule meetings on your calendar.
-* Add and edit contacts. 
+* Add and edit contacts.
 
-You can use any trigger to start your workflow, for example, when a new email arrives, when a calendar item is updated, or when an event happens in a difference service, such as Salesforce. You can use actions that respond to the trigger event, for example, send an email or create a new calendar event. 
+You can use any trigger to start your workflow, for example, when a new email arrives, when a calendar item is updated, or when an event happens in a difference service, such as Salesforce. You can use actions that respond to the trigger event, for example, send an email or create a new calendar event.
 
 > [!NOTE]
 > To automate tasks for an @outlook.com or @hotmail.com account, use the 
@@ -25,9 +25,22 @@ You can use any trigger to start your workflow, for example, when a new email ar
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* A [work or school account](https://www.office.com/)
+* A [Microsoft work or school account](https://www.office.com/)
+
+  > [!NOTE]
+  > To use a service account for signing in to your Office 365 Outlook account instead, use one of these options:
+  >
+  > * Sign in to Azure with your service account.
+  >
+  >   1. At your logic app's resource group level, check whether the service account has the **Contributor** role. 
+  >   If not, assign that role to the service account.
+  >
+  >   2. If you're not already signed in to the Azure portal with your service account, sign out and then sign back 
+  >   in with your service account so that you can create a connection to your Office 365 Outlook account.
+  >
+  > * In your logic app's Office 365 Outlook trigger or action, 
 
 * The logic app where you want to access your work or school account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
 
