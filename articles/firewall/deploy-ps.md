@@ -25,7 +25,7 @@ For this article, you create a simplified single VNet with three subnets for eas
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
-* **Jump-SN** - The "jump" server is in this subnet. The jump server has a public IP address that you can connect to using Remote Desktop. From there, you can then connect to (using another Remote Desktop) the workload server.
+* **AzureBastionSubnet** - the subnet used for Azure Bastion, which is used to connect to the workload server. For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
 
 ![Tutorial network infrastructure](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
