@@ -73,7 +73,7 @@ Configure these prerequisites to create resources which will be needed for VM cr
     
 ### Create a resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which the Azure resources such as storage account, disk, managed disk are deployed and managed.
+Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which the Azure resources such as storage account, disk, managed disk are deployed and managed.
 
 > [!IMPORTANT]
 > All the resources are created in the same location as that of the device and the location is set to **DBELocal**.
@@ -547,7 +547,8 @@ Deploy the VM creation template `CreateVM.json`. This template creates a network
         
         PS C:\07-30-2020>
     ```   
-You can also run the `New-AzureRmResourceGroupDeployment` command asynchronously with `–AsJob` parameter. Here is a sample output when the cmdlet runs in the background. You can then query the status of job that is created using the `Get-Job` cmdlet.
+
+    You can also run the `New-AzureRmResourceGroupDeployment` command asynchronously with `–AsJob` parameter. Here is a sample output when the cmdlet runs in the background. You can then query the status of job that is created using the `Get-Job` cmdlet.
 
     ```powershell	
     PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
@@ -565,8 +566,7 @@ You can also run the `New-AzureRmResourceGroupDeployment` command asynchronously
 	 
 	Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
 	--     ----            -------------   -----         -----------     --------             -------
-	2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
-    ```
+	```
 
 7. Check if the VM is successfully provisioned. Run the following command:
 
@@ -626,4 +626,4 @@ To verify if the environment variable for AzCopy was set correctly, take the fol
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](https://docs.microsoft.com/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)

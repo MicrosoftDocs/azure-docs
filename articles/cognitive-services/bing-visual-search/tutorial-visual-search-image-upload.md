@@ -473,7 +473,7 @@ function addDivContent(div, tag, json) {
 
 ## Display insights for different actions
 
-The following functions display insights for different actions. The functions either provide a clickable image or clickable link that sends you to a webpage with more information about the image. This page is either hosted by Bing.com or the image's original website. Not all of the insights' data is displayed in this application. To see all the fields available for an insight, see the [Images - Visual Search](https://aka.ms/bingvisualsearchreferencedoc) reference.
+The following functions display insights for different actions. The functions either provide a clickable image or clickable link that sends you to a webpage with more information about the image. This page is either hosted by Bing.com or the image's original website. Not all of the insights' data is displayed in this application. To see all the fields available for an insight, see the [Images - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) reference.
 
 > [!NOTE]
 > There's a minimum amount of insight information you must display in the page. See the [Bing Search API use and display requirements](../bing-web-search/use-display-requirements.md) for more.

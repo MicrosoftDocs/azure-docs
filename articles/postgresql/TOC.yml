@@ -1,4 +1,4 @@
-- name: Azure DB for PostgreSQL documentation
+- name: Azure Database for PostgreSQL documentation
   href: index.yml
 - name: Overview
   items:

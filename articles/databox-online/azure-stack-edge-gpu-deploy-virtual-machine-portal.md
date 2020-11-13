@@ -180,6 +180,22 @@ Follow these steps to create a VM after you have created a VM image.
 
     ![Add VM 11](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
 
+## Connect to a VM
+
+Depending on whether you created a Windows or a Linux VM, the steps to connect can be different. You can't connect to the VMs deployed on your device via the Azure portal. You need to take the following steps to connect to your Linux or Windows VM.
+
+### Connect to Linux VM
+
+Follow these steps to connect to a Linux VM.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
+
+### Connect to Windows VM
+
+Follow these steps to connect to a Windows VM.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
 ## Next steps
 
 To learn how to administer your Azure Stack Edge Pro device, see[Use local web UI to administer a Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).

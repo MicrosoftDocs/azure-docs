@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect using Go - Azure Database for MySQL'
 description: This quickstart provides several Go code samples you can use to connect and query data from Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
@@ -345,6 +345,16 @@ func main() {
 	fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
 	fmt.Println("Done.")
 }
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

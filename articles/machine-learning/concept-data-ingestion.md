@@ -1,7 +1,7 @@
 ---
 title: Data ingestion & automation 
 titleSuffix: Azure Machine Learning
-description: Learn about data ingestion options  for training your machine learning models.
+description: Learn the pros and cons of the available data ingestion options for training your machine learning models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.custom: devx-track-python
+ms.custom: devx-track-python, data4ml
 
 ---
 

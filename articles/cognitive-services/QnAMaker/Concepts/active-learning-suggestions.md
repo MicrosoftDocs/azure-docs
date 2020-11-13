@@ -1,10 +1,10 @@
 ---
 title: Active learning suggestions - QnA Maker
-description: Active learning suggestions allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair.
+description: Active learning suggestions allow you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 11/09/2020
 ---
 # Active learning suggestions
 
@@ -31,10 +31,18 @@ Once questions are suggested in the QnA Maker portal, you need to review and acc
 
 ## Turn on active learning
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 By default, active learning is **off**.
 To use active learning:
 * You need to [turn on active learning](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) so that QnA Maker collects alternate questions for your knowledge base.
 * To see the suggested alternate questions, [use View options](../How-To/improve-knowledge-base.md#view-suggested-questions) on the Edit page.
+
+# [QnA Maker managed (preview release)](#tab/v2)
+
+By default, active learning is **on** in QnA Maker managed (Preview). To see the suggested alternate questions, [use View options](../How-To/improve-knowledge-base.md#view-suggested-questions) on the Edit page.
+
+---
 
 ## How QnA Maker's implicit feedback works
 
@@ -123,7 +131,7 @@ QnA Maker needs explicit feedback about which of the answers was the best answer
 * Business logic, such as determining an acceptable score range.
 * A combination of both user feedback and business logic.
 
-Use the [Train API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train) to send the correct answer to QnA Maker, after the user selects it.
+Use the [Train API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/train) to send the correct answer to QnA Maker, after the user selects it.
 
 ## Next step
 

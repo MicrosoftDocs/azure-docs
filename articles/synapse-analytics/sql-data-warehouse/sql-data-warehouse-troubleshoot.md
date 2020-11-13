@@ -62,8 +62,6 @@ This article lists common troubleshooting issues in Synapse SQL.
 | :------------------------------------ | :----------------------------------------------------------- |
 | Unsupported SQL Database features     | See [Unsupported table features](sql-data-warehouse-tables-overview.md#unsupported-table-features). |
 | Unsupported SQL Database data types   | See [Unsupported data types](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types).        |
-| DELETE and UPDATE limitations         | See [UPDATE workarounds](sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements), [DELETE workarounds](sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements) and [Using CTAS to work around unsupported UPDATE and DELETE syntax](sql-data-warehouse-develop-ctas.md). |
-| MERGE statement is not supported      | See [MERGE workarounds](sql-data-warehouse-develop-ctas.md#replace-merge-statements).                  |
 | Stored procedure limitations          | See [Stored procedure limitations](sql-data-warehouse-develop-stored-procedures.md#limitations) to understand some of the limitations of stored procedures. |
 | UDFs do not support SELECT statements | This is a current limitation of our UDFs.  See [CREATE FUNCTION](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for the syntax we support. |
 

@@ -102,7 +102,7 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
     |Setting  |Value  |
     |---------|---------|
     |Subscription    |This is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
-    |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).     |
+    |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
 
 
 7. Enter or select the following **Instance details**.

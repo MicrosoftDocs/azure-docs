@@ -662,6 +662,8 @@
           href: how-to-time-to-live.md
         - name: Define unique keys
           href: how-to-define-unique-keys.md
+        - name: Perform transactional batch operations
+          href: transactional-batch.md
       - name: Performance
         items:
         - name: Query
@@ -701,6 +703,8 @@
           href: migrate-java-v4-sdk.md
         - name: Migrate to .NET V3 SDK
           href: migrate-dotnet-v3.md
+        - name: Migrate to .NET V2 SDK
+          href: migrate-dotnet-v2.md
       - name: Troubleshooting
         items:
         - name: Common errors
@@ -753,8 +757,6 @@
           href: create-sql-api-java-changefeed.md
       - name: Server-side programming
         items:
-        - name: Perform transactional batch operations
-          href: transactional-batch.md
         - name: Write stored procedures, triggers, and UDFs
           href: how-to-write-stored-procedures-triggers-udfs.md
         - name: Write stored procedures and triggers with JavaScript query API
