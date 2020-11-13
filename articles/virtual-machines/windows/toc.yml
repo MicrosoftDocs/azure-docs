@@ -46,7 +46,7 @@
   - name: 13 - Monitor VMs
     href: tutorial-monitor.md
   - name: 14 - Manage VM security
-    href: tutorial-azure-security.md
+    href: ../tutorial-azure-security.md
   - name: 15 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
   - name: 16 - Secure web server with SSL

@@ -25,7 +25,7 @@ To secure a Synapse workspace (preview), you'll follow a pattern of configuring 
   - Apache Spark for Azure Synapse Analytics admin
 - Access control for data in Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Access control for Synapse SQL and Spark databases
-- 
+
 ## Steps to secure a Synapse workspace
 
 This document uses standard names to simplify the instructions. Replace them with any names of your choice.

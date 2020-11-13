@@ -5689,6 +5689,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/tutorial-azure-security.md",
+      "redirect_url": "/azure/virtual-machines/tutorial-azure-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/tutorial-azure-security.md",
+      "redirect_url": "/azure/virtual-machines/tutorial-azure-security",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/using-cloud-init-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/using-cloud-init",
       "redirect_document_id": true
@@ -54150,6 +54160,21 @@
     {
       "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-jre.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=jre"
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-bulk-register.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/security/fundamentals/choose-ad-authn.md",
