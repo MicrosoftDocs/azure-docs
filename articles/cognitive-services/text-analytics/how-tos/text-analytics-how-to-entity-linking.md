@@ -17,15 +17,15 @@ ms.author: aahi
 
 The Text Analytics API lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web. The API supports both named entity recognition (NER) for several entity categories, and entity linking.
 
-### Entity Linking
+## Entity Linking
 
 Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word "Mars" refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base in an appropriate language, to link recognized entities in text. Entity Linking uses [Wikipedia](https://www.wikipedia.org/) as this knowledge base.
 
-### Named Entity Recognition (NER)
+## Named Entity Recognition (NER)
 
 Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product and organization.  
 
-### Personally Identifiable Information (PII)
+## Personally Identifiable Information (PII)
 
 The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as: phone number, email address, mailing address, passport number.  
 
@@ -42,25 +42,9 @@ The PII feature is part of NER and it can identify and redact sensitive entities
 
 See [language support](../language-support.md) for information.
 
-## Entity types
+Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3.0 can recognize entities in the [general entity category](../named-entity-types.md).
 
-Named Entity Recognition v3 provides expanded detection across multiple types. 
-
-### General entities 
-
-Entities in the general category are ...
-
-Note that NER v3.0 can only recognize entities in the general entity category. v3.1 can recognize both this, and the following categories.
-
-### Personally Identifying Information (PII)
-
-Starting in v3.1, NER can detect entities in the PII category, which are...
-
-### Personal Health Information (PHI)
-
-Starting in v3.1-preview.3, NER can detect entities in the [PHI category], which are...
-
----
+Named Entity Recognition v3.1-preview.3 includes the detection capabilities of v3.0, and the ability to detect personal information (`PII`) using the `v3.1-preview.3/entities/recognition/pii` endpoint. You can also use the optional `domain=phi` parameter to detect confidential health information (`PHI`).
 
 See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information.
 
