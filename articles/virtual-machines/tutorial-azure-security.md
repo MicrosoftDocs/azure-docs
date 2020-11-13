@@ -1,22 +1,22 @@
 ---
-title: Tutorial - Use Azure Security Center for Windows VMs in Azure 
-description: In this tutorial, you learn about the Azure Security Center features to help protect and secure your Windows virtual machines in Azure.
+title: Tutorial - Use Azure Security Center for VMs in Azure 
+description: In this tutorial, you learn about the Azure Security Center features to help protect and secure your virtual machines in Azure.
 author: cynthn
-ms.service: virtual-machines-windows
-ms.subservice: security
+manager: gwallace
+ms.service: virtual-machines
 ms.topic: tutorial
 ms.workload: infrastructure
-ms.date: 12/05/2018
+ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn about monitoring security in Azure so that I can make sure my virtual machines are protected and compliant with security policies.
 ---
 
-# Tutorial: Use Azure Security Center to monitor Windows virtual machines
+# Tutorial: Use Azure Security Center to monitor virtual machines
 
 Azure Security Center can help you gain visibility into your Azure resource security practices. Security Center offers integrated security monitoring. It can detect threats that otherwise might go unnoticed. In this tutorial, you learn about Azure Security Center, and how to:
-
+ 
 > [!div class="checklist"]
 > * Set up data collection
 > * Set up security policies
@@ -49,7 +49,7 @@ The Security Center data collection agent is then installed on all VMs, and data
 
 ## Set up a security policy
 
-Security policies are used to define the items for which Security Center collects data and makes recommendations. You can apply different security policies to different sets of Azure resources. Although by default Azure resources are evaluated against all policy items, you can turn off individual policy items for all Azure resources or for a resource group. For in-depth information about Security Center security policies, see [Set security policies in Azure Security Center](../../security-center/tutorial-security-policy.md). 
+Security policies are used to define the items for which Security Center collects data and makes recommendations. You can apply different security policies to different sets of Azure resources. Although by default Azure resources are evaluated against all policy items, you can turn off individual policy items for all Azure resources or for a resource group. For in-depth information about Security Center security policies, see [Set security policies in Azure Security Center](../security-center/tutorial-security-policy.md). 
 
 To set up a security policy for an entire subscription:
 
@@ -58,12 +58,11 @@ To set up a security policy for an entire subscription:
 3. On the **Security policy - Security policy** blade, turn on or turn off policy items that you want to apply to the subscription.
 4. When you're finished selecting your settings, select **Save** at the top of the blade. 
 
-
 ![Unique policy](./media/tutorial-azure-security/unique-policy.png)
 
 ## View VM configuration health
 
-After you've turned on data collection and set a security policy, Security Center begins to provide alerts and recommendations. As VMs are deployed, the data collection agent is installed. Security Center is then populated with data for the new VMs. For in-depth information about VM configuration health, see [Protect your VMs in Security Center](../../security-center/asset-inventory.md). 
+After you've turned on data collection and set a security policy, Security Center begins to provide alerts and recommendations. As VMs are deployed, the data collection agent is installed. Security Center is then populated with data for the new VMs. For in-depth information about VM configuration health, see [Protect your VMs in Security Center](../security-center/asset-inventory.md). 
 
 As data is collected, the resource health for each VM and related Azure resource is aggregated. The information is shown in an easy-to-read chart. 
 
@@ -74,7 +73,7 @@ To view resource health:
 
 ![Compute health](./media/tutorial-azure-security/compute-health.png)
 
-To see all recommendations for a VM, select the VM. Recommendations and remediation are covered in more detail in the next section of this tutorial.
+To see all recommendations for a VM, select the VM. 
 
 ## Remediate configuration issues
 
@@ -95,7 +94,7 @@ As recommendations are remediated, they are marked as resolved.
 
 ## View detected threats
 
-In addition to resource configuration recommendations, Security Center displays threat detection alerts. The security alerts feature aggregates data collected from each VM, Azure networking logs, and connected partner solutions to detect security threats against Azure resources. For in-depth information about Security Center threat detection capabilities, see [How does Security Center detect threats?](../../security-center/security-center-alerts-overview.md#detect-threats).
+In addition to resource configuration recommendations, Security Center displays threat detection alerts. The security alerts feature aggregates data collected from each VM, Azure networking logs, and connected partner solutions to detect security threats against Azure resources. For in-depth information about Security Center threat detection capabilities, see [How does Security Center detect threats?](../security-center/security-center-alerts-overview.md#detect-threats).
 
 The security alerts feature requires the Security Center pricing tier to be increased from *Free* to *Standard*. A **free trial** is available when you move to this higher pricing tier. 
 
@@ -123,7 +122,7 @@ In this tutorial, you set up Azure Security Center, and then reviewed VMs in Sec
 > * View and fix configuration health issues
 > * Review detected threats
 
-Advance to the next tutorial to learn how to install a SQL&#92;IIS&#92;.NET stack on a pair of Windows VMs.
+Advance to the next tutorial to learn more about creating a CI/CD pipeline with Jenkins, GitHub, and Docker.
 
 > [!div class="nextstepaction"]
-> [SQL&#92;IIS&#92;.NET stack](tutorial-iis-sql.md)
+> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](/azure/developer/jenkins/pipeline-with-github-and-docker)
