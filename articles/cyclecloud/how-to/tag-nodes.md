@@ -16,10 +16,10 @@ Azure CycleCloud will automatically create and add three tags to each node: a na
 | ClusterName | Name of the CycleCloud cluster the node is running in.                     |
 | CycleOwner  | Which user started the node, using the format username@site_name:site_id   |
 
-The `CycleOwner` tag uses this format: [username]@[site_name]:[site_id], where username is the CycleCloud user that started the node, site_name is the user defined name of the CycleCloud installation, and site_id is the CycleCloud Site ID that identifies the CycleCloud installation. For example, a cluster named "Demo" with a node called "master" started by "username" running on CycleCloud site "mysite" with id "92xy4vgh" would have the following tags created automatically:
+The `CycleOwner` tag uses this format: [username]@[site_name]:[site_id], where username is the CycleCloud user that started the node, site_name is the user defined name of the CycleCloud installation, and site_id is the CycleCloud Site ID that identifies the CycleCloud installation. For example, a cluster named "Demo" with a node called "scheduler" started by "username" running on CycleCloud site "mysite" with id "92xy4vgh" would have the following tags created automatically:
 
 ``` ini
-Name => "Demo: master"
+Name => "Demo: scheduler"
 ClusterName => "Demo"
 CycleOwner => "username@mysite:92xy4vgh"
 ```
@@ -28,7 +28,7 @@ Within a resource that supports [Resource Manager Operations](https://docs.micro
 
 ``` ini
 [cluster Demo]
-  [[node master]]
+  [[node scheduler]]
     tags.Application = my application
     tags.CustomValue = 57
     tags.CustomText = Hello world
@@ -37,7 +37,7 @@ Within a resource that supports [Resource Manager Operations](https://docs.micro
 Creating a node with this definition will result in three additional tags being set on the node:
 
 ``` ini
-Name => "Demo: master"
+Name => "Demo: scheduler"
 ClusterName => "Demo"
 Application => "my application"
 CustomValue => "57"

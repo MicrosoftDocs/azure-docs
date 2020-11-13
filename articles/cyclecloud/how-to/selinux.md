@@ -23,8 +23,15 @@ semanage fcontext -a -e /home /shared/home
 restorecon -R /shared/home
 ```
 
+::: moniker range="=cyclecloud-7"
 > [!NOTE]
 > Generally speaking, the `master` node in most HPC clusters exports the filesystem used as the home directory for all of the `execute` nodes. In this case, _/shared/home_ is not a NFS mount on the `master` but instead is a symlink to _/mnt/exports/shared/home_ which is the directory exported via NFS.
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+> [!NOTE]
+> Generally speaking, the `scheduler` node in most HPC clusters exports the filesystem used as the home directory for all of the `execute` nodes. In this case, _/shared/home_ is not a NFS mount on the `scheduler` but instead is a symlink to _/mnt/exports/shared/home_ which is the directory exported via NFS.
+::: moniker-end
 
 For VMs mounting the shared filesystem, NFS home directories must be explicitly enabled in order for users to log into the VM:
 

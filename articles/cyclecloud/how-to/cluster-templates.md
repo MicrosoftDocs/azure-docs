@@ -18,7 +18,7 @@ options about the nodes being started by CycleCloud. Dotted notation is used to 
 the attributes you wish to configure:
 
 ``` ini
-[[node master]]
+[[node scheduler]]
   [[[configuration]]]
   cycle_server.admin.name = poweruser
   cycle_server.admin.pass = super_secret
@@ -30,7 +30,7 @@ You can also specify a configuration section using `prefix` notation to save typ
 The same configuration could also be written as:
 
 ``` ini
-[[node master]]
+[[node scheduler]]
   [[[configuration cycle_server]]]
   admin.name = poweruser
   admin.pass = super_secret
@@ -41,9 +41,9 @@ The same configuration could also be written as:
 A node/nodearray can also contain multiple configuration sections if needed:
 
 ``` ini
-[[node master]]
+[[node scheduler]]
   [[[configuration]]]
-  run_list = role[sge_master_node]
+  run_list = role[sge_scheduler_node]
 
   [[[configuration cycle_server.admin]]]
   name = poweruser
@@ -58,7 +58,7 @@ Cluster templates can contain parameters that alter the values of certain parts 
 # template.txt
 [cluster gridengine]
 
-  [[node master]]
+  [[node scheduler]]
   MachineType = $machine_type
 
     [[[configuration]]]
@@ -98,7 +98,7 @@ It is also possible to define some or all of the parameters within the cluster t
 # template.txt
 [cluster gridengine]
 
-  [[node master]]
+  [[node scheduler]]
   MachineType = $machine_type
 
     [[[configuration]]]
@@ -232,7 +232,7 @@ Defining parameters within the cluster template enables one to take advantage of
 # template.txt
 [cluster gridengine]
 
-  [[node master]]
+  [[node scheduler]]
   MachineType = $machine_type
 
     [[[configuration]]]
@@ -242,7 +242,7 @@ Defining parameters within the cluster template enables one to take advantage of
   [[parameter machine_type]]
   DefaultValue = Standard_D4v3
   Label = Machine Type
-  Description = MachineType to use for the Grid Engine master node
+  Description = MachineType to use for the Grid Engine scheduler node
   ParameterType = Cloud.MachineType
 
   [[parameter slots]]

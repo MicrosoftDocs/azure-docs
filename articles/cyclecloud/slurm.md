@@ -12,7 +12,8 @@ ms.author: adjohnso
 
 Slurm is a highly configurable open source workload manager. See the [Slurm project site](https://www.schedmd.com/) for an overview.
 
-Slurm can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a Slurm cluster are the 'master' node which provides a shared filesystem on which the Slurm software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
+::: moniker range="=cyclecloud-7"
+Slurm can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a Slurm cluster are the 'master' (or 'scheduler') node which provides a shared filesystem on which the Slurm software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
 
 ``` ini
 [cluster custom-slurm]
@@ -40,13 +41,44 @@ Slurm can easily be enabled on a CycleCloud cluster by modifying the "run_list" 
     slurm.default_partition = true
 ```
 
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+Slurm can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a Slurm cluster are the 'scheduler' node which provides a shared filesystem on which the Slurm software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
+
+``` ini
+[cluster custom-slurm]
+
+[[node scheduler]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A4 # 8 cores
+
+    [[[cluster-init cyclecloud/slurm:default]]]
+    [[[cluster-init cyclecloud/slurm:scheduler]]]
+    [[[configuration]]]
+    run_list = role[slurm_scheduler_role]
+
+[[nodearray execute]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A1  # 1 core
+
+    [[[cluster-init cyclecloud/slurm:default]]]
+    [[[cluster-init cyclecloud/slurm:execute]]]
+    [[[configuration]]]
+    run_list = role[slurm_scheduler_role]
+    slurm.autoscale = true
+    # Set to true if nodes are used for tightly-coupled multi-node jobs
+    slurm.hpc = true
+    slurm.default_partition = true
+`
+::: moniker-end
 ## Editing Existing Slurm Clusters
 
-Slurm clusters running in CycleCloud versions 7.8 and later implement an updated version of the autoscaling APIs that allows the clusters to utilize multiple nodearrays and partitions. To facilitate this functionality in Slurm, CycleCloud pre-populates the execute nodes in the cluster. Because of this, you need to run a command on the Slurm master node after making any changes to the cluster, such as autoscale limits or VM types.
+Slurm clusters running in CycleCloud versions 7.8 and later implement an updated version of the autoscaling APIs that allows the clusters to utilize multiple nodearrays and partitions. To facilitate this functionality in Slurm, CycleCloud pre-populates the execute nodes in the cluster. Because of this, you need to run a command on the Slurm scheduler node after making any changes to the cluster, such as autoscale limits or VM types.
 
 ### Making Cluster Changes
 
-The Slurm cluster deployed in CycleCloud contains a script that facilitates this. After making any changes to the cluster, run the following command as root (e.g., by running `sudo -i`) on the Slurm master node to rebuild the `slurm.conf` and update the nodes in the cluster:
+The Slurm cluster deployed in CycleCloud contains a script that facilitates this. After making any changes to the cluster, run the following command as root (e.g., by running `sudo -i`) on the Slurm scheduler node to rebuild the `slurm.conf` and update the nodes in the cluster:
 
 ``` bash
 cd /opt/cycle/jetpack/system/bootstrap/slurm
@@ -115,9 +147,15 @@ Then restart the `slurmctld` service.
 
 By default, this project uses a UID and GID of 11100 for the Slurm user and 11101 for the Munge user. If this causes a conflict with another user or group, these defaults may be overridden.
 
-To override the UID and GID, click the edit button for both the `master` node:
+To override the UID and GID, click the edit button for both the `scheduler` node:
 
-![Edit Master](~/images/slurmmasternodeedit.png "Edit Master")
+::: moniker range="=cyclecloud-7"
+![Edit Scheduler](~/images_7x/slurmmasternodeedit.png "Edit Scheduler")
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+![Edit Scheduler](~/images_8x/slurmschednodeedit.png "Edit Scheduler")
+::: moniker-end
 
 And the `execute` nodearray:
 ![Edit Nodearray](~/images/slurmnodearraytab.png "Edit nodearray")
@@ -137,7 +175,7 @@ And the `execute` nodearray:
 
 ### Autoscale
 
-CycleCloud uses Slurm's [Elastic Computing](https://slurm.schedmd.com/elastic_computing.html) feature. To debug autoscale issues, there are a few logs on the master node you can check. The first is making sure that the power save resume calls are being made by checking `/var/log/slurmctld/slurmctld.log`. You should see lines like:
+CycleCloud uses Slurm's [Elastic Computing](https://slurm.schedmd.com/elastic_computing.html) feature. To debug autoscale issues, there are a few logs on the scheduler node you can check. The first is making sure that the power save resume calls are being made by checking `/var/log/slurmctld/slurmctld.log`. You should see lines like:
 
 ``` bash
 [2019-12-09T21:19:03.400] power_save: pid 8629 waking nodes htc-1

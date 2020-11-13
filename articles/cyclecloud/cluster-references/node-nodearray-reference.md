@@ -47,7 +47,7 @@ This example template creates a cluster with two nodes and a nodearray. The prox
     IsReturnProxy = true
     MachineType = Standard_B2
 
-  [[node master]]
+  [[node scheduler]]
     MachineType = Standard_D4s_v3
 
   [[nodearray execute]]

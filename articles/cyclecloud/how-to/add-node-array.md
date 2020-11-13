@@ -30,7 +30,7 @@ For example, the template below contains a node array named "highmem" which uses
     Region = USEast2
     MachineType = Standard_D4_v2
 
-    [[node master]]
+    [[node scheduler]]
 
     [[nodearray highmem]]
     MachineType = Standard_M64

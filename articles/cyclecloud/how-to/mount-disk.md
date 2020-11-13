@@ -31,7 +31,7 @@ The above configuration specifies that you are configuring a `cyclecloud.mountpo
 By defining volumes with a `mountpoint` attribute, the device names will be automatically assigned and used for a given mountpoint. However, you can customize a mountpoint with your own device names. For example:
 
 ``` ini
-[[node master]]
+[[node scheduler]]
   [[[configuration cyclecloud.mounts.data]]]
   mountpoint = /data
   Azure.LUN=0
@@ -49,7 +49,7 @@ In most cases, Azure CycleCloud will automatically assign devices for you. Speci
 The previous example was a fairly simple: mounting a single, pre-formatted snapshot to a node. However, more advanced mounting can take place, including RAIDing multiple devices together, encrypting, and formatting new filesystems. As an example, the following will describes how to RAID several volumes together and encrypt them before mounting them as a single device on a node:
 
 ``` ini
-[[node master]]
+[[node scheduler]]
 ....
   [[[volume vol1]]]
   VolumeId = vol-1234abcd
@@ -71,7 +71,7 @@ The previous example was a fairly simple: mounting a single, pre-formatted snaps
   encryption.key = "0123456789abcdef9876543210"
 ```
 
-The above example shows there are three volumes that should be attached to the node named `master`, and that their mountpoint is named `giant`. The configuration for the mountpoint says that these three volumes should be RAIDed together using `raid_level = 0` for RAID0, formatted using the `xfs` filesystem, and the resulting device should be mounted at `/mnt/giant`. The device should also have block level encryption using 256-bit AES with an encryption key as defined in the template.
+The above example shows there are three volumes that should be attached to the node named `scheduler`, and that their mountpoint is named `giant`. The configuration for the mountpoint says that these three volumes should be RAIDed together using `raid_level = 0` for RAID0, formatted using the `xfs` filesystem, and the resulting device should be mounted at `/mnt/giant`. The device should also have block level encryption using 256-bit AES with an encryption key as defined in the template.
 
 ## Mounting Configuration Options
 

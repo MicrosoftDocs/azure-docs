@@ -44,7 +44,7 @@ Specs are authored as logical collections called *Projects*. For example, a proj
 
 ## Node Orchestration
 
-Depending on the scheduler and services used in a cluster, CycleCloud at times need to orchestrate the preparation phase of nodes in a cluster through the coordination of different nodes. For example, some schedulers require that each compute node register themselves against the scheduler master daemon, which not only necessitate the compute nodes be aware of the address of the headnode, but are also able to recognize that the headnode is fully prepared and wait if it's not.
+Depending on the scheduler and services used in a cluster, CycleCloud at times need to orchestrate the preparation phase of nodes in a cluster through the coordination of different nodes. For example, some schedulers require that each compute node register themselves against the scheduler daemon, which not only necessitate the compute nodes be aware of the address of the headnode, but are also able to recognize that the headnode is fully prepared and wait if it's not.
 
 This element of [Service Discovery](https://en.wikipedia.org/wiki/Service_discovery) is also used for File System server-client relationships and is a feature in CycleCloud.
 
