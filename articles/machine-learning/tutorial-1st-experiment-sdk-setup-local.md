@@ -48,7 +48,7 @@ pip install azureml-sdk
 ```
 
 > [!div class="nextstepaction"]
-> [I installed the SDK](#dir?id=success-install-sdk) [I ran into an issue](https://www.research.net/r/7C8Z3DN)
+> [I installed the SDK](?id=success-install-sdk#dir) [I ran into an issue](https://www.research.net/r/7C8Z3DN)
 
 ## <a name="dir"></a>Create a directory structure for code
 We recommend that you set up the following simple directory structure for this tutorial:
@@ -63,7 +63,7 @@ tutorial
 
 
 > [!div class="nextstepaction"]
-> [I created a directory](#workspace?id=success-create-dir) [I ran into an issue](https://www.research.net/r/7C8Z3DN)
+> [I created a directory](?id=success-create-dir#workspace) [I ran into an issue](https://www.research.net/r/7C8Z3DN)
 
 ## <a name="workspace"></a>Create an Azure Machine Learning workspace
 
@@ -123,7 +123,7 @@ workspace. Namely, it contains your subscription ID, resource group, and workspa
 > Authentication is still required to interact with your Azure Machine Learning workspace.
 
 > [!div class="nextstepaction"]
-> [I created a workspace](#cluster?id=success-create-workspace) [I ran into an issue](https://www.research.net/r/7C8Z3DN)
+> [I created a workspace](?id=success-create-workspace#cluster) [I ran into an issue](https://www.research.net/r/7C8Z3DN)
 
 ## <a name="cluster"></a> Create an Azure Machine Learning compute cluster
 
@@ -175,7 +175,7 @@ tutorial
 ```
 
 > [!div class="nextstepaction"]
-> [I created a compute cluster](#next-steps?id=success-create-compute-cluster) [I ran into an issue](https://www.research.net/r/7C8Z3DN)
+> [I created a compute cluster](?id=success-create-compute-cluster#next-steps) [I ran into an issue](https://www.research.net/r/7C8Z3DN)
 
 ## Next steps
 
