@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/19/2020
 ms.author: aahi
 ---
 
 # How to use Named Entity Recognition in Text Analytics
 
-The Text Analytics API lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web. The API supports both named entity recognition (NER), personally identifiable information (PII) and entity linking.
+The Text Analytics API lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web. The API supports both named entity recognition (NER) for several entity categories, and entity linking.
 
 ### Entity Linking
 
@@ -44,10 +44,25 @@ See [language support](../language-support.md) for information.
 
 ## Entity types
 
-Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3.0 can recognize entities in the [general entity category](../named-entity-types.md).
+Named Entity Recognition v3 provides expanded detection across multiple types. 
 
-Named Entity Recognition v3.1-preview.3 includes the detection capabilities of v3.0, and the ability to detect personal information (`PII`) using the `v3.1-preview.3/entities/recognition/pii` endpoint. You can use the optional `domain=phi` parameter to detect confidential health information (`PHI`). See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information.
+### General entities 
 
+Entities in the general category are ...
+
+Note that NER v3.0 can only recognize entities in the general entity category. v3.1 can recognize both this, and the following categories.
+
+### Personally Identifying Information (PII)
+
+Starting in v3.1, NER can detect entities in the PII category, which are...
+
+### Personal Health Information (PHI)
+
+Starting in v3.1-preview.3, NER can detect entities in the [PHI category], which are...
+
+---
+
+See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information.
 
 ## Sending a REST API request
 
