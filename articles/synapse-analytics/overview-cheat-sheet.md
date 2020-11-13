@@ -36,12 +36,10 @@ To use Spark analytics, create and use **serverless Apache Spark pools** in your
 
 
 ## Spark Terminology
-| Term                         | Definition      |
-|:---                                 |:---                 |
-|**Apache Spark for Synapse** | Spark run-time used in a serverless Spark pool. The current version supported is Spark 2.4 with Python 3.6.1, Scala 2.11.12, .NET support for Apache Spark 0.5 and Delta Lake 0.3.  | 
-| **Apache Spark pool**  | 0-to-N Spark provisioned resources with their corresponding databases can be deployed in a workspace. A Spark pool can be auto-paused, resumed, and scaled.  |
-| **Spark application**  |   It consists of a driver process and a set of executor processes. A Spark application runs on a serverless Spark pool.            |
 
+* **Apache Spark for Synapse** - Spark run-time used in a serverless Spark pool. The current version supported is Spark 2.4 with Python 3.6.1, Scala 2.11.12, .NET support for Apache Spark 0.5 and Delta Lake 0.3.  
+* **Apache Spark pool** - 0-to-N Spark provisioned resources with their corresponding databases can be deployed in a workspace. A Spark pool can be auto-paused, resumed, and scaled.  
+* **Spark application** - It consists of a driver process and a set of executor processes. A Spark application runs on a serverless Spark pool.            
 * **Spark session**- Unified entry point of a spark application. It provides a way to interact with Spark's various functionalities and with a lesser number of constructs. To run a notebook, a session needs to be created. A session can be configured to run on a specific number of executors of a specific size. The default configuration for a notebook session is to run on 2 medium-sized executors.
 * **Notebook** -  Interactive and reactive Data Science and Engineering interface supporting Scala, PySpark, C#, and SparkSQL.
 * **Spark job definition** - Interface to submit a Spark job by with assembly jar containing the code and its dependencies.
