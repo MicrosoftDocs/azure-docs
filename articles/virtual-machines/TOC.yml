@@ -6,7 +6,7 @@
     href: ./linux/overview.md
     items:
     - name: Endorsed distros
-      href: endorsed-distros.md
+      href: ./linux/endorsed-distros.md
   - name: About Windows Virtual Machines
     href: ./windows/overview.md
 - name: Quickstarts 
@@ -75,7 +75,7 @@
 - name: Workloads
   items: 
   - name: Red Hat
-    href: ../workloads/redhat/overview.md
+    href: ./workloads/redhat/overview.md
   - name: Cloud Foundry
     href: ../cloudfoundry/index.yml
   - name: Cassandra
@@ -111,7 +111,7 @@
       - name: Overview
         items:
         - name: What is SAP HANA on Azure (Large Instances)?
-          href: ./workloads/sap/ hana-overview-architecture.md
+          href: ./workloads/sap/hana-overview-architecture.md
         - name: Know the terms
           href: ./workloads/sap/hana-know-terms.md
         - name: Certification
@@ -178,7 +178,7 @@
         href: ./workloads/sap/ha-setup-with-stonith.md
       - name: OS Backup for Type II SKUs
         href: ./workloads/sap/os-backup-type-ii-skus.md
-      - name: Enable Kdump for HANA Large Instances
+      - name: Enable kdump for HANA Large Instances
         href: ./workloads/sap/hana-large-instance-enable-kdump.md
       - name: OS Upgrade for HANA Large Instances
         href: ./workloads/sap/os-upgrade-hana-large-instance.md
@@ -187,7 +187,7 @@
       - name: HLI to Azure VM migration
         href: ./workloads/sap/hana-large-instance-virtual-machine-migration.md
       - name: Buy an SAP HANA Large Instances reservation
-        href: ../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+        href: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
   - name: SAP HANA on Azure Virtual Machines
     items:
     - name: Installation of SAP HANA on Azure  VMs
@@ -272,7 +272,7 @@
     - name: SAP IDES on Windows/SQL Server SAP CAL deployment guide
       href: ./workloads/sap/cal-ides-erp6-erp7-sp3-sql.md
     - name: SAP LaMa connector for Azure
-      href: ./workloads/sap/-installation.md
+      href: ./workloads/sap/lama-installation.md
     - name: High Availability (HA) on Windows and Linux
       items:
       - name: Overview
@@ -344,7 +344,7 @@
         - name: RHEL with Pacemaker multi-SID for A(SCS) Instance
           href: ./workloads/sap/high-availability-guide-rhel-multi-sid.md
     - name: Azure Site Recovery for SAP Disaster Recovery
-      href: ../../site-recovery/site-recovery-workload.md#protect-sap
+      href: ../site-recovery/site-recovery-workload.md#protect-sap
     - name: Azure Proximity Placement Groups for optimal network latency with SAP applications
       href: ./workloads/sap/sap-proximity-placement-scenarios.md
     - name: SAP BusinessObjects Business Intelligence platform on Azure
@@ -442,15 +442,15 @@
   - name: IBM Db2 pureScale
     items:
     - name: Architecture
-      href: ibm-db2-purescale-azure.md
+      href: ./linux/ibm-db2-purescale-azure.md
     - name: Deployment
-      href: deploy-ibm-db2-purescale-azure.md
+      href: ./linux/deploy-ibm-db2-purescale-azure.md
   - name: Run containers
     items:
     - name: Create Docker host
       href: https://github.com/Azure/azure-docker-extension/blob/master/README.md
     - name: Use Docker Machine
-      href: docker-machine.md
+      href: ./linux/docker-machine.md
     - name: Use Docker Compose
       href: ./linux/docker-compose-quickstart.md
 - name: Instances
@@ -694,10 +694,10 @@
     - name: Use Java
       href: ./windows/java.md
     - name: Use Python
-      href: python.md
+      href: ./windows/python.md
     - name: Use ARM template
       displayName: Azure Resource Manager template
-      href: ps-template.md
+      href: ./windows/ps-template.md
   - name: Migrate from classic to Azure Resource Manager
     items:
     - name: Retirement starting March 1, 2023
@@ -761,13 +761,13 @@
     - name: File storage
       items:
       - name: Linux mount using SMB
-        href: mount-azure-file-storage-on-linux-using-smb.md
+        href: ./linux/mount-azure-file-storage-on-linux-using-smb.md
       - name: Copy files to a Linux VM
         href: ./linux/copy-files-to-linux-vm-using-scp.md
     - name: Updates and patches
       items:
       - name: Red Hat Update Infrastructure
-        href: ../workloads/redhat/redhat-rhui.md
+        href: ./workloads/redhat/redhat-rhui.md
 - name: Images and snapshots
   items:
   - name: Overview
