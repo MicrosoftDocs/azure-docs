@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 11/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -16,13 +16,12 @@ ms.collection: M365-identity-device-management
 # Prerequisites for Azure AD Connect cloud provisioning
 This article provides guidance on how to choose and use Azure Active Directory (Azure AD) Connect cloud provisioning as your identity solution.
 
-
-
 ## Cloud provisioning agent requirements
 You need the following to use Azure AD Connect cloud provisioning:
 	
 - A hybrid identity administrator account for your Azure AD tenant that is not a guest user.
 - An on-premises server for the provisioning agent with Windows 2012 R2 or later.  This server should be a tier 0 server based on the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Domain Administrator or Enterprise Administrator credentials to create the Azure AD Connect Cloud Sync gMSA (group Managed Service Account) to run the agent servcie.
 - On-premises firewall configurations.
 
 >[!NOTE]
@@ -62,6 +61,17 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
 >[!NOTE]
 > Installing the cloud provisioning agent on Windows Server Core is not supported.
 
+## Group Managed Service Accounts
+A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management,the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and uses a gMSA for running the agent.  You will be prompted for administrative credentials during setup, in order to create this account.  The account will appear as (domain\provAgentgMSA$).  For more information on a gMSA, see [Group Managed Service Accounts](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+
+### Prerequisites for gMSA:
+1.	The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2012
+2.	[PowerShell RSAT modules](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) on a domain controller
+3.	At least one domain controller in the domain must be running Windows Server 2012.
+4.	A domain joined server where the agent is being installed needs to be either Windows Server 2012 or later.
+
+For steps on how to upgrade an existing agent to use a gMSA account see [Group Managed Service Accounts](how-to-install.md#group-managed-service-accounts).
+
 
 ### Additional requirements
 - [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
@@ -87,16 +97,7 @@ To enable TLS 1.2, follow these steps.
 1. Restart the server.
 
 
-## Group Managed Service Accounts
-A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management,the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and recommends the use of a group Managed Service Account for running the agent.  For more information on a gMSA, see [Group Managed Service Accounts](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
-### Prerequisites for gMSA:
-1.	The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2012
-2.	[PowerShell RSAT modules](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) on a domain controller
-3.	At least one domain controller in the domain must be running Windows Server 2012.
-4.	A domain joined server where the agent is being installed needs to be either Windows Server 2012 or later.
-
-For steps on how to upgrade an existing agent to use a gMSA account see [Group Managed Service Accounts](how-to-install.md#group-managed-service-accounts).
 
 ## Next steps 
 
