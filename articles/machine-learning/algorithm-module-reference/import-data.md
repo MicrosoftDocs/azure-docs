@@ -57,9 +57,10 @@ If your source data changes, you can refresh the dataset and add new data by rer
     > [!NOTE]
     > **Import Data** module is for **Tabular** data only.
     > If you want to import multiple tabular data files one time, it requires following conditions, otherwise errors will occur:
-    > 1. All data files must be encoded in unicode-8.
-    > 2. All data files must have the same column numbers and column names.
-    > 3. The result of importing multiple data files is concatenating all rows from multiple files in order.
+    > 1. To include all data files in the folder, you need to input `folder_name/**` for **Path**.
+    > 2. All data files must be encoded in unicode-8.
+    > 3. All data files must have the same column numbers and column names.
+    > 4. The result of importing multiple data files is concatenating all rows from multiple files in order.
 
 1. Select the preview schema to filter the columns you want to include. You can also define advanced settings like Delimiter in Parsing options.
 
