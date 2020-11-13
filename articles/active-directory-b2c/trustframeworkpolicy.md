@@ -19,7 +19,7 @@ ms.subservice: B2C
 
 A custom policy is represented as one or more XML-formatted files, which refer to each other in a hierarchical chain. The XML elements define elements of the policy, such as the claims schema, claims transformations, content definitions, claims providers, technical profiles, user journey, and orchestration steps. Each policy file is defined within the top-level **TrustFrameworkPolicy** element of a policy file.
 
-```XML
+```xml
 <TrustFrameworkPolicy
   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
@@ -118,7 +118,7 @@ Inside the RP policy file, you specify the **DefaultUserJourney** element, which
 
 B2C_1A_signup_signin policy:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn">
   ...
@@ -126,7 +126,7 @@ B2C_1A_signup_signin policy:
 
 B2C_1A_TrustFrameWorkBase or B2C_1A_TrustFrameworkExtensionPolicy:
 
-```XML
+```xml
 <UserJourneys>
   <UserJourney Id="SignUpOrSignIn">
   ...

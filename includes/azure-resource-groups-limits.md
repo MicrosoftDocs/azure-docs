@@ -2,7 +2,7 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/24/2020    
+ms.date: 09/01/2020    
 ms.author: tomfitz
 ---
 | Resource | Limit |
@@ -11,12 +11,12 @@ ms.author: tomfitz
 | Resources per resource group, per resource type |800 - Some resource types can exceed the 800 limit. See [Resources not limited to 800 instances per resource group](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md). |
 | Deployments per resource group in the deployment history |800<sup>1</sup> |
 | Resources per deployment |800 |
-| Management locks per unique scope |20 |
+| Management locks per unique [scope](../articles/azure-resource-manager/management/overview.md#understand-scope)  |20 |
 | Number of tags per resource or resource group |50 |
 | Tag key length |512 |
 | Tag value length |256 |
 
-<sup>1</sup>If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. Deleting an entry from the deployment history doesn't affect the deployed resources. For more information, see [Resolve error when deployment count exceeds 800](../articles/azure-resource-manager/templates/deployment-quota-exceeded.md).
+<sup>1</sup>Deployments are automatically deleted from the history as you near the limit. Deleting an entry from the deployment history doesn't affect the deployed resources. For more information, see [Automatic deletions from deployment history](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
 
 #### Template limits
 

@@ -1,17 +1,20 @@
 ---
-title: Collect custom logs in Azure Monitor | Microsoft Docs
+title: Collect custom logs with Log Analytics agent in Azure Monitor
 description: Azure Monitor can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/26/2019
+ms.date: 10/21/2020
 
 ---
 
-# Custom logs in Azure Monitor
+# Collect custom logs with Log Analytics agent in Azure Monitor
 
-The Custom Logs data source in Azure Monitor allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog. Once collected, you can either parse the data into individual fields in your queries or extract the data during collection to individual fields.
+The Custom Logs data source for the Log Analytics agent in Azure Monitor allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog. Once collected, you can either parse the data into individual fields in your queries or extract the data during collection to individual fields.
+
+> [!IMPORTANT]
+> This article covers collecting custom logs with the [Log Analytics agent](log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](agents-overview.md) for a list of the available agents and the data they can collect.
 
 ![Custom log collection](media/data-sources-custom-logs/overview.png)
 
@@ -124,11 +127,13 @@ Custom log records have a type with the log name that you provide and the proper
 ## Sample walkthrough of adding a custom log
 The following section walks through an example of creating a custom log.  The sample log being collected has a single entry on each line starting with a date and time and then comma-delimited fields for code, status, and message.  Several sample entries are shown below.
 
-    2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
-    2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
-    2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
-    2019-08-27 01:38:22 302,Error,Application could not connect to database
-    2019-08-27 01:31:34 303,Error,Application lost connection to database
+```output
+2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
+2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
+2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
+2019-08-27 01:38:22 302,Error,Application could not connect to database
+2019-08-27 01:31:34 303,Error,Application lost connection to database
+```
 
 ### Upload and parse a sample log
 We provide one of the log files and can see the events that it will be collecting.  In this case New Line is a sufficient delimiter.  If a single entry in the log could span multiple lines though, then a timestamp delimiter would need to be used.
@@ -152,7 +157,7 @@ We use a simple query of *MyApp_CL* to return all records from the collected log
 
 
 ## Alternatives to custom logs
-While custom logs are useful if your data fits the criteria listed about, but there are cases such as the following where you need another strategy:
+While custom logs are useful if your data fits the criteria listed above, there are cases such as the following where you need another strategy:
 
 - The data doesn't fit the required structure such as having the timestamp in a different format.
 - The log file doesn't adhere to requirements such as file encoding or an unsupported folder structure.

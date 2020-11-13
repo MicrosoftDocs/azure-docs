@@ -1,21 +1,14 @@
 ---
 title: Create a Service Bus authorization rule using an Azure template
 description: Create a Service Bus authorization rule for namespace and queue using Azure Resource Manager template
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 7f1443a0-5fa8-4d90-8637-1a977ef0b1f0
-ms.service: service-bus-messaging
-ms.devlang: tbd
+author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 12/20/2019
-ms.author: aschhab
+ms.date: 06/23/2020
+ms.author: spelluru 
+ms.custom: devx-track-azurecli
 ---
+
 # Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template
 
 This article shows how to use an Azure Resource Manager template that creates an [authorization rule](service-bus-authentication-and-authorization.md#shared-access-signature) for a Service Bus namespace and queue. The article explains how to specify which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
@@ -173,12 +166,12 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
-* [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
+* [Manage Service Bus with PowerShell](./service-bus-manage-with-ps.md)
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/management/manage-resources-powershell.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/management/manage-resources-cli.md
 [Service Bus auth rule template]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/

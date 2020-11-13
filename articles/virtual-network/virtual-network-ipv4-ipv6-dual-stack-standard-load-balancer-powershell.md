@@ -8,7 +8,7 @@ author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2020
@@ -146,8 +146,8 @@ $lb = New-AzLoadBalancer `
 -Sku "Standard" `
 -FrontendIpConfiguration $frontendIPv4,$frontendIPv6 `
 -BackendAddressPool $backendPoolv4,$backendPoolv6 `
--LoadBalancingRule $lbrule_v4,$lbrule_v6
-
+-LoadBalancingRule $lbrule_v4,$lbrule_v6 `
+-Probe $probe
 ```
 
 ## Create network resources
@@ -201,7 +201,7 @@ $rule2 = New-AzNetworkSecurityRuleConfig `
   -Direction Inbound `
   -Priority 200 `
   -SourceAddressPrefix * `
-  -SourcePortRange 80 `
+  -SourcePortRange * `
   -DestinationAddressPrefix * `
   -DestinationPortRange 80
 ```

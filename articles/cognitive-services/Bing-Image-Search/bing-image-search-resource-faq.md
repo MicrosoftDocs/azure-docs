@@ -14,13 +14,18 @@ ms.author: aahi
 
 # Frequently asked questions (FAQ) about the Bing Image Search API
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API for Microsoft Cognitive Services on Azure.
 
 ## Response headers in JavaScript
 
 The following headers may occur in responses from the Bing Image Search API.
 
-| `Attribute`         | `Description` |
+| Attribute           | Description   |
 | ------------------- | ------------- |
 | `X-MSEdge-ClientID` |The unique ID that Bing has assigned to the user |
 | `BingAPIs-Market`   |The market that was used to fulfill the request |
@@ -30,19 +35,22 @@ It is particularly important to persist the client ID and return it with subsequ
 
 However, when you call the Bing Image Search API from JavaScript, your browser's built-in security features (CORS) might prevent you from accessing the values of these headers.
 
-To gain access to the headers, you can make the Bing Image Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+To gain access to the headers, you can make the Bing Image Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that filters response headers and makes them available to JavaScript.
 
 It's easy to install a CORS proxy to allow our [tutorial app](tutorial-bing-image-search-single-page-app.md) to access the optional client headers. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then enter the following command at a command prompt.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Next, change the Bing Image Search API endpoint in the HTML file to:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Next, change the Bing Image Search API endpoint in the HTML file to:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Finally, start the CORS proxy with the following command:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
 

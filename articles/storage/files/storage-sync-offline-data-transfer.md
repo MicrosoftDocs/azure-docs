@@ -1,9 +1,9 @@
 ---
 title: Migrate data into Azure File Sync with Azure Data Box
-description: Migrate bulk data in a way that's compatible with Azure File Sync.
+description: Migrate bulk data offline that's compatible with Azure File Sync. Avoid file conflicts, and preserve file and folder ACLs and timestamps after you enable sync.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
@@ -83,6 +83,13 @@ Disable the offline data transfer mode only when the state is **Completed** or w
 
 > [!IMPORTANT]
 > After you disable the offline data transfer mode, you can't enable it again, even if the staging share from the bulk migration is still available.
+
+## Azure File Sync and pre-seeded files in the cloud
+
+If you have seeded files in an Azure file share by other means than DataBox - e.g. via AzCopy, RoboCopy from a cloud backup or any other method - then you should still follow the [Offline Data Transfer process](#process-for-offline-data-transfer) described in this article. You only need to disregard DataBox as the method your files move to the cloud. However, it is paramount to ensure you are still following the process of seeding the files into a *staging share* and not the final, Azure File Sync connected share.
+
+> [!WARNING]
+> **Follow the process of seeding files into a staging share and not the final**, Azure File Sync connected share. If you don't, file conflicts can occur (both file versions will be stored) as well as files deleted on the live server can come back, if they still exist in your older, seeded set of files. Additionally, folder changes will merge in with one another, making it very hard to separate the namespace after such a mistake.
 
 ## Next steps
 - [Plan for an Azure File Sync deployment](storage-sync-files-planning.md)

@@ -18,7 +18,7 @@ Use this quickstart to begin searching for news with the Bing News Search client
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
 * If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
-* The [Bing News Search SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0). Installing this package also installs the following:
+* The [Bing News Search SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/2.0.0). Installing this package also installs the following:
     * Microsoft.Rest.ClientRuntime
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json

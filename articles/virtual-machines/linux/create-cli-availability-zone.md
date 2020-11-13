@@ -3,7 +3,7 @@ title: Create a zoned Linux VM with the Azure CLI
 description: Create a Linux VM in an availability zone with the Azure CLI
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
 ---
@@ -18,7 +18,7 @@ Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-c
 
 
 ## Check VM SKU availability
-The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on the different VM types and sizes, see [VM Sizes overview](sizes.md).
+The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on the different VM types and sizes, see [VM Sizes overview](../sizes.md).
 
 You can view the available VM SKUs with the [az vm list-skus](/cli/azure/vm) command. The following example lists available VM SKUs in the *eastus2* region:
 
@@ -183,8 +183,4 @@ The output shows that the IP address is in the same availability zone as the VM:
 
 ## Next steps
 
-In this article, you learned how to create a VM in an availability zone. Learn more about [availability](availability.md) for Azure VMs.
-
-
-
-
+In this article, you learned how to create a VM in an availability zone. Learn more about [availability](../availability.md) for Azure VMs.

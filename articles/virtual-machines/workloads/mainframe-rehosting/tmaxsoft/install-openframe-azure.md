@@ -1,6 +1,6 @@
 ---
 title: Install TmaxSoft OpenFrame on Azure Virtual Machines
-description: Rehost your IBM z/OS mainframe workloads using TmaxSoft OpenFrame environment on Azure Virtual Machines (VMs).
+description: Learn how to set up an OpenFrame environment on Azure suitable for development, demos, testing, or production workloads.
 services: virtual-machines-linux
 documentationcenter:
 author: njray
@@ -160,7 +160,7 @@ When giving new individuals access the VM:
 
 3.  Click **Generate**.
 
-    ![PuTTY Key Generator dialog box](media/puttygen-02.png)
+    ![Screenshot that shows the PuTTY Key Generator dialog box and highlights the Generate button.](media/puttygen-02.png)
 
 4.  After generation, save both the public key and private key. Paste the contents of the public key in the **SSH public key** section of the **Create virtual machine \> Basics** pane (shown in steps 6 and 7 in the previous section).
 
@@ -187,7 +187,7 @@ When giving new individuals access the VM:
 
 7. For **Host Name**, type your username and the public IP address you copied. For example, **username\@publicip**.
 
-    ![PuTTY Configuration dialog box](media/putty-01.png)
+    ![Screenshot that shows the PuTTY Configuration dialog box and highlights the Host Name (or IP address) field.](media/putty-01.png)
 
 8. In the **Category** box, click **Connection \> SSH \> Auth**. Provide the path to your **private key** file.
 
@@ -1474,6 +1474,6 @@ That completes the installation of the OpenFrame components.
 
 If you are considering a mainframe migration, our expanding partner ecosystem is available to help you. For detailed guidance about choosing a partner solution, refer to the [Platform Modernization Alliance](https://datamigration.microsoft.com/).
 
--   [Get started with Azure](https://docs.microsoft.com/azure/)
--   [Host Integration Server (HIS) documentation](https://docs.microsoft.com/host-integration-server/)
--   [Azure Virtual Data Center Lift-and-Shift Guide](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)
+-   [Get started with Azure](../../../../index.yml)
+-   [Host Integration Server (HIS) documentation](/host-integration-server/)
+-   [Azure Virtual Data Center Lift-and-Shift Guide](/archive/blogs/azurecat/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide)

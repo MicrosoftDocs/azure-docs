@@ -37,7 +37,7 @@ These are the five primary application scenarios supported by Azure AD:
 Follow the links to learn more about each type of app and understand the high-level scenarios before you start working with the code. You can also learn about the differences you need to know when writing a particular app that works with the v1.0 endpoint or v2.0 endpoint.
 
 > [!NOTE]
-> The v2.0 endpoint doesn't support all Azure AD scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](../develop/active-directory-v2-limitations.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+> The v2.0 endpoint doesn't support all Azure AD scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](./azure-ad-endpoint-comparison.md?bc=%2fazure%2factive-directory%2fazuread-dev%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fazuread-dev%2ftoc.json).
 
 You can develop any of the apps and scenarios described here using various languages and platforms. They are all backed by complete code samples available in the code samples guide: [v1.0 code samples by scenario](sample-v1-code.md) and [v2.0 code samples by scenario](../develop/sample-v2-code.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). You can also download the code samples directly from the corresponding [GitHub sample repositories](https://github.com/Azure-Samples?q=active-directory).
 

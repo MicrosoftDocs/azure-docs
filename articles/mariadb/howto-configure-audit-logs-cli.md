@@ -1,32 +1,34 @@
 ---
 title: Access audit logs - Azure CLI - Azure Database for MariaDB
 description: This article describes how to configure and access the audit logs in Azure Database for MariaDB from the Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 4/13/2020
+ms.topic: how-to
+ms.date: 6/24/2020 
+ms.custom: devx-track-azurecli
 ---
 
-# Configure and access audit logs in the Azure CLI
+# Configure and access Azure Database for Maria DB audit logs in the Azure CLI
 
 You can configure the [Azure Database for MariaDB audit logs](concepts-audit-logs.md) from the Azure CLI.
 
-> [!IMPORTANT]
-> Audit log functionality is currently in preview.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-To step through this how-to guide, you need:
+To complete this guide:
 
-- [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-portal.md)
+- You need an [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Configure audit logging
+
+>[!IMPORTANT]
+> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
 
 Enable and configure audit logging using the following steps: 
 
@@ -35,7 +37,7 @@ Enable and configure audit logging using the following steps:
     az mariadb server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
     ```
 
-1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_egitvents** parameter.
+1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_events** parameter.
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
     ```

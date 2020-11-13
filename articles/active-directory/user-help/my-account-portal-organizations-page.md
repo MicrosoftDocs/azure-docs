@@ -1,6 +1,6 @@
 ---
 title: Manage your organizations from the My Account portal - Azure AD
-description: How to view and leave organizations connected to your work or school account from the Organizations page of the My Account portal.
+description: How to view and leave organizations you have access to from the Organizations page of the My Account portal.
 services: active-directory
 author: curtand
 manager: daveba
@@ -9,14 +9,14 @@ ms.reviewer: jpettere
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
-ms.date: 10/28/2019
+ms.topic: end-user-help
+ms.date: 09/10/2020
 ms.author: curtand
 ---
 
-# Manage your connected organizations from the Organizations page
+# Manage organizations you have access to in the My Account portal
 
-The **Organizations** page of the **My Account** portal helps you to manage the organizations (typically, your organization's name) connected to your work or school account. There are two types of organizations shown on the **Organizations** page:
+The **Organizations** page of the **My Account** portal helps you to manage the organizations (typically, your organization's name) that you have access to. There are two types of organizations shown on the **Organizations** page:
 
 - **Home organization.** Your home organization is the organization that owns your work or school account. You can't leave your home organization.
 
@@ -26,7 +26,7 @@ The **Organizations** page of the **My Account** portal helps you to manage the 
 - **Other organizations.** The other organizations are any group that you've signed in to previously using your work or school account. You can leave any of these organizations at any time.
 
 >[!Important]
->This article is intended for users trying to update the organization info connected to a work or school account. If you're an administrator looking for information about group and user management for your employees and other uses, see the [Enterprise user management documentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+>This article is intended for users trying to update the organization info accessed by a work or school account. If you're an administrator looking for information about group and user management for your employees and other uses, see the [Enterprise user management documentation](../enterprise-users/index.yml).
 
 ## View your organizations
 
@@ -40,7 +40,7 @@ The **Organizations** page of the **My Account** portal helps you to manage the 
 
     ![Organizations page](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Review your other associated organizations, making sure you recognize all of the organizations connected to your account.
+4. Review your other organizations, making sure you recognize all of the organizations that you have access to.
 
 ## Leave an organization
 
@@ -57,10 +57,12 @@ You can leave any organization that isn't your Home organization.
 
 After viewing your organizations, you can:
 
-- View or manage your [security info](user-help-security-info-overview.md).
+- View or manage your [security info](./security-info-setup-signin.md).
 
 - View or manage your connected [devices](my-account-portal-devices-page.md).
 
 - View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
 - View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+
+- Change your [My Account portal settings](my-account-portal-settings.md)

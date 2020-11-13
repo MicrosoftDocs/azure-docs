@@ -1,19 +1,19 @@
 ---
 title: Create a Dynamics 365 for Customer Engagement & PowerApps offer in the Microsoft commercial marketplace
 description: How to create a new Dynamics 365 for Customer Engagement & PowerApps offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program in Partner Center. 
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 02/17/2020
+ms.topic: how-to
+author: navits09
+ms.author: navits
+ms.date: 06/17/2020
 ---
 
 # Create a Dynamics 365 for Customer Engagement & PowerApps offer
 
 This topic explains how to create a new Dynamics 365 for Customer Engagement & PowerApps offer. All apps for Dynamics 365 for Customer Engagement (PowerApps, Sales, Service, Project Service, and Field Service) must go through our certification process and support a trial experience. The certification process checks your solution for standard requirements, compatibility, and proper practices. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
 
-Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
@@ -21,17 +21,18 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](htt
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Dynamics 365 for Customer Engagement & PowerApps**.
 
-    ![Illustrates the left-navigation menu.](./media/new-offer-dynamics-365-cepa.png)
+    ![Illustrates the left-navigation menu.](./media/new-offer-dynamics-365-customer-engagement-powerapps.png)
 
 > [!NOTE]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
 - This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- The Offer ID combined with the Publisher ID must be under 40 characters in length.
+- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces. For example, if your Publisher ID is testpublisherid and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
 - The Offer ID can't be changed after you select **Create**.
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
@@ -51,47 +52,28 @@ Select the option you'd like to use for this offer.
 
 #### Get it now (free)
 
-List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  For example, `https://contoso.com/my-app`.
+List your offer to customers for free.
 
 #### Free trial (listing)
 
-List your offer to customers with a link to a free trial by providing a valid URL (beginning with *http* or *https*) where they can get a trial.  For example, `https://contoso.com/trial/my-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+List your offer to customers with a link to a free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
 > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
 
 #### Contact me
 
-Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
 
 Select **Save draft** before continuing.
 
 ### Test drive
 
-A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. To learn more, start with [What is test drive](../what-is-test-drive.md).
 
-To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box. Configure the test drive environment in the [Test drive technical configuration](#test-drive-technical-configuration) section later in this topic.
+To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box.
 
-For additional information, see [Test drive your offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
-
-#### Type of test drive
-
-Select from the following options:
-
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** – A deployment template that contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources.
-- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** – Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Business Central enterprise resource planning system (finance, operations, supply chain, CRM, etc.).  
-- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** – Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Customer Engagement system (sales, service, project service, field service, etc.).  
-- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** – Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Finance and Operations enterprise resource planning system (finance, operations, manufacturing, supply chain, etc.). 
-- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** – A deployment template encompassing all complex solution architectures. Any custom products should use this type of Test Drive.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** – An embedded link to a custom-built dashboard. Products that want to demonstrate an interactive Power BI visual should use this type of Test Drive. All you need to upload here is your embedded Power BI URL.
-
-#### Additional test drive resources
-
-- [Technical Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Marketing Best Practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Test drives overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (make sure your pop-up blocker is off)
-
-## Connect lead management
+### Customer leads
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
@@ -105,7 +87,12 @@ This page lets you define the categories and industries used to group your offer
 
 ### Category
 
-Select at least one and up to three categories. These are used to place your offer into the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description.
+Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
+
+- At least one and up to two categories, including a primary and a secondary category (optional).
+- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
+
+See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
 ### Industry
 
@@ -134,9 +121,24 @@ Define marketplace details for each language/market here, such as offer name, de
 > [!NOTE]
 > Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
+Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
+
+:::image type="content" source="media/example-azure-marketplace-d365-customer-engagement.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+
+#### Call-out descriptions
+
+1. Logo
+2. Products
+3. Categories
+4. Support address (link)
+5. Terms of use address (link)
+6. Offer name
+7. Description
+8. Screenshots/videos
+
 ### Name
 
-The name you enter here will be shown to customers as the title of your offer listing. This field is prepopulated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
+The name you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
 
 ### Short description
 
@@ -144,26 +146,11 @@ Provide a short description of your offer, up to 100 characters. This descriptio
 
 ### Description
 
-Provide a longer description of your offer, up to 3,000 characters. This description will be displayed to customers in the marketplace listing overview. Include your offer's value proposition, key benefits, category and/or industry associations, in-app purchase opportunities, and any required disclosures.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Some tips for writing your description:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Clearly describe your offer's value proposition in the first few sentences of your description. Include the following information in your value proposition:
-  - Description of the product
-  - The type of user that benefits from the product
-  - Customer needs or pain that the product addresses
-- Keep in mind that the first few sentences might be displayed in search engine results.  
-- Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
-- Use industry-specific vocabulary or benefit-based wording as much as possible.
-
-To make your offer description more engaging, use the rich text editor to apply formatting.
-
-![Using the rich text editor](./media/rich-text-editor.png)
-
-| <center>Change text format | <center>Add bullets or numbering | <center>Add or remove text indent |
-| --- | --- | --- |
-| <center>![Using the rich text editor to change text format](./media/text-editor3.png) |  <center>![Using the rich text editor to add lists](./media/text-editor4.png) |  <center>![Using the rich text editor to indent](./media/text-editor5.png) |
-
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 ### Search keywords
 
@@ -199,19 +186,23 @@ Provide at least one (and up to three) related marketing documents here, such as
 
 Provide logos and images for your offer. All images must be in PNG format.
 
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide your offer's logo in three pixel sizes:
-- **Small** (required; 48 x 48)
-- **Large** (required; 216 x 216)
-- **Wide** (optional; 255 x 115)
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** logo. You can optionally replace this with a different image later.
 
-#### Hero
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Small** (48 x 48 px, optional)
 
-The hero image is optional. If you provide one, it must measure 815 x 290 pixels.
+These logos are used in different places in the listing:
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 
@@ -223,7 +214,7 @@ You can optionally add up to four videos that demonstrate your offer. These vide
 
 #### Additional marketplace listing resources
 
-[Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+[Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md)
 
 Select **Save draft** before continuing.
 
@@ -268,13 +259,18 @@ Provide the URL for the configuration web page that enables the customer to conf
 
 ### CRM package
 
-In the **URL of your package location** field, enter the URL of an Azure Storage account that contains the uploaded CRM package .zip file. This URL should include a read-only SAS key to allow Microsoft to pick up your package for verification.
+In the **URL of your package location** field, enter the URL of an Azure Blob Storage account that contains the uploaded CRM package .zip file. Include a read-only SAS key in the URL so Microsoft can pick up your package for verification.
 
-Check the box labeled **There is more than one CRM package in my package file**, if applicable. If so, be sure to include all the packages in your .zip file.
+> [!IMPORTANT]
+> To avoid a publishing block, make sure that the expiration date in the URL of your Blob storage hasn’t expired. You can revise the date by accessing your policy. We recommend the **Expiry time** be at least one month in the future.
+
+Select the box labeled **There is more than one CRM package in my package file**, if applicable. If so, be sure to include all the packages in your .zip file.
+
+For detailed information on how to build your package and update its structure, see [Step 3: Create an AppSource package for your app](/powerapps/developer/common-data-service/create-package-app-appsource).
 
 ### CRM package availability
 
-In this section, select **+ Add region** to specify the geographic regions in which your CRM package will be available to customers. Deploying to the following sovereign regions require special permission and validation during the certification process: [Germany](https://docs.microsoft.com/azure/germany/), [US Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), and TIP.
+In this section, select **+ Add region** to specify the geographic regions in which your CRM package will be available to customers. Deploying to the following sovereign regions require special permission and validation during the certification process: [Germany](../../germany/index.yml), [US Government Cloud](../../azure-government/documentation-government-welcome.md), and TIP.
 
 By default, the **Application configuration URL** you entered above will be used for each region. If you prefer, you can enter a separate Application Configuration URL for one or more specific regions. 
 
@@ -282,98 +278,11 @@ Select **Save draft** before continuing.
 
 ## Test drive technical configuration
 
-This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in the article [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+This page lets you set up a demonstration ("test drive") that allows customers to try your offer before purchasing it. Learn more in [What is test drive](../what-is-test-drive.md).
 
-To enable a test drive, select the Enable a test drive check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
+To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
 
-Learn more in the article [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
-
-The following types of test drives are available, each with their own technical configuration requirements:
-
-- [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
-- [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
-- [Logic app](#technical-configuration-for-logic-app-test-drive)
-- [Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (Technical configuration not required)
-
-### Technical configuration for Azure Resource Manager test drive
-
-A deployment template that contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. Learn more about setting up an [Azure Resource Manager test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
-
-- **Regions** (required) – Currently there are 26 Azure-supported regions where your test drive can be made available. Typically, you will want to make your test drive available in the regions where you anticipate the largest number of customers, so that they can select the closest region for the best performance. You will need to make sure that your subscription is allowed to deploy all of the resources needed in each of the regions you are selecting.
-- **Instances** – Select the type (hot or cold) and number of available instances, which will be multiplied by the number of regions where your offer is available.
-
-    **Hot** – This type of instance is deployed and awaiting access per selected region. Customers can instantly access *Hot* instances of a test drive, rather than having to wait for a deployment. The tradeoff is that these instances are always running on your Azure subscription, so they will incur a larger uptime cost. It is highly recommended to have at least one *Hot* instance, as most customers don't want to wait for full deployments, resulting in a drop-off in customer usage if no *Hot* instance is available.
-
-    **Cold** – This type of instance represents the total number of instances that can possibly be deployed per region. Cold instances require the entire Test Drive Resource Manager template to deploy when a customer requests the test drive, so *Cold* instances are much slower to load than *Hot* instances. The tradeoff is that you only have to pay for the duration of the test drive, it is *not* always running on your Azure subscription as with a *Hot* instance.
-
-- **Test drive Azure Resource Manager template** – Upload the .zip containing your Azure Resource Manager template. Learn more about creating an Azure Resource Manager template in the quickstart article [Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
-
-- **Test drive duration** (required) – Enter the number of hours the test drive will stay active. The testdDrive terminates automatically after this time period ends. This duration may only be set in whole hours (for example, "2" hours is valid; "1.5" is not).
-
-### Technical configuration for Dynamics 365 test drive
-
-Microsoft can remove the complexity of setting up a test drive by hosting and maintaining the service provisioning and deployment using this type of test drive. The configuration for this type of hosted test drive is the same regardless of whether the test drive is targeting a Business Central, Customer Engagement, or Operations audience.
-
-- **Max concurrent test drives** (required) – Set the maximum number of customers that can use your test drive at one time. Each concurrent user will consume a Dynamics 365 license while the test drive is active, so you will need to ensure you have enough licenses available to support the maximum limit set. The recommended value is 3-5.
-
-- **Test drive duration** (required) – Enter the number of hours the test drive will stay active. After this time, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only be set in whole hours (for example, "2" hours is valid; "1.5" is not). The user can request a new session if they run out of time and want to access the test drive again.
-
-- **Instance URL** (required) – The URL where the customer will begin their test drive. Typically the URL of your Dynamics 365 instance running your app with sample data installed (for example, `https://testdrive.crm.dynamics.com`).
-
-- **Instance Web API URL** (required) – Retrieve the Web API URL for your Dynamics 365 instance by logging into your Microsoft 365 account and navigating to **Settings** \&gt; **Customization** \&gt; **Developer Resources** \&gt; **Instance Web API (Service Root URL)**, copy the URL found here (for example, `https://testdrive.crm.dynamics.com/api/data/v9.0`).
-
-- **Role name** (required) – Provide the security role name you have defined in your custom Dynamics 365 test drive. This security role name will be assigned to the user during their test drive (for example, test-drive-role).
-
-### Technical configuration for Logic app test drive
-
-Any custom products should use this type of test drive deployment template, which encompasses a variety of complex solution architectures. For more information about setting up Logic App test drives, visit [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) on GitHub.
-
-- **Region** (required, single-selection dropdown list) – Currently there are 26 Azure-supported regions where your test drive can be made available. The resources for your Logic app will be deployed in the region you select. If your Logic App has any custom resources stored in a specific region, make sure that region is selected here. The best way to do it is to fully deploy your Logic App locally on your Azure subscription in the portal and verify that it functions correctly before making this selection.
-
-- **Max concurrent test drives** (required) – Set the maximum number of customers that can use your test drive at one time. These test drives are already deployed, enabling customers to instantly access them without waiting for a deployment.
-
-- **Test drive duration** (required) – Enter the length of time that the Test Drive will stay active, in # of hours. The test drive terminates automatically after this time period ends.
-
-- **Azure resource group name** (required) – Enter the [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) name where your Logic App test drive is saved.
-
-- **Azure logic app name** (required) – Enter the name of the Logic app that assigns the test drive to the user. This Logic app must be saved in the Azure resources group above.
-
-- **Deprovision logic app name** (required) – Enter the name of the Logic app that deprovisions the test drive once the customer is finished. This Logic app must be saved in the Azure resources group above.
-
-### Technical configuration not required for Power BI test drives
-
-Products that want to demonstrate an interactive Power BI visual can use an embedded link to share a custom-built dashboard as their test drive, no further technical configuration required. Learn more about setting up[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) template apps.
-
-### Deployment subscription details
-
-To allow Microsoft to deploy the test drive on your behalf, create and provide a separate, unique Azure Subscription (not required for Power BI test drives).
-
-- **Azure subscription ID** (required for Azure Resource Manager and Logic apps) – Enter the subscription ID to grant access to your Azure account services for resource usage reporting and billing. We recommend that you consider [creating a separate Azure subscription](https://docs.microsoft.com/azure/billing/billing-create-subscription) to use for test drives if you don't have one already. You can find your Azure subscription ID by logging in to the [Azure portal](https://portal.azure.com/) and navigating to the **Subscriptions** tab of the left-side menu. Selecting the tab will display your subscription ID (for example, "a83645ac-1234-5ab6-6789-1h234g764ghty").
-
-- **Azure AD tenant ID** (required) – Enter your Azure Active Directory (AD) [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **Properties**, then look for the **Directory ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also look up your organization's tenant ID using your domain name URL at –  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
-
-- **Azure AD tenant name** (required for Dynamic 365) – Enter your Azure Active Directory (AD) name. To find this name, sign in to the [Azure portal](https://portal.azure.com/), in the upper right corner your tenant name will be listed under your account name.
-
-- **Azure AD app ID** (required) – Enter your Azure Active Directory (AD) [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations**, then look for the **Application ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e).
-
-- **Azure AD app client secret** (required) – Enter your Azure AD application [client secret](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. Don't navigate away from the page before you do copy down the value or you won't have access to the value.)
-
-### Test drive marketplace listings
-
-The **Marketplace listing** option found under the **Test drive** tab displays the languages in which your test drive is available. Currently, **English (United States)** is the only location available. Select the language name to enter info that describes the test drive experience.
-
-- **Description** (required) – Describe your test drive, what will be demonstrated, objectives for the user to experiment with, features to explore, and any relevant information to help the user determine whether to acquire your offer. Up to 3,000 characters of text can be entered in this field. 
-
-- **Access information** (required for Azure Resource Manager and Logic test drives) – Explain what a customer needs to know in order to access and use this test drive. Walk through a scenario for using your offer and exactly what the customer should know to access features throughout the test drive. Up to 10,000 characters of text can be entered in this field.
-
-- **User Manual** (required) – An in-depth walk-through of your test drive experience. The User Manual should cover exactly what you want the customer to gain from experiencing the test drive and serve as a reference for any questions that they may have. The file must be in PDF format and be named (255 characters max) after uploading.
-
-- **Videos** (optional) – Upload videos to an external hosting site reference the link and thumbnail image (533 x 324 pixels) here. This allows customer to view a walk-through of information to help them better understand the test drive, including how to successfully use the features of your offer and understand scenarios that highlight their benefits.
-  - **Name** (required)
-  - **Address** (required; YouTube or Vimeo only)
-  - **Thumbnail** image (image file must be in PNG format and 533 x 324 pixels)
-
-Select **Save draft** before continuing.
+When you've finished setting up your test drive, select **Save draft** before continuing.
 
 ## Supplemental content
 
@@ -398,7 +307,7 @@ If it's your first time publishing this offer, you can:
     - **Incomplete** - The section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
     - **Complete** - The section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
-- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish to the public (or if a private offer, to the private audience).
+- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish to the public.
 
 ## Next step
 

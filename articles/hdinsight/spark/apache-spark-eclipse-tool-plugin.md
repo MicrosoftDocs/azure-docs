@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
 ---
@@ -22,7 +22,7 @@ Use HDInsight Tools in Azure Toolkit for [Eclipse](https://www.eclipse.org/) to 
 
 * Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks).
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * [Eclipse IDE](https://www.eclipse.org/downloads/). This article uses the Eclipse IDE for Java Developers.
 
@@ -30,7 +30,7 @@ Use HDInsight Tools in Azure Toolkit for [Eclipse](https://www.eclipse.org/) to 
 
 ### Install Azure Toolkit for Eclipse
 
-For installation instructions, see [Installing Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation).
+For installation instructions, see [Installing Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse/installation).
 
 ### Install the Scala plug-in
 
@@ -341,8 +341,8 @@ There are two modes to submit the jobs. If storage credential is provided, batch
 ### Tools and extensions
 
 * [Use Azure Toolkit for IntelliJ to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
-* [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through VPN](../hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through SSH](../hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through VPN](./apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through SSH](./apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)

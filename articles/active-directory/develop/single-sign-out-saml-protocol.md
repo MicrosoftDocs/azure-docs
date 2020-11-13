@@ -2,7 +2,7 @@
 title: Azure Single Sign Out SAML Protocol
 description: This article describes the Single Sign-Out SAML Protocol in Azure Active Directory
 services: active-directory
-author: rwike77
+author: kenwith
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,9 +10,9 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/19/2017
-ms.author: ryanwi
+ms.author: kenwith
 ms.custom: aaddev
-ms.reviewer: hirsin
+ms.reviewer: paulgarn
 ---
 
 # Single Sign-Out SAML Protocol
@@ -38,7 +38,7 @@ The `LogoutRequest` element sent to Azure AD requires the following attributes:
 
 * `ID` - This identifies the sign-out request. The value of `ID` should not begin with a number. The typical practice is to append **id** to the string representation of a GUID.
 * `Version` - Set the value of this element to **2.0**. This value is required.
-* `IssueInstant` - This is a `DateTime` string with a Coordinate Universal Time (UTC) value and [round-trip format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD expects a value of this type, but doesn't enforce it.
+* `IssueInstant` - This is a `DateTime` string with a Coordinate Universal Time (UTC) value and [round-trip format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD expects a value of this type, but doesn't enforce it.
 
 ### Issuer
 The `Issuer` element in a `LogoutRequest` must exactly match one of the **ServicePrincipalNames** in the cloud service in Azure AD. Typically, this is set to the **App ID URI** that is specified during application registration.

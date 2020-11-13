@@ -15,6 +15,9 @@
     href: quick-run-dotnet.md
   - name: Run a Batch job - Python
     href: quick-run-python.md
+  - name: Create a Batch account - ARM template
+    href: quick-create-template.md
+    displayName: Resource Manager
 - name: Tutorials
   items:
   - name: Parallel file processing - .NET
@@ -40,22 +43,48 @@
     - name: Batch samples repo
       href: https://github.com/Azure/azure-batch-samples
   - name: Azure CLI
-    href: cli-samples.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
+    items:
+    - name: Create a Batch account in Batch service mode
+      href: ./scripts/batch-cli-sample-create-account.md
+    - name: Create a Batch account in user subscription mode
+      href: ./scripts/batch-cli-sample-create-user-subscription-account.md
+    - name: Add an application to an Azure Batch account
+      href: ./scripts/batch-cli-sample-add-application.md
+    - name: Create and manage a Linux pool
+      href: ./scripts/batch-cli-sample-manage-linux-pool.md
+    - name: Create and manage a Windows pool
+      href: ./scripts/batch-cli-sample-manage-windows-pool.md
+    - name: Run a job and tasks
+      href: ./scripts/batch-cli-sample-run-job.md
 - name: Concepts
   items:
   - name: Security
     items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
-  - name: Developer features
-    href: batch-api-basics.md
+  - name: Batch service workflow and resources
+    displayName: developer features
+    href: batch-service-workflow-features.md
+    items:
+    - name: Batch accounts
+      displayName: storage account
+      href: accounts.md
+    - name: Nodes and pools
+      displayName: compute node, application package, scaling, schedule, os
+      href: nodes-and-pools.md
+    - name: Jobs and tasks
+      displayName: Batch job
+      href: jobs-and-tasks.md
+    - name: Files and directories
+      displayName: Batch file
+      href: files-and-directories.md
   - name: APIs and tools
     href: batch-apis-tools.md
-  - name: Detecting and handling Batch service errors
-    href: batch-retry-after-errors.md
+  - name: Error handling and detection
+    href: error-handling.md
   - name: Best practices
     href: best-practices.md
   - name: Quotas and limits
@@ -66,8 +95,6 @@
     href: high-availability-disaster-recovery.md
   - name: Task runtime environment variables
     href: batch-compute-node-environment-variables.md
-  - name: Batch integration with Azure Policies
-    href: batch-integration-policies.md  
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -80,6 +107,10 @@
       href: batch-management-dotnet.md
     - name: Cost analysis and budgets
       href: budget.md
+    - name: Use private endpoints with Batch accounts
+      href: private-connectivity.md
+    - name: Configure customer-managed keys
+      href: batch-customer-managed-key.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
@@ -88,15 +119,16 @@
       href: batch-aad-auth-management.md
     - name: Securely access Key Vault with Batch
       href: credential-access-key-vault.md
+    - name: Using certificates with Batch
+      href: batch-certificates.md
   - name: Copy files and applications to pool nodes
-    items: 
+    items:
     - name: Copying applications and data to pool nodes
-      href: batch-applications-to-pool-nodes.md 
+      href: batch-applications-to-pool-nodes.md
     - name: Using application packages
       href: batch-application-packages.md
     - name: Create resource files
       href: resource-files.md
-
   - name: Create and manage pools
     items:
     - name: Autoscale compute nodes
@@ -109,8 +141,14 @@
       href: batch-sig-images.md
     - name: Create a pool with a managed image resource
       href: batch-custom-images.md
+    - name: Create a pool with disk encryption enabled
+      href: disk-encryption.md
     - name: Create a pool in a virtual network
       href: batch-virtual-network.md
+    - name: Create a pool with public IP addresses
+      href: create-pool-public-ip.md
+    - name: Create a pool without public IP addresses
+      href: batch-pool-no-public-ip-address.md
     - name: Mount a virtual file system
       href: virtual-file-mount.md
     - name: Mount an Azure file share
@@ -126,11 +164,11 @@
   - name: Create a CI/CD pipeline for Batch
     href: batch-ci-cd.md
   - name: Manage jobs and tasks
-    items: 
-    
+    items:
     - name: Job preparation and completion tasks
       href: batch-job-prep-release.md
     - name: Concurrent node tasks
+      displayName: concurrent
       href: batch-parallel-node-tasks.md
     - name: Task dependencies
       href: batch-task-dependencies.md
@@ -167,36 +205,36 @@
     - name: Use Azure CLI
       href: batch-cli-get-started.md
       items:
-      - name: Use Batch CLI templates 
+      - name: Use Batch CLI templates
         href: batch-cli-templates.md
   - name: Use Batch Node.js SDK
     href: batch-nodejs-get-started.md
-- name: Run workloads
-  items:
-  - name: MPI jobs
-    href: batch-mpi.md
-  - name: Container workloads
-    href: batch-docker-container-workloads.md
-  - name: Rendering
+  - name: Run workloads
     items:
-    - name: Rendering using Azure
-      href: batch-rendering-service.md
-    - name: Rendering VM images
-      href: batch-rendering-applications.md
-    - name: Batch rendering capabilities
-      href: batch-rendering-functionality.md
-    - name: Using Batch rendering
-      href: batch-rendering-using.md
-    - name: Using render managers
-      href: batch-rendering-render-managers.md
-    - name: Rendering application reference
-      href: batch-rendering-application-reference.md
-    - name: Storage and data movement
-      href: batch-rendering-storage-data-movement.md
-    - name: Rendering architectures
-      href: batch-rendering-architectures.md 
-  - name: Data processing with Batch and Data Factory
-    href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
+    - name: MPI jobs
+      href: batch-mpi.md
+    - name: Container workloads
+      href: batch-docker-container-workloads.md
+    - name: Rendering
+      items:
+      - name: Rendering using Azure
+        href: batch-rendering-service.md
+      - name: Rendering VM images
+        href: batch-rendering-applications.md
+      - name: Batch rendering capabilities
+        href: batch-rendering-functionality.md
+      - name: Using Batch rendering
+        href: batch-rendering-using.md
+      - name: Using render managers
+        href: batch-rendering-render-managers.md
+      - name: Rendering application reference
+        href: batch-rendering-application-reference.md
+      - name: Storage and data movement
+        href: batch-rendering-storage-data-movement.md
+      - name: Rendering architectures
+        href: batch-rendering-architectures.md
+    - name: Data processing with Batch and Data Factory
+      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: Reference
   items:
   - name: Azure CLI
@@ -232,12 +270,19 @@
       href: batch-pool-resize-start-event.md
     - name: Pool resize complete event
       href: batch-pool-resize-complete-event.md
+    - name: Pool autoscale event
+      href: batch-pool-autoscale-event.md
     - name: Task start event
       href: batch-task-start-event.md
     - name: Task complete event
       href: batch-task-complete-event.md
     - name: Task fail event
       href: batch-task-fail-event.md
+    - name: Task schedule fail event
+      href: batch-task-schedule-fail-event.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure updates
@@ -246,14 +291,14 @@
     href: https://github.com/Azure/Batch
   - name: Batch feedback
     href: https://feedback.azure.com/forums/269742-batch
-  - name: Batch forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
+  - name: Microsoft Q&A question page for Batch
+    href: /answers/topics/azure-batch.html
   - name: Batch Shipyard
     href: https://github.com/Azure/batch-shipyard
   - name: Blog
-    href: https://blogs.technet.microsoft.com/windowshpc/
+    href: /archive/blogs/windowshpc/
   - name: HPC on Azure
-    href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
+    href: /azure/architecture/topics/high-performance-computing/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/batch/
   - name: Pricing calculator

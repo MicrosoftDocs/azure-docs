@@ -2,12 +2,12 @@
 title: Find identity object IDs for authentication - Azure API for FHIR
 description: This article explains how to locate the identity object IDs needed to configure authentication for Azure API for FHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
+ms.author: matjazl
 ---
 
 # Find identity object IDs for authentication configuration
@@ -16,16 +16,16 @@ In this article, you'll learn how to find identity object IDs needed when config
 
 ## Find user object ID
 
-If you have a user with user name `myuser@consoso.com`, you can locate the users `ObjectId` using the following PowerShell command:
+If you have a user with user name `myuser@contoso.com`, you can locate the users `ObjectId` using the following PowerShell command:
 
 ```azurepowershell-interactive
-$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@consoso.com'").ObjectId
+$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@contoso.com'").ObjectId
 ```
 
 or you can use the Azure CLI:
 
 ```azurecli-interactive
-az ad user show --upn-or-object-id myuser@consoso.com | jq -r .objectId
+az ad user show --id myuser@contoso.com --query objectId --out tsv
 ```
 
 ## Find service principal object ID
@@ -45,7 +45,7 @@ $(Get-AzureADServicePrincipal -Filter "DisplayName eq 'testapp'").ObjectId
 If you are using the Azure CLI, you can use:
 
 ```azurecli-interactive
-az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | jq -r .objectId
+az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX --query objectId --out tsv
 ```
 
 ## Find a security group object ID
@@ -60,7 +60,7 @@ Where `mygroup` is the name of the group you are interested in.
 If you are using the Azure CLI, you can use:
 
 ```azurecli-interactive
-az ad group show --group "mygroup" | jq -r .objectId
+az ad group show --group "mygroup" --query objectId --out tsv
 ```
 
 ## Next steps

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Zoho One | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zoho One.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: bbc3038c-0d8b-45dd-9645-368bd3d01a0f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Zoho One
 
@@ -27,7 +21,7 @@ Integrating Zoho One with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Zoho One (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -99,7 +93,7 @@ To configure Azure AD single sign-on with Zoho One, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Zoho One Domain and URLs single sign-on information](common/idp-relay.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-relay.png)
 
     a. In the **Identifier** text box, type a URL:
     `one.zoho.com`
@@ -117,8 +111,7 @@ To configure Azure AD single sign-on with Zoho One, perform the following steps:
 
 5. If you wish to configure the application in **SP** initiated mode, perform the following step:
 
-
-    ![Zoho One Domain and URLs single sign-on information](common/both-signonurl.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/both-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com` 
@@ -258,13 +251,12 @@ To enable Azure AD users to sign in to Zoho One, they must be provisioned into Z
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Zoho One tile in the Access Panel, you should be automatically signed in to the Zoho One for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Zoho One tile in the Access Panel, you should be automatically signed in to the Zoho One for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

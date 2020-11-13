@@ -2,11 +2,17 @@
   href: cut-planes.md
 - name: Debug Rendering
   href: debug-rendering.md
+- name: Fresnel effect
+  href: fresnel-effect.md
 - name: Hierarchical state override
   href: override-hierarchical-state.md
+- name: Camera
+  href: camera.md
+- name: Stage space
+  href: stage-space.md
 - name: Late stage reprojection
   href: late-stage-reprojection.md
-- name: Lights
+- name: Scene lighting
   href: lights.md
 - name: PBR materials
   href: pbr-materials.md
@@ -14,6 +20,8 @@
   href: color-materials.md
 - name: Outline rendering
   href: outlines.md
+- name: Shell rendering
+  href: shell-effect.md
 - name: Single-sided rendering
   href: single-sided-rendering.md
 - name: Spatial queries

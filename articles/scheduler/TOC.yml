@@ -48,8 +48,8 @@
     href: https://azure.microsoft.com/updates/?product=scheduler
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-scheduler.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-scheduler
   - name: Pricing

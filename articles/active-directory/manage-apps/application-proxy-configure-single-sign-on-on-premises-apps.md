@@ -3,17 +3,16 @@ title: SAML single sign-on for on-premises apps with Azure AD App Proxy
 description: Learn how to provide single sign-on for on-premises applications that are secured with SAML authentication. Provide remote access to on-premises apps with Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -30,9 +29,9 @@ SAML SSO with Application Proxy also works with the SAML token encryption featur
 
 The protocol diagrams below describe the single sign-on sequence for both a service provider-initiated (SP-initiated) flow and an identity provider-initiated (IdP-initiated) flow. Application Proxy works with SAML SSO by caching the SAML request and response to and from the on-premises application.
 
-  ![SAML SP Flow](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
+  ![Diagram shows interactions of Application, Application Proxy, Client, and Azure A D for S P-Initiated single sign-on.](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
 
-  ![SAML SP Flow](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
+  ![Diagram shows interactions of Application, Application Proxy, Client, and Azure A D for I d P-Initiated single sign-on.](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
 
 ## Create an application and set up SAML SSO
 
@@ -44,7 +43,7 @@ The protocol diagrams below describe the single sign-on sequence for both a serv
 
 4. Select **SAML** as the single sign-on method.
 
-5. First set up SAML SSO to work while on the corporate network. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). Follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) to configure SAML-based authentication for the application.
+5. First set up SAML SSO to work while on the corporate network, see the basic SAML configuration section of [Configure SAML-based single sign-on](configure-saml-single-sign-on.md) to configure SAML-based authentication for the application.
 
 6. Add at least one user to the application and make sure the test account has access to the application. While connected to the corporate network, use the test account to see if you have single sign-on to the application. 
 
@@ -78,7 +77,7 @@ Before you can provide SSO for on-premises applications, you need to enable Appl
 
 4. Select the checkbox next to the updated **Reply URL** to mark it as the default.
 
-   * Aftering marking the required **Reply URL** as default, you can also delete the previously configured **Reply URL** that used the internal URL.
+   * After marking the required **Reply URL** as default, you can also delete the previously configured **Reply URL** that used the internal URL.
 
    * For an SP-initiated flow, make sure the back-end application specifies the correct **Reply URL** or Assertion Consumer Service URL for receiving the authentication token.
 

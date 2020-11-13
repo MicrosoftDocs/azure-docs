@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -14,13 +14,13 @@ ms.custom: security-benchmark
 
 The Azure Security Baseline for HDInsight contains recommendations that will help you improve the security posture of your deployment.
 
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 ## Network Security
 
-*For more information, see [Security Control: Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security Control: Network Security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
@@ -138,12 +138,11 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 **Guidance**: Define and implement standard security configurations for network resources related to your Azure HDInsight cluster. Use Azure Policy aliases in the "Microsoft.HDInsight" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure HDInsight cluster.
 
-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 How to view available Azure Policy aliases:
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 How to configure and manage Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
@@ -199,7 +198,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ## Logging and Monitoring
 
-*For more information, see [Security Control: Logging and Monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security Control: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -335,7 +334,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 ## Identity and Access Control
 
-*For more information, see [Security Control: Identity and Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security Control: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -345,11 +344,11 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 How to get a directory role in Azure AD with PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
 How to get members of a directory role in Azure AD with PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 How to monitor identity and access with Azure Security Center:
 
@@ -535,7 +534,7 @@ List of Customer Lockbox supported services: https://docs.microsoft.com/azure/se
 
 ## Data Protection
 
-*For more information, see [Security Control: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security Control: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -693,7 +692,7 @@ https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnos
 
 ## Vulnerability Management
 
-*For more information, see [Security Control: Vulnerability Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security Control: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -765,7 +764,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 ## Inventory and Asset Management
 
-*For more information, see [Security Control: Inventory and Asset Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security Control: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use Azure Asset Discovery
 
@@ -779,7 +778,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 How to view your Azure Subscriptions:
 
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Understand Azure RBAC:
 
@@ -933,7 +932,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 ## Secure Configuration
 
-*For more information, see [Security Control: Secure Configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security Control: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -941,7 +940,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 How to view available Azure Policy aliases:
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 How to configure and manage Azure Policy:
 
@@ -989,13 +988,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-How to store code in Azure DevOps:
+[How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-Azure Repos Documentation:
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+[Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1033,13 +1028,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.HDInsight" namespace to create custom policies to audit or enforce the  configuration of your HDInsight cluster.
 
-How to view available Azure Policy aliases:
+[How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+[How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1099,7 +1090,7 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## Malware Defense
 
-*For more information, see [Security Control: Malware Defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security Control: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -1141,7 +1132,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 ## Data Recovery
 
-*For more information, see [Security Control: Data Recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security Control: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1151,7 +1142,7 @@ How to configure storage redundancy for Azure Storage Accounts:
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
-How to configure redundancy for Azure SQL Databases:
+How to configure redundancy for Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication
 
@@ -1173,7 +1164,7 @@ https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
 How to backup Key Vault keys in Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1189,7 +1180,7 @@ https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
 
 How to restore key vault keys in Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1209,7 +1200,7 @@ https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azu
 
 ## Incident Response
 
-*For more information, see [Security Control: Incident Response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security Control: Incident Response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -1233,7 +1224,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 ### 10.3: Test security response procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1281,7 +1272,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## Penetration Tests and Red Team Exercises
 
-*For more information, see [Security Control: Penetration Tests and Red Team Exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security Control: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days
 
@@ -1289,7 +1280,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here:
+You can find more information on Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here:
  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure Security Center monitoring**: Not applicable
@@ -1298,5 +1289,5 @@ You can find more information on Microsoft’s strategy and execution of Red Tea
 
 ## Next steps
 
-- See the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure Security Baselines](../security/benchmarks/security-baselines-overview.md)

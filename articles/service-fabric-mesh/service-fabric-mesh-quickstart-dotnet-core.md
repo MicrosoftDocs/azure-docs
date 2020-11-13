@@ -1,10 +1,10 @@
 ---
 title: Quickstart - Deploy a web app to Azure Service Fabric Mesh 
 description: This quickstart shows you how to create an ASP.NET Core website and publish it to Azure Service Fabric Mesh using Visual Studio.
-author: dkkapur
+author: georgewallace
 ms.topic: quickstart
 ms.date: 07/17/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want to use visual studio to locally run an ASP.NET Core website on Service Fabric Mesh so that I can see it run.
 ---
@@ -29,7 +29,7 @@ In the **Name** box, type **ServiceFabricMesh1** and in the **Location** box, se
 
 Make sure that **Create directory for solution** is checked, and click **OK** to create the Service Fabric Mesh project.
 
-![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
+![Screenshot that shows how to create a Service Fabric Mesh project.](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
 
 ### Create a service
 
@@ -65,7 +65,7 @@ Select your Azure account and subscription. Choose a **Location**. This article 
 
 Under **Resource group**, select **\<Create New Resource Group...>**. The **Create Resource Group** dialog appears. Set the **Resource group name** and **Location**.  This quickstart uses the **East US** location and names the group **sfmeshTutorial1RG** (if your organization has multiple people using the same subscription, choose a unique resource group name).  Click **Create** to create the resource group and return to the publish dialog.
 
-![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
+![Screenshot that shows how to create a new resource group.](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
 Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. Specify a **Location** (this quickstart uses **East US**). Select the **Resource group** that you created in the previous step in the drop-down, for example, **sfmeshTutorial1RG**. Set the **SKU** to **Basic** and then click **Create** to return to the publish dialog.
 

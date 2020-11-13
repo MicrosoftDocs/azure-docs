@@ -1,8 +1,11 @@
 ---
 title: Data alteration - LUIS
 description: Learn how data can be changed before predictions in Language Understanding (LUIS)
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
+ms.custom: devx-track-csharp
 ---
 
 # Alter utterance data before or during prediction

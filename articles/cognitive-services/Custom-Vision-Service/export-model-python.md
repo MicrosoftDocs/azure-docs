@@ -9,13 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Run TensorFlow model in Python
 
-After you have [exported your TensorFlow model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
+After you have [exported your TensorFlow model](./export-your-model.md) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
 
 > [!NOTE]
 > This tutorial applies only to models exported from image classification projects.
@@ -166,7 +167,7 @@ def update_orientation(image):
     return image
 ```
 
-## Predict an image
+## Classify an image
 
 Once the image is prepared as a tensor, we can send it through the model for a prediction:
 
@@ -179,7 +180,7 @@ input_node = 'Placeholder:0'
 with tf.compat.v1.Session() as sess:
     try:
         prob_tensor = sess.graph.get_tensor_by_name(output_layer)
-        predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
+        predictions = sess.run(prob_tensor, {input_node: [augmented_image] })
     except KeyError:
         print ("Couldn't find classification output layer: " + output_layer + ".")
         print ("Verify this a model exported from an Object Detection project.")

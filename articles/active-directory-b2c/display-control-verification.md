@@ -30,8 +30,6 @@ The verification display control consists of two steps (actions):
 
     ![Example page for verify code action](media/display-control-verification/display-control-verification-email-action-02.png)
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## VerificationControl required elements
 
 The **VerificationControl** must contain following elements:
@@ -49,7 +47,7 @@ In the example below, an **email** textbox is displayed on the page. When the us
 
 Then, the user enters the **verificationCode** and selects **VerifyCode** to trigger the **VerifyCode** action in the back end. If all validations pass, the **VerificationControl** is considered complete and the user can continue to the next step.
 
-```XML
+```xml
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="email"  Required="true" />

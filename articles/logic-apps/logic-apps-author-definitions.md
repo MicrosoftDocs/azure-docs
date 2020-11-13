@@ -24,9 +24,9 @@ you can include logic app definitions as
 [Azure resources](../azure-resource-manager/management/overview.md)
 inside [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md).
 To create, manage, and deploy logic apps, you can then use
-[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp),
+[Azure PowerShell](/powershell/module/az.logicapp),
 [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), 
-or the [Azure Logic Apps REST APIs](https://docs.microsoft.com/rest/api/logic/).
+or the [Azure Logic Apps REST APIs](/rest/api/logic/).
 
 To work with logic app definitions in JSON,
 open the Code View editor when working

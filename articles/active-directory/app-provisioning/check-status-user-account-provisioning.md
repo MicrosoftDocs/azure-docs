@@ -2,20 +2,20 @@
 title: Report automatic user account provisioning to SaaS applications
 description: 'Learn how to check the status of automatic user account provisioning jobs, and how to troubleshoot the provisioning of individual users.'
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/09/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
 # Tutorial: Reporting on automatic user account provisioning
 
-Azure Active Directory (Azure AD) includes a [user account provisioning service](user-provisioning.md) that helps automate the provisioning de-provisioning of user accounts in SaaS apps and other systems, for the purpose of end-to-end identity lifecycle management. Azure AD supports pre-integrated user provisioning connectors for all of the applications and systems with user provisioning tutorials [here](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).
+Azure Active Directory (Azure AD) includes a [user account provisioning service](user-provisioning.md) that helps automate the provisioning de-provisioning of user accounts in SaaS apps and other systems, for the purpose of end-to-end identity lifecycle management. Azure AD supports pre-integrated user provisioning connectors for all of the applications and systems with user provisioning tutorials [here](../saas-apps/tutorial-list.md).
 
 This article describes how to check the status of provisioning jobs after they have been set up, and how to troubleshoot the provisioning of individual users and groups.
 
@@ -24,7 +24,7 @@ This article describes how to check the status of provisioning jobs after they h
 Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](../saas-apps/tutorial-list.md) for the supported application. Once configured and running, provisioning jobs can be reported on using one of two methods:
 
 * **Azure portal** - This article primarily describes retrieving report information from the [Azure portal](https://portal.azure.com), which provides both a provisioning summary report as well as detailed provisioning audit logs for a given application.
-* **Audit API** - Azure Active Directory also provides an Audit API that enables programmatic retrieval of the detailed provisioning audit logs. See [Azure Active Directory audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) for documentation specific to using this API. While this article does not specifically cover how to use the API, it does detail the types of provisioning events that are recorded in the audit log.
+* **Audit API** - Azure Active Directory also provides an Audit API that enables programmatic retrieval of the detailed provisioning audit logs. See [Azure Active Directory audit API reference](/graph/api/resources/directoryaudit) for documentation specific to using this API. While this article does not specifically cover how to use the API, it does detail the types of provisioning events that are recorded in the audit log.
 
 ### Definitions
 

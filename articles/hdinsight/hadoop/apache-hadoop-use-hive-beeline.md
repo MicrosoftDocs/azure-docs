@@ -5,111 +5,17 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: seoapr2020
-ms.date: 04/17/2020
+ms.topic: how-to
+ms.date: 10/28/2020
+ms.custom: contperfq1, contperfq2
 ---
-
 # Use the Apache Beeline client with Apache Hive
 
-Learn how to use [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) to run Apache Hive queries on HDInsight.
+This article describes how to use the command-line [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) client to create and execute Apache Hive queries over an SSH connection.
 
-Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. To install Beeline locally, see [Install beeline client](#install-beeline-client), below. Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following examples provide the most common connection strings used to connect to HDInsight from Beeline.
+## Background
 
-## Types of connections
-
-### From an SSH session
-
-When connecting from an SSH session to a cluster headnode, you can then connect to the `headnodehost` address on port `10001`:
-
-```bash
-beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
-```
-
----
-
-### Over an Azure Virtual Network
-
-When connecting from a client to HDInsight over an Azure Virtual Network, you must provide the fully qualified domain name (FQDN) of a cluster head node. Since this connection is made directly to the cluster nodes, the connection uses port `10001`:
-
-```bash
-beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
-```
-
-Replace `<headnode-FQDN>` with the fully qualified domain name of a cluster headnode. To find the fully qualified domain name of a headnode, use the information in the [Manage HDInsight using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes) document.
-
----
-
-### To HDInsight Enterprise Security Package (ESP) cluster using Kerberos
-
-When connecting from a client to an Enterprise Security Package (ESP) cluster joined to Azure Active Directory (AAD)-DS on a machine in same realm of the cluster, you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
-
-```bash
-kinit <username>
-beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
-```
-
-Replace `<username>` with the name of an account on the domain with permissions to access the cluster. Replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential won't be found. Check `/etc/krb5.conf` for the realm names if needed.
-
-To find the JDBC URL from Ambari:
-
-1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, where `CLUSTERNAME` is the name of your cluster. Ensure that HiveServer2 is running.
-
-1. Use clipboard to copy the HiveServer2 JDBC URL.
-
----
-
-### Over public or private endpoints
-
-When connecting to a cluster using the public or private endpoints, you must provide the cluster login account name (default `admin`) and password. For example, using Beeline from a client system to connect to the `clustername.azurehdinsight.net` address. This connection is made over port `443`, and is encrypted using TLS/SSL.
-
-Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. For ESP clusters, use the full UPN (for example, user@domain.com). Replace `password` with the password for the cluster login account.
-
-```bash
-beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p 'password'
-```
-
-or for private endpoint:
-
-```bash
-beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p 'password'
-```
-
-Private endpoints point to a basic load balancer, which can only be accessed from the VNETs peered in the same region. See [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use the `curl` command with `-v` option to troubleshoot any connectivity problems with public or private endpoints before using beeline.
-
----
-
-### Use Beeline with Apache Spark
-
-Apache Spark provides its own implementation of HiveServer2, which is sometimes referred to as the Spark Thrift server. This service uses Spark SQL to resolve queries instead of Hive. And may provide better performance depending on your query.
-
-#### Through public or private endpoints
-
-The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it uses `httpPath/sparkhive2`. Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. For ESP clusters, use the full UPN (for example, user@domain.com). Replace `password` with the password for the cluster login account.
-
-```bash
-beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
-```
-
-or for private endpoint:
-
-```bash
-beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
-```
-
-Private endpoints point to a basic load balancer, which can only be accessed from the VNETs peered in the same region. See [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use the `curl` command with `-v` option to troubleshoot any connectivity problems with public or private endpoints before using beeline.
-
----
-
-#### From cluster head or inside Azure Virtual Network with Apache Spark
-
-When connecting directly from the cluster head node, or from a resource inside the same Azure Virtual Network as the HDInsight cluster, port `10002` should be used for Spark Thrift server instead of `10001`. The following example shows how to connect directly to the head node:
-
-```bash
-/usr/hdp/current/spark2-client/bin/beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
-```
-
----
+Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. To connect to the Beeline client installed on your HDInsight cluster, or install Beeline locally, see [Connect to or install Apache Beeline](connect-install-beeline.md). Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following examples provide the most common connection strings used to connect to HDInsight from Beeline.
 
 ## Prerequisites for examples
 
@@ -117,9 +23,7 @@ When connecting directly from the cluster head node, or from a resource inside t
 
 * Notice the URI scheme for your cluster's primary storage. For example,  `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2, or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI is `wasbs://`. For more information, see [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 
-* Option 1: An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Most of the steps in this document assume that you're using Beeline from an SSH session to the cluster.
-
-* Option 2:  A local Beeline client.
+* An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Most of the steps in this document assume that you're using Beeline from an SSH session to the cluster. You can also use a local Beeline client, but those steps are not covered in this article.
 
 ## Run a Hive query
 
@@ -156,21 +60,23 @@ This example is based on using the Beeline client from an SSH connection.
 
     This command returns the following information:
 
-        +-----------------------+------------+----------+--+
-        |       col_name        | data_type  | comment  |
-        +-----------------------+------------+----------+--+
-        | clientid              | string     |          |
-        | querytime             | string     |          |
-        | market                | string     |          |
-        | deviceplatform        | string     |          |
-        | devicemake            | string     |          |
-        | devicemodel           | string     |          |
-        | state                 | string     |          |
-        | country               | string     |          |
-        | querydwelltime        | double     |          |
-        | sessionid             | bigint     |          |
-        | sessionpagevieworder  | bigint     |          |
-        +-----------------------+------------+----------+--+
+    ```output
+    +-----------------------+------------+----------+--+
+    |       col_name        | data_type  | comment  |
+    +-----------------------+------------+----------+--+
+    | clientid              | string     |          |
+    | querytime             | string     |          |
+    | market                | string     |          |
+    | deviceplatform        | string     |          |
+    | devicemake            | string     |          |
+    | devicemodel           | string     |          |
+    | state                 | string     |          |
+    | country               | string     |          |
+    | querydwelltime        | double     |          |
+    | sessionid             | bigint     |          |
+    | sessionpagevieworder  | bigint     |          |
+    +-----------------------+------------+----------+--+
+    ```
 
     This information describes the columns in the table.
 
@@ -211,27 +117,29 @@ This example is based on using the Beeline client from an SSH connection.
 
     The output of this command is similar to the following text:
 
-        INFO  : Tez session hasn't been created yet. Opening session
-        INFO  :
+    ```output
+    INFO  : Tez session hasn't been created yet. Opening session
+    INFO  :
 
-        INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
+    INFO  : Status: Running (Executing on YARN cluster with App id application_1443698635933_0001)
 
-        INFO  : Map 1: -/-      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0/1      Reducer 2: 0/1
-        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-        INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
-        INFO  : Map 1: 1/1      Reducer 2: 0/1
-        INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
-        INFO  : Map 1: 1/1      Reducer 2: 1/1
-        +----------+--------+--+
-        |   sev    | count  |
-        +----------+--------+--+
-        | [ERROR]  | 3      |
-        +----------+--------+--+
-        1 row selected (47.351 seconds)
+    INFO  : Map 1: -/-      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0/1      Reducer 2: 0/1
+    INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+    INFO  : Map 1: 0(+1)/1  Reducer 2: 0/1
+    INFO  : Map 1: 1/1      Reducer 2: 0/1
+    INFO  : Map 1: 1/1      Reducer 2: 0(+1)/1
+    INFO  : Map 1: 1/1      Reducer 2: 1/1
+    +----------+--------+--+
+    |   sev    | count  |
+    +----------+--------+--+
+    | [ERROR]  | 3      |
+    +----------+--------+--+
+    1 row selected (47.351 seconds)
+    ```
 
 6. Exit Beeline:
 
@@ -286,74 +194,16 @@ This example is a continuation from the prior example. Use the following steps t
 
     Three rows of data should be returned, all containing **[ERROR]** in column t4:
 
-        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
-        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        | 2012-02-03    | 18:35:34      | SampleClass0  | [ERROR]       | incorrect     | id            |               |
-        | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
-        | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
-        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        3 rows selected (0.813 seconds)
-
-## Install beeline client
-
-Although Beeline is included on the head nodes, you may want to install it locally.  The install steps for a local machine are based on a [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10).
-
-1. Update package lists. Enter the following command in your bash shell:
-
-    ```bash
-    sudo apt-get update
+    ```output
+    +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+    | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
+    +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+    | 2012-02-03    | 18:35:34      | SampleClass0  | [ERROR]       | incorrect     | id            |               |
+    | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
+    | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
+    +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+    3 rows selected (0.813 seconds)
     ```
-
-1. Install Java if not installed. You can check with the `which java` command.
-
-    1. If no java package is installed, enter the following command:
-
-        ```bash
-        sudo apt install openjdk-11-jre-headless
-        ```
-
-    1. Open the bashrc file (often found in ~/.bashrc): `nano ~/.bashrc`.
-
-    1. Amend the bashrc file. Add the following line at the end of the file:
-
-        ```bash
-        export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
-        ```
-
-        Then press **Ctrl+X**, then **Y**, then enter.
-
-1. Download Hadoop and Beeline archives, enter the following commands:
-
-    ```bash
-    wget https://archive.apache.org/dist/hadoop/core/hadoop-2.7.3/hadoop-2.7.3.tar.gz
-    wget https://archive.apache.org/dist/hive/hive-1.2.1/apache-hive-1.2.1-bin.tar.gz
-    ```
-
-1. Unpack the archives, enter the following commands:
-
-    ```bash
-    tar -xvzf hadoop-2.7.3.tar.gz
-    tar -xvzf apache-hive-1.2.1-bin.tar.gz
-    ```
-
-1. Further amend the bashrc file. You'll need to identify the path to where the archives were unpacked. If using the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10), and you followed the steps exactly, your path would be `/mnt/c/Users/user/`, where `user` is your user name.
-
-    1. Open the file: `nano ~/.bashrc`
-
-    1. Modify the commands below with the appropriate path and then enter them at the end of the bashrc file:
-
-        ```bash
-        export HADOOP_HOME=/path_where_the_archives_were_unpacked/hadoop-2.7.3
-        export HIVE_HOME=/path_where_the_archives_were_unpacked/apache-hive-1.2.1-bin
-        PATH=$PATH:$HIVE_HOME/bin
-        ```
-
-    1. Then press **Ctrl+X**, then **Y**, then enter.
-
-1. Close and then reopen you bash session.
-
-1. Test your connection. Use the connection format from [Over public or private endpoints](#over-public-or-private-endpoints), above.
 
 ## Next steps
 

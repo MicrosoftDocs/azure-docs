@@ -1,4 +1,4 @@
-- name: Azure Private Link Documentation
+- name: Private Link Documentation
   href: index.yml
 - name: Overview
   items:
@@ -12,13 +12,35 @@
     href: create-private-endpoint-powershell.md
   - name: Create a Private Endpoint - Azure CLI
     href: create-private-endpoint-cli.md
+  - name: Create a Private Endpoint - ARM template
+    displayName: Resource Manager
+    href: create-private-endpoint-template.md
   - name: Create a Private Link service - Portal
     href: create-private-link-service-portal.md
   - name: Create a Private Link service - PowerShell
     href: create-private-link-service-powershell.md
   - name: Create a Private Link service - Azure CLI
     href: create-private-link-service-cli.md
-
+  - name: Create a Private Link service - ARM template
+    displayName: Resource Manager
+    href: create-private-link-service-template.md
+  expanded: true
+- name: Tutorials
+  items: 
+  - name: Connect to a storage account
+    href: tutorial-private-endpoint-storage-portal.md
+  - name: Connect to a Cosmos DB account
+    href: tutorial-private-endpoint-cosmosdb-portal.md
+  - name: Connect to a web app
+    href: tutorial-private-endpoint-webapp-portal.md
+  - name: SQL
+    items:
+    - name: Connect to a SQL server - Portal
+      href: tutorial-private-endpoint-sql-portal.md
+    - name: Connect to a SQL server - PowerShell
+      href: tutorial-private-endpoint-sql-powershell.md
+    - name: Connect to a SQL server - Azure CLI
+      href: tutorial-private-endpoint-sql-cli.md
 - name: Concepts
   items:
   - name: Private Endpoint
@@ -27,21 +49,21 @@
     href: private-link-service-overview.md    
   - name: Private Endpoint DNS integration
     href: private-endpoint-dns.md    
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 
-- name: How to
+- name: How-to
   items:
-  - name: Connect privately to a storage account
-    href: create-private-endpoint-storage-portal.md
-  - name: Connect privately to a Cosmos DB account
-    href: create-private-endpoint-cosmosdb-portal.md
-  - name: Connect privately to a Web App
-    href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
     href: disable-private-endpoint-network-policy.md
   - name: Disable network policies for a Private Link Service
     href: disable-private-link-service-network-policy.md
   - name: Manage private endpoints
-    href: manage-private-endpoint.md  
+    href: manage-private-endpoint.md
+  - name: Inspect traffic with Azure Firewall
+    href: inspect-traffic-with-azure-firewall.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Private Endpoint connectivity problems
@@ -78,8 +100,8 @@
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
-  - name: Networking forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page for Networking
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
   - name: Networking feedback
     href: https://feedback.azure.com/forums/217313-networking?category_id=77469
   - name: Pricing
@@ -90,4 +112,3 @@
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: FAQ
     href: private-link-faq.md
-

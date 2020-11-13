@@ -4,6 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
+ms.custom: devx-track-csharp
 ---
 
 ## Prerequisites
@@ -258,12 +259,12 @@ The Design view is updated to show the application's user interface.
 
     ```csharp
     // Create a BotFrameworkConfig by providing a Speech service subscription key
-    // the RecoLanguage property is optional (default en-US)
+    // the botConfig.Language property is optional (default en-US)
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
     const string region = "YourServiceRegion"; // Your subscription service region.
 
     var botConfig = BotFrameworkConfig.FromSubscription(speechSubscriptionKey, region);
-    botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
+    botConfig.Language = "en-US";
     connector = new DialogServiceConnector(botConfig);
     ```
 

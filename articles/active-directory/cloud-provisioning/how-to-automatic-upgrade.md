@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/02/2019

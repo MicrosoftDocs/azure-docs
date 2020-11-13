@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot Azure File Sync | Microsoft Docs
-description: Troubleshoot common issues with Azure File Sync.
+description: Troubleshoot common issues in a deployment on Azure File Sync, which you can use to transform Windows Server into a quick cache of your Azure file share.
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
-ms.date: 1/22/2019
+ms.topic: troubleshooting
+ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -14,7 +14,7 @@ Use Azure File Sync to centralize your organization's file shares in Azure Files
 
 This article is designed to help you troubleshoot and resolve issues that you might encounter with your Azure File Sync deployment. We also describe how to collect important logs from the system if a deeper investigation of the issue is required. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
 
-1. [Azure Storage Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+1. [Microsoft Q&A question page for Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
@@ -42,7 +42,7 @@ After creating a server endpoint on Windows Server 2012 R2, the following error 
 driveletter:\ is not accessible.  
 The parameter is incorrect.
 
-To resolve, install the latest updates for Windows Server 2012 R2 and restart the server.
+To resolve this issue , install [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) and restart the server. If this update will not install because a later update is already installed, go to Windows Update, install the latest updates for Windows Server 2012 R2 and restart the server.
 
 <a id="server-registration-missing-subscriptions"></a>**Server Registration does not list all Azure Subscriptions**  
 When registering a server using ServerRegistration.exe, subscriptions are missing when you click the Azure Subscription drop-down.
@@ -97,6 +97,9 @@ If a server is not listed under **Registered servers** for a Storage Sync Servic
 3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 
 ## Sync group management
+
+### Cloud endpoint creation errors
+
 <a id="cloud-endpoint-using-share"></a>**Cloud endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
 This error occurs if the Azure file share is already in use by another cloud endpoint. 
 
@@ -131,6 +134,8 @@ To determine whether your user account role has the required permissions:
     * **Role assignment** should have **Read** and **Write** permissions.
     * **Role definition** should have **Read** and **Write** permissions.
 
+### Server endpoint creation and deletion errors
+
 <a id="-2134375898"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898 or 0x80c80226)**  
 This error occurs if the server endpoint path is on the system volume and cloud tiering is enabled. Cloud tiering is not supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
 
@@ -157,10 +162,12 @@ This error occurs if the server endpoints per server limit is reached. Azure Fil
 This error occurs if another server endpoint is already syncing the server endpoint path specified. Azure File Sync does not support multiple server endpoints syncing the same directory or volume.
 
 <a id="-2160590967"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2160590967 or 0x80c80077)**  
-This error occurs if the server endpoint path contains orphaned tiered files. If a server endpoint was recently removed, wait until the orphaned tiered files cleanup has completed. An Event ID 6662 is logged to the Telemetry event log once the orphaned tiered files cleanup has started. An Event ID 6661 is logged once the orphaned tiered files cleanup has completed and a server endpoint can be recreated using the path. If the server endpoint creation fails after an Event ID 6661 is logged, remove the orphaned tiered files by performing the steps documented in the [Tiered files are not accessible on the server after deleting a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) section.
+This error occurs if the server endpoint path contains orphaned tiered files. If a server endpoint was recently removed, wait until the orphaned tiered files cleanup has completed. An Event ID 6662 is logged to the Telemetry event log once the orphaned tiered files cleanup has started. An Event ID 6661 is logged once the orphaned tiered files cleanup has completed and a server endpoint can be recreated using the path. If the server endpoint creation fails after the tiered files cleanup has completed or if Event ID 6661 cannot be found in the Telemetry event log due to event log rollover, remove the orphaned tiered files by performing the steps documented in the [Tiered files are not accessible on the server after deleting a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) section.
 
 <a id="-2134347757"></a>**Server endpoint deletion fails, with this error: "MgmtServerJobExpired" (Error code: -2134347757 or 0x80c87013)**  
 This error occurs if the server is offline or doesn't have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+### Server endpoint health
 
 <a id="server-endpoint-provisioningfailed"></a>**Unable to open server endpoint properties page or update cloud tiering policy**  
 This issue can occur if a management operation on the server endpoint fails. If the server endpoint properties page does not open in the Azure portal, updating server endpoint using PowerShell commands from the server may fix this issue. 
@@ -311,6 +318,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | The tiered file on the server is not accessible. This issue occurs if the tiered file was not recalled prior to deleting a server endpoint. | To resolve this issue, see [Tiered files are not accessible on the server after deleting a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | The file or directory change cannot be synced yet because a dependent folder is not yet synced. This item will sync after the dependent changes are synced. | No action required. If the error persists for several days, use the FileSyncErrorsReport.ps1 PowerShell script to determine why the dependent folder is not yet synced. |
+| 0x80C8028A | -2134375798 | ECS_E_SYNC_CONSTRAINT_CONFLICT_ON_FAILED_DEPENDEE | The file or directory change cannot be synced yet because a dependent folder is not yet synced. This item will sync after the dependent changes are synced. | No action required. If the error persists for several days, use the FileSyncErrorsReport.ps1 PowerShell script to determine why the dependent folder is not yet synced. |
 | 0x80c80284 | -2134375804 | ECS_E_SYNC_CONSTRAINT_CONFLICT_SESSION_FAILED | The file or directory change cannot be synced yet because a dependent folder is not yet synced and the sync session failed. This item will sync after the dependent changes are synced. | No action required. If the error persists, investigate the sync session failure. |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
 | 0x80c80255 | -2134375851 | ECS_E_XSMB_REST_INCOMPATIBILITY | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
@@ -333,7 +341,9 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | The file cannot be synced because the maximum number of conflict files has been reached. Azure File Sync supports 100 conflict files per file. To learn more about file conflicts, see Azure File Sync [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | To resolve this issue, reduce the number of conflict files. The file will sync once the number of conflict files is less than 100. |
 
 #### Handling unsupported characters
-If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error code 0x8007007b or 0x80c80255), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-cmdlet) can be used to identify characters that are not supported.
+If the **FileSyncErrorsReport.ps1** PowerShell script shows per-item sync errors due to unsupported characters (error code 0x8007007b or 0x80c80255), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. 
+> [!Note]  
+> The [Evaluation Tool](storage-sync-files-planning.md#evaluation-cmdlet) can be used to identify characters that are not supported. If your dataset has several files with invalid characters, use the [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) script to rename files which contain unsupported characters.
 
 The table below contains all of the unicode characters Azure File Sync does not yet support.
 
@@ -548,13 +558,13 @@ If the Azure file share was deleted, you need to create a new file share and the
 
 This error occurs when the Azure subscription is suspended. Sync will be reenabled when the Azure subscription is restored. See [Why is my Azure subscription disabled and how do I reactivate it?](../../cost-management-billing/manage/subscription-disabled.md) for more information.
 
-<a id="-2134364052"></a>**The storage account has a firewall or virtual networks configured.**  
+<a id="-2134375618"></a>**The storage account has a firewall or virtual networks configured.**  
 
 | | |
 |-|-|
-| **HRESULT** | 0x80c8306c |
-| **HRESULT (decimal)** | -2134364052 |
-| **Error string** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
+| **HRESULT** | 0x80c8033e |
+| **HRESULT (decimal)** | -2134375618 |
+| **Error string** | ECS_E_SERVER_BLOCKED_BY_NETWORK_ACL |
 | **Remediation required** | Yes |
 
 This error occurs when the Azure file share is inaccessible because of a storage account firewall or because the storage account belongs to a virtual network. Verify the firewall and virtual network settings on the storage account are configured properly. For more information, see [Configure firewall and virtual network settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings). 
@@ -685,7 +695,9 @@ This error occurs because the server endpoint deletion failed and the endpoint i
 | **HRESULT (decimal)** | -1906441711 |
 | **Error string** | JET_errLogDiskFull |
 | **Remediation required** | Yes |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (decimal)** | -2134375654 |
 | **Error string** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
@@ -712,18 +724,22 @@ This error occurs because the cloud endpoint was created with content already ex
 | **HRESULT (decimal)** | -2134375877 |
 | **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Remediation required** | Yes |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
 | **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Remediation required** | Yes |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimal)** | -2134375853 |
 | **Error string** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Remediation required** | Yes |
 
-In cases where there are many per file sync errors, sync sessions may begin to fail. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
+Sync sessions fail with one of these errors when there are many files that are failing to sync with per-item errors. Perform the steps documented in the [How do I see if there are specific files or folders that are not syncing?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) section to resolve the per-item errors. For sync error ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED, please open a support case.
 
 > [!NOTE]
 > Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles.
@@ -1083,6 +1099,7 @@ If files fail to tier to Azure Files:
 
 | HRESULT | HRESULT (decimal) | Error string | Issue | Remediation |
 |---------|-------------------|--------------|-------|-------------|
+| 0x80c86045 | -2134351803 | ECS_E_INITIAL_UPLOAD_PENDING | The file failed to tier because the initial upload is in progress. | No action required. The file will be tiered once the initial upload completes. |
 | 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | The file failed to tier because it's in use. | No action required. The file will be tiered when it's no longer in use. |
 | 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | The file failed to tier because it's excluded by sync. | No action required. Files in the sync exclusion list cannot be tiered. |
 | 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | The file failed to tier because it was not found on the server. | No action required. If the error persists, check if the file exists on the server. |
@@ -1104,6 +1121,8 @@ If files fail to tier to Azure Files:
 | 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | The file failed to tier due to a network issue. | No action required. If the error persists, check network connectivity to the Azure file share. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | The file failed to tier because it has been modified. | No action required. The file will tier once the modified file has synced to the Azure file share. |
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | The file failed to tier due to insufficient system resources. | If the error persists, investigate which application or kernel-mode driver is exhausting system resources. |
+| 0x8e5e03fe | -1906441218 | JET_errDiskIO | The file failed to tier due to an I/O error when writing to the cloud tiering database. | If the error persists, run chkdsk on the volume and check the storage hardware. |
+| 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | The file failed to tier because the cloud tiering database is not running. | To resolve this issue, restart the FileSyncSvc service or server. If the error persists, run chkdsk on the volume and check the storage hardware. |
 
 
 
@@ -1243,23 +1262,7 @@ If you encounter issues with Azure File Sync on a server, start by completing th
 
 If the issue is not resolved, run the AFSDiag tool and send its .zip file output to the support engineer assigned to your case for further diagnosis.
 
-For Agent Version v11 and Later:
-
-1. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
-
-    > [!NOTE]
-    >AFSDiag will create the output directory and a temp folder within it prior to collecting logs and will delete the temp folder after execution. Specify an output location which does not contain data.
-    
-    ```powershell
-    cd "c:\Program Files\Azure\StorageSyncAgent"
-    Import-Module .\afsdiag.ps1
-    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
-    ```
-
-2. Reproduce the issue. When you're finished, enter **D**.
-3. A .zip file that contains logs and trace files is saved to the output directory that you specified. 
-
-For Agent Version v10 and Earlier:
+To run AFSDiag, perform the following steps:
 1. Create a directory where the AFSDiag output will be saved (for example, C:\Output).
     > [!NOTE]
     >AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.

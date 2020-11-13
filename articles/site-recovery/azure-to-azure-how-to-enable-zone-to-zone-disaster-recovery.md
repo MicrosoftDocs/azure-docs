@@ -5,23 +5,25 @@ author: sideeksh
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/28/2020
+ms.date: 04/28/2019
 ms.author: sideeksh
 
 ---
 
-# Enable Zone to Zone Disaster Recovery for Azure virtual machines
+# Enable Azure VM disaster recovery between availability zones
 
-This article describes how to replicate, failover, and failback Azure virtual machines from one Availability Zone to another within the same Azure region.
+This article describes how to replicate, failover, and failback Azure virtual machines from one Availability Zone to another, within the same Azure region.
 
 >[!NOTE]
 >
->- Site Recovery currently does not support Recovery Plans for Zone to Zone Disaster Recovery. 
 >- Support for Zone to Zone disaster recovery is currently limited to two regions: Southeast Asia and UK South.  
+>- Site Recovery does not move or store customer data out of the region in which it is deployed when the customer is using Zone to Zone Disaster Recovery. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
 
 Site Recovery service contributes to your business continuity and disaster recovery strategy by keeping your business apps up and running, during planned and unplanned outages. It is the recommended Disaster Recovery option to keep your applications up and running if there are regional outages.
 
 Availability Zones are unique physical locations within an Azure region. Each zone has one or more datacenters. 
+
+If you want to move VMs to an availability zone in a different region, [review this article](../resource-mover/move-region-availability-zone.md).
 
 ## Using Availability Zones for Disaster Recovery 
 
@@ -33,7 +35,7 @@ However, in some scenarios, Availability Zones can be leveraged for Disaster Rec
 
 - Many other customers have complicated networking infrastructure and do not wish to recreate it in a secondary region due to the associated cost and complexity. Zone to Zone Disaster Recovery reduces complexity as it leverages redundant networking concepts across Availability Zones making configuration much simpler. Such customers prefer simplicity and can also use Availability Zones for Disaster Recovery.
 
-- In some regions that do not have a paired region within the same legal jurisdiction (for example, Southeast Asia), Zone to Zone Disaster Recovery can serve as the de-facto Disaster Recovery solution as it helps ensure legal compliance, since your applications and data do not cross national boundaries. 
+- In some regions that do not have a paired region within the same legal jurisdiction (for example, Southeast Asia), Zone to Zone Disaster Recovery can serve as the de-facto Disaster Recovery solution as it helps ensure legal compliance, since your applications and data do not move across national boundaries. 
 
 - Zone to Zone Disaster Recovery implies replication of data across shorter distances when compared with Azure to Azure Disaster Recovery and therefore, you may see lower latency and consequently lower RPO.
 
@@ -65,11 +67,11 @@ Before deploying Zone to Zone Disaster Recovery for your VMs, it is important to
 |---------|---------|
 |Classic VMs   |     Not supported    |
 |ARM VMs    |    Supported    |
-|Azure Disk Encryption v1 (dual pass, with AAD)     |     Supported	|
-|Azure Disk Encryption v2 (single pass, without AAD)    |    Supported    |
+|Azure Disk Encryption v1 (dual pass, with Azure Active Directory (Azure AD))     |     Supported	|
+|Azure Disk Encryption v2 (single pass, without Azure AD)    |    Supported    |
 |Unmanaged disks    |    Not supported    |
 |Managed disks    |    Supported    |
-|Customer managed keys    |    Supported    |
+|Customer-managed keys    |    Supported    |
 |Proximity placement groups    |    Supported    |
 |Backup interoperability    |    File level backup and restore are supported. Disk and VM level backup and restore and not supported.    |
 |Hot add/remove    |    Disks can be added after enabling zone to zone replication. Removal of disks after enabling zone to zone replication is not supported.    |	
@@ -78,7 +80,7 @@ Before deploying Zone to Zone Disaster Recovery for your VMs, it is important to
 
 ### Log in
 
-Login to the Azure portal.
+Log in to the Azure portal.
 
 ### Enable replication for the zonal Azure virtual machine
 
@@ -94,7 +96,7 @@ Login to the Azure portal.
 
 5. If you want to make changes to the replication settings, click on ‘Next: Advanced settings’.
 
-6. Change the settings away from default wherever appropriate. For users of Azure to Azure Disaster Recovery, this page might seem familiar. More details on the options presented on this blade can be found [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)
+6. Change the settings away from default wherever appropriate. For users of Azure to Azure Disaster Recovery, this page might seem familiar. More details on the options presented on this blade can be found [here](./azure-to-azure-tutorial-enable-replication.md)
 
     ![Advanced Settings page](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings-blade.png)
 
@@ -112,14 +114,17 @@ The RTO SLA is the same as that for Site Recovery overall. We promise RTO of up 
 The Site Recovery team and Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery will deploy to the target zone.
 
 **4. Which operating systems are supported?**
-Zone to Zone Disaster Recovery supports the same operating systems as Azure to Azure Disaster Recovery. Refer to the support matrix [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+Zone to Zone Disaster Recovery supports the same operating systems as Azure to Azure Disaster Recovery. Refer to the support matrix [here](./azure-to-azure-support-matrix.md).
+
+**5. Can the source and target resource groups be the same?**
+No, you must fail over to a different resource group.
 
 ## Next steps
 
 The steps that need to be followed to run a Disaster Recovery drill, fail over, re-protect, and failback are the same as the steps in Azure to Azure Disaster Recovery scenario.
 
-To perform a Disaster Recovery drill, please follow the steps outlined [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-dr-drill).
+To perform a Disaster Recovery drill, please follow the steps outlined [here](./azure-to-azure-tutorial-dr-drill.md).
 
-To perform a fail over and re-protect VMs in the secondary zone, follow the steps outlined [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback).
+To perform a failover and reprotect VMs in the secondary zone, follow the steps outlined [here](./azure-to-azure-tutorial-failover-failback.md).
 
-To failback to the primary zone, follow the steps outlined [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failback).
+To failback to the primary zone, follow the steps outlined [here](./azure-to-azure-tutorial-failback.md).

@@ -14,7 +14,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 11/17/2019
 ms.author: zhenlwa
-ms.custom: azure-functions
+ms.custom: "devx-track-csharp, azure-functions"
 ms.tgt_pltfrm: Azure Functions
 
 #Customer intent: I want to dynamically update my Azure Functions app to use the latest configuration data in App Configuration.
@@ -64,7 +64,7 @@ In this tutorial, you learn how to:
     }
     ```
 
-3. Update the `Run` method and signal to refresh the configuration using the `Refresh` method at the beginning of the Functions call. This will be no-op if the cache expiration time window isn't reached. Remove the `await` operator if you prefer the configuration to be refreshed without blocking.
+3. Update the `Run` method and signal to refresh the configuration using the `TryRefreshAsync` method at the beginning of the Functions call. This will be no-op if the cache expiration time window isn't reached. Remove the `await` operator if you prefer the configuration to be refreshed without blocking.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -72,7 +72,7 @@ In this tutorial, you learn how to:
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        await ConfigurationRefresher.Refresh();
+        await ConfigurationRefresher.TryRefreshAsync(); 
 
         string keyName = "TestApp:Settings:Message";
         string message = Configuration[keyName];
@@ -87,15 +87,21 @@ In this tutorial, you learn how to:
 
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your app configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```console
+    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     If you use Windows PowerShell, run the following command:
 
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
     If you use macOS or Linux, run the following command:
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 2. To test your function, press F5. If prompted, accept the request from Visual Studio to download and install **Azure Functions Core (CLI)** tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Automation account troubleshooting
-description: Learn how to troubleshoot and resolve issues with an Azure account.
+title: Troubleshoot Azure Automation account issues
+description: This article tells how to troubleshoot and resolve issues with an Azure account.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ---
-# Troubleshoot an Azure Automation account
+# Troubleshoot Azure Automation account issues
 
-This article discusses solutions to problems that you might encounter when you use an Azure Automation account. For general information about Automation accounts, see [Create an Azure account](../automation-quickstart-create-account.md).
+This article discusses solutions to problems that you might encounter when you use an Azure Automation account. For general information about Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md).
 
 ## <a name="rp-register"></a>Scenario: Unable to register Automation Resource Provider for subscriptions
 
 ### Issue
 
-When you work with management solutions in your Automation account, you encounter the following error:
+When you work with management features, for example, Update Management, in your Automation account, you encounter the following error:
 
 ```error
 Error details: Unable to register Automation Resource Provider for subscriptions:
@@ -39,7 +39,7 @@ To register the Automation Resource Provider, follow these steps in the Azure po
 
 4. From the list of resource providers, verify that the **Microsoft.Automation** resource provider is registered.
 
-5. If the provider isn't listed, register it as described in [Resolve errors for resource provider registration](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. If the provider isn't listed, register it as described in [Resolve errors for resource provider registration](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## Next steps
 

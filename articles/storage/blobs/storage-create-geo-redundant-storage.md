@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.custom: mvc
+ms.custom: "mvc, devx-track-python, devx-track-js, devx-track-csharp"
 ms.subservice: blobs
 #Customer intent: As a developer, I want to have my data be highly available, so that in the event of a disaster I may retrieve it.
 ---

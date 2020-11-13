@@ -13,12 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 09/22/2020
 ms.author: b-juche
 ---
 # Cost model for Azure NetApp Files 
 
-Understanding the cost model for Azure NetApp Files helps you manage your expenses from the service.
+Understanding the cost model for Azure NetApp Files helps you manage your expenses from the service. 
+
+For cost model specific to cross-region replication, see [Cost model for cross-region replication](cross-region-replication-introduction.md#cost-model-for-cross-region-replication).
 
 ## Calculation of capacity consumption
 
@@ -46,6 +48,8 @@ The diagram below illustrates these concepts.
 
 When the total used capacity of a pool exceeds its provisioned capacity, data writes are still permitted.  After the grace period (one hour), if the used capacity of the pool still exceeds its provisioned capacity, then the pool size will be automatically increased in increments of 1 TiB until the provisioned capacity is greater than the total used capacity.  For example, in the illustration above, if Volume 3 continues to grow and the actual consumption reaches 1.2 TiB, then after the grace period, the pool will automatically be resized to 5 TiB.  The result is that the provisioned pool capacity (5 TiB) exceeds the used capacity (4.2 TiB).  
 
+Although the capacity pool size automatically grows to meet the demand of the volume, it isn’t automatically reduced when the volume size decreases. If you want to down-size the capacity pool after a volume size decrease (for example, after data cleanup of a volume), you need to _manually_ reduce the capacity pool size.
+
 ## Manual changes of the pool size  
 
 You can manually increase or decrease the pool size. However, the following constraints apply:
@@ -54,6 +58,7 @@ You can manually increase or decrease the pool size. However, the following cons
 * A 1-TiB increment after the initial 4-TiB minimum purchase
 * A one-hour minimum billing increment
 * The provisioned pool size may not be decreased to less than the total used capacity in the pool.
+* For capacity pools with manual QoS, the pool size can only be decreased if the size and service level provide more throughput than the actual assigned throughput of all volumes.
 
 ## Behavior of maximum-size pool overage   
 
@@ -87,3 +92,4 @@ The capacity consumption of snapshots in Azure NetApp Files is charged against t
 * [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Cost model for cross-region replication](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)

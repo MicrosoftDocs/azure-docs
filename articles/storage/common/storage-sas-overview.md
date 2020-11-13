@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 08/17/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: common
 ---
 
@@ -25,7 +25,7 @@ Azure Storage supports three types of shared access signatures:
 
     For more information about the user delegation SAS, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
-- **Service SAS.** A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage, Queue storage, Table storage, or Azure Files. 
+- **Service SAS.** A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage, Queue storage, Table storage, or Azure Files.
 
     For more information about the service SAS, see [Create a service SAS (REST API)](/rest/api/storageservices/create-service-sas).
 
@@ -34,7 +34,7 @@ Azure Storage supports three types of shared access signatures:
     For more information about the account SAS, [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas).
 
 > [!NOTE]
-> Microsoft recommends that you use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures for access to Blob storage, use Azure AD credentials to create a user delegation SAS when possible for superior security.
+> Microsoft recommends that you use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures for access to Blob storage, use Azure AD credentials to create a user delegation SAS when possible for superior security. For more information, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
 
 A shared access signature can take one of two forms:
 
@@ -48,15 +48,27 @@ A shared access signature can take one of two forms:
 
 A shared access signature is a signed URI that points to one or more storage resources and includes a token that contains a special set of query parameters. The token indicates how the resources may be accessed by the client. One of the query parameters, the signature, is constructed from the SAS parameters and signed with the key that was used to create the SAS. This signature is used by Azure Storage to authorize access to the storage resource.
 
-### SAS signature
+### SAS signature and authorization
 
-You can sign a SAS in one of two ways:
+You can sign a SAS token in one of two ways:
 
 - With a *user delegation key* that was created using Azure Active Directory (Azure AD) credentials. A user delegation SAS is signed with the user delegation key.
 
-    To get the user delegation key and create the SAS, an Azure AD security principal must be assigned a role-based access control (RBAC) role that includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. For detailed information about RBAC roles with permissions to get the user delegation key, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
+    To get the user delegation key and create the SAS, an Azure AD security principal must be assigned an Azure role that includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. For detailed information about Azure roles with permissions to get the user delegation key, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
-- With the storage account key. Both a service SAS and an account SAS are signed with the storage account key. To create a SAS that is signed with the account key, an application must have access to the account key.
+- With the storage account key (Shared Key). Both a service SAS and an account SAS are signed with the storage account key. To create a SAS that is signed with the account key, an application must have access to the account key.
+
+When a request includes a SAS token, that request is authorized based on how that SAS token is signed. The access key or credentials that you use to create a SAS token are also used by Azure Storage to grant access to a client that possesses the SAS.
+
+The following table summarizes how each type of SAS token is authorized when it is included on a request to Azure Storage:
+
+| Type of SAS | Type of authorization |
+|-|-|
+| User delegation SAS (Blob storage only) | Azure AD |
+| Service SAS | Shared Key |
+| Account SAS | Shared Key |
+
+Microsoft recommends using a user delegation SAS when possible for superior security.
 
 ### SAS token
 
@@ -104,14 +116,14 @@ The following recommendations for using shared access signatures can help mitiga
 - **Have a revocation plan in place for a SAS.** Make sure you are prepared to respond if a SAS is compromised.
 - **Define a stored access policy for a service SAS.** Stored access policies give you the option to revoke permissions for a service SAS without having to regenerate the storage account keys. Set the expiration on these very far in the future (or infinite) and make sure it's regularly updated to move it farther into the future.
 - **Use near-term expiration times on an ad hoc SAS service SAS or account SAS.** In this way, even if a SAS is compromised, it's valid only for a short time. This practice is especially important if you cannot reference a stored access policy. Near-term expiration times also limit the amount of data that can be written to a blob by limiting the time available to upload to it.
-- **Have clients automatically renew the SAS if necessary.** Clients should renew the SAS well before the expiration, in order to allow time for retries if the service providing the SAS is unavailable. If your SAS is meant to be used for a small number of immediate, short-lived operations that are expected to be completed within the expiration period, then this may be unnecessary as the SAS is not expected to be renewed. However, if you have client that is routinely making requests via SAS, then the possibility of expiration comes into play. The key consideration is to balance the need for the SAS to be short-lived (as previously stated) with the need to ensure that the client is requesting renewal early enough (to avoid disruption due to the SAS expiring prior to successful renewal).
-- **Be careful with SAS start time.** If you set the start time for a SAS to **now**, then due to clock skew (differences in current time according to different machines), failures may be observed intermittently for the first few minutes. In general, set the start time to be at least 15 minutes in the past. Or, don't set it at all, which will make it valid immediately in all cases. The same generally applies to expiry time as well--remember that you may observe up to 15 minutes of clock skew in either direction on any request. For clients using a REST version prior to 2012-02-12, the maximum duration for a SAS that does not reference a stored access policy is 1 hour, and any policies specifying longer term than that will fail.
-- **Be careful with SAS datetime format.** If you set the start time and/or expiry for a SAS, for some utilities (for example for the command-line utility AzCopy) you need the datetime format to be '+%Y-%m-%dT%H:%M:%SZ', specifically including the seconds in order for it to work using the SAS token.  
+- **Have clients automatically renew the SAS if necessary.** Clients should renew the SAS well before the expiration, in order to allow time for retries if the service providing the SAS is unavailable. If your SAS is meant to be used for a small number of immediate, short-lived operations that are expected to be completed within the expiration period, then this may be unnecessary as the SAS is not expected to be renewed. However, if you have a client that is routinely making requests via SAS, then the possibility of expiration comes into play. The key consideration is to balance the need for the SAS to be short-lived (as previously stated) with the need to ensure that the client is requesting renewal early enough (to avoid disruption due to the SAS expiring prior to successful renewal).
+- **Be careful with SAS start time.** If you set the start time for a SAS to the current time, you may observe failures occurring intermittently for the first few minutes due to different machines having slightly different current times (known as clock skew). In general, set the start time to be at least 15 minutes in the past. Or, don't set it at all, which will make it valid immediately in all cases. The same generally applies to expiry time as well--remember that you may observe up to 15 minutes of clock skew in either direction on any request. For clients using a REST version prior to 2012-02-12, the maximum duration for a SAS that does not reference a stored access policy is 1 hour, and any policies specifying longer term than that will fail.
+- **Be careful with SAS datetime format.** If you set the start time and/or expiry for a SAS, for some utilities (for example, the command-line utility AzCopy) you need the datetime format to be '+%Y-%m-%dT%H:%M:%SZ', specifically including the seconds in order for it to work using the SAS token.
 - **Be specific with the resource to be accessed.** A security best practice is to provide a user with the minimum required privileges. If a user only needs read access to a single entity, then grant them read access to that single entity, and not read/write/delete access to all entities. This also helps lessen the damage if a SAS is compromised because the SAS has less power in the hands of an attacker.
 - **Understand that your account will be billed for any usage, including via a SAS.** If you provide write access to a blob, a user may choose to upload a 200 GB blob. If you've given them read access as well, they may choose to download it 10 times, incurring 2 TB in egress costs for you. Again, provide limited permissions to help mitigate the potential actions of malicious users. Use short-lived SAS to reduce this threat (but be mindful of clock skew on the end time).
 - **Validate data written using a SAS.** When a client application writes data to your storage account, keep in mind that there can be problems with that data. If your application requires that data be validated or authorized before it is ready to use, you should perform this validation after the data is written and before it is used by your application. This practice also protects against corrupt or malicious data being written to your account, either by a user who properly acquired the SAS, or by a user exploiting a leaked SAS.
 - **Know when not to use a SAS.** Sometimes the risks associated with a particular operation against your storage account outweigh the benefits of using a SAS. For such operations, create a middle-tier service that writes to your storage account after performing business rule validation, authentication, and auditing. Also, sometimes it's simpler to manage access in other ways. For example, if you want to make all blobs in a container publicly readable, you can make the container Public, rather than providing a SAS to every client for access.
-- **Use Azure Monitor and Azure Storage logs to monitor your application.** You can use Azure Monitor and storage analytics logging to observe any spike in authorization failures due to an outage in your SAS provider service or to the inadvertent removal of a stored access policy. For more information, see [Azure Storage metrics in Azure Monitor](monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) and [Azure Storage Analytics logging](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- **Use Azure Monitor and Azure Storage logs to monitor your application.** You can use Azure Monitor and storage analytics logging to observe any spike in authorization failures due to an outage in your SAS provider service or the inadvertent removal of a stored access policy. For more information, see [Azure Storage metrics in Azure Monitor](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) and [Azure Storage Analytics logging](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Get started with SAS
 

@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 07/13/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 Azure Active Directory (Azure AD) self-service password reset (SSPR) gives users the ability to change or reset their password, with no administrator or help desk involvement. If a user's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work. This ability reduces help desk calls and loss of productivity when a user can't sign in to their device or an application.
 
 > [!IMPORTANT]
-> This quickstart shows an administrator how to enable self-service password reset. If you're an end user already registered for self-service password reset and need to get back into your account, go to https://aka.ms/sspr.
+> This tutorial shows an administrator how to enable self-service password reset. If you're an end user already registered for self-service password reset and need to get back into your account, go to https://aka.ms/sspr.
 >
 > If your IT team hasn't enabled the ability to reset your own password, reach out to your helpdesk for additional assistance.
 
@@ -36,17 +36,22 @@ In this tutorial you learn how to:
 
 To complete this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with at least a trial license enabled.
+* A working Azure AD tenant with at least an Azure AD Free or trial license enabled. In the Free tier, SSPR only works for cloud users in Azure AD.
+    * For later tutorials in this series, an Azure AD Premium P1 or trial license is required for on-premises password writeback.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *Global Administrator* privileges.
 * A non-administrator user with a password you know, such as *testuser*. You test the end-user SSPR experience using this account in this tutorial.
-    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md).
+    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * A group that the non-administrator user is a member of, such as *SSPR-Test-Group*. You enable SSPR for this group in this tutorial.
-    * If you need to create a group, see how to [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * If you need to create a group, see how to [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## Enable self-service password reset
 
-Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granular ability lets you choose a subset of users to test the SSPR registration process and workflow. When you're comfortable with the process and can communicate the requirements with a broader set of users, you can select additional groups of users to enable for SSPR. Or, you can enable SSPR for everyone in the Azure AD tenant.
+Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granular ability lets you choose a subset of users to test the SSPR registration process and workflow. When you're comfortable with the process and can communicate the requirements with a broader set of users, you can select a group of users to enable for SSPR. Or, you can enable SSPR for everyone in the Azure AD tenant.
+
+> [!NOTE]
+>
+> Only one Azure AD group can currently be enabled for SSPR using the Azure portal. As part of a wider deployment of SSPR, nested groups are supported. Make sure that the users in the group(s) you choose have the appropriate licenses assigned. There's currently no validation process of these licensing requirements.
 
 In this tutorial, configure SSPR for a set of users in a test group. In the following example, the group *SSPR-Test-Group* is used. Provide your own Azure AD group as needed:
 
@@ -55,9 +60,7 @@ In this tutorial, configure SSPR for a set of users in a test group. In the foll
 1. From the **Properties** page, under the option *Self service password reset enabled*, choose **Select group**
 1. Browse for and select your Azure AD group, such as *SSPR-Test-Group*, then choose *Select*.
 
-    [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
-
-    As part of a wider deployment of SSPR, nested groups are supported. Make sure that the users in the group(s) you choose have the appropriate licenses assigned. There's currently no validation process of these licensing requirements.
+    [ ![Select a group in the Azure portal to enable for self-service password reset](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png) ](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
 
 1. To enable SSPR for the select users, select **Save**.
 
@@ -75,7 +78,8 @@ When users need to unlock their account or reset their password, they're prompte
     * *Mobile app code*
     * *Email*
     * *Mobile phone*
-    * *Office phone*
+
+    Additional authentication methods, such as *Office phone* or *Security questions*, can be enabled as needed to fit your business requirements.
 
 1. To apply the authentication methods, select **Save**.
 
@@ -91,7 +95,7 @@ An administrator can manually provide this contact information, or users can go 
 
 ## Configure notifications and customizations
 
-To keep users informed about account activity, you can configure e-mail notifications to be sent when an SSPR event happens. These notifications can cover both regular user accounts and admin accounts. For admin accounts, this notification provides an additional layer of awareness when a privileged administrator account password is reset using SSPR.
+To keep users informed about account activity, you can configure e-mail notifications to be sent when an SSPR event happens. These notifications can cover both regular user accounts and admin accounts. For admin accounts, this notification provides an additional layer of awareness when a privileged administrator account password is reset using SSPR. All global admins would be notified when SSPR is used on an admin account.
 
 1. On the **Notifications** page from the menu in the left-hand side, configure the following options:
 
@@ -111,7 +115,7 @@ If users need additional help with the SSPR process, you can customize the link 
 With SSPR enabled and configured, test the SSPR process with a user that's part of the group you selected in the previous section, such as *Test-SSPR-Group*. In the following example, the *testuser* account is used. Provide your own user account that's part of the group you enabled for SSPR in the first section of this tutorial.
 
 > [!NOTE]
-> When you test the self-service password reset, use a non-administrator account. Admins are always enabled for self-service password reset and are required to use two authentication methods to reset their password.
+> When you test self-service password reset, use a non-administrator account. By default, admins are enabled for self-service password reset and are required to use two authentication methods to reset their password. For more information, see [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 1. To see the manual registration process, open a new browser window in InPrivate or incognito mode, and browse to [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Users should be directed to this registration portal when they next sign-in.
 1. Sign in with a non-administrator test user, such as *testuser*, and register your authentication methods contact information.
@@ -144,4 +148,4 @@ In this tutorial, you enabled Azure AD self-service password reset for a selecte
 > * Test the SSPR process as a user
 
 > [!div class="nextstepaction"]
-> [Enable Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+> [Enable Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

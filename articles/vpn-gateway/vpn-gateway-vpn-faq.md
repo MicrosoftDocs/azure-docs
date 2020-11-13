@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 09/02/2020
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -121,6 +121,10 @@ We are limited to using pre-shared keys (PSK) for authentication.
 ### Can I configure Force Tunneling?
 
 Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
+
+### Can I use NAT-T on my VPN connections?
+
+Yes, NAT traversal (NAT-T) is supported. Azure VPN Gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels.  In this configuration, please ensure the on-premises device initiates the IPSec tunnel.
 
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 

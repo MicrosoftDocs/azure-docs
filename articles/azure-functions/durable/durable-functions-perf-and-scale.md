@@ -1,6 +1,6 @@
 ---
 title: Performance and scale in Durable Functions - Azure
-description: Introduction to the Durable Functions extension for Azure Functions.
+description: Learn about the unique scaling characteristics of the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
@@ -17,13 +17,13 @@ To understand the scale behavior, you have to understand some of the details of 
 
 The **History** table is an Azure Storage table that contains the history events for all orchestration instances within a task hub. The name of this table is in the form *TaskHubName*History. As instances run, new rows are added to this table. The partition key of this table is derived from the instance ID of the orchestration. An instance ID is random in most cases, which ensures optimal distribution of internal partitions in Azure Storage.
 
-When an orchestration instance needs to run, the appropriate rows of the History table are loaded into memory. These *history events* are then replayed into the orchestrator function code to get it back into its previously checkpointed state. The use of execution history to rebuild state in this way is influenced by the [Event Sourcing pattern](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing).
+When an orchestration instance needs to run, the appropriate rows of the History table are loaded into memory. These *history events* are then replayed into the orchestrator function code to get it back into its previously checkpointed state. The use of execution history to rebuild state in this way is influenced by the [Event Sourcing pattern](/azure/architecture/patterns/event-sourcing).
 
 ## Instances table
 
 The **Instances** table is another Azure Storage table that contains the statuses of all orchestration and entity instances within a task hub. As instances are created, new rows are added to this table. The partition key of this table is the orchestration instance ID or entity key and the row key is a fixed constant. There is one row per orchestration or entity instance.
 
-This table is used to satisfy instance query requests from the `GetStatusAsync` (.NET) and `getStatus` (JavaScript) APIs as well as the [status query HTTP API](durable-functions-http-api.md#get-instance-status). It is kept eventually consistent with the contents of the **History** table mentioned previously. The use of a separate Azure Storage table to efficiently satisfy instance query operations in this way is influenced by the [Command and Query Responsibility Segregation (CQRS) pattern](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+This table is used to satisfy instance query requests from the `GetStatusAsync` (.NET) and `getStatus` (JavaScript) APIs as well as the [status query HTTP API](durable-functions-http-api.md#get-instance-status). It is kept eventually consistent with the contents of the **History** table mentioned previously. The use of a separate Azure Storage table to efficiently satisfy instance query operations in this way is influenced by the [Command and Query Responsibility Segregation (CQRS) pattern](/azure/architecture/patterns/cqrs).
 
 ## Internal queue triggers
 
@@ -47,6 +47,13 @@ The maximum polling delay is configurable via the `maxQueuePollingInterval` prop
 
 > [!NOTE]
 > When running in the Azure Functions Consumption and Premium plans, the [Azure Functions Scale Controller](../functions-scale.md#how-the-consumption-and-premium-plans-work) will poll each control and work-item queue once every 10 seconds. This additional polling is necessary to determine when to activate function app instances and to make scale decisions. At the time of writing, this 10 second interval is constant and cannot be configured.
+
+### Orchestration start delays
+Orchestrations instances are started by putting an `ExecutionStarted` message in one of the task hub's control queues. Under certain conditions, you may observe multi-second delays between when an orchestration is scheduled to run and when it actually starts running. During this time interval, the orchestration instance remains in the `Pending` state. There are two potential causes of this delay:
+
+1. **Backlogged control queues**: If the control queue for this instance contains a large number of messages, it may take time before the `ExecutionStarted` message is received and processed by the runtime. Message backlogs can happen when orchestrations are processing lots of events concurrently. Events that go into the control queue include orchestration start events, activity completions, durable timers, termination, and external events. If this delay happens under normal circumstances, consider creating a new task hub with a larger number of partitions. Configuring more partitions will cause the runtime to create more control queues for load distribution.
+
+2. **Back off polling delays**: Another common cause of orchestration delays is the [previously described back-off polling behavior for control queues](#queue-polling). However, this delay is only expected when an app is scaled out to two or more instances. If there is only one app instance or if the app instance that starts the orchestration is also the same instance that is polling the target control queue, then there will not be a queue polling delay. Back off polling delays can be reduced by updating the **host.json** settings, as described previously.
 
 ## Storage account selection
 
@@ -212,6 +219,10 @@ There are two potential downsides of this setting to be aware of:
 As an example, if `durableTask/extendedSessionIdleTimeoutInSeconds` is set to 30 seconds, then a short-lived orchestrator or entity function episode that executes in less than 1 second still occupies memory for 30 seconds. It also counts against the `durableTask/maxConcurrentOrchestratorFunctions` quota mentioned previously, potentially preventing other orchestrator or entity functions from running.
 
 The specific effects of extended sessions on orchestrator and entity functions are described in the next sections.
+
+> [!NOTE]
+> Extended sessions are currently only supported in .NET languages, like C# or F#. Setting `extendedSessionsEnabled` to `true` for other platforms can lead to runtime issues, such as silently failing to execute activity and orchestration-triggered functions.
+
 
 ### Orchestrator function replay
 

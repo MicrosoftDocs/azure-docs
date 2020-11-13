@@ -8,8 +8,8 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
-ms.author: anzaman
+ms.date: 08/10/2020
+ms.author: kumud
 ---
 
 # Customize a Language model with the Video Indexer website
@@ -128,7 +128,9 @@ Video Indexer supports automatic customization of Language models based on the a
 
     ![Customize language model edit transcription—Video Indexer](./media/customize-language-model/edits.png)
 
-    Video Indexer captures all lines that are corrected by you in the transcription of your video and adds them automatically to a text file called "From transcript edits". These edits are used to retrain the specific Language model that was used to index this video.
+    Video Indexer captures all lines that are corrected by you in the transcription of your video and adds them automatically to a text file called "From transcript edits". These edits are used to retrain the specific Language model that was used to index this video. 
+    
+    The edits that were done in the [widget's](video-indexer-embed-widgets.md) timeline are also included.
     
     If you didn't specify a Language model when indexing this video, all edits for this video will be stored in a default Language model called "Account adaptations" within the detected language of the video.
     

@@ -37,16 +37,16 @@ Before you start, make sure that you meet these prerequisites.
 
 ### Choose the appropriate identities
 
-[Azure Government](https://docs.microsoft.com/azure/azure-government/) applications can use Azure AD Government identities and Azure AD Public identities to authenticate users. Because you can use any of these identities, you need to decide which authority endpoint you should choose for your scenario:
+[Azure Government](../../azure-government/index.yml) applications can use Azure AD Government identities and Azure AD Public identities to authenticate users. Because you can use any of these identities, you need to decide which authority endpoint you should choose for your scenario:
 
-- Azure AD Public: Commonly used if your organization already has an Azure AD Public tenant to support Office 365 (Public or GCC) or another application.
+- Azure AD Public: Commonly used if your organization already has an Azure AD Public tenant to support Microsoft 365 (Public or GCC) or another application.
 - Azure AD Government: Commonly used if your organization already has an Azure AD Government tenant to support Office 365 (GCC High or DoD) or is creating a new tenant in Azure AD Government.
 
 After you decide, a special consideration is where you perform your app registration. If you choose Azure AD Public identities for your Azure Government application, you must register the application in your Azure AD Public tenant.
 
 ### Get an Azure Government subscription
 
-To get an Azure Government subscription, see [Managing and connecting to your subscription in Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-subscriptions).
+To get an Azure Government subscription, see [Managing and connecting to your subscription in Azure Government](../../azure-government/documentation-government-manage-subscriptions.md).
 
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
@@ -124,14 +124,14 @@ In that code:
     - If your application supports **Accounts in this organizational directory**, replace this value with the tenant ID or tenant name (for example, contoso.microsoft.com).
     - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`.
 
-    To find authentication endpoints for all the national clouds, see [Azure AD authentication endpoints](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+    To find authentication endpoints for all the national clouds, see [Azure AD authentication endpoints](./authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
     > [!NOTE]
     > Personal Microsoft accounts are not supported in national clouds.
 
 - `graphEndpoint` is the Microsoft Graph endpoint for the Microsoft cloud for US government.
 
-   To find Microsoft Graph endpoints for all the national clouds, see [Microsoft Graph endpoints in national clouds](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+   To find Microsoft Graph endpoints for all the national clouds, see [Microsoft Graph endpoints in national clouds](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 ## [Python](#tab/python)
 
@@ -147,7 +147,7 @@ To enable your MSAL Python application for sovereign clouds:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- To call Microsoft graph requires a specific Graph endpoint URL that depends on which cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- To call Microsoft graph requires a specific Graph endpoint URL that depends on which cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
     Here's an example of a graph endpoint, with scope:
 
@@ -170,7 +170,7 @@ Here's an example authority:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- To call Microsoft graph requires a specific Graph endpoint URL that depends on which cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- To call Microsoft graph requires a specific Graph endpoint URL that depends on which cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Here's an example of a graph endpoint, with scope:
 
@@ -222,6 +222,6 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 Learn more about:
 
 - [Authentication in National Clouds](authentication-national-cloud.md)
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure Germany](https://docs.microsoft.com/azure/germany/)
+- [Azure Government](../../azure-government/index.yml)
+- [Azure China 21Vianet](/azure/china/)
+- [Azure Germany](../../germany/index.yml)

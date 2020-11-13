@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: yelevin #Required; your GitHub user alias, with correct capitalization.
   ms.author: yelevin #Required; microsoft alias of author; optional team alias.
-  ms.date: 25/09/2019 #Required; mm/dd/yyyy format.
+  ms.date: 06/25/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -47,7 +47,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Connect Azure AD
+          - text: Connect Azure Active Directory
             url: connect-azure-active-directory.md
           - text: Connect Azure Information Protection
             url: connect-azure-information-protection.md

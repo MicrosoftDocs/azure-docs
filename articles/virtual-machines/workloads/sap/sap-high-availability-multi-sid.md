@@ -1,6 +1,6 @@
 ---
-title: Create an SAP multi-SID configuration in Azure | Microsoft Docs
-description: Guide to high-availability SAP NetWeaver multi-SID configuration on Windows virtual machines
+title: Create high-availability SAP multi-SID configuration in Azure
+description: Learn how to create high-availability SAP NetWeaver multi-SID configuration on Windows virtual machines.
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Create an SAP NetWeaver multi-SID configuration
+# Create a high-availability SAP NetWeaver multi-SID configuration
 
 [load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
 [sap-ha-guide]:sap-high-availability-guide.md 

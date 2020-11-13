@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 08/14/2020
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with TLS termination so I can secure my application traffic.
 ---
@@ -26,13 +26,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Sign in to Azure
+## Prerequisites
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create a self-signed certificate
 
-In this section, you use [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) to create a self-signed certificate. You upload the certificate to the Azure portal when you create the listener for the application gateway.
+In this section, you use [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) to create a self-signed certificate. You upload the certificate to the Azure portal when you create the listener for the application gateway.
 
 On your local computer, open a Windows PowerShell window as an administrator. Run the following command to create the certificate:
 
@@ -52,7 +52,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate. Make sure your password is 4 - 12 characters long:
+Use [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate. Make sure your password is 4 - 12 characters long:
 
 
 ```powershell
@@ -154,7 +154,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 5. For the **HTTP setting**, select **Create new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add an HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
-   ![Create new application gateway: HTTP setting](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
+   :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Create new application gateway: HTTP setting":::
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
@@ -202,7 +202,7 @@ To do this, you'll:
 
 In this example, you install IIS on the virtual machines only to verify Azure created the application gateway successfully.
 
-1. Open [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
+1. Open [Azure PowerShell](../cloud-shell/quickstart-powershell.md). To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
 
     ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -255,6 +255,10 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
     Your secured IIS website is then displayed as in the following example:
 
     ![Test base URL in application gateway](./media/create-ssl-portal/application-gateway-iistest.png)
+
+## Clean up resources
+
+When no longer needed, delete the resource group and all related resources. To do so, select the resource group and select **Delete resource group**.
 
 ## Next steps
 

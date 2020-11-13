@@ -6,7 +6,7 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/17/2020
+ms.date: 06/12/2020
 ms.reviewer: jeking
 ---
 
@@ -81,7 +81,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 2. In the left pane, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
 
-    ![Create notebook in Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Create notebook in Databricks")
+    ![Screenshot that shows how to create a notebook in Databricks and highlights the Create > Notebook menu option.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Create notebook in Databricks")
 
 3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
 
@@ -112,13 +112,17 @@ Before you begin with this section, you must complete the following prerequisite
 
 Enter the following code into a notebook cell:
 
-    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+```bash
+%sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+```
 
 In the cell, press **SHIFT + ENTER** to run the code.
 
 Now in a new cell below this one, enter the following code, and replace the values that appear in brackets with the same values you used earlier:
 
-    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/")
+```python
+dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/")
+```
 
 In the cell, press **SHIFT + ENTER** to run the code.
 
@@ -161,7 +165,7 @@ Perform the following tasks to run a Spark SQL job on the data.
 
 5. In **Customize Plot**, drag-and-drop values as shown in the screenshot.
 
-    ![Customize bar chart](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Customize bar chart")
+    ![Screenshot that shows the Customize Plot screen and the values that you can drag and drop.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Customize bar chart")
 
     - Set **Keys** to **gender**.
     - Set **Series groupings** to **level**.

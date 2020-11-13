@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller for an internal, private network in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 08/17/2020
 
 ---
 
@@ -23,7 +23,7 @@ You can also:
 
 ## Before you begin
 
-This article uses [Helm 3][helm] to install the NGINX ingress controller and cert-manager. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
+This article uses [Helm 3][helm] to install the NGINX ingress controller. Make sure that you are using the latest release of Helm and have access to the *ingress-nginx* Helm repository. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
 
 This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -31,7 +31,7 @@ This article also requires that you are running the Azure CLI version 2.0.64 or 
 
 By default, an NGINX ingress controller is created with a dynamic public IP address assignment. A common configuration requirement is to use an internal, private network and IP address. This approach allows you to restrict access to your services to internal users, with no external access.
 
-Create a file named *internal-ingress.yaml* using the following example manifest file. This example assigns *10.240.0.42* to the *loadBalancerIP* resource. Provide your own internal IP address for use with the ingress controller. Make sure that this IP address is not already in use within your virtual network.
+Create a file named *internal-ingress.yaml* using the following example manifest file. This example assigns *10.240.0.42* to the *loadBalancerIP* resource. Provide your own internal IP address for use with the ingress controller. Make sure that this IP address is not already in use within your virtual network. Also, if you are using an existing virtual network and subnet, you must configure your AKS cluster with the correct permissions to manage the virtual network and subnet. See [Use kubenet networking with your own IP address ranges in Azure Kubernetes Service (AKS)][aks-configure-kubenet-networking] or [Configure Azure CNI networking in Azure Kubernetes Service (AKS)][aks-configure-advanced-networking] for more information.
 
 ```yaml
 controller:
@@ -55,8 +55,11 @@ The ingress controller also needs to be scheduled on a Linux node. Windows Serve
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
 
+# Add the ingress-nginx repository
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
 # Use Helm to deploy an NGINX ingress controller
-helm install nginx-ingress stable/nginx-ingress \
+helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     -f internal-ingress.yaml \
     --set controller.replicaCount=2 \
@@ -64,14 +67,19 @@ helm install nginx-ingress stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-When the Kubernetes load balancer service is created for the NGINX ingress controller, your internal IP address is assigned, as shown in the following example output:
+When the Kubernetes load balancer service is created for the NGINX ingress controller, your internal IP address is assigned. To get the public IP address, use the `kubectl get service` command.
+
+```console
+kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
+```
+
+It takes a few minutes for the IP address to be assigned to the service, as shown in the following example output:
 
 ```
-$ kubectl get service -l app=nginx-ingress --namespace ingress-basic
+$ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 
-NAME                             TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
-nginx-ingress-controller         LoadBalancer   10.0.61.144    10.240.0.42   80:30386/TCP,443:32276/TCP   6m2s
-nginx-ingress-default-backend    ClusterIP      10.0.192.145   <none>        80/TCP                       6m2s
+NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
+nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
 No ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the internal IP address. Ingress rules are configured in the following steps.
@@ -99,7 +107,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -137,7 +145,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -172,7 +180,7 @@ In the following example, traffic to the address `http://10.240.0.42/` is routed
 Create a file named `hello-world-ingress.yaml` and copy in the following example YAML.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -180,6 +188,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
@@ -188,14 +197,24 @@ spec:
       - backend:
           serviceName: aks-helloworld
           servicePort: 80
-        path: /(.*)
+        path: /hello-world-one(/|$)(.*)
       - backend:
           serviceName: ingress-demo
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
+      - backend:
+          serviceName: aks-helloworld
+          servicePort: 80
+        path: /(.*)
 ```
 
 Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml` command.
+
+```console
+kubectl apply -f hello-world-ingress.yaml
+```
+
+The following example output shows the ingress resource is created.
 
 ```
 $ kubectl apply -f hello-world-ingress.yaml
@@ -263,7 +282,13 @@ kubectl delete namespace ingress-basic
 
 ### Delete resources individually
 
-Alternatively, a more granular approach is to delete the individual resources created. List the Helm releases with the `helm list` command. Look for charts named *nginx-ingress* and *aks-helloworld*, as shown in the following example output:
+Alternatively, a more granular approach is to delete the individual resources created. List the Helm releases with the `helm list` command. 
+
+```console
+helm list --namespace ingress-basic
+```
+
+Look for charts named *nginx-ingress* and *aks-helloworld*, as shown in the following example output:
 
 ```
 $ helm list --namespace ingress-basic
@@ -272,7 +297,13 @@ NAME                    NAMESPACE       REVISION        UPDATED                 
 nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1  
 ```
 
-Uninstall the releases with the `helm uninstall` command. The following example uninstalls the NGINX ingress deployment.
+Uninstall the releases with the `helm uninstall` command.
+
+```console
+helm uninstall nginx-ingress --namespace ingress-basic
+```
+
+The following example uninstalls the NGINX ingress deployment.
 
 ```
 $ helm uninstall nginx-ingress --namespace ingress-basic
@@ -315,7 +346,7 @@ You can also:
 
 <!-- LINKS - external -->
 [helm]: https://helm.sh/
-[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
+[helm-cli]: ./kubernetes-helm.md
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 
 <!-- LINKS - internal -->
@@ -327,3 +358,5 @@ You can also:
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [client-source-ip]: concepts-network.md#ingress-controllers
+[aks-configure-kubenet-networking]: configure-kubenet.md
+[aks-configure-advanced-networking]: configure-azure-cni.md

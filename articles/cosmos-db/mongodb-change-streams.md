@@ -1,40 +1,22 @@
 ---
-title: Change streams in Azure Cosmos DB's API for MongoDB
-description: Learn how to use change streams in Azure Cosmos DB's API for MongoDB to get the changes made to your data.
-author: timsander1
+title: Change streams in Azure Cosmos DB’s API for MongoDB
+description: Learn how to use change streams n Azure Cosmos DB’s API for MongoDB to get the changes made to your data.
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
-ms.date: 03/30/2020
-ms.author: tisande
+ms.topic: how-to
+ms.date: 06/04/2020
+ms.author: rosouz
+ms.custom: devx-track-js, devx-track-csharp
 ---
 
-# Change streams in Azure Cosmos DB's API for MongoDB
+# Change streams in Azure Cosmos DB’s API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-[Change feed](change-feed.md) support in Azure Cosmos DB's API for MongoDB is available by using the change streams API. By using the change streams API, your applications can get the changes made to the collection or to the items in a single shard. Later you can take further actions based on the results. Changes to the items in the collection are captured in the order of their modification time and the sort order is guaranteed per shard key.
+[Change feed](change-feed.md) support in Azure Cosmos DB’s API for MongoDB is available by using the change streams API. By using the change streams API, your applications can get the changes made to the collection or to the items in a single shard. Later you can take further actions based on the results. Changes to the items in the collection are captured in the order of their modification time and the sort order is guaranteed per shard key.
 
 > [!NOTE]
 > To use change streams, create the account with version 3.6 of Azure Cosmos DB's API for MongoDB, or a later version. If you run the change stream examples against an earlier version, you might see the `Unrecognized pipeline stage name: $changeStream` error.
-
-## Current limitations
-
-The following limitations are applicable when using change streams:
-
-* The `operationType` and `updateDescription` properties are not yet supported in the output document.
-* The `insert`, `update`, and `replace` operations types are currently supported. 
-* Delete operation or other events are not yet supported.
-
-Due to these limitations, the $match stage, $project stage, and fullDocument options are required as shown in the previous examples.
-
-Unlike the change feed in Azure Cosmos DB's SQL API, there is not a separate [Change Feed Processor Library](change-feed-processor.md) to consume change streams or a need for a leases container. There is not currently support for [Azure Functions triggers](change-feed-functions.md) to process change streams.
-
-## Error handling
-
-The following error codes and messages are supported when using change streams:
-
-* **HTTP error code 16500** - When the change stream is throttled, it returns an empty page.
-
-* **NamespaceNotFound (OperationType Invalidate)** - If you run change stream on the collection that does not exist or if the collection is dropped, then a `NamespaceNotFound` error is returned. Because the `operationType` property can't be returned in the output document, instead of the `operationType Invalidate` error, the `NamespaceNotFound` error is returned.
 
 ## Examples
 
@@ -56,6 +38,7 @@ while (!cursor.isExhausted()) {
     }
 }
 ```
+
 # [C#](#tab/csharp)
 
 ```csharp
@@ -77,6 +60,52 @@ while (enumerator.MoveNext()){
 enumerator.Dispose();
 ```
 
+# [Java](#tab/java)
+
+The following example shows how to use change stream functionality in Java, for the complete example, see this [GitHub repo](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/master/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java). This example also shows how to use the `resumeAfter` method to seek all the changes from last read. 
+
+```java
+Bson match = Aggregates.match(Filters.in("operationType", asList("update", "replace", "insert")));
+
+// Pick the field you are most interested in
+Bson project = Aggregates.project(fields(include("_id", "ns", "documentKey", "fullDocument")));
+
+// This variable is for second example
+BsonDocument resumeToken = null;
+
+// Now time to build the pipeline
+List<Bson> pipeline = Arrays.asList(match, project);
+
+//#1 Simple example to seek changes
+
+// Create cursor with update_lookup
+MongoChangeStreamCursor<ChangeStreamDocument<org.bson.Document>> cursor = collection.watch(pipeline)
+        .fullDocument(FullDocument.UPDATE_LOOKUP).cursor();
+
+Document document = new Document("name", "doc-in-step-1-" + Math.random());
+collection.insertOne(document);
+
+while (cursor.hasNext()) {
+    // There you go, we got the change document.
+    ChangeStreamDocument<Document> csDoc = cursor.next();
+
+    // Let is pick the token which will help us resuming
+    // You can save this token in any persistent storage and retrieve it later
+    resumeToken = csDoc.getResumeToken();
+    //Printing the token
+    System.out.println(resumeToken);
+    
+    //Printing the document.
+    System.out.println(csDoc.getFullDocument());
+    //This break is intentional but in real project feel free to remove it.
+    break;
+}
+
+cursor.close();
+
+```
+---
+
 ## Changes within a single shard
 
 The following example shows how to get changes to the items within a single shard. This example gets the changes of items that have shard key equal to "a" and the shard key value equal to "1". It is possible to have different clients reading changes from different shards in parallel.
@@ -84,8 +113,8 @@ The following example shows how to get changes to the items within a single shar
 ```javascript
 var cursor = db.coll.watch(
     [
-        {
-            $match: {
+        { 
+            $match: { 
                 $and: [
                     { "fullDocument.a": 1 }, 
                     { "operationType": { $in: ["insert", "update", "replace"] } }
@@ -97,6 +126,25 @@ var cursor = db.coll.watch(
     { fullDocument: "updateLookup" });
 
 ```
+
+## Current limitations
+
+The following limitations are applicable when using change streams:
+
+* The `operationType` and `updateDescription` properties are not yet supported in the output document.
+* The `insert`, `update`, and `replace` operations types are currently supported. However, the delete operation or other events are not yet supported.
+
+Due to these limitations, the $match stage, $project stage, and fullDocument options are required as shown in the previous examples.
+
+Unlike the change feed in Azure Cosmos DB's SQL API, there is not a separate [Change Feed Processor Library](change-feed-processor.md) to consume change streams or a need for a leases container. There is not currently support for [Azure Functions triggers](change-feed-functions.md) to process change streams.
+
+## Error handling
+
+The following error codes and messages are supported when using change streams:
+
+* **HTTP error code 16500** - When the change stream is throttled, it returns an empty page.
+
+* **NamespaceNotFound (OperationType Invalidate)** - If you run change stream on the collection that does not exist or if the collection is dropped, then a `NamespaceNotFound` error is returned. Because the `operationType` property can't be returned in the output document, instead of the `operationType Invalidate` error, the `NamespaceNotFound` error is returned.
 
 ## Next steps
 

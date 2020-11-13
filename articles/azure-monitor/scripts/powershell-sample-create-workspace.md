@@ -35,5 +35,5 @@ This script uses following commands to create a new Log Analytics workspace in y
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 

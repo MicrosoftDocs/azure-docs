@@ -1,6 +1,6 @@
 ---
 title: Connect Azure Activity data to Azure Sentinel | Microsoft Docs
-description: Learn how to connect Azure Activity data to Azure Sentinel.
+description: Stream Azure Activity logs into Azure Sentinel with a single click. The Activity log records and displays subscription-level events across Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin

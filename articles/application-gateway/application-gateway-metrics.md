@@ -5,13 +5,13 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/5/2019
+ms.date: 06/06/2020
 ms.author: absha
 
 ---
 # Metrics for Application Gateway
 
-Application Gateway publishes data points, called metrics, to [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for the performance of your Application Gateway and backend instances. These metrics are numerical values in an ordered set of time-series data that describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric is not reported. For more information, see [Azure Monitor metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Application Gateway publishes data points, called metrics, to [Azure Monitor](../azure-monitor/overview.md) for the performance of your Application Gateway and backend instances. These metrics are numerical values in an ordered set of time-series data that describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric is not reported. For more information, see [Azure Monitor metrics](../azure-monitor/platform/data-platform-metrics.md).
 
 ## Metrics supported by Application Gateway V2 SKU
 
@@ -19,7 +19,7 @@ Application Gateway publishes data points, called metrics, to [Azure Monitor](ht
 
 Application Gateway provides several built‑in timing metrics related to the request and response, which are all measured in milliseconds. 
 
-![](./media/application-gateway-metrics/application-gateway-metrics.png)
+![Diagram of timing metrics, for the Application Gateway.](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
@@ -194,7 +194,7 @@ Browse to an application gateway, under **Monitoring** select **Metrics**. To vi
 
 In the following image, you see an example with three metrics displayed for the last 30 minutes:
 
-[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+:::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Metric view." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
 To see a current list of metrics, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
@@ -226,7 +226,7 @@ A list of alerts appears after you create a metric alert. It provides an overvie
 
 ![List of alerts and rules][9]
 
-To learn more about alert notifications, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+To learn more about alert notifications, see [Receive alert notifications](../azure-monitor/platform/alerts-overview.md).
 
 To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../azure-monitor/platform/alerts-webhooks.md).
 

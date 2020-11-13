@@ -8,7 +8,7 @@ manager: daveba
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
@@ -75,11 +75,11 @@ To configure Group Claims for a Gallery or Non-Gallery SAML application, open **
 
 Click on **Add a group claim**  
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+![Screenshot that shows the "User Attributes & Claims" page with "Add a group claim" selected.](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
 Use the radio buttons to select which groups should be included in the token
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+![Screenshot that shows the "Group Claims" window with "Security groups" selected.](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | Selection | Description |
 |----------|-------------|
@@ -90,15 +90,15 @@ Use the radio buttons to select which groups should be included in the token
 
 For example, to emit all the Security Groups the user is a member of, select Security Groups
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+![Screenshot that shows the "Group Claims" window with "Security groups" selected and the "Source attribute" drop-down menu open.](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
 To emit groups using Active Directory attributes synced from Active Directory instead of Azure AD objectIDs select the required format from the drop-down. Only groups synchronized from Active Directory will be included in the claims.
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+![Screenshot that shows the "Source attribute" drop-down menu open.](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 To emit only groups assigned to the application, select **Groups Assigned to the application**
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+![Screenshot that shows the "Group Claims" window with "Groups assigned to the application" selected.](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
 Groups assigned to the application will be included in the token.  Other groups the user is a member of will be omitted.  With this option nested groups are not included and the user must be a direct member of the group assigned to the application.
 
@@ -112,11 +112,11 @@ The way group claims are emitted can be modified by the settings under Advanced 
 
 Customize the name of the group claim:  If selected, a different claim type can be specified for group claims.   Enter the claim type in the Name field and the optional namespace for the claim in the namespace field.
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+![Screenshot that shows the "Advanced options" section with "Customize the name of the group claim" selected and "Name" and "Namespace" values entered.](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
 Some applications require the group membership information to appear in the 'role' claim. You can optionally emit the user's groups as roles by checking the 'Emit groups a role claims' box.
 
-![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+![Screenshot that shows the "Advanced options" section with "Customize the name of the group claim" and "Emit groups as role claims" selected.](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
 > If the option to emit group data as roles is used, only groups will appear in the role claim.  Any Application Roles the user is assigned will not appear in the role claim.
@@ -219,6 +219,6 @@ To emit group names to be returned in netbiosDomain\samAccountName format as the
 
 ## Next steps
 
-[Assign a user or group to an enterprise app](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
-
-[Configure role claims](../../active-directory/develop/active-directory-enterprise-app-role-management.md)
+- [Add authorization using groups & groups claims to an ASP.NET Core web app (Code sample)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
+- [Assign a user or group to an enterprise app](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
+- [Configure role claims](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

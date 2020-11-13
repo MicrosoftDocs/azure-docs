@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/30/2020
+ms.date: 08/06/2020
 ---
 
 # Use external metadata stores in Azure HDInsight
@@ -33,10 +33,10 @@ By default, HDInsight creates a metastore with every cluster type. You can inste
 
 * You can't share the default metastore with other clusters.
 
-* The default metastore uses the basic Azure SQL DB, which has a five DTU (database transaction unit) limit.
-This default metastore is typically used for relatively simple workloads. Workloads that don't require multiple clusters and don't need metadata preserved beyond the cluster's lifecycle.
+* Default metastore is recommended only for simple workloads. Workloads that don't require multiple clusters and don't need metadata preserved beyond the cluster's lifecycle.
 
-* For production workloads, we recommend migrating to an external metastore. Please see the below section for more details.
+> [!IMPORTANT]
+> The default metastore provides an Azure SQL Database with a **basic tier 5 DTU limit (not upgradeable)**! Suitable for basic testing purposes. For large or production workloads, we recommend migrating to an external metastore.
 
 ## Custom metastore
 
@@ -48,7 +48,7 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 * A custom metastore lets you attach multiple clusters and cluster types to that metastore. For example, a single metastore can be shared across Interactive Query, Hive, and Spark clusters in HDInsight.
 
-* You pay for the cost of a metastore (Azure SQL DB) according to the performance level you choose.
+* You pay for the cost of a metastore (Azure SQL Database) according to the performance level you choose.
 
 * You can scale up the metastore as needed.
 
@@ -58,9 +58,9 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 ### Create and config Azure SQL Database for the custom metastore
 
-Create or have an existing Azure SQL Database before setting up a custom Hive metastore for a HDInsight cluster.  For more information, see [Quickstart: Create a single database in Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+Create or have an existing Azure SQL Database before setting up a custom Hive metastore for a HDInsight cluster.  For more information, see [Quickstart: Create a single database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
-While creating the cluster, HDInsight service needs to connect to the external metastore and verify your credentials. Configure Azure SQL Database firewall rules to allow Azure services and resources to access the server. Enable this option in the Azure portal by selecting **Set server firewall**. Then select **No** underneath **Deny public network access**, and **Yes** underneath **Allow Azure services and resources to access this server** for the Azure SQL Database server or database. For more information, see [Create and manage IP firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+While creating the cluster, HDInsight service needs to connect to the external metastore and verify your credentials. Configure Azure SQL Database firewall rules to allow Azure services and resources to access the server. Enable this option in the Azure portal by selecting **Set server firewall**. Then select **No** underneath **Deny public network access**, and **Yes** underneath **Allow Azure services and resources to access this server** for Azure SQL Database. For more information, see [Create and manage IP firewall rules](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
 Private endpoints for SQL stores are not supported.
 
@@ -76,13 +76,12 @@ You can point your cluster to a previously created Azure SQL Database at any tim
 
 ## Hive metastore guidelines
 
-* Use a custom metastore whenever possible, to help separate compute resources (your running cluster) and metadata (stored in the metastore).
-
-* Start with an S2 tier, which provides  50 DTU and 250 GB of storage. If you see a bottleneck, you can scale the database up.
+> [!NOTE]
+> Use a custom metastore whenever possible, to help separate compute resources (your running cluster) and metadata (stored in the metastore). Start with the S2 tier, which provides 50 DTU and 250 GB of storage. If you see a bottleneck, you can scale the database up.
 
 * If you intend multiple HDInsight clusters to access separate data, use a separate database for the metastore on each cluster. If you share a metastore across multiple HDInsight clusters, it means that the clusters use the same metadata and underlying user data files.
 
-* Back up your custom metastore periodically. Azure SQL Database generates backups automatically, but the backup retention timeframe varies. For more information, see [Learn about automatic SQL Database backups](../sql-database/sql-database-automated-backups.md).
+* Back up your custom metastore periodically. Azure SQL Database generates backups automatically, but the backup retention timeframe varies. For more information, see [Learn about automatic SQL Database backups](../azure-sql/database/automated-backups-overview.md).
 
 * Locate your metastore and HDInsight cluster in the same region. This configuration will provide the highest performance and lowest network egress charges.
 

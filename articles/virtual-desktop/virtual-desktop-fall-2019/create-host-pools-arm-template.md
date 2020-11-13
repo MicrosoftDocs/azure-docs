@@ -1,19 +1,16 @@
 ---
-title: Windows Virtual Desktop host pool Azure Resource Manager - Azure
-description: How to create a host pool in Windows Virtual Desktop with an Azure Resource Manager template.
-services: virtual-desktop
+title: Windows Virtual Desktop (classic) host pool Azure Resource Manager - Azure
+description: How to create a host pool in Windows Virtual Desktop (classic) with an Azure Resource Manager template.
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Create a host pool with an Azure Resource Manager template
+# Create a host pool in Windows Virtual Desktop (classic) with an Azure Resource Manager template
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 

@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/10/2019
+ms.date: 10/15/2020
 ms.author: erhopf
+ms.custom: devx-track-csharp
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for [Unity](https://unity3d.com/).

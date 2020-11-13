@@ -6,7 +6,7 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -21,8 +21,8 @@ This article provides guidance on how to choose and use Azure Active Directory (
 ## Cloud provisioning agent requirements
 You need the following to use Azure AD Connect cloud provisioning:
 	
-- A global administrator account for your Azure AD tenant that is not a guest user.
-- An on-premises server for the provisioning agent with Windows 2012 R2 or later.
+- A hybrid identity administrator account for your Azure AD tenant that is not a guest user.
+- An on-premises server for the provisioning agent with Windows 2012 R2 or later.  This server should be a tier 0 server based on the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - On-premises firewall configurations.
 
 >[!NOTE]
@@ -32,12 +32,12 @@ The rest of the document provides step-by-step instructions for these prerequisi
 
 ### In the Azure Active Directory admin center
 
-1. Create a cloud-only global administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant if your on-premises services fail or become unavailable. Learn about how to [add a cloud-only global administrator account](../active-directory-users-create-azure-portal.md). Finishing this step is critical to ensure that you don't get locked out of your tenant.
-1. Add one or more [custom domain names](../active-directory-domains-add-azure-portal.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
+1. Create a cloud-only hybrid identity administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant if your on-premises services fail or become unavailable. Learn about how to [add a cloud-only hybrid identity administrator account](../fundamentals/add-users-azure-active-directory.md). Finishing this step is critical to ensure that you don't get locked out of your tenant.
+1. Add one or more [custom domain names](../fundamentals/add-custom-domain.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
 
 ### In your directory in Active Directory
 
-Run the [IdFix tool](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) to prepare the directory attributes for synchronization.
+Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) to prepare the directory attributes for synchronization.
 
 ### In your on-premises environment
 
@@ -59,14 +59,9 @@ Run the [IdFix tool](https://docs.microsoft.com/office365/enterprise/prepare-dir
    - Your agents need access to login.windows.net and login.microsoftonline.com for initial registration. Open your firewall for those URLs as well.
    - For certificate validation, unblock the following URLs: mscrl.microsoft.com:80, crl.microsoft.com:80, ocsp.msocsp.com:80, and www\.microsoft.com:80. These URLs are used for certificate validation with other Microsoft products, so you might already have these URLs unblocked.
 
-### Verify the port
-To verify that Azure is listening on port 443 and that your agent can communicate with it, use the following URL:
+>[!NOTE]
+> Installing the cloud provisioning agent on Windows Server Core is not supported.
 
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
-
-This test verifies that your agents can communicate with Azure over port 443. Open a browser, and go to the previous URL from the server where the agent is installed.
-
-![Verification of port reachability](media/how-to-install/verify2.png)
 
 ### Additional requirements
 - [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
@@ -96,4 +91,3 @@ To enable TLS 1.2, follow these steps.
 
 - [What is provisioning?](what-is-provisioning.md)
 - [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
-

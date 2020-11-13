@@ -1,28 +1,29 @@
 ---
- title: B-series burstable - Azure Virtual Machines
- description: Describes the B-series of burstable Azure VM sizes.
- services: virtual-machines
- author: ayshakeen
- manager: gwallace
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: ayshak
+title: B-series burstable - Azure Virtual Machines
+description: Describes the B-series of burstable Azure VM sizes.
+services: virtual-machines
+ms.subservice: sizes
+author: styli365
+ms.service: virtual-machines
+ms.topic: conceptual
+ms.date: 02/03/2020
+ms.author: sttsinar
 ---
 
 # B-series burstable virtual machine sizes
 
-The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts, small databases and development build environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and the VM instance builds up credits when it is using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
+The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts, small databases and development build environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance that can build up credits when it is using less than its baseline. When the VM has accumulated credits, the VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
 
 The B-series comes in the following VM sizes:
 
-Premium Storage:  Supported
-
-Premium Storage caching:  Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[Azure Compute Unit (ACU)](./acu.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json): Varies*<br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+<br>
+*B-series VMs are burstable and thus ACU numbers will vary depending on workloads and core usage.
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Base CPU Perf of VM | Max CPU Perf of VM | Initial Credits | Credits banked/hour | Max Banked Credits | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -87,18 +88,20 @@ For a D16s_v3 which has 16 vCPUs and 64 GiB of memory the hourly rate is $0.936 
 
 ## Q & A
 
+### Q: What happens when my credits run out?
+**A**: When the credits are exhausted, the VM returns to the baseline performance.
+
 ### Q: How do you get 135% baseline performance from a VM?
 
 **A**: The 135% is shared amongst the 8 vCPU’s that make up the VM size. For example, if your application uses 4 of the 8 cores working on batch processing and each of those 4 vCPU’s are running at 30% utilization the total amount of VM CPU performance would equal 120%.  Meaning that your VM would be building credit time based on the 15% delta from your baseline performance.  But it also means that when you have credits available that same VM can use 100% of all 8 vCPU’s giving that VM a Max CPU performance of 800%.
 
+### Q: How can I monitor my credit balance and consumption?
 
-### Q: How can I monitor my credit balance and consumption
-
-**A**: We will be introducing 2 new metrics in the coming weeks, the **Credit** metric will allow you to view how many credits your VM has banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
+**A**: The **Credit** metric allows you to view how many credits your VM have been banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
 
 For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
-### Q: How are credits accumulated?
+### Q: How are credits accumulated and consumed?
 
 **A**: The VM accumulation and consumption rates are set such that a VM running at exactly its base performance level will have neither a net accumulation or consumption of bursting credits.  A VM will have a net increase in credits whenever it is running below its base performance level and will have a net decrease in credits whenever the VM is utilizing the CPU more than its base performance level.
 
@@ -124,13 +127,13 @@ e.g in above instance your baseline is 20% and if you use 10% of the CPU you are
 
 ### Q: Why is my remaining credit set to 0 after a redeploy or a stop/start?
 
-**A** : When a VM is “REDPLOYED” and the VM  moves to another node, the accumulated credit is lost. If the VM is stopped/started, but remains on the same node, the VM retains the accumulated credit. Whenever the VM starts fresh on a node, it gets an initial credit,  for Standard_B8ms it is 240 mins.
+**A** : When a VM is “REDPLOYED” and the VM  moves to another node, the accumulated credit is lost. If the VM is stopped/started, but remains on the same node, the VM retains the accumulated credit. Whenever the VM starts fresh on a node, it gets an initial credit,  for Standard_B8ms it is 240.
 
 ### Q: What happens if I deploy an unsupported OS image on B1ls?
 
 **A** : B1ls only supports Linux images and if you deploy any another OS image you might not get the best customer experience.
 
-## Other sizes
+## Other sizes and information
 
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
@@ -138,6 +141,10 @@ e.g in above instance your baseline is 20% and if you use 10% of the CPU you are
 - [Storage optimized](sizes-storage.md)
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
+
+Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
 
 ## Next steps
 

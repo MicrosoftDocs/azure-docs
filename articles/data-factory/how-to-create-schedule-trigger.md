@@ -3,14 +3,15 @@ title: Create schedule triggers in Azure Data Factory
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a schedule.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/23/2018
+ms.date: 10/30/2020
+ms.custom: devx-track-python
 ---
 
 # Create a trigger that runs a pipeline on a schedule
@@ -42,12 +43,19 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
 1. On the **New Trigger** page, do the following steps: 
 
-    1. Confirm that **Schedule** is selected for **Type**. 
-    1. Specify the start datetime of the trigger for **Start Date (UTC)**. It's set to the current datetime by default. 
-    1. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box. 
-    1. For the **End** field, if you do not want to specify an end datetime for the trigger, select **No End**. To specify an end date time, select **On Date**, and specify end datetime, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI.
+    1. Confirm that **Schedule** is selected for **Type**.
+    1. Specify the start datetime of the trigger for **Start Date**. It's set to the current datetime in Coordinated Universal Time (UTC) by default.
+    1. Specify the time zone that the trigger will be created in. The time zone setting will apply to **Start Date**, **End Date**, and **Schedule Execution Times** in Advanced recurrence options. Changing Time Zone setting will not automatically change your start date. Make sure the Start Date is correct in the specified time zone
 
-        ![Trigger settings](./media/how-to-create-schedule-trigger/trigger-settings.png)
+        > [!NOTE]
+        > For time zones that observe daylight saving, trigger time will auto-adjust for the twice a year change. To opt out of the daylight saving change, please select a time zone that does not observe daylight saving, for instance UTC
+
+    1. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box. 
+    1. To specify an end date time, select **Specify an End Date**, and specify _Ends On_, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI.
+
+        ![Trigger settings](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
+
+        ![Trigger settings for End Date](./media/how-to-create-schedule-trigger/trigger-settings-02.png)
 
 1. In the **New Trigger** window, select **Yes** in the **Activated** option, then select **OK**. You can use this checkbox to deactivate the trigger later. 
 
@@ -65,7 +73,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Switch to the **Trigger Runs** view. 
+1. Switch to the **Trigger Runs** \ **Schedule** view. 
 
     ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -89,8 +97,9 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
                 "recurrence": {
                     "frequency": "Minute",
                     "interval": 15,
-                    "startTime": "2017-12-08T00:00:00",
-                    "endTime": "2017-12-08T01:00:00"
+                    "startTime": "2017-12-08T00:00:00Z",
+                    "endTime": "2017-12-08T01:00:00Z",
+                    "timeZone": "UTC"
                 }
             },
             "pipelines": [{
@@ -109,11 +118,18 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     ```
 
     In the JSON snippet:
-    - The **type** element of the trigger is set to "ScheduleTrigger."
-    - The **frequency** element is set to "Minute" and the **interval** element is set to 15. Therefore, the trigger runs the pipeline every 15 minutes between the start and end times.
-    - The **endTime** element is one hour after the value of the **startTime** element. Therefore, the trigger runs the pipeline 15 minutes, 30 minutes, and 45 minutes after the start time. Don't forget to update the start time to the current UTC time, and the end time to one hour past the start time. 
+    - The **type** element of the trigger is set to "ScheduleTrigger".
+    - The **frequency** element is set to "Minute" and the **interval** element is set to 15. As such, the trigger runs the pipeline every 15 minutes between the start and end times.
+    - The **timeZone** element specifies the time zone that the trigger is created in. This setting affects both **startTime** and **endTime**.
+    - The **endTime** element is one hour after the value of the **startTime** element. As such, the trigger runs the pipeline 15 minutes, 30 minutes, and 45 minutes after the start time. Don't forget to update the start time to the current UTC time, and the end time to one hour past the start time. 
+
+        > [!IMPORTANT]
+        > For UTC timezone, the startTime and endTime need to follow format 'yyyy-MM-ddTHH:mm:ss**Z**', while for other timezones, startTime and endTime follow 'yyyy-MM-ddTHH:mm:ss'. 
+        > 
+        > Per ISO 8601 standard, the _Z_ suffix to timestamp mark the datetime to UTC timezone, and render timeZone field useless. While missing _Z_ suffix for UTC time zone will result in an error upon trigger _activation_.
+
     - The trigger is associated with the **Adfv2QuickStartPipeline** pipeline. To associate multiple pipelines with a trigger, add more **pipelineReference** sections.
-    - The pipeline in the Quickstart takes two **parameters** values: **inputPath** and **outputPath**. Therefore, you pass values for these parameters from the trigger.
+    - The pipeline in the Quickstart takes two **parameters** values: **inputPath** and **outputPath**. And you pass values for these parameters from the trigger.
 
 1. Create a trigger by using the **Set-AzDataFactoryV2Trigger** cmdlet:
 
@@ -145,7 +161,11 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
+    > [!NOTE]
+    > Trigger time of Schedule triggers are specified in UTC timestamp. _TriggerRunStartedAfter_ and _TriggerRunStartedBefore_ also expects UTC timestamp
+
     To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+
 
 
 ## .NET SDK
@@ -201,6 +221,16 @@ To create and start a schedule trigger that runs every 15 minutes, add the follo
             client.Triggers.Start(resourceGroup, dataFactoryName, triggerName);
 ```
 
+To create triggers in a different time zone, other than UTC, following settings are required:
+```csharp
+<<ClientInstance>>.SerializationSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
+<<ClientInstance>>.SerializationSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Unspecified;
+<<ClientInstance>>.SerializationSettings.DateParseHandling = DateParseHandling.None;
+<<ClientInstance>>.DeserializationSettings.DateParseHandling = DateParseHandling.None;
+<<ClientInstance>>.DeserializationSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
+<<ClientInstance>>.DeserializationSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Unspecified;
+```
+
 To monitor a trigger run, add the following code before the last `Console.WriteLine` statement in the sample:
 
 ```csharp
@@ -234,7 +264,7 @@ This section shows you how to use the Python SDK to create, start, and monitor a
 ```python
     # Create a trigger
     tr_name = 'mytrigger'
-    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00', end_time='2017-12-12T05:00:00', time_zone='UTC')
+    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00Z', end_time='2017-12-12T05:00:00Z', time_zone='UTC')
     pipeline_parameters = {'inputPath':'adftutorial/input', 'outputPath':'adftutorial/output'}
     pipelines_to_run = []
     pipeline_reference = PipelineReference('copyPipeline')
@@ -316,24 +346,46 @@ The following table provides a high-level overview of the major schema elements 
 
 | JSON property | Description |
 |:--- |:--- |
-| **startTime** | A Date-Time value. For simple schedules, the value of the **startTime** property applies to the first occurrence. For complex schedules, the trigger starts no sooner than the specified **startTime** value. |
-| **endTime** | The end date and time for the trigger. The trigger doesn't execute after the specified end date and time. The value for the property can't be in the past. This property is optional. |
-| **timeZone** | The time zone. Currently, only the UTC time zone is supported. |
+| **startTime** | A Date-Time value. For simple schedules, the value of the **startTime** property applies to the first occurrence. For complex schedules, the trigger starts no sooner than the specified **startTime** value. <br> For UTC time zone, format is `'yyyy-MM-ddTHH:mm:ssZ'`, for other time zone, format is `'yyyy-MM-ddTHH:mm:ss'`. |
+| **endTime** | The end date and time for the trigger. The trigger doesn't execute after the specified end date and time. The value for the property can't be in the past. This property is optional.  <br> For UTC time zone, format is `'yyyy-MM-ddTHH:mm:ssZ'`, for other time zone, format is `'yyyy-MM-ddTHH:mm:ss'`. |
+| **timeZone** | The time zone the trigger is created in. This setting impact **startTime**, **endTime**, and **schedule**. See [list of supported time zone](#time-zone-option) |
 | **recurrence** | A recurrence object that specifies the recurrence rules for the trigger. The recurrence object supports the **frequency**, **interval**, **endTime**, **count**, and **schedule** elements. When a recurrence object is defined, the **frequency** element is required. The other elements of the recurrence object are optional. |
 | **frequency** | The unit of frequency at which the trigger recurs. The supported values include "minute," "hour," "day," "week," and "month." |
 | **interval** | A positive integer that denotes the interval for the **frequency** value, which determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "week," the trigger recurs every 3 weeks. |
 | **schedule** | The recurrence schedule for the trigger. A trigger with a specified **frequency** value alters its recurrence based on a recurrence schedule. The **schedule** property contains modifications for the recurrence that are based on minutes, hours, weekdays, month days, and week number.
 
+> [!IMPORTANT]
+> For UTC timezone, the startTime and endTime need to follow format 'yyyy-MM-ddTHH:mm:ss**Z**', while for other timezones, startTime and endTime follow 'yyyy-MM-ddTHH:mm:ss'. 
+> 
+> Per ISO 8601 standard, the _Z_ suffix to timestamp mark the datetime to UTC timezone, and render timeZone field useless. While missing _Z_ suffix for UTC time zone will result in an error upon trigger _activation_.
 
 ### Schema defaults, limits, and examples
 
 | JSON property | Type | Required | Default value | Valid values | Example |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | String | Yes | None | ISO-8601 Date-Times | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | String | Yes | None | ISO-8601 Date-Times | for UTC time zone `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> for other time zone `"2013-01-09T09:30:00-08:00"` |
+| **timeZone** | String | Yes | None | [Time Zone Values](#time-zone-option)  | `"UTC"` |
 | **recurrence** | Object | Yes | None | Recurrence object | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | No | 1 | 1 to 1,000 | `"interval":10` |
-| **endTime** | String | Yes | None | A Date-Time value that represents a time in the future. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | String | Yes | None | A Date-Time value that represents a time in the future. | for UTC time zone `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> for other time zone `"endTime" : "2013-02-09T09:30:00-08:00"`|
 | **schedule** | Object | No | None | Schedule object | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+
+### Time zone option
+
+Here are some of time zones supported for Schedule triggers:
+
+| Time Zone | UTC Offset (Non-Daylight Saving) | timeZone Value | Observe Daylight Saving | Time Stamp Format |
+| :--- | :--- | :--- | :--- | :--- |
+| Coordinated Universal Time | 0 | `UTC` | No | `'yyyy-MM-ddTHH:mm:ssZ'`|
+| Pacific Time (PT) | -8 | `Pacific Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Central Time (CT) | -6 | `Central Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Eastern Time (ET) | -5 | `Eastern Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Greenwich Mean Time (GMT) | 0 | `GMT Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Central European Standard Time | +1 | `W. Europe Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| India Standard Time (IST) | +5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
+| China Standard Time | +8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
+
+This list is incomplete. For complete list of time zone options, explore in Data Factory portal [Trigger creation page](#data-factory-ui)
 
 ### startTime property
 The following table shows you how the **startTime** property controls a trigger run:
@@ -345,9 +397,9 @@ The following table shows you how the **startTime** property controls a trigger 
 
 Let's see an example of what happens when the start time is in the past, with a recurrence, but no schedule. Assume that the current time is `2017-04-08 13:00`, the start time is `2017-04-07 14:00`, and the recurrence is every two days. (The **recurrence** value is defined by setting the **frequency** property to "day" and the **interval** property to 2.) Notice that the **startTime** value is in the past and occurs before the current time.
 
-Under these conditions, the first execution is at `2017-04-09 at 14:00`. The Scheduler engine calculates execution occurrences from the start time. Any instances in the past are discarded. The engine uses the next instance that occurs in the future. In this scenario, the start time is `2017-04-07 at 2:00pm`, so the next instance is two days from that time, which is `2017-04-09 at 2:00pm`.
+Under these conditions, the first execution is at `2017-04-09` at `14:00`. The Scheduler engine calculates execution occurrences from the start time. Any instances in the past are discarded. The engine uses the next instance that occurs in the future. In this scenario, the start time is `2017-04-07` at `2:00pm`, so the next instance is two days from that time, which is `2017-04-09` at `2:00pm`.
 
-The first execution time is the same even if the **startTime** value is `2017-04-05 14:00` or `2017-04-01 14:00`. After the first execution, subsequent executions are calculated by using the schedule. Therefore, the subsequent executions are at `2017-04-11 at 2:00pm`, then `2017-04-13 at 2:00pm`, then `2017-04-15 at 2:00pm`, and so on.
+The first execution time is the same even if the **startTime** value is `2017-04-05 14:00` or `2017-04-01 14:00`. After the first execution, subsequent executions are calculated by using the schedule. Therefore, the subsequent executions are at `2017-04-11` at `2:00pm`, then `2017-04-13` at `2:00pm`, then `2017-04-15` at `2:00pm`, and so on.
 
 Finally, when the hours or minutes aren’t set in the schedule for a trigger, the hours or minutes of the first execution are used as the defaults.
 

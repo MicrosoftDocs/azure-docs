@@ -1,6 +1,6 @@
 ---
 title: Hunting capabilities in Azure Sentinel| Microsoft Docs
-description: This article describes how to use the Azure Sentinel hunting capabilities.
+description: Use Azure Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
 services: sentinel
 documentationcenter: na
 author: yelevin

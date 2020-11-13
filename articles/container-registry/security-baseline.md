@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -14,13 +14,13 @@ ms.custom: security-benchmark
 
 The Azure Security Baseline for Azure Container Registry contains recommendations that will help you improve the security posture of your deployment.
 
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 ## Network Security
 
-*For more information, see [Security Control: Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security Control: Network Security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
@@ -132,7 +132,7 @@ Allow access by service tag: https://docs.microsoft.com/azure/container-registry
 
 **Guidance**: Define and implement standard security configurations for network resources associated with your Azure container registries with Azure Policy. Use Azure Policy aliases in the "Microsoft.ContainerRegistry" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your container registries. 
 
-You may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
+You may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
 
 Audit compliance of Azure container registries using Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
@@ -145,7 +145,7 @@ How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/bl
 
 ### 1.10: Document traffic configuration rules
 
-**Guidance**: Customer may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
+**Guidance**: Customer may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
 
 How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -171,7 +171,7 @@ How to create alerts in Azure Monitor:  https://docs.microsoft.com/azure/azure-m
 
 ## Logging and Monitoring
 
-*For more information, see [Security Control: Logging and Monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security Control: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -283,7 +283,7 @@ How to alert on log analytics log data:  https://docs.microsoft.com/azure/azure-
 
 ## Identity and Access Control
 
-*For more information, see [Security Control: Identity and Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security Control: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -463,7 +463,7 @@ List of Customer Lockbox supported services: https://docs.microsoft.com/azure/se
 
 ## Data Protection
 
-*For more information, see [Security Control: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security Control: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -555,9 +555,9 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure Active Directory (Azure AD) RBAC to control access to data and resources in an Azure container registry. 
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to data and resources in an Azure container registry. 
 
-How to configure RBAC in Azure:  https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+How to configure Azure RBAC:  https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 Azure Container Registry roles and permissions:  https://docs.microsoft.com/azure/container-registry/container-registry-roles
 
@@ -607,7 +607,7 @@ Azure Container Registry logs for diagnostic evaluation and auditing: https://do
 
 ## Vulnerability Management
 
-*For more information, see [Security Control: Vulnerability Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security Control: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -674,7 +674,7 @@ Azure Container Registry integration with Security Center (Preview):  https://do
 
 ## Inventory and Asset Management
 
-*For more information, see [Security Control: Inventory and Asset Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security Control: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use Azure Asset Discovery
 
@@ -848,7 +848,7 @@ How to create an NSG with a security config:  https://docs.microsoft.com/azure/v
 
 ## Secure Configuration
 
-*For more information, see [Security Control: Secure Configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security Control: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -975,9 +975,11 @@ Audit compliance of Azure container registries using Azure Policy:  https://docs
 
 How to integrate with Azure Managed Identities:  https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-How to create a Key Vault:  https://docs.microsoft.com/azure/key-vault/quick-create-portal
+How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-How to provide Key Vault authentication with a managed identity:  https://docs.microsoft.com/azure/key-vault/managed-identity
+How to authenticate to Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+How to assign a Key Vault access policy: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 Use an Azure-managed identity in Azure Container Registry tasks:  https://docs.microsoft.com/azure/container-registry/container-registry-tasks-authentication-managed-identity
 
@@ -1012,7 +1014,7 @@ How to setup Credential Scanner:  https://secdevtools.azurewebsites.net/helpcred
 
 ## Malware Defense
 
-*For more information, see [Security Control: Malware Defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security Control: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -1047,7 +1049,7 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 
 ## Data Recovery
 
-*For more information, see [Security Control: Data Recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security Control: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1103,7 +1105,7 @@ How to enable Soft-Delete in Key Vault: https://docs.microsoft.com/azure/storage
 
 ## Incident Response
 
-*For more information, see [Security Control: Incident Response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security Control: Incident Response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -1182,7 +1184,7 @@ How to configure Workflow Automation and Logic Apps:  https://docs.microsoft.com
 
 ## Penetration Tests and Red Team Exercises
 
-*For more information, see [Security Control: Penetration Tests and Red Team Exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security Control: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days
 
@@ -1198,5 +1200,5 @@ You can find more information on Microsoft's strategy and execution of Red Teami
 
 ## Next steps
 
-- See the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure Security Baselines](../security/benchmarks/security-baselines-overview.md)

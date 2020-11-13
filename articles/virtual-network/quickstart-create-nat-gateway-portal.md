@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a NAT gateway - Azure portal'
+title: 'Tutorial: Create a NAT gateway - Azure portal'
 titlesuffix: Azure Virtual Network NAT
 description: This quickstart shows how to create a NAT gateway using the Azure portal
 services: virtual-network
@@ -8,6 +8,7 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,9 +17,9 @@ ms.date: 02/24/2020
 ms.author: allensu
 ---
 
-# Quickstart: Create a NAT gateway using the Azure portal
+# Tutorial: Create a NAT gateway using the Azure portal
 
-This quickstart shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
+This tutorial shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
 If you prefer, you can do these steps using the [Azure CLI](quickstart-create-nat-gateway-cli.md), [Azure PowerShell](quickstart-create-nat-gateway-powershell.md), or deploy a [ARM Template](quickstart-create-nat-gateway-powershell.md) instead of the portal.
 

@@ -82,11 +82,15 @@ To enable dump logs and Serial Console, run the following script.
 
 1. On the recovery VM, run the following command from an elevated command prompt. This command sets the affected OS disk to start into safe mode at the next boot:
 
-        bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store <OS DISK you attached>:\boot\bcd /set {default} safeboot minimal
+    ```
 
     For example, if the OS disk that you attached is drive F, run the following command:
 
-        bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```console
+    bcdedit /store F: boot\bcd /set {default} safeboot minimal
+    ```
 
 2. [Detach the OS disk and then re-attach the OS disk to the affected VM](troubleshoot-recovery-disks-portal-windows.md). The VM will boot into Safe mode. If you still experience the error, go to the optional step.
 3. Open the **Run** box and run **verifier** to start the Driver Verifier Manager tool.
@@ -96,7 +100,10 @@ To enable dump logs and Serial Console, run the following script.
 
 7. Remove the safe boot settings:
 
-        bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```console
+    bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
+    ```
+
 8.	Restart the VM. 
 
 ### Optional: Analyze the dump logs in Dump Crash mode

@@ -8,6 +8,7 @@ author: asudbring
 manager: KumundD
 Customer intent: I want to test a NAT Gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -164,9 +165,9 @@ In this section you'll need to replace the following parameters in the steps wit
 | **\<resource-group-name>**  | myResourceGroupNAT |
 | **\<virtual-network-name>** | myVNetdestination          |
 | **\<region-name>**          | East US 2      |
-| **\<IPv4-address-space>**   | 192.168.0.0/16          |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
 | **\<subnet-name>**          | mySubnetdestination        |
-| **\<subnet-address-range>** | 192.168.0.0/24          |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

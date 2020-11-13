@@ -9,10 +9,10 @@ manager: KumudD
 ms.service: virtual-network
 Customer intent: As an IT administrator, I want to troubleshoot Virtual Network NAT.
 ms.devlang: na
-ms.topic: overview
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/28/2020
+ms.date: 05/20/2020
 ms.author: allensu
 ---
 
@@ -26,6 +26,7 @@ This article helps administrators diagnose and resolve connectivity problems whe
 * [ICMP ping is failing](#icmp-ping-is-failing)
 * [Connectivity failures](#connectivity-failures)
 * [IPv6 coexistence](#ipv6-coexistence)
+* [Connection doesn't originate from NAT gateway IP(s)](#connection-doesnt-originate-from-nat-gateway-ips)
 
 To resolve these problems, follow the steps in the following section.
 
@@ -56,10 +57,10 @@ _**Solution:**_ Use appropriate patterns and best practices
 - DNS can introduce many individual flows at volume when the client is not caching the DNS resolvers result. Use caching.
 - UDP flows (for example DNS lookups) allocate SNAT ports for the duration of the idle timeout. The longer the idle timeout, the higher the pressure on SNAT ports. Use short idle timeout (for example 4 minutes).
 - Use connection pools to shape your connection volume.
-- Never silently abandon a TCP flow and rely on TCP timers to clean up flow. If you don't let TCP explicitly close the connection, state remains allocated at intermediate systems and endpoints and makes SNAT ports unavailable for other connections. This can trigger application failures and SNAT exhaustion. 
+- Never silently abandon a TCP flow and rely on TCP timers to clean up flow. If you don't let TCP explicitly close the connection, state remains allocated at intermediate systems and endpoints and makes SNAT ports unavailable for other connections. This pattern can trigger application failures and SNAT exhaustion. 
 - Don't change OS-level TCP close related timer values without expert knowledge of impact. While the TCP stack will recover, your application performance can be negatively impacted when the endpoints of a connection have mismatched expectations. The desire to change timers is usually a sign of an underlying design problem. Review following recommendations.
 
-Often times SNAT exhaustion can also be amplified with other anti-patterns in the underlying application. Review these additional patterns and best practices to improve the scale and reliability of your service.
+SNAT exhaustion can also be amplified with other anti-patterns in the underlying application. Review these additional patterns and best practices to improve the scale and reliability of your service.
 
 - Explore impact of reducing [TCP idle timeout](nat-gateway-resource.md#timers) to lower values including default idle timeout of 4 minutes to free up SNAT port inventory earlier.
 - Consider [asynchronous polling patterns](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) for long-running operations to free up connection resources for other operations.
@@ -111,7 +112,7 @@ Use tools like the following to validation connectivity. [ICMP ping isn't suppor
 
 #### Configuration
 
-Check the following:
+Check your configuration:
 1. Does the NAT gateway resource have at least one public IP resource or one public IP prefix resource? You must at least have one IP address associated with the NAT gateway for it to be able to provide outbound connectivity.
 2. Is the virtual network's subnet configured to use the NAT gateway?
 3. Are you using UDR (user-defined route) and are you overriding the destination?  NAT gateway resources become the default route (0/0) on configured subnets.
@@ -177,6 +178,18 @@ _**Solution:**_
 _**Solution:**_ Deploy NAT gateway on a subnet without IPv6 prefix.
 
 You can indicate interest in additional capabilities through [Virtual Network NAT UserVoice](https://aka.ms/natuservoice).
+
+### Connection doesn't originate from NAT gateway IP(s)
+
+You configure NAT gateway, IP address(es) to use, and which subnet should use a NAT gateway resource. However, connections from virtual machine instances that existed before the NAT gateway was deployed don't use the IP address(es).  They appear to be using IP address(es) not used with the NAT gateway resource.
+
+_**Solution:**_
+
+[Virtual Network NAT](nat-overview.md) replaces the outbound connectivity for the subnet it is configured on. When transitioning from default SNAT or load balancer outbound SNAT to using NAT gateways, new connections will immediately begin using the IP address(es) associated with the NAT gateway resource.  However, if a virtual machine still has an established connection during the switch to NAT gateway resource, the connection will continue using the old SNAT IP address that was assigned when the connection was established.  Make sure you are really establishing a new connection rather than reusing a connection that already existed because the OS or the browser was caching the connections in a connection pool.  For example, when using _curl_ in PowerShell, make sure to specify the _-DisableKeepalive_ parameter to force a new connection.  If you're using a browser, connections may also be pooled.
+
+It's not necessary to reboot a virtual machine configuring a subnet for a NAT gateway resource.  However, if a virtual machine is rebooted, the connection state is flushed.  When the connection state has been flushed, all connections will begin using the NAT gateway resource's IP address(es).  However, this is a side effect of the virtual machine being rebooted and not an indicator that a reboot is required.
+
+If you are still having trouble, open a support case for further troubleshooting.
 
 ## Next steps
 

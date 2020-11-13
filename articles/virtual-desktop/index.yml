@@ -26,7 +26,7 @@ landingContent:
             url: overview.md
 
   # Card
-  - title: Get started with the Windows Virtual Desktop Spring 2020 Release
+  - title: Get started with Windows Virtual Desktop
     linkLists:
       - linkListType: tutorial
         links:
@@ -39,7 +39,7 @@ landingContent:
           - text: Set up service alerts
             url: set-up-service-alerts.md
 
-  - title: Get started with the Windows Virtual Desktop Fall 2019 Release
+  - title: Get started with Windows Virtual Desktop (classic)
     linkLists:
       - linkListType: tutorial
         links:
@@ -58,7 +58,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Windows Desktop client
-            url: connect-windows-7-and-10.md
+            url: connect-windows-7-10.md
           - text: Web client
             url: connect-web.md
           - text: Android client

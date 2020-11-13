@@ -4,7 +4,7 @@ description: Using Azure Batch render manager integration. Learn about built-in 
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Using Azure Batch with render farm managers

@@ -1,22 +1,15 @@
 ---
-title: How to remove a user's access to an application | Microsoft Docs
-description: Understand how to remove a user's access to an application
+title: How to remove a user's access to an application in Azure Active Directory
+description: Understand how to remove a user's access to an application in Azure Active Directory
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
-ms.assetid:
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 10/17/2018
-ms.author: mimart
-
-ms.collection: M365-identity-device-management
+ms.topic: how-to
+ms.date: 11/02/2020
+ms.author: kenwith
 ---
 
 # How to remove a user's access to an application
@@ -33,23 +26,7 @@ To disable all user sign-ins to an application, follow the steps listed in the [
 
 ## I want to delete an application entirely
 
-To **delete an application**, follow these instructions:
-
-1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-
-2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4. Click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5. Click **All Applications** to view a list of all your applications.
-
-   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6. Select the application you want to delete.
-
-7. Once the application loads, click **Delete** icon from the top application’s **Overview** pane.
+The [Quickstart Series on Application Management](delete-application-portal.md) includes guidance on deleting an application from your Azure Active Directory tenant.
 
 ## I want to disable all future user consent operations to any application
 

@@ -6,10 +6,12 @@ ms.author: sivethe
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
+ms.custom: devx-track-js
 ---
 # How to globally distribute reads using Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 This article shows how to globally distribute read operations with [MongoDB Read Preference](https://docs.mongodb.com/manual/core/read-preference/) settings using Azure Cosmos DB's API for MongoDB.
 
@@ -164,6 +166,6 @@ If you're not going to continue to use this app, delete all resources created by
 
 ## Next steps
 
-* [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md)
+* [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
 * [Setup a globally distributed database with Azure Cosmos DB's API for MongoDB](tutorial-global-distribution-mongodb.md)
 * [Develop locally with the Azure Cosmos DB emulator](local-emulator.md)

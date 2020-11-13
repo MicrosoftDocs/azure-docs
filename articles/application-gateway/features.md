@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/25/2020
 ms.author: victorh
 ---
 
@@ -30,7 +30,7 @@ Application Gateway includes the following features:
 - [Websocket and HTTP/2 traffic](#websocket-and-http2-traffic)
 - [Connection draining](#connection-draining)
 - [Custom error pages](#custom-error-pages)
-- [Rewrite HTTP headers](#rewrite-http-headers)
+- [Rewrite HTTP headers and URL](#rewrite-http-headers-and-url)
 - [Sizing](#sizing)
 
 ## Secure Sockets Layer (SSL/TLS) termination
@@ -79,13 +79,13 @@ For more information, see [URL Path Based Routing overview](url-route-overview.m
 
 ## Multiple-site hosting
 
-Multiple-site hosting enables you to configure more than one web site on the same application gateway instance. This feature allows you to configure a more efficient topology for your deployments by adding up to 100 web sites to one Application Gateway (for optimal performance). Each web site can be directed to its own pool. For example, application gateway can serve traffic for `contoso.com` and `fabrikam.com` from two server pools called ContosoServerPool and FabrikamServerPool.
+With Application Gateway, you can configure routing based on host name or domain name for more than one web application on the same application gateway. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting. 
 
-Requests for `http://contoso.com` are routed to ContosoServerPool, and `http://fabrikam.com` are routed to FabrikamServerPool.
+Requests for `http://contoso.com` are routed to ContosoServerPool, `http://fabrikam.com` are routed to FabrikamServerPool, and so on.
 
-Similarly, two subdomains of the same parent domain can be hosted on the same application gateway deployment. Examples of using subdomains could include `http://blog.contoso.com` and `http://app.contoso.com` hosted on a single application gateway deployment.
+Similarly, two subdomains of the same parent domain can be hosted on the same application gateway deployment. Examples of using subdomains could include `http://blog.contoso.com` and `http://app.contoso.com` hosted on a single application gateway deployment. For more information, see [Application Gateway multiple site hosting](multiple-site-overview.md).
 
-For more information, see [Application Gateway multiple site hosting](multiple-site-overview.md).
+You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener (preview)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
 ## Redirection
 
@@ -113,13 +113,13 @@ Application Gateway provides native support for the WebSocket and HTTP/2 protoco
 
 The WebSocket and HTTP/2 protocols enable full duplex communication between a server and a client over a long running TCP connection. This allows for a more interactive communication between the web server and the client, which can be bidirectional without the need for polling as required in HTTP-based implementations. These protocols have low overhead, unlike HTTP, and can reuse the same TCP connection for multiple request/responses resulting in a more efficient resource utilization. These protocols are designed to work over traditional HTTP ports of 80 and 443.
 
-For more information, see [WebSocket support](application-gateway-websocket.md) and [HTTP/2 support](configuration-overview.md#http2-support).
+For more information, see [WebSocket support](application-gateway-websocket.md) and [HTTP/2 support](configuration-listeners.md#http2-support).
 
 ## Connection draining
 
 Connection draining helps you achieve graceful removal of backend pool members during planned service updates. This setting is enabled via the backend http setting and can be applied to all members of a backend pool during rule creation. Once enabled, Application Gateway ensures all deregistering instances of a backend pool don't receive any new request while allowing existing requests to complete within a configured time limit. This applies to both backend instances that are explicitly removed from the backend pool by a user configuration change, and backend instances that are reported as unhealthy as determined by the health probes. The only exception to this are requests bound for deregistering instances, which have been deregistered explicitly, because of gateway-managed session affinity and continues to be proxied to the deregistering instances.
 
-For more information, see [Application Gateway Configuration Overview](configuration-overview.md#connection-draining).
+For more information, see [Application Gateway Configuration Overview](configuration-http-settings.md#connection-draining).
 
 ## Custom error pages
 
@@ -127,7 +127,7 @@ Application Gateway allows you to create custom error pages instead of displayin
 
 For more information, see [Custom Errors](custom-error.md).
 
-## Rewrite HTTP headers
+## Rewrite HTTP headers and URL
 
 HTTP headers allow the client and server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios, such as:
 
@@ -135,15 +135,17 @@ HTTP headers allow the client and server to pass additional information with the
 - Removing response header fields that can reveal sensitive information.
 - Stripping port information from X-Forwarded-For headers.
 
-Application Gateway supports the capability to add, remove, or update HTTP request and response headers, while the request and response packets move between the client and back-end pools. It also provides you with the capability to add conditions to ensure the specified headers are rewritten only when certain conditions are met.
+Application Gateway and WAF v2 SKU supports the capability to add, remove, or update HTTP request and response headers, while the request and response packets move between the client and back-end pools. You can also rewrite URLs, query string parameters and host name. With URL rewrite and URL path-based routing, you can choose to either route requests to one of the backend pools based on the original path or the rewritten path, using the re-evaluate path map option. 
 
-For more information, see [Rewrite HTTP headers](rewrite-http-headers.md).
+It also provides you with the capability to add conditions to ensure the specified headers or URL are rewritten only when certain conditions are met. These conditions are based on the request and response information.
+
+For more information, see [Rewrite HTTP headers and URL](rewrite-http-headers-url.md).
 
 ## Sizing
 
-Application Gateway Standard_v2 can be configured for autoscaling or fixed size deployments. This SKU doesn't offer different instance sizes. For more information on v2 performance and pricing, see [Autoscaling v2 SKU](application-gateway-autoscaling-zone-redundant.md#pricing).
+Application Gateway Standard_v2 can be configured for autoscaling or fixed size deployments. The v2 SKU doesn't offer different instance sizes. For more information on v2 performance and pricing, see [Autoscaling V2](application-gateway-autoscaling-zone-redundant.md) and [Understanding pricing](understanding-pricing.md).
 
-The Application Gateway Standard is offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
+The Application Gateway Standard (v1) is offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
 
 For a complete list of application gateway limits, see [Application Gateway service limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 

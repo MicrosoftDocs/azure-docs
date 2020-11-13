@@ -18,7 +18,7 @@ Immutable storage for Azure Blob storage enables users to store business-critica
 
 For information about how to set and clear legal holds or create a time-based retention policy using the Azure portal, PowerShell, or Azure CLI, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## About immutable Blob storage
 
@@ -72,9 +72,9 @@ The following limits apply to retention policies:
 
 ### Allow protected append blobs writes
 
-Append blobs are comprised of data blocks and optimized for data append operations required by auditing and logging scenarios. By design, append blobs only allow the addition of new blocks to the end of the blob. Regardless of immutability, modification or deletion of existing blocks in an append blob is fundamentally not allowed. To learn more about append blobs, see [About Append Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+Append blobs are comprised of blocks of data and optimized for data append operations required by auditing and logging scenarios. By design, append blobs only allow the addition of new blocks to the end of the blob. Regardless of immutability, modification or deletion of existing blocks in an append blob is fundamentally not allowed. To learn more about append blobs, see [About Append Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-Only time-based retention policies have an `allowProtectedAppendWrites` setting that allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If enabled, you are allowed to create an append blob directly in the policy protected container and continue to add new blocks of data to the end of existing append blobs using the *AppendBlock* API. Only new blocks can be added and any existing blocks cannot be modified or deleted. Time-retention immutability protection still applies, preventing deletion of the append blob until the effective retention period has elapsed. Enabling this setting does not affect the immutability behavior of block blobs or page blobs.
+Only time-based retention policies have an `allowProtectedAppendWrites` setting that allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If this setting is enabled, you are allowed to create an append blob directly in the policy protected container and continue to add new blocks of data to the end of existing append blobs using the *AppendBlock* API. Only new blocks can be added and any existing blocks cannot be modified or deleted. Time-retention immutability protection still applies, preventing deletion of the append blob until the effective retention period has elapsed. Enabling this setting does not affect the immutability behavior of block blobs or page blobs.
 
 As this setting is part of a time-based retention policy, the append blobs still stay in the immutable state for the duration of the *effective* retention period. Since new data can be appended beyond the initial creation of the append blob, there is a slight difference in how the retention period is determined. The effective retention is the difference between append blob's **last modification time** and the user-specified retention interval. Similarly when the retention interval is extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 

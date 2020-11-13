@@ -4,19 +4,16 @@ titlesuffix: Azure Virtual Network
 description: Learn how Azure routes virtual network traffic, and how you can customize Azure's routing.
 services: virtual-network
 documentationcenter: na
-author: malopMSFT
+author: KumudD
 manager: 
-editor: v-miegge
-tags:
-
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: malop
-ms.reviewer: kumud
+ms.author: aldomel
+
 ---
 
 # Virtual network traffic routing
@@ -166,7 +163,7 @@ When you override the 0.0.0.0/0 address prefix, in addition to outbound traffic 
 
 If your virtual network is connected to an Azure VPN gateway, do not associate a route table to the [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) that includes a route with a destination of 0.0.0.0/0. Doing so can prevent the gateway from functioning properly. For details, see the *Why are certain ports opened on my VPN gateway?* question in the [VPN Gateway FAQ](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
 
-See [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) and [DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) for implementation details when using virtual network gateways and virtual appliances between the Internet and Azure.
+See [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) for implementation details when using virtual network gateways between the Internet and Azure.
 
 ## Routing example
 

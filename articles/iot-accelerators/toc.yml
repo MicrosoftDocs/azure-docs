@@ -204,31 +204,31 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: /azure/iot-fundamentals/iot-support-help
+    href: ../iot-fundamentals/iot-support-help.md
   - name: Azure IoT services
     items:
     - name: IoT Hub
-      href: /azure/iot-hub
+      href: ../iot-hub/index.yml
     - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
+      href: ../iot-dps/index.yml
     - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
+      href: /microsoft-iot-central/
     - name: IoT Edge
-      href: /azure/iot-edge
+      href: ../iot-edge/index.yml
     - name: IoT solution accelerators
-      href: /azure/iot-accelerators
+      href: ./index.yml
     - name: IoT Plug and Play
-      href: /azure/iot-pnp
+      href: ../iot-pnp/index.yml
     - name: Azure Maps
-      href: /azure/azure-maps
+      href: ../azure-maps/index.yml
     - name: Time Series Insights
-      href: /azure/time-series-insights
+      href: ../time-series-insights/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
     - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
   - name: Remote monitoring
     items:
     - name: Developer reference guide (.NET)
@@ -258,7 +258,7 @@
   - name: Predictive maintenance GitHub repository
     href: https://github.com/Azure/azure-iot-predictive-maintenance
   - name: Reference Architecture
-    href: iot-accelerators-architecture-overview.md
+    href: /azure/architecture/reference-architectures/iot
     items:
     - name: Download
       href: https://aka.ms/iotrefarchitecture
@@ -275,4 +275,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Remote Monitoring V1
-    href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
+    href: /previous-versions/azure/iot-suite/

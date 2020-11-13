@@ -19,9 +19,9 @@ In this tutorial, part two of three, you will connect to an Azure Red Hat OpenSh
 
 ## Before you begin
 
-In previous tutorials, an Azure Red Hat OpenShift cluster was created. If you have not done these steps, and would like to follow along, start with [Tutorial 1 - Create an Azure Red Hat Openshift 4 Cluster.](tutorial-create-cluster.md)
+In previous tutorials, an Azure Red Hat OpenShift cluster was created. If you have not done these steps, and would like to follow along, start with [Tutorial 1 - Create an Azure Red Hat OpenShift 4 Cluster.](tutorial-create-cluster.md)
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Connect to the cluster
 
@@ -33,7 +33,7 @@ az aro list-credentials \
   --resource-group $RESOURCEGROUP
 ```
 
-The following example output shows the password will be in `kubeadminPassword`.
+The following example output shows what the password will be in `kubeadminPassword`.
 
 ```json
 {
@@ -42,7 +42,7 @@ The following example output shows the password will be in `kubeadminPassword`.
 }
 ```
 
-You can find the cluster console URL by running the following command, which will look like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+You can find the cluster console URL by running the following command, which will look like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
 
 ```azurecli-interactive
  az aro show \
@@ -59,7 +59,7 @@ Launch the console URL in a browser and login using the `kubeadmin` credentials.
 
 Once you're logged into the OpenShift Web Console, click on the **?** on the top right and then on **Command Line Tools**. Download the release appropriate to your machine.
 
-![Azure Red Hat OpenShift login screen](media/aro4-download-cli.png)
+![Screenshot that highlights the Command Line Tools option in the list when you select the ? icon.](media/aro4-download-cli.png)
 
 You can also download the latest release of the CLI appropriate to your machine from <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
 

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 09/02/2020
 ---
 
 # Control network traffic in Azure HDInsight
 
 Network traffic in an Azure Virtual Networks can be controlled using the following methods:
 
-* **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
+* **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/network-security-groups-overview.md) document.
 
 * **Network virtual appliances** (NVA) can be used with outbound traffic only. NVAs replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
 
@@ -27,13 +27,17 @@ If you plan on using **network security groups** to control network traffic, per
 
 1. Identify the Azure region that you plan to use for HDInsight.
 
-2. Identify the service tags required by HDInsight for your region. For more information, see [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md).
+2. Identify the service tags required by HDInsight for your region. There are multiple ways to obtain these service tags:
+    1. Consult the list of published service tags in [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md). 
+    2. If your region is not present in the list, use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to find a service tag for your region.
+    3. If you are unable to use the API, download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region.
+
 
 3. Create or modify the network security groups for the subnet that you plan to install HDInsight into.
 
-    * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDInsight management services can reach the cluster from outside the virtual network.
+    * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDInsight management services can reach the cluster from outside the virtual network. For __Kafka REST proxy__ enabled clusters, allow __inbound__ traffic on port __9400__ as well. This will ensure that Kafka REST proxy server is reachable.
 
-For more information on network security groups, see the [overview of network security groups](../virtual-network/security-overview.md).
+For more information on network security groups, see the [overview of network security groups](../virtual-network/network-security-groups-overview.md).
 
 ## Controlling outbound traffic from HDInsight clusters
 
@@ -47,13 +51,9 @@ Customers who are interested to setup forced tunneling, should use [custom metas
 
 To see an example of the UDR setup with Azure Firewall, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
 
-## Required IP addresses
-
-If you use network security groups or user-defined routes to control traffic, see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
-
 ## Required ports
 
-If you plan on using a **firewall** and access the cluster from outside on certain ports, you might need to allow traffic on those ports needed for your scenario. By default, no special whitelisting of ports is needed as long as the Azure management traffic explained in the previous section is allowed to reach cluster on port 443.
+If you plan on using a **firewall** and access the cluster from outside on certain ports, you might need to allow traffic on those ports needed for your scenario. By default, no special filtering of ports is needed as long as the Azure management traffic explained in the previous section is allowed to reach cluster on port 443.
 
 For a list of ports for specific services, see the [Ports used by Apache Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
 
@@ -64,6 +64,6 @@ For more information on firewall rules for virtual appliances, see the [virtual 
 * For code samples and examples of creating Azure Virtual Networks, see [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md).
 * For an end-to-end example of configuring HDInsight to connect to an on-premises network, see [Connect HDInsight to an on-premises network](./connect-on-premises-network.md).
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
-* For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
+* For more information on network security groups, see [Network security groups](../virtual-network/network-security-groups-overview.md).
 * For more information on user-defined routes, see [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
 * For more information on virtual networks, see [Plan VNETs for HDInsight](./hdinsight-plan-virtual-network-deployment.md).

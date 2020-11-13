@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
@@ -54,7 +54,7 @@ The following distributions are supported out of the box from the Azure Gallery:
 ### Supported VM instances
 Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs.  These supported series are: D/DSv2 and F/Fs
 
-On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms and Ms/Mmsv2.
+On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/Dsv3, D/Dsv4, Dd/Ddv4, Da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, Ea/Easv4, Fsv2, Lsv2, Ms/Mms and Ms/Mmsv2.
 
 For more information on VM instances, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

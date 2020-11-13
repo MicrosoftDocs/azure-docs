@@ -16,9 +16,9 @@ We will be using a .json template to configure the image. The .json file we are 
 
 To distribute the image to a Shared Image Gallery, the template uses [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) as the value for the `distribute` section of the template.
 
-Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [override](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) if needed. 
+Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [override](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) if needed. 
 
-Be aware how many times you layer customizations. You can run the Sysprep command up to 8 times on a single Windows image. After running Sysprep 8 times, you must recreate your Windows image. For more information, see [Limits on how many times you can run Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
+Be aware how many times you layer customizations. You can run the Sysprep command up to 8 times on a single Windows image. After running Sysprep 8 times, you must recreate your Windows image. For more information, see [Limits on how many times you can run Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
 > [!IMPORTANT]
 > Azure Image Builder is currently in public preview.
@@ -93,28 +93,28 @@ New-AzResourceGroup `
 
 
 ## Create a user-assigned identity and set permissions on the resource group
-Image Builder will use the [user-identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
+Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
 
 ```powershell
 # setup role def names, these need to be unique
 $timeInt=$(get-date -UFormat "%s")
 $imageRoleDefName="Azure Image Builder Image Def"+$timeInt
-$idenityName="aibIdentity"+$timeInt
+$identityName="aibIdentity"+$timeInt
 
 ## Add AZ PS module to support AzUserAssignedIdentity
 Install-Module -Name Az.ManagedServiceIdentity
 
 # create identity
-New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName
+New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
 
-$idenityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).Id
-$idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName).PrincipalId
+$identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
+$identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
 ```
 
 
 ### Assign permissions for identity to distribute images
 
-This command will download a Azure Role Definition template, and update the template with the parameters specified earlier.
+This command will download an Azure role definition template, and update the template with the parameters specified earlier.
 
 ```powershell
 $aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
@@ -131,7 +131,7 @@ Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPa
 New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
 
 # grant role definition to image builder service principal
-New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+New-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 
 ### NOTE: If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' See this article to resolve:
 https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
@@ -202,7 +202,7 @@ Invoke-WebRequest `
    -replace '<region1>',$location | Set-Content -Path $templateFilePath
 (Get-Content -path $templateFilePath -Raw ) `
    -replace '<region2>',$replRegion2 | Set-Content -Path $templateFilePath
-((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$idenityNameResourceId) | Set-Content -Path $templateFilePath
+((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$identityNameResourceId) | Set-Content -Path $templateFilePath
 ```
 
 
@@ -214,7 +214,7 @@ Your template must be submitted to the service, this will download any dependent
 New-AzResourceGroupDeployment `
    -ResourceGroupName $imageResourceGroup `
    -TemplateFile $templateFilePath `
-   -api-version "2019-05-01-preview" `
+   -apiversion "2019-05-01-preview" `
    -imageTemplateName $imageTemplateName `
    -svclocation $location
 ```
@@ -316,19 +316,19 @@ Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
 Delete role assignment
 
 ```powerShell
-Remove-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
 remove definitions
 
 ```powerShell
-Remove-AzRoleDefinition -Name "$idenityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+Remove-AzRoleDefinition -Name "$identityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 ```
 
 delete identity
 
 ```powerShell
-Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $idenityName -Force
+Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Force
 ```
 
 delete the resource group.

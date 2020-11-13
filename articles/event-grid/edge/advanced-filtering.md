@@ -5,10 +5,8 @@ author: HiteshMadan
 manager: rajarv
 ms.author: himad
 ms.reviewer: spelluru
-ms.date: 10/03/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Advanced filtering

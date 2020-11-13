@@ -84,5 +84,5 @@ Adding to the parameters seen in a successful response, error parameters are see
 ## Next steps
 - See [how to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
 - Learn how [consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow](v2-oauth2-auth-code-flow.md#request-an-authorization-code).
-- Learn [how a multi-tenant application can use the consent framework](active-directory-devhowto-multi-tenant-overview.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
+- Learn [how a multi-tenant application can use the consent framework](./howto-convert-app-to-be-multi-tenant.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
 - Understanding [Azure AD application consent experiences](application-consent-experience.md)

@@ -33,7 +33,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure
 
 ## Important considerations and guidelines
@@ -59,7 +59,7 @@ For more information, read [cluster capacity guidance](service-fabric-cluster-ca
 
 ## Export the template for the resource group
 
-After creating a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) and setting up your resource group successfully, export the Resource Manager template for the resource group. Exporting the template allows you to automate future deployments of the cluster and its resources because the template contains all the complete infrastructure.  For more info on exporting templates, read [Manage Azure Resource Manager resource groups by using the Azure portal](/azure/azure-resource-manager/manage-resource-groups-portal).
+After creating a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) and setting up your resource group successfully, export the Resource Manager template for the resource group. Exporting the template allows you to automate future deployments of the cluster and its resources because the template contains all the complete infrastructure.  For more info on exporting templates, read [Manage Azure Resource Manager resource groups by using the Azure portal](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 1. In the [Azure portal](https://portal.azure.com), go to the resource group containing the cluster (**sfclustertutorialgroup**, if you are following this tutorial). 
 
@@ -830,13 +830,12 @@ Foreach($node in $nodes)
 ```
 
 ## Increase node resources 
-After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs.  
+After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs by replacing the original node type with a new node type (with updated VM SKU or OS image). For further details, see [Scale up an Azure Service Fabric node type](service-fabric-scale-up-primary-node-type.md).
 
-> [!WARNING]
-> We recommend that you do not change the VM SKU of a scale set/node type unless it is running at Silver durability or greater. Changing the VM SKU size is a data-destructive in-place infrastructure operation. Without some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads.
+> [!IMPORTANT]
+> Never attempt an in-place change of VM SKU or OS image, which is a dangerous operation and unsupported.
 
-> [!WARNING]
-> We recommend that you do not change the VM SKU of the primary node type, which is a dangerous operation and unsupported.  If you need more cluster capacity, you can add more VM instances or additional node types.  If that is not possible, you can create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster.  If that is not possible, you can [change the VM SKU of the primary node type](service-fabric-scale-up-node-type.md).
+If that not possible, you can create a new cluster and [restore application state](service-fabric-reliable-services-backup-restore.md) (if applicable) from your old cluster. You do not need to restore any system service state; they are recreated when you deploy your applications to your new cluster. If you were just running stateless applications on your cluster, then all you do is deploy your applications to the new cluster, you have nothing to restore.
 
 ### Update the template
 
@@ -870,19 +869,7 @@ Next, advance to the following tutorial to learn how to upgrade the runtime of a
 > [!div class="nextstepaction"]
 > [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-
-> * Add and remove node types (scale out and scale in)
-> * Increase node resources (scale up)
-
-Next, advance to the following tutorial to learn how to upgrade the runtime of a cluster.
-> [!div class="nextstepaction"]
-> [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
-
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

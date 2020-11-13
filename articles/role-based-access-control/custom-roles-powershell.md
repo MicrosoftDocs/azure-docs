@@ -9,7 +9,7 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/18/2020
@@ -58,7 +58,7 @@ API Management Service Contributor                   False
 The following example lists just the custom roles that are available for assignment in the selected subscription.
 
 ```azurepowershell
-Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition -Custom | FT Name, IsCustom
 ```
 
 ```Example

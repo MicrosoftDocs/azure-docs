@@ -1,9 +1,11 @@
 ---
 title: Prediction endpoint changes in the V3 API
 description: The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs.
-ms.topic: conceptual
-ms.date: 04/14/2020
-ms.author: diberry
+ms.service: cognitive-services
+ms.subservice: language-understanding
+ms.topic: how-to
+ms.date: 06/30/2020
+
 ---
 
 
@@ -69,16 +71,9 @@ The V2 prediction API will not be deprecated for at least 9 months after the V3 
 
 ### Changes by slot name and version name
 
-The format of the V3 endpoint HTTP call has changed.
+The [format of the V3 endpoint HTTP](developer-reference-resource.md#rest-endpoints) call has changed.
 
 If you want to query by version, you first need to [publish via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) with `"directVersionPublish":true`. Query the endpoint referencing the version ID instead of the slot name.
-
-|PREDICTION API VERSION|METHOD|URL|
-|--|--|--|
-|V3|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
-|V3|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
-|V2|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
-|V2|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
 
 |Valid values for `SLOT-NAME`|
 |--|
@@ -89,17 +84,7 @@ If you want to query by version, you first need to [publish via API](https://wes
 
 ### Query string changes
 
-The V3 API has different query string parameters.
-
-|Param name|Type|Version|Default|Purpose|
-|--|--|--|--|--|
-|`log`|boolean|V2 & V3|false|Store query in log file. Default value is false.|
-|`query`|string|V3 only|No default - it is required in the GET request|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
-|`show-all-intents`|boolean|V3 only|false|Return all intents with the corresponding score in the **prediction.intents** object. Intents are returned as objects in a parent `intents` object. This allows programmatic access without needing to find the intent in an array: `prediction.intents.give`. In V2, these were returned in an array. |
-|`verbose`|boolean|V2 & V3|false|**In V2**, when set to true, all predicted intents were returned. If you need all predicted intents, use the V3 param of `show-all-intents`.<br><br>**In V3**, this parameter only provides entity metadata details of entity prediction.  |
-|`timezoneOffset`|string|V2|-|Timezone applied to datetimeV2 entities.|
-|`datetimeReference`|string|V3|-|[Timezone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) applied to datetimeV2 entities. Replaces `timezoneOffset` from V2.|
-
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
 
 ### V3 POST body
 
@@ -286,4 +271,4 @@ The V2 API will not be deprecated for at least 9 months after the V3 preview.
 
 ## Next steps
 
-Use the V3 API documentation to update existing REST calls to LUIS [endpoint](https://aka.ms/luis-api-v3) APIs.
+Use the V3 API documentation to update existing REST calls to LUIS [endpoint](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) APIs.

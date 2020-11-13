@@ -23,20 +23,24 @@ The following steps are needed to create an account for the Azure Remote Renderi
     1. Set 'Resource Name' to the name of the account
     1. Update 'Subscription' if needed
     1. Set 'Resource group' to a resource group of your choice
+    1. Select a region from the 'Location' dropdown where this resource should be created in. See remarks on [account regions](create-an-account.md#account-regions) below.
 1. Once the account is created, navigate to it and:
     1. In the *Overview* tab, note the 'Account ID'
     1. In the *Settings > Access Keys* tab, note the 'Primary key' - this is the account's secret account key
+
+### Account regions
+The location that is specified during account creation time of an account determines which region the account resource is assigned to. This cannot be changed after creation. However, the account can be used to connect to a Remote Rendering session in any [supported region](./../reference/regions.md), regardless of the account's location.
 
 ### Retrieve the account information
 
 The samples and tutorials require that you provide the account ID and a key. For instance in the **arrconfig.json** file that is used for the PowerShell sample scripts:
 
 ```json
-    "accountSettings": {
-        "arrAccountId": "<fill in the account ID from the Azure portal>",
-        "arrAccountKey": "<fill in the account key from the Azure portal>",
-        "region": "<select from available regions>"
-    },
+"accountSettings": {
+    "arrAccountId": "<fill in the account ID from the Azure portal>",
+    "arrAccountKey": "<fill in the account key from the Azure portal>",
+    "region": "<select from available regions>"
+},
 ```
 
 See the [list of available regions](../reference/regions.md) for filling out the *region* option.
@@ -74,19 +78,25 @@ Now it is assumed you have a storage account. Navigate to the storage account in
 
  Click on the **Add** button in the "Add a role assignment" tile to add the first role:
 
-![Storage account IAM](./media/azure-add-role-assignment.png)
+![Storage account IAM add role assignment](./media/azure-add-role-assignment.png)
 
-* The first role to assign is **Owner** as shown in the screenshot above. 
-* Select **Remote Rendering Account** from the ***Assign access to** dropdown.
+* The first role to assign is **Owner** as shown in the screenshot above.
+* Select **Remote Rendering Account** from the **Assign access to** dropdown.
 * Select your subscription and Remote Rendering account in the last dropdowns.
 
+> [!WARNING]
+> In case your Remote Rendering account is not listed, refer to this [troubleshoot section](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
+
 Repeat adding new roles two more times for the respective selections from the **Role** dropdown:
+
 * **Storage Account Contributor**
 * **Storage Blob Data Contributor**
 
 The other dropdowns are selected as in the first step.
 
 If you have added all three roles, your Azure Remote Rendering account has access to your storage account using system assigned Managed Service Identities.
+> [!IMPORTANT]
+> Azure role assignments are cached by Azure Storage, so there may be a delay of up to 30 minutes between when you grant access to your remote rendering account and when it can be used to access your storage account. See the [Azure role-based access control (Azure RBAC) documentation](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) for details.
 
 ## Next steps
 

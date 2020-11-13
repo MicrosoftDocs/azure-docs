@@ -34,7 +34,7 @@ Use this claims transformation to add a string to a new or existing stringCollec
 
 The following claims transformation adds the **email** ClaimType to **otherMails** ClaimType.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
@@ -66,7 +66,7 @@ Adds a string parameter to a new unique values stringCollection claim.
 
 Use this claims transformation to add a string value to a new or existing stringCollection. The following example adds a constant email address (admin@contoso.com) to the **otherMails** claim.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
@@ -100,7 +100,7 @@ Gets the first item from the provided string collection.
 
 The following example reads the **otherMails** claim and return the first item into the **email** claim.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
@@ -132,7 +132,7 @@ Checks if a StringCollection claim type contains an element
 
 Following example checks whether the `roles` stringCollection claim type contains the value of **admin**.
 
-```XML
+```xml
 <ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
@@ -168,7 +168,7 @@ Checks if a StringCollection claim type contains a claim value.
 
 Following example checks whether the `roles` stringCollection claim type contains the value of the `role` claim type.
 
-```XML
+```xml
 <ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />

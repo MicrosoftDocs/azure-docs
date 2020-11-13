@@ -6,6 +6,7 @@ author: rapatchi
 ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: rapatchi
+ms.custom: devx-track-java
 ---
 
 # Service Fabric plug-in for Eclipse Java application development

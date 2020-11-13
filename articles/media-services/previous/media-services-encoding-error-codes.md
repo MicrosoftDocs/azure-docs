@@ -20,7 +20,9 @@ ms.author: juliako
 
 # Encoding error codes
 
-The following table lists error codes that could be returned in case an error was encountered during the encoding task execution.  To get error details in your .NET code, use the [ErrorDetails](https://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) class. To get error details in your REST code, use the [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API.
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+The following table lists error codes that could be returned in case an error was encountered during the encoding task execution.  To get error details in your .NET code, use the [ErrorDetails](/previous-versions/azure/jj126075(v=azure.100)) class. To get error details in your REST code, use the [ErrorDetail](/rest/api/media/operations/errordetail) REST API.
 
 | ErrorDetail.Code | Possible causes for error |
 | --- | --- |

@@ -1,6 +1,6 @@
 ---
 title: Connect Azure Information Protection to Azure Sentinel
-description: Learn how to connect Azure Information Protection data in Azure Sentinel.
+description: Stream logging information from Azure Information Protection into Azure Sentinel by configuring the Azure Information Protection data connector. 
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -53,15 +53,17 @@ However, if logging information from Azure Information Protection is going to a 
 
 Use the following instructions if you haven't configured a Log Analytics workspace for Azure Information Protection, or you need to change the workspace that stores the Azure Information Protection logging information.
 
-1. In Azure Sentinel, select **Data connectors**, and then **Azure Information Protection (Preview)**.
+1. In Azure Sentinel, select **Data connectors** > **Azure Information Protection (Preview)**.
 
 2. Select **Open connector page**.
 
-3. On the **Configure analytics (Preview)** blade, select the workspace that you're currently using for Azure Sentinel. If you select a different workspace, the reporting data from Azure Information Protection won't be available to Azure Sentinel.
+3. Under **Configuration**, select **Connect Azure Information Protection logs**.
 
-4. When you have selected a workspace, select **OK** and the connector **STATUS** should now change to **Connected**.
+4. On the **Configure analytics (Preview)** blade, select the workspace that you currently use for Azure Sentinel. If you select a different workspace, the reporting data from Azure Information Protection isn't available to Azure Sentinel.
 
-5. The reporting data from Azure Information Protection is stored in the **InformationProtectionLogs_CL** table within the selected workspace. 
+5. After you select a workspace, select **OK**. The connector **STATUS** changes to **Connected**.
+
+6. The reporting data from Azure Information Protection is stored in the **InformationProtectionLogs_CL** table in the selected workspace. 
     
     To use the relevant schema in Azure Monitor for this reporting data, search for **InformationProtectionEvents**. For information about these event functions, see the [Friendly schema reference for event functions](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) section from the Azure Information Protection documentation.
 

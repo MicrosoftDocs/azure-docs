@@ -14,7 +14,7 @@ A group of controls for creating several storage accounts with names that start 
 
 ## UI sample
 
-![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
+![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft-storage-multistorageaccountcombo.png)
 
 ## Schema
 

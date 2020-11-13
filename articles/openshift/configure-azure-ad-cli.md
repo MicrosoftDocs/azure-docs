@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an operator, I need to configure Azure Active Directory authentication for an Azure Red Hat OpenShift cluster running OpenShift 4
 ---
 
 # Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster (CLI)
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Retrieve your cluster-specific URLs that are going to be used to configure the Azure Active Directory application.
 
@@ -62,7 +62,7 @@ You should get back something like this. Make note of it as this is the **Tenant
 
 ## Create a manifest file to define the optional claims to include in the ID Token
 
-Application developers can use [optional claims](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) in their Azure AD applications to specify which claims they want in tokens sent to their application.
+Application developers can use [optional claims](../active-directory/develop/active-directory-optional-claims.md) in their Azure AD applications to specify which claims they want in tokens sent to their application.
 
 You can use optional claims to:
 
@@ -123,7 +123,7 @@ az ad app permission add \
 
 Applications registered in an Azure Active Directory (Azure AD) tenant are, by default, available to all users of the tenant who authenticate successfully. Azure AD allows tenant administrators and developers to restrict an app to a specific set of users or security groups in the tenant.
 
-Follow the instructions on the Azure Active Directory documentation to [assign users and groups to the app](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration).
+Follow the instructions on the Azure Active Directory documentation to [assign users and groups to the app](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
 
 ## Configure OpenShift OpenID authentication
 
@@ -156,7 +156,7 @@ Create an OpenShift secret to store the Azure Active Directory application secre
 oc create secret generic openid-client-secret-azuread \
   --namespace openshift-config \
   --from-literal=clientSecret=<ClientSecret>
-```    
+```
 
 Create a **oidc.yaml** file to configure OpenShift OpenID authentication against Azure Active Directory. Replace **\<AppID>** and **\<TenantId>** with the values you retrieved earlier.
 
@@ -173,20 +173,20 @@ spec:
     type: OpenID
     openID:
       clientID: <AppId>
-      clientSecret: 
+      clientSecret:
         name: openid-client-secret-azuread
-      extraScopes: 
+      extraScopes:
       - email
       - profile
-      extraAuthorizeParameters: 
+      extraAuthorizeParameters:
         include_granted_scopes: "true"
       claims:
-        preferredUsername: 
+        preferredUsername:
         - email
         - upn
-        name: 
+        name:
         - name
-        email: 
+        email:
         - email
       issuer: https://login.microsoftonline.com/<TenantId>
 EOF

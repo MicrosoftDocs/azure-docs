@@ -4,7 +4,7 @@ description: How to prepare an pre-existing Azure VM image for deployment with c
 author: danis
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: danis
 

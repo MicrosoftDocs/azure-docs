@@ -1,6 +1,6 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Set up custom domain | Microsoft Docs
-description: Azure PowerShell Script Sample - Set up custom domain
+description: Learn how to set up a custom domain on proxy or portal endpoints of the API management service. See sample scripts and view additional available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -41,6 +41,6 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional Azure PowerShell samples for Azure API Management can be found in the [PowerShell samples](../powershell-samples.md).

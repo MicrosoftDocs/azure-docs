@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ---
@@ -35,7 +35,7 @@ As a user of the cluster, you can install or use in your workload any component 
 > [!WARNING]  
 > Components provided with the HDInsight cluster are fully supported. Microsoft Support helps to isolate and resolve issues related to these components.
 >
-> Custom components receive commercially reasonable support to help you further troubleshoot the issue. Microsoft Support might be able to resolve the issue. Or they might ask you to engage available channels for the open-source technologies where deep expertise for that technology is found. Many community sites can be used. Examples are [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) and [Stack Overflow](https://stackoverflow.com).
+> Custom components receive commercially reasonable support to help you further troubleshoot the issue. Microsoft Support might be able to resolve the issue. Or they might ask you to engage available channels for the open-source technologies where deep expertise for that technology is found. Many community sites can be used. Examples are [Microsoft Q&A question page for HDInsight](/answers/topics/azure-hdinsight.html) and [Stack Overflow](https://stackoverflow.com).
 >
 > Apache projects also have project sites on the [Apache website](https://apache.org). An example is [Hadoop](https://hadoop.apache.org/).
 

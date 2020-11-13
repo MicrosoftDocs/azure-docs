@@ -1,19 +1,24 @@
 ---
-title: Docker containers - LUIS
+title: Install and run Docker containers for LUIS
 titleSuffix: Azure Cognitive Services
-description: The LUIS container loads your trained or published app into a docker container and provides access to the query predictions from the container's API endpoints.
+description: Use the LUIS container to load your trained or published app, and gain access to its predictions on-premises.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/28/2020
 ms.author: aahi
+keywords: on-premises, Docker, container
 ---
 
-# Install and run LUIS docker containers
+# Install and run Docker containers for LUIS
+
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
+
+Containers enable you to use LUIS in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a LUIS container.
 
 The Language Understanding (LUIS) container loads your trained or published Language Understanding model. As a [LUIS app](https://www.luis.ai), the docker container provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload them back to the Language Understanding app to improve the app's prediction accuracy.
 
@@ -21,7 +26,7 @@ The following video demonstrates using this container.
 
 [![Container demonstration for Cognitive Services](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
@@ -48,7 +53,7 @@ Authoring APIs for packaged apps:
 
 ### Container requirements and recommendations
 
-This container supports minimum and recommended values for the settings:
+The below table lists minimum and recommended values for the container host. Your requirements may change depending on traffic volume.
 
 |Container| Minimum | Recommended | TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|
@@ -61,10 +66,10 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 ## Get the container image with `docker pull`
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/luis` repository:
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/language/luis` repository:
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/language/luis:latest
 ```
 
 For a full description of available tags, such as `latest` used in the preceding command, see [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) on Docker Hub.
@@ -84,7 +89,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 1. When you are done with the container, [import the endpoint logs](#import-the-endpoint-logs-for-active-learning) from the output mount in the LUIS portal and [stop](#stop-the-container) the container.
 1. Use LUIS portal's [active learning](luis-how-to-review-endpoint-utterances.md) on the **Review endpoint utterances** page to improve the app.
 
-The app running in the container can't be altered. In order the change the app in the container, you need to change the app in the LUIS service using the [LUIS](https://www.luis.ai) portal or use the LUIS [authoring APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f). Then train and/or publish, then download a new package and run the container again.
+The app running in the container can't be altered. In order to change the app in the container, you need to change the app in the LUIS service using the [LUIS](https://www.luis.ai) portal or use the LUIS [authoring APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f). Then train and/or publish, then download a new package and run the container again.
 
 The LUIS app inside the container can't be exported back to the LUIS service. Only the query logs can be uploaded.
 
@@ -201,7 +206,7 @@ docker run --rm -it -p 5000:5000 ^
 --cpus 2 ^
 --mount type=bind,src=c:\input,target=/input ^
 --mount type=bind,src=c:\output\,target=/output ^
-mcr.microsoft.com/azure-cognitive-services/luis ^
+mcr.microsoft.com/azure-cognitive-services/language/luis ^
 Eula=accept ^
 Billing={ENDPOINT_URI} ^
 ApiKey={API_KEY}

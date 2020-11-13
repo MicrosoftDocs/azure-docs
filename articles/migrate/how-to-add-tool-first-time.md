@@ -8,7 +8,7 @@ ms.date: 04/16/2020
 
 # Add an assessment/migration tool for the first time
 
-This article describes how to add an assessment or migration tool to an [Azure Migrate](migrate-overview.md) project for the first time.  
+This article describes how to add an assessment or migration tool to an [Azure Migrate](./migrate-services-overview.md) project for the first time.  
 Azure Migrate provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as other tools and independent software vendor (ISV) [offerings](migrate-services-overview.md#isv-integration) . 
 
 ## Check permissions to create project

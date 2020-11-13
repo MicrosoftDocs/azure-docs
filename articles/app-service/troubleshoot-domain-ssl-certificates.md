@@ -127,7 +127,7 @@ You can't add a new host name to an app to assign a subdomain.
 #### Solution
 
 - Check with subscription administrator to make sure that you have permissions to add a host name to the app.
-- If you need more subdomains, we recommend that you change the domain hosting to Azure Domain Name Service (DNS). By using Azure DNS, you can add 500 host names to your app. For more information, see [Add a subdomain](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- If you need more subdomains, we recommend that you change the domain hosting to Azure Domain Name Service (DNS). By using Azure DNS, you can add 500 host names to your app. For more information, see [Add a subdomain](/archive/blogs/waws/mapping-a-custom-subdomain-to-an-azure-website).
 
 ### DNS can't be resolved
 
@@ -306,7 +306,7 @@ Yes. When you access the Custom Domains and TLS blade in the Azure portal, you s
 
 **Can I transfer a domain from one subscription to another subscription?**
 
-You can move a domain to another subscription/resource group using the [Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet.
+You can move a domain to another subscription/resource group using the [Move-AzResource](/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet.
 
 **How can I manage my custom domain if I don’t currently have an Azure App Service app?**
 

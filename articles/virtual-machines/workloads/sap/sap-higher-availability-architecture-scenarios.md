@@ -208,7 +208,7 @@ ms.custom: H1Hack27Feb2017
 
 > This section applies to:
 >
-> ![Windows][Logo_Windows] Windows and ![Linux][Logo_Linux] Linux
+> ![Windows logo.][Logo_Windows] Windows and ![Linux logo.][Logo_Linux] Linux
 >
 
 If you decide not to use functionalities such as Windows Server Failover Clustering (WSFC) or Pacemaker on Linux (currently supported only for SUSE Linux Enterprise Server [SLES] 12 and later), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
@@ -226,7 +226,7 @@ Azure managed disks are automatically placed in the fault domain of the virtual 
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure high availability and storage accounts might look like this:
 
-![Utilize Azure infrastructure high availability to achieve SAP application “higher availability"][planning-guide-figure-2900]
+![Diagram that shows the architecture of an SAP NetWeaver system that uses Azure infrastructure high availability and storage accounts.][planning-guide-figure-2900]
 
 A sample architecture of an SAP NetWeaver system that uses Azure infrastructure high availability and managed disks might look like this:
 
@@ -265,7 +265,7 @@ SAP offers a setting that lets you start SAP instances immediately after the sta
 
 Assuming a typical Azure scenario of one SAP application server instance in a VM and a single VM eventually getting restarted, Autostart is not critical. But you can enable it by adding the following parameter into the start profile of the SAP Advanced Business Application Programming (ABAP) or Java instance:
 
-      Autostart = 1
+`Autostart = 1`
 
 
   > [!NOTE]

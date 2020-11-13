@@ -1,11 +1,12 @@
 ---
 title: Create your first durable function in Azure using JavaScript
-description: Create and publish an Azure Durable Function using Visual Studio Code.
+description: Create and publish an Azure Durable Function in JavaScript using Visual Studio Code.
 author: anthonychu
 
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
+ms.custom: devx-track-js
 ---
 
 # Create your first durable function in JavaScript
@@ -54,25 +55,6 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files.
 
 A package.json file is also created in the root folder.
-
-### Enable compatibility mode
-
-Currently, JavaScript Durable Functions require Azure Functions V2 compatibility mode to be enabled.
-
-1. Open *local.settings.json* to edit the settings used when running the app locally.
-
-1. Add a setting named `FUNCTIONS_V2_COMPATIBILITY_MODE` with a value of `true`.
-
-    ```json
-    {
-        "IsEncrypted": false,
-        "Values": {
-            "AzureWebJobsStorage": "",
-            "FUNCTIONS_WORKER_RUNTIME": "node",
-            "FUNCTIONS_V2_COMPATIBILITY_MODE": "true"
-        }
-    }
-    ```
 
 ## Install the Durable Functions npm package
 
@@ -165,7 +147,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Azure local output](media/quickstart-js-vscode/functions-f5.png)
 
-1. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+1. Using your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
    The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It is not yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
 
@@ -198,23 +180,9 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-### Enable compatibility mode
-
-The same Azure Functions V2 compatibility that you enabled locally needs to be enabled in the app in Azure.
-
-1. Using the command palette, search for and select `Azure Functions: Edit Setting...`.
-
-1. Follow the prompts to locate your function app in your Azure subscription.
-
-1. Select `Create new App Setting...`.
-
-1. Enter a new setting key of `FUNCTIONS_V2_COMPATIBILITY_MODE`.
-
-1. Enter a setting value of `true`.
-
 ## Test your function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 

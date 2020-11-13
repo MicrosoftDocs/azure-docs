@@ -7,7 +7,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -25,7 +25,7 @@ Azure PowerShell provides several cmdlets for command line- and script-based cus
 
 ## Prerequisites
 
-* [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the [B2C IEF Policy Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) role
+* [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the [B2C IEF Policy Administrator](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) role
 * [Custom policies](custom-policy-get-started.md) uploaded to your tenant
 * [Azure AD PowerShell for Graph **preview module**](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
@@ -33,7 +33,7 @@ Azure PowerShell provides several cmdlets for command line- and script-based cus
 
 To work with custom policies in your Azure AD B2C tenant, you first need to connect your PowerShell session to the tenant by using the [Connect-AzureAD][Connect-AzureAD] command.
 
-Execute the following command, substituting `{b2c-tenant-name}` with the name of your Azure AD B2C tenant. Sign in with an account that's assigned the [B2C IEF Policy Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) role in the directory.
+Execute the following command, substituting `{b2c-tenant-name}` with the name of your Azure AD B2C tenant. Sign in with an account that's assigned the [B2C IEF Policy Administrator](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) role in the directory.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"

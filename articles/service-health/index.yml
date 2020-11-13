@@ -42,8 +42,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Get notified when an issue with an Azure service affects you
-            url: alerts-activity-log-service-notifications.md
+            url: ./alerts-activity-log-service-notifications-portal.md
           - text: Get notified when your Azure resource becomes unavailable
             url: resource-health-alert-arm-template-guide.md
- 
- 

@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
@@ -47,11 +47,11 @@ If you are already using a phone number with an organization, and using your pho
 
 1. When SMS sign-in is available, a banner is displayed asking if you'd like to enable the phone number for SMS sign-in:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-banner.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    :::image type="content" source="media/sms-sign-in-explainer/sms-sign-in-banner.png" alt-text="Screenshot that shows the banner to enable SMS sign-in for a phone number with the 'Enable' action selected." lightbox="media/sms-sign-in-explainer/sms-sign-in-banner.png":::
 
 1. Also, an **Enable** button appears if you select the caret on the phone method tile:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-phone-method.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
+    [![Banner to enable SMS sign-in for a phone number.](media/sms-sign-in-explainer/sms-sign-in-phone-method.png)](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
 
 1. To enable the method, select **Enable**. You are prompted to confirm the action:
 
@@ -63,7 +63,7 @@ If you are already using a phone number with an organization, and using your pho
 
 1. To delete the phone number, select the delete button on the SMS sign-in phone method tile.
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-delete-method.png "Banner to delete SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
+    [![Banner to delete SMS sign-in for a phone number.](media/sms-sign-in-explainer/sms-sign-in-delete-method.png)](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
 
 2. When prompted to confirm the action, select **OK**.
 

@@ -8,7 +8,8 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.custom:  mqtt
+ms.custom:  mqtt, devx-track-js
+
 ---
 
 # Connect your device to the Remote Monitoring solution accelerator (Node.js)

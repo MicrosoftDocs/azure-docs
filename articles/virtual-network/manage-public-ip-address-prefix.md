@@ -1,14 +1,14 @@
 ﻿---
 title: Create, change, or delete an Azure public IP address prefix
 titlesuffix: Azure Virtual Network
-description: Learn how to create, change, or delete a public IP address prefix.
+description: Learn about public IP address prefixes and how to create, change, or delete them. See where to find additional information.
 services: virtual-network
 documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
@@ -83,7 +83,7 @@ Alternatively you may use the CLI and PS commands below with the --public-ip-pre
 2. Select the name of the public IP address prefix that you want to view, change settings for, or delete from the list.
 3. Complete one of the following options, depending on whether you want to view, delete, or change the public IP address prefix.
    - **View**: The **Overview** section shows key settings for the public IP address prefix, such as prefix.
-   - **Delete**: To delete the public IP address prefix, select **Delete** in the **Overview** section. If addresses within the prefix are associated to public IP address resources, you must first delete the public IP address resources. See [delete a public IP address](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
+   - **Delete**: To delete the public IP address prefix, select **Delete** in the **Overview** section. If addresses within the prefix are associated to public IP address resources, you must first delete the public IP address resources. See [delete a public IP address](virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
 **Commands**
 

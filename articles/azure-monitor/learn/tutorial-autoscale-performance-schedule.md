@@ -42,7 +42,7 @@ Within a few minutes, your resources should be provisioned. Use the Web App and 
 1. From the left-hand navigation pane, select the **Monitor** option. Once the page loads, select the **Autoscale** tab.
 2. A list of the resources under your subscription that support autoscale are listed here. Identify the App Service Plan that was created earlier in the tutorial, and click on it.
 
-    ![Navigate to autoscale settings](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![Screenshot shows the Azure portal with Monitor, then Autoscale selected.](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
 3. On the autoscale setting, click the **Enable Autoscale** button.
 
@@ -55,7 +55,7 @@ The next few steps help you fill the autoscale screen to look like following pic
 2. In the default profile, ensure the **Scale mode** is set to 'Scale to a specific instance count'.
 3. Set the instance count to **1**. This setting ensures that when no other profile is active, or in effect, the default profile returns the instance count to 1.
 
-   ![Navigate to autoscale settings](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Screenshot shows the Autoscale setting page with a name entered for the setting.](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## Create recurrence profile
@@ -176,8 +176,8 @@ In this tutorial, you
 > * Cleaned up your resources
 
 
-To learn more about autoscale settings, continue on to the [autoscale overview](../../azure-monitor/platform/autoscale-overview.md).
+To learn more about autoscale settings, continue on to the [autoscale overview](../platform/autoscale-overview.md).
 
 > [!div class="nextstepaction"]
-> [Archive your monitoring data](tutorial-archive-data.md)
+> [Archive your monitoring data](../platform/platform-logs-overview.md)
 

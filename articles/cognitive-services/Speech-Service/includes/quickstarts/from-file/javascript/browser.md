@@ -3,7 +3,8 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
+ms.author: trbye
+ms.custom: devx-track-js
 ---
 
 ## Prerequisites
@@ -163,7 +164,7 @@ Before you can initialize a `SpeechRecognizer` object, you need to create a conf
 Now, you need to create an `AudioConfig` object that points to your audio file. Insert this code in the `startRecognizeOnceAsyncButton.addEventListener()` method, right below your Speech configuration.
 
 ```JavaScript
-        var audioConfig  = SpeechSDK.AudioConfig.fromFile(audioFile);
+        var audioConfig  = SpeechSDK.AudioConfig.fromWavFileInput(audioFile);
 ```
 
 ## Initialize a SpeechRecognizer
@@ -207,7 +208,7 @@ recognizer.recognizeOnceAsync(
 In case you want to host the web page on a web server, you can optionally provide a token source for your demo application.
 That way, your subscription key will never leave your server while allowing users to use speech capabilities without entering any authorization code themselves.
 
-Create a new file named `token.php`. In this example we assume your web server supports the PHP scripting language. Enter the following code:
+Create a new file named `token.php`. In this example we assume your web server supports the PHP scripting language with curl enabled. Enter the following code:
 
 ```php
 <?php
@@ -246,4 +247,4 @@ To launch your app, open your favorite web browser and point it to the public UR
 
 ## Next steps
 
-[!INCLUDE [footer](footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

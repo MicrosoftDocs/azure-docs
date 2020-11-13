@@ -1,12 +1,13 @@
 ---
 title: Use JavaScript to create a chat room with Azure Functions and SignalR Service
-description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
+description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room using JavaScript.
 author: sffamily
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
+ms.custom: devx-track-js
 ---
 # Quickstart: Use JavaScript to create a chat room with Azure Functions and SignalR Service
 
@@ -25,13 +26,21 @@ Azure SignalR Service lets you easily add real-time functionality to your applic
 > [!NOTE]
 > This quickstart can be run on macOS, Windows, or Linux.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
+
 ## Log in to Azure
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
 
 ## Configure and run the Azure Function app
 
@@ -43,7 +52,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
 1. Select and copy the primary connection string.
 
-    ![Create SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
+    ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
 1. In your code editor, open the *src/chat/javascript* folder in the cloned repository.
 
@@ -64,13 +73,21 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
     ![Create SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)
 
 ## Next steps
 
 In this quickstart, you built and ran a real-time serverless application in VS Code. Next, learn more about how to deploy Azure Functions from VS Code.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Functions with VS Code](/azure/javascript/tutorial-vscode-serverless-node-01)
+> [Deploy Azure Functions with VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsjs)

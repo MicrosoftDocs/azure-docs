@@ -28,7 +28,7 @@ landingContent:
           - text: Azure Media Services v2 overview
             url: media-services-overview.md
           - text: Migrate to Media Services v3
-            url: https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3
+            url: ../latest/migrate-from-v2-to-v3.md
       - linkListType: whats-new
         links:         
         - text: "What's new in Media Services v2?"
@@ -67,5 +67,3 @@ landingContent:
             url: media-services-dotnet-get-started.md
           - text: Use REST
             url: media-services-rest-get-started.md
-
-

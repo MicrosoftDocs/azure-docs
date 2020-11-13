@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple and Cloud Solutions Program Overview | Microsoft Docs
-description: An overview about the StorSimple and CSP for StorSimple partners.
+description: Learn introductory information about StorSimple and Cloud Solutions Program (CSP) for StorSimple partners.
 services: storsimple
 documentationcenter: NA
 author: alkohli

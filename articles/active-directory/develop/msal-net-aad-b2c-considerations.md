@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev"
 # Customer intent: As an application developer, I want to learn about specific considerations when using
 #                  Azure AD B2C and MSAL.NET so I can decide if this platform meets my application development
 #                  needs and requirements.
@@ -133,7 +133,7 @@ By using username/password in an ROPC flow, you sacrifice several things:
 
 ### Configure the ROPC flow in Azure AD B2C
 
-In your Azure AD B2C tenant, create a new user flow and select **Sign in using ROPC** to enable ROPC for the user flow. For more information, see [Configure the resource owner password credentials flow](/azure/active-directory-b2c/configure-ropc).
+In your Azure AD B2C tenant, create a new user flow and select **Sign in using ROPC** to enable ROPC for the user flow. For more information, see [Configure the resource owner password credentials flow](../../active-directory-b2c/configure-ropc.md).
 
 `IPublicClientApplication` contains the `AcquireTokenByUsernamePassword` method:
 
@@ -181,7 +181,7 @@ A symptom of such a scenario is that MSAL.NET returns `Missing from the token re
 
 The suggested workaround is to use [caching by policy](#acquire-a-token-to-apply-a-policy) described earlier.
 
-Alternatively, you can use the `tid` claim if you're using [custom policies](../../active-directory-b2c/custom-policy-get-started.md) in Azure AD B2C. Custom policies can return additional claims to your application by using [claims transformation](/azure/active-directory-b2c/claims-transformation-technical-profile).
+Alternatively, you can use the `tid` claim if you're using [custom policies](../../active-directory-b2c/custom-policy-get-started.md) in Azure AD B2C. Custom policies can return additional claims to your application by using [claims transformation](../../active-directory-b2c/claims-transformation-technical-profile.md).
 
 #### Mitigation for "Missing from the token response"
 

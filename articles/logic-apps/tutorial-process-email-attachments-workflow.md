@@ -3,9 +3,9 @@ title: Automate tasks with multiple Azure services
 description: Tutorial - Create automated workflows to process emails with Azure Logic Apps, Azure Storage, and Azure Functions
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ms.date: 02/27/2020
 ---
 
@@ -33,25 +33,23 @@ When you're done, your logic app looks like this workflow at a high level:
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An email account from an email provider supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](https://docs.microsoft.com/connectors/).
+* An email account from an email provider supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/).
 
-  This logic app uses an Office 365 Outlook account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
+  This logic app uses a work or school account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
 
   > [!IMPORTANT]
   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
   > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
-  > [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Download and install the [free Microsoft Azure Storage Explorer](https://storageexplorer.com/). This tool helps you check that your storage container is correctly set up.
 
-## Sign in to Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
-
 ## Set up storage to save attachments
 
 You can save incoming emails and attachments as blobs in an [Azure storage container](../storage/common/storage-introduction.md).
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
 1. Before you can create a storage container, [create a storage account](../storage/common/storage-account-create.md) with these settings on the **Basics** tab in the Azure portal:
 
@@ -63,7 +61,7 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
    | **Location** | <*Azure-region*> | The region where to store information about your storage account. This example uses "West US". |
    | **Performance** | Standard | This setting specifies the data types supported and media for storing data. See [Types of storage accounts](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Account kind** | General purpose | The [storage account type](../storage/common/storage-introduction.md#types-of-storage-accounts) |
-   | **Replication** | Locally redundant storage (LRS) | This setting specifies how your data is copied, stored, managed, and synchronized. See [Locally redundant storage (LRS): Low-cost data redundancy for Azure Storage](../storage/common/storage-redundancy-lrs.md). |
+   | **Replication** | Locally redundant storage (LRS) | This setting specifies how your data is copied, stored, managed, and synchronized. See [Locally redundant storage (LRS): Low-cost data redundancy for Azure Storage](../storage/common/storage-redundancy.md). |
    | **Access tier (default)** | Keep the current setting. |
    ||||
 
@@ -74,7 +72,7 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
    | **Secure transfer required** | Disabled | This setting specifies the security required for requests from connections. See [Require secure transfer](../storage/common/storage-require-secure-transfer.md). |
    ||||
 
-   To create your storage account, you can also use [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) or [Azure CLI](../storage/common/storage-quickstart-create-storage-account-cli.md).
+   To create your storage account, you can also use [Azure PowerShell](../storage/common/storage-account-create.md?tabs=powershell) or [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli).
 
 1. When you're done, select **Review + create**.
 
@@ -87,8 +85,8 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
       ![Copy and save storage account name and key](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
    To get your storage account's access key, you can also use
-   [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey)
-   or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
+   [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey)
+   or [Azure CLI](/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
 
 1. Create a blob storage container for your email attachments.
 
@@ -104,7 +102,7 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
 
       ![Finished storage container](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   To create a storage container, you can also use [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer) or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
+   To create a storage container, you can also use [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) or [Azure CLI](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
 
 Next, connect Storage Explorer to your storage account.
 
@@ -325,7 +323,7 @@ Now add a condition that selects only emails that have attachments.
 
    1. On the first row under **And**, click inside the left box. From the dynamic content list that appears, select the **Has Attachment** property.
 
-      ![Build condition](./media/tutorial-process-email-attachments-workflow/build-condition.png)
+      ![Screenshot that shows the "And" property for the condition and the "Has Attachment" property selection.](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
    1. In the middle box, keep the operator **is equal to**.
 
@@ -394,7 +392,7 @@ This step adds your previously created Azure function to your logic app and pass
 
    ![Inside "If true", add action](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-1. In the search box, find "azure functions", and select this action: **Choose an Azure function - Azure Functions**
+1. In the search box, find "Azure functions", and select this action: **Choose an Azure function - Azure Functions**
 
    ![Select action for "Choose an Azure function"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -463,7 +461,7 @@ Next, add an action that creates a blob in your storage container so you can sav
 
    When you're done, the action looks like this example:
 
-   ![Finished "Create blob" action](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
+   ![Screenshot that shows an example of a finished "Create blob" action.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 1. Save your logic app.
 

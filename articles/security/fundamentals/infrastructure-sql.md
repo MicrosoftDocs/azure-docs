@@ -28,13 +28,13 @@ Azure SQL Database provides a relational database service in Azure. To protect c
 Azure SQL Database supports only the tabular data stream (TDS) protocol, which requires the database to be accessible over only the default port of TCP/1433.
 
 ### Azure SQL Database firewall
-To help protect customer data, Azure SQL Database includes a firewall functionality, which by default prevents all access to the SQL Database server, as shown below.
+To help protect customer data, Azure SQL Database includes a firewall functionality, which by default prevents all access to SQL Database, as shown below.
 
 ![Azure SQL Database firewall](./media/infrastructure-sql/sql-database-firewall.png)
 
 The gateway firewall can limit addresses, which allows customers granular control to specify ranges of acceptable IP addresses. The firewall grants access based on the originating IP address of each request.
 
-Customers can achieve firewall configuration by using a management portal or programmatically using the Azure SQL Database Management REST API. The Azure SQL Database gateway firewall by default prevents all customer TDS access to Azure SQL database instances. Customers must configure access by using access-control lists (ACLs) to permit Azure SQL Database connections by source and destination internet addresses, protocols, and port numbers.
+Customers can achieve firewall configuration by using a management portal or programmatically using the Azure SQL Database Management REST API. The Azure SQL Database gateway firewall by default prevents all customer TDS access to Azure SQL Database. Customers must configure access by using access-control lists (ACLs) to permit Azure SQL Database connections by source and destination internet addresses, protocols, and port numbers.
 
 ### DoSGuard
 Denial of service (DoS) attacks are reduced by a SQL Database gateway service called DoSGuard. DoSGuard actively tracks failed logins from IP addresses. If there are multiple failed logins from a specific IP address within a period of time, the IP address is blocked from accessing any resources in the service for a pre-defined time period.

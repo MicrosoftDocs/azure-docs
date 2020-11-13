@@ -1,9 +1,11 @@
 ---
 author: erhopf
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
+ms.custom: devx-track-csharp
 ---
 
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -29,7 +31,7 @@ dotnet add package Newtonsoft.Json --version 11.0.2
 
 ## Select the C# language version
 
-This quickstart requires C# 7.1 or later. There are a few ways to change the C# version for your project. In this guide, we'll show you how to adjust the `translate-sample.csproj` file. For all available options, such as changing the language in Visual Studio, see [Select the C# language version](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+This quickstart requires C# 7.1 or later. There are a few ways to change the C# version for your project. In this guide, we'll show you how to adjust the `translate-sample.csproj` file. For all available options, such as changing the language in Visual Studio, see [Select the C# language version](/dotnet/csharp/language-reference/configure-language-version).
 
 Open your project, then open `translate-sample.csproj`. Make sure that `LangVersion` is set to 7.1 or later. If there isn't a property group for the language version, add these lines:
 
@@ -54,11 +56,11 @@ using Newtonsoft.Json;
 
 ## Create classes for the JSON response
 
-Next, we're going to create a set of classes that are used when deserializing the JSON response returned by the Translator Text API.
+Next, we're going to create a set of classes that are used when deserializing the JSON response returned by the Translator.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class TranslationResult
 {
@@ -131,7 +133,7 @@ In the `Program` class, create an asynchronous function called `TranslateTextReq
 
 ```csharp
 // This sample requires C# 7.1 or later for async/await.
-// Async call to the Translator Text API
+// Async call to the Translator
 static public async Task TranslateTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
 {
   /*
@@ -203,7 +205,7 @@ foreach (TranslationResult o in deserializedOutput)
 }
 ```
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](../reference/v3-0-reference.md#authentication).
 
 ## Put it all together
 
@@ -288,7 +290,7 @@ Make sure to remove any confidential information from your sample app's source c
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)

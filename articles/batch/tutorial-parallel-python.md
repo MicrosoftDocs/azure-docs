@@ -1,10 +1,10 @@
 ---
-title: Run a parallel workload 
+title: Run a parallel workload using the Python API
 description: Tutorial - Process media files in parallel with ffmpeg in Azure Batch using the Batch Python client library
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.custom: mvc
+ms.custom: mvc, devx-track-python
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the Python API

@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Azure Automation State Configuration
-description: This article provides information on troubleshooting Azure Automation State Configuration.
+title: Troubleshoot Azure Automation State Configuration issues
+description: This article tells how to troubleshoot and resolve Azure Automation State Configuration issues.
 services: automation
 ms.service: automation
 ms.subservice:
@@ -10,12 +10,9 @@ ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Troubleshoot issues with Azure Automation State Configuration
+# Troubleshoot Azure Automation State Configuration issues
 
-This article provides information on troubleshooting issues that arise while you compile or deploy configurations in Azure Automation State Configuration.
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version by following the steps in [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+This article provides information on troubleshooting and resolving issues that arise while you compile or deploy configurations in Azure Automation State Configuration. For general information about the State Configuration feature, see [Azure Automation State Configuration overview](../automation-dsc-overview.md).
 
 ## Diagnose an issue
 
@@ -23,7 +20,7 @@ When you receive a compilation or deployment error for configuration, here are a
 
 ### 1. Ensure that your configuration compiles successfully on the local machine
 
-Azure Automation State Configuration is built on PowerShell Desired State Configuration (DSC). You can find the documentation for the DSC language and syntax in the [PowerShell DSC Docs](https://docs.microsoft.com/powershell/scripting/overview).
+Azure Automation State Configuration is built on PowerShell Desired State Configuration (DSC). You can find the documentation for the DSC language and syntax in the [PowerShell DSC Docs](/powershell/scripting/overview).
 
 By compiling a DSC configuration on your local machine, you can discover and resolve common errors, such as:
 
@@ -39,7 +36,7 @@ The [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) module can 
 
 You can install the `xDscDiagnostics` module on your local machine by following the instructions in [Install the stable version module](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
-To install the `xDscDiagnostics` module on your Azure machine, use [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0). You can also use the **Run command** option in the Azure portal by following the steps in [Run PowerShell scripts in your Windows VM with Run Command](../../virtual-machines/windows/run-command.md).
+To install the `xDscDiagnostics` module on your Azure machine, use [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0). You can also use the **Run command** option in the Azure portal by following the steps in [Run PowerShell scripts in your Windows VM with Run Command](../../virtual-machines/windows/run-command.md).
 
 For information on using **xDscDiagnostics**, see [Using xDscDiagnostics to analyze DSC logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). See also [xDscDiagnostics Cmdlets](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 
@@ -63,13 +60,13 @@ This error is a temporary issue that's planned to be resolved.
 
 ### Resolution
 
-Use the [Remove-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0 cmdlet to delete the configuration.
+Use the [Remove-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0) cmdlet to delete the configuration.
 
 ## <a name="failed-to-register-agent"></a>Scenario: Failed to register the DSC Agent
 
 ### Issue
 
-When [Set-DscLocalConfigurationManager](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) or another DSC cmdlet, you receive the error:
+When [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) or another DSC cmdlet, you receive the error:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -106,7 +103,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### Cause
 
-This issue is caused by a bad or expired certificate. See [Certificate expiration and reregistration](../automation-dsc-onboarding.md#re-registering-a-node).
+This issue is caused by a bad or expired certificate. See [Re-register a node](../automation-dsc-onboarding.md#re-register-a-node).
 
 This issue might also be caused by a proxy configuration not allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#network-planning). 
 
@@ -174,7 +171,7 @@ This error typically occurs when the node is assigned to a configuration name, f
 * You can assign a node configuration to a node by using the Azure portal or with a PowerShell cmdlet.
 
   * In the Azure portal, go to **Home** > **Automation Accounts** > (your Automation account) > **State configuration (DSC)**. Then select a node and select **Assign node configuration**.
-  * Use the [Set-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationDscNode?view=azps-3.7.0)
+  * Use the [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode?view=azps-3.7.0)
  cmdlet.
 
 ## <a name="no-mof-files"></a>Scenario: No node configurations (MOF files) were produced when a configuration was compiled
@@ -214,7 +211,7 @@ You've upgraded your Windows Management Framework (WMF) version and have corrupt
 
 ### Resolution
 
-Follow the instructions in [DSC known issues and limitations](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc).
+Follow the instructions in [DSC known issues and limitations](/powershell/scripting/wmf/known-issues/known-issues-dsc).
 
 ## <a name="issue-using-credential"></a>Scenario: Unable to use a credential in a DSC configuration
 
@@ -234,11 +231,11 @@ You've used a credential in a configuration but didn't provide proper `Configura
 
 Make sure to pass in the proper `ConfigurationData` to set `PSDscAllowPlainTextPassword` to true for each node configuration that's mentioned in the configuration. See [Compiling DSC configurations in Azure Automation State Configuration](../automation-dsc-compile.md).
 
-## <a name="failure-processing-extension"></a>Scenario: "Failure processing extension" error when onboarding from a DSC extension
+## <a name="failure-processing-extension"></a>Scenario: "Failure processing extension" error when enabling a machine from a DSC extension
 
 ### Issue
 
-When you onboard by using a DSC extension, a failure occurs that contains the error:
+When you enable a machine by using a DSC extension, a failure occurs that contains the error:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -251,13 +248,13 @@ This error typically occurs when the node is assigned a node configuration name 
 ### Resolution
 
 * Make sure that you're assigning the node with a name that exactly matches the name in the service.
-* You can choose to not include the node configuration name, which results in onboarding the node but not assigning a node configuration.
+* You can choose to not include the node configuration name, which results in enabling the node but not assigning a node configuration.
 
 ## <a name="cross-subscription"></a>Scenario: "One or more errors occurred" error when registering a node by using PowerShell
 
 ### Issue
 
-When you register a node by using [Register-AzAutomationDSCNode](https://docs.microsoft.com/powershell/module/az.automation/register-azautomationdscnode?view=azps-3.7.0) or [Register-AzureRMAutomationDSCNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0), you receive the following error:
+When you register a node by using [Register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode?view=azps-3.7.0) or [Register-AzureRMAutomationDSCNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0), you receive the following error:
 
 ```error
 One or more errors occurred.
@@ -269,10 +266,10 @@ This error occurs when you try to register a node in a separate subscription fro
 
 ### Resolution
 
-Treat the cross-subscription node as though it's defined for a separate cloud, or on-premises. Register the node by using one of these onboarding options:
+Treat the cross-subscription node as though it's defined for a separate cloud, or on-premises. Register the node by using one of these options for enabling machines:
 
-* Windows: [Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
-* Linux: [Physical/virtual Linux machines on-premises, or in a cloud other than Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
+* Windows: [Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS](../automation-dsc-onboarding.md#enable-physicalvirtual-windows-machines).
+* Linux: [Physical/virtual Linux machines on-premises, or in a cloud other than Azure](../automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines).
 
 ## <a name="agent-has-a-problem"></a>Scenario: "Provisioning has failed" error message
 
@@ -290,7 +287,7 @@ This message occurs when there's an issue with connectivity between the node and
 
 ### Resolution
 
-Determine if your node is in a virtual private network (VPN) or has other issues connecting to Azure. See [Troubleshoot errors when onboarding solutions](onboarding.md).
+Determine if your node is in a virtual private network (VPN) or has other issues connecting to Azure. See [Troubleshoot feature deployment issues](onboarding.md).
 
 ## <a name="failure-linux-temp-noexec"></a>Scenario: Failure with a general error when applying a configuration in Linux
 
@@ -336,7 +333,7 @@ DSC configurations that take a long time to compile can cause this error.
 
 ### Resolution
 
-You can make your DSC configurations parse faster by explicitly including the `ModuleName` parameter for any [Import-DSCResource](https://docs.microsoft.com/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1) calls.
+You can make your DSC configurations parse faster by explicitly including the `ModuleName` parameter for any [Import-DSCResource](/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1) calls.
 
 ## Next steps
 

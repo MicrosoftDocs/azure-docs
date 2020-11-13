@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/26/2020
 
 ms.author: jingwang
 
@@ -35,7 +35,7 @@ This DB2 database connector is supported for the following activities:
 
 You can copy data from DB2 database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this DB2 connector supports the following IBM DB2 platforms and versions with Distributed Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) version 9, 10 and 11:
+Specifically, this DB2 connector supports the following IBM DB2 platforms and versions with Distributed Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) version 9, 10 and 11.  It utilizes the DDM/DRDA protocol.
 
 * IBM DB2 for z/OS 12.1
 * IBM DB2 for z/OS 11.1
@@ -48,7 +48,7 @@ Specifically, this DB2 connector supports the following IBM DB2 platforms and ve
 * IBM DB2 for LUW 10.1
 
 >[!TIP]
->DB2 connector is built on top of Microsoft OLE DB Provider for DB2. To troubleshoot DB2 connector errors, refer to [Data Provider Error Codes](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
+>DB2 connector is built on top of Microsoft OLE DB Provider for DB2. To troubleshoot DB2 connector errors, refer to [Data Provider Error Codes](/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
 
 ## Prerequisites
 
@@ -76,12 +76,12 @@ Typical properties inside the connection string:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| server |Name of the DB2 server. You can specify the port number following the server name delimited by colon e.g. `server:port`. |Yes |
+| server |Name of the DB2 server. You can specify the port number following the server name delimited by colon e.g. `server:port`.<br>The DB2 connector utilizes the DDM/DRDA protocol, and by default uses port 50000 if not specified. The port your specific DB2 database uses might be different based on the version and your settings, e.g. for DB2 LUW the default port is 50000, for AS400 the default port is 446 or 448 when TLS enabled. Refer to the following DB2 documents on how the port is configured typically: [DB2 z/OS](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html), [DB2 iSeries](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm), and [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html). |Yes |
 | database |Name of the DB2 database. |Yes |
 | authenticationType |Type of authentication used to connect to the DB2 database.<br/>Allowed value is: **Basic**. |Yes |
 | username |Specify user name to connect to the DB2 database. |Yes |
 | password |Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| packageCollection	| Specify under where the needed packages are auto created by ADF when querying the database. | No |
+| packageCollection	| Specify under where the needed packages are auto created by ADF when querying the database. If this is not set, Data Factory uses the {username} as the default value. | No |
 | certificateCommonName | When you use Secure Sockets Layer (SSL) or Transport Layer Security (TLS) encryption, you must enter a value for Certificate common name. | No |
 
 > [!TIP]
@@ -95,7 +95,7 @@ Typical properties inside the connection string:
     "properties": {
         "type": "Db2",
         "typeProperties": {
-            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; password=<password>; packageCollection=<packagecollection>;certificateCommonName=<certname>;"
+            "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;password=<password>;packageCollection=<packagecollection>;certificateCommonName=<certname>;"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -112,7 +112,7 @@ Typical properties inside the connection string:
     "properties": {
         "type": "Db2",
         "typeProperties": {
-            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; packageCollection=<packagecollection>;certificateCommonName=<certname>;",
+            "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;packageCollection=<packagecollection>;certificateCommonName=<certname>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 

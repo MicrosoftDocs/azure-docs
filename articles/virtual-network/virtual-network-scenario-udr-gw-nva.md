@@ -30,8 +30,8 @@ This is a standard perimeter network (also knowns as DMZ) scenario with a DMZ an
 
 |  | Pros | Cons |
 | --- | --- | --- |
-| NSG |No cost. <br/>Integrated into Azure RBAC. <br/>Rules can be created in Azure Resource Manager templates. |Complexity could vary in larger environments. |
-| Firewall |Full control over data plane. <br/>Central management through firewall console. |Cost of firewall appliance. <br/>Not integrated with Azure RBAC. |
+| **NSG** |No cost. <br/>Integrated into Azure RBAC. <br/>Rules can be created in Azure Resource Manager templates. |Complexity could vary in larger environments. |
+| **Firewall** |Full control over data plane. <br/>Central management through firewall console. |Cost of firewall appliance. <br/>Not integrated with Azure RBAC. |
 
 The solution below uses firewall virtual appliances to implement a perimeter network (DMZ)/protected network scenario.
 

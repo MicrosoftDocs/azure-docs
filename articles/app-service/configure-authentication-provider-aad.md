@@ -98,7 +98,7 @@ Perform the following steps:
     |Field|Description|
     |-|-|
     |Client ID| Use the **Application (client) ID** of the app registration. |
-    |Issuer Url| Use `<authentication-endpoint>/<tenant-id>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (e.g., "https://login.microsoft.com" for global Azure), also replacing *\<tenant-id>* with the **Directory (tenant) ID** in which the app registration was created. This value is used to redirect users to the correct Azure AD tenant, as well as to download the appropriate metadata to determine the appropriate token signing keys and token issuer claim value for example. The `/v2.0` section may be omitted for applications using AAD v1. |
+    |Issuer Url| Use `<authentication-endpoint>/<tenant-id>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (e.g., "https://login.microsoftonline.com" for global Azure), also replacing *\<tenant-id>* with the **Directory (tenant) ID** in which the app registration was created. This value is used to redirect users to the correct Azure AD tenant, as well as to download the appropriate metadata to determine the appropriate token signing keys and token issuer claim value for example. For applications that use Azure AD v1 and for Azure Functions apps, omit `/v2.0` in the URL.|
     |Client Secret (Optional)| Use the client secret you generated in the app registration.|
     |Allowed Token Audiences| If this is a cloud or server app and you want to allow authentication tokens from a web app, add the **Application ID URI** of the web app here. The configured **Client ID** is *always* implicitly considered to be an allowed audience. |
 
@@ -115,19 +115,44 @@ You can register native clients to allow authentication to Web API's hosted in y
 1. In **Redirect URI**, select **Public client (mobile & desktop)** and type the URL `<app-url>/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
     > [!NOTE]
-    > For a Microsoft Store application, use the [package SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) as the URI instead.
+    > For a Microsoft Store application, use the [package SID](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#package-sid) as the URI instead.
 1. Select **Create**.
 1. After the app registration is created, copy the value of **Application (client) ID**.
 1. Select **API permissions** > **Add a permission** > **My APIs**.
 1. Select the app registration you created earlier for your App Service app. If you don't see the app registration, make sure that you've added the **user_impersonation** scope in [Create an app registration in Azure AD for your App Service app](#register).
-1. Select **user_impersonation**, and then select **Add permissions**.
+1. Under **Delegated permissions**, select **user_impersonation**, and then select **Add permissions**.
 
 You have now configured a native client application that can access your App Service app on behalf of a user.
+
+## Configure a daemon client application for service-to-service calls
+
+Your application can acquire a token to call a Web API hosted in your App Service or Function app on behalf of itself (not on behalf of a user). This scenario is useful for non-interactive daemon applications that perform tasks without a logged in user. It uses the standard OAuth 2.0 [client credentials](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) grant.
+
+1. In the [Azure portal], select **Active Directory** > **App registrations** > **New registration**.
+1. In the **Register an application** page, enter a **Name** for your daemon app registration.
+1. For a daemon application, you don't need a Redirect URI so you can keep that empty.
+1. Select **Create**.
+1. After the app registration is created, copy the value of **Application (client) ID**.
+1. Select **Certificates & secrets** > **New client secret** > **Add**. Copy the client secret value shown in the page. It won't be shown again.
+
+You can now [request an access token using the client ID and client secret](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) by setting the `resource` parameter to the **Application ID URI** of the target app. The resulting access token can then be presented to the target app using the standard [OAuth 2.0 Authorization header](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#use-the-access-token-to-access-the-secured-resource), and App Service Authentication / Authorization will validate and use the token as usual to now indicate that the caller (an application in this case, not a user) is authenticated.
+
+At present, this allows _any_ client application in your Azure AD tenant to request an access token and authenticate to the target app. If you also want to enforce _authorization_ to allow only certain client applications, you must perform some additional configuration.
+
+1. [Define an App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) in the manifest of the app registration representing the App Service or Function app you want to protect.
+1. On the app registration representing the client that needs to be authorized, select **API permissions** > **Add a permission** > **My APIs**.
+1. Select the app registration you created earlier. If you don't see the app registration, make sure that you've [added an App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
+1. Under **Application permissions**, select the App Role you created earlier, and then select **Add permissions**.
+1. Make sure to click **Grant admin consent** to authorize the client application to request the permission.
+1. Similar to the previous scenario (before any roles were added), you can now [request an access token](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) for the same target `resource`, and the access token will include a `roles` claim containing the App Roles that were authorized for the client application.
+1. Within the target App Service or Function app code, you can now validate that the expected roles are present in the token (this is not performed by App Service Authentication / Authorization). For more information, see [Access user claims](app-service-authentication-how-to.md#access-user-claims).
+
+You have now configured a daemon client application that can access your App Service app using its own identity.
 
 ## <a name="related-content"> </a>Next steps
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
+* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md)
 <!-- URLs. -->
 
 [Azure portal]: https://portal.azure.com/

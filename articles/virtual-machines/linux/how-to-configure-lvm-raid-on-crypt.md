@@ -2,8 +2,9 @@
 title: Configure LVM and RAID on encrypted devices - Azure Disk Encryption
 description: This article provides instructions for configuring LVM and RAID on encrypted devices for Linux VMs.
 author: jofrance
-ms.service: security
-ms.topic: article
+ms.service: virtual-machines
+ms.subservice: security
+ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 
@@ -42,11 +43,11 @@ In a similar way, the RAID device is created on top of the encrypted layer on th
 
 We recommend that you use LVM-on-crypt. RAID is an option when LVM can't be used because of specific application or environment limitations.
 
-You'll use the **EncryptFormatAll** option. For more information about this option, see [Use the EncryptFormatAll feature for data disks on Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+You'll use the **EncryptFormatAll** option. For more information about this option, see [Use the EncryptFormatAll feature for data disks on Linux VMs](./disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 Although you can use this method when you're also encrypting the OS, we're just encrypting data drives here.
 
-The procedures assume that you already reviewed the prerequisites in [Azure Disk Encryption scenarios on Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux) and in [Quickstart: Create and encrypt a Linux VM with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart).
+The procedures assume that you already reviewed the prerequisites in [Azure Disk Encryption scenarios on Linux VMs](./disk-encryption-linux.md) and in [Quickstart: Create and encrypt a Linux VM with the Azure CLI](./disk-encryption-cli-quickstart.md).
 
 The Azure Disk Encryption dual-pass version is on a deprecation path and should no longer be used on new encryptions.
 
@@ -364,7 +365,7 @@ mount -a
 lsblk -fs
 df -h
 ```
-![Information for mounted file systems](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![Screenshot shows a console window with file systems mounted as data0 and data1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
 On this variation of **lsblk**, we're listing the devices showing the dependencies in reverse order. This option helps to identify the devices grouped by the logical volume instead of the original /dev/sd[disk] device names.
 
@@ -433,7 +434,7 @@ Verify that the new file system is mounted:
 lsblk -fs
 df -h
 ```
-![Information for mounted file systems](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![Screenshot shows a console window with a file system mounted as raiddata.](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
 It's important to make sure that the **nofail** option is added to the mount point options of the RAID volumes created on top of a device encrypted through Azure Disk Encryption. It prevents the OS from getting stuck during the boot process (or in maintenance mode).
 
@@ -456,5 +457,5 @@ df -h
 ```
 ## Next steps
 
+- [Resize logical volume management devices encrypted with Azure Disk Encryption](how-to-resize-encrypted-lvm.md)
 - [Azure Disk Encryption troubleshooting](disk-encryption-troubleshooting.md)
-

@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 8/15/2018
 ms.author: victorh
 ---
@@ -58,4 +58,4 @@ az network application-gateway ssl-cert update \
 
 ## Next steps
 
-To learn how to configure TLS Offloading with Azure Application Gateway, see [Configure TLS Offload](application-gateway-ssl-portal.md)
+To learn how to configure TLS Offloading with Azure Application Gateway, see [Configure TLS Offload](./create-ssl-portal.md)

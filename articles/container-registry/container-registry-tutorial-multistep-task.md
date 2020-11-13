@@ -3,7 +3,7 @@ title: Tutorial - Multi-step ACR task
 description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger a multi-step workflow to build, run, and push container images in the cloud when you commit source code to a Git repository.
 ms.topic: tutorial
 ms.date: 05/09/2019
-ms.custom: "seodec18, mvc"
+ms.custom: "seodec18, mvc, devx-track-azurecli"
 # Customer intent: As a developer or devops engineer, I want to trigger
 # a multi-step container workflow automatically when I commit code to a Git repo.
 ---

@@ -9,7 +9,8 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
 ms.date: 06/14/2018
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI script example: Load balance VMs across availability zones

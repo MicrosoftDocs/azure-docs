@@ -6,6 +6,7 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
+ms.custom: devx-track-js
 ---
 # Options #
 
@@ -100,7 +101,7 @@ By setting this option to true video element will take full width of the parent 
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
 
-Other properties of the `playbackSpeed` setting are given by [PlaybackSpeedOptions](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) object.
+Other properties of the `playbackSpeed` setting are given by [PlaybackSpeedOptions](/javascript/api/azuremediaplayer/playbackspeedoptions) object.
 
 Example of setting playback speed options in JavaScript:
 

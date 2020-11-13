@@ -5,10 +5,8 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru 
-ms.date: 12/13/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Tutorial: React to Blob Storage events on IoT Edge (Preview)
@@ -338,7 +336,7 @@ The data object has the following properties:
 | -------- | ---- | ----------- |
 | api | string | The operation that triggered the event. It can be one of the following values: <ul><li>BlobCreated - allowed values are: `PutBlob` and `PutBlockList`</li><li>BlobDeleted - allowed values are `DeleteBlob`, `DeleteAfterUpload` and `AutoDelete`. <p>The `DeleteAfterUpload` event is generated when blob is automatically deleted because deleteAfterUpload desired property is set to true. </p><p>`AutoDelete` event is generated when blob is automatically deleted because deleteAfterMinutes desired property value expired.</p></li></ul>|
 | clientRequestId | string | a client-provided request ID for the storage API operation. This ID can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs, and can be provided in client requests using the "x-ms-client-request-id" header. For details, see [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
-| requestId | string | Service-generated request ID for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "request-id-header" field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+| requestId | string | Service-generated request ID for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "request-id-header" field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
 | eTag | string | The value that you can use to perform operations conditionally. |
 | contentType | string | The content type specified for the blob. |
 | contentLength | integer | The size of the blob in bytes. |

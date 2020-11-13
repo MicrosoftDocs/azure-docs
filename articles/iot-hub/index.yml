@@ -36,13 +36,6 @@ landingContent:
        links:
        - text: Working with Device Twins using Node.js
          url: iot-hub-node-node-twin-getstarted.md
-       - text: Understanding IoT metrics 
-         url: iot-hub-metrics.md
-       - text: Diagnostics Logging
-         url: iot-hub-monitor-resource-health.md
-       - text: Monitor, diagnose, and troubleshoot disconnects with IoT
-         url: iot-hub-troubleshoot-connectivity.md
-
  - title: Scale your solution
    linkLists:
      - linkListType: concept
@@ -88,7 +81,19 @@ landingContent:
         - text: Using IoT Tools for VS Code
           url: iot-hub-create-use-iot-toolkit.md
         - text: IoT Explorer
-          url: ../iot-pnp/howto-install-iot-explorer.md
+          url: ../iot-pnp/howto-use-iot-explorer.md
+ -   title: Monitor and troubleshoot IoT Hub
+     linkLists:
+     -  linkListType: how-to-guide
+        links:
+        - text: Monitor IoT Hub 
+          url: monitor-iot-hub.md
+        - text: Monitor IoT Hub data reference
+          url: monitor-iot-hub-reference.md
+        - text: Monitor, diagnose, and troubleshoot disconnects with IoT Hub
+          url: iot-hub-troubleshoot-connectivity.md
+        - text: Order device connection events from Azure IoT Hub using Azure Cosmos DB
+          url: iot-hub-how-to-order-connection-state-events.md
  - title: Using IoT Security certificates
    linkLists:
      - linkListType: concept
@@ -101,3 +106,37 @@ landingContent:
            url: iot-hub-security-x509-get-started.md
          - text: X.509 CA cert security concepts
            url: iot-hub-x509ca-concept.md
+ - title: Use Azure CLI for Iot Hub
+   linkLists:
+     - linkListType: concept
+       links:
+         - text: Create an IoT Hub
+           url: iot-hub-create-using-cli.md
+         - text: Manage IoT devices
+           url: iot-hub-device-management-iot-extension-azure-cli-2-0.md
+         - text: Configure message routing
+           url: tutorial-routing-config-message-routing-cli.md
+         - text: Configure file upload
+           url: iot-hub-configure-file-upload-cli.md
+         - text: Send telemetry and monitor
+           url: quickstart-send-telemetry-cli.md
+     - linkListType: reference
+       links:
+         - text: CLI references for IoT
+           url: /cli/azure/azure-cli-reference-for-IoT
+ - title: Use PowerShell for Iot Hub
+   linkLists:
+     - linkListType: concept
+       links:
+         - text: Create an IoT Hub
+           url: iot-hub-create-using-powershell.md
+         - text: Create an IoT Hub with a Resource Manager template
+           url: iot-hub-rm-template-powershell.md
+         - text: Configure message routing
+           url: tutorial-routing-config-message-routing-powershell.md
+         - text: Configure file upload
+           url: iot-hub-configure-file-upload-powershell.md
+     - linkListType: reference
+       links:
+         - text: PowerShell references for IoT
+           url: /powershell/module/az.iothub#iothub

@@ -5,8 +5,10 @@ description: Turn your machine learning experimental notebooks into production-r
 author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Convert ML experiments to production Python code
@@ -61,7 +63,7 @@ args = {
 }
 
 reg_model = Ridge(**args)
-reg.fit(data["train"]["X"], data["train"]["y"])
+reg_model.fit(data["train"]["X"], data["train"]["y"])
 
 preds = reg_model.predict(data["test"]["X"])
 mse = mean_squared_error(preds, y_test)
@@ -521,5 +523,5 @@ def test_train_model():
 Now that you understand how to convert from an experiment to production code, see the following links for more information and next steps:
 
 + [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): Build a CI/CD pipeline to train, evaluate and deploy your own model using Azure Pipelines and Azure Machine Learning
-+ [Monitor Azure ML experiment runs and metrics](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-+ [Monitor and collect data from ML web service endpoints](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)
++ [Monitor Azure ML experiment runs and metrics](./how-to-track-experiments.md)
++ [Monitor and collect data from ML web service endpoints](./how-to-enable-app-insights.md)

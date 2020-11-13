@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -24,7 +24,7 @@ If you encounter errors with the NPS extension for Azure Multi-Factor Authentica
 
 | Error code | Troubleshooting steps |
 | ---------- | --------------------- |
-| **CONTACT_SUPPORT** | [Contact support](#contact-microsoft-support), and mention the list of steps for collecting logs. Provide as much information as you can about what happened before the error, including tenant id, and user principal name (UPN). |
+| **CONTACT_SUPPORT** | [Contact support](#contact-microsoft-support), and mention the list of steps for collecting logs. Provide as much information as you can about what happened before the error, including tenant ID, and user principal name (UPN). |
 | **CLIENT_CERT_INSTALL_ERROR** | There may be an issue with how the client certificate was installed or associated with your tenant. Follow the instructions in [Troubleshooting the MFA NPS extension](howto-mfa-nps-extension.md#troubleshooting) to investigate client cert problems. |
 | **ESTS_TOKEN_ERROR** | Follow the instructions in [Troubleshooting the MFA NPS extension](howto-mfa-nps-extension.md#troubleshooting) to investigate client cert and ADAL token problems. |
 | **HTTPS_COMMUNICATION_ERROR** | The NPS server is unable to receive responses from Azure MFA. Verify that your firewalls are open bidirectionally for traffic to and from https://adnotifications.windowsazure.com |
@@ -40,7 +40,7 @@ If you encounter errors with the NPS extension for Azure Multi-Factor Authentica
 | Error code | Error message | Troubleshooting steps |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Error: userObjectSid lookup failed | Verify that the user exists in your on-premises Active Directory instance. If you are using cross-forest trusts, [contact support](#contact-microsoft-support) for further help. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Error: Alternate LoginId lookup failed | Verify that LDAP_ALTERNATE_LOGINID_ATTRIBUTE is set to a [valid active directory attribute](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> If LDAP_FORCE_GLOBAL_CATALOG is set to True, or LDAP_LOOKUP_FORESTS is configured with a non-empty value, verify that you have configured a Global Catalog and that the AlternateLoginId attribute is added to it. <br><br> If LDAP_LOOKUP_FORESTS is configured with a non-empty value, verify that the value is correct. If there is more than one forest name, the names must be separated with semi-colons, not spaces. <br><br> If these steps don't fix the problem, [contact support](#contact-microsoft-support) for more help. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Error: Alternate LoginId lookup failed | Verify that LDAP_ALTERNATE_LOGINID_ATTRIBUTE is set to a [valid active directory attribute](/windows/win32/adschema/attributes-all). <br><br> If LDAP_FORCE_GLOBAL_CATALOG is set to True, or LDAP_LOOKUP_FORESTS is configured with a non-empty value, verify that you have configured a Global Catalog and that the AlternateLoginId attribute is added to it. <br><br> If LDAP_LOOKUP_FORESTS is configured with a non-empty value, verify that the value is correct. If there is more than one forest name, the names must be separated with semi-colons, not spaces. <br><br> If these steps don't fix the problem, [contact support](#contact-microsoft-support) for more help. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Error: Alternate LoginId value is empty | Verify that the AlternateLoginId attribute is configured for the user. |
 
 ## Errors your users may encounter
@@ -57,7 +57,7 @@ If you encounter errors with the NPS extension for Azure Multi-Factor Authentica
 | **OathCodePinIncorrect** | Wrong code and pin entered. | This error is not expected in the NPS extension. If your user encounters this, [contact support](#contact-microsoft-support) for troubleshooting help. |
 | **ProofDataNotFound** | Proof data was not configured for the specified authentication method. | Have the user try a different verification method, or add a new verification methods according to the instructions in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md). If the user continues to see this error after you confirmed that their verification method is set up correctly, [contact support](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Wrong code and pin entered. (OneWaySMS) | This error is not expected in the NPS extension. If your user encounters this, [contact support](#contact-microsoft-support) for troubleshooting help. |
-| **TenantIsBlocked** | Tenant is blocked | [Contact support](#contact-microsoft-support) with Directory ID from the Azure AD properties page in the Azure portal. |
+| **TenantIsBlocked** | Tenant is blocked | [Contact support](#contact-microsoft-support) with the *Tenant ID* from the Azure AD properties page in the Azure portal. |
 | **UserNotFound** | The specified user was not found | The tenant is no longer visible as active in Azure AD. Check that your subscription is active and you have the required first party apps. Also make sure the tenant in the certificate subject is as expected and the cert is still valid and registered under the service principal. |
 
 ## Messages your users may encounter that aren't errors
@@ -96,7 +96,7 @@ If your users are [Having trouble with two-step verification](../user-help/multi
 
 ### Health check script
 
-The [Azure MFA NPS Extension health check script](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) performs a basic health check when troubleshooting the NPS extension. Run the script and choose option 3.
+The [Azure MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) performs a basic health check when troubleshooting the NPS extension. Run the script and choose option 3.
 
 ### Contact Microsoft support
 

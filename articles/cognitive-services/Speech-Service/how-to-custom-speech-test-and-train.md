@@ -14,7 +14,26 @@ ms.author: trbye
 
 # Prepare data for Custom Speech
 
-When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them.
+When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data a custom speech model needs.
+
+## Data diversity
+
+Text and audio used to test and train a custom model need to include samples from a diverse set of speakers and scenarios you need your model to recognize.
+Consider these factors when gathering data for custom model testing and training:
+
+* Your text and speech audio data need to cover the kinds of verbal statements your users will make when interacting with your model. For example, a model that raises and lowers the temperature needs training on statements people might make to request such changes.
+* Your data need to include all speech variances your model will need to recognize. Many factors can vary speech, including accents, dialects, language-mixing, age, gender, voice pitch, stress level, and time of day.
+* You must include samples from different environments (indoor, outdoor, road noise) where your model will be used.
+* Audio must be gathered using hardware devices the production system will use. If your model needs to identify speech recorded on recording devices of varying quality, the audio data you provide to train your model must also represent these diverse scenarios.
+* You can add more data to your model later, but take care to keep the dataset diverse and representative of your project needs.
+* Including data that is *not* within your custom model recognition needs can harm recognition quality overall, so do not include data that your model does not need to transcribe.
+
+A model trained on a subset of scenarios can only perform well in those scenarios. Carefully choose data that represents the full scope of scenarios you need your custom model to recognize.
+
+> [!TIP]
+> Start with small sets of sample data that match the language and acoustics your model will encounter.
+> For example, record a small but representative sample of audio on the same hardware and in the same acoustic environment your model will find in production scenarios.
+> Small datasets of representative data can expose problems before you have invested in gathering a much larger datasets for training.
 
 ## Data types
 
@@ -22,7 +41,7 @@ This table lists accepted data types, when each data type should be used, and th
 
 | Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/a |
+| [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/A |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-1,000 hours of audio |
 | [Related text](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
 
@@ -35,7 +54,7 @@ Files should be grouped by type into a dataset and uploaded as a .zip file. Each
 
 To upload your data, navigate to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. From the portal, click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
 
-![Select audio from the Speech Portal](./media/custom-speech/custom-speech-select-audio.png)
+![Screenshot that highlights the Audio upload option from the Speech Portal.](./media/custom-speech/custom-speech-select-audio.png)
 
 Each dataset you upload must meet the requirements for the data type that you choose. Your data must be correctly formatted before it's uploaded. Correctly formatted data ensures it will be accurately processed by the Custom Speech service. Requirements are listed in the following sections.
 
@@ -75,6 +94,8 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX <spa
 ## Audio + human-labeled transcript data for testing/training
 
 To measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high-quality transcripts are uploaded.
+
+Audio files can have silence at the beginning and end of the recording. If possible, include at least a half-second of silence before and after speech in each sample file. While audio with low recording volume or disruptive background noise is not helpful, it should not hurt your custom model. Always consider upgrading your microphones and signal processing hardware before gathering audio samples.
 
 | Property                 | Value                               |
 |--------------------------|-------------------------------------|

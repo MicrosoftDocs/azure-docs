@@ -10,7 +10,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
 ---
 
@@ -25,7 +25,7 @@ Potential issues associated with connecting to a source SQL Server database and 
 | Error         | Cause and troubleshooting detail |
 | ------------- | ------------- |
 | SQL connection failed. A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct, and that SQL Server is configured to allow remote connections.<br> | This error occurs if the service can’t locate the source server. To address the issue, see the article [Error connecting to source SQL Server when using dynamic port or named instance](https://docs.microsoft.com/azure/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance). |
-| **Error 53** - SQL connection failed. (Also, for error codes 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | This error occurs if the service can’t connect to the source server. To address the issue, refer to the following resources, and then try again. <br><br>  [Interactive user guide to troubleshoot the connectivity issue](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Prerequisites for migrating SQL Server to Azure SQL Database](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Prerequisites for migrating SQL Server to an Azure SQL Database managed instance](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
+| **Error 53** - SQL connection failed. (Also, for error codes 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | This error occurs if the service can’t connect to the source server. To address the issue, refer to the following resources, and then try again. <br><br>  [Interactive user guide to troubleshoot the connectivity issue](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Prerequisites for migrating SQL Server to Azure SQL Database](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Prerequisites for migrating SQL Server to an Azure SQL Managed Instance](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
 | **Error 18456** - Login failed.<br> | This error occurs if the service can’t connect to the source database using the provided T-SQL credentials. To address the issue, verify the entered credentials. You can also refer to [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) or to the troubleshooting documents listed in the note below this table, and then try again. |
 | Malformed AccountName value '{0}' provided. Expected format for AccountName is DomainName\UserName<br> | This error occurs if the user selects Windows authentication but provides the username in an invalid format. To address the issue, either provide username in the correct format for Windows authentication or select **SQL Authentication**. |
 

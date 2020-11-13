@@ -30,7 +30,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Create an IIS VM 
 
-In this example, we use [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet in the PowerShell Cloud Shell to quickly create a Windows Server 2016 VM and then install IIS and the .NET Framework. The IIS and SQL VMs share a resource group and virtual network, so we create variables for those names.
+In this example, we use [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet in the PowerShell Cloud Shell to quickly create a Windows Server 2016 VM and then install IIS and the .NET Framework. The IIS and SQL VMs share a resource group and virtual network, so we create variables for those names.
 
 
 ```azurepowershell-interactive
@@ -49,7 +49,7 @@ New-AzVm `
     -OpenPorts 80,3389 
 ```
 
-Install IIS and the .NET framework using the custom script extension with the [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet.
+Install IIS and the .NET framework using the custom script extension with the [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzVMExtension `
@@ -73,7 +73,7 @@ $vNet = Get-AzVirtualNetwork `
    -ResourceGroupName $resourceGroup
 ```
 
-Create a configuration for the subnet using [Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig).
+Create a configuration for the subnet using [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig).
 
 
 ```azurepowershell-interactive
@@ -84,7 +84,7 @@ Add-AzVirtualNetworkSubnetConfig `
    -ServiceEndpoint Microsoft.Sql
 ```
 
-Update the vNet with the new subnet information using [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork)
+Update the vNet with the new subnet information using [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
    
 ```azurepowershell-interactive   
 $vNet | Set-AzVirtualNetwork
@@ -108,7 +108,7 @@ New-AzVm `
     -OpenPorts 3389,1401 
 ```
 
-Use [Set-AzVMSqlServerExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsqlserverextension) to add the [SQL Server extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) to the SQL VM.
+Use [Set-AzVMSqlServerExtension](/powershell/module/az.compute/set-azvmsqlserverextension) to add the [SQL Server extension](../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md) to the SQL VM.
 
 ```azurepowershell-interactive
 Set-AzVMSqlServerExtension `
@@ -132,4 +132,3 @@ Advance to the next tutorial to learn how to secure IIS web server with TLS/SSL 
 
 > [!div class="nextstepaction"]
 > [Secure IIS web server with TLS/SSL certificates](tutorial-secure-web-server.md)
-

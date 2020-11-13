@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -26,7 +26,7 @@ The **ContentDefinitions** element contains URLs to HTML5 templates that can be 
 
 The following example shows the content definition identifier and the definition of localized resources:
 
-```XML
+```xml
 <ContentDefinition Id="api.localaccountsignup">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -42,7 +42,7 @@ The following example shows the content definition identifier and the definition
 
 The metadata of the **LocalAccountSignUpWithLogonEmail** self-asserted technical profile contains the content definition identifier **ContentDefinitionReferenceId** set to `api.localaccountsignup`
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -122,6 +122,39 @@ The format of the value must contain the word `contract`: _urn:com:microsoft:aad
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
+The following example shows the content definition identifiers and the corresponding **DataUri** with page contract: 
+
+```xml
+<ContentDefinitions>
+  <ContentDefinition Id="api.error">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections.signup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.signuporsignin">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted.profileupdate">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountsignup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountpasswordreset">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.phonefactor">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0</DataUri>
+  </ContentDefinition>
+</ContentDefinitions>
+```
 
 ### Metadata
 
@@ -162,7 +195,7 @@ The **LocalizedResourcesReference** element contains the following attributes:
 
 The following example shows a sign-up or sign-in content definition with a reference to localization for English, French and Spanish:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>

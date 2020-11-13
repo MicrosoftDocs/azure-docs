@@ -56,13 +56,15 @@ The sink transformation requires either a single key or a series of keys for uni
 
 ADF Data Flows supports merges against Azure SQL Database and Synapse database pool (data warehouse) with the upsert option.
 
-However, you may run into scenarios where your target database schema utilized the identity property of key columns. ADF requires you to identify the keys that you will use to match the row values for updates and upserts. But if the target column has the identity property set and you are using the upsert policy, the target database will not allow you to write to the column.
+However, you may run into scenarios where your target database schema utilized the identity property of key columns. ADF requires you to identify the keys that you will use to match the row values for updates and upserts. But if the target column has the identity property set and you are using the upsert policy, the target database will not allow you to write to the column. You may also run into errors when you try to upsert against a distributed table's distribution column.
 
-You have two options:
+Here are ways to fix that:
 
-1. Use the Sink transformation pre-processing SQL option: ```SET IDENTITY_INSERT tbl_content ON```. Then, turn it off with the post-processing SQL property: ```SET IDENTITY_INSERT tbl_content OFF```.
+1. Go to the Sink transformation Settings and set "Skip writing key columns". This will tell ADF to not write the column that you have selected as the key value for your mapping.
 
-2. Rather than use upsert, switch your logic to separate the update conditions from the insert conditions using a Conditional Split transformation. This way, you can set the mapping on the update path to ignore the key column mapping.
+2. If that key column is not the column that is causing the issue for identity columns, then you can use the Sink transformation pre-processing SQL option: ```SET IDENTITY_INSERT tbl_content ON```. Then, turn it off with the post-processing SQL property: ```SET IDENTITY_INSERT tbl_content OFF```.
+
+3. For both the identity case and the distribution column case, you can switch your logic from Upsert to using a separate update condition and a separate insert condition using a Conditional Split transformation. This way, you can set the mapping on the update path to ignore the key column mapping.
 
 ## Data flow script
 

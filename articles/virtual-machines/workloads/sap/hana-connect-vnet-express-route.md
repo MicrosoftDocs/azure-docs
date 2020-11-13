@@ -94,7 +94,7 @@ New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 ```
 
 > [!NOTE]
-> The last parameter in the command New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** is a new parameter that enables ExpressRoute Fast Path. A functionality that reduces network latency between your HANA Large Instance units and Azure VMs. The functionality got added in May 2019. For more details, check the article [SAP HANA (Large Instances) network architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture). Make sure that you are running the latest version of PowerShell cmdlets before running the commands.
+> The last parameter in the command New-AzVirtualNetworkGatewayConnection, **ExpressRouteGatewayBypass** is a new parameter that enables ExpressRoute Fast Path. A functionality that reduces network latency between your HANA Large Instance units and Azure VMs. The functionality got added in May 2019. For more details, check the article [SAP HANA (Large Instances) network architecture](./hana-network-architecture.md). Make sure that you are running the latest version of PowerShell cmdlets before running the commands.
 
 To connect the gateway to more than one ExpressRoute circuit associated with your subscription, you might need to run this step more than once. For example, you're likely going to connect the same virtual network gateway to the ExpressRoute circuit that connects the virtual network to your on-premises network.
 
@@ -137,7 +137,7 @@ you need consider that:
 - There is a limitation on the ASNs (Autonomous System Number) that can be used to advertise your on-premises routes to HANA Large Instances. Your on-premises must not advertise any routes with private ASNs in the range of 65000 – 65020 or 65515. 
 - For the scenario of connecting on-premises direct access to HANA Large instances, you need to calculate a fee for the circuit that connects you to Azure. For prices, check the prices for [Global Reach Add-On](https://azure.microsoft.com/pricing/details/expressroute/).
 
-To get one or both of the scenarios applied to your deployment, open a support message with Azure as described in [Open a support request for HANA large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#open-a-support-request-for-hana-large-instances)
+To get one or both of the scenarios applied to your deployment, open a support message with Azure as described in [Open a support request for HANA large Instances](./hana-li-portal.md#open-a-support-request-for-hana-large-instances)
 
 Data that is needed and keywords that you need to use for Microsoft to be able to route and execute on your request, looks like:
 

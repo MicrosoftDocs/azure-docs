@@ -1,18 +1,15 @@
 ---
 title: Azure Event Grid security and authentication
 description: Describes Azure Event Grid and its concepts.
-services: event-grid
-author: banisadr
-manager: timlt
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: babanisa
+ms.date: 07/07/2020
 ---
-# Authorizing access to Event Grid resources
-Azure Event Grid allows you to control the level of access given to different users to do various management operations such as list event subscriptions, create new ones, and generate keys. Event Grid uses Azure's role-based access control (RBAC).
 
+# Authorizing access to Event Grid resources
+Azure Event Grid allows you to control the level of access given to different users to do various **management operations** such as list event subscriptions, create new ones, and generate keys. Event Grid uses Azure role-based access control (Azure RBAC).
+
+> [!NOTE]
+> EventGrid doesn't support Azure RBAC for publishing events to Event Grid topics or domains. Use a Shared Access Signature (SAS) key or token to authenticate clients that publish events. For more information, see [Authenticate publishing clients](security-authenticate-publishing-clients.md). 
 
 ## Operation types
 

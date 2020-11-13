@@ -150,7 +150,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 Extension execution output is logged to the following file:
 
 ```
-/opt/microsoft/dependcency-agent/log/install.log 
+/opt/microsoft/dependency-agent/log/install.log 
 ```
 
 ### Support

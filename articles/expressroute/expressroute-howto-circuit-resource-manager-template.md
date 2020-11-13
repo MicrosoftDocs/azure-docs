@@ -1,13 +1,13 @@
 ---
 title: 'Azure ExpressRoute Template: Create an ExpressRoute circuit'
-description: Create, provision, delete, and deprovision an ExpressRoute circuit.
+description: Learn how to create an Azure ExpressRoute circuit by deploying an Azure Resource Manager template by using Azure PowerShell.
 services: expressroute
-author: charwen
+author: duongau
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: charwen
+ms.author: duau
 
 ---
 
@@ -22,7 +22,7 @@ ms.author: charwen
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
-Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manager template by using Azure PowerShell. For more information on developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.network/expressroutecircuits).
+Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manager template by using Azure PowerShell. For more information on developing Resource Manager templates, see [Resource Manager documentation](../azure-resource-manager/index.yml) and the [template reference](/azure/templates/microsoft.network/expressroutecircuits).
 
 ## Before you begin
 
@@ -60,7 +60,7 @@ To create an ExpressRoute Circuit by deploying a template:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **SKU tier** determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard, or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard, or *Premium*.
+   * **SKU tier** determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard, or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard, or *Premium*. You cannot change the SKU from *Standard/Premium* to *Local*.
    * **SKU family** determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*. A *Local* circuit is *Unlimiteddata* only.
    * **Peering Location** is the physical location where you are peering with Microsoft.
 

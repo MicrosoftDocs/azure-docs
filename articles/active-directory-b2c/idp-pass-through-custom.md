@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
@@ -28,7 +28,7 @@ Azure AD B2C supports passing the access token of [OAuth 2.0](authorization-code
 
 1. Open your *TrustframeworkExtensions.xml* file and add the following **ClaimType** element with an identifier of `identityProviderAccessToken` to the **ClaimsSchema** element:
 
-    ```XML
+    ```xml
     <BuildingBlocks>
       <ClaimsSchema>
         <ClaimType Id="identityProviderAccessToken">
@@ -43,7 +43,7 @@ Azure AD B2C supports passing the access token of [OAuth 2.0](authorization-code
 
 2. Add the **OutputClaim** element to the **TechnicalProfile** element for each OAuth 2.0 identity provider that you would like the access token for. The following example shows the element added to the Facebook technical profile:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Facebook</DisplayName>
       <TechnicalProfiles>
@@ -60,7 +60,7 @@ Azure AD B2C supports passing the access token of [OAuth 2.0](authorization-code
 3. Save the *TrustframeworkExtensions.xml* file.
 4. Open your relying party policy file, such as *SignUpOrSignIn.xml*, and add the **OutputClaim** element to the **TechnicalProfile**:
 
-    ```XML
+    ```xml
     <RelyingParty>
       <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
       <TechnicalProfile Id="PolicyProfile">

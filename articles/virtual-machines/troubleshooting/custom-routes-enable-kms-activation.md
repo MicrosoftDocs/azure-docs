@@ -50,9 +50,9 @@ To add the custom route, follow these steps:
  
 
 > [!NOTE] 
-> Activation uses public IP addresses and will be affected by a Standard SKU Load Balancer configuration. Carefully review [Outbound connections in Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) to learn about the requirements.
+> Activation uses public IP addresses and will be affected by a Standard SKU Load Balancer configuration. Carefully review [Outbound connections in Azure](../../load-balancer/load-balancer-outbound-connections.md) to learn about the requirements.
 
-1. Open Azure PowerShell, and then [sign in to your Azure subscription](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Open Azure PowerShell, and then [sign in to your Azure subscription](/powershell/azure/authenticate-azureps).
 2. Run the following commands:
 
     ```powershell
@@ -74,9 +74,11 @@ To add the custom route, follow these steps:
 
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
-3. Go to the VM that has activation problems. Use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach the KMS server:
+3. Go to the VM that has activation problems. Use [PsPing](/sysinternals/downloads/psping) to test if it can reach the KMS server:
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Try to activate Windows, and see if the problem is resolved.
 
@@ -84,7 +86,7 @@ To add the custom route, follow these steps:
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-1. Open Azure PowerShell, and then [sign in to your Azure subscription](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Open Azure PowerShell, and then [sign in to your Azure subscription](/powershell/azure/authenticate-azureps).
 2. Run the following commands:
 
     ```powershell
@@ -102,15 +104,15 @@ To add the custom route, follow these steps:
     -RouteTableName "VNet-DM-KmsRouteTable"
     ```
 
-3. Go to the VM that has activation problems. Use [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) to test if it can reach the KMS server:
+3. Go to the VM that has activation problems. Use [PsPing](/sysinternals/downloads/psping) to test if it can reach the KMS server:
 
-        psping kms.core.windows.net:1688
+    ```console
+    psping kms.core.windows.net:1688
+    ```
 
 4. Try to activate Windows, and see if the problem is resolved.
 
 ## Next steps
 
-- [KMS Client Setup Keys](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys
-)
-- [Review and Select Activation Methods](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11)
-)
+- [KMS Client Setup Keys](/windows-server/get-started/kmsclientkeys)
+- [Review and Select Activation Methods](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134256(v=ws.11))

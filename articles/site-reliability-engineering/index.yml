@@ -53,11 +53,13 @@ productDirectory:
          - url: https://myignite.techcommunity.microsoft.com/sessions/83001  
            text: "Preparing for growth: capacity planning and scaling"
      # Card
-     - title: Introduction to SRE online course
+     - title: SRE online courses
        imageSrc: ./media/index/learn.svg
        links:
-         - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
-           text: Learn the basics of SRE in a free online course
+         - url: /learn/modules/intro-to-site-reliability-engineering/
+           text: Introduction to site reliability engineering
+         - url: /learn/paths/improve-reliability-modern-operations/
+           text: Improve your reliability with modern operations practices  
      # Card
      - title: SRE resources
        imageSrc: ./media/index/reference.svg
@@ -66,6 +68,8 @@ productDirectory:
            text: Books
          - url: resources/events.md
            text: Events
+         - url: articles/code.md
+           text: "FAQ: SRE and coding"
          - url: articles/devops.md
            text: "FAQ: SRE and DevOps"
          - url: resources/links.md
@@ -79,108 +83,108 @@ conceptualContent:
     # Card
     - title: Architecture
       links:
-        - url: https://docs.microsoft.com/azure/architecture/framework/
+        - url: /azure/architecture/framework/
           itemType: reference
           text: Azure Architecture Framework
           
-        - url: https://docs.microsoft.com/azure/architecture/guide
+        - url: /azure/architecture/guide
           itemType: reference
           text: Azure Application Architecture Guide
 
-        - url: https://docs.microsoft.com/azure/architecture/architectures/?filter=reference-architecture
+        - url: /azure/architecture/architectures/?filter=reference-architecture
           itemType: reference
           text: Reference Architectures
 
-        - url: https://docs.microsoft.com/azure/architecture/cloud-adoption/
+        - url: /azure/architecture/cloud-adoption/
           itemType: reference
           text: Microsoft Cloud Adoption Framework for Azure
 
-        - url: https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload
+        - url: /azure/architecture/architectures/?filter=example-workload
           itemType: reference
           text: Example Workloads
 
-        - url: https://docs.microsoft.com/azure/architecture/microservices
+        - url: /azure/architecture/microservices
           itemType: reference
           text: Building Microservices on Azure
 
-        - url: https://docs.microsoft.com/azure/architecture/data-guide/
+        - url: /azure/architecture/data-guide/
           itemType: reference
           text: Azure Data Architecture Guide
 
-        - url: https://docs.microsoft.com/azure/architecture/best-practices/
+        - url: /azure/architecture/best-practices/
           itemType: reference
           text: Cloud Best Practices
 
-        - url: https://docs.microsoft.com/azure/architecture/framework/resiliency/overview
+        - url: /azure/architecture/framework/resiliency/overview
           itemType: reference
           text: Designing Reliable Azure applications
 
-        - url: https://docs.microsoft.com/azure/architecture/patterns
+        - url: /azure/architecture/patterns
           itemType: reference
           text: Cloud Design Patterns   
 
-        - url: https://docs.microsoft.com/azure/architecture/aws-professional
+        - url: /azure/architecture/aws-professional
           itemType: reference
           text: Azure for AWS Professionals
 
-        - url: https://docs.microsoft.com/azure/architecture/performance
+        - url: /azure/architecture/performance
           itemType: reference
           text: Performance tuning   
       # footerLink (optional)
       footerLink:
-        url: https://docs.microsoft.com/azure/architecture/
+        url: /azure/architecture/
         text: See more in the Azure Architecture Center
     # Card
     - title: Monitoring
       links:
-        - url: https://docs.microsoft.com/azure/azure-monitor/overview
+        - url: ../azure-monitor/overview.md
           itemType: get-started
           text: Azure Monitor overview
 
-        - url: https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics
+        - url: ../azure-monitor/platform/data-platform-metrics.md
           itemType: get-started
           text: Metrics with Azure Monitor
 
-        - url: https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs
+        - url: ../azure-monitor/platform/data-platform-logs.md
           itemType: get-started
           text: Logs with Azure Monitor
 
-        - url: https://docs.microsoft.com/azure/azure-monitor/azure-monitor-app-hub
+        - url: ../azure-monitor/azure-monitor-app-hub.yml
           itemType: get-started
           text: Application Performance Management with Application Insights
 
-        - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
+        - url: ../azure-monitor/app/distributed-tracing.md
           itemType: get-started
           text: Distributed Tracing with Azure Monitor
-
+          
       # footerLink (optional)
       footerLink:
-        url: https://docs.microsoft.com/en-us/azure/azure-monitor/
+        url: ../azure-monitor/index.yml
         text: See more about Azure Monitor
     # Card
     - title: Provisioning and Delivery
       links:
-        - url: https://docs.microsoft.com/azure/azure-resource-manager/
+        - url: ../azure-resource-manager/index.yml
           itemType: get-started
           text: Azure Resource Manager
-        - url: https://docs.microsoft.com/azure/terraform/
+        - url: /azure/terraform/
           itemType: get-started
           text: Terraform on Azure
         - url: https://help.github.com/actions
           itemType: get-started
           text: GitHub Actions
 
-        - url:  https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops
+        - url:  /azure/devops/pipelines/index?view=azure-devops
           itemType: get-started
           text: Azure Pipelines
     # Card
     - title: Scaling
       links:
-        - url: https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview
+        - url: ../azure-monitor/platform/autoscale-overview.md
           itemType: get-started
           text: Overview of autoscale
 
-        - url:  https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling
+        - url:  /azure/architecture/best-practices/auto-scaling
           itemType: get-started
           text: Autoscaling guidance
 
@@ -188,15 +192,15 @@ conceptualContent:
           itemType: get-started
           text: Developing for Autoscaling
 
-        - url:  https://docs.microsoft.com/azure/architecture/framework/scalability/overview
+        - url:  /azure/architecture/framework/scalability/overview
           itemType: get-started
           text: Azure architecture scalability pillar
 
-        - url:  https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out
+        - url:  /azure/architecture/guide/design-principles/scale-out
           itemType: get-started
           text: Design to scale out
 
-        - url:  https://docs.microsoft.com/en-us/azure/architecture/patterns/category/performance-scalability
+        - url:  /azure/architecture/patterns/category/performance-scalability
           itemType: get-started
           text: Performance and Scalability patterns
 additionalContent:

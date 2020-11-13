@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot Azure Synapse Studio (preview) connectivity PowerShell 
+title: Troubleshoot Synapse Studio connectivity
 description: Troubleshoot Azure Synapse Studio connectivity using PowerShell
-author: julieMSFT 
+author: saveenr 
 ms.service: synapse-analytics 
 ms.topic: conceptual
-ms.date: 04/15/2020 
-ms.author: jrasnick 
+ms.date: 10/30/2020 
+ms.author: saveenr 
 ms.reviewer: jrasnick
 ---
 
-# Diagnose Azure Synapse Studio (preview) connectivity issues with PowerShell script
+# Troubleshoot Synapse Studio connectivity with PowerShell
 
 Azure Synapse Studio (preview) depends on a set of Web API endpoints to work properly. This guide will help you identify causes of connectivity issues when you're:
 - configuring your local network (such as network behind a corporate firewall) for accessing Azure Synapse Studio.
@@ -22,13 +22,13 @@ Azure Synapse Studio (preview) depends on a set of Web API endpoints to work pro
 
 ## Troubleshooting steps
 
-Right click on the following link, and click "Save target as":
+Right-click on the following link, and select "Save target as":
 
 - [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
 
 Alternatively, you may open the link directly, and save the opened script file. Don't save the address of the link above, as it may change in the future.
 
-In file explorer, right-click on the downloaded script file, and click "Run with PowerShell".
+In file explorer, right-click on the downloaded script file, and select "Run with PowerShell".
 
 ![Run downloaded script file with PowerShell](media/troubleshooting-synapse-studio-powershell/run-with-powershell.png)
 
@@ -53,4 +53,4 @@ If you're a network administrator and tuning your firewall configuration for Azu
 
 
 ## Next steps
-If the previous steps don't help to resolve you issue [Create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+If the previous steps don't help to resolve your issue, [create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

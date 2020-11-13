@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot with system health reports 
 description: Describes the health reports sent by Azure Service Fabric components and their usage for troubleshooting cluster or application problems
-author: oanapl
+author: georgewallace
 
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
+ms.author: gwallace
 ---
 # Use system health reports to troubleshoot
 Azure Service Fabric components provide system health reports on all entities in the cluster right out of the box. The [health store](service-fabric-health-introduction.md#health-store) creates and deletes entities based on the system reports. It also organizes them in a hierarchy that captures entity interactions.
@@ -71,18 +71,18 @@ For cluster running Service Fabric version 6.5 or higher:
 For Service Fabric cluster on Azure, after the seed node goes down, Service Fabric will try to change it to a non-seed node automatically. To make this happen, make sure the number of non-seed nodes in the primary node type is greater or equal to the number of Down seed nodes. If necessary, add more nodes to the primary node type to achieve this.
 Depending on the cluster status, it may take some time to fix the issue. Once this is done, the warning report is automatically cleared.
 
-For Service Fabric standalone cluster, to clear the warning report, all the seed nodes need to become healthy. Depending on why seed nodes are unhealthy, different actions need to be taken: if the seed node is Down, users need to bring that seed node up; if the seed node is Removed or Unknown, this seed node [needs to be removed from the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+For Service Fabric standalone cluster, to clear the warning report, all the seed nodes need to become healthy. Depending on why seed nodes are unhealthy, different actions need to be taken: if the seed node is Down, users need to bring that seed node up; if the seed node is Removed or Unknown, this seed node [needs to be removed from the cluster](./service-fabric-cluster-windows-server-add-remove-nodes.md).
 The warning report is automatically cleared when all seed nodes become healthy.
 
 For cluster running Service Fabric version older than 6.5:
 In this case, the warning report needs to be cleared manually. **Users should make sure all the seed nodes become healthy before clearing the report**: if the seed node is Down, users need to bring that seed node up;if the seed node is Removed or Unknown, that seed node needs to be removed from the cluster.
-After all the seed nodes become healthy, use following command from Powershell to [clear the warning report](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+After all the seed nodes become healthy, use following command from Powershell to [clear the warning report](/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
 
 ## Node system health reports
-System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
+System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
 
 ### Node up/down
 System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store acts on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted, as a new instance, the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
@@ -673,7 +673,7 @@ Other API calls that can get stuck are on the **IReplicator** interface. For exa
 * **Property**: **PrimaryReplicationQueueStatus** or **SecondaryReplicationQueueStatus**, depending on the replica role.
 
 ### Slow Naming operations
-**System.NamingService** reports the health on its primary replica when a Naming operation takes longer than acceptable. Examples of Naming operations are [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) or [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). More methods can be found under FabricClient. For example, they can be found under [service management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) or [property management methods](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
+**System.NamingService** reports the health on its primary replica when a Naming operation takes longer than acceptable. Examples of Naming operations are [CreateServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) or [DeleteServiceAsync](/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). More methods can be found under FabricClient. For example, they can be found under [service management methods](/dotnet/api/system.fabric.fabricclient.servicemanagementclient) or [property management methods](/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
 
 > [!NOTE]
 > The Naming service resolves service names to a location in the cluster. Users can use it to manage service names and properties. It's a Service Fabric partitioned-persisted service. One of the partitions represents the *Authority Owner*, which contains metadata about all Service Fabric names and services. The Service Fabric names are mapped to different partitions, called *Name Owner* partitions, so the service is extensible. Read more about the [Naming service](service-fabric-architecture.md).
@@ -878,4 +878,3 @@ System.Hosting reports a warning if node capacities aren't defined in the cluste
 * [Monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 * [Service Fabric application upgrade](service-fabric-application-upgrade.md)
-

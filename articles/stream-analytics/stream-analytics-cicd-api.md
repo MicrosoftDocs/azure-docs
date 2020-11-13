@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/04/2018
 ---
 
@@ -131,7 +131,7 @@ Example of request body in JSON:
 } 
 ```
  
-For more information, see the [API documentation](/rest/api/streamanalytics/stream-analytics-job).  
+For more information, see the [API documentation](/rest/api/streamanalytics/).  
  
 ## Publish Edge package 
  
@@ -254,5 +254,5 @@ After the configuration of the deployment manifest, refer to [Deploy Azure IoT E
 ## Next steps 
  
 * [Azure Stream Analytics on IoT Edge](stream-analytics-edge.md)
-* [ASA on IoT Edge tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [ASA on IoT Edge tutorial](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Develop Stream Analytics Edge jobs using Visual Studio tools](stream-analytics-tools-for-visual-studio-edge-jobs.md)

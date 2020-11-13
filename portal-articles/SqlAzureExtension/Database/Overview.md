@@ -1,6 +1,6 @@
 ---
-title: SQL database overview | Microsoft Docs
-description: Help content for SQL database overview within Azure portal
+title: SQL Database overview | Microsoft Docs
+description: Help content for SQL Database overview within Azure portal
 services: sql-database
 author: sewatson
 manager: lwelicki
@@ -25,7 +25,7 @@ Azure SQL Database enables you to easily perform basic management tasks using th
 
 ## Step-by-Step Tutorials
 
-Learn how to create, manage, and migrate databases using SQL DB.
+Learn how to create, manage, and migrate databases using SQL Database.
 
 - Get started with a [single database](/azure/sql-database/sql-database-single-database-quickstart-guide) using our quickstart guide
 - Create and design the schema for a new single database using [SSMS](/azure/sql-database/sql-database-design-first-database) or [.NET](/azure/sql-database/sql-database-design-first-database-csharp)

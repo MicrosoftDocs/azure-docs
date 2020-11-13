@@ -30,7 +30,7 @@ Only use these steps if there's no way to revive the machine on which the proces
     - S. No: the process server serial number.
     - IP/Name: The IP address and name of the machine running the process server.
     - Heartbeat: Last heartbeat from the process server machine.
-    ![Unregister-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
+    ![Screenshot shows a plaintext display of information about your process servers and the text Please choose one of the above servers to un-register.(media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
 
 4. Specify the serial number of the process server you want to unregister.
 5. Unregistering a process server remove all of its details from the system, and displays the message: **Successfully unregistered server-name> (server-IP-address)**

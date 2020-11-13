@@ -13,6 +13,7 @@ ms.workload:  infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
+ms.custom: references_regions
 ---
 
 # Traffic Analytics
@@ -54,68 +55,112 @@ Traffic analytics examines the raw NSG flow logs and captures reduced logs by ag
 ## Supported regions: NSG 
 
 You can use traffic analytics for NSGs in any of the following supported regions:
-
-* Canada Central
-* West Central US
-* East US
-* East US 2
-* North Central US
-* South Central US
-* Central US
-* West US
-* West US 2
-* France Central
-* West Europe
-* North Europe
-* Brazil South
-* UK West
-* UK South
-* Australia East
-* Australia Southeast
-* East Asia
-* Southeast Asia
-* Korea Central
-* Central India
-* South India
-* Japan East 
-* Japan West
-* US Gov Virginia
-* China East 2
+:::row:::
+   :::column span="":::
+      Australia Central  
+      Australia East  
+      Australia Southeast  
+      Brazil South  
+      Canada Central  
+      Canada East  
+      Central India  
+      Central US  
+      China East 2  
+      China North 2  
+   :::column-end:::
+   :::column span="":::
+      East Asia  
+      East US  
+      East US 2  
+      East US 2 EUAP  
+      France Central  
+      Japan East  
+      Japan West  
+      Korea Central  
+      Korea South  
+      North Central US  
+   :::column-end:::
+   :::column span="":::
+      North Europe  
+      South Africa North  
+      South Central US  
+      South India  
+      Southeast Asia  
+      Switzerland North  
+      Switzerland West  
+      UK South  
+      UK West  
+      USGov Arizona  
+   :::column-end:::
+   :::column span="":::
+      USGov Texas  
+      USGov Virginia  
+      USNat East  
+      USNat West  
+      USSec East  
+      USSec West  
+      West Central US  
+      West Europe  
+      West US  
+      West US 2  
+   :::column-end:::
+:::row-end:::
 
 ## Supported regions: Log Analytics Workspaces
 
 The Log Analytics workspace must exist in the following regions:
-* Canada Central
-* West Central US
-* East US
-* East US 2
-* North Central US
-* South Central US
-* Central US
-* West US
-* West US 2
-* Central US
-* France Central
-* West Europe
-* North Europe
-* Brazil South
-* UK West
-* UK South
-* Australia East
-* Australia Southeast
-* East Asia
-* Southeast Asia
-* Korea Central
-* Central India
-* Japan East
-* US Gov Virginia
-* China East 2
+:::row:::
+   :::column span="":::
+      Australia Central  
+      Australia East  
+      Australia Southeast  
+      Brazil South  
+      Canada Central  
+      Central India  
+      Central US  
+      China East 2  
+      East Asia  
+      East US  
+   :::column-end:::
+   :::column span="":::
+      East US 2  
+      East US 2 EUAP  
+      France Central  
+      Germany West Central  
+      Japan East  
+      Korea Central  
+      North Central US  
+      North Europe  
+      South Africa North  
+      South Central US  
+   :::column-end:::
+   :::column span="":::
+      Southeast Asia  
+      Switzerland North  
+      Switzerland West  
+      UAE Central  
+      UK South  
+      UK West  
+      USGov Arizona  
+      USGov Virginia  
+      USNat East  
+      USNat West  
+   :::column-end:::
+   :::column span="":::
+      USSec East  
+      USSec West  
+      West Central US  
+      West Europe  
+      West US  
+      West US 2  
+   :::column-end:::
+:::row-end:::
 
 ## Prerequisites
 
 ### User access requirements
 
-Your account must be a member of one of the following Azure [built-in roles](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json):
+Your account must be a member of one of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json):
 
 |Deployment model   | Role                   |
 |---------          |---------               |
@@ -192,7 +237,7 @@ Select the following options, as shown in the picture:
 
     ![Selection of storage account, Log Analytics workspace, and Traffic Analytics enablement](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Repeat the previous steps for any other NSGs for which you wish to enable traffic analytics for. Data from flow logs is sent to the workspace, so ensure that the local laws and regulations in your country permit data storage in the region where the workspace exists. If you have set different processing intervals for different NSGs, data will be collected at different intervals. For example: You can choose to enable processing interval of 10 mins for critical VNETs and 1 hour for noncritical VNETs.
+Repeat the previous steps for any other NSGs for which you wish to enable traffic analytics for. Data from flow logs is sent to the workspace, so ensure that the local laws and regulations in your country/region permit data storage in the region where the workspace exists. If you have set different processing intervals for different NSGs, data will be collected at different intervals. For example: You can choose to enable processing interval of 10 mins for critical VNETs and 1 hour for noncritical VNETs.
 
 You can also configure traffic analytics using the [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell cmdlet in Azure PowerShell. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
@@ -308,7 +353,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
     ![Dashboard showcasing virtual network distribution](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
-- The Virtual Network Topology shows the top ribbon for selection of parameters like a virtual network’s (Inter virtual network Connections/Active/Inactive), External Connections, Active Flows, and Malicious flows of the virtual network.
+- The Virtual Network Topology shows the top ribbon for selection of parameters like a virtual network's (Inter virtual network Connections/Active/Inactive), External Connections, Active Flows, and Malicious flows of the virtual network.
 - You can filter the Virtual Network Topology based on subscriptions, workspaces, resource groups and time interval. Additional filters that help you understand the flow are:
   Flow Type (InterVNet, IntraVNET, and so on), Flow Direction (Inbound, Outbound), Flow Status (Allowed, Blocked), VNETs (Targeted and Connected), Connection Type (Peering or Gateway - P2S and S2S), and NSG. Use these filters to focus on VNets that you want to examine in detail.
 - The Virtual Network Topology shows the traffic distribution to a virtual network with regards to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and network security groups, for example:
@@ -336,7 +381,7 @@ Traffic distribution per Application gateway & Load Balancer, topology, top sour
  - Knowing which subnet is conversing to which Application gateway or Load Balancer. If you observe unexpected conversations, you can correct your configuration.
  - If rogue networks are conversing with an Application gateway or Load Balancer, you are able to correct it by configuring NSG rules to block the rogue networks. 
 
-    ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![Screenshot shows a subnet topology with traffic distribution to an application gateway subnet with regard to flows.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### View ports and virtual machines receiving traffic from the internet
 

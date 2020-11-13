@@ -11,7 +11,7 @@ ms.author: ant
 
 # Migrate Web Application Firewall policies using Azure PowerShell
 
-This script makes it easy to transition from a WAF config or a custom rules-only WAF policy to a full WAF policy. You may see a warning in the portal that says *migrate to WAF policy*, or you may want the new public preview WAF features such as Geomatch custom rules, per-site and per-URI WAF policy, or the bot mitigation ruleset. To use any of these features, you need a full WAF policy associated to your application gateway. 
+This script makes it easy to transition from a WAF config or a custom rules-only WAF policy to a full WAF policy. You may see a warning in the portal that says *migrate to WAF policy*, or you may want the new WAF features such as Geomatch custom rules (preview), per-site WAF policy, and per-URI WAF policy (preview), or the bot mitigation ruleset (preview). To use any of these features, you need a full WAF policy associated to your application gateway. 
 
 For more information about creating a new WAF policy, see [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md). For information about migrating, see [Migrate to WAF policy](create-waf-policy-ag.md#migrate-to-waf-policy).
 

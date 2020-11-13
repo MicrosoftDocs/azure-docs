@@ -51,7 +51,7 @@ Once you've created an Azure account and a Speech service subscription, you'll n
 4. If you'd like to switch to another Speech subscription, use the cog icon located in the top navigation.
 
 > [!NOTE]
-> The Custom Voice service does NOT support the 30-day free trial key. You must have a F0 or a S0 key created in Azure before you can use the service.
+> You must have a F0 or a S0 key created in Azure before you can use the service.
 
 ## How to create a project
 

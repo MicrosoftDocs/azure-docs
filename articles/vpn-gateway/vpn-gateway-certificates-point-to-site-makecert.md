@@ -5,8 +5,8 @@ services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/05/2018
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---

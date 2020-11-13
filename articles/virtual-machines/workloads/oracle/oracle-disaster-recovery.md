@@ -1,20 +1,13 @@
 ---
 title: Overview of an Oracle disaster recovery scenario in your Azure environment | Microsoft Docs
 description: A disaster recovery scenario for an Oracle Database 12c database in your Azure environment
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
-editor: 
-tags: azure-resource-manager
-ms.assetid: 
+author: dbakevlar
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
+ms.author: kegorman
+ms.reviewer: cynthn
+
 ---
 
 # Disaster recovery for an Oracle Database 12c database in an Azure environment
@@ -45,7 +38,8 @@ Here is a summary of the Azure setup:
 - A jumpbox, application service, database, and VPN gateway on separate subnets
 - NSG enforced on application and database subnets
 
-![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_01.png)
+![Diagram that shows Primary and DR sites on Azure
+.](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
 ## Scenario 2: Primary site on-premises and DR site on Azure
 
@@ -71,10 +65,10 @@ Following is a summary of the Azure setup:
 - An NSG policy/rule to allow inbound TCP port 1521 (or a user-defined port)
 - An NSG policy/rule to restrict only the IP address/addresses on-premises (DB or application) to access the virtual network
 
-![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_02.png)
+![Diagram that shows direct connections between on-premises and Azure, requiring open TCP ports on the firewall.](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### Approach 2: Site-to-site VPN
-Site-to-site VPN is a better approach. For more information about setting up a VPN, see [Create a virtual network with a Site-to-Site VPN connection using CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
+Site-to-site VPN is a better approach. For more information about setting up a VPN, see [Create a virtual network with a Site-to-Site VPN connection using CLI](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
 #### Topology
 
@@ -96,7 +90,7 @@ Following is a summary of the Azure setup:
 - [Design and implement an Oracle database on Azure](oracle-design.md)
 - [Configure Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configure Oracle Golden Gate](configure-oracle-golden-gate.md)
-- [Oracle backup and recovery](oracle-backup-recovery.md)
+- [Oracle backup and recovery](./oracle-overview.md)
 
 
 ## Next steps

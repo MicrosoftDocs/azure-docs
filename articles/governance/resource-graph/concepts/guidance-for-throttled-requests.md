@@ -1,8 +1,9 @@
 ---
 title: Guidance for throttled requests
 description: Learn to group, stagger, paginate, and query in parallel to avoid requests being throttled by Azure Resource Graph.
-ms.date: 12/02/2019
+ms.date: 10/14/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 # Guidance for throttled requests in Azure Resource Graph
 
@@ -21,7 +22,7 @@ Graph:
 
 ## Understand throttling headers
 
-Azure Resource Graph allocates quota number for each user based on a time window. For example, a
+Azure Resource Graph allocates a quota number for each user based on a time window. For example, a
 user can send at most 15 queries within every 5-second window without being throttled. The quota
 value is determined by many factors and is subject to change.
 
@@ -31,6 +32,10 @@ In every query response, Azure Resource Graph adds two throttling headers:
   query count.
 - `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is
   reset.
+
+When a security principal has access to more than 5000 subscriptions within the tenant or management
+group [query scope](./query-language.md#query-scope), the response is limited to the first 5000
+subscriptions and the `x-ms-tenant-subscription-limit-hit` header is returned as `true`.
 
 To illustrate how the headers work, let's look at a query response that has the header and values of
 `x-ms-user-quota-remaining: 10` and `x-ms-user-quota-resets-after: 00:00:03`.
@@ -137,7 +142,7 @@ sending 60 queries at the same time, stagger the queries into four 5-second wind
   |---------------------|-----|------|-------|-------|
   | Time Interval (sec) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Below is an example of respecting throttling headers when querying Azure Resource Graph:
+Here is an example of respecting throttling headers when querying Azure Resource Graph:
 
 ```csharp
 while (/* Need to query more? */)
@@ -163,7 +168,7 @@ while (/* Need to query more? */)
 
 Even though grouping is recommended over parallelization, there are times where queries can't be
 easily grouped. In these cases, you may want to query Azure Resource Graph by sending multiple
-queries in a parallel fashion. Below is an example of how to _backoff_ based on throttling headers
+queries in a parallel fashion. Here is an example of how to _backoff_ based on throttling headers
 in such scenarios:
 
 ```csharp
@@ -235,8 +240,8 @@ looking for. However, some Azure Resource Graph clients handle pagination differ
   When using either Azure CLI or Azure PowerShell, queries to Azure Resource Graph are automatically
   paginated to fetch at most 5000 entries. The query results return a combined list of entries from
   all paginated calls. In this case, depending on the number of entries in the query result, a
-  single paginated query may consume more than one query quota. For example, in the example below, a
-  single run of the query may consume up to five query quota:
+  single paginated query may consume more than one query quota. For example, in the following
+  examples, a single run of the query may consume up to five query quota:
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000
@@ -256,7 +261,7 @@ Provide these details:
 - Your specific use-case and business driver needs for a higher throttling limit.
 - How many resources do you have access to? How many of the are returned from a single query?
 - What types of resources are you interested in?
-- What's your query pattern? X queries per Y seconds etc.
+- What's your query pattern? X queries per Y seconds, and so on.
 
 ## Next steps
 

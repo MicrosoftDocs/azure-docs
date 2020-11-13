@@ -161,6 +161,8 @@ To explore more installation and configuration options for Consul, see the follo
 You can also follow additional scenarios using:
 
 - [Consul Example Application][consul-app-example]
+- [Consul Kubernetes Reference Architecture][consul-reference]
+- [Consul Mesh Gateways][consul-mesh-gateways]
 
 <!-- LINKS - external -->
 [Hashicorp]: https://hashicorp.com
@@ -172,15 +174,17 @@ You can also follow additional scenarios using:
 [consul-github-releases]: https://github.com/hashicorp/consul/releases
 [consul-release-notes]: https://github.com/hashicorp/consul/blob/master/CHANGELOG.md
 [consul-install-download]: https://www.consul.io/downloads.html
-[consul-install-k8]: https://www.consul.io/docs/platform/k8s/run.html
+[consul-install-k8]: https://learn.hashicorp.com/consul/kubernetes/kubernetes-deployment-guide
 [consul-install-helm-options]: https://www.consul.io/docs/platform/k8s/helm.html#configuration-values-
-[consul-app-example]: https://github.com/hashicorp/demo-consul-101/tree/master/k8s
-[install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10
+[consul-mesh-gateways]: https://learn.hashicorp.com/consul/kubernetes/mesh-gateways
+[consul-reference]: https://learn.hashicorp.com/consul/kubernetes/kubernetes-reference
+[consul-app-example]: https://learn.hashicorp.com/consul?track=gs-consul-service-mesh#gs-consul-service-mesh
+[install-wsl]: /windows/wsl/install-win10
 
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward
-[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: ./concepts-clusters-workloads.md#node-selectors
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

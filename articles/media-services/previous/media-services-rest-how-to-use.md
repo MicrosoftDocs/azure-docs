@@ -18,12 +18,14 @@ ms.author: juliako
 ms.reviewer: johndeu
 
 ---
-# Media Services operations REST API overview 
+# Media Services operations REST API overview
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
-The **Media Services Operations REST** API is used for creating Jobs, Assets, Live Channels and other resources in a Media Services account. For more information, see [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+The **Media Services Operations REST** API is used for creating Jobs, Assets, Live Channels and other resources in a Media Services account. For more information, see [Media Services Operations REST API reference](/rest/api/media/operations/azure-media-services-rest-api-reference).
 
 Media Services provides a REST API that accepts both JSON or atom+pub XML format. Media Services REST API requires specific HTTP headers that each client must send when connecting to Media Services, as well as a set of optional headers. The following sections describe the headers and HTTP verbs you can use when creating requests and receiving responses from Media Services.
 
@@ -35,21 +37,23 @@ The following considerations apply when using REST.
 
 * When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 * When using JSON and specifying to use the **__metadata** keyword in the request (for example, to reference a linked object) you MUST set the **Accept** header to [JSON Verbose format](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/) (see the following example). Odata does not understand the **__metadata** property in the request, unless you set it to verbose.  
-  
-        POST https://media.windows.net/API/Jobs HTTP/1.1
-        Content-Type: application/json;odata=verbose
-        Accept: application/json;odata=verbose
-        DataServiceVersion: 3.0
-        MaxDataServiceVersion: 3.0
-        x-ms-version: 2.19
-        Authorization: Bearer <ENCODED JWT TOKEN> 
-        Host: media.windows.net
-  
-        {
-            "Name" : "NewTestJob", 
-            "InputMediaAssets" : 
-                [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
-        . . . 
+
+    ```console
+    POST https://media.windows.net/API/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.19
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    Host: media.windows.net
+
+    {
+        "Name" : "NewTestJob", 
+        "InputMediaAssets" : 
+            [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
+    . . . 
+   ```
 
 ## Standard HTTP request headers supported by Media Services
 For every call you make into Media Services, there is a set of required headers you must include in your request and also a set of optional headers you may want to include. The table below lists the required headers:
@@ -124,4 +128,3 @@ To learn how to use Azure AD authentication with Media Services REST API, see [U
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

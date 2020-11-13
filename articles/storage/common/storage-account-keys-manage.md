@@ -8,7 +8,8 @@ author: tamram
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/24/2020
-ms.author: tamram
+ms.author: tamram 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage storage account access keys
@@ -61,7 +62,7 @@ az storage account keys list \
 
 You can use either of the two keys to access Azure Storage, but in general it's a good practice to use the first key, and reserve the use of the second key for when you are rotating keys.
 
-To view or read an account's access keys, the user must either be a Service Administrator, or must be assigned an RBAC role that includes the **Microsoft.Storage/storageAccounts/listkeys/action**. Some built-in RBAC roles that include this action are the **Owner**, **Contributor**, and **Storage Account Key Operator Service Role** roles. For more information about the Service Administrator role, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md). For detailed information about built-in roles for Azure Storage, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+To view or read an account's access keys, the user must either be a Service Administrator, or must be assigned an Azure role that includes the **Microsoft.Storage/storageAccounts/listkeys/action**. Some Azure built-in roles that include this action are the **Owner**, **Contributor**, and **Storage Account Key Operator Service Role** roles. For more information about the Service Administrator role, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md). For detailed information about built-in roles for Azure Storage, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## Use Azure Key Vault to manage your access keys
 
@@ -128,7 +129,7 @@ To rotate your storage account access keys with Azure CLI:
 > [!NOTE]
 > Microsoft recommends using only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some application losing access.
 
-To rotate an account's access keys, the user must either be a Service Administrator, or must be assigned an RBAC role that includes the **Microsoft.Storage/storageAccounts/regeneratekey/action**. Some built-in RBAC roles that include this action are the **Owner**, **Contributor**, and **Storage Account Key Operator Service Role** roles. For more information about the Service Administrator role, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md). For detailed information about built-in RBAC roles for Azure Storage, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
+To rotate an account's access keys, the user must either be a Service Administrator, or must be assigned an Azure role that includes the **Microsoft.Storage/storageAccounts/regeneratekey/action**. Some Azure built-in roles that include this action are the **Owner**, **Contributor**, and **Storage Account Key Operator Service Role** roles. For more information about the Service Administrator role, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md). For detailed information about Azure built-in roles for Azure Storage, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## Next steps
 

@@ -12,7 +12,8 @@ ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.custom: devx-track-csharp
+ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
 
@@ -37,7 +38,7 @@ You can also control cache settings from the Azure portal by setting [CDN cachin
 The preferred method for setting a web server's `Cache-Control` header is to use caching rules in the Azure portal. For more information about CDN caching rules, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN Premium from Verizon** profiles, you must use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
+> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN Premium from Verizon** profiles, you must use the [Azure CDN rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
 
 **To navigate to the CDN caching rules page**:
 
@@ -68,9 +69,9 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
 1. Under **Custom caching rules**, create two match conditions:
 
-     a. For the first match condition, set **Match condition** to **Path** and enter `/webfolder1/*` for **Match value**. Set **Caching behavior** to **Override** and enter 4 in the **Hours** box.
+     a. For the first match condition, set **Match condition** to **Path** and enter `/webfolder1/*` for **Match value**. Set **Caching behavior** to **Override** and enter 4 in the **Days** box.
 
-     b. For the second match condition, set **Match condition** to **Path** and enter `/webfolder1/file1.txt` for **Match value**. Set **Caching behavior** to **Override** and enter 2 in the **Hours** box.
+     b. For the second match condition, set **Match condition** to **Path** and enter `/webfolder1/file1.txt` for **Match value**. Set **Caching behavior** to **Override** and enter 2 in the **Days** box.
 
     ![CDN custom caching rules example](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 

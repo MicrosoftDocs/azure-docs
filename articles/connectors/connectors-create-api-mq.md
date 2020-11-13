@@ -5,9 +5,9 @@ services: logic-apps
 ms.suite: integration
 author: ChristopherHouser
 ms.author: chrishou
-ms.reviewer: valthom, logicappspm
+ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 05/14/2020
 tags: connectors
 ---
 
@@ -28,6 +28,7 @@ Here are the officially supported IBM WebSphere MQ versions:
   * MQ 7.5
   * MQ 8.0
   * MQ 9.0
+  * MQ 9.1
 
 ## Prerequisites
 
@@ -88,7 +89,7 @@ When your logic app tries connecting to your on-premises MQ server, you might ge
      > [!IMPORTANT]
      > Make sure that you install certificate in the **Certificates - Local Computer** > **Trusted Root Certification Authorities** store.
 
-* The MQ server requires that you define the cipher specification that you want to use for SSL connections. However, SsLStream in .NET doesn't permit you to specify the order for cipher specifications. To work around this limitation, you can change your MQ server configuration to match the first cipher specification in the suite that the connector sends in the SSL negotiation.
+* The MQ server requires that you define the cipher specification that you want to use for TLS/SSL connections. However, SslStream in .NET doesn't permit you to specify the order for cipher specifications. To work around this limitation, you can change your MQ server configuration to match the first cipher specification in the suite that the connector sends in the TLS/SSL negotiation.
 
   When you try the connection, the MQ server logs an event message that indicates the connection failed because the other end used the incorrect cipher specification. The event message contains the cipher specification that appears first in the list. Update the cipher specification in the channel configuration to match the cipher specification in the event message.
 

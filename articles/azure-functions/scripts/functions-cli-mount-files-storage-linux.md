@@ -2,7 +2,8 @@
 title: Mount a file share to a Python function app - Azure CLI
 description: Create a serverless Python function app and mount an existing file share using the Azure CLI.
 ms.topic: sample
-ms.date: 03/01/2020
+ms.date: 03/01/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Mount a file share to a Python function app using Azure CLI
@@ -14,9 +15,9 @@ This Azure Functions sample script creates a function app and creates a share in
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). Examples are written for Bash shell and must be modified to run in a Windows command prompt. 
+ - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
 ## Sample script
 

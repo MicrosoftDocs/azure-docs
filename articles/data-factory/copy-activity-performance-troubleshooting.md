@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
+ms.date: 10/12/2020
 ---
 
 # Troubleshoot copy activity performance
@@ -35,6 +35,7 @@ As a reference, currently the performance tuning tips provide suggestions for th
 | Data store specific   | Loading data into **Azure Synpase Analytics (formerly SQL DW)**: suggest using PolyBase or COPY statement if it's not used. |
 | &nbsp;                | Copying data from/to **Azure SQL Database**: when DTU is under high utilization, suggest upgrading to higher tier. |
 | &nbsp;                | Copying data from/to **Azure Cosmos DB**: when RU is under high utilization, suggest upgrading to larger RU. |
+|                       | Copying data from **SAP Table**: when copying large amount of data, suggest leveraging SAP connector's partition option to enable parallel load and increase the max partition number. |
 | &nbsp;                | Ingesting data from **Amazon Redshift**: suggest using UNLOAD if it's not used. |
 | Data store throttling | If a number of read/write operations are throttled by the data store during copy, suggest checking and increase the allowed request rate for the data store, or reduce the concurrent workload. |
 | Integration  runtime  | If you use a **Self-hosted Integration Runtime (IR)** and copy activity waits long in the queue until the IR has available resource to execute, suggest scaling out/up your IR. |
@@ -51,7 +52,7 @@ The execution details and durations at the bottom of the copy activity monitorin
 | --------------- | ------------------------------------------------------------ |
 | Queue           | The elapsed time until the copy activity actually starts on the integration runtime. |
 | Pre-copy script | The elapsed time between copy activity starting on IR and copy activity finishing executing the pre-copy script in sink data store. Apply when you configure the pre-copy script for database sinks, e.g. when writing data into Azure SQL Database do clean up before copy new data. |
-| Transfer        | The elapsed time between the end of the previous step and the IR transferring all the data from source to sink. Substeps under "Transfer" runs in parallel.<br><br>- **Time to first byte:** The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources.<br>- **Listing source:** The amount of time spent on enumerating source files or data partitions. The latter applies when you configure partition options for database sources, e.g. when copy data from databases like Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Reading from source:** The amount of time spent on retrieving data from source data store.<br/>- **Writing to sink:** The amount of time spent on writing data to sink data store. |
+| Transfer        | The elapsed time between the end of the previous step and the IR transferring all the data from source to sink. <br/>Note the sub-steps under transfer run in parallel, and some operations are not shown now e.g. parsing/generating file format.<br><br/>- **Time to first byte:** The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources.<br>- **Listing source:** The amount of time spent on enumerating source files or data partitions. The latter applies when you configure partition options for database sources, e.g. when copy data from databases like Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Reading from source:** The amount of time spent on retrieving data from source data store.<br/>- **Writing to sink:** The amount of time spent on writing data to sink data store. Note some connectors do not have this metric at the moment, including Azure Cognitive Search, Azure Data Explorer, Azure Table storage, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, Salesforce/Salesforce Service Cloud. |
 
 ## Troubleshoot copy activity on Azure IR
 
@@ -64,12 +65,11 @@ When the copy activity performance doesn't meet your expectation, to troubleshoo
 - **"Transfer - Time to first byte" experienced long working duration**: it means your source query takes long to return any data. Check and optimize the query or server. If you need further help, contact your data store team.
 
 - **"Transfer - Listing source" experienced long working duration**: it means enumerating source files or source database data partitions is slow.
-
   - When copying data from file-based source, if you use **wildcard filter** on folder path or file name (`wildcardFolderPath` or `wildcardFileName`), or use **file last modified time filter** (`modifiedDatetimeStart` or`modifiedDatetimeEnd`), note such filter would result in copy activity listing all the files under the specified folder to client side then apply the filter. Such file enumeration could become the bottleneck especially when only small set of files met the filter rule.
 
     - Check whether you can [copy files based on datetime partitioned file path or name](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Such way doesn't bring burden on listing source side.
 
-    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3 and Azure Blob. Prefix filter is a data store server-side filter and would have much better performance.
+    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3/Azure Blob/Azure File Storage and "**listAfter/listBefore**" for ADLS Gen1. Those filters are data store server-side filter and would have much better performance.
 
     - Consider to split single large data set into several smaller data sets, and let those copy jobs run concurrently each tackles portion of data. You can do this with Lookup/GetMetadata + ForEach + Copy. Refer to [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md) or [Migrate data from Amazon S3 to ADLS Gen2](solution-template-migration-s3-azure.md) solution templates as general example.
 
@@ -123,7 +123,7 @@ When the copy performance doesn't meet your expectation, to troubleshoot single 
 
     - Check whether you can [copy files based on datetime partitioned file path or name](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Such way doesn't bring burden on listing source side.
 
-    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3 and Azure Blob. Prefix filter is a data store server-side filter and would have much better performance.
+    - Check if you can use data store's native filter instead, specifically "**prefix**" for Amazon S3/Azure Blob/Azure File Storage and "**listAfter/listBefore**" for ADLS Gen1. Those filters are data store server-side filter and would have much better performance.
 
     - Consider to split single large data set into several smaller data sets, and let those copy jobs run concurrently each tackles portion of data. You can do this with Lookup/GetMetadata + ForEach + Copy. Refer to [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md) or [Migrate data from Amazon S3 to ADLS Gen2](solution-template-migration-s3-azure.md) solution templates as general example.
 
@@ -173,11 +173,11 @@ Here is performance monitoring and tuning references for some of the supported d
 
 * Azure Blob storage: [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../storage/blobs/storage-performance-checklist.md).
 * Azure Table storage: [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md).
-* Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-single-database-monitor.md) and check the Database Transaction Unit (DTU) percentage.
-* Azure SQL Data Warehouse: Its capability is measured in Data Warehouse Units (DWUs). See [Manage compute power in Azure SQL Data Warehouse (Overview)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Azure SQL Database: You can [monitor the performance](../azure-sql/database/monitor-tune-overview.md) and check the Database Transaction Unit (DTU) percentage.
+* Azure Synapse Analytics (formerly SQL Data Warehouse): Its capability is measured in Data Warehouse Units (DWUs). See [Manage compute power in Azure Synapse Analytics (Overview)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx).
-* On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx).
+* SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance).
+* On-premises file server: [Performance tuning for file servers](/previous-versions//dn567661(v=vs.85)).
 
 ## Next steps
 See the other copy activity articles:

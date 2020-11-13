@@ -6,10 +6,10 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/14/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -53,6 +53,8 @@ The optional fields can be configured in Multi-Factor Authentication Server.
 
 The verification result (success or denial), and the reason if it was denied, is stored with the authentication data. This data is available in authentication and usage reports.
 
+For more information, see [Data residency and customer data for Azure Multi-Factor Authentication](concept-mfa-data-residency.md).
+
 ### What SMS short codes are used for sending SMS messages to my users?
 
 In the United States, we use the following SMS short codes:
@@ -67,7 +69,9 @@ In Canada, we use the following SMS short codes:
 * *759731*
 * *673801*
 
-There's no guarantee of consistent SMS or voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. We don't support short codes for countries or regions besides the United States and Canada.
+There's no guarantee of consistent SMS or voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability.
+
+We don't support short codes for countries or regions besides the United States and Canada.
 
 ## Billing
 
@@ -95,7 +99,7 @@ Billing is based on the number of users configured to use Multi-Factor Authentic
 
 When you create a per-user or per-authentication MFA provider, your organization's Azure subscription is billed monthly based on usage. This billing model is similar to how Azure bills for usage of virtual machines and Web Apps.
 
-When you purchase a subscription for Azure Multi-Factor Authentication, your organization only pays the annual license fee for each user. MFA licenses and Office 365, Azure AD Premium, or Enterprise Mobility + Security bundles are billed this way.
+When you purchase a subscription for Azure Multi-Factor Authentication, your organization only pays the annual license fee for each user. MFA licenses and Microsoft 365, Azure AD Premium, or Enterprise Mobility + Security bundles are billed this way.
 
 For more information, see [How to get Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
@@ -160,7 +164,7 @@ To prevent unauthorized access, delete all the user's app passwords. After the u
 
 ### What if a user can't sign in to non-browser apps?
 
-If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-mfasettings.md#app-passwords), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](../user-help/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
+If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-app-passwords.md), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](../user-help/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
 
 If your organization doesn't have legacy clients, you shouldn't allow your users to create app passwords.
 
@@ -252,6 +256,6 @@ A workaround for this error is to have separate user accounts for admin-related 
 If your question isn't answered here, the following support options are available:
 
 * Search the [Microsoft Support Knowledge Base](https://support.microsoft.com) for solutions to common technical issues.
-* Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+* Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory Q&A](/answers/topics/azure-active-directory.html).
 * Contact Microsoft professional through [Azure Multi-Factor Authentication Server support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, and the ID of the user who saw the error.
 * If you're a legacy PhoneFactor customer and you have questions or need help with resetting a password, use the [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) e-mail address to open a support case.

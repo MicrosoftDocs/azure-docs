@@ -15,7 +15,7 @@
 - name: How-to guides
   items:
   - name: Datasets in Azure Machine Learning
-    href: ../machine-learning/how-to-create-register-datasets.md?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json            
+    href: how-to-create-azure-machine-learning-dataset-from-open-dataset.md            
 - name: Samples
   displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
   href: samples.md
@@ -39,7 +39,7 @@
     href: https://azure.microsoft.com/pricing/details/open-datasets/
   - name: Regional availability
     href: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=open-datasets&regions=non-regional
-  - name: User forum
-    href: https://aka.ms/open-datasets-forum
+  - name: Microsoft Q & A
+    href: https://docs.microsoft.com/answers/topics/azure-open-datasets.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-open-datasets

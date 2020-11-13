@@ -2,14 +2,15 @@
 title: Tutorial - use parameter file to deploy template
 description: Use parameter files that contain the values to use for deploying your Azure Resource Manager template.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/10/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Use parameter files to deploy your ARM template
 
-In this tutorial, you learn how to use [parameter files](parameter-files.md) to store the values you pass in during deployment. In the previous tutorials, you used inline parameters with your deployment command. This approach worked for testing your Azure Resource Manager (ARM) template, but when automating deployments it can be easier to pass a set of values for your environment. Parameter files make it easier to package parameter values for a specific environment. In this tutorial, you'll create parameter files for development and production environments. It takes about **12 minutes** to complete.
+In this tutorial, you learn how to use [parameter files](parameter-files.md) to store the values you pass in during deployment. In the previous tutorials, you used inline parameters with your deployment command. This approach worked for testing your Azure Resource Manager template (ARM template), but when automating deployments it can be easier to pass a set of values for your environment. Parameter files make it easier to package parameter values for a specific environment. In this tutorial, you'll create parameter files for development and production environments. It takes about **12 minutes** to complete.
 
 ## Prerequisites
 
@@ -28,6 +29,12 @@ This template works well, but now you want to easily manage the parameters that 
 ## Add parameter files
 
 Parameter files are JSON files with a structure that is similar to your template. In the file, you provide the parameter values you want to pass in during deployment.
+
+Within the parameter file, you provide values for the parameters in your template. The name of each parameter in your parameter file must match the name of a parameter in your template. The name is case-insensitive but to easily see the matching values we recommend that you match the casing from the template.
+
+You don't have to provide a value for every parameter. If an unspecified parameter has a default value, that value is used during deployment. If a parameter doesn't have a default value and isn't specified in the parameter file, you're prompted to provide a value during deployment.
+
+You can't specify a parameter name in your parameter file that doesn't match a parameter name in the template. You get an error when unknown parameters are provided.
 
 In VS Code, create a new file with following content. Save the file with the name **azuredeploy.parameters.dev.json**.
 
@@ -116,7 +123,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
+> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
 
 ## Verify deployment
 

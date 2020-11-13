@@ -17,7 +17,7 @@ Like many other services in Azure, Stream Analytics is best used with other serv
 
 With Azure Stream Analytics, you can quickly stand up real-time dashboards and alerts. A simple solution ingests events from Event Hubs or IoT Hub, and [feeds the Power BI dashboard with a streaming data set](/power-bi/service-real-time-streaming). For more information, see the detailed tutorial [Analyze phone call data with Stream Analytics and visualize results in Power BI dashboard](stream-analytics-manage-job.md).
 
-![ASA Power BI dashboard](media/stream-analytics-solution-patterns/pbidashboard.png)
+![ASA Power BI dashboard](media/stream-analytics-solution-patterns/power-bi-dashboard.png)
 
 This solution can be built in just a few minutes from Azure portal. There is no extensive coding involved, and SQL language is used to express the business logic.
 
@@ -25,13 +25,13 @@ This solution pattern offers the lowest latency from the event source to the Pow
 
 ## Use SQL for dashboard
 
-The Power BI dashboard offers low latency, but it cannot be used to produce full fledged Power BI reports. A common reporting pattern is to output your data to a SQL database first. Then use Power BI's SQL connector to query SQL for the latest data.
+The Power BI dashboard offers low latency, but it cannot be used to produce full fledged Power BI reports. A common reporting pattern is to output your data to SQL Database first. Then use Power BI's SQL connector to query SQL for the latest data.
 
-![ASA SQL dashboard](media/stream-analytics-solution-patterns/sqldashboard.png)
+![ASA SQL dashboard](media/stream-analytics-solution-patterns/sql-dashboard.png)
 
-Using SQL database gives you more flexibility but at the expense of a slightly higher latency. This solution is optimal for jobs with latency requirements greater than one second. With this method, you can maximize Power BI capabilities to further slice and dice the data for reports, and much more visualization options. You also gain the flexibility of using other dashboard solutions, such as Tableau.
+Using SQL Database gives you more flexibility but at the expense of a slightly higher latency. This solution is optimal for jobs with latency requirements greater than one second. With this method, you can maximize Power BI capabilities to further slice and dice the data for reports, and much more visualization options. You also gain the flexibility of using other dashboard solutions, such as Tableau.
 
-SQL is not a high throughput data store. The maximum throughput to a SQL database from Azure Stream Analytics is currently around 24 MB/s. If the event sources in your solution produce data at a higher rate, you need to use processing logic in Stream Analytics to reduce the output rate to SQL. Techniques such as filtering, windowed aggregates, pattern matching with temporal joins, and analytic functions can be used. The output rate to SQL can be further optimized using techniques described in [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).
+SQL is not a high throughput data store. The maximum throughput to SQL Database from Azure Stream Analytics is currently around 24 MB/s. If the event sources in your solution produce data at a higher rate, you need to use processing logic in Stream Analytics to reduce the output rate to SQL. Techniques such as filtering, windowed aggregates, pattern matching with temporal joins, and analytic functions can be used. The output rate to SQL can be further optimized using techniques described in [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).
 
 ## Incorporate real-time insights into your application with event messaging
 
@@ -39,7 +39,7 @@ The second most popular use of Stream Analytics is to generate real-time alerts.
 
 Downstream event consumer logic must be implemented to generate alerts in your existing business workflow. Because you can implement custom logic in Azure Functions, Azure Functions is the fastest way you can perform this integration. A tutorial for using Azure Function as the output for a Stream Analytics job can be found in [Run Azure Functions from Azure Stream Analytics jobs](stream-analytics-with-azure-functions.md). Azure Functions also supports various types of notifications including text and email. Logic App may also be used for such integration, with Event Hubs between Stream Analytics and Logic App.
 
-![ASA event messaging app](media/stream-analytics-solution-patterns/eventmessagingapp.png)
+![ASA event messaging app](media/stream-analytics-solution-patterns/event-messaging-app.png)
 
 Event Hubs, on the other hand, offers the most flexible integration point. Many other services, like Azure Data Explorer and Time Series Insights can consume events from Event Hubs. Services can be connected directly to the Event Hubs sink from Azure Stream Analytics to complete the solution. Event Hubs is also the highest throughput messaging broker available on Azure for such integration scenarios.
 
@@ -47,7 +47,7 @@ Event Hubs, on the other hand, offers the most flexible integration point. Many 
 
 You can create custom real-time visualizations, such as dashboard or map visualization, using Azure Stream Analytics and Azure SignalR Service. Using SignalR, web clients can be updated and show dynamic content in real-time.
 
-![ASA dynamic app](media/stream-analytics-solution-patterns/dynamicapp.png)
+![ASA dynamic app](media/stream-analytics-solution-patterns/dynamic-app.png)
 
 ## Incorporate real-time insights into your application through data stores
 
@@ -55,23 +55,23 @@ Most web services and web applications today use a request/response pattern to s
 
 High data volume often creates performance bottlenecks in a CRUD-based system. The [event sourcing solution pattern](/azure/architecture/patterns/event-sourcing) is used to address the performance bottlenecks. Temporal patterns and insights are also difficult and inefficient to extract from a traditional data store. Modern high-volume data driven applications often adopt a dataflow-based architecture. Azure Stream Analytics as the compute engine for data in motion is a linchpin in that architecture.
 
-![ASA event sourcing app](media/stream-analytics-solution-patterns/eventsourcingapp.png)
+![ASA event sourcing app](media/stream-analytics-solution-patterns/event-sourcing-app.png)
 
 In this solution pattern, events are processed and aggregated into data stores by Azure Stream Analytics. The application layer interacts with data stores using the traditional request/response pattern. Because of Stream Analytics' ability to process a large number of events in real-time, the application is highly scalable without the need to bulk up the data store layer. The data store layer is essentially a materialized view in the system. [Azure Stream Analytics output to Azure Cosmos DB](stream-analytics-documentdb-output.md) describes how Cosmos DB is used as a Stream Analytics output.
 
 In real applications where processing logic is complex and there is the need to upgrade certain parts of the logic independently, multiple Stream Analytics jobs can be composed together with Event Hubs as the intermediary event broker.
 
-![ASA complex event sourcing app](media/stream-analytics-solution-patterns/eventsourcingapp2.png)
+![ASA complex event sourcing app](media/stream-analytics-solution-patterns/event-sourcing-app-complex.png)
 
 This pattern improves the resiliency and manageability of the system. However, even though Stream Analytics guarantees exactly once processing, there is a small chance that duplicate events may land in the intermediary Event Hubs. It's important for the downstream Stream Analytics job to dedupe events using logic keys in a lookback window. For more information on event delivery, see [Event Delivery Guarantees](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) reference.
 
 ## Use reference data for application customization
 
-The Azure Stream Analytics reference data feature is designed specifically for end-user customization like alerting threshold, processing rules, and [geofences](geospatial-scenarios.md). The application layer can accept parameter changes and store them in a SQL database. The Stream Analytics job periodically queries for changes from the database and makes the customization parameters accessible through a reference data join. For more information on how to use reference data for application customization, see [SQL reference data](sql-reference-data.md) and [reference data join](/stream-analytics-query/reference-data-join-azure-stream-analytics).
+The Azure Stream Analytics reference data feature is designed specifically for end-user customization like alerting threshold, processing rules, and [geofences](geospatial-scenarios.md). The application layer can accept parameter changes and store them in SQL Database. The Stream Analytics job periodically queries for changes from the database and makes the customization parameters accessible through a reference data join. For more information on how to use reference data for application customization, see [SQL reference data](sql-reference-data.md) and [reference data join](/stream-analytics-query/reference-data-join-azure-stream-analytics).
 
 This pattern can also be used to implement a rules engine where the thresholds of the rules are defined from reference data. For more information on rules, see [Process configurable threshold-based rules in Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
 
-![ASA reference data app](media/stream-analytics-solution-patterns/refdataapp.png)
+![ASA reference data app](media/stream-analytics-solution-patterns/reference-data-app.png)
 
 ## Add Machine Learning to your real-time insights
 
@@ -79,37 +79,34 @@ Azure Stream Analytics' built-in [Anomaly Detection model](stream-analytics-mach
 
 For advanced users who want to incorporate online training and scoring into the same Stream Analytics pipeline, see this example of how do that with [linear regression](stream-analytics-high-frequency-trading.md).
 
-![ASA Machine Learning app](media/stream-analytics-solution-patterns/mlapp.png)
+![ASA Machine Learning app](media/stream-analytics-solution-patterns/machine-learning-app.png)
 
-## Near real-time data warehousing
+## Real-time data warehousing
 
-Another common pattern is real-time data warehousing, also called streaming data warehouse. In addition to events arriving at Event Hubs and IoT Hub from your application, [Azure Stream Analytics running on IoT Edge](stream-analytics-edge.md) can be used to fulfill data cleansing, data reduction, and data store and forward needs. Stream Analytics running on IoT Edge can gracefully handle bandwidth limitation and connectivity issues in the system. The SQL output adapter can be used to output to SQL Data Warehouse; however, the maximum throughput is limited to 10 MB/s.
+Another common pattern is real-time data warehousing, also called streaming data warehouse. In addition to events arriving at Event Hubs and IoT Hub from your application, [Azure Stream Analytics running on IoT Edge](stream-analytics-edge.md) can be used to fulfill data cleansing, data reduction, and data store and forward needs. Stream Analytics running on IoT Edge can gracefully handle bandwidth limitation and connectivity issues in the system. Stream Analytics can support throughput rates of upto 200MB/sec while writing to Azure Synapse Analytics.
 
-![ASA Data Warehousing](media/stream-analytics-solution-patterns/datawarehousing.png)
+![ASA Data Warehousing](media/stream-analytics-solution-patterns/data-warehousing.png)
 
-One way to improve the throughput with some latency tradeoff is to archive the events into Azure Blob storage, and then [import them into SQL Data Warehouse with Polybase](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). You must manually stitch together output from Stream Analytics to blob storage and input from blob storage to SQL Data Warehouse by [archiving the data by timestamp](stream-analytics-custom-path-patterns-blob-storage-output.md) and importing periodically.
-
-In this usage pattern, Azure Stream Analytics is used as a near real-time ETL engine. Newly arriving events are continuously transformed and stored for downstream analytics service consumption.
-
-![ASA high throughput Data Warehousing](media/stream-analytics-solution-patterns/datawarehousing2.png)
 
 ## Archiving real-time data for analytics
 
 Most data science and analytics activities still happen offline. Data can be archived by Azure Stream Analytics through Azure Data Lake Store Gen2 output and Parquet output formats. This capability removes the friction to feed data directly into Azure Data Lake Analytics, Azure Databricks, and Azure HDInsight. Azure Stream Analytics is used as a near real-time ETL engine in this solution. You can explore archived data in Data Lake using various compute engines.
 
-![ASA offline analytics](media/stream-analytics-solution-patterns/offlineanalytics.png)
+> [!div class="mx-imgBorder"]
+> ![ASA offline analytics](media/stream-analytics-solution-patterns/offline-analytics.png)
 
 ## Use reference data for enrichment
 
-Data enrichment is often a requirement for ETL engines. Azure Stream Analytics supports data enrichment with [reference data](stream-analytics-use-reference-data.md) from both SQL database and Azure Blob storage. Data enrichment can be done for data landing in both Azure Data Lake and SQL Data Warehouse.
+Data enrichment is often a requirement for ETL engines. Azure Stream Analytics supports data enrichment with [reference data](stream-analytics-use-reference-data.md) from both SQL Database and Azure Blob storage. Data enrichment can be done for data landing in both Azure Data Lake and Azure Synapse Analytics.
 
-![ASA offline analytics with data enrichment](media/stream-analytics-solution-patterns/offlineanalytics.png)
+
+![ASA offline analytics with data enrichment](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)
 
 ## Operationalize insights from archived data
 
 If you combine the offline analytics pattern with the near real-time application pattern, you can create a feedback loop. The feedback loop lets the application automatically adjust for changing patterns in the data. This feedback loop can be as simple as changing the threshold value for alerting, or as complex as retraining Machine Learning models. The same solution architecture can be applied to both ASA jobs running in the cloud and on IoT Edge.
 
-![ASA insights operationalization](media/stream-analytics-solution-patterns/insightsoperationalization.png)
+![ASA insights operationalization](media/stream-analytics-solution-patterns/insights-operationalization.png)
 
 ## How to monitor ASA jobs
 
@@ -158,7 +155,7 @@ In the extreme scenario that incoming events are all delayed, [it's possible all
 
 Fortunately, the previous data archiving pattern can be used to process these late events gracefully. The idea is that the archiving job processes incoming events in arrival time and archives events into the right time bucket in Azure Blob or Azure Data Lake Store with their event time. It doesn't matter how late an event arrives, it will never be dropped. It will always land in the right time bucket. During recovery, it's possible to reprocess the archived events and backfill the results to the store of choice. This is similar to how lambda patterns are implemented.
 
-![ASA backfill](media/stream-analytics-solution-patterns/backfill.png)
+![ASA backfill](media/stream-analytics-solution-patterns/back-fill.png)
 
 The backfill process has to be done with an offline batch processing system, which most likely has a different programming model than Azure Stream Analytics. This means you have to re-implement the entire processing logic.
 

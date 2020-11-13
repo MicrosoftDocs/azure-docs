@@ -9,7 +9,7 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
@@ -120,7 +120,7 @@ az network nic ip-config create \
 VmName="myVm"
 
 # Replace the value for the following **VmSize** variable with a value from the
-# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article. The script fails if the VM size
+# https://docs.microsoft.com/azure/virtual-machines/sizes article. The script fails if the VM size
 # is not supported in the location you select. Run the `azure vm sizes --location eastcentralus` command to get a full list
 # of VMs in US West Central, for example.
 
@@ -223,11 +223,13 @@ You can add additional private and public IP addresses to an existing Azure netw
 
 		Returned output:
 	
-			Name        PublicIpAddressId
-			
-			ipconfig1   /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
-			IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
-			IPConfig-3
+        ```output
+		Name        PublicIpAddressId
+		
+		ipconfig1   /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
+		IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
+		IPConfig-3
+        ```
 
 		Since the **PublicIpAddressId** column for *IpConfig-3* is blank in the output, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
 
@@ -260,14 +262,15 @@ You can add additional private and public IP addresses to an existing Azure netw
     ```
 
 	Returned output: <br>
-	
-		Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
-		
-		ipconfig1   10.0.0.4            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
-		IPConfig-2  10.0.0.5            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
-		IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
-	
 
+    ```output
+	Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
+	
+	ipconfig1   10.0.0.4            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
+	IPConfig-2  10.0.0.5            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
+	IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
+    ```
+	
 4. Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

@@ -38,7 +38,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 > [!Important]
 > If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool.
 
-To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.15.7* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
+To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command.
 
 > [!NOTE]
 > The *Basic* load balancer SKU is **not supported** when using multiple node pools. By default, AKS clusters are created with the *Standard* load balancer SKU from the Azure CLI and Azure portal.
@@ -54,7 +54,6 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.15.7 \
     --load-balancer-sku standard
 ```
 
@@ -78,8 +77,7 @@ az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --node-count 3 \
-    --kubernetes-version 1.15.5
+    --node-count 3
 ```
 
 > [!NOTE]
@@ -100,7 +98,7 @@ The following example output shows that *mynodepool* has been successfully creat
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.15.5",
+    "orchestratorVersion": "1.15.7",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -119,7 +117,7 @@ The following example output shows that *mynodepool* has been successfully creat
 ```
 
 > [!TIP]
-> If no *VmSize* is specified when you add a node pool, the default size is *Standard_DS2_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools. If no *OrchestratorVersion* is specified, it defaults to the same version as the control plane.
+> If no *VmSize* is specified when you add a node pool, the default size is *Standard_D2s_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools. If no *OrchestratorVersion* is specified, it defaults to the same version as the control plane.
 
 ### Add a node pool with a unique subnet (preview)
 
@@ -140,34 +138,37 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --node-count 3 \
-    --kubernetes-version 1.15.5
     --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
 ```
 
 ## Upgrade a node pool
 
 > [!NOTE]
-> Upgrade and scale operations on a cluster or node pool cannot occur simultaneously, if attempted an error is returned. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
+> Upgrade and scale operations on a cluster or node pool cannot occur simultaneously, if attempted an error is returned. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](./troubleshooting.md#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade).
 
-When your AKS cluster was initially created in the first step, a `--kubernetes-version` of *1.15.7* was specified. This set the Kubernetes version for both the control plane and the default node pool. The commands in this section explain how to upgrade a single specific node pool.
-
-The relationship between upgrading the Kubernetes version of the control plane and the node pool are explained in the [section below](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+The commands in this section explain how to upgrade a single specific node pool. The relationship between upgrading the Kubernetes version of the control plane and the node pool are explained in the [section below](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
 > [!NOTE]
 > The node pool OS image version is tied to the Kubernetes version of the cluster. You will only get OS image upgrades, following a cluster upgrade.
 
-Since there are two node pools in this example, we must use [az aks nodepool upgrade][az-aks-nodepool-upgrade] to upgrade a node pool. Let's upgrade the *mynodepool* to Kubernetes *1.15.7*. Use the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
+Since there are two node pools in this example, we must use [az aks nodepool upgrade][az-aks-nodepool-upgrade] to upgrade a node pool. To see the available upgrades use [az aks get-upgrades][az-aks-get-upgrades]
+
+```azurecli-interactive
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
+```
+
+Let's upgrade the *mynodepool*. Use the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.15.7 \
+    --kubernetes-version KUBERNETES_VERSION \
     --no-wait
 ```
 
-List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *1.15.7*:
+List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *KUBERNETES_VERSION*:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -180,7 +181,7 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.15.7",
+    "orchestratorVersion": "KUBERNETES_VERSION",
     ...
     "provisioningState": "Upgrading",
     ...
@@ -346,7 +347,7 @@ It takes a few minutes to delete the nodes and the node pool.
 
 ## Specify a VM size for a node pool
 
-In the previous examples to create a node pool, a default VM size was used for the nodes created in the cluster. A more common scenario is for you to create node pools with different VM sizes and capabilities. For example, you may create a node pool that contains nodes with large amounts of CPU or memory, or a node pool that provides GPU support. In the next step, you [use taints and tolerations](#schedule-pods-using-taints-and-tolerations) to tell the Kubernetes scheduler how to limit access to pods that can run on these nodes.
+In the previous examples to create a node pool, a default VM size was used for the nodes created in the cluster. A more common scenario is for you to create node pools with different VM sizes and capabilities. For example, you may create a node pool that contains nodes with large amounts of CPU or memory, or a node pool that provides GPU support. In the next step, you [use taints and tolerations](#setting-nodepool-taints) to tell the Kubernetes scheduler how to limit access to pods that can run on these nodes.
 
 In the following example, create a GPU-based node pool that uses the *Standard_NC6* VM size. These VMs are powered by the NVIDIA Tesla K80 card. For information on available VM sizes, see [Sizes for Linux virtual machines in Azure][vm-sizes].
 
@@ -399,90 +400,9 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 It takes a few minutes for the *gpunodepool* to be successfully created.
 
-## Schedule pods using taints and tolerations
-
-You now have two node pools in your cluster - the default node pool initially created, and the GPU-based node pool. Use the [kubectl get nodes][kubectl-get] command to view the nodes in your cluster. The following example output shows the nodes:
-
-```console
-kubectl get nodes
-```
-
-```output
-NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
-```
-
-The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
-
-* A **taint** is applied to a node that indicates only specific pods can be scheduled on them.
-* A **toleration** is then applied to a pod that allows them to *tolerate* a node's taint.
-
-For more information on how to use advanced Kubernetes scheduled features, see [Best practices for advanced scheduler features in AKS][taints-tolerations]
-
-In this example, apply a taint to your GPU-based node using the --node-taints command. Specify the name of your GPU-based node from the output of the previous `kubectl get nodes` command. The taint is applied as a *key=value* pair and then a scheduling option. The following example uses the *sku=gpu* pair and defines pods otherwise have the *NoSchedule* ability:
-
-```console
-az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
-```
-
-The following basic example YAML manifest uses a toleration to allow the Kubernetes scheduler to run an NGINX pod on the GPU-based node. For a more appropriate, but time-intensive example to run a Tensorflow job against the MNIST dataset, see [Use GPUs for compute-intensive workloads on AKS][gpu-cluster].
-
-Create a file named `gpu-toleration.yaml` and copy in the following example YAML:
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mypod
-spec:
-  containers:
-  - image: nginx:1.15.9
-    name: mypod
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 1
-        memory: 2G
-  tolerations:
-  - key: "sku"
-    operator: "Equal"
-    value: "gpu"
-    effect: "NoSchedule"
-```
-
-Schedule the pod using the `kubectl apply -f gpu-toleration.yaml` command:
-
-```console
-kubectl apply -f gpu-toleration.yaml
-```
-
-It takes a few seconds to schedule the pod and pull the NGINX image. Use the [kubectl describe pod][kubectl-describe] command to view the pod status. The following condensed example output shows the *sku=gpu:NoSchedule* toleration is applied. In the events section, the scheduler has assigned the pod to the *aks-gpunodepool-28993262-vmss000000* GPU-based node:
-
-```console
-kubectl describe pod mypod
-```
-
-```output
-[...]
-Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
-                 node.kubernetes.io/unreachable:NoExecute for 300s
-                 sku=gpu:NoSchedule
-Events:
-  Type    Reason     Age    From                                          Message
-  ----    ------     ----   ----                                          -------
-  Normal  Scheduled  4m48s  default-scheduler                             Successfully assigned default/mypod to aks-gpunodepool-28993262-vmss000000
-  Normal  Pulling    4m47s  kubelet, aks-gpunodepool-28993262-vmss000000  pulling image "nginx:1.15.9"
-  Normal  Pulled     4m43s  kubelet, aks-gpunodepool-28993262-vmss000000  Successfully pulled image "nginx:1.15.9"
-  Normal  Created    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Created container
-  Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
-```
-
-Only pods that have this toleration applied can be scheduled on nodes in *gpunodepool*. Any other pod would be scheduled in the *nodepool1* node pool. If you create additional node pools, you can use additional taints and tolerations to limit what pods can be scheduled on those node resources.
-
 ## Specify a taint, label, or tag for a node pool
+
+### Setting nodepool taints
 
 When creating a node pool, you can add taints, labels, or tags to that node pool. When you add a taint, label, or tag, all nodes within that node pool also get that taint, label, or tag.
 
@@ -497,6 +417,9 @@ az aks nodepool add \
     --node-taints sku=gpu:NoSchedule \
     --no-wait
 ```
+
+> [!NOTE]
+> A taint can only be set for node pools during node pool creation.
 
 The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *taintnp* is *Creating* nodes with the specified *nodeTaints*:
 
@@ -522,7 +445,70 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-The taint information is visible in Kubernetes for handling scheduling rules for nodes.
+The taint information is visible in Kubernetes for handling scheduling rules for nodes. The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
+
+* A **taint** is applied to a node that indicates only specific pods can be scheduled on them.
+* A **toleration** is then applied to a pod that allows them to *tolerate* a node's taint.
+
+For more information on how to use advanced Kubernetes scheduled features, see [Best practices for advanced scheduler features in AKS][taints-tolerations]
+
+In the previous step, you applied the *sku=gpu:NoSchedule* taint when you created your node pool. The following basic example YAML manifest uses a toleration to allow the Kubernetes scheduler to run an NGINX pod on a node in that node pool.
+
+Create a file named `nginx-toleration.yaml` and copy in the following example YAML:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 1
+        memory: 2G
+  tolerations:
+  - key: "sku"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
+```
+
+Schedule the pod using the `kubectl apply -f nginx-toleration.yaml` command:
+
+```console
+kubectl apply -f nginx-toleration.yaml
+```
+
+It takes a few seconds to schedule the pod and pull the NGINX image. Use the [kubectl describe pod][kubectl-describe] command to view the pod status. The following condensed example output shows the *sku=gpu:NoSchedule* toleration is applied. In the events section, the scheduler has assigned the pod to the *aks-taintnp-28993262-vmss000000* node:
+
+```console
+kubectl describe pod mypod
+```
+
+```output
+[...]
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+                 sku=gpu:NoSchedule
+Events:
+  Type    Reason     Age    From                Message
+  ----    ------     ----   ----                -------
+  Normal  Scheduled  4m48s  default-scheduler   Successfully assigned default/mypod to aks-taintnp-28993262-vmss000000
+  Normal  Pulling    4m47s  kubelet             pulling image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Pulled     4m43s  kubelet             Successfully pulled image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Created    4m40s  kubelet             Created container
+  Normal  Started    4m40s  kubelet             Started container
+```
+
+Only pods that have this toleration applied can be scheduled on nodes in *taintnp*. Any other pod would be scheduled in the *nodepool1* node pool. If you create additional node pools, you can use additional taints and tolerations to limit what pods can be scheduled on those node resources.
+
+### Setting nodepool labels
 
 You can also add labels to a node pool during node pool creation. Labels set at the node pool are added to each node in the node pool. These [labels are visible in Kubernetes][kubernetes-labels] for handling scheduling rules for nodes.
 
@@ -566,7 +552,13 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+### Setting nodepool Azure tags
+
 You can apply an Azure tag to node pools in your AKS cluster. Tags applied to a node pool are applied to each node within the node pool and are persisted through upgrades. Tags are also applied to new nodes added to a node pool during scale-out operations. Adding a tag can help with tasks such as policy tracking or cost estimation.
+
+Azure tags have keys which are case-insensitive for operations, such as when retrieving a tag by searching the key. In this case a tag with the given key will be updated or retrieved regardless of casing. Tag values are case-sensitive.
+
+In AKS, if multiple tags are set with identical keys but different casing, the tag used is the first in alphabetical order. For example, `{"Key1": "val1", "kEy1": "val2", "key1": "val3"}` results in `Key1` and `val1` being set.
 
 Create a node pool using the [az aks nodepool add][az-aks-nodepool-add]. Specify the name *tagnodepool* and use the `--tag` parameter to specify *dept=IT* and *costcenter=9999* for tags.
 
@@ -808,6 +800,8 @@ In this article, you learned how to create and manage multiple node pools in an 
 
 To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-windows].
 
+Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your AKS applications.
+
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -820,6 +814,7 @@ To create and use Windows Server container node pools, see [Create a Windows Ser
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
 [az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-list
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
@@ -836,11 +831,12 @@ To create and use Windows Server container node pools, see [Create a Windows Ser
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [quotas-skus-regions]: quotas-skus-regions.md
 [supported-versions]: supported-kubernetes-versions.md
-[tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
+[tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
-[vm-sizes]: ../virtual-machines/linux/sizes.md
+[vm-sizes]: ../virtual-machines/sizes.md
 [use-system-pool]: use-system-pools.md
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips
+[reduce-latency-ppg]: reduce-latency-ppg.md

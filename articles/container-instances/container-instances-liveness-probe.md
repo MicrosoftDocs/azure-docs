@@ -2,7 +2,7 @@
 title: Set up liveness probe on container instance
 description: Learn how to configure liveness probes to restart unhealthy containers in Azure Container Instances
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 07/02/2020
 ---
 # Configure liveness probes
 
@@ -20,7 +20,7 @@ Azure Container Instances also supports [readiness probes](container-instances-r
 Create a `liveness-probe.yaml` file with the following snippet. This file defines a container group that consists of an NGNIX container that eventually becomes unhealthy.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: livenesstest
 properties:

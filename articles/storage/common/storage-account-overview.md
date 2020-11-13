@@ -1,7 +1,7 @@
 ---
 title: Storage account overview
 titleSuffix: Azure Storage
-description: Understand options for creating and using an Azure Storage account.
+description: Read an overview of storage accounts in Azure Storage. Review account naming, performance tiers, access tiers, redundancy, encryption, endpoints, and more.
 services: storage
 author: tamram
 
@@ -56,7 +56,7 @@ You should use general-purpose v2 accounts in most cases. You can use general-pu
 
 - Your applications are transaction-intensive or use significant geo-replication bandwidth, but don't require large capacity. In this case, general-purpose v1 may be the most economical choice.
 
-- You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x. You can't upgrade your application.
+- You use a version of the [Storage Services REST API](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) that is earlier than 2014-02-14 or a client library with a version lower than 4.x. You can't upgrade your application.
 
 ### BlockBlobStorage accounts
 
@@ -129,6 +129,7 @@ For example, if your general-purpose storage account is named *mystorageaccount*
 - Table storage: `https://*mystorageaccount*.table.core.windows.net`
 - Queue storage: `https://*mystorageaccount*.queue.core.windows.net`
 - Azure Files: `https://*mystorageaccount*.file.core.windows.net`
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (Uses the [ABFS driver optimized specifically for big data](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2).)
 
 > [!NOTE]
 > Block blob and blob storage accounts expose only the Blob service endpoint.
@@ -162,7 +163,7 @@ When you upgrade to a general-purpose v2 account from a general-purpose v1 or Bl
 
 ### AzCopy
 
-AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into a Blob storage account from an existing general-purpose storage account, or to upload data from on-premises storage devices. For more information, see [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into a Blob storage account from an existing general-purpose storage account, or to upload data from on-premises storage devices. For more information, see [Transfer data with the AzCopy Command-Line Utility](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ### Data movement library
 
@@ -170,9 +171,9 @@ The Azure Storage data movement library for .NET is based on the core data movem
 
 ### REST API or client library
 
-You can create a custom application to migrate your data from a general-purpose v1 storage account into a Blob storage account. Use one of the Azure client libraries or the Azure storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
+You can create a custom application to migrate your data from a general-purpose v1 storage account into a Blob storage account. Use one of the Azure client libraries or the Azure Storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
 
-For more information about the Azure Storage REST API, see [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/).
+For more information about the Azure Storage REST API, see [Azure Storage Services REST API Reference](/rest/api/storageservices/).
 
 > [!IMPORTANT]
 > Blobs encrypted using client-side encryption store encryption-related metadata with the blob. If you copy a blob that is encrypted with client-side encryption, ensure that the copy operation preserves the blob metadata, and especially the encryption-related metadata. If you copy a blob without the encryption metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
@@ -180,6 +181,8 @@ For more information about the Azure Storage REST API, see [Azure Storage Servic
 ## Storage account billing
 
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Next steps
 

@@ -8,24 +8,24 @@ manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
-# Grant access to other administrators to manage Privileged Identity Management
+# Delegate access to Privileged Identity Management
 
-The Global administrator who enables Privileged Identity Management (PIM) for an organization automatically get role assignments and access to Privileged Identity Management. No one else in your Azure Active Directory (Azure AD) organization gets write access by default, though, including other Global administrators. Other Global administrators, Security administrators, and Security readers have read-only access to Privileged Identity Management. To grant access to Privileged Identity Management, the first user can assign others to the **Privileged Role Administrator** role.
+To delegate access to Privileged Identity Management (PIM), a Global Administrator can assign other users to the Privileged Role Administrator role. By default, Security administrators and Security readers have read-only access to Privileged Identity Management. To grant access to Privileged Identity Management, the first user can assign others to the **Privileged Role Administrator** role. The Privileged Role Administrator role is required for managing Azure AD roles only. Privileged Role Administrator permissions aren't required to manage settings for Azure resources.
 
 > [!NOTE]
-> Managing Privileged Identity Management requires Azure Multi-Factor Authentication. Since Microsoft accounts cannot register for Azure Multi-Factor Authentication, a user who signs in with a Microsoft account cannot access Privileged Identity Management.
+> Managing Privileged Identity Management requires Azure Multi-Factor Authentication. Because Microsoft accounts can't register for Azure Multi-Factor Authentication, a user who signs in with a Microsoft account can't access Privileged Identity Management.
 
 Make sure there are always at least two users in a Privileged Role Administrator role, in case one user is locked out or their account is deleted.
 
-## Grant access to manage PIM
+## Delegate access to manage PIM
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -41,9 +41,9 @@ Make sure there are always at least two users in a Privileged Role Administrator
 
     ![Privileged Role Administrator - Members](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
-1. Select **Add member**  to open the Add managed members pane.
+1. Select **Add member**  to open the **Add managed members** pane.
 
-1. Select **Select members** to open the Select members pane.
+1. Select **Select members** to open the **Select members** pane.
 
     ![Privileged Role Administrator - Select members](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
 

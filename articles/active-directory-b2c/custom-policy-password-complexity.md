@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -33,7 +33,7 @@ To configure the password complexity, override the `newPassword` and `reenterPas
 1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
 1. Add the `newPassword` and `reenterPassword` claims to the **ClaimsSchema** element.
 
-    ```XML
+    ```xml
     <ClaimType Id="newPassword">
       <PredicateValidationReference Id="CustomPassword" />
     </ClaimType>
@@ -44,7 +44,7 @@ To configure the password complexity, override the `newPassword` and `reenterPas
 
 1. [Predicates](predicates.md) defines a basic validation to check the value of a claim type and returns true or false. The validation is done by using a specified method element, and a set of parameters relevant to the method. Add the following predicates to the **BuildingBlocks** element, immediately after the closing of the `</ClaimsSchema>` element:
 
-    ```XML
+    ```xml
     <Predicates>
       <Predicate Id="LengthRange" Method="IsLengthRange">
         <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
@@ -82,7 +82,7 @@ To configure the password complexity, override the `newPassword` and `reenterPas
 
 1. Add the following predicate validations to the **BuildingBlocks** element, immediately after the closing of the `</Predicates>` element:
 
-    ```XML
+    ```xml
     <PredicateValidations>
       <PredicateValidation Id="CustomPassword">
         <PredicateGroups>
@@ -107,7 +107,7 @@ To configure the password complexity, override the `newPassword` and `reenterPas
 
 1. The following technical profiles are [Active Directory technical profiles](active-directory-technical-profile.md), which read and write data to Azure Active Directory. Override these technical profiles in the extension file. Use `PersistedClaims` to disable the strong password policy. Find the **ClaimsProviders** element.  Add the following claim providers as follows:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
       <TechnicalProfiles>

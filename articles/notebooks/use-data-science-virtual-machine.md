@@ -10,12 +10,12 @@ ms.date: 06/13/2019
 
 # Use Azure Data Science Virtual Machines
 
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
 By default, projects run on the **Free Compute** tier, which is limited to 4 GB of memory and 1 GB of data to prevent abuse. You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. For this purpose, the best choice is an Azure Data Science Virtual Machine (DSVM) using the **Data Science Virtual Machine for Linux (Ubuntu)** image. Such a DSVM comes pre-configured with everything you need for Azure Notebooks and appears automatically on the **Run** drop-down list in Azure Notebooks.
 
 > [!Note]
 > Azure Notebooks is supported only on DSVMs created with the on Linux Ubuntu image. Notebooks are not supported on Windows 2012, Windows 2016, or Linux CentOS images.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Create a DSVM instance
 

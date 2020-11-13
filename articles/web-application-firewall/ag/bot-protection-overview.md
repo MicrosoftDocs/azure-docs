@@ -5,7 +5,7 @@ description: This article provides an overview of web application firewall (WAF)
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 02/04/2020
+ms.date: 05/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -28,6 +28,33 @@ You can use the Bot Protection ruleset alongside any of the OWASP rulesets (2.2.
 ## Ruleset update
 
 The bot mitigation ruleset list of known bad IP addresses updates multiple times per day from the Microsoft Threat Intelligence feed to stay in sync with the bots. Your web applications are continuously protected even as the bot attack vectors change.
+
+## Log example
+
+Here's an example log entry for bot protection:
+
+```
+{
+        "timeStamp": "0000-00-00T00:00:00+00:00",
+            "resourceId": "appgw",
+            "operationName": "ApplicationGatewayFirewall",
+            "category": "ApplicationGatewayFirewallLog",
+            "properties": {
+            "instanceId": "vm1",
+                "clientIp": "1.2.3.4",
+                "requestUri": "/hello.php?arg1=aaaaaaabccc",
+                "ruleSetType": "MicrosoftBotProtection",
+                "message": "IPReputationTriggered",
+                "action": "Blocked",
+                "hostname": "example.com",
+                "transactionId": "abc",
+                "policyId": "waf policy 1",
+                "policyScope": "Global",
+                "policyScopeName": "Default Policy",
+                "engine": "Azwaf"
+        }
+    }
+```
 
 ## Next steps
 

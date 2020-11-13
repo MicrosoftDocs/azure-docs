@@ -1,10 +1,10 @@
 ---
 title: Getting started with Android map control | Microsoft Azure Maps
-description: In this article you will learn, how to get started with the Android map control using the Microsoft Azure Maps Android SDK.
-author: philmea
-ms.author: philmea
+description: Become familiar with the Azure Maps Android SDK. See how to create a project in Android Studio, install the SDK, and create an interactive map.
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 04/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
@@ -19,7 +19,7 @@ The Azure Maps Android SDK is a vector map library for Android. This article gui
 
 ### Create an Azure Maps account
 
-To complete the procedures in this article, you first need to [Create an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps) in the S1 pricing tier and [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) for your account.
+To complete the procedures in this article, you first need to [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account) in the S1 pricing tier and [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) for your account.
 
 For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
@@ -75,7 +75,7 @@ The next step in building your application is to install the Azure Maps Android 
     3. Update your dependencies block and add a new implementation dependency line for the latest Azure Maps Android SDK:
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.6"
         ```
     
     4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
@@ -294,7 +294,7 @@ Learn how to add overlay data on the map:
 > [Add a symbol layer to an Android map](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Add shapes to an Android map](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Add shapes to an Android map](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Change map styles in Android maps](./set-android-map-styles.md)

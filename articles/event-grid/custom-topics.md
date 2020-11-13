@@ -1,13 +1,8 @@
 ---
 title: Custom topics in Azure Event Grid
 description: Describes custom topics in Azure Event Grid. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Custom topics in Azure Event Grid

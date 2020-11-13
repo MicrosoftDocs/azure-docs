@@ -16,15 +16,15 @@ ms.author: alkohli
 
 3. In the **Add/remove volume** blade, select or deselect the checkbox(es) to add or remove the volume. Multiple volumes are selected/deselected by checking or unchecking the corresponding checkboxes.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
+    ![manage schedules 2](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
 
     If you assign volumes from different volume containers to a backup policy, then you will need to remember to fail over those volume containers together. You will see a warning to that effect.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
+    ![manage schedules 3](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
 
 4. You are notified when the backup policy is modified. The backup policy list is also updated.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
+    ![manage schedules 4](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
 
 
 

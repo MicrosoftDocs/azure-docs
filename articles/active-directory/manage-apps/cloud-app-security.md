@@ -2,14 +2,14 @@
 title: App visibility and control with Microsoft Cloud App Security 
 description: Learn ways to identify app risk levels, stop breaches and leaks in real time, and use app connectors to take advantage of provider APIs for visibility and governance.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/03/2020
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 

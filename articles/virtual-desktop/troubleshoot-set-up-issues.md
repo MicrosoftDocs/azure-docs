@@ -1,22 +1,16 @@
 ---
 title: Windows Virtual Desktop environment host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop environment.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 01/08/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ---
 # Host pool creation
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
 
 This article covers issues during the initial setup of the Windows Virtual Desktop tenant and the related session host pool infrastructure.
 
@@ -32,19 +26,26 @@ To use the Windows 10 Enterprise multi-session image, go to the Azure Marketplac
 
 ### Error: "Create a free account" appears when accessing the service
 
-![An image showing the Azure portal displaying the "Create a free account" message](media/create-new-account.png)
+> [!div class="mx-imgBorder"]
+> ![An image showing the Azure portal displaying the "Create a free account" message](media/create-new-account.png)
 
-**Cause**: There aren't active subscriptions in the account you signed in to Azure with, or the account doesn't have permissions to view the subscriptions. 
+**Cause**: There aren't active subscriptions in the account you signed in to Azure with, or the account doesn't have permissions to view the subscriptions.
 
 **Fix**: Sign in to the subscription where you'll deploy the session host virtual machines (VMs) with an account that has at least contributor-level access.
 
 ### Error: "Exceeding quota limit"
 
-If your operation goes over the quota limit, you can do one of the following things: 
+If your operation goes over the quota limit, you can do one of the following things:
 
 - Create a new host pool with the same parameters but fewer VMs and VM cores.
 
 - Open the link you see in the statusMessage field in a browser to submit a request to increase the quota for your Azure subscription for the specified VM SKU.
+
+### Error: Can't see user assignments in app groups.
+
+Cause: This error usually happens after you've moved the subscription from 1 Azure Active Directory (AD) tenant to another. If your old assignments are still tied to the old Azure AD tenant, the Azure portal will lose track of them.
+
+Fix: You'll need to reassign users to app groups.
 
 ## Azure Resource Manager template errors
 
@@ -57,7 +58,8 @@ Follow these instructions to troubleshoot unsuccessful deployments of Azure Reso
 
 ### Error: Your deployment failed….\<hostname>/joindomain
 
-![Your Deployment Failed screenshot.](media/failure-joindomain.png)
+> [!div class="mx-imgBorder"]
+> ![Your Deployment Failed screenshot.](media/failure-joindomain.png)
 
 Example of raw error:
 
@@ -98,7 +100,8 @@ To fix this, do the following things:
 
 ### Error: VMExtensionProvisioningError
 
-![Screenshot of Your Deployment Failed with terminal provisioning state failed.](media/failure-vmextensionprovisioning.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Your Deployment Failed with terminal provisioning state failed.](media/failure-vmextensionprovisioning.png)
 
 **Cause 1:** Transient error with the Windows Virtual Desktop environment.
 
@@ -108,14 +111,15 @@ To fix this, do the following things:
 
 ### Error: The Admin Username specified isn't allowed
 
-![Screenshot of your deployment failed in which an admin specified isn't allowed.](media/failure-username.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of your deployment failed in which an admin specified isn't allowed.](media/failure-username.png)
 
 Example of raw error:
 
 ```Error
- { …{ "provisioningOperation": 
- "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId": 
- "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message": 
+ { …{ "provisioningOperation":
+ "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
+ "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message":
  "The Admin Username specified is not allowed.", "target": "adminUsername" } … }
 ```
 
@@ -125,16 +129,17 @@ Example of raw error:
 
 ### Error: VM has reported a failure when processing extension
 
-![Screenshot of the resource operation completed with terminal provisioning state in Your Deployment Failed.](media/failure-processing.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the resource operation completed with terminal provisioning state in Your Deployment Failed.](media/failure-processing.png)
 
 Example of raw error:
 
 ```Error
 { … "code": "ResourceDeploymentFailure", "message":
- "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": 
- "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. 
+ "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code":
+ "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'.
  Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few:
- PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
+ PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message:
  One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] … }
 ```
 
@@ -144,7 +149,8 @@ Example of raw error:
 
 ### Error: DeploymentFailed – PowerShell DSC Configuration 'FirstSessionHost' completed with Error(s)
 
-![Screenshot of deployment fail with PowerShell DSC Configuration 'FirstSessionHost' completed with Error(s).](media/failure-dsc.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of deployment fail with PowerShell DSC Configuration 'FirstSessionHost' completed with Error(s).](media/failure-dsc.png)
 
 Example of raw error:
 
@@ -154,7 +160,7 @@ Example of raw error:
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n
@@ -246,6 +252,12 @@ the VM.\\\"
 **Cause:** This error is due to a static route, firewall rule, or NSG blocking the download of the zip file tied to the Azure Resource Manager template.
 
 **Fix:** Remove blocking static route, firewall rule, or NSG. Optionally, open the Azure Resource Manager template json file in a text editor, take the link to zip file, and download the resource to an allowed location.
+
+### Error: Can't delete a session host from the host pool after deleting the VM
+
+**Cause:** You need to delete the session host before you delete the VM.
+
+**Fix:** Put the session host in drain mode, sign out all users from the session host, then delete the host.
 
 ## Next steps
 

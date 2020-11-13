@@ -50,7 +50,7 @@ The template defines the following two parameters:
     ![Review the pipeline](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > If you chose **Azure Synapse Analytics (formerly SQL DW)** as the data destination in **step 2** mentioned above, you must enter a connection to Azure Blob storage for staging, as required by SQL Data Warehouse Polybase. As the following screenshot shows, the template will automatically generate a *Storage Path* for your Blob storage. Check if the container has been created after the pipeline run.
+    > If you chose **Azure Synapse Analytics (formerly SQL DW)** as the data destination in **step 2** mentioned above, you must enter a connection to Azure Blob storage for staging, as required by Azure Synapse Analytics (formerly SQL Data Warehouse) Polybase. As the following screenshot shows, the template will automatically generate a *Storage Path* for your Blob storage. Check if the container has been created after the pipeline run.
         
     ![Polybase setting](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 

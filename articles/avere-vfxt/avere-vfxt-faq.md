@@ -1,11 +1,12 @@
 ---
 title: FAQ - Avere vFXT for Azure
-description: Frequently asked questions about Avere vFXT for Azure
+description: Use these frequently asked questions to decide if Avere vFXT for Azure fits your needs. Learn how Avere vFXT for Azure works with other Azure components.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
+ms.custom: references_regions
 ---
 
 # Avere vFXT for Azure FAQ
@@ -154,7 +155,7 @@ Detaching and reattaching SSDs is unsupported. Metadata or file contents on the 
 
 ### Does the system encrypt the cache?
 
-Data is striped across the disks but is not encrypted. However, the disks themselves can be encrypted. For more information, see [Secure and use policies on virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption).
+Data is striped across the disks but is not encrypted. However, the disks themselves can be encrypted. For more information, see [Secure and use policies on virtual machines in Azure](../virtual-machines/security-policy.md#encryption).
 
 ## Technical: Networking
 
@@ -253,7 +254,7 @@ No. The service-level agreement (SLA) for archive storage is not compatible with
 
 Cool tier blob storage is not usually recommended for an Avere vFXT for Azure core filer. Cool tier offers lower storage costs but higher operations costs. (See [Block blob pricing](<https://azure.microsoft.com/pricing/details/storage/blobs/>) for more details.) If data will be accessed and modified or deleted frequently, please consider using the Hot tier.
 
-[Access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) gives more information about when it might make sense to use Cool tier storage as a vFXT core filer.
+[Access tiers](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) gives more information about when it might make sense to use Cool tier storage as a vFXT core filer.
 
 ### How do I encrypt the blob container?
 

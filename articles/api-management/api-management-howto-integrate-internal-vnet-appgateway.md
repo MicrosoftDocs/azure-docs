@@ -84,6 +84,11 @@ In this guide we will also expose the **developer portal** to external audiences
 
 > [!WARNING]
 > To prevent Application Gateway WAF from breaking the download of OpenAPI specification in the developer portal, you need to disable the firewall rule `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
+> 
+> Application Gateway WAF rules, which may break portal's functionality include:
+> 
+> - `920300`, `920330`, `931130`, `942100`, `942110`, `942180`, `942200`, `942260`, `942340`, `942370` for the administrative mode
+> - `942200`, `942260`, `942370`, `942430`, `942440` for the published portal
 
 ## Create a resource group for Resource Manager
 
@@ -284,7 +289,7 @@ Create custom probes to the API Management service `ContosoApi` proxy domain end
 
 ```powershell
 $apimprobe = New-AzApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName $gatewayHostname -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
-$apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/signin" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
+$apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -Protocol "Https" -HostName $portalHostname -Path "/internal-status-0123456789abcdef" -Interval 60 -Timeout 300 -UnhealthyThreshold 8
 ```
 
 ### Step 7
@@ -326,7 +331,7 @@ $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Bas
 
 ### Step 11
 
-Configure the number of instances and size for the Application Gateway. In this example, we are using the [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) for increased security of the API Management resource.
+Configure the number of instances and size for the Application Gateway. In this example, we are using the [WAF SKU](../web-application-firewall/ag/ag-overview.md) for increased security of the API Management resource.
 
 ```powershell
 $sku = New-AzApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
@@ -364,9 +369,9 @@ Azure API Management configured in a VNET provides a single gateway interface fo
 
 ## <a name="next-steps"> </a> Next steps
 * Learn more about Azure Application Gateway
-  * [Application Gateway Overview](../application-gateway/application-gateway-introduction.md)
-  * [Application Gateway Web Application Firewall](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
-  * [Application Gateway using Path-based Routing](../application-gateway/application-gateway-create-url-route-arm-ps.md)
+  * [Application Gateway Overview](../application-gateway/overview.md)
+  * [Application Gateway Web Application Firewall](../web-application-firewall/ag/ag-overview.md)
+  * [Application Gateway using Path-based Routing](../application-gateway/tutorial-url-route-powershell.md)
 * Learn more about API Management and VNETs
   * [Using API Management available only within the VNET](api-management-using-with-internal-vnet.md)
   * [Using API Management in VNET](api-management-using-with-vnet.md)

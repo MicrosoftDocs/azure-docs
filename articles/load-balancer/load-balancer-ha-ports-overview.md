@@ -17,9 +17,9 @@ ms.author: allensu
 
 # High availability ports overview
 
-Azure Standard Load Balancer helps you load-balance TCP and UDP flows on all ports simultaneously when you're using an internal load balancer. 
+Azure Standard Load Balancer helps you load-balance **all** protocol flows on **all** ports simultaneously when you're using an internal Load Balancer via HA Ports.
 
-A high availability (HA) ports load-balancing rule is a variant of a load-balancing rule, configured on an internal Standard Load Balancer. You can simplify the use of a load balancer by providing a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: source IP address, source port, destination IP address, destination port, and protocol
+High availability (HA) ports is a type of load balancing rule that provides an easy way to load-balance **all** flows that arrive on **all** ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: source IP address, source port, destination IP address, destination port, and protocol
 
 The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can also help when a large number of ports must be load-balanced. 
 
@@ -82,20 +82,17 @@ If your scenario requires that you configure more than one HA port front end for
 
 ### An internal load balancer with HA ports and a public load balancer on the same back-end instance
 
-You can configure *one* public Standard Load Balancer resource for the back-end resources, along with a single internal Standard Load Balancer with HA ports.
-
->[!NOTE]
->This capability is currently available via Azure Resource Manager templates, but it is not available via the Azure portal.
+You can configure *one* public Standard Load Balancer resource for the backend resources, along with a single internal Standard Load Balancer with HA ports.
 
 ## Limitations
 
 - HA ports load-balancing rules are available only for internal Standard Load Balancer.
-- The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule pointing to same backend ipconfigurations is not supported.
+- The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule pointing to same backend ipconfiguration(s) is **not** supported on a single Frontend IP configuration unless both have Floating IP enabled.
 - Existing IP fragments will be forwarded by HA Ports load-balancing rules to same destination as first packet.  IP fragmenting a UDP or TCP packet is not supported.
 - Flow symmetry (primarily for NVA scenarios) is supported with backend instance and a single NIC (and single IP configuration) only when used as shown in the diagram above and using HA Ports load-balancing rules. It is not provided in any other scenario. This means that two or more Load Balancer resources and their respective rules make independent decisions and are never coordinated. See the description and diagram for [network virtual appliances](#nva). When you are using multiple NICs or sandwiching the NVA between a public and internal Load Balancer, flow symmetry is not available.  You may be able to work around this by source NAT'ing the ingress flow to the IP of the appliance to allow replies to arrive on the same NVA.  However, we strongly recommend using a single NIC and using the reference architecture shown in the diagram above.
 
 
 ## Next steps
 
-- [Configure HA ports on an internal Standard Load Balancer](load-balancer-configure-ha-ports.md)
+- [Learn how to configure HA ports for your ILB via Portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule), or [Templates](quickstart-load-balancer-standard-internal-template.md).
 - [Learn about Standard Load Balancer](load-balancer-standard-overview.md)

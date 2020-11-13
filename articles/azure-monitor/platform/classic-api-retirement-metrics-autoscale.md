@@ -17,7 +17,7 @@ The same operations have been supported through a set of Azure Resource Manager 
 
 If you are managing autoscale via the Azure portal, the [new Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, CLI, or Resource Manager templates, no action is necessary.  
 
-If you are consuming metrics via the Azure portal or via various [monitoring partner services](../../azure-monitor/platform/partners.md), no action is necessary. Microsoft is working with monitoring partners to migrate to the new APIs.
+If you are consuming metrics via the Azure portal or via various [monitoring partner services](./partners.md), no action is necessary. Microsoft is working with monitoring partners to migrate to the new APIs.
 
 ## Who is affected
 
@@ -25,9 +25,9 @@ This article applies to you if you are using the following components:
 
 - **Classic Azure Insights SDK** - If you're using the [classic Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/),  switch to using the new Azure Monitor SDK for [.NET](https://github.com/azure/azure-libraries-for-net#download) or [Java](https://github.com/azure/azure-libraries-for-java#download). Download the [Azure Monitor SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/).
 
-- **Classic Autoscale** - If you're calling the [classic autoscale settings APIs](https://msdn.microsoft.com/library/azure/mt348562.aspx) from your custom-built tools or using the [classic Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), you should switch to using the [Resource Manager Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings).
+- **Classic Autoscale** - If you're calling the [classic autoscale settings APIs](/previous-versions/azure/reference/mt348562(v=azure.100)) from your custom-built tools or using the [classic Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), you should switch to using the [Resource Manager Azure Monitor REST API](/rest/api/monitor/autoscalesettings).
 
-- **Classic Metrics** - If you're consuming metrics using the [classic REST APIs](https://msdn.microsoft.com/library/azure/dn510374.aspx) or  [classic Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) from custom-built tools, you should switch to using the [Resource Manager Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/autoscalesettings). 
+- **Classic Metrics** - If you're consuming metrics using the [classic REST APIs](/previous-versions/azure/reference/dn510374(v=azure.100)) or  [classic Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) from custom-built tools, you should switch to using the [Resource Manager Azure Monitor REST API](/rest/api/monitor/autoscalesettings). 
 
 If you're unsure whether your code or custom tools are calling the classic APIs, look at the following:
 
@@ -39,11 +39,11 @@ If you're unsure whether your code or custom tools are calling the classic APIs,
 
 - If you're using calls referenced in the documentation at any of the following links, you are using the older classic APIs.
 
-  - [Windows.Azure.Management.Monitoring Class Library](https://docs.microsoft.com/previous-versions/azure/dn510414(v=azure.100))
+  - [Windows.Azure.Management.Monitoring Class Library](/previous-versions/azure/dn510414(v=azure.100))
 
-  - [Monitoring (classic) .NET](https://docs.microsoft.com/previous-versions/azure/reference/mt348562(v%3dazure.100))
+  - [Monitoring (classic) .NET](/previous-versions/azure/reference/mt348562(v%3dazure.100))
 
-  - [IMetricOperations Interface](https://docs.microsoft.com/previous-versions/azure/reference/dn802395(v%3dazure.100))
+  - [IMetricOperations Interface](/previous-versions/azure/reference/dn802395(v%3dazure.100))
 
 ## Why you should switch
 
@@ -85,5 +85,6 @@ If you have any questions, contact us at MonitorClassicAPIhelp@microsoft.com.
 
 ## References
 
-- [Newer REST APIs for Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) 
+- [Newer REST APIs for Azure Monitor](/rest/api/monitor/) 
 - [Newer Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)
+

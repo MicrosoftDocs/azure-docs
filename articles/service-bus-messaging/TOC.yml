@@ -7,6 +7,8 @@
   - name: Compare messaging services
     href: ../event-grid/compare-messaging-services.md
     maintainContext: true
+  - name: Use Service Bus with Java Message Service (JMS) 2.0 (preview)
+    href: how-to-use-java-message-service-20.md
 - name: Quickstarts
   items:
   - name: Service Bus queues
@@ -42,6 +44,8 @@
       items:
       - name: Azure portal
         href: service-bus-quickstart-topics-subscriptions-portal.md
+      - name: Azure CLI
+        href: service-bus-tutorial-topics-subscriptions-cli.md
       - name: ARM template
         href: service-bus-resource-manager-namespace-topic.md
     - name: Publish and subscribe for messages
@@ -60,21 +64,14 @@
         href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: Tutorials
   items:
-  - name: Update inventory - PowerShell
-    href: service-bus-tutorial-topics-subscriptions-powershell.md
-  - name: Update inventory - Portal
+  - name: Update inventory
     href: service-bus-tutorial-topics-subscriptions-portal.md
-  - name: Update inventory - CLI
-    href: service-bus-tutorial-topics-subscriptions-cli.md
   - name: Respond to events via Event Grid
     href: service-bus-to-event-grid-integration-example.md
 - name: Samples
   items:
   - name: Service Bus samples
     href: service-bus-samples.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Premium messaging
@@ -93,6 +90,8 @@
     href: service-bus-throttling.md
   - name: Security
     items:
+    - name: Security baseline
+      href: security-baseline.md
     - name: Authentication and authorization
       href: service-bus-authentication-and-authorization.md
       items:
@@ -108,12 +107,15 @@
           href: service-bus-managed-service-identity.md
         - name: Authenticate from an application
           href: authenticate-application.md
-    - name: Built-in security controls
-      href: service-bus-messaging-security-controls.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Network security
       href: network-security.md
 - name: How-to guides
   items:
+  - name: Move across regions
+    href: move-across-regions.md
   - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
     href: deprecate-service-bus-management.md
   - name: Create a namespace
@@ -124,6 +126,8 @@
       items:
       - name: Queues, topics, and subscriptions
         href: service-bus-queues-topics-subscriptions.md
+      - name: Java message service (JMS) 2.0 entities (preview)
+        href: java-message-service-20-entities.md
       - name: Messages, payloads, and serialization
         href: service-bus-messages-payloads.md
       - name: Message transfers, locks, and settlement
@@ -182,8 +186,18 @@
       href: service-bus-nodejs-how-to-use-queues.md
     - name: Publish and subscribe for messages (legacy azure-sb)
       href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+  - name: Migrate
+    items:
+    - name: Migrate from ActiveMQ to Azure Service Bus
+      href: migrate-jms-activemq-to-servicebus.md
+  - name: Integrate
+    items:
+    - name: Integrate with RabbitMQ
+      href: service-bus-integrate-with-rabbitmq.md
   - name: Manage
     items:
+    - name: Automatically update messaging units 
+      href: automate-update-messaging-units.md
     - name: Use Azure PowerShell to provision entities
       href: service-bus-manage-with-ps.md
     - name: Monitor Service Bus with Azure Monitor
@@ -194,6 +208,8 @@
       href: service-bus-diagnostic-logs.md
     - name: Suspend and reactivate messaging entities
       href: entity-suspend.md
+    - name: Use Service Bus Explorer to perform data operations on Service Bus
+      href: explorer.md
     - name: Use ARM templates
       href: service-bus-resource-manager-overview.md
       items:
@@ -205,11 +221,11 @@
         href: service-bus-resource-manager-namespace-topic-with-rule.md
   - name: Secure
     items:
-    - name: Configure firewalls
+    - name: Allow access from specific IP addresses
       href: service-bus-ip-filtering.md
-    - name: Configure virtual network service endpoints
+    - name: Allow access from specific virtual networks
       href: service-bus-service-endpoints.md
-    - name: Configure private endpoints (preview)
+    - name: Allow access via private endpoints
       href: private-link-service.md
     - name: Configure customer-managed keys
       href: configure-customer-managed-key.md
@@ -253,6 +269,9 @@
     href: service-bus-messaging-sql-filter.md
   - name: SQLRuleAction syntax
     href: service-bus-messaging-sql-rule-action.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: FAQ
@@ -262,9 +281,9 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
   - name: Blog
-    href: https://blogs.msdn.microsoft.com/servicebus/
-  - name: MSDN forums
-    href: https://social.msdn.microsoft.com/forums/home?forum=servbus
+    href: /archive/blogs/servicebus/
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-service-bus.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/service-bus/
   - name: Pricing calculator

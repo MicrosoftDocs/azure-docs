@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -14,13 +14,13 @@ ms.custom: security-benchmark
 
 The Azure Security Baseline for Azure Database for MariaDB contains recommendations that will help you improve the security posture of your deployment.
 
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 ## Network Security
 
-*For more information, see [Security Control: Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security Control: Network Security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
@@ -176,7 +176,7 @@ How to create alerts in Azure Monitor: https://docs.microsoft.com/azure/azure-mo
 
 ## Logging and Monitoring
 
-*For more information, see [Security Control: Logging and Monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security Control: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -294,7 +294,7 @@ How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickst
 
 ## Identity and Access Control
 
-*For more information, see [Security Control: Identity and Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security Control: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -302,7 +302,7 @@ How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickst
 
 Understand access management for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-security#access-management
 
-Understand built-in RBAC roles for Azure Subscriptions: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
+Understand Azure built-in roles for Azure Subscriptions: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 
 
 **Azure Security Center monitoring**: Yes
@@ -460,7 +460,7 @@ List of Customer Lockbox supported services: https://docs.microsoft.com/azure/se
 
 ## Data Protection
 
-*For more information, see [Security Control: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security Control: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -528,9 +528,9 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure AD RBAC to control access to the Azure Database for the MariaDB management plane (Azure portal/Azure Resource Manager). For data plane access (within the database itself), use SQL queries to create users and configure user permissions.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Database for the MariaDB management plane (Azure portal/Azure Resource Manager). For data plane access (within the database itself), use SQL queries to create users and configure user permissions.
 
-How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+How to configure Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 How to configure user access with SQL for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-create-users
 
@@ -572,7 +572,7 @@ How to create alerts for Azure Activity Log events: https://docs.microsoft.com/a
 
 ## Vulnerability Management
 
-*For more information, see [Security Control: Vulnerability Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security Control: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -620,7 +620,7 @@ How to create alerts for Azure Activity Log events: https://docs.microsoft.com/a
 
 ## Inventory and Asset Management
 
-*For more information, see [Security Control: Inventory and Asset Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security Control: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use Azure Asset Discovery
 
@@ -628,7 +628,7 @@ How to create alerts for Azure Activity Log events: https://docs.microsoft.com/a
 
 How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -772,7 +772,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 ## Secure Configuration
 
-*For more information, see [Security Control: Secure Configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security Control: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -780,7 +780,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 - Geo-redundant backup should be enabled for Azure Database for MariaDB
 
-How to view available Azure Policy aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+How to view available Azure Policy aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -824,9 +824,9 @@ Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/pol
 
 **Guidance**: If using custom Azure Policy definitions for your Azure Database for MariaDB servers and related resources, use Azure Repos to securely store and manage your code.
 
-How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
 
-Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -886,11 +886,11 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 How to integrate with Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-How to provide Key Vault authentication with a managed identity: https://docs.microsoft.com/azure/key-vault/managed-identity 
+How to authenticate to Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
 
-
+How to assign a Key Vault access policy: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Azure Security Center monitoring**: Yes
 
@@ -923,7 +923,7 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## Malware Defense
 
-*For more information, see [Security Control: Malware Defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security Control: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -961,7 +961,7 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 ## Data Recovery
 
-*For more information, see [Security Control: Data Recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security Control: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1018,24 +1018,15 @@ Understand backup and restore in Azure Database for MariaDB:  https://docs.micro
 
 ## Incident Response
 
-*For more information, see [Security Control: Incident Response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security Control: Incident Response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
-    
 
-    Guidance on building your own security incident response process: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
-
-    
-
-    Microsoft Security Response Center's Anatomy of an Incident: https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/
-
-    
-
-    Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final 
-
-
+- Guidance on building your own security incident response process: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+- Microsoft Security Response Center's Anatomy of an Incident: https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/
+- Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final 
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1044,17 +1035,12 @@ Understand backup and restore in Azure Database for MariaDB:  https://docs.micro
 ### 10.2: Create an incident scoring and prioritization procedure
 
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
-    
 
-    Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
+Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-    
+- Security alerts in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
-    Security alerts in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
-
-    
-
-Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: Yes
 
@@ -1063,11 +1049,8 @@ Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azur
 ### 10.3: Test security response procedures
 
 **Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
-    
 
-    Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
-
-
+- Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1076,11 +1059,8 @@ Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azur
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
-    
 
-    How to set the Azure Security Center Security Contact: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
-
-
+- How to set the Azure Security Center Security Contact: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Azure Security Center monitoring**: Yes
 
@@ -1089,15 +1069,9 @@ Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azur
 ### 10.5: Incorporate security alerts into your incident response system
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
-    
 
-    How to configure continuous export: https://docs.microsoft.com/azure/security-center/continuous-export
-
-    
-
-    How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
-
-
+- How to configure continuous export: https://docs.microsoft.com/azure/security-center/continuous-export
+- How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1116,7 +1090,7 @@ How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/
 
 ## Penetration Tests and Red Team Exercises
 
-*For more information, see [Security Control: Penetration Tests and Red Team Exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security Control: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days
 
@@ -1133,5 +1107,5 @@ You can find more information on Microsoft's strategy and execution of Red Teami
 
 ## Next steps
 
-- See the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure Security Baselines](../security/benchmarks/security-baselines-overview.md)

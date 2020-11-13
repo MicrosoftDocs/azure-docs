@@ -6,7 +6,7 @@ author: ganesr
 
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 07/07/2020
 ms.author: ganesr
 
 ---
@@ -73,15 +73,19 @@ Edge Zones will be offered in partnership with the following operators:
 
 - AT&T (Atlanta, Dallas, and Los Angeles)
 
+ISVs working on optimized and scalable applications connected to 5G networks can now use the new Los Angeles preview location of Azure Edge Zones with AT&T when building and experimenting with ultra-low latency platforms, mobile and connected scenarios. Register for the early adopter program to take advantage of secure, high-bandwidth connectivity.
+
+[Contact the Edge Zone team](https://aka.ms/EdgeZones) for more information.
+
 ## <a name="private-edge-zones"></a>Azure Private Edge Zones
 
 ![Private Edge Zones](./media/edge-zones-overview/private-edge.png "Private Edge Zones")
 
 Azure Private Edge Zones are small-footprint extensions of Azure that are placed on-premises. Azure Private Edge Zone is based on the [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) platform. It enables low latency access to computing and storage services deployed on-premises. Private Edge Zone also lets you deploy applications from ISVs and virtualized network functions (VNFs) as [Azure managed applications](https://azure.microsoft.com/services/managed-applications/) along with virtual machines and containers on-premises. These VNFs can include mobile packet cores, routers, firewalls, and SD-WAN appliances. Azure Private Edge Zone comes with a cloud-native orchestration solution that lets you manage the lifecycles of VNFs and applications from the Azure portal.
 
-Azure Private Edge Zone lets you develop and deploy applications on-premises by using the same familiar tools that you use to build and deploy applications in Azure. 
+Azure Private Edge Zone lets you develop and deploy applications on-premises by using the same familiar tools that you use to build and deploy applications in Azure.
 
-It also lets you: 
+It also lets you:
 
 - Run private mobile networks (private LTE, private 5G).
 - Implement security functions like firewalls.
@@ -106,6 +110,7 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 ##### <a name="vEPC"></a>Virtualized Evolved Packet Core (vEPC) for mobile networks
 
 - [Affirmed Networks](https://www.affirmednetworks.com/)
+- [Celona](https://www.celona.io/azure-edge)
 - [Druid Software](https://www.druidsoftware.com/)
 - [Expeto](https://www.expeto.io/)
 - [Mavenir](https://mavenir.com/)
@@ -114,12 +119,15 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 
 ##### <a name="mobile-radio"></a>Mobile radio partners
 
+- [Celona](https://www.celona.io/azure-edge)
 - [Commscope Ruckus](https://support.ruckuswireless.com/)
 
 ##### <a name="sdwan-vendors"></a>SD-WAN vendors
 
+- [128 Technology](https://www.128technology.com/)
 - [NetFoundry](https://netfoundry.io/)
 - [Nuage Networks from Nokia](https://www.nuagenetworks.net/)
+- [Versa Networks](https://www.versa-networks.com/)
 - [VMware SD-WAN by Velocloud](https://www.velocloud.com/)
 
 ##### <a name="router-vendors"></a>Router vendors
@@ -151,10 +159,10 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 
 ![Private mobile network on Private Edge Zones](./media/edge-zones-overview/mobile-networks.png "Private mobile network on Private Edge Zones")
 
-You can now deploy a private mobile network on Private Edge Zones. Private mobile networks enable ultra-low latency, high capacity, and the reliable and secure wireless network that's required for business-critical applications. 
+You can now deploy a private mobile network on Private Edge Zones. Private mobile networks enable ultra-low latency, high capacity, and the reliable and secure wireless network that's required for business-critical applications.
 
-Private mobile networks can enable scenarios like: 
-- Command and control of automated guided vehicles (AGVs) in warehouses. 
+Private mobile networks can enable scenarios like:
+- Command and control of automated guided vehicles (AGVs) in warehouses.
 - Real-time communication between robots in smart factories.
 - Augmented reality and virtual reality edge applications.
 
@@ -167,7 +175,7 @@ Microsoft provides a partner ecosystem that can help with all aspects of this pr
 #### <a name="sdwan-private-edge"></a>SD-WAN on Private Edge Zones
 
 ![SD-WAN on Private Edge Zones](./media/edge-zones-overview/sd-wan.png "SD-WAN on Private Edge Zones")
- 
+
 SD-WAN lets you create enterprise-grade wide area networks (WANs) that have these benefits:
 
 - Increased bandwidth
@@ -176,7 +184,7 @@ SD-WAN lets you create enterprise-grade wide area networks (WANs) that have thes
 - Reliability
 - Policy management
 - Extensive network visibility
-    
+
 SD-WAN provides seamless branch office connectivity that's orchestrated from redundant central controllers at lower cost of ownership.
 SD-WAN on Private Edge Zones lets you move from a capex-centric model to a software-as-a-service (SaaS) model to reduce IT budgets. You can use your choice of SD-WAN partners, orchestrator or controller, to enable new services and propagate them throughout your entire network immediately.
 

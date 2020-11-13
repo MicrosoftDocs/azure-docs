@@ -62,11 +62,11 @@ To remove Application Insights, you'll need to remove the NuGet packages and ref
 
 1. Select **Uninstall**.
     
-    ![Check remove dependencies, then uninstall](./media/remove-application-insights/uninstall-framework.png)
+    ![Screenshot shows the Microsoft.ApplicationInsights.Web window with Remove dependencies checked and uninstall highlighted.](./media/remove-application-insights/uninstall-framework.png)
 
     A dialog box will display that shows all of the dependencies to be removed from the application. Select **ok** to uninstall.
     
-    ![Check remove dependencies, then uninstall](./media/remove-application-insights/preview-uninstall-framework.png)
+    ![Screenshot shows a dialog box with the dependencies to be removed.](./media/remove-application-insights/preview-uninstall-framework.png)
     
 1.  After everything is uninstalled, you may still see  "ApplicationInsights.config" and "AiHandleErrorAttribute.cs" in the *Solution Explorer*. You can delete the two files manually.
 
@@ -225,4 +225,4 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
 
 ## Next steps
 
-- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)
+- [Azure Monitor](../overview.md)

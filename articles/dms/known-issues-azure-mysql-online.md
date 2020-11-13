@@ -3,14 +3,14 @@ title: "Known issues: Online migrations to Azure Database for MySQL"
 titleSuffix: Azure Database Migration Service
 description: Learn about known issues and migration limitations with online migrations to Azure Database for MySQL when using the Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: [seo-lt-2019, seo-dt-2019]
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
 ---
 
@@ -25,7 +25,7 @@ Known issues and limitations associated with online migrations from MySQL to Azu
 - Azure Database for MySQL supports:
   - MySQL community edition
   - InnoDB engine
-- Same version migration. Migrating MySQL 5.6 to Azure Database for MySQL 5.7 isn't supported.
+- Same version migration. Migrating MySQL 5.6 to Azure Database for MySQL 5.7 isn't supported. Migrations to or from MySQL 8.0 are not supported.
 - Enable binary logging in my.ini (Windows) or my.cnf (Unix)
   - Set Server_id to any number larger or equals to 1, for example, Server_id=1 (only for MySQL 5.6)
   - Set log-bin = \<path> (only for MySQL 5.6)
@@ -75,12 +75,12 @@ Large Object (LOB) columns are columns that could grow large in size. For MySQL,
 
     **Workaround**: Replace primary key with other datatypes or columns that aren't LOB.
 
-- **Limitation**: If the length of Large Object (LOB) column is bigger than 32 KB, data might be truncated at the target. You can check the length of LOB column using this query:
+- **Limitation**: If the length of Large Object (LOB) column is bigger than the "Limit LOB size" parameter (should not be greater than 64 KB), data might be truncated at the target. You can check the length of LOB column using this query:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Workaround**: If you have LOB object that is bigger than 32 KB, contact engineering team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Workaround**: If you have LOB object that is bigger than 64 KB, use the "Allow unlimited LOB size" parameter. Note that migrations using "Allow unlimited LOB size" parameter will be slower than migrations using "Limit LOB size" parameter.
 
 ## Limitations when migrating online from AWS RDS MySQL
 
@@ -128,6 +128,8 @@ When you try to perform an online migration from AWS RDS MySQL to Azure Database
     ```
 
 - In Azure Database Migration Service, the limit of databases to migrate in one single migration activity is four.
+
+- Azure DMS does not support the CASCADE referential action, which helps to automatically delete or update a matching row in the child table when a row is deleted or updated in the parent table. For more information, in the MySQL documentation, see the Referential Actions section of the article [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html). Azure DMS requires that you drop foreign key constraints in the target database server during the initial data load, and you cannot use referential actions. If your workload depends on updating a related child table via this referential action, we recommend that you perform a [dump and restore](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) instead. 
 
 - **Error:** Row size too large (> 8126). Changing some columns to TEXT or BLOB may help. In current row format, BLOB prefix of 0 bytes is stored inline.
 

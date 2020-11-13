@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
+ms.custom: devx-track-python
 #Customer intent: As an data scientist, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
 
@@ -28,7 +29,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * Create an Azure Data Lake Storage Gen2 account.
 
-  See [Create an Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
+  See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 * Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) assigned to it.
 

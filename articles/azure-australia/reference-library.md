@@ -6,7 +6,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Additional documentation and resources by focus area
@@ -18,84 +18,84 @@ This resource library contains additional links and references that are relevant
 * [Microsoft Service Trust Portal Australia Page](https://aka.ms/au-irap)
 * [Microsoft Trust Center CCSL Page](https://www.microsoft.com/trustcenter/compliance/ccsl)
 * [Azure Security and Compliance Blueprints for PROTECTED](https://aka.ms/au-protected)
-* [Tenant Isolation in Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)
+* [Tenant Isolation in Microsoft Azure](../security/fundamentals/isolation-choices.md)
 * [Australian Information Security Manual](https://www.cyber.gov.au/ism)
 * [Australian Cyber Security Centre (ACSC) Certified Cloud List](https://www.cyber.gov.au/irap/cloud-services)
 
 ## Azure Key Vault
 
-* [Azure Key Vault Overview](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [About keys, secrets, and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
-* [Configure Azure Key Vault firewalls and virtual networks](https://docs.microsoft.com/azure/key-vault/key-vault-network-security)
-* [Secure access to a key vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
-* [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-* [How to use Azure Key Vault with Azure Windows Virtual Machines in .NET](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
-* [Azure Key Vault managed storage account - PowerShell](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
-* [Setup key rotation and auditing](https://docs.microsoft.com/azure/key-vault/key-vault-key-rotation-log-monitoring)
+* [Azure Key Vault Overview](../key-vault/general/overview.md)
+* [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md)
+* [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md)
+* [Secure access to a key vault](../key-vault/general/secure-your-key-vault.md)
+* [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md)
+* [How to use Azure Key Vault with Azure Windows Virtual Machines in .NET](../key-vault/general/tutorial-net-virtual-machine.md)
+* [Azure Key Vault managed storage account - PowerShell](../key-vault/general/tutorial-net-virtual-machine.md)
+* [Setup key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
 
 ## Identity federation
 
-* [Azure AD Connect - Installation Guide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap)
-* [Password Write-Back](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
-* [Install and Run the IDFix Tool](https://docs.microsoft.com/office365/enterprise/install-and-run-idfix)
-* [Azure AD UPN Population](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-userprincipalname)
-* [Azure AD Connect - Synchronised Attributes](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized)
-* [Azure AD Connect - Best-Practice Configuration Guide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration)
-* [Azure AD Connect - User Sign-In Options](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin)
-* [Azure AD Connect and Federation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-whatis)
-* [Pass-Through Authentication Documentation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta)
-* [Deploying Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
-* [Azure Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)
+* [Azure AD Connect - Installation Guide](../active-directory/hybrid/how-to-connect-install-roadmap.md)
+* [Password Write-Back](../active-directory/authentication/concept-sspr-writeback.md)
+* [Install and Run the IDFix Tool](/office365/enterprise/install-and-run-idfix)
+* [Azure AD UPN Population](../active-directory/hybrid/plan-connect-userprincipalname.md)
+* [Azure AD Connect - Synchronised Attributes](../active-directory/hybrid/reference-connect-sync-attributes-synchronized.md)
+* [Azure AD Connect - Best-Practice Configuration Guide](../active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration.md)
+* [Azure AD Connect - User Sign-In Options](../active-directory/hybrid/plan-connect-user-signin.md)
+* [Azure AD Connect and Federation](../active-directory/hybrid/how-to-connect-fed-whatis.md)
+* [Pass-Through Authentication Documentation](../active-directory/hybrid/how-to-connect-pta.md)
+* [Deploying Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Azure Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
 
 ## Azure Backup and Azure Site Recovery
 
-* [Introduction to Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)
-* [Azure Backup Overview](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)
-* [Azure Site Recovery Overview](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
-* [Azure Governance](https://docs.microsoft.com/azure/governance/)
-* [Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
-* [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
-* [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
-* [Azure Backup Tutorials](https://docs.microsoft.com/azure/backup/)
-* [Azure Site Recovery Tutorials](/azure/site-recovery/)
+* [Introduction to Azure Backup](../backup/backup-overview.md)
+* [Azure Backup Overview](../backup/backup-overview.md)
+* [Azure Site Recovery Overview](../site-recovery/site-recovery-overview.md)
+* [Azure Governance](../governance/index.yml)
+* [Azure Paired Regions](../best-practices-availability-paired-regions.md)
+* [Azure Policy](../governance/policy/overview.md)
+* [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md)
+* [Azure Backup Tutorials](../backup/index.yml)
+* [Azure Site Recovery Tutorials](../site-recovery/index.yml)
 
-## Role-based Access Controls and Privileged Identity Management (PIM)
+## Azure role-based access control (Azure RBAC) and Privileged Identity Management (PIM)
 
-* [Azure RBAC Overview](https://docs.microsoft.com/azure/role-based-access-control/overview)
-* [Azure Privileged Identify Management Overview](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)
-* [Azure Management Groups Overview](https://docs.microsoft.com/azure/governance/management-groups/)
-* [Azure Identity and Access Control Best Practices](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
-* [Managing Azure AD Groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
-* [Hybrid Identity](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
-* [RBAC Custom Roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
-* [Built in Roles for Azure Resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
-* [Securing Privileged Access in Hybrid Cloud Environments](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
-* [Azure Enterprise Scaffold](https://docs.microsoft.com/azure/architecture/cloud-adoption/appendix/azure-scaffold)
+* [Azure RBAC Overview](../role-based-access-control/overview.md)
+* [Azure Privileged Identify Management Overview](../active-directory/privileged-identity-management/pim-configure.md)
+* [Azure Management Groups Overview](../governance/management-groups/index.yml)
+* [Azure Identity and Access Control Best Practices](../security/fundamentals/identity-management-best-practices.md)
+* [Managing Azure AD Groups](../active-directory/fundamentals/active-directory-manage-groups.md)
+* [Hybrid Identity](../active-directory/hybrid/whatis-hybrid-identity.md)
+* [Azure Custom Roles](../role-based-access-control/custom-roles.md)
+* [Azure Built-in Roles](../role-based-access-control/built-in-roles.md)
+* [Securing Privileged Access in Hybrid Cloud Environments](../active-directory/users-groups-roles/directory-admin-roles-secure.md)
+* [Azure Enterprise Scaffold](/azure/architecture/cloud-adoption/appendix/azure-scaffold)
 
 ## System monitoring for security
 
-* [Azure Governance](https://docs.microsoft.com/azure/governance/)
-* [Azure Security Best Practices](https://docs.microsoft.com/azure/security/security-best-practices-and-patterns)
-* [Platforms and features supported by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-os-coverage)
-* [Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview)
-* [Azure Diagnostic Logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)
-* [Azure Security Center Alerts](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
-* [Azure Log Integration](https://docs.microsoft.com/azure/security/security-azure-log-integration-overview)
-* [Analyze Log Data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
-* [Stream Azure Monitor Logs to an Event Hub](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs)
-* [Event Hub Security and Authentication](https://docs.microsoft.com/azure/event-hubs/event-hubs-authentication-and-security-model-overview)
+* [Azure Governance](../governance/index.yml)
+* [Azure Security Best Practices](../security/fundamentals/best-practices-and-patterns.md)
+* [Platforms and features supported by Azure Security Center](../security-center/security-center-os-coverage.md)
+* [Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md)
+* [Azure Diagnostic Logs](../azure-monitor/platform/platform-logs-overview.md)
+* [Azure Security Center Alerts](../security-center/security-center-managing-and-responding-alerts.md)
+* [Azure Log Integration](/previous-versions/azure/security/fundamentals/azure-log-integration-overview)
+* [Analyze Log Data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Stream Azure Monitor Logs to an Event Hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
+* [Event Hub Security and Authentication](../event-hubs/authenticate-shared-access-signature.md)
 
 ## Azure Policy and Azure Blueprints
 
-* [Azure Policy Overview](https://docs.microsoft.com/azure/governance/policy/overview)
+* [Azure Policy Overview](../governance/policy/overview.md)
 * [Azure Blueprints Overview](https://azure.microsoft.com/services/blueprints/)
-* [Azure Policy Samples](https://docs.microsoft.com/azure/governance/policy/samples/index)
+* [Azure Policy Samples](../governance/policy/samples/index.md)
 * [Azure Policy Samples Repository](https://github.com/Azure/azure-policy)
-* [Azure Policy Definition Structure](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure)
-* [Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
-* [Azure Governance](https://docs.microsoft.com/azure/governance/)
-* [Azure Management Groups](https://docs.microsoft.com/azure/governance/management-groups/)
-* [Azure Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure Policy Definition Structure](../governance/policy/concepts/definition-structure.md)
+* [Azure Policy Effects](../governance/policy/concepts/effects.md)
+* [Azure Governance](../governance/index.yml)
+* [Azure Management Groups](../governance/management-groups/index.yml)
+* [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)
 
 ## Next steps
 

@@ -24,7 +24,7 @@ The following controls are available from the **Overview** page for your selecte
 | Start | Start the specified VM.  |
 | Restart | Shut down and then power up the specified VM.  |
 | Stop | Shut down the specific VM.  |
-| Capture | Capture an image of the specified VM so it can be used as an image to create other VMs. See [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/classic/capture-image.md).   |
+| Capture | Capture an image of the specified VM so it can be used as an image to create other VMs. See [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).   |
 | Move | Move to the specified VM.  |
 | Delete | Remove the specified VM.  |
 | Refresh | Refresh the data in the display.  |

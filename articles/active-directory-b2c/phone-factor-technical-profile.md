@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -33,7 +33,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `Proprieta
 
 The following example shows a phone factor technical profile for enrollment and validation:
 
-```XML
+```xml
 <TechnicalProfile Id="PhoneFactor-InputOrVerify">
   <DisplayName>PhoneFactor</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -61,7 +61,7 @@ The InputClaims element must contain the following claims. You can also map the 
 
 The following example demonstrates using multiple phone numbers. For more information, see [sample policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="userIdForMFA" PartnerClaimType="UserId" />
   <InputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" />
@@ -96,7 +96,7 @@ The **CryptographicKeys** element is not used.
 
 ### UI elements
 
-The phone factor authentication page user interface elements can be [localized](localization-string-ids.md#azure-mfa-error-messages).
+The phone factor authentication page user interface elements can be [localized](localization-string-ids.md#phone-factor-authentication-page-user-interface-elements).
 
 ## Next steps
 

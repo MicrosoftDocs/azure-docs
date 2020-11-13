@@ -3,13 +3,15 @@ title: Java web apps performance monitoring - Azure Application Insights
 description: Extended performance and usage monitoring of your Java website with Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
-
+ms.custom: devx-track-java
 ---
 
 # Monitor dependencies, caught exceptions, and method execution times in Java web apps
 
+> [!IMPORTANT]
+> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
 
-If you have [instrumented your Java web app with Application Insights][java], you can use the Java Agent to get deeper insights, without any code changes:
+If you have [instrumented your Java web app with Application Insights SDK][java], you can use the Java Agent to get deeper insights, without any code changes:
 
 * **Dependencies:** Data about calls that your application makes to other components, including:
   * **Outgoing HTTP calls** made via Apache HttpClient, OkHttp, and `java.net.HttpURLConnection` are captured.
@@ -117,19 +119,20 @@ In the Application Insights resource, aggregated remote dependency and method ex
 
 To search for individual instances of dependency, exception, and method reports, open [Search][diagnostic].
 
-[Diagnosing dependency issues - learn more](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
+[Diagnosing dependency issues - learn more](./asp-net-dependencies.md#diagnosis).
 
 ## Questions? Problems?
-* No data? [Set firewall exceptions](../../azure-monitor/app/ip-addresses.md)
+* No data? [Set firewall exceptions](./ip-addresses.md)
 * [Troubleshooting Java](java-troubleshoot.md)
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#track-exception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[metrics]: ../platform/metrics-charts.md
+

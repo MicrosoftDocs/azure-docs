@@ -15,9 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Develop Azure Functions with Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This article shows you how to get started with creating Azure Functions that use Media Services. The Azure Function defined in this article monitors a storage account container named **input** for new MP4 files. Once a file is dropped into the storage container, the blob trigger executes the function. To review Azure functions, see  [Overview](../../azure-functions/functions-overview.md) and other topics in the **Azure functions** section.
 
@@ -60,11 +63,11 @@ Once your function app is deployed, you can find it among **App Services** Azure
 2. Choose the **C#** language and **Data Processing** scenario.
 3. Choose **BlobTrigger** template. This function is triggered whenever a blob is uploaded into the **input** container. The **input** name is specified in the **Path**, in the next step.
 
-	![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
+	![Screenshot shows the Choose a template dialog box with BlobTrigger selected.](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Once you select **BlobTrigger**, some more controls appear on the page.
 
-	![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
+	![Screenshot shows the Name your function dialog box.](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Click **Create**. 
 
@@ -72,7 +75,7 @@ Once your function app is deployed, you can find it among **App Services** Azure
 
 Your Azure function is associated with code files and other files that are described in this section. When you use the Azure portal to create a function, **function.json** and **run.csx** are created for you. You need to add or upload a **project.json** file. The rest of this section gives a brief explanation of each file and shows their definitions.
 
-![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![Screenshot shows the json files in your project.](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### function.json
 
@@ -334,7 +337,7 @@ To test your function, you need to upload an MP4 file into the **input** contain
 4. Press **Upload** and browse to a .mp4 file that you want to upload.
 
 >[!NOTE]
-> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after a function app has gone idle. After the function app is running, blobs are processed immediately. For more information, see [Blob storage triggers and bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after a function app has gone idle. After the function app is running, blobs are processed immediately. For more information, see [Blob storage triggers and bindings](../../azure-functions/functions-bindings-storage-blob.md).
 
 ## Next steps
 
@@ -346,4 +349,3 @@ Also, see [Use Azure WebHooks to monitor Media Services job notifications with .
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

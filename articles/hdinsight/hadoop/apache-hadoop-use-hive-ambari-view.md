@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ---
@@ -70,8 +70,10 @@ A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apach
 
 1. After the query has finished, the **Results** tab displays the results of the operation. The following text is the result of the query:
 
-        loglevel       count
-        [ERROR]        3
+    ```output
+    loglevel       count
+    [ERROR]        3
+    ```
 
     You can use the **LOG** tab to view the logging information that the job created.
 

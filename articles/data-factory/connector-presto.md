@@ -48,8 +48,8 @@ The following properties are supported for Presto linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Presto** | Yes |
-| host | The IP address or host name of the Presto server. (i.e. 192.168.222.160)  | Yes |
-| serverVersion | The version of the Presto server. (i.e. 0.148-t)  | Yes |
+| host | The IP address or host name of the Presto server. (e.g. 192.168.222.160)  | Yes |
+| serverVersion | The version of the Presto server. (e.g. 0.148-t)  | Yes |
 | catalog | The catalog context for all request against the server.  | Yes |
 | port | The TCP port that the Presto server uses to listen for client connections. The default value is 8080.  | No |
 | authenticationType | The authentication mechanism used to connect to the Presto server. <br/>Allowed values are: **Anonymous**, **LDAP** | Yes |

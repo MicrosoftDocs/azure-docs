@@ -53,11 +53,17 @@ Follow these steps:
 
 5. Go to your home directory.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
     cd
     ```
 
-6. Run the following command. This will download a script to your home directory.
+6. Run the following command. This connects an authenticated account to use for Azure AD requests
+
+    ```azurepowershell-interactive
+    Connect-AzureAD
+    ```
+
+7. Run the following command. This will download a script to your home directory.
 
     ```azurepowershell-interactive 
 
@@ -65,15 +71,15 @@ Follow these steps:
 
     ```
 
-7. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
+8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
     ./generatePartnerCredentials.ps1
 
     ```
 
-8. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
+9. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 
 
 ## Create device or sensor metadata
@@ -325,7 +331,7 @@ Now that you've created the devices and sensors in FarmBeats, you can send the a
 
 ### Create a telemetry client
 
-You must send the telemetry to Azure Event Hubs for processing. Azure Event Hubs is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send telemetry data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information about sending telemetry, see [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+You must send the telemetry to Azure Event Hubs for processing. Azure Event Hubs is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send telemetry data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information about sending telemetry, see [Azure Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 ### Send a telemetry message as the client
 

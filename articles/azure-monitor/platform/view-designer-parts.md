@@ -40,7 +40,7 @@ The next sections describe the tile types and their properties in detail.
 ## List of queries part
 The list of queries part displays a list of log queries. You can select each query to display its results. The view includes a single query by default, and you can select **+ Query** to add additional queries.
 
-![List of queries view](media/view-designer-parts/view-list-queries.png)
+![Screenshot of the list of queries visualization part in the Azure Monitor View Designer.](media/view-designer-parts/view-list-queries.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -56,7 +56,7 @@ The list of queries part displays a list of log queries. You can select each que
 ## Number and list part
 The header displays a single number that shows a count of records from a log query. The list displays the top ten results from a query, with a graph that indicates the relative value of a numeric column or its change over time.
 
-![List of queries view](media/view-designer-parts/view-number-list.png)
+![Screenshot of the number and list visualization parts in the Azure Monitor View Designer.](media/view-designer-parts/view-number-list.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -314,7 +314,7 @@ The name and value separator is the single-character delimiter to use to parse t
 For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You can specify a dash (-) for the name and value separator and *City-Building* for the name. This approach parses each value into two properties called *City* and *Building*.
 
 ### <a name="click-through-navigation"></a>Click-Through Navigation
-Click-through navigation defines what action will be taken when you click on a header or list item in a view.  This will either open a query in the [Log Analytics](../../azure-monitor/log-query/portals.md) or launch another view.
+Click-through navigation defines what action will be taken when you click on a header or list item in a view.  This will either open a query in the [Log Analytics](../log-query/log-query-overview.md) or launch another view.
 
 The following table describes the settings for click-through navigation.
 

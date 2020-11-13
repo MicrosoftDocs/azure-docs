@@ -6,18 +6,16 @@ documentationcenter: ''
 author: linda33wj
 manager: shwang
 ms.reviewer: 
-
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
-
-
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-
 ---
+
 # Get Metadata activity in Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You can use the Get Metadata activity to retrieve the metadata of any data in Azure Data Factory. You can use this activity in the following scenarios:
@@ -32,7 +30,7 @@ The following functionality is available in the control flow:
 
 ## Capabilities
 
-The Get Metadata activity takes a dataset as an input and returns metadata information as output. Currently, the following connectors and corresponding retrievable metadata are supported. The maximum size of returned metadata is 2 MB.
+The Get Metadata activity takes a dataset as an input and returns metadata information as output. Currently, the following connectors and corresponding retrievable metadata are supported. The maximum size of returned metadata is around 4 MB.
 
 >[!NOTE]
 >If you run the Get Metadata activity on a self-hosted integration runtime, the latest capabilities are supported on version 3.6 or later.
@@ -47,7 +45,7 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Azure Blob storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Files](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [File system](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
@@ -58,14 +56,15 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 - For Azure Blob storage, `lastModified` applies to the container and the blob but not to the virtual folder.
 - `lastModified` filter currently applies to filter child items but not the specified folder/file itself.
 - Wildcard filter on folders/files is not supported for Get Metadata activity.
+- `structure` and `columnCount` are not supported when getting metadata from Binary, JSON, or XML files.
 
 **Relational database**
 
 | Connector/Metadata | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
-| [Azure SQL Database managed instance](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
-| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
 ### Metadata options
@@ -83,7 +82,7 @@ You can specify the following metadata types in the Get Metadata activity field 
 | contentMD5 | MD5 of the file. Applicable only to files. |
 | structure | Data structure of the file or relational database table. Returned value is a list of column names and column types. |
 | columnCount | Number of columns in the file or relational table. |
-| exists| Whether a file, folder, or table exists. Note that if `exists` is specified in the Get Metadata field list, the activity won't fail even if the file, folder, or table doesn't exist. Instead, `exists: false` is returned in the output. |
+| exists| Whether a file, folder, or table exists. If `exists` is specified in the Get Metadata field list, the activity won't fail even if the file, folder, or table doesn't exist. Instead, `exists: false` is returned in the output. |
 
 >[!TIP]
 >When you want to validate that a file, folder, or table exists, specify `exists` in the Get Metadata activity field list. You can then check the `exists: true/false` result in the activity output. If `exists` isn't specified in the field list, the Get Metadata activity will fail if the object isn't found.
@@ -97,15 +96,38 @@ You can specify the following metadata types in the Get Metadata activity field 
 
 ```json
 {
-	"name": "MyActivity",
-	"type": "GetMetadata",
-	"typeProperties": {
-		"fieldList" : ["size", "lastModified", "structure"],
-		"dataset": {
-			"referenceName": "MyDataset",
-			"type": "DatasetReference"
-		}
-	}
+    "name":"MyActivity",
+    "type":"GetMetadata",
+    "dependsOn":[
+
+    ],
+    "policy":{
+        "timeout":"7.00:00:00",
+        "retry":0,
+        "retryIntervalInSeconds":30,
+        "secureOutput":false,
+        "secureInput":false
+    },
+    "userProperties":[
+
+    ],
+    "typeProperties":{
+        "dataset":{
+            "referenceName":"MyDataset",
+            "type":"DatasetReference"
+        },
+        "fieldList":[
+            "size",
+            "lastModified",
+            "structure"
+        ],
+        "storeSettings":{
+            "type":"AzureBlobStorageReadSettings"
+        },
+        "formatSettings":{
+            "type":"JsonReadSettings"
+        }
+    }
 }
 ```
 
@@ -113,21 +135,25 @@ You can specify the following metadata types in the Get Metadata activity field 
 
 ```json
 {
-	"name": "MyDataset",
-	"properties": {
-	"type": "AzureBlob",
-		"linkedService": {
-			"referenceName": "StorageLinkedService",
-			"type": "LinkedServiceReference"
-		},
-		"typeProperties": {
-			"folderPath":"container/folder",
-			"filename": "file.json",
-			"format":{
-				"type":"JsonFormat"
-			}
-		}
-	}
+    "name":"MyDataset",
+    "properties":{
+        "linkedServiceName":{
+            "referenceName":"AzureStorageLinkedService",
+            "type":"LinkedServiceReference"
+        },
+        "annotations":[
+
+        ],
+        "type":"Json",
+        "typeProperties":{
+            "location":{
+                "type":"AzureBlobStorageLocation",
+                "fileName":"file.json",
+                "folderPath":"folder",
+                "container":"container"
+            }
+        }
+    }
 }
 ```
 

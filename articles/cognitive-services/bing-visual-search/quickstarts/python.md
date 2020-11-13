@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Get image insights using the REST API and Python - Bing Visual Search"
 titleSuffix: Azure Cognitive Services
-description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
+description: Learn how to upload an image using the Bing Visual Search API and Python, and then get insights about the image.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -9,13 +9,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/22/2020
 ms.author: scottwhi
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Python
 
-Use this quickstart to make your first call to the Bing Visual Search API and view the results. This Python application uploads an image to the API and displays the information it returns. Though this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
+Use this quickstart to make your first call to the Bing Visual Search API. This Python application uploads an image to the API and displays the information it returns. Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -31,7 +37,7 @@ Use this quickstart to make your first call to the Bing Visual Search API and vi
     import requests, json
     ```
 
-2. Create variables for your subscription key, endpoint, and the path to the image you're uploading. `BASE_URI` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource:
+2. Create variables for your subscription key, endpoint, and the path to the image you're uploading. For the value of `BASE_URI`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
 
@@ -40,7 +46,7 @@ Use this quickstart to make your first call to the Bing Visual Search API and vi
     imagePath = 'your-image-path'
     ```
     
-    When you upload a local image, the form data must include the `Content-Disposition` header. You must set its `name` parameter to "image", and you can set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
+3. When you upload a local image, the form data must include the `Content-Disposition` header. Set its `name` parameter to "image", and set the `filename` parameter to the file name of your image. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
     
     ```
     --boundary_1234-abcd
@@ -51,13 +57,13 @@ Use this quickstart to make your first call to the Bing Visual Search API and vi
     --boundary_1234-abcd--
     ```
 
-3. Create a dictionary object to hold your request's header information. Bind your subscription key to the string `Ocp-Apim-Subscription-Key`, as shown below:
+4. Create a dictionary object to hold your request's header information. Bind your subscription key to the string `Ocp-Apim-Subscription-Key`.
 
     ```python
     HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
     ```
 
-4. Create another dictionary to contain your image, which is opened and uploaded when you send the request:
+5. Create another dictionary to contain your image, which is opened and uploaded when you send the request.
 
     ```python
     file = {'image' : ('myfile', open(imagePath, 'rb'))}
@@ -65,27 +71,27 @@ Use this quickstart to make your first call to the Bing Visual Search API and vi
 
 ## Parse the JSON response
 
-1. Create a method called `print_json()` to take in the API response, and print the JSON:
+Create a method called `print_json()` to accept the API response, and print the JSON.
 
-    ```python
-    def print_json(obj):
-        """Print the object as json"""
-        print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
-    ```
+```python
+def print_json(obj):
+    """Print the object as json"""
+    print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
+```
 
 ## Send the request
 
-1. Use `requests.post()` to send a request to the Bing Visual Search API. Include the string for your endpoint, header, and file information. Print `response.json()` with `print_json()`:
+Use `requests.post()` to send a request to the Bing Visual Search API. Include the string for your endpoint, header, and file information. Print `response.json()` with `print_json()`.
 
-    ```python
-    try:
-        response = requests.post(BASE_URI, headers=HEADERS, files=file)
-        response.raise_for_status()
-        print_json(response.json())
+```python
+try:
+    response = requests.post(BASE_URI, headers=HEADERS, files=file)
+    response.raise_for_status()
+    print_json(response.json())
     
-    except Exception as ex:
-        raise ex
-    ```
+except Exception as ex:
+    raise ex
+```
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
-ms.custom: mqtt
+ms.custom: mqtt, devx-track-python
 ---
 
 # Upload files from your device to the cloud with IoT Hub (Python)
@@ -28,6 +28,8 @@ At the end of this tutorial, you run the Python console app:
 * **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## Prerequisites
 
@@ -102,7 +104,7 @@ In this section, you create the device app to upload a file to IoT hub.
             return (False, ex)
     ```
 
-    This function parses the *blob_info* structure passed into it to create a URL that it uses to initialize an [azure.storage.blob.BlobClient](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Then it uploads your file to Azure blob storage using this client.
+    This function parses the *blob_info* structure passed into it to create a URL that it uses to initialize an [azure.storage.blob.BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Then it uploads your file to Azure blob storage using this client.
 
 1. Add the following code to connect the client and upload the file:
 
@@ -202,6 +204,6 @@ In this tutorial, you learned how to use the file upload capabilities of IoT Hub
 
 Learn more about Azure Blob Storage with the following links:
 
-* [Azure Blob Storage documentation](https://docs.microsoft.com/azure/storage/blobs/)
+* [Azure Blob Storage documentation](../storage/blobs/index.yml)
 
-* [Azure Blob Storage for Python API documentation](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme?view=azure-python)
+* [Azure Blob Storage for Python API documentation](/python/api/overview/azure/storage-blob-readme?view=azure-python)

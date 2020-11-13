@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Map a custom domain to a Blob Storage or web endpoint in an Azure storage account.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
@@ -15,12 +15,12 @@ ms.subservice: blobs
 
 You can map a custom domain to a blob service endpoint or a [static website](storage-blob-static-website.md) endpoint. 
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> This mapping works only for subdomains (for example: `www.contoso.com`). If you want your web endpoint to be available on the root domain (for example: `contoso.com`), then you'll have to use Azure CDN. For guidance, see the [Map a custom domain with HTTPS enabled](#enable-https) section of this article. Because your going to that section of this article to enable the root domain of your custom domain, the step within that section for enabling HTTPS is optional. 
+> This mapping works only for subdomains (for example: `www.contoso.com`). If you want your web endpoint to be available on the root domain (for example: `contoso.com`), then you'll have to use Azure CDN. For guidance, see the [Map a custom domain with HTTPS enabled](#enable-https) section of this article. Because you're going to that section of this article to enable the root domain of your custom domain, the step within that section for enabling HTTPS is optional. 
 
-<a id="enable-http" />
+<a id="enable-http"></a>
 
 ## Map a custom domain with only HTTP enabled
 
@@ -28,7 +28,7 @@ This approach is easier, but enables only HTTP access. If the storage account is
 
 To enable HTTPS access, see the [Map a custom domain with HTTPS enabled](#enable-https) section of this article. 
 
-<a id="map-a-domain" />
+<a id="map-a-domain"></a>
 
 ### Map a custom domain
 
@@ -45,7 +45,7 @@ If you are unconcerned that the domain is briefly unavailable to your users, fol
 
 :heavy_check_mark: Step 4: Test your custom domain.
 
-<a id="endpoint" />
+<a id="endpoint"></a>
 
 #### Step 1: Get the host name of your storage endpoint 
 
@@ -66,7 +66,7 @@ The host name is the storage endpoint URL without the protocol identifier and th
   
    Set this value aside for later.
 
-<a id="create-cname-record" />
+<a id="create-cname-record"></a>
 
 #### Step 2: Create a canonical name (CNAME) record with your domain provider
 
@@ -86,7 +86,7 @@ Create a CNAME record to point to your host name. A CNAME record is a type of DN
       
    - The host name that you obtained in the [Get the host name of your storage endpoint](#endpoint) section earlier in this article. 
 
-<a id="register" />
+<a id="register"></a>
 
 #### Step 3: Register your custom domain with Azure
 
@@ -112,7 +112,7 @@ To confirm that your custom domain is mapped to your blob service endpoint, crea
 
 For example, to access a web form in the *myforms* container in the *photos.contoso.com* custom subdomain, you might use the following URI: `http://photos.contoso.com/myforms/applicationform.htm`
 
-<a id="zero-down-time" />
+<a id="zero-down-time"></a>
 
 ### Map a custom domain with zero downtime
 
@@ -131,7 +131,7 @@ If your domain currently supports an application with a service-level agreement 
 
 :heavy_check_mark: Step 5: Test your custom domain.
 
-<a id="endpoint-2" />
+<a id="endpoint-2"></a>
 
 #### Step 1: Get the host name of your storage endpoint 
 
@@ -290,7 +290,7 @@ To remove a custom domain registration, use the [Set-AzStorageAccount](/powershe
   ```
 ---
 
-<a id="enable-https" />
+<a id="enable-https"></a>
 
 ## Map a custom domain with HTTPS enabled
 

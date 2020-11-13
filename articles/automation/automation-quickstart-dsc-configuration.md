@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Configure a VM with DSC | Microsoft Docs
-description: Configure a LAMP Stack on a Linux Virtual Machine with Desired State Configuration
+title: Azure Quickstart - Configure a VM with Desired State Configuration | Microsoft Docs
+description: This article helps you get started configuring a VM with Desired State Configuration.
 services: automation
 ms.subservice: dsc
 keywords: dsc, configuration, automation
@@ -9,25 +9,24 @@ ms.topic: quickstart
 ms.custom: mvc
 ---
 
-# Configure a virtual machine with Desired State Configuration
+# Configure a VM with Desired State Configuration
 
-By enabling Azure Automation State Configuration, you can manage and monitor the configurations of your Windows and Linux servers using Desired State Configuration (DSC). Configurations that drift from a desired configuration can be identified or auto-corrected. This quickstart steps through onboarding a Linux VM and deploying a LAMP stack with DSC.
+By enabling Azure Automation State Configuration, you can manage and monitor the configurations of your Windows and Linux servers using Desired State Configuration (DSC). Configurations that drift from a desired configuration can be identified or auto-corrected. This quickstart steps through enabling a Linux VM and deploying a LAMP stack using Azure Automation State Configuration.
 
 ## Prerequisites
 
 To complete this quickstart, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-* An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](automation-sec-configure-azure-runas-account.md).
-* An Azure Resource Manager VM (not Classic) running Red Hat Enterprise Linux, CentOS, or Oracle Linux. For instructions on creating a VM, see
-  [Create your first Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](./manage-runas-account.md).
+* An Azure Resource Manager VM (not classic) running Red Hat Enterprise Linux, CentOS, or Oracle Linux. For instructions on creating a VM, see [Create your first Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md)
 
 ## Sign in to Azure
 Sign in to Azure at https://portal.azure.com.
 
-## Onboard a virtual machine
+## Enable a virtual machine
 
-There are many different methods to onboard a machine and enable DSC. This quickstart covers onboarding through an Automation account. You can learn more about different methods to onboard your machines to State Configuration by reading the [onboarding](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding) article.
+There are many different methods to enable a machine for State Configuration feature. This quickstart tells how to enable the feature for a VM using an Automation account. You can learn more about different methods to enable your machines for State Configuration by reading [Enable machines for management by Azure Automation State Configuration](./automation-dsc-onboarding.md).
 
 1. In the left pane of the Azure portal, select **Automation accounts**. If it is not visible in the left pane, click **All services** and search in the resulting view.
 1. In the list, select an Automation account.
@@ -35,10 +34,10 @@ There are many different methods to onboard a machine and enable DSC. This quick
 2. Click **Add** to open the VM select page.
 3. Find the virtual machine for which to enable DSC. You can use the search field and filter options to find a specific virtual machine.
 4. Click on the virtual machine, and then click **Connect**
-5. Select the DSC settings appropriate for the virtual machine. If you have already prepared a configuration, you can specify it as `Node Configuration Name`. You can set the [configuration mode](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig) to control the configuration behavior for the machine.
+5. Select the DSC settings appropriate for the virtual machine. If you have already prepared a configuration, you can specify it as `Node Configuration Name`. You can set the [configuration mode](/powershell/scripting/dsc/managing-nodes/metaConfig) to control the configuration behavior for the machine.
 6. Click **OK**. While the DSC extension is deployed to the virtual machine, the status shows up as `Connecting`.
 
-![Onboarding an Azure VM to DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
+![Enabling an Azure VM for DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
 ## Import modules
 
@@ -53,7 +52,7 @@ Modules contain DSC resources and many can be found in the [PowerShell Gallery](
 
 ## Import the configuration
 
-This quickstart uses a DSC configuration that configures Apache HTTP Server, MySQL, and PHP on the machine. See [DSC configurations](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations).
+This quickstart uses a DSC configuration that configures Apache HTTP Server, MySQL, and PHP on the machine. See [DSC configurations](/powershell/scripting/dsc/configurations/configurations).
 
 In a text editor, type the following and save it locally as **AMPServer.ps1**.
 
@@ -125,11 +124,7 @@ You can view the status of all State Configuration-managed nodes in your Automat
 
 ## Next steps
 
-In this quickstart, you onboarded a Linux VM to State Configuration, created a configuration for a LAMP stack, and deployed the configuration to the VM. To learn how you can use Azure Automation State Configuration to enable continuous deployment, continue to the article:
+In this quickstart, you enabled a Linux VM for State Configuration, created a configuration for a LAMP stack, and deployed the configuration to the VM. To learn how you can use Azure Automation State Configuration to enable continuous deployment, continue to the article:
 
 > [!div class="nextstepaction"]
-> [Continuous deployment to a VM using DSC and Chocolatey](./automation-dsc-cd-chocolatey.md)
-
-* To learn more about PowerShell DSC, see [PowerShell Desired State Configuration overview](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
-* To learn more about managing State Configuration from PowerShell, see [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/).
-* To learn how to forward DSC reports to Azure Monitor logs for reporting and alerting, see [Forwarding DSC reporting to Azure Monitor logs](automation-dsc-diagnostics.md).
+> [Set up continuous deployment with Chocolatey](./automation-dsc-cd-chocolatey.md)

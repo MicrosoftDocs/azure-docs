@@ -3,9 +3,10 @@ title: Troubleshoot Azure EA portal access
 description: This article describes some common issues that can occur with an Azure Enterprise Agreement (EA) in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
-ms.topic: conceptual
+ms.date: 08/20/2020
+ms.topic: troubleshooting
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 
@@ -26,7 +27,7 @@ You use the Azure EA portal to grant access to users with different authenticati
 - Work or School Account Cross Tenant - For organizations that have set up Active Directory with Federation to the Cloud and will have accounts in multiple tenants.
 - Mixed Account - Allows you to add users with Microsoft Account and/or with a Work or School Account.
 
-The first work or school account added to the enrollment determines the _default_, or _master_ domain. To add a work or school account with another tenant, you must change the authentication level under the enrollment to cross-tenant authentication.
+The first work or school account added to the enrollment determines the _default_ domain. To add a work or school account with another tenant, you must change the authentication level under the enrollment to cross-tenant authentication.
 
 To update the Authentication Level:
 
@@ -59,15 +60,15 @@ Or, if you get an _Invalid User_ error, it might be because the wrong account ty
   - If you need to check the primary alias, go to [https://account.live.com](https://account.live.com). Then, click **Your Info** and then click **Manage how to sign in to Microsoft**. Follow the prompts to verify an alternate email address and obtain a code to access sensitive information. Enter the security code. Select **Set it up later** if you don't want to set up two-factor authentication.
   - You'll see the **Manage how to sign in to Microsoft** page where you can view your account aliases. Check that the primary alias is the one that you're using to sign in to the Azure EA portal. If it isn't, you can make it your primary alias. Or, you can use the primary alias for Azure EA portal instead.
 
-## No activation email received
+## Azure EA Activation FAQ
+
+This section of the article outlines solutions to common issues around Azure EA Activation.
+
+### I didn't receive an activation email
 
 An activation email from the Azure EA portal is sent from *waep@microsoft.com*. If you didn't receive an activation email, check your spam or junk folder for the email. It's sent with _Invitation to View/Manage the Microsoft Azure service_subject_. It's sent to every newly added EA administrator.
 
 If you're sure that you've been set up as the EA administrator, you don't have to wait to receive the activation email to sign in to the Azure EA portal. Instead, you can go to https://ea.azure.com and sign in with your email address (work, school, or Microsoft account) and your password.
-
-## Azure EA Activation FAQ
-
-This section of the article outlines solutions to common issues around Azure EA Activation.
 
 ### I would like to add a new EA administrator to my enrollment
 
