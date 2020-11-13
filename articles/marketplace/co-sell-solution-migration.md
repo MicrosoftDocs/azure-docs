@@ -53,7 +53,7 @@ First, review them in OCP GTM. You should have received an email with a link uni
     > This tab will note if there aren't any solutions pending to migrate to the commercial marketplace. To continue co-selling with Microsoft, ensure the migrated solutions are published in the commercial marketplace.
 
     Learn more about the solution status by reviewing the tool tips. All solutions pending action are listed under **Action Required**.<a name="beginmigration"></a>
-4. Select **Begin migration** for the solution to migrate to commercial marketplace in Partner Center, then select one of the following options:
+4. Select **Begin Migration** (see image above) for the solution to migrate to commercial marketplace in Partner Center, then select one of the following options:
 :::image type="content" source="media/co-sell-migrate/migration-options.png" alt-text="The three options for migration.":::
 
 ### This is similar to an existing offer in commercial marketplace
@@ -98,19 +98,19 @@ If you need additional help, review the Get Help tab to contact our Support team
 
 ## Publishing a draft offer in the commercial marketplace
 
-1. If you selected that your offer is new to the commercial marketplace, your OCP GTM offer will copy over as a draft. Your offer must be fully published in the commercial marketplace in Partner Center in order to retain its co-sell status, incentives, and referral pipeline.
-2. You can find your draft offer on the **Overview** page. Search for your draft offer name and select it.
+If you selected that your offer is new to the commercial marketplace, your OCP GTM offer will copy over as a draft. Your offer must be fully published in the commercial marketplace in Partner Center in order to retain its co-sell status, incentives, and referral pipeline.
+1. On the **Overview** page, search for your draft offer name and select it.
 :::image type="content" source="media/co-sell-migrate/offer-overview.png" alt-text="The offer overview page in Partner Center.":::
-3. Complete all the required information in each tab. You must complete the customer-facing and (optionally) reseller-facing offer details. The **Learn more** links and tooltips in Partner Center will guide you through the requirements and details.
+2. Complete all the required information in each tab. You must complete the customer-facing and (optionally) reseller-facing offer details. The **Learn more** links and tooltips in Partner Center will guide you through the requirements and details.
 :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="The offer overview setup tabs in Partner Center.":::
-4. Some of the Microsoft seller-facing details were copied over from the OCP GTM solution. Complete the remaining required information in the **Co-sell with Microsoft** tab to continue co-selling your offer. Once complete, select **Review and publish** to continue.
+3. Some of the Microsoft seller-facing details were copied over from the OCP GTM solution. Complete the remaining required information in the **Co-sell with Microsoft** tab to continue co-selling your offer. Once complete, select **Review and publish** to continue.
 :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="The offer co-sell tab in Partner Center.":::
-5. After reviewing all submitted information, select **Publish** to submit your draft offer for certification review.
+4. After reviewing all submitted information, select **Publish** to submit your draft offer for certification review.
 :::image type="content" source="media/co-sell-migrate/co-sell-review-publish.png" alt-text="The offer review tab and Publish button in Partner Center.":::
-6. Track the status of your submission on the **Overview** tab.
+5. Track the status of your submission on the **Overview** tab.
 :::image type="content" source="media/co-sell-migrate/offer-overview-page.png" alt-text="The offer publish status bar on the Overview tab in Partner Center.":::
-7. We will notify you when our certification review is complete. If we provide actionable feedback, address it, then select **Publish** to initiate a recertification.
-8. Once your offer passes certification, preview the offer with the link provided and make any final adjustments you may want. When you're ready, select **Go live** to publish your offer to relevant commercial marketplace storefront(s). Once live, your offer will retain its co-sell status from the original OCP GTM solution.
+6. We will notify you when our certification review is complete. If we provide actionable feedback, address it, then select **Publish** to initiate a recertification.
+7. Once your offer passes certification, preview the offer with the link provided and make any final adjustments you may want. When you're ready, select **Go live** to publish your offer to relevant commercial marketplace storefront(s). Once live, your offer will retain its co-sell status from the original OCP GTM solution.
 
 ## Next steps
 
