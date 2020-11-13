@@ -31,7 +31,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Language                          | Locale | Customizations                                   |
+| Language                          | Locale (BCP-47) | Customizations                                   |
 |-----------------------------------|--------|--------------------------------------------------|
 |Arabic (Bahrain), modern standard  |`ar-BH` | Language model                                   |
 |Arabic (Egypt)                     |`ar-EG` | Language model                                   |
@@ -131,7 +131,7 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 
 For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
 
-|Language  | Locale           | Gender | Voice name | Style support |
+|Language  | Locale (BCP-47)          | Gender | Voice name | Style support |
 |--|--|--|--|--|
 | Arabic (Egypt) | `ar-EG` | Female | `ar-EG-SalmaNeural` | General |
 | Arabic (Saudi Arabia) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | General |
@@ -214,7 +214,7 @@ To learn how you can configure and adjust neural voices, see [Speech synthesis m
 
 More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
 
-| Language | Locale | Gender | Voice name |
+| Language | Locale (BCP-47) | Gender | Voice name |
 |--|--|--|--|
 | Arabic (Arabic )  |  `ar-EG`  |  Female  |  `ar-EG-Hoda`|
 | Arabic (Saudi Arabia)  |  `ar-SA`  |  Male  |  `ar-SA-Naayf`|
@@ -392,7 +392,7 @@ The **Speech Translation** API supports different languages for speech-to-speech
 
 See the following table for supported languages for the various Speaker Recognition APIs. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
 
-| Language | Locale | Text-dependent verification | Text-independent verification | Text-independent identification |
+| Language | Locale (BCP-47) | Text-dependent verification | Text-independent verification | Text-independent identification |
 |----|----|----|----|----|
 |English (US)  |  en-US  |  yes  |  yes  |  yes |
 |Chinese (Mandarin, simplified) | zh-CN     |     n/a |     yes |     yes|
