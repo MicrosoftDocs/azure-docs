@@ -2,14 +2,14 @@
 title: Zone-redundant registry for high availability
 description: Learn about enabling zone redundancy in Azure Container Registry by creating a container registry or geo-replica in an Azure availability zone. Zone redundancy is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 11/13/2020
 ---
 
 # Enable zone redundancy in Azure Container Registry for resiliency and high availability
 
-In addition to [geo-replication](container-registry-geo-replication.md), which replicates registry data across one or more Azure regions to provide availability and reduce latency for regional operations, Azure Container Registry provides *zone redundancy* in selected regions. 
+In addition to [geo-replication](container-registry-geo-replication.md), which replicates registry data across one or more Azure regions to provide availability and reduce latency for regional operations, Azure Container Registry provides *zone redundancy*. Zone redundancy provides resiliency and high availability to a registry or replica in a specific region.
 
-This article shows how to set up a zone-redundant container registry or zone-redundant replica by using an Azure Resource Manager template. Zone redundancy provides resiliency and high availability to a registry or replica in a specific region.
+This article shows how to set up a zone-redundant container registry or zone-redundant replica by using an Azure Resource Manager template. 
 
 Zone redundancy is a **preview** feature of the Premium container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
@@ -185,4 +185,4 @@ In the command output, note the `zoneRedundancy` property. When enabled, the rep
 ## Next steps
 
 * Learn more about [regions that support availability zones](../availability-zones/az-region.md).
-* Learn more about building for [reliability](../architecture/framework/resiliency/overview.md) in Azure.
+* Learn more about building for [reliability](/azure/architecture/framework/resiliency/overview) in Azure.
