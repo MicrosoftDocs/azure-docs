@@ -143,45 +143,45 @@ Get-AzWvdWorkspace -Name $ws -ResourceGroupName $rg -SubscriptionId $subID
 
 Once you've set everything up, it's time to add the MSIX package to a host pool. To do that, you'll first need to get UNC path to the MSIX image.
 
-1. Using the UNC path, run this cmdlet to expand the MSIX image:
+Using the UNC path, run this cmdlet to expand the MSIX image:
 
-   ```powershell
-   $obj = Expand-AzWvdMsixImage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $subID -Uri <UNCPath>
-   ```
+```powershell
+$obj = Expand-AzWvdMsixImage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $subID -Uri <UNCPath>
+```
 
 Run this cmdlet to add the MSIX package to your desired host pool:
 
-   ```powershell
-   New-AzWvdMsixPackage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $subId -PackageAlias $obj.PackageAlias -DisplayName <DisplayName> -ImagePath <UNCPath>
-   ```
+```powershell
+New-AzWvdMsixPackage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $subId -PackageAlias $obj.PackageAlias -DisplayName <DisplayName> -ImagePath <UNCPath>
+```
 
 Once you're done, confirm the package was created with this cmdlet:
 
-   ```powershell
-   Get-AzWvdMsixPackage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $subId | Where-Object {$_.PackageFamilyName -eq $obj.PackageFamilyName}
-   ```
+```powershell
+Get-AzWvdMsixPackage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $subId | Where-Object {$_.PackageFamilyName -eq $obj.PackageFamilyName}
+```
 
 ## Remove an MSIX package from a host pool
 
 To remove a package from a host pool:
 
-1. Get a list of all packages associated with a host pool with this cmdlet, then find the name of the package you want to remove in the output:
+Get a list of all packages associated with a host pool with this cmdlet, then find the name of the package you want to remove in the output:
 
-   ```powershell
-   Get-AzWvdMsixPackage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $subId 
-   ```
+```powershell
+Get-AzWvdMsixPackage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $subId 
+```
 
-   Alternatively, you can also get a particular package based on its display name with this cmdlet:
+Alternatively, you can also get a particular package based on its display name with this cmdlet:
 
-   ```powershell
-   Get-AzWvdMsixPackage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $subId | Where-Object { $_.Name -like "Power" }
-   ```
+```powershell
+Get-AzWvdMsixPackage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $subId | Where-Object { $_.Name -like "Power" }
+```
 
-2. To remove the package, run this cmdlet:
+To remove the package, run this cmdlet:
 
-   ```powershell
-   Remove-AzWvdMsixPackage -FullName $obj.PackageFullName -HostPoolName $hp -ResourceGroupName $rg -FullName <FullName>
-   ```
+```powershell
+Remove-AzWvdMsixPackage -FullName $obj.PackageFullName -HostPoolName $hp -ResourceGroupName $rg -FullName <FullName>
+```
 
 ## Publish MSIX apps to an app group
 
@@ -191,27 +191,27 @@ To publish an app from the MSIX package to an app group, you'll need to find its
 
 To publish an app:
 
-1. Run this cmdlet to list all available app groups:
+Run this cmdlet to list all available app groups:
 
-   ```powershell
-   Get-AzWvdApplicationGroup -ResourceGroupName $rg -SubscriptionId $subId
-   ```
+```powershell
+Get-AzWvdApplicationGroup -ResourceGroupName $rg -SubscriptionId $subId
+```
 
-2. When you've found the name of the app group you want to publish apps to, use its name in this cmdlet:
+When you've found the name of the app group you want to publish apps to, use its name in this cmdlet:
 
-   ```powershell
-   $grName = (Get-AzWvdApplicationGroup -ResourceGroupName $rg -SubscriptionId $subId -Name <AppGroupName>.Name
-   ```
+```powershell
+$grName = (Get-AzWvdApplicationGroup -ResourceGroupName $rg -SubscriptionId $subId -Name <AppGroupName>.Name
+```
 
-3. Finally, you'll need to publish the app.
+Finally, you'll need to publish the app.
 
-   To publish MSIX application to a desktop app group, run this cmdlet:
+- To publish MSIX application to a desktop app group, run this cmdlet:
 
    ```powershell
    New-AzWvdApplication -ResourceGroupName $rg -SubscriptionId $subId -Name PowerBi -ApplicationType MsixApplication -ApplicationGroupName $grName -MsixPackageFamilyName $obj.PackageFamilyName -CommandLineSetting 0
    ```
 
-To publish the app to a emote app group, run this cmdlet instead:
+- To publish the app to a remote app group, run this cmdlet instead:
 
    ```powershell
    New-AzWvdApplication -ResourceGroupName $rg -SubscriptionId $subId -Name PowerBi -ApplicationType MsixApplication -ApplicationGroupName $grName -MsixPackageFamilyName $obj.PackageFamilyName -CommandLineSetting 0 -MsixPackageApplicationId $obj.PackageApplication.AppId
