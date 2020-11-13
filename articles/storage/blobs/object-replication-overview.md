@@ -46,19 +46,23 @@ Object replication asynchronously copies block blobs in a container according to
 > [!IMPORTANT]
 > Because block blob data is replicated asynchronously, the source account and destination account are not immediately in sync. There's currently no SLA on how long it takes to replicate data to the destination account. You can check the replication status on the source blob to determine whether replication is complete. For more information, see [Check the replication status of a blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
 
-### Object replication and blob versioning
+### Blob versioning
 
 Object replication requires that blob versioning is enabled on both the source and destination accounts. When a replicated blob in the source account is modified, a new version of the blob is created in the source account that reflects the previous state of the blob, before modification. The current version (or base blob) in the source account reflects the most recent updates. Both the updated current version and the new previous version are replicated to the destination account. For more information about how write operations affect blob versions, see [Versioning on write operations](versioning-overview.md#versioning-on-write-operations).
 
 When a blob in the source account is deleted, the current version of the blob is captured in a previous version, and then deleted. All previous versions of the blob persist even after the current version is deleted. This state is replicated to the destination account. For more information about how delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
 
-### Object replication and snapshots
+### Snapshots
 
 Object replication does not support blob snapshots. Any snapshots on a blob in the source account are not replicated to the destination account.
 
-### Object replication and blob tiering
+### Blob tiering
 
 Object replication is supported when the source and destination accounts are in the hot or cool tier. The source and destination accounts may be in different tiers. However, object replication will fail if a blob in either the source or destination account has been moved to the archive tier. For more information on blob tiers, see [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md).
+
+### Immutable blobs
+
+Object replication does not support immutable blobs. If a source or destination container has a time-based retention policy or legal hold, then object replication fails. For more information about immutable blobs, see [Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md).
 
 ## Object replication policies and rules
 
