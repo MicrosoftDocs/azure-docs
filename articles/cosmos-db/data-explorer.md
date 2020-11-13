@@ -22,7 +22,7 @@ Azure Cosmos DB explorer is a standalone web-based interface that allows you to 
 
 ## Access Azure Cosmos DB explorer
 
-1. Sign in to [Azure Portal](https://portal.azure.com/). 
+1. Sign in to [Azure portal](https://portal.azure.com/). 
 
 2. From **All resources**, find and navigate to your Azure Cosmos DB account, select Keys, and copy the **Primary Connection String**.  
 
