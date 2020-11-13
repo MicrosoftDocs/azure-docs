@@ -3,7 +3,7 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/11/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -141,7 +141,8 @@ Before performing the ownership transfer, understand these Azure role-based acce
 - When performing subscription or account ownership transfers between two organizational IDs within the same tenant, Azure RBAC policies, existing service administrator, and co-administrator roles are preserved.
 - Cross-tenant subscription or account ownership transfers result in losing your Azure RBAC policies and role assignments.
 - Policies and administrator roles don't transfer across different directories. Service administrators are updated to the owner of destination account.
-- To avoid loss of RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient’s Azure AD tenant** checkbox remains **unchecked**. This will retain the services, RBAC roles, and policies on the current Azure AD tenant and only transfer the billing ownership for the account.
+- To avoid loss of RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient’s Azure AD tenant** checkbox remains **unchecked**. This will retain the services, RBAC roles, and policies on the current Azure AD tenant and only transfer the billing ownership for the account.  
+    ![Image showing unselected checkbox for moving subscriptions to Azure AD tenant](.media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png)
 
 Before changing an account owner:
 
@@ -153,24 +154,25 @@ To transfer account ownership for all subscriptions:
 1. Sign in to the Azure Enterprise portal.
 1. In the left navigation area, select **Manage**.
 1. Select the **Account** tab and hover over an account.
-1. Select the change account owner icon on the right. The icon resembles a person.
+1. Select the change account owner icon on the right. The icon resembles a person.  
+    ![Image showing the Change Account Owner symbol](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 1. Choose the destination account to transfer to and then select **Next**.
-1. If you want to transfer the account ownership across Azure AD tenants, select the **Move the subscriptions to the recipient's Azure AD tenant** checkbox.
+1. If you want to transfer the account ownership across Azure AD tenants, select the **Move the subscriptions to the recipient's Azure AD tenant** checkbox.  
+    ![Image showing selected checkbox for moving subscriptions to Azure AD tenant](.media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png)
 1. Confirm the transfer and select **Submit**.
-
-![Image showing the Change Account Owner symbol](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
 
 To transfer account ownership for a single subscription:
 
 1. Sign in to the Azure Enterprise portal.
 1. In the left navigation area, select **Manage**.
 1. Select the **Account** tab and hover over an account.
-1. Select the transfer subscriptions icon on the right. The icon resembles a page.
+1. Select the transfer subscriptions icon on the right. The icon resembles a page.  
+    ![Image showing the Transfer Subscriptions symbol](./media/ea-portal-administration/ea-transfer-subscriptions.png)
 1. Choose the destination account to transfer the subscription and then select **Next**.
-1. If you want to transfer the subscription ownership across Azure AD tenants, select the **Move the subscriptions to the recipient's Azure AD tenant** checkbox.
+1. If you want to transfer the subscription ownership across Azure AD tenants, select the **Move the subscriptions to the recipient's Azure AD tenant** checkbox.  
+    ![Image showing selected checkbox for moving subscriptions to Azure AD tenant](.media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png)
 1. Confirm the transfer and then select **Submit**.
 
-![Image showing the Transfer Subscriptions symbol](./media/ea-portal-administration/ea-transfer-subscriptions.png)
 
 ## Associate an account to a department
 
