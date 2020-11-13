@@ -1,7 +1,7 @@
 ---
-title: Choose how to authorize access to blob or queue data with Azure CLI
+title: Choose how to authorize access to blob data with Azure CLI
 titleSuffix: Azure Storage
-description: Specify how to authorize data operations against blob or queue data with the Azure CLI. You can authorize data operations using Azure AD credentials, with the account access key, or with a shared access signature (SAS) token. 
+description: Specify how to authorize data operations against blob data with the Azure CLI. You can authorize data operations using Azure AD credentials, with the account access key, or with a shared access signature (SAS) token. 
 services: storage
 author: tamram
 
@@ -14,16 +14,16 @@ ms.subservice: common
 ms.custom: devx-track-azurecli
 ---
 
-# Choose how to authorize access to blob or queue data with Azure CLI
+# Choose how to authorize access to blob data with Azure CLI
 
-Azure Storage provides extensions for Azure CLI that enable you to specify how you want to authorize operations on blob or queue data. You can authorize data operations in the following ways:
+Azure Storage provides extensions for Azure CLI that enable you to specify how you want to authorize operations on blob data. You can authorize data operations in the following ways:
 
 - With an Azure Active Directory (Azure AD) security principal. Microsoft recommends using Azure AD credentials for superior security and ease of use.
 - With the account access key or a shared access signature (SAS) token.
 
 ## Specify how data operations are authorized
 
-Azure CLI commands for reading and writing blob and queue data include the optional `--auth-mode` parameter. Specify this parameter to indicate how a data operation is to be authorized:
+Azure CLI commands for reading and writing blob data include the optional `--auth-mode` parameter. Specify this parameter to indicate how a data operation is to be authorized:
 
 - Set the `--auth-mode` parameter to `login` to sign in using an Azure AD security principal (recommended).
 - Set the `--auth-mode` parameter to the legacy `key` value to attempt to retrieve the account access key to use for authorization. If you omit the `--auth-mode` parameter, then the Azure CLI also attempts to retrieve the access key.
@@ -39,13 +39,13 @@ To use the `--auth-mode` parameter, make sure that you have installed Azure CLI 
 
 When you sign in to Azure CLI with Azure AD credentials, an OAuth 2.0 access token is returned. That token is automatically used by Azure CLI to authorize subsequent data operations against Blob or Queue storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
-You can assign permissions to blob and queue data to an Azure AD security principal via Azure role-based access control (Azure RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
+You can assign permissions to blob data to an Azure AD security principal via Azure role-based access control (Azure RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
 
 ### Permissions for calling data operations
 
-The Azure Storage extensions are supported for operations on blob and queue data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to Azure CLI. Permissions to Azure Storage containers or queues are assigned via Azure RBAC. For example, if you are assigned the **Blob Data Reader** role, then you can run scripting commands that read data from a container or queue. If you are assigned the **Blob Data Contributor** role, then you can run scripting commands that read, write, or delete a container or queue or the data they contain.
+The Azure Storage extensions are supported for operations on blob data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to Azure CLI. Permissions to Azure Storage containers are assigned via Azure RBAC. For example, if you are assigned the **Storage Blob Data Reader** role, then you can run scripting commands that read data from a container. If you are assigned the **Storage Blob Data Contributor** role, then you can run scripting commands that read, write, or delete a container or the data it contains.
 
-For details about the permissions required for each Azure Storage operation on a container or queue, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+For details about the permissions required for each Azure Storage operation on a container, see [Call storage operations with OAuth tokens](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
 ### Example: Authorize an operation to create a container with Azure AD credentials
 
