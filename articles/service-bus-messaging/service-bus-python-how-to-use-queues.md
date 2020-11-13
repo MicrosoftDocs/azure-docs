@@ -216,5 +216,5 @@ The **async_samples** folder has samples that show you how to interact with Serv
 See the following documentation: 
 
 - [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
-- [azure-servicebus reference documentation](https://docs.microsoft.com/en-us/python/api/azure-servicebus/azure.servicebus?view=azure-python-preview)
+- [azure-servicebus reference documentation](https://docs.microsoft.com/python/api/azure-servicebus/azure.servicebus?view=azure-python-preview&preserve-view=true )
 

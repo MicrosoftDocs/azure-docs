@@ -212,7 +212,7 @@ On this page, if you select a subscription, you get to the **Service Bus Subscri
 
 If you comment out the receive code, you'll see the active message count as 16. 
 
-:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/active-message-count-2.png" alt-text="Active message count":::
+:::image type="content" source="./media/service-bus-python-how-to-use-topics-subscriptions/active-message-count-2.png" alt-text="Active message count - no receive":::
 
 ## Samples
 Check out our [GitHub repository with samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 
@@ -225,4 +225,4 @@ The **async_samples** folder has samples that show you how to interact with Serv
 See the following documentation: 
 
 - [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
-- [azure-servicebus reference documentation](https://docs.microsoft.com/en-us/python/api/azure-servicebus/azure.servicebus?view=azure-python-preview)
+- [azure-servicebus reference documentation](https://docs.microsoft.com/python/api/azure-servicebus/azure.servicebus?view=azure-python-preview&preserve-view=true)
