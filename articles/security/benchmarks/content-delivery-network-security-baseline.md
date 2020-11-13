@@ -47,7 +47,7 @@ To see how Content Delivery Network completely maps to the Azure Security Benchm
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN  is not designed to deploy into or be secured to a private network, this control is intended to describe network connectivity and does not apply.
+**Guidance**: Not applicable; Content Delivery Network is not designed to deploy into or be secured to a private network, this control is intended to describe network connectivity and does not apply.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -61,7 +61,7 @@ To see how Content Delivery Network completely maps to the Azure Security Benchm
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable, CDN  is not designed to deploy into or be secured to a virtual network for access
+**Guidance**: Not applicable, Content Delivery Network is not designed to deploy into or be secured to a virtual network for access.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -75,11 +75,11 @@ To see how Content Delivery Network completely maps to the Azure Security Benchm
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: CDN does not support deploying directly into a virtual network, because of this you can not leverage traditional networking features to prevent denial of service (DDoS) attacks with native Azure network features like DDoS Protection Standard.
+**Guidance**: Content Delivery Network does not support deploying directly into a virtual network,. Because of this you can not leverage traditional networking features to prevent denial of service (DDoS) attacks with native Azure network features like DDoS Protection Standard.
 
-CDN is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
+CDN is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications. A content delivery network provides DDoS protection by design 
 
-- [A content delivery network provides DDoS protection by design.  here is the link to the detail](../../cdn/cdn-ddos.md)
+- [Tutorial - Azure CDN DDoS protection](../../cdn/cdn-ddos.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -93,7 +93,7 @@ CDN is not intended to run web applications, and does not require you to configu
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable, CDN does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution for detecting or preventing threats on the network.
+**Guidance**: Not applicable, Content Delivery Network does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution for detecting or preventing threats on the network.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -107,7 +107,7 @@ CDN is not intended to run web applications, and does not require you to configu
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; this recommendation is intended for offerings that can be deployed into Azure Virtual Networks, or have the capability to define groupings of allowed IP ranges for efficient management. CDN does not currently support service tags, or it is not designed to deploy into Azure virtual networks
+**Guidance**: Not applicable; this recommendation is intended for offerings that can be deployed into Azure Virtual Networks, or have the capability to define groupings of allowed IP ranges for efficient management. Content Delivery Network does not currently support service tags, or it is not designed to deploy into Azure virtual networks
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -121,7 +121,7 @@ CDN is not intended to run web applications, and does not require you to configu
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
+**Guidance**: Not applicable; Content Delivery Network  does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -139,7 +139,7 @@ CDN is not intended to run web applications, and does not require you to configu
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN is not integrated with Azure Active Directory.
+**Guidance**: Not applicable; Content Delivery Network is not integrated with Azure Active Directory (Azure AD).
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -153,7 +153,7 @@ CDN is not intended to run web applications, and does not require you to configu
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't use any identities or manage any secrets for identities.
+**Guidance**: Not applicable; Content Delivery Network does not use any identities or manage any secrets for identities.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -167,7 +167,7 @@ CDN is not intended to run web applications, and does not require you to configu
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't support SSO for authentication to its resources.
+**Guidance**: Not applicable; Content Delivery Network does not support single sign-on for authentication to its resources.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -181,7 +181,7 @@ CDN is not intended to run web applications, and does not require you to configu
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't provide capability to support strong authentication.
+**Guidance**: Not applicable; Content Delivery Network does not provide capability to support strong authentication.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -195,7 +195,7 @@ CDN is not intended to run web applications, and does not require you to configu
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't use any sensitive accounts or there is no account activity logs or logs are not exportable by customers.
+**Guidance**: Not applicable; Content Delivery Network does not use any sensitive accounts or there is no account activity logs or logs are not exportable by customers.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -206,16 +206,13 @@ CDN is not intended to run web applications, and does not require you to configu
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40575.).
 
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: When a user requests your content, by default, the content is served regardless of the location of the user making the request. However, in some cases, you may want to restrict access to your content by country/region. With the geo-filtering feature, you can create rules on specific paths on your CDN endpoint to allow or block content in selected countries/regions.
+**Guidance**: Restrict access to content on your Content Delivery Network by country or region. Create rules on specific paths on your CDN endpoint to allow or block content in selected countries or regions using the geo-filtering feature,
 
 - [here is the link to the detail steps](../../cdn/cdn-restrict-access-by-country.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Microsoft
+**Responsibility**: Customer
 
 ### IM-7: Eliminate unintended credential exposure
 
@@ -225,7 +222,7 @@ CDN is not intended to run web applications, and does not require you to configu
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't allow customer to deploy any persisted data into the running environment.
+**Guidance**: Not applicable; Content Delivery Network does not allow customer to deploy any persisted data into the running environment.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -239,7 +236,7 @@ CDN is not intended to run web applications, and does not require you to configu
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't access any legacy applications.
+**Guidance**: Not applicable; Content Delivery Network doesn't access any legacy applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -268,17 +265,17 @@ CDN is not intended to run web applications, and does not require you to configu
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40578.).
 
-**Guidance**: CDN uses Azure RBAC to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
+**Guidance**: Use Azure role-based access control (Azure RBAC) in Content Delivery Network to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
 
-Ensure that you also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers (DCs), security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical assets.
+Also restrict access to the management, identity, and security systems that have administrative access to your business critical access such as Active Directory Domain Controllers (DCs), security tools, and system management tools with agents installed on business critical systems. Attackers who compromise these management and security systems can immediately weaponize them to compromise business critical assets.
 
-All types of access controls should be aligned to your enterprise segmentation strategy to ensure consistent access control.
+All types of access controls should be aligned to your enterprise segmentation strategy to ensure consistent access-controls.
 
-Azure Components and Reference model /security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151 
+- [Azure Components and Reference model](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151) 
 
-Management Group Access ../../governance/management-groups/overview.md#management-group-access 
+- [Management Group Access](../../governance/management-groups/overview.md#management-group-access) 
 
-Azure subscription administrators ../../cost-management-billing/manage/add-change-subscription-administrator.md
+- [Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -292,7 +289,7 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't use any user accounts.
+**Guidance**: Not applicable; Content Delivery Network doesn't use any user accounts.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -306,7 +303,7 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't support emergency accounts or doesn't need emergency accounts.
+**Guidance**: Not applicable; Content Delivery Network doesn't support emergency accounts or doesn't need emergency accounts.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -320,7 +317,7 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't support any automation on account or role management.
+**Guidance**: Not applicable; Content Delivery Network doesn't support any automation on account or role management.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -331,7 +328,7 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40582.).
 
-**Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
+**Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory(Azure AD), Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
 
 - [Understand privileged access workstations](../../active-directory/devices/concept-azure-managed-workstation.md) 
 
@@ -346,9 +343,11 @@ Azure subscription administrators ../../cost-management-billing/manage/add-chang
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40583.).
 
-**Guidance**: CDN  is integrated with Azure role-based access control (RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically.
+**Guidance**: Content Delivery Network is integrated with Azure role-based access control (RBAC) to manage its resources. Use Azure RBAC to manage Azure resource access through role assignments. Assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. 
 
-Use built-in roles to allocate permission and only create custom role when required.
+Limit the privileges you assign to resources through the Azure RBAC as required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically. 
+
+Additionally, use built-in roles to allocate permission and only create custom role when required.
 
 What is Azure role-based access control (Azure RBAC) ../../role-based-access-control/overview.md 
 
@@ -386,7 +385,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN does not store, process or transmit data classified as sensitive.
+**Guidance**: Not applicable; Content Delivery Network does not store, process or transmit data classified as sensitive.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -400,7 +399,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN does not store, process or transmit data classified as sensitive
+**Guidance**: Not applicable; Content Delivery Network does not store, process or transmit data classified as sensitive
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -414,7 +413,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; AFD does not store, process or transmit data classified as sensitive.
+**Guidance**: Not applicable; Content Delivery Network does not store, process or transmit data classified as sensitive.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -428,16 +427,19 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Encryption is critical for traffic on external and public networks.
-Use access controls,
+**Guidance**: Use encryption to protect traffic on external and public networks as it is critical for data protection. Additionally:
 
-data in transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
+- Use access controls,
 
-Ensure for HTTP traffic, that any clients connecting to your Azure resources can negotiate TLS v1.2 or greater.
+- protect data in transit against ‘out of band’ attacks (such as traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
+- Ensure that any clients connecting to your Azure resources for HTTP traffic can negotiate TLS v1.2 or greater.
+- Use SSH (for Linux) or RDP/TLS (for Windows) for remote management, instead of unencrypted protocols
 
-For remote management, use SSH (for Linux) or RDP/TLS (for Windows) instead of unencrypted protocol. Obsoleted SSL/TLS/SSH versions, protocols, and weak ciphers should be disabled.
+- Disable obsoleted SSL/TLS/SSH versions, protocols, and weak ciphers
 
-At the underlying infrastructure, Azure provides data in transit encryption by default for data traffic between Azure data centers.
+By default, Azure provides data-in-transit encryption for data traffic between Azure data centers. 
+
+- [Tutorial -  How to Configure HTTPS on a Content Delivery Network custom domain](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -451,9 +453,10 @@ At the underlying infrastructure, Azure provides data in transit encryption by d
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Azure provides data at rest encryption by default. For highly sensitive data, you have options to implement additional encryption at rest on all Azure resources where available. Azure manage your encryption keys by default, but Azure provides options to manage your own keys (customer managed keys) for certain Azure services.
+**Guidance**: Azure provides data at rest encryption by default. For highly sensitive data, you have options to implement additional encryption at rest on all Azure resources where available. 
+Azure manages your encryption keys by default, but it also provides options to manage your own keys (customer managed keys) for certain Azure services.
 
-If required for compliance on compute resources, implement a third-party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to data even when data is copied off a system.
+If required for compliance on compute resources, Implement a third-party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to data even when data is copied off a system.
 
 - [Understand encryption at rest in Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
 
@@ -476,13 +479,13 @@ If required for compliance on compute resources, implement a third-party tool, s
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40613.).
 
-**Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
+**Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions, for them to monitor security risks using Azure Security Center. 
 
-Depending on how security team responsibilities are structured, monitoring for security risks could  be the responsibility of a central security team or a local team. That said, security insights and risks must always be aggregated centrally within an organization. 
+Depending on how security team responsibilities are structured, monitoring for security risks could  be the responsibility of a central security team or a local team. However, security insights and risks must always be aggregated centrally within an organization. 
 
 Security Reader permissions can be applied broadly to an entire tenant (Root Management Group) or scoped to management groups or specific subscriptions. 
 
-Note: Additional permissions might be required to get visibility into workloads and services. 
+Note: that additional permissions may be required for visibility into workloads and services. 
 
 - [Overview of Security Reader Role](../../role-based-access-control/built-in-roles.md#security-reader)
 
@@ -503,8 +506,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 - [Azure Security Center asset inventory management](../../security-center/asset-inventory.md) 
 
-- [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json) 
-CDN does not allow running an application or installation of software on its resources. Describe any other features in your offering which allows or supports this functionality, as applicable.
+- [Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -578,9 +580,11 @@ CDN does not allow running an application or installation of software on its res
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40596.).
 
-**Guidance**: CDN does not provide native capabilities to monitor security threats related to its resources.
+**Guidance**: Content Delivery Network does not provide native capabilities to monitor security threats related to its resources.
 
-Forward any logs from CDN  to your SIEM which can be used to set up custom threat detections. Ensure you are monitoring different types of Azure assets for potential threats and anomalies. Focus on getting high quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
+Forward any logs from Content Delivery Network to your Security Information and Event Management (SIEM) solution which can be used to set up custom threat detections. 
+
+Monitoring different types of Azure assets for potential threats and anomalies with focus on getting high quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
 
 - [Create custom analytics rules to detect threats](../../sentinel/tutorial-detect-threats-custom.md) 
 
@@ -598,7 +602,7 @@ Forward any logs from CDN  to your SIEM which can be used to set up custom threa
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: CDN does not support authentication or authorization via Azure Active Directory for either the control or data plane level actions.
+**Guidance**: CDN does not support authentication or authorization via Azure Active Directory (Azure AD) for control or data-plane actions.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -609,14 +613,11 @@ Forward any logs from CDN  to your SIEM which can be used to set up custom threa
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40598.).
 
-**Guidance**: CDN is not intended to deploy into virtual networks, because of this you are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures.
+**Guidance**: Content Delivery Network is not intended to deploy into virtual networks, because of this you are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures.
 
-CDN logs all network traffic that it processes for customer access. Enable the network flow capability within your deployed offering resources and configure these logs to be sent to a storage account for long term retention and auditing.
+Content Delivery Network logs all network traffic that it processes for customer access. Enable the network flow capability within your deployed offering resources and configure these logs to be sent to a storage account for long term retention and auditing.
 
-here is the link to the detail steps about how to enable log/diagnostic in CDN
-../../cdn/cdn-azure-diagnostic-logs.md
-
-CDN does not produce or process DNS query logs which would need to be enabled.
+- [Tutorial -  How to setup diagnostic log in Azure Content Delivery Network](../../cdn/cdn-azure-diagnostic-logs.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -627,13 +628,13 @@ CDN does not produce or process DNS query logs which would need to be enabled.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40599.).
 
-**Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your CDN resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+**Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Content Delivery Network resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+
+Enable Azure resource logs for CDN,  You can use Azure Security Center and Azure Policy to enable resource logs and log data collecting. These logs can be critical for later investigating security incidents and performing forensic exercises.
 
 - [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
 
 - [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md) 
-
-Enable Azure resource logs for CDN,  You can use Azure Security Center and Azure Policy to enable resource logs and log data collecting. These logs can be critical for later investigating security incidents and performing forensic exercises.
 
 - [Understand Azure Security Center data collection](../../security-center/security-center-enable-data-collection.md)
 
@@ -649,7 +650,7 @@ Enable Azure resource logs for CDN,  You can use Azure Security Center and Azure
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN does not produce or process any security related logs which would need to be collected centrally for management or analysis.
+**Guidance**: Not applicable; Content Delivery Network does not produce or process any security related logs which would need to be collected centrally for security log management and analysis.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -663,7 +664,7 @@ Enable Azure resource logs for CDN,  You can use Azure Security Center and Azure
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: CDN does not currently produce any security-related logs, and the customer is unable to set any log retention.
+**Guidance**: Content Delivery Network does not currently produce any security-related logs. Customer cannot set up any log retention.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -677,7 +678,7 @@ Enable Azure resource logs for CDN,  You can use Azure Security Center and Azure
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: CDN does not support configuring your own time synchronization sources. The CDN service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
+**Guidance**: Content Delivery Network does not support configuring your own time synchronization sources. It relies on Microsoft time synchronization sources and is not exposed to customers for configuration.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -818,7 +819,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't have any security configurations.
+**Guidance**: Not applicable; Content Delivery Network does not have provide any security configuration capabilities.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -832,7 +833,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't have any security configurations.
+**Guidance**: Not applicable; Content Delivery Network does not have provide any security configuration capabilities.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -843,11 +844,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40625.).
 
-**Guidance**: Use Azure Security Center and Azure Policy to establish secure configurations on all compute resources including VMs, containers, and others.
-
-- [How to monitor Azure Security Center recommendations](../../security-center/security-center-recommendations.md) 
-
-- [Security recommendations - a reference guide](../../security-center/recommendations-reference.md)
+**Guidance**: Not applicable; Content Delivery Network does not have provide any security configuration capabilities.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -887,22 +884,22 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40628.).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support CDN
+**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Content Delivery Network.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40629.).
 
-**Guidance**: Rapidly deploy software updates to remediate software vulnerabilities in operating systems and applications.
+**Guidance**: Rapidly deploy software updates to remediate software vulnerabilities in operating systems and applications. 
 
-Prioritize use a common risk scoring program (for example, Common Vulnerability Scoring System) or the default risk ratings provided by your third-party scanning tool and tailor to your environment using context of which applications present a high security risk and which ones require high uptime.
+Prioritize remediation using a common risk scoring program (for example, Common Vulnerability Scoring System) or the default risk ratings provided by your third-party scanning tool. Tailor to your environment using context of which applications present a high security risk and which ones require high uptime.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -938,7 +935,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
+**Guidance**: Not applicable; Content Delivery Network is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -952,7 +949,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure front door does not interact with compute hosts, containers and/or storage which require anti-malware protection.
+**Guidance**: Not applicable;  Content Delivery Network does not interact with compute hosts, containers or storage which require anti-malware protection.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -966,8 +963,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: CDN is not comprised of any virtual machines or containers which would require anti-malware protection.
-Thus it does not require you to configure any additional settings or deploy any extra services to protect it from malware.
+**Guidance**: Content Delivery Network is not comprised of any virtual machines or containers which would require anti-malware protection. Thus it does not require you to configure any additional settings or deploy any extra services to protect it from malware.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -985,7 +981,7 @@ Thus it does not require you to configure any additional settings or deploy any 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN  doesn't support any data backup or have no needs for data backup.
+**Guidance**: Not applicable; Content Delivery Network does not support data-backup or need them.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -999,7 +995,7 @@ Thus it does not require you to configure any additional settings or deploy any 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't support any data backup encryption.
+**Guidance**: Not applicable; Content Delivery Network does not support any data-backup encryption.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1013,7 +1009,7 @@ Thus it does not require you to configure any additional settings or deploy any 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't support any data backup.
+**Guidance**: Not applicable; Content Delivery Network does not support data-backups.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1027,7 +1023,7 @@ Thus it does not require you to configure any additional settings or deploy any 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; CDN doesn't manage any keys.
+**Guidance**: Not applicable; Content Delivery Network does not manage any keys.
 
 **Azure Security Center monitoring**: Not applicable
 
