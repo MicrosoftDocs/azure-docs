@@ -258,7 +258,7 @@ static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client
 ### Output
 
 ```console
-Text = Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.
+Document = Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.
 Recognized document sentiment: negative, positive score: 0.010000, neutral score: 0.140000, negative score: 0.850000.
 	Sentence sentiment: negative, positive score: 0.000000, neutral score: 0.000000, negative score: 1.000000.
 		Aspect sentiment: negative, aspect text: atmosphere
