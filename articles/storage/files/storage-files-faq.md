@@ -210,7 +210,7 @@ This article answers common questions about Azure Files features and functionali
 **How can I audit file access and changes in Azure Files?**
 
   There are two options that provide auditing functionality for Azure Files:
-  - If users are accessing the Azure file share directly, [Azure Storage logs (preview)](../blobs/monitor-blob-storage.md?tabs=azure-powershell#logs-in-azure-monitor-preview) can be used to track file changes and user access. These logs can be used for troubleshooting purposes and the requests are logged on a best-effort basis.
+  - If users are accessing the Azure file share directly, [Azure Storage logs (preview)](../blobs/monitor-blob-storage.md?tabs=azure-powershell#analyzing-logs) can be used to track file changes and user access. These logs can be used for troubleshooting purposes and the requests are logged on a best-effort basis.
   - If users are accessing the Azure file share via a Windows Server that has the Azure File Sync agent installed, use an [audit policy](/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) or 3rd party product to track file changes and user access on the Windows Server. 
    
 ### AD DS & Azure AD DS Authentication
@@ -242,7 +242,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id="ad-aad-smb-files"></a>
 **How can I check if I have enabled AD DS authentication on my storage account and retrieve the domain information?**
 
-    For instructions, see [here](./storage-files-identity-auth-active-directory-enable.md#1-enable-ad-authentication-for-your-account).
+    For instructions, see [here](./storage-files-identity-ad-ds-enable.md#confirm-the-feature-is-enabled).
 
 * <a id=""></a>
 **Does Azure Files Azure AD authentication support Linux VMs?**
@@ -283,14 +283,9 @@ This article answers common questions about Azure Files features and functionali
     Yes, you can enable AD authentication on a file share managed by Azure file sync. Changes to the directory/file NTFS ACLs on local file servers will be tiered to Azure Files and vice-versa.
 
 * <a id="ad-aad-smb-files"></a>
-**How can I check if I have enabled AD authentication on my storage account and the AD domain information?**
-
-    You can refer to the instructions provided [here](./storage-files-identity-auth-active-directory-enable.md#enable-ad-authentication-for-your-account) to validate if Azure Files AD Authentication is enabled on your storage account and retrieve the AD domain information.
-
-* <a id="ad-aad-smb-files"></a>
 **Is there any difference in creating a computer account or service logon account to represent my storage account in AD?**
 
-    Creating either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](/windows/win32/ad/about-service-logon-accounts) has no difference on how the authentication would work with Azure Files. You can make your own choice on how to represent a storage account as an identity in your AD environment. The default DomainAccountType set in Join-AzStorageAccountForAuth cmdlet is computer account. However, the password expiration age configured in your AD environment can be different for computer or service logon account and you need to take that into consideration for [Update the password of your storage account identity in AD](./storage-files-identity-auth-active-directory-enable.md#5-update-ad-account-password).
+    Creating either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](/windows/win32/ad/about-service-logon-accounts) has no difference on how the authentication would work with Azure Files. You can make your own choice on how to represent a storage account as an identity in your AD environment. The default DomainAccountType set in Join-AzStorageAccountForAuth cmdlet is computer account. However, the password expiration age configured in your AD environment can be different for computer or service logon account and you need to take that into consideration for [Update the password of your storage account identity in AD](./storage-files-identity-ad-ds-update-password.md).
  
 * <a id="ad-support-rest-apis"></a>
 **Are there REST APIs to support Get/Set/Copy directory/file Windows ACLs?**

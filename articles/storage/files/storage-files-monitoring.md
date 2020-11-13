@@ -149,7 +149,7 @@ Here's an example:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-For a description of each parameter, see the [Archive Azure Resource logs via Azure PowerShell](../../azure-monitor/platform/resource-logs.md#archive-diagnostic-logs-via-azure-powershell).
+For a description of each parameter, see the [Archive Azure Resource logs via Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### Stream logs to an event hub
 
@@ -163,7 +163,7 @@ Here's an example:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-For a description of each parameter, see the [Stream Data to Event Hubs via PowerShell cmdlets](../../azure-monitor/platform/resource-logs.md#via-powershell-cmdlets).
+For a description of each parameter, see the [Stream Data to Event Hubs via PowerShell cmdlets](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### Send logs to Log Analytics
 
@@ -207,7 +207,7 @@ Here's an example:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
-For a description of each parameter, see the [Archive Resource logs via the Azure CLI](../../azure-monitor/platform/resource-logs.md#archive-diagnostic-logs-via-the-azure-cli).
+For a description of each parameter, see the [Archive Resource logs via the Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### Stream logs to an event hub
 
@@ -221,7 +221,7 @@ Here's an example:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-For a description of each parameter, see the [Stream data to Event Hubs via Azure CLI](../../azure-monitor/platform/resource-logs.md#via-azure-cli).
+For a description of each parameter, see the [Stream data to Event Hubs via Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### Send logs to Log Analytics
 
@@ -496,13 +496,13 @@ Logs sent to an event hub aren't stored as a file, but you can verify that the e
 
 ![Audit logs](media/storage-files-monitoring/event-hub-log.png)
 
-You can access and read log data that's sent to your event hub by using security information and event management and monitoring tools. For more information, see [What can I do with the monitoring data being sent to my event hub?](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub).
+You can access and read log data that's sent to your event hub by using security information and event management and monitoring tools. For more information, see [What can I do with the monitoring data being sent to my event hub?](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ### Accessing logs in a Log Analytics workspace
 
 You can access logs sent to a Log Analytics workspace by using Azure Monitor log queries. Data is stored in the **StorageFileLogs** table. 
 
-For more information, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/log-query/log-analytics-tutorial.md).
+For more information, see [Log Analytics tutorial](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 #### Sample Kusto queries
 
@@ -550,7 +550,7 @@ StorageFileLogs
 
 To view the list of column names and descriptions for Azure Files, see [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs).
 
-For more information on how to write queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/log-query/log-analytics-tutorial.md).
+For more information on how to write queries, see [Log Analytics tutorial](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
 ## Alerts
 
