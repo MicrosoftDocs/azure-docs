@@ -4035,12 +4035,13 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Yes | String | The string whose characters you want |
 | <*startIndex*> | Yes | Integer | A positive number equal to or greater than 0 that you want to use as the starting position or index value |
-| <*length*> | Yes | Integer | A positive number of characters that you want in the substring |
+| <*length*> | No | Integer | A positive number of characters that you want in the substring |
 |||||
 
 > [!NOTE]
 > Make sure that the sum from adding the *startIndex* and *length* parameter values is less than the length of the string that you provide for the *text* parameter.
-> Otherwise, you get an error, unlike similar functions in other languages where the result is the substring from the *startIndex* to the end of the string.
+> Otherwise, you get an error, unlike similar functions in other languages where the result is the substring from the *startIndex* to the end of the string. 
+> The *length* parameter is optional and if not provided, the **substring()** function takes all the characters beginning from *startIndex* to the end of the string.
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
