@@ -146,7 +146,7 @@ Access permissions could be revoked at any given time. Once revoked, any search 
 
 1. Still in the Azure portal, open your key vault **Overview** page. 
 
-1. Select the **Access policies** on the left, and select**+ Add Access Policy**.
+1. Select the **Access policies** on the left, and select **+ Add Access Policy**.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="Add new key vault access policy":::
 
@@ -166,9 +166,11 @@ Access permissions could be revoked at any given time. Once revoked, any search 
 > Encrypted content in Azure Cognitive Search is configured to use a specific Azure Key Vault key with a specific **version**. If you change the key or version, the index or synonym map must be updated to use the new key\version **before** deleting the previous key\version. 
 > Failing to do so will render the index or synonym map unusable, at you won't be able to decrypt the content once key access is lost.
 
+<a name="encrypt-content"></a>
+
 ## 5 - Encrypt content
 
-To add a customer-managed key on an index or synonym map, use a REST API or SDK to create an object whose definition includes `encryptionKey`.
+To add a customer-managed key on an index, data source, skillset, indexer, or synonym map, you must use the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/) or an SDK. The portal does not expose synonym maps or encryption properties. When you use a valid API indexes, data sources, skillsets, indexers, and synonym maps support a top-level **encryptionKey** property.
 
 This example uses the REST API, with values for Azure Key Vault and Azure Active Directory:
 
@@ -189,6 +191,12 @@ This example uses the REST API, with values for Azure Key Vault and Azure Active
 > [!Note]
 > None of these key vault details are considered secret and could be easily retrieved by browsing to the relevant Azure Key Vault key page in Azure portal.
 
+## Example: Index encryption
+
+Create an encrypted index using the [Create Index Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-index). Use the `encryptionKey` property to specify which encryption key to use.
+> [!Note]
+> None of these key vault details are considered secret and could be easily retrieved by browsing to the relevant Azure Key Vault key page in Azure portal.
+
 ## REST examples
 
 This section shows the full JSON for an encrypted index and synonym map
@@ -199,7 +207,7 @@ The details of creating a new index via the REST API could be found at [Create I
 
 ```json
 {
- "name": "hotels",  
+ "name": "hotels",
  "fields": [
   {"name": "HotelId", "type": "Edm.String", "key": true, "filterable": true},
   {"name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": true, "facetable": false},
@@ -228,19 +236,19 @@ You can now send the index creation request, and then start using the index norm
 
 ### Synonym map encryption
 
-The details of creating a new synonym map via the REST API can be found at [Create Synonym Map (REST API)](/rest/api/searchservice/create-synonym-map), where the only difference here is specifying the encryption key details as part of the synonym map definition: 
+Create an encrypted synonym map using the [Create Synonym Map Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Use the `encryptionKey` property to specify which encryption key to use.
 
 ```json
-{   
-  "name" : "synonymmap1",  
-  "format" : "solr",  
+{
+  "name" : "synonymmap1",
+  "format" : "solr",
   "synonyms" : "United States, United States of America, USA\n
   Washington, Wash. => WA",
   "encryptionKey": {
     "keyVaultUri": "https://demokeyvault.vault.azure.net",
     "keyVaultKeyName": "myEncryptionKey",
     "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
-    "activeDirectoryAccessCredentials": {
+    "accessCredentials": {
       "applicationId": "00000000-0000-0000-0000-000000000000",
       "applicationSecret": "myApplicationSecret"
     }
@@ -249,6 +257,86 @@ The details of creating a new synonym map via the REST API can be found at [Crea
 ```
 
 You can now send the synonym map creation request, and then start using it normally.
+
+## Example: Data source encryption
+
+Create an encrypted data source using the [Create Data Source (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Use the `encryptionKey` property to specify which encryption key to use.
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+You can now send the data source creation request, and then start using it normally.
+
+## Example: Skillset encryption
+
+Create an encrypted skillset using the [Create Skillset Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset). Use the `encryptionKey` property to specify which encryption key to use.
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+You can now send the skillset creation request, and then start using it normally.
+
+## Example: Indexer encryption
+
+Create an encrypted indexer using the [Create Indexer Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Use the `encryptionKey` property to specify which encryption key to use.
+
+```json
+{
+  "name": "indexer1",
+  "dataSourceName": "datasource1",
+  "skillsetName": "skillset1",
+  "parameters": {
+      "configuration": {
+          "imageAction": "generateNormalizedImages"
+      }
+  },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+You can now send the indexer creation request, and then start using it normally.
 
 >[!Important]
 > While `encryptionKey` cannot be added to existing search indexes or synonym maps, it may be updated by providing different values for any of the three key vault details (for example, updating the key version). 
@@ -264,7 +352,6 @@ This approach allows you to omit the steps for application registration and appl
 In general, a managed identity enables your search service to authenticate to Azure Key Vault without storing credentials (ApplicationID or ApplicationSecret) in code. The lifecycle of this type of managed identity is tied to the lifecycle of your search service, which can only have one managed identity. For more information about how managed identities work, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 1. Make your search service a trusted service.
-
    ![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Turn on system assigned managed identity")
 
 1. When setting up an access policy in Azure Key Vault, choose the trusted search service as the principle (instead of the AD-registered application). Assign the same permissions (multiple GETs, WRAP, UNWRAP) as instructed in the grant access key permissions step.
