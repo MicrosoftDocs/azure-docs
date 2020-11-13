@@ -15,7 +15,7 @@ In this article we lean on the concept of [configured tasks](service-bus-federat
 
 ### Start a new replication project 
 
-Once you've [created a replication application in Azure Functions](service-bus-federation-replicator-functions.md#configuring-a-replication-application), the easiest way to start new replication project is to clone the sample repository and use it as a baseline for developing your own tasks. You'll do this with `git` and providing a target directory, or you can clone the repository directly on Github.
+Once you've [created a replication application in Azure Functions](service-bus-federation-replicator-functions.md#configuring-a-replication-application), the easiest way to start new replication project is to clone the sample repository and use it as a baseline for developing your own tasks. You'll do this with `git` and providing a target directory, or you can clone the repository directly on GitHub.
 
 ``` powershell 
 git clone https://github.com/Azure-Samples/azure-messaging-replication-dotnet {project-dir}
