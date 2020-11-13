@@ -31,11 +31,9 @@ A workspace allows you to perform analytics with SQL and Apache spark. Resources
 
 To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace.
 
-## SQL Terminology
-| Term                         | Definition      |
-|:---                                 |:---                 |
-| **SQL Request**  |   Operation such as a query run through dedicated SQL pool or serverless SQL pool. |
-|**SQL script**| Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.|
+* **SQL Request** - Operation such as a query run through dedicated SQL pool or serverless SQL pool.
+* **SQL script** - Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.
+
 
 ## Spark Terminology
 | Term                         | Definition      |
