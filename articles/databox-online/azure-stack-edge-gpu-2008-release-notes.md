@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Edge Pro Preview release notes| Microsoft Docs
-description: Describes critical open issues and resolutions for the Azure Stack Edge Pro running general availability release.
+description: Describes critical open issues and resolutions for the Azure Stack Edge Pro running preview availability release.
 services: databox
 author: alkohli
  

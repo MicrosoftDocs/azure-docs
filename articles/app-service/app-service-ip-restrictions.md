@@ -175,7 +175,7 @@ You can also set values manually by doing either of the following:
 Access restrictions are also available for function apps with the same functionality as App Service plans. When you enable access restrictions, you also disable the Azure portal code editor for any disallowed IPs.
 
 ## Next steps
-[Access restrictions for Azure Functions](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)  
+[Access restrictions for Azure Functions](../azure-functions/functions-networking-options.md#inbound-access-restrictions)  
 [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
