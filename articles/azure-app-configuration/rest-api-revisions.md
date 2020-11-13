@@ -13,6 +13,7 @@ ms.date: 08/17/2020
 A *key-value revision* defines the historical representation of a key-value resource. Revisions expire after 7 days for Free tier stores, or 30 days for Standard tier stores. Revisions support the `List` operation.
 
 For all operations, ``key`` is an optional parameter. If omitted, it implies any key.
+
 For all operations, ``label`` is an optional parameter. If omitted, it implies any label.
 
 This article applies to API version 1.0.

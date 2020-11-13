@@ -80,4 +80,4 @@ WWW-Authenticate: HMAC-SHA256, Bearer error="invalid_token", error_description="
 
 **Reason:** The Azure AD token isn't valid.
 
-**Solution:** Acquire an Azure AD token from the Azure AD authority. Ensure that the Azure AD tenant is the one associated with the subscription, to which the configuration store belongs. This error can appear if the principal belongs to more than one Azure AD tenant.
+**Solution:** Acquire an Azure AD token from the Azure AD authority. Ensure that the Azure AD tenant is the one associated with the subscription to which the configuration store belongs. This error can appear if the principal belongs to more than one Azure AD tenant.
