@@ -62,7 +62,7 @@ Sentiment analysis produces a higher-quality result when you give it smaller amo
 
 You must have JSON documents in this format: ID, text, and language. Sentiment Analysis supports a wide range of languages, with more in preview. For more information, see [Supported languages](../language-support.md).
 
-Document size must be under 5,120 characters per document. You can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request.
+Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection, see the [data limits](../concepts/data-limits?tabs=version-3) article under Concepts. The collection is submitted in the body of the request.
 
 ## Structure the request
 
