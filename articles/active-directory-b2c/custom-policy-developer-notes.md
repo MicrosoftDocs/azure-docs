@@ -104,16 +104,6 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [Display controls](display-controls.md) |  |X  |  |  |
 
 
-### Page layout versions
-
-| Feature | Development | Preview | GA | Notes |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md) |  | X |  |  |
-| [1.2.0](page-layout.md) |  | X |  |  |
-| [1.1.0](page-layout.md) |  |  | X |  |
-| [1.0.0](page-layout.md) |  |  | X |  |
-| [JavaScript support](javascript-samples.md) |  | X |  |  |
-
 ### App-IEF integration
 
 | Feature | Development | Preview | GA | Notes |
@@ -123,6 +113,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Insert JSON into user journey via `client_assertion` | X |  |  | Will be deprecated. |
 | Insert JSON into user journey as `id_token_hint` |  | X |  | Go-forward approach to pass JSON. |
 | [Pass identity provider token to the application](idp-pass-through-custom.md) |  | X |  | For example, from Facebook to app. |
+
 
 ### Session Management
 
