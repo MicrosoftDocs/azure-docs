@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Machine Learning data reference | Microsoft Docs
-description: Important reference material needed when you monitor Azure Machine Learning. Learn about the data and resources collected for Azure Machine Learning, and available in Azure Monitor. Azure Monitor collects and surfaces data about your Azure Machine Learning workspace, and allows you to view metrics, set alerts, and analyze logged data.
+description: Reference documentation for monitoring Azure Machine Learning. Learn about the data & resources collected and available in Azure Monitor. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

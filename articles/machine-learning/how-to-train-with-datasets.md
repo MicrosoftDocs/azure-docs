@@ -1,7 +1,7 @@
 ---
 title: Train with azureml-datasets
 titleSuffix: Azure Machine Learning
-description: Learn how to use datasets in training
+description:  Learn how to make your data available to your local or remote compute for ML model training with Azure Machine Learning datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,7 +11,7 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 
 # Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
 
@@ -252,7 +252,8 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## Notebook examples
 
-The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article.
++ The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article.
++ See how to [parametize datasets in your ML pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
 
 ## Next steps
 
