@@ -20,9 +20,8 @@ ms.custom: contperfq4, tracking-python
 In this article, you learn how to use Azure Machine Learning studio in a virtual network. You learn how to:
 
 > [!div class="checklist"]
+> - Grant the studio access to data stored inside of a virtual network.
 > - Access the studio from a resource inside of a virtual network.
-> - Configure private endpoints for storage accounts.
-> - Give the studio access to data stored inside of a virtual network.
 > - Understand how the studio impacts storage security.
 
 This article is part five of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
@@ -38,7 +37,7 @@ See the other articles in this series:
 
 ## Prerequisites
 
-+ Read the [Network security overview](how-to-network-security-overview.md) to understand common virtual network scenarios and overall virtual network architecture.
++ Read the [Network security overview](how-to-network-security-overview.md) to understand common virtual network scenarios and high-level virtual network architecture.
 
 + A pre-existing virtual network and subnet to use.
 
@@ -46,17 +45,11 @@ See the other articles in this series:
 
 + An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
-## Access the studio from a resource inside the VNet
-
-If you are accessing the studio from a resource inside of a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio. 
-
-For example, if you are using network security groups (NSG) to restrict outbound traffic, add a rule to a __service tag__ destination of __AzureFrontDoor.Frontend__.
-
 ## Access data using the studio
 
-After you add an Azure storage account to your virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your storage account to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
+After you add an Azure storage account to your virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your storage account to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) authentication. Doing so lets the studio access your data. 
 
-If you do not enable managed identity, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` Additionally, the following operations will be disabled:
+Failing to enable managed identity, will result in the following error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile`. You will be unable to perform the following operations:
 
 * Preview data in the studio.
 * Visualize data in the designer.
@@ -72,11 +65,13 @@ The studio supports reading data from the following datastore types in a virtual
 
 ### Grant workspace managed identity __Reader__ access to storage private link
 
-This step is only required if you added the Azure storage account to your virtual network with a [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role.
+If your Azure storage account uses a private endpoint, you must grant the workspace-managed identity **Reader** access to the private link. For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role. 
+
+If your storage account uses a service endpoint, you can skip this step.
 
 ### Configure datastores to use workspace managed identity
 
-Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect to storage accounts. Use the following steps to configure your datastores to use managed identity. 
+Whether you use a private endpoint or a service endpoint, Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect to storage accounts. Use the following steps to configure datastores to use managed identity to enable critical studio features:
 
 1. In the studio, select __Datastores__.
 
@@ -86,18 +81,20 @@ Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect 
 
 1. In the datastore settings, select __Yes__ for  __Allow Azure Machine Learning service to access the storage using workspace-managed identity__.
 
+These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure RBAC. __Reader__ access lets the workspace retrieve firewall settings to ensure that data dosen't leave the virtual network. Changes may take up to 10 minutes to take effect.
 
-These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure role-based access control (Azure RBAC). __Reader__ access lets the workspace retrieve firewall settings, and ensure that data doesn't leave the virtual network.
+## Access the studio from a resource inside the VNet
 
-> [!NOTE]
-> These changes may take up to 10 minutes to take effect.
+If you are accessing the studio from a resource inside of a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio. 
+
+For example, if you are using network security groups (NSG) to restrict outbound traffic, add a rule to a __service tag__ destination of __AzureFrontDoor.Frontend__.
 
 ## Technical notes for managed identity
 
-Using managed identity to access storage services impacts some security considerations. This section describes the changes for each storage account type.
+Using managed identity to access storage services impacts some security considerations. This section describes the changes for each storage account type. 
 
-> [!IMPORTANT]
-> These considerations are unique to the __type of storage account__ you are accessing.
+
+These considerations are unique to the __type of storage account__ you are accessing.
 
 ### Azure Blob storage
 
