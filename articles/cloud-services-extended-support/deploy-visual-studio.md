@@ -13,7 +13,7 @@ ms.author: ghogen
 
 # Create and deploy a cloud service using extended support in Visual Studio (Preview)
 
-Starting with Visual Studio 2019 version 16.9 Preview 1, you can work with cloud services using Azure Resource Manager (ARM), which greatly simplifies and modernizes maintenance and management of Azure resources. You can also convert an existing cloud service project to an extended support cloud service project.
+Starting with Visual Studio 2019 version 16.9 Preview 1, you can work with cloud services using Azure Resource Manager, which greatly simplifies and modernizes maintenance and management of Azure resources. You can also convert an existing cloud service project to an extended support cloud service project.
 
 ## Create a project
 
@@ -62,7 +62,7 @@ For more information about these files, see [Configure the Roles for an Azure Cl
 
 1. **Account** - Select an account or select **Add an account** in the account dropdown list.
 
-1. **Choose your subscription** - Choose the subscription to use for your deployment. The subscription you use for deploying cloud services (extended support) needs to have Owner or Contributor roles assigned via ARM role-based access control (RBAC). If your subscription does not have any one of these roles, see [Steps to add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-steps) to add this before proceeding further.
+1. **Choose your subscription** - Choose the subscription to use for your deployment. The subscription you use for deploying cloud services (extended support) needs to have Owner or Contributor roles assigned via role-based access control (RBAC). If your subscription does not have any one of these roles, see [Steps to add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-steps) to add this before proceeding further.
 
 1. Choose **Next** to move to the **Settings** page.
 
