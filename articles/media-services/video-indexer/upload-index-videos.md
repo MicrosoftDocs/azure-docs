@@ -26,8 +26,8 @@ When uploading videos with Video Indexer API, you have the following upload opti
 
 The article shows how to upload and index your videos with these options:
 
-* [The Video Indexer website](#website) 
-* [The Video Indexer APIs](#apis)
+* [The Video Indexer website](#upload-and-index-a-video-using-the-video-indexer-website) 
+* [The Video Indexer APIs](#upload-and-index-with-api)
 
 ## Supported file formats for Video Indexer
 
@@ -56,7 +56,7 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
     > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload":::
 1. Once Video Indexer is done analyzing, you will get an email with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
-## <a name="apis"></a>Upload and index with API
+## Upload and index with API
 
 Use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos based on a URL. The code sample that follows includes the commented out code that shows how to upload the byte array. 
 
