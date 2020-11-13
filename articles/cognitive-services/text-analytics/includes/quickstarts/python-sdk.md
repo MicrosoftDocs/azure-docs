@@ -281,8 +281,17 @@ def sentiment_analysis_with_opinion_mining_example(client):
             for mined_opinion in sentence.mined_opinions:
                 aspect = mined_opinion.aspect
                 print("......'{}' aspect '{}'".format(aspect.sentiment, aspect.text))
+                print("......Aspect score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
+                    aspect.confidence_scores.positive,
+                    aspect.confidence_scores.negative,
+                ))
                 for opinion in mined_opinion.opinions:
                     print("......'{}' opinion '{}'".format(opinion.sentiment, opinion.text))
+                    print("......Opinion score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
+                        opinion.confidence_scores.positive,
+                        opinion.confidence_scores.negative,
+                    ))
+            print("\n")
         print("\n")
           
 sentiment_analysis_with_opinion_mining_example(client)
@@ -302,11 +311,37 @@ Neutral=0.00
 Negative=0.16
 
 ......'negative' aspect 'food'
+......Aspect score:
+......Positive=0.01
+......Negative=0.99
+
 ......'negative' opinion 'unacceptable'
+......Opinion score:
+......Positive=0.01
+......Negative=0.99
+
 ......'negative' aspect 'service'
+......Aspect score:
+......Positive=0.01
+......Negative=0.99
+
 ......'negative' opinion 'unacceptable'
+......Opinion score:
+......Positive=0.01
+......Negative=0.99
+
 ......'positive' aspect 'concierge'
+......Aspect score:
+......Positive=1.00
+......Negative=0.00
+
 ......'positive' opinion 'nice'
+......Opinion score:
+......Positive=1.00
+......Negative=0.00
+
+
+
 
 
 Document Sentiment: negative
@@ -320,8 +355,22 @@ Neutral=0.00
 Negative=0.99
 
 ......'mixed' aspect 'rooms'
+......Aspect score:
+......Positive=0.50
+......Negative=0.50
+
 ......'positive' opinion 'beautiful'
+......Opinion score:
+......Positive=1.00
+......Negative=0.00
+
 ......'negative' opinion 'dirty'
+......Opinion score:
+......Positive=0.01
+......Negative=0.99
+
+
+
 Sentence: The AC was good and quiet, but the elevator was broken
 Sentence sentiment: negative
 Sentence score:
@@ -330,10 +379,31 @@ Neutral=0.00
 Negative=1.00
 
 ......'positive' aspect 'AC'
+......Aspect score:
+......Positive=1.00
+......Negative=0.00
+
 ......'positive' opinion 'good'
+......Opinion score:
+......Positive=1.00
+......Negative=0.00
+
 ......'positive' opinion 'quiet'
+......Opinion score:
+......Positive=1.00
+......Negative=0.00
+
 ......'negative' aspect 'elevator'
+......Aspect score:
+......Positive=0.00
+......Negative=1.00
+
 ......'negative' opinion 'broken'
+......Opinion score:
+......Positive=0.00
+......Negative=1.00
+
+Press any key to continue . . .
 ```
 
 # [Version 3.0](#tab/version-3)
