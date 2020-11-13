@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 11/13/2020
 ms.custom: designer
 ---
 
@@ -108,6 +108,8 @@ After deployment finishes, you can view your real-time endpoint by going to the 
 1. In the **Details** tab, you can see more information such as the REST URI, status, and tags.
 
 1. In the **Consume** tab, you can find security keys and set authentication methods.
+
+1. In the **Deployment logs** tab, you can find the detailed deployment logs of your real-time endpoint. 
 
 For more information on consuming your web service, see [Consume a model deployed as a webservice](how-to-consume-web-service.md)
 
