@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/12/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -31,7 +31,7 @@ To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*
 
 ## Mobile phone verification
 
-For Azure Multi-Factor Authentication or SSPR, users can choose to receive a text message with a verification code to enter in the sign-in interface, or receive a phone call with a prompt to enter their defined pin code.
+For Azure Multi-Factor Authentication or SSPR, users can choose to receive a text message with a verification code to enter in the sign-in interface, or receive a phone call.
 
 If users don't want their mobile phone number to be visible in the directory but want to use it for password reset, administrators shouldn't populate the phone number in the directory. Instead, users should populate their **Authentication Phone** attribute via the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Administrators can see this information in the user's profile, but it's not published elsewhere.
 
@@ -45,11 +45,11 @@ With text message verification during SSPR or Azure Multi-Factor Authentication,
 
 ### Phone call verification
 
-With phone call verification during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to enter their pin number followed by # on their keypad.
+With phone call verification during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad.
 
 ## Office phone verification
 
-With phone call verification during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to enter their pin number followed by # on their keypad.
+With phone call verification during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad.
 
 ## Troubleshooting phone options
 
@@ -60,7 +60,7 @@ If you have problems with phone authentication for Azure AD, review the followin
 * Wrong phone number or incorrect country/region code, or confusion between personal phone number versus work phone number.
    * Troubleshoot the user object and configured authentication methods. Make sure that the correct phone numbers are registered.
 * Wrong PIN entered.
-   * Confirm the user has used the correct PIN as registered for their account.
+   * Confirm the user has used the correct PIN as registered for their account (MFA Server users only).
 * Call forwarded to voicemail.
    * Ensure that the user has their phone turned on and that service is available in their area, or use alternate method.
 * User is blocked
