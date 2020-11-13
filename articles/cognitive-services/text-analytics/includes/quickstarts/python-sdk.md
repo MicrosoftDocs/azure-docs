@@ -126,7 +126,6 @@ These code snippets show you how to do the following tasks with the Text Analyti
 * [Sentiment Analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-ner) 
-* [Personally Identifiable Information recognition](#personally-identifiable-information-recognition) 
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -636,7 +635,10 @@ Entity: 859-98-0987
         Confidence Score: 0.65
         Offset: 22
         Length: 11
+Redacted Text: The employee's phone number is ************.
+Entity: 555-555-5555
         Category: Phone Number
+        Confidence Score: 0.8
         Offset: 31
         Length: 12
 ```
