@@ -34,6 +34,31 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 
 ![Analayzed Layout example](./media/analyze-layout.png)
 
+### Input Requirements 
+
+[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+
+## The Analyze Layout operation
+
+The [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync) operation takes a document (image, Tiff or PDF file) as the input and extracts the text, tables, selection marks and sturcutre of the document. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
+
+|Response header| Result URL |
+|:-----|:----|
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
+
+## The Get Analyze Layout Result operation
+
+The second step is to call the [Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeLayoutResult) operation. This operation takes as input the Result ID that was created by the Analyze Layout operation. It returns a JSON response that contains a **status** field with the following possible values. 
+
+|Field| Type | Possible values |
+|:-----|:----:|:----|
+|status | string | notStarted: The analysis operation has not started.<br /><br />running: The analysis operation is in progress.<br /><br />failed: The analysis operation has failed.<br /><br />succeeded: The analysis operation has succeeded.|
+
+You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
+
+When the **status** field has the **succeeded** value, the JSON response will include the layout extraction results, text, tables and selection marks extracted. The extracted data contains the extracted text lines and words, bounding box, text apearance handwritten indication, tables and selection marks with an indication selected \ unselected. 
+
+
 
 
 
