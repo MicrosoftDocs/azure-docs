@@ -22,8 +22,8 @@ This article lists human languages supported by the Form Recognizer service.
 |English (printed & handwritten) | `en` | ✔ | ✔|
 |Chinese (Simplified) | `zh-Hans`| | ✔ |
 |Chinese (Traditional) | `zh-Hant`| | ✔ |
-|Japanese | `ja` | ✔ | ✔|
-|Korean | `ko` | ✔ | ✔|
+|Japanese | `ja` |  | ✔|
+|Korean | `ko` |  | ✔|
 |Dutch | `nl` | | ✔ |
 |French | `fr` | | ✔ |
 |German | `de` | | ✔ |
