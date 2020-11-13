@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 # Using an App Service Environment
 
-The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that injects directly into an Azure Virtual Network (VNet) of your choosing. It is a system that is only used by one customer. The apps that are deployed into the ASE are subject to the networking features that are applied to the subnets used by the ASE. There aren't any additional features that need to be enabled on your apps to be subject to those networking features. 
+The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that injects directly into an Azure Virtual Network (VNet) of your choosing. It's a system that is only used by one customer. Apps deployed into the ASE are subject to the networking features that are applied to the ASE subnet. There aren't any additional features that need to be enabled on your apps to be subject to those networking features. 
 
 ## Create an app in an ASE
 
@@ -43,7 +43,7 @@ To create an app in an ASE:
     ![Isolated v2 pricing tiers][2]
 
     > [!NOTE]
-    > Linux apps and Windows apps cannot be in the same App Service plan, but they can be in the same App Service Environment.
+    > Linux apps and Windows apps can't be in the same App Service plan, but they can be in the same App Service Environment.
     >
 
 1. Select ** Next: Monitoring**  If you want to enable App Insights with your app, you can do it here during the creation flow. 
@@ -56,10 +56,9 @@ To create an app in an ASE:
 
 Every App Service app runs in an App Service plan. App Service Environments hold App Service plans, and App Service plans hold apps. When you scale an app, you also scale the App Service plan and all the apps in that same plan.
 
-When you scale an App Service plan, the needed infrastructure is added automatically. There's a time delay to scale operations while the infrastructure is being added. If you do several scale operations in sequence for the same App Service plan OS and size, the first infrastructure scale request is acted on and the others are queued. When the first scale operation finishes, the other infrastructure requests all operate together. And when the infrastructure is added, the App Service plans are assigned as appropriate. Creating a new App Service plan is itself a scale operation because it requests additional virtual machines. Scaling one OS and size does not block scaling other OS and size combinations. 
+When you scale an App Service plan, the needed infrastructure is added automatically. There's a time delay to scale operations while the infrastructure is being added. When you scale an App Service plan, any other scale operations requested of the same OS and size will wait until the first one completes. After the blocking scale operation completes, all of the queued requests are processed at the same time. A scale operation on one size and OS won't block scaling of the other combinations of size and OS. For example, if you scaled a Windows I2v2 App Service plan then, any other requests to scale Windows I2v2 in that ASE will be queued until that completes.   
 
 In the multitenant App Service, scaling is immediate because a pool of resources is readily available to support it. In an ASE, there's no such buffer, and resources are allocated based on need.
-
 
 ## App access
 
@@ -82,7 +81,7 @@ The ASE uses private endpoints for inbound traffic and is automatically configur
 1. create a zone in &lt;ASE name&gt;.appserviceenvironment.net named scm
 1. create an A record in the scm zone that points * to the IP address used by your ASE private endpoint
 
-The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the inbound IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
+The DNS settings for your ASE default domain suffix don't restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the inbound IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
 
 ## Publishing
 
@@ -129,7 +128,7 @@ To enable logging on your ASE:
 
 ![ASE diagnostic log settings][4]
 
-If you integrate with Log Analytics, you can see the logs by selecting **Logs** from the ASE portal and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your ASE has an event that will trigger it. If your ASE does not have such an event, there will not be any logs. To quickly see an example of logs in your Log Analytics workspace, perform a scale operation with one of the App Service plans in your ASE. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see those logs. 
+If you integrate with Log Analytics, you can see the logs by selecting **Logs** from the ASE portal and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your ASE has an event that will trigger it. If your ASE doesn't have such an event, there won't be any logs. To quickly see an example of logs in your Log Analytics workspace, perform a scale operation with one of the App Service plans in your ASE. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see those logs. 
 
 **Creating an alert**
 
@@ -187,7 +186,7 @@ To delete an ASE:
 
 <!--Links-->
 [Intro]: ./overview.md
-[MakeASE]: ./create-ase.md
+[MakeASE]: ./creation.md
 [ASENetwork]: ./networking.md
 [UsingASE]: ./using.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
