@@ -19,7 +19,9 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:J
 
 # Quickstart: Sign in users and get an access token in a JavaScript SPA
 
-In this quickstart, you use a code sample to learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts. A JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API. See [How the sample works](#how-the-sample-works) for an illustration.
+In this quickstart, you download and run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users and call Microsoft Graph. The code sample also demonstrates how to obtain an access token to call the Microsoft Graph API or any web API.
+
+See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
