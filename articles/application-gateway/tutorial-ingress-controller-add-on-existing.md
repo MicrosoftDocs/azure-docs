@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 > * Deploy a sample application using AGIC for Ingress on the AKS cluster
 > * Check that the application is reachable through Application Gateway
 
-[!NOTE] When using an AKS cluster with a Windows Server node pool, the recommendation is to use Application Gateway in a different subnet within the same virtual network. [PR#1953](https://github.com/Azure/AKS/issues/1953).
+[!NOTE] When using an AKS cluster with a Windows Server node pool, please use Application Gateway in a different subnet within the same virtual network. [Azure/AKS#1953](https://github.com/Azure/AKS/issues/1953).
 
 ## Prerequisites
 
