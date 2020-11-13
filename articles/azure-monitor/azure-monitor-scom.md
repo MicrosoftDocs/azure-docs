@@ -28,6 +28,12 @@ Operations Manager was primarily designed to monitor virtual machines, but it ca
 Operations Manager has an extensive library of management packs that monitor a variety of applications. 
 
 
+## Monitor Azure resources
+Azure resources actually require Azure Monitor to collect telemetry, although you can choose to have other tools to analyze collected data. [Platform metrics]() and [Activity log]() are automatically generated and collected in Azure Monitor. Resource logs are generated automatically for Azure resources, and you create a [diagnostic setting]() to send them to a Log Analytics workspace. While you can use [diagnostic settings]() to send any of this data to Azure Event 
+
+Analysis of telemetry collected by Azure resources is integrated into the Azure portal for several services, and Azure Monitor includes tools for their analysis and alert. Use [Metrics explorer]() to analyze platform metrics and [Log Analytics]() to analyze log and performance data. [Insights]() provide a customized experience for different services. 
+
+
 
 ## Considerations
 
@@ -43,8 +49,6 @@ Operations Manager has an extensive library of management packs that monitor a v
 2. Configure full monitoring for your Azure resources. 
 
 
-## Monitor Azure resources
-Azure resources actually require Azure Monitor to collect telemetry, although you can choose to have other tools to analyze collected data. 
 
 
 
