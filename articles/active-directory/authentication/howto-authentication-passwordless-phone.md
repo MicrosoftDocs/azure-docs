@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 ---
 # Enable passwordless sign-in with the Microsoft Authenticator app (preview)
 
-The Microsoft Authenticator app can be used to sign in to any Azure AD account without using a password. The Microsoft Authenticator uses key-based authentication to enable a user credential that is tied to a device, where the device uses a PIN or biometric. [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification) uses a similar technology.
+The Microsoft Authenticator app can be used to sign in to any Azure AD account without using a password. Microsoft Authenticator uses key-based authentication to enable a user credential that is tied to a device, where the device uses a PIN or biometric. [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification) uses a similar technology.
 
 This authentication technology can be used on any device platform, including mobile. This technology can also be used with any app or website that integrates with Microsoft Authentication Libraries.
 
 :::image type="content" border="false" source="./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png" alt-text="Example of a browser sign-in asking for the user to approve the sign-in.":::
 
-A person who has enabled phone sign-in from the Microsoft Authenticator app sees a message that asks them to tap a number in their app. No username or password is asked for. To complete the sign-in process in the app, the user must next take the following actions:
+People who enabled phone sign-in from the Microsoft Authenticator app see a message that asks them to tap a number in their app. No username or password is asked for. To complete the sign-in process in the app, a user must next take the following actions:
 
 1. Match the number.
 2. Choose **Approve**.
@@ -37,7 +37,7 @@ To use passwordless phone sign-in with the Microsoft Authenticator app, the foll
 - Latest version of Microsoft Authenticator installed on devices running iOS 8.0 or greater, or Android 6.0 or greater.
 
 > [!NOTE]
-> If you enabled Microsoft Authenticator app passwordless sign-in preview using Azure AD PowerShell, it was enabled for your entire directory. If you enable using this new method, it supercedes the PowerShell policy. We recommend you enable for all users in your tenant via the new *Authentication Methods* menu, otherwise users not in the new policy are no longer be able to sign in without a password.
+> If you enabled Microsoft Authenticator passwordless sign-in preview using Azure AD PowerShell, it was enabled for your entire directory. If you enable using this new method, it supercedes the PowerShell policy. We recommend you enable for all users in your tenant via the new *Authentication Methods* menu, otherwise users not in the new policy are no longer be able to sign in without a password.
 
 ## Enable passwordless authentication methods
 
@@ -60,7 +60,7 @@ To enable the authentication method for passwordless phone sign-in, complete the
    1. **Target** - All users or Select users
 1. To apply the new policy, select **Save**.
 
-## User registration and management of Microsoft Authenticator app
+## User registration and management of Microsoft Authenticator
 
 Users register themselves for the passwordless authentication method of Azure AD by using the following steps:
 
@@ -68,23 +68,20 @@ Users register themselves for the passwordless authentication method of Azure AD
 1. Sign in, then add the Authenticator app by selecting **Add method > Authenticator app**, then **Add**.
 1. Follow the instructions to install and configure the Microsoft Authenticator app on your device.
 1. Select **Done** to complete Authenticator configuration.
-1. In **Microsoft Authenticator** app, choose **Enable phone sign-in** from the drop-down menu for the account registered.
+1. In **Microsoft Authenticator**, choose **Enable phone sign-in** from the drop-down menu for the account registered.
 1. Follow the instructions in the app to finish registering the account for passwordless phone sign-in.
 
 An organization can direct its users to sign in with their phones, without using a password. For further assistance configuring the Microsoft Authenticator app and enabling phone sign-in, see [Sign in to your accounts using the Microsoft Authenticator app](../user-help/user-help-auth-app-sign-in.md).
 
 > [!NOTE]
-> Users who aren't allowed by policy to use phone sign-in are no longer able to enable it within the Microsoft Authenticator app.  
+> Users who aren't allowed by policy to use phone sign-in are no longer able to enable it within the Microsoft Authenticator app.
 
 ## Sign in with passwordless credential
 
-A user can start to use passwordless sign-in after all the following actions are completed:
+A user can start to utilize passwordless sign-in after all the following actions are completed:
 
 - An admin has enabled the user's tenant.
 - The user has updated her Microsoft Authenticator app to enable phone sign-in.
-
-
-
 
 The first time a user starts the phone sign-in process, the user performs the following steps:
 
@@ -105,14 +102,14 @@ The following known issues exist in the current preview experience.
 
 ### Not seeing option for passwordless phone sign-in
 
-In one scenario, a user can have an unanswered passwordless phone sign-in verification pending. The user might attempt to sign in again. When this happens, the user might see only the option to enter a password.
+In one scenario, a user can have an unanswered passwordless phone sign-in verification that is pending. Yet the user might attempt to sign in again. When this happens, the user might see only the option to enter a password.
 
 To resolve this scenario, the following steps can be used:
 
 1. Open the Microsoft Authenticator app.
 2. Respond to any notification prompts.
 
-Then the user can continue to use passwordless phone sign-in.
+Then the user can continue to utilize passwordless phone sign-in.
 
 ### Federated Accounts
 
@@ -122,7 +119,7 @@ This logic generally prevents a user in a hybrid tenant from being directed to A
 
 ### Azure MFA server
 
-An end user can be enabled for multi-factor authentication (MFA), through an on-premises Azure MFA server. The user can still create and use a single passwordless phone sign-in credential.
+An end user can be enabled for multi-factor authentication (MFA), through an on-premises Azure MFA server. The user can still create and utilize a single passwordless phone sign-in credential.
 
 If the user attempts to upgrade multiple installations (5+) of the Microsoft Authenticator app with the passwordless phone sign-in credential, this change might result in an error.
 
@@ -133,7 +130,7 @@ Before you can create this new strong credential, there are prerequisites. One p
 Currently, a device can only be registered in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign-in.
 
 > [!NOTE]
-> Device registration is not the same as device management or "MDM." It only associates a device ID and a user ID together in the Azure AD directory.  
+> Device registration is not the same as device management or mobile device management (MDM). Device registration only associates a device ID and a user ID together, in the Azure AD directory.
 
 ## Next steps
 
