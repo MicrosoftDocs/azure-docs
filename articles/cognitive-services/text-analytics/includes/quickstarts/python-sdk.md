@@ -249,8 +249,7 @@ In order to do sentiment analysis with opinion mining, create a new function cal
 def sentiment_analysis_with_opinion_mining_example(client):
 
     documents = [
-        "The food and service were unacceptable, but the concierge were nice",
-        "The rooms were beautiful but dirty. The AC was good and quiet, but the elevator was broken"
+        "The food and service were unacceptable, but the concierge were nice"
     ]
 
     result = client.analyze_sentiment(documents, show_opinion_mining=True)
@@ -344,66 +343,8 @@ Negative=0.16
 
 
 
-Document Sentiment: negative
-Overall scores: positive=0.00; neutral=0.00; negative=1.00
-
-Sentence: The rooms were beautiful but dirty.
-Sentence sentiment: negative
-Sentence score:
-Positive=0.01
-Neutral=0.00
-Negative=0.99
-
-......'mixed' aspect 'rooms'
-......Aspect score:
-......Positive=0.50
-......Negative=0.50
-
-......'positive' opinion 'beautiful'
-......Opinion score:
-......Positive=1.00
-......Negative=0.00
-
-......'negative' opinion 'dirty'
-......Opinion score:
-......Positive=0.01
-......Negative=0.99
-
-
-
-Sentence: The AC was good and quiet, but the elevator was broken
-Sentence sentiment: negative
-Sentence score:
-Positive=0.00
-Neutral=0.00
-Negative=1.00
-
-......'positive' aspect 'AC'
-......Aspect score:
-......Positive=1.00
-......Negative=0.00
-
-......'positive' opinion 'good'
-......Opinion score:
-......Positive=1.00
-......Negative=0.00
-
-......'positive' opinion 'quiet'
-......Opinion score:
-......Positive=1.00
-......Negative=0.00
-
-......'negative' aspect 'elevator'
-......Aspect score:
-......Positive=0.00
-......Negative=1.00
-
-......'negative' opinion 'broken'
-......Opinion score:
-......Positive=0.00
-......Negative=1.00
-
 Press any key to continue . . .
+
 ```
 
 # [Version 3.0](#tab/version-3)
