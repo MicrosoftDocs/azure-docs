@@ -175,7 +175,7 @@ This procedure shows you how to define backend address pools using VMs running o
 
    1. Change the URL to `http://<app-gw-ip-address>:8080/images/test.htm`.
 
-      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-09.png" alt-text="Screenshot of another successful test with th new URL.":::
+      :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-url-route-backend-pool-09.png" alt-text="Screenshot of another successful test with the new URL.":::
 
    1. Change the URL again to `http://<app-gw-ip-address>:8080/video/test.htm`.
 
