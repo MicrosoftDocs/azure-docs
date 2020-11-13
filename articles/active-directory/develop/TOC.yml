@@ -527,6 +527,8 @@
       href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Handle ITP in Safari
       href: reference-third-party-cookies-spas.md
+    - name: Use Continuous Access Evaluation APIs
+      href: app-resilience-continuous-access-evaluation.md
   - name: Application configuration
     displayName: App configuration
     items:
