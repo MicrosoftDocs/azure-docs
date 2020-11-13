@@ -55,7 +55,7 @@ To enable a test drive, select the **Enable a test drive** check box. You will c
 
 When you're publishing an offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive (see the preceding section). Otherwise, connecting to a CRM is optional.
 
-1.Under **Customer leads**, select the **Connect** link.
+1. Under **Customer leads**, select the **Connect** link.
 1. In the **Connection details** dialog box, select a lead destination.
 1. Complete the fields that appear. For detailed steps, see the following articles:
 

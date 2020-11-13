@@ -142,7 +142,8 @@ Assign the audience that will have access to this private plan using **Azure sub
 
 > [!NOTE]
 > A private or restricted audience is different from the preview audience that you defined on the **Preview** pane. A preview audience can access your offer *before* it's published live to Azure Marketplace. Although the private audience choice applies only to a specific plan, the preview audience can view all private and public plans for validation purposes.
-<br><br>Private offers are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
+
+Private offers are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
 
 ### Hide plan
 
@@ -193,7 +194,7 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 
     ...and enter the requested details:
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-2.png" alt-text="A view of the generation details window.":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-3.png" alt-text="A view of the generation details window.":::
 
 <!--    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
 -->
