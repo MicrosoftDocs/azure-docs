@@ -1,41 +1,28 @@
 ---
-title: 'Quickstart: Create a search index in Postman using REST APIs'
-titleSuffix: Azure Cognitive Search
-description: In this REST API quickstart, learn how to call the Azure Cognitive Search REST APIs using Postman and sample data and definitions.
-
-manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+title: include file
+description: include file
+manager: liamca
+author: dereklegenzoff
+ms.author: delegenz
 ms.service: cognitive-search
-ms.topic: quickstart
-ms.devlang: rest-api
-ms.date: 08/17/2020
+ms.topic: include
+ms.custom: include file
+ms.date: 11/17/2020
 ---
 
-# Quickstart: Create an Azure Cognitive Search index in Postman using REST APIs
-> [!div class="op_single_selector"]
-> * [Postman](search-get-started-postman.md)
-> * [C#](./search-get-started-dotnet.md)
-> * [Python](search-get-started-python.md)
-> * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-howto-dotnet-sdk.md)
->*
-
-This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and an API client for sending and receiving requests. With an API client and these instructions, you can send requests and view responses before writing any code.
-
-The article uses the Postman application. You can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) if you prefer to use predefined requests. 
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+The article uses a Visual Studio code extension for Azure Cognitive Search REST APIs. 
 
 ## Prerequisites
 
 The following services and tools are required for this quickstart. 
 
-+ [Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Cognitive Search.
++ [Visual Studio Code](https://code.visualstudio.com/download)
+
++ [Azure Cognitive Search for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
 
 + [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-## Get a key and URL
+## Copy a key and URL
 
 REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
@@ -285,18 +272,3 @@ Adding `/stats` to your URL returns index information. In Postman, your request 
  ![Get index information](media/search-get-started-postman/postman-system-query.png "Get index information")
 
 Notice that the api-version syntax differs. For this request, use `?` to append the api-version. The `?` separates the URL path from the query string, while & separates each 'name=value' pair in the query string. For this query, api-version is the first and only item in the query string.
-
-## Clean up resources
-
-When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
-
-You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
-
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
-
-## Next steps
-
-Now that you know how to perform core tasks, you can move forward with additional REST API calls for more advanced features, such as indexers or [setting up a cognitive search pipeline](cognitive-search-tutorial-blob.md). For your next step, we recommend the following link:
-
-> [!div class="nextstepaction"]
-> [REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md)

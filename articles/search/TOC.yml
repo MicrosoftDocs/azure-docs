@@ -35,7 +35,7 @@
   - name : JavaScript
     href: search-get-started-javascript.md
   - name: REST
-    href: search-get-started-postman.md
+    href: search-get-started-rest.md
   - name: PowerShell
     href: search-get-started-powershell.md
   - name: Python
