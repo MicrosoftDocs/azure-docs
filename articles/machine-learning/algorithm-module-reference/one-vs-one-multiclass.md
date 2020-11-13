@@ -27,6 +27,8 @@ In essence, the module creates an ensemble of individual models and then merges 
 
 For example, let’s say you configure a [Two-Class Support Vector Machine](two-class-support-vector-machine.md) model and provide that as input to the One-vs-One Multiclass module. The module would create two-class support vector machine models for all members of the output class. It would then apply the one-versus-one method to combine the results for all classes.  
 
+The module uses OneVsOneClassifier of sklearn, and you can learn more details [here](https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsOneClassifier.html).
+
 ## How to configure the One-vs-One Multiclass classifier  
 
 This module creates an ensemble of binary classification models to analyze multiple classes. To use this module, you need to configure and train a *binary classification* model first. 
