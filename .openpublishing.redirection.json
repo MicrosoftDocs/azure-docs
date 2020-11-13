@@ -5804,6 +5804,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/tutorial-azure-security.md",
+      "redirect_url": "/azure/virtual-machines/tutorial-azure-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/tutorial-azure-security.md",
+      "redirect_url": "/azure/virtual-machines/tutorial-azure-security",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/using-cloud-init-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/using-cloud-init",
       "redirect_document_id": true

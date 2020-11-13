@@ -187,7 +187,7 @@
 
   - name: Reference
     items:
-    - name: IoT Edge Role via API, SDK, PowerShell
+    - name: IoT Edge role via API, SDK, PowerShell
       href: azure-stack-edge-gpu-iot-edge-api-update.md
     - name: Azure PowerShell
       href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
