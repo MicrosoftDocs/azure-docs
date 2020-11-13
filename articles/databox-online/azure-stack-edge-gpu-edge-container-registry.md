@@ -90,7 +90,7 @@ Follow these steps to access Edge container registry:
 
         <IP address of the Kubernetes main node>    <Edge container registry endpoint> 
         
-        ![Add DNS entry for Edge container registry endpoint](media/azure-stack-edge-gpu-edge-container-registry/add-dns-entry-hosts-1.png)    
+        ![Add DNS entry for Edge container registry endpoint](media/azure-stack-edge-gpu-edge-container-registry/add-domain-name-service-entry-hosts-1.png)    
 
 1. Download the Edge container registry certificate from Local UI. 
     1. In the local UI of the device, go to **Certificates**.
