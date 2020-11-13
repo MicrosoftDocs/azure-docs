@@ -12,7 +12,7 @@ ms.date: 11/12/2020
 
 # Quickstart: Use Purview Studio
 
-In this quickstart, Use Purview Studio.
+In this quickstart, you can learn how to use Purview Studio.
 
 ## Prerequisites
 
@@ -61,7 +61,8 @@ Knowledge center is where you can find all the videos and tutorials related to P
 
 Each UX in Azure Purview Studio will have guided tours to give overview of the page. To start the guided tour select help on top bar and click guided tours.
 
-:::image type="content" source="./media/use-purview-studio/guided-tour.png" alt-text="Screenshot of guided tours.":::
+
+ :::image type="content" source="./media/use-purview-studio/guided-tour.png" alt-text="Screenshot of the guided tour.":::
 
 > [!div class="nextstepaction"]
 > [Add a security principal](add-security-principal.md)
