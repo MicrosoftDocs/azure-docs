@@ -164,7 +164,7 @@ In the command output, take note of the key's ID, `kid`. You use this ID in the 
 
 For convenience, store the format you choose for the key ID in the $keyID environment variable. You can use a key ID with a version or a key without a version.
 
-#### Manual key rotation - key ID without version
+#### Manual key rotation - key ID with version
 
 When used to encrypt a registry with a customer-managed key, this key allows only manual key rotation in Azure Container Registry.
 
