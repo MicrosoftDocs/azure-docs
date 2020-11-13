@@ -77,10 +77,9 @@ In web server apps, the sign-in authentication flow takes these high-level steps
 
 You can ensure the user's identity by validating the ID token with a public signing key that is received from the Microsoft identity platform endpoint. A session cookie is set, which can be used to identify the user on subsequent page requests.
 
-To see this scenario in action, try one of the web app sign-in code samples in the [Microsoft identity platform getting started](v2-overview.md#getting-started) section.
+To see this scenario in action, try the code samples in the [Web app that signs in users scenario](scenario-web-app-sign-user-overview.md).
 
 In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). For more information about this scenario, read about [getting started with web apps and Web APIs](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet).
-
 
 ## Web APIs
 
@@ -102,7 +101,7 @@ A web API can receive access tokens from all types of apps, including web server
 
 ![Shows the web API authentication flow](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-To learn how to secure a web API by using OAuth2 access tokens, check out the web API code samples in the [Microsoft identity platform getting started](v2-overview.md#getting-started) section.
+To learn how to secure a web API by using OAuth2 access tokens, check out the web API code samples in the [protected web API scenario](scenario-protected-web-api-overview.md).
 
 In many cases, web APIs also need to make outbound requests to other downstream web APIs secured by Microsoft identity platform. To do so, web APIs can take advantage of the **On-Behalf-Of** flow, which allows the web API to exchange an incoming access token for another access token to be used in outbound requests. For more info, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md).
 
