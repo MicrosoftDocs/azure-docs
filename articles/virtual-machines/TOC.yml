@@ -455,129 +455,7 @@
       href: ./linux/docker-compose-quickstart.md
 - name: Instances
   items:
-  - name: Create Linux VMs
-    items:
-    - name: Use the CLI
-      href: ./linux/create-cli-complete.md
-    - name: Use an ARM template
-      displayName: Azure Resource Manager
-      href: ./linux/create-ssh-secured-vm-from-template.md
-    - name: Use REST API
-      href: ./linux/create-vm-rest-api.md
-    - name: Copy a VM using CLI
-      href: ./linux/copy-vm.md
-    - name: Build with Jenkins
-      href: /azure/developer/jenkins/pipeline-with-github-and-docker
-    - name: Integrate Jenkins with Azure DevOps
-      href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-    - name: Configure Rolling deployment strategy
-      href: ./linux/tutorial-devops-azure-pipelines-classic.md
-    - name: Configure Canary deployment strategy
-      href: ./linux/tutorial-azure-devops-canary-strategy.md
-    - name: Configure Blue-Green deployment strategy
-      href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-    - name: CI/CD with Azure Pipelines(YAML)
-      href: ./linux/tutorial-build-deploy-azure-pipelines.md
-    - name: Create LAMP stack
-      href: ./linux/tutorial-lamp-stack.md
-    - name: Secure web server with SSL
-      href: ./linux/tutorial-secure-web-server.md
-  - name: SSH for Linux VMs
-    items:
-      - name: On Linux or macOS
-        href: ./linux/mac-create-ssh-keys.md
-      - name: On Windows
-        href: ./linux/ssh-from-windows.md
-      - name: In the portal
-        href: ssh-keys-portal.md
-      - name: Detailed steps
-        href: ./linux/create-ssh-keys-detailed.md  
-  - name: Create Windows VMs
-    items:
-    - name: Use C#
-      href: ../azure-resource-manager/templates/deploy-rest.md
-    - name: Use specialized disk
-      items:
-      - name: Portal
-        href: ./windows/create-vm-specialized-portal.md
-      - name: PowerShell
-        href: ./windows/create-vm-specialized.md
-    - name: Create VM with Chef
-      href: /azure/developer/chef/windows-vm-configure
-    - name: Use Java
-      href: ./windows/java.md
-    - name: Use Python
-      href: python.md
-    - name: Use ARM template
-      displayName: Azure Resource Manager template
-      href: ps-template.md
-  - name: Migrate from classic to Azure Resource Manager
-    items:
-    - name: Retirement starting March 1, 2023
-      href: classic-vm-deprecation.md
-    - name: Migration Overview
-      href: ./linux/migration-classic-resource-manager-overview.md
-    - name: Deep dive on migration
-      href: migration-classic-resource-manager-deep-dive.md
-    - name: Plan for migration
-      items:
-      - name: Linux
-        href: ./linux/migration-classic-resource-manager-plan.md
-      - name: Windows
-        href: ./windows/migration-classic-resource-manager-plan.md
-    - name: Migrate using the CLI
-      href: ./linux/migration-classic-resource-manager-cli.md
-    - name: Common migration errors
-      href: ./linux/migration-classic-resource-manager-errors.md
-    - name: Community tools for migration
-      href: ./windows/migration-classic-resource-manager-community-tools.md
-    - name: FAQ
-      href: migration-classic-resource-manager-faq.md
-  - name: Management basics 
-    items:
-    - name: Linux
-      href: ./linux/tutorial-govern-resources.md
-    - name: Windows
-      href: ./windows/tutorial-govern-resources.md
-  - name: Time sync
-    items: 
-    - name: Linux
-      href: ./linux/time-sync.md
-    - name: Windows
-      href: ./windows/time-sync.md
-  - name: Run scripts on a VM
-    items:
-    - name: Custom Script Extension
-      items:
-      - name: Linux
-        href: ./extensions/custom-script-linux.md
-      - name: Windows
-        href: ./extensions/custom-script-windows.md
-    - name: Run Command
-      items: 
-      - name: Linux
-        href: ./linux/run-command.md
-      - name: Windows
-        href: ./windows/run-command.md
-    - name: Hybrid Runbook Worker
-      href: ../automation/automation-hybrid-runbook-worker.md
-    - name: Serial 
-      items:
-      - name: Linux
-        href: ./troubleshooting/serial-console-linux.md)
-      - name: Windows
-        href: ./troubleshooting/serial-console-windows.md)
-  - name: Remote Desktop for Linux
-    href: ./linux/use-remote-desktop.md
-  - name: Use File storage with Linux
-    href: mount-azure-file-storage-on-linux-using-smb.md
-  - name: Updates and patches
-    items:
-    - name: Red Hat Update Infrastructure
-      href: ../workloads/redhat/redhat-rhui.md
-  - name: Copy files to a VM
-    href: ./linux/copy-files-to-linux-vm-using-scp.md
-  - name: VM sizes
+  - name: Sizes
     items: 
     - name: Overview
       href: sizes.md
@@ -714,53 +592,183 @@
         href: ./linux/compute-benchmark-scores.md
       - name: Windows
         href: ./windows/compute-benchmark-scores.md
-  - name: Spot VMs
-    displayName: pre-empt, preempt, spot
+  - name: Purchasing options
     items:
-    - name: Overview
-      href: spot-vms.md
-    - name: CLI
-      href: ./linux/spot-cli.md
-    - name: Portal
-      href: spot-portal.md
-    - name: ARM template
-      displayName: template ARM
-      href: ./linux/spot-template.md
-    - name: Error codes
-      href: error-codes-spot.md
-  - name: Azure Hybrid Benefit
-    items:
-    - name: Linux
-      href: ./linux/azure-hybrid-benefit-linux.md
-    - name: Windows 
+    - name: Dedicated hosts
+      items: 
+      - name: Overview
+        href: ./linux/dedicated-hosts.md
+      - name: CLI
+        href: dedicated-hosts-cli.md
+      - name: Portal
+        href: dedicated-hosts-portal.md
+      - name: PowerShell
+        href: ./windows/dedicated-hosts-powershell.md    
+    - name: Spot VMs
+      displayName: pre-empt, preempt, spot
       items:
-      - name: Use Azure Hybrid Benefit license
-        href: hybrid-use-benefit-licensing.md
-      - name: Use Multitenant Hosting Rights for Windows 10
-        href: windows-desktop-multitenant-hosting-deployment.md
-  - name: Reserved instances
+      - name: Overview
+        href: spot-vms.md
+      - name: CLI
+        href: ./linux/spot-cli.md
+      - name: Portal
+        href: spot-portal.md
+      - name: ARM template
+        displayName: template ARM
+        href: ./linux/spot-template.md
+      - name: Error codes
+        href: error-codes-spot.md
+    - name: Azure Hybrid Benefit
+      items:
+      - name: Linux
+        href: ./linux/azure-hybrid-benefit-linux.md
+      - name: Windows 
+        items:
+        - name: Use Azure Hybrid Benefit license
+          href: hybrid-use-benefit-licensing.md
+        - name: Use Multitenant Hosting Rights for Windows 10
+          href: windows-desktop-multitenant-hosting-deployment.md
+    - name: Reserved instances
+      items:
+      - name: Prepay for VMs
+        href: ./linux/prepay-reserved-vm-instances.md
+      - name: Prepay for Dedicated Hosts
+        href: prepay-dedicated-hosts-reserved-instances.md
+      - name: What are Azure reservations?
+        href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/windows/toc.json
+      - name: VM instance size flexibility
+        href: reserved-vm-instance-size-flexibility.md
+  - name: Create Linux VMs
     items:
-    - name: Prepay for VMs
-      href: ./linux/prepay-reserved-vm-instances.md
-    - name: Prepay for Dedicated Hosts
-      href: prepay-dedicated-hosts-reserved-instances.md
-    - name: What are Azure reservations?
-      href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/windows/toc.json
-    - name: VM instance size flexibility
-      href: reserved-vm-instance-size-flexibility.md
-  - name: Dedicated hosts
-    items: 
-    - name: Overview
-      href: ./linux/dedicated-hosts.md
-    - name: CLI
-      href: dedicated-hosts-cli.md
-    - name: Portal
-      href: dedicated-hosts-portal.md
-    - name: PowerShell
-      href: ./windows/dedicated-hosts-powershell.md
-  - name: Enable nested virtualization
-    href: ./windows/nested-virtualization.md
-- name: Imaging
+    - name: Use the CLI
+      href: ./linux/create-cli-complete.md
+    - name: Use an ARM template
+      displayName: Azure Resource Manager
+      href: ./linux/create-ssh-secured-vm-from-template.md
+    - name: Use REST API
+      href: ./linux/create-vm-rest-api.md
+    - name: Copy a VM using CLI
+      href: ./linux/copy-vm.md
+    - name: Build with Jenkins
+      href: /azure/developer/jenkins/pipeline-with-github-and-docker
+    - name: Integrate Jenkins with Azure DevOps
+      href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
+    - name: Configure Rolling deployment strategy
+      href: ./linux/tutorial-devops-azure-pipelines-classic.md
+    - name: Configure Canary deployment strategy
+      href: ./linux/tutorial-azure-devops-canary-strategy.md
+    - name: Configure Blue-Green deployment strategy
+      href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+    - name: CI/CD with Azure Pipelines(YAML)
+      href: ./linux/tutorial-build-deploy-azure-pipelines.md
+    - name: Create LAMP stack
+      href: ./linux/tutorial-lamp-stack.md
+    - name: Secure web server with SSL
+      href: ./linux/tutorial-secure-web-server.md
+  - name: Connect to Linux VMs
+    items:
+    - name: SSH for Linux VMs
+      items:
+        - name: On Linux or macOS
+          href: ./linux/mac-create-ssh-keys.md
+        - name: On Windows
+          href: ./linux/ssh-from-windows.md
+        - name: In the portal
+          href: ssh-keys-portal.md
+        - name: Detailed steps
+          href: ./linux/create-ssh-keys-detailed.md  
+    - name: Remote Desktop for Linux
+      href: ./linux/use-remote-desktop.md
+  - name: Create Windows VMs
+    items:
+    - name: Use C#
+      href: ../azure-resource-manager/templates/deploy-rest.md
+    - name: Use specialized disk
+      items:
+      - name: Portal
+        href: ./windows/create-vm-specialized-portal.md
+      - name: PowerShell
+        href: ./windows/create-vm-specialized.md
+    - name: Create VM with Chef
+      href: /azure/developer/chef/windows-vm-configure
+    - name: Use Java
+      href: ./windows/java.md
+    - name: Use Python
+      href: python.md
+    - name: Use ARM template
+      displayName: Azure Resource Manager template
+      href: ps-template.md
+  - name: Migrate from classic to Azure Resource Manager
+    items:
+    - name: Retirement starting March 1, 2023
+      href: classic-vm-deprecation.md
+    - name: Migration Overview
+      href: ./linux/migration-classic-resource-manager-overview.md
+    - name: Deep dive on migration
+      href: migration-classic-resource-manager-deep-dive.md
+    - name: Plan for migration
+      items:
+      - name: Linux
+        href: ./linux/migration-classic-resource-manager-plan.md
+      - name: Windows
+        href: ./windows/migration-classic-resource-manager-plan.md
+    - name: Migrate using the CLI
+      href: ./linux/migration-classic-resource-manager-cli.md
+    - name: Common migration errors
+      href: ./linux/migration-classic-resource-manager-errors.md
+    - name: Community tools for migration
+      href: ./windows/migration-classic-resource-manager-community-tools.md
+    - name: FAQ
+      href: migration-classic-resource-manager-faq.md
+  - name: Management basics 
+    items:
+    - name: Manage resources
+      items:
+      - name: Linux
+        href: ./linux/tutorial-govern-resources.md
+      - name: Windows
+        href: ./windows/tutorial-govern-resources.md
+    - name: Time sync
+      items: 
+      - name: Linux
+        href: ./linux/time-sync.md
+      - name: Windows
+        href: ./windows/time-sync.md
+    - name: Run scripts on a VM
+      items:
+      - name: Custom Script Extension
+        items:
+        - name: Linux
+          href: ./extensions/custom-script-linux.md
+        - name: Windows
+          href: ./extensions/custom-script-windows.md
+      - name: Run Command
+        items: 
+        - name: Linux
+          href: ./linux/run-command.md
+        - name: Windows
+          href: ./windows/run-command.md
+      - name: Hybrid Runbook Worker
+        href: ../automation/automation-hybrid-runbook-worker.md
+      - name: Serial console
+        items:
+        - name: Linux
+          href: ./troubleshooting/serial-console-linux.md)
+        - name: Windows
+          href: ./troubleshooting/serial-console-windows.md)
+    - name: Enable nested virtualization
+      href: ./windows/nested-virtualization.md
+    - name: File storage
+      items:
+      - name: Linux mount using SMB
+        href: mount-azure-file-storage-on-linux-using-smb.md
+      - name: Copy files to a Linux VM
+        href: ./linux/copy-files-to-linux-vm-using-scp.md
+    - name: Updates and patches
+      items:
+      - name: Red Hat Update Infrastructure
+        href: ../workloads/redhat/redhat-rhui.md
+- name: Images and snapshots
   items:
   - name: Overview
     href: ./linux/imaging.md
@@ -1471,9 +1479,13 @@
   - name: Tag a VM
     items:
     - name: CLI
-      href: ./linux/tag.md
+      href: tag-cli.md
+    - name: Portal
+      href: tag-portal.md
     - name: PowerShell
-      href: ./windows/tag.md
+      href: tag-powershell.md
+    - name: Template 
+      href: tag-template.md
   - name: Monitor metadata
     items: 
     - name: CLI
