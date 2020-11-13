@@ -43,9 +43,9 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 
 1. In Synapse Studio, on the left-side pane, select **Manage** > **SQL pools**.
 1. Select **New**
-1. For **SQL pool name** select **SQLDB1**
+1. For **SQL pool name** select **SQLPOOL1**
 1. For **Performance level** choose **DW100C**
-1. Select **Review + create** > **Create**. Your dedicated SQL pool will be ready in a few minutes. Your dedicated SQL pool is associated with a dedicated SQL pool database that's also called **SQLDB1**.
+1. Select **Review + create** > **Create**. Your dedicated SQL pool will be ready in a few minutes. Your dedicated SQL pool is associated with a dedicated SQL pool database that's also called **SQLPOOL1**.
 
 A dedicated SQL pool consumes billable resources as long as it's active. You can pause the pool later to reduce costs.
 
