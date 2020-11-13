@@ -27,7 +27,7 @@ For this article, you create a simplified single VNet with three subnets for eas
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
 * **AzureBastionSubnet** - the subnet used for Azure Bastion, which is used to connect to the workload server. For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
 
-![Tutorial network infrastructure](media/deploy-ps/tutorial_network.png)
+![Tutorial network infrastructure](media/deploy-ps/tutorial-network.png)
 
 In this article, you learn how to:
 
