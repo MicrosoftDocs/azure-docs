@@ -1,5 +1,5 @@
 ---
-title: Azure security baseline for Cost Management
+title: Azure security baseline for Azure Cost Management
 description: The Cost Management security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: cost-management-billing
@@ -32,7 +32,7 @@ To see how Cost Management completely maps to the Azure Security Benchmark, see 
 
 Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess your identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
 
-Note: Azure AD supports external identity providers, which allow users without a Microsoft account to sign in to their applications and resources with their external identity.
+Azure AD supports external identity providers, which allow users without a Microsoft account to sign in to their applications and resources with their external identity.
 
 - [Tenancy in Azure AD](../active-directory/develop/single-and-multi-tenant-apps.md)
 
@@ -50,8 +50,7 @@ Note: Azure AD supports external identity providers, which allow users without a
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
-**Guidance**: Azure Cost Management uses Azure Active Directory to provide identity and access management to
-Azure resources, cloud applications, and on-premises applications. This
+**Guidance**: Azure Cost Management uses Azure Active Directory to provide identity and access management to Azure resources, cloud applications, and on-premises applications. This
 includes enterprise identities such as employees, as well as external
 identities such as partners, vendors, and suppliers. This enables single
 sign-on (SSO) to manage and secure access to your organization’s data and
