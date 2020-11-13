@@ -253,13 +253,12 @@ async function sentimentAnalysisWithOpinionMining(client){
             for (const { aspect, opinions } of sentence.minedOpinions) {
                 console.log(`\t\tAspect text: ${aspect.text}`);
                 console.log(`\t\tAspect sentiment: ${aspect.sentiment}`);
-                console.log("\t\tAspect confidence scores:", aspect.confidenceScores);
-                console.log(`\t\tAspect Positive: ${aspect.confidenceScores.positive.toFixed(2)} \tNegative: ${aspect.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
+                console.log(`\t\tAspect Positive: ${aspect.confidenceScores.positive.toFixed(2)} \tNegative: ${aspect.confidenceScores.negative.toFixed(2)}`);
                 console.log("\t\tAspect opinions:");
                 for (const { text, sentiment, confidenceScores } of opinions) {
                     console.log(`\t\tOpinion text: ${text}`);
                     console.log(`\t\tOpinion sentiment: ${sentiment}`);
-                    console.log(`\t\tOpinion Positive: ${confidenceScores.positive.toFixed(2)} \tNegative: ${confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
+                    console.log(`\t\tOpinion Positive: ${confidenceScores.positive.toFixed(2)} \tNegative: ${confidenceScores.negative.toFixed(2)}`);
                 }
             }
         });
@@ -284,28 +283,25 @@ ID: 0
         Mined opinions
                 Aspect text: food
                 Aspect sentiment: negative
-                Aspect confidence scores: { positive: 0.01, negative: 0.99 }
-                Aspect Positive: 0.01   Negative: 0.99  Neutral: 0.00
+                Aspect Positive: 0.01   Negative: 0.99
                 Aspect opinions:
                 Opinion text: unacceptable
                 Opinion sentiment: negative
-                Opinion Positive: 0.01  Negative: 0.99  Neutral: 0.00
+                Opinion Positive: 0.01  Negative: 0.99
                 Aspect text: service
                 Aspect sentiment: negative
-                Aspect confidence scores: { positive: 0.01, negative: 0.99 }
-                Aspect Positive: 0.01   Negative: 0.99  Neutral: 0.00
+                Aspect Positive: 0.01   Negative: 0.99
                 Aspect opinions:
                 Opinion text: unacceptable
                 Opinion sentiment: negative
-                Opinion Positive: 0.01  Negative: 0.99  Neutral: 0.00
+                Opinion Positive: 0.01  Negative: 0.99
                 Aspect text: concierge
                 Aspect sentiment: positive
-                Aspect confidence scores: { positive: 1, negative: 0 }
-                Aspect Positive: 1.00   Negative: 0.00  Neutral: 0.00
+                Aspect Positive: 1.00   Negative: 0.00
                 Aspect opinions:
                 Opinion text: nice
                 Opinion sentiment: positive
-                Opinion Positive: 1.00  Negative: 0.00  Neutral: 0.00
+                Opinion Positive: 1.00  Negative: 0.00
 ```
 
 # [Version 3.0](#tab/version-3)
