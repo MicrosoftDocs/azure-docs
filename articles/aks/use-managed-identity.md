@@ -109,9 +109,9 @@ Finally, get credentials to access the cluster:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
-## Upgrade an existing service principal based AKS cluster to managed identities
+## Update an existing service principal based AKS cluster to managed identities
 
-You can now create an AKS cluster with managed identities by using the following CLI commands.
+You can now update an AKS cluster with managed identities by using the following CLI commands.
 
 First, update the System Assigned Identity:
 
