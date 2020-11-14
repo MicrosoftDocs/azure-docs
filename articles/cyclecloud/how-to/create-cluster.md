@@ -30,7 +30,13 @@ Fill out the new cluster form and hit **Save** to create the new cluster. The fo
 
 - **Return Proxy** if checked, nodes will communicate back to the CycleCloud application server via a proxy running on the cluster head node. Select this option if direct network access to CycleCloud is blocked from the cluster nodes.
 
-![CycleCloud New Cluster Form](../images/create-cluster-form.png)
+::: moniker range="=cyclecloud-7"
+:::image type="content" source="../images_7x/create-cluster-form.png" alt-text="CycleCloud New Cluster Form":::
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+:::image type="content" source="../images_8x/create-cluster-form.png" alt-text="CycleCloud New Cluster Form":::
+::: moniker-end
 
 ## Using the CycleCloud CLI
 
@@ -73,7 +79,7 @@ To create a cluster using a web browser or the `create_cluster` CLI command, you
 ``` ini
 [cluster Example]
 
-    [[node master]]
+    [[node scheduler]]
     ImageName = OpenLogic:CentOS:7.5:latest
     Region = $Region
     MachineType = $MachineType

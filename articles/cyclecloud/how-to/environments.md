@@ -28,8 +28,8 @@ Credentials = cloud​
 Region = southcentralus​
 TemplateURL = az://storage/container/arm/azure.deploy.json​
 …​
-[[node master]]​
-SecurityGroups = ${envname.outputs.masterSG}​
+[[node scheduler]]​
+SecurityGroups = ${envname.outputs.schedulerSG}​
 ```
 
 > [!NOTE]

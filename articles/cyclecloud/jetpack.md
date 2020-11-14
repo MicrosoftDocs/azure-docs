@@ -64,6 +64,7 @@ The **Jetpack** command-line tool provides a useful set of subcommands for manip
 | `jetpack shutdown`  | Request the shutdown of the VM by CycleCloud.            |
 | `jetpack test`      | Run tests associated with projects assigned to the VM.   |
 | `jetpack users`     | List users that CycleCloud will manage on this VM.       |
+| `jetpack report_issue` | Archives log files from VM to Azure Storage            |
 
 ### jetpack autoscale
 
@@ -239,4 +240,35 @@ $ jetpack users --json
         "uid": 10201
     }
 ]
+```
+
+### jetpack report_issue
+
+`jetpack report_issue` archives log directories from the VM, optionally uploading them to Azure Storage and creating a signed URL for external access. Logs will be uploaded to the Azure Storage account referenced by the node's Locker. When signing an archive in Azure Storage the resulting SAS token will have **read only** access for 30 days.
+
+Usage:
+```console
+$ jetpack report_issue [LOG_PATH] [--upload/--no-upload] [--sign/--no-sign]
+```
+
+To archive, upload and sign the default Jetpack logs (*$JETPACK_HOME/logs*):
+
+```console
+$ jetpack report_issue
+Logs can be found at: https://testaccount.blob.core.windows.net/cyclecloud/issues/TestCluster-execute-1-77777964-8b74-420d-ad44-094edf7695f2.zip?sv=2017-11-09&rsct=binary&sig=jBJUlYo10lRq0eW94I%2B6syzYVmgo1qcTFUc35D/q0Tg%3D&se=2020-12-04T15%3A15%3A00Z&spr=https&rscd=disposition%3Dfile%3B%20attachment&sp=r&sr=b
+Signed URL will expire on: 2020-12-04T15:15:00Z
+```
+
+To archive, upload but not sign a non-default log directory:
+
+```console
+$ jetpack report_issue /var/log/azure --no-sign
+Logs can be found at: https://testaccount.blob.core.windows.net/cyclecloud/issues/TestCluster-execute-1-d67fe991-1dac-4644-9af7-50c835726f5e.zip
+```
+
+To simply archive logs on the local VM:
+
+```console
+$ jetpack report_issue --no-upload
+Logs can be found at: /tmp/tmp4nscw705/TestCluster-execute-1-4249e973-3d87-4b14-94ed-6856a5267972.zip
 ```

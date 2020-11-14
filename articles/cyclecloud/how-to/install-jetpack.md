@@ -2,7 +2,6 @@
 title: Install Jetpack
 description: How to Install Jetpack on a VM.
 author: mvrequa
-ms.technology: jetpack
 ms.date: 03/01/2020
 ms.author: mirequa
 ---
@@ -16,6 +15,13 @@ ms.author: mirequa
 [Custom images](create-custom-image.md) allow you to have full control over which version of software is installed on your OS. If you have requirements that are met only with a specific version of Jetpack and that Jetpack version isn't installed by default, you will want to manually install that Jetpack version onto a VM and create a custom image.
 
 Creating a custom image with a pre-installed version of Jetpack will also provide a small performance improvement when starting VMs since Jetpack will no longer need to be downloaded and installed every time a VM boots. This performance improvement is negligible (a few seconds) and should not be the primary reason one creates the custom image.
+
+
+::: moniker range=">=cyclecloud-7"
+> [!NOTE]
+> At certain phases of installation and configuration management, Jetpack can consume 500MB of memory. 
+> Consider this when choosing a VM size. Burstable `Standard_B1ls` can be unstable.
+::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"  
 ## Install via YUM or APT

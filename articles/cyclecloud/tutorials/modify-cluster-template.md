@@ -163,7 +163,13 @@ cyclecloud import_template -f templates/extended_nfs.template.txt
 
 Once it is complete, return to the CycleCloud web interface and create a new cluster. You should see a new application type called **azurecyclecloud_tutorial**:
 
-![New Cluster Type](../images/new-cluster-type.png)
+::: moniker range="=cyclecloud-7"
+![New Cluster Type](../images_7x/new-cluster-type.png)
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+![New Cluster Type](../images_8x/new-cluster-type.png)
+::: moniker-end
 
 ## Start the Cluster
 

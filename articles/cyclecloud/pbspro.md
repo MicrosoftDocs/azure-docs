@@ -10,6 +10,7 @@ ms.author: adjohnso
 
 [//]: # (Need to link to the scheduler README on Github)
 
+::: moniker range="=cyclecloud-7"
 [PBS Professional OSS (PBS Pro)](http://pbspro.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Professional cluster are the 'master' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
 
 ``` ini
@@ -31,6 +32,29 @@ ms.author: adjohnso
 ```
 
 Importing and starting a cluster with definition in CycleCloud will yield a single 'master' node. Execute nodes can be added to the cluster via the `cyclecloud add_node` command. For example, to add 10 more execute nodes:
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+[PBS Professional OSS (PBS Pro)](http://pbspro.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Professional cluster are the 'server' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
+
+``` ini
+[cluster my-pbspro]
+
+[[node server]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A4 # 8 cores
+
+    [[[configuration]]]
+    run_list = role[pbspro_server_role]
+
+[[nodearray execute]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A1  # 1 core
+
+    [[[configuration]]]
+    run_list = role[pbspro_execute_role]
+```
+::: moniker-end
 
 ```azurecli-interactive
 cyclecloud add_node my-pbspro -t execute -c 10
@@ -66,7 +90,7 @@ On clusters with multiple nodearrays, it's common to create separate queues to a
         pbspro.slot_type = gpu
 ```
 
-After importing the cluster template and starting the cluster, the following commands can be ran on the master node to create the "gpu" queue:
+After importing the cluster template and starting the cluster, the following commands can be ran on the server node to create the "gpu" queue:
 
 ```bash
 /opt/pbs/bin/qmgr -c "create queue gpu"

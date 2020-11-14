@@ -30,7 +30,7 @@ Follow the instructions here to [create one or more subnets in your Virtual Netw
 
 ### Using multiple Subnets for compute
 
-CycleCloud clusters may be configured to run nodes and nodearrays across multiple subnets as long as all VMs can communicate within the cluster and with CycleCloud (perhaps via [Return Proxy](./return-proxy.md)).  For example, it is often useful to launch the Master node or submitter nodes in a subnet with different security rules from the execute nodes.  The default cluster types in CycleCloud assume a single subnet for the entire cluster, but the subnet may be configured per node or nodearray using the `SubnetId` attribute in the node template.
+CycleCloud clusters may be configured to run nodes and nodearrays across multiple subnets as long as all VMs can communicate within the cluster and with CycleCloud (perhaps via [Return Proxy](./return-proxy.md)).  For example, it is often useful to launch the scheduler node or submitter nodes in a subnet with different security rules from the execute nodes.  The default cluster types in CycleCloud assume a single subnet for the entire cluster, but the subnet may be configured per node or nodearray using the `SubnetId` attribute in the node template.
 
 However, the default hosts-file based hostname resolution applied to CycleCloud clusters only generates a hosts-file for the node's subnet by default.  So, when creating a cluster that spans multiple subnets, hostname resolution must also be customized for the cluster.
 

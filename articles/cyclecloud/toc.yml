@@ -135,7 +135,9 @@
     - name: Use the REST API
       href: ./how-to/use-rest-api.md
   - name: Troubleshoot
-    href: ./how-to/troubleshoot.md
+    items:
+    - name: Report an Issue
+      href: ./how-to/report-issues.md
 
 - name: Reference
   items:
@@ -209,11 +211,9 @@
     href: https://feedback.azure.com/forums/914491--azure-cyclecloud
   - name: Release Notes
     items:
-    - name: Public Preview Release - v8.0
-      href: release-notes-preview.md
-    - name: Current Release - v7.9
+    - name: Current Release - v8.1
       href: release-notes.md
-    - name: Previous Release - v7.8
+    - name: Previous Release - v7.9
       href: release-notes-previous.md
     - name: Older Releases
       href: release-notes-archive.md

@@ -1,36 +1,36 @@
 ---
-title: Current Release Notes
-description: View the product release notes for the current Azure CycleCloud release 7.9.x. See a list of release highlights for Azure CycleCloud version 7.9.x series.
+title: Current Release Notes - Azure CycleCloud 8.1.x
+description: Read the product release notes for the current Azure CycleCloud release. This article covers releases 8.1.x.
 author: adriankjohnson
-ms.date: 09/14/2020
+ms.date: 11/16/2020
 ms.author: adjohnso
 ---
 
-# Azure CycleCloud 7.9
+# Azure CycleCloud 8.1
 
-The current release is 7.9.8.
+The current release is 8.1.0.
 
-## Azure CycleCloud 7.9 Release Highlights
+## Azure CycleCloud 8.1 Release Highlights
+
+CycleCloud 8.1 is the first GA release of the CycleCloud 8.x platform, and contains significant updates from the CycleCloud 7.x versions.
 
 |  |  |
 | --- | --- |
-| [**IBM Spectrum LSF Support**](lsf.md)<br/>The official LSF resource connector plugin for CycleCloud is included in IBM LSF version 10.1 fp 9, and this release includes a LSF cluster template.  | ![LSF sample](./images/release-notes/lsf.png)  |
-| [**Node Management**](~/cluster-references/configuration-reference.md)<br/>The user interface now has explicit control over operating nodes.<br/><br/>  - It is now possible to add nodes to a cluster and specify the placement groups that the nodes should be in. This gives a user a measure of control over node proximity, which is invaluable for creating an MPI ring for building or debugging MPI code.<br/><br/>  - A keep-alive toggle on each node also gives users control over a node's lifespan independently from a scheduler's autoscaling policies. This feature is useful for users who need to access a node locally for troubleshooting applications or jobs.  | [ ![Node management sample](./images/release-notes/node_management_small.png) ](./images/release-notes/node_management_large.png#lightbox) |
-| [**Issue Reporting**](error_messages.md)<br/>A new issue reporting UI has been added that simplifies the diagnosis of issues that may occur in a running cluster.<br/><br/>  - Errors in nodes are now reported back into CycleCloud and displayed to a user without requiring remote access into the virtual machine, making trouble shooting easier.<br/><br/>  - The issues interface also provides links to documentation that improves self-supportability.| [ ![Issue Reporting sample](./images/release-notes/issue_reporting_small.png) ](./images/release-notes/issue_reporting_large.png#lightbox) |
-| [**Ephemeral OS disks**](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks)<br/>Ephemeral OS disks can now be used to improve virtual machine and scale sets start-up performance and cost.<br/><br/>  To use an ephemeral OS disk, add `EphemeralOSDisk = true` to a node in your cluster template.| |
+| [**Univa Grid Engine is now a support scheduler type**](~/gridengine.md)<br/> A free, demo version of Univa Grid Engine is available in CycleCloud 8, with a simple path to full end-to-end enterprise support for Univa clusters running on Azure. [Learn more about Univa + Azure here](https://techcommunity.microsoft.com/t5/azure-compute/univa-grid-engine-cluster-arrives-in-azure-cyclecloud-8-1/ba-p/1863043) | ![Univa Logo](./images/release-notes/univa-logo.jpg) |
+| [**Slurm Cluster Updates**](~/slurm.md)<br/> Slurm clusters deployed in CycleCloud 8 can now be configured to do [Slurm job accounting](https://slurm.schedmd.com/accounting.html). Additionally, GPU resources on nodes are now recognized automatically, with node partitions autoscaling based on GPU resource requests. |  |
+| [**Autoscaling Library**](https://github.com/Azure/cyclecloud-scalelib)<br/> A new, open-source, autoscaling library is now implemented in CycleCloud 8, simplifying autoscaler development for any scheduler in Azure. This new autoscaling library drives the Univa Grid Engine scaling on Azure, and is also used in the open-source Grid Engine clusters. |  |
+| [**NAS Options in default cluster templates**](~/how-to/mount-fileserver.md)<br/> Default cluster templates shipped in CycleCloud 8 now include a section for configuring network filesystem mounts. With this, mounting NFS shares no longer requires changes to a cluster template. | [ ![NAS Options](./images/release-notes/nas-options-small.png) ](./images/release-notes/nas-options.png#lightbox) |
+| [**Azure Event Grid Integration**](~/events.md)<br/>CycleCloud 8 generates events when certain node or cluster changes occur, and these events can now be published to Azure Event Grid. With this integration, you can create triggers to events like SpotVM evictions or node allocation failures. | ![Event Grid](./images/release-notes/event-grid-logo.png) |
+| [**Cloud-Init Support**](~/how-to/cloud-init.md)<br/>CycleCloud now supports cloud-init as a way of customizing virtual machines as they boot up. Users can now specify a cloud-init config that will be processed before the CycleCloud configuration occurs. This allows users to baseline a VM by configuring volumes, mounts, networking, or OS before the scheduler stack is set up.   | [ ![cloud-init example](./images/release-notes/cloud-init_small.png) ](./images/release-notes/cloud-init_large.png#lightbox)  |
+| [**Improved Boot Time**](~/concepts/clusters.md)<br/>CycleCloud 8 also brings significant improvements to the node preparation stages that happen after a virtual machine is provisioned, decreasing the amount of time needed to fully configure a VM into a member of a HPC cluster.  |  |
 
 ## Release Notes
 
-Comprehensive release notes for the individual 7.9.x releases are listed below
+Comprehensive release notes for the individual 8.0.x releases are listed below
 
-* [**7.9.8 Release Notes**](release-notes/7-9-8.md) - released on 09/14/20
-* [**7.9.7 Release Notes**](release-notes/7-9-7.md) - released on 08/20/20
-* [**7.9.6 Release Notes**](release-notes/7-9-6.md) - released on 06/05/20
-* [**7.9.5 Release Notes**](release-notes/7-9-5.md) - released on 04/20/20
-* [**7.9.4 Release Notes**](release-notes/7-9-4.md) - released on 03/17/20
-* [**7.9.3 Release Notes**](release-notes/7-9-3.md) - released on 03/12/20
-* [**7.9.2 Release Notes**](release-notes/7-9-2.md) - released on 01/13/20
-* [**7.9.1 Release Notes**](release-notes/7-9-1.md) - released on 12/09/19
-* [**7.9.0 Release Notes**](release-notes/7-9-0.md) - released on 11/15/19
+* [**8.1.0 Release Notes**](release-notes/8-1-0.md) - released on 11/16/20
+* [**8.0.2 Release Notes**](release-notes/8-0-2.md) - released on 10/16/20
+* [**8.0.1 Release Notes**](release-notes/8-0-1.md) - released on 07/02/20
+* [**8.0.0 Release Notes**](release-notes/8-0-0.md) - released on 05/29/20
 
 Release notes from the [previous major releases](release-notes-previous.md) and [older versions](release-notes-archive.md) are also available.

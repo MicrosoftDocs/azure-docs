@@ -3,7 +3,7 @@ title: Network Security Options
 description: Review Azure CycleCloud network security options. See options for network interfaces, network security groups, and input endpoints in node arrays.
 author: adriankjohnson
 ms.date: 03/01/2018
-ms.author: a-kiwels
+ms.author: adjohnso
 ---
 
 # Node Networking Configuration
@@ -21,17 +21,17 @@ Network settings for nodes are configurable by modifying the network-interface d
 Add an `AssociatePublicIpAddress` attribute to a node to specify whether a node should receive a public IP address. For example:
 
 ``` ini
-[[node master]]
+[[node scheduler]]
 [[[network-interface eth0]]]
     AssociatePublicIpAddress = true
 ```
 
-The above configuration allows public access to the master node on ports as allowed by the Network Security Group for the Virtual Network.
+The above configuration allows public access to the scheduler node on ports as allowed by the Network Security Group for the Virtual Network.
 
 By default, the public IP address assigned to the node will be dynamic and will change each time the cluster is started. To have a statically-assigned public IP address for your node, first [create a public IP address in your Azure subscription](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address). Then add the `PublicIP` attribute to your node network-interface section, assigning it the resource ID for the created PublicIP object.
 
 ``` ini
-[[node master]]
+[[node scheduler]]
 [[[network-interface eth0]]]
     PublicIp = /subscriptions/${subscription_id/resourceGroups/${resource_group_name}/providers/Microsoft.Network/publicIPAddresses/${public-ip-name}
 ```
@@ -39,7 +39,7 @@ By default, the public IP address assigned to the node will be dynamic and will 
 Alternatively, create a network-interface in your Azure subscription, and [attach a public IP address to that network interface.](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses). Then, specify that network interface id in the node config:
 
 ``` ini
-[[node master]]
+[[node scheduler]]
 [[[network-interface eth0]]]
     NetworkInterfaceId = /subscriptions/${subscription_id/resourceGroups/${resource_group_name}/providers/Microsoft.Network/networkInterfaces/${network-interface-name}
 ```
@@ -49,7 +49,7 @@ Alternatively, create a network-interface in your Azure subscription, and [attac
 Adding `PublicDnsLabel` to a public network interface will allow you to customize the DNS name for that IP address.
 
 ``` ini
-[[node master]]
+[[node scheduler]]
 [[network-interface eth0]]
     AssociatePublicIpAddress = true
     PublicDnsLabel = myuniquename
@@ -72,7 +72,7 @@ Note that the private IP address specified must be valid for the associated subn
 
 Azure CycleCloud provisions Virtual Machines and Virtual Machine Scale Sets in user-defined virtual networks and subnets. Access to specific ports on nodes are ultimately governed by the network security groups associated with the virtual network. For more information, see [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
-If a node has a network interface configured with `AssociatePublicIpAddress = true`, or is assigned a `PublicIp`, the node will automatically receive a network security group with 
+If a node has a network interface configured with `AssociatePublicIpAddress = true`, or is assigned a `PublicIp`, the node will automatically receive a network security group.
 
 This can be specified by `SecurityGroup`, or, if that is omitted, it will be automatically generated from the `input-endpoints` sections on the node. `SecurityGroup` specified for an interface will override the auto-nsg created for input-endpoints. Unless a specific `SecurityGroup` is specified, all interfaces will get the auto-nsg from the input-endpoint definitions.
 
@@ -93,7 +93,7 @@ This can be specified by `SecurityGroup`, or, if that is omitted, it will be aut
   Protocol = tcp
 ```
 
-The above configuration allows public access to the master node on ports as allowed by the Network Security Group for the Virtual Network. For the nodearray, `PublicPort` is the base port number for nodes in the array. The range of ports reserved for the nodearray is 500 per endpoint. Endpoints default to TCP protocol but UDP is also supported via `Protocol = UDP`. By default, the public IP address assigned to the node will be dynamic and will change each time the cluster is started. To have a statically-assigned public IP address for your node, add `PublicIP` to the network interface configuration for the primary interface:
+The above configuration allows public access to the execute nodes on ports as allowed by the Network Security Group for the Virtual Network. For the nodearray, `PublicPort` is the base port number for nodes in the array. The range of ports reserved for the nodearray is 500 per endpoint. Endpoints default to TCP protocol but UDP is also supported via `Protocol = UDP`. By default, the public IP address assigned to the node will be dynamic and will change each time the cluster is started. To have a statically-assigned public IP address for your node, add `PublicIP` to the network interface configuration for the primary interface:
 
 For return proxy nodes, if `AssociatePublicIpAddress` has no been specified, a public IP address will be created automatically. If `AssociatePublicIpAddress` has been set to **False**, the node will fail with a warning and no auto-nsg will be created for the node.
 

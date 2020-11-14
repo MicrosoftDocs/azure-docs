@@ -176,7 +176,7 @@ Project syntax allows you to specify multiple specs on your nodes. To define a p
 You can also apply multiple specs to a given node as follows:
 
 ``` ini
-[[node master]]
+[[node scheduler]]
   [[[cluster-init myspec]]]
   Project = myproject
   Version = x.y.z
@@ -192,20 +192,20 @@ Spec = otherspec  # (optional)
 By separating the project name, spec name, and version with colons, CycleCloud can parse those values into the appropriate `Project/Version/Spec` settings automatically:
 
 ``` ini
-[[node master]]
+[[node scheduler]]
   AdditionalClusterInitSpecs = $ClusterInitSpecs
   [[[cluster-init myproject:myspec:x.y.z]]]
   [[[cluster-init otherproject:otherspec:a.b.c]]]
 ```
 
-Specs can also be inherited between nodes. For example, you can share a common spec between all nodes, then run a custom spec on the master node:
+Specs can also be inherited between nodes. For example, you can share a common spec between all nodes, then run a custom spec on the scheduler node:
 
 ``` ini
 [[node defaults]]
 [[[cluster-init my-project:common:1.0.0]]]
 Order = 2 # optional
-[[node master]]
-[[[cluster-init my-project:master:1.0.0]]]
+[[node scheduler]]
+[[[cluster-init my-project:scheduler:1.0.0]]]
 Order = 1 # optional
 
 [[nodearray execute]]
@@ -213,7 +213,7 @@ Order = 1 # optional
    Order = 1 # optional
 ```
 
-This would apply both the `common` and `master` specs to the master node, while only applying the `common` and `execute` specs to the execute nodearray.
+This would apply both the `common` and `scheduler` specs to the scheduler node, while only applying the `common` and `execute` specs to the execute nodearray.
 
 By default, the specs will be run in the order they are shown in the template, running inherited specs first. `Order` is an optional integer set to a default of 1000, and can be used to define the order of the specs.
 
@@ -232,16 +232,16 @@ is a valid spec setup in which `Spec=myspec` is implied by the name.
 You can specify a runlist at the project or spec level within your project.ini:
 
 ``` ini
-[spec master]
+[spec scheduler]
 run_list = role[a], recipe[b]
 ```
 
-When a node includes the spec "master", the run_list defined will be automatically appended to any previously-defined runlist. For example, if my run_list defined under `[configuration]` was `run_list = recipe[test]`, the final runlist would be `run_list = recipe[cyclecloud], recipe[test], role[a], recipe[b], recipe[cluster_init]`.
+When a node includes the spec "scheduler", the run_list defined will be automatically appended to any previously-defined runlist. For example, if my run_list defined under `[configuration]` was `run_list = recipe[test]`, the final runlist would be `run_list = recipe[cyclecloud], recipe[test], role[a], recipe[b], recipe[cluster_init]`.
 
 You can also overwrite a runlist at the spec level on a node. This will replace any run_list included in the project.ini. For example, if we changed the node definition to the following:
 
 ``` ini
-[cluster-init test-project:master:1.0.0]
+[cluster-init test-project:scheduler:1.0.0]
 run_list = recipe[different-test]
 ```
 

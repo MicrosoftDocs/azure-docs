@@ -10,15 +10,30 @@ ms.author: jechia
 
 You can remotely access a cluster node using SSH for Linux nodes, and RDP for Windows nodes. 
 
+::: moniker range="=cyclecloud-7"
 The **Connect** button in the cluster management pane provides a connection string for accessing the node.  For example, to access a cluster head node, select the master node in the cluster management pane and click the **Connect** button:
 
-![CycleCloud Master Node Connect Button](~/images/cluster-connect-button.png)
+:::image type="content" source="~/images_7x/cluster-connect-button.png" alt-text="CycleCloud Master Node Connect Button":::
 
 The pop-up window shows the connection string you would use to connect to the cluster:
 
-![CycleCloud Master Node Connection Screen](~/images/connect-to-master-node.png)
+:::image type="content" source="~/images_7x/connect-to-master-node.png" alt-text="CycleCloud Master Node Connection Screen":::
 
 Copy the appropriate connectionstring and use either your SSH client or the CycleCloud CLI to connect to the master node. 
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+The **Connect** button in the cluster management pane provides a connection string for accessing the node.  For example, to access a cluster head node, select the scheduler node in the cluster management pane and click the **Connect** button:
+
+:::image type="content" source="~/images_8x/cluster-connect-button.png" alt-text="CycleCloud Scheduler Node Connect Button":::
+
+The pop-up window shows the connection string you would use to connect to the cluster:
+
+:::image type="content" source="~/images_8x/connect-to-scheduler-node.png" alt-text="CycleCloud Master Node Connection Screen":::
+
+Copy the appropriate connectionstring and use either your SSH client or the CycleCloud CLI to connect to the master node. 
+::: moniker-end
+
 
 ## Accessing cluster nodes in a private subnet
 
@@ -50,7 +65,7 @@ Those commands only need to be run once (or after you reboot).
 You can connect to an node via a bastion server by specifying the IP address on the command line:
 
 ``` CLI
-cyclecloud connect htcondor-master --bastion-host 1.1.1.1
+cyclecloud connect htcondor-scheduler --bastion-host 1.1.1.1
 ```
 
 The above command assumes `cyclecloud` as the username, `22` as the port, and loads your default SSH key. To customize these values, see the `--bastion-*` help options for the [`cyclecloud` CLI command](~/cli.md#cyclecloud-connect).
@@ -62,7 +77,7 @@ Alternately, the CycleCloud CLI can detect the bastion host for you if you add t
 bastion_auto_detect = true
 ```
 
-With the above directive, you can run `cyclecloud connect htcondor-master` without specifying any details about the bastion server.
+With the above directive, you can run `cyclecloud connect htcondor-scheduler` without specifying any details about the bastion server.
 
 You can also use `cyclecloud connect` to connect a Windows VM. Executing the following command will create an RDP connection over an SSH tunnel. Additionally, it will launch the Microsoft RDP client on OSX and Windows:
 

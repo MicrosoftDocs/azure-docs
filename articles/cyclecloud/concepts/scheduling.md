@@ -3,7 +3,7 @@ title: Azure CycleCloud Scheduling Concepts
 description: CycleCloud's scheduling concepts
 author: adriankjohnson
 ms.date: 04/1/2020
-ms.author: adjohnso, jechia
+ms.author: adjohnso
 ---
 
 # CycleCloud Scheduling and Autoscaling Concepts

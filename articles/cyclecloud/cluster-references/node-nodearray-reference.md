@@ -47,7 +47,7 @@ This example template creates a cluster with two nodes and a nodearray. The prox
     IsReturnProxy = true
     MachineType = Standard_B2
 
-  [[node master]]
+  [[node scheduler]]
     MachineType = Standard_D4s_v3
 
   [[nodearray execute]]
@@ -77,6 +77,7 @@ ComputerNamePrefix | String | Prefix pre-pended to system-generated computer nam
 Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
 KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this node
+Locker | String | Specify the name of the locker from which to download project specs. See [Use Projects](~/how-to/projects.md)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
@@ -86,8 +87,20 @@ ComputerName | String | Computer name for VM. If specified, overrides the system
 ComputerNamePrefix | String | Prefix pre-pended to system-generated computer names
 EphemeralOSDisk | boolean | Use ephemeral boot disk for VM, if supported
 Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
+ProximityPlacementGroupId | String | The full id for the Proximity Placement Group to put this node in. Must start with `/subscriptions/`
+PlacementGroupId | String | If set, this label is used to place this node in a single placement group with all other nodes that have a matching value for PlacementGroupId. This offers lower latency communication and is required to enable InfiniBand on VM sizes that support it. This is usually set by the scheduler as needed so it does not need to be manually specified.
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
 KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this node
+Locker | String | Specify the name of the locker from which to download project specs. See[Use Projects](~/how-to/projects.md)
+BootDiagnosticsUri | String | Storage URI for boot diagnostics (example: https://mystorageaccount.blob.core.windows.net), if specified. Storage charges will apply.
+HybridBenefit | boolean | If true, enables "Azure Hybrid Benefit" licensing for Windows VMs
+
+> [!NOTE]
+> A Proximity Placement Group is a general Azure feature, and one must be created before it can be referenced on a node. 
+> This lets CycleCloud VMs be collocated with other Azure resources in that proximity placement group, but does not enable InfiniBand networking. 
+> In contrast, `PlacementGroupId` is an arbitrary string in CycleCloud used to group VMs for nodes into a single scaleset that is constrained to be under the same networking switch, but may not be collocated with other Azure resources. 
+> They can both be used together but this may reduce the number of VMs that can be allocated.
+
 ::: moniker-end
 
 ### Image Attributes
@@ -240,9 +253,6 @@ Attribute | String | Definition
 ------ | ----- | ----------
 Abstract | Boolean | If true, don't create an node or nodearray in the cluster. The abstract can be used for inheritance. (Default: false)
 Extends | String (list) | Ordered list of inherited node/nodearray names. Items later in the list take precedence when values conflict. 'default' node will always effectively be first in the list. (Default: [])
-
-> [!NOTE]
-> All VMSSs will be assigned `FaultDomainCount = 1`
 
 ## Subordinate Objects
 

@@ -24,7 +24,14 @@ same role.
 The settings for enabling or disabling the return proxy can be found in the
 Advanced Settings section of the create cluster dialog. 
 
-![Return Proxy Settings](~/images/return-proxy-setup.png)
+::: moniker range="=cyclecloud-7"
+:::image type="content" source="~/images_7x/return-proxy-setup.png" alt-text="Return Proxy Setting":::
+
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+:::image type="content" source="~/images_8x/return-proxy-setup.png" alt-text="Return Proxy Setting":::
+::: moniker-end
 
 - Azure CycleCloud currently only supports Linux VMs as a return proxy.
 - If the CycleCloud VM and the return proxy node resides in different VMs, the
