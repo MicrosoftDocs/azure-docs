@@ -366,6 +366,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/authorize-blob-access-portal.md",
+      "redirect_url": "articles/storage/blobs/authorize-data-operations-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/queues/authorize-queue-access-portal.md",
+      "redirect_url": "articles/storage/queues/authorize-data-operations-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/common/storage-e2e-troubleshooting.md",
       "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
       "redirect_document_id": false
@@ -26948,6 +26958,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/blobs/authorize-active-directory-powershell.md",
+      "redirect_url": "/azure/storage/blobs/authorize-data-operations-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/queues/authorize-active-directory-powershell.md",
+      "redirect_url": "/azure/storage/queues/authorize-data-operations-powershell",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
       "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
       "redirect_document_id": false
@@ -26985,6 +27005,11 @@
     {
       "source_path": "articles/storage/common/authorize-active-directory-cli.md",
       "redirect_url": "/azure/storage/common/authorize-data-operations-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/authorize-data-operations-cli.md",
+      "redirect_url": "/azure/storage/blobs/authorize-data-operations-cli",
       "redirect_document_id": true
     },
     {
@@ -28888,32 +28913,32 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "/articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md",
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd",
       "redirect_document_id": false
     },
     {
-      "source_path": "/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md",
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd",
       "redirect_document_id": false
     },
     {
-      "source_path": "/articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md",
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot",
       "redirect_document_id": false
     },
     {
-      "source_path": "/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md",
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot",
       "redirect_document_id": false
     },
     {
-      "source_path": "/articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md",
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
       "redirect_document_id": false
     },
     {
-      "source_path": "/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md",
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
       "redirect_document_id": false
     },
