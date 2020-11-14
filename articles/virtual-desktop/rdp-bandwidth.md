@@ -90,6 +90,7 @@ RDP detects that and adjusts image quality, frame rate, or compression algorithm
 In most scenarios, there's no need to limit bandwidth utilization as limiting may affect user experience. Yet in the constrained networks you may want to limit network utilization. Another example is leased networks that are charged for the amount of traffic used.
 
 In such cases, you could limit an RDP outbound network traffic by specifying a throttle rate in QoS Policy.
+
   >[!NOTE]
   > [Make sure that RDP Shortpath is enabled](./shortpath.md) - throttle rate-limiting are not supported for reverse connect transport.
 
