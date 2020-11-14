@@ -30,7 +30,7 @@ Azure Files SMB Multichannel enables clients to use multiple network connections
 
 To learn more about SMB Multichannel, refer to the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel).
 
-This feature provides greater performance benefits to multi-threaded applications but typically does not help single-threaded applications. See the [Performance comparison]( storage-files-smb-multichannel-performance.md#performance-comparison) section for more details.
+This feature provides greater performance benefits to multi-threaded applications but typically does not help single-threaded applications. See the [Performance comparison](#performance-comparison) section for more details.
 
 ## Limitations
 
@@ -51,12 +51,12 @@ On Windows clients, SMB Multichannel is enabled by default. You can verify your 
 On your Azure storage account, you will need to enable SMB Multichannel. See [Enable SMB Multichannel (preview)](storage-files-enable-smb-multichannel.md).
 
 ### Disable SMB Multichannel
-In most scenarios, particularly multi-threaded workloads, clients should see improved performance with SMB Multichannel. However, some specific scenarios such as single-threaded workloads or for testing purposes, you may want to disable SMB Multichannel. See [Performance comparison]( storage-files-smb-multichannel-performance.md#performance-comparison) for more details.
+In most scenarios, particularly multi-threaded workloads, clients should see improved performance with SMB Multichannel. However, some specific scenarios such as single-threaded workloads or for testing purposes, you may want to disable SMB Multichannel. See [Performance comparison](#performance-comparison) for more details.
 
 ## Verify SMB Multichannel is configured correctly
 
 1. Create a premium file share or use an existing one.
-1. Ensure your client supports SMB Multichannel (one or more network adapters has receive-side scaling enabled). Refer to the [Windows documentation](https://docs.microsoft.com/azure-stack/hci/manage/manage-smb-multichannel) for more details.
+1. Ensure your client supports SMB Multichannel (one or more network adapters has receive-side scaling enabled). Refer to the [Windows documentation](azure-stack/hci/manage/manage-smb-multichannel) for more details.
 1. Mount a file share to your client.
 1. Generate load with your application.
     A copy tool such as robocopy /MT, or any performance tool such as Diskspd to read/write files can generate load.
