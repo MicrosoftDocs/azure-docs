@@ -22,11 +22,11 @@ RDP uses various compression algorithms for different types of data. The table b
 
 | Type of Data | Direction | How to estimate |
 |---|---|---|
-| Remote Graphics | Session host -> Client | [See the detailed guidelines](#estimating-bandwidth-used-by-remote-graphics) |
+| Remote Graphics | Session host to client | [See the detailed guidelines](#estimating-bandwidth-used-by-remote-graphics) |
 | Heartbeats | Both directions | ~ 20 bytes every 5 seconds  |
-| Input | Client -> Session Host | Amount of data is based on the user activity, less than 100 bytes for most of the operations  |
+| Input | Client to session Host | Amount of data is based on the user activity, less than 100 bytes for most of the operations  |
 | File transfers | Both directions | File transfers are using bulk compression. Use .zip compression for approximation |
-| Printing | Session host -> Client | Print job transfer depends on the driver and using bulk compression, use .zip compression for approximation |
+| Printing | Session host to client | Print job transfer depends on the driver and using bulk compression, use .zip compression for approximation |
 
 Other scenarios can have their bandwidth requirements change depending on how you use them, such as:
 
