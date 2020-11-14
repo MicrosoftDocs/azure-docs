@@ -30,7 +30,7 @@ The following steps show how to change the performance tier of your disk when yo
 1. Once you've selected a size, then select a different performance tier, to change its performance.
 1. Select **OK** to create the disk.
 
-:::image type="content" source="media/disks-performance-tiers-portal/create-new-disk-change-tier.png" alt-text="Screenshot of the disk creation blade, a disk is highlighted, and the performance tier dropdown is highlighted." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::
+:::image type="content" source="media/disks-performance-tiers-portal/new-disk-change-performance-tier.png" alt-text="Screenshot of the disk creation blade, a disk is highlighted, and the performance tier dropdown is highlighted." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::
 
 
 ## Existing disks
