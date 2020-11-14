@@ -24,7 +24,7 @@ Azure Database for MySQL supports the following database versions.
 
 
 ## Major version support
-Each major version of MySQL will be supported by Azure Database for MySQL from the date on which Azure begins supporting the version until the version is retired by the MySQL community, as provided in the [versioning policy](https://en.wikipedia.org/wiki/mysql).
+Each major version of MySQL will be supported by Azure Database for MySQL from the date on which Azure begins supporting the version until the version is retired by the MySQL community, as provided in the [versioning policy](https://www.mysql.com/support/eol-notice.html).
 
 ## Minor version support
 Azure Database for MySQL automatically performs minor version upgrades to the Azure preferred MySQL version as part of periodic maintenance. 

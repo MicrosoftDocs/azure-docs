@@ -11,7 +11,7 @@ ms.author: punagpal
 ---
 
 # Azure IoT Connector for FHIR (preview) mapping templates
-This article details how to configure Azure IoT Connector for FHIR* using mapping templates.
+This article details how to configure Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* using mapping templates.
 
 The Azure IoT Connector for FHIR requires two types of JSON-based mapping templates. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). The second type, **FHIR mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
@@ -562,6 +562,4 @@ Check out frequently asked questions on Azure IoT Connector for FHIR (preview).
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR FAQs](fhir-faq.md)
 
-*In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
-
-FHIR is the registered trademark of HL7 and is used with the permission of HL7.
+*In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.

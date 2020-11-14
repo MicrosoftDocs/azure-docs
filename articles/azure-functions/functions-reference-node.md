@@ -4,7 +4,7 @@ description: Understand how to develop functions by using JavaScript.
 
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-js
 ---
 # Azure Functions JavaScript developer guide
@@ -503,12 +503,20 @@ The following table shows current supported Node.js versions for each major vers
 | Functions version | Node version (Windows) | Node Version (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2 (locked by the runtime) | n/a |
-| 2.x  | ~8<br/>~10 (recommended)<br/>~12<sup>*</sup> | ~8 (recommended)<br/>~10  |
-| 3.x | ~10<br/>~12 (recommended)  | ~10<br/>~12 (recommended) |
+| 2.x  | `~8`<br/>`~10` (recommended)<br/>`~12` | `node|8`<br/>`node|10` (recommended)  |
+| 3.x | `~10`<br/>`~12` (recommended)<br/>`~14` (preview)  | `node|10`<br/>`node|12` (recommended)<br/>`node|14` (preview) |
 
-<sup>*</sup>Node ~12 is currently allowed on version 2.x of the Functions runtime. However, for best performance, we recommend using Functions runtime version 3.x with Node ~12. 
+You can see the current version that the runtime is using by logging `process.version` from any function.
 
-You can see the current version that the runtime is using by checking the above app setting or by printing `process.version` from any function. Target the version in Azure by setting the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~10`.
+### Setting the Node version
+
+For Windows function apps, target the version in Azure by setting the `WEBSITE_NODE_DEFAULT_VERSION` [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~12`.
+
+For Linux function apps, run the following Azure CLI command to update the Node version.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## Dependency management
 In order to use community libraries in your JavaScript code, as is shown in the below example, you need to ensure that all dependencies are installed on your Function App in Azure.
