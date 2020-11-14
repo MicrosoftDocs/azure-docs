@@ -124,7 +124,7 @@ The new policies you've created won't take effect until Group Policy has been re
 
 1. On each session host for which you want to refresh Group Policy, open a Command Prompt as administrator (*Run as administrator*).
 
-1. At the command prompt, enter
+2. At the command prompt, enter
 
    ```console
    gpupdate /force
