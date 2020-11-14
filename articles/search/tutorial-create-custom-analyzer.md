@@ -56,7 +56,7 @@ For each request, you need to:
 
   :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Postman request URL and header" border="false":::
 
-If you're unfamiliar with Postman, see [Explore Azure Cognitive Search REST APIs using Postman](search-get-started-rest.md).
+If you're unfamiliar with Postman, see [Explore Azure Cognitive Search REST APIs](search-get-started-rest.md).
 
 ## 3 - Create an initial index
 
