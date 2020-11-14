@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Service Bus queues (Azure.Messaging.ServiceBus)
-description: In this tutorial, you create .NET Core console application and use the Azure.Messaging.ServiceBus package to send messages to and receive messages from a Service Bus queue.
+description: In this tutorial, you create a .NET Core C# application to send messages to and receive messages from a Service Bus queue.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
@@ -137,7 +137,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             }
         }
     ```
-1. Replace the `Main()` method with the following **async** `Main` method. It calls the both the send methods to send a single message and a batch of messages to the queue. 
+1. Replace the `Main()` method with the following **async** `Main` method. It calls both the send methods to send a single message and a batch of messages to the queue. 
 
     ```csharp
         static async Task Main()

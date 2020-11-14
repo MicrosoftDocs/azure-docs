@@ -8,7 +8,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (.NET)
-This tutorial shows you how to create a .NET Core console application that sends messages to a Service Bus topic and receives messages from a subscription of the topic. 
+This tutorial shows you how to create a .NET Core console app that sends messages to a Service Bus topic and receives messages from a subscription of the topic. 
 
 > [!Important]
 > This quickstart uses the new **Azure.Messaging.ServiceBus** package. For a quickstart that uses the old Microsoft.Azure.ServiceBus package, see [Send and receive messages using the Microsoft.Azure.ServiceBus package](service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md).
@@ -17,7 +17,7 @@ This tutorial shows you how to create a .NET Core console application that sends
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs)
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md). Note down the connection string, topic name, and a subscription name. You will use only one subscription for this quickstart. 
+- Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md). Note down the connection string, topic name, and a subscription name. You'll use only one subscription for this quickstart. 
 
 ## Send messages to a topic
 In this section, you'll create a .NET Core console application in Visual Studio, add code to send messages to the topic you created. 
@@ -132,7 +132,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             }
         }
     ```
-1. Replace the `Main()` method with the following **async** `Main` method. It calls the both the send methods to send a single message and a batch of messages to the topic.  
+1. Replace the `Main()` method with the following **async** `Main` method. It calls both the send methods to send a single message and a batch of messages to the topic.  
 
     ```csharp
         static async Task Main()
