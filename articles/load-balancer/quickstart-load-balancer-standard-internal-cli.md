@@ -116,7 +116,6 @@ Create a network security group rule using [az network nsg rule create](https://
     --priority 200
 ```
 
-
 ## Create backend servers
 
 In this section, you create:
