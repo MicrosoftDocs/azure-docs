@@ -27,26 +27,29 @@ You can use any trigger to start your workflow, for example, when a new email ar
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* A [Microsoft work or school account](https://www.office.com/)
+* A [Microsoft work or school account](https://www.office.com/). If you want to use a service account instead with the Office 365 Outlook connector, but you experience single sign-on (SSO) problems when you try to create a connection, you have these options:
 
-  > [!NOTE]
-  > To use a service account with your Office 365 Outlook account, use one of these options:
-  >
-  > * Sign in to Azure with your service account.
-  >
-  >   1. At your logic app's resource group level, check whether the service account has the **Contributor** role. 
-  >   If not, assign that role to the service account.
-  >
-  >   2. If you're signed in to the Azure portal with your work or school account, sign out and then sign back in 
-  >   to the portal with your service account so that you can create a connection to your Office 365 Outlook account.
-  >
-  > * If you don't want to sign in to Azure with your service account, you can enter your service account's email address 
-  > in an Office 365 Outlook trigger or action that provides a parameter for entering the sender email address.
-  > 
-  >   For example, the **Send an email** action has an optional parameter, **From (Send as)**, that you can add so that you 
-  >   can enter your service account's email address.
+  * Sign in to Azure with your service account.
 
-* The logic app where you want to access your work or school account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
+    1. At your logic app's resource group level, check whether the service account has the **Contributor** role. 
+    If not, assign that role to the service account.
+
+    1. If you're signed in to the Azure portal with your work or school account, sign out from the portal and sign back in 
+    with your service account. You can now create a connection to your Office 365 Outlook account by using your service account.
+
+  * If you don't want to sign in to Azure with your service account, and the Office 365 Outlook trigger or action supports entering the service account's email address, follow these steps:
+
+    1. In the trigger or action, check for a parameter where you can specify a source email address.
+
+       > [!TIP]
+       > If the trigger or action has any other optional parameters, check the **Add a parameter** list that appears on 
+       > the trigger or action. If such a parameter exists, select that parameter, which adds it to the trigger or action.
+
+    1. In that parameter, enter your service account's email address.
+
+       For example, the **Send an email** action has an optional parameter, **From (Send as)**, which you can add to the action and provide your service account's email address.
+
+* The logic app where you want to access your Office 365 Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
 
 ## Add a trigger
 
