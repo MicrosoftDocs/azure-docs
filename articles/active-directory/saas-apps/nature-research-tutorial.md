@@ -57,7 +57,6 @@ To configure and test Azure AD SSO with Nature Research, perform the following s
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Nature Research SSO](#configure-nature-research-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Nature Research test user](#create-nature-research-test-user)** - to have a counterpart of B.Simon in Nature Research that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -73,16 +72,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, the Identifier and Reply URL values are already pre-populated with Azure but you need to enter the Relay State value.
 
 	In the **Relay State** text box, type the URL:
-    `https://idp.nature.com/debug`  
+    `https://www.nature.com`  
     click **save**.
 
 1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
-    `http://sp.nature.com/saml/login?targetUrl=https%3A%2F%2Fidp.nature.com%2Fdebug&idp=<IDP_ENTITY_ID>`
+    `https://sp.nature.com/saml/login?idp=<IDP_ENTITY_ID>`
 
 	> [!NOTE]
-	> The Sign-On URL value is not real. Update the value with the actual Sign-On URL. Contact [Nature Research Client support team](mailto:identity@springernature.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Sign-On URL value is not real. `<IDP_ENTITY_ID>` is the Azure AD Identifier copied from the **Set up Nature Research** section. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
 
 1. Click **Save**.
 
@@ -116,11 +115,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Nature Research SSO
 
-To configure single sign-on on **Nature Research** side, you need to send the **App Federation Metadata Url** to [Nature Research support team](mailto:identity@springernature.com). They set this setting to have the SAML SSO connection set properly on both sides.
-
-### Create Nature Research test user
-
-In this section, you create a user called Britta Simon in Nature Research. Work with [Nature Research support team](mailto:identity@springernature.com) to add the users in the Nature Research platform. Users must be created and activated before you use single sign-on.
+To configure single sign-on on **Nature Research** side, you need to send the **App Federation Metadata Url** to [Nature Research support team](mailto:onlineservice@springernature.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ## Test SSO 
 

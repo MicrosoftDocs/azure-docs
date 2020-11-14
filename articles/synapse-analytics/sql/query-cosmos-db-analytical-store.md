@@ -1,6 +1,6 @@
 ---
 title: Query Azure Cosmos DB data using serverless SQL pool in Azure Synapse Link (preview)
-description: In this article, you'll learn how to query Azure Cosmos DB using SQL on-demand in Azure Synapse Link (preview).
+description: In this article, you'll learn how to query Azure Cosmos DB using serverless SQL pool in Azure Synapse Link (preview).
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 Synapse serverless SQL pool allows you to analyze data in your Azure Cosmos DB containers that are enabled with [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in near real time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the [analytical store](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface.
 
-For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) surface area is supported through the [OPENROWSET](develop-openrowset.md) function, including the majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage using [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand). You can't currently store serverless SQL pool query results to Azure Cosmos DB using [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) surface area is supported through the [OPENROWSET](develop-openrowset.md) function, including the majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage using [create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool). You can't currently store serverless SQL pool query results to Azure Cosmos DB using CETAS. 
 
 In this article, you'll learn how to write a query with serverless SQL pool that will query data from Azure Cosmos DB containers that are Synapse Link enabled. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this](./tutorial-data-analyst.md) tutorial. 
 
@@ -37,7 +37,10 @@ OPENROWSET(
 The Azure Cosmos DB connection string specifies the Azure Cosmos DB account name, database name, database account master key, and an optional region name to `OPENROWSET` function. 
 
 > [!IMPORTANT]
-> Make sure that you use alias after `OPENROWSET`. There is a [known issue](#known-issues) that cause connection issue to Synapse serverless SQL endpoint if you don't specify the alias after `OPENROWSET` function.
+> Make sure that you are using some UTF-8 database collation (for example `Latin1_General_100_CI_AS_SC_UTF8`) because string values in Cosmos DB analytical store are encoded as UTF-8 text.
+> Mismatch between text encoding in the file and collation might cause unexpected text conversion errors.
+> You can easily change default collation of the current database using the following T-SQL statement:
+>   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 The connection string has the following format:
 ```sql
@@ -338,8 +341,8 @@ In this example, number of cases is stored either as `int32`, `int64`, or `float
 
 ## Known issues
 
-- Alias **MUST** be specified after `OPENROWSET` function (for example, `OPENROWSET (...) AS function_alias`). Omitting alias might cause connection issue and Synapse serverless SQL endpoint might be temporarily unavailable. This issue will be resolved in Nov 2020.
 - The query experience that serverless SQL pool provides for [Azure Cosmos DB full fidelity schema](#full-fidelity-schema) is temporary behavior that will be changed based on preview feedback. Do not rely on the schema that `OPENROWSET` function without `WITH` clause provides during public preview because the query experience might be aligned with well-defined schema based on customer feedback. Contact [Synapse link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
+- Serverless SQL pool will not return compile-time error if the `OPENROSET` column collation don't have UTF-8 encoding. You can easily change default collation for all `OPENROWSET` functions running in the current database using the following T-SQL statement: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Possible errors and troubleshooting actions are listed in the following table:
 
@@ -358,6 +361,6 @@ You can report suggestions and issues on [Azure Synapse feedback page](https://f
 
 For more information, see the following articles:
 
-- [Use Power BI and serverless Synapse SQL pool with Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
-- [How-to create and use views in SQL on-demand](create-use-views.md) 
-- [Tutorial on building SQL on-demand views over Azure Cosmos DB and connecting them to Power BI models via DirectQuery](./tutorial-data-analyst.md)
+- [Use Power BI and serverless SQL pool with Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
+- [How-to create and use views in serverless SQL pool](create-use-views.md) 
+- [Tutorial on building serverless SQL pool views over Azure Cosmos DB and connecting them to Power BI models via DirectQuery](./tutorial-data-analyst.md)

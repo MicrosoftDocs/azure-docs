@@ -51,7 +51,7 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
     - **Yes**: All users in your Azure AD organization are allowed to create new security groups and add members to these groups. These new groups would also show up in the Access Panel for all other users. If the policy setting on the group allows it, other users can create requests to join these groups
     - **No**: Users can't create groups and can't change existing groups for which they are an owner. However, they can still manage the memberships of those groups and approve requests from other users to join their groups.
 
-You can also use **Owners who can assign members as group owners in Azure portals** and **Owners who can assign members as group owners in Azure portals** to achieve more granular access control over self-service group management for your users.
+You can also use **Owners who can assign members as group owners in the Azure portal** to achieve more granular access control over self-service group management for your users.
 
 When users can create groups, all users in your organization are allowed to create new groups and then can, as the default owner, add members to these groups. You can't specify individuals who can create their own groups. You can specify individuals only for making another group member a group owner.
 

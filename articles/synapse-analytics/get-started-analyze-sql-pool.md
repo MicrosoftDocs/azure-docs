@@ -16,10 +16,10 @@ ms.date: 07/20/2020
 
 Azure Synapse Analytics provides you with the capability to analyze data with a dedicated SQL pool. In this tutorial, you'll use the NYC Taxi data to explore a dedicted SQL pool's capabilities.
 
-## Load the NYC Taxi Data into SQLDB1
+## Load the NYC Taxi Data into SQLPOOL1
 
 1. In Synapse Studio, navigate to the **Develop** hub and then create new SQL script
-1. Select the pool 'SQLDB1'(pool created in [STEP 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) of this tutorial) in 'Connect to' section of the script.
+1. Select the pool 'SQLPOOL1'(pool created in [STEP 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) of this tutorial) in 'Connect to' section of the script.
 1. Enter the following code:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -71,10 +71,10 @@ Azure Synapse Analytics provides you with the capability to analyze data with a 
 ## Explore the NYC Taxi data in the dedicated SQL pool
 
 1. In Synapse Studio, go to the **Data** hub.
-1. Go to **SQLDB1** > **Tables**. You'll see several tables loaded.
+1. Go to **SQLPOOL1** > **Tables**. You'll see several tables loaded.
 1. Right-click the **dbo.Trip** table and select **New SQL Script** > **Select TOP 100 Rows**.
 1. Wait while a new SQL script is created and runs.
-1. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called **SQLDB1**.
+1. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called **SQLPOOL1**.
 1. Replace the text of the SQL script with this code and run it.
 
     ```sql

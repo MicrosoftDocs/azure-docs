@@ -21,7 +21,7 @@ Building applications integrated with Azure AD gives users in your organization 
 
 Register your application to use Azure Active Directory. Registering the application means that your developers can use Azure AD to authenticate users and request access to user resources such as email, calendar, and documents.
 
-Any member of your directory (not guests) can register an application, otherwise known as *creating an application object*.
+Any member of your directory (not guests) can register an application, otherwise known as *creating an application object*. If you are unable to register an application then it means  the global administrator of your directory has restricted this functionality and you may need to contact them for [obtaining proper rights](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles) be able to register the application. To learn more about how to restrict user's see [Delegate app registration permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications).
 
 Registering an application allows any user to do the following:
 

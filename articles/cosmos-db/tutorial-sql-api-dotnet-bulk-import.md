@@ -4,6 +4,7 @@ description: Learn how to import or ingest data to Azure Cosmos DB by building a
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
