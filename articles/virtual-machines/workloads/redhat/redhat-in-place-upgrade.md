@@ -1,6 +1,6 @@
 ---
 title: In-place upgrade of Red Hat Enterprise Linux images on Azure
-description: Find steps to do an in-place upgrade from Red Hat Enterprise 7.x images to the latest 8.x version.
+description: Learn how to do an in-place upgrade from Red Hat Enterprise 7.x images to the latest 8.x version.
 author: mathapli
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -23,7 +23,7 @@ During the upgrade, the system restarts a few times. The final restart upgrades 
 The upgrade process can take anywhere from 20 minutes to 2 hours. The total time depends on several factors, such as the VM size and the number of packages installed on the system.
 
 ## Preparations
-An in-place upgrade is the way that Red Hat and Azure recommend to allow customers to upgrade a system to the next major version. 
+Red Hat and Azure recommend using an in-place upgrade to transition a system to the next major version. 
 
 Before you start the upgrade, keep in mind the following considerations. 
 
@@ -35,7 +35,7 @@ Before you start the upgrade, keep in mind the following considerations.
 
 * Make sure you're using the latest RHEL 7 version. Currently, the latest version is RHEL 7.9. If you use a locked version and can't upgrade to RHEL 7.9, then follow [these steps to switch to a non-EUS (extended update support) repository](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock).
 
-* Run the following command to check on your upgrade and see whether it will finish successfully. The command should generate */var/log/leapp/leapp-report.txt* file. This file explains the process, what is happening, and whether the upgrade is possible.
+* Run the following command to check on your upgrade and see whether it will finish successfully. The command should generate */var/log/leapp/leapp-report.txt* file. This file explains the process, what's happening, and whether the upgrade is possible.
 
     ```bash
     leapp preupgrade --no-rhsm
@@ -45,7 +45,7 @@ Before you start the upgrade, keep in mind the following considerations.
 * Enable SSH root access in */etc/ssh/sshd_config*:
     1. Open the file */etc/ssh/sshd_config*.
     1. Search for `#PermitRootLogin yes`.
-    1. Remove the number sign (`#`) to uncomment.
+    1. Remove the number sign (`#`) to uncomment the string.
 
 ## Upgrade steps
 
@@ -73,7 +73,7 @@ Follow these steps carefully. We recommend trying the upgrade on a test machine 
     leapp answer --section remove_pam_pkcs11_module_check.confirm=True --add
     ``` 
 
-1. Perform the `Leapp` upgrade.
+1. Do the `Leapp` upgrade.
     ```bash
     leapp upgrade --no-rhsm
     ```
@@ -87,7 +87,7 @@ Follow these steps carefully. We recommend trying the upgrade on a test machine 
 1. Remove root SSH access:
     1. Open the file */etc/ssh/sshd_config*.
     1. Search for `#PermitRootLogin yes`.
-    1. Add a number sign (`#`) to comment.
+    1. Add a number sign (`#`) to comment the string.
 
 1. Restart the SSHD service to apply the changes.
     ```bash
@@ -106,7 +106,7 @@ The following errors result when either the `leapp preupgrade` process or the `l
     Warning: Packages marked by Leapp for upgrade not found in repositories metadata: gpg-pubkey
     ```
 
-    **Solution**: Disable the subscription-manager plug-in by editing the file */etc/yum/pluginconf.d/subscription-manager.conf* and changing `enabled` to `enabled=0`.
+    **Solution**: Disable the subscription-manager plug-in. Disable it by editing the file */etc/yum/pluginconf.d/subscription-manager.conf* and changing `enabled` to `enabled=0`.
 
     This error happens when the subscription-manager `yum` plug-in that's enabled isn't used for `PAYG` VMs.
 
