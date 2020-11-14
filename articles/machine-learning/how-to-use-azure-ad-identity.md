@@ -35,38 +35,15 @@ In this how-to, you learn how to assign an Azure Active Directory (AAD) identity
 
     This command returns a value of `true` if RBAC is enabled. This value determines the command to use in the next step.
 
-1. To install [AAD Pod Identity](https://github.com/Azure/aad-pod-identity#getting-started) in your AKS cluster, use one of the following commands:
+1. Install [AAD Pod Identity](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/) in your AKS cluster.
 
-    * If your AKS cluster has **RBAC enabled** use the following command:
-    
-        ```azurecli-interactive
-        kubectl apply -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
-        ```
-    
-    * If your AKS cluster **does not have RBAC enabled**, use the following command:
-    
-        ```azurecli-interactive
-        kubectl apply -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
-        ```
-    
-        The output of the command is similar to the following text:
+1. [Create an Identity on Azure](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#2-create-an-identity-on-azure) following the steps shown in AAD Pod Identity project page.
 
-        ```text
-        customresourcedefinition.apiextensions.k8s.io/azureassignedidentities.aadpodidentity.k8s.io created
-        customresourcedefinition.apiextensions.k8s.io/azureidentitybindings.aadpodidentity.k8s.io created
-        customresourcedefinition.apiextensions.k8s.io/azureidentities.aadpodidentity.k8s.io created
-        customresourcedefinition.apiextensions.k8s.io/azurepodidentityexceptions.aadpodidentity.k8s.io created
-        daemonset.apps/nmi created
-        deployment.apps/mic created
-        ```
+1. [Deploy AzureIdentity](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#3-deploy-azureidentity) following the steps shown in AAD Pod Identity project page.
 
-1. [Create an Azure Identity](https://github.com/Azure/aad-pod-identity#2-create-an-azure-identity) following the steps shown in AAD Pod Identity project page.
+1. [Deploy AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#5-deploy-azureidentitybinding) following the steps shown in AAD Pod Identity project page.
 
-1. [Install the Azure Identity](https://github.com/Azure/aad-pod-identity#3-install-the-azure-identity) following the steps shown in AAD Pod Identity project page.
-
-1. [Install the Azure Identity Binding](https://github.com/Azure/aad-pod-identity#5-install-the-azure-identity-binding) following the steps shown in AAD Pod Identity project page.
-
-1. If the Azure Identity created in the previous step is not in the same resource group as your AKS cluster, follow [Set Permissions for MIC](https://github.com/Azure/aad-pod-identity#6-set-permissions-for-mic) following the steps shown in AAD Pod Identity project page.
+1. If the Azure Identity created in the previous step is not in the same node resource group for your AKS cluster, follow the [Role Assignment](https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/#user-assigned-identities-that-are-not-within-the-node-resource-group) steps shown in AAD Pod Identity project page.
 
 ## Assign Azure Identity to machine learning web service
 
@@ -78,7 +55,7 @@ First, identify the name and namespace of your deployment in your AKS cluster th
 kubectl get deployment --selector=isazuremlapp=true --all-namespaces --show-labels
 ```
 
-Add the Azure Identity selector label to your deployment by editing the deployment spec. The selector value should be the one that you defined in step 5 of [Install the Azure Identity Binding](https://github.com/Azure/aad-pod-identity#5-install-the-azure-identity-binding).
+Add the Azure Identity selector label to your deployment by editing the deployment spec. The selector value should be the one that you defined in step 5 of [Deploy AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#5-deploy-azureidentitybinding).
 
 ```yaml
 apiVersion: "aadpodidentity.k8s.io/v1"
@@ -117,7 +94,7 @@ To see all pod statuses, run the following command.
     kubectl get pods -n azureml-<name of workspace>
 ```
 
-Once the pods are up and running, the web services for this deployment will now be able to access Azure resources through your Azure Identity without having to embed the credentials in your code. 
+Once the pods are up and running, the web services for this deployment will now be able to access Azure resources through your Azure Identity without having to embed the credentials in your code.
 
 ## Assign the appropriate roles to your Azure Identity
 
@@ -136,7 +113,7 @@ from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
 
 my_vault_name = "yourkeyvaultname"
-my_vault_url = "https://{}.vault.azure.net/".format(my_vault_name) 
+my_vault_url = "https://{}.vault.azure.net/".format(my_vault_name)
 my_secret_name = "sample-secret"
 
 # This will use your Azure Managed Identity
