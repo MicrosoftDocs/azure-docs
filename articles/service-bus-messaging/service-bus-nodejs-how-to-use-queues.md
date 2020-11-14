@@ -23,14 +23,14 @@ In this tutorial, you learn how to use the [@azure/service-bus](https://www.npmj
 To install the npm package for Service Bus, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
 
 ```bash
-npm install @azure/service-bus@next
+npm install @azure/service-bus
 ```
 
 ## Send messages to a queue
 The following sample code shows you how to send a message to a queue.
 
-1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. Create a file called `send.qs` and paste the below code into it. This code will send a message to your queue. The message has a label (Scientist) and body (Einstein).
+1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
+2. Create a file called `send.js` and paste the below code into it. This code will send a message to your queue. The message has a label (Scientist) and body (Einstein).
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus");
@@ -122,7 +122,7 @@ The following sample code shows you how to send a message to a queue.
 ## Receive messages from a queue
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. Create a file called `receive.ts` and paste the following code into it.
+2. Create a file called `receive.js` and paste the following code into it.
 
     ```javascript
     const { delay, ServiceBusClient, ServiceBusMessage } = require("@azure/service-bus");
@@ -137,7 +137,7 @@ The following sample code shows you how to send a message to a queue.
     	// create a Service Bus client using the connection string to the Service Bus namespace
     	const sbClient = new ServiceBusClient(connectionString);
      
-    	// createSender() can also be used to create a sender for a topic.
+    	// createReceiver() can also be used to create a receiver for a subscription.
     	const receiver = sbClient.createReceiver(queueName);
     
     	// function to handle messages
