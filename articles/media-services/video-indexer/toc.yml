@@ -47,8 +47,6 @@
       href: customize-person-model-overview.md
 - name: How to guides
   items:
-  - name: Connect to Azure
-    href: connect-to-azure.md
   - name: Manage account connected to Azure
     href: manage-account-connected-to-azure.md
   - name: Upload and index videos
