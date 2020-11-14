@@ -218,7 +218,7 @@ Finally, you'll need to publish the app.
    ```
 
 >[!NOTE]
->If a user is assigned to both a remote app group and a desktop app group in the same host pool, the desktop app group will be displayed in the feed by default.
+>If a user is assigned to both a remote app group and a desktop app group in the same host pool, when the user connects to their remote desktop, they will see MSIX apps from both groups.
 
 ## Next steps
 
