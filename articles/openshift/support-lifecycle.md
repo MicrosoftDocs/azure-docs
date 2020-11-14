@@ -92,14 +92,11 @@ See the following guide for the [past Red Hat OpenShift Container Platform (upst
 
 |OCP Version|Upstream Release|Azure Red Hat OpenShift General Availability|End of Life|
 |-|-|-|-|
-|Full Support|
-|4.4|May 5, 2020|July 29, 2020|4.6 GA|
-|Upcoming|
-|4.5|July 13, 2020|September 28, 2020|4.7 GA
-|4.6|*Early Q4, 2020|*Late Q4, 2020|4.8 GA|
-|End of Life|
-|4.3|January 23, 2020|April 28, 2020|August 2, 2020|
-\* _Pending upstream release date confirmation._
+|4.3|January 2020|April 2020| August 2020|
+|4.4|May 2020|July 2020|4.6 GA|
+|4.5|July 2020| November 2020|4.7 GA
+|4.6|October 2020| December 2020|4.8 GA|
+
 
 ## FAQ
 
