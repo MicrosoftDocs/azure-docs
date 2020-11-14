@@ -372,7 +372,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
         The data is now going to be sent using codeless approach even if Application Insights SDK was originally used or attempted to be used.
 
-        >[!IMPORTANT]If the application used Application Insights SDK to send any telemetry, such telemetry will be disabled – in other words, custom telemetry, if any, will be disabled (such as for example any Track*() methods)
+>[!IMPORTANT]If the application used Application Insights SDK to send any telemetry, such telemetry will be disabled – in other words, custom telemetry, if any, will be disabled (such as for example any Track*() methods)
 
 
 ### PHP and WordPress are not supported
