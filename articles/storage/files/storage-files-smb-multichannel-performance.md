@@ -4,7 +4,7 @@ description: Learn about SMB Multichannel performance.
 author: gunjanj
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
 ---
@@ -137,4 +137,4 @@ Higher IO sizes drive higher throughput and will have higher latencies, resultin
 ## Next steps
 
 - [Enable SMB Multichannel on a FileStorage account (preview)](storage-files-enable-smb-multichannel.md)
-- See the [Windows documentation](https://docs.microsoft.com/azure-stack/hci/manage/manage-smb-multichannel) to learn more about SMB Multichannel.
+- See the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel) to learn more about SMB Multichannel.
