@@ -4,7 +4,7 @@ description: Learn about performance tiers for managed disks, and learn how to c
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
