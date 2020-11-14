@@ -1,15 +1,15 @@
 ---
-title: How to browse the data catalog 
+title: 'How to: browse the Data Catalog'
 description: This article gives an overview of How to browse a data catalog using 'Browse by asset type tile'
-author: chanuengg
-ms.author: csugunan
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 9/30/2020
 ---
 
-# How to Browse Data catalog
+# Browse the Azure Purview Data catalog
 
 This guide outlines a generic browsing experience in your catalog for Data discovery using the data source hierarchical namespace.
 
