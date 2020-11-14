@@ -29,7 +29,7 @@ Snapshots are a built-in feature that creates restore points. You do not have to
 
 Snapshots of your data warehouse are taken throughout the day creating restore points that are available for seven days. This retention period cannot be changed. Dedicated SQL pool supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days.
 
-To see when the last snapshot started, run this query on your online sedicated SQL pool.
+To see when the last snapshot started, run this query on your online dedicated SQL pool.
 
 ```sql
 select   top 1 *
