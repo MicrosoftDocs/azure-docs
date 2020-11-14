@@ -8,15 +8,15 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
 ---
 
 # Querying Data from Azure Time Series Insights Gen2
 
-Azure Time Series Insights Gen2 enables data querying on events and metadata stored in the environment via public surface APIs. These APIs also are used by the [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+Azure Time Series Insights Gen2 enables data querying on events and metadata stored in the environment via public surface APIs. These APIs also are used by the [Azure Time Series Insights TSI Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
 
-Three primary API categories are available in Azure Time Series Insights Gen2 :
+Three primary API categories are available in Azure Time Series Insights Gen2:
 
 * **Environment APIs**: These APIs enable queries on the Azure Time Series Insights Gen2 environment itself. These can be used to gather the list of environments the caller has access to and environment metadata.
 * **Time Series Model-Query (TSM-Q) APIs**: Enables create, read, update, and delete (CRUD) operations on metadata stored in the Time Series Model of the environment. These can be used to access and edit the instances, types, and hierarchies.
@@ -68,4 +68,4 @@ These APIs are available across both stores (Warm and Cold) in our multilayered 
 ## Next steps
 
 * Read more about different variables that can be defined in the [Time Series Model](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm).
-* Read more about how to query data from the [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+* Read more about how to query data from the [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).

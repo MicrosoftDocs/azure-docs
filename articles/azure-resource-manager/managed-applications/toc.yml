@@ -13,8 +13,6 @@
     href: deploy-service-catalog-quickstart.md
 - name: Tutorials
   items:
-  - name: Publish marketplace application 
-    href: publish-marketplace-app.md 
   - name: Create managed application with custom provider
     href: tutorial-create-managed-app-with-custom-provider.md
 - name: Samples
@@ -25,9 +23,6 @@
     href: powershell-samples.md
   - name: Managed application solutions
     href: sample-projects.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: View definition artifact
@@ -44,6 +39,8 @@
       href: create-uidefinition-overview.md
     - name: Test portal interface
       href: test-createuidefinition.md
+    - name: Create an Azure application offer
+      href: ../../marketplace/partner-center-portal/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
     - name: Request just-in-time access
       href: request-just-in-time-access.md
     - name: Use existing virtual network
@@ -107,6 +104,8 @@
         href: microsoft-common-checkbox.md
       - name: DropDown
         href: microsoft-common-dropdown.md
+      - name: EditableGrid
+        href: microsoft-common-editablegrid.md
       - name: FileUpload
         href: microsoft-common-fileupload.md
       - name: InfoBox
@@ -117,6 +116,8 @@
         href: microsoft-common-passwordbox.md
       - name: Section
         href: microsoft-common-section.md
+      - name: ServicePrincipalSelector
+        href: microsoft-common-serviceprincipalselector.md
       - name: Slider
         href: microsoft-common-slider.md
       - name: TagsByResource
@@ -133,6 +134,10 @@
         href: microsoft-compute-sizeselector.md
       - name: UserNameTextBox
         href: microsoft-compute-usernametextbox.md
+    - name: Key Vault
+      items:
+      - name: KeyVaultCertificateSelector
+        href: microsoft-keyvault-keyvaultcertificateselector.md
     - name: Managed Identity
       items:
       - name: IdentitySelector
@@ -155,6 +160,11 @@
         href: microsoft-storage-multistorageaccountcombo.md
       - name: StorageAccountSelector
         href: microsoft-storage-storageaccountselector.md
+      - name: StorageBlobSelector
+        href: microsoft-storage-storageblobselector.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -166,4 +176,4 @@
   - name: Resource Manager template best practices
     href: https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-managedapps
+    href: https://stackoverflow.com/questions/tagged/azure-managedapps

@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot storage resource deletion errors on Linux VMs in Azure | Microsoft Docs
-description: How to troubleshoot problems when deleting storage resources containing attached VHDs.
+description: Learn how to troubleshoot problems on Linux VMs when deleting storage resources containing attached VHDs.
 keywords: 
 services: virtual-machines
 author: genlin
@@ -91,7 +91,7 @@ If the VHD is a data disk, detach the VHD from the VM to remove the lease:
 7. Select **Edit** on the top of **Disks** pane.
 8. Click **detach icon** of the data disk to be deleted.
 
-     ![Screenshot of the portal, with the storage "Blob Metadata" pane open](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
+     ![Screenshot of the portal, with the storage "Blob Metadata" pane open and it highlights the detach icon of the data disk to be deleted.](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
 
 9. Select **Save**. The disk is now detached from the VM, and the VHD is no longer leased. It may take a few minutes for the lease to be released. To verify that the lease has been released, browse to the blob location and in the **Blob properties** pane, the **Lease Status** value should be **Unlocked** or **Available**.
 

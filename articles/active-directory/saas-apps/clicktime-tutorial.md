@@ -21,7 +21,7 @@ Integrating ClickTime with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to ClickTime (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -202,7 +202,7 @@ In the case of ClickTime, provisioning is a manual task.
 
 1. In the toolbar on the top, click **Company**, and then click **People**.
    
-    ![People](./media/clicktime-tutorial/tic777282.png "People")
+    ![Screenshot shows the ClickTime tenant with Company and People selected.](./media/clicktime-tutorial/tic777282.png "People")
 
 1. Click **Add Person**.
    
@@ -210,7 +210,7 @@ In the case of ClickTime, provisioning is a manual task.
 
 1. In the New Person section, perform the following steps:
    
-    ![People](./media/clicktime-tutorial/tic777284.png "People")
+    ![Screenshot shows the Add Person section where you can add the information in this step.](./media/clicktime-tutorial/tic777284.png "People")
    
     a.  In the **full name** textbox, type full name of user like **Britta Simon**. 
   
@@ -225,13 +225,12 @@ In the case of ClickTime, provisioning is a manual task.
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the ClickTime tile in the Access Panel, you should be automatically signed in to the ClickTime for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the ClickTime tile in the Access Panel, you should be automatically signed in to the ClickTime for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

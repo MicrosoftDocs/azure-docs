@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -121,16 +121,16 @@ For location information, see the [Virtual WAN partners and locations](virtual-w
 Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in hub routing and would like to use the new capabilities, consider the following:
 
 * **Standard Virtual WAN Customers with pre-existing routes in virtual hub**:
-To use new route table capabilities, please wait until week of August 17th for the rollout in Azure to complete. If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal).
+If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal).
 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
-To use the new route table capabilities, please wait until week of August 17th for the rollout in Azure to complete. If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
+If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a>FAQ
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
-## <a name="new"></a>View the latest feature updates
+## <a name="new"></a>What's new?
 
 Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN) page.
 

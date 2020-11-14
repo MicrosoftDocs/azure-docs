@@ -1,5 +1,5 @@
 ---
-title: Load Contoso retail data to a Synapse SQL data warehouse
+title: Load Contoso retail data to Synapse SQL
 description: Use PolyBase and T-SQL commands to load two tables from the Contoso retail data into Synapse SQL.
 services: synapse-analytics
 author: kevinvngo 
@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # Load Contoso retail data to Synapse SQL 
 
-In this tutorial, you learn to use PolyBase and T-SQL commands to load two tables from the Contoso retail data into a Synapse SQL data warehouse.
+In this tutorial, you learn to use PolyBase and T-SQL commands to load two tables from the Contoso retail data into Synapse SQL.
 
 In this tutorial you will:
 
@@ -25,11 +25,11 @@ In this tutorial you will:
 
 ## Before you begin
 
-To run this tutorial, you need an Azure account that already has a Synapse SQL data warehouse. If you don't have a data warehouse provisioned, see [Create a data warehouse and set server-level firewall rule](create-data-warehouse-portal.md).
+To run this tutorial, you need an Azure account that already has a Synapse SQL. If you don't have a data warehouse provisioned, see [Create a data warehouse and set server-level firewall rule](create-data-warehouse-portal.md).
 
 ## Configure the data source
 
-PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in your Synapse SQL data warehouse. The data is stored externally.
+PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in Synapse SQL. The data is stored externally.
 
 ## Create a credential
 
@@ -269,7 +269,7 @@ ORDER BY
 
 ## Optimize columnstore compression
 
-By default, the Synapse SQL data warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There are different reasons why this can happen. To learn more, see [manage columnstore indexes](sql-data-warehouse-tables-index.md).
+By default, Synapse SQL stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There are different reasons why this can happen. To learn more, see [manage columnstore indexes](sql-data-warehouse-tables-index.md).
 
 To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows.
 

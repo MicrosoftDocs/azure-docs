@@ -40,50 +40,48 @@ This tutorial helps you visualize your data in Azure Sentinel.
 
 1. Go to **Workbooks** and then select **Templates** to see the full list of Azure Sentinel built-in workbooks. To see which are relevant to the data types you have connected, the **Required data types** field in each workbook will list the data type next to a green check mark if you already stream relevant data to Azure Sentinel.
   ![go to workbooks](./media/tutorial-monitor-data/access-workbooks.png)
-1. Click **View workbook** to see the template populated with your data.
+1. Click **View template** to see the template populated with your data.
   
-1. To edit the workbook, select **Save**, and then select the location where you want to save the json file for the template. 
+1. To edit the workbook, select **Save**, and then select the location where you want to save the JSON file for the template. 
 
    > [!NOTE]
-   > This creates an Azure resource based on the relevant template and saves the template Json file itself and not the data.
+   > This creates an Azure resource based on the relevant template and saves the JSON file of the workbook and not the data.
 
 
-1. Select **View workbook**. Then, click the **Edit** button at the top. You can now edit the workbook and customize it according to your needs. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/platform/workbooks-overview.md).
+1. Select **View saved workbook**. Then, click the **Edit** button at the top. You can now edit the workbook and customize it according to your needs. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/platform/workbooks-overview.md).
 ![view workbooks](./media/tutorial-monitor-data/workbook-graph.png)
 1. After you make your changes, you can save the workbook. 
 
-1. You can also clone the workbook: Select **Edit** and then **Save as**, making sure to save it with another name, under the same subscription and resource group. These workbooks are displayed under the **My workbooks** tab.
+1. You can also clone the workbook: Select **Edit** and then **Save as**, making sure to save it with another name, under the same subscription and resource group. These cloned workbooks are displayed under the **My workbooks** tab.
 
 
 ## Create new workbook
 
 1. Go to **Workbooks** and then select **Add workbook** to create a new workbook from scratch.
-  ![go to workbooks](./media/tutorial-monitor-data/create-workbook.png)
+  ![Screenshot that shows the New workbook screen.](./media/tutorial-monitor-data/create-workbook.png)
 
 1. To edit the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/platform/workbooks-overview.md). 
 
-1. When building a query, set the **Data source** is set to **Logs**, the **Resource type** is set to **Log Analytics** and then choose the relevant workspace(s). 
+1. When building a query, make sure the **Data source** is set to **Logs** and **Resource type** is set to **Log Analytics**, and then choose the relevant workspace(s). 
 
-1. After you create your workbook, save the workbook making sure you save it under the subscription and resource group of your Azure Sentinel workspace.
+1. After you create your workbook, save the workbook, making sure you save it under the subscription and resource group of your Azure Sentinel workspace.
 
 1. If you want to let others in your organization use the workbook, under **Save to** select **Shared reports**. If you want this workbook to be available only to you, select **My reports**.
 
-1. To switch between workbooks in your workspace, you can select **Open** ![Switch workbooks](./media/tutorial-monitor-data/switch.png)in the top pane of any workbook. On the window that opens to the right, switch between workbooks.
+1. To switch between workbooks in your workspace, you can select **Open** ![Icon for opening a workbook.](./media/tutorial-monitor-data/switch.png)in the top pane of any workbook. On the window that opens to the right, switch between workbooks.
 
    ![Switch workbooks](./media/tutorial-monitor-data/switch-workbooks.png)
 
 
 ## How to delete workbooks
 
-You can delete Workbooks that were created from an Azure Sentinel template. 
-
-To delete a customized workbook, in the Workbooks page, select the saved workbook that you want to delete and select **Delete**. This will remove the saved workbook.
+To delete a saved workbook (either a saved template or a customized workbook), in the Workbooks page, select the saved workbook that you want to delete and select **Delete**. This will remove the saved workbook.
 
 > [!NOTE]
-> This removes the resource as well as any changes you made to the template. The original template will remain available.
+> This removes the workbook resource as well as any changes you made to the template. The original template will remain available.
 
 ## Next steps
 
-In this tutorial, you learned how to view your data in Azure Sentinel.
+In this tutorial, you learned how to visualize your data in Azure Sentinel, using Azure Workbooks.
 
 To learn how to automate your responses to threats, see [Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).

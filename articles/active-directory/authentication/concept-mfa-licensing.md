@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 06/15/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
@@ -37,7 +37,7 @@ Azure Multi-Factor Authentication can be used, and licensed, in a few different 
 
 The following table provides a list of the features that are available in the various versions of Azure Multi-Factor Authentication. Plan out your needs for securing user authentication, then determine which approach meets those requirements. For example, although Azure AD Free provides security defaults that provide Azure Multi-Factor Authentication, only the mobile authenticator app can be used for the authentication prompt, not a phone call or SMS. This approach may be a limitation if you can't ensure the mobile authentication app is installed on a user's personal device.
 
-| Feature | Azure AD Free - Security defaults | Azure AD Free - Azure AD Global Administrators | Office 365 apps | Azure AD Premium P1 or P2 |
+| Feature | Azure AD Free - Security defaults | Azure AD Free - Azure AD Global Administrators | Microsoft 365 apps | Azure AD Premium P1 or P2 |
 | --- |:---:|:---:|:---:|:---:|
 | Protect Azure AD tenant admin accounts with MFA | ● | ● (*Azure AD Global Administrator* accounts only) | ● | ● |
 | Mobile app as a second factor | ● | ● | ● | ● |
@@ -54,7 +54,7 @@ The following table provides a list of the features that are available in the va
 
 ## Purchase and enable Azure Multi-Factor Authentication
 
-To use Azure Multi-Factor Authentication, register for or purchase an eligible Azure AD tier. Azure AD comes in four editions — Free, Office 365 apps, Premium P1, and Premium P2.
+To use Azure Multi-Factor Authentication, register for or purchase an eligible Azure AD tier. Azure AD comes in four editions — Free, Microsoft 365 apps, Premium P1, and Premium P2.
 
 The Free edition is included with an Azure subscription. See the [section below](#azure-ad-free-tier) for information on how to use security defaults or protect accounts with the *Azure AD Global Administrator* role.
 

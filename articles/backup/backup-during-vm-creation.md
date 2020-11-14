@@ -21,14 +21,14 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
 
 ## Create a VM with Backup configured
 
-1. In Azure portal, click **Create a resource**.
+1. In the Azure portal, select **Create a resource**.
 
-2. In Azure Marketplace, click **Compute**, and then select a VM image.
+2. In Azure Marketplace, select **Compute**, and then select a VM image.
 
 3. Set up the VM in accordance with the [Windows](../virtual-machines/windows/quick-create-portal.md) or [Linux](../virtual-machines/linux/quick-create-portal.md) instructions.
 
-4. On the **Management** tab, in **Enable backup**, click **On**.
-5. Azure Backup backups to a Recovery Services vault. Click **Create New** if you don't have an existing vault.
+4. On the **Management** tab, in **Enable backup**, select **On**.
+5. Azure Backup backups to a Recovery Services vault. Select **Create New** if you don't have an existing vault.
 6. Accept the suggested vault name or specify your own.
 7. Specify or create a resource group in which the vault will be located. The resource group vault can be different from the VM resource group.
 
@@ -54,15 +54,15 @@ Points to note:
 
 1. You can either use the default name of the RG, or edit it according to your company requirements.
 2. You provide the RG name pattern as input during VM backup policy creation. The RG name should be of the following format:
-              `<alpha-numeric string>* n <alpha-numeric string>`. 'n' is replaced with an integer (starting from 1) and is used for scaling out if the first RG is full. One RG can have a max of 600 RPCs today.
+              `<alpha-numeric string>* n <alpha-numeric string>`. 'n' is replaced with an integer (starting from 1) and is used for scaling out if the first RG is full. One RG can have a maximum of 600 RPCs today.
               ![Choose name when creating policy](./media/backup-during-vm-creation/create-policy.png)
-3. The pattern should follow the RG naming rules below and the total length should not exceed the maximum allowed RG name length.
-    1. Resource group names only allow alphanumeric characters, periods, underscores, hyphens, and parenthesis. They cannot end in a period.
+3. The pattern should follow the RG naming rules below and the total length shouldn't exceed the maximum allowed RG name length.
+    1. Resource group names only allow alphanumeric characters, periods, underscores, hyphens, and parenthesis. They can't end in a period.
     2. Resource group names can contain up to 74 characters, including the name of the RG and the suffix.
 4. The first `<alpha-numeric-string>` is mandatory while the second one after 'n' is optional. This applies only if you give a customized name. If you don't enter anything in either of the textboxes, the default name is used.
-5. You can edit the name of the RG by modifying the policy if and when required. If the name pattern is changed, new RPs will be created in the new RG. However, the old RPs will still reside in the old RG and won't be moved, as RP Collection does not support resource move. Eventually the RPs will get garbage collected as the points expire.
+5. You can edit the name of the RG by modifying the policy if and when required. If the name pattern is changed, new RPs will be created in the new RG. However, the old RPs will still reside in the old RG and won't be moved, as RP Collection doesn't support resource move. Eventually the RPs will get garbage collected as the points expire.
 ![Change name when modifying policy](./media/backup-during-vm-creation/modify-policy.png)
-6. It is advised to not lock the resource group created for use by the Backup service.
+6. It's advised not to lock the resource group created for use by the Backup service.
 
 To configure the Azure Backup resource group for Virtual Machines using PowerShell, refer to [Creating Azure Backup resource group during snapshot retention](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 
@@ -72,8 +72,8 @@ Your VM backup will run in accordance with your backup policy. However, we recom
 
 After the VM is created, do the following:
 
-1. In the VM properties, click **Backup**. The VM status is Initial Backup Pending until the initial backup runs
-2. Click **Back up now** to run an on-demand backup.
+1. In the VM properties, select **Backup**. The VM status is Initial Backup Pending until the initial backup runs.
+2. Select **Back up now** to run an on-demand backup.
 
     ![Run an on-demand backup](./media/backup-during-vm-creation/run-backup.png)
 

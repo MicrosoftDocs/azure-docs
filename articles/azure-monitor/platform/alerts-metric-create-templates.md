@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 7/9/2020
+ms.date: 10/7/2020
 ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
@@ -262,7 +262,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file simplestaticmetricalert.json \
@@ -544,7 +544,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file simpledynamicmetricalert.json \
@@ -786,7 +786,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file advancedstaticmetricalert.json \
@@ -1006,7 +1006,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file multidimensionalstaticmetricalert.json \
@@ -1226,7 +1226,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file advanceddynamicmetricalert.json \
@@ -1489,7 +1489,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupOfTargetResource \
     --template-file customstaticmetricalert.json \
@@ -1630,7 +1630,7 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -1824,7 +1824,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
     --template-file all-vms-in-resource-group-static.json \
@@ -1942,7 +1942,7 @@ Save the json below as all-vms-in-resource-group-dynamic.json for the purpose of
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2159,7 +2159,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
     --template-file all-vms-in-resource-group-dynamic.json \
@@ -2277,7 +2277,7 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2469,7 +2469,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
     --template-file all-vms-in-subscription-static.json \
@@ -2587,7 +2587,7 @@ Save the json below as all-vms-in-subscription-dynamic.json for the purpose of t
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2801,7 +2801,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
     --template-file all-vms-in-subscription-dynamic.json \
@@ -2919,7 +2919,7 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -3114,7 +3114,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
     --template-file list-of-vms-static.json \
@@ -3232,7 +3232,7 @@ Save the json below as list-of-vms-dynamic.json for the purpose of this walk-thr
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -3449,7 +3449,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
     --template-file list-of-vms-dynamic.json \
@@ -3610,7 +3610,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AvailabilityAlertDeployment \
     --resource-group ResourceGroupofApplicationInsightsComponent \
     --template-file availabilityalert.json \

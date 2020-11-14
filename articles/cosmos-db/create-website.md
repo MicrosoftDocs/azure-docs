@@ -3,12 +3,14 @@ title: Deploy a web app with a template - Azure Cosmos DB
 description: Learn how to deploy an Azure Cosmos account, Azure App Service Web Apps, and a sample web application using an Azure Resource Manager template.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
 
 ---
 # Deploy Azure Cosmos DB and Azure App Service with a web app from GitHub using an Azure Resource Manager Template
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This tutorial shows you how to do a "no touch" deployment of a web application that connects to Azure Cosmos DB on first run without having to cut and paste any connection information from Azure Cosmos DB to `appsettings.json` or to the Azure App Services application settings in the Azure portal. All these actions are accomplished using an Azure Resource Manager template in a single operation. In the example here we will deploy the [Azure Cosmos DB ToDo sample](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) from a [Web app tutorial](sql-api-dotnet-application.md).
 
@@ -93,7 +95,7 @@ There are three elements necessary for this to work.
 
 First, the application needs to request the Cosmos DB endpoint and key in the `Startup` class in the ASP.NET MVC web application. The [Cosmos DB To Do Sample](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) can run locally where you can enter the connection information into appsettings.json. However, when deployed, this file does deploy with the app. If these lines in red cannot access the settings from appsettings.json, it will try from Application Settings in Azure App Service.
 
-:::image type="content" source="./media/create-website/startup.png" alt-text="Startup":::
+:::image type="content" source="./media/create-website/startup.png" alt-text="Screenshot shows a method with several string variables marked in red, including databaseName, containerName, account, and key.":::
 
 ### Using special Azure Resource Management functions
 

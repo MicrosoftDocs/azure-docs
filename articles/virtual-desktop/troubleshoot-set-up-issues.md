@@ -3,7 +3,7 @@ title: Windows Virtual Desktop environment host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -40,6 +40,12 @@ If your operation goes over the quota limit, you can do one of the following thi
 - Create a new host pool with the same parameters but fewer VMs and VM cores.
 
 - Open the link you see in the statusMessage field in a browser to submit a request to increase the quota for your Azure subscription for the specified VM SKU.
+
+### Error: Can't see user assignments in app groups.
+
+Cause: This error usually happens after you've moved the subscription from 1 Azure Active Directory (AD) tenant to another. If your old assignments are still tied to the old Azure AD tenant, the Azure portal will lose track of them.
+
+Fix: You'll need to reassign users to app groups.
 
 ## Azure Resource Manager template errors
 

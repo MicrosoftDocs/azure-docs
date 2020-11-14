@@ -1,6 +1,6 @@
 ---
 title: Azure Migrate appliance 
-description: Provides an overview of the Azure Migrate appliance used in server assessment and migration.
+description: Provides a summary of support for the Azure Migrate appliance.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ---
@@ -39,16 +39,16 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Requirement** | **VMware** 
 --- | ---
 **Permissions** | To access the appliance web app locally or remotely, you need to be a domain admin, or local admin on the appliance machine.
-**Appliance components** | The appliance has the following components:<br/><br/> - **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Assessment agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).<br/>- **DRA agent**: Orchestrates VM replication, and coordinates communication between replicated machines and Azure. Used only when replicating VMware VMs to Azure using agentless migration.<br/>- **Gateway**: Sends replicated data to Azure. Used only when replicating VMware VMs to Azure using agentless migration.
+**Appliance components** | The appliance has the following components:<br/><br/> - **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Collector agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).<br/>- **DRA agent**: Orchestrates VM replication, and coordinates communication between replicated machines and Azure. Used only when replicating VMware VMs to Azure using agentless migration.<br/>- **Gateway**: Sends replicated data to Azure. Used only when replicating VMware VMs to Azure using agentless migration.
 **Supported deployment** | Deploy as VMware VM using OVA template.<br/><br/> Deploy as a VMware VM or physical machine using PowerShell installation script.
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
 **Discovery limits** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to a single vCenter Server.
-**OVA template** | Download from portal or from https://aka.ms/migrate/appliance/vmware.<br/><br/> Download size is 10.9 GB.<br/><br/> The downloaded appliance template comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
+**OVA template** | Download from portal or from [here](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> Download size is 11.9 GB.<br/><br/> The downloaded appliance template comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
 **PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-vmware).<br/><br/> 
 **Software/hardware** |  The appliance should run on machine with Windows Server 2016, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance on a VMware VM, you need enough resources on the vCenter Server to allocate a VM that meets the requirements.<br/><br/> If you run the appliance on a physical machine, make sure that it's running Windows Server 2016, and meets hardware requirements.
 **VMware requirements** | If you deploy the appliance as a VMware VM, it  must be deployed on an ESXi host running version 5.5 or later.<br/><br/> vCenter Server running 5.5, 6.0, 6.5, or 6.7.
 **VDDK (agentless migration)** | If you deploy the appliance as a VMware VM, and you're running an agentless migration, the VMware vSphere VDDK must be installed on the appliance VM.
-**Hash value-OVA** | [Verify](tutorial-assess-vmware.md#verify-security) the OVA template hash values.
+**Hash value-OVA** | [Verify](tutorial-discover-vmware.md#verify-security) the OVA template hash values.
 **Hash value-PowerShell script** | [Verify](deploy-appliance-script.md#verify-file-security) the PowerShell script hash values.
 
 
@@ -59,15 +59,15 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Requirement** | **Hyper-V** 
 --- | ---
 **Permissions** | To access the appliance web app locally or remotely, you need to be a domain admin, or local admin on the appliance machine.
-**Appliance components** | The appliance has the following components:<br/><br/>- **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Assessment agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).
+**Appliance components** | The appliance has the following components:<br/><br/>- **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Collector agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).
 **Supported deployment** | Deploy as Hyper-V VM using a VHD template.<br/><br/> Deploy as a Hyper-V VM or physical machine using a PowerShell installation script.
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
 **Discovery limits** | An appliance can discover up to 5000 Hyper-V VMs.<br/> An appliance can connect to up to 300 Hyper-V hosts.
-**VHD template** | Zipped folder including VHD. Download from portal or from https://aka.ms/migrate/appliance/hyperv.<br/><br/> Download size is 10 GB.<br/><br/> The downloaded appliance template comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
+**VHD template** | Zipped folder including VHD. Download from portal or from [here](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> Download size is 8.91 GB.<br/><br/> The downloaded appliance template comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
 **PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
-**Software/hardware***   |  The appliance should run on machine with Windows Server 2016, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance as a Hyper-V VM, you need enough resources on the Hyper-V host to allocate 16-GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch for the appliance VM.<br/><br/> If you run the appliance on a physical machine, make sure that it's running Windows Server 2016, and meets hardware requirements. 
+**Software/hardware***   |  The appliance should run on machine with Windows Server 2016, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance as a Hyper-V VM, you need enough resources on the Hyper-V host to allocate hardware requirements.<br/><br/> If you run the appliance on a physical machine, make sure that it's running Windows Server 2016, and meets hardware requirements. 
 **Hyper-V requirements** | If you deploy the appliance with the VHD template, the appliance VM provided by Azure Migrate is Hyper-V VM version 5.0.<br/><br/> The Hyper-V host must be running Windows Server 2012 R2 or later. 
-**Hash value-VHD** | [Verify](tutorial-assess-hyper-v.md#verify-security) the VHD template hash values.
+**Hash value-VHD** | [Verify](tutorial-discover-hyper-v.md#verify-security) VHD template hash values.
 **Hash value-PowerShell script** | [Verify](deploy-appliance-script.md#verify-file-security) the PowerShell script hash values.
 
 
@@ -76,13 +76,13 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Requirement** | **Physical** 
 --- | ---
 **Permissions** | To access the appliance web app locally or remotely, you need to be a domain admin, or local admin on the appliance machine.
-**Appliance components** | The appliance has the following components: <br/><br/> - **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Assessment agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).
+**Appliance components** | The appliance has the following components: <br/><br/> - **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Collector agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).
 **Supported deployment** | Deploy as a dedicated physical machine, or a VM, using a PowerShell installation script. The script is available for download from the portal.
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
 **Discovery limits** | An appliance can discover up to 1000 physical servers.
-**PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zipped folder from the portal. [Learn more](tutorial-assess-physical.md#set-up-the-appliance). Alternatively, [download directly](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Download size is 63.1 MB.
-**Software/hardware** |  The appliance should run on machine with Windows Server 2016, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance on a physical machine, make sure that it's running Windows Server 2016, and meets hardware requirements.<br/> Running the appliance on a machine with Windows Server 2019 isn't supported.
-**Hash value** | [Verify](deploy-appliance-script.md#verify-file-security) the PowerShell script hash values.
+**PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zipped folder from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2140334). [Learn more](tutorial-discover-physical.md).<br/><br/> Download size is 85.8 MB.
+**Software/hardware** |  The appliance should run on machine with Windows Server 2016, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance on a physical machine, make sure that it's running Windows Server 2016, and meets hardware requirements.<br/>_(Currently the deployment of appliance is only supported on Windows Server 2016.)_
+**Hash value** | [Verify](tutorial-discover-physical.md#verify-security) the PowerShell script hash values.
 
 ## URL access
 
@@ -97,7 +97,7 @@ The Azure Migrate appliance needs connectivity to the internet.
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.com  | Navigate to the Azure portal.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Sign in to your Azure subscription.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com | Sign in to your Azure subscription.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
 management.azure.com | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
 *.services.visualstudio.com | Upload app logs used for internal monitoring.
@@ -117,7 +117,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download.
 graph.windows.net | Sign in to your Azure subscription.
 login.microsoftonline.us  | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
 management.usgovcloudapi.net | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
-dc.services.visualstudio.com | Upload app logs used for internal monitoring.
+*.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.usgovcloudapi.net | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to aka links. Used for Azure Migrate appliance updates.
 download.microsoft.com/download | Allow downloads from Microsoft download.
@@ -461,7 +461,7 @@ The appliance is upgraded as the Azure Migrate agents running on the appliance a
 You can turn on auto-update using either of these methods:
 
 - By deleting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
-- After discovery is complete, in the Appliance Configuration Manager.
+- Click on **View appliance services** from the latest update checks in the **Set up prerequisites** panel to turn on auto-update.
 
 To delete the registry key:
 
@@ -471,24 +471,24 @@ To delete the registry key:
 
 To turn on from Appliance Configuration Manager, after discovery is complete:
 
-1. On the appliance machine, open the Appliance Configuration Manager.
-2. In **Appliance services** > **Automatic update of Azure Migrate components is turned off**, click to turn on auto-update.
+1. On the appliance configuration manager, go to **Set up prerequisites** panel
+2. In the latest updates check, click on **View appliance services** and click on the link to turn on auto-update.
 
-    ![Turn on auto updates](./media/migrate-appliance/turn-on.png)
+    ![Turn on auto updates](./media/migrate-appliance/autoupdate-off.png)
 
 ### Check the appliance services version
 
 You can check the appliance services version using either of these methods:
 
-- In Appliance Configuration Manager, after discovery is complete.
+- In Appliance configuration manager, go to **Set up prerequisites** panel.
 - On the appliance machine, in the **Control Panel** > **Programs and Features**.
 
-To check in the Appliance Configuration Manager:
+To check in the Appliance configuration manager:
 
-1. After discovery is complete, open Appliance Configuration Manager (in the appliance web app).
-2. In **Appliance services**, verify the appliance services versions.
+1. On the appliance configuration manager, go to **Set up prerequisites** panel
+2. In the latest updates check, click on **View appliance services**.
 
-    ![Check version](./media/migrate-appliance/version.png)
+    ![Check version](./media/migrate-appliance/versions.png)
 
 To check in the Control Panel:
 

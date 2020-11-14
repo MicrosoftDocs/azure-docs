@@ -6,12 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
-ms.date: 04/17/2020
+ms.date: 10/28/2020
+ms.custom: contperfq1, contperfq2
 ---
 # Use the Apache Beeline client with Apache Hive
 
-Learn how to use [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) to run Apache Hive queries on HDInsight.
+This article describes how to use the command-line [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) client to create and execute Apache Hive queries over an SSH connection.
+
+## Background
 
 Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. To connect to the Beeline client installed on your HDInsight cluster, or install Beeline locally, see [Connect to or install Apache Beeline](connect-install-beeline.md). Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following examples provide the most common connection strings used to connect to HDInsight from Beeline.
 
@@ -21,9 +23,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 * Notice the URI scheme for your cluster's primary storage. For example,  `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2, or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI is `wasbs://`. For more information, see [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 
-* Option 1: An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Most of the steps in this document assume that you're using Beeline from an SSH session to the cluster.
-
-* Option 2:  A local Beeline client.
+* An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Most of the steps in this document assume that you're using Beeline from an SSH session to the cluster. You can also use a local Beeline client, but those steps are not covered in this article.
 
 ## Run a Hive query
 

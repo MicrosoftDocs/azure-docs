@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -132,7 +132,7 @@ Allow access by service tag: https://docs.microsoft.com/azure/container-registry
 
 **Guidance**: Define and implement standard security configurations for network resources associated with your Azure container registries with Azure Policy. Use Azure Policy aliases in the "Microsoft.ContainerRegistry" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your container registries. 
 
-You may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
+You may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
 
 Audit compliance of Azure container registries using Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
@@ -145,7 +145,7 @@ How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/bl
 
 ### 1.10: Document traffic configuration rules
 
-**Guidance**: Customer may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
+**Guidance**: Customer may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
 
 How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -555,9 +555,9 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure Active Directory (Azure AD) RBAC to control access to data and resources in an Azure container registry. 
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to data and resources in an Azure container registry. 
 
-How to configure RBAC in Azure:  https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+How to configure Azure RBAC:  https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 Azure Container Registry roles and permissions:  https://docs.microsoft.com/azure/container-registry/container-registry-roles
 
@@ -975,9 +975,11 @@ Audit compliance of Azure container registries using Azure Policy:  https://docs
 
 How to integrate with Azure Managed Identities:  https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-How to create a Key Vault:  https://docs.microsoft.com/azure/key-vault/quick-create-portal
+How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-How to provide Key Vault authentication with a managed identity:  https://docs.microsoft.com/azure/key-vault/managed-identity
+How to authenticate to Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+How to assign a Key Vault access policy: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 Use an Azure-managed identity in Azure Container Registry tasks:  https://docs.microsoft.com/azure/container-registry/container-registry-tasks-authentication-managed-identity
 

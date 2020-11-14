@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.author: metan
-ms.custom: devx-track-javascript
+ms.author: metang
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # How to cache the authentication token

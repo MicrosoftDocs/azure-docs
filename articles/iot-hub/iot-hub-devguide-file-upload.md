@@ -21,6 +21,8 @@ Before you upload a file to IoT Hub from a device, you must configure your hub b
 
 Your device can then [initialize an upload](iot-hub-devguide-file-upload.md#initialize-a-file-upload) and then [notify IoT hub](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) when the upload completes. Optionally, when a device notifies IoT Hub that the upload is complete, the service can generate a [notification message](iot-hub-devguide-file-upload.md#file-upload-notifications).
 
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
+
 ### When to use
 
 Use file upload to send media files and large telemetry batches uploaded by intermittently connected devices or compressed to save bandwidth.

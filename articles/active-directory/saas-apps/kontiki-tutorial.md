@@ -22,7 +22,7 @@ Integrating Kontiki with Azure AD gives you the following benefits:
 * Users can be automatically signed in to Kontiki with their Azure AD accounts (single sign-on).
 * You can manage your accounts in one central location, the Azure portal.
 
-For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -180,6 +180,6 @@ After you set up single sign-on, when you select **Kontiki** in the My Apps port
 
 To learn more, review these articles:
 
-- [List of tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [List of tutorials for integrating SaaS apps with Azure Active Directory](./tutorial-list.md)
+- [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

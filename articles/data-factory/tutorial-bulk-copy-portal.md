@@ -1,6 +1,6 @@
 ---
 title: Copy data in bulk using Azure portal
-description: Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.
+description: Use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services 
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/22/2020
+ms.date: 11/09/2020
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal
@@ -40,7 +40,7 @@ In this scenario, you have a number of tables in Azure SQL Database that you wan
 ![Workflow](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * The first pipeline looks up the list of tables that needs to be copied over to the sink data stores.  Alternatively you can maintain a metadata table that lists all the tables to be copied to the sink data store. Then, the pipeline triggers another pipeline, which iterates over each table in the database and performs the data copy operation.
-* The second pipeline performs the actual copy. It takes the list of tables as a parameter. For each table in the list, copy the specific table in Azure SQL Database to the corresponding table in Azure Synapse Analytics (formerly SQL DW) using [staged copy via Blob storage and PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) for best performance. In this example, the first pipeline passes the list of tables as a value for the parameter. 
+* The second pipeline performs the actual copy. It takes the list of tables as a parameter. For each table in the list, copy the specific table in Azure SQL Database to the corresponding table in Azure Synapse Analytics (formerly SQL DW) using [staged copy via Blob storage and PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) for best performance. In this example, the first pipeline passes the list of tables as a value for the parameter. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -57,7 +57,7 @@ Create a database in SQL Database with Adventure Works LT sample data following 
 
 **Prepare the sink Azure Synapse Analytics (formerly SQL DW)**:
 
-1. If you don't have an Azure Synapse Analytics (formerly SQL DW), see the [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) article for steps to create one.
+1. If you don't have an Azure Synapse Analytics (formerly SQL DW) workspace, see the [Get started with Azure Synapse Analytics](..\synapse-analytics\get-started.md) article for steps to create one.
 
 1. Create corresponding table schemas in Azure Synapse Analytics (formerly SQL DW). You use Azure Data Factory to migrate/copy data in a later step.
 
@@ -71,7 +71,8 @@ To verify and turn on this setting, go to your server > Security > Firewalls and
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure portal](https://portal.azure.com). 
-1. On the left of the Azure portal menu, select **Create a resource** > **Analytics** > **Data Factory**. 
+1. On the left of the Azure portal menu, select **Create a resource** > **Integration** > **Data Factory**. 
+
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, enter **ADFTutorialBulkCopyDF** for **name**. 
  
@@ -105,7 +106,7 @@ In this tutorial, you link your Azure SQL Database, Azure Synapse Analytics (for
 ### Create the source Azure SQL Database linked service
 In this step, you create a linked service to link your database in Azure SQL Database to the data factory. 
 
-1. Open [Manage tab](https://docs.microsoft.com/azure/data-factory/author-management-hub) from the left pane.
+1. Open [Manage tab](./author-management-hub.md) from the left pane.
 
 1. On the Linked services page, select **+New** to create a new linked service.
 

@@ -10,12 +10,15 @@ editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: tutorial
-ms.date: 08/11/2020
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: inhenkel
 ---
 
 # Upload media for streaming or encoding
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 In Media Services, you upload your digital files (media) into a blob container associated with an asset. The [Asset](/rest/api/media/operations/asset) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files). Once the files are uploaded into the asset's container, your content is stored securely in the cloud for further processing  and streaming.
 
 Before you get started though, you'll need to collect or think about a few values.
@@ -34,17 +37,13 @@ Before you get started though, you'll need to collect or think about a few value
 
 [!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli.md)]
 
-## [CLI Shell](#tab/clishell/)
-
-[!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli-shell.md)]
-
 ## [REST](#tab/rest/)
 
-Once you have [created an asset using Postman or other REST method and gotten the SUS URL for the asset](how-to-create-asset.md?tabs=rest), use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+Once you have [created an asset using Postman or other REST method and gotten the SAS URL for the asset](how-to-create-asset.md?tabs=rest), use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 ---
 <!-- add these to the tabs when available -->
-For other methods see the [Azure Storage documentation](https://docs.microsoft.com/azure/storage/blobs/) for working with blobs in [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet), [Java](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python), and [JavaScript (Node.js)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs).
+For other methods see the [Azure Storage documentation](../../storage/blobs/index.yml) for working with blobs in [.NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [Java](../../storage/blobs/storage-quickstart-blobs-java.md), [Python](../../storage/blobs/storage-quickstart-blobs-python.md), and [JavaScript (Node.js)](../../storage/blobs/storage-quickstart-blobs-nodejs.md).
 
 ## Next steps
 

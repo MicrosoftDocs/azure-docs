@@ -10,12 +10,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/1/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Tutorial: End-to-End content protection using Azure AD
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 With this tutorial and the provided player sample, you can set up an end-to-end media content protection subsystem on Azure Media Services (AMS) and Azure Active Directory (AAD) to stream media content with all AMS supported DRM/AES-128, streaming protocols, codec, and container formats. The sample is generic enough for secure access to any REST API protected by OAuth 2 through Authorization Code Flow with Proof Key for Code Exchange (PKCE). (Azure Media Services license delivery service is just one of them.) It also works for Microsoft Graph API or any custom developed REST API secured with OAuth 2 Authorization Code Flow. This is the companion document to the [sample code](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 
@@ -122,11 +124,11 @@ The screen for sign-in, token acquisition, token renewal, and token display:
 
 The screen for parsing JWT tokens (access_token or id_token):
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/parsing-jwt-tokens.png)
+![Screenshot that shows parsing J W T tokens.](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
 The screen for testing protected content with different combinations of DRM/AES vs Streaming Protocols vs Container Format:
 
-![screen for parsing JWT tokens](media/aad-ams-content-protection/testing-protected-content.png)
+![Screenshot that shows testing protected content with different combinations of D R M or A E S versus Streaming Protocols versus Container Format](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
@@ -306,7 +308,7 @@ If you plan to use another IDE/web platform and/or a webserver such as IIS runni
 
 Now that you've completed the tutorial and have a working subsystem, you can try modifying it for the following customer scenarios:
 
-### Role-Based Access Control (RBAC) for license delivery via Azure AD group membership
+### Azure role-based access control (Azure RBAC) for license delivery via Azure AD group membership
 
 So far, the system allows any user who can sign in to get a valid license and play the protected content.
 

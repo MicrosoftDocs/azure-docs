@@ -28,10 +28,10 @@ highlightedContent:
       url: ../virtual-machine-scale-sets/quick-create-portal.md
     - title: Spot VMs - take advantage of our unused capacity at a significant cost savings.
       itemType: concept
-      url: ./linux/spot-vms.md
+      url: ./spot-vms.md
     - title: Dedicated hosts - physical servers to host one or more virtual machines.
       itemType: concept
-      url: ./linux/dedicated-hosts.md
+      url: ./dedicated-hosts.md
     - title: Proximity placement groups - get VMs as close as possible for lower latency.
       itemType: how-to-guide
       url: ./linux/proximity-placement-groups.md

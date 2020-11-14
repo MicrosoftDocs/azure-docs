@@ -96,10 +96,10 @@ Additional steps are required when:
    * If you use SQL Server Express and have less than 50,000 objects, the following screen is shown:  
      ![Analysis completed ready to upgrade from DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisReady.png)
    * If you use a full SQL Server for DirSync, you see this page instead:  
-     ![Analysis completed ready to upgrade from DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
+     ![screenshot that shows the existing SQL database server being used.](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
      The information regarding the existing SQL Server database server being used by DirSync is displayed. Make appropriate adjustments if needed. Click **Next** to continue the installation.
    * If you have more than 50,000 objects, you see this screen instead:  
-     ![Analysis completed ready to upgrade from DirSync](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
+     ![Screenshot that shows the screen you see when you have more than 50,000 objects to upgrade.](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
      To proceed with an in-place upgrade, click the checkbox next to this message: **Continue upgrading DirSync on this computer.**
      To do a [parallel deployment](#parallel-deployment) instead, you export the DirSync configuration settings and move the configuration to the new server.
 5. Provide the password for the account you currently use to connect to Azure AD. This must be the account currently used by DirSync.  
@@ -137,7 +137,7 @@ If you have less than 50,000 objects but still want to do a parallel deployment,
     `AzureADConnect.exe /ForceExport`.
 5. Click the **Export settings** button. When you install Azure AD Connect on a separate server, these settings are migrated from your current DirSync to your new Azure AD Connect installation.
 
-![Analysis complete](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
+![Screenshot that shows the Export settings option for migrating your settings to the new Azure AD Connect installation.](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
 
 Once your settings have been successfully exported, you can exit the Azure AD Connect wizard on the DirSync server. Continue with the next step to install Azure AD Connect on a separate server.
 
@@ -150,14 +150,14 @@ When you install Azure AD Connect on a new server, the assumption is that you wa
 4. From the install location of Azure AD Connect (Default: C:\Program Files\Microsoft Azure Active Directory Connect) execute the following command:
     `AzureADConnect.exe /migrate`.
     The Azure AD Connect installation wizard starts and presents you with the following screen:  
-   ![Enter your Azure AD credentials](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
+   ![Screenshot that shows where to import the settings file when you upgrade.](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
 5. Select the settings file that exported from your DirSync installation.
 6. Configure any advanced options including:
    * A custom installation location for Azure AD Connect.
    * An existing instance of SQL Server (Default: Azure AD Connect installs SQL Server 2012 Express). Do not use the same database instance as your DirSync server.
    * A service account used to connect to SQL Server (If your SQL Server database is remote then this account must be a domain service account).
      These options can be seen on this screen:  
-     ![Enter your Azure AD credentials](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
+     ![Screenshot that shows the advance configuration options for upgrading from DirSync.](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. Click **Next**.
 8. On the **Ready to configure** page, leave the **Start the synchronization process as soon as the configuration completes** checked. The server is now in [staging mode](how-to-connect-sync-staging-server.md) so changes are not exported to Azure AD.
 9. Click **Install**.
@@ -202,7 +202,7 @@ You should see the following:
 * Select **Configure staging mode**.
 * Turn off staging by unchecking the **Enabled staging mode** checkbox.
 
-![Enter your Azure AD credentials](./media/how-to-dirsync-upgrade-get-started/configurestaging.png)
+![Screenshot that shows the option for enabling staging mode.](./media/how-to-dirsync-upgrade-get-started/configurestaging.png)
 
 * Click the **Next** button
 * On the confirmation page, click the **install** button.

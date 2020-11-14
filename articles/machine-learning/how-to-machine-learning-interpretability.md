@@ -14,7 +14,7 @@ ms.date: 07/09/2020
 ---
 
 # Model interpretability in Azure Machine Learning (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 ## Overview of model interpretability
 
@@ -34,20 +34,11 @@ Enabling the capability of explaining a machine learning model is important duri
 
 ## Interpretability with Azure Machine Learning
 
-The interpretability classes are made available through multiple SDK packages: (Learn how to [install SDK packages for Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py))
+The interpretability classes are made available through the following SDK package: (Learn how to [install SDK packages for Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
 
-* `azureml.interpret`, the main package, containing functionalities supported by Microsoft.
+* `azureml.interpret`, contains functionalities supported by Microsoft.
 
-* `azureml.contrib.interpret`, preview, and experimental functionalities that you can try.
-
-Use `pip install azureml-interpret` and `pip install azureml-contrib-interpret` for general use.
-
-
-> [!IMPORTANT]
-> Content in the `contrib` namespace is not fully supported. As the experimental functionalities become mature, they will gradually be moved to the main namespace.
-.
-
-
+Use `pip install azureml-interpret` for general use.
 
 ## How to interpret your model
 

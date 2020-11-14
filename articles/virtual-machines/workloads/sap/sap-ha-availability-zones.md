@@ -28,7 +28,7 @@ This graphic shows the basic architecture of SAP high availability:
 
 ![Standard high availability configuration](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-The SAP application layer is deployed across one Azure [availability set](../../windows/manage-availability.md). For high availability of SAP Central Services, you can deploy two VMs in a separate availability set. Use Windows Server Failover Clustering or Pacemaker (Linux) as a high-availability framework with automatic failover in case of an infrastructure or software problem. To learn more about these deployments, see:
+The SAP application layer is deployed across one Azure [availability set](../../manage-availability.md). For high availability of SAP Central Services, you can deploy two VMs in a separate availability set. Use Windows Server Failover Clustering or Pacemaker (Linux) as a high-availability framework with automatic failover in case of an infrastructure or software problem. To learn more about these deployments, see:
 
 - [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk](./sap-high-availability-guide-wsfc-shared-disk.md)
 - [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using file share](./sap-high-availability-guide-wsfc-file-share.md)

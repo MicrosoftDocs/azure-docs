@@ -3,7 +3,7 @@ title: Windows Virtual Desktop host pool Azure portal - Azure
 description: How to create a Windows Virtual Desktop host pool by using the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -41,6 +41,9 @@ If you don't have an Azure subscription already, make sure to [create an account
 To start creating your new host pool:
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
+   
+   >[!NOTE]
+   > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
 
 2. Enter **Windows Virtual Desktop** into the search bar, then find and select **Windows Virtual Desktop** under Services.
 
@@ -66,7 +69,7 @@ To start creating your new host pool:
       > [!div class="mx-imgBorder"]
       > ![A screenshot of the assignment type field drop-down menu. The user has selected Automatic.](media/assignment-type-field.png)
 
-9. If you choose **Pooled**, enter the following information:
+9.  If you choose **Pooled**, enter the following information:
 
      - For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host.
      - For **Load balancing algorithm**, choose either breadth-first or depth-first, based on your usage pattern.
@@ -123,9 +126,11 @@ To set up your virtual machine within the host pool setup process:
 
 7. Choose what kind of OS disks you want your VMs to use: Standard SSD, Premium SSD, or Standard HDD.
 
-8. Under Network and security, select the **Virtual network** and **Subnet** where you want to put the virtual machines you create. Make sure the virtual network can connect to the domain controller, since you'll need to join the virtual machines inside the virtual network to the domain. Next, select whether or not you want a public IP for the virtual machines. We recommend you select **No**, because a private IP is more secure.
+8. Under Network and security, select the **Virtual network** and **Subnet** where you want to put the virtual machines you create. Make sure the virtual network can connect to the domain controller, since you'll need to join the virtual machines inside the virtual network to the domain. The DNS servers of the virtual network you selected should be configured to use the IP of the domain controller.
 
-9. Select what kind of security group you want: **Basic**, **Advanced**, or **None**.
+9. Next, select whether you want a public IP for the virtual machines. We recommend you select **No** because a private IP is more secure.
+
+10. Select what kind of security group you want: **Basic**, **Advanced**, or **None**.
 
     If you select **Basic**, you'll have to select whether you want any inbound port open. If you select **Yes**, choose from the list of standard ports to allow inbound connections to.
 
@@ -137,11 +142,13 @@ To set up your virtual machine within the host pool setup process:
 
     If you choose **Advanced**, select an existing network security group that you've already configured.
 
-10. After that, select whether you want the virtual machines to be joined to a specific domain and organizational unit. If you choose **Yes**, specify the domain to join. You can also add a specific organizational unit you want the virtual machines to be in. If you choose **No**, the VMs will be joined to the domain matching the suffix of the **AD domain join UPN**.
+11. After that, select whether you want the virtual machines to be joined to a specific domain and organizational unit. If you choose **Yes**, specify the domain to join. You can optionally add a specific organizational unit you want the virtual machines to be in. If you choose **No**, the VMs will be joined to the domain matching the suffix of the **AD domain join UPN**.
 
-11. Under Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected.
+  - When specifying an OU, make sure you use the full path (Distinguished Name) and without quotation marks.
 
-12. Select **Next: Workspace >**.
+12. Under Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected. This account can't have multi-factored authentication (MFA) enabled. When joining to an Azure Active Directory Domain Services (Azure AD DS) domain, the account must be part of the Azure AD DC Administrators group and the account password must work in Azure AD DS.
+
+13. Select **Next: Workspace >**.
 
 With that, we're ready to start the next phase of setting up your host pool: registering your app group to a workspace.
 
@@ -176,6 +183,13 @@ To register the desktop app group to a workspace:
      - A download link for an Azure Resource Management template based on your configuration.
 
 After that, you're all done!
+
+## Run the Azure Resource Manager template to provision a new host pool
+
+If you'd rather use an automated process, [download our Azure Resource Manager template](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to provision your new host pool instead.
+
+>[!NOTE]
+>If you're using an automated process to build your environment, you'll need the latest version of the configuration JSON file. You can find the JSON file [here](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list).
 
 ## Next steps
 

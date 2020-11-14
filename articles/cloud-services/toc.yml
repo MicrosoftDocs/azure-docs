@@ -12,6 +12,12 @@
     href: cloud-services-dotnet-get-started.md
   - name: Example Python for Visual Studio Cloud Service
     href: cloud-services-python-ptvs.md
+- name: Concepts
+  items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How To
   items:
   - name: Plan
@@ -151,6 +157,8 @@
       href: cloud-services-disaster-recovery-guidance.md
     - name: Workflow of classic VM architecture
       href: cloud-services-workflow-process.md
+    - name: Resource health support for Cloud Services
+      href: resource-health-for-cloud-services.md
     - name: Cloud Services FAQ
       items:
       - name: Application and service availability FAQ
@@ -192,7 +200,7 @@
   - name: Learning path
     href: /learn/paths/azure-fundamentals/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-cloud-services.html
+    href: /answers/topics/azure-cloud-services.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cloud-services/
   - name: Pricing calculator

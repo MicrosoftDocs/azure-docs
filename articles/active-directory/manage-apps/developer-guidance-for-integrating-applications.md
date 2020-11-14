@@ -14,14 +14,14 @@ ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 # Develop line-of-business apps for Azure Active Directory
-This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Office 365 global administrators.
+This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Microsoft 365 global administrators.
 
 ## Overview
-Building applications integrated with Azure AD gives users in your organization single sign-on with Office 365. Having the application in Azure AD gives you control over the authentication policy for the application. To learn more about Conditional Access and how to protect apps with multi-factor authentication (MFA) see [Configuring access rules](../conditional-access/app-based-mfa.md).
+Building applications integrated with Azure AD gives users in your organization single sign-on with Microsoft 365. Having the application in Azure AD gives you control over the authentication policy for the application. To learn more about Conditional Access and how to protect apps with multi-factor authentication (MFA) see [Configuring access rules](../conditional-access/app-based-mfa.md).
 
 Register your application to use Azure Active Directory. Registering the application means that your developers can use Azure AD to authenticate users and request access to user resources such as email, calendar, and documents.
 
-Any member of your directory (not guests) can register an application, otherwise known as *creating an application object*.
+Any member of your directory (not guests) can register an application, otherwise known as *creating an application object*. If you are unable to register an application then it means  the global administrator of your directory has restricted this functionality and you may need to contact them for [obtaining proper rights](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles) be able to register the application. To learn more about how to restrict user's see [Delegate app registration permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications).
 
 Registering an application allows any user to do the following:
 

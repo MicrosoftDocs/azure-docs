@@ -30,9 +30,9 @@ Yes. The Azure Import/Export service supports import into Azure File Storage. It
 
 Yes. Azure Import/Export service supports Cloud Solution Providers (CSP) subscriptions.
 
-### Can I use the Azure Import/Export service to copy PST mailboxes and SharePoint data to O365?
+### Can I use the Azure Import/Export service to copy PST mailboxes and SharePoint data to Microsoft 365?
 
-Yes. For more information, go to [Import PST files or SharePoint data to Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
+Yes. For more information, go to [Overview of importing your organization's PST files](/microsoft-365/compliance/importing-pst-files-to-office-365).
 
 ### Can I use the Azure Import/Export service to copy my backups offline to the Azure Backup Service?
 
@@ -50,7 +50,7 @@ No. Any drive used to import data must be prepared using the Azure WAImportExpor
 
 ### Do I need to perform any disk preparation when creating an export job?
 
-No. Some prechecks are recommended. To check the number of disks required, use the WAImportExport tool's PreviewExport command. For more information, see [Previewing Drive Usage for an Export Job](https://msdn.microsoft.com/library/azure/dn722414.aspx). The command helps you preview drive usage for the selected blobs, based on the size of the drives you are going to use. Also check that you can read from and write to the hard drive that is shipped for the export job.
+No. Some prechecks are recommended. To check the number of disks required, use the WAImportExport tool's PreviewExport command. For more information, see [Previewing Drive Usage for an Export Job](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1). The command helps you preview drive usage for the selected blobs, based on the size of the drives you are going to use. Also check that you can read from and write to the hard drive that is shipped for the export job.
 
 ## Import/Export jobs
 
@@ -127,7 +127,7 @@ No. All drives are encrypted with BitLocker.
 
 ### How can I access data that is imported by this service?
 
-Use the Azure portal or [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) to access the data under your Azure storage account.  
+Use the Azure portal or [Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to access the data under your Azure storage account.  
 
 ### After the import is complete, what does my data look like in the storage account? Is my directory hierarchy preserved?
 
@@ -139,7 +139,7 @@ Depends. When preparing the drive, you can specify whether the destination files
 
 ### Is the WAImportExport tool compatible with 32-bit operating systems?
 
-No. The WAImportExport tool is only compatible with 64-bit Windows operating systems. For a complete list of Supported OS, go to [Supported Operating Systems](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
+No. The WAImportExport tool is only compatible with 64-bit Windows operating systems. For a complete list of Supported OS, go to [Supported Operating Systems](./storage-import-export-requirements.md).
 
 ### What is the maximum Block Blob and Page Blob Size supported by Azure Import/Export?
 

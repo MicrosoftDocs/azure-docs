@@ -1,18 +1,18 @@
 ---
 title: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub  | Microsoft Docs
 description: How to use Azure IoT Hub Device Provisioning Service (DPS) auto-provisioning to register the MXChip IoT DevKit with IoT Hub.
-author: liydu
-ms.author: liydu
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: jeffya
+manager: eliotgra
 ---
 
 # Use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub
 
-This article describes how to use Azure IoT Hub Device Provisioning Service [auto-provisioning](concepts-auto-provisioning.md), to register the MXChip IoT DevKit with Azure IoT Hub. In this tutorial, you learn how to:
+This article describes how to use the Azure IoT Hub Device Provisioning Service to [provisioning](about-iot-dps.md#provisioning-process) the MXChip IoT DevKit to an Azure IoT Hub. In this tutorial, you learn how to:
 
 * Configure the global endpoint of the Device Provisioning service on a device.
 * Use a unique device secret (UDS) to generate an X.509 certificate.
@@ -40,7 +40,7 @@ To complete the steps in this tutorial, first do the following tasks:
 
 ## Save a Unique Device Secret on device security storage
 
-Auto-provisioning can be configured on a device based on the device's [attestation mechanism](concepts-security.md#attestation-mechanism). The MXChip IoT DevKit uses the [Device Identity Composition Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) from the [Trusted Computing Group](https://trustedcomputinggroup.org). A **Unique Device Secret** (UDS) saved in an STSAFE security chip ([STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) on the DevKit is used to generate the device's unique [X.509 certificate](concepts-security.md#x509-certificates). The certificate is used later for the enrollment process in the Device Provisioning service, and during registration at runtime.
+Auto-provisioning can be configured on a device based on the device's [attestation mechanism](concepts-service.md#attestation-mechanism). The MXChip IoT DevKit uses the [Device Identity Composition Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) from the [Trusted Computing Group](https://trustedcomputinggroup.org). A **Unique Device Secret** (UDS) saved in an STSAFE security chip ([STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) on the DevKit is used to generate the device's unique [X.509 certificate](concepts-x509-attestation.md). The certificate is used later for the enrollment process in the Device Provisioning service, and during registration at runtime.
 
 A typical UDS is a 64-character string, as seen in the following sample:
 

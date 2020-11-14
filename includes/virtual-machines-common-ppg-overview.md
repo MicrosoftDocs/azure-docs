@@ -31,7 +31,7 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 A proximity placement group is a new resource type in Azure. You need to create one before using it with other resources. Once created, it could be used with virtual machines, availability sets, or virtual machine scale sets. 
 You specify a proximity placement group when creating compute resources providing the proximity placement group ID. 
 
-You can also move an existing resource into a proximity placement group. When moving a resource into a proximity placement group, you should stop (deallocate) the asset first since it will be redeployed potentially into a different data center in the region so satisfy the colocation constraint. 
+You can also move an existing resource into a proximity placement group. When moving a resource into a proximity placement group, you should stop (deallocate) the asset first since it will be redeployed potentially into a different data center in the region to satisfy the colocation constraint. 
 
 In the case of availability sets and virtual machine scale sets, you should set the proximity placement group at the resource level rather than the individual virtual machines. 
 
@@ -44,6 +44,40 @@ Proximity placement groups offer co-location in the same data center. However, b
 - 	In the case of elastic workloads, where you add and remove VM instances, having a proximity placement group constraint on your deployment may result in a failure to satisfy the request resulting in **AllocationFailure** error. 
 - Stopping (deallocate) and starting your VMs as needed is another way to achieve elasticity. Since the capacity is not kept once you stop (deallocate) a VM, starting it again may result in an **AllocationFailure** error.
 
+## Planned maintenance and Proximity Placement Groups
+
+Planned maintenance events, like hardware decommissioning at an Azure datacenter, could potentially affect the alignment of resources in proximity placement groups. Resources may be moved to a different data center, disrupting the collocation and latency expectations associated with the proximity placement group.
+
+### Check the alignment status
+
+You can do the following to check the alignment status of your proximity placement groups.
+
+
+- Proximity placement group colocation status can be viewed using the portal, CLI, and PowerShell.
+
+    -   When using PowerShell, colocation status can be obtained using Get-AzProximityPlacementGroup cmdlet by including the optional parameter ‘-ColocationStatus`.
+
+    -   When using CLI, colocation status can be obtained using `az ppg show` by including the optional parameter ‘--include-colocation-status`.
+
+- For each proximity placement group, a **colocation status** property
+    provides the current alignment status summary of the grouped resources. 
+
+    - **Aligned**: Resource is within the same latency envelop of the proximity placement group.
+
+    - **Unknown**: at least one of the VM resources are deallocated. Once starting them back successfully, the status should go back to **Aligned**.
+
+    - **Not aligned**: at least one VM resource is not aligned with the proximity placement group. The specific resources which are not aligned will also be called out separately in the membership section
+
+- For Availability Sets, you can see information about alignment of individual VMs in the the Availability Set Overview page.
+
+- For scale sets, information about alignment of individual instances can be seen in the **Instances** tab of the **Overview** page for the scale set. 
+
+
+### Re-align resources 
+
+If a proximity placement group is `Not Aligned`, you can stop\deallocate and then restart the affected resources. If the VM is in an availability set or a scale set, all VMs in the availability set or scale set must be stopped\deallocated first before restarting them.
+
+If there is an allocation failure due to deployment constraints, you may have to stop\deallocate all resources in the affected proximity placement group (including the aligned resources) first and then restart them to restore alignment.
 
 ## Best practices 
 - For the lowest latency, use proximity placement groups together with accelerated networking. For more information, see [Create a Linux virtual machine with Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Create a Windows virtual machine with Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

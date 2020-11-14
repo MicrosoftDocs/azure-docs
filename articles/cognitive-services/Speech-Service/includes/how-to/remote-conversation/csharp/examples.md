@@ -4,6 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: amishu
+ms.custom: devx-track-csharp
 ---
 
 ## Upload the audio

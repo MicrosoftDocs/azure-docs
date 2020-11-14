@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 09/30/2019
 ms.author: alkohli
 ---
 
@@ -15,7 +15,7 @@ Once the copy is complete, order status updates to **Completed**.
 
 Verify that your data is uploaded to Azure before you delete it from the source. Your data can be in:
 
-- Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
+- Your Azure Storage account(s). When you copy the data to Data Box, the data is uploaded to one of the following paths in your Azure Storage account:
 
   - For block blobs and page blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - For Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
@@ -32,7 +32,7 @@ Verify that your data is uploaded to Azure before you delete it from the source.
 
         ![Managed disk attached to resource groups](media/data-box-verify-upload-return/managed-disks-resource-group.png)
 
-    - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a page blob but the conversion of VHD to managed disk fails. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, or Premium SSD. The VHDs are uploaded as page blobs in your staging storage account.
+    - If you copied a VHDX or a dynamic or differencing VHD, the VHDX or VHD is uploaded to the staging storage account as a page blob, but the conversion of the VHD to a managed disk will fail. Go to your staging **Storage account > Blobs**, and select the appropriate container - Standard SSD, Standard HDD, or Premium SSD. The VHDs are uploaded as page blobs in your staging storage account and accrue charges.
 
 
 ## Erasure of data from Data Box

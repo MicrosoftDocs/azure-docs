@@ -13,11 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 09/16/2020
 ms.author: juliako
 
 ---
 # Quotas and Limitations
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This article describes quotas and limitations associated with Microsoft Azure Media Services.
 

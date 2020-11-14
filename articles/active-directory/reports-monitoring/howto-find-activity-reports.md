@@ -113,7 +113,7 @@ You can use the sign-ins report to view details about application usage, by filt
 Anomalous activity reports provide information on security-related risk detections that Azure AD can detect and report on.
 
 The following table lists the Azure AD anomalous activity security reports, and corresponding risk detection types in the Azure portal. For more information, see
-[Azure Active Directory risk detections](concept-risk-events.md).  
+[Azure Active Directory risk detections](../identity-protection/overview-identity-protection.md).  
 
 
 | Azure AD anomalous activity report |  Identity protection risk detection type|
@@ -135,8 +135,8 @@ The following Azure AD anomalous activity security reports are not included as r
 
 You can access reports about detected risk detections in the **Security** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Detected risk detections are tracked in the following reports:   
 
-- [Users at risk](concept-user-at-risk.md)
-- [Risky sign-ins](concept-risky-sign-ins.md)
+- [Users at risk](../identity-protection/overview-identity-protection.md)
+- [Risky sign-ins](../identity-protection/overview-identity-protection.md)
 
     ![Security reports](./media/howto-find-activity-reports/04.png "Security reports")
 
@@ -148,7 +148,7 @@ You can access reports about detected risk detections in the **Security** sectio
 
 I downloaded the activity logs (audit or sign-ins) and I don’t see all the records for the time I chose. Why? 
 
- ![Reporting](./media/troubleshoot-missing-data-download/01.png)
+ ![Screenshot shows the Download button in the activity report.](./media/troubleshoot-missing-data-download/01.png)
  
 #### Cause
 
@@ -164,7 +164,7 @@ You can leverage [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up
 
 I performed some actions in the Azure portal and expected to see the audit logs for those actions in the `Activity logs > Audit Logs` blade, but I can’t find them.
 
- ![Reporting](./media/troubleshoot-missing-audit-data/01.png)
+ ![Screenshot shows the activity report.](./media/troubleshoot-missing-audit-data/01.png)
  
 #### Cause
 
@@ -185,7 +185,7 @@ Wait for 15 minutes to two hours and see if the actions appear in the log. If yo
 
 I recently signed into the Azure portal and expected to see the sign-in logs for those actions in the `Activity logs > Sign-ins` blade, but I can’t find them.
 
- ![Reporting](./media/troubleshoot-missing-audit-data/02.png)
+ ![Screenshot shows Sign-ins for Azure Active Directory.](./media/troubleshoot-missing-audit-data/02.png)
  
 #### Cause
 
@@ -206,7 +206,7 @@ Wait for 15 minutes to two hours and see if the actions appear in the log. If yo
 
 I can't view more than 30 days of sign-in and audit data from the Azure portal. Why? 
 
- ![Reporting](./media/troubleshoot-missing-audit-data/03.png)
+ ![Screenshot shows the Date menu.](./media/troubleshoot-missing-audit-data/03.png)
 
 #### Cause
 
@@ -227,4 +227,4 @@ You have two options to retain the data for longer than 30 days. You can use the
 
 * [Audit logs overview](concept-audit-logs.md)
 * [Sign-ins overview](concept-sign-ins.md)
-* [Risky events overview](concept-risk-events.md)
+* [Risky events overview](../identity-protection/overview-identity-protection.md)

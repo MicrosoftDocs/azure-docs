@@ -4,6 +4,7 @@ description: Use Service Fabric's dns service for discovering microservices from
 
 ms.topic: conceptual
 ms.date: 7/20/2018
+ms.custom: devx-track-csharp
 ---
 # DNS Service in Azure Service Fabric
 The DNS Service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol. 
@@ -12,7 +13,7 @@ Many services, especially containerized services, are addressable through a pre-
 
 The DNS service maps DNS names to service names, which in turn are resolved by the Naming Service to return the service endpoint. The DNS name for the service is provided at the time of creation. The following diagram shows how the DNS service works for stateless services.
 
-![service endpoints](./media/service-fabric-dnsservice/stateless-dns.png)
+![Diagram showing how DNS names are mapped to service names by the DNS service for stateless services.](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Beginning with Service Fabric version 6.3, the Service Fabric DNS protocol has been extended to include a scheme for addressing partitioned stateful services. These extensions make it possible to resolve specific partition IP addresses using a combination of stateful service DNS name and the partition name. All three partitioning schemes are supported:
 
@@ -22,7 +23,7 @@ Beginning with Service Fabric version 6.3, the Service Fabric DNS protocol has b
 
 The following diagram shows how the DNS service works for partitioned stateful services.
 
-![stateful service endpoints](./media/service-fabric-dnsservice/stateful-dns.png)
+![Diagram showing how DNS names are mapped to service names by the DNS service for partitioned stateless services.](./media/service-fabric-dnsservice/stateful-dns.png)
 
 Dynamic ports are not supported by the DNS service. To resolve services exposed on dynamic ports, use the [reverse proxy service](./service-fabric-reverseproxy.md).
 

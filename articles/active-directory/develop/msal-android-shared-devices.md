@@ -18,10 +18,8 @@ ms.custom: aaddev, identitypla | Azuretformtop40
 
 # Shared device mode for Android devices
 
-> [!NOTE]
-> This feature is in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Firstline Workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to do their work. That becomes problematic when they start sharing passwords or pin numbers to access customer and business data on the shared device.
 
@@ -32,7 +30,7 @@ Shared device mode also provides Microsoft identity backed management of the dev
 To create a shared device mode app, developers and cloud device admins work together:
 
 - Developers write a single-account app (multiple-account apps are not supported in shared device mode), add `"shared_device_mode_supported": true` to the app's configuration, and write code to handle things like shared device sign-out.
-- Device admins prepare the device to be shared by installing the authenticator app, and setting the device to shared mode using the authenticator app. Only users who are in the [Cloud Device Administrator](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) role can put a device into shared mode by using the [Authenticator app](../user-help/user-help-auth-app-overview.md). You can configure the membership of your organizational roles in the Azure portal via:
+- Device admins prepare the device to be shared by installing the authenticator app, and setting the device to shared mode using the authenticator app. Only users who are in the [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator-permissions) role can put a device into shared mode by using the [Authenticator app](../user-help/user-help-auth-app-overview.md). You can configure the membership of your organizational roles in the Azure portal via:
 **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**.
 
  This article focuses primarily what developers should think about.

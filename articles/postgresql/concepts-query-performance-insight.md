@@ -1,8 +1,8 @@
 ---
 title: Query Performance Insight - Azure Database for PostgreSQL - Single Server
 description: This article describes the Query Performance Insight feature in Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
@@ -25,7 +25,7 @@ The [Query Performance Insight](concepts-query-performance-insight.md) view in t
 
 In the portal page of your Azure Database for PostgreSQL server, select **Query performance Insight** under the **Intelligent Performance** section of the menu bar.
 
-![Query Performance Insight long running queries](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Query Performance Insight long running queries":::
 
 The **Long running queries** tab shows the top five queries by average duration per execution, aggregated in 15-minute intervals. You can view more queries by selecting from the **Number of Queries** drop down. The chart colors may change for a specific Query ID when you do this.
 
@@ -35,7 +35,7 @@ The table below the chart gives more details about the long-running queries in t
 
 Select the **Wait Statistics** tab to view the corresponding visualizations on waits in the server.
 
-![Query Performance Insight waits statistics](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight waits statistics":::
 
 ## Considerations
 * Query Performance Insight is not available for [read replicas](concepts-read-replicas.md).

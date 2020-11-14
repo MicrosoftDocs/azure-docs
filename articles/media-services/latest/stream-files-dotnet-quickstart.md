@@ -1,9 +1,9 @@
 ---
 title: Stream video files with Azure Media Services - .NET | Microsoft Docs
-description: Follow the steps of this tutorial to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
+description: Follow the steps of this tutorial to use .NET to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 keywords: azure media services, stream
@@ -12,12 +12,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/19/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
 
 # Tutorial: Encode a remote file based on URL and stream the video - .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This tutorial shows you how easy it is to encode and start streaming videos on a wide variety of browsers and devices using Azure Media Services. An input content can be specified using HTTPS URLs, SAS URLs, or paths to files located in Azure Blob storage.
 The sample in this topic encodes content that you make accessible via an HTTPS URL. Note that currently, AMS v3 does not support chunked transfer encoding over HTTPS URLs.
@@ -65,7 +67,7 @@ When you run the app, URLs that can be used to playback the video using differen
 1. Press Ctrl+F5 to run the *EncodeAndStreamFiles* application.
 2. Choose the Apple's **HLS** protocol (ends with *manifest(format=m3u8-aapl)*) and copy the streaming URL from the console.
 
-![Output](./media/stream-files-tutorial-with-api/output.png)
+![Screenshot of the output from the EncodeAndStreamFiles app in Visual Studio showing three streaming URLs for use in the Azure Media Player.](./media/stream-files-tutorial-with-api/output.png)
 
 In the sample's [source code](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs), you can see how the URL is built. To build it, you need to concatenate the streaming endpoint's host name and the streaming locator path.  
 

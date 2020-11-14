@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'PowerShell: Monitor with web server logs'
 description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to monitor an app with web server logs.
 tags: azure-service-management
@@ -6,7 +6,7 @@ tags: azure-service-management
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Monitor a web app with web server logs

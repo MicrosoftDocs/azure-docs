@@ -20,7 +20,7 @@ ms.date: 07/11/2020
 > The [REST API version 2020-06-30-Preview](search-api-preview.md) and portal provide this feature. There is currently no .NET SDK support.
 
 
-When setting up an Azure storage account, you have the option to enable [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace). This allows the collection of content in an account to be organized into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+When setting up an Azure storage account, you have the option to enable [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md). This allows the collection of content in an account to be organized into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 This article describes how to get started with indexing documents that are in Azure Data Lake Storage Gen2.
 
@@ -42,9 +42,9 @@ Indexing content in Data Lake Storage Gen2 is identical to indexing content in A
 
 ## Access control
 
-Azure Data Lake Storage Gen2 implements an [access control model](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). When indexing content from Data Lake Storage Gen2, Azure Cognitive Search will not extract the RBAC and ACL information from the content. As a result, this information will not be included in your Azure Cognitive Search index.
+Azure Data Lake Storage Gen2 implements an [access control model](../storage/blobs/data-lake-storage-access-control.md) that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). When indexing content from Data Lake Storage Gen2, Azure Cognitive Search will not extract the Azure RBAC and ACL information from the content. As a result, this information will not be included in your Azure Cognitive Search index.
 
-If maintaining access control on each document in the index is important, it is up to the application developer to implement [security trimming](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search).
+If maintaining access control on each document in the index is important, it is up to the application developer to implement [security trimming](./search-security-trimming-for-azure-search.md).
 
 ## Change Detection
 

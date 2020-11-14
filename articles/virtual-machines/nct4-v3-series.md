@@ -10,28 +10,29 @@ ms.date: 08/10/2020
 ms.author: vikancha
 ---
 
-# NCasT4_v3-series 
+# NCasT4_v3-series (In Preview) 
 
-The NCasT4_v3-series virtual machines are powered by [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPUs and AMD EPYC 7V12(Rome) CPUs. The VMs feature up to 4 NVIDIA T4 GPUs with 16 GB of memory each, up to 64 non-multithreaded AMD EPYC 7V12(Rome) processor cores, and 440 GiB of system memory. These virtual machines are ideal to run ML and AI workloads utilizing CUDA, TensorFlow, Pytorch, Caffe, and other Frameworks or the graphics workloads using NVIDIA GRID technology. NCasT4_v3-series is ideal for running inference workloads.
+The NCasT4_v3-series virtual machines are powered by [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPUs and AMD EPYC 7V12(Rome) CPUs. The VMs feature up to 4 NVIDIA T4 GPUs with 16 GB of memory each, up to 64 non-multithreaded AMD EPYC 7V12 (Rome) processor cores, and 440 GiB of system memory. These virtual machines are ideal for deploying AI services- such as real-time inferencing of user generated requests, or for interactive graphics and visualization workloads using NVIDIA's GRID driver and virtual GPU technology. Standard GPU compute workloads based around CUDA, TensorRT, Caffe, ONNX and other frameworks, or GPU-accelerated graphical applications based OpenGL and DirectX can be deployed economically, with close proximity to users, on the NCasT4_v3 series.
+
+> [!NOTe]
+> [Submit a request](https://aka.ms/NCT4v3Preview) to be part of the preview program.
 
 <br>
 
-ACU: 230-260
-
-Premium Storage:  Supported
-
-Premium Storage caching:  Supported
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
+[ACU](acu.md): 230-260<br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1<br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC4as_T4_v3 |4 |28 |180 | 1 | 16 | 8 | 2 |
-| Standard_NV8as_T4_v3 |8 |56 |360 | 1 | 16 | 16 | 4  |
-| Standard_NV16as_T4_v3 |16 |110 |360 | 1 | 16 | 32 | 8  |
-| Standard_NV64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8  |
+| Standard_NC8as_T4_v3 |8 |56 |360 | 1 | 16 | 16 | 4  |
+| Standard_NC16as_T4_v3 |16 |110 |360 | 1 | 16 | 32 | 8  |
+| Standard_NC64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8  |
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]

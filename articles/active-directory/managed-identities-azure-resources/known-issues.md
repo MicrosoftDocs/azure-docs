@@ -3,7 +3,7 @@ title: FAQs and known issues with managed identities - Azure AD
 description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 08/06/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
@@ -28,15 +28,13 @@ ms.custom: has-adal-ref
 > [!NOTE]
 > Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
 
-
 ### How can you find resources that have a managed identity?
 
 You can find the list of resources that have a system-assigned managed identity by using the following Azure CLI Command: 
 
-`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
-
-
-
+```azurecli-interactive
+az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
+```
 
 ### Do managed identities have a backing app object?
 
@@ -68,8 +66,6 @@ The security boundary of the identity is the resource to which it is attached to
 - If system assigned managed identity is not enabled, and only one user assigned managed identity exists, IMDS will default to that single user assigned managed identity. 
 - If system assigned managed identity is not enabled, and multiple user assigned managed identities exist, then specifying a managed identity in the request is required.
 
-
-
 ### Will managed identities be recreated automatically if I move a subscription to another directory?
 
 No. If you move a subscription to another directory, you will have to manually re-create them and grant Azure role assignments again.
@@ -82,9 +78,8 @@ No. Managed identities do not currently support cross-directory scenarios.
 
 ### What Azure RBAC permissions are required to managed identity on a resource? 
 
-- System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. This action is included in resource specific built-in roles like [Virtual Machine Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- User-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. In addition to [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignment over the managed identity.
-
+- System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. This action is included in resource specific built-in roles like [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- User-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. In addition to [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignment over the managed identity.
 
 
 ## Known issues
@@ -108,7 +103,7 @@ If you move a VM in the running state, it continues to run during the move. Howe
 Trigger an update on the VM so it can get correct values for the managed identities for Azure resources. You can do a VM property change to update the reference to the managed identities for Azure resources identity. For example, you can set a new tag value on the VM with the following command:
 
 ```azurecli-interactive
- az  vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
+az vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
 ```
  
 This command sets a new tag "fixVM" with a value of 1 on the VM. 
@@ -121,8 +116,6 @@ Once the VM is started, the tag can be removed by using following command:
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-
-
 ### Transferring a subscription between Azure AD directories
 
 Managed identities do not get updated when a subscription is moved/transferred to another directory. As a result, any existent system-assigned or user-assigned managed identities will be broken. 
@@ -132,7 +125,7 @@ Workaround for managed identities in a subscription that has been moved to anoth
  - For system assigned managed identities: disable and re-enable. 
  - For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
 
-For more information, see [Transfer an Azure subscription to a different Azure AD directory (Preview)](../../role-based-access-control/transfer-subscription.md).
+For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
 ### Moving a user-assigned managed identity to a different resource group/subscription
 

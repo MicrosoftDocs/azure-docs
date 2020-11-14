@@ -20,6 +20,8 @@ ms.author: juliako
 
 # Configuring Azure Media Services telemetry with REST
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This topic describes general steps that you might take when configuring the Azure Media Services (AMS) telemetry using REST API. 
 
 >[!NOTE]

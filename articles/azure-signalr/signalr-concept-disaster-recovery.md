@@ -4,6 +4,7 @@ description: An overview on how to set up multiple SignalR service instances to 
 author: chenkennt
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
 ---
@@ -35,7 +36,7 @@ But when a client is connected, it's always routed to the app server in the same
 
 Below is a diagram that illustrates such topology:
 
-![topology](media/signalr-concept-disaster-recovery/topology.png)
+![Diagram shows two regions each with an app server and a SignalR service, where each server is associated with the SignalR service in its region as primary and with the service in the other region as secondary.](media/signalr-concept-disaster-recovery/topology.png)
 
 ## Configure app servers with multiple SignalR service instances
 

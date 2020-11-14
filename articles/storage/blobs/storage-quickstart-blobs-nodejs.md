@@ -4,11 +4,11 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 09/17/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Quickstart: Manage blobs with JavaScript v12 SDK in Node.js
@@ -93,7 +93,7 @@ From the project directory:
 
     ```javascript
     const { BlobServiceClient } = require('@azure/storage-blob');
-    const uuidv1 = require('uuid/v1');
+    const { v1: uuid} = require('uuid');
 
     async function main() {
         console.log('Azure Blob storage v12 - JavaScript quickstart sample');
@@ -308,7 +308,8 @@ In this quickstart, you learned how to upload, download, and list blobs using Ja
 For tutorials, samples, quickstarts, and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure for JavaScript documentation](/azure/developer/javascript/)
+> [Azure for JavaScript developer center](/azure/developer/javascript/)
 
-* To learn more, see the [Azure Blob storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
+* To learn how to deploy a web app that uses Azure Blob storage, see [Tutorial: Upload image data in the cloud with Azure Storage](/azure/storage/blobs/storage-upload-process-images?tabs=javascript&preserve-view=true)
 * To see Blob storage sample apps, continue to [Azure Blob storage client library v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
+* To learn more, see the [Azure Blob storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).

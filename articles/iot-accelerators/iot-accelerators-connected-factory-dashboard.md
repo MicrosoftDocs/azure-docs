@@ -11,6 +11,9 @@ ms.author: dobett
 ---
 # Use features in the Connected Factory solution accelerator dashboard
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 The [Deploy a cloud-based solution to manage my industrial IoT devices](quickstart-connected-factory-deploy.md) quickstart showed you how to navigate the dashboard and respond to alarms. This how-to guide shows you some additional dashboard features you can use to monitor and manage your industrial IoT devices.
 
 ## Apply filters

@@ -107,8 +107,8 @@ Using your browser's developer tools, check the response headers to ensure the f
 
 To be eligible for compression, a file must meet the following size requirements:
 
-* Larger than 128 bytes.
-* Smaller than 1 MB.
+* Larger than 128 bytes (Content-Length: 128)
+* Smaller than 3 MB
 
 ### Check the request at the origin server for a **Via** header
 The **Via** HTTP header indicates to the web server that the request is being passed by a proxy server.  Microsoft IIS web servers by default do not compress responses when the request contains a **Via** header.  To override this behavior, perform the following:

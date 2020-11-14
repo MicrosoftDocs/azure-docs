@@ -8,12 +8,13 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 05/15/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 # Use the sign-ins report to review Azure Multi-Factor Authentication events
 
@@ -87,7 +88,7 @@ The following details are shown on the *Authentication Details* window for a sig
 
 ## PowerShell reporting on users registered for MFA
 
-First, ensure that you have the [MSOnline V1 PowerShell module](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) installed.
+First, ensure that you have the [MSOnline V1 PowerShell module](/powershell/azure/active-directory/overview?view=azureadps-1.0) installed.
 
 Identify users who have registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts cannot authenticate against Azure AD:
 

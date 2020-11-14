@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -28,7 +28,7 @@ The following Azure Multi-Factor Authentication settings are available in the Az
 | [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked or they're manually unblocked. |
 | [Fraud alert](#fraud-alert) | Configure settings that allow users to report fraudulent verification requests. |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
-| [OATH tokens](concept-authentication-methods.md#oath-tokens) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
+| [OATH tokens](concept-authentication-oath-tokens.md) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
 | Providers | This will show any existing authentication providers that you may have associated with your account. New authentication providers may not be created as of September 1, 2018 |
 
@@ -54,7 +54,7 @@ To configure account lockout settings, complete the following settings:
 
 ## Block and unblock users
 
-If a user's device has been lost or stolen, you can block authentication attempts for the associated account. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
+If a user's device has been lost or stolen, you can block Azure Multi-Factor Authentication attempts for the associated account. Any Azure Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
 
 ### Block a user
 
@@ -82,7 +82,7 @@ The fraud alert feature lets users report fraudulent attempts to access their re
 
 The following fraud alert configuration options are available:
 
-* **Automatically block users who report fraud**: If a user reports fraud, their account is blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
+* **Automatically block users who report fraud**: If a user reports fraud, the Azure MFA authentication attempts for the user  account are blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
 * **Code to report fraud during initial greeting**: When users receive a phone call to perform multi-factor authentication, they normally press **#** to confirm their sign-in. To report fraud, the user enters a code before pressing **#**. This code is **0** by default, but you can customize it.
 
    > [!NOTE]
@@ -153,7 +153,7 @@ In the United States, if you haven't configured MFA Caller ID, voice calls from 
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> When Azure Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though Azure Multi-Factor Authentication always sends it.
+> When Azure Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure Multi-Factor Authentication always sends it. This applies both to phone calls and to text messages provided by Azure Multi-Factor Authentication. If you need to validate that a text message is from Azure Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 To configure your own caller ID number, complete the following steps:
 
@@ -192,7 +192,7 @@ The following sample scripts can be used to create your own custom messages. The
 
 | Message name | Script |
 | --- | --- |
-| Authentication successful | Your sign in was successfully verified. Goodbye. |
+| Authentication successful | Your sign-in was successfully verified. Goodbye. |
 | Extension prompt | Thank you for using Microsoft's sign-in verification system. Please press pound key to continue. |
 | Fraud Confirmation | A fraud alert has been submitted. To unblock your account, please contact your company's IT help desk. |
 | Fraud greeting (Standard) | Thank you for using Microsoft's sign-in verification system. Please press the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
@@ -241,10 +241,10 @@ If your organization deploys the NPS extension to provide MFA to on-premises app
 
 | Azure AD tenant type | Trusted IP feature options |
 |:--- |:--- |
-| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet. A maximum of 50 trusted IP ranges can be configured.|
-| Federated |**All Federated Users**: All federated users who sign in from inside of the organization can bypass two-step verification. The users bypass verification by using a claim that is issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet. |
+| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentication for users who sign in from the company intranet. A maximum of 50 trusted IP ranges can be configured.|
+| Federated |**All Federated Users**: All federated users who sign in from inside of the organization can bypass multi-factor authentication. The users bypass verification by using a claim that is issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass multi-factor authentication for users who sign in from the company intranet. |
 
-Trusted IP bypass works only from inside of the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using two-step verification. The process is the same even if the user presents an AD FS claim.
+Trusted IP bypass works only from inside of the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using multi-factor authentication. The process is the same even if the user presents an AD FS claim.
 
 ### End-user experience inside of corpnet
 
@@ -275,14 +275,14 @@ To enable trusted IPs using Conditional Access policies, complete the following 
 1. Select **Configure MFA trusted IPs**.
 1. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
 
-   * **For requests from federated users originating from my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:
+   * **For requests from federated users originating from my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass multi-factor authentication by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **For requests from a specific range of public IPs**: To choose this option, enter the IP addresses in the text box by using CIDR notation.
       * For IP addresses that are in the range xxx.xxx.xxx.1 through xxx.xxx.xxx.254, use notation like **xxx.xxx.xxx.0/24**.
       * For a single IP address, use notation like **xxx.xxx.xxx.xxx/32**.
-      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
+      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multi-factor authentication.
 
 1. Select **Save**.
 
@@ -295,20 +295,20 @@ If you don't want to use Conditional Access policies to enable trusted IPs, you 
 1. Under Multi-Factor Authentication, select **service settings**.
 1. On the **Service Settings** page, under **Trusted IPs**, choose one (or both) of the following two options:
 
-   * **For requests from federated users on my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass two-step verification by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:
+   * **For requests from federated users on my intranet**: To choose this option, select the check box. All federated users who sign in from the corporate network bypass multi-factor authentication by using a claim that is issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **For requests from a specified range of IP address subnets**: To choose this option, enter the IP addresses in the text box by using CIDR notation.
       * For IP addresses that are in the range xxx.xxx.xxx.1 through xxx.xxx.xxx.254, use notation like **xxx.xxx.xxx.0/24**.
       * For a single IP address, use notation like **xxx.xxx.xxx.xxx/32**.
-      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
+      * Enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass multi-factor authentication.
 
 1. Select **Save**.
 
 ## Verification methods
 
-You can choose the verification methods that are available for your users in the service settings portal. When your users enroll their accounts for Azure Multi-Factor Authentication, they choose their preferred verification method from the options that you have enabled. Guidance for the user enrollment process is provided in [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md).
+You can choose the verification methods that are available for your users in the service settings portal. When your users enroll their accounts for Azure Multi-Factor Authentication, they choose their preferred verification method from the options that you have enabled. Guidance for the user enrollment process is provided in [Set up my account for multi-factor authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 The following verification methods are available:
 
@@ -333,25 +333,25 @@ To enable or disable verification methods, complete the following steps:
 
 ## Remember Multi-Factor Authentication
 
-The _remember Multi-Factor Authentication_ feature lets users can bypass subsequent verifications for a specified number of days, after they've successfully signed-in to a device by using Multi-Factor Authentication. The feature enhances usability by minimizing the number of times a user has to perform MFA on the same device.
+The _remember Multi-Factor Authentication_ feature lets users can bypass subsequent verifications for a specified number of days, after they've successfully signed-in to a device by using Multi-Factor Authentication. To enhance usability and minimize the number of times a user has to perform MFA on the same device, select a duration of 90 days or more.
 
 > [!IMPORTANT]
 > If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [Revoke MFA Sessions](howto-mfa-userdevicesettings.md).
 >
-> The restore action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore Multi-Factor Authentication on their own devices as noted in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+> The restore action revokes the trusted status from all devices, and the user is required to perform multi-factor authentication again. You can also instruct your users to restore Multi-Factor Authentication on their own devices as noted in [Manage your settings for multi-factor authentication](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### How the feature works
 
 The remember Multi-Factor Authentication feature sets a persistent cookie on the browser when a user selects the **Don't ask again for X days** option at sign-in. The user isn't prompted again for Multi-Factor Authentication from that same browser until the cookie expires. If the user opens a different browser on the same device or clears their cookies, they're prompted again to verify.
 
-The **Don't ask again for X days** option isn't shown on non-browser applications, regardless of whether the app supports modern authentication. These apps use _refresh tokens_ that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last two-step verification occurred within the specified number of days.
+The **Don't ask again for X days** option isn't shown on non-browser applications, regardless of whether the app supports modern authentication. These apps use _refresh tokens_ that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last multi-factor authentication occurred within the specified number of days.
 
-The feature reduces the number of authentications on web apps, which normally prompt every time. The feature increases the number of authentications for modern authentication clients that normally prompt every 90 days. May also increase the number of authentications when combined with Conditional Access policies.
+The feature reduces the number of authentications on web apps, which normally prompt every time. The feature can increase the number of authentications for modern authentication clients that normally prompt every 90 days, if a lower duration is configured. May also increase the number of authentications when combined with Conditional Access policies.
 
 > [!IMPORTANT]
-> The **remember Multi-Factor Authentication** feature isn't compatible with the **keep me signed in** feature of AD FS, when users perform two-step verification for AD FS through Azure Multi-Factor Authentication Server or a third-party multi-factor authentication solution.
+> The **remember Multi-Factor Authentication** feature isn't compatible with the **keep me signed in** feature of AD FS, when users perform multi-factor authentication for AD FS through Azure Multi-Factor Authentication Server or a third-party multi-factor authentication solution.
 >
-> If your users select **keep me signed in** on AD FS and also mark their device as trusted for Multi-Factor Authentication, the user isn't automatically verified after the **remember multi-factor authentication** number of days expires. Azure AD requests a fresh two-step verification, but AD FS returns a token with the original Multi-Factor Authentication claim and date, rather than performing two-step verification again. **This reaction sets off a verification loop between Azure AD and AD FS.**
+> If your users select **keep me signed in** on AD FS and also mark their device as trusted for Multi-Factor Authentication, the user isn't automatically verified after the **remember multi-factor authentication** number of days expires. Azure AD requests a fresh multi-factor authentication, but AD FS returns a token with the original Multi-Factor Authentication claim and date, rather than performing multi-factor authentication again. **This reaction sets off a verification loop between Azure AD and AD FS.**
 >
 > The **remember Multi-Factor Authentication** feature is not compatible with B2B users and will not be visible for B2B users when signing into the invited tenants.
 >
@@ -363,8 +363,8 @@ To enable and configure the option for users to remember their MFA status and by
 1. In the Azure portal, search for and select **Azure Active Directory**, then choose **Users**.
 1. Select **Multi-Factor Authentication**.
 1. Under Multi-Factor Authentication, select **service settings**.
-1. On the **Service Settings** page, **manage remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.
-1. Set the number of days to allow trusted devices to bypass two-step verification. The default is 14 days.
+1. On the **Service Settings** page, under **remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.
+1. Set the number of days to allow trusted devices to bypass multi-factor authentication. For the optimal user experience, extend the duration to *90* or more days.
 1. Select **Save**.
 
 ### Mark a device as trusted

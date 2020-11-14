@@ -7,35 +7,16 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js, devx-track-csharp
 ---
 
 # Change streams in Azure Cosmos DB’s API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 [Change feed](change-feed.md) support in Azure Cosmos DB’s API for MongoDB is available by using the change streams API. By using the change streams API, your applications can get the changes made to the collection or to the items in a single shard. Later you can take further actions based on the results. Changes to the items in the collection are captured in the order of their modification time and the sort order is guaranteed per shard key.
 
 > [!NOTE]
 > To use change streams, create the account with version 3.6 of Azure Cosmos DB's API for MongoDB, or a later version. If you run the change stream examples against an earlier version, you might see the `Unrecognized pipeline stage name: $changeStream` error.
-
-## Current limitations
-
-The following limitations are applicable when using change streams:
-
-* The `operationType` and `updateDescription` properties are not yet supported in the output document.
-* The `insert`, `update`, and `replace` operations types are currently supported. 
-* Delete operation or other events are not yet supported.
-
-Due to these limitations, the $match stage, $project stage, and fullDocument options are required as shown in the previous examples.
-
-Unlike the change feed in Azure Cosmos DB's SQL API, there is not a separate [Change Feed Processor Library](change-feed-processor.md) to consume change streams or a need for a leases container. There is not currently support for [Azure Functions triggers](change-feed-functions.md) to process change streams.
-
-## Error handling
-
-The following error codes and messages are supported when using change streams:
-
-* **HTTP error code 16500** - When the change stream is throttled, it returns an empty page.
-
-* **NamespaceNotFound (OperationType Invalidate)** - If you run change stream on the collection that does not exist or if the collection is dropped, then a `NamespaceNotFound` error is returned. Because the `operationType` property can't be returned in the output document, instead of the `operationType Invalidate` error, the `NamespaceNotFound` error is returned.
 
 ## Examples
 
@@ -151,15 +132,17 @@ var cursor = db.coll.watch(
 The following limitations are applicable when using change streams:
 
 * The `operationType` and `updateDescription` properties are not yet supported in the output document.
-* The `insert`, `update`, and `replace` operations types are currently supported. Delete operation or other events are not yet supported.
+* The `insert`, `update`, and `replace` operations types are currently supported. However, the delete operation or other events are not yet supported.
 
 Due to these limitations, the $match stage, $project stage, and fullDocument options are required as shown in the previous examples.
+
+Unlike the change feed in Azure Cosmos DB's SQL API, there is not a separate [Change Feed Processor Library](change-feed-processor.md) to consume change streams or a need for a leases container. There is not currently support for [Azure Functions triggers](change-feed-functions.md) to process change streams.
 
 ## Error handling
 
 The following error codes and messages are supported when using change streams:
 
-* **HTTP error code 429** - When the change stream is throttled, it returns an empty page.
+* **HTTP error code 16500** - When the change stream is throttled, it returns an empty page.
 
 * **NamespaceNotFound (OperationType Invalidate)** - If you run change stream on the collection that does not exist or if the collection is dropped, then a `NamespaceNotFound` error is returned. Because the `operationType` property can't be returned in the output document, instead of the `operationType Invalidate` error, the `NamespaceNotFound` error is returned.
 

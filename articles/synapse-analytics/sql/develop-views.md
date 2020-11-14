@@ -1,18 +1,19 @@
 ---
-title: T-SQL views using Synapse SQL
-description: Tips for using T-SQL views and developing solutions with Synapse SQL.
+title: T-SQL views using SQL pools
+description: Tips for using T-SQL views and developing solutions with dedicated SQL pool and serverless SQL pool (preview ) in Azure Synapse Analytics..
 services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020 
 ms.author: v-stazar 
 ms.reviewer: jrasnick
 ---
 
-# T-SQL views using Synapse SQL
-In this article, you'll find tips for using T-SQL views and developing solutions with Synapse SQL. 
+# T-SQL views with dedicated SQL pool and serverless SQL pool (preview ) in Azure Synapse Analytics
+
+In this article, you'll find tips for using T-SQL views and developing solutions with dedicated SQL pool and serverless SQL pool (preview ) in Azure Synapse Analytics.
 
 ## Why use views
 
@@ -21,12 +22,7 @@ Views can be used in a number of different ways to improve the quality of your s
 ### SQL pool - create view
 
 > [!NOTE]
-> **SQL pool**: Syntax for CREATE VIEW is not discussed in this article. For more information, see the [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) documentation.
-
-### SQL on-demand (preview) - create view
-
-> [!NOTE]
-> **SQL on-demand**: Syntax for CREATE VIEW is not discussed in this article. For more information, see the [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) documentation.
+> Syntax for CREATE VIEW is not discussed in this article. For more information, see the [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) documentation.
 
 ## Architectural abstraction
 
@@ -49,7 +45,6 @@ FROM   dbo.DimDate_stg AS stg
 
 RENAME OBJECT DimDate TO DimDate_Old;
 RENAME OBJECT DimDate_New TO DimDate;
-
 ```
 
 Keep in mind that this approach can result in tables appearing and disappearing from a user's view, and prompts "table does not exist" error messages. Views can be used to provide users with a consistent presentation layer while the underlying objects are renamed.

@@ -3,9 +3,9 @@ title: 'Quickstart: Create a search index in Postman using REST APIs'
 titleSuffix: Azure Cognitive Search
 description: In this REST API quickstart, learn how to call the Azure Cognitive Search REST APIs using Postman and sample data and definitions.
 
-author: tchristiani
 manager: nitinme
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
@@ -15,13 +15,13 @@ ms.date: 08/17/2020
 # Quickstart: Create an Azure Cognitive Search index in Postman using REST APIs
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
-> * [C#](search-create-index-dotnet.md)
+> * [C#](./search-get-started-dotnet.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice) and an API client for sending and receiving requests. With an API client and these instructions, you can send requests and view responses before writing any code.
+This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and an API client for sending and receiving requests. With an API client and these instructions, you can send requests and view responses before writing any code.
 
 The article uses the Postman application. You can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) if you prefer to use predefined requests. 
 
@@ -70,7 +70,7 @@ In Postman, formulate a request that looks like the following screenshot. Choose
 
 ## 1 - Create an index
 
-In Azure Cognitive Search, you usually create the index before loading it with data. The [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) is used for this task. 
+In Azure Cognitive Search, you usually create the index before loading it with data. The [Create Index REST API](/rest/api/searchservice/create-index) is used for this task. 
 
 The URL is extended to include the `hotels` index name.
 
@@ -124,7 +124,7 @@ When you submit this request, you should get an HTTP 201 response, indicating th
 
 ## 2 - Load documents
 
-Creating the index and populating the index are separate steps. In Azure Cognitive Search, the index contains all searchable data. In this scenario, the data is provided as JSON documents. The [Add, Update, or Delete Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) is used for this task. 
+Creating the index and populating the index are separate steps. In Azure Cognitive Search, the index contains all searchable data. In this scenario, the data is provided as JSON documents. The [Add, Update, or Delete Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) is used for this task. 
 
 The URL is extended to include the `docs` collections and `index` operation.
 
@@ -232,12 +232,12 @@ In a few seconds, you should see an HTTP 201 response in the session list. This 
 If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request: verify you changed the endpoint to include `/docs/index`.
 
 > [!Tip]
-> For selected data sources, you can choose the alternative *indexer* approach which simplifies and reduces the amount of code required for indexing. For more information, see [Indexer operations](https://docs.microsoft.com/rest/api/searchservice/indexer-operations).
+> For selected data sources, you can choose the alternative *indexer* approach which simplifies and reduces the amount of code required for indexing. For more information, see [Indexer operations](/rest/api/searchservice/indexer-operations).
 
 
 ## 3 - Search an index
 
-Now that an index and document set are loaded, you can issue queries against them using [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Now that an index and document set are loaded, you can issue queries against them using [Search Documents REST API](/rest/api/searchservice/search-documents).
 
 The URL is extended to include a query expression, specified using the search operator.
 
@@ -274,7 +274,7 @@ https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?
 ```
 
 ## Get index properties
-You can also use [Get Statistics](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) to query for document counts and index size: 
+You can also use [Get Statistics](/rest/api/searchservice/get-index-statistics) to query for document counts and index size: 
 
 ```
 https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2020-06-30

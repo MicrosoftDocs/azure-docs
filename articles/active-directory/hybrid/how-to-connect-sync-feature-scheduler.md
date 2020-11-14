@@ -156,13 +156,15 @@ Example:  If you made changes to the synchronization rules for Connector “AD F
 ## Stop the scheduler
 If the scheduler is currently running a synchronization cycle, you might need to stop it. For example if you start the installation wizard and you get this error:
 
-![SyncCycleRunningError](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
+![Screenshot shows Cannot change configuration error message.](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
 
 When a sync cycle is running, you cannot make configuration changes. You could wait until the scheduler has finished the process, but you can also stop it so you can make your changes immediately. Stopping the current cycle is not harmful and pending changes are processed with next run.
 
 1. Start by telling the scheduler to stop its current cycle with the PowerShell cmdlet `Stop-ADSyncSyncCycle`.
 2. If you use a build before 1.1.281, then stopping the scheduler does not stop the current Connector from its current task. To force the Connector to stop, take the following actions:
-   ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+
+   ![Screenshot shows Synchronization Service Manager with Connectors selected and a running connector highlighted with the Stop action selected.](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+
    * Start **Synchronization Service** from the start menu. Go to **Connectors**, highlight the Connector with the state **Running**, and select **Stop** from the Actions.
 
 The scheduler is still active and starts again on next opportunity.

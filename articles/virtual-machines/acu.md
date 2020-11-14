@@ -33,6 +33,7 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [A1_v2 - A8_v2](sizes-general.md) |100 | 1:1 |
 | [A2m_v2 - A8m_v2](sizes-general.md) |100 | 1:1 |
 | [A8 - A11](sizes-previous-gen.md) |225* | 1:1 |
+| [B](sizes-b-series-burstable.md) |Varies | Varies |
 | [D1 - D14](sizes-previous-gen.md) |160 - 250 | 1:1 |
 | [D1_v2 - D15_v2](dv2-dsv2-series.md) |210 - 250* | 1:1 |
 | [DS1 - DS14](sizes-previous-gen.md) |160 - 250 | 1:1 |

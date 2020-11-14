@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create and manage Azure file shares using Azure CLI
-This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with the Azure CLI. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard SMB protocol and enable file sharing across multiple machines, applications, and instances. 
+This guide walks you through the basics of working with [Azure file shares](storage-files-introduction.md) with the Azure CLI. Azure file shares are just like other file shares, but stored in the cloud and backed by the Azure platform. Azure File shares support the industry standard Server Message Block (SMB) protocol, the Network File System (NFS) protocol (preview), and enables file sharing across multiple machines, applications, and instances. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -79,13 +79,14 @@ az storage share create \
     --account-key $storageAccountKey \
     --name $shareName \
     --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 ```
 
-Share names can contain only lowercase letters, numbers, and single hyphens (but they can't start with a hyphen). For complete details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Share names can contain only lowercase letters, numbers, and single hyphens (but they can't start with a hyphen). For complete details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ## Use your Azure file share
-Azure Files provides two methods of working with files and folders within your Azure file share: the industry standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) and the [File REST protocol](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
+Azure Files provides two methods of working with files and folders within your Azure file share: the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) and the [File REST protocol](/rest/api/storageservices/file-service-rest-api). 
 
 To mount a file share with SMB, see the following document based on your OS:
 - [Linux](storage-how-to-use-files-linux.md)
@@ -170,6 +171,7 @@ az storage share create \
     --account-key $storageAccountKey \
     --name $otherShareName \
     --quota 1024 \
+    --enabled-protocols SMB \
     --output none
 
 az storage directory create \
@@ -206,7 +208,7 @@ Another useful task that you can do with an Azure file share is create share sna
 
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems.
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS.
-- [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) for Windows file systems, such as NTFS and ReFS.
+- [Volume Shadow Copy Service (VSS)](/windows/desktop/VSS/volume-shadow-copy-service-portal) for Windows file systems, such as NTFS and ReFS.
  
 You can create a share snapshot by using the [`az storage share snapshot`](/cli/azure/storage/share) command:
 

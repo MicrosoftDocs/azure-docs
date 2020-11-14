@@ -18,7 +18,7 @@ commands.
 
 > [!NOTE]
 >
-> Hyperscale server groups running older versions of the Citus Engine may not
+> Hyperscale (Citus) server groups running older versions of the Citus Engine may not
 > offer all the functions listed below.
 
 ## Table and Shard DDL

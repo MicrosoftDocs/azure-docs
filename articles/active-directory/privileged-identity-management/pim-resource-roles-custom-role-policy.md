@@ -26,7 +26,7 @@ Follow the steps outlined in the next section to set up targeted Privileged Iden
 
 ## Create the custom role
 
-To create a custom role for a resource, follow the steps described in [Azure custom roles](../role-based-access-control-custom-roles.md).
+To create a custom role for a resource, follow the steps described in [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 When you create custom role, include a descriptive name so you can easily remember which built-in role you intended to duplicate.
 

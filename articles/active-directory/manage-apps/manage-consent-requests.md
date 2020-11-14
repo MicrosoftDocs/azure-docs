@@ -1,6 +1,6 @@
 ---
-title: Managing consent to applications and evaluating consent requests - Azure AD
-description: Learn how to manage consent requests when user consent is disabled or restricted, and how to evaluate a request for tenant-wide admin consent to an application.
+title: Managing consent to applications and evaluating consent requests in Azure Active Directory
+description: Learn how to manage consent requests when user consent is disabled or restricted, and how to evaluate a request for tenant-wide admin consent to an application in Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,7 +11,6 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.collection: M365-identity-device-management
 ---
 
 # Managing consent to applications and evaluating consent requests
@@ -71,7 +70,7 @@ The following list provides some recommendations to consider when evaluating a r
 
 * **Understand the permissions being requested.**
 
-   The permissions requested by the application are listed in the [consent prompt](../develop/application-consent-experience.md). Expanding the permission title will display the permission’s description. The description for application permissions will generally end in "without a signed-in user". The description for delegated permissions will generally end with "on behalf of the signed-in user." Permissions for the Microsoft Graph API are described in [Microsoft Graph Permissions Reference]- refer to the documentation for other APIs to understand the permissions they expose.
+   The permissions requested by the application are listed in the [consent prompt](../develop/application-consent-experience.md). Expanding the permission title will display the permission’s description. The description for application permissions will generally end in "without a signed-in user". The description for delegated permissions will generally end with "on behalf of the signed-in user." Permissions for the Microsoft Graph API are described in [Microsoft Graph Permissions Reference](https://docs.microsoft.com/graph/permissions-reference) - refer to the documentation for other APIs to understand the permissions they expose.
 
    If you do not understand a permission being requested, *do not grant consent*.
 
@@ -90,27 +89,29 @@ The following list provides some recommendations to consider when evaluating a r
 ## Granting consent as an administrator
 
 ### Granting tenant-wide admin consent
-
 See [Grant tenant-wide admin consent to an application](grant-admin-consent.md) for step-by-step instructions for granting tenant-wide admin consent from the Azure portal, using Azure AD PowerShell, or from the consent prompt itself.
 
 ### Granting consent on behalf of a specific user
-
-Instead of granting consent for the entire organization, an administrator can also use the [Microsft Graph API](https://docs.microsoft.com/graph/use-the-api) to grant consent to delegated permissions on behalf of a single user. For more information, see [Get access on behalf of a user](https://docs.microsoft.com/graph/auth-v2-user).
+Instead of granting consent for the entire organization, an administrator can also use the [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) to grant consent to delegated permissions on behalf of a single user. For more information, see [Get access on behalf of a user](https://docs.microsoft.com/graph/auth-v2-user).
 
 ## Limiting user access to applications
-
 Users' access to applications can still be limited even when tenant-wide admin consent has been granted. For more information on how to require user assignment to an application, see [methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
 
 For more a broader overview including how to handle additional complex scenarios, see [using Azure AD for application access management](what-is-access-management.md).
 
+## Disable all future user consent operations to any application
+Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalf. To learn more about application consent, and why you may or may not want to consent, read [Understanding user and admin consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+
+To disable all future user consent operations in your entire directory, follow these steps:
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+4.  Select **Users and groups** in the navigation menu.
+5.  Select **User settings**.
+6.  Disable all future user consent operations by setting the **Users can allow apps to access their data** toggle to **No** and click the **Save** button.
+
 ## Next steps
-
-[Five steps to securing your identity infrastructure](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
-
-[Configure the admin consent workflow](configure-admin-consent-workflow.md)
-
-[Configure how end-users consent to applications](configure-user-consent.md)
-
-[Permissions and consent in the Microsoft identity platform](../develop/active-directory-v2-scopes.md)
-
-[Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Five steps to securing your identity infrastructure](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
+* [Configure the admin consent workflow](configure-admin-consent-workflow.md)
+* [Configure how end-users consent to applications](configure-user-consent.md)
+* [Permissions and consent in the Microsoft identity platform](../develop/active-directory-v2-scopes.md)

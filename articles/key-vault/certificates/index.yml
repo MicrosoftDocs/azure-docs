@@ -61,7 +61,7 @@ landingContent:
           - text: Python client library
             url: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
           - text: Java client library
-            url: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.2.0/index.html
+            url: https://apidocs.chargebee.com/docs/api?lang=java#client_library
           - text: Node.js client library
             url: /javascript/api/@azure/keyvault-certificates/?view=azure-node-latest
 

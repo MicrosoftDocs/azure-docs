@@ -1,10 +1,10 @@
 ---
 title: Auto-scale an app running in Azure Service Fabric Mesh 
 description: Learn how to configure auto-scale policies for the services of a Service Fabric Mesh application.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to scale for demand by autoscaling services in a Service Fabric Mesh application.
 ---

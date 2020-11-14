@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: IoT Plug and Play Preview Refresh Documentation
+title: IoT Plug and Play documentation
 summary: IoT Plug and Play lets you define a device model that enables cloud solutions to automatically understand your device and start interacting with it.
 
 metadata:
-  title: IoT Plug and Play Preview architecture
-  description: IoT Plug and Play Preview enables solution builders to integrate devices into a solution without manual configuration. This article shows the key architectural elements that make this possible.
+  title: IoT Plug and Play architecture
+  description: IoT Plug and Play enables solution builders to integrate devices into a solution without manual configuration. This article shows the key architectural elements that make this task possible.
   services: iot-pnp
   ms.service: iot-pnp
   ms.topic: landing-page
@@ -21,8 +21,8 @@ landingContent:
       links:
         - text: What is IoT Plug and Play?
           url: overview-iot-plug-and-play.md
-        - text: Preview Refresh updates 2020
-          url: overview-iot-plug-and-play-preview-updates.md
+        - text: What's in the current release
+          url: overview-iot-plug-and-play-current-release.md
   - title: Build devices
     linkLists:
     - linkListType: quickstart
@@ -40,11 +40,13 @@ landingContent:
     - linkListType: concept
       links:
         - text: Developer guide
-          url: concepts-developer-guide.md
-        - text: IoT Plug and Play conventions
-          url: concepts-convention.md
+          url: concepts-developer-guide-device-csharp.md
         - text: Components
           url: concepts-components.md
+        - text: IoT Plug and Play conventions
+          url: concepts-convention.md  
+        - text: IoT Plug and Play bridge
+          url: concepts-iot-pnp-bridge.md
   - title: Build solutions
     linkLists:
     - linkListType: quickstart

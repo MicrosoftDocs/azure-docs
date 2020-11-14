@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
 ---
@@ -49,15 +49,15 @@ Before configuring Workgrid  for automatic user provisioning with Azure AD, you 
 
 1. Log in into Workgrid. Navigate to **Users > User Provisioning**.
 
-	![Workgrid](media/Workgrid-provisioning-tutorial/user.png)
+	![Screenshot of the Workgrid U I with the Users and User Provisioning options called out.](media/Workgrid-provisioning-tutorial/user.png)
 
 2. Under **Account Management API**, click **Create Credentials**.
 
-	![Workgrid](media/Workgrid-provisioning-tutorial/scim.png)
+	![Screenshot of the Account Management A P I section with the Create Credentials option called out.](media/Workgrid-provisioning-tutorial/scim.png)
 
 3. Copy the **SCIM Endpoint** and **Access Token** values. These will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Workgrid application in the Azure portal.
 
-	![Workgrid](media/Workgrid-provisioning-tutorial/token.png)
+	![Screenshot of the Account Management A P I section with S C I M Endpoint and Access Token called out.](media/Workgrid-provisioning-tutorial/token.png)
 
 
 ## Add Workgrid  from the gallery
@@ -101,11 +101,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the Admin Credentials section, input the **SCIM Endpoint** and **Access Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Workgrid. If the connection fails, ensure your Workgrid account has Admin permissions and try again.
 
@@ -119,7 +119,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Workgrid**.
 
-	![Workgrid User Mappings](media/Workgrid-provisioning-tutorial/usermapping.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Users to Workgrid option called out.](media/Workgrid-provisioning-tutorial/usermapping.png)
 
 9. Review the user attributes that are synchronized from Azure AD to Workgrid  in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Workgrid  for update operations. Select the **Save** button to commit any changes.
 
@@ -127,11 +127,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Workgrid**
 
-	![Workgrid User Mappings](media/Workgrid-provisioning-tutorial/groupmapping.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Groups to Workgrid option called out.](media/Workgrid-provisioning-tutorial/groupmapping.png)
 
 12. Review the group attributes that are synchronized from Azure AD to Workgrid  in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Workgrid  for update operations. Select the **Save** button to commit any changes.
 
-	![Workgrid User Mappings](media/Workgrid-provisioning-tutorial/groupattribute.png)
+	![Screenshot of the Attribute Mappings section with three mappings displayed.](media/Workgrid-provisioning-tutorial/groupattribute.png)
 
 13. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/01/2019 #Required; mm/dd/yyyy format.
+  ms.date: 09/22/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Computer Vision?
-            url: Home.md
+            url: overview.md
       - linkListType: whats-new
         links:
           - text: What's new
@@ -94,11 +94,11 @@ landingContent:
           - text: Using the Go SDK
             url: quickstarts-sdk/client-library.md?pivots=programming-language-go
 
-  - title: Use containers
+  - title: Use the Read container
     linkLists:
       - linkListType: get-started
         links:
-          - text: Install and run containers
+          - text: Install and run the container
             url: computer-vision-how-to-install-containers.md
       - linkListType: how-to-guide
         links:
@@ -110,7 +110,26 @@ landingContent:
             url: deploy-computer-vision-on-container-instances.md
           - text: Use with Kubernetes and Helm
             url: deploy-computer-vision-on-premises.md
-          
+  - title: Use the spatial analysis container
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Install and run the container
+            url: spatial-analysis-container.md
+          - text: Configure operations
+            url: spatial-analysis-operations.md
+      - linkListType: deploy
+        links:
+          - text: Deploy a people counting app
+            url: spatial-analysis-web-app.md
+      - linkListType: concept
+        links:
+          - text: Zone and line placement
+            url: spatial-analysis-zone-line-placement.md
+          - text: Camera placement
+            url: spatial-analysis-camera-placement.md
+          - text: Logging and troubleshooting
+            url: spatial-analysis-logging.md
   - title: Detect faces in images
     linkLists:
       - linkListType: concept
@@ -189,8 +208,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Computer Vision API v3.1 preview
-            url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005
+          - text: Computer Vision API v3.1
+            url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
           - text: Computer Vision API v3.0
             url: https://aka.ms/computer-vision-v3-ref
           - text: Computer Vision API v2.1
@@ -214,7 +233,6 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: UserVoice
-            url: https://cognitive.uservoice.com/forums/430309-computer-vision-api
-          - text: Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+          - text: Support and help options
+            url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
+

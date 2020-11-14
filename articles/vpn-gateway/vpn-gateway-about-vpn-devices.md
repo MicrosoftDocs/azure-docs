@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 07/28/2020
+ms.date: 09/01/2020
 ms.author: yushwang
 
 ---
@@ -42,7 +42,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |Supported |Supported |
 | Cisco | CSR | RouteBased: IOS-XE 16.10 | (not tested) | [Configuration script](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |Supported |Supported |
-| Cisco |Meraki |N/A |Not compatible |Not compatible |
+| Cisco |Meraki (MX) | MX v15.12 |Not compatible | [Configuration guide](https://documentation.meraki.com/MX/Site-to-site_VPN/Configuring_Site_to_Site_VPN_tunnels_to_Azure_VPN_Gateway) |
 | Cisco | vEdge (Viptela OS) | 18.4.0 (Active/Passive Mode)<br><br>19.2 (Active/Active Mode) | Not compatible |  [Manual configuration (Active/Passive)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454)<br><br>[Cloud Onramp configuration (Active/Active)](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/Network-Optimization-and-High-Availability/Network-Optimization-High-Availability-book/b_Network-Optimization-and-HA_chapter_00.html) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 and above |[Configuration guide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Not compatible |
 | F5 |BIG-IP series |12.0 |[Configuration guide](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Configuration guide](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
@@ -55,7 +55,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 | Juniper |SSG |ScreenOS 6.2 |Supported |[Configuration script](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |MX |JunOS 12.x|Supported |[Configuration script](vpn-gateway-download-vpndevicescript.md) |
 | Microsoft |Routing and Remote Access Service |Windows Server 2012 |Not compatible |Supported |
-| Open Systems AG |Mission Control Security Gateway |N/A |[Configuration guide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Not compatible |
+| Open Systems AG |Mission Control Security Gateway |N/A |[Configuration guide](https://open-systems.com/wp-content/uploads/2019/12/OpenSystems-AzureVPNSetup-Installation-Guide.pdf) |Not compatible |
 | Palo Alto Networks |All devices running PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 or later<br>RouteBased: 7.1.4 |Supported |[Configuration guide](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | Sentrium (Developer) | VyOS | VyOS 1.2.2 | (not tested) | [Configuration guide ](https://vyos.readthedocs.io/en/latest/appendix/examples/azure-vpn-bgp.html)|
 | ShareTech | Next Generation UTM (NU series) | 9.0.1.3 | Not compatible | [Configuration guide](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |

@@ -1,6 +1,6 @@
 ---
 title: Use Java to create a chat room with Azure Functions and SignalR Service
-description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
+description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room using Java.
 author: sffamily
 ms.service: signalr
 ms.devlang: java
@@ -32,13 +32,21 @@ Azure SignalR Service lets you easily add real-time functionality to your applic
 > [!NOTE]
 > This quickstart can be run on macOS, Windows, or Linux.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjava)
+
 ## Log in to Azure
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjava)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjava)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsjava)
 
 ## Configure and run the Azure Function app
 
@@ -74,14 +82,21 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     ```bash
     mvn azure-functions:run
     ```
+[Having issues? Let us know.](https://aka.ms/asrs/qsjava)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Having issues? Let us know.](https://aka.ms/asrs/qsjava)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsjava)
 
 ## Next steps
 
 In this quickstart, you built and ran a real-time serverless application using Maven. Next, learn about how to create Java Azure Functions from scratch.
 
 > [!div class="nextstepaction"]
-> [Create your first function with Java and Maven](../azure-functions/functions-create-first-java-maven.md)
+> [Create your first function with Java and Maven](../azure-functions/functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java%252cprogramming-language-java)
+
+[Having issues? Let us know.](https://aka.ms/asrs/qsjava)

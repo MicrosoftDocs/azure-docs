@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
 
 ---
 
@@ -36,7 +36,7 @@ To set up a managed identity in the portal, you will first create an application
 
 4. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
-    ![Managed identity in App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+    ![Screenshot that shows where to switch Status to On and then select Save.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
@@ -49,7 +49,7 @@ To set up a managed identity using the Azure CLI, you will need to use the `az w
 
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
-- [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 or later) if you prefer to use a local CLI console. 
+- [Install the latest version of Azure CLI](/cli/azure/install-azure-cli) (2.0.31 or later) if you prefer to use a local CLI console. 
 
 The following steps will walk you through creating a web app and assigning it an identity using the CLI:
 
@@ -106,7 +106,7 @@ The following steps will walk you through creating an app and assigning it an id
 
 1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/), and then run `Login-AzAccount` to create a connection with Azure.
 
-2. Create a function app using Azure PowerShell. For more examples of how to use Azure PowerShell with Azure Functions, see the [Az.Functions reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
+2. Create a function app using Azure PowerShell. For more examples of how to use Azure PowerShell with Azure Functions, see the [Az.Functions reference](/powershell/module/az.functions/?view=azps-4.1.0#functions):
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -216,7 +216,7 @@ The following steps will walk you through creating an app and assigning it an id
 
 1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/), and then run `Login-AzAccount` to create a connection with Azure.
 
-2. Create a function app using Azure PowerShell. For more examples of how to use Azure PowerShell with Azure Functions, see the [Az.Functions reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions). The below script also makes use of `New-AzUserAssignedIdentity` which must be installed separately as per [Create, list or delete a user-assigned managed identity using Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+2. Create a function app using Azure PowerShell. For more examples of how to use Azure PowerShell with Azure Functions, see the [Az.Functions reference](/powershell/module/az.functions/?view=azps-4.1.0#functions). The below script also makes use of `New-AzUserAssignedIdentity` which must be installed separately as per [Create, list or delete a user-assigned managed identity using Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -344,7 +344,7 @@ A successful 200 OK response includes a JSON body with the following properties:
 > | resource      | The resource the access token was requested for, which matches the `resource` query string parameter of the request.                                                                                                                               |
 > | token_type    | Indicates the token type value. The only type that Azure AD supports is FBearer. For more information about bearer tokens, see [The OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
-This response is the same as the [response for the Azure AD service-to-service access token request](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
+This response is the same as the [response for the Azure AD service-to-service access token request](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 ### REST protocol examples
 
@@ -522,4 +522,4 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 > [!div class="nextstepaction"]
 > [Access SQL Database securely using a managed identity](app-service-web-tutorial-connect-msi.md)
 
-[Microsoft.Azure.Services.AppAuthentication reference]: https://go.microsoft.com/fwlink/p/?linkid=862452
+[Microsoft.Azure.Services.AppAuthentication reference]: ../key-vault/general/service-to-service-authentication.md

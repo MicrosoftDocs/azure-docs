@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Direct web traffic using CLI'
 titleSuffix: Azure Application Gateway
-description: Learn how to use the Azure CLI to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
+description: In this quickstart, you learn how to use the Azure CLI to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 08/27/2020
 ms.author: victorh
-ms.custom: mvc, devx-track-javascript, devx-track-azurecli
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI
@@ -19,12 +19,14 @@ The application gateway directs application web traffic to specific resources in
 
 You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or the [Azure portal](quick-create-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure CLI version 2.0.4 or later](/cli/azure/install-azure-cli) (if you run Azure CLI locally).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+
 
 ## Create resource group
 

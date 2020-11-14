@@ -21,7 +21,7 @@ There are many reasons to use multiple Azure Kinect DK devices, including the fo
 
 - Fill in occlusions. Although the Azure Kinect DK data transformations produce a single image, the two cameras (depth and RGB) are actually a small distance apart. The offset makes occlusions possible. An occlusion occurs when a foreground object blocks the view of part of a background object for one of the two cameras on a device. In the resulting color image, the foreground object seems to cast a shadow on the background object.  
    For example, in the following diagram, the left-side camera sees the gray pixel "P2." However, the white foreground object blocks the right-side camera IR beam. The right-side camera has no data for "P2."  
-   ![Occlusion](./media/occlusion.png)  
+   ![Diagram shows two cameras directed at the same point with one of them blocked.](./media/occlusion.png)  
    Additional synchronized devices can provide the occluded data.
 - Scan objects in three dimensions.
 - Increase the effective frame rate to a value that's greater than 30 frames per second (FPS).

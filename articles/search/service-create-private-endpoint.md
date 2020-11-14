@@ -1,14 +1,14 @@
 ---
 title: Create a Private Endpoint for a secure connection
 titleSuffix: Azure Cognitive Search
-description: Set up a private endpoint in a virtual network for a secure connection to an Azure Cognitive Search service
+description: Set up a private endpoint in a virtual network for a secure connection to an Azure Cognitive Search service.
 
 manager: nitinme
 author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 10/19/2020
 ---
 
 # Create a Private Endpoint for a secure connection to Azure Cognitive Search
@@ -18,11 +18,11 @@ In this article, you'll use the Azure portal to create a new Azure Cognitive Sea
 Private endpoints are provided by [Azure Private Link](../private-link/private-link-overview.md), as a separate service. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
-> Private Endpoint support for Azure Cognitive Search can be configured using the Azure portal or the [Management REST API version 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/). When the service endpoint is private, some portal features are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
+> Private Endpoint support for Azure Cognitive Search can be configured using the Azure portal or the [Management REST API version 2020-03-13](/rest/api/searchmanagement/). When the service endpoint is private, some portal features are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
 
 ## Why use a Private Endpoint for secure access?
 
-[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
 
 Private endpoints for your search service enables you to:
 
@@ -148,10 +148,16 @@ In this section, you will create a new Azure Cognitive Search service with a Pri
     | Select inbound ports | Select **HTTP** and **RDP**.|
     ||
 
+   > [!NOTE]
+   > IPv4 addresses can be expressed in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format. Remember to avoid the IP range reserved for private networking, as described in [RFC 1918](https://tools.ietf.org/html/rfc1918):
+   >
+   > - `10.0.0.0 - 10.255.255.255  (10/8 prefix)`
+   > - `172.16.0.0 - 172.31.255.255  (172.16/12 prefix)`
+   > - `192.168.0.0 - 192.168.255.255 (192.168/16 prefix)`
+
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
 1. When you see the **Validation passed** message, select **Create**. 
-
 
 ## Connect to the VM
 
@@ -177,7 +183,6 @@ Download and then connect to the VM *myVm* as follows:
 1. You may receive a certificate warning during the sign-in process. If you receive a certificate warning, select **Yes** or **Continue**.
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
-
 
 ## Test connections
 

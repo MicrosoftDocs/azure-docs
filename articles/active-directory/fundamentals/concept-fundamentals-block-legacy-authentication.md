@@ -48,7 +48,7 @@ This section gives a step-by-step overview on how to update your environment to 
 
 The first step in enabling modern authentication is making sure your directory supports modern authentication. Modern authentication is enabled by default for directories created on or after August 1, 2017. If your directory was created prior to this date, you'll need to manually enable modern authentication for your directory using the following steps:
 
-1. Check to see if your directory already supports modern authentication by running `Get-CsOAuthConfiguration` from the [Skype for Business Online PowerShell module](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Check to see if your directory already supports modern authentication by running `Get-CsOAuthConfiguration` from the [Skype for Business Online PowerShell module](/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
 1. If your command returns an empty `OAuthServers` property, then Modern Authentication is disabled. Update the setting to enable modern authentication using `Set-CsOAuthConfiguration`. If your `OAuthServers` property contains an entry, you're good to go.
 
 Be sure to complete this step before moving forward. It's critical that your directory configurations are changed first because they dictate which protocol will be used by all Office clients. Even if you're using Office clients that support modern authentication, they will default to using legacy protocols if modern authentication is disabled on your directory.
@@ -57,7 +57,7 @@ Be sure to complete this step before moving forward. It's critical that your dir
 
 Once you have enabled modern authentication in your directory, you can start updating applications by enabling modern authentication for Office clients. Office 2016 or later clients support modern authentication by default. No extra steps are required.
 
-If you are using Office 2013 Windows clients or older, we recommend upgrading to Office 2016 or later. Even after completing the prior step of enabling modern authentication in your directory, the older Office applications will continue to use legacy authentication protocols. If you are using Office 2013 clients and are unable to immediately upgrade to Office 2016 or later, follow the steps in the following article to [Enable Modern Authentication for Office 2013 on Windows devices](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). To help protect your account while you're using legacy authentication, we recommend using strong passwords across your directory. Check out [Azure AD password protection](../authentication/concept-password-ban-bad.md) to ban weak passwords across your directory.
+If you are using Office 2013 Windows clients or older, we recommend upgrading to Office 2016 or later. Even after completing the prior step of enabling modern authentication in your directory, the older Office applications will continue to use legacy authentication protocols. If you are using Office 2013 clients and are unable to immediately upgrade to Office 2016 or later, follow the steps in the following article to [Enable Modern Authentication for Office 2013 on Windows devices](/office365/admin/security-and-compliance/enable-modern-authentication). To help protect your account while you're using legacy authentication, we recommend using strong passwords across your directory. Check out [Azure AD password protection](../authentication/concept-password-ban-bad.md) to ban weak passwords across your directory.
 
 Office 2010 does not support modern authentication. You will need to upgrade any users with Office 2010 to a more recent version of Office. We recommend upgrading to Office 2016 or later, as it blocks legacy authentication by default.
 
@@ -67,13 +67,13 @@ If you are using macOS, we recommend upgrading to Office for Mac 2016 or later. 
 
 For Windows-based Outlook clients to use modern authentication, Exchange Online must be modern authentication enabled as well. If modern authentication is disabled for Exchange Online, Windows-based Outlook clients that support modern authentication (Outlook 2013 or later) will use basic authentication to connect to Exchange Online mailboxes.
 
-SharePoint Online is enabled for modern authentication default. For directories created after August 1, 2017, modern authentication is enabled by default in Exchange Online. However, if you had previously disabled modern authentication or are you using a directory created prior to this date, follow the steps in the following article to [Enable modern authentication in Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+SharePoint Online is enabled for modern authentication default. For directories created after August 1, 2017, modern authentication is enabled by default in Exchange Online. However, if you had previously disabled modern authentication or are you using a directory created prior to this date, follow the steps in the following article to [Enable modern authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### Step 4: Skype for Business
 
 To prevent legacy authentication requests made by Skype for Business, it is necessary to enable modern authentication for Skype for Business Online. For directories created after August 1, 2017, modern authentication for Skype for Business is enabled by default.
 
-We suggest you transition to Microsoft Teams, which supports modern authentication by default. However, if you are unable to migrate at this time, you will need to enable modern authentication for Skype for Business Online so that Skype for Business clients start using modern authentication. Follow the steps in this article [Skype for Business topologies supported with Modern Authentication](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), to enable Modern Authentication for Skype for Business.
+We suggest you transition to Microsoft Teams, which supports modern authentication by default. However, if you are unable to migrate at this time, you will need to enable modern authentication for Skype for Business Online so that Skype for Business clients start using modern authentication. Follow the steps in this article [Skype for Business topologies supported with Modern Authentication](/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), to enable Modern Authentication for Skype for Business.
 
 In addition to enabling modern authentication for Skype for Business Online, we recommend enabling modern authentication for Exchange Online when enabling modern authentication for Skype for Business. This process will help synchronize the state of modern authentication in Exchange Online and Skype for Business online and will prevent multiple sign-in prompts for Skype for Business clients.
 
@@ -91,11 +91,11 @@ Before you can begin enabling modern authentication on-premises, please be sure 
 
 Steps for enabling modern authentication can be found in the following articles:
 
-* [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-* [How to use Modern Authentication (ADAL) with Skype for Business](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+* [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+* [How to use Modern Authentication (ADAL) with Skype for Business](/skypeforbusiness/manage/authentication/use-adal)
 
 ## Next steps
 
-- [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-- [How to use Modern Authentication (ADAL) with Skype for Business](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+- [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+- [How to use Modern Authentication (ADAL) with Skype for Business](/skypeforbusiness/manage/authentication/use-adal)
 - [Block legacy authentication](../conditional-access/block-legacy-authentication.md)

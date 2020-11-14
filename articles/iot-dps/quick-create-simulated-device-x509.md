@@ -1,5 +1,5 @@
 ---
-title: Provision simulated X.509 device to Azure IoT Hub using C
+title: Quickstart - Provision simulated X.509 device to Azure IoT Hub using C
 description: This quickstart uses individual enrollments. In this quickstart, you create and provision a simulated X.509 device using C device SDK for Azure IoT Hub Device Provisioning Service (DPS).
 author: wesmc7777
 ms.author: wesmc
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 In this quickstart, you will learn how to create and run an X.509 device simulator on a Windows development machine. You will configure this simulated device to be assigned to an IoT hub using an enrollment with a Device Provisioning Service instance. Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to simulate a boot sequence for the device. The device will be recognized based on the enrollment with the provisioning service and assigned to the IoT hub.
 
-If you're unfamiliar with the process of autoprovisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md) before continuing with this quickstart. 
+If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md) before continuing with this quickstart. 
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
 
@@ -32,7 +32,7 @@ This article will demonstrate individual enrollments.
 
 The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
 
 * Latest version of [Git](https://git-scm.com/download/) installed.
 

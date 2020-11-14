@@ -22,8 +22,8 @@ A **road** map is a standard map that displays roads. It also displays natural a
 
 **Applicable APIs:**
 
-* [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Map image](/rest/api/maps/render/getmapimage)
+* [Map tile](/rest/api/maps/render/getmaptile)
 * Web SDK map control
 * Android map control
 * Power BI visual
@@ -47,7 +47,7 @@ The **satellite** style is a combination of satellite and aerial imagery.
 
 **Applicable APIs:**
 
-* [Satellite tile](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* [Satellite tile](/rest/api/maps/render/getmapimagerytilepreview)
 * Web SDK map control
 * Android map control
 * Power BI visual
@@ -72,8 +72,8 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 
-* [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Map image](/rest/api/maps/render/getmapimage)
+* [Map tile](/rest/api/maps/render/getmaptile)
 * Web SDK map control
 * Android map control
 * Power BI visual
@@ -109,7 +109,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 
-* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Map tile](/rest/api/maps/render/getmaptile)
 * Web SDK map control
 * Android map control
 * Power BI visual
@@ -129,5 +129,4 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 Learn about how to set a map style in Azure Maps:
 
-> [!div class="nextstepaction"]
-> [Choose a map style](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+[Choose a map style](./choose-map-style.md)

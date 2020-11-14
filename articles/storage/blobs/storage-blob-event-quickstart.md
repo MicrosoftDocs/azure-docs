@@ -19,7 +19,7 @@ Typically, you send events to an endpoint that processes the event data and take
 
 When you complete the steps described in this article, you see that the event data has been sent to the web app.
 
-![View subscription event](./media/storage-blob-event-quickstart/view-results.png)
+![Screenshot of the Azure Event Grid Viewer that shows event data that has been sent to the web app.](./media/storage-blob-event-quickstart/view-results.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 

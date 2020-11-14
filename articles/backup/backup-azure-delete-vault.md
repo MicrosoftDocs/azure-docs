@@ -95,7 +95,7 @@ First, read the **[Before you start](#before-you-start)** section to understand 
     > [!NOTE]
     >
     >- If the protected server is synced with Azure services and backup items exist, the consent check box will display the number of dependent backup items and the link to view the backup items.
-    >- If the protected server is not synced with Azure services and backup items exist, the consent check box will display only the number of backup items.
+    >- If the protected server isn't synced with Azure services and backup items exist, the consent check box will display only the number of backup items.
     >- If there are no backup items, the consent check box will ask for deletion.
 
 4. Select the consent check box, and then select **Delete**.
@@ -290,16 +290,16 @@ To delete a Recovery Services vault:
       [<CommonParameters>]
    ```
 
-[Learn more](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) about deleting a recovery services vault.
+[Learn more](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) about deleting a Recovery Services vault.
 
 ## Delete the Recovery Services vault by using CLI
 
 First, read the **[Before you start](#before-you-start)** section to understand the dependencies and vault deletion process.
 
 > [!NOTE]
-> Currently, Azure Backup CLI supports managing only Azure VM backups, so the following command to delete the vault works only if the vault contains Azure VM backups. You cannot delete a vault using Azure Backup CLI, if the vault contains any backup item of type other than Azure VMs.
+> Currently, Azure Backup CLI supports managing only Azure VM backups, so the following command to delete the vault works only if the vault contains Azure VM backups. You can't delete a vault using Azure Backup CLI, if the vault contains any backup item of type other than Azure VMs.
 
-To delete existing Recovery services vault, perform the below:
+To delete existing Recovery Services vault, perform the following steps:
 
 - To stop protection and delete the backup data
 
@@ -316,7 +316,7 @@ To delete existing Recovery services vault, perform the below:
 
     For more information, see this [article](/cli/azure/backup/protection#az-backup-protection-disable).
 
-- Delete an existing Recovery services vault:
+- Delete an existing Recovery Services vault:
 
     ```azurecli
     az backup vault delete [--force]
@@ -327,7 +327,7 @@ To delete existing Recovery services vault, perform the below:
                        [--yes]
     ```
 
-    For more information, see this [article](/cli/azure/backup/vault?view=azure-cli-latest)
+    For more information, see this [article](/cli/azure/backup/vault)
 
 ## Delete the Recovery Services vault by using Azure Resource Manager
 
@@ -353,13 +353,13 @@ For more information on the ARMClient command, see [ARMClient README](https://gi
 1. Run the following command by using your subscription ID, resource group name, and vault name. If you don't have any dependencies, the vault is deleted when you run the following command:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>?api-version=2015-03-15
    ```
 
 2. If the vault isn't empty, you'll receive the following error message: *Vault cannot be deleted as there are existing resources within this vault.* To remove a protected item or container within a vault, run the following command:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
 3. In the Azure portal, make sure that the vault is deleted.

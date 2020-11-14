@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-
+ms.custom: data4ml
 # Customer intent: As a data scientist I want to optimize data processing speeds at scale
 ---
 
@@ -42,7 +42,18 @@ Typically an *out of memory* error occurs when your dataframe expands above the 
 
 One solution is to increase your RAM to fit the dataframe in memory. We recommend your compute size and processing power contain two times the size of RAM. So if your dataframe is 10 GB, use a compute target with at least 20 GB of RAM to ensure that the dataframe can comfortably fit in memory and be processed. 
 
-For multiple virtual CPUs, vCPU, keep in mind that you want one partition to comfortably fit into the RAM each vCPU can have on the machine. That is, if you have 16-GB RAM 4 vCPUs, you want  about 2-GB dataframes per each vCPU.
+For multiple virtual CPUs, vCPU, keep in mind that you want one partition to comfortably fit into the RAM each vCPU can have on the machine. That is, if you have 16-GB RAM 4 vCPUs, you want about 2-GB dataframes per each vCPU.
+
+### Local vs remote
+
+You may notice certain pandas dataframe commands perform faster when working on your local PC versus a remote VM you provisioned with Azure Machine Learning. 
+Your local PC typically has a page file enabled, which allows you to load more than what fits in physical memory, that is your hard drive is being used as an extension of your RAM. Currently, Azure Machine Learning VMs run without a page file, therefore can only load as much data as physical RAM available. 
+
+For compute-heavy jobs, we recommend you pick a larger VM to improve processing speeds.
+
+Learn more about the [available VM series and sizes](concept-compute-target.md#supported-vm-series-and-sizes) for Azure Machine Learning. 
+
+For RAM specifications, see the corresponding VM series pages such as, [Dv2-Dsv2 series](../virtual-machines/dv2-dsv2-series-memory.md) or [NC series](../virtual-machines/nc-series.md).
 
 ### Minimize CPU workloads
 

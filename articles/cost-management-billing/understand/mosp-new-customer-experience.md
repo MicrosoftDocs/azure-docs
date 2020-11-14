@@ -4,6 +4,7 @@ description: Get started with your updated Azure billing account to understand c
 author: bandersmsft
 ms.reviewer: amberbhargava
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
@@ -98,8 +99,8 @@ If you are using Cost Management or Billing APIs to query and update your billin
 
 |API | Changes  |
 |---------|---------|
-|[Billing Accounts - List](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/billingaccounts/list) | In the Billing Accounts - List API, your old billing account has agreementType **MicrosoftOnlineServiceProgram**, your new billing account would have agreementType **MicrosoftCustomerAgreement**. If you take a dependency on agreementType, please update it. |
-|[Invoices - List By Billing Subscription](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | This API will only return invoices that were generated before your account was updated. You would have to use [Invoices - List By Billing Account](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) API to get invoices that are generated in your new billing account. |
+|[Billing Accounts - List](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | In the Billing Accounts - List API, your old billing account has agreementType **MicrosoftOnlineServiceProgram**, your new billing account would have agreementType **MicrosoftCustomerAgreement**. If you take a dependency on agreementType, please update it. |
+|[Invoices - List By Billing Subscription](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | This API will only return invoices that were generated before your account was updated. You would have to use [Invoices - List By Billing Account](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) API to get invoices that are generated in your new billing account. |
 
 ## Additional information
 
@@ -109,7 +110,7 @@ The following sections provide additional information about your new experience.
 Azure services in your subscription will keep running without any interruption. The only update is to your billing experience. There's no impact to existing resources, resource groups, or management groups.
 
 **No changes to Azure resources**
-Access to Azure resources that were set using Azure RBAC (role-based access control) isn't affected by the update.
+Access to Azure resources that were set using Azure role-based access control (Azure RBAC) isn't affected by the update.
 
 **Past invoices are available in the new experience**
 Invoices generated before your account was updated are still available in the Azure portal.

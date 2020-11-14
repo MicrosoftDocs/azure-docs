@@ -311,6 +311,8 @@ Your files are now in sync across your Azure file share and Windows Server.
 
 ## Clean up resources
 
+If you'd like to clean up the resources you created in this tutorial, first remove the endpoints from the storage sync service. Then, unregister the server with your storage sync service, remove the sync groups, and delete the sync service.
+
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## Next steps

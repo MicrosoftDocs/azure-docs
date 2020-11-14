@@ -251,4 +251,7 @@ If you're not going to continue to use this application, delete it.
 
 ## Next steps
 
-* Learn more about [Water consumption monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md).
+* Learn more about 
+
+> [!div class="nextstepaction"]
+> [Water consumption monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md).

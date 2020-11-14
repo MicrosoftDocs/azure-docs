@@ -125,7 +125,7 @@ Process server | The process server receives replication data, optimizes, and en
     - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
 5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure managed disk.
 
-![Architecture](./media/migrate-replication-appliance/architecture.png)
+![Diagram shows the architecture of the replication process.](./media/migrate-replication-appliance/architecture.png)
 
 ## Appliance upgrades
 

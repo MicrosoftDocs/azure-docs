@@ -6,10 +6,10 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/03/2019
 ---
 # Enable automatic tuning in the Azure portal to monitor queries and improve workload performance
@@ -22,7 +22,7 @@ Automatic tuning can be enabled at the server or the database level through:
 
 - The [Azure portal](automatic-tuning-enable.md#azure-portal)
 - [REST API](automatic-tuning-enable.md#rest-api) calls
-- [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) commands
+- [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) commands
 
 > [!NOTE]
 > For Azure SQL Managed Instance, the supported option FORCE_LAST_GOOD_PLAN can only be configured through [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) only. The Azure portal based configuration and automatic index tuning options described in this article do not apply to Azure SQL Managed Instance.
@@ -45,7 +45,7 @@ On the server level you can choose to inherit automatic tuning configuration fro
 
 To enable automatic tuning on a [server](logical-servers.md) in Azure SQL Database, navigate to the server in the Azure portal and then select **Automatic tuning** in the menu.
 
-![Server](./media/automatic-tuning-enable/server.png)
+![Screenshot shows Automatic tuning in the Azure portal, where you can apply options for a server.](./media/automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > Please note that the **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases. Dropping unused indexes is not supported for Premium and Business Critical service tiers.
@@ -71,7 +71,7 @@ To enable automatic tuning on a **single database**, navigate to the database in
 
 Individual automatic tuning settings can be separately configured for each database. You can manually configure an individual automatic tuning option, or specify that an option inherits its settings from the server.
 
-![Database](./media/automatic-tuning-enable/database.png)
+![Screenshot shows Automatic tuning in the Azure portal, where you can apply options for a single database.](./media/automatic-tuning-enable/database.png)
 
 Please note that DROP_INDEX option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases.
 
@@ -103,7 +103,7 @@ Setting the individual tuning option to ON will override any setting that databa
 > In the case of [active geo-replication](auto-failover-group-overview.md), Automatic tuning needs to be configured on the primary database only. Automatically applied tuning actions, such as for example index create or delete will be automatically replicated to the read-only secondary. Attempting to enable Automatic tuning via T-SQL on the read-only secondary will result in a failure as having a different tuning configuration on the read-only secondary is unsupported.
 >
 
-To find out more abut T-SQL options to configure automatic tuning, see [ALTER DATABASE SET Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+To find out more abut T-SQL options to configure automatic tuning, see [ALTER DATABASE SET Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
 ## Disabled by the system
 

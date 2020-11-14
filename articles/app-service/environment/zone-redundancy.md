@@ -25,11 +25,15 @@ Unless the steps described in this article are followed, ILB ASEs are not automa
 
 Zonal ILB ASEs can be created in any of the following regions:
 
+- Australia East
+- Brazil South
+- Canada Central
 - Central US
 - East US
 - East US 2
 - East US 2 (EUAP)
 - France Central 
+- Germany West Central
 - Japan East
 - North Europe
 - West Europe
@@ -73,7 +77,7 @@ The example ARM template snippet below shows the new ***zones*** property specif
     ]
 ```
 
-To make your apps zone redundant, you need to deploy two zonal ILB ASEs. The two zonal ILB ASEs must be in separate availability zones. You then need to deploy your apps into each of the ILB ASEs. After your apps are created, you need to configure a load balancing solution. The recommended solution is to deploy a [zone redundant Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) upstream of the zonal ILB ASEs. 
+To make your apps zone redundant, you need to deploy two zonal ILB ASEs. The two zonal ILB ASEs must be in separate availability zones. You then need to deploy your apps into each of the ILB ASEs. After your apps are created, you need to configure a load balancing solution. The recommended solution is to deploy a [zone redundant Application Gateway](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) upstream of the zonal ILB ASEs. 
 
 ## In Region Data Residency ##
 
@@ -86,5 +90,3 @@ Customers can validate that an App Service Environment is properly configured to
 1. Using [Resource Explorer](https://resources.azure.com), navigate to the ARM resource for the App Service Environment.  ASEs are listed under *providers/Microsoft.Web/hostingEnvironments*.
 2. If a *zones* property exists in the view of the ARM JSON syntax, and it contains a single valued JSON array with a value of "1", "2", or "3", then the ASE is zonally deployed and customer data remains in the same region.
 2. If a *zones* property does not exist, or the property does not have valid zone value as specified earlier, then the ASE is not zonally deployed, and customer data is not exclusively stored in the same region.
-
-

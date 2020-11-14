@@ -137,7 +137,7 @@ Capture a simultaneous network trace on the source VM, the NVA, and the destinat
    sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
 
 2. Use **PsPing** or **Nmap** from the source VM to the destination VM (for example: `PsPing 10.0.0.4:80` or `Nmap -p 80 10.0.0.4`).
-3. Open the network trace from the destination VM by using [Network Monitor](https://www.microsoft.com/download/details.aspx?id=4865) or tcpdump. Apply a display filter for the IP of the Source VM you ran **PsPing** or **Nmap** from, such as `IPv4.address==10.0.0.4 (Windows netmon)` or `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
+3. Open the network trace from the destination VM by using [Network Monitor](https://download.cnet.com/s/network-monitor) or tcpdump. Apply a display filter for the IP of the Source VM you ran **PsPing** or **Nmap** from, such as `IPv4.address==10.0.0.4 (Windows netmon)` or `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
 ### Analyze traces
 

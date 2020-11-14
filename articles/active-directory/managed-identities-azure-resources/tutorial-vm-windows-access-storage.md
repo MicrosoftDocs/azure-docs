@@ -3,7 +3,7 @@ title: Access Azure Storage using a Windows VM system-assigned managed identity 
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Storage.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
@@ -180,4 +180,4 @@ The response contains the contents of the file:
 In this tutorial, you learned how enable a Windows VM's system-assigned identity to access Azure Storage.  To learn more about Azure Storage see:
 
 > [!div class="nextstepaction"]
-> [Azure Storage](/azure/storage/common/storage-introduction)
+> [Azure Storage](../../storage/common/storage-introduction.md)

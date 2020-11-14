@@ -96,7 +96,7 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
    1. For each step that requires an authorized connection, expand that step, and select **Add new**.
 
-      ![Add new connection](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
+      ![Screenshot that shows the "Add new" button selected on the Outlook "Connections" window.](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. Sign in to each service or provide the necessary credentials to authorize the connection.
 

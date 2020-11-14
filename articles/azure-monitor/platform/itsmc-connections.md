@@ -21,7 +21,8 @@ The following ITSM products/services are supported. Select the product to view d
 
 > [!NOTE]
 > 
-> ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
+> As of 1-Oct-2020 Cherwell and Provance ITSM integrations with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. 
+> Existing ITSM connections will be supported.
 
 ## Connect System Center Service Manager to IT Service Management Connector in Azure
 
@@ -31,11 +32,16 @@ The following sections provide details about how to connect your System Center S
 
 Ensure the following prerequisites are met:
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
 - The Service Manager Web application (Web app) is deployed and configured. Information on Web app is [here](#create-and-deploy-service-manager-web-app-service).
 - Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connection).
 - Supported versions of Service Manager:  2012 R2 or 2016.
 - User role:  [Advanced operator](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+
+> [!NOTE]
+> 
+> - ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
+> - In order to use custom [templates](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) as a part of the actions the parameter "ProjectionType" in the SCSM template should be mapped to "IncidentManagement!System.WorkItem.Incident.ProjectionType"
 
 ### Connection procedure
 
@@ -174,7 +180,7 @@ The following sections provide details about how to connect your ServiceNow prod
 
 ### Prerequisites
 Ensure the following prerequisites are met:
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
 - ServiceNow supported versions: Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 > [!NOTE]
 > ITSMC supports only the official SaaS offering from Service Now. Private deployments of Service Now are not supported. 
@@ -207,6 +213,8 @@ Ensure the following prerequisites are met:
 > 3. Click on Revoke Access and than on Revoke.
 
 - Install the User App for Microsoft Log Analytics integration (ServiceNow app). [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+> [!NOTE]
+> ITSMC supports only the official User App for Microsoft Log Analytics integration that is downloaded from ServiceNow store. ITSMC do not support any code ingestion in ServiceNow side or the application that is not part of the official ServiceNow solution. 
 - Create integration user role for the user app installed. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).
 
 ### **Connection procedure**
@@ -298,13 +306,17 @@ Once the user is successfully created, the status of **Check Installation Checkl
 
 The following sections provide details about how to connect your Provance product to ITSMC in Azure.
 
+> [!NOTE]
+> 
+> As of 1-Oct-2020 Provance ITSM integration with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. 
+> Existing ITSM connections will be supported.
 
 ### Prerequisites
 
 Ensure the following prerequisites are met:
 
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
 - Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../../app-service/configure-authentication-provider-aad.md).
 
 - User role:  Administrator.
@@ -338,7 +350,7 @@ Use the following procedure to create a Provance connection:
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, ITSMC creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled.|
 
-![Provance connection](media/itsmc-connections/itsm-connections-provance-latest.png)
+![Screenshot that highlights the Connection Name and Partner Type lists.](media/itsmc-connections/itsm-connections-provance-latest.png)
 
 **When successfully connected, and synced**:
 
@@ -352,17 +364,22 @@ Learn more: [Create ITSM work items from Azure alerts](./itsmc-overview.md#creat
 
 The following sections provide details about how to connect your Cherwell product to ITSMC in Azure.
 
+> [!NOTE]
+> 
+> As of 1-Oct-2020 Cherwell  ITSM integration with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. 
+> Existing ITSM connections will be supported.
+
 ### Prerequisites
 
 Ensure the following prerequisites are met:
 
-- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](./itsmc-overview.md#add-it-service-management-connector).
 - Client ID generated. More information: [Generate client ID for Cherwell](#generate-client-id-for-cherwell).
 - User role:  Administrator.
 
 ### Connection Procedure
 
-Use the following procedure to create a Provance connection:
+Use the following procedure to create a Cherwell connection:
 
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 

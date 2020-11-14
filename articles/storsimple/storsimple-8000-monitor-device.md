@@ -72,7 +72,7 @@ If you are running Update 3 or higher, you can break down the primary storage ca
 
 You can further click on each of the volumes in the list and see the corresponding usage.
 
-![Primary capacity utilization for all locally pinned volumes](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
+![Primary capacity utilization for all locally pinned volumes 2](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
 
 ### Cloud storage usage
 These charts show the amount of cloud storage used. This data is deduplicated and compressed. This amount includes cloud snapshots which might contain data that isn't reflected in any primary volume and is kept for legacy or required retention purposes. You can compare the primary and cloud storage consumption figures to get an idea of the data reduction rate, although the number will not be exact.

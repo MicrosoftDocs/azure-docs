@@ -71,7 +71,7 @@ In addition to scheduled backups, you can take a manual (on-demand) backup of de
    
     An on-demand backup starts and you see that a backup job has started.
    
-    ![backup starting](./media/storsimple-virtual-array-backup/takebackup3m.png) 
+    ![backup starting 2](./media/storsimple-virtual-array-backup/takebackup3m.png) 
    
     Once the job has successfully completed, you are notified again. The backup process then starts.
    

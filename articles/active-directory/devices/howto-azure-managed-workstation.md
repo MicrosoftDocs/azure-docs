@@ -50,11 +50,11 @@ Select a profile before deploying the solution. You can use multiple profiles si
 
 The concepts covered in this guide assume you have Microsoft 365 Enterprise E5 or an equivalent SKU. Some of the recommendations in this guide can be implemented with lower SKUs. For more information, see [Microsoft 365 Enterprise licensing](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise).
 
-To automate license provisioning, consider [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for your users.
+To automate license provisioning, consider [group-based licensing](../enterprise-users/licensing-groups-assign.md) for your users.
 
 ## Azure Active Directory configuration
 
-Azure Active Directory (Azure AD) manages users, groups, and devices for your administrator workstations. Enable identity services and features with an [administrator account](../users-groups-roles/directory-assign-admin-roles.md).
+Azure Active Directory (Azure AD) manages users, groups, and devices for your administrator workstations. Enable identity services and features with an [administrator account](../roles/permissions-reference.md).
 
 When you create the secured workstation administrator account, you expose the account to your current workstation. Make sure you use a known safe device to do this initial configuration and all global configuration. To reduce the attack exposure for the first-time experience, consider following the [guidance to prevent malware infections](/windows/security/threat-protection/intelligence/prevent-malware-infection).
 
@@ -76,7 +76,7 @@ Next, you create two groups: workstation users and workstation devices.
 
 From the Azure portal, browse to **Azure Active Directory** > **Groups** > **New group**.
 
-1. For the workstation users group, you might want to configure [group-based licensing](../users-groups-roles/licensing-groups-assign.md) to automate provisioning of licenses to users.
+1. For the workstation users group, you might want to configure [group-based licensing](../enterprise-users/licensing-groups-assign.md) to automate provisioning of licenses to users.
 1. For the workstation users group, enter:
 
    * **Group type** - Security
@@ -130,7 +130,7 @@ These steps allow you to manage any device with Intune. For more information, se
 
 #### Azure AD Conditional Access
 
-Azure AD Conditional Access can help restrict privileged administrative tasks to compliant devices. Predefined members of the **Secure Workstation Users** group are required to perform multi-factor authentication when signing in to cloud applications. A best practice is to exclude emergency access accounts from the policy. For more information, see [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md).
+Azure AD Conditional Access can help restrict privileged administrative tasks to compliant devices. Predefined members of the **Secure Workstation Users** group are required to perform multi-factor authentication when signing in to cloud applications. A best practice is to exclude emergency access accounts from the policy. For more information, see [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
 
 ## Intune configuration
 
@@ -307,7 +307,7 @@ You might need to install Windows 32-bit apps or other apps whose deployment req
 
 ### Conditional Access only allowing secured workstation ability to access Azure portal
 
-Azure AD offers the ability to manage and restrict, who and what can access your Azure cloud management portal. Enabling [Conditional Access](../conditional-access/overview.md) will assure that only your secure workstation can manage or change resources. It's essential that while deploying this feature you consider, if [emergency access](../users-groups-roles/directory-emergency-access.md) functionality can or should be used only for extreme cases and the account managed through policy.
+Azure AD offers the ability to manage and restrict, who and what can access your Azure cloud management portal. Enabling [Conditional Access](../conditional-access/overview.md) will assure that only your secure workstation can manage or change resources. It's essential that while deploying this feature you consider, if [emergency access](../roles/security-emergency-access.md) functionality can or should be used only for extreme cases and the account managed through policy.
 
 > [!NOTE]
 > You will need to create a user group, and include your emergency user that can bypass the Conditional Access policy. For our example we have a security group called **Emergency BreakGlass**
@@ -449,9 +449,9 @@ Application logging will be available in your selected Log Analytics workspace.
 
 ## Monitoring
 
-* Learn how to [Detect threats with Azure Sentinel](/azure/sentinel/tutorial-detect-threats)
-* [Investigate incidents with Azure Sentinel](/azure/sentinel/tutorial-investigate-cases)
-* [Set up automated threat responses in Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
+* Learn how to [Detect threats with Azure Sentinel](../../sentinel/tutorial-detect-threats-built-in.md)
+* [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+* [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 * Understand how to review your [Exposure Score](/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
 * Review [Security recommendation](/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
 * Manage security [Remediations](/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation)
@@ -463,4 +463,4 @@ Application logging will be available in your selected Log Analytics workspace.
 * Learn more about [Microsoft Intune](/intune/index).
 * Understand [Azure AD](../index.yml).
 * Work with [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
-* Discover [Azure Sentinel](/azure/sentinel/)
+* Discover [Azure Sentinel](../../sentinel/index.yml)

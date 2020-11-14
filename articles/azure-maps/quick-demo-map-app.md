@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Interactive map search with Azure Maps"
-description: Learn how to create interactive, searchable maps. See how to create an Azure Maps account, get a primary key, and use the Web SDK to set up map applications.
+title: 'Quickstart: Interactive map search with Azure Maps'
+description: 'Quickstart: Learn how to create interactive, searchable maps. See how to create an Azure Maps account, get a primary key, and use the Web SDK to set up map applications'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/10/2020
@@ -55,7 +55,7 @@ Once your Maps account is successfully created, retrieve the primary key that en
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
 >[!NOTE]
-> If you use the subscription key instead of the primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
+> If you use the subscription key instead of the primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
 
 :::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Get Primary Key Azure Maps key in Azure portal":::
 
@@ -87,17 +87,15 @@ If you don't plan to continue to the tutorials, take these steps to clean up the
 2. Navigate to the Azure portal page. Select **All resources** from the main portal page. Or, click on the menu icon in the upper left-hand corner. Select **All resources**.
 3. Click on your Azure Maps account. At the top of the page, click **Delete**.
 
+For more code examples and an interactive coding experience, see these guides:
+
+[Find an address with Azure Maps search service](how-to-search-for-address.md)
+
+[Use the Azure Maps Map Control](how-to-use-map-control.md)
+
 ## Next steps
 
 In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorials to learn more about Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Search nearby points of interest with Azure Maps](tutorial-search-location.md)
-
-For more code examples and an interactive coding experience, see these guides:
-
-> [!div class="nextstepaction"]
-> [Find an address with Azure Maps search service](how-to-search-for-address.md)
-
-> [!div class="nextstepaction"]
-> [Use the Azure Maps Map Control](how-to-use-map-control.md)

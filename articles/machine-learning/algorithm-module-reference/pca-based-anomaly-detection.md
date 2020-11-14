@@ -14,7 +14,7 @@ ms.date: 02/22/2020
 
 # PCA-Based Anomaly Detection module
 
-This article describes how to use the PCA-Based Anomaly Detection module in Azure Machine Learning designer (preview), to create an anomaly detection model based on principal component analysis (PCA).
+This article describes how to use the PCA-Based Anomaly Detection module in Azure Machine Learning designer, to create an anomaly detection model based on principal component analysis (PCA).
 
 This module helps you build a model in scenarios where it's easy to get training data from one class, such as valid transactions, but difficult to get sufficient samples of the targeted anomalies. 
 
@@ -105,4 +105,4 @@ For each new input, the anomaly detector first computes its projection on the ei
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning. 
 
-See [Exceptions and error codes for the designer (preview)](designer-error-codes.md) for a list of errors specific to the designer modules.
+See [Exceptions and error codes for the designer](designer-error-codes.md) for a list of errors specific to the designer modules.

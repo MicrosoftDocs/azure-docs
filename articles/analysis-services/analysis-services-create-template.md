@@ -6,7 +6,7 @@ ms.author: owend
 tags: azure-resource-manager
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/31/2020
 ms.custom: subject-armqs, references_regions 
 
 #Customer intent: As a BI developer who is new to Azure, I want to use Azure Analysis Services to store and manage my organizations data models.
@@ -103,6 +103,5 @@ Write-Host "Press [ENTER] to continue..."
 
 In this quickstart, you used an ARM template to create a new resource group and an Azure Analysis Services server resource. After you've created a server resource by using the template, consider the following:
 
-- [Quickstart: Create a server - PowerShell](analysis-services-create-powershell.md)
-- [Add a sample model from the portal](analysis-services-create-sample-model.md)
-- [Configure server administrator and user roles](tutorials/analysis-services-tutorial-roles.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Configure server firewall - Portal](analysis-services-qs-firewall.md)   

@@ -270,7 +270,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
 1.  In the Veeam Backup and Replication console, in **Repository Tools**, go to **Backup Infrastructure**. Right-click **Backup Repositories**, and then select **Add Backup Repository**.
 
-    ![Veeam management console, backup repository page](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
+    ![Screenshot that shows the Veeam  management console and highlights the Add Backup Repository option.](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
 2.  In the **New Backup Repository** dialog box, enter a name and description for the repository. Select **Next**.
 
@@ -291,7 +291,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
 6.  In the **New Backup Repository** dialog box, select the **Enable vPower NFS service on the mount server (recommended)** check box. Select **Next**.
 
-    ![Veeam management console, backup repository page](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
+    ![Screenshot that shows the Veeam management console where you can add a new backup repository.](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
 7.  Review the settings, and then select **Next**.
 
@@ -332,11 +332,11 @@ For primary backup target scenario, create a daily job with your primary Veeam S
 
 2.  In the **New Backup Job** dialog box, enter a name and description for the daily backup job.
 
-    ![Veeam management console, new backup job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
+    ![Screenshot of the Veeam management console where you add the name and description.](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
 3.  Select a virtual machine to back up to.
 
-    ![Veeam management console, new backup job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
+    ![Screenshot that shows the Veeam management console where you select the virtual machine.](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
 4.  Select the values you want for **Backup proxy** and **Backup repository**. Select a value for **Restore points to keep on disk** according to the RPO and RTO definitions for your environment on locally attached storage. Select **Advanced**.
 
@@ -344,7 +344,7 @@ For primary backup target scenario, create a daily job with your primary Veeam S
 
 5. In the **Advanced Settings** dialog box, on the **Backup** tab, select **Incremental**. Be sure that the **Create synthetic full backups periodically** check box is cleared. Select the **Create active full backups periodically** check box. Under **Active full backup**, select the **Weekly on selected days** check box for Saturday.
 
-    ![Veeam management console, new backup job advanced settings page](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
+    ![Screenshot thats shows the Veeam management console, specifically the new backup job advanced settings page](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
 6. On the **Storage** tab, make sure that the **Enable inline data deduplication** check box is cleared. Select the **Exclude swap file blocks** check box, and select the **Exclude deleted file blocks** check box. Set **Compression level** to **None**. For balanced performance and deduplication, set **Storage optimization** to **LAN target**. Select **OK**.
 
@@ -406,11 +406,11 @@ GFS rotation weekly, monthly, and yearly schedule
 1.  In the Veeam Backup and Replication console, select **Backup
 & Replication**. Right-click **Backup**, and then select **VMware** or **Hyper-V**, depending on your environment.
 
-    ![Veeam management console, new backup copy job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
+    ![Screenshot that shows the Veeam management console with the VMware and Hyper-V options that you can select.](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
 2.  In the **New Backup Copy Job** dialog box, enter a name and description for the job.
 
-    ![Veeam management console, new backup copy job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
+    ![Screenshot that shows the Veeam management console where you enter the name and description for the job.](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
 3.  Select the VMs you want to process. Select from backups, and then select the daily backup that you created earlier.
 
@@ -420,13 +420,13 @@ GFS rotation weekly, monthly, and yearly schedule
 
 5.  Select your backup repository, and set a value for **Restore points to keep**. Be sure to select the **Keep the following restore points for archival purposes** check box. Define the backup frequency, and then select **Advanced**.
 
-    ![Veeam management console, new backup copy job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
+    ![Screenshot that show where you define the backup frequency.](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
 6.  Specify the following advanced settings:
 
     * On the **Maintenance** tab, turn off storage level corruption guard.
 
-    ![Veeam management console, new backup copy job advanced settings page](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
+    ![Screenshot that shows the Maintenance tab on the Veeam management console.](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
     * On the **Storage** tab, be sure that deduplication and compression are turned off.
 

@@ -85,17 +85,17 @@ Get the list of pods with [Cloud Shell](https://shell.azure.com/): `kubectl get 
 We expect for a pod named 'test-agic-app-pod' to have been created. It will have an IP address. This address
 must be within the VNET of the Application Gateway, which is used with AKS.
 
-![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
+![Screenshot of the Bash window in Azure Cloud Shell showing a list of pods that includes test-agic-app-pod in the list.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
 Get the list of services: `kubectl get services -o wide`. We expect to see a service named
 'test-agic-app-service'.
 
-![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
+![Screenshot of the Bash window in Azure Cloud Shell showing a list of services that includes test-agic-app-pod in the list.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
 Get the list of the ingresses: `kubectl get ingress`. We expect an Ingress resource named
 'test-agic-app-ingress' to have been created. The resource will have a host name 'test.agic.contoso.com'.
 
-![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
+![Screenshot of the Bash window in Azure Cloud Shell showing a list of ingresses that includes test-agic-app-ingress in the list.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
 One of the pods will be AGIC. `kubectl get pods` will show a list of pods, one of which will begin
 with 'ingress-azure'. Get all logs of that pod with `kubectl logs <name-of-ingress-controller-pod>`
@@ -131,7 +131,7 @@ establish an HTTP connection to the newly deployed app:
 1. Use `kubectl get ingress` to get the Public IP address of Application Gateway
 2. Use `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
-![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
+![Screenshot of the Bash window in Azure Cloud Shell showing a cURL command successfully establishing an HTTP connection to the test app.](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
 A result of `HTTP/1.1 200 OK` indicates that the Application Gateway + AKS + AGIC system is working as expected.
 
@@ -267,7 +267,7 @@ repository we are utilizing 3 of these, with similar semantics:
 The verbosity levels are adjustable via the `verbosityLevel` variable in the
 [helm-config.yaml](#sample-helm-config-file) file. Increase verbosity level to `5` to get
 the JSON config dispatched to
-[ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview):
+[ARM](../azure-resource-manager/management/overview.md):
   - add `verbosityLevel: 5` on a line by itself in [helm-config.yaml](#sample-helm-config-file) and re-install
   - get logs with `kubectl logs <pod-name>`
 
@@ -324,4 +324,3 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
-

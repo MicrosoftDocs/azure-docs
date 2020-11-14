@@ -1,6 +1,6 @@
 ---
 title: Shared database
-description: Azure Synapse Analytics provides a shared metadata model where creating a database in Apache Spark will make it accessible from its SQL on-demand (preview) and SQL pool engines. 
+description: Azure Synapse Analytics provides a shared metadata model where creating a database in serverless Apache Spark pool will make it accessible from its serverless SQL pool (preview) and SQL pool engines. 
 services: synapse-analytics 
 author: MikeRys
 ms.service: synapse-analytics  
@@ -9,31 +9,32 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys 
 ms.reviewer: jrasnick
+ms.custom: devx-track-csharp
 ---
 
 # Azure Synapse Analytics shared database
 
-Azure Synapse Analytics allows the different computational workspace engines to share databases and tables between its Spark pools (preview) and SQL on-demand (preview) engine.
+Azure Synapse Analytics allows the different computational workspace engines to share databases and tables between its serverless Apache Spark pools (preview) and serverless SQL pool (preview) engine.
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-A database created with a Spark job will become visible with that same name to all current and future Spark pools (preview) in the workspace as well as the SQL on-demand engine.
+A database created with a Spark job will become visible with that same name to all current and future Spark pools (preview) in the workspace, including the serverless SQL pool engine.
 
-The Spark default database, called `default`, will also be visible in the SQL on-demand context as a database called `default`.
+The Spark default database, called `default`, will also be visible in the serverless SQL pool context as a database called `default`.
 
-Since the databases are synchronized to SQL on-demand asynchronously, there will be a delay until they appear.
+Since the databases are synchronized to serverless SQL pool asynchronously, there will be a delay until they appear.
 
 ## Manage a Spark created database
 
 Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark.
 
-If you create objects in a Spark created database using SQL on-demand, or try to drop the database, the operation will succeed. But, the original Spark database won't be changed.
+If you create objects in a Spark created database using serverless SQL pool, or try to drop the database, the operation will succeed. But, the original Spark database won't be changed.
 
 ## How name conflicts are handled
 
-If the name of a Spark database conflicts with the name of an existing SQL on-demand database, a suffix is appended in SQL on-demand to the Spark database. The suffix in SQL on-demand is `_<workspace name>-ondemand-DefaultSparkConnector`.
+If the name of a Spark database conflicts with the name of an existing serverless SQL pool database, a suffix is appended in serverless SQL pool to the Spark database. The suffix in serverless SQL pool is `_<workspace name>-ondemand-DefaultSparkConnector`.
 
-For example, if a Spark database called `mydb` gets created in the Azure Synapse workspace `myws` and a SQL on-demand database with that name already exists, then the Spark database in SQL on-demand will have to be referenced using the name `mydb_myws-ondemand-DefaultSparkConnector`.
+For example, if a Spark database called `mydb` gets created in the Azure Synapse workspace `myws` and a serverless SQL pool database with that name already exists, then the Spark database in serverless SQL pool will have to be referenced using the name `mydb_myws-ondemand-DefaultSparkConnector`.
 
 > [!CAUTION]
 > Caution: You should not take a dependency on this behavior.
@@ -52,7 +53,7 @@ If a security principal requires the ability to create objects or drop objects i
 
 ## Examples
 
-### Create and connect to Spark database with SQL on-demand
+### Create and connect to Spark database with serverless SQL pool
 
 First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example, using a Spark C# Notebook with the following .NET for Spark statement:
 
@@ -60,7 +61,7 @@ First create a new Spark database named `mytestdb` using a Spark cluster you hav
 spark.Sql("CREATE DATABASE mytestdb")
 ```
 
-After a short delay, you can see the database from SQL on-demand. For example, run the following statement from SQL on-demand.
+After a short delay, you can see the database from serverless SQL pool. For example, run the following statement from serverless SQL pool.
 
 ```sql
 SELECT * FROM sys.databases;

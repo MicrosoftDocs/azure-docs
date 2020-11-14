@@ -8,7 +8,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Common query patterns in Azure Stream Analytics
@@ -278,7 +278,7 @@ FROM
 
 The first step on the query finds the maximum time stamp in 10-minute windows, that is the time stamp of the last event for that window. The second step joins the results of the first query with the original stream to find the event that match the last time stamps in each window. 
 
-**DATEDIFF** is a date-specific function that compares and returns the time difference between two DateTime fields, for more information, refer to [date functions](https://docs.microsoft.com/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
+**DATEDIFF** is a date-specific function that compares and returns the time difference between two DateTime fields, for more information, refer to [date functions](/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
 
 For more information on joining streams, refer to [**JOIN**](/stream-analytics-query/join-azure-stream-analytics).
 
@@ -832,7 +832,7 @@ From
 
 The User Defined Function will compute the *bigint* value from the HexValue on every event consumed.
 
-For more information, refer to [JavaScript](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) and [C#](/azure/stream-analytics/stream-analytics-edge-csharp-udf).
+For more information, refer to [JavaScript](./stream-analytics-javascript-user-defined-functions.md) and [C#](./stream-analytics-edge-csharp-udf.md).
 
 ## Advanced pattern matching with MATCH_RECOGNIZE
 
@@ -927,11 +927,11 @@ For more information, refer to the [Geofencing and geospatial aggregation scenar
 
 ## Get help
 
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)

@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Kemp LoadMaster Azure AD integra
 * Enable your users to be automatically signed-in to Kemp LoadMaster Azure AD integration with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Kemp LoadMaster Azure AD integration supports **IDP** initiated SSO
-* Once you configure Kemp LoadMaster Azure AD integration you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Kemp LoadMaster Azure AD integration you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Kemp LoadMaster Azure AD integration from the gallery
 
@@ -136,13 +136,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create a Virtual Service 
 
-1. Go to Kemp LoadMaster Azure AD integration Load Master Web UI > Virtual Services > Add New.
+1. Go to Kemp LoadMaster Azure AD integration LoadMaster Web UI > Virtual Services > Add New.
 
 1. Click Add New.
 
 1. Specify the Parameters for the Virtual Service.
 
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-1.png)
+    ![Screenshot that shows the "Please Specify the Parameters for the Virtual Service" page with example values in the boxes.](./media/kemp-tutorial/kemp-1.png)
 
     a. Virtual Address
     
@@ -158,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Specify the Parameters for the Real Server.
     
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-2.png)
+    ![Screenshot that shows the "Please Specify the Parameters for the Real Server" page with example values in the boxes.](./media/kemp-tutorial/kemp-2.png)
 
     a. Select Allow Remote Addresses
     
@@ -194,13 +194,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### SSL Acceleration
  
-1. Go to Kemp Load Master Web UI > Virtual Services > Virtual Services.
+1. Go to Kemp LoadMaster Web UI > Virtual Services > View/Modify Services.
 
 1. Click in Modify under Operation.
 
-1. Under Properties for tcp/x.x.x.:443 (ID:6) - Operating at Layer 7, click on SSL Properties.
+1. Click on SSL Properties, (which operates at Layer 7).
     
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-3.png)
+    ![Screenshot that shows the "S S L Properties" section with "S S L Acceleration - Enabled" selected and an example certificate selected.](./media/kemp-tutorial/kemp-3.png)
     
     a. Click on Enabled in SSL Acceleration.
     
@@ -219,7 +219,7 @@ Go to Kemp LoadMaster Azure AD integration Web Console
 
 1. Click Intermediate Certificates under Certificates and Authority.
 
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-6.png)
+    ![Screenshot that shows the "Currently installed Intermediate Certificates" section with an example certificate selected.](./media/kemp-tutorial/kemp-6.png)
 
     a. Click choose file in Add a new Intermediate Certificate.
     
@@ -235,7 +235,7 @@ Go to Kemp LoadMaster Azure AD integration Web Console
  
 Go to Manage SSO under Virtual Services.
 
-   ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-7.png)
+   ![Screenshot that shows the "Manage S S O" page.](./media/kemp-tutorial/kemp-7.png)
    
    a. Click Add under Add new Client Side Configuration after giving it a name.
 
@@ -265,7 +265,7 @@ On Kemp LoadMaster Azure AD integration Web Console
 
 1. Click on Modify and navigate to ESP Options.
     
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-8.png)
+    ![Screenshot that shows the "View/Modify Services" page, with the "ESP Options" and "Real Servers" sections expanded.](./media/kemp-tutorial/kemp-8.png)
 
     a. Click on Enable ESP.
     
@@ -283,7 +283,7 @@ Browse to the application URL
 
 You should see your tenanted login page instead of unauthenticated access previously. 
 
-![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-9.png)
+![Screenshot that shows the tenanted "Sign in" page.](./media/kemp-tutorial/kemp-9.png)
 
 ## Configuring Kerberos Based Authentication 
  
@@ -291,7 +291,7 @@ You should see your tenanted login page instead of unauthenticated access previo
 
 1. Create a user Account (in this example AppDelegation).
     
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-10.png)
+    ![Screenshot that shows the "kcd user Properties" window with the "Account" tab selected.](./media/kemp-tutorial/kemp-10.png)
 
 
     a. Select the Attribute Editor tab.
@@ -308,7 +308,7 @@ You should see your tenanted login page instead of unauthenticated access previo
 
 1. Select the Delegation tab.
 
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-11.png)
+    ![Screenshot that shows the "kcd user Properties" window with the "Delegation" tab selected.](./media/kemp-tutorial/kemp-11.png)
 
     a. Select Trust this user for delegation to specified services only.
 
@@ -329,7 +329,7 @@ You should see your tenanted login page instead of unauthenticated access previo
 
 Go to  Kemp LoadMaster Azure AD integration Web Console > Virtual Services > Manage SSO.
 
-![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-12.png)
+![Screenshot that shows the "Manage S S O - Manage Domain" page.](./media/kemp-tutorial/kemp-12.png)
 
 a. Navigate to Server Side Single Sign On Configurations.
 
@@ -375,18 +375,18 @@ In this section, you create a user called B.Simon in Kemp LoadMaster Azure AD in
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Kemp LoadMaster Azure AD integration tile in the Access Panel, you should be automatically signed in to the Kemp LoadMaster Azure AD integration for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Kemp LoadMaster Azure AD integration tile in the Access Panel, you should be automatically signed in to the Kemp LoadMaster Azure AD integration for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Kemp LoadMaster Azure AD integration with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Kemp LoadMaster Azure AD integration with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect Kemp LoadMaster Azure AD integration with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

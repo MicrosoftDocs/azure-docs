@@ -2,7 +2,7 @@
 title: ARM template frequently asked questions
 description: Frequently asked questions (FAQ) about Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -83,7 +83,7 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **I've heard you're working on a new template language. Where can I find out more about it?**
 
-  To learn about the new template language, [sign up for notifications](https://aka.ms/armLangUpdates).
+  To preview the new language, see [Project Bicep repository](https://github.com/Azure/bicep). To stay informed about the new language, [sign up for notifications](https://aka.ms/armLangUpdates).
 
 * **Is there a plan to support creating templates in YAML?**
 

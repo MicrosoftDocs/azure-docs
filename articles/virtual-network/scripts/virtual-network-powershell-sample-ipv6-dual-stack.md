@@ -11,7 +11,8 @@ ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure IPv6 endpoints in virtual network with Azure PowerShell script sample (preview)

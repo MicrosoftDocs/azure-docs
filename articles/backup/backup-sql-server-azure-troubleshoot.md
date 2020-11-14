@@ -19,7 +19,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 After creating and configuring a Recovery Services vault, discovering databases and configuring backup is a two-step process.<br>
 
-![sql](./media/backup-azure-sql-database/sql.png)
+![Backup Goal - SQL Server in Azure VM](./media/backup-azure-sql-database/sql.png)
 
 During the backup configuration, if the SQL VM and its instances aren't visible in the **Discovery DBs in VMs** and **Configure Backup** (refer to above image) ensure that:
 
@@ -40,14 +40,14 @@ At times, either random failures may happen in backup and restore operations or 
 1. Exclude the following folders from antivirus scanning:
 
     `C:\Program Files\Azure Workload Backup`
-    `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+    `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.AzureBackupWindowsWorkload`
 
     Replace `C:\` with the letter of your *SystemDrive*.
 
 1. Exclude the following three processes running within a VM from antivirus scanning:
 
     - IaasWLPluginSvc.exe
-    - IaasWorkloadCoordinaorService.exe
+    - IaaSWorkloadCoordinatorService.exe
     - TriggerExtensionJob.exe
 
 1. SQL also offers some guidelines about to work with antivirus programs. See [this article](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) for details.
@@ -58,13 +58,13 @@ At times, either random failures may happen in backup and restore operations or 
 
 | Severity | Description | Possible causes | Recommended action |
 |---|---|---|---|
-| Warning | Current settings for this database don't support certain backup types present in the associated policy. | <li>Only a full database backup operation can be performed on the master database. Differential backup and transaction log backup aren't possible. </li> <li>Any database in the simple recovery model doesn't allow for the backup of transaction logs.</li> | Modify the database settings such that all the backup types in the policy are supported. Or, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for on-demand backup.
+| Warning | Current settings for this database don't support certain backup types present in the associated policy. | <li>Only a full database backup operation can be performed on the master database. Differential backup and transaction log backup aren't possible. </li> <li>Any database in the simple recovery model doesn't allow for the backup of transaction logs.</li> | Modify the database settings sp all the backup types in the policy are supported. Or change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for on-demand backup.
 
 ### UserErrorSQLPODoesNotSupportBackupType
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| This SQL database does not support the requested backup type. | Occurs when the database recovery model doesn't allow the requested backup type. The error can happen in the following situations: <br/><ul><li>A database that's using a simple recovery model doesn't allow log backup.</li><li>Differential and log backups aren't allowed for a master database.</li></ul>For more detail, see the [SQL Server recovery models](/sql/relational-databases/backup-restore/recovery-models-sql-server) documentation. | If the log backup fails for the database in the simple recovery model, try one of these options:<ul><li>If the database is in simple recovery mode, disable log backups.</li><li>Use the [SQL Server documentation](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) to change the database recovery model to full or bulk logged. </li><li> If you don't want to change the recovery model, and you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full and differential backups will work per schedule. The log backups will be skipped, which is expected in this case.</li></ul>If it's a master database and you have configured differential or log backup, use either of the following steps:<ul><li>Use the portal to change the backup policy schedule for the master database, to full.</li><li>If you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full backup will work per schedule. Differential or log backups won't happen, which is expected in this case.</li></ul> |
+| This SQL database does not support the requested backup type. | Occurs when the database recovery model doesn't allow the requested backup type. The error can happen in the following situations: <br/><ul><li>A database that's using a simple recovery model doesn't allow log backup.</li><li>Differential and log backups aren't allowed for a master database.</li></ul>For more detail, see the [SQL Server recovery models](/sql/relational-databases/backup-restore/recovery-models-sql-server) documentation. | If the log backup fails for the database in the simple recovery model, try one of these options:<ul><li>If the database is in simple recovery mode, disable log backups.</li><li>Use the [SQL Server documentation](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) to change the database recovery model to full or bulk logged. </li><li> If you don't want to change the recovery model, and you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full and differential backups will work per schedule. The log backups will be skipped, which is expected in this case.</li></ul>If it's a master database and you've configured differential or log backup, use either of the following steps:<ul><li>Use the portal to change the backup policy schedule for the master database, to full.</li><li>If you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full backup will work per schedule. Differential or log backups won't happen, which is expected in this case.</li></ul> |
 | Operation canceled as a conflicting operation was already running on the same database. | See the [blog entry about backup and restore limitations](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) that run concurrently.| [Use SQL Server Management Studio (SSMS) to monitor the backup jobs](manage-monitor-sql-database-backup.md). After the conflicting operation fails, restart the operation.|
 
 ### UserErrorSQLPODoesNotExist
@@ -126,7 +126,7 @@ At times, either random failures may happen in backup and restore operations or 
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time according to the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time according to the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](/sql/relational-databases/backup-restore/recovery-models-sql-server).
 
 ### FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -156,7 +156,7 @@ At times, either random failures may happen in backup and restore operations or 
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-Operation is blocked as you have reached the limit on number of operations permitted in 24 hours. | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. <br> For example: If you have hit the limit for the number of configure backup jobs that can be triggered per day, and you try to configure backup on a new item, you'll see this error. | Typically, retrying the operation after 24 hours resolves this issue. However, if the issue persists, you can contact Microsoft support for help.
+Operation is blocked as you have reached the limit on number of operations permitted in 24 hours. | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. <br> For example: If you've hit the limit for the number of configure backup jobs that can be triggered per day, and you try to configure backup on a new item, you'll see this error. | Typically, retrying the operation after 24 hours resolves this issue. However, if the issue persists, you can contact Microsoft support for help.
 
 ### CloudDosAbsoluteLimitReachedWithRetry
 
@@ -168,7 +168,7 @@ Operation is blocked as the vault has reached its maximum limit for such operati
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the AzureBackup service tag to allows outbound access to Azure Backup Service, Azure Storage, or Azure Active Directory services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there's no firewall/antivirus/proxy that is blocking calls to the above three target services.
+The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
 
 ## Re-registration failures
 

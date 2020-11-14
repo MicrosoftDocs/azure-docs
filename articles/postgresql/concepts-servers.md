@@ -1,8 +1,8 @@
 ﻿---
 title: Servers - Azure Database for PostgreSQL - Single Server
 description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019

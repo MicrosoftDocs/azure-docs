@@ -19,6 +19,8 @@ ms.author: juliako
 ---
 # Monitor encoding job progress with the Azure portal
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
 > No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
@@ -28,7 +30,7 @@ When you run jobs, you often require a way to track job progress.
 
 To monitor the progress of the encoding job, click **Settings** (at the top of the page) and then select **Jobs**.
 
-![Jobs](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![Screenshot that shows "Jobs" selected from the "Settings" menu.](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 You can click the job to see more details.
 

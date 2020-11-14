@@ -25,7 +25,7 @@ Role settings are the default settings that are applied to group owner and group
 
 Follow these steps to open the settings for an Azure privileged access group role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 
 1. Open **Azure AD Privileged Identity Management**.
 

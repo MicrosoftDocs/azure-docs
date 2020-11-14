@@ -93,7 +93,7 @@ If you don't have a logic app yet, learn [how to create logic apps](../logic-app
 
 1. After the **Assemblies** page opens, choose **Add**.
 
-   ![Choose "Add"](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
+   ![Screenshot that highlights the Add button on the Assemblies page.](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
 
 Based on your assembly file's size, follow the 
 steps for uploading an assembly that's either 

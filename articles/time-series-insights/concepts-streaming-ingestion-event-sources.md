@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ---
 
 # Azure Time Series Insights Gen2 Event Sources
@@ -59,7 +59,7 @@ Using the streaming pipeline to import historical data is not currently supporte
 
 ## Event source timestamp
 
-When configuring an event source you'll be asked to provide a timestamp ID property. The timestamp property is used to track events over time, this is the time that will be used as the $event.$ts in the [Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) and for plotting series in the Azure Time Series Insights Gen2 Explorer. If no property is provided at creation time, or if the timestamp property is missing from an event, then the event's IoT Hub or Events Hubs enqueued time will be used as the default. Timestamp property values are stored in UTC.
+When configuring an event source you'll be asked to provide a timestamp ID property. The timestamp property is used to track events over time, this is the time that will be used as the $event.$ts in the [Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) and for plotting series in the Azure Time Series Insights Explorer. If no property is provided at creation time, or if the timestamp property is missing from an event, then the event's IoT Hub or Events Hubs enqueued time will be used as the default. Timestamp property values are stored in UTC.
 
 In general, users will opt to customize the timestamp property and use the time when the sensor or tag generated the reading rather than using the default hub enqueued time. This is particularly necessary when devices have intermittent connectivity loss and a batch of delayed messages are forwarded to Azure Time Series Insights Gen2.
 
