@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
 ---
-# Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Windows Virtual Desktop
+# Remote Desktop Protocol (RDP) bandwidth requirements
 
 Remote Desktop Protocol (RDP) is a sophisticated technology that uses various techniques to perfect the server's remote graphics' delivery to the client device. Depending on the use case, availability of computing resources, and network bandwidth, RDP dynamically adjusts various parameters to deliver the best user experience.
 
