@@ -62,7 +62,7 @@ Use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operatio
 
 ### Configurations and params
 
-This section describes some of the optional parameters and when you would want to set them.
+This section describes some of the optional parameters and when you would want to set them. For the most up to date params info, see the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API.
 
 #### externalID 
 
