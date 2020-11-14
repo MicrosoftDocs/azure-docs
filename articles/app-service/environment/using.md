@@ -32,7 +32,7 @@ To create an app in an ASE:
 
 1. Enter a name for the app. If you already selected an App Service plan in an ASE, the domain name for the app reflects the domain name of the ASE:
 
-    ![App name selection][1]
+    ![create an app in an ASE][1]
 
 1. Select your Publish type, Stack, and Operating System.
 
@@ -141,6 +141,14 @@ To create an alert against your logs, follow the instructions in [Create, view, 
 * Add or create an action group as desired. The action group is where you define the response to the alert such as sending an email or an SMS message
 * Name your alert and save it.
 
+## Internal Encryption
+
+The App Service Environment operates as a black box system where you cannot see the internal components or the communication within the system. To enable higher throughput, encryption is not enabled by default between internal components. The system is secure as the traffic is completely inaccessible to being monitored or accessed. If you have a compliance requirement though that requires complete encryption of the data path from end to end encryption, you can enable this in the ASE **Configuration** UI.
+
+![Enable internal encryption][5]
+
+This will encrypt internal network traffic in your ASE between the front ends and workers, encrypt the pagefile and also encrypt the worker disks. After the InternalEncryption clusterSetting is enabled, there can be an impact to your system performance. When you make the change to enable InternalEncryption, your ASE will be in an unstable state until the change is fully propagated. Complete propagation of the change can take a few hours to complete, depending on how many instances you have in your ASE. We highly recommend that you do not enable this on an ASE while it is in use. If you need to enable this on an actively used ASE, we highly recommend that you divert traffic to a backup environment until the operation completes.
+
 ## Upgrade preference
 
 If you have multiple ASEs, you might want some ASEs to be upgraded before others. Within the ASE **HostingEnvironment Resource Manager** object, you can set a value for **upgradePreference**. The **upgradePreference** setting can be configured by using a template, ARMClient, or https://resources.azure.com. The three possible values are:
@@ -149,19 +157,9 @@ If you have multiple ASEs, you might want some ASEs to be upgraded before others
 - **Early**: Your ASE will be upgraded in the first half of the App Service upgrades.
 - **Late**: Your ASE will be upgraded in the second half of the App Service upgrades.
 
-If you're using https://resources.azure.com, follow these steps to set the **upgradePreferences** value:
-
-1. Go to resources.azure.com and sign in with your Azure account.
-1. Go through the resources to subscriptions\/\[subscription name\]\/resourceGroups\/\[resource group name\]\/providers\/Microsoft.Web\/hostingEnvironments\/\[ASE name\].
-1. Select **Read/Write** at the top.
-1. Select **Edit**.
-1. Set **upgradePreference** to whichever one of the three values you want.
-1. Select **Patch**.
-
-![resources azure com display][5]
+To configure your upgrade preference, go to the ASE **Configuration** UI. 
 
 The **upgradePreferences** feature makes the most sense when you have multiple ASEs because your "Early" ASEs will be upgraded before your "Late" ASEs. When you have multiple ASEs, you should set your development and test ASEs to be "Early" and your production ASEs to be "Late".
-
 
 ## Delete an ASE
 
@@ -175,14 +173,13 @@ To delete an ASE:
 
 1. Select **OK**.
 
-
 <!--Image references-->
-[1]: ./media/using_an_app_service_environment/usingase-appcreate.png
-[2]: ./media/using_an_app_service_environment/usingase-pricingtiers.png
-[3]: ./media/using_an_app_service_environment/usingase-delete.png
-[4]: ./media/using_an_app_service_environment/usingase-logsetup.png
-[4]: ./media/using_an_app_service_environment/usingase-logs.png
-[5]: ./media/using_an_app_service_environment/usingase-upgradepref.png
+[1]: ./media/using_an_app_service_environment/using-appcreate.png
+[2]: ./media/using_an_app_service_environment/using-appcreate-skus.png
+[3]: ./media/using_an_app_service_environment/using-delete.png
+[4]: ./media/using_an_app_service_environment/using-logsetup.png
+[4]: ./media/using_an_app_service_environment/using-logs.png
+[5]: ./media/using_an_app_service_environment/using-configuration.png
 
 <!--Links-->
 [Intro]: ./overview.md
