@@ -80,12 +80,10 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.CostManagement/Exports
 - Microsoft.CostManagement/ExternalSubscriptions
 - Microsoft.CostManagement/Forecast
-- Microsoft.CostManagement/GenerateReservationDetailsReport
 - Microsoft.CostManagement/Insights
 - Microsoft.CostManagement/Query
 - Microsoft.CostManagement/Reportconfigs
 - Microsoft.CostManagement/Reports
-- Microsoft.CostManagement/ReservationDetailsOperationResults
 - Microsoft.CostManagement/Views
 
 ## Microsoft.CustomProviders
