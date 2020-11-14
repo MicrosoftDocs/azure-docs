@@ -1,5 +1,5 @@
 ---
-title: Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Windows Virtual Desktop
+title: Remote Desktop Protocol bandwidth requirements Windows Virtual Desktop - Azure
 titleSuffix: Azure
 description: Understanding RDP bandwidth requirements for Windows Virtual Desktop.
 author: gundarev
