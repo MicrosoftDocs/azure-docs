@@ -367,13 +367,13 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
     * Confirm that there are no entries for `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly`, and `AppContainsAspNetTelemetryCorrelationAssembly`.
         * If any of these entries exist, remove the following packages from your application: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`, and `Microsoft.AspNet.TelemetryCorrelation`.
-        * For .NetCore apps only: in case you have previously instrumented (or attempted to instrument) your app with the ASP.NETCore SDK, enabling the App Service integration may not take effect and the data may not appear in Application Insights. To fix the issue, in portal turn on "Interop with Application Insights SDK" and you will start seeing the data in Application Insights (this functionality is in preview). 
+        * For ASP.NET Core apps only: in case you have previously instrumented (or attempted to instrument) your app with the (ASP.NET Core SDK)[https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core], enabling the App Service integration may not take effect and the data may not appear in Application Insights. To fix the issue, in portal turn on "Interop with Application Insights SDK" and you will start seeing the data in Application Insights (this functionality is in preview). 
         ![Enable the setting the existing app](./media/azure-web-apps/netcore-sdk-interop.png)
 
         The data is now going to be sent using codeless approach even if Application Insights SDK was originally used or attempted to be used.
 
         > [!IMPORTANT]
-        > If the application used Application Insights SDK to send any telemetry, such telemetry will be disabled – in other words, custom telemetry, if any, will be disabled (such as for example any Track*() methods)
+        > If the application used Application Insights SDK to send any telemetry, such telemetry will be disabled – in other words, custom telemetry - if any, such as for example any Track*() methods, and any custom settings, such as sampling, will be disabled. 
 
 
 ### PHP and WordPress are not supported
