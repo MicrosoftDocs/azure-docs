@@ -8,7 +8,7 @@ ms.date: 11/16/2020
 ms.author: denisgun
 ---
 
-# Understanding Windows Virtual Desktop Network Connectivity
+# Understanding Windows Virtual Desktop Network connectivity
 
 Windows Virtual Desktop provides the ability to host client sessions on the session hosts running on Azure. Microsoft manages portions of the services on the customer's behalf and provides secure endpoints for connecting clients and session hosts. The diagram below gives a high-level overview of the network connections used by Windows Virtual Desktop
 
