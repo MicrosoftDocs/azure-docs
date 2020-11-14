@@ -71,11 +71,11 @@ When you navigate to a container, the Azure portal indicates whether you are cur
 
 If you are authenticating using the account access key, you'll see **Access Key** specified as the authentication method in the portal:
 
-:::image type="content" source="media/authorize-blob-access-portal/auth-method-access-key.png" alt-text="Screenshot showing user currently accessing containers with the account key":::
+:::image type="content" source="media/authorize-data-operations-portal/auth-method-access-key.png" alt-text="Screenshot showing user currently accessing containers with the account key":::
 
 To switch to using Azure AD account, click the link highlighted in the image. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the right permissions, you'll see an error message like the following one:
 
-:::image type="content" source="media/authorize-blob-access-portal/auth-error-azure-ad.png" alt-text="Error shown if Azure AD account does not support access":::
+:::image type="content" source="media/authorize-data-operations-portal/auth-error-azure-ad.png" alt-text="Error shown if Azure AD account does not support access":::
 
 Notice that no blobs appear in the list if your Azure AD account lacks permissions to view them. Click on the **Switch to access key** link to use the access key for authentication again.
 
@@ -83,11 +83,11 @@ Notice that no blobs appear in the list if your Azure AD account lacks permissio
 
 If you are authenticating using your Azure AD account, you'll see **Azure AD User Account** specified as the authentication method in the portal:
 
-:::image type="content" source="media/authorize-blob-access-portal/auth-method-azure-ad.png" alt-text="Screenshot showing user currently accessing containers with Azure AD account":::
+:::image type="content" source="media/authorize-data-operations-portal/auth-method-azure-ad.png" alt-text="Screenshot showing user currently accessing containers with Azure AD account":::
 
 To switch to using the account access key, click the link highlighted in the image. If you have access to the account key, then you'll be able to proceed. However, if you lack access to the account key, you'll see an error message like the following one:
 
-:::image type="content" source="media/authorize-blob-access-portal/auth-error-access-key.png" alt-text="Error shown if you do not have access to account key":::
+:::image type="content" source="media/authorize-data-operations-portal/auth-error-access-key.png" alt-text="Error shown if you do not have access to account key":::
 
 Notice that no blobs appear in the list if you do not have access to the account keys. Click on the **Switch to Azure AD User Account** link to use your Azure AD account for authentication again.
 
@@ -102,7 +102,7 @@ To specify how to authorize a blob upload operation, follow these steps:
 1. Expand the **Advanced** section to display the advanced properties for the blob.
 1. In the **Authentication Type** field, indicate whether you want to authorize the upload operation by using your Azure AD account or with the account access key, as shown in the following image:
 
-    :::image type="content" source="media/authorize-blob-access-portal/auth-blob-upload.png" alt-text="Screenshot showing how to change authorization method on blob upload":::
+    :::image type="content" source="media/authorize-data-operations-portal/auth-blob-upload.png" alt-text="Screenshot showing how to change authorization method on blob upload":::
 
 ## Next steps
 
