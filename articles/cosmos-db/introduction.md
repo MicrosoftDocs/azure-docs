@@ -51,7 +51,7 @@ Guarantee business continuity, 99.999% availability, and enterprise-level securi
 - Azure Cosmos DB offers a comprehensive suite of [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db) including industry-leading availability worldwide.
 - Easily distribute data to any Azure region with automatic data replication. Enjoy zero downtime with multi-region writes or RPO 0 when using Strong consistency.
 - Enjoy enterprise-grade encryption-at-rest with self-managed keys.
-- Role-based access control keeps your data safe and offers fine-tuned control.
+- Azure role-based access control keeps your data safe and offers fine-tuned control.
 
 ### Fully managed and cost-effective
 
