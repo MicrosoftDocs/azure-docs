@@ -44,6 +44,8 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 + Run `az login` to sign in to Azure and verify an active subscription.
 
++ Run `dotnet --list-sdks` to check that .NET Core SDK version 3.1.x is installed
+
 # [Azure PowerShell](#tab/azure-powershell)
 
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
@@ -51,6 +53,8 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 + Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later. 
 
 + Run `Connect-AzAccount` to sign in to Azure and verify an active subscription.
+
++ Run `dotnet --list-sdks` to check that .NET Core SDK version 3.1.x is installed
 
 ---
 
