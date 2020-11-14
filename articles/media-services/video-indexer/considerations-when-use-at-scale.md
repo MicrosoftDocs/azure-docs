@@ -29,7 +29,7 @@ The article provides six best practices of how to use Video Indexer at scale.
 
 Video Indexer does give you the choice to upload videos from URL or directly by sending the file as a byte array, but remember that the latter comes with some constraints.
 
-First, it has file size limitations. The size of the byte array file is limited to 2 GB compared to the 30 GB upload size limitation while using URL.
+First, it has file size limitations. The size of the byte array file is limited to 2 GB compared to the 30-GB upload size limitation while using URL.
 
 Second, consider just some of the issues that can affect your performance and hence your ability to scale:
 
@@ -41,7 +41,7 @@ Second, consider just some of the issues that can affect your performance and he
 
 :::image type="content" source="./media/considerations-when-use-at-scale/first-consideration.png" alt-text="First consideration for using Video Indexer at scale":::
 
-When you upload videos using URL you just need to give us a path to the location of a media file and we will take care of the rest (see below the field from the [upload video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload) API).
+When you upload videos using URL, you just need to give us a path to the location of a media file and we will take care of the rest (see below the field from the [upload video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload) API).
 
 > [!TIP]
 > Use the `videoURL` optional parameter of the upload video API.
@@ -60,7 +60,7 @@ We know you want to operate efficiently and you don’t want to have resources t
 
 :::image type="content" source="./media/considerations-when-use-at-scale/reserved-units.jpg" alt-text="AMS reserved units":::
 
-To minimize indexing duration and low throughput we recommend you start with 10 RUs of type S3. Later if you scale up to support more content or higher concurrency, and you need more resources to do so, you can [contact us using the support system](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (on paid accounts only) to ask for more RUs allocation.
+To minimize indexing duration and low throughput we recommend, you start with 10 RUs of type S3. Later if you scale up to support more content or higher concurrency, and you need more resources to do so, you can [contact us using the support system](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (on paid accounts only) to ask for more RUs allocation.
 
 ## Respect throttling
 
