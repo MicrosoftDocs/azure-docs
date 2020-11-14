@@ -114,7 +114,7 @@
     href: authentication.md
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
-  - name: Network Connectivity
+  - name: Network connectivity
     items:
       - name: Understanding network connectivity
         href: network-connectivity.md
