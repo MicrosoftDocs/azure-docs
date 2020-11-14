@@ -3,7 +3,7 @@ title: Get started with Azure Service Bus queues (Azure.Messaging.ServiceBus)
 description: In this tutorial, you create .NET Core console application and use the Azure.Messaging.ServiceBus package to send messages to and receive messages from a Service Bus queue.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.custom: devx-track-csharp
 ---
 
@@ -52,7 +52,27 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of the queue.     
-2. Add a method named `CreateMessages` to create a list of messages to the `Program` class. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
+2. Add a method named `SendMessageAsync` that sends one message to the queue. 
+
+    ```csharp
+        static async Task SendMessageAsync()
+        {
+            // create a Service Bus client 
+            await using (ServiceBusClient client = new ServiceBusClient(connectionString))
+            {
+                // create a sender for the queue 
+                ServiceBusSender sender = client.CreateSender(queueName);
+
+                // create a message that we can send
+                ServiceBusMessage message = new ServiceBusMessage(Encoding.UTF8.GetBytes("Hello world!"));
+
+                // send the message
+                await sender.SendMessageAsync(message);
+                Console.WriteLine("Sent a single message to the queue");
+            }
+        }
+    ```
+1. Add a method named `CreateMessages` to create a list of messages to the `Program` class. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
 
     ```csharp
         static IList<ServiceBusMessage> CreateMessages()
@@ -65,10 +85,10 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             return listOfMessages;
         }
     ```
-1. Add a method named `SendMessagesAsync` to the `Program` class, and add the following code. This method takes a list of messages, and prepares one or more batches to send to the Service Bus queue. 
+1. Add a method named `SendMessageBatchAsync` to the `Program` class, and add the following code. This method takes a list of messages, and prepares one or more batches to send to the Service Bus queue. 
 
     ```csharp
-        static async Task SendMessagesAsync()
+        static async Task SendMessageBatchAsync()
         {
             // create a Service Bus client 
             await using (ServiceBusClient client = new ServiceBusClient(connectionString))
@@ -117,26 +137,35 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             }
         }
     ```
-1. Replace the `Main()` method with the following **async** `Main` method. It calls the `SendMessagesAsync()` method that you added in the previous step to send messages to the topic.
+1. Replace the `Main()` method with the following **async** `Main` method. It calls the both the send methods to send a single message and a batch of messages to the queue. 
 
     ```csharp
         static async Task Main()
         {
-            // send messages to the queue
-            await SendMessagesAsync();
+            // send a message to the queue
+            await SendMessageAsync();
+
+            // send a batch of messages to the queue
+            await SendMessageBatchAsync();
         }
     ```
-5. Run the application.
+5. Run the application. You should see the following messages. 
 
-    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-command-prompt.png" alt-text="Command prompt message":::    
-1. Check the Azure portal. Select the name of your queue in the namespace **Overview** window to display queue **Essentials**.
+    ```console
+    Sent a single message to the queue
+    Sent a batch of messages to the queue: myqueue
+    ```       
+1. In the Azure portal, follow these steps:
+    1. Navigate to your Service Bus namespace. 
+    1. On the **Overview** page, select the queue in the bottom-middle pane. 
+    1. Notice the values in the **Essentials** section.
 
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Messages received with count and size":::
 
     Notice the following values:
-    - The **Active message count** value for the queue is now **3**. Each time you run this sender app without retrieving the messages, this value increases by 3.
+    - The **Active message count** value for the queue is now **4**. Each time you run this sender app without retrieving the messages, this value increases by 4.
     - The current size of the queue increments the **CURRENT** value in **Essentials**  each time the app adds messages to the queue.
-    - In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the queue. 
+    - In the **Messages** chart in the bottom **Metrics** section, you can see that there are four incoming messages for the queue. 
 
 ## Receive messages from a queue
 In this section, you'll add code to retrieve messages from the queue.
@@ -188,13 +217,16 @@ In this section, you'll add code to retrieve messages from the queue.
             }
         }
     ```
-1. Add a call to `ReceiveMessagesAsync` method from the `Main` method. Comment out the `SendMessagesAsync` method if you want to test only receiving of messages. If you don't, you see another three messages sent to the queue. 
+1. Add a call to `ReceiveMessagesAsync` method from the `Main` method. Comment out the `SendMessagesAsync` method if you want to test only receiving of messages. If you don't, you see another four messages sent to the queue. 
 
     ```csharp
         static async Task Main()
         {
-            // send messages to the queue
-            await SendMessagesAsync();
+            // send a message to the queue
+            await SendMessageAsync();
+
+            // send a batch of messages to the queue
+            await SendMessageBatchAsync();
 
             // receive message from the queue
             await ReceiveMessagesAsync();
@@ -202,17 +234,33 @@ In this section, you'll add code to retrieve messages from the queue.
     ```
 
 ## Run the app
-Run the application. You should see the messages that are received in the output window.
+Run the application. You should see the following output. 
 
-:::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/final-output.png" alt-text="Final output":::
+```console
+Sent a single message to the queue
+Sent a batch of messages to the queue: myqueue
+Received: Hello world!
+Received: First message in the batch
+Received: Second message in the batch
+Received: Third message in the batch
+Received: Hello world!
+Received: First message in the batch
+Received: Second message in the batch
+Received: Third message in the batch
+```
 
 Check the portal again. 
 
 - The **Active message count** and **CURRENT** values are now **0**.
-- In the **Messages** chart in the bottom **Metrics** section, you can see that there are six incoming messages and six outgoing messages for the queue. 
+- In the **Messages** chart in the bottom **Metrics** section, you can see that there are eight incoming messages and eight outgoing messages for the queue. 
 
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Active messages and size after receive":::
 
 ## Next steps
-Check out our [GitHub repository with samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
+See the following documentation and samples:
+
+- [Azure Service Bus client library for .NET - Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
+- [Samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
+- [.NET API reference](https://docs.microsoft.com/en-us/dotnet/api/azure.messaging.servicebus?view=azure-dotnet-preview&preserve-view=true)
+
 
