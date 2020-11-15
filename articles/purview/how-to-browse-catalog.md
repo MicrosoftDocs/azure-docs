@@ -1,6 +1,6 @@
 ---
 title: 'How to: browse the Data Catalog'
-description: This article gives an overview of How to browse a data catalog using 'Browse by asset type tile'
+description: This article gives an overview of how to browse a data catalog using 'Browse by asset type tile'.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: data-catalog
