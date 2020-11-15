@@ -1,12 +1,12 @@
 ---
 title: 'How to: search the Data Catalog'
-description: This article gives an overview of How to browse a data catalog using 'Browse by asset type tile'
+description: This article gives an overview of how to search a data catalog.
 author: chanuengg
 ms.author: csugunan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
-ms.date: 9/30/2020
+ms.date: 11/15/2020
 ---
 
 # Search the Azure Purview Data Catalog
