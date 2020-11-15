@@ -22,7 +22,7 @@ RDP Shortpath is a feature of Windows Virtual Desktop that establishes a direct 
 * RDP Shortpath transport is based on top of highly efficient  [Universal Rate Control Protocol (URCP)](https://www.microsoft.com/en-us/research/publication/urcp-universal-rate-control-protocol-for-real-time-communication-applications/). URCP enhances UDP with active monitoring of the network conditions and provides fair and full link utilization. URCP operates at low delay and loss levels as needed by Remote Desktop. URCP achieves the best performance by dynamically learning network parameters and providing protocol with a rate control mechanism.
 * RDP Shortpath establishes the direct connectivity between Remote Desktop client and Session Host. Direct connectivity reduces the dependency on the Windows Virtual Desktop gateways, improves the connection's reliability, and increases the bandwidth available for each user session.
 * The removal of additional relay reduces the round-trip time, which improves user experience with latency-sensitive applications and input methods.
-* RDP Shortpath brings support for [configuring Quality of Service (QoS)](./qos.md) priority for RDP connections through a Differentiated Services Code Point (DSCP) marks
+* RDP Shortpath brings support for [configuring Quality of Service (QoS)](./rdp-quality-of-service-qos.md) priority for RDP connections through a Differentiated Services Code Point (DSCP) marks
 * RDP Shortpath transport allows [limiting outbound network traffic](./rdp-bandwidth.md#limit-network-bandwidth-use-with-throttle-rate) by specifying a throttle rate for each session.
 
 ## Connection security
@@ -115,7 +115,7 @@ To allow inbound network traffic for RDP Shortpath, use the Windows Defender Fir
 10. On the **Name** page, type a name and description for your rule, and then select **Finish**.
 
 You can verify that the new rule matches the screenshots below:
-:::image type="content" source="media/rdp-shortpath-firewall-general-tab.png.png" alt-text="Screenshot of the General tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-general-tab.png":::
+:::image type="content" source="media/rdp-shortpath-firewall-general-tab.png" alt-text="Screenshot of the General tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-general-tab.png":::
 
 :::image type="content" source="media/rdp-shortpath-firewall-service-settings.png" alt-text="Screenshot of the Programs and Services tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-service-settings.png":::
 
