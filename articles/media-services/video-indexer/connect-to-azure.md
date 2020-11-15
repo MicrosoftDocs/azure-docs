@@ -189,6 +189,10 @@ To automate the creation of the account is a two steps process:
     See an example of the [Media Services account creation template](https://github.com/Azure-Samples/media-services-v3-arm-templates).
 1. Call [Create-Account with the Media Services and Azure AD application](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
 
+## Clean up resources
+
+After you are done with this tutorial, delete resources that you are not planning to use.
+
 ## Next steps
 
 You can programmatically interact with your trial account and/or with your Video Indexer accounts that are connected to Azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).
