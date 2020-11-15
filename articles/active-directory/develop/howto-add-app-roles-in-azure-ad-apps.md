@@ -26,7 +26,7 @@ Another approach is to use Azure AD Groups and Group Claims, as shown in [WebApp
 
 ## Declare roles for an application
 
-These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest.  When a user signs into the application, Azure AD emits a `roles` claim for each role that the user has been granted individually to the user and from their group membership.  Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](/graph/azuread-identity-access-management-concept-overview). Managed identities can be assigned to application roles using [Azure PowerShell](../managed-identities-azure-resources/how-to-assign-managed-identity-app-role-powershell.md).
+App roles are usually defined on an application registration representing a service, app or API.  In a token issued for that service, a value in the `roles` claim is included for each app role that the authenticated user or service principal has been granted. This can be used to implement claim-based authorization. App roles can be assigned [to a user or a group of users](../manage-apps/add-application-portal-assign-users.md#assign-users-to-an-app), to the service principal for another application, or [to the service principal for a managed identity](../managed-identities-azure-resources/how-to-assign-managed-identity-app-role-powershell.md).
 
 ### Declare app roles using Azure portal
 
