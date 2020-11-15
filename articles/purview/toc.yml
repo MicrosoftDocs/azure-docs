@@ -123,8 +123,6 @@ items:
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
       href: how-to-manage-term-templates.md
-    - name: Create Approval flow
-      href: how-to-create-approval-workflow.md
   - name: Classify
     items: 
     - name: Use classifications
