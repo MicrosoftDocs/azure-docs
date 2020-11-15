@@ -25,28 +25,28 @@
 		.st9 {fill:#000000;font-family:Segoe UI;font-size:0.75em}
 		.st10 {fill:#1ba1e2}
 		.st11 {stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
-		.st12 {marker-end:url(#mrkr4-146);stroke:#c00000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
+		.st12 {marker-end:url(#mrkr4-147);stroke:#c00000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
 		.st13 {fill:#c00000;fill-opacity:1;stroke:#c00000;stroke-opacity:1;stroke-width:0.47169811320755}
 		.st14 {fill:#000000;font-family:Segoe UI;font-size:0.666664em}
-		.st15 {marker-end:url(#mrkr4-154);stroke:#00b0f0;stroke-linecap:round;stroke-linejoin:round;stroke-width:6}
+		.st15 {marker-end:url(#mrkr4-155);stroke:#00b0f0;stroke-linecap:round;stroke-linejoin:round;stroke-width:6}
 		.st16 {fill:#00b0f0;fill-opacity:1;stroke:#00b0f0;stroke-opacity:1;stroke-width:0.70422535211268}
-		.st17 {marker-end:url(#mrkr13-165);marker-start:url(#mrkr13-163);stroke:#ffc000;stroke-dasharray:0,6.75;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
+		.st17 {marker-end:url(#mrkr13-166);marker-start:url(#mrkr13-164);stroke:#ffc000;stroke-dasharray:0,6.75;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
 		.st18 {fill:#ffc000;fill-opacity:1;stroke:#ffc000;stroke-opacity:1;stroke-width:0.47169811320755}
-		.st19 {marker-end:url(#mrkr13-173);marker-start:url(#mrkr13-163);stroke:#ffc000;stroke-dasharray:0,6.75;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
-		.st20 {marker-end:url(#mrkr4-193);stroke:#00b050;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
+		.st19 {marker-end:url(#mrkr13-174);marker-start:url(#mrkr13-164);stroke:#ffc000;stroke-dasharray:0,6.75;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
+		.st20 {marker-end:url(#mrkr4-194);stroke:#00b050;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
 		.st21 {fill:#00b050;fill-opacity:1;stroke:#00b050;stroke-opacity:1;stroke-width:0.47169811320755}
 		.st22 {fill:#3f5765;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
 		.st23 {fill:#0078d7;stroke:none;stroke-linecap:butt;stroke-width:0.5}
-		.st24 {marker-end:url(#mrkr5-219);stroke:#000099;stroke-dasharray:2.25,4.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
+		.st24 {marker-end:url(#mrkr5-220);stroke:#000099;stroke-dasharray:2.25,4.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
 		.st25 {fill:#000099;fill-opacity:1;stroke:#000099;stroke-opacity:1;stroke-width:0.47169811320755}
-		.st26 {marker-end:url(#mrkr4-226);stroke:#7030a0;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
+		.st26 {marker-end:url(#mrkr4-227);stroke:#7030a0;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
 		.st27 {fill:#7030a0;fill-opacity:1;stroke:#7030a0;stroke-opacity:1;stroke-width:0.47169811320755}
 		.st28 {fill:#000000;font-family:Segoe UI;font-size:0.499992em}
 		.st29 {fill:#78b7e8;stroke:#78b7e8;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
 		.st30 {fill:#000000;font-family:Segoe UI;font-size:1.00001em}
-		.st31 {marker-end:url(#mrkr4-239);stroke:#75d175;stroke-dasharray:15.75,11.25;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
+		.st31 {marker-end:url(#mrkr4-240);stroke:#75d175;stroke-dasharray:15.75,11.25;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
 		.st32 {fill:#75d175;fill-opacity:1;stroke:#75d175;stroke-opacity:1;stroke-width:0.47169811320755}
-		.st33 {marker-end:url(#mrkr4-247);stroke:#339933;stroke-dasharray:2.25,4.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
+		.st33 {marker-end:url(#mrkr4-248);stroke:#339933;stroke-dasharray:2.25,4.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
 		.st34 {fill:#339933;fill-opacity:1;stroke:#339933;stroke-opacity:1;stroke-width:0.47169811320755}
 		.st35 {stroke:#00b0f0;stroke-linecap:round;stroke-linejoin:round;stroke-width:6}
 		.st36 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
@@ -76,49 +76,49 @@
 		<g id="lend4">
 			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
 		</g>
-		<marker id="mrkr4-146" class="st13" v:arrowType="4" v:arrowSize="2" v:setback="4.24" refX="-4.24" orient="auto"
+		<marker id="mrkr4-147" class="st13" v:arrowType="4" v:arrowSize="2" v:setback="4.24" refX="-4.24" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.12,-2.12) "/>
 		</marker>
-		<marker id="mrkr4-154" class="st16" v:arrowType="4" v:arrowSize="2" v:setback="2.84" refX="-2.84" orient="auto"
+		<marker id="mrkr4-155" class="st16" v:arrowType="4" v:arrowSize="2" v:setback="2.84" refX="-2.84" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-1.42,-1.42) "/>
 		</marker>
 		<g id="lend13">
 			<path d="M 3 1 L 0 0 L 3 -1 L 3 1 " style="stroke:none"/>
 		</g>
-		<marker id="mrkr13-163" class="st18" v:arrowType="13" v:arrowSize="2" v:setback="6.2" refX="6.2" orient="auto"
+		<marker id="mrkr13-164" class="st18" v:arrowType="13" v:arrowSize="2" v:setback="6.2" refX="6.2" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend13" transform="scale(2.12) "/>
 		</marker>
-		<marker id="mrkr13-165" class="st18" v:arrowType="13" v:arrowSize="2" v:setback="6.2" refX="-6.2" orient="auto"
+		<marker id="mrkr13-166" class="st18" v:arrowType="13" v:arrowSize="2" v:setback="6.2" refX="-6.2" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend13" transform="scale(-2.12,-2.12) "/>
 		</marker>
-		<marker id="mrkr13-173" class="st18" v:arrowType="13" v:arrowSize="2" v:setback="6.36" refX="-6.36" orient="auto"
+		<marker id="mrkr13-174" class="st18" v:arrowType="13" v:arrowSize="2" v:setback="6.36" refX="-6.36" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend13" transform="scale(-2.12,-2.12) "/>
 		</marker>
-		<marker id="mrkr4-193" class="st21" v:arrowType="4" v:arrowSize="2" v:setback="4.24" refX="-4.24" orient="auto"
+		<marker id="mrkr4-194" class="st21" v:arrowType="4" v:arrowSize="2" v:setback="4.24" refX="-4.24" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.12,-2.12) "/>
 		</marker>
 		<g id="lend5">
 			<path d="M 2 1 L 0 0 L 1.98117 -0.993387 C 1.67173 -0.364515 1.67301 0.372641 1.98465 1.00043 " style="stroke:none"/>
 		</g>
-		<marker id="mrkr5-219" class="st25" v:arrowType="5" v:arrowSize="2" v:setback="3.71" refX="-3.71" orient="auto"
+		<marker id="mrkr5-220" class="st25" v:arrowType="5" v:arrowSize="2" v:setback="3.71" refX="-3.71" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend5" transform="scale(-2.12,-2.12) "/>
 		</marker>
-		<marker id="mrkr4-226" class="st27" v:arrowType="4" v:arrowSize="2" v:setback="4.24" refX="-4.24" orient="auto"
+		<marker id="mrkr4-227" class="st27" v:arrowType="4" v:arrowSize="2" v:setback="4.24" refX="-4.24" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.12,-2.12) "/>
 		</marker>
-		<marker id="mrkr4-239" class="st32" v:arrowType="4" v:arrowSize="2" v:setback="4.08" refX="-4.08" orient="auto"
+		<marker id="mrkr4-240" class="st32" v:arrowType="4" v:arrowSize="2" v:setback="4.08" refX="-4.08" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.12,-2.12) "/>
 		</marker>
-		<marker id="mrkr4-247" class="st34" v:arrowType="4" v:arrowSize="2" v:setback="4.24" refX="-4.24" orient="auto"
+		<marker id="mrkr4-248" class="st34" v:arrowType="4" v:arrowSize="2" v:setback="4.24" refX="-4.24" orient="auto"
 				markerUnits="strokeWidth" overflow="visible">
 			<use xlink:href="#lend4" transform="scale(-2.12,-2.12) "/>
 		</marker>
@@ -634,7 +634,7 @@
 		</g>
 		<g id="group1040-117" transform="translate(394.84,-422.928)" v:mID="1040" v:groupContext="group" v:layerMember="0">
 			<title>Server Directory.271</title>
-			<desc>Active Directory</desc>
+			<desc>Active Directory Domain Services</desc>
 			<g id="shape1041-118" v:mID="1041" v:groupContext="shape" v:layerMember="0">
 				<title>Sheet.1041</title>
 				<path d="M13.5 581.25 L1.5 581.25 C0.67 581.25 0 581.91 0 582.71 L0 612 L8.25 612 L8.25 609 L2.25 609 L2.25 607.5
@@ -701,10 +701,11 @@
 			</g>
 			<g id="shape1040-139" v:mID="1040" v:groupContext="groupContent" v:layerMember="0">
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
-				<v:textRect cx="11.9854" cy="621.402" width="73.44" height="18.8036"/>
-				<text x="-19.5" y="624.1" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Active Directory</text>			</g>
+				<v:textRect cx="11.9854" cy="626.802" width="75.92" height="29.6036"/>
+				<text x="-19.5" y="624.1" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Active Directory <v:lf/><tspan
+							x="-20.74" dy="1.2em" class="st7">Domain Services</tspan></text>			</g>
 		</g>
-		<g id="shape1063-141" v:mID="1063" v:groupContext="shape" v:layerMember="1" transform="translate(100.607,-424.4)">
+		<g id="shape1063-142" v:mID="1063" v:groupContext="shape" v:layerMember="1" transform="translate(100.607,-424.4)">
 			<title>Dynamic connector.1063</title>
 			<desc>Feed subscription (TCP 443)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -713,7 +714,7 @@
 					class="st12"/>
 			<text x="-683.54" y="13.75" transform="rotate(-90)" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Feed subscription<v:lf/><tspan
 						x="-669.24" dy="1.2em" class="st7">(TCP 443)</tspan></text>		</g>
-		<g id="shape1064-149" v:mID="1064" v:groupContext="shape" v:layerMember="1" transform="translate(78.1071,-438.304)">
+		<g id="shape1064-150" v:mID="1064" v:groupContext="shape" v:layerMember="1" transform="translate(78.1071,-438.304)">
 			<title>Dynamic connector.1064</title>
 			<desc>Reverse Connect Transport (TCP 443)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -721,21 +722,21 @@
 			<path d="M0 612 L-18.9 612 L-18.9 861.98 L80.89 861.98 A3 3 0 1 1 86.89 861.98 L169.29 861.98" class="st15"/>
 			<text x="-720.91" y="-7.8" transform="rotate(-90)" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Reverse Connect Transport<v:lf/><tspan
 						x="-690.27" dy="1.2em" class="st7">(TCP 443)</tspan></text>		</g>
-		<g id="shape1065-157" v:mID="1065" v:groupContext="shape" v:layerMember="1" transform="translate(341.92,-253.644)">
+		<g id="shape1065-158" v:mID="1065" v:groupContext="shape" v:layerMember="1" transform="translate(341.92,-253.644)">
 			<title>Dynamic connector.1065</title>
 			<path d="M0.17 625.95 L0.17 626.31 C0.67 641.1 2.59 657.8 10.04 667.05 C16.09 674.54 25.76 677.15 35.2 678.05 L35.56
 						 678.07" class="st17"/>
 		</g>
-		<g id="shape1066-166" v:mID="1066" v:groupContext="shape" v:layerMember="1" transform="translate(293.398,-179.325)">
+		<g id="shape1066-167" v:mID="1066" v:groupContext="shape" v:layerMember="1" transform="translate(293.398,-179.325)">
 			<title>Dynamic connector.1066</title>
 			<path d="M13.95 603 L14.31 603 C35.08 603 62.94 603 83.71 603" class="st19"/>
 		</g>
-		<g id="shape1067-174" v:mID="1067" v:groupContext="shape" v:layerMember="1" transform="translate(341.92,-253.644)">
+		<g id="shape1067-175" v:mID="1067" v:groupContext="shape" v:layerMember="1" transform="translate(341.92,-253.644)">
 			<title>Dynamic connector.1067</title>
 			<path d="M-0.17 625.95 L-0.18 626.31 C-0.68 640.77 -2.58 657.02 -9.85 666.04 C-15.71 673.32 -25.06 675.9 -34.22 676.82
 						 L-34.58 676.83" class="st17"/>
 		</g>
-		<g id="shape1075-181" v:mID="1075" v:groupContext="shape" v:layerMember="1" transform="translate(269.92,-418.136)">
+		<g id="shape1075-182" v:mID="1075" v:groupContext="shape" v:layerMember="1" transform="translate(269.92,-418.136)">
 			<title>Dynamic connector.1075</title>
 			<desc>Reverse Connect Transport TCP 443</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -743,7 +744,7 @@
 			<path d="M9 612 L9 810.61" class="st15"/>
 			<text x="-703.58" y="20.1" transform="rotate(-90)" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Reverse Connect Transport<v:lf/><tspan
 						x="-670.52" dy="1.2em" class="st7">TCP 443</tspan></text>		</g>
-		<g id="shape1077-188" v:mID="1077" v:groupContext="shape" v:layerMember="1" transform="translate(302.966,-438.304)">
+		<g id="shape1077-189" v:mID="1077" v:groupContext="shape" v:layerMember="1" transform="translate(302.966,-438.304)">
 			<title>Dynamic connector.1077</title>
 			<desc>RD Agent communication (TCP 443)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -751,10 +752,10 @@
 			<path d="M0 612 L55.87 612 L55.87 663.38 L103.86 663.38 L103.86 838.28" class="st20"/>
 			<text x="-706.93" y="36.63" transform="rotate(-90)" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>RD Agent communication <v:lf/><tspan
 						x="-678.29" dy="1.2em" class="st7">(TCP 443)</tspan></text>		</g>
-		<g id="group1078-196" transform="translate(78.1071,-421.267)" v:mID="1078" v:groupContext="group">
+		<g id="group1078-197" transform="translate(78.1071,-421.267)" v:mID="1078" v:groupContext="group">
 			<title>Remote Desktop.1078</title>
 			<desc>Client</desc>
-			<g id="shape1079-197" v:mID="1079" v:groupContext="shape" transform="translate(0,-3.13314)">
+			<g id="shape1079-198" v:mID="1079" v:groupContext="shape" transform="translate(0,-3.13314)">
 				<title>Sheet.1079</title>
 				<path d="M10.79 612 C19.54 612 24.26 612 26.73 612 C25.61 610.19 24.95 608.13 24.95 605.88 C24.95 605.88 24.95 605.88
 							 24.95 605.88 C3.37 605.88 3.37 605.88 3.37 605.88 C2.71 605.88 2.25 605.42 2.25 604.73 C2.25 584.02
@@ -765,37 +766,37 @@
 							 607.69 1.37 607.69 C13.48 607.69 13.48 607.69 13.48 607.69 C13.48 609.5 13.48 609.5 13.48 609.5 C10.79
 							 612 10.79 612 10.79 612 Z" class="st22"/>
 			</g>
-			<g id="shape1080-199" v:mID="1080" v:groupContext="shape" transform="translate(26.2174,0)">
+			<g id="shape1080-200" v:mID="1080" v:groupContext="shape" transform="translate(26.2174,0)">
 				<title>Sheet.1080</title>
 				<path d="M9.39 592.81 C4.26 592.81 0 597.12 0 602.53 C-0 607.72 4.26 612 9.39 612 C14.77 612 18.78 607.72 18.78 602.53
 							 C18.78 597.12 14.77 592.81 9.39 592.81 ZM9.39 610.65 C4.94 610.65 1.35 607.06 1.35 602.53 C1.35 598.02
 							 4.94 594.4 9.39 594.4 C13.87 594.4 17.46 598.02 17.46 602.53 C17.46 607.06 13.87 610.65 9.39 610.65
 							 Z" class="st22"/>
 			</g>
-			<g id="shape1081-201" v:mID="1081" v:groupContext="shape" transform="translate(35.2174,-6.26629)">
+			<g id="shape1081-202" v:mID="1081" v:groupContext="shape" transform="translate(35.2174,-6.26629)">
 				<title>Sheet.1081</title>
 				<path d="M4.55 602.99 L0 607.47 L4.55 612 L5.87 610.63 L2.67 607.47 L5.87 604.39 L4.55 602.99 L4.55 602.99 Z"
 						class="st22"/>
 			</g>
-			<g id="shape1082-203" v:mID="1082" v:groupContext="shape" transform="translate(30.1304,-3.13314)">
+			<g id="shape1082-204" v:mID="1082" v:groupContext="shape" transform="translate(30.1304,-3.13314)">
 				<title>Sheet.1082</title>
 				<path d="M0 604.31 L3.13 607.5 L0 610.7 L1.35 612 L5.87 607.5 L1.35 602.99 L0 604.31 L0 604.31 Z" class="st22"/>
 			</g>
-			<g id="shape1078-205" v:mID="1078" v:groupContext="groupContent">
+			<g id="shape1078-206" v:mID="1078" v:groupContext="groupContent">
 				<v:textBlock v:margins="rect(4,4,4,4)"/>
 				<v:textRect cx="43.3929" cy="565.267" width="33.26" height="18.8036"/>
 				<text x="32" y="567.97" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Client</text>			</g>
 		</g>
-		<g id="group1090-207" transform="translate(256.42,-420.304)" v:mID="1090" v:groupContext="group">
+		<g id="group1090-208" transform="translate(256.42,-420.304)" v:mID="1090" v:groupContext="group">
 			<title>Virtual machine.1090</title>
 			<desc>Session Host</desc>
-			<g id="shape1091-208" v:mID="1091" v:groupContext="shape" transform="translate(14.7328,-16.1611)">
+			<g id="shape1091-209" v:mID="1091" v:groupContext="shape" transform="translate(14.7328,-16.1611)">
 				<title>Sheet.1091</title>
 				<path d="M0 612 L17 612 L17 600.61 L0 600.61 L0 612 ZM12.24 608.68 L9.04 610.52 L9.04 606.84 L12.24 605 L12.24 608.68
 							 ZM8.75 602.63 L11.95 604.49 L8.77 606.32 L5.56 604.47 L8.75 602.63 ZM5.26 604.98 L8.45 606.82 L8.45
 							 610.52 L5.26 608.68 L5.26 604.98 Z" class="st23"/>
 			</g>
-			<g id="shape1092-210" v:mID="1092" v:groupContext="shape">
+			<g id="shape1092-211" v:mID="1092" v:groupContext="shape">
 				<title>Sheet.1092</title>
 				<path d="M43.01 576 L1.99 576 C0.89 576 0 576.9 0 577.99 L0 610.01 C0 611.12 0.89 612 1.99 612 L43.01 612 C44.12
 							 612 45 611.12 45 610.01 L45 577.99 C45 576.89 44.12 576 43.01 576 ZM22.35 605.8 L21.1 609.52 C21.09
@@ -831,19 +832,19 @@
 							 597.22 C13.83 597.22 13.35 596.74 13.35 596.14 L13.35 584.14 C13.35 583.54 13.83 583.05 14.43 583.05
 							 L32.04 583.05 C32.64 583.05 33.12 583.54 33.12 584.14 L33.12 596.14 L33.11 596.14 Z" class="st23"/>
 			</g>
-			<g id="shape1090-212" v:mID="1090" v:groupContext="groupContent">
+			<g id="shape1090-213" v:mID="1090" v:groupContext="groupContent">
 				<v:textBlock v:margins="rect(0,0,0,0)" v:verticalAlign="0"/>
 				<v:textRect cx="54.0804" cy="564.304" width="52.87" height="10.8036"/>
 				<text x="28.75" y="567" class="st9" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Session Host</text>			</g>
 		</g>
-		<g id="shape1093-214" v:mID="1093" v:groupContext="shape" v:layerMember="1" transform="translate(100.607,-447.906)">
+		<g id="shape1093-215" v:mID="1093" v:groupContext="shape" v:layerMember="1" transform="translate(100.607,-447.906)">
 			<title>Dynamic connector.1093</title>
 			<desc>RDP Shortpath (UDP 3390)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
 			<v:textRect cx="90.8488" cy="552.066" width="104.28" height="17.6036"/>
 			<path d="M0 604.57 L0 560.23 L178.31 560.23 L178.31 593.09" class="st24"/>
 			<text x="43.81" y="554.47" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>RDP Shortpath (UDP 3390)</text>		</g>
-		<g id="shape1104-221" v:mID="1104" v:groupContext="shape" v:layerMember="1" transform="translate(117.629,-441.678)">
+		<g id="shape1104-222" v:mID="1104" v:groupContext="shape" v:layerMember="1" transform="translate(117.629,-441.678)">
 			<title>Dynamic connector.1104</title>
 			<desc>Azure AD Authentication (TCP 443)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
@@ -851,7 +852,7 @@
 			<path d="M0 612 L44.37 612 L44.37 988.87 L132.99 988.87" class="st26"/>
 			<text x="-697.63" y="54.87" transform="rotate(-90)" class="st28" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AD Authentication<v:lf/><tspan
 						x="-677.47" dy="1.5em" class="st7">(TCP 443)</tspan></text>		</g>
-		<g id="group1073-229" transform="translate(31.5,-179.552)" v:mID="1073" v:groupContext="group" v:layerMember="3">
+		<g id="group1073-230" transform="translate(31.5,-179.552)" v:mID="1073" v:groupContext="group" v:layerMember="3">
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
 				<v:ud v:nameU="visAltText" v:prompt="" v:val="VT4(Cloud)"/>
@@ -860,7 +861,7 @@
 			</v:userDefs>
 			<title>Cloud.1073</title>
 			<desc>Public Internet</desc>
-			<g id="shape1074-230" v:mID="1074" v:groupContext="shape" v:layerMember="3">
+			<g id="shape1074-231" v:mID="1074" v:groupContext="shape" v:layerMember="3">
 				<title>Sheet.1074</title>
 				<path d="M157.35 559.95 C156.7 559.95 155.85 559.95 155.2 559.95 C155.2 559.95 155.2 559.95 155.2 559.95 C155.2 549.37
 							 150.05 539.65 141.68 533.6 C133.09 527.56 122.14 526.05 112.27 529.5 C104.11 513.52 86.08 505.31 68.91
@@ -869,39 +870,39 @@
 							 612 L157.13 612 C171.3 612 182.89 600.34 182.89 586.08 C182.89 571.83 171.52 559.95 157.35 559.95 Z"
 						class="st29"/>
 			</g>
-			<g id="shape1073-232" v:mID="1073" v:groupContext="groupContent" v:layerMember="3">
+			<g id="shape1073-233" v:mID="1073" v:groupContext="groupContent" v:layerMember="3">
 				<v:textBlock v:margins="rect(0,0,0,0)" v:verticalAlign="2"/>
 				<v:textRect cx="87.1071" cy="573.375" width="80.14" height="14.4037"/>
 				<text x="48.69" y="576.98" class="st30" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Public Internet</text>			</g>
 		</g>
-		<g id="shape1105-234" v:mID="1105" v:groupContext="shape" v:layerMember="1" transform="translate(288.622,-64.803)">
+		<g id="shape1105-235" v:mID="1105" v:groupContext="shape" v:layerMember="1" transform="translate(288.622,-64.803)">
 			<title>Dynamic connector.1105</title>
-			<desc>AD Sync TCP 443</desc>
+			<desc>Azure AD Connect sync TCP 443</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="255.878" cy="478.803" width="41.7" height="27.2035"/>
+			<v:textRect cx="255.878" cy="478.803" width="94.78" height="27.2035"/>
 			<path d="M0 612 C166.19 612 236.22 554.65 233.3 455.68 C230.8 370.89 174.77 255.56 131.42 240.08 L131.07 240.02"
 					class="st31"/>
-			<text x="241.23" y="476.4" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>AD Sync <v:lf/><tspan
+			<text x="214.69" y="476.4" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Azure AD Connect sync <v:lf/><tspan
 						x="241.5" dy="1.2em" class="st7">TCP 443</tspan></text>		</g>
-		<g id="shape1106-242" v:mID="1106" v:groupContext="shape" v:layerMember="1" transform="translate(278.92,-465.262)">
+		<g id="shape1106-243" v:mID="1106" v:groupContext="shape" v:layerMember="1" transform="translate(278.92,-465.262)">
 			<title>Dynamic connector.1106</title>
-			<desc>Local AD connectivity</desc>
+			<desc>Active Directory connectivity</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>
-			<v:textRect cx="65.3304" cy="573.262" width="85.82" height="17.6036"/>
+			<v:textRect cx="65.3304" cy="573.262" width="110.68" height="17.6036"/>
 			<path d="M0 618.79 L0 584.96 L127.91 584.96 L127.91 613.67" class="st33"/>
-			<text x="27.52" y="575.66" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Local AD connectivity</text>		</g>
-		<g id="group1112-249" transform="translate(580.799,-481.5)" v:mID="1112" v:groupContext="group">
+			<text x="15.09" y="575.66" class="st14" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Active Directory connectivity</text>		</g>
+		<g id="group1112-250" transform="translate(580.799,-481.5)" v:mID="1112" v:groupContext="group">
 			<title>Sheet.1112</title>
-			<g id="group1110-250" transform="translate(100.951,-6.75)" v:mID="1110" v:groupContext="group">
+			<g id="group1110-251" transform="translate(100.951,-6.75)" v:mID="1110" v:groupContext="group">
 				<title>Sheet.1110</title>
-				<g id="shape1110-251" v:mID="1110" v:groupContext="groupContent">
+				<g id="shape1110-252" v:mID="1110" v:groupContext="groupContent">
 					<path d="M0 612 L18.15 612 L78.75 612" class="st35"/>
 				</g>
 			</g>
-			<g id="group1111-254" v:mID="1111" v:groupContext="group">
+			<g id="group1111-255" v:mID="1111" v:groupContext="group">
 				<title>Sheet.1111</title>
 				<desc>Reverse Connect Transport (TCP 443)</desc>
-				<g id="shape1111-255" v:mID="1111" v:groupContext="groupContent">
+				<g id="shape1111-256" v:mID="1111" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(4,4,4,4)"/>
 					<v:textRect cx="51.6006" cy="605.25" width="103.21" height="13.5"/>
 					<rect x="0" y="598.5" width="103.201" height="13.5" class="st36"/>
@@ -909,133 +910,134 @@
 								x="4" dy="1.65em" class="st7">443)</tspan></text>				</g>
 			</g>
 		</g>
-		<g id="group1113-259" transform="translate(580.799,-465.74)" v:mID="1113" v:groupContext="group">
+		<g id="group1113-260" transform="translate(580.799,-465.74)" v:mID="1113" v:groupContext="group">
 			<title>Sheet.1113</title>
-			<g id="group1114-260" transform="translate(100.951,-6.75)" v:mID="1114" v:groupContext="group">
+			<g id="group1114-261" transform="translate(100.951,-6.75)" v:mID="1114" v:groupContext="group">
 				<title>Sheet.1114</title>
-				<g id="shape1114-261" v:mID="1114" v:groupContext="groupContent">
+				<g id="shape1114-262" v:mID="1114" v:groupContext="groupContent">
 					<path d="M0 612 L18.15 612 L78.75 612" class="st37"/>
 				</g>
 			</g>
-			<g id="group1115-264" v:mID="1115" v:groupContext="group">
+			<g id="group1115-265" v:mID="1115" v:groupContext="group">
 				<title>Sheet.1115</title>
 				<desc>Feed subscription (TCP 443)</desc>
-				<g id="shape1115-265" v:mID="1115" v:groupContext="groupContent">
+				<g id="shape1115-266" v:mID="1115" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(4,4,4,4)"/>
 					<v:textRect cx="51.6006" cy="605.25" width="103.21" height="13.5"/>
 					<rect x="0" y="598.5" width="103.201" height="13.5" class="st36"/>
 					<text x="4" y="607.95" class="st28" v:langID="1033"><v:paragraph/><v:tabList/>Feed subscription (TCP 443)</text>				</g>
 			</g>
 		</g>
-		<g id="group1116-268" transform="translate(580.799,-449.979)" v:mID="1116" v:groupContext="group">
+		<g id="group1116-269" transform="translate(580.799,-449.979)" v:mID="1116" v:groupContext="group">
 			<title>Sheet.1116</title>
-			<g id="group1117-269" transform="translate(100.951,-6.75)" v:mID="1117" v:groupContext="group">
+			<g id="group1117-270" transform="translate(100.951,-6.75)" v:mID="1117" v:groupContext="group">
 				<title>Sheet.1117</title>
-				<g id="shape1117-270" v:mID="1117" v:groupContext="groupContent">
+				<g id="shape1117-271" v:mID="1117" v:groupContext="groupContent">
 					<path d="M0 612 L18.15 612 L78.75 612" class="st38"/>
 				</g>
 			</g>
-			<g id="group1118-273" v:mID="1118" v:groupContext="group">
+			<g id="group1118-274" v:mID="1118" v:groupContext="group">
 				<title>Sheet.1118</title>
 				<desc>Azure AD Authentication (TCP 443)</desc>
-				<g id="shape1118-274" v:mID="1118" v:groupContext="groupContent">
+				<g id="shape1118-275" v:mID="1118" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(4,4,4,4)"/>
 					<v:textRect cx="51.6006" cy="605.25" width="103.21" height="13.5"/>
 					<rect x="0" y="598.5" width="103.201" height="13.5" class="st36"/>
 					<text x="4" y="607.95" class="st28" v:langID="1033"><v:paragraph/><v:tabList/>Azure AD Authentication (TCP 443)</text>				</g>
 			</g>
 		</g>
-		<g id="group1119-277" transform="translate(580.799,-434.219)" v:mID="1119" v:groupContext="group">
+		<g id="group1119-278" transform="translate(580.799,-434.219)" v:mID="1119" v:groupContext="group">
 			<title>Sheet.1119</title>
-			<g id="group1120-278" transform="translate(100.951,-6.75)" v:mID="1120" v:groupContext="group">
+			<g id="group1120-279" transform="translate(100.951,-6.75)" v:mID="1120" v:groupContext="group">
 				<title>Sheet.1120</title>
-				<g id="shape1120-279" v:mID="1120" v:groupContext="groupContent">
+				<g id="shape1120-280" v:mID="1120" v:groupContext="groupContent">
 					<path d="M0 612 L18.15 612 L78.75 612" class="st38"/>
 				</g>
 			</g>
-			<g id="group1121-282" v:mID="1121" v:groupContext="group">
+			<g id="group1121-283" v:mID="1121" v:groupContext="group">
 				<title>Sheet.1121</title>
 				<desc>RD Agent communication (TCP 443)</desc>
-				<g id="shape1121-283" v:mID="1121" v:groupContext="groupContent">
+				<g id="shape1121-284" v:mID="1121" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(4,4,4,4)"/>
 					<v:textRect cx="51.6006" cy="605.25" width="103.21" height="13.5"/>
 					<rect x="0" y="598.5" width="103.201" height="13.5" class="st36"/>
 					<text x="4" y="607.95" class="st28" v:langID="1033"><v:paragraph/><v:tabList/>RD Agent communication (TCP 443)</text>				</g>
 			</g>
 		</g>
-		<g id="group1122-286" transform="translate(580.799,-418.459)" v:mID="1122" v:groupContext="group">
+		<g id="group1122-287" transform="translate(580.799,-418.459)" v:mID="1122" v:groupContext="group">
 			<title>Sheet.1122</title>
-			<g id="group1123-287" transform="translate(100.951,-6.75)" v:mID="1123" v:groupContext="group">
+			<g id="group1123-288" transform="translate(100.951,-6.75)" v:mID="1123" v:groupContext="group">
 				<title>Sheet.1123</title>
-				<g id="shape1123-288" v:mID="1123" v:groupContext="groupContent">
+				<g id="shape1123-289" v:mID="1123" v:groupContext="groupContent">
 					<path d="M0 612 L18.15 612 L78.75 612" class="st39"/>
 				</g>
 			</g>
-			<g id="group1124-291" v:mID="1124" v:groupContext="group">
+			<g id="group1124-292" v:mID="1124" v:groupContext="group">
 				<title>Sheet.1124</title>
 				<desc>RDP Shortpath (UDP 3390)</desc>
-				<g id="shape1124-292" v:mID="1124" v:groupContext="groupContent">
+				<g id="shape1124-293" v:mID="1124" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(4,4,4,4)"/>
 					<v:textRect cx="51.6006" cy="605.25" width="103.21" height="13.5"/>
 					<rect x="0" y="598.5" width="103.201" height="13.5" class="st36"/>
 					<text x="4" y="607.95" class="st28" v:langID="1033"><v:paragraph/><v:tabList/>RDP Shortpath  (UDP 3390)</text>				</g>
 			</g>
 		</g>
-		<g id="group1125-295" transform="translate(580.799,-402.699)" v:mID="1125" v:groupContext="group">
+		<g id="group1125-296" transform="translate(580.799,-402.699)" v:mID="1125" v:groupContext="group">
 			<title>Sheet.1125</title>
-			<g id="group1126-296" transform="translate(100.951,-6.75)" v:mID="1126" v:groupContext="group">
+			<g id="group1126-297" transform="translate(100.951,-6.75)" v:mID="1126" v:groupContext="group">
 				<title>Sheet.1126</title>
-				<g id="shape1126-297" v:mID="1126" v:groupContext="groupContent">
+				<g id="shape1126-298" v:mID="1126" v:groupContext="groupContent">
 					<path d="M0 612 L18.15 612 L78.75 612" class="st40"/>
 				</g>
 			</g>
-			<g id="group1127-300" v:mID="1127" v:groupContext="group">
+			<g id="group1127-301" v:mID="1127" v:groupContext="group">
 				<title>Sheet.1127</title>
 				<desc>Internal service traffic</desc>
-				<g id="shape1127-301" v:mID="1127" v:groupContext="groupContent">
+				<g id="shape1127-302" v:mID="1127" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(4,4,4,4)"/>
 					<v:textRect cx="51.6006" cy="605.25" width="103.21" height="13.5"/>
 					<rect x="0" y="598.5" width="103.201" height="13.5" class="st36"/>
 					<text x="4" y="607.95" class="st28" v:langID="1033"><v:paragraph/><v:tabList/>Internal service traffic</text>				</g>
 			</g>
 		</g>
-		<g id="group1128-304" transform="translate(580.799,-386.938)" v:mID="1128" v:groupContext="group">
+		<g id="group1128-305" transform="translate(580.799,-386.938)" v:mID="1128" v:groupContext="group">
 			<title>Sheet.1128</title>
-			<g id="group1129-305" transform="translate(100.951,-6.75)" v:mID="1129" v:groupContext="group">
+			<g id="group1129-306" transform="translate(100.951,-6.75)" v:mID="1129" v:groupContext="group">
 				<title>Sheet.1129</title>
-				<g id="shape1129-306" v:mID="1129" v:groupContext="groupContent">
+				<g id="shape1129-307" v:mID="1129" v:groupContext="groupContent">
 					<path d="M0 612 L18.15 612 L78.75 612" class="st41"/>
 				</g>
 			</g>
-			<g id="group1130-309" v:mID="1130" v:groupContext="group">
+			<g id="group1130-310" v:mID="1130" v:groupContext="group">
 				<title>Sheet.1130</title>
-				<desc>AD Sync (TCP 443)</desc>
-				<g id="shape1130-310" v:mID="1130" v:groupContext="groupContent">
+				<desc>Azure AD Connect Sync (TCP 443)</desc>
+				<g id="shape1130-311" v:mID="1130" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(4,4,4,4)"/>
 					<v:textRect cx="51.6006" cy="605.25" width="103.21" height="13.5"/>
 					<rect x="0" y="598.5" width="103.201" height="13.5" class="st36"/>
-					<text x="4" y="607.95" class="st28" v:langID="1033"><v:paragraph/><v:tabList/>AD Sync  (TCP 443)</text>				</g>
+					<text x="4" y="607.95" class="st28" v:langID="1033"><v:paragraph/><v:tabList/>Azure AD Connect Sync  (TCP 443)</text>				</g>
 			</g>
 		</g>
-		<g id="group1131-313" transform="translate(580.799,-371.178)" v:mID="1131" v:groupContext="group">
+		<g id="group1131-314" transform="translate(580.799,-371.178)" v:mID="1131" v:groupContext="group">
 			<title>Sheet.1131</title>
-			<g id="group1132-314" transform="translate(100.951,-6.75)" v:mID="1132" v:groupContext="group">
+			<g id="group1132-315" transform="translate(100.951,-6.75)" v:mID="1132" v:groupContext="group">
 				<title>Sheet.1132</title>
-				<g id="shape1132-315" v:mID="1132" v:groupContext="groupContent">
+				<g id="shape1132-316" v:mID="1132" v:groupContext="groupContent">
 					<path d="M0 612 L18.15 612 L78.75 612" class="st42"/>
 				</g>
 			</g>
-			<g id="group1133-318" v:mID="1133" v:groupContext="group">
+			<g id="group1133-319" v:mID="1133" v:groupContext="group">
 				<title>Sheet.1133</title>
-				<desc>Local AD connectivity (various)</desc>
-				<g id="shape1133-319" v:mID="1133" v:groupContext="groupContent">
+				<desc>Local Active Directory connectivity (various)</desc>
+				<g id="shape1133-320" v:mID="1133" v:groupContext="groupContent">
 					<v:textBlock v:margins="rect(4,4,4,4)"/>
 					<v:textRect cx="51.6006" cy="605.25" width="103.21" height="13.5"/>
 					<path d="M0 612 L103.2 612 L103.2 598.5 L0 598.5 L0 612 Z" class="st43"/>
-					<text x="4" y="607.95" class="st28" v:langID="1033"><v:paragraph/><v:tabList/>Local AD connectivity (various)</text>				</g>
+					<text x="4" y="601.65" class="st28" v:langID="1033"><v:paragraph/><v:tabList/>Local Active Directory connectivity <tspan
+								x="4" dy="1.65em" class="st7">(various)</tspan></text>				</g>
 			</g>
 		</g>
-		<g id="shape1134-322" v:mID="1134" v:groupContext="shape" transform="translate(235.51,-560.5)">
+		<g id="shape1134-324" v:mID="1134" v:groupContext="shape" transform="translate(235.51,-560.5)">
 			<title>Sheet.1134</title>
 			<desc>RDP Shortpath Network Connections</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)"/>

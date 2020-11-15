@@ -103,7 +103,7 @@ Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Ser
 
 To allow inbound network traffic for RDP Shortpath, use the Windows Defender Firewall with Advanced Security node in the Group Policy Management MMC snap-in to create firewall rules.
 
-1. Open the Group Policy Management Console to [Windows Defender Firewall with Advanced Security](/windows/security/threat-protection/windows-firewall/open-the-group-policy-management-console-to-windows-firewall-with-advanced-security.md).
+1. Open the Group Policy Management Console to [Windows Defender Firewall with Advanced Security](/windows/security/threat-protection/windows-firewall/open-the-group-policy-management-console-to-windows-firewall-with-advanced-security).
 2. In the navigation pane, select **Inbound Rules**.
 3. Select **Action**, and then select **New rule**.
 4. On the **Rule Type** page of the New Inbound Rule Wizard, select **Custom**, and then select **Next**.
@@ -159,7 +159,7 @@ If you need to block specific subnets from using the RDP Shortpath transport, yo
 
 ## Verifying the connectivity
 
-### Using connection Information dialog
+### Using Connection Information dialog
 
 To verify that connections are using RDP Shortpath, open the “Connection Information” dialog by clicking on the antenna icon in the connection toolbar.
 
@@ -242,3 +242,8 @@ To disable RDP Shortpath for a specific session host, you can use the following 
 1. On the Session Host Run **gpedit.msc**.
 2. Navigate to **Computer Configuration > Administration Templates > Windows Components > Remote Desktop Services > Remote Desktop Connection Host > Connections**.
 3. Set the **“Select RDP Transport Protocols”** setting to **TCP Only**
+
+## Next steps
+
+- To learn about Windows Virtual Desktop network connectivity, see [Understanding Windows Virtual Desktop network connectivity](network-connectivity.md).
+- To get started with Quality of Service (QoS) for Windows Virtual Desktop, see [Implement Quality of Service (QoS) for Windows Virtual Desktop](rdp-quality-of-service-qos.md).

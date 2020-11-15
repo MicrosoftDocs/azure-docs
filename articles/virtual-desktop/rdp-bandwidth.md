@@ -137,6 +137,9 @@ You can set throttle rate for RDP Shortpath using the PowerShell cmdlet below:
 New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390 -DSCPAction 46 -NetworkProfile All
 ```
 
-## Related articles
+## Next steps
 
-* [QoS for Windows Virtual Desktop](./qos.md)
+* To learn about bandwidth requirements for Windows Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Windows Virtual Desktop](rdp-bandwidth.md).
+* To learn about Windows Virtual Desktop network connectivity, see [Understanding Windows Virtual Desktop network connectivity](network-connectivity.md).
+* To get started with Quality of Service (QoS) for Windows Virtual Desktop, see [Implement Quality of Service (QoS) for Windows Virtual Desktop](rdp-quality-of-service-qos.md).
+

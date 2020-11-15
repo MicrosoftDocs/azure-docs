@@ -122,3 +122,8 @@ New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" 
 ## Related articles
 
 * [Quality of Service (QoS) Policy](/windows-server/networking/technologies/qos/qos-policy-top)
+
+## Next steps
+
+* To learn about bandwidth requirements for Windows Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Windows Virtual Desktop](rdp-bandwidth.md).
+* To learn about Windows Virtual Desktop network connectivity, see [Understanding Windows Virtual Desktop network connectivity](network-connectivity.md).
