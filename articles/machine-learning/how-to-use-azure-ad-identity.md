@@ -82,16 +82,10 @@ spec:
       ...
 ```
 
-To verify that the label was correctly added, run the following command.
+To verify that the label was correctly added, run the following command. You should also see the statuses of the newly created pods.
 
 ```azurecli-interactive
-   kubectl get deployment <name of deployment> -n azureml-<name of workspace> --show-labels
-```
-
-To see all pod statuses, run the following command.
-
-```azurecli-interactive
-    kubectl get pods -n azureml-<name of workspace>
+   kubectl get pod -n azureml-<name of workspace> --show-labels
 ```
 
 Once the pods are up and running, the web services for this deployment will now be able to access Azure resources through your Azure Identity without having to embed the credentials in your code.
