@@ -72,11 +72,11 @@ The table below guides estimating of the data used by the different graphic scen
 | Idle | 0.3 Kbps | 0.3 Kbps |:::image type="content" source="media/idle.png" alt-text="Screenshot of the idle connection":::| User is paused their work and there's no active screen updates |
 | Microsoft Word | 100-150 Kbps | 200-300 Kbps |:::image type="content" source="media/word.gif" alt-text="Animation of Microsoft Word":::| User is actively working with Microsoft Word, typing, pasting graphics and switching between documents |
 | Microsoft Excel | 150-200 Kbps | 400-500 Kbps |:::image type="content" source="media/excel.gif" alt-text="Animation of Microsoft Excel":::| User is actively working with Microsoft Excel, multiple cells with formulas and charts are updated simultaneously |
-| Microsoft PowerPoint | 4-4.5 Mbps | 1.6-1.8 Mbps |:::image type="content" source="media/powerpoint.gif" alt-text="Animation of Microsoft Powerpoint":::| User is actively working with Microsoft PowerPoint, typing, pasting. USer also modifying rich graphics, and using slide transition effects |
+| Microsoft PowerPoint | 4-4.5 Mbps | 1.6-1.8 Mbps |:::image type="content" source="media/powerpoint.gif" alt-text="Animation of Microsoft PowerPoint":::| User is actively working with Microsoft PowerPoint, typing, pasting. USer also modifying rich graphics, and using slide transition effects |
 | Web Browsing | 6-6.5 Mbps | 0.9-1 Mbps |:::image type="content" source="media/web.gif" alt-text="Animation of web browsing":::| User is actively working with a graphically rich website that contains multiple static and animated images. User scrolls the pages both horizontally and vertically |
 | Image Gallery | 3.3-3.6 Mbps | 0.7-0.8 Mbps |:::image type="content" source="media/image-gallery.gif" alt-text="Animation of image gallery":::| User is actively working with the image gallery application. browsing, zooming, resizing and rotating images |
 | Video playback | 8.5-9.5 Mbps | 2.5-2.8 Mbps |:::image type="content" source="media/video.gif" alt-text="Animation of video playback":::| User is watching a 30 FPS video that consumes 1/2 of the screen |
-| Fullscreen Video playback | 7.5-8.5 Mbps | 2.5-3.1 Mbps |:::image type="content" source="media/fs-video.gif" alt-text="Animation of fullscreen video playback":::| User is watching a 30 FPS video that maximized to a fullscreen |
+| Fullscreen Video playback | 7.5-8.5 Mbps | 2.5-3.1 Mbps |:::image type="content" source="media/fullscreen-video.gif" alt-text="Animation of fullscreen video playback":::| User is watching a 30 FPS video that maximized to a fullscreen |
 
 ## Dynamic bandwidth allocation
 
@@ -143,4 +143,3 @@ New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" 
 * To learn about bandwidth requirements for Windows Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Windows Virtual Desktop](rdp-bandwidth.md).
 * To learn about Windows Virtual Desktop network connectivity, see [Understanding Windows Virtual Desktop network connectivity](network-connectivity.md).
 * To get started with Quality of Service (QoS) for Windows Virtual Desktop, see [Implement Quality of Service (QoS) for Windows Virtual Desktop](rdp-quality-of-service-qos.md).
-

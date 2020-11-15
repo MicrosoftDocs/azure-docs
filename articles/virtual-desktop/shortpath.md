@@ -46,7 +46,7 @@ After installing the [reverse connect transport](./network-connectivity.md), the
 
 The diagram below gives a high-level overview of the RDP Shortpath network connection.
 
-:::image type="content" source="media/rdp-shorpath-connections.svg" alt-text="Diagram of RDP Shortpath Network Connections" lightbox="media/rdp-shorpath-connections.svg":::
+:::image type="content" source="media/rdp-shortpath-connections.svg" alt-text="Diagram of RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-connections.svg":::
 
 ## Requirements
 
@@ -115,11 +115,11 @@ To allow inbound network traffic for RDP Shortpath, use the Windows Defender Fir
 10. On the **Name** page, type a name and description for your rule, and then select **Finish**.
 
 You can verify that the new rule matches the screenshots below:
-:::image type="content" source="media/rdp-shorpath-firewall1.png" alt-text="Screenshot of the General tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shorpath-firewall1.png":::
+:::image type="content" source="media/rdp-shortpath-firewall-general-tab.png.png" alt-text="Screenshot of the General tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-general-tab.png":::
 
-:::image type="content" source="media/rdp-shorpath-firewall2.png" alt-text="Screenshot of the Programs and Services tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shorpath-firewall2.png":::
+:::image type="content" source="media/rdp-shortpath-firewall-service-settings.png" alt-text="Screenshot of the Programs and Services tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-service-settings.png":::
 
-:::image type="content" source="media/rdp-shorpath-firewall3.png" alt-text="Screenshot of the Protocols and Ports tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shorpath-firewall3.png":::
+:::image type="content" source="media/rdp-shortpath-firewall-protocol-and-ports.png" alt-text="Screenshot of the Protocols and Ports tab for Firewall configuration for RDP Shortpath Network Connections" lightbox="media/rdp-shortpath-firewall-protocol-and-ports.png":::
 
 You can also use PowerShell to configure Windows Firewall:
 
@@ -163,9 +163,9 @@ If you need to block specific subnets from using the RDP Shortpath transport, yo
 
 To verify that connections are using RDP Shortpath, open the “Connection Information” dialog by clicking on the antenna icon in the connection toolbar.
 
-:::image type="content" source="media/rdp-shorpath-bbar.png" alt-text="Image of Remote Desktop Connection Bar":::
+:::image type="content" source="media/rdp-shortpath-connection-bar.png" alt-text="Image of Remote Desktop Connection Bar":::
 
-:::image type="content" source="media/rdp-shorpath-connection-info.png" alt-text="Image of Remote Desktop Connection Info dialog":::
+:::image type="content" source="media/rdp-shortpath-connection-info.png" alt-text="Image of Remote Desktop Connection Info dialog":::
 
 ### Using event logs
 
@@ -245,5 +245,5 @@ To disable RDP Shortpath for a specific session host, you can use the following 
 
 ## Next steps
 
-- To learn about Windows Virtual Desktop network connectivity, see [Understanding Windows Virtual Desktop network connectivity](network-connectivity.md).
-- To get started with Quality of Service (QoS) for Windows Virtual Desktop, see [Implement Quality of Service (QoS) for Windows Virtual Desktop](rdp-quality-of-service-qos.md).
+* To learn about Windows Virtual Desktop network connectivity, see [Understanding Windows Virtual Desktop network connectivity](network-connectivity.md).
+* To get started with Quality of Service (QoS) for Windows Virtual Desktop, see [Implement Quality of Service (QoS) for Windows Virtual Desktop](rdp-quality-of-service-qos.md).
