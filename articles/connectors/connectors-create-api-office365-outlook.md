@@ -19,35 +19,11 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Office 36
 
 You can use any trigger to start your workflow, for example, when a new email arrives, when a calendar item is updated, or when an event happens in a difference service, such as Salesforce. You can use actions that respond to the trigger event, for example, send an email or create a new calendar event.
 
-> [!NOTE]
-> To automate tasks for an @outlook.com or @hotmail.com account, use the 
-> [Outlook.com connector](../connectors/connectors-create-api-outlook.md).
-
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+* An Outlook account where you sign in with a [work or school account](https://www.office.com/). If you have an @outlook.com or @hotmail.com account, use the [Outlook.com connector](../connectors/connectors-create-api-outlook.md) instead. If you need to sign in with a service account instead, see [Service accounts](#service-account).
 
-* A [Microsoft work or school account](https://www.office.com/). If you want to use a service account instead with the Office 365 Outlook connector, but you experience single sign-on (SSO) problems when you try to create a connection, you have these options:
-
-  * Sign in to Azure with your service account.
-
-    1. At your logic app's resource group level, check whether the service account has the **Contributor** role. 
-    If not, assign that role to the service account.
-
-    1. If you're signed in to the Azure portal with your work or school account, sign out from the portal and sign back in 
-    with your service account. You can now create a connection to your Office 365 Outlook account by using your service account.
-
-  * If you don't want to sign in to Azure with your service account, and the Office 365 Outlook trigger or action supports entering the service account's email address, follow these steps:
-
-    1. In the trigger or action, check for a parameter where you can specify a source email address.
-
-       > [!TIP]
-       > If the trigger or action has any other optional parameters, check the **Add a parameter** list that appears on 
-       > the trigger or action. If such a parameter exists, select that parameter, which adds it to the trigger or action.
-
-    1. In that parameter, enter your service account's email address.
-
-       For example, the **Send an email** action has an optional parameter, **From (Send as)**, which you can add to the action and provide your service account's email address.
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The logic app where you want to access your Office 365 Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
 
@@ -61,7 +37,7 @@ A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event
    
    ![Select trigger to start your logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. If you're prompted to sign in, provide your work or school credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the trigger's properties.
+1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. If you need to sign in with a service account, see [Service accounts](#service-account). Otherwise, provide the information for the trigger's properties.
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
@@ -95,7 +71,7 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
    ![Select the action to run in your logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. If you're prompted to sign in, provide your work or school credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the action's properties.
+1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. If you need to sign in with a service account, see [Service accounts](#service-account). Otherwise, provide the information for the trigger's properties.
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
@@ -108,6 +84,32 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
    To add other available action properties, select those properties from the **Add new parameter** list.
 
 1. On the designer toolbar, select **Save**.
+
+<a name="service-accounts"></a>
+
+## Service accounts
+
+If you try to use a service account when creating a connection, but you experience single sign-on (SSO) problems, you have these options:
+
+* Sign in to Azure with your service account.
+
+  1. At your logic app's resource group level, check whether the service account has the **Contributor** role. 
+  If not, assign that role to the service account.
+
+  1. If you're signed in to the Azure portal with your work or school account, sign out from the portal and sign back in 
+  with your service account. You can now create a connection to your Office 365 Outlook account by using your service account.
+
+* If you don't want to sign in to Azure with your service account, and the Office 365 Outlook trigger or action supports entering the service account's email address, follow these steps:
+
+  1. In the trigger or action, check for a parameter where you can specify a source email address.
+
+     > [!TIP]
+     > If the trigger or action has any other optional parameters, check the **Add a parameter** list that appears on 
+     > the trigger or action. If such a parameter exists, select that parameter, which adds it to the trigger or action.
+
+  1. In that parameter, enter your service account's email address.
+
+     For example, the **Send an email** action has an optional parameter, **From (Send as)**, which you can add to the action and provide your service account's email address.
 
 ## Connector reference
 
