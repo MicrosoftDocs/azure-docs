@@ -6,10 +6,10 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/15/2020
 ---
 
-# Automatically label your content
+# Automatically label your content in Azure Purview
 
 This article describes how to create Microsoft Information Protection (MIP) sensitivity labels, and automatically apply them to your data in Babylon.
 
