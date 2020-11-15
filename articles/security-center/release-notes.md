@@ -34,7 +34,7 @@ Updates in November include:
 - [29 preview recommendations added to increase coverage of Azure Security Benchmark](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [NIST SP 800 171 R2 added to Security Center's regulatory compliance dashboard](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
 - [Recommendations list now includes filters](#recommendations-list-now-includes-filters)
-
+- [Auto provisioning experience improved and expanded](#auto-provisioning-experience-improved-and-expanded)
 
 ### 29 preview recommendations added to increase coverage of Azure Security Benchmark
 
@@ -88,14 +88,15 @@ You can now filter the list of security recommendations according to a range of 
 
 ### Auto provisioning experience improved and expanded
 
-Auto provisioning today helps reduce management overhead by installing the required extensions on new - and existing - Azure VMs to benefit from the security features. 
+The auto provisioning feature helps reduce management overhead by installing the required extensions on new - and existing - Azure VMs so they can benefit from Security Center's protections. 
 
-As Azure Security Center grows, more extensions have been developed and a Security Center can monitor a larger list of resource types. The auto provisioning tools have now been expanded to support additional these extensions and resource types by leveraging the capabilities of Azure Policy.
+As Azure Security Center grows, more extensions have been developed and Security Center can monitor a larger list of resource types. The auto provisioning tools have now been expanded to support additional extensions and resource types by leveraging the capabilities of Azure Policy.
 
 You can now configure the auto provisioning of:
 
-- Azure Policy Add-on for Kubernetes
-- Microsoft Dependency agent
+- Log Analytics agent
+- (New) Azure Policy Add-on for Kubernetes
+- (New) Microsoft Dependency agent
 
 Learn more in [Auto provisioning agents and extensions from Azure Security Center](security-center-enable-data-collection.md).
 
