@@ -51,6 +51,8 @@
   items:
   - name: Key advantages
     href: concept-key-advantages
+  - name: Airgapped networks
+    href: concept-air-gapped-networks.md
   - name: Learning modes
     href: concept-learning-modes.md
   - name: Integrations
@@ -147,6 +149,8 @@
     href: how-to-deploy-view-sensors.md
   - name: Deploy the on-premises management console
     href: how-to-deploy-management-console-appliance.md
+  - name: Troubleshoot the sensor and on-premises management console
+    href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
   - name: Work with Security Module for Azure RTOS
     href: how-to-azure-rtos-security-module.md
   - name: Which agent should I deploy?
@@ -181,8 +185,6 @@
     href: how-to-configure-with-sentinel.md
   - name: Customize your agent
     href: how-to-customize-solution.md
-  - name: Troubleshoot the sensor and on-premises management console
-    href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
   - name: Define management console network settings
     href: how-to-define-management-console-network-settings.md
   - name: Set up SNMP MIB monitoring
@@ -191,6 +193,14 @@
     href: how-to-adjust-system-properties.md
 - name: References
   items:
+  - name: Work with Defender for IoT APIs
+    href: references-work-with-defender-for-iot-apis.md
+  - name: Work with Defender for IoT CLI commands
+    href: references-work-with-defender-for-iot-cli-commands.md
+  - name: Horizon SDK
+    href: references-horizon-sdk.md
+  - name: Defender for IoT glossary
+    href: references-defender-for-iot-glossary.md
   - name: Security Module for Azure RTOS API
     href: azure-rtos-security-module-api.md
   - name: Frequently asked questions - service
