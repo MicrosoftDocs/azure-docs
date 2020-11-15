@@ -818,7 +818,7 @@ CREATE STATISTICS sState
 There are several system views and functions that you can use to find information about statistics. For example, you can see if a statistics object might be out of date by using the STATS_DATE() function. STATS_DATE() allows you to see when statistics were last created or updated.
 
 > [!NOTE]
-> Statistics metadata is available for external table column statistics only. Statistics metadata for OPENROWSET columns is not available.
+> Statistics metadata is available for external table columns only. Statistics metadata is not available for OPENROWSET columns.
 
 #### Catalog views for statistics
 
