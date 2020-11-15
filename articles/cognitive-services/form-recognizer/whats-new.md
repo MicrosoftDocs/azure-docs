@@ -17,7 +17,7 @@ ms.author: pafarley
 
 The Form Recognizer service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
 
-## Nov 2020
+## November 2020
 
 ### New features
 
@@ -28,7 +28,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 > [Learn more about Prebuilt Invoice](concept-invoices.md)
 
 - **Enhanced table extraction** 
- Form Recognizer now includes an enhnaced tables extraction which commbines our powerful Optical Character Recognition (OCR) capabilities with a deep learning table extraction model enabling Form Recognizer to extract data from tables including complex tables with merged columns, rows, no borders and lots more. 
+ Form Recognizer now includes an enhanced tables extraction which combines our powerful Optical Character Recognition (OCR) capabilities with a deep learning table extraction model enabling Form Recognizer to extract data from tables including complex tables with merged columns, rows, no borders and lots more. 
  
  <<< add tables examples image>>>
  

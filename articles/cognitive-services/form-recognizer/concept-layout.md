@@ -1,5 +1,5 @@
 ---
-title: Invoices - Form Recognizer
+title: Layouts - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn concepts related to layout analysis with the Form Recognizer API - usage and limits.
 services: cognitive-services
@@ -30,7 +30,7 @@ To try out the Form Recognizer Layout Service, go to the online Sample Tool:
 > [!div class="nextstepaction"]
 > [Try Prebuilt Models](https://fott-preview.azurewebsites.net/)
 
-You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognzier resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
+You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognzier resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Layout API. 
 
 ![Analayzed Layout example](./media/analyze-layout.png)
 
