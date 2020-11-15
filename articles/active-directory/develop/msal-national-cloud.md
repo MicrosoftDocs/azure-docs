@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
-ms.reviewer: nacanuma
+ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about how the Microsoft Authentication Library works in national cloud scenarios so I can decide if this platform meets my application development needs.
 ---
@@ -147,9 +147,9 @@ To enable your MSAL Python application for sovereign clouds:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- To call Microsoft graph requires a specific Graph endpoint URL that depends on which cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Calling the Microsoft Graph API requires an endpoint URL specific to the cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-    Here's an example of a graph endpoint, with scope:
+    Here's an example of a Microsoft Graph endpoint, with scope:
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -170,7 +170,7 @@ Here's an example authority:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- To call Microsoft graph requires a specific Graph endpoint URL that depends on which cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Calling the Microsoft Graph API requires an endpoint URL specific to the cloud you are using. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Here's an example of a graph endpoint, with scope:
 
@@ -219,9 +219,10 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## Next steps
 
-Learn more about:
+See [National cloud authentication endpoints](authentication-national-cloud.md) for a list of the Azure portal URLs and token endpoints for each cloud.
 
-- [Authentication in National Clouds](authentication-national-cloud.md)
+National cloud documentation:
+
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
 - [Azure Germany](../../germany/index.yml)

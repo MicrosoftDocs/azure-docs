@@ -20,10 +20,6 @@
     - name: Grant scoped permission to web API
       displayName: permissions, scp, scp claims
       href: quickstart-configure-app-access-web-apis.md
-    - name: Modify accounts supported by an app
-      href: quickstart-modify-supported-accounts.md
-    - name: Remove an app
-      href: quickstart-remove-app.md
   - name: Single-page app (SPA)
     items:
     - name: Angular
@@ -156,16 +152,21 @@
       href: application-model.md
     - name: App sign-in flow
       href: app-sign-in-flow.md
+  - name: Authentication libraries
+    displayName: msal, microsoft.identity.web
+    items:
+      - name: Microsoft Authentication Library (MSAL)
+        href: msal-overview.md
+      - name: Microsoft Identity Web library
+        href: microsoft-identity-web.md
+        displayName: auth, library, .NET Core
   - name: Authentication flows and app scenarios
     displayName: Auth flows
     href: authentication-flows-app-scenarios.md
+  - name: Applications and service principals
+    href: app-objects-and-service-principals.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
-  - name: Microsoft Authentication Library (MSAL) Overview
-    href: msal-overview.md
-  - name: Microsoft Identity Web library
-    href: microsoft-identity-web.md
-    displayName: auth, library, .NET Core
   - name: Application types and OAuth 2.0
     displayName: App types, OAuth
     href: v2-app-types.md
@@ -176,8 +177,7 @@
     href: v2-conditional-access-dev-guide.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
-
-- name: How-to guides
+- name: How-to
   items:
   - name: Authentication
     items:
@@ -200,6 +200,10 @@
   - name: Application configuration
     displayName: App configuration
     items:
+    - name: Modify accounts supported by an app
+      href: quickstart-modify-supported-accounts.md
+    - name: Remove an app
+      href: quickstart-remove-app.md
     - name: Convert a single-tenant app to a multi-tenant app
       href: howto-convert-app-to-be-multi-tenant.md
     - name: Create a service principal
@@ -386,6 +390,9 @@
         - name: Migrate apps from ADAL to MSAL
           href: msal-migration.md
           displayName: migration
+        - name: National clouds and MSAL
+          href: msal-national-cloud.md
+          displayName: china, germany, gov, 21vianet
       - name: MSAL.NET
         displayName: xamarin, ASP.NET Core
         items:
@@ -491,7 +498,7 @@
             href: msal-handling-exceptions.md?tabs=python
           - name: Logging
             href: msal-logging.md?tabs=python
-      - name: MSAL for Java 
+      - name: MSAL for Java
         items:
           - name: Custom token cache serialization
             href: msal-java-token-cache-serialization.md
@@ -545,12 +552,6 @@
         href: reference-third-party-cookies-spas.md
       - name: Handle SameSite cookie changes in Chrome
         href: howto-handle-samesite-cookie-changes-chrome-browser.md
-  - name: Authenticate apps and services
-    items:
-      - name: Create a service principal using Azure PowerShell
-        href: howto-authenticate-service-principal-powershell.md
-      - name: Create a service principal using the Azure portal
-        href: howto-create-service-principal-portal.md
   - name: Accept sign-ins from multiple tenants
     items:
     - name: Enable multi-tenant log-ins
@@ -604,9 +605,6 @@
   - name: Application configuration
     displayName: App configuration
     items:
-    - name: Applications and service principals
-      displayName: Apps, service principals
-      href: app-objects-and-service-principals.md
     - name: How and why apps are added to Azure AD
       href: active-directory-how-applications-are-added.md
     - name: Redirect URI/reply URL restrictions and limitations
@@ -695,12 +693,9 @@
     - name: Application consent experiences
       displayName: App consent experiences
       href: application-consent-experience.md
-  - name: National Clouds
-    items:
-    - name: Overview
-      href: authentication-national-cloud.md
-    - name: Authentication
-      href: msal-national-cloud.md
+  - name: National cloud authentication endpoints
+    href: authentication-national-cloud.md
+    displayName: china, germany, gov, 21vianet
   - name: Automatic user provisioning (SCIM)
     items:
     - name: Develop and integrating a SCIM endpoint
@@ -709,7 +704,6 @@
       href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Automate configuration using MS Graph
       href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
-
 - name: Resources
   items:
   - name: Glossary
