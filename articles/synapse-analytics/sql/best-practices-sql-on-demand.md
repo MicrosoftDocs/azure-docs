@@ -124,7 +124,7 @@ You can use a performance-optimized parser when you query CSV files. For details
 
 ## Manually create statistics for CSV files
 
-Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics will be automatically created for Parquet files when needed. At this moment, statistics are not automatically created for CSV files and you should create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics#statistics-in-serverless-sql-pool-preview) for details.
+Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics will be automatically created for columns in Parquet files when needed. At this moment, statistics are not automatically created for columns in CSV files and you should create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics#statistics-in-serverless-sql-pool-preview) for details.
 
 ## Use CETAS to enhance query performance and joins
 
