@@ -179,19 +179,6 @@
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: How-to
   items:
-  - name: Application configuration
-    displayName: App configuration
-    items:
-    - name: Modify accounts supported by an app
-      href: quickstart-modify-supported-accounts.md
-    - name: Remove an app
-      href: quickstart-remove-app.md
-    - name: Create a service principal
-      items:
-      - name: Using Azure PowerShell
-        href: howto-authenticate-service-principal-powershell.md
-      - name: Using the Azure portal
-        href: howto-create-service-principal-portal.md
   - name: Application scenarios
     displayName: App scenarios
     items:
@@ -514,8 +501,16 @@
         href: reference-third-party-cookies-spas.md
       - name: Handle SameSite cookie changes in Chrome
         href: howto-handle-samesite-cookie-changes-chrome-browser.md
+  - name: Authenticate apps and services
+    items:
+      - name: Create a service principal using Azure PowerShell
+        href: howto-authenticate-service-principal-powershell.md
+      - name: Create a service principal using the Azure portal
+        href: howto-create-service-principal-portal.md
   - name: Accept sign-ins from multiple tenants
     items:
+    - name: Modify accounts supported by an app
+      href: quickstart-modify-supported-accounts.md
     - name: Enable multi-tenant log-ins
       href: howto-convert-app-to-be-multi-tenant.md
     - name: Configure the publisher domain
@@ -562,6 +557,8 @@
       href: vs-active-directory-webapi-what-happened.md
     - name: Diagnose errors during authentication
       href: vs-active-directory-error.md
+  - name: Remove an app registration
+    href: quickstart-remove-app.md
 - name: Reference
   items:
   - name: Application configuration
