@@ -21,7 +21,7 @@ You can use any trigger to start your workflow, for example, when a new email ar
 
 ## Prerequisites
 
-* An Outlook account where you sign in with a [work or school account](https://www.office.com/). If you have an @outlook.com or @hotmail.com account, use the [Outlook.com connector](../connectors/connectors-create-api-outlook.md) instead. If you need to sign in with a service account instead, see [Service accounts](#service-account).
+* An Outlook account where you sign in with a [work or school account](https://www.office.com/). If you have an @outlook.com or @hotmail.com account, use the [Outlook.com connector](../connectors/connectors-create-api-outlook.md) instead. If you need to sign in with a service account instead, see [Service accounts](#service-accounts).
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -37,7 +37,7 @@ A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event
    
    ![Select trigger to start your logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. If you need to sign in with a service account, see [Service accounts](#service-account). Otherwise, provide the information for the trigger's properties.
+1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. If you need to sign in with a service account, see [Service accounts](#service-accounts). Otherwise, provide the information for the trigger's properties.
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
@@ -71,7 +71,7 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
    ![Select the action to run in your logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. If you need to sign in with a service account, see [Service accounts](#service-account). Otherwise, provide the information for the trigger's properties.
+1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. If you need to sign in with a service account, see [Service accounts](#service-accounts). Otherwise, provide the information for the trigger's properties.
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
