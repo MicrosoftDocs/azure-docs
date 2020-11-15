@@ -26,8 +26,6 @@ In this tutorial, you learn how to:
 
 [!NOTE] When using an AKS cluster with a Windows Server node pool, please use Application Gateway in a different subnet within the same virtual network. [Azure/AKS#1953](https://github.com/Azure/AKS/issues/1953).
 
-## Prerequisites
-=======
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
