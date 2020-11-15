@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/27/2020
+ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
@@ -21,11 +21,11 @@ ms.reviewer: marsma, aragra, lenalepa, sureshja
 
 When you registered your application with the Microsoft identity platform, you specified who--which account types--can access it. For example, you might've specified accounts only in your organization, which is a *single-tenant* app. Or, you might've specified accounts in any organization (including yours), which is a *multi-tenant* app.
 
-In this how-to, you learn how to modify your app's registration in the Azure portal to change who, or what types of accounts, can access the application.
+In the following sections, you learn how to modify your app's registration in the Azure portal to change who, or what types of accounts, can access the application.
 
 ## Prerequisites
 
-* Completion of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
+* An [application registered in your Azure AD tenant](quickstart-register-app.md)
 
 ## Change the application registration to support different accounts
 

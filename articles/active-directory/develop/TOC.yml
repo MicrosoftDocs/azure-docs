@@ -216,20 +216,6 @@
       href: howto-restrict-your-app-to-a-set-of-users.md
     - name: Add app roles in your application
       href: howto-add-app-roles-in-azure-ad-apps.md
-    - name: Follow the branding guidelines
-      displayName: Add branding
-      href: howto-add-branding-in-azure-ad-apps.md
-    - name: Configure publisher domain
-      href: howto-configure-publisher-domain.md
-      displayName: verified domain, verified publisher domain
-    - name: Configure Terms of Service and Privacy Statement
-      href: howto-add-terms-of-service-privacy-statement.md
-    - name: Configure publisher verification for your app
-      items:
-      - name: Mark your app as publisher verified
-        href: mark-app-as-publisher-verified.md
-      - name: Troubleshoot publisher verification
-        href: troubleshoot-publisher-verification.md
   - name: Application scenarios
     displayName: App scenarios
     items:

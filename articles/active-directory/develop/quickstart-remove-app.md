@@ -21,14 +21,14 @@ ms.reviewer: marsma, aragra, lenalepa, sureshja
 
 Enterprise developers and software-as-a-service (SaaS) providers who have registered applications with Microsoft identity platform may need to remove an application's registration.
 
-In this how-to, you learn how to:
+In the following sections, you learn how to:
 
 * Remove an application authored by you or your organization
 * Remove an application authored by another organization
 
 ## Prerequisites
 
-* Completion of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
+* An [application registered in your Azure AD tenant](quickstart-register-app.md)
 
 ## Remove an application authored by you or your organization
 
@@ -50,4 +50,4 @@ In order to remove an application’s access to your directory (after having gra
 
 ## Next steps
 
-Learn more about [Application and service principal objects](app-objects-and-service-principals.md) in the Microsoft identity platform.
+Learn more about [application and service principal objects](app-objects-and-service-principals.md) in the Microsoft identity platform.
