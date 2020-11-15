@@ -1,5 +1,5 @@
 ---
-title: Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Windows Virtual Desktop
+title: Remote Desktop Protocol bandwidth requirements Windows Virtual Desktop - Azure
 titleSuffix: Azure
 description: Understanding RDP bandwidth requirements for Windows Virtual Desktop.
 author: gundarev
@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
 ---
-# Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Windows Virtual Desktop
+# Remote Desktop Protocol (RDP) bandwidth requirements
 
 Remote Desktop Protocol (RDP) is a sophisticated technology that uses various techniques to perfect the server's remote graphics' delivery to the client device. Depending on the use case, availability of computing resources, and network bandwidth, RDP dynamically adjusts various parameters to deliver the best user experience.
 
@@ -22,11 +22,11 @@ RDP uses various compression algorithms for different types of data. The table b
 
 | Type of Data | Direction | How to estimate |
 |---|---|---|
-| Remote Graphics | Session host -> Client | [See the detailed guidelines](#estimating-bandwidth-used-by-remote-graphics) |
+| Remote Graphics | Session host to client | [See the detailed guidelines](#estimating-bandwidth-used-by-remote-graphics) |
 | Heartbeats | Both directions | ~ 20 bytes every 5 seconds  |
-| Input | Client -> Session Host | Amount of data is based on the user activity, less than 100 bytes for most of the operations  |
+| Input | Client to session Host | Amount of data is based on the user activity, less than 100 bytes for most of the operations  |
 | File transfers | Both directions | File transfers are using bulk compression. Use .zip compression for approximation |
-| Printing | Session host -> Client | Print job transfer depends on the driver and using bulk compression, use .zip compression for approximation |
+| Printing | Session host to client | Print job transfer depends on the driver and using bulk compression, use .zip compression for approximation |
 
 Other scenarios can have their bandwidth requirements change depending on how you use them, such as:
 
@@ -90,6 +90,7 @@ RDP detects that and adjusts image quality, frame rate, or compression algorithm
 In most scenarios, there's no need to limit bandwidth utilization as limiting may affect user experience. Yet in the constrained networks you may want to limit network utilization. Another example is leased networks that are charged for the amount of traffic used.
 
 In such cases, you could limit an RDP outbound network traffic by specifying a throttle rate in QoS Policy.
+
   >[!NOTE]
   > [Make sure that RDP Shortpath is enabled](./shortpath.md) - throttle rate-limiting are not supported for reverse connect transport.
 
@@ -123,7 +124,7 @@ The new policies you've created won't take effect until Group Policy has been re
 
 1. On each session host for which you want to refresh Group Policy, open a Command Prompt as administrator (*Run as administrator*).
 
-1. At the command prompt, enter
+2. At the command prompt, enter
 
    ```console
    gpupdate /force
