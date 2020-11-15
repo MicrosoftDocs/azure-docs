@@ -179,24 +179,6 @@
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: How-to
   items:
-  - name: Authentication
-    items:
-    - name: Configure role claim
-      href: active-directory-enterprise-app-role-management.md
-    - name: Customize claims - Portal
-      href: active-directory-saml-claims-customization.md
-    - name: Customize claims - PowerShell
-      href: active-directory-claims-mapping.md
-    - name: Configure optional claims
-      href: active-directory-optional-claims.md
-    - name: Use directory schema extension attributes in claims
-      href: active-directory-schema-extensions.md
-    - name: Configure token lifetimes
-      href: configure-token-lifetimes.md
-    - name: Handle SameSite cookie changes in Chrome browser
-      href: howto-handle-samesite-cookie-changes-chrome-browser.md
-    - name: Handle ITP in Safari
-      href: reference-third-party-cookies-spas.md
   - name: Application configuration
     displayName: App configuration
     items:
@@ -204,18 +186,12 @@
       href: quickstart-modify-supported-accounts.md
     - name: Remove an app
       href: quickstart-remove-app.md
-    - name: Convert a single-tenant app to a multi-tenant app
-      href: howto-convert-app-to-be-multi-tenant.md
     - name: Create a service principal
       items:
       - name: Using Azure PowerShell
         href: howto-authenticate-service-principal-powershell.md
       - name: Using the Azure portal
         href: howto-create-service-principal-portal.md
-    - name: Restrict your app to a set of users
-      href: howto-restrict-your-app-to-a-set-of-users.md
-    - name: Add app roles in your application
-      href: howto-add-app-roles-in-azure-ad-apps.md
   - name: Application scenarios
     displayName: App scenarios
     items:
@@ -491,7 +467,7 @@
           - name: Get and remove accounts from the token cache
             href: msal-java-get-remove-accounts-token-cache.md
           - name: Migrate to MSAL for Java
-            ref: migrate-adal-msal-java.md
+            href: migrate-adal-msal-java.md
           - name: ADFS support in MSAL for Java
             href: msal-java-adfs-support.md
           - name: Handle errors and exceptions
@@ -649,8 +625,6 @@
         href: active-directory-saml-protocol-reference.md
       - name: SAML tokens
         href: reference-saml-tokens.md
-    - name: How and why apps are added to Azure AD
-      href: active-directory-how-applications-are-added.md
   - name: Application manifest
     href: reference-app-manifest.md
     displayName: app manifest
