@@ -17,9 +17,9 @@ ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 
 # Quickstart: Add sign-in with Microsoft to a Java web app
 
-In this quickstart, you'll learn how to integrate a Java web application with the Microsoft identity platform. Your app will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API.
+In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
 
-When you've completed this quickstart, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory. (See [How the sample works](#how-the-sample-works) for an illustration.)
+ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 

@@ -2,19 +2,21 @@
 title: How to enable your Azure VMware Solution resource
 description: Learn how to submit a support request to enable your Azure VMware Solution resource. You can also request more nodes in your existing Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ---
 
 # How to enable Azure VMware Solution resource
-Learn how to submit a support request to enable your Azure VMware Solution resource. You can also request more nodes in your existing Azure VMware Solution private cloud.
+Learn how to submit a support request to enable your [Azure VMware Solution](introduction.md) resource. You can also request more nodes in your existing Azure VMware Solution private cloud.
 
 ## Eligibility criteria
 
-* You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
-* You'll need an Azure account in an Azure subscription.
+You'll need an Azure account in an Azure subscription. The Azure subscription must comply with one of the following criteria:
+
+* A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
+* A Cloud Solution Provider (CSP) managed subscription under an Azure plan.
 
 
-## Enable Azure VMware Solution resource
+## Enable Azure VMware Solution for EA customers
 Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your nodes allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process.
 
 
@@ -51,3 +53,25 @@ Before you create your Azure VMware Solution resource, you'll need to submit a s
    ```
 
    For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+
+## Enable Azure VMware Solution for CSP customers 
+
+CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. 
+
+1. In **Partner Center**, select **CSP** to access the **Customers** area.
+
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Microsoft Partner Center customers area" lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
+
+1. Select your customer and then select **Add products**.
+
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-partner-center.png" alt-text="Microsoft Partner Center" lightbox="media/enable-azure-vmware-solution/csp-partner-center.png":::
+
+1. Select **Azure plan** and then select **Add to cart**. 
+
+1. Review and finish the general set up of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](https://docs.microsoft.com/partner-center/azure-plan-manage).
+
+After configuring the Azure plan and the needed RBAC permissions are in place as a CSP, you'll engage Microsoft using a similar procedure to enable the quota for an Azure plan subscription. Once added to the Azure plan, the customer or the partner administrator can deploy an Azure VMware Solution Private Cloud through the Azure portal. 
+
+## Next steps
+
+After you enable your Azure VMware Solution resource, and you have the proper networking in place, you can [create a private cloud](tutorial-create-private-cloud.md).

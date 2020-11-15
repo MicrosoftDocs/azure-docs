@@ -19,7 +19,7 @@ If needed, you can export the OS or a single data disk from an image version as 
 
 ## CLI
 
-List the image versions in a gallery using [az sig image-version list](/cli/azure/sig/image-version.md#az_sig_image_version_list). In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition in the *myGallery* image gallery.
+List the image versions in a gallery using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list). In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition in the *myGallery* image gallery.
 
 ```azurecli-interactive
 az sig image-version list \
@@ -29,7 +29,7 @@ az sig image-version list \
    -o table
 ```
 
-Set the `source` variable to the ID of the image version, then use [az disk create](/cli/azure/disk.md#az_disk_create) to create the managed disk. 
+Set the `source` variable to the ID of the image version, then use [az disk create](//cli/azure/disk#az_disk_create) to create the managed disk. 
 
 In this example, we export the OS disk of the image version to create a managed disk named *myManagedOSDisk*, in the *EastUS* region, in a resource group named *myResourceGroup*. 
 
