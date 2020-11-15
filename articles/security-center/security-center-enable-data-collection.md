@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 11/12/2020
+ms.date: 11/15/2020
 ms.author: memildin
 
 ---
@@ -19,7 +19,7 @@ Data collection is required to provide visibility into missing updates, misconfi
 Data is collected using:
 
 - The **Log Analytics agent**, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user.
-- **Virtual machine extensions**, such as the [Azure Policy Add-on for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), which can also provide data to Security Center regarding specialized resource types.
+- **Security extensions**, such as the [Azure Policy Add-on for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md), which can also provide data to Security Center regarding specialized resource types.
 
 > [!TIP]
 > As Security Center has grown, the types of resources that can be monitored has also grown. The number of extensions has also grown. Auto provisioning has expanded to support additional resource types by leveraging the capabilities of Azure Policy.
