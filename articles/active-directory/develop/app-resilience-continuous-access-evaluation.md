@@ -19,7 +19,7 @@ ms.reviewer:
 
 [Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md) (CAE) is an emerging industry standard that allows access tokens to be revoked based on [critical events](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) and [policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation-preview) rather than relying on token expiry based on lifetime. For some resource APIs, because risk and policy are evaluated in real time, this can increase token lifetime up to 28 hours. These long-lived tokens will be proactively refreshed by the Microsoft Authentication Library (MSAL), increasing the resiliency of your applications.
 
-This article shows you how to use CAE enabled APIs in your applications.
+This article shows you how to use CAE-enabled APIs in your applications.
 
 ## Support CAE in your app
 
