@@ -44,7 +44,7 @@ The following table summarizes the single sign-on methods, and links to more det
 | [Linked](#linked-sign-on) | cloud and on-premises | Choose linked sign-on when the application is configured for single sign-on in another identity provider service. This option doesn't add single sign-on to the application. However, the application might already have single sign-on implemented using another service such as Active Directory Federation Services.|
 | [Disabled](#disabled-sso) | cloud and on-premises | Choose disabled single sign-on when the app isn't ready to be configured for single sign-on. This mode is the default when you create the app.|
 | [Integrated Windows Authentication (IWA)](#integrated-windows-authentication-iwa-sso) | on-premises only | Choose IWA single sign-on for applications that use [Integrated Windows Authentication (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), or claims-aware applications. For IWA, the Application Proxy connectors use Kerberos Constrained Delegation (KCD) to authenticate users to the application. |
-| [Header-based](#header-based-sso) | on-premises only | Use header-based single sign-on when the application uses headers for authentication. Header-based single sign-on requires PingAccess for Azure AD. Application Proxy uses Azure AD to authenticate the user and then passes traffic through the connector service.  |
+| [Header-based](#header-based-sso) | on-premises only | Use header-based single sign-on when the application uses headers for authentication. Application Proxy uses Azure AD to authenticate the user and then passes traffic through the connector service.  |
 
 ## OpenID Connect and OAuth
 
@@ -175,24 +175,14 @@ This diagram explains the flow when a user accesses an on-premises application t
 
 ## Header-based SSO
 
-Header-based single sign-on works for applications that use HTTP headers for authentication. This sign-on method uses a third-party authentication service called PingAccess. A user only needs to authenticate to Azure AD.
+Header-based single sign-on works for applications that use HTTP headers for authentication.
 
-Choose header-based single sign-on when Application Proxy and PingAccess are configured for the application.
+Choose header-based single sign-on when Application Proxy is configured for the on-premises application.
 
-To configure header-based authentication, see [Header-based authentication for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md).
+To learn more about header-based authentication, see [Header-based SSO](application-proxy-configure-single-sign-on-with-headers.md).
 
-### What is PingAccess for Azure AD?
-
-Using PingAccess for Azure AD, users can access and single sign-on to applications that use headers for authentication. Application Proxy treats these applications like any other, using Azure AD to authenticate access and then passing traffic through the connector service. After authentication occurs, the PingAccess service translates the Azure AD access token into a header format that is sent to the application.
-
-Your users won’t notice anything different when they sign in to use your corporate applications. They can still work from anywhere on any device. The Application Proxy connectors direct remote traffic to all applications, and they’ll continue to load balance automatically.
-
-### How do I get a license for PingAccess?
-
-Since this scenario is offered through a partnership between Azure AD and PingAccess, you need licenses for both services. However, Azure AD Premium subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can acquire an additional license from PingAccess.
-
-For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
 ## Next steps
 * [Quickstart Series on Application Management](view-applications-portal.md)
 * [Plan a single sign-on deployment](plan-sso-deployment.md)
+* [Single sign-on with on-premises apps](application-proxy-config-sso-how-to.md)

@@ -14,34 +14,49 @@ ms.service: azure-communication-services
 
 # Identity model
 
-Azure Communication Services is identity agnostic service. This design has multiple benefits:
-- Reuse existing identities from your identity management system
-- Flexibility for integration scenarios
-- Keeps your identities private to the Azure Communication Services
+Azure Communication Services is an identity agnostic service. This design offers multiple benefits:
+- Reuses existing identities from your identity management system
+- Provides flexibility for integration scenarios
+- Keeps your identities private in Azure Communication Services
 
-Instead of duplicating existing information in your system, you'll maintain the mapping relationship that is specific to your business case. For example, mapping of identities 1:1, 1:N, N:1, N:M. External identifiers (such as phone numbers, users, devices, applications, GUID) can't be used as Azure Communication Identity. Access tokens generated for Azure Communication Service Identity are used to access primitives such as chat or calling. 
+Instead of duplicating information in your system, you'll maintain the mapping relationship that your business case requires. For example, you can map identities 1:1, 1:N, N:1, N:M. External identifiers such as phone numbers, users, devices, applications, and GUIDs can't be used for identity in Azure Communication Services. Access tokens that are generated for an Azure Communication Services identity are used to access primitives such as chat or calling. 
 
 ## Identity
 
-Identities are created with Azure Communication Service Administration library. Identity serves as identifier in the conversations and is used for creation of access tokens. The same identity might participate in multiple simultaneous sessions across multiple devices. Identity might have multiple active access tokens at the same time. Deletion of identity, resource, or subscription causes invalidation of all its access tokens and deletion of all data that are stored for this identity. Deleted identity can’t issue new access tokens, neither access previously stored data (for example, chat messages). 
+You can create identities by using the Azure Communication Services administration library. An identity serves as an identifier in conversations. It's used to create access tokens. The same identity might participate in multiple simultaneous sessions across multiple devices. An identity might have multiple active access tokens at the same time. 
 
-You aren't charged by the number of identities you have, but by the usage of primitives. Number of identities don't have to restrict, how to map your application's identities to the Azure Communication Services Identities. With the freedom of mapping comes responsibility in the terms of privacy. When your application's user wants to be deleted from your system, you need to delete all identities, that were associated with that user.
+The deletion of an identity, resource, or subscription invalidates all of its access tokens. This action also deletes all data that's stored for the identity. A deleted identity can't create new access tokens or access previously stored data (for example, chat messages). 
 
-Azure Communication Services doesn't provide special identities for anonymous users. It doesn't keep the mapping between the users and identities, it wouldn't understand whether identity is anonymous. You can design the concept to fit your requirements. Our recommendation is to create new identity for each application's anonymous user. With the possession of the valid access token, anyone can get access to identity's not deleted content. For example, chat messages sent by the user. The access is restricted only to scopes, that are part of the access token. More details about scopes are in the section *Access Token*.
+You aren't charged for the number of identities you have. Instead, you're charged for the use of primitives. The number of your identities doesn't have to restrict how you map your application's identities to the Azure Communication Services identities. 
 
-### Mapping of identities
+With the freedom of mapping comes privacy responsibility. If a user wants to be deleted from your system, then you need to delete all identities that are associated with that user.
 
-Azure Communication Services isn't replicating the functionality of IMS. It doesn't provide a way for customers to use customer-specific identities. For example, phone number or email address. Instead it provides unique identifiers, that you can assign to your application's identities. Azure Communication Services doesn't store any kind of information, that might reveal the real identity of your users.
+Azure Communication Services doesn't provide special identities for anonymous users. It doesn't keep the mapping between the users and identities, and it can't determine whether an identity is anonymous. You can design the identity concept to fit your needs. Our recommendation is to create a new identity for each anonymous user on each application. 
 
-Instead of duplication, you're encouraged to design, how users from your identity domain will be mapped to Azure Communication Service Identities. You can follow any kind of pattern 1:1, 1:N, N:1 or M:N. You can decide whether single user is mapped to single identity or to multiple identities. When new identity is created, you're encouraged to store the mapping of this identity to your application's user or users. As identities require the access tokens for usage of the primitives, the identity needs to be known for your application's user or users.
+Anyone who has a valid access token can access current identity content. For example, users can access chat messages that they sent. The access is restricted only to scopes that are part of the access token. For more information, see the [Access tokens](#access-tokens) section in this article.
 
-If you're using relational database for storage of users, the implementation can differ based on your mapping scenario. For scenarios with mapping 1:1 or N:1, you may add a *CommunicationServicesId* column to the table to store your Azure Communication Services identity. In scenarios with relationship 1:N or N:M, you might consider creating a separate table in relational database.
+### Identity mapping
 
-## Access token
+Azure Communication Services doesn't replicate the functionality of the Azure identity management system. It doesn't provide a way for customers to use customer-specific identities. For example, customers can't use a phone number or email address. Instead, Azure Communication Services provides unique identifiers. You can assign these unique identifiers to your application's identities. Azure Communication Services doesn't store any kind of information that might reveal the real identity of your users.
 
-Access token is a JWT token that can be used to get access to Azure Communication Service primitives. Issued access token has integrity protection, its claims can't be changed after issuing. That is, the manual change of properties such as identity, expiration, or scopes will make the access token invalid. Usage of primitives with invalidated tokens will lead to denial of the access to the primitive. 
+To avoid duplicating information in your system, plan how to map users from your identity domain to Azure Communication Services identities. You can follow any kind of pattern. For example, you can use 1:1, 1:N, N:1, or M:N. Decide whether a single user is mapped to a single identity or to multiple identities. 
 
-The properties of the access token are: *identity, expiration*, and *scopes*. Access token is always valid for 24 hours. After this time access token is invalidated and can’t be used to access any primitive. Identity has to have a way, how to request new access token from server-side service. Parameter *scope* defines a non-empty set of primitives, that can be used. Azure Communication Services supports the following scopes for access tokens:
+When a new identity is created, store its mapping to your application's user or users. Because identities require access tokens to use primitives, the identity needs to be known to your application's user or users.
+
+If you use a relational database to store user information, then you can adjust your design based on your mapping scenario. For scenarios that map 1:1 or N:1, you might want to add a `CommunicationServicesId` column to the table to store your Azure Communication Services identity. In scenarios that use the relationship 1:N or N:M, you might consider creating a separate table in the relational database.
+
+## Access tokens
+
+An access token is a JSON Web Token (JWT) that can be used to get access to Azure Communication Service primitives. An access token that's issued has integrity protection. That is, its claims can't be changed after it's issued. So a manual change of properties such as identity, expiration, or scopes will invalidate the access token. If primitives are used with invalidated tokens, then access will be denied to the primitives. 
+
+The properties of an access token are:
+* Identity.
+* Expiration.
+* Scopes.
+
+An access token is always valid for 24 hours. After it expires, the access token is invalidated and can't be used to access any primitive. 
+
+An identity needs a way to request a new access token from a server-side service. The *scope* parameter defines a nonempty set of primitives that can be used. Azure Communication Services supports the following scopes for access tokens.
 
 |Name|Description|
 |---|---|
@@ -49,15 +64,20 @@ The properties of the access token are: *identity, expiration*, and *scopes*. Ac
 |VoIP|	Grants the ability to call identities and phone numbers|
 
 
-If you want to revoke the access token before its expiration, you can use Azure Communication Service Administration library to do so. Revocation of the token isn't immediate and takes up to 15 minutes to propagate. Removal of identity, resource, or subscription will cause revocation of all access tokens. If you wish to remove a user's ability to access specific functionality, revoke all access tokens. Then issue a new access token with a more limited set of scopes.
-Rotation of access keys of Azure Communication Service will cause revocation of all active access tokens that were created with former access key. All identities will lose access to the Azure Communication Service and are required to issue new access tokens. 
+To revoke an access token before its expiration time, use the Azure Communication Services administration library. Token revocation isn't immediate. It takes up to 15 minutes to propagate. The removal of an identity, resource, or subscription revokes all access tokens. 
 
-We recommend issuing access tokens in your server-side service and not in the client's application. The reasoning is, that issuing requires access key or to be managed identity. It isn't recommended for security reasons to share the access keys with the client's application. Client application should use trusted service endpoint that can authenticate your clients, and issue access token on their behalf. More details about the architecture can be found [here](./client-and-server-architecture.md).
+If you want to remove a user's ability to access specific functionality, revoke all access tokens. Then issue a new access token that has a more limited set of scopes.
 
-If you cache access tokens to a backing store, we recommend using encryption. Access token is sensitive data and can be used to malicious activity if it's not protected. With the possession of the access token, you can initialize the SDK and get access to the API. The accessible API is restricted only based on scopes, that the access token has. We recommend issuing access tokens only with scopes, that are required.
+In Azure Communication Services, a rotation of access keys revokes all active access tokens that were created by using a former access key. All identities lose access to Azure Communication Services, and they must issue new access tokens. 
+
+We recommend issuing access tokens in your server-side service and not in the client's application. The reasoning is that issuing requires an access key or a managed identity. For security reasons, sharing access keys with the client's application isn't recommended. 
+
+The client application should use a trusted service endpoint that can authenticate your clients. The endpoint should issue access tokens on their behalf. For more information, see [Client and server architecture](./client-and-server-architecture.md).
+
+If you cache access tokens to a backing store, we recommend using encryption. An access token is sensitive data. It can be used for malicious activity if it's not protected. Someone who has an access token can start the SDK and access the API. The accessible API is restricted only based on the scopes that the access token has. We recommend issuing access tokens that have only the required scopes.
 
 ## Next steps
 
-* For an introduction to access token management, see [Create and manage access tokens](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
-* For an introduction to authentication, see [Authenticate to Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication)
-* For an introduction to data residency and privacy, see [Region availability and data residency](https://docs.microsoft.com/azure/communication-services/concepts/privacy)
+* For an introduction to access token management, see [Create and manage access tokens](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+* For an introduction to authentication, see [Authenticate to Azure Communication Services](https://docs.microsoft.com/azure/communication-services/concepts/authentication).
+* For an introduction to data residency and privacy, see [Region availability and data residency](https://docs.microsoft.com/azure/communication-services/concepts/privacy).

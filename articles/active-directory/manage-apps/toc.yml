@@ -61,16 +61,26 @@
       items:
       - name: Plan a single sign-on deployment
         href: plan-sso-deployment.md
-      - name: Single sign-on options 
+      - name: Single sign-on options
         href: sso-options.md
+      - name: Single sign-on with on-prem apps
+        href: application-proxy-config-sso-how-to.md
       - name: OIDC-based SSO
         href: configure-oidc-single-sign-on.md
       - name: SAML-based SSO
         href: configure-saml-single-sign-on.md
+      - name: SAML-based SSO (on-prem apps)
+        href: application-proxy-configure-single-sign-on-on-premises-apps.md
       - name: Password-based SSO
         href: configure-password-single-sign-on-non-gallery-applications.md
+      - name: Password-based SSO (on-prem apps)
+        href: application-proxy-configure-single-sign-on-password-vaulting.md
       - name: Linked-based SSO
         href: configure-linked-sign-on.md
+      - name: Header-based SSO (on-prem apps)
+        href: application-proxy-configure-single-sign-on-with-headers.md
+      - name: Kerberos-based SSO (on-prem apps)
+        href: application-proxy-configure-single-sign-on-with-kcd.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
     - name: Application security
@@ -182,22 +192,14 @@
         href: application-proxy-remove-personal-data.md
       - name: Configure custom domain
         href: application-proxy-configure-custom-domain.md
-      - name: Single sign-on with Application Proxy
-        items:
-        - name: Kerberos constrained Delegation (KCD)
-          href: application-proxy-configure-single-sign-on-with-kcd.md
-        - name: Password vaulting
-          href: application-proxy-configure-single-sign-on-password-vaulting.md
-        - name: Headers
-          href: application-proxy-configure-single-sign-on-with-ping-access.md
-        - name: SAML SSO
-          href: application-proxy-configure-single-sign-on-on-premises-apps.md
       - name: Secure legacy apps with app delivery controllers or networks
         href: secure-hybrid-access.md
       - name: Publishing walkthroughs
         items:
         - name: Integrate with Application Proxy on an NDES server
           href: active-directory-app-proxy-protect-ndes.md
+        - name: Integrate with Application Proxy using PingAccess
+          href: application-proxy-ping-access-publishing-guide.md
         - name: Integrate with Azure AD Domain Services
           href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
         - name: Integrate with Power BI
@@ -256,8 +258,6 @@
           href: application-proxy-connectivity-no-working-connector.md
         - name: Configure in admin portal
           href: application-proxy-config-how-to.md
-        - name: Configure single sign-on to my app
-          href: application-proxy-config-sso-how-to.md
         - name: Problem creating an app in admin portal
           href: application-proxy-config-problem.md
         - name: Configure Kerberos Constrained Delegation
