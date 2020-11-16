@@ -118,4 +118,4 @@ Reference data is not joined retroactively. Thus, only current and future ingres
 
 - [Manage reference data](time-series-insights-manage-reference-data-csharp.md) programmatically.
 
-- For the complete API reference, read [Reference Data API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) document.
+- For the complete API reference, read [Reference Data API](/rest/api/time-series-insights/gen1-reference-data-api) document.
