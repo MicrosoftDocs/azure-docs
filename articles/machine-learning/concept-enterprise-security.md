@@ -14,12 +14,38 @@ ms.date: 09/09/2020
 
 # Enterprise security and governance for Azure Machine Learning
 
-In this article, you'll learn about security features available for Azure Machine Learning.
+In this article, you'll learn about security and governance features available for Azure Machine Learning. These features are useful for administrators, DevOps, and MLOps who want to create a secure configuration that is compliant with your companies policies. With Azure Machine Learning and the Azure platform, you can:
 
-When you use a cloud service, a best practice is to restrict access to only the users who need it. Start by understanding the authentication and authorization model used by the service. You might also want to restrict network access or securely join resources in your on-premises network with the cloud. Data encryption is also vital, both at rest and while data moves between services. You may also want to create policies to enforce certain configurations or log when non-compliant configurations are created. Finally, you need to be able to monitor the service and produce an audit log of all activity.
+* Restrict access to resources and operations by user account or groups
+* Restrict incoming and outgoing network communications
+* Encrypt data in transit and at rest
+* Scan for compute resources for vulnerabilities
+* Apply and audit configuration policies
 
-> [!NOTE]
-> The information in this article works with the Azure Machine Learning Python SDK version 1.0.83.1 or higher.
+## Restrict access to resources and operations
+
+### Authentication
+
+Azure Active Directory (Azure AD) is the identity service provider for Azure Machine Learning. It allows you to create and manage the security objects (user, group, service principal, and managed identity) that are used to _authenticate_ to Azure resources. Multi-factor authentication is supported if Azure AD is configured to use it. Here's the authentication process for Azure Machine Learning:
+
+1. The client signs in to Azure AD and gets an Azure Resource Manager token.
+1. The client presents the token to Azure Resource Manager and to all Azure Machine Learning.
+1. Azure Machine Learning provides a Machine Learning service token to the user compute target (for example, Azure Machine Learning compute cluster). This token is used by the user compute target to call back into the Machine Learning service after the run is complete. The scope is limited to the workspace.
+
+[![Authentication in Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
+
+__Exceptions__:
+
+* You can optionally enable __SSH__ access to compute resources such as Azure Machine Learning compute instance and compute cluster. SSH access is based on public/private key pairs, not Azure AD. SSH access is not governed by Azure RBAC either.
+* Models deployed as web services (inference endpoints) can be secured using __key__ or __token__-based authentication. Keys are static strings, while tokens are retrieved using an Azure AD security object. For more information, see [Configure authentication for models deployed as a web service](how-to-authenticate-web-service.md).
+
+### Authorization
+
+Azure role-based access control (Azure RBAC) is an _authorization_ system that allows you to control access to Azure resources. Using Azure RBAC, you define the capabilities (role) that is assigned to a security object.
+
+For example, you might create a role that allows Data Scientists to run experiments and train models, but not to create the underlying compute resources used by experiment or training process. A separate role (assigned to DevOps or MLOps) would have the ability to create and manage the compute resources.
+
+For more information, see the [Azure AD documentation](../active-directory/fundamentals/active-directory-whatis.md) and [Manage access to Azure Machine Learning](how-to-assign-roles.md) articles.
 
 ## Authentication & authorization
 
