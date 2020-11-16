@@ -23,7 +23,7 @@ Please check the [metrics documentation](./application-gateway-metrics.md) for t
 ## Scaling for Application Gateway v1 SKU (Standard/WAF SKU)
 
 ### Set your instance count based on your peak CPU usage
-If you are using a v1 SKU gateway, you’ll have the ability to set your Application Gateway up to 32 instances for scaling. Check your Application Gateway’s CPU utilization in the past one month for any spikes above 80%, it is available as a metric for you to monitor. It is recommended that you set your instance count according to your peak usage and with a 10% to 20% additional buffer to account for any traffic spikes. See [recommended alerts](#Alerts-for-Application-Gateway-v1-SKU-(Standard/WAF)) section below to learn how to set alerts to get notified if there is high utilization.
+If you are using a v1 SKU gateway, you’ll have the ability to set your Application Gateway up to 32 instances for scaling. Check your Application Gateway’s CPU utilization in the past one month for any spikes above 80%, it is available as a metric for you to monitor. It is recommended that you set your instance count according to your peak usage and with a 10% to 20% additional buffer to account for any traffic spikes.
 
 ### Use the v2 SKU over v1 for its autoscaling capabilities and performance benefits
 The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. It also offers other significant performance benefits, such as 5x better TLS offload performance, quicker deployment and update times, zone redundancy, and more when compared to v1. For more information, see our [v2 documentation](./application-gateway-autoscaling-zone-redundant.md) and see our v1 to v2 [migration documentation](./migrate-v1-v2.md) to learn how to migrate your existing v1 SKU gateways to v2 SKU. 
@@ -52,7 +52,7 @@ Unlike autoscaling, in manual scaling, you must manually set the number of insta
 
 Check your Compute Unit metric for the past one month. Compute unit metric is a representation of your gateway's CPU utilization and based on your peak usage divided by 10, you can set the number of instances required, since 1 application gateway instance can handle a minimum of 10 compute units
 
-# Monitoring and alerting
+## Monitoring and alerting
 
 To get notified of any traffic or utilization anomalies, you can set up alerts on certain metrics. See [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric) on how to set alerts for metrics.
 
