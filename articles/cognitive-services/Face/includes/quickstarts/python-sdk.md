@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.author: pafarley
 ---
 Get started with facial recognition using the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face client library for Python to:
 
-* Detect faces in an image
-* Find similar faces
-* Create and train a person group
-* Identify a face
-* Verify faces
+* [Detect faces in an image](#detect-faces-in-an-image)
+* [Find similar faces](#find-similar-faces)
+* [Create and train a person group](#create-and-train-a-person-group)
+* [Identify a face](#identify-a-face)
+* [Verify faces](#verify-faces)
 
 [Reference documentation](/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](/samples/browse/?products=azure&term=face)
 

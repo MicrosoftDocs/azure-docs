@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/12/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -168,16 +168,6 @@ The volume size reported by the SMB client is the maximum size the Azure NetApp 
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
-
-## Dual-protocol FAQs
-
-### I tried to use the ‘root’ and local users to access a dual-protocol volume with the NTFS security style on a UNIX system. Why did I encounter a “Permission denied” error?   
-
-See [Troubleshoot dual-protocol volumes](troubleshoot-dual-protocol-volumes.md) for resolutions.
-
-### When I try to create a dual-protocol volume, why does the creation process fail with the error “Failed to validate LDAP configuration, try again after correcting LDAP configuration”?  
-
-See [Troubleshoot dual-protocol volumes](troubleshoot-dual-protocol-volumes.md) for resolutions.
 
 ## Capacity management FAQs
 

@@ -15,7 +15,7 @@ ms.custom: "seodec18, devx-track-csharp"
 ---
 # Quickstart: Analyze a local image using the Computer Vision REST API and C#
 
-In this quickstart, you will analyze a locally stored image to extract visual features using the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual feature information from image content.
+In this quickstart, you will analyze a locally stored image to extract visual features using the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) method, you can extract visual feature information from image content.
 
 ## Prerequisites
 

@@ -5,7 +5,7 @@
  author: jlian
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 09/24/2020
+ ms.date: 11/09/2020
  ms.author: jlian
 ---
 
@@ -196,7 +196,7 @@ IoT Hub can be configured to route messages to a customer-owned event hubs names
 
 5. Navigate to **Custom endpoints** section and click **Add**. Select **Event hubs** as the endpoint type.
 
-6. On the page that shows up, provide a name for your endpoint, select your event hubs namespace and instance and click the **Create** button.
+6. On the page that shows up, provide a name for your endpoint, select your event hubs namespace and instance. Select **Identity-based** as the **Authentication type**, and click the **Create** button.
 
 Now your custom event hubs endpoint is set up to use your hub's system assigned identity, and it has permission to access your event hubs resource despite its firewall restrictions. You can now use this endpoint to set up a routing rule.
 
@@ -214,7 +214,7 @@ IoT Hub can be configured to route messages to a customer-owned service bus name
 
 5. Navigate to **Custom endpoints** section and click **Add**. Select **Service bus queue** or **Service Bus topic** (as applicable) as the endpoint type.
 
-6. On the page that shows up, provide a name for your endpoint, select your service bus' namespace and queue or topic (as applicable). Click the **Create** button.
+6. On the page that shows up, provide a name for your endpoint, select your service bus' namespace and queue or topic (as applicable). Select **Identity-based** as the **Authentication type**, and click the **Create** button.
 
 Now your custom service bus endpoint is set up to use your hub's system assigned identity, and it has permission to access your service bus resource despite its firewall restrictions. You can now use this endpoint to set up a routing rule.
 
