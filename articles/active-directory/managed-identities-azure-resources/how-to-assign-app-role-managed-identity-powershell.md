@@ -40,21 +40,21 @@ In this article, you learn how to assign a managed identity to an application ro
 
 1. Find the object ID of the managed identity's service principal.
 
-   **For a system-assigned managed identity**, you can find this on the Azure portal on the resource's **Identity** page. You can also use the following PowerShell script to find the system-assigned managed identity's object ID. You will need the resource ID of the resource you created in step 1. You can find the resource ID by looking in the Azure portal on the resource's **Properties** page.
+   **For a system-assigned managed identity**, you can find the object ID on the Azure portal on the resource's **Identity** page. You can also use the following PowerShell script to find the object ID. You'll need the resource ID of the resource you created in step 1. You can find the resource ID by looking in the Azure portal on the resource's **Properties** page.
 
     ```powershell
     $resourceIdWithManagedIdentity = '/subscriptions/{my subscription ID}/resourceGroups/{my resource group name}/providers/Microsoft.Compute/virtualMachines/{my virtual machine name}'
     (Get-AzResource -ResourceId $resourceIdWithManagedIdentity).Identity.PrincipalId
     ```
 
-    **For a user-assigned managed identity**, you can find the managed identity's object ID on the Azure portal on the resource's **Overview** page. You can also use the following PowerShell script to find the user-assigned managed identity's object ID. You will need the resource ID of the user-assigned managed identity.
+    **For a user-assigned managed identity**, you can find the managed identity's object ID on the Azure portal on the resource's **Overview** page. You can also use the following PowerShell script to find the user-assigned managed identity's object ID. You'll need the resource ID of the user-assigned managed identity.
 
     ```powershell
     $userManagedIdentityResourceId = '/subscriptions/{my subscription ID}/resourceGroups/{my resource group name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{my managed identity name}'
     (Get-AzResource -ResourceId $userManagedIdentityResourceId).Properties.PrincipalId
     ```
 
-1. Create a new application registration to represent the service that your managed identity will send a request to. If the API or service exposing the app role grant to the managed identity already has a service principal in your Azure AD tenant (for example, if you want to grant the managed identity access to the Microsoft Graph API), skip this step.
+1. Create a new application registration to represent the service that your managed identity will send a request to. If the API or service that exposes the app role grant to the managed identity already has a service principal in your Azure AD tenant, skip this step. For example, if you want to grant the managed identity access to the Microsoft Graph API, you can skip this step.
 
 1. Find the object ID of the service application's service principal. You can find this using the Azure portal. Go to Azure Active Directory and open the **Enterprise applications** page, then find the application and look for the **Object ID**. You can also find the service principal's object ID by its display name using the following PowerShell script:
 
@@ -65,7 +65,7 @@ In this article, you learn how to assign a managed identity to an application ro
     > [!NOTE]
     > Display names for applications are not unique, so you should verify that you obtain the correct application's service principal.
 
-1. Add an [app role](../develop/howto-add-app-roles-in-azure-ad-apps.md) to the application you created in step 2. You can create the role [using the Azure portal](../develop/howto-add-app-roles-in-azure-ad-apps.md#declare-app-roles-using-azure-portal) or using Microsoft Graph. For example, you could add an app role like this:
+1. Add an [app role](../develop/howto-add-app-roles-in-azure-ad-apps.md) to the application you created in step 2. You can create the role using the Azure portal or using Microsoft Graph. For example, you could add an app role like this:
 
     ```json
     {
@@ -80,7 +80,7 @@ In this article, you learn how to assign a managed identity to an application ro
     }
     ```
 
-1. Assign the app role to the managed identity. You will need the following information to assign the app role:
+1. Assign the app role to the managed identity. You'll need the following information to assign the app role:
     * `managedIdentityObjectId`: the object ID of the managed identity's service principal, which you found in step 2.
     * `serverApplicationObjectId`: the object ID of the server application's service principal, which you found in step 4.
     * `appRoleId`: the ID of the app role exposed by the server app, which you generated in step 5 - in the example, the app role ID is `0566419e-bb95-4d9d-a4f8-ed9a0f147fa6`.
