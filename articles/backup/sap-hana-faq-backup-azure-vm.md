@@ -122,7 +122,7 @@ Yes, you can use streaming backups triggered on a HANA database running on SLES 
 
 ## Policy
 
-### What are the different options available during creation of a new policy for SAP HANA backup
+### Different options available during creation of a new policy for SAP HANA backup
 
 Before creating a policy, one should be clear on the requirements of RPO and RTO and its relevant cost implications.
 
@@ -141,13 +141,13 @@ RTO (Recovery-time-objective) indicates how fast the data should be restored to 
 
 Therefore, one can select the policy variant based on RPO and RTO objectives and cost considerations.
 
-### What is the impact of modifying a policy
+### Impact of modifying a policy
 
-Few principles should be kept in mind while determining the impact of switching a backup item's policy from Policy 1 (P1) to Policy 2 (P2) or of editing Policy 1 (P1).
+A few principles should be kept in mind while determining the impact of switching a backup item's policy from Policy 1 (P1) to Policy 2 (P2) or of editing Policy 1 (P1).
 
 - All changes are also applied retroactively. The latest backup policy is applied on the recovery points taken earlier as well. For example, assume that the daily full retention is 30 days and 10 recovery points were taken according to the currently active policy. If the daily full's retention is changed to 10 days, then the previous point's expiry time is also recalculated as start time + 10 days and deleted if they are expired.
 - The scope of change also includes day of backup, type of backup along with retention. For example: If a policy is changed from daily full to weekly full on Sundays, all earlier fulls which are not on Sundays will be marked for deletion.
-- A parent is not deleted until the child is active/not-expired. Every backup type has an expiration time as per the currently active policy. But a full backup type is considered as parent to subsequent 'differentials', 'incrementals' and 'logs'. A 'differential' and a 'log' are not parent to anyone else. An 'incremental' can be a parent to subsequent 'incremental'. Even if a 'parent' is marked for deletion, they are not actually deleted if the child 'differentials' or 'logs' are not expired. For example, if a policy is changed from daily full to weekly full on Sundays, all earlier fulls which are not on Sundays will be marked for deletion. But they are not actually deleted until the logs that were taken daily earlier are expired. In other words, they are retained as per the latest log duration. Once the logs expire, both the logs and these fulls will be deleted.
+- A parent is not deleted until the child is active/not-expired. Every backup type has an expiration time as per the currently active policy. But a full backup type is considered as parent to subsequent 'differentials', 'incrementals' and 'logs'. A 'differential' and a 'log' are not parent to anyone else. An 'incremental' can be a parent to subsequent 'incremental'. Even if a 'parent' is marked for deletion, they are not actually deleted if the child 'differentials' or 'logs' are not expired. For example, if a policy is changed from daily full to weekly full on Sundays, all earlier fulls which are not on Sundays will be marked for deletion. But they are not actually deleted until the logs that were taken daily earlier are expired. In other words, they are retained according to the latest log duration. Once the logs expire, both the logs and these fulls will be deleted.
 
 With these principles, one can read the following table to understand the implications of a policy change.
 
