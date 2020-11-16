@@ -45,12 +45,19 @@ The ASEv3 is only offered in select regions. More regions will be added as the p
 
 1. To create an ASEv3, search the marketplace for **App Service Environment v3**.  
 2. Basics:  Select the Subscription, select or create the Resource Group, and enter the name of your ASE.  The ASE name will be also used for the domain suffix of your ASE.  If your ASE name is *contoso* then the domain suffix will be *contoso.appserviceenvironment.net*.  This name will be automatically set in your Azure DNS private zone used by the Vnet the ASE is deployed into. 
+
     ![App Service Environment create basics tab](./media/creation/creation-basics.png)
+
 3. Hosting: Select OS Preference, Host Group deployment. The OS preference indicates the operating system you'll initially use for your apps in this ASE. You can add apps of the other OS after ASE creation. Host Group deployment is used to select dedicated hardware. With ASEv3 you can select Enabled and then land on dedicated hardware. You are charged for the entire dedicated host with ASE creation and then a reduced price for your App Service plan instances. 
+
     ![App Service Environment hosting selections](./media/creation/creation-hosting.png)
+
 4. Networking:  Select or create your Virtual Network, select or create your inbound subnet, select or create your outbound subnet. Any subnet used for outbound must be empty and delegated to Microsoft.Web/hostingEnvironments. If you create your subnet through the portal, the subnet will automatically be delegated for you.
+
     ![App Service Environment networking selections](./media/creation/creation-networking.png)
+
 5. Review and Create: Check that your configuration is correct and select create. Your ASE will take approximately an hour to create. 
+
     ![App Service Environment review and create](./media/creation/creation-review.png)
 
 After your ASE creation completes, you can select it as a location when creating your apps. To learn more about creating apps in your new ASE, read [Using an App Service Environment][UsingASE]
