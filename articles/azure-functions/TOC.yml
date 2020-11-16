@@ -111,8 +111,10 @@
     - name: Compare runtime versions
       href: functions-versions.md
       displayName: migrate, migration, v3
-    - name: Premium plan
-      href: functions-premium-plan.md
+    - name: Hosting plans
+      items:
+        - name: Premium plan
+          href: functions-premium-plan.md
     - name: Deployments
       href: functions-deployment-technologies.md
     - name: Events and messaging
