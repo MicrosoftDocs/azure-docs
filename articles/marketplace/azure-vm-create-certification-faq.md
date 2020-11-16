@@ -301,12 +301,12 @@ Check that you've enabled proper access for the account on which the self-test c
 
 To submit your request with SSH disabled image for certification process:
 
-1. Run the [latest Azure toolkit](https://aka.ms/AzureCertificationTestTool) on your image.
+1. Run the [latest Certification Test Tool for Azure VMs](https://aka.ms/AzureCertificationTestTool) on your image.
 
 2. Raise a [support ticket](https://aka.ms/marketplacepublishersupport). Make sure to attach the toolkit report and provide offer details:
-   - offer name
-   - publisher name
-   - plan ID/SKU and version
+   - Offer name
+   - Publisher name
+   - Plan ID/SKU and version
 
 3. Resubmit your certification request.
 
