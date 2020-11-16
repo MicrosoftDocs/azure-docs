@@ -18,7 +18,7 @@ Using a customer-managed key doesn't affect how data on the device is encrypted.
 
 To keep this level of control throughout the order process, use a customer-managed key when you create your order. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 
-This article shows how to change the type of encryption key for an existing Data Box order or change the customer-managed key currently in use via the [Azure portal](https://portal.azure.com/). You can change the key vault or key, or the identity type or identity used to manage the key.
+This article shows how to change the type of encryption key for an existing Data Box order or change the customer-managed key currently in use via the [Azure portal](https://portal.azure.com/). You can change the key vault, key, or key version or change the user identity or identity type you're using to manage the key.
 
 This article applies to Azure Data Box and Azure Data Box Heavy devices.
 
