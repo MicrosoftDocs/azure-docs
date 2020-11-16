@@ -25,7 +25,7 @@ You'll need to estimate the number of virtual machines (VMs) and the [VM sizes](
 - [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931)
 
 Also, see this article that explains additional guidance on how to structure labs:
-- [Administrator Guide - Lab](./administrator-guide.md#classroom-lab)
+- [Administrator Guide - Lab](./administrator-guide.md)
 
 ### Understand subscription VM limits and regional VM capacity
 Once you have an estimate of the number of VMs and the VM sizes for your labs, you need to:
@@ -119,7 +119,7 @@ After you've finished planning, you're ready to set up your lab account.  These 
 
 3. **Connect to a peer virtual network.** For instructions, see [connecting your lab's network with a peer virtual network](./how-to-connect-peer-virtual-network.md).
 
-   You might also need to refer to instructions on [configuring the lab VMs address range](./how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab).
+   You might also need to refer to instructions on [configuring the lab VMs address range](./how-to-configure-lab-accounts.md).
 
 4. **Enable and review images.** For instructions, see [enabling Azure Marketplace images for lab creators](./specify-marketplace-images.md).
 
