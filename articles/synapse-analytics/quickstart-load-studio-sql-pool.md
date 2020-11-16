@@ -48,7 +48,7 @@ You can now easily bulk load data using dedicated SQL pools with a simple right-
 > [!NOTE]  
 >
 > - Previewing the data with multi-character field terminators is not support in the bulk load wizard. The bulk load wizard will preview the data within a single column when a multi-character field terminator is specified. 
-> - Multi-character row terminators are not supported in the bulk load wizard and an error will be thrown. Note this capability is available in the COPY statement. 
+> - Specifying multi-character row terminators is supported in the COPY statement; however, this is not supported in the bulk load wizard where an error willl be thrown.
 
 4. Select the dedicated SQL pool you're using to load including whether the load will be for an existing table or new table:
    ![Selecting target location](./sql/media/bulk-load/bulk-load-target-location.png)
