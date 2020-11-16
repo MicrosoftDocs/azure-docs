@@ -28,10 +28,10 @@ Use this article to find the limits for the size, and rates that you can send da
 | Limit | Value |
 |------------------------|---------------|
 | Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Also applies to the Text Analytics for health container. |
-| Maximum size of a single document - Analyze API (preview)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Does not apply to Text Analytics for health. |
+| Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Does not apply to Text Analytics for health. |
 | Maximum size of entire request | 1 MB. Also applies to the Text Analytics for health container. |
 
-The maximum number of documents you can send in a single request will depend on the API version and feature you're using. The Analyze feature of the API will reject the entire request if any document exceeds the max size (125K characters)
+The maximum number of documents you can send in a single request will depend on the API version and feature you're using. The `/analyze` endpoint will reject the entire request if any document exceeds the max size (125K characters)
 
 #### [Version 3](#tab/version-3)
 
@@ -47,6 +47,7 @@ The following limits are for the current v3 API. Exceeding the limits below will
 | Named Entity Recognition | 5 |
 | Entity Linking | 5 |
 | Text Analytics for health  | 10 for the web-based API, 1000 for the container. |
+| Analyze endpoint | 25 for all operations. |
 
 #### [Version 2](#tab/version-2)
 
@@ -57,7 +58,6 @@ The following limits are for the current v3 API. Exceeding the limits below will
 | Key Phrase Extraction | 1000 |
 | Named Entity Recognition | 1000 |
 | Entity Linking | 1000 |
-| Analyze API | 25 for all features |
 
 ---
 
