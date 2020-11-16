@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics (formerly SQL DW) architecture 
-description: Learn how Azure Synapse Analytics (formerly SQL DW) combines distributed query processing capabilities with Azure Storage to achieve high performance and scalability.  
+title: Dedicated SQL pool (formerly SQL DW) architecture 
+description: Learn how Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics combines distributed query processing capabilities with Azure Storage to achieve high performance and scalability.  
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -12,29 +12,24 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# Azure Synapse Analytics (formerly SQL DW) architecture
+# Dedicated SQL pool (formerly SQL DW) architecture in Azure Synapse Analytics
 
-Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs.
+Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms.
 
- Azure Synapse has four components:
+> [!NOTE]
+>Explore the [Azure Synapse Analytics documentation](../overview-what-is.md).
+>
 
-- Synapse SQL: Complete T-SQL based analytics
-
-  - Dedicated SQL pool (formerly SQL DW) (pay per DWU provisioned) – Generally Available
-  - Serverless SQL pool (pay per TB processed) – (Preview)
-- Spark: Deeply integrated Apache Spark (Preview)
-- Data Integration: Hybrid data integration (Preview)
-- Studio: unified user experience.  (Preview)
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## Synapse SQL architecture components
 
-[Synapse SQL](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) leverages a scale-out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). Compute is separate from storage, which enables you to scale compute independently of the data in your system.
+[Dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) leverages a scale-out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). Compute is separate from storage, which enables you to scale compute independently of the data in your system.
 
-![Synapse SQL architecture](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
+![Dedicated SQL pool (formerly SQL DW) architecture](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-Synapse SQL uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for Synapse SQL. The Control node hosts the distributed query engine, which optimizes queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel.
+Dedicated SQL pool (formerly SQL DW) uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node. The Control node hosts the distributed query engine, which optimizes queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel.
 
 The Compute nodes store all user data in Azure Storage and run the parallel queries. The Data Movement Service (DMS) is a system-level internal service that moves data across the nodes as necessary to run queries in parallel and return accurate results.
 
@@ -107,7 +102,7 @@ The diagram below shows a replicated table that is cached on the first distribut
 
 ## Next steps
 
-Now that you know a bit about Azure Synapse, learn how to quickly [create a dedicated SQL pool](create-data-warehouse-portal.md) and [load sample data](load-data-from-azure-blob-storage-using-polybase.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources.  
+Now that you know a bit about Azure Synapse, learn how to quickly [create a dedicated SQL pool (formerly SQL DW)](create-data-warehouse-portal.md) and [load sample data](load-data-from-azure-blob-storage-using-polybase.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources.  
 
 - [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
