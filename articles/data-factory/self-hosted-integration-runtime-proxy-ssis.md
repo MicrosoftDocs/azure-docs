@@ -11,7 +11,7 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 09/09/2020
+ms.date: 11/15/2020
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR in Azure Data Factory
@@ -38,24 +38,34 @@ You then set up your self-hosted IR in the same data factory where your Azure-SS
 
 Finally, you download and install the latest version of the self-hosted IR, as well as the additional drivers and runtime, on your on-premises machine or Azure virtual machine (VM), as follows:
 - Download and install the latest version of the [self-hosted IR](https://www.microsoft.com/download/details.aspx?id=39717).
-- If you use Object Linking and Embedding Database (OLEDB)/Open Database Connectivity (ODBC) connectors in your packages, download and install the relevant drivers on the same machine where your self-hosted IR is installed, if you haven't done so already.  
+- If you use Object Linking and Embedding Database (OLEDB), Open Database Connectivity (ODBC), or ADO.NET connectors in your packages, download and install the relevant drivers on the same machine where your self-hosted IR is installed, if you haven't done so already.  
 
   If you use the earlier version of the OLEDB driver for SQL Server (SQL Server Native Client [SQLNCLI]), [download the 64-bit version](https://www.microsoft.com/download/details.aspx?id=50402).  
 
   If you use the latest version of OLEDB driver for SQL Server (MSOLEDBSQL), [download the 64-bit version](https://www.microsoft.com/download/details.aspx?id=56730).  
   
-  If you use OLEDB/ODBC drivers for other database systems, such as PostgreSQL, MySQL, Oracle, and so on, you can download the 64-bit versions from their websites.
+  If you use OLEDB/ODBC/ADO.NET drivers for other database systems, such as PostgreSQL, MySQL, Oracle, and so on, you can download the 64-bit versions from their websites.
 - If you haven't done so already, [download and install the 64-bit version of Visual C++ (VC) runtime](https://www.microsoft.com/download/details.aspx?id=40784) on the same machine where your self-hosted IR is installed.
 
-## Prepare the Azure Blob storage-linked service for staging
+### Enable Windows authentication for on-premises staging tasks
 
-If you haven't already done so, create an Azure Blob storage-linked service in the same data factory where your Azure-SSIS IR is set up. To do so, see [Create an Azure data factory-linked service](./quickstart-create-data-factory-portal.md#create-a-linked-service). Be sure to do the following:
+If on-premises staging tasks on your self-hosted IR require Windows authentication, [configure your SSIS packages to use the same Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
+
+Your on-premises staging tasks will be invoked with the self-hosted IR service account (*NT SERVICE\DIAHostService*, by default), and your data stores will be accessed with the Windows authentication account. Both accounts require certain security policies to be assigned to them. On the self-hosted IR machine, go to **Local Security Policy** > **Local Policies** > **User Rights Assignment**, and then do the following:
+
+1. Assign the *Adjust memory quotas for a process* and *Replace a process level token* policies to the self-hosted IR service account. This should occur automatically when you install your self-hosted IR with the default service account. If it doesn't, assign those policies manually. If you use a different service account, assign the same policies to it.
+
+1. Assign the *Log on as a service* policy to the Windows Authentication account.
+
+## Prepare the Azure Blob Storage linked service for staging
+
+If you haven't already done so, create an Azure Blob Storage linked service in the same data factory where your Azure-SSIS IR is set up. To do so, see [Create an Azure data factory-linked service](./quickstart-create-data-factory-portal.md#create-a-linked-service). Be sure to do the following:
 - For **Data Store**, select **Azure Blob Storage**.  
 - For **Connect via integration runtime**, select **AutoResolveIntegrationRuntime** (not your Azure-SSIS IR nor your self-hosted IR), because we use the default Azure IR to fetch access credentials for your Azure Blob Storage.
-- For **Authentication method**, select **Account key**, **SAS URI**, or **Service Principal**.  
+- For **Authentication method**, select **Account key**, **SAS URI**, **Service Principal**, or **Managed Identity**.  
 
-    >[!TIP]
-    >If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, refer to [Azure Blob storage connector](connector-azure-blob-storage.md#linked-service-properties).
+>[!TIP]
+>If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, see [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties). If you select the **Managed Identity** method, grant your ADF managed identity proper roles to access Azure Blob Storage. For more information, see [Access Azure Blob Storage using Azure Active Directory authentication with ADF managed identity](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
 
 ![Prepare the Azure Blob storage-linked service for staging](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -142,19 +152,11 @@ You can also enable this property when you run existing packages, without having
 
 ## Debug the on-premises and cloud staging tasks
 
-On your self-hosted IR, you can find the runtime logs in the *C:\ProgramData\SSISTelemetry* folder and the execution logs of on-premises staging tasks in the *C:\ProgramData\SSISTelemetry\ExecutionLog* folder.  You can find the execution logs of cloud staging tasks in your SSISDB or specified logging paths, depending on whether you store your packages in SSISDB or not. You can also find the unique IDs of on-premises staging tasks in the execution logs of cloud staging tasks. 
+On your self-hosted IR, you can find the runtime logs in the *C:\ProgramData\SSISTelemetry* folder and the execution logs of on-premises staging tasks in the *C:\ProgramData\SSISTelemetry\ExecutionLog* folder.  You can find the execution logs of cloud staging tasks in your SSISDB, specified logging file paths, or Azure Monitor depending on whether you store your packages in SSISDB, enable [Azure Monitor integration](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-ssis-operations-with-azure-monitor), etc. You can also find the unique IDs of on-premises staging tasks in the execution logs of cloud staging tasks. 
 
 ![Unique ID of the first staging task](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
-## Use Windows authentication in on-premises staging tasks
-
-If on-premises staging tasks on your self-hosted IR require Windows authentication, [configure your SSIS packages to use the same Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
-
-Your on-premises staging tasks will be invoked with the self-hosted IR service account (*NT SERVICE\DIAHostService*, by default), and your data stores will be accessed with the Windows authentication account. Both accounts require certain security policies to be assigned to them. On the self-hosted IR machine, go to **Local Security Policy** > **Local Policies** > **User Rights Assignment**, and then do the following:
-
-1. Assign the *Adjust memory quotas for a process* and *Replace a process level token* policies to the self-hosted IR service account. This should occur automatically when you install your self-hosted IR with the default service account. If it doesn't, assign those policies manually. If you use a different service account, assign the same policies to it.
-
-1. Assign the *Log on as a service* policy to the Windows Authentication account.
+If you've raised customer support tickets, you can select the **Send logs** button on **Diagnostics** tab of **Microsoft Integration Runtime Configuration Manager** that's installed on your self-hosted IR to send recent operation/execution logs for us to investigate.
 
 ## Billing for the on-premises and cloud staging tasks
 
@@ -162,7 +164,25 @@ The on-premises staging tasks that run on your self-hosted IR are billed separat
 
 The cloud staging tasks that run on your Azure-SSIS IR are not be billed separately, but your running Azure-SSIS IR is billed as specified in the [Azure-SSIS IR pricing](https://azure.microsoft.com/pricing/details/data-factory/ssis/) article.
 
-## Enabling TLS 1.2
+## Enable custom/3rd party components 
+
+To enable your custom/3rd party components to access data on premises using self-hosted IR as a proxy for Azure-SSIS IR, follow these instructions:
+
+1. Install your custom/3rd party components targeting SQL Server 2017 on Azure-SSIS IR via [standard/express custom setups](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+
+1. Create the following DTSPath registry keys on self-hosted IR if they don’t exist already: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath` and `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SQL Server\140\SSIS\Setup\DTSPath`.
+ 
+1. Install your custom/3rd party components targeting SQL Server 2017 on self-hosted IR under the DTSPath above and ensure that your installation process:
+
+   1. Creates `<DTSPath>`, `<DTSPath>/Connections`, `<DTSPath>/PipelineComponents`, and `<DTSPath>/UpgradeMappings` folders if they don't exist already.
+   
+   1. Creates your own XML file for extension mappings in `<DTSPath>/UpgradeMappings` folder.
+   
+   1. Installs all assemblies referenced by your custom/3rd party component assemblies in the global assembly cache (GAC).
+
+Here's an [example of 3rd party component](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir) that uses an express custom setup and self-hosted IR as a proxy for Azure-SSIS IR.
+
+## Enforce TLS 1.2
 
 If you need to use strong cryptography/more secure network protocol (TLS 1.2) and disable older SSL/TLS versions on your self-hosted IR, you can download and run the *main.cmd* script that can be found in the *CustomSetupScript/UserScenarios/TLS 1.2* folder of our public preview container.  Using [Azure Storage Explorer](https://storageexplorer.com/), you can connect to our public preview container by entering the following SAS URI:
 
@@ -170,8 +190,10 @@ If you need to use strong cryptography/more secure network protocol (TLS 1.2) an
 
 ## Current limitations
 
-- Only data flow tasks with OLEDB/ODBC/Flat File sources or OLEDB destination are currently supported.
-- Only Azure Blob storage-linked services that are configured with *Account key*, *Shared Access Signature (SAS) URI*, or *Service Principal* authentication are currently supported.
+- Only data flow components that are built-in/preinstalled on Azure-SSIS IR Standard Edition, except Hadoop/HDFS/DQS components, are currently supported, see [all built-in/preinstalled components on Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+- Only custom/3rd party data flow components that are written in managed code (.NET Framework) are currently supported - Those written in native code (C++) are currently unsupported.
+- Changing variable values in both on-premises and cloud staging tasks is currently unsupported.
+- Changing variable values of type object in on-premises staging tasks won't be reflected in other tasks.
 - *ParameterMapping* in OLEDB Source is currently unsupported. As a workaround, please use *SQL Command From Variable* as the *AccessMode* and use *Expression* to insert your variables/parameters in a SQL command. As an illustration, see the *ParameterMappingSample.dtsx* package that can be found in the *SelfHostedIRProxy/Limitations* folder of our public preview container. Using Azure Storage Explorer, you can connect to our public preview container by entering the above SAS URI.
 
 ## Next steps
