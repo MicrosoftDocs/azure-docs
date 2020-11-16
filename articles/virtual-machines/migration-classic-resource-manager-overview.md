@@ -3,7 +3,7 @@ title: Overview of platform-supported migration of IaaS resources from classic t
 description: Walk through the platform-supported migration of resources from classic to Azure Resource Manager.
 author: tanmaygore
 manager: vashan
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
@@ -13,7 +13,7 @@ ms.author: tagore
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager in Linux
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](../classic-vm-deprecation.md#how-does-this-affect-me).
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
 
 
 
@@ -90,11 +90,11 @@ The following screenshots show how to upgrade a Classic storage account to an Az
 5. If validation passes, click on **Prepare** to create a migrated storage account.
 6. Type **yes** to confirm migration and click **Commit** to finish the migration.
 
-    ![Validate Storage Account](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
+    ![Validate Storage Account](../../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
     
-    ![Prepare Storage Account](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
+    ![Prepare Storage Account](../../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
     
-    ![Finalize Storage Account Migration](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
+    ![Finalize Storage Account Migration](../../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### Migration of unattached resources
 Storage Accounts with no associated disks or Virtual Machines data may be migrated independently.
@@ -115,7 +115,7 @@ The following features are not currently supported. You can optionally remove th
 | Compute | Virtual machine images. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
 | Network | Endpoint ACLs. | Remove Endpoint ACLs and retry migration. |
 | Network | Application Gateway | Remove the Application Gateway before beginning migration and then recreate the Application Gateway once migration is complete. |
-| Network | Virtual networks using VNet Peering. | Migrate Virtual Network to Resource Manager, then peer. Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). |
+| Network | Virtual networks using VNet Peering. | Migrate Virtual Network to Resource Manager, then peer. Learn more about [VNet Peering](../virtual-network/virtual-network-peering-overview.md). |
 
 ### Unsupported configurations
 The following configurations are not currently supported.
@@ -134,7 +134,7 @@ The following configurations are not currently supported.
 | Compute | VM with backup or snapshot extension | These extensions are installed on a Virtual Machine configured with the Azure Backup service. While the migration of these VMs is not supported, follow the guidance [here](/azure/virtual-machines/windows/migration-classic-resource-manager-faq#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault) to keep backups that were taken prior to migration.  |
 | Compute | VM with Azure Site Recovery extension | These extensions are installed on a Virtual Machine configured with the Azure Site Recovery service. While the migration of storage used with Site Recovery will work, current replication will be impacted. You need to disable and enable VM replication after storage migration. |
 | Network |Virtual networks that contain virtual machines and web/worker roles |This is currently not supported. Please move the Web/Worker roles to their own Virtual Network before migrating. Once the classic Virtual Network is migrated, the migrated Azure Resource Manager Virtual Network can be peered with the classic Virtual Network to achieve similar configuration as before.|
-| Network | Classic Express Route circuits |This is currently not supported. These circuits need to be migrated to Azure Resource Manager before beginning IaaS migration. To learn more, see [Moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../articles/expressroute/expressroute-move.md).|
+| Network | Classic Express Route circuits |This is currently not supported. These circuits need to be migrated to Azure Resource Manager before beginning IaaS migration. To learn more, see [Moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-move.md).|
 | Azure App Service |Virtual networks that contain App Service environments |This is currently not supported. |
 | Azure HDInsight |Virtual networks that contain HDInsight services |This is currently not supported. |
 | Microsoft Dynamics Lifecycle Services |Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services |This is currently not supported. |
@@ -144,8 +144,8 @@ The following configurations are not currently supported.
 
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
 * [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md)
-* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md)
-* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Review most common migration errors](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](../migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-ps.md)
+* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-cli.md)
+* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
+* [Review most common migration errors](migration-classic-resource-manager-errors.md)
+* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md)

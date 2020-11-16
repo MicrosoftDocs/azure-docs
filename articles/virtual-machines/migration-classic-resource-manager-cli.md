@@ -1,6 +1,6 @@
 ---
 title: Migrate VMs to Resource Manager using Azure CLI 
-description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager by using Azure CLI
+description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager by using Azure CLI.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
@@ -218,6 +218,6 @@ azure storage account commit-migration <storageAccountName>
 * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
 * [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md)
 * [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-ps.md)
-* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md)
+* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
 * [Review most common migration errors](migration-classic-resource-manager-errors.md)
 * [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md)
