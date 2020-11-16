@@ -50,6 +50,10 @@ The method to obtain and use a system-assigned managed identity to authenticate 
 For an Arc enabled Windows server, using PowerShell, you invoke the web request to get the token from the local host in the specific port. Specify the request using the IP address or the environmental variable **IDENTITY_ENDPOINT**.
 
 ```powershell
+$apiVersion = "2019-11-01"
+$resource = "https://management.azure.com/"
+$endpoint = "{0}?resource={1}&api-version={2}" -f $env:IDENTITY_ENDPOINT,$resource,$apiVersion
+$secretFile = ""
 {
     Invoke-WebRequest -Method GET -Uri $endpoint -Headers @{Metadata="True"} -UseBasicParsing
 }
