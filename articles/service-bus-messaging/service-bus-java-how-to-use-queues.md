@@ -55,7 +55,24 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
     ```
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of the queue.
-3. Add a method named `createMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
+3. Add a method named `sendMessage` in the class to send one message to the queue. 
+
+    ```java
+    static void sendMessage()
+    {
+        // create a Service Bus Sender client for the queue 
+        ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
+                .connectionString(connectionString)
+                .sender()
+                .queueName(queueName)
+                .buildClient();
+        
+        // send one message to the queue
+        senderClient.sendMessage(new ServiceBusMessage("Hello, World!"));
+        System.out.println("Sent a single message to the queue: " + queueName);        
+    }
+    ```
+1. Add a method named `createMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
 
     ```java
     static List<ServiceBusMessage> createMessages()
@@ -69,10 +86,10 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
         return Arrays.asList(messages);
     }
     ```
-1. Add a method named `sendMessages` method to send messages to the queue you created. This method creates a `ServiceBusSenderClient` for the queue, invokes the `createMessages` method to get the list of messages, prepares one or more batches, and sends the batches to the queue. 
+1. Add a method named `sendMessageBatch` method to send messages to the queue you created. This method creates a `ServiceBusSenderClient` for the queue, invokes the `createMessages` method to get the list of messages, prepares one or more batches, and sends the batches to the queue. 
 
 ```java
-    static void sendMessages()
+    static void sendMessageBatch()
     {
         // create a Service Bus Sender client for the queue 
         ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
@@ -159,11 +176,12 @@ In this section, you'll add code to retrieve messages from the queue.
         processorClient.close();    	
     }    
     ```
-2. Update the `main` method to invoke both `sendMessages` and `receiveMessages` methods and to throw `InterruptedException`.     
+2. Update the `main` method to invoke `sendMessage`, `sendMessageBatch`, and `receiveMessages` methods and to throw `InterruptedException`.     
 
     ```java
     public static void main(String[] args) throws InterruptedException {    	
-    	sendMessages();
+        sendMessage();
+    	sendMessageBatch();
     	receiveMessages();
     }   
     ```
@@ -172,21 +190,23 @@ In this section, you'll add code to retrieve messages from the queue.
 When you run the application, you see the following messages in the console window. 
 
 ```console
+Sent a single message to the queue: myqueue
 Sent a batch of messages to the queue: myqueue
 Starting the processor
-Received message: First message
-Received message: Second message
-Received message: Third message
+Received message: Hello, World!
+Received message: First message in the batch
+Received message: Second message in the batch
+Received message: Three message in the batch
 Stopping and closing the processor
 ```
 
 On the **Overview** page for the Service Bus namespace in the Azure portal, you can see **incoming** and **outgoing** message count. You may need to wait for a minute or so and then refresh the page to see the latest values. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Incoming and outgoing message count":::
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Incoming and outgoing message count" lightbox="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png":::
 
 Select the queue on this **Overview** page to navigate to the **Service Bus Queue** page. You see the **incoming** and **outgoing** message count on this page too. You also see other information such as the **current size** of the queue, **maximum size**, **active message count**, and so on. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Queue details":::
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Queue details" lightbox="./media/service-bus-java-how-to-use-queues/queue-details.png":::
 
 
 

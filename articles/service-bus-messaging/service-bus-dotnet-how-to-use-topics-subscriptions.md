@@ -3,12 +3,12 @@ title: Send messages to Azure Service Bus topics using azure-messaging-servicebu
 description: This quickstart shows you how to send messages to Azure Service Bus topics using the azure-messaging-servicebus package. 
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.custom: devx-track-csharp
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (.NET)
-This tutorial shows you how to create a .NET Core console application that sends messages to a Service Bus topic and receives messages from a subscription of the topic. 
+This tutorial shows you how to create a .NET Core console app that sends messages to a Service Bus topic and receives messages from a subscription of the topic. 
 
 > [!Important]
 > This quickstart uses the new **Azure.Messaging.ServiceBus** package. For a quickstart that uses the old Microsoft.Azure.ServiceBus package, see [Send and receive messages using the Microsoft.Azure.ServiceBus package](service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md).
@@ -17,7 +17,7 @@ This tutorial shows you how to create a .NET Core console application that sends
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs)
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md). Note down the connection string, topic name, and a subscription name. You will use only one subscription for this quickstart. 
+- Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md). Note down the connection string, topic name, and a subscription name. You'll use only one subscription for this quickstart. 
 
 ## Send messages to a topic
 In this section, you'll create a .NET Core console application in Visual Studio, add code to send messages to the topic you created. 
@@ -54,7 +54,22 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     - `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace
     - `<TOPIC NAME>` with the name of the topic
     - `<SUBSCRIPTION NAME>` with the name of the subscription
-2. Add a method named `CreateMessages` to create a list of messages to the `Program` class. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
+2. Add a method named `SendMessageToTopicAsync` that sends one message to the topic. 
+
+    ```csharp
+        static async Task SendMessageToTopicAsync()
+        {
+            // create a Service Bus client 
+            await using (ServiceBusClient client = new ServiceBusClient(connectionString))
+            {
+                // create a sender for the topic
+                ServiceBusSender sender = client.CreateSender(topicName);
+                await sender.SendMessageAsync(new ServiceBusMessage(Encoding.UTF8.GetBytes("Hello, World!")));
+                Console.WriteLine("Sent a single message to the topic: {topicName}");
+            }
+        }
+    ```
+1. Add a method named `CreateMessages` to create a list of messages to the `Program` class. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
 
     ```csharp
         static IList<ServiceBusMessage> CreateMessages()
@@ -67,16 +82,16 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             return listOfMessages;
         }
     ```
-1. 1. Add a method named `SendMessagesAsync` to the `Program` class, and add the following code. This method takes a list of messages, and prepares one or more batches to send to the Service Bus topic. 
+1. 1. Add a method named `SendMessageBatchToTopicAsync` to the `Program` class, and add the following code. This method takes a list of messages, and prepares one or more batches to send to the Service Bus topic. 
 
     ```csharp
-        static async Task SendMessagesToTopicAsync()
+        static async Task SendMessageBatchToTopicAsync()
         {
             // create a Service Bus client 
             await using (ServiceBusClient client = new ServiceBusClient(connectionString))
             {
 
-                // create a sender for the queue 
+                // create a sender for the topic 
                 ServiceBusSender sender = client.CreateSender(topicName);
 
                 // prepare messages
@@ -117,7 +132,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             }
         }
     ```
-1. Replace the `Main()` method with the following **async** `Main` method. It calls the `SendMessagesToTopicAsync()` method that you added in the previous step to send messages to the topic. 
+1. Replace the `Main()` method with the following **async** `Main` method. It calls both the send methods to send a single message and a batch of messages to the topic.  
 
     ```csharp
         static async Task Main()
@@ -126,19 +141,24 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             await SendMessagesToTopicAsync();
         }
     ```
-5. Run the application.
+5. Run the application. You should see the following output:
 
-    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-command-prompt.png" alt-text="Command prompt message":::    
-1. Navigate to the **Service Bus Topic** page for your topic in the Azure portal. You see some useful information such as active message count and current size. 
-
-    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png" alt-text="Messages received with count and size":::
-
-    Notice the following values:
-    1. The **Message count** value for the **subscription** is now **3**. Each time you run this sender app without retrieving messages from the subscription, this value increases by 3.
-    1. The current size of the topic increments the **Current size** value in **Essentials**  each time the app adds messages to the topic.
-    1. In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the topic. Wait for a few minutes and refresh the page to see the updated chart. 
+    ```console
+    Sent a single message to the topic
+    Sent a batch of 3 messages to the topic: mytopic
+    ```
+1. In the Azure portal, follow these steps:
+    1. Navigate to your Service Bus namespace. 
+    1. On the **Overview** page, in the bottom-middle pane, switch to the **Topics** tab, and select the Service Bus topic. In the following example, it's `mytopic`.
     
-        Select **Refresh** on the toolbar to if you don't see values. 
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/select-topic.png" alt-text="Select topic":::
+    1. On the **Service Bus Topic** page, In the **Messages** chart in the bottom **Metrics** section, you can see that there are four incoming messages for the topic. If you don't see the value, wait for a few minutes and refresh the page to see the updated chart. 
+
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png" alt-text="Messages sent to the topic" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png":::
+    4. Select the subscription in the bottom pane. In the following example, it's **S1**. On the **Service Bus Subscription** page, you see the **Active message count** as **4**. The subscription has received the four messages that you sent to the topic, but no receiver has picked them yet. 
+    
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png" alt-text="Messages received at the subscription" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png":::
+    
 
 ## Receive messages from a subscription
 
@@ -187,31 +207,53 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             }
         }
     ```
-1. Add a call to the `ReceiveMessagesFromSubscriptionAsync` method to the `Main` method. Comment out the `SendMessagesToTopicAsync` method if you want to test only receiving of messages. If you don't, you see another three messages sent to the topic. 
+1. Add a call to the `ReceiveMessagesFromSubscriptionAsync` method to the `Main` method. Comment out the `SendMessagesToTopicAsync` method if you want to test only receiving of messages. If you don't, you see another four messages sent to the topic. 
 
     ```csharp
         static async Task Main()
         {
-            // send messages to the topic
-            await SendMessagesToTopicAsync();
+            // send a message to the topic
+            await SendMessageToTopicAsync();
+
+            // send a batch of messages to the topic
+            await SendMessageBatchToTopicAsync();
 
             // receive messages from the subscription
             await ReceiveMessagesFromSubscriptionAsync();
         }
     ```
 ## Run the app
-Run the application. You should see the received messages in the output window.
+Run the application. You should see the following output: 
 
-:::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/final-output.png" alt-text="Final output":::
+```console
+Sent a single message to the topic: mytopic
+Sent a batch of 3 messages to the topic: mytopic
+Received: Hello, World! from subscription: S1
+Received: First message from subscription: S1
+Received: Second message from subscription: S1
+Received: Third message from subscription: S1
+Received: Hello, World! from subscription: S1
+Received: First message from subscription: S1
+Received: Second message from subscription: S1
+Received: Third message from subscription: S1
+```
 
 Check the portal again. 
 
-- The **Message count** and **Current size** values are now **0**. It's because the messages have been received and completed (using `CompleteMessageAsync`).
-- In the **Messages** chart in the bottom **Metrics** section, you can see that there are six incoming messages and six outgoing messages. Wait for a few minutes and refresh the page to see the updated chart. 
+- On the **Service Bus Topic** page, in the **Messages** chart, you see eight incoming messages and eight outgoing messages. If you don't see these numbers, wait for a few minutes, and refresh the page to see the updated chart. 
 
-    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png" alt-text="Active messages and size after receive":::
+    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png" alt-text="Messages sent and received" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png":::
+- On the **Service Bus Subscription** page, you see the **Active message count** as zero. It's because a receiver has received messages from this subscription and completed the messages. 
+
+    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page-final.png" alt-text="Active message count at the subscription at the end" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page-final.png":::
+    
 
 
 ## Next steps
-Check out our [GitHub repository with samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
+See the following documentation and samples:
+
+- [Azure Service Bus client library for .NET - Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
+- [Samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
+- [.NET API reference](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus?view=azure-dotnet-preview&preserve-view=true)
+
 

@@ -44,7 +44,7 @@ This article shows you how to use Python to send messages to, and receive messag
         print("Sent a single message")
     ```
 
-    The sender is a object that acts as a client for the queue you created. You'll create it later and send as an argument to this function. 
+    The sender is an object that acts as a client for the queue you created. You'll create it later and send as an argument to this function. 
 4. Add a method to send a list of messages.
 
     ```python
@@ -210,5 +210,5 @@ The **async_samples** folder has samples that show you how to interact with Serv
 See the following documentation: 
 
 - [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
-- [azure-servicebus reference documentation](https://docs.microsoft.com/python/api/azure-servicebus/azure.servicebus?view=azure-python-preview&preserve-view=true )
+- [azure-servicebus reference documentation](https://docs.microsoft.com/python/api/azure-servicebus/azure.servicebus?view=azure-python-preview&preserve-view=true)
 
