@@ -128,7 +128,7 @@ Congratulations! Now you can see your Azure and non-Azure machines together in o
 
   ![ASC icon for Azure machine](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
-  ![ASC icon for Azure Arc machine](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc enabled machine
+  ![ASC icon for Azure Arc server](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc enabled server
 
 ## Next steps
 
