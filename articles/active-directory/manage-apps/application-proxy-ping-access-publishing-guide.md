@@ -1,26 +1,21 @@
 ---
-title: Header-based authentication with PingAccess for Azure AD Application Proxy | Microsoft Docs
+title: Header-based authentication with PingAccess for Azure AD Application Proxy
 description: Publish applications with PingAccess and App Proxy to support header-based authentication.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
 ---
 
 # Header-based authentication for single sign-on with Application Proxy and PingAccess
 
-Azure Active Directory (Azure AD) Application Proxy has partnered with PingAccess so that your Azure AD customers can access more of your applications. PingAccess expands the [existing Application Proxy offerings](application-proxy.md) to include single sign-on access to applications that use headers for authentication.
+Azure Active Directory (Azure AD) Application Proxy has partnered with PingAccess so that your Azure AD customers can access more of your applications. PingAccess provides another option beyond integrated [header-based single sign-on](application-proxy-configure-single-sign-on-with-headers.md).
 
 ## What's PingAccess for Azure AD?
 
@@ -83,7 +78,7 @@ To publish your own on-premises application:
    1. **Internal URL**: Normally you provide the URL that takes you to the app’s sign-in page when you’re on the corporate network. For this scenario, the connector needs to treat the PingAccess proxy as the front page of the application. Use this format: `https://<host name of your PingAccess server>:<port>`. The port is 3000 by default, but you can configure it in PingAccess.
 
       > [!WARNING]
-      > For this type of single sign-on, the internal URL must use `https` and can't use `http`.
+      > For this type of single sign-on, the internal URL must use `https` and can't use `http`. Also, there is a constraint when configuring an application that no two apps should have the same internal URL as this allows App Proxy to maintain distinction between applications.
 
    1. **Pre-authentication method**: Choose **Azure Active Directory**.
    1. **Translate URL in Headers**: Choose **No**.
@@ -229,6 +224,6 @@ When you've completed all these steps, your application should be up and running
 
 ## Next steps
 
-- [Configure PingAccess for Azure AD to protect applications published using Microsoft Azure AD Application Proxy](https://support.pingidentity.com/s/document-item?bundleId=pingaccess-52&topicId=agents/azure/pa_c_PAAzureSolutionOverview.html)
+- [Configure PingAccess for Azure AD to protect applications published using Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/bundle/pingaccess-60/page/jep1564006742933.html)
 - [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md)
 - [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md)
