@@ -51,7 +51,9 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
         | --- | --- |
         | **80** | Downloads the certificate revocation lists (CRLs) while validating the TLS/SSL certificate.  |
         | **443** | Handles all outbound communication with the service. |
+        |**8082**|Required for installation and if you want to configure HIS administration API.  This port can be removed once the agent is installed and if you are not planning on using the API.   |
         | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed in the Azure AD portal. |
+   
      
    - If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
    - If your firewall or proxy allows you to specify safe suffixes, add connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
