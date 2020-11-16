@@ -1,6 +1,6 @@
 ---
 title: Configure monitoring in Azure Monitor for VMs guest health using data collection rules (preview)
-description: Describes how to modify default monitoring in Azure Monitor for VMs guest health at scale using resource manager templates.
+description: Describes how to modify default monitoring in Azure Monitor for VMs guest health at scale using Resource Manager templates.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -28,7 +28,7 @@ The following table describes the properties that can be configured on each moni
 
 | Property | Monitors | Description |
 |:---|:---|:---|
-| Enabled | Aggregate<br>Unit | If true, the state  monitor is calculated and contributes to the health of the virtual machine. It can triiger an alert of alerting is enabled. |
+| Enabled | Aggregate<br>Unit | If true, the state  monitor is calculated and contributes to the health of the virtual machine. It can trigger an alert of alerting is enabled. |
 | Alerting | Aggregate<br>Unit | If true, an alert is triggered for the monitor when it moves to an unhealthy state. If false, the state of the monitor will still contribute to the health of the virtual machine which could trigger an alert. |
 | Warning | Unit | Criteria for the warning state. If none, then the monitor will never enter a warning state. |
 | Critical | Unit | Criteria for the critical state. If none, then the monitor will never enter a critical state. |
