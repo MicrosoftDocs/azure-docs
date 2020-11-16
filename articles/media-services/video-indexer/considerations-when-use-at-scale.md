@@ -74,8 +74,7 @@ We recommend that instead of polling the status of your request constantly from 
 
 You can add a callback URL as one of the parameters of the [upload video API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload). Check out the code samples in [GitHub repo](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/). 
 
-> [!TIP]
-> For callback URL you can also use Azure Functions, a serverless event-driven platform that can be triggered by HTTP and implement a following flow.
+For callback URL you can also use Azure Functions, a serverless event-driven platform that can be triggered by HTTP and implement a following flow.
 
 ### callBack URL definition
 
