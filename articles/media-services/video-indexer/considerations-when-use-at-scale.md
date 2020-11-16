@@ -27,7 +27,7 @@ The article provides six best practices of how to use Video Indexer at scale.
 
 ## When uploading videos consider using a URL over byte array
 
-Video Indexer does give you the choice to upload videos from URL or directly by sending the file as a byte array, the latter comes with some constraints.
+Video Indexer does give you the choice to upload videos from URL or directly by sending the file as a byte array, the latter comes with some constraints. For more information, see [uploading considerations and limitations)](upload-index-videos.md#uploading-considerations-and-limitations)
 
 First, it has file size limitations. The size of the byte array file is limited to 2 GB compared to the 30-GB upload size limitation while using URL.
 
@@ -64,7 +64,7 @@ To minimize indexing duration and low throughput we recommend, you start with 10
 
 ## Respect throttling
 
-Video Indexer is built to deal with indexing at scale, and when you want to get the most out of it you should also be aware of the system's capabilities and design your integration accordingly. You don't want to send an upload request for a batch of videos just to discover that some of the movies didn't upload and you are receiving an HTTP 429 response code (too many requests). It can happen due to the fact that you sent more requests than the [limit of movies per minute we support](upload-index-videos.md#uploading-considerations-and-limitations). Video Indexer adds a retry-after header in the HTTP response. The header specifies when you should attempt your next retry. Make sure you respect it before trying your next request.
+Video Indexer is built to deal with indexing at scale, and when you want to get the most out of it you should also be aware of the system's capabilities and design your integration accordingly. You don't want to send an upload request for a batch of videos just to discover that some of the movies didn't upload and you are receiving an HTTP 429 response code (too many requests). It can happen due to the fact that you sent more requests than the [limit of movies per minute we support](upload-index-videos.md#uploading-considerations-and-limitations). Video Indexer adds a `retry-after` header in the HTTP response, the header specifies when you should attempt your next retry. Make sure you respect it before trying your next request.
 
 :::image type="content" source="./media/considerations-when-use-at-scale/respect-throttling.jpg" alt-text="Design your integration well, respect throttling":::
 
