@@ -1,10 +1,10 @@
 ---
 title: Change the performance of Azure managed disks
-description: Learn about performance tiers for managed disks, and learn how to change performance tiers for existing managed disks.
+description: Learn about performance tiers for managed disks.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 11/16/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
