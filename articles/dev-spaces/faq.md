@@ -67,9 +67,9 @@ Yes, you can use Azure Dev Spaces on AKS clusters with [API server authorized IP
 
 Yes, you can use Azure Dev Spaces on AKS clusters with [restricted egress traffic for cluster nodes][aks-restrict-egress-traffic] enabled once the correct FQDNs have been allowed. More information on using an AKS clusters with restricted egress traffic for cluster nodes enabled with Azure Dev Spaces is available [here](configure-networking.md#ingress-and-egress-network-traffic-requirements).
 
-## Can I use Azure Dev Spaces on RBAC-enabled AKS clusters?
+## Can I use Azure Dev Spaces on Kubernetes RBAC-enabled AKS clusters?
 
-Yes, you can use Azure Dev Spaces on AKS clusters with or without RBAC enabled.
+Yes, you can use Azure Dev Spaces on AKS clusters with or without Kubernetes role-based access control (Kubernetes RBAC) enabled.
 
 ## What happens when I enable ingress for project in Visual Studio?
 

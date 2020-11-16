@@ -4,8 +4,8 @@ description: This article explains requirements and guidelines for listing new o
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
 ---
 
