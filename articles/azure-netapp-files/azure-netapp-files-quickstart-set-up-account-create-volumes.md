@@ -59,6 +59,8 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 
 # [Azure CLI](#tab/azure-cli)
 
+Prepare your environment for the Azure CLI.
+
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
