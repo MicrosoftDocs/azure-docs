@@ -61,7 +61,11 @@ The workflow to use Triton for your model deployment is:
 1. Verify you can send requests to your Triton-deployed model.
 1. Incorporate your Triton-specific code into your AML deployment.
 
-## (Optional) Define a model config file
+## Verify that Triton can serve your model
+
+First, follow the steps below to verify that the Triton Inference Server can serve your model.
+
+### (Optional) Define a model config file
 
 The model configuration file tells Triton how many inputs to expects and of what dimensions those inputs will be. For more information on creating the configuration file, see [Model configuration](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html) in the NVIDIA documentation.
 
@@ -70,7 +74,7 @@ The model configuration file tells Triton how many inputs to expects and of what
 > 
 > For more information on this option, see [Generated model configuration](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html#generated-model-configuration) in the NVIDIA documentation.
 
-## Directory structure
+### Use the correct directory structure
 
 When registering a model with Azure Machine Learning, you can register either individual files or a directory structure. To use Triton, the model registration must be for a directory structure that contains a directory named `triton`. The general structure of this directory is:
 
@@ -88,7 +92,7 @@ models
 > [!IMPORTANT]
 > This directory structure is a Triton Model Repository and is required for your model(s) to work with Triton. For more information, see [Triton Model Repositories](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) in the NVIDIA documentation.
 
-## Test with Triton and Docker
+### Test with Triton and Docker
 
 To test your model to make sure it runs with Triton, you can use Docker. The following commands pull the Triton container to your local computer, and then start the Triton Server:
 
@@ -141,7 +145,7 @@ Beyond a basic health check, you can create a client to send data to Triton for 
 
 For more information on running Triton using Docker, see [Running Triton on a system with a GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-with-a-gpu) and [Running Triton on a system without a GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-without-a-gpu).
 
-## Register your model
+### Register your model
 
 Now that you've verified that your model works with Triton, register it with Azure Machine Learning. Model registration stores your model files in the Azure Machine Learning workspace, and are used when deploying with the Python SDK and Azure CLI.
 
@@ -171,9 +175,9 @@ az ml model register --model-path='triton' \
 
 <a id="processing"></a>
 
-## Add pre and post-processing
+## Verify you can call into your model
 
-After verifying that the web service is working, you can add pre and post-processing code by defining an _entry script_. This file is named `score.py`. For more information on entry scripts, see [Define an entry script](how-to-deploy-and-where.md#define-an-entry-script).
+After verifying that the Triton is able to serve your model, you can add pre and post-processing code by defining an _entry script_. This file is named `score.py`. For more information on entry scripts, see [Define an entry script](how-to-deploy-and-where.md#define-an-entry-script).
 
 The two main steps are to initialize a Triton HTTP client in your `init()` method, and to call into that client in your `run()` function.
 

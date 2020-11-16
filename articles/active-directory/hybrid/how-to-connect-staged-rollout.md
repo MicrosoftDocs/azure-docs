@@ -235,7 +235,7 @@ A: Yes, you can use this feature in your production tenant, but we recommend tha
 
 **Q: Can this feature be used to maintain a permanent "co-existence," where some users use federated authentication and others use cloud authentication?**
 
-A: No, this feature is designed for migrating from federated to cloud authentication in stages and then to eventually cut over to cloud authentication. We do not recommend using a permanent mixed state, because this approach could lead to unexpected authentication flows.
+A: No, this feature is designed for testing cloud authentication. After successful testing a few groups of users you should cut over to cloud authentication. We do not recommend using a permanent mixed state, because this approach could lead to unexpected authentication flows.
 
 **Q: Can I use PowerShell to perform staged rollout?**
 
