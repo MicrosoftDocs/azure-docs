@@ -92,8 +92,8 @@ When you create a function app, you must create or link to a general-purpose Azu
 1. Create or configure a different storage account.  This will be the storage account we secure with service endpoints and connect our function.
 1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-file-share) in the secured storage account.
 1. Enable service endpoints or private endpoint for the storage account.  
-    * Be sure to enable the subnet dedicated to your function apps if using a service endpoint.
-    * Be sure to create a DNS record and configure your app to [work with private endpoint endpoints](#azure-dns-private-zones) if using private endpoint.  The storage account will need a private endpoint for the `file` and `blob` subresources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.
+    * If using private endpoint connections, the storage account will need a private endpoint for the `file` and `blob` subresources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.
+    * If using service endpoints, enable the subnet dedicated to your function apps for storage accounts.
 1. (Optional) Copy the file and blob content from the function app storage account to the secured storage account and file share.
 1. Copy the connection string for this storage account.
 1. Update the **Application Settings** under **Configuration** for the function app to the following:
@@ -101,6 +101,9 @@ When you create a function app, you must create or link to a general-purpose Azu
     - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` to the connection string for the secured storage account.
     - `WEBSITE_CONTENTSHARE` to the name of the file share created in the secured storage account.
     - Create a new setting with the name `WEBSITE_CONTENTOVERVNET` and value of `1`.
+    - If the storage account is using private endpoint connections, verify or add the following settings
+        - `WEBSITE_VNET_ROUTE_ALL` with a value of `1`.
+        - `WEBSITE_DNS_SERVER` with a value of `168.63.129.16` 
 1. Save the application settings.  
 
 The function app will restart and will now be connected to a secured storage account.
