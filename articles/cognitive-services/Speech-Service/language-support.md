@@ -129,8 +129,8 @@ Neural text-to-speech is a new type of speech synthesis powered by deep neural n
 
 Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
 
-| Language                         | Locale  | Gender | Voice name                             | Style support |
-|----------------------------------|---------|--------|----------------------------------------|---------------|
+| Language | Locale | Gender | Voice name | Style support |
+|---|---|---|---|---|
 | Arabic (Egypt) | `ar-EG` | Female | `ar-EG-SalmaNeural` | General |
 | Arabic (Saudi Arabia) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | General |
 | Bulgarian (Bulgary) | `bg-BG` | Female | `bg-BG-KalinaNeural` <sup>New</sup> | General |
