@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
@@ -47,11 +47,7 @@ The overloads for these methods provide additional options for managing how blob
 
 ### Manage how many results are returned
 
-By default, a listing operation returns up to 5000 results at a time, but you can specify the number of results that you want each listing operation to return. The examples presented in this article show you how to do this.
-
-If a listing operation returns more than 5000 blobs, or if the number of blobs that are available exceed the number that you specified, then Azure Storage returns a *continuation token* with the list of blobs. A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage.
-
-In your code, check the value of the continuation token to determine whether it is null. When the continuation token is null, then the set of results is complete. If the continuation token is not null, then call listing operation again, passing in the continuation token to retrieve the next set of results, until the continuation token is null.
+By default, a listing operation returns up to 5000 results at a time, but you can specify the number of results that you want each listing operation to return. The examples presented in this article show you how to return results in pages.
 
 ### Filter results with a prefix
 
@@ -59,7 +55,7 @@ To filter the list of blobs, specify a string for the `prefix` parameter. The pr
 
 ### Return metadata
 
-You can return blob metadata with the results. 
+You can return blob metadata with the results.
 
 - If you're using the .NET v12 SDK, specify the **Metadata** value for the [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) enumeration.
 
@@ -86,6 +82,10 @@ If you've enabled the hierarchical namespace feature on your account, directorie
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
 # [.NET v11](#tab/dotnet11)
+
+If a listing operation returns more than 5000 blobs, or if the number of blobs that are available exceed the number that you specified, then Azure Storage returns a *continuation token* with the list of blobs. A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage.
+
+In your code, check the value of the continuation token to determine whether it is null. When the continuation token is null, then the set of results is complete. If the continuation token is not null, then call listing operation again, passing in the continuation token to retrieve the next set of results, until the continuation token is null.
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
