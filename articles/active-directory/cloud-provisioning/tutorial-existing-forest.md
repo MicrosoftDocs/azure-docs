@@ -58,7 +58,7 @@ In this scenario, there is an existing forest synced using Azure AD Connect sync
 ![Screenshot that shows the "Microsoft Azure AD Connect Provisioning Agent Package" splash screen.](media/how-to-install/install1.png)</br>
 
 7. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  Note that if you have IE enhanced security enabled this will block the sign-in.  If this is the case, close the installation, disable IE enhanced security in Server Manager, and click the **AAD Connect Provisioning Agent Wizard** to restart the installation.
-8. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. In case the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.</br>
+8. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account. The domain administrator account should not have password change requirements. In case the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.</br>
 ![Screenshot that shows the "Connect Active Directory" screen.](media/how-to-install/install3.png)</br>
 
 9. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
