@@ -988,7 +988,7 @@
   - name: Overview
     href: maintenance-and-updates.md
   - name: Automatic VM guest patching (preview)
-    href: automatic-vm-guest-patching.md
+    href: ./windows/automatic-vm-guest-patching.md
   - name: Maintenance control
     items:
     - name: Maintenance notifications
