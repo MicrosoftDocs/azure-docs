@@ -4,8 +4,12 @@
   href: overview.md
 - name: Quickstart
   items: 
-  - name: Deploy a Cloud Service - PowerShell
+  - name: Deploy a cloud service - Portal
+    href: deploy-portal.md
+  - name: Deploy a cloud service - PowerShell
     href: deploy-powershell.md
+  - name: Deploy a cloud service - Visual Studio
+    href: deploy-visual-studio.md
 - name: Concepts
   items: 
   - name: Available VM sizes
