@@ -26,7 +26,7 @@ Use these commands to sign on to Azure and set up a resource group.
    az login
    ```
 
-1. If needed, use the [az account set](/cli/azure/account#az_account_set) switch to the subscription
+1. If needed, use the [az account set](/cli/azure/account#az_account_set) command to select your subscription:
 
    ```azurecli
    az account set --subscription 00000000-0000-0000-0000-000000000000
@@ -38,7 +38,7 @@ Use these commands to sign on to Azure and set up a resource group.
    az group create --name myResourceGroup --location WestEurope
    ```
 
-1. Create a [logical SQL server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) by using the [az sql server create](/cli/azure/sql/server#az_sql_server_create) command.
+1. Create a [logical SQL server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) by using the [az sql server create](/cli/azure/sql/server#az_sql_server_create) command:
 
    ```azurecli
    az sql server create --resource-group myResourceGroup --name mysqlserver --admin-user ServerAdmin --admin-password ChangeYourAdminPassword1
@@ -62,9 +62,9 @@ In this example, the firewall is only opened for other Azure resources. To enabl
 > SQL endpoints communicate over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you won't be able to connect to your server unless your IT department opens port 1433.
 >
 
-## Create a SQL pool
+## Create and manage your SQL pool
 
-Create the SQL pool. This example the service objective as DW100c, which is a lower-cost starting point for your SQL pool. 
+Create the SQL pool. This example uses DW100c as the service objective, which is a lower-cost starting point for your SQL pool.
 
 > [!NOTE]
 > You need a previously created workspace. For more information, see [Quickstart: Create an Azure synapse workspace with Azure CLI](quickstart-create-workspace-cli.md).
@@ -76,6 +76,36 @@ az synapse sql pool create --resource-group myResourceGroup --name mySampleDataW
 ```
 
 For more information on the parameter options, see [az synapse sql pool](/cli/azure/ext/synapse/synapse/sql/pool).
+
+You can see your SQL pools by using the [az synapse sql pool list](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_list) command:
+
+```azurecli
+az synapse sql pool list --resource-group myResourceGroup --workspace-name testsynapseworkspace
+```
+
+Use the [az synapse sql pool update](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_update) command to update an existing pool:
+
+```azurecli
+az synapse sql pool update --resource-group myResourceGroup --name mySampleDataWarehouse --workspace-name testsynapseworkspace
+```
+
+Use the [az synapse sql pool pause](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_pause) command to pause your pool:
+
+```azurecli
+az synapse sql pool pause --resource-group myResourceGroup --name mySampleDataWarehouse --workspace-name testsynapseworkspace
+```
+
+Use the [az synapse sql pool resume](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_resume) command to start a paused pool:
+
+```azurecli
+az synapse sql pool resume --resource-group myResourceGroup --name mySampleDataWarehouse --workspace-name testsynapseworkspace
+```
+
+To remove an existing SQL pool, use the [az synapse sql pool delete](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_delete) command:
+
+```azurecli
+az synapse sql pool delete --resource-group myResourceGroup --name mySampleDataWarehouse --workspace-name testsynapseworkspace
+```
 
 ## Clean up resources
 
