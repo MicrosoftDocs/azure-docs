@@ -37,13 +37,13 @@ Anyone who has a valid access token can access current identity content. For exa
 
 ### Identity mapping
 
-Azure Communication Services doesn't replicate the functionality of the Azure instance metadata service. It doesn't provide a way for customers to use customer-specific identities. For example, customers can't use a phone number or email address. Instead, Azure Communication Services provides unique identifiers. You can assign these unique identifiers to your application's identities. Azure Communication Services doesn't store any kind of information that might reveal the real identity of your users.
+Azure Communication Services doesn't replicate the functionality of the Azure identity management system. It doesn't provide a way for customers to use customer-specific identities. For example, customers can't use a phone number or email address. Instead, Azure Communication Services provides unique identifiers. You can assign these unique identifiers to your application's identities. Azure Communication Services doesn't store any kind of information that might reveal the real identity of your users.
 
 To avoid duplicating information in your system, plan how to map users from your identity domain to Azure Communication Services identities. You can follow any kind of pattern. For example, you can use 1:1, 1:N, N:1, or M:N. Decide whether a single user is mapped to a single identity or to multiple identities. 
 
 When a new identity is created, store its mapping to your application's user or users. Because identities require access tokens to use primitives, the identity needs to be known to your application's user or users.
 
-If you use a relational database to store user information, then you can adjust your plan based on your mapping scenario. For scenarios that map 1:1 or N:1, you might want to add a `CommunicationServicesId` column to the table to store your Azure Communication Services identity. In scenarios that use the relationship 1:N or N:M, you might consider creating a separate table in the relational database.
+If you use a relational database to store user information, then you can adjust your design based on your mapping scenario. For scenarios that map 1:1 or N:1, you might want to add a `CommunicationServicesId` column to the table to store your Azure Communication Services identity. In scenarios that use the relationship 1:N or N:M, you might consider creating a separate table in the relational database.
 
 ## Access tokens
 
