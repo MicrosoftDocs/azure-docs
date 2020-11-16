@@ -27,7 +27,7 @@ The article provides six best practices of how to use Video Indexer at scale.
 
 ## When uploading videos consider using a URL over byte array
 
-Video Indexer does give you the choice to upload videos from URL or directly by sending the file as a byte array, but remember that the latter comes with some constraints.
+Video Indexer does give you the choice to upload videos from URL or directly by sending the file as a byte array, the latter comes with some constraints.
 
 First, it has file size limitations. The size of the byte array file is limited to 2 GB compared to the 30-GB upload size limitation while using URL.
 
@@ -46,7 +46,7 @@ When you upload videos using URL, you just need to provide a path to the locatio
 > [!TIP]
 > Use the `videoUrl` optional parameter of the upload video API.
 
-To see an example of how to upload videos using URL, check out this example(upload-index-videos.md#code-sample). Or, you can use [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) for a fast and reliable way to get your content to a storage account from which you can submit it to Video Indexer using [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
+To see an example of how to upload videos using URL, check out [this example](upload-index-videos.md#code-sample). Or, you can use [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) for a fast and reliable way to get your content to a storage account from which you can submit it to Video Indexer using [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
 
 ## Increase media reserved units if needed
 
