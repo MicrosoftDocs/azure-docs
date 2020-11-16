@@ -88,7 +88,6 @@ The DNS settings for your ASE default domain suffix don't restrict your apps to 
 In an ASE, as with the multitenant App Service, you can publish by these methods:
 
 - Web deployment
-- FTP
 - Continuous integration (CI)
 - Drag and drop in the Kudu console
 - An IDE, such as Visual Studio, Eclipse, or IntelliJ IDEA
