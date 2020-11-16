@@ -228,7 +228,7 @@ If  you are using GitHub, use one of the following 2 options:
 4. Click on **New SSH key**
 5. Supply a Title
 6. Paste the public key (minus any surrounding quotation marks)
-7. Click **Add SSH key**
+7. Click on **Add SSH key**
 
 **Option 2: Add the public key as a deploy key to the git repo**
 
@@ -237,7 +237,7 @@ If  you are using GitHub, use one of the following 2 options:
 3. Supply a Title
 4. Check **Allow write access**
 5. Paste the public key (minus any surrounding quotation marks)
-6. Click **Add key**
+6. Click on **Add key**
 
 **If you are using an Azure DevOps repository, add the key to your SSH keys**
 
