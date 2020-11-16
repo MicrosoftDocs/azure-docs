@@ -46,11 +46,11 @@ You can follow instructions to [Provision an Azure Databricks cluster](/azure/da
 
 You will need to add the Apache Spark Cassandra connector library to your cluster in order to connect to both native and Cosmos DB Cassandra endpoints. In your cluster select libraries -> install new -> maven -> search packages:
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Databricks runtime":::
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Databricks search packages":::
 
 Type `Cassandra` in the search box, and select the latest `spark-cassandra-connector` maven repository available, then select install:
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages2.png" alt-text="Databricks runtime":::
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages2.png" alt-text="Databricks select packages":::
 
 > [!NOTE]
 > Ensure that you restart the Databricks cluster after the Cassandra Connector library has been installed.
