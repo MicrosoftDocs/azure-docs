@@ -132,9 +132,9 @@ RTO (Recovery-time-objective) indicates how fast the data should be restored to 
 
 |Backup Policy  |RTO  |Cost  |
 |---------|---------|---------|
-|Daily Full + logs     |   Fastest since we need only one full copy + required logs for point-in-time restore      |    Costliest option since a full copy is taken daily and hence more and more amount is accumulated in backend until the retention time   |
-|Weekly Full + daily differential + logs     |   Slower than above option but faster than below since we require 1 full copy + 1 differential copy + logs for point-in-time restore      |    Cheaper option since the daily differential is usually smaller than full and a full copy is taken only once a week      |
-|Weekly Full + daily incremental + logs     |  Slowest since we need 1 full copy + 'n' incrementals + logs for point-in-time recovery       |     Least expensive option since the daily incremental will be smaller than differential and a full copy is taken only weekly    |
+|Daily Full + logs     |   Fastest since we need only one full copy + required logs for point-in-time restore      |    Costliest option since a full copy is taken daily and so more and more data is accumulated in backend until the retention time   |
+|Weekly Full + daily differential + logs     |   Slower than above option but faster than below since we require one full copy + one differential copy + logs for point-in-time restore      |    Less expensive option since the daily differential is usually smaller than full and a full copy is taken only once a week      |
+|Weekly Full + daily incremental + logs     |  Slowest since we need one full copy + 'n' incrementals + logs for point-in-time recovery       |     Least expensive option since the daily incremental will be smaller than differential and a full copy is taken only weekly    |
 
 > [!NOTE]
 > The above options are the most common but not the only options. For example, one can have a weekly full backup + differentials twice a week + logs.
@@ -143,9 +143,9 @@ Therefore, one can select the policy variant based on RPO and RTO objectives and
 
 ### What is the impact of modifying a policy
 
-Few principles should be kept in mind while determining the impact of switching a backup item's policy from Policy 1 (P1) to Policy 2 (P2) or of editing a policy P1.
+Few principles should be kept in mind while determining the impact of switching a backup item's policy from Policy 1 (P1) to Policy 2 (P2) or of editing Policy 1 (P1).
 
-- ALL changes are also applied retroactively. The latest backup policy is applied on the recovery points taken earlier as well. For example, assume that the daily full retention is 30 days and 10 recovery points were taken according to the currently active policy. If the daily full's retention is changed to 10 days, then the previous point's expiry time is also recalculated as start time + 10 days and deleted if they are expired.
+- All changes are also applied retroactively. The latest backup policy is applied on the recovery points taken earlier as well. For example, assume that the daily full retention is 30 days and 10 recovery points were taken according to the currently active policy. If the daily full's retention is changed to 10 days, then the previous point's expiry time is also recalculated as start time + 10 days and deleted if they are expired.
 - The scope of change also includes day of backup, type of backup along with retention. For example: If a policy is changed from daily full to weekly full on Sundays, all earlier fulls which are not on Sundays will be marked for deletion.
 - A parent is not deleted until the child is active/not-expired. Every backup type has an expiration time as per the currently active policy. But a full backup type is considered as parent to subsequent 'differentials', 'incrementals' and 'logs'. A 'differential' and a 'log' are not parent to anyone else. An 'incremental' can be a parent to subsequent 'incremental'. Even if a 'parent' is marked for deletion, they are not actually deleted if the child 'differentials' or 'logs' are not expired. For example, if a policy is changed from daily full to weekly full on Sundays, all earlier fulls which are not on Sundays will be marked for deletion. But they are not actually deleted until the logs that were taken daily earlier are expired. In other words, they are retained as per the latest log duration. Once the logs expire, both the logs and these fulls will be deleted.
 
