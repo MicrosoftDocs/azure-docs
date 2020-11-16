@@ -56,6 +56,7 @@ This section shows you how to create a .NET Core console application to send eve
 1. Add the following `using` statements to the top of the **Program.cs** file:
 
     ```csharp
+    using System;
     using System.Text;
     using System.Threading.Tasks;
     using Azure.Messaging.EventHubs;
@@ -98,7 +99,7 @@ This section shows you how to create a .NET Core console application to send eve
     [![Verify that the event hub received the messages](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
     > [!NOTE]
-    > For the complete source code with more informational comments, see [this file on the GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample03_PublishAnEventBatch.cs)
+    > For the complete source code with more informational comments, see [this file on the GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample04_PublishingEvents.md)
 
 ## Receive events
 This section shows how to write a .NET Core console application that receives messages from an event hub using an event processor. The event processor simplifies receiving events from event hubs by managing persistent checkpoints and parallel receptions from those event hubs. An event processor is associated with a specific event Hub and a consumer group. It receives events from multiple partitions in the event hub, passing them to a handler delegate for processing using code that you provide. 
@@ -145,6 +146,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 1. Add the following `using` statements at the top of the **Program.cs** file.
 
     ```csharp
+    using System;
     using System.Text;
     using System.Threading.Tasks;
     using Azure.Storage.Blobs;
@@ -225,4 +227,4 @@ Check out the samples on GitHub.
 
 - [Event Hubs samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
 - [Event processor samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples)
-- [Role-based access control (RBAC) sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+- [Azure role-based access control (Azure RBAC) sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)

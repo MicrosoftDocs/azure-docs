@@ -38,7 +38,7 @@ This article discusses a collection of best practices for using the Azure Batch 
 Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes in the pool at any point in time. It's your responsibility to manage the compute nodes in the pool either explicitly, or through features provided by the service (autoscale or autopool).
 
 - **Keep pools fresh.**
-    You should resize your pools to zero every few months to ensure you get the latest node agent updates and bug fixes. Your pool won't receive node agent updates unless it's recreated, or resized to 0 compute nodes. Before you recreate or resize your pool, it's recommended to download any node agent logs for debugging purposes, as discussed in the [Nodes](#nodes) section.
+    You should resize your pools to zero every few months to ensure you get the [latest node agent updates and bug fixes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Your pool won't receive node agent updates unless it's recreated, or resized to 0 compute nodes. Before you recreate or resize your pool, it's recommended to download any node agent logs for debugging purposes, as discussed in the [Nodes](#nodes) section.
 
 - **Pool re-creation**
     On a similar note, it's not recommended to delete and re-create your pools on a daily basis. Instead, create a new pool, update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
@@ -62,7 +62,7 @@ When you create an Azure Batch pool using the Virtual Machine Configuration, you
 
 ### Third-party images
 
-Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) or [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms).
+Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) or [Azure CLI](/cli/azure/vm/image/terms).
 
 ### Azure region dependency
 

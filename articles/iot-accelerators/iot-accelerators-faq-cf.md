@@ -120,7 +120,7 @@ Alternatively log in to the VM via SSH and inspect the log files at runtime.
 
 ### How can I check if the simulation is sending data to the cloud?
 
-With the [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) or the [Azure IoT CLI Extension monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) command, you can inspect the data sent to IoT Hub from certain devices. To use these tools, you need to know the connection string for the IoT hub in your deployment. See [How do I find out the connection string of the IoT hub used by my solution?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+With the [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) or the [Azure IoT CLI Extension monitor-events](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) command, you can inspect the data sent to IoT Hub from certain devices. To use these tools, you need to know the connection string for the IoT hub in your deployment. See [How do I find out the connection string of the IoT hub used by my solution?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Inspect the data sent by one of the publisher devices:
 
@@ -189,6 +189,6 @@ To send telemetry data from non OPC UA devices to Connected Factory:
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
+* [Predictive Maintenance solution accelerator overview](./iot-accelerators-predictive-walkthrough.md)
 * [Deploy Connected Factory solution accelerator](quickstart-connected-factory-deploy.md)
-* [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)
+* [IoT security from the ground up](../iot-fundamentals/iot-security-ground-up.md)

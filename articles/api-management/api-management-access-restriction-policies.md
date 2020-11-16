@@ -18,7 +18,7 @@ ms.author: apimpm
 
 # API Management access restriction policies
 
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 ## <a name="AccessRestrictionPolicies"></a> Access restriction policies
 
@@ -554,4 +554,4 @@ For more information working with policies, see:
 -   [Policies in API Management](api-management-howto-policies.md)
 -   [Transform APIs](transform-api.md)
 -   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](policy-samples.md)
+-   [Policy samples](./policy-reference.md)

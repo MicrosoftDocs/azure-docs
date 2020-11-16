@@ -4,7 +4,7 @@ description: Understand Azure File Sync on-premises proxy and firewall settings.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/24/2019
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -116,6 +116,8 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 | Public | East Asia | https:\//eastasia01.afs.azure.net<br>https:\//kailani11.one.microsoft.com | Southeast Asia | https:\//tm-eastasia01.afs.azure.net<br>https:\//tm-kailani11.one.microsoft.com |
 | Public | East US | https:\//eastus01.afs.azure.net<br>https:\//kailani1.one.microsoft.com | West US | https:\//tm-eastus01.afs.azure.net<br>https:\//tm-kailani1.one.microsoft.com |
 | Public | East US 2 | https:\//eastus201.afs.azure.net<br>https:\//kailani-ess.one.microsoft.com | Central US | https:\//tm-eastus201.afs.azure.net<br>https:\//tm-kailani-ess.one.microsoft.com |
+| Public | Germany North | https:\//germanynorth01.afs.azure.net | Germany West Central | https:\//tm-germanywestcentral01.afs.azure.net |
+| Public | Germany West Central | https:\//germanywestcentral01.afs.azure.net | Germany North | https:\//tm-germanynorth01.afs.azure.net |
 | Public | Japan East | https:\//japaneast01.afs.azure.net | Japan West | https:\//tm-japaneast01.afs.azure.net |
 | Public | Japan West | https:\//japanwest01.afs.azure.net | Japan East | https:\//tm-japanwest01.afs.azure.net |
 | Public | Korea Central | https:\//koreacentral01.afs.azure.net/ | Korea South | https:\//tm-koreacentral01.afs.azure.net/ |
@@ -147,7 +149,7 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 ### Allow list for Azure File Sync IP addresses
 Azure File Sync supports the use of [service tags](../../virtual-network/service-tags-overview.md), which represent a group of IP address prefixes for a given Azure service. You can use service tags to create firewall rules that enable communication with the Azure File Sync service. The service tag for Azure File Sync is `StorageSyncService`.
 
-If you are using Azure File Sync within Azure, you can use name of service tag directly in your network security group to allow traffic. To learn more about how to do this, see [Network security groups](../../virtual-network/security-overview.md).
+If you are using Azure File Sync within Azure, you can use name of service tag directly in your network security group to allow traffic. To learn more about how to do this, see [Network security groups](../../virtual-network/network-security-groups-overview.md).
 
 If you are using Azure File Sync on-premises, you can use the service tag API to get specific IP address ranges for your firewall's allow list. There are two methods for getting this information:
 
@@ -157,9 +159,9 @@ If you are using Azure File Sync on-premises, you can use the service tag API to
     - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)
 - The service tag discovery API (preview) allows programmatic retrieval of the current list of service tags. In preview, the service tag discovery API may return information that's less current than information returned from the JSON documents published on the Microsoft Download Center. You can use the API surface based on your automation preference:
-    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST API](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 Because the service tag discovery API is not updated as frequently as the JSON documents published to the Microsoft Download Center, we recommend using the JSON document to update your on-premises firewall's allow list. This can be done as follows:
 

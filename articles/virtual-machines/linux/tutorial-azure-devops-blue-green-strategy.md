@@ -23,7 +23,7 @@ ms.custom: devops
 
 Azure Pipelines provides a fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous-delivery pipeline for an Azure VM from the Azure portal.
 
-This article shows how to set up a CI/CD pipeline that uses the blue-green strategy for multimachine deployments. The Azure portal also supports other strategies like [rolling](https://aka.ms/AA7jlh8) and [canary](https://aka.ms/AA7jdrz).
+This article shows how to set up a CI/CD pipeline that uses the blue-green strategy for multimachine deployments. The Azure portal also supports other strategies like [rolling](./tutorial-devops-azure-pipelines-classic.md) and [canary](./tutorial-azure-devops-canary-strategy.md).
 
 ### Configure CI/CD on virtual machines
 
@@ -71,8 +71,8 @@ Using the continuous-delivery option, you can configure blue-green deployments t
 
 ## Other deployment strategies
 
-- [Configure the rolling deployment strategy](https://aka.ms/AA7jlh8)
-- [Configure the canary deployment strategy](https://aka.ms/AA7jdrz)
+- [Configure the rolling deployment strategy](./tutorial-devops-azure-pipelines-classic.md)
+- [Configure the canary deployment strategy](./tutorial-azure-devops-canary-strategy.md)
 
 ## Azure DevOps Projects
 

@@ -11,6 +11,8 @@ ms.custom: "include file"
 ---
 - East US
 - East US 2
+- West US 2
+- West Europe
 - Southeast Asia
 - UK South
 - Australia East

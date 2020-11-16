@@ -131,7 +131,7 @@ Azure Security Center uses the Log Analytics agent – this is the same agent us
 
 ### Agent
 
-When automatic provisioning is enabled in the security policy, the Log Analytics agent (for [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) or [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) is installed on all supported Azure VMs, and any new ones that are created. If the VM or computer already has the Log Analytics agent installed, Azure Security Center will leverage the current installed agent. The agent's process is designed to be non-invasive and have very minimal impact on VM performance.
+When automatic provisioning is enabled in the security policy, the Log Analytics agent (for [Windows](../azure-monitor/platform/agent-windows.md) or [Linux](../azure-monitor/learn/quick-collect-linux-computer.md)) is installed on all supported Azure VMs, and any new ones that are created. If the VM or computer already has the Log Analytics agent installed, Azure Security Center will leverage the current installed agent. The agent's process is designed to be non-invasive and have very minimal impact on VM performance.
 
 The Log Analytics agent for Windows requires use TCP port 443. See the [Troubleshooting article](security-center-troubleshooting-guide.md) for additional details.
 
@@ -213,9 +213,9 @@ The following example shows a suspicious RDP activity taking place:
 
 ![Suspicious activity](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
-This page shows the details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances, the source information of the attack may be empty. Read [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) for more information about this type of behavior.
+This page shows the details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances, the source information of the attack may be empty. Read [Missing Source Information in Azure Security Center Alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) for more information about this type of behavior.
 
-Once you identify the compromised system, you can run a [Workflow Automation](workflow-automation.md) that was previously created. These are a collection of procedures that can be executed from Security Center once triggered by an alert.
+Once you identify the compromised system, you can run a [workflow automation](workflow-automation.md) that was previously created. These are a collection of procedures that can be executed from Security Center once triggered by an alert.
 
 In the [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video, you can see some demonstrations that show how Security Center can be used in each one of those stages.
 
@@ -229,6 +229,6 @@ In this document, you learned how to plan for Security Center adoption. To learn
 
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
-* [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
+* [Monitoring partner solutions with Azure Security Center](./security-center-partner-integration.md) — Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](faq-general.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](https://docs.microsoft.com/archive/blogs/azuresecurity/) — Find blog posts about Azure security and compliance.
+* [Azure Security blog](/archive/blogs/azuresecurity/) — Find blog posts about Azure security and compliance.

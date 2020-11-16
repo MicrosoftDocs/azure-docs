@@ -19,7 +19,7 @@ You can use the following resource to learn more about Virtual Networks and the 
 
 - [Cloud Service (classic) Configuration Schema](schema-cscfg-file.md)
 - [Cloud Service (classic) Definition Schema](schema-csdef-file.md)
-- [Create a Virtual Network (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)
+- [Create a Virtual Network (classic)](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal)
 
 ## NetworkConfiguration Element
 The following example shows the `NetworkConfiguration` element and its child elements.

@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/08/2020
 ---
 
 # Azure HDInsight business continuity
@@ -34,7 +34,7 @@ This section discusses a few best practices for you to consider during business 
 
 * Use Azure monitoring tools on HDInsight to detect abnormal behavior in the cluster and set corresponding alert notifications. You can deploy the pre-configured HDInsight cluster-specific management solutions that collect important performance metrics of the specific cluster type. For more information, see [Azure Monitoring for HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md).  
 
-* Subscribe to Azure health alerts to be notified about service issues, planned maintenance, health and security advisories for a subscription, service, or region. Health notifications that include the issue cause and resolute ETA help you to better execute failover and failbacks. For more information, see [Azure Service Health documentation](/azure/service-health/).
+* Subscribe to Azure health alerts to be notified about service issues, planned maintenance, health and security advisories for a subscription, service, or region. Health notifications that include the issue cause and resolute ETA help you to better execute failover and failbacks. For more information, see [Azure Service Health documentation](../service-health/index.yml).
 
 ## Single region availability
 
@@ -79,7 +79,7 @@ It doesn't always take a catastrophic event to impact business functionality. Se
 
 ### HDInsight metastore
 
-HDInsight uses [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) as a metastore, which provides an SLA of 99.99%. Three replicas of data persist within a data center with asynchronous replication. If there is a replica loss, an alternate replica is served seamlessly. [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) is supported out of the box with a maximum of four data centers. When there is a failover, either manual or data center, the first replica in the hierarchy will automatically become read-write capable. For more information, see [Azure SQL Database business continuity](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
+HDInsight uses [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) as a metastore, which provides an SLA of 99.99%. Three replicas of data persist within a data center with synchronous replication. If there is a replica loss, an alternate replica is served seamlessly. [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) is supported out of the box with a maximum of four data centers. When there is a failover, either manual or data center, the first replica in the hierarchy will automatically become read-write capable. For more information, see [Azure SQL Database business continuity](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 ### HDInsight Storage
 
@@ -107,7 +107,7 @@ Improving business continuity using cross region high availability disaster reco
 |----|------------------------|-----------------------|
 |Data Storage|Duplicating primary data/tables in a secondary region|Replicate only curated data|
 |Data Egress|Outbound cross region data transfers come at a price. Review Bandwidth pricing guidelines|Replicate only curated data to reduce the region egress footprint|
-|Cluster Compute|Additional HDInsight cluster/s in secondary region|Use automated scripts to deploy secondary compute after primary failure.<\br><\br>Use Autoscaling to keep secondary cluster size to a minimum.<\br><\br>Use cheaper VM SKUs.<\br><\br> Create secondaries in regions where VM SKUs may be discounted.|
+|Cluster Compute|Additional HDInsight cluster/s in secondary region|Use automated scripts to deploy secondary compute after primary failure. Use Autoscaling to keep secondary cluster size to a minimum. Use cheaper VM SKUs. Create secondaries in regions where VM SKUs may be discounted.|
 |Authentication |Multiuser scenarios in secondary region will incur additional Azure AD DS setups|Avoid multiuser setups in secondary region.|
 
 ### Complexity optimizations
@@ -123,8 +123,6 @@ Improving business continuity using cross region high availability disaster reco
 
 To learn more about the items discussed in this article, see:
 
-* [Apache Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
-* [Install and configure Azure PowerShell module Az](/powershell/azure/)
-* [Manage HDInsight using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
+* [Azure HDInsight business continuity architectures](./hdinsight-business-continuity-architecture.md)
+* [Azure HDInsight highly available solution architecture case study](./hdinsight-high-availability-case-study.md)
+* [What is Apache Hive and HiveQL on Azure HDInsight?](./hadoop/hdinsight-use-hive.md)

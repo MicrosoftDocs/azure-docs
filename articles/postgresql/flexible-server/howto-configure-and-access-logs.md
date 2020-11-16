@@ -39,7 +39,7 @@ To enable resource logs using PowerShell, CLI, or REST API, visit the [diagnosti
 
 ### Access resource logs
 
-The way you access the logs depends on which endpoint you choose. For Azure Storage, see the [logs storage account](../../azure-monitor/platform/resource-logs-collect-storage.md) article. For Event Hubs, see the [stream Azure logs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) article.
+The way you access the logs depends on which endpoint you choose. For Azure Storage, see the [logs storage account](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) article. For Event Hubs, see the [stream Azure logs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) article.
 
 For Azure Monitor Logs, logs are sent to the workspace you selected. The Postgres logs use the **AzureDiagnostics** collection mode, so they can be queried from the AzureDiagnostics table. The fields in the table are described below. Learn more about querying and alerting in the [Azure Monitor Logs query](../../azure-monitor/log-query/log-query-overview.md) overview.
 
@@ -66,5 +66,5 @@ The query above will show results over the last 6 hours for any Postgres server 
 
 ## Next steps
 
-- [Get started with log analytics queries](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
-- Learn about [Azure event hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about)
+- [Get started with log analytics queries](../../azure-monitor/log-query/get-started-portal.md)
+- Learn about [Azure event hubs](../../event-hubs/event-hubs-about.md)

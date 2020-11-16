@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/04/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -82,6 +82,16 @@ The following example shows the Key Descriptor section of the SAML metadata used
 
 The **Name** attribute of the Protocol element needs to be set to `SAML2`.
 
+## Input claims
+
+The **InputClaims** element is used to send a **NameId** within the **Subject** of the SAML AuthN Request. To achieve this add an input claim with a **PartnerClaimType** set to `subject` as shown below.
+
+```xml
+<InputClaims>
+	<InputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="subject" />
+</InputClaims>
+```
+
 ## Output claims
 
 The **OutputClaims** element contains a list of claims returned by the SAML identity provider under the `AttributeStatement` section. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider as long as you set the `DefaultValue` attribute.
@@ -144,7 +154,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 | --------- | -------- | ----------- |
 | PartnerEntity | Yes | URL of the metadata of the SAML identity provider. Copy the identity provider metadata and add it inside the CDATA element `<![CDATA[Your IDP metadata]]>` |
 | WantsSignedRequests | No | Indicates whether the technical profile requires all of the outgoing authentication requests to be signed. Possible values: `true` or `false`. The default value is `true`. When the value is set to `true`, the **SamlMessageSigning** cryptographic key needs to be specified and all of the outgoing authentication requests are signed. If the value is set to `false`, the **SigAlg** and **Signature** parameters (query string or post parameter) are omitted from the request. This metadata also controls the metadata **AuthnRequestsSigned** attribute, which is output in the metadata of the Azure AD B2C technical profile that is shared with the identity provider. Azure AD B2C doesn't sign the request if the value of **WantsSignedRequests** in the technical profile metadata is set to `false` and the identity provider metadata **WantAuthnRequestsSigned** is set to `false` or not specified. |
-| XmlSignatureAlgorithm | No | The method that Azure AD B2C uses to sign the SAML request. This metadata controls the value of the  **SigAlg** parameter (query string or post parameter) in the SAML request. Possible values: `Sha256`, `Sha384`, `Sha512`, or `Sha1`. Make sure you configure the signature algorithm on both sides with same value. Use only the algorithm that your certificate supports. |
+| XmlSignatureAlgorithm | No | The method that Azure AD B2C uses to sign the SAML request. This metadata controls the value of the  **SigAlg** parameter (query string or post parameter) in the SAML request. Possible values: `Sha256`, `Sha384`, `Sha512`, or `Sha1` (default). Make sure you configure the signature algorithm on both sides with same value. Use only the algorithm that your certificate supports. |
 | WantsSignedAssertions | No | Indicates whether the technical profile requires all incoming assertions to be signed. Possible values: `true` or `false`. The default value is `true`. If the value is set to `true`, all assertions section `saml:Assertion` sent by the identity provider to Azure AD B2C must be signed. If the value is set to `false`,  the identity provider shouldn’t sign the assertions, but even if it does, Azure AD B2C won’t validate the signature. This metadata also controls the metadata flag **WantsAssertionsSigned**, which is output in the metadata of the Azure AD B2C technical profile that is shared with the identity provider. If you disable the assertions validation, you also may want to disable the response signature validation (for more information, see **ResponsesSigned**). |
 | ResponsesSigned | No | Possible values: `true` or `false`. The default value is `true`. If the value is set to `false`, the identity provider shouldn’t sign the SAML response, but even if it does, Azure AD B2C won’t validate the signature. If the value is set to `true`, the SAML response sent by the identity provider to Azure AD B2C is signed and must be validated. If you disable the SAML response validation, you also may want to disable the assertion signature validation (for more information, see **WantsSignedAssertions**). |
 | WantsEncryptedAssertions | No | Indicates whether the technical profile requires all incoming assertions to be encrypted. Possible values: `true` or `false`. The default value is `false`. If the value is set to `true`, assertions sent by the identity provider to Azure AD B2C must be signed and the **SamlAssertionDecryption** cryptographic key needs to be specified. If the value is set to `true`, the metadata of the Azure AD B2C technical profile includes the **encryption** section. The identity provider reads the metadata and encrypts the SAML response assertion with the public key that is provided in the metadata of the Azure AD B2C technical profile. If you enable the assertions encryption, you also may need to disable the response signature validation (for more information, see **ResponsesSigned**). |
@@ -162,7 +172,7 @@ The **CryptographicKeys** element contains the following attributes:
 | Attribute |Required | Description |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Yes | The X509 certificate (RSA key set) to use to sign SAML messages. Azure AD B2C uses this key to sign the requests and send them to the identity provider. |
-| SamlAssertionDecryption |Yes | The X509 certificate (RSA key set) to use to decrypt SAML messages. This certificate should be provided by the identity provider. Azure AD B2C uses this certificate to decrypt the data sent by the identity provider. |
+| SamlAssertionDecryption |No | The X509 certificate (RSA key set). A SAML identity provider uses the public portion of the certificate to encrypt the assertion of the SAML response. Azure AD B2C uses the private portion of the certificate to decrypt the assertion. |
 | MetadataSigning |No | The X509 certificate (RSA key set) to use to sign SAML metadata. Azure AD B2C uses this key to sign the metadata.  |
 
 ## SAML entityID customization

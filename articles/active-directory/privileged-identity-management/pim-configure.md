@@ -101,5 +101,5 @@ For information about licenses for users, see [License requirements to use Privi
 ## Next steps
 
 - [License requirements to use Privileged Identity Management](subscription-requirements.md)
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Securing privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 - [Deploy Privileged Identity Management](pim-deployment-plan.md)

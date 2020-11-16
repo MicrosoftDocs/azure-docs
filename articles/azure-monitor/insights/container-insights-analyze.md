@@ -286,9 +286,13 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |
 
+## Monitor and visualize network configurations
+Azure Network Policy Manager includes informative Prometheus metrics that allow you to monitor and better understand your network configurations. It provides built-in visualizations in either the Azure portal or Grafana Labs. For details, see [Monitor and Visualize Network Configurations with Azure NPM](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
+
+
 ## Workbooks
 
-Workbooks combine text, [log queries](../log-query/query-language.md), [metrics](../platform/data-platform-metrics.md), and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
+Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), [metrics](../platform/data-platform-metrics.md), and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
 Azure Monitor for containers includes four workbooks to get you started:
 
@@ -316,8 +320,8 @@ You access these workbooks by selecting each one from the **View Workbooks** dro
 
 ## Next steps
 
-- Review [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
+- Review [Create performance alerts with Azure Monitor for containers](./container-insights-log-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
 
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see predefined queries and examples to evaluate or customize to alert, visualize, or analyze your clusters.
 
-- View [monitor cluster health](container-insights-health.md) to learn about viewing the health status your Kubernetes cluster.
+- View [monitor cluster health](./container-insights-overview.md) to learn about viewing the health status your Kubernetes cluster.

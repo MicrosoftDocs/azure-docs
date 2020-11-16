@@ -19,7 +19,7 @@ This article gives a few examples of business continuity architectures you might
 
 ## Apache Hive and Interactive Query
 
-[Hive Replication V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) is the recommended for business continuity in HDInsight Hive and Interactive query clusters. The persistent sections of a standalone Hive cluster that need to be replicated are the Storage Layer and the Hive metastore. Hive clusters in a multi-user scenario with Enterprise Security Package need Azure Active Directory Domain Services and Ranger Metastore.
+[Hive Replication V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) is recommended for business continuity in HDInsight Hive and Interactive query clusters. The persistent sections of a standalone Hive cluster that need to be replicated are the Storage Layer and the Hive metastore. Hive clusters in a multi-user scenario with Enterprise Security Package need Azure Active Directory Domain Services and Ranger Metastore.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/hive-interactive-query.png" alt-text="Hive and interactive query architecture":::
 
@@ -52,6 +52,8 @@ In an *active primary with on-demand secondary* architecture, applications write
 In an *active primary with standby secondary*, applications write to the active primary region while a standby scaled down secondary cluster in read-only mode runs during normal operations. During normal operations, you could choose to offload region specific read operations to secondary.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="active primary with standby secondary":::
+
+For more information on Hive replication and code samples refer [Apache Hive replication in Azure HDInsight clusters](./interactive-query/apache-hive-replication.md)
 
 ## Apache Spark
 
@@ -90,7 +92,7 @@ Applications read and write to Spark and Hive clusters in the primary region whi
 
 HBase Export and HBase Replication are common ways of enabling business continuity between HDInsight HBase clusters.
 
-HBase Export is a batch replication process that uses the HBase Export Utility to export tables from the primary HBase cluster to its underlying Azure Data Lake Storage Gen 2 storage. The exported data can then be accessed from the secondary HBase cluster and imported into tables which must preexist in the secondary. While HBase Export does offer table level granularity, in incremental update situations, the export automation engine controls the range of incremental rows to include in each run. For more information, see [HDInsight HBase Backup and Replication](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#export-then-import).
+HBase Export is a batch replication process that uses the HBase Export Utility to export tables from the primary HBase cluster to its underlying Azure Data Lake Storage Gen 2 storage. The exported data can then be accessed from the secondary HBase cluster and imported into tables which must preexist in the secondary. While HBase Export does offer table level granularity, in incremental update situations, the export automation engine controls the range of incremental rows to include in each run. For more information, see [HDInsight HBase Backup and Replication](./hbase/apache-hbase-backup-replication.md#export-then-import).
 
 HBase Replication uses near real-time replication between HBase clusters in a fully automated manner. Replication is done at the table level. Either all tables or specific tables can be targeted for replication. HBase replication is eventually consistent, meaning that recent edits to a table in the primary region may not be available to all the secondaries immediately. Secondaries are guaranteed to eventually become consistent with the primary. HBase replication can be set up between two or more HDInsight HBase clusters if:
 
@@ -98,9 +100,9 @@ HBase Replication uses near real-time replication between HBase clusters in a fu
 * Primary and secondary are in different peered VNets in the same region.
 * Primary and secondary are in different peered VNets in different regions.
 
-For more information, see [Set up Apache HBase cluster replication in Azure virtual networks](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-replication).
+For more information, see [Set up Apache HBase cluster replication in Azure virtual networks](./hbase/apache-hbase-replication.md).
 
-There are a few other ways of performing backups of HBase clusters like [copying the hbase folder](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-the-hbase-folder), [copy tables](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-tables) and [Snapshots](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#snapshots).
+There are a few other ways of performing backups of HBase clusters like [copying the hbase folder](./hbase/apache-hbase-backup-replication.md#copy-the-hbase-folder), [copy tables](./hbase/apache-hbase-backup-replication.md#copy-tables) and [Snapshots](./hbase/apache-hbase-backup-replication.md#snapshots).
 
 ### HBase RPO & RTO
 
@@ -140,7 +142,7 @@ The Multi-Region/Cyclic replication model is an extension of HBase Replication a
 
 ## Apache Kafka
 
-To enable cross region availability HDInsight 4.0 supports Kafka MirrorMaker which can be used to maintain a secondary replica of the primary Kafka cluster in a different region. MirrorMaker acts as a high-level consumer-producer pair, consumes from a specific topic in the primary cluster and produces to a topic with the same name in the secondary. Cross cluster replication for high availability disaster recovery using MirrorMaker comes with the assumption that Producers and Consumers need to fail over to the replica cluster. For more information, see [Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-mirroring)
+To enable cross region availability HDInsight 4.0 supports Kafka MirrorMaker which can be used to maintain a secondary replica of the primary Kafka cluster in a different region. MirrorMaker acts as a high-level consumer-producer pair, consumes from a specific topic in the primary cluster and produces to a topic with the same name in the secondary. Cross cluster replication for high availability disaster recovery using MirrorMaker comes with the assumption that Producers and Consumers need to fail over to the replica cluster. For more information, see [Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight](./kafka/apache-kafka-mirroring.md)
 
 Depending on the topic lifetime when replication started, MirrorMaker topic replication can lead to different offsets between source and replica topics. HDInsight Kafka clusters also support topic partition replication which is a high availability feature at the individual cluster level.
 
@@ -185,7 +187,7 @@ Disadvantages:
 
 ## HDInsight Enterprise Security Package
 
-This set up is used to enable multi-user functionality in both primary and secondary, as well as [Azure AD DS replica sets](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-replica-set) to ensure that users can authenticate to both clusters. During normal operations, Ranger policies need to be set up in the Secondary to ensure that users are restricted to Read operations. The below architecture explains how an ESP enabled Hive Active Primary – Standby Secondary set up might look.
+This set up is used to enable multi-user functionality in both primary and secondary, as well as [Azure AD DS replica sets](../active-directory-domain-services/tutorial-create-replica-set.md) to ensure that users can authenticate to both clusters. During normal operations, Ranger policies need to be set up in the Secondary to ensure that users are restricted to Read operations. The below architecture explains how an ESP enabled Hive Active Primary – Standby Secondary set up might look.
 
 Ranger Metastore replication:
 
@@ -201,8 +203,6 @@ Replicating Ranger policies between primary and secondary can cause the secondar
 
 To learn more about the items discussed in this article, see:
 
-* [Apache Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
-* [Install and configure Azure PowerShell module Az](/powershell/azure/)
-* [Manage HDInsight using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
+* [Azure HDInsight business continuity](./hdinsight-business-continuity.md)
+* [Azure HDInsight highly available solution architecture case study](./hdinsight-high-availability-case-study.md)
+* [What is Apache Hive and HiveQL on Azure HDInsight?](./hadoop/hdinsight-use-hive.md)

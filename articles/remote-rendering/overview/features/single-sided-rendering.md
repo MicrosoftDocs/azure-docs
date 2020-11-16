@@ -63,8 +63,8 @@ void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
 
 ## API documentation
 
-* [C# RemoteManager.SingleSidedSettings property](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.singlesidedsettings)
-* [C++ RemoteManager::SingleSidedSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#singlesidedsettings)
+* [C# RemoteManager.SingleSidedSettings property](/dotnet/api/microsoft.azure.remoterendering.remotemanager.singlesidedsettings)
+* [C++ RemoteManager::SingleSidedSettings()](/cpp/api/remote-rendering/remotemanager#singlesidedsettings)
 
 ## Next steps
 

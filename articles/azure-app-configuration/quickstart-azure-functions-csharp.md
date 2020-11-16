@@ -116,7 +116,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it with an Azure Functions app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn how to configure your Azure Functions app to dynamically refresh configuration settings, continue to the next tutorial.
+In this quickstart, you created a new App Configuration store and used it with an Azure Functions app via the [App Configuration provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). To learn how to configure your Azure Functions app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-azure-functions-csharp.md)

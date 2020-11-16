@@ -20,6 +20,12 @@
     items:
     - name: Create an execution plan
       href: example-terraform-bash.md
+- name: Concepts
+  items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: PowerShell Cloud Shell for Windows users

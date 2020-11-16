@@ -29,7 +29,7 @@ To create a PostgreSQL Hyperscale server group, you need to create a Kubernetes 
 
 ## Create a yaml file
 
-You can use the [template yaml](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/postsgresql.yaml) file as a starting point to create your own custom PostgreSQL Hyperscale server group yaml file.  Download this file to your local computer and open it in a text editor.  It is useful to use a text editor such as [VS Code](https://code.visualstudio.com/download) that support syntax highlighting and linting for yaml files.
+You can use the [template yaml](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/postgresql.yaml) file as a starting point to create your own custom PostgreSQL Hyperscale server group yaml file.  Download this file to your local computer and open it in a text editor.  It is useful to use a text editor such as [VS Code](https://code.visualstudio.com/download) that support syntax highlighting and linting for yaml files.
 
 This is an example yaml file:
 

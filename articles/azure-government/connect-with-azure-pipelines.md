@@ -20,7 +20,7 @@ This article helps you use Azure Pipelines to set up continuous integration (CI)
 > [!NOTE]
 > Azure Pipelines is not available as part of Azure Government. While this tutorial shows how to configure the CI/CD capabilities of Azure Pipelines in order to deploy an app to a service inside Azure Government, be aware that Azure Pipelines runs its pipelines outside of Azure Government. Research your organization's security and service policies before using it as part of your deployment tools. 
 
-[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=vsts) is used by teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=vsts) for Azure Government. 
+[Azure Pipelines](/azure/devops/pipelines/get-started/?view=vsts) is used by teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](/azure/devops/pipelines/library/service-endpoints?view=vsts) for Azure Government. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,9 +28,9 @@ This article helps you use Azure Pipelines to set up continuous integration (CI)
 
 Before starting this tutorial, you must have the following:
 
-+ [Create an organization in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=vsts)
-+ [Create and add a project to the Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&%3Bbc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&view=vsts&tabs=new-nav)
-+ Install and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps)
++ [Create an organization in Azure DevOps](/azure/devops/organizations/accounts/create-organization?view=vsts)
++ [Create and add a project to the Azure DevOps organization](/azure/devops/organizations/projects/create-project?;bc=%252fazure%252fdevops%252fuser-guide%252fbreadcrumb%252ftoc.json&tabs=new-nav&toc=%252fazure%252fdevops%252fuser-guide%252ftoc.json&view=vsts)
++ Install and set up [Azure Powershell](/powershell/azure/install-az-ps)
 
 If you don't have an active Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
@@ -43,9 +43,9 @@ The following steps will set up a CD process to deploy to this Web App.
 
 Follow through one of the quickstarts below to set up a Build for your specific type of app: 
 
-- [ASP.NET 4 app](https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4?view=vsts)
-- [ASP.NET Core app](https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core?view=vsts&tabs=yaml)
-- [Node.js app with Gulp](https://docs.microsoft.com/azure/devops/pipelines/languages/javascript?view=vsts&tabs=yaml)
+- [ASP.NET 4 app](/azure/devops/pipelines/apps/aspnet/build-aspnet-4?view=vsts)
+- [ASP.NET Core app](/azure/devops/pipelines/languages/dotnet-core?tabs=yaml&view=vsts)
+- [Node.js app with Gulp](/azure/devops/pipelines/languages/javascript?tabs=yaml&view=vsts)
 
 ## Generate a service principal 
 
@@ -76,18 +76,18 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 
 ## Configure the Azure Pipelines service connection
 
-Follow the instructions in [Service connections for builds and releases](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) to set up the Azure Pipelines service connection. 
+Follow the instructions in [Service connections for builds and releases](/azure/devops/pipelines/library/service-endpoints) to set up the Azure Pipelines service connection. 
 
-Make one change specific to Azure Government: In step #3 of [Service connections for builds and releases](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=vsts), click on "use the full version of the service connection catalog" and set **Environment** to **AzureUSGovernment**.
+Make one change specific to Azure Government: In step #3 of [Service connections for builds and releases](/azure/devops/pipelines/library/service-endpoints?view=vsts), click on "use the full version of the service connection catalog" and set **Environment** to **AzureUSGovernment**.
 
 ## Define a release process
 
-Follow [Deploy a web app to Azure App Services](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=vsts) instructions to set up your release pipeline and deploy to your application in Azure Government.
+Follow [Deploy a web app to Azure App Services](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=vsts) instructions to set up your release pipeline and deploy to your application in Azure Government.
 
 ## Q&A
 
 Q: Do I need a build agent?<br/>
-A: You need at least one [agent](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts) to run your deployments. By default, the build and deployment processes are configured to use the [hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts#microsoft-hosted-agents). Configuring a private agent would limit data sharing outside of Azure Government.
+A: You need at least one [agent](/azure/devops/pipelines/agents/agents?view=vsts) to run your deployments. By default, the build and deployment processes are configured to use the [hosted agents](/azure/devops/pipelines/agents/agents?view=vsts#microsoft-hosted-agents). Configuring a private agent would limit data sharing outside of Azure Government.
 
 Q: I use Team Foundation Server on-premises. Can I configure CD on my server to target Azure Government?<br/>
 A: Currently, Team Foundation Server cannot be used to deploy to an Azure Government Cloud.

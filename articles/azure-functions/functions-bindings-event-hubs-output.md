@@ -18,4 +18,4 @@ For information on setup and configuration details, see the [overview](functions
 
 ## Next steps
 
-- [Respond to events sent to an event hub event stream (Trigger)](./functions-bindings-storage-blob-trigger.md)
+- [Respond to events sent to an event hub event stream (Trigger)](./functions-bindings-event-hubs-trigger.md)

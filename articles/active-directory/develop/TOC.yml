@@ -4,6 +4,8 @@
   items:
   - name: What is Microsoft identity platform?
     href: v2-overview.md
+  - name: What's new in docs?
+    href: whats-new-docs.md
 - name: Quickstarts
   expanded: true
   items:
@@ -36,7 +38,9 @@
       href: quickstart-v2-aspnet-webapp.md
     - name: ASP.NET Core
       href: quickstart-v2-aspnet-core-webapp.md
-    - name: NodeJS
+    - name: Node.js - MSAL | Preview
+      href: quickstart-v2-nodejs-webapp-msal.md
+    - name: Node.js - Passport.js
       href: quickstart-v2-nodejs-webapp.md
       displayName: OIDC
     - name: Java
@@ -73,6 +77,8 @@
     items:
     - name: Angular
       href: tutorial-v2-angular.md
+    - name: Blazor WebAssembly
+      href: tutorial-blazor-webassembly.md
     - name: JavaScript - Auth code flow
       href: tutorial-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
@@ -121,6 +127,9 @@
     href: authentication-flows-app-scenarios.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
+  - name: Mobile single sign-on (SSO)
+    href: mobile-sso-support-overview.md
+    displayName: android, ios
   - name: Application scenarios
     displayName: App scenarios
     items:
@@ -289,10 +298,8 @@
       items:
         - name: Accounts and tenant profiles
           href: accounts-overview.md
-        - name: Authorization agents
-          href: authorization-agents.md
-        - name: Brokered auth
-          href: brokered-auth.md
+        - name: SSO with MSAL Android
+          href: msal-android-single-sign-on.md
         - name: Integrate with Azure AD B2C
           href: msal-android-b2c.md
         - name: Migrate to MSAL.Android
@@ -552,6 +559,7 @@
       href: howto-add-branding-in-azure-ad-apps.md
     - name: Configure publisher domain
       href: howto-configure-publisher-domain.md
+      displayName: verified domain, verified publisher domain
     - name: Configure Terms of Service and Privacy Statement
       href: howto-add-terms-of-service-privacy-statement.md
     - name: Configure publisher verification for your app

@@ -3,8 +3,8 @@ title: "Tutorial: Use Debug sessions to diagnose, fix, and commit changes to you
 titleSuffix: Azure Cognitive Search
 description: Debug sessions (preview) provide a portal-based interface to assess and repair issues/errors in your skillsets
 
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 manager: nitinme
 
 ms.service: cognitive-search

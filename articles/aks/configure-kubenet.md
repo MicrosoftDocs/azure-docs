@@ -52,8 +52,8 @@ With *Azure CNI*, each pod receives an IP address in the IP subnet, and can dire
 * Unlike Azure CNI clusters, multiple kubenet clusters can't share a subnet.
 * Features **not supported on kubenet** include:
    * [Azure network policies](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), but Calico network policies are supported on kubenet
-   * [Windows node pools](windows-node-limitations.md)
-   * [Virtual nodes add-on](virtual-nodes-portal.md#known-limitations)
+   * [Windows node pools](./windows-faq.md)
+   * [Virtual nodes add-on](virtual-nodes.md#network-requirements)
 
 ### IP address availability and exhaustion
 

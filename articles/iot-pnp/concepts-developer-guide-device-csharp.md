@@ -55,7 +55,7 @@ When using nested components, devices must set a message property with the compo
 public async Task SendComponentTelemetryValueAsync(string componentName, string serializedTelemetry)
 {
   var message = new Message(Encoding.UTF8.GetBytes(serializedTelemetry));
-  message.Properties.Add("$.sub", componentName);
+  message.ComponentName = componentName;
   message.ContentType = "application/json";
   message.ContentEncoding = "utf-8";
   await client.SendEventAsync(message);

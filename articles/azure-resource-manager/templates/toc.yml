@@ -19,7 +19,7 @@
       - name: Cognitive Search
         href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Cognitive Services
-        href: ../../cognitive-services/resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%252fazure%252fazure-resource-manager%252ftemplates%252ftoc.json
       - name: Data Science Virtual Machine
         href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Machine Learning
@@ -48,7 +48,7 @@
         href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Stream Analytics
         href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-      - name: Synapse Analytics
+      - name: Synapse Analytics SQL pool
         href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Blockchain
       items:
@@ -80,14 +80,20 @@
         href: ../../service-fabric/quickstart-cluster-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Databases
       items:
+      - name: Cache for Redis
+        href: ../../azure-cache-for-redis/cache-redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Cosmos DB
         href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Database for MariaDB
         href: ../../mariadb/quickstart-create-mariadb-server-database-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Database for MySQL
         href: ../../mysql/quickstart-create-mysql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Database for MySQL - Flexible Server
+        href: ../../mysql/flexible-server/quickstart-create-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Database for PostgreSQL
         href: ../../postgresql/quickstart-create-postgresql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Database for PostgreSQL - Flexible Server
+        href: ../../postgresql/flexible-server/quickstart-create-server-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Database Migration Service
         href: ../../dms/create-dms-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: SQL Database
@@ -98,12 +104,16 @@
         href: ../../azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: DevOps
       items:
+      - name: App Configuration
+        href: ../../azure-app-configuration/quickstart-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: DevTest Labs
         href: ../../devtest-labs/create-lab-windows-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Pipelines
         href: /azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Integration
       items:
+      - name: API for FHIR
+        href: ../../healthcare-apis/fhir-paas-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Event Grid
         href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Logic Apps
@@ -114,6 +124,8 @@
       items:
       - name: IoT Edge
         href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: IoT Hub
+        href: ../../iot-hub/horizontal-arm-route-messages.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Management and Governance
       items:
       - name: Advisor
@@ -134,7 +146,9 @@
         href: ../../azure-portal/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Resource Graph
         href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-      - name: Azure role-based access control (Azure RBAC)
+      - name: Role-based access control - custom roles
+        href: ../../role-based-access-control/custom-roles-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Role-based access control - role assignment
         href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Service Health
         href: ../../service-health/alerts-activity-log-service-notifications-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
@@ -146,6 +160,10 @@
         href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Content Delivery Network
         href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: DNS
+        href: ../../dns/dns-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: ExpressRoute
+        href: ../../expressroute/quickstart-create-expressroute-vnet-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Firewall - Availability Zones
         href: ../../firewall/deploy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Firewall - IP Groups
@@ -154,26 +172,48 @@
         href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Firewall Manager
         href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
-      - name: Load Balancer
+      - name: Front Door
+        href: ../../frontdoor/quickstart-create-front-door-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Load Balancer - internal
+        href: ../../load-balancer/quickstart-load-balancer-standard-internal-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Load Balancer - public
         href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: NAT gateway
+        href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Private Endpoint
         href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Private Link service
         href: ../../private-link/create-private-link-service-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Traffic Manager
+        href: ../../traffic-manager/quickstart-create-traffic-manager-profile-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Web Application Firewall
         href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Security
       items:
-      - name: Key Vault
+      - name: Attestation
+        href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Key Vault - key
+        href: ../../key-vault/keys/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Key Vault - secret
         href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Security Center
+        href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Storage
       items:
+      - name: Data Share
+        href: ../../data-share/share-your-data-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Storage account
         href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Web
       items:
+      - name: API Management
+        href: ../../api-management/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: App Service
+        href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Notification Hubs
         href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: SignalR Service
+        href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutorials
   items:
   - name: Beginner templates
@@ -323,36 +363,42 @@
       - name: Outputs
         displayName: iteration,copy
         href: copy-outputs.md
-  - name: Discover template properties
-    items:
-    - name: Export template
-      href: export-template-portal.md
-    - name: Discover resources
-      href: view-resources.md
-  - name: Validate templates
-    items:
-    - name: What-if deployment
-      href: template-deploy-what-if.md
-    - name: Test toolkit
-      href: test-toolkit.md
-    - name: Test cases
-      href: test-cases.md
   - name: Deploy templates
     items:
-    - name: Deploy - portal
-      displayName: deployment
-      href: deploy-portal.md
-    - name: Deploy - CLI
-      displayName: deployment
-      href: deploy-cli.md
-    - name: Deploy - PowerShell
-      displayName: deployment
-      href: deploy-powershell.md
-    - name: Deploy - REST API
-      displayName: deployment
-      href: deploy-rest.md
-    - name: Deploy from GitHub
-      href: deploy-to-azure-button.md
+    - name: Deployment operations
+      items:
+      - name: Deploy - portal
+        displayName: deployment
+        href: deploy-portal.md
+      - name: Deploy - CLI
+        displayName: deployment
+        href: deploy-cli.md
+      - name: Deploy - PowerShell
+        displayName: deployment
+        href: deploy-powershell.md
+      - name: Deploy - REST API
+        displayName: deployment
+        href: deploy-rest.md
+      - name: Deploy - GitHub
+        href: deploy-to-azure-button.md
+      - name: Deploy - Cloud Shell
+        href: deploy-cloud-shell.md
+    - name: Scopes
+      items:
+      - name: Resource group
+        href: deploy-to-resource-group.md
+      - name: Subscription
+        href: deploy-to-subscription.md
+      - name: Management group
+        href: deploy-to-management-group.md
+      - name: Tenant
+        href: deploy-to-tenant.md
+      - name: Extension resources
+        href: scope-extension-resources.md
+      - name: Functions across scopes
+        href: scope-functions.md
+    - name: What-if deployment
+      href: template-deploy-what-if.md
     - name: Redeploy on error
       displayName: rollback
       href: rollback-on-error.md
@@ -360,16 +406,6 @@
       href: secure-template-with-sas-token.md
     - name: View deployment history
       href: deployment-history.md
-  - name: Scoped deployments
-    items:
-    - name: Subscription
-      href: deploy-to-subscription.md
-    - name: Management group
-      href: deploy-to-management-group.md
-    - name: Tenant
-      href: deploy-to-tenant.md
-    - name: Cross scope deployments
-      href: cross-scope-deployment.md
   - name: Provide parameters
     items:
     - name: Create parameter file
@@ -377,12 +413,24 @@
     - name: Pass sensitive values
       displayname: key vault
       href: key-vault-parameter.md
+  - name: Test templates
+    items:
+    - name: Test toolkit
+      href: test-toolkit.md
+    - name: Test cases
+      href: test-cases.md
   - name: CI/CD
     items:
     - name: ARM templates with pipelines
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
       href: deploy-github-actions.md
+  - name: Discover template properties
+    items:
+    - name: Export template
+      href: export-template-portal.md
+    - name: Discover resources
+      href: view-resources.md
   - name: Use authoring tools
     items:
     - name: Visual Studio

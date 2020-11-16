@@ -16,6 +16,8 @@ In this article, you'll learn how to register a public application in Azure Acti
 
 Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page JavaScript applications that can't keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-azure-ad-client-app.md), but since public clients can't be trusted to hold an application secret, there's no need to add one.
 
+The quickstart provides general information about how to [register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
+
 ## App registrations in Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.
@@ -33,6 +35,18 @@ Client application registrations are Azure Active Directory representations of a
 2. Provide a reply URL. The reply URL is where authentication codes will be returned to the client application. You can add more reply URLs and edit existing ones later.
 
     ![Azure portal. New public App Registration.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
+
+
+To configure your [desktop](../active-directory/develop/scenario-desktop-app-registration.md), [mobile](../active-directory/develop/scenario-mobile-app-registration.md) or [single-page](../active-directory/develop/scenario-spa-app-registration.md) application as public application:
+
+1. In the [Azure portal](https://portal.azure.com), in **App registrations**, select your app, and then select **Authentication**.
+
+2. Select **Advanced settings** > **Default client type**. For **Treat application as a public client**, select **Yes**.
+
+3. For a single-page application, select **Access tokens** and **ID tokens** to enable implicit flow.
+
+   - If your application signs in users, select **ID tokens**.
+   - If your application also needs to call a protected web API, select **Access tokens**.
 
 ## API permissions
 

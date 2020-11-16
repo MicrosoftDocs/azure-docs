@@ -61,10 +61,10 @@ Now that the group is created, it can be associated with products and developers
 3. Press **Access control**.
 4. Click **+ Add group**.
 
-    ![Associate a group with a product](./media/api-management-howto-create-groups/groups002.png)
+    ![Screenshot that highlights the Add group button.](./media/api-management-howto-create-groups/groups002.png)
 5. Select the group you want to add.
 
-    ![Associate a group with a product](./media/api-management-howto-create-groups/groups003.png)
+    ![Screenshot that shows the selected group and highlights the Select button.](./media/api-management-howto-create-groups/groups003.png)
 
     To remove a group from the product, click **Delete**.
 
@@ -85,7 +85,7 @@ This section shows how to associate groups with members.
     ![Add a member](./media/api-management-howto-create-groups/groups005.png)
 3. Press **+Add** and select a member.
 
-    ![Add a member](./media/api-management-howto-create-groups/groups006.png)
+    ![Screenshot that highlights the Add button, the selected user, and the Select button.](./media/api-management-howto-create-groups/groups006.png)
 4. Press **Select**.
 
 Once the association is added between the developer and the group, you can view it in the **Users** tab.

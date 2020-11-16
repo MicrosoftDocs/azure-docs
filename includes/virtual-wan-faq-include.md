@@ -224,7 +224,7 @@ A virtual hub can propagate a learned default route to a virtual network/site-to
 If a Virtual Hub learns the same route from multiple remote hubs,  the order in which it decides is as follows:
 
 1. Longest prefix match.
-2. Local routes over interhub.
+2. Local routes over interhub (Virtual hub assigns 65520-65520 for interhub AS)
 3. Static routes over BGP: This is in context to the decision being made by Virtual Hub router. However if the decision maker is the VPN gateway where a site advertises routes via BGP or provides static address prefixes, static routes may be preferred over BGP routes.
 4. ExpressRoute (ER) over VPN: ER is preferred over VPN when the context is a local hub. Transit connectivity between ExpressRoute circuits is only available through Global Reach. Therefore in scenarios where ExpressRoute circuit is connected to one hub and there is another ExpressRoute circuit connected to a different hub with VPN connection, VPN may be preferred for inter-hub scenarios.
 5. AS path length.
@@ -255,6 +255,8 @@ Yes. This option is currently available via powershell only. Virtual WAN portal 
 ### Is there support for IPv6 in Virtual WAN?
 
 IPv6 is not supported in Virtual WAN hub and its gateways. If you have a VNet that has IPv4 and IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported. 
+
+For the point to site (user) VPN scenario with internet breakout via Azure Firewall, you will likely have to turn off IPv6 connectivity on your client device to force traffic to the Virtual WAN hub. This is because modern devices by default use IPv6 addresses by default.
 
 ### What is the recommended API version to be used by scripts automating various Virtual WAN functionalities?
 

@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40
 ---
 
 # Overview of Microsoft Authentication Library (MSAL)
-Microsoft Authentication Library (MSAL) enables developers to acquire [tokens](developer-glossary.md#security-token) from the Microsoft identity platform endpoint in order to access secured web APIs. These web APIs can be the Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL is available for .NET, JavaScript, Java, Python, Android, and iOS, which support many different application architectures and platforms.
+Microsoft Authentication Library (MSAL) enables developers to acquire [tokens](developer-glossary.md#security-token) from the Microsoft identity platform endpoint in order to authenticate users and access secured web APIs. It can be used to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS.
 
 MSAL gives you many ways to get tokens, with a consistent API for a number of platforms. Using MSAL provides the following benefits:
 

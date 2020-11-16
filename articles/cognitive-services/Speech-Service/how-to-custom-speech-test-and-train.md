@@ -54,7 +54,7 @@ Files should be grouped by type into a dataset and uploaded as a .zip file. Each
 
 To upload your data, navigate to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. From the portal, click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
 
-![Select audio from the Speech Portal](./media/custom-speech/custom-speech-select-audio.png)
+![Screenshot that highlights the Audio upload option from the Speech Portal.](./media/custom-speech/custom-speech-select-audio.png)
 
 Each dataset you upload must meet the requirements for the data type that you choose. Your data must be correctly formatted before it's uploaded. Correctly formatted data ensures it will be accurately processed by the Custom Speech service. Requirements are listed in the following sections.
 

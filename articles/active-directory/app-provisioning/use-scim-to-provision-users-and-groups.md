@@ -1,19 +1,20 @@
 ---
-title: Develop a SCIM endpoint for user provisioning to apps from Azure AD
-description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. Learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
+title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Azure AD
+description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. In this tutorial, you learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
+ms.custom: contperfq2
 ---
 
-# Build a SCIM endpoint and configure user provisioning with Azure AD
+# Tutorial - Build a SCIM endpoint and configure user provisioning with Azure AD
 
 As an application developer, you can use the System for Cross-Domain Identity Management (SCIM) user management API to enable automatic provisioning of users and groups between your application and Azure AD. This article describes how to build a SCIM endpoint and integrate with the Azure AD provisioning service. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
 
@@ -82,7 +83,8 @@ The schema defined above would be represented using the JSON payload below. Note
      "location":
  "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
    }
- ```
+}   
+```
 
 ### Table 2: Default user attribute mapping
 You can then use the table below to understand how the attributes your application requires could map to an attribute in Azure AD and the SCIM RFC. You can [customize](customize-application-attributes.md) how attributes are mapped between Azure AD and your SCIM endpoint. Note that you don't need to support both users and groups or all the attributes shown below. They are a reference for how attributes in Azure AD are often mapped to properties in the SCIM protocol. 
@@ -120,8 +122,7 @@ You can then use the table below to understand how the attributes your applicati
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
-There are several endpoints defined in the SCIM RFC. You can get started with the /User endpoint and then expand from there. The /Schemas endpoint is helpful when using custom attributes or if your schema changes frequently. It enables a client to retrieve the most up-to-date schema automatically. The /Bulk endpoint is especially helpful when supporting groups. The table below describes the various endpoints defined in the SCIM standard. 
- The /Schemas endpoint is helpful when using custom attributes or if your schema changes frequently. It enables a client to retrieve the most up to date schema automatically. The /Bulk endpoint is especially helpful when supporting groups. The table below describes the various endpoints defined in the SCIM standard. 
+There are several endpoints defined in the SCIM RFC. You can get started with the /User endpoint and then expand from there. The /Schemas endpoint is helpful when using custom attributes or if your schema changes frequently. It enables a client to retrieve the most up-to-date schema automatically. The /Bulk endpoint is especially helpful when supporting groups. The table below describes the various endpoints defined in the SCIM standard.
  
 ### Table 4: Determine the endpoints that you would like to develop
 |ENDPOINT|DESCRIPTION|
@@ -747,7 +748,7 @@ TLS 1.2 Cipher Suites minimum bar:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### IP Ranges
-The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. 
+The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. Note that you will need to review the IP range list carefully for computed addresses. An address such as '40.126.25.32' could be represented in the IP range list as  '40.126.0.0/18'. You can also programatically retrieve the IP range list using the following [API](/rest/api/virtualnetwork/servicetags/list).
 
 ## Step 3: Build a SCIM endpoint
 
