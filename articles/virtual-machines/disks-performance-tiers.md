@@ -10,7 +10,7 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Change your performance tier using the Azure PowerShell module or the Azure CLI
+# Change your performance tier using the Azure PowerShell module or the Azure CLI (preview)
 
 [!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 
