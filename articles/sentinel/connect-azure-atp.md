@@ -24,7 +24,7 @@ ms.author: yelevin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can stream logs from [Microsoft Defender for Identity](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) into Azure Sentinel with a single click.
+You can stream logs from [Microsoft Defender for Identity](/azure-advanced-threat-protection/what-is-atp) into Azure Sentinel with a single click.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ You can stream logs from [Microsoft Defender for Identity](https://docs.microsof
 
 ## Connect to Microsoft Defender for Identity
 
-Make sure the Microsoft Defender for Identity preview version is [enabled on your network](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1).
+Make sure the Microsoft Defender for Identity preview version is [enabled on your network](/azure-advanced-threat-protection/install-atp-step1).
 If Microsoft Defender for Identity is deployed and ingesting your data, the suspicious alerts can easily be streamed into Azure Sentinel. It may take up to 24 hours for the alerts to start streaming into Azure Sentinel.
 
 
@@ -54,4 +54,3 @@ If Microsoft Defender for Identity is deployed and ingesting your data, the susp
 In this document, you learned how to connect Microsoft Defender for Identity to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-

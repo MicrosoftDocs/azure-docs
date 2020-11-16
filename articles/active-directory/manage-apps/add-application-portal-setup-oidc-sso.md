@@ -55,7 +55,7 @@ To set up single sign-on for an application:
 
 
 > [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
 
 
 ## Clean up resources
