@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Quickstart: Deploy Azure Spring Cloud with Azure PowerShell
 
-This article describes how you can create an Azure Spring Cloud using the
+This article describes how you can create an instance of Azure Spring Cloud using the
 [Az.SpringCloud](/powershell/module/Az.SpringCloud) PowerShell module.
 
 ## Requirements
