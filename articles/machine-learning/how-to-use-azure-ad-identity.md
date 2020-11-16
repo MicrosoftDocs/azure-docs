@@ -1,21 +1,21 @@
 ---
-title: Use AAD identity with your web service
+title: Use Azure AD identity with your web service
 titleSuffix: Azure Machine Learning
-description: Use AAD identity with your web service in Azure Kubernetes Service to access cloud resources during scoring.
+description: Use Azure AD identity with your web service in Azure Kubernetes Service to access cloud resources during scoring.
 services: machine-learning
 ms.author: larryfr
 author: BlackMist
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 02/10/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to
 ---
 
 # Use Azure AD identity with your machine learning web service in Azure Kubernetes Service
 
-In this how-to, you learn how to assign an Azure Active Directory (AAD) identity to your deployed machine learning model in Azure Kubernetes Service. The [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) project allows applications to access cloud resources securely with AAD by using a [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) and Kubernetes primitives. This allows your web service to securely access your Azure resources without having to embed credentials or manage tokens directly inside your `score.py` script. This article explains the steps to create and install an Azure Identity in your Azure Kubernetes Service cluster and assign the identity to your deployed web service.
+In this how-to, you learn how to assign an Azure Active Directory (Azure AD) identity to your deployed machine learning model in Azure Kubernetes Service. The [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) project allows applications to access cloud resources securely with Azure AD by using a [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) and Kubernetes primitives. This allows your web service to securely access your Azure resources without having to embed credentials or manage tokens directly inside your `score.py` script. This article explains the steps to create and install an Azure Identity in your Azure Kubernetes Service cluster and assign the identity to your deployed web service.
 
 ## Prerequisites
 
@@ -35,15 +35,15 @@ In this how-to, you learn how to assign an Azure Active Directory (AAD) identity
 
     This command returns a value of `true` if RBAC is enabled. This value determines the command to use in the next step.
 
-1. Install [AAD Pod Identity](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/) in your AKS cluster.
+1. Install [Azure AD Pod Identity](https://azure.github.io/aad-pod-identity/docs/getting-started/installation/) in your AKS cluster.
 
-1. [Create an Identity on Azure](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#2-create-an-identity-on-azure) following the steps shown in AAD Pod Identity project page.
+1. [Create an Identity on Azure](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#2-create-an-identity-on-azure) following the steps shown in Azure AD Pod Identity project page.
 
-1. [Deploy AzureIdentity](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#3-deploy-azureidentity) following the steps shown in AAD Pod Identity project page.
+1. [Deploy AzureIdentity](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#3-deploy-azureidentity) following the steps shown in Azure AD Pod Identity project page.
 
-1. [Deploy AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#5-deploy-azureidentitybinding) following the steps shown in AAD Pod Identity project page.
+1. [Deploy AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/demo/standard_walkthrough/#5-deploy-azureidentitybinding) following the steps shown in Azure AD Pod Identity project page.
 
-1. If the Azure Identity created in the previous step is not in the same node resource group for your AKS cluster, follow the [Role Assignment](https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/#user-assigned-identities-that-are-not-within-the-node-resource-group) steps shown in AAD Pod Identity project page.
+1. If the Azure Identity created in the previous step is not in the same node resource group for your AKS cluster, follow the [Role Assignment](https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/#user-assigned-identities-that-are-not-within-the-node-resource-group) steps shown in Azure AD Pod Identity project page.
 
 ## Assign Azure Identity to machine learning web service
 
