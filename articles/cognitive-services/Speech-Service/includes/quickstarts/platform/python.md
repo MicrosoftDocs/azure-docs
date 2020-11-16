@@ -85,7 +85,7 @@ Updates to the Speech SDK Python package are distributed via PyPI and announced 
 If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
 Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
 
-If you have a problem, or you're missing a feature, see [Support and help options](~/articles/cognitive-services/speech-service/support.md).
+If you have a problem, or you're missing a feature, see [Support and help options](../../../../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## Next steps
 

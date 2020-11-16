@@ -40,7 +40,7 @@ ms.custom: "include file"
 
     7.  Click **Create** to create the StorSimple Device Manager.
 
-        ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
+        ![Create new service 2](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
 You are directed to the **Service** landing page. The service creation takes a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
 

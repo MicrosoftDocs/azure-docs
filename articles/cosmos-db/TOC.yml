@@ -56,7 +56,7 @@
           href: database-encryption-at-rest.md
         - name: Service tags
           href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Role-based access control
+        - name: Azure role-based access control
           displayName: rbac
           href: role-based-access-control.md
         - name: Azure Policy support
@@ -662,6 +662,8 @@
           href: how-to-time-to-live.md
         - name: Define unique keys
           href: how-to-define-unique-keys.md
+        - name: Perform transactional batch operations
+          href: transactional-batch.md
       - name: Performance
         items:
         - name: Query
@@ -701,6 +703,8 @@
           href: migrate-java-v4-sdk.md
         - name: Migrate to .NET V3 SDK
           href: migrate-dotnet-v3.md
+        - name: Migrate to .NET V2 SDK
+          href: migrate-dotnet-v2.md
       - name: Troubleshooting
         items:
         - name: Common errors

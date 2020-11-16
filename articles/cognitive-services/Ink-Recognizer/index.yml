@@ -44,11 +44,11 @@ landingContent:
     - linkListType: reference
       links:
         - text: REST API
-          url: https://go.microsoft.com/fwlink/?linkid=2089907
+          url: /rest/api/cognitiveservices/inkrecognizer/inkrecognizer
         - text: Azure PowerShell
-          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+          url: /powershell/module/az.cognitiveservices/#cognitive_services
         - text: Azure CLI
-          url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+          url: /cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
 
 - title: Samples
   linkLists:

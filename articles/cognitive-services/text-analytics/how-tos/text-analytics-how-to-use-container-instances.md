@@ -45,7 +45,7 @@ Learn how to deploy the Cognitive Services [Text Analytics][install-and-run-cont
 ## Next steps 
 
 * Use more [Cognitive Services Containers](../../cognitive-services-container-support.md)
-* Use the [Text Analytics Connected Service](../vs-text-connected-service.md)
+* Use the [Text Analytics Connected Service](../index.yml)
 
 [install-and-run-containers]: ./text-analytics-how-to-install-containers.md
 [container-instances]: https://docs.microsoft.com/azure/container-instances

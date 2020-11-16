@@ -66,7 +66,7 @@ This article provides step-by-step instructions for moving data into Azure Synap
   >
   >
 
-    To create a Synapse SQL pool with 6,000 DWUs, move the Performance slider all the way to the right:
+    To create a dedicated SQL pool with 6,000 DWUs, move the Performance slider all the way to the right:
 
     ![Performance slider](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
