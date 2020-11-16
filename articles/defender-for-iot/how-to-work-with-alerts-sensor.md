@@ -273,7 +273,7 @@ The asset or assets being muted will be displayed as an image in the alert. If t
 
 **Example 1**
 
-When muted, the event is ignored any time this primary (source) sends this secondary (destination) an illegal function code as defined by the vendor.
+When muted, the event is ignored any time this Master (source) sends this Slave (destination) an illegal function code as defined by the vendor.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/image172.png" alt-text="Secondary device received":::
 

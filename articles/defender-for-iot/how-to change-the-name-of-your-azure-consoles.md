@@ -1,6 +1,6 @@
 ---
 title: Change the name of your Azure consoles
-description: 
+description: This description is a filler and needs to be replaced
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: azure
 ---
 
-# Overview
+# Change the name of your Azure consoles
 
 ## Change the sensor name
 

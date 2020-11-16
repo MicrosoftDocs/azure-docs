@@ -1,6 +1,6 @@
 ---
 title: Integrations
-description: 
+description: This is a filler description that needs to fixed
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -9,7 +9,9 @@ ms.topic: article
 ms.service: azure
 ---
 
-## Integrations
+# Integrations
+
+## Overview
 
 You can expand Defender for IoT's capabilities by sharing both device and alert information with third-party systems. Integrations help enterprises bridge previously siloed security solutions to significantly enhance device visibility and threat intelligence, as well as accelerate the system wide responses and mitigate risks faster.
 

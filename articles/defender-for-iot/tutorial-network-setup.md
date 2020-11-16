@@ -725,7 +725,7 @@ If Yes what authentication method, you will use  
 
 Contact Active Directory administrator to create Active Directory site user/s groups or create local users. Make sure you have your users ready for the deployment day 
 
-### IIoT asset types in the network
+### IoT asset types in the network
 
 | Asset type | # of Assets in the network | Average Bandwidth |
 | --------------- | ------ | ----------------------- |

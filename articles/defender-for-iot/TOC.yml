@@ -50,8 +50,8 @@
 - name: Concepts
   items:
   - name: Key advantages
-    href: concept-key-advantages
-  - name: Airgapped networks
+    href: concept-key-advantages.md
+  - name: Air gapped networks
     href: concept-air-gapped-networks.md
   - name: Learning modes
     href: concept-learning-modes.md
@@ -60,7 +60,7 @@
   - name: Proprietary protocols
     href: concept-proprietary-protocols.md
   - name: High availability
-    href: concept-high-availability
+    href: concept-high-availability.md
   - name: Sensor console overview
     href: concept-sensor-console-overview.md
   - name: Security Module for Azure RTOS
@@ -134,7 +134,7 @@
       - name: Fortinet integration
         href: integration-fortinet.md
       - name: Forescout integration
-        href: integration-forsecout.md
+        href: integration-forescout.md
       - name: Cisco ISE pxGrid integration
         href: integration-cisco-ise-pxgrid.md
       - name: ClearPass integration
