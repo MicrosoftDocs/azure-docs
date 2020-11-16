@@ -426,8 +426,6 @@
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Convert resource classes to workload groups
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Upgrade to Gen2
-        href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Ingest and prepare data
       items:
       - name: Into the data warehouse
