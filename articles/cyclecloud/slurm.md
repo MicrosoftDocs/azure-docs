@@ -150,11 +150,11 @@ By default, this project uses a UID and GID of 11100 for the Slurm user and 1110
 To override the UID and GID, click the edit button for both the `scheduler` node:
 
 ::: moniker range="=cyclecloud-7"
-![Edit Scheduler](~/images_7x/slurmmasternodeedit.png "Edit Scheduler")
+![Edit Scheduler](~/images/version-7/slurmmasternodeedit.png "Edit Scheduler")
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-![Edit Scheduler](~/images_8x/slurmschednodeedit.png "Edit Scheduler")
+![Edit Scheduler](~/images/version-8/slurmschednodeedit.png "Edit Scheduler")
 ::: moniker-end
 
 And the `execute` nodearray:

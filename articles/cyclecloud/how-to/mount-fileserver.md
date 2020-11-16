@@ -16,7 +16,7 @@ The NFS can be another resource managed by CycleCloud or an external resource.
 
 The default cluster templates for each scheduler includes a section for configuring NFS options when creating a clsuter.
 
-:::image type="content" source="../images_8x/quickstart-networkattachedstorage-settings.png" alt-text="New Cluster Network Attached Storage Settings screen":::
+:::image type="content" source="../images/version-8/quickstart-networkattachedstorage-settings.png" alt-text="New Cluster Network Attached Storage Settings screen":::
 
 The `/shared/` directory for each cluster is an NFS share by default. The `NFS Type` dropdown in this configuration section provides options for this NFS share to be either exported from the cluster headnode (the `Builtin` option), or mounted from an NFS server. 
 

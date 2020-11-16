@@ -16,11 +16,11 @@ If you've completed Tutorial 1, you've installed, set up, and configured Azure C
 
 To run jobs on the PBS Pro cluster, you must log onto the cluster's **Master** node, where the PBS Pro job queue resides. The SSH public key you provided earlier is stored in the Azure CycleCloud application server and pushed into each cluster that you create. This allows you to use your SSH private key to log into the master node. To get the public IP address of the cluster head node, select the master node in the cluster management pane and click the **Connect** button:
 
-:::image type="content" source="../images_7x/cluster-connect-button.png" alt-text="CycleCloud Master Node Connect Button":::
+:::image type="content" source="../images/version-7/cluster-connect-button.png" alt-text="CycleCloud Master Node Connect Button":::
 
 The pop-up window shows the connection string you would use to connect to the cluster:
 
-:::image type="content" source="../images_7x/connect-to-master-node.png" alt-text="CycleCloud Master Node Connection Screen":::
+:::image type="content" source="../images/version-7/connect-to-master-node.png" alt-text="CycleCloud Master Node Connection Screen":::
 
 Copy the appropriate string and use your SSH client or Cloud Shell to connect to the master node. After the connection is complete, you will be logged into the master node.
 
@@ -32,11 +32,11 @@ Copy the appropriate string and use your SSH client or Cloud Shell to connect to
 
 To run jobs on the PBS Pro cluster, you must log onto the cluster's **Server** node, where the PBS Pro job queue resides. The SSH public key you provided earlier is stored in the Azure CycleCloud application server and pushed into each cluster that you create. This allows you to use your SSH private key to log into the master node. To get the public IP address of the cluster head node, select the server node in the cluster management pane and click the **Connect** button:
 
-:::image type="content" source="../images_8x/cluster-connect-button.png" alt-text="CycleCloud Master Node Connect Button":::
+:::image type="content" source="../images/version-8/cluster-connect-button.png" alt-text="CycleCloud Master Node Connect Button":::
 
 The pop-up window shows the connection string you would use to connect to the cluster:
 
-:::image type="content" source="../images_8x/connect-to-scheduler-node.png" alt-text="CycleCloud Master Node Connection Screen":::
+:::image type="content" source="../images/version-8/connect-to-scheduler-node.png" alt-text="CycleCloud Master Node Connection Screen":::
 
 Copy the appropriate string and use your SSH client or Cloud Shell to connect to the server node. After the connection is complete, you will be logged into the server node.
 

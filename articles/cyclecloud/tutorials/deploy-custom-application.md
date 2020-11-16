@@ -226,11 +226,11 @@ Having uploaded the salmon project into the CycleCloud locker, you can now creat
 From the Cluster page of your Azure CycleCloud web portal, use the "+" symbol in the bottom-left-hand corner of the page to add a new Grid Engine cluster:
 
 ::: moniker range="=cyclecloud-7"
-![New Grid Engine cluster screen](~/images_7x/new-gridengine-cluster.png)
+![New Grid Engine cluster screen](~/images/version-7/new-gridengine-cluster.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-![New Grid Engine cluster screen](~/images_8x/new-gridengine-cluster.png)
+![New Grid Engine cluster screen](~/images/version-8/new-gridengine-cluster.png)
 ::: moniker-end
 
 Give the cluster a descriptive name and complete the Required Settings screen.
@@ -238,11 +238,11 @@ Give the cluster a descriptive name and complete the Required Settings screen.
 Under **Software** on the Advanced Settings screen, **browse** for the Master Cluster-Init file:
 
 ::: moniker range="=cyclecloud-7"
-![Advanced Settings screen](~/images_7x/browse-specs.png)
+![Advanced Settings screen](~/images/version-7/browse-specs.png)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-![Advanced Settings screen](~/images_8x/browse-specs.png)
+![Advanced Settings screen](~/images/version-8/browse-specs.png)
 ::: moniker-end
 
 In the file browser, double click on the `salmon/` folder, then the `1.0.0/` folder. Click once on the `default/` folder to highlight it, and click the **Select** button. This will tell your cluster to use the `default` spec of version `1.0.0` of the project `salmon`.
