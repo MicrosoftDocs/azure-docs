@@ -135,7 +135,7 @@ host pool.
     -  The **Active** status lets users interact with the package.
     -  The **Inactive** status causes Windows Virtual Desktop to ignore the package and not deliver it to users.
 
-7. When you're done, select **Add**.
+8. When you're done, select **Add**.
 
 ## Publish MSIX apps to an app group
 
@@ -149,8 +149,8 @@ To publish the apps:
 
 2. Select the application group you want to publish the apps to.
 
->[!NOTE]
->MSIX applications can be delivered with MSIX app attach to both remote app and desktop app groups
+   >[!NOTE]
+   >MSIX applications can be delivered with MSIX app attach to both remote app and desktop app groups
 
 3. Once you're in the app group, select the **Applications** tab. The **Applications** grid will display all existing apps within the app group.
 
