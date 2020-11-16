@@ -7,17 +7,19 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: samples
+ms.topic: conceptual
 ms.date: 11/16/2020
 ---
 
 # .NET (C#) code samples for Azure Cognitive Search
 
-Find C# code samples that demonstrate the features and functionality of Azure Cognitive Search. Primary repositories include:
+Find C# code samples that demonstrate the features and functionality of Azure Cognitive Search.
+
+The primary repositories are as follows:
 
 | Repository | Description |
 |------------|-------------|
-| [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Code samples that accompany how-to articles, including [How to use the .NET client library](search/search-howto-dotnet-sdk.md).|
+| [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Code samples that accompany how-to articles, including [How to use the .NET client library](search-howto-dotnet-sdk.md).|
 | [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) | Code samples that accompany quickstarts and tutorials.|
 | [azure-sdk-for-net/sdk/search/Azure.Search.Documents/samples/](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/samples) | Targeted samples that ship with the Azure.Search.Documents client library in the Azure .NET SDK. You can also review [unit tests](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/tests) for the client library to see how various APIs are called. |
 
@@ -29,7 +31,7 @@ Find C# code samples that demonstrate the features and functionality of Azure Co
 | Samples | Description | 
 |---------|-------------|
 | [quickstart](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | Source code for [Quickstart: Create a search index ](search-get-started-dotnet.md).  |
-| [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | Source code for [How to use the .NET client library](search/search-howto-dotnet-sdk.md) |
+| [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | Source code for [How to use the .NET client library](search-howto-dotnet-sdk.md) |
 | [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | Synonym lists are used for query expansion, providing matchable  terms that are external to an indexing. This sample is included in [Example: Add synonyms in C#](search-synonyms-tutorial-sdk.md). |
 
 ## Indexers and indexing

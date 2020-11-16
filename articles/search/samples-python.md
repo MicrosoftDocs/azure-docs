@@ -7,13 +7,15 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: samples
+ms.topic: conceptual
 ms.date: 11/16/2020
 ---
 
 # Python code samples for Azure Cognitive Search
 
-Find Python code samples that demonstrate the features and functionality of Azure Cognitive Search. Primary repositories include:
+Find Python code samples that demonstrate the features and functionality of Azure Cognitive Search. 
+
+The primary repositories are as follows:
 
 | Repository | Description |
 |------------|-------------|
