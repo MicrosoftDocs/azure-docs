@@ -15,8 +15,13 @@ Like Azure Monitor, System Center Operations Manager monitors the health and ava
 This article provides further details on specific differences between Azure Monitor and Operations Manager and decision 
 
 ## Basic strategy
+For most customers, the best strategy will be to leverage Azure Monitor for its rich monitoring of Azure resources, reduced infrastructure and maintenance requirements, superior data analysis. Keep using Operations Manager for those requirements that are not provided by Azure Monitor such as management packs for workloads running in virtual machines, state monitoring, and granular monitoring definitions. 
 
-For most customers, the best strategy will be to use a combination of both. Leverage Azure Monitor for its rich monitoring of Azure resources, reduced infrastructure and maintenance requirements, superior data analysis, and application monitoring. Keep using Operations Manager for those requirements that are not provided by Azure Monitor. As features are added to Azure Monitor, it may start to meet some of these requirements, while you may require Operations Manager for certain monitoring indefinitely.
+Evaluate any custom management packs that you've developed for your applications with Application Insights. Application Insights will automatically discover your application components and begin monitoring their performance and availability 
+
+
+
+. As features are added to Azure Monitor, it may start to meet some of these requirements, while you may require Operations Manager for certain monitoring indefinitely.
 
 1. Implement Azure Monitor. 
    1. Configure Azure Monitor to monitor your Azure resources.
@@ -30,18 +35,6 @@ For most customers, the best strategy will be to use a combination of both. Leve
    1. Enable Application Insights for critical applications.
 
 
-## Quick comparison
-Read a complete comparison between Azure Monitor and Operations Manager in [Cloud monitoring guide: Monitoring platforms overview](/azure/cloud-adoption-framework/manage/monitor/platform-overview).
-
-### Azure Monitor
-Azure Monitor is a SaaS offering primarily designed to monitor Azure resources. You can have it running in a few minutes since it has minimal infrastructure and configuration requirements, and you pay only for the features you use and data you collect. While Azure Monitor runs completely in the Azure cloud, it can monitor applications and virtual machines in other clouds and on-premises. 
-
-Since Azure Monitor is a SaaS offering, it doesn't provide granular control over monitoring, but most features require little or no configuration, and upgrades are made available automatically. In addition to general monitoring features, it as insights which provide a specialized experience for monitoring different Azure services.
-
-### Operations Manager
-Operations Manager was primarily designed to monitor virtual machines, but it can gather data from external resources including those in Azure. It has significant infrastructure and maintenance requirements, but it provides very granular control over monitoring. 
-
-Operations Manager has an extensive library of management packs that monitor a variety of applications. 
 
 
 ## Considerations
@@ -52,12 +45,20 @@ Operations Manager has an extensive library of management packs that monitor a v
 ## Monitor Azure resources
 
 ### Azure Monitor
-Azure resources actually require Azure Monitor to collect telemetry, although you can choose to have other tools to analyze collected data. [Platform metrics]() and [Activity log]() are automatically generated and collected in Azure Monitor. Resource logs are generated automatically for Azure resources, and you create a [diagnostic setting]() to send them to a Log Analytics workspace. While you can use [diagnostic settings]() to send any of this data to Azure Event 
+Azure resources actually require Azure Monitor to collect telemetry, and Azure Monitor is enabled the moment that you create an Azure subscription. The [Activity log]() is automtically collected for the subscription, and [Platform metrics]() are automatically collected from any Azure resources you create. Add a [diagnostic setting]() for each resource to send resource logs a Log Analytics workspace.
 
-Analysis of telemetry collected by Azure resources is integrated into the Azure portal for several services, and Azure Monitor includes tools for their analysis. Use [Metrics explorer]() to analyze platform metrics and [Log Analytics]() to analyze log and performance data. [Insights]() analyze and present this data to provide a customized experience for different services, similar to the function of a management pack in SCOM.
+Analysis of telemetry collected by Azure resources is integrated into the Azure portal for several services, and Azure Monitor includes tools for their analysis. Use [Metrics explorer]() to analyze platform metrics and [Log Analytics]() to analyze log and performance data. [Insights]() analyze and present this data to provide a customized experience for different services, similar to the function of a management pack in Operations Manager.
 
 ### Operations Manager
-Operations Manager monitors Azure services with the [Azure management pack](). This will discover Azure resources and monitor their health based on metric values. This will give you health state of the resource and allow you to set thresholds to create alerts. This is a limited view of each resource though since it doesn't include resource logs. 
+Operations Manager can monitor Azure services with the [Azure management pack](). This will discover Azure resources and monitor their health based on metric values. You can set a threshold for each resource to determine a health state and create alerts. This is a limited view of each resource though since it doesn't include resource logs and isn't able to perform detailed analysis beyond a limited set of performance counters.
+
+### Recommendation
+
+1. [Configure Azure Policy]() to send resource logs for all your Azure resources to a Log Analytics workspace. 
+2. Become familiar with Azure tools for monitoring Azure resources including [metrics explorer](), [Log Analytics](), and any insights for particular resources.
+3. Install and configure the Azure management pack.
+4. Evaluate.
+
 
 ## Monitor virtual machines
 In addition to monitoring virtual machine resources, you must monitor their guest operating system and any workloads running on them. 
@@ -71,6 +72,12 @@ A new [guest health feature for Azure Monitor for VMs]() is now in public previe
 Operations Manager was designed for workloads running on virtual machines. An extensive collection of management packs is available to monitor various applications. Each includes predefined logic to discover different components of the application, measure their health, and generate alerts when issues are detected. You can create your own management packs for any custom requirements.
 
 Management packs in Operations Manager typically use performance and log data, but can also run custom scripts to colleted and analyze data. Since scripts run locally on the agent virtual machine, you can collect virtually any data that you require.
+
+### Recommendation
+1. Configure Azure Monitor for VMs and onboard a select group of virtual machines. 
+2. Configure the workspace to [collect additional data sources]() on the virtual machines.
+3. Configure gueat 
+3. Evaluate whether 
 
 ## Monitor applications
 
@@ -160,3 +167,18 @@ The Cloud Monitoring Guide defines a [hybrid cloud monitoring model](https:///az
 The [Azure management pack](https://www.microsoft.com/download/details.aspx?id=50013) discovers and monitors your Azure resources. It's important to understand the type of monitoring that it will provide though. The Azure management pack is limited to monitoring metrics 
 
 ## Extending Operations Manager
+
+
+
+## Quick comparison
+Read a complete comparison between Azure Monitor and Operations Manager in [Cloud monitoring guide: Monitoring platforms overview](/azure/cloud-adoption-framework/manage/monitor/platform-overview).
+
+### Azure Monitor
+Azure Monitor is a SaaS offering primarily designed to monitor Azure resources. You can have it running in a few minutes since it has minimal infrastructure and configuration requirements, and you pay only for the features you use and data you collect. While Azure Monitor runs completely in the Azure cloud, it can monitor applications and virtual machines in other clouds and on-premises. 
+
+Since Azure Monitor is a SaaS offering, it doesn't provide granular control over monitoring, but most features require little or no configuration, and upgrades are made available automatically. In addition to general monitoring features, it as insights which provide a specialized experience for monitoring different Azure services.
+
+### Operations Manager
+Operations Manager was primarily designed to monitor virtual machines, but it can gather data from external resources including those in Azure. It has significant infrastructure and maintenance requirements, but it provides very granular control over monitoring. 
+
+Operations Manager has an extensive library of management packs that monitor a variety of applications. 
