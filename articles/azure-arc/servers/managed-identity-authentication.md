@@ -2,7 +2,7 @@
 title: Authenticate against Azure resources with Arc enabled servers
 description: This article describes Azure Instance Metadata Service support for Arc enabled servers and how you can authenticate against Azure resources and local using a secret.
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 11/16/2020
 ---
 
 # Authenticate against Azure resources with Arc enabled servers
@@ -47,26 +47,39 @@ The system environment variable **IDENTITY_ENDPOINT** is used to discover the id
 
 The method to obtain and use a system-assigned managed identity to authenticate with Azure resources is very similar to how it is performed with an Azure VM.
 
-For an Arc enabled server, the steps to use the token are:
+For an Arc enabled Windows server, using PowerShell, you invoke the web request to get the token from the local host in the specific port. Specify the request using the IP address or the environmental variable **IDENTITY_ENDPOINT**.
 
-1. In PowerShell, invoke the web request to get the token for the local host in the specific port for the server by specifying the following request using the uri or the environment variable **IDENTITY_ENDPOINT**:
+```powershell
+try {
+Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com%2F" -Headers @{Metadata="true"} -Verbose:0
+}
+catch {
+    $response = $_.Exception.Response
+}
+# Identify the location on the local server/machine where the challenge token is stored.
+$challengeToken = $response.Headers["WWW-Authenticate"].TrimStart("Basic realm=")
+# Show the path to the Challenge Token
+$challengeToken
+# Read the token
+$token = Get-Content $challengeToken
+# Acquire the Access token
+$responseAccessToken = Invoke-RestMethod -UseBasicParsing -Uri "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com%2F" -Headers @{Metadata="true"; Authorization="Basic $token"}
+# Show the Access token
+$responseAccessToken
+```
 
-    ```powershell
-    try {
-    Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com%2F" -Headers @{Metadata="true"} -Verbose:0
-    }
-    catch {
-        $response = $_.Exception.Response
-    }
-    # Identify the location on the local server/machine where the challenge token is stored.
-    $challengeToken = $response.Headers["WWW-Authenticate"].TrimStart("Basic realm=")
-    # Show the path to the Challenge Token
-    $challengeToken
-    # Read the token
-    $token = Get-Content $challengeToken
-    # Acquire the Access token
-    $responseAccessToken = Invoke-RestMethod -UseBasicParsing -Uri "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com%2F" -Headers @{Metadata="true"; Authorization="Basic $token"}
-    # Show the Access token
-    $responseAccessToken
-    ```
+The following is an example of the response:
 
+![A successful retrieval of the access token](./media/managed-identity-authentication/powershell-token-output-example.png)
+
+For an Arc enabled Linux server, using Bash, you invoke the web request to get the token from the local host in the specific port. Specify the following request using the IP address or the environmental variable **IDENTITY_ENDPOINT**. To complete this step, you need an SSH client.
+
+```bash
+ChallengeToken=$(curl -v 'http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com' -H Metadata:true | grep WWW-Authenticate)
+ResponseAccessToken=$(curl http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H "Authorization: Bearer $ChallengeToken")
+echo $ResponseAccessToken
+```
+
+The response includes the access token you need to access any resource in Azure. To complete the configuration to authenticate to Azure Key Vault, see [Access Key Vault with Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#access-data) or [Access Key Vault with Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#access-data).
+
+## Next steps
