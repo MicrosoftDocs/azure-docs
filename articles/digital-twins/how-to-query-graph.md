@@ -27,6 +27,9 @@ The rest of this article provides examples of how to use these operations.
 
 This section contains sample queries that illustrate the query language structure and perform possible query operations on [digital twins](concepts-twins-graph.md).
 
+> [!TIP]
+> Run the below SQL queries in a single row for both API and SDK calls.
+
 ### Show all existing digital twins
 
 Here is the basic query that will return a list of all digital twins in the instance:

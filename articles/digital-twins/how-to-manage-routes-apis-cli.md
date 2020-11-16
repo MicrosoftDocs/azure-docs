@@ -241,17 +241,17 @@ To add a filter, you can use a PUT request to *https://{Your-azure-digital-twins
     "filter": "<filter-text>"
 }
 ``` 
-Note that, you can include multiple filters in the json body. For example, 
+Note that, you can add multiple filters to send a request like this: 
 
 ```json  
 {
-    "endpointName": "dt-endpoint",
-    "filter": "true",
-    "type": "Microsoft.DigitalTwins.Twin.Create",
-    "source": "adt-instance.api.wus2.digitaltwins.azure.net/myTwinID"
+    "endpointName": "dt-endpoint", 
+    "filter": "true", 
+    "filter": "source = 'resource20200923.api.wus2.digitaltwins.azure.net/myFloorID'", 
+    "filter": "type = 'Microsoft.DigitalTwins.Twin.Delete'", 
+    "filter": "specversion = '1.0'"
 }
 ```
-
 Here are the supported route filters. Use the detail in the *Filter text schema* column to replace the `<filter-text>` placeholder in the request body above.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]
