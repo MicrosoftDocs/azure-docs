@@ -25,9 +25,6 @@ Yes. Cloud Services (extended support) supports additional features such as the 
 - Cloud Services (classic): `microsoft.classiccompute/domainnames`
 - Cloud Services (extended support): `microsoft.compute/cloudservices`
 
-### Can I use a DNS name with Cloud Services (extended support)? 
-Yes. Cloud Services (extended support) can also be given a DNS name. With Azure Resource Manager, the DNS label is an optional property of the public IP address that is assigned to the Cloud Service. The format of the DNS name for Azure Resource Manager based deployments is `<userlabel>.<region>.cloudapp.azure.com`
-
 ###	What locations will Cloud Services (extended support) be available?
 Cloud Services (extended support) is available in all Public Cloud Regions.
 
@@ -36,7 +33,6 @@ Customers will need to request for new quota on Azure Resource Manager using the
 
 ### Why don’t I see a production & staging slot anymore?
 Unlike Cloud Services (classic), Cloud Services (extended support) does not support the logical concept of hosted service, which included two slots (Production & Staging). Each deployment is an independent Cloud Service (extended support) deployment. 
- 
 
 ### Why can’t I create an empty Cloud Service anymore?
 The concept of hosted service names does not exist anymore, you cannot create an empty Cloud Service without any deployment.
@@ -45,6 +41,36 @@ If your current architecture used to create a ready to use environment with an e
 
 ###	Does Cloud Services (extended support) support Resource Health Check (RHC)?
 No, Cloud Services (extended support) does not yet support Resource Health Check (RHC).
+
+### How are role instance metrics changing?
+There are no changes in the role instance metrics reported on Portal. 
+
+### How are Web & Worker roles changing?
+There are no changes to the design, architecture and the components of Web & Worker roles. 
+
+### How are role instances changing?
+There are no changes to the design, architecture and the components of the role instances. 
+
+### How will guest os updates change?
+ There are no changes to the rollout method. Cloud Services (classic)  and Cloud Services (extended support) will get the same updates at a regular cadence.
+ 
+### Do Cloud Services (extended support) support Stopped-Allocated and Stopped-Deallocated states?
+
+Similar to Cloud Services (classic) deployment, Cloud Services (extended support) deployment only supports Stopped (Allocated) state which appears as stopped on Portal. Stopped (Deallocated) state is not supported. 
+
+###	Does Cloud Services (extended support) deployment support scaling across clusters, availability zones, and regions?
+No, Similar to Cloud Services (classic), Cloud Services (extended support) deployment cannot scale across multiple clusters, availability zones and regions. 
+
+## Resources 
+
+###	What resources linked to a Cloud Services (extended support) deployment need to live in the same resource group?
+Storage accounts, public IPs, load balancer, Cloud Service deployments, network security groups and route tables need to live in the same region and resource group. 
+
+###	What resources linked to a Cloud Services (extended support) deployment need to live in the same region?
+key vault, virtual network, public IPs, Cloud Service deployments, network security groups and route tables need to live in the same region.
+
+###	What resources linked to a Cloud Services (extended support) deployment need to live in the same virtual network?
+Public IPs, load balancer, Cloud Services deployment, network security groups and route tables need to live in the same virtual network. 
 
 ## Deployment Files 
 
@@ -61,38 +87,9 @@ Properties of load balancer probes, endpoints, reserved IPs and public IPs now u
 Template and parameter files are only used for deployment automation. Like Cloud Services (classic), you can manually create dependent resources first and then a Cloud Services (extended support) deployment using PowerShell or CLI commands. 
 
 
-
-### How are role instance metrics changing?
-There are no changes in the role instance metrics reported on Portal. 
-
-### How are Web & Worker roles changing?
-There are no changes to the design, architecture and the components of Web & Worker roles. 
-
-### How are role instances changing?
-There are no changes to the design, architecture and the components of the role instances. 
-
-### How will guest os updates change?
- There are no changes to the rollout method. Cloud Services (classic)  and Cloud Services (extended support) will get the same updates at a regular cadence. 
-
-
 ###	How does my application code change on Cloud Services (extended support)
 There are no changes required for your application code packaged in `.cspkg`. Your existing applications will continue to work as before. 
 
-###	What resources linked to a Cloud Services (extended support) deployment need to live in the same resource group?
-Storage accounts, public IPs, load balancer, Cloud Service deployments, network security groups and route tables need to live in the same region and resource group. 
-
-###	What resources linked to a Cloud Services (extended support) deployment need to live in the same region?
-key vault, virtual network, public IPs, Cloud Service deployments, network security groups and route tables need to live in the same region.
-
-###	What resources linked to a Cloud Services (extended support) deployment need to live in the same virtual network?
-Public IPs, load balancer, Cloud Services deployment, network security groups and route tables need to live in the same virtual network. 
-
-###	Do Cloud Services (extended support) support Stopped-Allocated and Stopped-Deallocated states?
-
-Similar to Cloud Services (classic) deployment, Cloud Services (extended support) deployment only supports Stopped (Allocated) state which appears as stopped on Portal. Stopped (Deallocated) state is not supported. 
-
-###	Does Cloud Services (extended support) deployment support scaling across clusters, availability zones, and regions?
-No, Similar to Cloud Services (classic), Cloud Services (extended support) deployment cannot scale across multiple clusters, availability zones and regions. 
 
 ## Migration
 
@@ -123,6 +120,9 @@ Cloud Services (extended support) supports dynamic & static IP allocation method
 
 ###	Why am I getting charged for IP addresses?
 Customers are billed for IP Address use on Cloud Services (extended support). 
+
+### Can I use a DNS name with Cloud Services (extended support)? 
+Yes. Cloud Services (extended support) can also be given a DNS name. With Azure Resource Manager, the DNS label is an optional property of the public IP address that is assigned to the Cloud Service. The format of the DNS name for Azure Resource Manager based deployments is `<userlabel>.<region>.cloudapp.azure.com`
 
 ## Certificates & key vault
 
