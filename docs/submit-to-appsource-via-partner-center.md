@@ -75,9 +75,14 @@ If you make changes after your submission is certified, it must go through the c
 
 If you have general questions about policies, processes, or validation requirements, you can engage with the Microsoft AppSource validation team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Tag your question with "Office-Store". Please be aware that the validation team will not be able to discuss individual submission results on Stack Overflow. 
 
+## Microsoft 365 App Compliance 
+
+After your solution is published through Partner Center, you can begin the [Microsoft 365 App Compliance program](https://docs.microsoft.com/microsoft-365-app-certification/overview). This program is optional and is designed to allow you to reach the level of security that meets the needs of your customers. To complete the Publisher Attestation within Partner Center, click the **App Compliance** button in the Office Store section. For details, see the [User guide](https://docs.microsoft.com/microsoft-365-app-certification/docs/userguide).
+
 ## See also
 
 - [Office Add-ins](/office/dev/add-ins/overview/office-add-ins)  
 - [SharePoint Add-ins](/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
 - [Microsoft Teams developer platform](https://docs.microsoft.com/microsoftteams/platform/overview)
 - [Visuals in Power BI](https://docs.microsoft.com/power-bi/power-bi-custom-visuals)
+- [Microsoft 365 App Compliance](https://docs.microsoft.com/microsoft-365-app-certification/overview)
