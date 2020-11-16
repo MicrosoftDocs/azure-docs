@@ -25,7 +25,7 @@ In this how-to, you learn how to assign an Azure Active Directory (Azure AD) ide
 
 - An Azure Machine Learning web service deployed to your AKS cluster.
 
-## Create and install an Azure Identity in your AKS cluster
+## Create and install an Azure Identity
 
 1. To determine if your AKS cluster is RBAC enabled, use the following command:
 
@@ -45,7 +45,7 @@ In this how-to, you learn how to assign an Azure Active Directory (Azure AD) ide
 
 1. If the Azure Identity created in the previous step is not in the same node resource group for your AKS cluster, follow the [Role Assignment](https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/#user-assigned-identities-that-are-not-within-the-node-resource-group) steps shown in Azure AD Pod Identity project page.
 
-## Assign Azure Identity to machine learning web service
+## Assign Azure Identity to web service
 
 The following steps use the Azure Identity created in the previous section, and assign it to your AKS web service through a **selector label**.
 
@@ -90,11 +90,11 @@ To verify that the label was correctly added, run the following command. You sho
 
 Once the pods are up and running, the web services for this deployment will now be able to access Azure resources through your Azure Identity without having to embed the credentials in your code.
 
-## Assign the appropriate roles to your Azure Identity
+## Assign roles to your Azure Identity
 
 [Assign your Azure Managed Identity with appropriate roles](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) to access other Azure resources. Ensure that the roles you are assigning have the correct **Data Actions**. For example, the [Storage Blob Data Reader Role](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) will have read permissions to your Storage Blob while the generic [Reader Role](../role-based-access-control/built-in-roles.md#reader) might not.
 
-## Use Azure Identity with your machine learning web service
+## Use Azure Identity with your web service
 
 Deploy a model to your AKS cluster. The `score.py` script can contain operations pointing to the Azure resources that your Azure Identity has access to. Ensure that you have installed your required client library dependencies for the resource that you are trying to access to. Below are a couple examples of how you can use your Azure Identity to access different Azure resources from your service.
 
