@@ -366,6 +366,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/authorize-blob-access-portal.md",
+      "redirect_url": "articles/storage/blobs/authorize-data-operations-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/queues/authorize-queue-access-portal.md",
+      "redirect_url": "articles/storage/queues/authorize-data-operations-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/common/storage-e2e-troubleshooting.md",
       "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
       "redirect_document_id": false
@@ -5689,6 +5699,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/tutorial-azure-security.md",
+      "redirect_url": "/azure/virtual-machines/tutorial-azure-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/tutorial-azure-security.md",
+      "redirect_url": "/azure/virtual-machines/tutorial-azure-security",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/using-cloud-init-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/using-cloud-init",
       "redirect_document_id": true
@@ -5702,6 +5722,16 @@
       "source_path": "articles/virtual-machines/linux/classic/mysql-on-opensuse.md",
       "redirect_url": "/azure/virtual-machines/linux/mysql-on-opensuse",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tag.md",
+      "redirect_url": "/azure/virtual-machines/tag-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/tag.md",
+      "redirect_url": "/azure/virtual-machines/tag-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
@@ -26928,6 +26958,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/blobs/authorize-active-directory-powershell.md",
+      "redirect_url": "/azure/storage/blobs/authorize-data-operations-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/queues/authorize-active-directory-powershell.md",
+      "redirect_url": "/azure/storage/queues/authorize-data-operations-powershell",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
       "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
       "redirect_document_id": false
@@ -26965,6 +27005,11 @@
     {
       "source_path": "articles/storage/common/authorize-active-directory-cli.md",
       "redirect_url": "/azure/storage/common/authorize-data-operations-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/authorize-data-operations-cli.md",
+      "redirect_url": "/azure/storage/blobs/authorize-data-operations-cli",
       "redirect_document_id": true
     },
     {
@@ -28868,32 +28913,32 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "/articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md",
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd",
       "redirect_document_id": false
     },
     {
-      "source_path": "/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md",
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd",
       "redirect_document_id": false
     },
     {
-      "source_path": "/articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md",
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot",
       "redirect_document_id": false
     },
     {
-      "source_path": "/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md",
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot",
       "redirect_document_id": false
     },
     {
-      "source_path": "/articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md",
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
       "redirect_document_id": false
     },
     {
-      "source_path": "/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md",
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md",
       "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
       "redirect_document_id": false
     },
@@ -40261,6 +40306,21 @@
       "source_path": "articles/cognitive-services/speech-service/speech-scenarios.md",
       "redirect_url": "/azure/cognitive-services/speech-service/overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-custom-speech-improve-accuracy.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-evaluate-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-custom-speech.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/custom-speech-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-custom-speech-deploy-model.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/speech-service/how-to-choose-recognition-mode.md",
@@ -54135,6 +54195,21 @@
     {
       "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-jre.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=jre"
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-bulk-register.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/security/fundamentals/choose-ad-authn.md",
