@@ -1,6 +1,6 @@
 ---
-title: Query data in storage using SQL on-demand (preview) 
-description: This article describes how to query Azure storage using the SQL on-demand (preview) resource within Azure Synapse Analytics.
+title: Query data storage with serverless SQL pool (preview) 
+description: This article describes how to query Azure storage using the serverless SQL pool (preview) resource within Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics 
@@ -10,20 +10,20 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick 
 ---
-# Query storage files using SQL on-demand (preview) resources within Synapse SQL
+# Query storage files with serverless SQL pool (preview) in Azure Synapse Analytics
 
-SQL on-demand (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries. For querying, the following T-SQL aspects are supported:
+Serverless SQL pool (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries. For querying, the following T-SQL aspects are supported:
 
 - Full [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) surface area, including majority of [SQL functions and operators](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) creates an [external table](develop-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
 
-For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](on-demand-workspace-overview.md) article, or the following articles:
+For more information on what is vs. what isn't currently supported, read the [serverless SQL pool overview](on-demand-workspace-overview.md) article, or the following articles:
 - [Develop storage access](develop-storage-files-overview.md) where you can learn how to use [External table](develop-tables-external-tables.md) and [OPENROWSET](develop-openrowset.md) function to read data from storage.
 - [Control storage access](develop-storage-files-storage-access-control.md) where you can learn how to enable Synapse SQL to access storage using SAS authentication, or Managed Identity of the workspace.
 
 ## Overview
 
-To support a smooth experience for in place querying of data that's located in Azure Storage files, SQL on-demand uses the [OPENROWSET](develop-openrowset.md) function with additional capabilities:
+To support a smooth experience for in place querying of data that's located in Azure Storage files, serverless SQL pool uses the [OPENROWSET](develop-openrowset.md) function with additional capabilities:
 
 - [Query multiple files or folders](#query-multiple-files-or-folders)
 - [PARQUET file format](#query-parquet-files)
@@ -143,7 +143,7 @@ Return data type is nvarchar(1024). For optimal performance, always cast result 
 
 ## Work with complex types and nested or repeated data structures
 
-To enable a smooth experience with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, SQL on-demand has added the extensions that follow.
+To enable a smooth experience with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, serverless SQL pool has added the extensions that follow.
 
 #### Project nested or repeated data
 

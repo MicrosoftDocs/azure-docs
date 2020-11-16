@@ -20,14 +20,11 @@ ms.custom: mvc, devx-track-js, devx-track-azurecli
 
 Get started with Azure Load Balancer by using Azure CLI to create a public load balancer and three virtual machines.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure CLI installed locally or Azure Cloud Shell
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
-
-If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+- This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -119,6 +116,14 @@ Create a network security group rule using [az network nsg rule create](https://
     --priority 200
 ```
 
+## Create backend servers
+
+In this section, you create:
+
+* Network interfaces for the backend servers.
+* A cloud configuration file named **cloud-init.txt** for the server configuration.
+* Two virtual machines to be used as backend servers for the load balancer.
+
 ### Create network interfaces for the virtual machines
 
 Create two network interfaces with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
@@ -155,13 +160,6 @@ Create two network interfaces with [az network nic create](https://docs.microsof
     --subnet myBackEndSubnet \
     --network-security-group myNSG
 ```
-
-## Create backend servers
-
-In this section, you create:
-
-* A cloud configuration file named **cloud-init.txt** for the server configuration.
-* Two virtual machines to be used as backend servers for the load balancer.
 
 ### Create cloud-init configuration file
 

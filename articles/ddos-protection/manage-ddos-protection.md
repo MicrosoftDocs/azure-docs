@@ -82,8 +82,6 @@ First, check the details of your DDoS protection plan:
 
 The _MyVnet_ virtual network should be listed. 
 
-Test through simulations
-
 ## Clean up resources
 
 You can keep your resources for the next tutorial. If no longer needed, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the DDoS protection plan and all its related resources. If you don't intend to use this DDoS protection plan, you should remove resources to avoid unnecessary charges.

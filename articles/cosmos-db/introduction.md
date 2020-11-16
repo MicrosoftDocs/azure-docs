@@ -10,6 +10,7 @@ ms.date: 10/23/2020
 ---
 
 # Welcome to Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Today's applications are required to be highly responsive and always online. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users. Applications need to respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds.
 
@@ -50,7 +51,7 @@ Guarantee business continuity, 99.999% availability, and enterprise-level securi
 - Azure Cosmos DB offers a comprehensive suite of [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db) including industry-leading availability worldwide.
 - Easily distribute data to any Azure region with automatic data replication. Enjoy zero downtime with multi-region writes or RPO 0 when using Strong consistency.
 - Enjoy enterprise-grade encryption-at-rest with self-managed keys.
-- Role-based access control keeps your data safe and offers fine-tuned control.
+- Azure role-based access control keeps your data safe and offers fine-tuned control.
 
 ### Fully managed and cost-effective
 

@@ -11,6 +11,7 @@ ms.date: 04/24/2020
 
 ---
 # Quickstart: Connect a Go application to Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

@@ -102,8 +102,6 @@ az network ddos-protection show \
 
 Verify that the command returns the correct details of your DDoS protection plan.
 
-Test through simulations
-
 ## Clean up resources
 
 You can keep your resources for the next tutorial. If no longer needed, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the DDoS protection plan and all its related resources. 

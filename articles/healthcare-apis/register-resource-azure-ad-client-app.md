@@ -67,7 +67,7 @@ A resource application has an identifier URI (Application ID URI), which clients
 
 ### Define application roles
 
-The Azure API for FHIR and the OSS FHIR Server for Azure use [Azure Active Directory application roles](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) for role-based access control. To define which roles should be available for your FHIR Server API, open the resource application's [manifest](https://docs.microsoft.com/azure/active-directory/active-directory-application-manifest/):
+The Azure API for FHIR and the OSS FHIR Server for Azure use [Azure Active Directory application roles](/azure/architecture/multitenant-identity/app-roles) for role-based access control. To define which roles should be available for your FHIR Server API, open the resource application's [manifest](/azure/active-directory/active-directory-application-manifest/):
 
 1. Click **Manifest**:
 
