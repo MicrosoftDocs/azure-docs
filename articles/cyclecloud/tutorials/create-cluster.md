@@ -71,7 +71,6 @@ The Advanced Networking options allow you to control access to and from your clu
 :::image type="content" source="../images_8x/quickstart-advanced-settings.png" alt-text="New Cluster Advanced Settings screen":::
 ::: moniker-end
 
-
 ::: moniker range=">=cyclecloud-8"
 ### Network Attached Storage Settings
 
@@ -82,10 +81,7 @@ This section allows you to configure the network attached storage options for yo
 By default, the `/shared/` directory for the cluster is an NFS share, exported from the cluster headnode (The `Builtin` `NFS Type` option). This `/shared` export is created on a mounted Azure Managed Disk, and the `Size` option allows you to change the amount of space avaiable on that disk.
 
 Alternatively, using the `NFS Type` dropdown to choose "External NFS", allows you to mount a different storage, such as Azure NetApp Files or the NFS endpoint on Azure Blob Storage.
-
-
-
-::: moniker-en
+::: moniker-end
 
 ## Usage Alert
 
@@ -113,7 +109,7 @@ It's time to put your cluster to work. In the cluster summary window, click **St
 
 ::: moniker range=">=cyclecloud-8"
 :::image type="content" source="../images_8x/start-cluster.png" alt-text="Cluster Summary - Start":::
-::: moniker-en
+::: moniker-end
 
 Confirm that you want to start the cluster. Once the cluster is started, it will take several minutes to provision and orchestrate the VM for the cluster's master node, as well as install and configure the PBS Pro scheduler. You can monitor the progress in the Cluster VM Details tab, as well as in the Event Log.
 

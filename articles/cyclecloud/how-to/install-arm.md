@@ -75,7 +75,7 @@ Click the button below to deploy Azure CycleCloud into your subscription:
 <a target="_blank"
    title="Deploy to Azure"
    href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FCycleCloudCommunity%2Fcyclecloud_arm%2Fmaster%2Fazuredeploy.json">
-  <img src="https://azuredeploy.net/deploybutton.svg" alt=""/>
+  <img src="https://azuredeploy.net/deploybutton.svg" alt="deploy to azure"/>
 </a>
 
 Enter the required information.

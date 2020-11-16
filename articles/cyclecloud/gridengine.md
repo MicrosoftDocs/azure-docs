@@ -542,7 +542,7 @@ This example will use the 8.6.1-demo version, but all ge versions > 8.4.0 are su
   * ge-8.6.x-bin-lx-amd64.tar.gz
   * ge-8.6.x-common.tar.gz
 
-2. The cyclecloud cli must be configured. Documentation is available [here](https://docs.microsoft.com/en-us/azure/cyclecloud/install-cyclecloud-cli) 
+2. The cyclecloud cli must be configured. Documentation is available [here](https://docs.microsoft.com/azure/cyclecloud/install-cyclecloud-cli) 
 
 
 ### Copy the binaries into the cloud locker
