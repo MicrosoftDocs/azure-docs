@@ -126,4 +126,4 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 
 
 ## Next steps
-For supplemental information and updates, subscribe to the [Microsoft Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+For supplemental information and updates, subscribe to the [Microsoft Azure Germany blog](/archive/blogs/azuregermany/).
