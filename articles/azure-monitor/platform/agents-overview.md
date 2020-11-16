@@ -201,6 +201,9 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 | Debian                          | 9      | 4.9  | 
 
 
+> [!NOTE]
+> Amazon Tuned Kernel is not supported. Switch to Stock Kernel to run the Dependency Tool!
+
 ## Next steps
 
 Get more details on each of the agents at the following:
