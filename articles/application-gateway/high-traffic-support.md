@@ -25,6 +25,8 @@ Please check the [metrics documentation](./application-gateway-metrics.md) for t
 ### Set your instance count based on your peak CPU usage
 If you are using a v1 SKU gateway, you’ll have the ability to set your Application Gateway up to 32 instances for scaling. Check your Application Gateway’s CPU utilization in the past one month for any spikes above 80%, it is available as a metric for you to monitor. It is recommended that you set your instance count according to your peak usage and with a 10% to 20% additional buffer to account for any traffic spikes.
 
+:::image type="content" source="./media/application-gateway-covid-guidelines/v1-cpu-utilization.png":::
+
 ### Use the v2 SKU over v1 for its autoscaling capabilities and performance benefits
 The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. It also offers other significant performance benefits, such as 5x better TLS offload performance, quicker deployment and update times, zone redundancy, and more when compared to v1. For more information, see our [v2 documentation](./application-gateway-autoscaling-zone-redundant.md) and see our v1 to v2 [migration documentation](./migrate-v1-v2.md) to learn how to migrate your existing v1 SKU gateways to v2 SKU. 
 
@@ -36,6 +38,8 @@ For Application Gateway v2 SKU, setting the maximum instance count to the maximu
 
 Make sure to check your subnet size and available IP address count in your subnet and set your maximum instance count based on that. If your subnet doesn’t have enough space to accommodate, you will have to re-create your gateway in the same or different subnet which has enough capacity. 
 
+:::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances.PNG":::
+
 ### Set your minimum instance count based on your average Compute Unit usage
 
 For Application Gateway v2 SKU, autoscaling takes six to seven minutes to scale out and provision additional set of instances ready to take traffic. Until then, if there are short spikes in traffic, your existing gateway instances might get under stress and this may cause unexpected latency or loss of traffic. 
@@ -43,6 +47,8 @@ For Application Gateway v2 SKU, autoscaling takes six to seven minutes to scale 
 It is recommended that you set your minimum instance count to an optimal level. For example, if you require 50 instances to handle the traffic at peak load, then setting the minimum 25 to 30 is a good idea rather than at <10 so that even when there are short bursts of traffic, Application Gateway would be able to handle it and give enough time for autoscaling to respond and take effect.
 
 Check your Compute Unit metric for the past one month. Compute unit metric is a representation of your gateway's CPU utilization and based on your peak usage divided by 10, you can set the minimum number of instances required. Note that 1 application gateway instance can handle a minimum of 10 compute units
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-metrics.PNG":::
 
 ## Manual scaling for Application Gateway v2 SKU (Standard_v2/WAF_v2)
 
@@ -74,6 +80,17 @@ Create alert when Application Gateway response status is 4xx or 5xx. There could
 
 Create alert when Failed requests metric crosses threshold. You should observe the gateway in production to determine static threshold or use dynamic threshold for the alert.
 
+### Example: Setting up an alert for more than 100 failed requests in the last 5 minutes
+
+This example shows you how to use the Azure portal to set up an alert when the failed request count in the last 5 minutes is more than 100.
+1. Navigate to your **Application Gateway**.
+2. On the left panel, select **Metrics** under the **Monitoring** tab. 
+3. Add a metric for **Failed requests**.
+4. Click on **New alert rule** and define your condition and actions
+5. Click on **Create alert rule** to create and enable the alert
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/create-alerts.PNG":::
+
 ## Alerts for Application Gateway v2 SKU (Standard_v2/WAF_v2)
 
 ### Alert if Compute Unit utilization crosses 75% of average usage 
@@ -86,9 +103,9 @@ This example shows you how to use the Azure portal to set up an alert when 75% o
 1. Navigate to your **Application Gateway**.
 2. On the left panel, select **Metrics** under the **Monitoring** tab. 
 3. Add a metric for **Average Current Compute Units**. 
-![Setting up WAF metric](./media/application-gateway-covid-guidelines/waf-setup-metrics.png)
 4. If you've set your minimum instance count to be your average CU usage, go ahead and set an alert when 75% of your minimum instances are in use. For example, if your average usage is 10 CUs, set an alert on 7.5 CUs. This alerts you if usage is increasing and gives you time to respond. You can raise the minimum if you think this traffic will be sustained to alert you that traffic may be increasing. 
-![Setting up WAF alert](./media/application-gateway-covid-guidelines/waf-setup-monitoring-alert.png)
+
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-alert.PNG":::
 
 > [!NOTE]
 > You can set the alert to occur at a lower or higher CU utilization percentage depending on how sensitive you want to be to potential traffic spikes.
