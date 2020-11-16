@@ -57,7 +57,7 @@ Type `Cassandra` in the search box, and select the latest `spark-cassandra-conne
 
 ## Create Scala Notebook for migration
 
-Create a Scala Notebook in Databricks with the following code, replace your source and target cassandra configs with corresponding credentials, and run:
+Create a Scala Notebook in Databricks with the following code. Replace your source and target cassandra configurations with corresponding credentials, and source/target keyspaces and tables, then run:
 
 ```scala
 import com.datastax.spark.connector._
