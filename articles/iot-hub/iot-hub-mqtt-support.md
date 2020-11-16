@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', contperfq1]
+ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', contperfq1, fasttrack-edit, iot]
 ---
 
 # Communicate with your IoT hub using the MQTT protocol
@@ -288,7 +288,8 @@ The following is a list of IoT Hub implementation-specific behaviors:
 
 * IoT Hub does not persist Retain messages. If a device sends a message with the **RETAIN** flag set to 1, IoT Hub adds the **mqtt-retain** application property to the message. In this case, instead of persisting the retain message, IoT Hub passes it to the backend app.
 
-* IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection.
+* IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection and **400027 ConnectionForcefullyClosedOnNewConnection** will be logged into IoT Hub Logs
+
 
 For more information, see [Messaging developer's guide](iot-hub-devguide-messaging.md).
 

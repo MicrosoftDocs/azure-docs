@@ -37,6 +37,10 @@
         href: test-drive-technical-configuration.md
       - name: Test drive for Azure Resource Manager
         href: azure-resource-manager-test-drive.md
+      - name: Detailed configuration for hosted test drive
+        href: test-drive-hosted-detailed-config.md
+      - name: Set up Azure subscription for hosted test drives
+        href: test-drive-azure-subscription-setup.md
   - name: Azure partner customer usage attribution
     href: azure-partner-customer-usage-attribution.md
   - name: Go-to-market options
@@ -139,10 +143,12 @@
         href: azure-vm-create-properties.md
       - name: Configure VM offer listing
         href: azure-vm-create-listing.md
-      - name: Create VM plans
-        href: azure-vm-create-plans.md
       - name: Add a preview audience
         href: azure-vm-create-preview.md
+      - name: Create VM plans
+        href: azure-vm-create-plans.md
+      - name: Resell through CSPs
+        href: azure-vm-create-resell-csp.md
       - name: Create VM technical assets
         items:
         - name: Create VM from an approved base
@@ -283,8 +289,8 @@
     href: partner-center-portal/downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: partner-center-portal/ratings-reviews.md
-  - name: Partner Center analytics terminology 
-    href: partner-center-portal/faq-terminology.md 
+  - name: Analytics common questions 
+    href: analytics-faq.md 
 - name: Policies and terms
   items:    
   - name: About our policies and terms

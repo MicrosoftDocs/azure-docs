@@ -18,6 +18,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 ## Cluster configuration requirements
 
 * All OpenShift Cluster operators must remain in a managed state. The list of cluster operators can be returned by running `oc get clusteroperators`.
+* The cluster must have a minimum of one worker node. Do not scale the cluster workers to zero.
 * Don't remove or modify the cluster Prometheus and Alertmanager services.
 * Don't remove Service Alertmanager rules.
 * Don't remove or modify Azure Red Hat OpenShift service logging (mdsd pods).
@@ -25,6 +26,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * All cluster virtual machines must have direct outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.  No form of HTTPS proxying is supported.
 * Don't modify the DNS configuration of the cluster's virtual network. The default Azure DNS resolver must be used.
 * Don't override any of the cluster's MachineConfig objects (for example, the kubelet configuration) in any way.
+* Don't set any unsupportedConfigOverrides options. Setting these options prevents minor version upgrades.
 * The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
 * Non-RHCOS compute nodes aren't supported. For example, you can't use a RHEL compute node.
 
