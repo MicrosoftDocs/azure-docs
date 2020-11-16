@@ -945,6 +945,8 @@
           href: oracle-migrate-cosmos-db-blitzz.md
         - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
           href: cassandra-migrate-cosmos-db-blitzz.md
+        - name: Migrate - Apache Cassandra to Cassandra API using Databricks
+          href: cassandra-migrate-cosmos-db-databricks.md          
       - name: Change feed
         href: cassandra-change-feed.md
       - name: Create a container - Cassandra API
