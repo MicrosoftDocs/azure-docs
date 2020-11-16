@@ -292,14 +292,14 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: ./cognitive-services/speech-service/index.yml#pivot=start&panel=speechtotext
+      url: ./cognitive-services/speech-service/index-speech-to-text.yml
     # Card
     - title: Speech Translation
       summary: Easily integrate real-time speech translation to your app
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: ./cognitive-services/speech-service/index.yml#pivot=start&panel=speechtranslation
+      url: ./cognitive-services/speech-service/index-speech-translation.yml
     # Card
     - title: Text Analytics
       summary: Easily evaluate sentiment and topics to understand what users want
@@ -313,7 +313,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: ./cognitive-services/speech-service/index.yml#pivot=start&panel=texttospeech
+      url: ./cognitive-services/speech-service/index-text-to-speech.yml
     # Card
     - title: Translator
       summary: Easily conduct machine translation with a simple REST API call
