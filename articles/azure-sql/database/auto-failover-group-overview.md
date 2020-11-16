@@ -101,8 +101,8 @@ To achieve real business continuity, adding database redundancy between datacent
 
   By default, the failover of the read-only listener is disabled. It ensures that the performance of the primary is not impacted when the secondary is offline. However, it also means the read-only sessions will not be able to connect until the secondary is recovered. If you cannot tolerate downtime for the read-only sessions and can use the primary for both read-only and read-write traffic at the expense of the potential performance degradation of the primary, you can enable failover for the read-only listener by configuring the `AllowReadOnlyFailoverToPrimary` property. In that case, the read-only traffic will be automatically redirected to the primary if the secondary is not available.
 
-> [!NOTE]
-> The `AllowReadOnlyFailoverToPrimary` property only has effect if automatic failover policy is enabled and an automatic failover has been triggered by Azure. In that case, if the property is set to True, the new primary will serve both read-write and read-only sessions.
+  > [!NOTE]
+  > The `AllowReadOnlyFailoverToPrimary` property only has effect if automatic failover policy is enabled and an automatic failover has been triggered by Azure. In that case, if the property is set to True, the new primary will serve both read-write and read-only sessions.
 
 - **Planned failover**
 
