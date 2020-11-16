@@ -28,7 +28,7 @@ To see how Azure Advisor completely maps to the Azure Security Benchmark, see th
 ### NS-1: Implement security for internal traffic
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39534.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39534).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -42,7 +42,7 @@ To see how Azure Advisor completely maps to the Azure Security Benchmark, see th
 ### NS-2: Connect private networks together
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39535.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39535).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -56,7 +56,7 @@ To see how Azure Advisor completely maps to the Azure Security Benchmark, see th
 ### NS-3: Establish private network access to Azure services
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39536.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39536).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -70,7 +70,7 @@ To see how Azure Advisor completely maps to the Azure Security Benchmark, see th
 ### NS-4: Protect applications and services from external network attacks
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39537.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39537).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -84,7 +84,7 @@ To see how Azure Advisor completely maps to the Azure Security Benchmark, see th
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39538.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39538).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -98,7 +98,7 @@ To see how Azure Advisor completely maps to the Azure Security Benchmark, see th
 ### NS-6: Simplify network security rules
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39539.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39539).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -112,7 +112,7 @@ To see how Azure Advisor completely maps to the Azure Security Benchmark, see th
 ### NS-7: Secure Domain Name Service (DNS)
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39540.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39540).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -130,7 +130,7 @@ To see how Azure Advisor completely maps to the Azure Security Benchmark, see th
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39520.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39520).
 
 **Guidance**: Azure Advisor uses Azure Active Directory (Azure AD) as the default identity and access management service. Standardize Azure AD to govern your organization’s identity and access management in:
 
@@ -156,7 +156,7 @@ Note that Azure AD supports external identities, which allow users without a Mic
 ### IM-2: Manage application identities securely and automatically
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39521.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39521).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -170,7 +170,7 @@ Note that Azure AD supports external identities, which allow users without a Mic
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39522.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39522).
 
 **Guidance**: Azure Advisor uses Azure Active Directory (Azure AD) to provide identity and access management to Azure resources, cloud applications, and on-premises applications. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. 
 
@@ -185,7 +185,7 @@ Use single sign-on to manage and secure access to your organization’s data and
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39523.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39523).
 
 **Guidance**: Azure Advisor uses Azure Active Directory (Azure AD), which supports strong authentication controls through multifactor authentication, and strong passwordless methods.
 - Multifactor authentication - Enable Azure AD multifactor authentication and follow Azure Security Center's Identity and Access Management recommendations for some best practices in your multifactor authentication setup. Multifactor authentication can be enforced on all, select users or at the per-user level based on sign in conditions and risk factors.
@@ -204,7 +204,7 @@ For administrator and privileged users, ensure the highest level of the strong a
 ### IM-5: Monitor and alert on account anomalies
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39524.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39524).
 
 **Guidance**: Azure Advisor is integrated with Azure Active Directory (Azure AD) in which provides the following data sources:
 - Sign in - The sign in report provides information about the usage of managed applications and user sign in activities.
@@ -229,7 +229,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 ### IM-6: Restrict Azure resource access based on conditions
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39525.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39525).
 
 **Guidance**: Azure Advisor supports Azure Active Directory's (Azure AD) conditional access feature for a more granular access control based on user-defined conditions. For example, user logins from certain IP ranges will need to use multi-factor authentication for login. Granular authentication session management policy can also be used for different use cases.
 
@@ -246,7 +246,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 ### IM-7: Eliminate unintended credential exposure
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39526.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39526).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -260,7 +260,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 ### IM-8: Secure user access to legacy applications
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39562.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39562).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -278,7 +278,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 ### PA-1: Protect and limit highly privileged users
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39527.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39527).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -292,7 +292,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 ### PA-2: Restrict administrative access to business-critical systems
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39528.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39528).
 
 **Guidance**: Azure Advisor uses Azure role-based access control (Azure RBAC) to isolate access to business-critical systems by restricting which accounts are granted privileged-access to the subscriptions and management groups, they belong to.
 
@@ -313,7 +313,7 @@ All types of access controls should be aligned to your enterprise segmentation s
 ### PA-3: Review and reconcile user access regularly
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39529.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39529).
 
 **Guidance**: Azure Advisor uses Azure Active Directory (Azure AD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid. 
 Implement Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. 
@@ -333,7 +333,7 @@ Note that some Azure services support local users and roles which are not manage
 ### PA-4: Set up emergency access in Azure AD
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39530.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39530).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -347,7 +347,7 @@ Note that some Azure services support local users and roles which are not manage
 ### PA-5: Automate entitlement management 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39531.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39531).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -361,7 +361,7 @@ Note that some Azure services support local users and roles which are not manage
 ### PA-6: Use privileged access workstations
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39532.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39532).
 
 **Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. 
 
@@ -380,7 +380,7 @@ Centrally manage the secured workstations to enforce secured configuration inclu
 ### PA-7: Follow just enough administration (least privilege principle) 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39533.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39533).
 
 **Guidance**: Azure Advisor is integrated with Azure role-based access control (Azure RBAC) to manage its resources. Use Azure RBAC to manage Azure resource access through role assignments. 
 
@@ -401,7 +401,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 ### PA-8: Choose approval process for Microsoft support  
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39589.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39589).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -419,7 +419,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 ### DP-1: Discovery, classify and label sensitive data
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39541.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39541).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -433,7 +433,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 ### DP-2: Protect sensitive data
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39542.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39542).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -447,7 +447,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 ### DP-3: Monitor for unauthorized transfer of sensitive data
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39543.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39543).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -461,7 +461,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 ### DP-4: Encrypt sensitive information in transit
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39544.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39544).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -475,7 +475,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 ### DP-5: Encrypt sensitive data at rest
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39545.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39545).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -493,7 +493,7 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 ### AM-1: Ensure security team has visibility into risks for assets
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39563.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39563).
 
 **Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
@@ -514,7 +514,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39564.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39564).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -528,7 +528,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### AM-3: Use only approved Azure services
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39565.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39565).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -542,7 +542,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### AM-4: Ensure security of asset lifecycle management
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39566.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39566).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -556,7 +556,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39567.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39567).
 
 **Guidance**: Azure Advisor uses Azure Active Directory (Azure AD) for identity and authentication, while Azure portal and Azure Resource Manager are used to manage Advisor. 
 
@@ -571,7 +571,7 @@ Use Azure Conditional Access to limit a user's ability to interact with Azure Re
 ### AM-6: Use only approved applications in compute resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39568.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39568).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -589,7 +589,7 @@ Use Azure Conditional Access to limit a user's ability to interact with Azure Re
 ### LT-1: Enable threat detection for Azure resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39546.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39546).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -603,7 +603,7 @@ Use Azure Conditional Access to limit a user's ability to interact with Azure Re
 ### LT-2: Enable threat detection for Azure identity and access management
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39547.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39547).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -617,7 +617,7 @@ Use Azure Conditional Access to limit a user's ability to interact with Azure Re
 ### LT-3: Enable logging for Azure network activities
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39548.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39548).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -631,15 +631,15 @@ Use Azure Conditional Access to limit a user's ability to interact with Azure Re
 ### LT-4: Enable logging for Azure resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39549.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39549).
 
 **Guidance**: Activity logs are automatically available and contain all write operations (PUT, POST, DELETE) for your Azure Advisor resources except read operations (GET). 
 
 Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
-- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
-
 - [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md)
+
+- [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -648,7 +648,7 @@ Activity logs can be used to find an error when troubleshooting or to monitor ho
 ### LT-5: Centralize security log management and analysis
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39550.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39550).
 
 **Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements.
 
@@ -667,7 +667,7 @@ In addition, enable and onboard data to Azure Sentinel or a third-party SIEM. Ma
 ### LT-6: Configure log storage retention
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39551.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39551).
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing Azure Advisor logs has the log retention period set according to your organization's compliance regulations.
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake or Log Analytics workspace accounts for long-term and archival storage.
@@ -683,7 +683,7 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 ### LT-7: Use approved time synchronization sources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39552.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39552).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -701,7 +701,7 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 ### IR-1: Preparation – update incident response process for Azure
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39553.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39553).
 
 **Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
@@ -716,7 +716,7 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 ### IR-2: Preparation – setup incident notification
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39554.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39554).
 
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
@@ -729,7 +729,7 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39555.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39555).
 
 **Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
 
@@ -750,7 +750,7 @@ Export your Azure Security Center alerts and recommendations using the export fe
 ### IR-4: Detection and analysis – investigate an incident
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39556.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39556).
 
 **Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
 
@@ -783,7 +783,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 ### IR-5: Detection and analysis – prioritize incidents
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39557.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39557).
 
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
@@ -802,7 +802,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 ### IR-6: Containment, eradication and recovery – automate the incident handling
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39558.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39558).
 
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
 Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
@@ -824,7 +824,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 ### PV-1: Establish secure configurations for Azure services 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39573.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39573).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -838,7 +838,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 ### PV-2: Sustain secure configurations for Azure services
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39574.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39574).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -852,7 +852,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 ### PV-3: Establish secure configurations for compute resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39575.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39575).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -866,7 +866,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 ### PV-4: Sustain secure configurations for compute resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39576.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39576).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -880,7 +880,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 ### PV-5: Securely store custom operating system and container images
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39577.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39577).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -894,7 +894,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 ### PV-6: Perform software vulnerability assessments
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39578.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39578).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -908,7 +908,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39579.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39579).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -922,7 +922,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 ### PV-8: Conduct regular attack simulation
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39580.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39580).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
@@ -944,7 +944,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### ES-1: Use Endpoint Detection and Response (EDR)
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39559.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39559).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -958,7 +958,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### ES-2: Use centrally managed modern anti-malware software
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39560.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39560).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -974,7 +974,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 ### ES-3: Ensure anti-malware software and signatures are updated
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39561.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39561).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -994,7 +994,7 @@ The underlying infrastructure under Advisor is handled by Microsoft, which inclu
 ### BR-1: Ensure regular automated backups
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39569.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39569).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1008,7 +1008,7 @@ The underlying infrastructure under Advisor is handled by Microsoft, which inclu
 ### BR-2: Encrypt backup data
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39570.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39570).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1022,7 +1022,7 @@ The underlying infrastructure under Advisor is handled by Microsoft, which inclu
 ### BR-3: Validate all backups including customer-managed keys
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39571.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39571).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1036,7 +1036,7 @@ The underlying infrastructure under Advisor is handled by Microsoft, which inclu
 ### BR-4: Mitigate risk of lost keys
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39572.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39572).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1054,7 +1054,7 @@ The underlying infrastructure under Advisor is handled by Microsoft, which inclu
 ### GS-1: Define asset management and data protection strategy 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39581.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39581).
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
 
@@ -1094,7 +1094,7 @@ For more information, see the following references:
 ### GS-2: Define enterprise segmentation strategy 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39588.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39588).
 
 **Guidance**: Establish an enterprise-wide strategy to segment access to assets using a combination of identity, network, application, subscription, management group, among other controls.
 
@@ -1115,7 +1115,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 ### GS-3: Define security posture management strategy
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39582.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39582).
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
@@ -1128,7 +1128,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 ### GS-4: Align organization roles, responsibilities, and accountabilities
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39583.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39583).
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
@@ -1145,7 +1145,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 ### GS-5: Define network security strategy
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39584.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39584).
 
 **Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
 
@@ -1179,7 +1179,7 @@ For more information, see the following references:
 ### GS-6: Define identity and privileged access strategy
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39585.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39585).
 
 **Guidance**: Establish an Azure identity and privileged access approach as part of your organization’s overall enterprise access control strategy.  
 
@@ -1212,7 +1212,7 @@ Review the referenced links for more information.
 ### GS-7: Define logging and threat response strategy
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39586.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39586).
 
 **Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 
