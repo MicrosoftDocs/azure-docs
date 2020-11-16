@@ -31,7 +31,7 @@ There are various ways to migrate database workloads from one platform to anothe
 
 * Review the [supported features in Azure Cosmos DB Cassandra API](cassandra-support.md) to ensure compatibility.
 
-* Ensure that target keyspace and tables exist in your Azure Cosmos DB Cassandra API account
+* Ensure you have already created empty keyspace and tables in your target Azure Cosmos DB Cassandra API account
 
 * [Use cqlsh or hosted shell for validation](cassandra-support.md#hosted-cql-shell-preview)
 
