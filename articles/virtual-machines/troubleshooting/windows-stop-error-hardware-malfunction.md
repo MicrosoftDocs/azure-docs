@@ -29,11 +29,11 @@ When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of
 
 **\*\*\* The system has halted \*\*\***
 
-#### Blue Screen
+#### Blue screen
 
 ![The screenshot shows a blue screen hardware malfunction crash.](media/windows-stop-error-hardware-malfunction/windows-stop-error-hardware-malfunction-1.png)
 
-#### Serial Console
+#### Serial console
 
 ![The screenshot shows the message “Hardware Malfunction” on the Serial Console feature if Serial Console has been enabled.](media/windows-stop-error-hardware-malfunction/windows-stop-error-hardware-malfunction-2.png)
 
@@ -50,13 +50,7 @@ This screen will appear when the Guest OS wasn't set up correctly and a Non-Mask
 3. Enable Serial Console and Memory Dump Collection 
 4. Rebuild the VM 
 
-### Set up the Non-Maskable Interrupt (NMI) Registry Key
-
-### Create and Access a Repair VM
-
-### Enable Serial Console and Memory Dump Collection
-
-### Rebuild the VM
+### Set up the Non-Maskable Interrupt (NMI) registry key
 
 1. Using the Azure portal, restart the VM so that the Guest OS boots normally. 
 2. Once some access to the VM has been restored, open an elevated command prompt (run as administrator). 
@@ -96,7 +90,7 @@ This screen will appear when the Guest OS wasn't set up correctly and a Non-Mask
 > [!TIP]
 > It is recommended to setup the non-maskable interrupt (NMI) registry key in the section above, however if your VM didn’t boot normally afterwards then intended changes to the Guest OS registry may not have taken place. If that’s the case, you can follow the directions below to manually add the registry settings instead.
 
-### Create and access a Repair VM
+### Create and access a repair VM
 
 1. Use steps 1-3 of the [VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) to prepare a Repair VM.
 2. Connect to the Repair VM using Remote Desktop Connection.
@@ -165,9 +159,9 @@ Before rebuilding the VM, it is recommended to enable memory dump collection and
     ```
 ### Rebuild the virtual machine
 
-1. Use [step 5 of the VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to rebuild the VM.
+* Use [step 5 of the VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to rebuild the VM.
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Troubleshoot Azure Virtual Machine Boot Errors](./boot-error-troubleshoot.md)
