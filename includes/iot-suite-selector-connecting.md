@@ -16,7 +16,7 @@
 > * [C on Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 > * [Node.js (generic)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Node.js on Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
-> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
+> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md)
 
 In this tutorial, you implement a **Chiller** device that sends the following telemetry to the Remote Monitoring [solution accelerator](../articles/iot-accelerators/about-iot-accelerators.md):
 
@@ -49,7 +49,7 @@ When the deployment process for the Remote Monitoring solution finishes, click *
 ### Add your device to the Remote Monitoring solution
 
 > [!NOTE]
-> If you have already added a device in your solution, you can skip this step. However, the next step requires your device connection string. You can retrieve a device's connection string from the [Azure portal](https://portal.azure.com) or using the [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI tool.
+> If you have already added a device in your solution, you can skip this step. However, the next step requires your device connection string. You can retrieve a device's connection string from the [Azure portal](https://portal.azure.com) or using the [az iot](/cli/azure/iot?view=azure-cli-latest) CLI tool.
 
 For a device to connect to the solution accelerator, it must identify itself to IoT Hub using valid credentials. You have the opportunity to save the device connection string that contains these credentials when you add the device to the solution. You include the device connection string in your client application later in this tutorial.
 
