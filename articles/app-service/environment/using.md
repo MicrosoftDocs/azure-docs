@@ -174,12 +174,12 @@ To delete an ASE:
 1. Select **OK**.
 
 <!--Image references-->
-[1]: ./media/using_an_app_service_environment/using-appcreate.png
-[2]: ./media/using_an_app_service_environment/using-appcreate-skus.png
-[3]: ./media/using_an_app_service_environment/using-delete.png
-[4]: ./media/using_an_app_service_environment/using-logsetup.png
-[4]: ./media/using_an_app_service_environment/using-logs.png
-[5]: ./media/using_an_app_service_environment/using-configuration.png
+[1]: ./media/using/using-appcreate.png
+[2]: ./media/using/using-appcreate-skus.png
+[3]: ./media/using/using-delete.png
+[4]: ./media/using/using-logsetup.png
+[4]: ./media/using/using-logs.png
+[5]: ./media/using/using-configuration.png
 
 <!--Links-->
 [Intro]: ./overview.md
