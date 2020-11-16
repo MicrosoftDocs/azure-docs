@@ -1,6 +1,6 @@
 ---
-title: Deploy a Cloud Service (extended support) - Portal
-description: Deploy a Cloud Service (extended support) using the Azure portal
+title: Deploy a Azure Cloud Service (extended support) - Portal
+description: Deploy a Azure Cloud Service (extended support) using the Azure portal
 ms.topic: quickstart
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -10,7 +10,8 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Deploy a Cloud Service (extended support) using the Azure portal
+# Deploy a Azure Cloud Service (extended support) using the Azure portal
+Cloud Services (extended support) provides various methods to create a deployment.  This article shows you how to use the Azure portal to create a Cloud Service (extended support) deployment. 
 
 ## Create a Cloud Service (extended support)
 1.	Log in to the Azure portal
@@ -25,7 +26,7 @@ ms.custom:
 1. Select the Subscription.
 
     > [!NOTE]
-    > The subscription used for deploying cloud services (extended support) needs to have one of the following roles owner or contributor assigned via ARM role based access control (RBAC). If your subscription does not have any one of these roles, please make sure it is added before proceeding further.
+    > The subscription used for deploying cloud services (extended support) needs to have one of the following roles owner or contributor assigned via Azure Resource Manager role based access control (RBAC). If your subscription does not have any one of these roles, please make sure it is added before proceeding further.
     
 
 6. Choose a Resource group or create a new one.
@@ -33,7 +34,7 @@ ms.custom:
 8. Select a region to deploy to. 
 9. Select your Configuration (`.cscfg`) file. You can use an existing configuration or upload a new configuration.
 10. Select Service Definition (`.csdef`) file. You can use an existing definition file or upload a new one. 
-        :::image type="content" source="media/deploy-portal-2.png" alt-text="Image shows the basics tab in the Azure portal for creating a Cloud Service (extended support).":::
+    :::image type="content" source="media/deploy-portal-2.png" alt-text="Image shows the basics tab in the Azure portal for creating a Cloud Service (extended support).":::
 11. Once all fields have been completed, move to the Configuration tab
 
 

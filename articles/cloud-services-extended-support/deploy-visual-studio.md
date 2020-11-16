@@ -1,5 +1,5 @@
 ---
-title: Use Cloud Services Extended Support (Preview)
+title: Use Cloud Services (extended support) (Preview)
 description: Learn now to create and deploy an Azure Cloud Service using Azure Resource Manager with Visual Studio
 author: ghogen
 ms.service: cloud-services-extended-support
@@ -11,7 +11,7 @@ ms.date: 10/5/2020
 ms.author: ghogen
 ---
 
-# Create and deploy a cloud service using extended support in Visual Studio (Preview)
+# Create and deploy a Azure Cloud Service (extended support) using Visual Studio
 
 Starting with Visual Studio 2019 version 16.9 Preview 1, you can work with cloud services using Azure Resource Manager, which greatly simplifies and modernizes maintenance and management of Azure resources. You can also convert an existing cloud service project to an extended support cloud service project.
 
@@ -48,17 +48,13 @@ The Visual Studio Azure project has associations to the role projects in the sol
 
 For more information about these files, see [Configure the Roles for an Azure Cloud Service with Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
 
-## Convert an existing cloud service project to use extended support
-
-...
-
 ## Publish a cloud service
 
 1. Create or open an Azure Cloud Service project in Visual Studio.
 
 1. In **Solution Explorer**, right-click the project, and, from the context menu, select **Publish**.
 
-   ![Sign-in page](./media/publish-step1.png)
+   ![Sign-in page](./media/publish-step-1.png)
 
 1. **Account** - Select an account or select **Add an account** in the account dropdown list.
 
@@ -113,4 +109,4 @@ To clean up the Azure resources you created by following this tutorial, go to th
 
 ## Next steps
 
-Set up continuous intregration (CI) using the **Configure** button on the **Publish** screen. For more information, see [Azure Pipelines documentation](https://docs.microsoft.com/azure/devops/pipelines).
+Set up continuous integration (CI) using the **Configure** button on the **Publish** screen. For more information, see [Azure Pipelines documentation](https://docs.microsoft.com/azure/devops/pipelines).
