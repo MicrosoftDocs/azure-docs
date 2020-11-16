@@ -35,7 +35,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 ### NS-1: Implement security for internal traffic
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41413.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41413).
 
 **Guidance**: Azure SignalR Service does not support deploying directly into a virtual network, because of this you can not leverage certain networking features with the offering's resources such as network security groups, route tables, or other network dependent appliances such as an Azure Firewall. However, Azure SignalR Service allows you to create private endpoint for Azure SignalR Service to secure the traffic between resources in your virtual network and Azure SignalR Service.
 
@@ -53,7 +53,7 @@ You can also use Service Tag and configure Network Security Group rules to restr
 ### NS-2: - Connect private networks together  
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41414.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41414).
 
 **Guidance**: Use private endpoints to secure the traffic between your virtual network and Azure SignalR Service.
 
@@ -76,7 +76,7 @@ To connect two or more virtual networks in Azure together, use virtual network p
 ### NS-3: Establish private network access to Azure services
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41415.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41415).
 
 **Guidance**: Use Azure Private Link to enable private access to Azure SignalR Service from your virtual networks without crossing the internet.
 
@@ -94,7 +94,7 @@ Private access is an additional defense in depth measure in addition to authenti
 ### NS-4: Protect applications and services from external network attacks
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41416.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41416).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -110,7 +110,7 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41417.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41417).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -124,7 +124,7 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 ### NS-6: Simplify network security rules
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41418.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41418).
 
 **Guidance**: Use Azure Virtual Network Service Tags to define network access controls on network security groups or Azure Firewall configured for your Azure SignalR Service resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (For example: AzureSignalR) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
@@ -139,7 +139,7 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 ### NS-7: Secure Domain Name Service (DNS)
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41419.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41419).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -157,7 +157,7 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41392.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41392).
 
 **Guidance**: Azure SignalR Service uses Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in:
 - Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
@@ -196,7 +196,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 ### IM-2: Manage application identities securely and automatically
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41393.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41393).
 
 **Guidance**: Azure SignalR Service uses Azure managed identities for non-human accounts such as calling upstreams in serverless scenario, it is recommended to use Azure managed identity feature to access other Azure resources. Azure SignalR Service can natively authenticate to the Azure services/resources that supports Azure AD authentication through pre-defined access grant rule without using credential hard coded in source code or configuration files.
 
@@ -213,7 +213,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41394.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41394).
 
 **Guidance**: Azure SignalR Service uses Azure Active Directory to provide identity and access management to SignalR resources. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. This enables single sign-on (SSO) to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to the Azure AD for seamless, secure access and greater visibility and control.
 
@@ -226,7 +226,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41395.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41395).
 
 **Guidance**: Azure SignalR Service uses Azure Active Directory that supports strong authentication controls through multi-factor authentication (MFA), and strong passwordless methods.
 
@@ -251,7 +251,7 @@ For administrator and privileged users, ensure the highest level of the strong a
 ### IM-5: Monitor and alert on account anomalies
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41396.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41396).
 
 **Guidance**: Azure SignalR Service is integrated with Azure Active Directory in which provides the following data sources:
 
@@ -288,7 +288,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 ### IM-6: Restrict Azure resource access based on conditions
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41397.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41397).
 
 **Guidance**: Azure SignalR Service supports Azure AD conditional access for a more granular access control based on user-defined conditions, such as user logins from certain IP ranges will need to use MFA for login. Granular authentication session management policy can also be used for different use cases.
 
@@ -305,7 +305,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 ### IM-7: Eliminate unintended credential exposure
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41398.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41398).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -319,7 +319,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 ### IM-8: Secure user access to legacy applications
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41399.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41399).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -337,7 +337,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 ### PA-1: Protect and limit highly privileged users
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41420.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41420).
 
 **Guidance**: The most critical built-in roles are Azure AD are Global Administrator and the Privileged Role Administrator as users assigned to these two roles can delegate administrator roles:
 
@@ -366,7 +366,7 @@ You can enable just-in-time (JIT) privileged access to Azure resources and Azure
 ### PA-2: Restrict administrative access to business-critical systems
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41421.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41421).
 
 **Guidance**: Azure SignalR Service uses Azure RBAC to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
 
@@ -387,7 +387,7 @@ Azure subscription administrators ../cost-management-billing/manage/add-change-s
 ### PA-3: Review and reconcile user access regularly
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41422.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41422).
 
 **Guidance**: Review user accounts and access assignment regularly to ensure the accounts and their level of access are valid.
 
@@ -419,7 +419,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 ### PA-4: Set up emergency access in Azure AD
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41423.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41423).
 
 **Guidance**: Azure SignalR Service uses Azure Active Directory to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
 
@@ -434,7 +434,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 ### PA-5: Automate entitlement management 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41424.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41424).
 
 **Guidance**: Azure SignalR Service is integrated with Azure Active Directory to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
 
@@ -449,7 +449,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 ### PA-6: Use privileged access workstations
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41425.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41425).
 
 **Guidance**: Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. Use highly secured user workstations and/or Azure Bastion for administrative tasks. Use Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP), and/or Microsoft Intune to deploy a secure and managed user workstation for administrative tasks. The secured workstations can be centrally managed to enforce secured configuration including strong authentication, software and hardware baselines, restricted logical and network access.
 
@@ -464,7 +464,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41426.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41426).
 
 **Guidance**: Azure SignalR Service is integrated with Azure role-based access control (RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically.
 
@@ -496,7 +496,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 ### PA-8: Choose approval process for Microsoft support  
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41427.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41427).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -514,7 +514,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 ### DP-1: Discovery, classify and label sensitive data
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41376.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41376).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -528,7 +528,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 ### DP-2: Protect sensitive data
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41377.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41377).
 
 **Guidance**: Protect sensitive data by restricting access using Azure Role Based Access Control (Azure RBAC), network-based access controls, and specific controls in Azure services (such as encryption in SQL and other databases).
 
@@ -547,7 +547,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 ### DP-3: Monitor for unauthorized transfer of sensitive data
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41378.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41378).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -561,7 +561,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 ### DP-4: Encrypt sensitive information in transit
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41379.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41379).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -585,7 +585,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 ### DP-5: Encrypt sensitive data at rest
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41380.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41380).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -603,7 +603,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 ### AM-1: Ensure security team has visibility into risks for assets
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41366.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41366).
 
 **Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
@@ -624,7 +624,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41367.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41367).
 
 **Guidance**: Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
@@ -641,7 +641,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### AM-3: Use only approved Azure services
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41368.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41368).
 
 **Guidance**: Use Azure Policy to audit and restrict which services users can provision in your environment. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
 
@@ -658,7 +658,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### AM-4: Ensure security of asset lifecycle management
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41369.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41369).
 
 **Guidance**: Establish or update security policies that address asset lifecycle management processes for potentially high impact modifications. These modifications include changes, but are not limited to: identity providers and access, data sensitivity, network configuration, and administrative privilege assignment. In Azure SignalR Service, these changes include: regenerate access key, create/update private endpoint, manage network access control.
 
@@ -673,7 +673,7 @@ Remove Azure resources when they are no longer needed.
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41370.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41370).
 
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
@@ -686,7 +686,7 @@ Remove Azure resources when they are no longer needed.
 ### AM-6: Use only approved applications in compute resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41371.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41371).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -704,7 +704,7 @@ Remove Azure resources when they are no longer needed.
 ### LT-1: Enable threat detection for Azure resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41406.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41406).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -718,7 +718,7 @@ Remove Azure resources when they are no longer needed.
 ### LT-2: Enable threat detection for Azure identity and access management
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41407.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41407).
 
 **Guidance**: Azure AD provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
 
@@ -747,7 +747,7 @@ Audit activity reports in the Azure Active Directory
 ### LT-3: Enable logging for Azure network activities
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41408.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41408).
 
 **Guidance**: Azure SignalR Service is not intended to deploy into virtual networks, because of this you are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures.
 
@@ -764,7 +764,7 @@ Azure SignalR Service does not produce or process DNS query logs which would nee
 ### LT-4: Enable logging for Azure resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41409.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41409).
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure SignalR Service resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
@@ -785,7 +785,7 @@ Enable Azure resource logs for Azure SignalR Service. You can use Azure Security
 ### LT-5: Centralize security log management and analysis
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41410.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41410).
 
 **Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements.
 
@@ -806,7 +806,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 ### LT-6: Configure log storage retention
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41411.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41411).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -820,7 +820,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 ### LT-7: Use approved time synchronization sources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41412.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41412).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -838,7 +838,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 ### IR-1: Preparation – update incident response process for Azure
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41400.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41400).
 
 **Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
@@ -853,7 +853,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 ### IR-2: Preparation – setup incident notification
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41401.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41401).
 
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
@@ -866,7 +866,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41402.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41402).
 
 **Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
 
@@ -887,7 +887,7 @@ Export your Azure Security Center alerts and recommendations using the export fe
 ### IR-4: Detection and analysis – investigate an incident
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41403.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41403).
 
 **Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
 
@@ -920,7 +920,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 ### IR-5: Detection and analysis – prioritize incidents
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41404.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41404).
 
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
@@ -939,7 +939,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 ### IR-6: Containment, eradication and recovery – automate the incident handling
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41405.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41405).
 
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
 Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
@@ -961,7 +961,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 ### PV-1: Establish secure configurations for Azure services 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41428.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41428).
 
 **Guidance**: Azure SignalR Service supports below service-specific policies that are available in Azure Security Center to audit and enforce configurations of your Azure resources. This can be configured in Azure Security Center or Azure Policy initiatives.
 - [- Azure SignalR Service should use private links](signalr-howto-azure-policy.md)
@@ -983,7 +983,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 ### PV-2: Sustain secure configurations for Azure services
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41429.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41429).
 
 **Guidance**: - [Use Azure Security Center to monitor your configuration baseline and enforce using Azure Policy [deny] and [deploy if not exist] to enforce secure configuration for Azure SignalR Service. Azure SignalR Service policy includes:- Azure SignalR Service should use private links](signalr-howto-azure-policy.md)
 
@@ -998,7 +998,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 ### PV-3: Establish secure configurations for compute resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41430.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41430).
 
 **Guidance**: Use Azure Security Center and Azure Policy to establish secure configurations on Azure SignalR Service.
 
@@ -1013,7 +1013,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 ### PV-4: Sustain secure configurations for compute resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41431.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41431).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1027,7 +1027,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 ### PV-5: Securely store custom operating system and container images
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41432.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41432).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1041,7 +1041,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 ### PV-6: Perform software vulnerability assessments
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41433.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41433).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1055,7 +1055,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41434.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41434).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1069,7 +1069,7 @@ Illustration of Guardrails implementation in Enterprise Scale Landing Zone /azur
 ### PV-8: Conduct regular attack simulation
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41435.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41435).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
@@ -1091,7 +1091,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### ES-1: Use Endpoint Detection and Response (EDR)
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41381.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41381).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1105,7 +1105,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### ES-2: Use centrally managed modern anti-malware software
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41382.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41382).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1119,7 +1119,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### ES-3: Ensure anti-malware software and signatures are updated
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41383.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41383).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1137,7 +1137,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### BR-1: Ensure regular automated backups
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41372.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41372).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1151,7 +1151,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### BR-2: Encrypt backup data
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41373.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41373).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1165,7 +1165,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### BR-3: Validate all backups including customer-managed keys
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41374.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41374).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1179,7 +1179,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### BR-4: Mitigate risk of lost keys
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41375.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41375).
 
 **Guidance**: Ensure you have measures in place to prevent and recover from loss of keys. Enable soft delete and purge protection in Azure Key Vault to protect keys against accidental or malicious deletion.
 
@@ -1196,7 +1196,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### GS-1: Define asset management and data protection strategy 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41384.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41384).
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
 
@@ -1236,7 +1236,7 @@ For more information, see the following references:
 ### GS-2: Define enterprise segmentation strategy 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41385.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41385).
 
 **Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
 
@@ -1257,7 +1257,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 ### GS-3: Define security posture management strategy
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41386.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41386).
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
@@ -1270,7 +1270,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 ### GS-4: Align organization roles, responsibilities, and accountabilities
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41387.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41387).
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
@@ -1287,7 +1287,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 ### GS-5: Define network security strategy
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41388.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41388).
 
 **Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
 
@@ -1321,7 +1321,7 @@ For more information, see the following references:
 ### GS-6: Define identity and privileged access strategy
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41389.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41389).
 
 **Guidance**: Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
 
@@ -1354,7 +1354,7 @@ For more information, see the following references:
 ### GS-7: Define logging and threat response strategy
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41390.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41390).
 
 **Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 
