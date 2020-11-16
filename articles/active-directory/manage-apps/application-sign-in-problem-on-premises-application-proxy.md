@@ -43,7 +43,7 @@ The following documents can help you to resolve some of the most common issues i
 ## I'm having a problem setting up back-end authentication to my application
   The following documents can help you to resolve some of the most common issues in this category.
   * [I don't know how to configure Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-  * [I don't know how to configure my application with PingAccess](application-proxy-back-end-ping-access-how-to.md)
+  * [I don't know how to configure my application with PingAccess](/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide)
 
 ## I'm having a problem when signing in to my application
   The following documents can help you to resolve some of the most common issues in this category.
