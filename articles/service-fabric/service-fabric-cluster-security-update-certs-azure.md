@@ -21,7 +21,7 @@ Service fabric lets you specify two cluster certificates, a primary and a second
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Add a secondary cluster certificate using the portal
-Secondary cluster certificate cannot be added through the Azure portal, use Azure powershell. The process is outlined later in this document.
+Secondary cluster certificate cannot be added through the Azure portal; use Azure PowerShell. The process is outlined later in this document.
 
 ## Remove a cluster certificate using the portal
 For a secure cluster, you will always need at least one valid (not revoked and not expired) certificate. The certificate deployed with the furthest into the future expiring date will be in use, and removing it will make your cluster stop functioning; ensure to only remove the certificate that is expired, or an unused certificate that expires the soonest.
@@ -203,7 +203,7 @@ Deploy the template to your resource group. Use the same Resource Group that you
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
-Here is a filled out example of the same powershell.
+Here is a filled out example of the same PowerShell.
 
 ```powershell
 $ResourceGroup2 = "chackosecure5"
@@ -272,7 +272,7 @@ To remove a secondary certificate from being used for cluster security, Navigate
 
 ## Adding application certificates to a virtual machine scale set
 
-To deploy a certificate you use for your applications to your cluster, see [this sample Powershell script](scripts/service-fabric-powershell-add-application-certificate.md).
+To deploy a certificate you use for your applications to your cluster, see [this sample PowerShell script](scripts/service-fabric-powershell-add-application-certificate.md).
 
 ## Next steps
 Read these articles for more information on cluster management:
