@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 06/14/2020
+ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
 
@@ -85,6 +85,9 @@ When using the Standard SKU public load balancer, there's a set of options that 
 * Customize the number of allocated outbound ports to each node of the cluster
 * Configure the timeout setting for idle connections
 
+> [!IMPORTANT]
+> Only one outbound IP option (managed IPs, bring your own IP, or IP Prefix) can be used at a given time.
+
 ### Scale the number of managed outbound public IPs
 
 Azure Load Balancer provides outbound connectivity from a virtual network in addition to inbound. Outbound rules make it simple to configure public Standard Load Balancer's outbound network address translation.
@@ -118,10 +121,11 @@ When you use a *Standard* SKU load balancer, by default the AKS cluster automati
 
 A public IP created by AKS is considered an AKS managed resource. This means the lifecycle of that public IP is intended to be managed by AKS and requires no user action directly on the public IP resource. Alternatively, you can assign your own custom public IP or public IP prefix at cluster creation time. Your custom IPs can also be updated on an existing cluster's load balancer properties.
 
-> [!NOTE]
-> Custom public IP addresses must be created and owned by the user. Managed public IP addresses created by AKS cannot be reused as a bring your own custom IP as it can cause management conflicts.
+Requirements for using your own public IP or prefix:
 
-Before you do this operation, make sure you meet the [pre-requisites and constraints](../virtual-network/public-ip-address-prefix.md#constraints) necessary to configure Outbound IPs or Outbound IP prefixes.
+- Custom public IP addresses must be created and owned by the user. Managed public IP addresses created by AKS cannot be reused as a bring your own custom IP as it can cause management conflicts.
+- You must ensure the AKS cluster identity (Service Principal or Managed Identity) has permissions to access the outbound IP. As per the [required public IP permissions list](kubernetes-service-principal.md#networking).
+- Make sure you meet the [pre-requisites and constraints](../virtual-network/public-ip-address-prefix.md#constraints) necessary to configure Outbound IPs or Outbound IP prefixes.
 
 #### Update the cluster with your own outbound public IP
 
