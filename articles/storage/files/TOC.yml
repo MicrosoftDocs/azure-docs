@@ -67,6 +67,12 @@
       href: storage-sync-files-networking-overview.md
     - name: About cloud tiering
       href: storage-sync-cloud-tiering.md
+  - name: Performance and scale
+    items:
+    - name: SMB Multichannel performance
+      href: storage-files-smb-multichannel-performance.md
+    - name: Scalability and performance targets
+      href: storage-files-scale-targets.md
   - name: Prevent accidental data deletion
     href: storage-files-prevent-file-share-deletion.md
   - name: Back up file shares
@@ -74,9 +80,7 @@
   - name: Encryption at-rest
     href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Encryption at-rest with customer-managed keys
-    href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Scalability and performance targets
-    href: storage-files-scale-targets.md
+    href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: FAQ
@@ -87,8 +91,6 @@
     items:
     - name: Create an SMB file share
       href: storage-how-to-create-file-share.md
-    - name: Enable large file shares
-      href: storage-files-how-to-create-large-file-share.md
     - name: Create a premium file share
       href: storage-how-to-create-premium-fileshare.md
     - name: Create an NFS share
@@ -231,6 +233,12 @@
         href: storage-files-migration-storsimple-8000.md
       - name: StorSimple 1200 migration guide
         href: storage-files-migration-storsimple-1200.md
+  - name: Improve performance
+    items:
+    - name: Enable SMB Multichannel
+      href: storage-files-enable-smb-multichannel.md
+    - name: Enable large file shares
+      href: storage-files-how-to-create-large-file-share.md
   - name: Develop
     items:
     - name: Configure connection strings
