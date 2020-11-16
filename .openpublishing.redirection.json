@@ -16678,22 +16678,22 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "/azure/cosmos-db/cli-samples-cassandra.md",
+      "source_path": "articles/cosmos-db/cli-samples-cassandra.md",
       "redirect_url": "/azure/cosmos-db/cli-samples",
       "redirect_document_id": false
     },
     {
-      "source_path": "/azure/cosmos-db/cli-samples-gremlin.md",
+      "source_path": "articles/cosmos-db/cli-samples-gremlin.md",
       "redirect_url": "/azure/cosmos-db/cli-samples",
       "redirect_document_id": false
     },
     {
-      "source_path": "/azure/cosmos-db/cli-samples-mongodb.md",
+      "source_path": "articles/cosmos-db/cli-samples-mongodb.md",
       "redirect_url": "/azure/cosmos-db/cli-samples",
       "redirect_document_id": false
     },
     {
-      "source_path": "/azure/cosmos-db/cli-samples-table.md",
+      "source_path": "articles/cosmos-db/cli-samples-table.md",
       "redirect_url": "/azure/cosmos-db/cli-samples",
       "redirect_document_id": false
     },

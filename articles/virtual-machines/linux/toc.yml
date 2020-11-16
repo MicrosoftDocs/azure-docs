@@ -337,6 +337,8 @@
       href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Shared disks
       href: disks-shared.md
+    - name: Disk performance tiers
+      href: ../disks-change-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Ephemeral OS disks
       href: ../ephemeral-os-disks.md
   - name: Networking
@@ -971,8 +973,10 @@
         href: add-disk.md
       - name: Azure portal
         href: attach-disk-portal.md
-    - name: Change disk tier
+    - name: Change disk tier - PowerShell/CLI
       href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Change disk tier - Portal
+      href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Detach a disk
       href: detach-disk.md
     - name: Deploy disks with ARM template
