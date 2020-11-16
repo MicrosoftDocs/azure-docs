@@ -37,7 +37,7 @@ A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event
    
    ![Select trigger to start your logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#sign-in-other-accounts). Otherwise, provide the information for the trigger's properties.
+1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts). Otherwise, provide the information for the trigger's properties.
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
@@ -89,7 +89,7 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
 ## Connect using other accounts
 
-If you try connecting to Outlook by using a different account than the one currently signed in to Azure, you might get [single sign-on (SSO)](../active-directory/manage-apps/what-is-single-sign-on) errors. This problem happens when you sign in to the Azure portal with one account, but use a different account to create the connection. The Logic App Designer expects to use the account that's signed in to Azure. To resolve this problem, you have these options:
+If you try connecting to Outlook by using a different account than the one currently signed in to Azure, you might get [single sign-on (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md) errors. This problem happens when you sign in to the Azure portal with one account, but use a different account to create the connection. The Logic App Designer expects to use the account that's signed in to Azure. To resolve this problem, you have these options:
 
 * Set up the other account as a **Contributor** to your logic app's resource group.
 
