@@ -76,7 +76,8 @@ If you make changes after your submission is certified, it must go through the c
 If you have general questions about policies, processes, or validation requirements, you can engage with the Microsoft AppSource validation team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Tag your question with "Office-Store". Please be aware that the validation team will not be able to discuss individual submission results on Stack Overflow. 
 
 ## Microsoft 365 App Compliance 
-Once your submission is certified within Partner Center you can begin the [Microsoft 365 App Compliance program](https://docs.microsoft.com/microsoft-365-app-certification/overview). This program is optional and is designed to allow you reach the level of security that meets the needs of your customers. The Publisher Attestation is now integrated within Partner Center and can be started by clicking on the [App Compliance button](https://docs.microsoft.com/microsoft-365-app-certification/docs/userguide) in the Office Store section. 
+
+After your solution is published through Partner Center, you can begin the [Microsoft 365 App Compliance program](https://docs.microsoft.com/microsoft-365-app-certification/overview). This program is optional and is designed to allow you to reach the level of security that meets the needs of your customers. To complete the Publisher Attestation within Partner Center, click the **App Compliance** button in the Office Store section. For details, see the [User guide](https://docs.microsoft.com/microsoft-365-app-certification/docs/userguide).
 
 ## See also
 
