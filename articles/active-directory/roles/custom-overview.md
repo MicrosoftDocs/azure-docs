@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/05/2020
+ms.date: 11/16/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
