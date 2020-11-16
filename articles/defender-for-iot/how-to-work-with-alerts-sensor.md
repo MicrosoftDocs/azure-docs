@@ -1,6 +1,6 @@
 ---
 title: Work with alerts sensor
-description: 
+description: This is a filler description and needs to be changed
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -21,7 +21,7 @@ Work with alerts to help you enhance the security and operation of your network.
 
   - Suspected malware traffic
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image159.png" alt-text="Address Scan Detected":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/image159.png" alt-text="Detect address scan":::
 
 Alert management options let users:
 
@@ -47,7 +47,7 @@ Alerts are triggered when sensor engines detect changes in network traffic and b
 
 See [Engines](./engines.md) for more information about the engines.
 
-| | |
+| Alert type | Description |
 |-|-|
 | Policy violation alerts | Triggered when the Policy Violation engine detects a deviation from traffic previously learned. For example: <br /> A new asset is detected.  <br /> A new configuration is detected on an asset. <br /> An asset not defined as a programming device carries out a programming change. <br /> A firmware version changed. |
 | Protocol violation alerts | Triggered when the Protocol Violation engine detects packet structures or field values that don't comply with the protocol specification. |  |
@@ -65,7 +65,7 @@ This section describes how to access and search for alerts in the Alerts window.
 
 1. Select **Alerts** from the side-menu. The Alert window displays the alerts detected by your sensor.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image160.png" alt-text="Alerts":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/image160.png" alt-text="View of alerts":::
 
 ## Alert Views
 
@@ -73,13 +73,13 @@ You can view alerts according to various categories from the **Alerts, Main View
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/image161.png" alt-text="Learning":::
 
-|                     |                           |
-| ------------------- | ------------------------- |
-| **Important Alerts**    | Alerts sorted by importance.|
-| **Pinned Alerts**       | Alerts that were pinned by the user for further investigation. Pinned alerts are not archived, and are stored for 14 days in the Pinned folder |
-| **Recent Alerts**       | Alerts sorted by time.    |
-| **Acknowledged Alerts** | Displays alerts that were Acknowledged/Unhadbled or Muted/Unmuted.   |
-| **Archived Alerts**     | Alerts that were archived automatically by the system. Accessible by the Admin user only. |
+| Sort by type | Description |
+|--|--|
+| **Important Alerts** | Alerts sorted by importance. |
+| **Pinned Alerts** | Alerts that were pinned by the user for further investigation. Pinned alerts are not archived, and are stored for 14 days in the Pinned folder |
+| **Recent Alerts** | Alerts sorted by time. |
+| **Acknowledged Alerts** | Displays alerts that were Acknowledged and Unhandled or Muted and Unmuted. |
+| **Archived Alerts** | Alerts that were archived automatically by the system. Accessible by the Admin user only. |
 
 ### Search for alerts of interest
 
@@ -183,7 +183,7 @@ When managing an alert event, you can choose the comment or comments that best r
 
 Selected comments are saved in the alert message. Working with comments enhances commination between individuals and teams during the investigation of an alert event, and as a result, can accelerate incident response time.
 
-Comments are pre-defined by Administrator or Security Analyst users. Selected comments are not forwarded to 3<sup>rd</sup>, party systems defined in Forwarding rules.
+Comments are pre-defined by Administrator or Security Analyst users. Selected comments are not forwarded to partner systems defined in the Forwarding rules.
 
 See [Accelerate Incident Workflow with Alert Comments](./accelerate-incident-workflow-with-alert-comments.md) for details about creating comments.
 
@@ -229,7 +229,7 @@ When you select *Learn*, the sensor considers traffic, configurations or activit
 
 For example, you receive an alert indicating address scanning activity on an asset not previously defined by a network scanner. If this asset was added to the network for the purpose of scanning, you may instruct the sensor to learn the asset as a scanning device.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image171.png" alt-text="Address Scan Detected":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/image171.png" alt-text="Address etected scan":::
 
 Learned events can be *Unlearned*. When unlearned the sensor will retrigger, alerts relate to this event.
 
@@ -237,10 +237,8 @@ Learned events can be *Unlearned*. When unlearned the sensor will retrigger, ale
 
 In certain situations, you may *not* want to learn the event detected, or the option may not be available. Instead, the incident may require mitigation. For example,
 
-|                                            |                                       |
-|--------------------------------------------|-------------------------------------- |
-| **Mitigate a network configuration or device** | You receive an alert indicating that a new asset was detected on the network. When investigating, you discover that the asset is an unauthorized network device.</br>The incident is handled by disconnecting the asset from the network.  |
-| **Update a sensor configuration**              | You receive an alert indicating that an excessive number of remote connections were initiated with a server. This alert was triggered because the sensor anomaly thresholds were defined to alert trigger alerts above (x) sessions within (x) one minute. The incident is handled by updating the thresholds. |
+- **Mitigate a network configuration or device** - You receive an alert indicating that a new asset was detected on the network. When investigating, you discover that the asset is an unauthorized network device.</br>The incident is handled by disconnecting the asset from the network.
+- **Update a sensor configuration** - You receive an alert indicating that an excessive number of remote connections were initiated with a server. This alert was triggered because the sensor anomaly thresholds were defined to alert trigger alerts above (x) sessions within (x) one minute. The incident is handled by updating the thresholds.
 
 Once mitigation or investigation is carried out, you can instruct the sensor to hide the alert by selecting *Acknowledge*. If the event is detected again, the alert will be retriggered.
 
@@ -275,9 +273,9 @@ The asset or assets being muted will be displayed as an image in the alert. If t
 
 **Example 1**
 
-When muted, the event is ignored any time this Master (source) sends this slave (destination) an illegal function code as defined by the vendor.
+When muted, the event is ignored any time this primary (source) sends this secondary (destination) an illegal function code as defined by the vendor.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/image172.png" alt-text="Slave Device Received":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/image172.png" alt-text="Secondary device received":::
 
 **Example 2**
 
@@ -341,9 +339,9 @@ Alert messages provide the following actions:
 
   - Select the :::image type="content" source="media/how-to-work-with-alerts-sensor/image36.png" alt-text="PDF"::: icon to download an alert report as a PDF file.
 
-  - Select the :::image type="content" source="https://www.wireshark.org/" alt-text="download](media/how-to-work-with-alerts-sensor/image38.png) icon to download the PCAP file, viewable with [<span class="underline">Wireshark</span>":::, the free network protocol analyzer.
+  - Select the :::image type="content" source="media/how-to-work-with-alerts-sensor/image38.png" alt-text="download"::: icon to download the PCAP file, viewable with Wireshark, the free network protocol analyzer.
 
-  - Select :::image type="content" source="https://www.wireshark.org/" alt-text="packets](media/how-to-work-with-alerts-sensor/image39.png) to download a filtered PCAP file that contains only the alert-relevant packets, thereby reducing output file size and allowing a more focused analysis. You can view it using <span class="underline">[Wireshark":::.</span>
+  - Select :::image type="content" source="media/how-to-work-with-alerts-sensor/image39.png" alt-text="packets"::: to download a filtered PCAP file that contains only the alert-relevant packets, thereby reducing output file size and allowing a more focused analysis. You can view it using Wireshark.
 
   - Select the :::image type="content" source="media/how-to-work-with-alerts-sensor/image186.png" alt-text="Event"::: icon to show the Alert in the Event Timeline.
 
@@ -552,7 +550,7 @@ Enter the following parameters:
 | Message | Sensor – Sensor name<br /> Alert – the title of the alert<br /> Type – the type of the alert: Protocol Violation, Policy Violation, Malware, Anomaly or Operational<br /> Severity – the severity of the alert: Warning, Minor, Major or Critical<br /> Source – source device name<br /> Source ip – source device IP<br /> Destination – destination device name<br /> Destination ip – destination device IP<br /> Message – the message of the alert<br /> Alert Group - The Alert Group associated with the alert.<br />See Accelerate Incident Workflow with Alert Grouping Accelerate Inciden<br />Workflow with Alert Grouping for details. |
 
 
-| SYSLOG OBJECT Output |  |
+| SYSLOG OBJECT Output | Description |
 |--|--|
 | Date/Time |	Date and time the syslog server machine received the information |  
 | Priority |	User.Alert | 
@@ -560,19 +558,19 @@ Enter the following parameters:
 | Message |	Sensor Name: the name of the appliance <br /> Alert Time: the time the alert was detected: May vary from the time of the syslog server machine depends on the Forwarding rule timezone configuration. <br /> Alert Title: the title of the alert <br /> Alert Message: the message of the alert <br /> Alert Severity: the severity of the alert: Warning, Minor, Major or Critical <br /> Alert Type: Protocol Violation Policy Violation, Malware, Anomaly or Operational <br /> Protocol: the protocol of the alert  <br /> Source_MAC/IP/name/Vendor/OS of the source device <br /> Destination_MAC/IP/name/vendor/OS of the destination. If data is missing the value will be “N/A”.  <br /> alert_group The Alert Group associated with the alert. See Accelerate Incident Workflow with Alert GroupingAccelerate Incident Workflow with Alert Grouping for details. |
 
 
-| SYSLOG CEF Output Format |  |
+| SYSLOG CEF Output Format | Description |
 |--|--|
 | Date/Time | Date/Time the syslog server machine received the information. |
-| Priority | User.Alert |  |
-| Hostname | Sensor IP |  |
+| Priority | User.Alert | 
+| Hostname | Sensor IP |
 | Message | CEF:0 <br />Azure Defender for IoT <br />Sensor Name – the name of the Sensor appliance <br />Sensor Version <br />Alert <br /> title – the title of the alert <br />msg – the message of the alert <br />protocol – the protocol of the alert <br />severity – Warning, Minor, Major or Critical <br />type – Protocol Violation, Policy Violation, Malware, Anomaly, or Operational <br /> start – the time the alert was detected <br />May vary from the time of the syslog server machine, depends on the Forwarding rule timezone configuration. <br />src_ip – source device IP  <br />dst_ip – destination device IP <br />cat - The Alert Group associated with the alert. See Accelerate Incident Workflow with Alert GroupingAccelerate Incident Workflow with Alert Grouping for details. |
 
 
-| SYSLOG LEEF Output Format | |
+| SYSLOG LEEF Output Format | Description |
 |--|--|
 | Date/Time |	Date/Time the syslog server machine received the information |  
 | Priority |	User.Alert | 
-| Hostname |	Sensor IP | |
+| Hostname |	Sensor IP |
 | Message |	Sensor Name: the name of the Azure Defender for IoT appliance <br />LEEF:1.0 <br />Azure Defender for IoT <br />Sensor  <br />Sensor Version <br />Axure Defender for IoT Alert <br />title – the title of the alert <br />msg – the message of the alert <br />protocol – the protocol of the alert: see possible values in figure 5 <br />severity – the severity of the alert: Warning, Minor, Major or Critical <br />type – the type of the alert: Protocol Violation, Policy Violation, Malware, Anomaly or Operational <br />start – the time of the alert Note: It may be different from the time of the syslog server machine (this depends on the time zone configuration) <br />src_ip – source device IP <br />dst_ip – destination device IP <br />cat - The Alert Group associated with the alert. See Accelerate Incident Workflow with Alert GroupingAccelerate Incident Workflow with Alert Grouping for details. |
 
 3. Select **Submit**.
@@ -685,5 +683,3 @@ To create a customized rule:
       If the customized alarm is triggered, the alert message indicates that a user-defined rule was created triggered the alert.
 
       :::image type="content" source="media/how-to-work-with-alerts-sensor/image270.png" alt-text="user defind rule":::
-
-

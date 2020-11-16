@@ -1,6 +1,6 @@
 ---
 title: Track sensor activity
-description: 
+description: This is a filler description and needs to be changed
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: azure
 ---
 
-#
+# Track sensor activity
 
 ## Event timeline
 
@@ -19,9 +19,9 @@ The Event Timeline presents a timeline of activity detected on your network, inc
 
   - Network Events (informational)
 
-  - User operations such as user login and user deletion
+  - User operations such as user sign-in and user deletion
 
-The Event Timeline provides an immediate view of all the events that took place in the network according in chronological order. This allows understanding and analyses of the chain of events that preceded and followed an attack or incident, which assists in the investigation and forensics.
+The Event Timeline provides an immediate view of all the events that took place in the network according in chronological order. The Event Timeline, allows understanding and analyses of the chain of events that preceded and followed an attack or incident, which assists in the investigation and forensics.
 
 > [!NOTE] 
 > **Administrators** and **Security Analysts** may perform the procedures described in this section.
@@ -32,7 +32,7 @@ The Event Timeline provides an immediate view of all the events that took place 
 
    :::image type="content" source="media/how-to-track-sensor-activity/image197.png" alt-text="Event Timeline":::
 
-In addition to presenting the events detected by the sensor, you can manually add events to the timeline. This is useful in case the event took place in some external system, but it has impact on your network, and it is important to record it and present it as a part of the event timeline.
+In addition to presenting the events detected by the sensor, you can manually add events to the timeline. This process is useful in case the event took place in some external system, but it has impact on your network, and it is important to record it and present it as a part of the event timeline.
 
 **To add the events manually:**
 
@@ -68,11 +68,11 @@ Filter the timeline to display assets and events of interest to you.
 
 3. Select **Clear All** to clear all the selected filters.
 
-4. Search by Alerts Only, Alerts and Notices or All Events.
+4. Search by Alerts Only, Alerts, and Notices or All Events.
 
     :::image type="content" source="media/how-to-track-sensor-activity/image203.png" alt-text="Alerts Only":::
 
-5.  Select :::image type="content" source="media/how-to-track-sensor-activity/image204.png" alt-text="Date"::: to choose a specific date. Choose a day, hour and minute. Events from the selected time frame are shown.
+5.  Select :::image type="content" source="media/how-to-track-sensor-activity/image204.png" alt-text="Date"::: to choose a specific date. Choose a day, hour, and minute. Events from the selected time frame are shown.
 
     :::image type="content" source="media/how-to-track-sensor-activity/image205.png" alt-text="Select Date":::
 
@@ -86,4 +86,4 @@ Filter the timeline to display assets and events of interest to you.
 
     - Select the **Filter events by related assets** in order to filter by related assets.
 
-    - Select :::image type="content" source="https://www.wireshark.org/" alt-text="PCAP file](media/how-to-track-sensor-activity/image207.png)to download the PCAP file (if exists) that contains a packet capture of the whole network at a specific time. The PCAP file contains very technical information that can help engineers determine exactly where the event was and what is happening there. You can analyze the PCAP file with a network protocol analyzer such as [<span class="underline">Wireshark</span>":::, a free application.
+    - Select :::image type="content" source="media/how-to-track-sensor-activity/image207.png" alt-text="PCAP file"::: to download the PCAP file (if exists) that contains a packet capture of the whole network at a specific time. The PCAP file contains technical information that can help engineers determine exactly where the event was and what is happening there. You can analyze the PCAP file with a network protocol analyzer such as Wireshark, a free application.
