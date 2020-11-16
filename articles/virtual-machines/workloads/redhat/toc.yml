@@ -10,8 +10,6 @@
   items: 
   - name: JBoss EAP + RHEL on VM/VMSS
     href: jboss-eap-on-rhel.md
-  - name: Red Hat JBoss EAP on Azure Best Practices
-    href: jboss-eap-on-azure-best-practices.md
   - name: Migrating JBoss EAP to Azure RHEL VM/VMSS
     href: migrate-jboss-eap-on-azure-rhel-vm.md
   - name: WildFly + CentOS on VM
