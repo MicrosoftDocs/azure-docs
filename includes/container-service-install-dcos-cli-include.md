@@ -23,7 +23,7 @@ ms.author: rogardle
 > 
 > 
 
-First, [connect to your DC/OS-based ACS cluster](../articles/container-service/container-service-connect.md). Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:
+First, [connect to your DC/OS-based ACS cluster](/previous-versions/azure/container-service/dcos-swarm/container-service-intro). Once you have done this, you can install the DC/OS CLI on your client machine with the commands below:
 
 ```bash
 sudo pip install virtualenv
