@@ -24,6 +24,8 @@
     href: cloud-services-swap.md
   - name: Update a Cloud Service - PowerShell
     href: update-powershell.md
+  - name: Store and use certificates
+    href: certificates-and-key-vault.md
 - name: Reference
   items:
   - name: Code samples
