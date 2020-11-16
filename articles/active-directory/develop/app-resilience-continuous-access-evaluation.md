@@ -21,10 +21,13 @@ ms.reviewer:
 
 This article shows you how to use CAE-enabled APIs in your applications.
 
-## Support CAE in your app
+## Implementation considerations
 
-> [!NOTE]
-> To use Continuous Access Evaluation, both your app and the resource API it's accessing must be CAE-enabled.
+To use Continuous Access Evaluation, both your app and the resource API it's accessing must be CAE-enabled. However, preparing your code to use a CAE enabled resource will not prevent you from using APIs that are not CAE enabled. 
+
+If a resource API implements CAE and your application declares it can handle CAE, your app will get CAE tokens for that resource. For this reason, if you declare your app CAE ready, your application must handle the CAE claim challenge for all resource APIs that accept Microsoft Identity access tokens. If you do not handle CAE responses in these API calls, your app could end up in a loop retrying an API call with a token that is still in the returned lifespan of the token but has been revoked due to CAE. 
+
+## The code
 
 The first step is to add code to handle a response from the resource API rejecting the call due to CAE. With CAE, APIs will return a 401 status and a WWW-Authenticate header when the access token has been revoked or the API detects a change in IP address used. The WWW-Authenticate header contains a Claims Challenge that the application can use to acquire a new access token.
 
@@ -94,9 +97,6 @@ catch (MsalUiRequiredException)
     }
     // . . .
 ```
-
-> [!ALERT]
-> If a resource API implements CAE and your application declares it can handle CAE, it will get CAE tokens for that resource. For this reason, if you declare your app CAE ready, your application must handle the claim challenge for any, and all, resource APIs that accept Microsoft Identity access tokens. If you do not handle CAE responses in all these API calls, your app could end up in a loop retrying an API call with a token that is still in the returned lifespan of the token but is no longer acceptable. Resource APIs that do not currently implement CAE could implement CAE during the lifespan of your application.
 
 Once your application is ready to handle the claim challenge returned by a CAE enabled resource, you can tell Microsoft Identity your app is CAE ready. To do this in your MSAL application, build your Public Client using the Client Capabilities of "cp1".
 
