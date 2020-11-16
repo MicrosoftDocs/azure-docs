@@ -422,7 +422,7 @@ NSG Flow Logs are compatible with Service Endpoints without requiring any extra 
 
 **What is the difference between flow logs versions 1 & 2?**
 
-Flow Logs version 2 introduces the concept of _Flow State_ & stores information about bytes and packets transmitted. [Read more](#log-file)
+Flow Logs version 2 introduces the concept of _Flow State_ & stores information about bytes and packets transmitted. [Read more](#log-format)
 
 ## Pricing
 

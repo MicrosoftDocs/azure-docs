@@ -109,7 +109,7 @@ NSG Flow Logs are compatible with Service Endpoints without requiring any extra 
 
 
 ### What is the difference between flow logs versions 1 & 2?
-Flow Logs version 2 introduces the concept of *Flow State* & stores information about bytes and packets transmitted. [Read more](./network-watcher-nsg-flow-logging-overview.md#log-file).
+Flow Logs version 2 introduces the concept of *Flow State* & stores information about bytes and packets transmitted. [Read more](./network-watcher-nsg-flow-logging-overview.md#log-format).
 
 ## Next Steps
  - Head over to our [documentation overview page](./index.yml) for some tutorials to get you started with Network Watcher.
