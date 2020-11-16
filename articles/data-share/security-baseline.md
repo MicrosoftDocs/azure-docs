@@ -366,7 +366,7 @@ Enable Azure AD MFA and follow Azure Security Center identity and access recomme
 
 - [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md) 
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -438,7 +438,7 @@ Azure AD provides logs to help discover stale accounts. In addition, use Azure A
 
 - [Azure Data Share works with general Azure built in roles ](../role-based-access-control/built-in-roles.md#general)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -553,7 +553,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -588,7 +588,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md) 
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -609,7 +609,7 @@ Use a third-party solution for performing vulnerability assessments on network d
 
 - [How to implement Azure Security Center vulnerability assessment recommendations](/azure/security-center/security-center-vulnerability-assessment-recommendations) 
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -775,7 +775,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 - [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general) 
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -967,7 +967,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 - [How to configure managed identities for Azure resources](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
