@@ -28,7 +28,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 ### NS-1: Implement security for internal traffic
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40234.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40234).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -42,7 +42,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 ### NS-2: Connect private networks together
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40235.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40235).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -56,7 +56,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 ### NS-3: Establish private network access to Azure services
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40236.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40236).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -70,7 +70,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 ### NS-4: Protect applications and services from external network attacks
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40237.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40237).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -84,7 +84,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40238.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40238).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -98,7 +98,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 ### NS-6: Simplify network security rules
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40239.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40239).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -112,7 +112,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 ### NS-7: Secure Domain Name Service (DNS)
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40240.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40240).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -130,7 +130,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40220.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40220).
 
 **Guidance**: Azure Lighthouse uses Azure Active Directory (Azure AD) as the default identity and access management service. Standardize Azure AD to govern your organization’s identity and access management in:
 - Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
@@ -156,7 +156,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 ### IM-2: Manage application identities securely and automatically
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40221.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40221).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -170,7 +170,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40222.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40222).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -186,7 +186,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40223.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40223).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -200,7 +200,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 ### IM-5: Monitor and alert on account anomalies
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40224.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40224).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -214,7 +214,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 ### IM-6: Restrict Azure resource access based on conditions
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40225.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40225).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -228,7 +228,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 ### IM-7: Eliminate unintended credential exposure
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40226.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40226).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -242,7 +242,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 ### IM-8: Secure user access to legacy applications
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40262.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40262).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -260,7 +260,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 ### PA-1: Protect and limit highly privileged users
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40227.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40227).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -274,7 +274,7 @@ Note that Azure AD supports external identity that allow users without a Microso
 ### PA-2: Restrict administrative access to business-critical systems
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40228.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40228).
 
 **Guidance**: Azure Lighthouse uses Azure role-based access control (Azure RBAC) to isolate access to business-critical systems by restricting which accounts are granted privileged access to the subscriptions and management groups they are in.
 
@@ -295,7 +295,7 @@ All types of access controls should be aligned to your enterprise segmentation s
 ### PA-3: Review and reconcile user access regularly
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40229.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40229).
 
 **Guidance**: Azure Lighthouse uses Azure Active Directory (Azure AD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
 
@@ -314,7 +314,7 @@ Note: that some Azure services support local users and roles which not managed t
 ### PA-4: Set up emergency access in Azure AD
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40230.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40230).
 
 **Guidance**: Azure Lighthouse is integrated with Azure Active Directory to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
 
@@ -329,7 +329,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 ### PA-5: Automate entitlement management 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40231.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40231).
 
 **Guidance**: Azure Lighthouse is integrated with Azure Active Directory (Azure AD)  to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
 
@@ -344,7 +344,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 ### PA-6: Use privileged access workstations
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40232.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40232).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -358,7 +358,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40233.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40233).
 
 **Guidance**: Azure Lighthouse is integrated with Azure role-based access control (RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically.
 
@@ -377,7 +377,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 ### PA-8: Choose approval process for Microsoft support  
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40289.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40289).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -395,7 +395,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 ### DP-1: Discovery, classify and label sensitive data
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40241.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40241).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -409,7 +409,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 ### DP-2: Protect sensitive data
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40242.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40242).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -423,7 +423,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 ### DP-3: Monitor for unauthorized transfer of sensitive data
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40243.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40243).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -438,7 +438,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 ### DP-4: Encrypt sensitive information in transit
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40244.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40244).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -452,7 +452,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 ### DP-5: Encrypt sensitive data at rest
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40245.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40245).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -470,7 +470,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 ### AM-1: Ensure security team has visibility into risks for assets
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40263.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40263).
 
 **Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
@@ -491,7 +491,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40264.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40264).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -505,7 +505,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### AM-3: Use only approved Azure services
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40265.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40265).
 
 **Guidance**: Use Azure Policy to audit and restrict which services users can provision in your environment. Use Azure Resource Graph to query for and discover resources within their subscriptions. You can also use Azure Monitor to create rules to trigger alerts when a non-approved service is detected.
 
@@ -522,7 +522,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### AM-4: Ensure security of asset lifecycle management
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40266.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40266).
 
 **Guidance**: Not applicable. The Azure Lighthouse can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
 
@@ -533,7 +533,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40267.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40267).
 
 **Guidance**: Azure Lighthouse is integrated with Azure Active Directory (Azure AD) for identity and authentication. You can use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
@@ -546,7 +546,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### AM-6: Use only approved applications in compute resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40268.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40268).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -564,7 +564,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### LT-1: Enable threat detection for Azure resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40246.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40246).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -578,7 +578,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 ### LT-2: Enable threat detection for Azure identity and access management
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40247.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40247).
 
 **Guidance**: Azure Active Directory (Azure AD) provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
 
@@ -602,7 +602,7 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 ### LT-3: Enable logging for Azure network activities
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40248.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40248).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -616,7 +616,7 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 ### LT-4: Enable logging for Azure resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40249.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40249).
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Lighthouse resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
@@ -631,7 +631,7 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 ### LT-5: Centralize security log management and analysis
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40250.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40250).
 
 **Guidance**: Centralize logging storage and analysis to enable correlation. For each log source, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements.
 
@@ -652,7 +652,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 ### LT-6: Configure log storage retention
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40251.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40251).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -666,7 +666,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 ### LT-7: Use approved time synchronization sources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40252.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40252).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -684,7 +684,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 ### IR-1: Preparation – update incident response process for Azure
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40253.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40253).
 
 **Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
@@ -699,7 +699,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 ### IR-2: Preparation – setup incident notification
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40254.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40254).
 
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
@@ -712,7 +712,7 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40255.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40255).
 
 **Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
 
@@ -733,7 +733,7 @@ Export your Azure Security Center alerts and recommendations using the export fe
 ### IR-4: Detection and analysis – investigate an incident
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40256.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40256).
 
 **Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
 
@@ -766,7 +766,7 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 ### IR-5: Detection and analysis – prioritize incidents
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40257.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40257).
 
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
@@ -785,7 +785,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 ### IR-6: Containment, eradication and recovery – automate the incident handling
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40258.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40258).
 
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
 Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
@@ -807,7 +807,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 ### PV-1: Establish secure configurations for Azure services 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40273.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40273).
 
 **Guidance**: Azure Lighthouse supports below service-specific policies that are available in Azure Security Center to audit and enforce configurations of your Azure resources. This can be configured in Azure Security Center or Azure Policy initiatives.
 
@@ -830,7 +830,7 @@ You can use Azure Blueprints to automate deployment and configuration of service
 ### PV-2: Sustain secure configurations for Azure services
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40274.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40274).
 
 **Guidance**: Azure Lighthouse supports below service-specific policies that are available in Azure Security Center to audit and enforce configurations of your Azure resources. This can be configured in Azure Security Center or Azure Policy initiatives.
 
@@ -843,7 +843,7 @@ You can use Azure Blueprints to automate deployment and configuration of service
 ### PV-3: Establish secure configurations for compute resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40275.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40275).
 
 **Guidance**: Use Azure Security Center and Azure Policy to establish secure configurations on all compute resources including VMs, containers, and others.
 
@@ -858,7 +858,7 @@ You can use Azure Blueprints to automate deployment and configuration of service
 ### PV-4: Sustain secure configurations for compute resources
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40276.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40276).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -872,7 +872,7 @@ You can use Azure Blueprints to automate deployment and configuration of service
 ### PV-5: Securely store custom operating system and container images
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40277.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40277).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -886,7 +886,7 @@ You can use Azure Blueprints to automate deployment and configuration of service
 ### PV-6: Perform software vulnerability assessments
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40278.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40278).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -900,7 +900,7 @@ You can use Azure Blueprints to automate deployment and configuration of service
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40279.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40279).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -914,7 +914,7 @@ You can use Azure Blueprints to automate deployment and configuration of service
 ### PV-8: Conduct regular attack simulation
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40280.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40280).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
@@ -936,7 +936,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### ES-1: Use Endpoint Detection and Response (EDR)
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40259.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40259).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -950,7 +950,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### ES-2: Use centrally managed modern anti-malware software
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40260.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40260).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -964,7 +964,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### ES-3: Ensure anti-malware software and signatures are updated
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40261.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40261).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
@@ -982,7 +982,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### BR-1: Ensure regular automated backups
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40269.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40269).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -996,7 +996,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### BR-2: Encrypt backup data
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40270.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40270).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1010,7 +1010,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### BR-3: Validate all backups including customer-managed keys
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40271.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40271).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1024,7 +1024,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### BR-4: Mitigate risk of lost keys
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40272.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40272).
 
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
@@ -1042,7 +1042,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 ### GS-1: Define asset management and data protection strategy 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40281.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40281).
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
 
@@ -1082,7 +1082,7 @@ For more information, see the following references:
 ### GS-2: Define enterprise segmentation strategy 
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40288.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40288).
 
 **Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
 
@@ -1103,7 +1103,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 ### GS-3: Define security posture management strategy
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40282.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40282).
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
@@ -1116,7 +1116,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 ### GS-4: Align organization roles, responsibilities, and accountabilities
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40283.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40283).
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
@@ -1133,7 +1133,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 ### GS-5: Define network security strategy
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40284.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40284).
 
 **Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
 
@@ -1167,7 +1167,7 @@ For more information, see the following references:
 ### GS-6: Define identity and privileged access strategy
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40285.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40285).
 
 **Guidance**: Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
 
@@ -1200,7 +1200,7 @@ For more information, see the following references:
 ### GS-7: Define logging and threat response strategy
 
 >[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40286.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40286).
 
 **Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 
