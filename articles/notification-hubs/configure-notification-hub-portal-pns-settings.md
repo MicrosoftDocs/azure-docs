@@ -69,8 +69,6 @@ You will need the **API Key** for your Google Firebase Cloud Messaging (FCM) pro
 
 - This article requires version 2.0.67 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
----
-
 ### Set up push notifications for Google FCM
 
 1. Use the [az notification-hub credential gcm update](/cli/azure/ext/notification-hub/notification-hub/credential/gcm#ext-notification-hub-az-notification-hub-credential-gcm-update) command to add your Google API key to your notification hub.
@@ -105,6 +103,8 @@ You will need the **API Key** for your Google Firebase Cloud Messaging (FCM) pro
 Get Azure CLI references for other platforms with the [az notification-hub credential](/cli/azure/ext/notification-hub/notification-hub/credential) command.
 
 For more information about sending notifications to an Android application, see [Send push notifications to Android devices using Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
+
+---
 
 ## Windows Push Notification Service
 
