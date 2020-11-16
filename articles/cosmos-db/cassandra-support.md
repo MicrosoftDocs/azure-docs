@@ -81,17 +81,24 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 | writetime | Yes |
 | cast | No |
 
-\* Cassandra API supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > 1024` is supported, but `WHERE token(pk) > token(100)` is not supported.
+> [!NOTE]
+> \* Cassandra API supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > 1024` is supported, but `WHERE token(pk) > token(100)` is **not** supported.
+
 
 
 Aggregate functions:
 
 |Command  |Supported |
 |---------|---------|
-| min | Yes |
-| max | Yes |
 | avg | Yes |
 | count | Yes |
+| min | Yes |
+| max | Yes |
+| sum | Yes |
+
+> [!NOTE]
+> Aggregate functions work on regular columns, but aggregates on clustering columns are **not** supported.
+
 
 Blob conversion functions:
  
@@ -255,7 +262,7 @@ Azure Cosmos DB Cassandra API provides choice of consistency for read operations
 
 ## Permission and role management
 
-Azure Cosmos DB supports role-based access control (RBAC) for provisioning, rotating keys, viewing metrics and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not support roles for CRUD activities.
+Azure Cosmos DB supports Azure role-based access control (Azure RBAC) for provisioning, rotating keys, viewing metrics and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not support roles for CRUD activities.
 
 ## Keyspace and Table options
 
