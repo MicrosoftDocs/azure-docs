@@ -12,6 +12,10 @@ items:
   items:
   - name: Create a Purview account
     href: create-catalog-portal.md
+  - name: Use Purview Studio
+    href: use-purview-studio.md
+  - name: Add a security principal
+    href: add-security-principal.md
 - name: Tutorials
   items:
   - name: Starter kit
@@ -54,7 +58,9 @@ items:
   - name: Catalog permissions
     href: catalog-permissions.md
   - name: Search
-    href: concept-search.md     
+    href: concept-search.md   
+  - name: Business glossary
+    href: concept-business-glossary.md    
 - name: How-to guides
   items:
   - name: Register & scan
@@ -133,8 +139,10 @@ items:
       href: create-a-custom-classification-and-classification-rule.md
   - name: Search & browse
     items:
-    - name: Browse Babylon
+    - name: Browse Data Catalog
       href: how-to-browse-catalog.md  
+    - name: Search Data Catalog
+      href: how-to-search-catalog.md  
   - name: Lineage 
     items:
     - name: Azure Data Share
