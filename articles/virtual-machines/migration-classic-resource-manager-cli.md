@@ -3,7 +3,7 @@ title: Migrate VMs to Resource Manager using Azure CLI
 description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager by using Azure CLI
 author: tanmaygore
 manager: vashan
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/06/2020
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](../classic-vm-deprecation.md#how-does-this-affect-me).
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
 
 These steps show you how to use Azure command-line interface (CLI) commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. The article requires the [Azure classic CLI](/cli/azure/install-classic-cli). Since Azure CLI is only applicable for Azure Resource Manager resources, it cannot be used for this migration.
 
@@ -27,18 +27,18 @@ These steps show you how to use Azure command-line interface (CLI) commands to m
 <br>
 Here is a flowchart to identify the order in which steps need to be executed during a migration process
 
-![Screenshot that shows the migration steps](../windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](./media/migration-classic-resource-manager/migration-flow.png)
 
 ## Step 1: Prepare for migration
 Here are a few best practices that we recommend as you evaluate migrating IaaS resources from classic to Resource Manager:
 
-* Read through the [list of unsupported configurations or features](../windows/migration-classic-resource-manager-overview.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
+* Read through the [list of unsupported configurations or features](migration-classic-resource-manager-overview.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the feature/configuration support to be announced. Alternatively, you can remove that feature or move out of that configuration to enable migration if it suits your needs.
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
 > [!IMPORTANT]
 > Application Gateways are not currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with an Application gateway, remove the gateway before running a Prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager. 
 >
->ExpressRoute gateways connecting to ExpressRoute circuits in another subscription cannot be migrated automatically. In such cases, remove the ExpressRoute gateway, migrate the virtual network and recreate the gateway. Please see [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../../expressroute/expressroute-migration-classic-resource-manager.md) for more information.
+>ExpressRoute gateways connecting to ExpressRoute circuits in another subscription cannot be migrated automatically. In such cases, remove the ExpressRoute gateway, migrate the virtual network and recreate the gateway. Please see [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../expressroute/expressroute-migration-classic-resource-manager.md) for more information.
 > 
 > 
 
@@ -89,7 +89,7 @@ For this step you'll need to switch to `arm` mode. Do this with the following co
 azure config mode arm
 ```
 
-You can use the following CLI command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
+You can use the following CLI command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
 
 ```azurecli
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
@@ -163,7 +163,7 @@ azure network vnet list
 
 The output will look something like this:
 
-![Screenshot of the command line with the entire virtual network name highlighted.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
+![Screenshot of the command line with the entire virtual network name highlighted.](./media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
 In the above example, the **virtualNetworkName** is the entire name **"Group classicubuntu16 classicubuntu16"**.
 
@@ -214,10 +214,10 @@ azure storage account commit-migration <storageAccountName>
 
 ## Next steps
 
-* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Review most common migration errors](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](../migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md)
+* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
+* [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md)
+* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-ps.md)
+* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md)
+* [Review most common migration errors](migration-classic-resource-manager-errors.md)
+* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md)
