@@ -41,7 +41,8 @@ Use these commands to sign on to Azure and set up a resource group.
 1. Create a [logical SQL server](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) by using the [az sql server create](/cli/azure/sql/server#az_sql_server_create) command:
 
    ```azurecli
-   az sql server create --resource-group myResourceGroup --name mysqlserver --admin-user ServerAdmin --admin-password ChangeYourAdminPassword1
+   az sql server create --resource-group myResourceGroup --name mysqlserver \
+      --admin-user ServerAdmin --admin-password ChangeYourAdminPassword1
    ```
 
    A server contains a group of databases managed as a group.
@@ -53,7 +54,8 @@ Create a [server-level firewall rule](../../azure-sql/database/firewall-configur
 Run the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) command to create a firewall rule:
 
 ```azurecli
-az sql server firewall-rule create --resource-group myResourceGroup --name AllowSome --server mysqlserver --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group myResourceGroup --name AllowSome \
+   --server mysqlserver --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 In this example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
@@ -72,7 +74,8 @@ Create the SQL pool. This example uses DW100c as the service objective, which is
 Use the [az synapse sql pool create](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_create) command to create the SQL pool:
 
 ```azurecli
-az synapse sql pool create --resource-group myResourceGroup --name mySampleDataWarehouse --performance-level "DW1000c" --workspace-name testsynapseworkspace
+az synapse sql pool create --resource-group myResourceGroup --name mySampleDataWarehouse \
+   --performance-level "DW1000c" --workspace-name testsynapseworkspace
 ```
 
 For more information on the parameter options, see [az synapse sql pool](/cli/azure/ext/synapse/synapse/sql/pool).
@@ -86,25 +89,29 @@ az synapse sql pool list --resource-group myResourceGroup --workspace-name tests
 Use the [az synapse sql pool update](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_update) command to update an existing pool:
 
 ```azurecli
-az synapse sql pool update --resource-group myResourceGroup --name mySampleDataWarehouse --workspace-name testsynapseworkspace
+az synapse sql pool update --resource-group myResourceGroup --name mySampleDataWarehouse \
+   --workspace-name testsynapseworkspace
 ```
 
 Use the [az synapse sql pool pause](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_pause) command to pause your pool:
 
 ```azurecli
-az synapse sql pool pause --resource-group myResourceGroup --name mySampleDataWarehouse --workspace-name testsynapseworkspace
+az synapse sql pool pause --resource-group myResourceGroup --name mySampleDataWarehouse \
+   --workspace-name testsynapseworkspace
 ```
 
 Use the [az synapse sql pool resume](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_resume) command to start a paused pool:
 
 ```azurecli
-az synapse sql pool resume --resource-group myResourceGroup --name mySampleDataWarehouse --workspace-name testsynapseworkspace
+az synapse sql pool resume --resource-group myResourceGroup --name mySampleDataWarehouse \
+   --workspace-name testsynapseworkspace
 ```
 
 To remove an existing SQL pool, use the [az synapse sql pool delete](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_delete) command:
 
 ```azurecli
-az synapse sql pool delete --resource-group myResourceGroup --name mySampleDataWarehouse --workspace-name testsynapseworkspace
+az synapse sql pool delete --resource-group myResourceGroup --name mySampleDataWarehouse \
+   --workspace-name testsynapseworkspace
 ```
 
 ## Clean up resources
