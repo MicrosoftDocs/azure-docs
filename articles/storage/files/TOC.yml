@@ -100,7 +100,7 @@
     - name: Deploy Azure File Sync
       href: storage-sync-files-deployment-guide.md
     - name: SQL Server FCI with premium file shares
-      href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json
   - name: Mount
     items:
     - name: Mount SMB file share to Windows
@@ -311,7 +311,7 @@
   - name: Azure File Sync release notes
     href: storage-files-release-notes.md
   - name: Azure Files on Microsoft Q&A
-    href: https://docs.microsoft.com/answers/topics/azure-files.html
+    href: /answers/topics/azure-files.html
   - name: Azure Files on Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-files
   - name: Pricing for Azure Files
@@ -368,4 +368,3 @@
         href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
       - name: Azure Storage client library version 2.1     
         href: https://github.com/Azure/azure-storage-python
-

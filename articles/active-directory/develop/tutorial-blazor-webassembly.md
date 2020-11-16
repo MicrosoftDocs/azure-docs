@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Sign in users and call a protected API from a Blazor WebAssembly app 
 titleSuffix: Microsoft identity platform
-description: In this tutorial, sign in users and call a protected API using the Microsoft identity platform in a Blazor WebAssembly app.
+description: In this tutorial, sign in users and call a protected API using the Microsoft identity platform in a Blazor WebAssembly (WASM) app.
 author: knicholasa
 
 ms.author: nichola
@@ -14,7 +14,9 @@ ms.date: 10/16/2020
 
 # Tutorial: Sign in users and call a protected API from a Blazor WebAssembly app
 
-[Blazor WebAssembly](/aspnet/core/blazor#blazor-webassembly) is a single-page app framework for building interactive client-side web apps with .NET. In this tutorial, you create an app that signs in users and retrieves data from a protected API from a Blazor WebAssembly (Blazor WASM) app with the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/).
+Blazor WebAssembly (WASM) is a single-page app framework for building interactive client-side web apps with .NET. In this tutorial, you learn how to implement authentication and retrieve data from Microsoft Graph in a Blazor WASM app by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD).
+
+We also have a [tutorial for Blazor Server](tutorial-blazor-server.md). 
 
 In this tutorial, you will:
 
@@ -236,5 +238,5 @@ After granting consent, navigate to the "Fetch data" page to read some email.
 
 ## Next steps
 
-- [Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)
-- [Introduction to ASP.NET Core Blazor](/aspnet/core/blazor)
+> [!div class="nextstepaction"]
+> [Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)

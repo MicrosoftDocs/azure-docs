@@ -571,7 +571,7 @@ Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. 
 
 ## User and role management
 
-Cosmos DB does not yet support users and roles. However, Cosmos DB supports role-based access control (RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
+Cosmos DB does not yet support users and roles. However, Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
 
 ## Replication
 
