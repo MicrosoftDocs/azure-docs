@@ -8,10 +8,10 @@ manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
