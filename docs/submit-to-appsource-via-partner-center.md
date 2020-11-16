@@ -16,6 +16,10 @@ Microsoft AppSource provides a convenient location for you to upload new Office 
 > [!NOTE]
 > Office VSTO add-ins and COM add-ins cannot be submitted to Microsoft AppSource. For more about the distinction between types of Office add-ins, see [How are Office Add-ins different from COM and VSTO add-ins?](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-ins#how-are-office-add-ins-different-from-com-and-vsto-add-ins).
 
+For information about how to submit, validate, and publish Microsoft Teams apps, see [Teams apps submission details](https://docs.microsoft.com/microsoftteams/platform/concepts/deploy-and-publish/appsource/publish).
+
+For information about how to submit, validate, and publish your SharePoint Framework (SPFx) solution apps, see [SPFx solutions submission details](https://docs.microsoft.com/sharepoint/dev/spfx/publish-to-marketplace-checklist).
+
 For information about how to submit Power BI custom visuals to Microsoft AppSource, see [Publish custom visuals](https://docs.microsoft.com/power-bi/developer/office-store).
 
 <a name="bk_approval"> </a>
@@ -44,7 +48,7 @@ After you submit your solution:
 
 1. Your submission goes through a series of automated checks to ensure that it complies with the [certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies).
 
-2. The validation team reviews your submission. This can take 3-5 working days, depending on the volume of submissions in the queue.
+2. The validation team reviews your submission. This can take 3-5 working days, depending on the volume of submissions in the queue. (Teams and SPFx apps submissions are validated in 24 hours.)
 
    > [!NOTE]
    > The validation team tests Office Add-ins on all the platforms that the add-in is required to support. For details about supported platforms, see the [Office Add-ins host and platform availability page](/office/dev/add-ins/overview/office-add-in-availability).
@@ -75,9 +79,14 @@ If you make changes after your submission is certified, it must go through the c
 
 If you have general questions about policies, processes, or validation requirements, you can engage with the Microsoft AppSource validation team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Tag your question with "Office-Store". Please be aware that the validation team will not be able to discuss individual submission results on Stack Overflow. 
 
+## Microsoft 365 App Compliance 
+
+After your solution is published through Partner Center, you can begin the [Microsoft 365 App Compliance program](https://docs.microsoft.com/microsoft-365-app-certification/overview). This program is optional and is designed to allow you to reach the level of security that meets the needs of your customers. To complete the Publisher Attestation within Partner Center, click the **App Compliance** button in the Office Store section. For details, see the [User guide](https://docs.microsoft.com/microsoft-365-app-certification/docs/userguide).
+
 ## See also
 
 - [Office Add-ins](/office/dev/add-ins/overview/office-add-ins)  
 - [SharePoint Add-ins](/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
 - [Microsoft Teams developer platform](https://docs.microsoft.com/microsoftteams/platform/overview)
 - [Visuals in Power BI](https://docs.microsoft.com/power-bi/power-bi-custom-visuals)
+- [Microsoft 365 App Compliance](https://docs.microsoft.com/microsoft-365-app-certification/overview)
