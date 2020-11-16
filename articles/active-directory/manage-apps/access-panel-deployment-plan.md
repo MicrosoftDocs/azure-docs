@@ -49,10 +49,10 @@ Azure AD My Apps benefits businesses in the following ways:
 
 My Apps is free and requires no licenses to use at a basic level. However, the number of objects in your directory and the additional features you want to deploy can require additional licenses. Some common Azure AD scenarios that have licensing requirements include the following security features:
 
-* [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-* [Group-based membership](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-* [Self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-* [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Group-based membership](../fundamentals/active-directory-manage-groups.md)
+* [Self-service password reset](../authentication/tutorial-enable-sspr.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
 
 See the [full licensing guide for Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -60,8 +60,8 @@ See the [full licensing guide for Azure AD](https://azure.microsoft.com/pricing/
 
 Complete the following prerequisites before you begin this project:
 
-* [Integrate application SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-* [Manage Azure AD user and group infrastructure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [Integrate application SSO](./plan-sso-deployment.md)
+* [Manage Azure AD user and group infrastructure](../fundamentals/active-directory-manage-groups.md)
 
 ## Plan Azure AD My Apps deployment
 
@@ -161,23 +161,23 @@ For the best experience with the My Apps page, start with the integration of clo
 
 Use Federated SSO with Azure AD (OpenID Connect/SAML) when an application supports it, instead of password-based SSO and ADFS.
 
-For more information on how to deploy and configure your SaaS applications, see the [SaaS SSO deployment plan](https://aka.ms/deploymentplans/sso).
+For more information on how to deploy and configure your SaaS applications, see the [SaaS SSO deployment plan](./plan-sso-deployment.md).
 
 #### Plan to deploy the My Apps browser extension
 
-When users sign in to password-based SSO applications, they need to install and use the My Apps secure sign-in extension. The extension executes a script that transmits the password into the application’s sign-in form. Users are prompted to install the extension when they first launch the password-based SSO application. More information about the extension can found in this documentation on [installing My Apps browser extension](access-panel-extension-problem-installing.md).
+When users sign in to password-based SSO applications, they need to install and use the My Apps secure sign-in extension. The extension executes a script that transmits the password into the application’s sign-in form. Users are prompted to install the extension when they first launch the password-based SSO application. More information about the extension can found in this documentation on [installing My Apps browser extension]().
 
-If you must integrate password-based SSO applications, you should define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
+If you must integrate password-based SSO applications, you should define a mechanism to deploy the extension at scale with [supported browsers](../user-help/my-apps-portal-end-user-access.md). Options include:
 
-* [Group Policy for Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-* [Configuration Manager for Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-* [User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [Group Policy for Internet Explorer]()
+* [Configuration Manager for Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](../user-help/my-apps-portal-end-user-access.md)
 
 Users who don't use password-based SSO applications also benefit from the extension. These benefits include the ability to launch any app from its search bar, finding access to recently used applications, and having a link to the My Apps page.
 
 #### Plan for mobile access
 
-A browser protected with Intune policy (Microsoft Edge or Intune Managed Browser) is necessary for mobile users launching password-based SSO applications. A policy-protected browser enables the transfer of the password saved for the application. Microsoft Edge or the managed browser provides a set of web data protection features. You can also use Microsoft Edge for enterprise scenarios on iOS and Android devices. Microsoft Edge supports the same management scenarios as the Intune Managed Browser and improves the user experience. Learn more: [Manage web access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).
+A browser protected with Intune policy (Microsoft Edge or Intune Managed Browser) is necessary for mobile users launching password-based SSO applications. A policy-protected browser enables the transfer of the password saved for the application. Microsoft Edge or the managed browser provides a set of web data protection features. You can also use Microsoft Edge for enterprise scenarios on iOS and Android devices. Microsoft Edge supports the same management scenarios as the Intune Managed Browser and improves the user experience. Learn more: [Manage web access using a Microsoft Intune policy-protected browser](/intune/app-configuration-managed-browser).
 
 ## Plan your My Apps Deployment
 
@@ -243,7 +243,7 @@ For auditing, reporting, and disaster recovery backups, document the required fr
 
 After an application has been configured for SSO, groups are assigned access. Users in the assigned groups will have access, and they will see the application in their My Apps and the Microsoft 365 app launcher.
 
-See [Assign users and groups to an application in Active Directory](methods-for-assigning-users-and-groups.md).
+See [Assign users and groups to an application in Active Directory](./assign-user-or-group-access-portal.md).
 
 If during testing or deployment you want to add the groups but not yet allow the applications to show in My Apps, see [Hide an application from user’s experience in Azure Active Directory](hide-application-from-user-portal.md).
 
@@ -289,7 +289,7 @@ The following tests should be conducted with both corporate-owned devices and pe
 
 ### Rollback steps
 
-It’s important to plan what to do if your deployment doesn’t go as planned. If SSO configuration fails during deployment, you must understand how to [troubleshoot SSO issues](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) and reduce impact to your users. In extreme circumstances, you might need to [roll back SSO](../manage-apps/plan-sso-deployment.md#rollback-process).
+It’s important to plan what to do if your deployment doesn’t go as planned. If SSO configuration fails during deployment, you must understand how to [troubleshoot SSO issues](../hybrid/tshoot-connect-sso.md) and reduce impact to your users. In extreme circumstances, you might need to [roll back SSO](../manage-apps/plan-sso-deployment.md#rollback-process).
 
 
 ## Manage your implementation
@@ -307,4 +307,4 @@ Use the least privileged role to accomplish a required task within Azure Active 
 You can use [Privileged Identity Management](../privileged-identity-management/pim-configure.md) to manage your roles to provide additional auditing, control, and access review for users with directory permissions.
 
 ## Next steps
-[Plan a deployment of Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)
+[Plan a deployment of Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
