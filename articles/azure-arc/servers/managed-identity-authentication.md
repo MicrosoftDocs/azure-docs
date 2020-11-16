@@ -7,7 +7,7 @@ ms.date: 11/16/2020
 
 # Authenticate against Azure resources with Arc enabled servers
 
-Applications or processes running directly on an Azure Arc enabled servers can leverage managed identities to access other Azure resources which support Azure Active Directory-based authentication. An application can obtain an [access token](../../active-directory/develop/developer-glossary.md#access-token) representing its identity, which is system-assigned for Arc enabled servers, and use it as a 'bearer' token to authenticate itself to another service.
+Applications or processes running directly on an Azure Arc enabled servers can leverage managed identities to access other Azure resources that support Azure Active Directory-based authentication. An application can obtain an [access token](../../active-directory/develop/developer-glossary.md#access-token) representing its identity, which is system-assigned for Arc enabled servers, and use it as a 'bearer' token to authenticate itself to another service.
 
 Refer to the [managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md) documentation for a detailed description of managed identities, as well as the distinction between system-assigned and user-assigned identities.
 
@@ -15,7 +15,7 @@ In this article, we show you how a server can use a system-assigned managed iden
 
 ## Security overview
 
-While onboarding your server to Azure Arc enabled servers, several actions are performed to configure the resource to support using a managed identity, similar to what is performed for an Azure VM:
+While onboarding your server to Azure Arc enabled servers, several actions are performed to configure using a managed identity, similar to what is performed for an Azure VM:
 
 - Azure Resource Manager receives a request to enable the system-assigned managed identity on the Arc enabled server.
 
@@ -45,30 +45,33 @@ The system environment variable **IDENTITY_ENDPOINT** is used to discover the id
 
 ## Acquiring an access token using REST API
 
-The method to obtain and use a system-assigned managed identity to authenticate with Azure resources is very similar to how it is performed with an Azure VM.
+The method to obtain and use a system-assigned managed identity to authenticate with Azure resources is similar to how it is performed with an Azure VM.
 
 For an Arc enabled Windows server, using PowerShell, you invoke the web request to get the token from the local host in the specific port. Specify the request using the IP address or the environmental variable **IDENTITY_ENDPOINT**.
 
 ```powershell
-try {
-Invoke-WebRequest -UseBasicParsing -Uri "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com%2F" -Headers @{Metadata="true"} -Verbose:0
+{
+    Invoke-WebRequest -Method GET -Uri $endpoint -Headers @{Metadata="True"} -UseBasicParsing
 }
-catch {
-    $response = $_.Exception.Response
+catch
+{
+    $wwwAuthHeader = $_.Exception.Response.Headers["WWW-Authenticate"]
+    if ($wwwAuthHeader -match "Basic realm=.+")
+    {
+        $secretFile = ($wwwAuthHeader -split "Basic realm=")[1]
+    }
 }
-# Identify the location on the local server/machine where the challenge token is stored.
-$challengeToken = $response.Headers["WWW-Authenticate"].TrimStart("Basic realm=")
-# Show the path to the Challenge Token
-$challengeToken
-# Read the token
-$token = Get-Content $challengeToken
-# Acquire the Access token
-$responseAccessToken = Invoke-RestMethod -UseBasicParsing -Uri "http://localhost:40342/metadata/identity/oauth2/token?api-version=2019-11-01&resource=https%3A%2F%2Fmanagement.azure.com%2F" -Headers @{Metadata="true"; Authorization="Basic $token"}
-# Show the Access token
-$responseAccessToken
+Write-Host "Secret file path: " $secretFile`n
+$secret = cat -Raw $secretFile
+$response = Invoke-WebRequest -Method GET -Uri $endpoint -Headers @{Metadata="True"; Authorization="Basic $secret"} -UseBasicParsing
+if ($response)
+{
+    $token = (ConvertFrom-Json -InputObject $response.Content).access_token
+    Write-Host "Access token: " $token
+}
 ```
 
-The following is an example of the response:
+The following response is an example that is returned:
 
 :::image type="content" source="media/managed-identity-authentication/powershell-token-output-example.png" alt-text="A successful retrieval of the access token.":::
 
@@ -83,3 +86,7 @@ echo $ResponseAccessToken
 The response includes the access token you need to access any resource in Azure. To complete the configuration to authenticate to Azure Key Vault, see [Access Key Vault with Windows](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md#access-data) or [Access Key Vault with Linux](../../active-directory/managed-identities-azure-resources/tutorial-linux-vm-access-nonaad.md#access-data).
 
 ## Next steps
+
+- To learn more about Azure Key Vault, see [Key Vault overview](../../key-vault/general/overview.md).
+
+- Learn how to assign a managed identity access to a resource [using PowerShell](../../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) or using [the Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
