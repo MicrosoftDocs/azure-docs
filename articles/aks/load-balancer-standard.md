@@ -13,7 +13,7 @@ author: palma21
 
 # Use a public Standard Load Balancer in Azure Kubernetes Service (AKS)
 
-The Azure Load Balancer is an L4 of the Open Systems Interconnection (OSI) model that supports both inbound and outbound scenarios. It distributes inbound flows that arrive at the load balancer's front end to the backend pool instances.
+The Azure Load Balancer is on L4 of the Open Systems Interconnection (OSI) model that supports both inbound and outbound scenarios. It distributes inbound flows that arrive at the load balancer's front end to the backend pool instances.
 
 A **public** Load Balancer when integrated with AKS serves two purposes:
 
