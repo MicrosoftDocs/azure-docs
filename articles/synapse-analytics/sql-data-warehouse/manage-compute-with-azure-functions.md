@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Manage compute with Azure Functions'
-description: How to use Azure functions to manage the compute of your SQL pool in Azure Synapse Analytics.
+description: How to use Azure Functions to manage the compute of your SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -162,6 +162,6 @@ Scale up at 8am to DW1000c , scale down once to DW600c at 4pm on the weekdays. P
 
 ## Next steps
 
-Learn more about [timer trigger](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Azure functions.
+Learn more about [timer trigger](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Azure Functions.
 
 Checkout the SQL pool [samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).

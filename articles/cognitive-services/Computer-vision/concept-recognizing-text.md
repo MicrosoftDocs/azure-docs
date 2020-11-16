@@ -69,6 +69,9 @@ The second step is to call [Get Read Results](https://westcentralus.dev.cognitiv
 
 When the **status** field has the **succeeded** value, the JSON response contains the extracted text content from your image or document. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and confidence scores.
 
+> [!NOTE]
+> The data submitted to the `Read` operation are temporarily encrypted and stored at rest, and deleted within 48 hours. This lets your applications retrieve the extracted text as part of the service response.
+
 ## Sample JSON output
 
 See the following example of a successful JSON response:
@@ -83,7 +86,6 @@ See the following example of a successful JSON response:
     "readResults": [
       {
         "page": 1,
-        "language": "en",
         "angle": 0.8551,
         "width": 2661,
         "height": 1901,
@@ -180,7 +182,7 @@ The Read API supports images and documents that contain multiple different langu
 
 ## OCR API
 
-The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. See the [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) then Read API.
+The [OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. See the [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) then Read API.
 
 ## Data privacy and security
 

@@ -141,7 +141,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
     * **AD DNS Domain Name**  
         This is the domain name of your Active Directory Domain Services that you want to join.
     * **AD Site Name**  
-        This is the site name that the domain controller discovery will be limited to.
+        This is the site name that the domain controller discovery will be limited to. This should match the site name in Active Directory Sites and Services.
     * **SMB server (computer account) prefix**  
         This is the naming prefix for the machine account in Active Directory that Azure NetApp Files will use for creation of new accounts.
 

@@ -34,7 +34,7 @@ In this step, you will designate and configure the Linux machine that will forwa
 
 - You must have elevated permissions (sudo) on your designated Linux machine.
 
-- You must have **python 2.7** installed on the Linux machine.<br>Use the `python -version` command to check.
+- You must have **python 2.7** or **3** installed on the Linux machine.<br>Use the `python -version` command to check.
 
 - The Linux machine must not be connected to any Azure workspaces before you install the Log Analytics agent.
 
@@ -208,5 +208,4 @@ Choose a syslog daemon to see the appropriate description.
 ## Next steps
 In this document, you learned how to deploy the Log Analytics agent to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
-
+- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
