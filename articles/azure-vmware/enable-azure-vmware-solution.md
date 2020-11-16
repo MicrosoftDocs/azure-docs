@@ -13,7 +13,7 @@ Learn how to submit a support request to enable your [Azure VMware Solution](int
 You'll need an Azure account in an Azure subscription. The Azure subscription must comply with one of the following criteria:
 
 * A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
-* A Cloud Solution Provider managed subscription under an Azure plan.
+* A Cloud Solution Provider (CSP) managed subscription under an Azure plan.
 
 
 ## Enable Azure VMware Solution for EA customers
