@@ -119,7 +119,7 @@ az synapse sql pool delete --resource-group myResourceGroup --name mySampleDataW
 Other quickstart tutorials in this collection build upon this quickstart.
 
 > [!TIP]
-> If you plan to continue on to work with later quickstart tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, use the following steps to delete all resources created by this quickstart.
+> If you plan to continue on to work with later quickstart tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, use the [az group delete](/cli/azure/group#az_group_delete) command to delete all resources created by this quickstart.
 >
 
 ```azurecli
