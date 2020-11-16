@@ -34,7 +34,7 @@ When the installation of a connector fails, the root cause is usually one of the
 
 **Objective:** Verify that the connector machine can connect to the Application Proxy registration endpoint as well as Microsoft login page.
 
-1.  On the connector server, run a port test by using [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) or other port testing tool to verify that ports 443 and 80 are open.
+1.  On the connector server, run a port test by using [telnet](/windows-server/administration/windows-commands/telnet) or other port testing tool to verify that ports 443 and 80 are open.
 
 2.  If any of those ports is not successful, verify that the Firewall or backend proxy has access to the required domains and ports see, [Prepare your on-premises environment](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
@@ -72,8 +72,8 @@ Verify the thumbprint of the current client certificate. The certificate store c
 The possible **IsInUserStore** values are **true** and **false**. A value of **true** means the automatically renewed certificate is stored in the personal container in the user certificate store of the Network Service. A value of **false** means the client certificate was created during the installation or registration initiated by Register-AppProxyConnector command and it is stored in the personal container in the certificate store of the local machine.
 
 If the value is **true**, follow these steps to verify the certificate:
-1. Download [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Extract [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) from the package and run **psexec -i -u "nt authority\network service" cmd.exe** from an elevated command prompt.
+1. Download [PsTools.zip](/sysinternals/downloads/pstools)
+2. Extract [PsExec](/sysinternals/downloads/psexec) from the package and run **psexec -i -u "nt authority\network service" cmd.exe** from an elevated command prompt.
 3. Run **certmgr.msc** in the newly appeared command prompt
 4. In the management console expand the Personal container and click on Certificates
 5. Locate the certificate issued by **connectorregistrationca.msappproxy.net**
@@ -96,7 +96,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-To learn more about the Register-AppProxyConnector command, please see [Create an unattended installation script for the Azure AD Application Proxy connector](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+To learn more about the Register-AppProxyConnector command, please see [Create an unattended installation script for the Azure AD Application Proxy connector](./application-proxy-register-connector-powershell.md)
 
 ## Verify admin is used to install the connector
 
