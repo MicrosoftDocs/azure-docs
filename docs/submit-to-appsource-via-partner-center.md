@@ -16,7 +16,7 @@ Microsoft AppSource provides a convenient location for you to upload new Office 
 > [!NOTE]
 > Office VSTO add-ins and COM add-ins cannot be submitted to Microsoft AppSource. For more about the distinction between types of Office add-ins, see [How are Office Add-ins different from COM and VSTO add-ins?](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-ins#how-are-office-add-ins-different-from-com-and-vsto-add-ins).
 
-For information about how to submit, validate, and publish Microsoft Teams apps, see [Teams apps submission details] (https://docs.microsoft.com/microsoftteams/platform/concepts/deploy-and-publish/appsource/publish).
+For information about how to submit, validate, and publish Microsoft Teams apps, see [Teams apps submission details](https://docs.microsoft.com/microsoftteams/platform/concepts/deploy-and-publish/appsource/publish).
 
 For information about how to submit, validate, and publish your SharePoint Framework (SPFx) solution apps, see [SPFx solutions submission details](https://docs.microsoft.com/sharepoint/dev/spfx/publish-to-marketplace-checklist).
 
