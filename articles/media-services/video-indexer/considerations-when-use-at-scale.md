@@ -25,7 +25,7 @@ This article answers questions like:
 
 The article provides six best practices of how to use Video Indexer at scale.
 
-## When uploading videos, consider using a URL over byte array
+## When uploading videos consider using a URL over byte array
 
 Video Indexer does give you the choice to upload videos from URL or directly by sending the file as a byte array, but remember that the latter comes with some constraints.
 
@@ -41,12 +41,12 @@ Second, consider just some of the issues that can affect your performance and he
 
 :::image type="content" source="./media/considerations-when-use-at-scale/first-consideration.png" alt-text="First consideration for using Video Indexer at scale":::
 
-When you upload videos using URL, you just need to give us a path to the location of a media file and we will take care of the rest (see below the field from the [upload video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload) API).
+When you upload videos using URL, you just need to provide a path to the location of a media file and Video Indexer takes care of the rest (see the `videoUrl` field in the [upload video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload) API).
 
 > [!TIP]
-> Use the `videoURL` optional parameter of the upload video API.
+> Use the `videoUrl` optional parameter of the upload video API.
 
-To see an example of how to upload videos using URL, check out this example(upload-index-videos.md#code-sample). Or, you can use [AzCopy](https://docs.microsoft.com/en-azure/storage/common/storage-use-azcopy-v10) for a fast and reliable way to get your content to a storage account from which you can submit it to Video Indexer using [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
+To see an example of how to upload videos using URL, check out this example(upload-index-videos.md#code-sample). Or, you can use [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) for a fast and reliable way to get your content to a storage account from which you can submit it to Video Indexer using [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
 
 ## Increase media reserved units if needed
 
@@ -54,7 +54,7 @@ Usually in the proof of concept stage when you just start using Video Indexer, y
 
 In Azure Media Services, when talking about computing power and parallelization we talk about media [reserved units](../latest/concept-media-reserved-units.md)(RUs), those are the compute units that determine the parameters for your media processing tasks. The number of RUs affects the number of media tasks that can be processed concurrently in each account and their type determines the speed of processing and one video might require more than one RU if its indexing is complex. When your RUs are busy, new tasks will be held in a queue until another resource is available.
 
-We know you want to operate efficiently and you don’t want to have resources that eventually will stay idle part of the time. For that reason, we offer an auto-scale system that spins RUs down when less processing is needed and spin RUs up when you are in your rush hours (up to fully use all of your RUs). You can easily enable this functionality by [turning on the autoscale](manage-account-connected-to-azure.md#autoscale-reserved-units) in the account settings or using [Update-Paid-Account-Azure-Media-Services API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&pattern=update).
+To operate efficiently and to avoid having resources that stay idle part of the time, Video Indexer offers an auto-scale system that spins RUs down when less processing is needed and spin RUs up when you are in your rush hours (up to fully use all of your RUs). You can enable this functionality by [turning on the autoscale](manage-account-connected-to-azure.md#autoscale-reserved-units) in the account settings or using [Update-Paid-Account-Azure-Media-Services API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&pattern=update).
 
 :::image type="content" source="./media/considerations-when-use-at-scale/second-consideration.jpg" alt-text="Second consideration for using Video Indexer at scale":::
 
@@ -64,35 +64,36 @@ To minimize indexing duration and low throughput we recommend, you start with 10
 
 ## Respect throttling
 
-Video Indexer is built to deal with indexing at scale, and when you want to get the most out of it you should also be aware of the system’s capabilities and design your integration accordingly. You don’t want to send an upload request for a batch of videos just to discover that some of the movies didn’t upload and you are receiving an HTTP 429 response code (too many requests). It can happen due to the fact that you sent more requests than the [limit of movies per minute we support](upload-index-videos.md#uploading-considerations-and-limitations). Don’t worry, in the HTTP response, we add a retry-after header. The header we will specify when you should attempt your next retry. Make sure you respect it before trying your next request.
+Video Indexer is built to deal with indexing at scale, and when you want to get the most out of it you should also be aware of the system's capabilities and design your integration accordingly. You don't want to send an upload request for a batch of videos just to discover that some of the movies didn't upload and you are receiving an HTTP 429 response code (too many requests). It can happen due to the fact that you sent more requests than the [limit of movies per minute we support](upload-index-videos.md#uploading-considerations-and-limitations). Video Indexer adds a retry-after header in the HTTP response. The header specifies when you should attempt your next retry. Make sure you respect it before trying your next request.
 
 :::image type="content" source="./media/considerations-when-use-at-scale/respect-throttling.jpg" alt-text="Design your integration well, respect throttling":::
 
 ## Use callback URL
 
-Have you ever called customer service and their response was “I’m now processing your request, it will take a few minutes. You can leave your phone number and we'll get back to you when it is done”? The cases when you do leave your number and they call you back the second your request was processed are exactly the same concept as using [callbackUrl](upload-index-videos.md#callbackurl).
+We recommend that instead of polling the status of your request constantly from the second you sent the upload request, you can add a [callback URL](upload-index-videos.md#callbackurl), and wait for Video Indexer to update you. As soon as there is any status change in your upload request, you get a POST notification to the URL you specified.
 
-Thus we recommend that instead of polling the status of your request constantly from the second you sent the upload request, you can just add a callback URL, and wait for us to update you. As soon as there is any status change in your upload request, we will send a POST notification to the URL you sent.
+You can add a callback URL as one of the parameters of the [upload video API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload). Check out the code samples in [GitHub repo](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/). 
 
-You can add a callback URL as one of the parameters of the [upload video API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload) (see below the description from the API). If you are not sure how to do it, you can check the code samples from our [GitHub repo](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/). By the way, for callback URL you can also use Azure Functions, a serverless event-driven platform that can be triggered by HTTP and implement a following flow.
+> [!TIP]
+> For callback URL you can also use Azure Functions, a serverless event-driven platform that can be triggered by HTTP and implement a following flow.
 
-### callBack URL
+### callBack URL definition
 
 [!INCLUDE [callback url](./includes/callback-url.md)]
 
 ## Use the right indexing parameters for you
 
-Probably the first thing you need to do when using Video Indexer, and specifically when trying to scale, is to think about how to get the most out of it with the right parameters for your needs. Think about your use case, by defining different parameters you can save yourself money and make the indexing process for your videos faster.
+When making decisions related to using Video Indexer at scale, look at how to get the most out of it with the right parameters for your needs. Think about your use case, by defining different parameters you can save money and make the indexing process for your videos faster.
 
-We are giving you the option to customize your usage in Video Indexer by choosing those indexing parameters. Don’t set the preset to streaming it if you don’t plan to watch it, don’t index video insights if you only need audio insights, it is that easy.
+Before uploading and indexing your video read this short [documentation](upload-index-videos.md), check the [indexingPreset](upload-index-videos.md#indexingpreset) and [streamingPreset](upload-index-videos.md#streamingpreset) to get a better idea of what your options are.
 
-Before uploading and indexing your video read this short [documentation](upload-index-videos.md), check the [indexingPreset](upload-index-videos.md#indexingpreset) and [streamingPreset](upload-index-videos.md#streamingpreset) parts to get a better idea of what your options are.
+For example, don’t set the preset to streaming if you don't plan to watch the video, don't index video insights if you only need audio insights.
 
 ## Index in optimal resolution, not highest resolution
 
-Not too long ago, we were in times when HD videos didn't exist. Now, we have videos of varied qualities from HD to 8K. The question is, what video quality do you need for indexing your videos? The higher the quality of the movie you upload means the higher the file size, and this leads to higher computing power and time needed to upload the video.
+You might be asking, what video quality do you need for indexing your videos? 
 
-Our experiences show that, in many cases, indexing performance has almost no difference between HD (720P) videos and 4K videos. Eventually, you’ll get almost the same insights with the same confidence.
+In many cases, indexing performance has almost no difference between HD (720P) videos and 4K videos. Eventually, you’ll get almost the same insights with the same confidence. The higher the quality of the movie you upload means the higher the file size, and this leads to higher computing power and time needed to upload the video.
 
 For example, for the face detection feature, a higher resolution can help with the scenario where there are many small but contextually important faces. However, this will come with a quadratic increase in runtime and an increased risk of false positives.
 
