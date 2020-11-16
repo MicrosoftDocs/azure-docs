@@ -60,7 +60,7 @@ Listing queues with a classic subscription administrator role is not supported. 
 
 To view queue data in the portal, navigate to the **Overview** for your storage account, and click on the links for **Queues**. Alternatively you can navigate to the **Queue service** sections in the menu.
 
-:::image type="content" source="media/authorize-queue-access-portal/queue-access-portal.png" alt-text="Screenshot showing how to navigate to queue data in the Azure portal":::
+:::image type="content" source="media/authorize-data-operations-portal/queue-access-portal.png" alt-text="Screenshot showing how to navigate to queue data in the Azure portal":::
 
 ## Determine the current authentication method
 
@@ -70,11 +70,11 @@ When you navigate to a queue, the Azure portal indicates whether you are current
 
 If you are authenticating using the account access key, you'll see **Access Key** specified as the authentication method in the portal:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Screenshot showing user currently accessing queues with the account key":::
+:::image type="content" source="media/authorize-data-operations-portal/auth-method-access-key.png" alt-text="Screenshot showing user currently accessing queues with the account key":::
 
 To switch to using Azure AD account, click the link highlighted in the image. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the right permissions, you'll see an error message like the following one:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Error shown if Azure AD account does not support access":::
+:::image type="content" source="media/authorize-data-operations-portal/auth-error-azure-ad.png" alt-text="Error shown if Azure AD account does not support access":::
 
 Notice that no queues appear in the list if your Azure AD account lacks permissions to view them. Click on the **Switch to access key** link to use the access key for authentication again.
 
@@ -82,7 +82,7 @@ Notice that no queues appear in the list if your Azure AD account lacks permissi
 
 If you are authenticating using your Azure AD account, you'll see **Azure AD User Account** specified as the authentication method in the portal:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Screenshot showing user currently accessing queues with Azure AD account":::
+:::image type="content" source="media/authorize-data-operations-portal/auth-method-azure-ad.png" alt-text="Screenshot showing user currently accessing queues with Azure AD account":::
 
 To switch to using the account access key, click the link highlighted in the image. If you have access to the account key, then you'll be able to proceed. However, if you lack access to the account key, the Azure portal displays an error message.
 
