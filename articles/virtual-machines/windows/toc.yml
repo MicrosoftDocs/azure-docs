@@ -39,7 +39,7 @@
   - name: 10 - Enable disaster recovery
     href: tutorial-disaster-recovery.md
   - name: 11 - Manage VMs
-    displayName: scope policy RBAC lock tag
+    displayName: scope policy Azure RBAC lock tag
     href: tutorial-govern-resources.md
   - name: 12 - Track and update VMs
     href: tutorial-config-management.md
