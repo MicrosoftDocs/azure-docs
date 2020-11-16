@@ -26,7 +26,7 @@ If you have problems performing any operations on shared image galleries, image 
 - Contains only English letters, numbers, underscores, and periods
 - Starts and ends with English letters or numbers
 
-*The entity name 'galleryName' is invalid according to its validation rule: ^[^\_\W][\w-.\_]{0,79}(?<![-.])$.*  
+*The entity name 'galleryName' is invalid according to its validation rule: ^[^\_\W][\w_.\_]{0,79}(?<![-.])$.*  
 **Cause**: The gallery name does not meet the naming requirements.  
 **Workaround**: Choose a name for the gallery that meets the following conditions: 
 - Has an 80-character limit
@@ -69,7 +69,7 @@ If you have problems performing any operations on shared image galleries, image 
 - Contains only English letters, numbers, underscores, and periods
 - Starts and ends with English letters or numbers.
 
-*The entity name <imageDefinitionName\> is invalid according to its validation rule: ^[^\_\\W][\\w-.\_]{0,79}(?<![-.])$"*  
+*The entity name <imageDefinitionName\> is invalid according to its validation rule: ^[^\_\\W][\\w_.\_]{0,79}(?<![-.])$"*  
 **Cause**: The <imageDefinitionName\> name ends with a period or underscore.  
 **Workaround**: Choose a name for the image definition that meets the following conditions: 
 - Has an 80-character limit
