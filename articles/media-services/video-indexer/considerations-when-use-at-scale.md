@@ -3,14 +3,14 @@ title: Things to consider when using Video Indexer at scale - Azure
 titleSuffix: Azure Media Services
 description: This topic explains what things to consider when using Video Indexer at scale.
 services: media-services
-author: itarbel
-manager: ayardeni
+author: Juliako
+manager: femila
 
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: itayar 
+ms.author: juliako 
 ---
 
 # Things to consider when using Video Indexer at scale
@@ -54,7 +54,7 @@ Usually in the proof of concept stage when you just start using Video Indexer, y
 
 In Azure Media Services, when talking about computing power and parallelization we talk about media [reserved units](../latest/concept-media-reserved-units.md)(RUs), those are the compute units that determine the parameters for your media processing tasks. The number of RUs affects the number of media tasks that can be processed concurrently in each account and their type determines the speed of processing and one video might require more than one RU if its indexing is complex. When your RUs are busy, new tasks will be held in a queue until another resource is available.
 
-We know you want to operate efficiently and you don’t want to have resources that eventually will stay idle part of the time. For that reason, we offer an auto-scale system that spins RUs down when less processing is needed and spin RUs up when you are in your rush hours (up to fully use all of your RUs). You can easily enable this functionality by [turning on the autoscale](manage-account-connected-to-azure.md#auto-scale-reserved-units) in the account settings or using [Update-Paid-Account-Azure-Media-Services API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&pattern=update).
+We know you want to operate efficiently and you don’t want to have resources that eventually will stay idle part of the time. For that reason, we offer an auto-scale system that spins RUs down when less processing is needed and spin RUs up when you are in your rush hours (up to fully use all of your RUs). You can easily enable this functionality by [turning on the autoscale](manage-account-connected-to-azure.md#autoscale-reserved-units) in the account settings or using [Update-Paid-Account-Azure-Media-Services API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&pattern=update).
 
 :::image type="content" source="./media/considerations-when-use-at-scale/second-consideration.jpg" alt-text="Second consideration for using Video Indexer at scale":::
 
@@ -66,7 +66,7 @@ To minimize indexing duration and low throughput we recommend, you start with 10
 
 Video Indexer is built to deal with indexing at scale, and when you want to get the most out of it you should also be aware of the system’s capabilities and design your integration accordingly. You don’t want to send an upload request for a batch of videos just to discover that some of the movies didn’t upload and you are receiving an HTTP 429 response code (too many requests). It can happen due to the fact that you sent more requests than the [limit of movies per minute we support](upload-index-videos.md#uploading-considerations-and-limitations). Don’t worry, in the HTTP response, we add a retry-after header. The header we will specify when you should attempt your next retry. Make sure you respect it before trying your next request.
 
-:::image type="content" source="./media/considerations-when-use-at-scale/throttling.jpg" alt-text="Respect throttling":::
+:::image type="content" source="./media/considerations-when-use-at-scale/respect-throttling.jpg" alt-text="Design your integration well, respect throttling":::
 
 ## Use callback URL
 
