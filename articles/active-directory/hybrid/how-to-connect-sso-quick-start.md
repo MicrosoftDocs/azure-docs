@@ -102,7 +102,7 @@ You can gradually roll out Seamless SSO to your users using the instructions pro
 In addition, you need to enable an Intranet zone policy setting called **Allow updates to status bar via script** through Group Policy. 
 
 >[!NOTE]
-> The following instructions work only for Internet Explorer and Google Chrome on Windows (if it shares a set of trusted site URLs with Internet Explorer). Read the next section for instructions on how to set up Mozilla Firefox and Google Chrome on macOS.
+> The following instructions work only for Internet Explorer, Edge, and Google Chrome on Windows (if it shares a set of trusted site URLs with Internet Explorer). Read the next section for instructions on how to set up Mozilla Firefox and Google Chrome on macOS.
 
 ### Why do you need to modify users' Intranet zone settings?
 
