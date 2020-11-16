@@ -14,12 +14,13 @@ ms.service: azure-communication-services
 
 # Identity model
 
-Azure Communication Services is an identity agnostic service. This design offers multiple benefits:
+Azure Communication Services is an identity-agnostic service. This design offers multiple benefits:
+
 - Reuses existing identities from your identity management system
 - Provides flexibility for integration scenarios
 - Keeps your identities private in Azure Communication Services
 
-Instead of duplicating information in your system, you'll maintain the mapping relationship that your business case requires. For example, you can map identities 1:1, 1:N, N:1, N:M. External identifiers such as phone numbers, users, devices, applications, and GUIDs can't be used for identity in Azure Communication Services. Access tokens that are generated for an Azure Communication Services identity are used to access primitives such as chat or calling. 
+Instead of duplicating information in your system, you'll maintain the mapping relationship that your business case requires. For example, you can map identities 1:1, 1:N, N:1, N:M. External identifiers such as phone numbers, users, devices, applications, and GUIDs can't be used for identity in Azure Communication Services. Access tokens that are generated for an Azure Communication Services identity are used to access primitives such as chat or calling.
 
 ## Identity
 
