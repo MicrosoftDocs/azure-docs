@@ -43,10 +43,12 @@ landingContent:
         links:
           - text: CycleCloud 8.1.0 is now generally available
             url: release-notes.md
-            text: CycleCloud 7.9.8 is now available
+          - text: CycleCloud 7.9.8 is now available
             url: release-notes-previous.md
           - text: Cloud-init is now supported
             url: how-to/cloud-init.md
+          - text: Event Grid integration is now supported
+            url: events.md
 
   # Card
   - title: CycleCloud Concepts
