@@ -21,7 +21,7 @@ You need the following to use Azure AD Connect cloud provisioning:
 	
 - A hybrid identity administrator account for your Azure AD tenant that is not a guest user.
 - An on-premises server for the provisioning agent with Windows 2012 R2 or later.  This server should be a tier 0 server based on the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
-- Domain Administrator or Enterprise Administrator credentials to create the Azure AD Connect Cloud Sync gMSA (group Managed Service Account) to run the agent servcie.
+- Domain Administrator or Enterprise Administrator credentials to create the Azure AD Connect Cloud Sync gMSA (group Managed Service Account) to run the agent service.
 - On-premises firewall configurations.
 
 The rest of the document provides step-by-step instructions for these prerequisites.
