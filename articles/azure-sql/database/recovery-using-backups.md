@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
-ms.date: 09/26/2019
+ms.date: 11/13/2020
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -101,6 +101,9 @@ You can restore a deleted database to the deletion time, or an earlier point in 
 ### Deleted database restore by using the Azure portal
 
 You restore deleted databases from the Azure portal from the server or managed instance resource.
+
+> [!TIP]
+> It may take several minutes for recently deleted databases to appear on the **Deleted databases** page in Azure portal, or when displaying deleted databases [programmatically](#programmatic-recovery-using-automated-backups).
 
 #### SQL Database
 
