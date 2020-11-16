@@ -63,7 +63,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 ## Identity and access management
 |Service|Description|
 |------|--------|
-| [Azure&nbsp;Role&nbsp;Based&nbsp;Access Control](../../role-based-access-control/role-assignments-portal.md)|An access control feature designed to allow users to access only the resources they are required to access based on their roles within the organization.  |
+| [Azure&nbsp;role-based&nbsp;access control](../../role-based-access-control/role-assignments-portal.md)|An access control feature designed to allow users to access only the resources they are required to access based on their roles within the organization.  |
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|A cloud-based authentication repository that supports a multi-tenant, cloud-based directory and multiple identity management services within Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|An identity management service that enables control over how customers sign-up, sign-in, and manage their profiles when using Azure-based applications.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| A cloud-based and managed version of Active Directory Domain Services. |
