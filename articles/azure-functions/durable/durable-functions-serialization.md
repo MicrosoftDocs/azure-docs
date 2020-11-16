@@ -1,3 +1,14 @@
+---
+title: Serialization in Durable Functions - Azure
+description: Learn how the Durable Functions extension for Azure Functions serializes data for persistence.
+author: comcmaho
+ms.topic: conceptual
+ms.date: 16/11/2020
+ms.author: azfuncdf
+#Customer intent: As a developer, I want to understand what data is serialized by Durable Functions, how that data is serialized, and how
+# I can customize it when it doesn't work the way my app needs it to.
+---
+
 # Serialization
 
 Durable Functions persists state to a backend service (by default Azure Storage) in order to provide the reliability guarantees of stateful workflows.
