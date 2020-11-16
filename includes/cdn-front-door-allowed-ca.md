@@ -70,3 +70,4 @@ The following CAs are allowed when you create your own certificate:
 - VeriSign International Server CA - Class 3
 - VeriSign Time Stamping Service Root
 - VeriSign Universal Root Certification Authority
+- Microsec e-Szigno Root CA 2009
