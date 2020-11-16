@@ -95,8 +95,8 @@ You can also use regular expression to output customized results:
 
 | Configuration | Output result |
 | --- | --- |
-|With all options selected </br> Custom regular expression: `(\s+)*(-|\d+)(\s+)*` </br> Custom replacement string: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-all-options-selected.png" alt-text="With all options selected" border="True"::: |
-|With only `Removing number` selected </br> Custom regular expression: `(\s+)*(-|\d+)(\s+)*` </br> Custom replacement string: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-removing-numbers-selected.png" alt-text="With all options selected" border="True"::: |
+|With all options selected </br> Custom regular expression: `(\s+)*(-|\d+)(\s+)*` </br> Custom replacement string: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-all-options-selected.png" alt-text="With all options selected and regular expression" border="True"::: |
+|With only `Removing number` selected </br> Custom regular expression: `(\s+)*(-|\d+)(\s+)*` </br> Custom replacement string: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-removing-numbers-selected.png" alt-text="With removing numbers selected and regular expression" border="True"::: |
 
 
 ## Next steps
