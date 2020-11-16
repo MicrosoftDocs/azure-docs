@@ -41,4 +41,3 @@ For information on Microsoft Identity Manager and the systems it supports see th
 - [What is provisioning?](what-is-provisioning.md)
 - [What is app provisioning?](what-is-app-provisioning.md)
 - [What is inter-directory provisioning?](what-is-inter-directory-provisioning.md)
-- [What is directory provisioning?](what-is-inter-directory-provisioning.md)
