@@ -12,6 +12,14 @@ This article shows you how to deploy and uninstall Azure VM extensions, supporte
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
 
+## Install the Azure CLI extension
+
+The connectedmachine commands are not yet included in the main Azure CLI distribution. To download and enable them, run
+
+```azurecli
+az extension add --name connectedmachine
+```
+
 ## Enable extension
 
 To enable a VM extension on your Arc enabled server, use [az connectedmachine machine-extension create](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_create) with the `--machine-name`, `--extension-name`, `--location`, `--type`, `settings`, and `--publisher` parameters.
