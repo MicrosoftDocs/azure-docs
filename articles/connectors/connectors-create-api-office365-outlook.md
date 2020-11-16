@@ -21,11 +21,11 @@ You can use any trigger to start your workflow, for example, when a new email ar
 
 ## Prerequisites
 
-* An Outlook account where you sign in with a [work or school account](https://www.office.com/). If you have an @outlook.com or @hotmail.com account, use the [Outlook.com connector](../connectors/connectors-create-api-outlook.md) instead. If you need to sign in with a service account instead, see [Service accounts](#service-accounts).
+* An Outlook account where you sign in with a [work or school account](https://www.office.com/). If you have an @outlook.com or @hotmail.com account, use the [Outlook.com connector](../connectors/connectors-create-api-outlook.md) instead. To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts).
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app where you want to access your Office 365 Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
+* The logic app where you want to access your Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
 
 ## Add a trigger
 
@@ -37,7 +37,7 @@ A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event
    
    ![Select trigger to start your logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. If you need to sign in with a service account, see [Service accounts](#service-accounts). Otherwise, provide the information for the trigger's properties.
+1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#sign-in-other-accounts). Otherwise, provide the information for the trigger's properties.
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
@@ -71,7 +71,7 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
    ![Select the action to run in your logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. If you need to sign in with a service account, see [Service accounts](#service-accounts). Otherwise, provide the information for the trigger's properties.
+1. If you don't have an active connection to your Outlook account, you're prompted to sign in and create that connection. To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts). Otherwise, provide the information for the action's properties.
 
    > [!NOTE]
    > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
@@ -85,20 +85,21 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
 1. On the designer toolbar, select **Save**.
 
-<a name="service-accounts"></a>
+<a name="connect-using-other-accounts"></a>
 
-## Service accounts
+## Connect using other accounts
 
-If you try to use a service account when creating a connection, but you experience single sign-on (SSO) problems, you have these options:
+If you try connecting to Outlook by using a different account than the one currently signed in to Azure, you might get [single sign-on (SSO)](../active-directory/manage-apps/what-is-single-sign-on) errors. This problem happens when you sign in to the Azure portal with one account, but use a different account to create the connection. The Logic App Designer expects to use the account that's signed in to Azure. To resolve this problem, you have these options:
 
-* Sign in to Azure with your service account.
+* Set up the other account as a **Contributor** to your logic app's resource group.
 
-  1. At your logic app's resource group level, check whether the service account has the **Contributor** role. 
-  If not, assign that role to the service account.
+  1. On your logic app's resource group menu, select **Access control (IAM)**. Set up the other account with the **Contributor** role. For more information, see [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-  1. If you're signed in to the Azure portal with your work or school account, sign out from the portal and sign back in with your service account. You can now create a connection to your Office 365 Outlook account by using your service account.
+  1. If you're signed in to the Azure portal with your work or school account, sign out and sign back in with your other account. You can now create a connection to Outlook by using the other account.
 
-* On the service account's mailbox, set up your your work or school account with either **Send as** or **Send on behalf of** permissions. You can then create the connection by using your work or school account. In triggers or actions where you can specify the sender, you can use the service account's email address.
+* Set up the other account so that your work or school account has "send as" permissions.
+
+   If you have admin permissions, on the service account's mailbox, set up your your work or school account with either **Send as** or **Send on behalf of** permissions. For more information, see [Give mailbox permissions to another user - Admin Help](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). You can then create the connection by using your work or school account. Now, in triggers or actions where you can specify the sender, you can use the service account's email address.
 
    For example, the **Send an email** action has an optional parameter, **From (Send as)**, which you can add to the action and use your service account's email address as the sender. To add this parameter, follow these steps:
 
