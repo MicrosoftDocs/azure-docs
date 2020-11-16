@@ -41,6 +41,21 @@
       href: infrastructure-integrity.md
     - name: Data protection
       href: protection-customer-data.md
+  - name: Platform integrity and security
+    href: platform.md
+    items:
+    - name: Firmware security
+      href: firmware.md
+    - name: Secure Boot
+      href: secure-boot.md
+    - name: Measured boot & host attestation
+      href: measured-boot-host-attestation.md
+    - name: Project Cerberus
+      href: project-cerberus.md
+    - name: Encryption at rest
+      href: encryption-atrest.md
+    - name: Hypervisor security
+      href: hypervisor.md
   - name: Isolation in the Azure cloud
     href: isolation-choices.md
 

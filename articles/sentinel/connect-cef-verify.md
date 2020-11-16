@@ -25,7 +25,7 @@ Once you have deployed your log forwarder (in Step 1) and configured your securi
 
 - You must have elevated permissions (sudo) on your log forwarder machine.
 
-- You must have **python 2.7** installed on your log forwarder machine.<br>
+- You must have **python 2.7** or **3** installed on your log forwarder machine.<br>
 Use the `python –version` command to check.
 
 - You may need the Workspace ID and Workspace Primary Key at some point in this process. You can find them in the workspace resource, under **Agents management**.
@@ -243,6 +243,5 @@ The validation script performs the following checks:
 ## Next steps
 In this document, you learned how to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
-

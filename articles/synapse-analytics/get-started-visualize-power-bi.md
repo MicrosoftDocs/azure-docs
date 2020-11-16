@@ -32,13 +32,9 @@ You can link a Power BI workspace to your Azure Synapse workspace. This capabili
 ### Link your Azure Synapse workspace to your new Power BI workspace
 
 1. In Synapse Studio, go to **Manage** > **Linked Services**.
-1. Select **New** > **Connect to Power BI**, and then set these fields:
-
-    |Setting | Suggested value | 
-    |---|---|
-    |**Name**|**NYCTaxiWorkspace1**|
-    |**Workspace name**|**NYCTaxiWorkspace1**|
-
+1. Select **New** > **Connect to Power BI**
+1. Set **Name** to **NYCTaxiWorkspace1**
+1. Set **Workspace name** to **NYCTaxiWorkspace1**
 1. Select **Create**.
 
 ### Create a Power BI dataset that uses data in your Azure Synapse workspace

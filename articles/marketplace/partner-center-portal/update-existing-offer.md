@@ -4,8 +4,8 @@ description: How to make updates to an existing commercial marketplace offer or 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/27/2020
 ms.custom: contperfq2
 ---
