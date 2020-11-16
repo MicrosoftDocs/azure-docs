@@ -98,7 +98,7 @@ If you try to use a service account when creating a connection, but you experien
 
   1. If you're signed in to the Azure portal with your work or school account, sign out from the portal and sign back in with your service account. You can now create a connection to your Office 365 Outlook account by using your service account.
 
-* Continue creating the connection by using your work or school account. In triggers or actions where you can specify the sender, you can use the service account's email address. However, for this approach to work, the service account's mailbox needs to have either **Send as** or **Send on behalf of** permissions.
+* On the service account's mailbox, set up your your work or school account with either **Send as** or **Send on behalf of** permissions. You can then create the connection by using your work or school account. In triggers or actions where you can specify the sender, you can use the service account's email address.
 
    For example, the **Send an email** action has an optional parameter, **From (Send as)**, which you can add to the action and use your service account's email address as the sender. To add this parameter, follow these steps:
 
