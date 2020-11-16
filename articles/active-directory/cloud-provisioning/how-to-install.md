@@ -36,7 +36,7 @@ To install the agent, follow these steps.
    ![Download on-premises agent](media/how-to-install/install-9.png)</br>
  6. Run the Azure AD Connect provisioning installer AADConnectProvisioningAgent.msi.
  7. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms and select **Install**.
-   ![Microsoft Azure AD Connect Provisioning Agent Package screen](media/how-to-install/install1.png)</br>
+   ![Microsoft Azure AD Connect Provisioning Agent Package screen](media/how-to-install/install-1.png)</br>
  8. After this operation finishes, the configuration wizard starts. Sign in with your Azure AD global administrator account.
  9. On the **Connect Active Directory** screen, select **Add Directory**. Then sign in with your Active Directory administrator account. This operation adds your on-premises directory. 
  10. Optionally, you can manage the preference of domain controllers the agent will use by selecting **Select domain controller priority** and ordering the list of domain controllers.   Click **OK**.
