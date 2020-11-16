@@ -24,11 +24,11 @@ Password-based SSO is a great way to get started integrating applications into A
 
 - Support applications that require multiple sign-in fields for applications that require more than just username and password fields to sign in
 
-- Customize the labels of the username and password fields your users see on [My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) when they enter their credentials
+- Customize the labels of the username and password fields your users see on [My Apps](../user-help/my-apps-portal-end-user-access.md) when they enter their credentials
 
 - Allow your users to provide their own usernames and passwords for any existing application accounts they're typing in manually.
 
-- Allow a member of the business group to specify the usernames and passwords assigned to a user by using the [Self-Service Application Access](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) feature
+- Allow a member of the business group to specify the usernames and passwords assigned to a user by using the [Self-Service Application Access](./manage-self-service-access.md) feature
 
 -   Allow an administrator to specify a username and password to be used by individuals or groups when they sign in to the application with the Update Credentials feature 
 
@@ -39,7 +39,7 @@ Using Azure AD as your Identity Provider (IdP) and configuring single sign-on (S
 > [!IMPORTANT] 
 > There are some scenarios where the **Single sign-on** option will not be in the navigation for an application in **Enterprise applications**. 
 >
-> If the application was registered using **App registrations** then the single sign-on capability is configured to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> If the application was registered using **App registrations** then the single sign-on capability is configured to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](../develop/reference-app-manifest.md). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
@@ -55,7 +55,7 @@ The configuration page for password-based SSO is simple. It includes only the UR
 
 After you enter the URL, select **Save**. Azure AD parses the HTML of the sign-in page for username and password input fields. If the attempt succeeds, you're done.
  
-Your next step is to [Assign users or groups to the application](methods-for-assigning-users-and-groups.md). After you've assigned users and groups, you can provide credentials to be used for a user when they sign in to the application. Select **Users and groups**, select the checkbox for the user's or group's row, and then select **Update Credentials**. Finally, enter the username and password to be used for the user or group. If you don't, users will be prompted to enter the credentials themselves upon launch.
+Your next step is to [Assign users or groups to the application](./assign-user-or-group-access-portal.md). After you've assigned users and groups, you can provide credentials to be used for a user when they sign in to the application. Select **Users and groups**, select the checkbox for the user's or group's row, and then select **Update Credentials**. Finally, enter the username and password to be used for the user or group. If you don't, users will be prompted to enter the credentials themselves upon launch.
  
 
 ## Manual configuration
@@ -83,5 +83,5 @@ If Azure AD's parsing attempt fails, you can configure sign-on manually.
 
 ## Next steps
 
-- [Assign users or groups to the application](methods-for-assigning-users-and-groups.md)
+- [Assign users or groups to the application](./assign-user-or-group-access-portal.md)
 - [Configure automatic user account provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)
