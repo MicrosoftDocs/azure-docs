@@ -56,7 +56,7 @@ In most scenarios, particularly multi-threaded workloads, clients should see imp
 ## Verify SMB Multichannel is configured correctly
 
 1. Create a premium file share or use an existing one.
-1. Ensure your client supports SMB Multichannel (one or more network adapters has receive-side scaling enabled). Refer to the [Windows documentation](azure-stack/hci/manage/manage-smb-multichannel) for more details.
+1. Ensure your client supports SMB Multichannel (one or more network adapters has receive-side scaling enabled). Refer to the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel) for more details.
 1. Mount a file share to your client.
 1. Generate load with your application.
     A copy tool such as robocopy /MT, or any performance tool such as Diskspd to read/write files can generate load.
