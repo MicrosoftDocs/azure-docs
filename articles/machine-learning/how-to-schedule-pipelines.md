@@ -1,7 +1,7 @@
 ---
 title: Schedule Azure Machine Learning pipelines
 titleSuffix: Azure Machine Learning
-description: Schedule Azure Machine Learning pipelines using the Azure Machine Learning SDK for Python. Scheduled pipelines allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
+description: Scheduled pipelines allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
