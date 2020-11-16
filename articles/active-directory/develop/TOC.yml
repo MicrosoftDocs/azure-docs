@@ -20,10 +20,6 @@
     - name: Grant scoped permission to web API
       displayName: permissions, scp, scp claims
       href: quickstart-configure-app-access-web-apis.md
-    - name: Modify accounts supported by an app
-      href: quickstart-modify-supported-accounts.md
-    - name: Remove an app
-      href: quickstart-remove-app.md
   - name: Single-page app (SPA)
     items:
     - name: Angular
@@ -156,16 +152,21 @@
       href: application-model.md
     - name: App sign-in flow
       href: app-sign-in-flow.md
+  - name: Authentication libraries
+    displayName: msal, microsoft.identity.web
+    items:
+      - name: Microsoft Authentication Library (MSAL)
+        href: msal-overview.md
+      - name: Microsoft Identity Web library
+        href: microsoft-identity-web.md
+        displayName: auth, library, .NET Core
   - name: Authentication flows and app scenarios
     displayName: Auth flows
     href: authentication-flows-app-scenarios.md
+  - name: Applications and service principals
+    href: app-objects-and-service-principals.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
-  - name: Microsoft Authentication Library (MSAL) Overview
-    href: msal-overview.md
-  - name: Microsoft Identity Web library
-    href: microsoft-identity-web.md
-    displayName: auth, library, .NET Core
   - name: Application types and OAuth 2.0
     displayName: App types, OAuth
     href: v2-app-types.md
@@ -176,56 +177,8 @@
     href: v2-conditional-access-dev-guide.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
-
-- name: How-to guides
+- name: How-to
   items:
-  - name: Authentication
-    items:
-    - name: Configure role claim
-      href: active-directory-enterprise-app-role-management.md
-    - name: Customize claims - Portal
-      href: active-directory-saml-claims-customization.md
-    - name: Customize claims - PowerShell
-      href: active-directory-claims-mapping.md
-    - name: Configure optional claims
-      href: active-directory-optional-claims.md
-    - name: Use directory schema extension attributes in claims
-      href: active-directory-schema-extensions.md
-    - name: Configure token lifetimes
-      href: configure-token-lifetimes.md
-    - name: Handle SameSite cookie changes in Chrome browser
-      href: howto-handle-samesite-cookie-changes-chrome-browser.md
-    - name: Handle ITP in Safari
-      href: reference-third-party-cookies-spas.md
-  - name: Application configuration
-    displayName: App configuration
-    items:
-    - name: Convert a single-tenant app to a multi-tenant app
-      href: howto-convert-app-to-be-multi-tenant.md
-    - name: Create a service principal
-      items:
-      - name: Using Azure PowerShell
-        href: howto-authenticate-service-principal-powershell.md
-      - name: Using the Azure portal
-        href: howto-create-service-principal-portal.md
-    - name: Restrict your app to a set of users
-      href: howto-restrict-your-app-to-a-set-of-users.md
-    - name: Add app roles in your application
-      href: howto-add-app-roles-in-azure-ad-apps.md
-    - name: Follow the branding guidelines
-      displayName: Add branding
-      href: howto-add-branding-in-azure-ad-apps.md
-    - name: Configure publisher domain
-      href: howto-configure-publisher-domain.md
-      displayName: verified domain, verified publisher domain
-    - name: Configure Terms of Service and Privacy Statement
-      href: howto-add-terms-of-service-privacy-statement.md
-    - name: Configure publisher verification for your app
-      items:
-      - name: Mark your app as publisher verified
-        href: mark-app-as-publisher-verified.md
-      - name: Troubleshoot publisher verification
-        href: troubleshoot-publisher-verification.md
   - name: Application scenarios
     displayName: App scenarios
     items:
@@ -386,6 +339,9 @@
         - name: Migrate apps from ADAL to MSAL
           href: msal-migration.md
           displayName: migration
+        - name: National clouds and MSAL
+          href: msal-national-cloud.md
+          displayName: china, germany, gov, 21vianet
       - name: MSAL.NET
         displayName: xamarin, ASP.NET Core
         items:
@@ -491,14 +447,14 @@
             href: msal-handling-exceptions.md?tabs=python
           - name: Logging
             href: msal-logging.md?tabs=python
-      - name: MSAL for Java 
+      - name: MSAL for Java
         items:
           - name: Custom token cache serialization
             href: msal-java-token-cache-serialization.md
           - name: Get and remove accounts from the token cache
             href: msal-java-get-remove-accounts-token-cache.md
           - name: Migrate to MSAL for Java
-            ref: migrate-adal-msal-java.md
+            href: migrate-adal-msal-java.md
           - name: ADFS support in MSAL for Java
             href: msal-java-adfs-support.md
           - name: Handle errors and exceptions
@@ -553,6 +509,8 @@
         href: howto-create-service-principal-portal.md
   - name: Accept sign-ins from multiple tenants
     items:
+    - name: Modify accounts supported by an app
+      href: quickstart-modify-supported-accounts.md
     - name: Enable multi-tenant log-ins
       href: howto-convert-app-to-be-multi-tenant.md
     - name: Configure the publisher domain
@@ -599,14 +557,13 @@
       href: vs-active-directory-webapi-what-happened.md
     - name: Diagnose errors during authentication
       href: vs-active-directory-error.md
+  - name: Remove an app registration
+    href: quickstart-remove-app.md
 - name: Reference
   items:
   - name: Application configuration
     displayName: App configuration
     items:
-    - name: Applications and service principals
-      displayName: Apps, service principals
-      href: app-objects-and-service-principals.md
     - name: How and why apps are added to Azure AD
       href: active-directory-how-applications-are-added.md
     - name: Redirect URI/reply URL restrictions and limitations
@@ -665,8 +622,6 @@
         href: active-directory-saml-protocol-reference.md
       - name: SAML tokens
         href: reference-saml-tokens.md
-    - name: How and why apps are added to Azure AD
-      href: active-directory-how-applications-are-added.md
   - name: Application manifest
     href: reference-app-manifest.md
     displayName: app manifest
@@ -695,12 +650,9 @@
     - name: Application consent experiences
       displayName: App consent experiences
       href: application-consent-experience.md
-  - name: National Clouds
-    items:
-    - name: Overview
-      href: authentication-national-cloud.md
-    - name: Authentication
-      href: msal-national-cloud.md
+  - name: National cloud authentication endpoints
+    href: authentication-national-cloud.md
+    displayName: china, germany, gov, 21vianet
   - name: Automatic user provisioning (SCIM)
     items:
     - name: Develop and integrating a SCIM endpoint
@@ -709,7 +661,6 @@
       href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Automate configuration using MS Graph
       href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
-
 - name: Resources
   items:
   - name: Glossary
