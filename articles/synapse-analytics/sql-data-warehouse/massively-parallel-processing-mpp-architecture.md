@@ -25,7 +25,7 @@ Azure Synapse Analytics is an analytics service that brings together enterprise 
 
 ## Synapse SQL architecture components
 
-[Dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) leverages a scale-out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). Compute is separate from storage, which enables you to scale compute independently of the data in your system.
+[Dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-overview-what-is.md) leverages a scale-out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). Compute is separate from storage, which enables you to scale compute independently of the data in your system.
 
 ![Dedicated SQL pool (formerly SQL DW) architecture](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

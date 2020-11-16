@@ -19,7 +19,7 @@ Recommendations on choosing the ideal number of data warehouse units (DWUs) to o
 
 ## What are Data Warehouse Units
 
-A [Synapse SQL pool](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) represents a collection of analytic resources that are being provisioned. Analytic resources are defined as a combination of CPU, memory, and IO.
+A [Synapse SQL pool](sql-data-warehouse-overview-what-is.md) represents a collection of analytic resources that are being provisioned. Analytic resources are defined as a combination of CPU, memory, and IO.
 
 These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance.
 
