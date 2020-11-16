@@ -77,8 +77,8 @@ In this tutorial we will demonstrate parallel bulk import of the data to a SQL S
 To set up your Azure Data Science environment:
 
 1. [Create a storage account](../../storage/common/storage-account-create.md)
-2. [Create an Azure Machine Learning workspace](../studio/create-workspace.md)
-3. [Provision a Data Science Virtual Machine](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), which provides a SQL Server and an IPython Notebook server.
+2. [Create an Azure Machine Learning workspace](../classic/create-workspace.md)
+3. [Provision a Data Science Virtual Machine](../data-science-virtual-machine/overview.md), which provides a SQL Server and an IPython Notebook server.
    
    > [!NOTE]
    > The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
@@ -582,7 +582,7 @@ cursor.commit()
 ```
 
 #### Feature Engineering: Extract Location Features from Decimal Latitude/Longitude
-This example breaks down the decimal representation of a latitude and/or longitude field into multiple region fields of different granularity, such as, country/region, city, town, block, etc. The new geo-fields are not mapped to actual locations. For information on mapping geocode locations, see [Bing Maps REST Services](https://msdn.microsoft.com/library/ff701710.aspx).
+This example breaks down the decimal representation of a latitude and/or longitude field into multiple region fields of different granularity, such as, country/region, city, town, block, etc. The new geo-fields are not mapped to actual locations. For information on mapping geocode locations, see [Bing Maps REST Services](/bingmaps/rest-services/locations/find-a-location-by-point).
 
 ```sql
 nyctaxi_one_percent_insert_col = '''
@@ -623,9 +623,9 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 3. Regression task: To predict the amount of tip paid for a trip.  
 
 ## <a name="mlmodel"></a>Building Models in Azure Machine Learning
-To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning workspace](../studio/create-workspace.md).
+To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning workspace](../classic/create-workspace.md).
 
-1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
+1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
 3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. For more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -665,7 +665,7 @@ An example of a binary classification experiment reading data directly from the 
 > 
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure Machine Learning web services, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure Machine Learning web services, see [Deploy an Azure Machine Learning web service](../classic/deploy-a-machine-learning-web-service.md).
 
 To deploy a new web service, you need to:
 
@@ -719,6 +719,6 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 
 
 <!-- Module References -->
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

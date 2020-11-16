@@ -1,21 +1,21 @@
 ---
 title: Built-in policy definitions for Azure Arc enabled servers
 description: Lists Azure Policy built-in policy definitions for Azure Arc enabled servers (preview). These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 09/10/2020
+ms.date: 10/20/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
 ---
-# Azure Policy built-in definitions for Azure Arc enabled servers (preview)
+# Azure Policy built-in definitions for Azure Arc enabled servers
 
 This page is an index of [Azure Policy](../../governance/policy/overview.md) built-in policy
-definitions for Azure Arc enabled servers (preview). For additional Azure Policy built-ins for other services,
+definitions for Azure Arc enabled servers. For additional Azure Policy built-ins for other services,
 see [Azure Policy built-in definitions](../../governance/policy/samples/built-in-policies.md).
 
 The name of each built-in policy definition links to the policy definition in the Azure portal. Use
 the link in the **Version** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
-## Azure Arc enabled servers (preview)
+## Azure Arc enabled servers
 
 [!INCLUDE [azure-policy-reference-rp-arcserver](../../../includes/policy/reference/byrp/microsoft.hybridcompute.md)]
 

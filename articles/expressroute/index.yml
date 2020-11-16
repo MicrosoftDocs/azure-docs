@@ -126,7 +126,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/network/express-route
+            url: /cli/azure/network/express-route
           - text: Azure Powershell
             url: /powershell/module/az.network#expressroute
           - text: REST
@@ -134,6 +134,6 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Reference Architecutre for Hybrid Networking
-            url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute
+            url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
           - text: Reference Architecture for Hybrid Networking with VPN Failover
-            url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover
+            url: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover

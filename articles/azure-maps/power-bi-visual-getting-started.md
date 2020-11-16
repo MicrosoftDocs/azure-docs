@@ -13,7 +13,7 @@ ms.custom:
 
 # Getting started with the Azure Maps Power BI visual
 
-<Token>**APPLIES TO:** ![yes](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![yes](media/power-bi-visual/yes.png) Power BI service for designers & developers ![yes](media/power-bi-visual/yes.png) Power BI Desktop ![no](media/power-bi-visual/no.png) Requires Pro or Premium license </Token>
+<Token>**APPLIES TO:** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for designers & developers ![Green check mark.](media/power-bi-visual/yes.png) Power BI Desktop ![X indicating no.](media/power-bi-visual/no.png) Requires Pro or Premium license </Token>
 
 This article shows how to use the Microsoft Azure Maps visual for Power BI.
 
@@ -168,7 +168,7 @@ Learn more about the Azure Maps Power BI visual:
 Customize the visual:
 
 > [!div class="nextstepaction"]
-> [Tips and tricks for color formatting in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Tips and tricks for color formatting in Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Customize visualization titles, backgrounds, and legends](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Customize visualization titles, backgrounds, and legends](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

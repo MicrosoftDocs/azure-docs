@@ -7,7 +7,7 @@ ms.service: app-service
 ms.topic: "include"
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.custom: "include file"
+ms.custom: "include file, devx-track-azurecli"
 ---
 
 To access the console logs generated from inside your application code in App Service, turn on diagnostics logging by running the following command in the [Cloud Shell](https://shell.azure.com):

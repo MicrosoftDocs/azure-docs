@@ -342,7 +342,7 @@ InsightsMetrics
 
 The output will show results similar to the following:
 
-![Log query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
+![Screenshot shows the log query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
 
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 

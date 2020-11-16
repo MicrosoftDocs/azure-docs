@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Add and run code snippets by using inline code in Azure Logic Apps

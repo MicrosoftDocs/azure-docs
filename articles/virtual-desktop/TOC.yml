@@ -34,6 +34,12 @@
         href: connect-macos.md
       - name: Connect with the iOS client
         href: connect-ios.md
+      - name: Connect with the Microsoft Store client
+        href: connect-microsoft-store.md
+      - name: Connect with Linux devices
+        href: linux-overview.md
+  - name: Configure device redirections
+    href: configure-device-redirections.md
   - name: Set up the PowerShell module
     href: powershell-module.md
   - name: Create a host pool and session hosts
@@ -100,16 +106,28 @@
     href: azure-advisor.md
   - name: Resolve recommendations
     href: azure-advisor-recommendations.md
+  - name: Set up a disaster recovery plan
+    href: disaster-recovery.md
 - name: Concepts
   items:
   - name: Authentication
     href: authentication.md
-  - name: Safe URL list
-    href: safe-url-list.md
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
-  - name: Determine user connection latency
-    href: connection-latency.md
+  - name: Network connectivity
+    items:
+      - name: Understanding network connectivity
+        href: network-connectivity.md
+      - name: RDP Shortpath
+        href: shortpath.md
+      - name: Implement Quality of Service (QoS)
+        href: rdp-quality-of-service-qos.md
+      - name: Safe URL list
+        href: safe-url-list.md
+      - name: Bandwidth considerations
+        href: rdp-bandwidth.md
+      - name: Determine user connection latency
+        href: connection-latency.md
   - name: Delegated access in Windows Virtual Desktop
     href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods
@@ -160,8 +178,6 @@
     href: linux-overview.md
   - name: Supported RDP file settings
     href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
-  - name: Network guidance
-    href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Azure command-line interface (CLI)

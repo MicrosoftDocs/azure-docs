@@ -76,16 +76,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
 
-1. Grammarly application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
-
-	![image](common/default-attributes.png)
-
-1. In addition to above, Grammarly application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. Grammarly application expects the SAML assertions in a specific format. These attributes are also pre-populated but you can review them as per your requirements.
 	
 	| Name |  Source Attribute|
 	| -------------- | --------- |
 	| FirstName | user.givenname |
 	| LastName | user.surname |
+	| EmailAddress | user.principalname|
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -121,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Grammarly SSO
 
-To configure single sign-on on **Grammarly** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Grammarly support team](mailto:support@grammarly.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Grammarly**, you need to copy the **Login URL**, **Azure AD identifier**, and the downloaded **Certificate (Base64)** to the Grammarly Admin panel. [Learn how](https://support.grammarly.com/hc/en-us/articles/360048683092-How-do-I-set-up-SAML-single-sign-on-for-my-Grammarly-Business-account-).
 
 ### Create Grammarly test user
 
@@ -133,8 +130,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 1. Click on **Test this application** in Azure portal and you should be automatically signed in to the Grammarly for which you set up the SSO 
 
-2. You can use Microsoft Access Panel. When you click the Grammarly tile in the Access Panel, you should be automatically signed in to the Grammarly for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+2. You can use Microsoft Access Panel. When you click the Grammarly tile in the Access Panel, you should be automatically signed in to the Grammarly for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Grammarly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure Grammarly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

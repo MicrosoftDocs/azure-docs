@@ -33,7 +33,7 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 
     ![Azure Active Directory Create resoure page](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
-1. Select **Identity**, and then select **Azure Active Directory**.
+1. Search for and select **Azure Active Directory**.
 
     The **Create directory** page appears.
 

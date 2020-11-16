@@ -56,4 +56,4 @@ This article describes how to add assessment tools in [Azure Migrate](./migrate-
 
 ## Next steps
 
-Try out an assess using Azure Migrate Server Assessment for [VMware](tutorial-prepare-vmware.md) VMs, [Hyper-V](tutorial-prepare-hyper-v.md), or [physical servers](tutorial-prepare-physical.md)
+Try out an assess using Azure Migrate Server Assessment for [VMware](./tutorial-discover-vmware.md) VMs, [Hyper-V](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md)

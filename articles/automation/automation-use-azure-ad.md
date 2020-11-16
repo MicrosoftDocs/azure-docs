@@ -16,7 +16,7 @@ You can enable Azure AD through the following PowerShell modules:
 
 * Azure Active Directory PowerShell for Graph (AzureRM and Az modules). Azure Automation ships with the AzureRM module and its recent upgrade, the Az module. Functionality includes non-interactive authentication to Azure using Azure AD user (OrgId) credential-based authentication. See [Azure AD 2.0.2.76](https://www.powershellgallery.com/packages/AzureAD/2.0.2.76).
 
-* Microsoft Azure Active Directory for Windows PowerShell (MSOnline module). This module enables interactions with Microsoft Online, including Office 365.
+* Microsoft Azure Active Directory for Windows PowerShell (MSOnline module). This module enables interactions with Microsoft Online, including Microsoft 365.
 
 >[!NOTE]
 >PowerShell Core does not support the MSOnline module. To use the module cmdlets, you must run them from Windows PowerShell. You're encouraged to use the newer Azure Active Directory PowerShell for Graph modules instead of the MSOnline module. 
@@ -41,7 +41,7 @@ Before installing the Azure AD modules on your computer:
 ### Install the MSOnline module
 
 >[!NOTE]
->To install the MSOnline module, you must be a member of an Office 365 admin role. See [About admin roles](/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide).
+>To install the MSOnline module, you must be a member of an admin role. See [About admin roles](/microsoft-365/admin/add-users/about-admin-roles).
 
 1. Ensure that the Microsoft .NET Framework 3.5.x feature is enabled on your computer. It's likely that your computer has a newer version installed, but backward compatibility with older versions of the .NET Framework can be enabled or disabled. 
 

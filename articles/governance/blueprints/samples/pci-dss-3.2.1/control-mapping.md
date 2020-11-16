@@ -1,6 +1,6 @@
 ---
 title: PCI-DSS v3.2.1 blueprint sample controls
-description: Control mapping of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample to Azure Policy and RBAC.
+description: Control mapping of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample to Azure Policy and Azure RBAC.
 ms.date: 08/19/2020
 ms.topic: sample
 ---
@@ -17,14 +17,15 @@ deploy specific VM Extensions to support audit requirements** built-in policy in
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
-> definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md)
-> with the control; however, there often is not a 1:1 or complete match between a control and one or
-> more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this
-> doesn't ensure you're fully compliant with all requirements of a control. In addition, the
-> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
-> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
-> status. The associations between controls and Azure Policy definitions for this compliance
-> blueprint sample may change over time. To view the change history, see the
+> definitions. These policies may help you
+> [assess compliance](../../../policy/how-to/get-compliance-data.md) with the control; however,
+> there often is not a one-to-one or complete match between a control and one or more policies. As
+> such, **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure
+> you're fully compliant with all requirements of a control. In addition, the compliance standard
+> includes controls that aren't addressed by any Azure Policy definitions at this time. Therefore,
+> compliance in Azure Policy is only a partial view of your overall compliance status. The
+> associations between controls and Azure Policy definitions for this compliance blueprint sample
+> may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
 
 ## 1.3.2 and 1.3.4 Boundary Protection
@@ -97,9 +98,9 @@ appropriate separation of duties.
 This blueprint helps you restrict and control privileged access rights by assigning [Azure
 Policy](../../../policy/overview.md) definitions to audit external accounts with owner, write and/or
 read permissions and employee accounts with owner and/or write permissions that don't have
-multi-factor authentication enabled. Azure implements role-based access control (RBAC) to manage who
-has access to Azure resources. Understanding where custom RBAC rules are implement can help you
-verify need and proper implementation, as custom RBAC rules are error prone. This blueprint also
+multi-factor authentication enabled. Azure role-based access control (Azure RBAC) helps to manage who
+has access to Azure resources. Understanding where custom Azure RBAC rules are implement can help you
+verify need and proper implementation, as custom Azure RBAC rules are error prone. This blueprint also
 assigns [Azure Policy](../../../policy/overview.md) definitions to audit use of Azure Active
 Directory authentication for SQL Servers. Using Azure Active Directory authentication simplifies
 permission management and centralizes identity management of database users and other Microsoft  
@@ -116,7 +117,7 @@ services.
 
 ## 8.1.2 and 8.1.5 Least Privilege and Review of User Access Rights
 
-Azure implements role-based access control (RBAC) to helps you manage who has access to resources in
+Azure role-based access control (Azure RBAC) helps you manage who has access to resources in
 Azure. Using the Azure portal, you can review who has access to Azure resources and their
 permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions to audit
 accounts that should be prioritized for review, including depreciated accounts and external accounts
@@ -130,8 +131,8 @@ with elevated permissions.
 
 ## 8.1.3 Removal or Adjustment of Access Rights
 
-Azure implements role-based access control (RBAC) to help you manage who has access to resources in
-Azure. Using Azure Active Directory and RBAC, you can update user roles to reflect organizational
+Azure role-based access control (Azure RBAC) helps you manage who has access to resources in
+Azure. Using Azure Active Directory and Azure RBAC, you can update user roles to reflect organizational
 changes. When needed, accounts can be blocked from signing in (or removed), which immediately
 removes access rights to Azure resources. This blueprint assigns [Azure
 Policy](../../../policy/overview.md) definitions to audit depreciated account that should be

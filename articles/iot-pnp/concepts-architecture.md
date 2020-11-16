@@ -3,7 +3,7 @@ title: IoT Plug and Play architecture | Microsoft Docs
 description: As a solution builder, understand key architectural elements of IoT Plug and Play.
 author: ridomin
 ms.author: rmpablos
-ms.date: 07/06/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
@@ -11,9 +11,9 @@ services: iot-pnp
 manager: philmea
 ---
 
-# IoT Plug and Play Preview architecture
+# IoT Plug and Play architecture
 
-IoT Plug and Play Preview enables solution builders to integrate smart devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that describes a device's capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of interfaces that define:
+IoT Plug and Play enables solution builders to integrate smart devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that describes a device's capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of interfaces that define:
 
 - _Properties_ that represent the read-only or writable state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a writable property.
 - _Telemetry_ that's the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
@@ -38,9 +38,27 @@ The model repository uses RBAC to enable you to limit access to interface defini
 A device builder implements the code to run on an IoT smart device using one of the [Azure IoT device SDKs](./libraries-sdks.md). The device SDKs help the device builder to:
 
 - Connect securely to an IoT hub.
-- Register the device with your IoT hub and announce the model ID that identifies the collection of interfaces the device implements.
-- Update the properties defined in the DTDL interfaces the device implements. These properties are implemented using digital twins that manage the synchronization with your IoT hub.
-- Add command handlers for the commands defined in the DTDL interfaces the device implements.
+- Register the device with your IoT hub and announce the model ID that identifies the collection of DTDL interfaces the device implements.
+- Synchronize the properties defined in the DTDL interfaces between the device and your IoT hub.
+- Add command handlers for the commands defined in the DTDL interfaces.
+- Send telemetry to the IoT hub.
+
+## IoT Edge gateway
+
+An IoT Edge gateway acts as an intermediary to connect IoT Plug and Play devices that can't connect directly to an IoT hub. To learn more, see [How an IoT Edge device can be used as a gateway](../iot-edge/iot-edge-as-gateway.md).
+
+## IoT Edge modules
+
+An _IoT Edge module_ lets you deploy and manage business logic on the edge. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code.
+
+The _IoT Edge hub_ is one of the modules that make up the Azure IoT Edge runtime. It acts as a local proxy for IoT Hub by exposing the same protocol endpoints as IoT Hub. This consistency means that clients (whether devices or modules) can connect to the IoT Edge runtime just as they would to IoT Hub.
+
+The device SDKs help a module builder to:
+
+- Use the IoT Edge hub to connect securely to your IoT hub.
+- Register the module with your IoT hub and announce the model ID that identifies the collection of DTDL interfaces the device implements.
+- Synchronize the properties defined in the DTDL interfaces between the device and your IoT hub.
+- Add command handlers for the commands defined in the DTDL interfaces.
 - Send telemetry to the IoT hub.
 
 ## IoT Hub
@@ -75,4 +93,4 @@ Now that you have an overview of the architecture of an IoT Plug and Play soluti
 
 - [The model repository](./concepts-model-repository.md)
 - [Digital twin model integration](./concepts-model-discovery.md)
-- [Developing for IoT Plug and Play](./concepts-developer-guide.md)
+- [Developing for IoT Plug and Play](./concepts-developer-guide-device-csharp.md)

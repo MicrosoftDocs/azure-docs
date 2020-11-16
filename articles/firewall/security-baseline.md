@@ -368,7 +368,7 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 
 ### 4.2: Isolate systems storing or processing sensitive information
 
-**Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure Firewall resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory role-based access control. 
+**Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure Firewall resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure role-based access control. 
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 

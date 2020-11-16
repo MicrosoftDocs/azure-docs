@@ -47,7 +47,7 @@ This step requires a creative combination of domain expertise and the insights o
 For technical guidance on feature engineering when make use of various Azure data technologies, see [Feature engineering in the data science process](create-features.md). 
 
 ### Model training
-Depending on the type of question that you're trying to answer, there are many modeling algorithms available. For guidance on choosing the algorithms, see [How to choose algorithms for Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Although this article uses Azure Machine Learning, the guidance it provides is useful for any machine-learning projects. 
+Depending on the type of question that you're trying to answer, there are many modeling algorithms available. For guidance on choosing the algorithms, see [How to choose algorithms for Microsoft Azure Machine Learning](../how-to-select-algorithms.md). Although this article uses Azure Machine Learning, the guidance it provides is useful for any machine-learning projects. 
 
 The process for model training includes the following steps: 
 
@@ -84,4 +84,4 @@ Here are links to each step in the lifecycle of the TDSP:
 
 We provide full end-to-end walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
-For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](./index.yml).

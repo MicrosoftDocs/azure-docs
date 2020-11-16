@@ -102,6 +102,6 @@ You can consume these data points in [custom scoring solutions](https://github.c
 ## See also
 
  [Scoring Profiles](index-add-scoring-profiles.md)
- [REST API Reference](/rest/api/searchservice/)   
- [Search Documents API](/rest/api/searchservice/search-documents)   
- [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)
+ [REST API Reference](/rest/api/searchservice/)
+ [Search Documents API](/rest/api/searchservice/search-documents)
+ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)

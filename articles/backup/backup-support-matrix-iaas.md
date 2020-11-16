@@ -83,7 +83,7 @@ For Azure VM Linux backups, Azure Backup supports the list of Linux [distributio
 **Setting** | **Limits**
 --- | ---
 Maximum recovery points per protected instance (machine/workload) | 9999.
-Maximum expiry time for a recovery point | No limit.
+Maximum expiry time for a recovery point | No limit (99 years).
 Maximum backup frequency to vault (Azure VM extension) | Once a day.
 Maximum backup frequency to vault (MARS agent) | Three backups per day.
 Maximum backup frequency to DPM/MABS | Every 15 minutes for SQL Server.<br/><br/> Once an hour for other workloads.
@@ -125,7 +125,7 @@ Restore VM directly to an availability set | For managed disks, you can restore 
 Restore backup of unmanaged VMs after upgrading to managed VM| Supported.<br/><br/> You can restore disks, and then create a managed VM.
 Restore VM to restore point before the VM was migrated to managed disks | Supported.<br/><br/> You restore to unmanaged disks (default), convert the restored disks to managed disk, and create a VM with the managed disks.
 Restore a VM that's been deleted. | Supported.<br/><br/> You can restore the VM from a recovery point.
-Restore a domain controller (DC) VM that's part of a multi-DC configuration through portal | Supported if you restore the disk and create a VM by using PowerShell.
+Restore a domain controller VM  | Supported. For details, see [Restore domain controller VMs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 Restore VM in different virtual network |Supported.<br/><br/> The virtual network must be in the same subscription and region.
 
 ## VM compute support
@@ -150,7 +150,7 @@ Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Support
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Support for backup of Azure VMs with up to 32 disks is in public preview in all regions.<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
+Azure VM data disks | Support for backup of Azure VMs with up to 32 disks.<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
 Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.
@@ -161,6 +161,7 @@ Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
 Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server isn't supported. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
 [Shared disks](../virtual-machines/disks-shared-enable.md) | Not supported.
+Ultra SSD disks | Not supported. For more details, see these [limitations](selective-disk-backup-restore.md#limitations).
 
 ## VM network support
 

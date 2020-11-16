@@ -7,7 +7,6 @@ manager: ravijan
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.subservice: general
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
@@ -19,6 +18,8 @@ ms.author: sudbalas
 
 > [!WARNING]
 > **Breaking Change**: The ability to opt out of soft-delete will be deprecated by the end of the year and soft-delete protection will automatically be turned on for all key vaults.  Azure Key Vault users and administrators should enable soft-delete on their key vaults immediately.
+>
+> For Managed HSM, soft-delete is enabled by default and cannot be disabled.
 
 When a secret is deleted from a key vault without soft-delete protection, the secret is permanently deleted. Users can currently opt out of soft-delete during key vault creation but, to protect your secrets from accidental or malicious deletion by a user, Microsoft will soon enable soft-delete protection on **all** key vaults, and users will no longer have the option to opt out or turn soft-delete off.
 

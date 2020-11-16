@@ -17,8 +17,8 @@ Before you continue, make sure that Azure Backup Server is [installed and prepar
 
 To install the MABS protection agent on the Exchange server, follow these steps:
 
-1. Make sure that the firewalls are correctly configured. See [Configure firewall exceptions for the agent](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Install the agent on the Exchange server by selecting **Management > Agents > Install** in MABS Administrator Console. See [Install the MABS protection agent](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) for detailed steps.
+1. Make sure that the firewalls are correctly configured. See [Configure firewall exceptions for the agent](/system-center/dpm/configure-firewall-settings-for-dpm).
+2. Install the agent on the Exchange server by selecting **Management > Agents > Install** in MABS Administrator Console. See [Install the MABS protection agent](/system-center/dpm/deploy-dpm-protection-agent) for detailed steps.
 
 ## Create a protection group for the Exchange server
 

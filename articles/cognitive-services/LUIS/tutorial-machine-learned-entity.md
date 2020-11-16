@@ -1,6 +1,8 @@
 ---
 title: "Tutorial: extract structured data with machine-learning entity - LUIS"
 description: Extract structured data from an utterance using the machine-learning entity. To increase the extraction accuracy, add subentities with features.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
@@ -66,7 +68,7 @@ To extract details about a pizza order, create a top level, machine-learning `Or
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Begin selecting just before the left-most text of `pickup` (#1), then go just beyond the right-most text, `anchovies` (#2 - this ends the labeling process). A pop-up menu appears. In the pop-up box, enter the name of the entity as `Order` (#3). Then select `Order Create new entity` from the list (#4).
+    Click and drag your cursor over the text for the first example intent. in the menu that appears, enter the name of the entity as `Order`. Then select `Order Create new entity` from the list.
 
     ![Label beginning and ending of text for complete order](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
@@ -75,12 +77,12 @@ To extract details about a pizza order, create a top level, machine-learning `Or
 
 1. In the **Choose an entity type** box, select **Add Structure** then select **Next**. Structure is necessary to add subentities such as size and quantity.
 
-    ![Add structure to entity](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
+    ![Screenshot shows the Choose an entity type window with the Add structure option checked.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. In the **Add subentities (optional)** box, select **+** on the `Order` row, then add `Size` and `Quantity` as subentities, then select **Create**.
 
     > [!div class="mx-imgBorder"]
-    > ![Add structure to entity](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
+    > ![Screenshot shows the Add subentities (optional) window with subentities highlighted.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
 ## Edit subentities to improve extraction
 
@@ -117,7 +119,7 @@ Adding a list of known sizes the client application recognizes will also help ex
 
 
     > [!div class="mx-imgBorder"]
-    > ![Add structure to entity](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
+    > ![Screenshot shows the SizeList window and List items with XLarge selected.](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
 
 ### Add feature of SizeList entity
 
@@ -156,7 +158,7 @@ Adding a prebuilt number entity will also help extraction.
 On the Entity detail page for **Order** entity, select the asterisk, `*`, for both the **@ SizeList** feature and the **@ number** feature. The asterisk appears in the same label as the feature name.
 
 > [!div class="mx-imgBorder"]
-> ![Add structure to entity](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
+> ![Screenshot shows the @SizeList feature with the asterisk and Require warning.](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
 
 <a name="label-text-as-entities-in-example-utterances"></a>
 <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
@@ -196,7 +198,7 @@ To train the app, select **Train**. Training applies the changes, such as the ne
 1. To change the prediction into a labeled entity, select the check mark on the same row.
 
     > [!div class="mx-imgBorder"]
-    > ![Partial screenshot of new example utterance predicted with entity](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
+    > ![Screenshot shows an example utterance with the check mark highlighted.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     At this point, the machine-learning entity is working because it can find the entity within a new example utterance. As you add example utterances, if the entity is not predicted correctly, label the entity and the subentities. If the entity is predicted correctly, make sure to confirm the predictions.
 

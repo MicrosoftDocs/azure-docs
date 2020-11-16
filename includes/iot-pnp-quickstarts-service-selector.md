@@ -13,3 +13,5 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-pnp/quickstart-service-node.md)
 > * [Python](../articles/iot-pnp/quickstart-service-python.md)
+> * [C#](../articles/iot-pnp/quickstart-service-csharp.md)
+> * [Java](../articles/iot-pnp/quickstart-service-java.md)

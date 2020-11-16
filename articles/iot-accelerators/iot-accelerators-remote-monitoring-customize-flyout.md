@@ -8,7 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 # As a developer, I want to add a new flyout on a page in the solution accelerator web UI in order to customize the user experience.
 ---
 

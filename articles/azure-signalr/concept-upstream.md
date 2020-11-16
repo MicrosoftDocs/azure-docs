@@ -83,7 +83,7 @@ When you select `ManagedIdentity`, you must enable a managed identity in Azure S
 
 ## Create upstream settings via Resource Manager template
 
-To create upstream settings by using an [Azure Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview), set the `upstream` property in the `properties` property. The following snippet shows how to set the `upstream` property for creating and updating upstream settings.
+To create upstream settings by using an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md), set the `upstream` property in the `properties` property. The following snippet shows how to set the `upstream` property for creating and updating upstream settings.
 
 ```JSON
 {

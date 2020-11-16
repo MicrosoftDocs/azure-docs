@@ -4,13 +4,13 @@ description: Azure Security Benchmark V2 Endpoint Security
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
 ---
 
-# Security Control: Endpoint Security
+# Security Control V2: Endpoint Security
 
 Endpoint Security covers controls in endpoint detection and response. This includes use of endpoint detection and response (EDR) and anti-malware service for endpoints in Azure environments.
 
@@ -32,7 +32,7 @@ Microsoft Defender Advanced Threat Protection provides EDR capability as part of
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -56,11 +56,11 @@ Microsoft Antimalware for Azure Cloud Services is the default anti-malware for W
 
 - [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../fundamentals/antimalware.md)
 
-- [Supported endpoint protection solutions](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
+- [Supported endpoint protection solutions](../../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -84,7 +84,7 @@ Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure 
 
 **Responsibility**: Customer
 
-**Customer Security Stakeholders**:
+**Customer Security Stakeholders** ([Learn more](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Infrastructure and endpoint security](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -94,3 +94,4 @@ Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure 
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
+- [Endpoint protection assessment and recommendations in Azure Security Center](../../security-center/security-center-endpoint-protection.md)

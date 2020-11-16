@@ -40,7 +40,7 @@ Yes. To move a Recovery Services vault, refer this [article](backup-azure-move-r
 
 No. Backup data stored in a vault can't be moved to a different vault.
 
-### Can I change from GRS to LRS after a backup?
+### Can I change the storage redundancy setting after a backup?
 
 The storage replication type by default is set to geo-redundant storage (GRS). Once you configure the backup, the option to modify is disabled and can't be changed.
 
@@ -52,6 +52,10 @@ If you've already configured the backup and must move from GRS to LRS, then see 
 
 - ILR is supported for Azure VMs backed up by Azure VM backup. For more information, see [article](backup-azure-restore-files-from-vm.md)
 - ILR isn't supported for online recovery points of on-premises VMs backed up by Azure Backup Server (MABS) or System Center DPM.
+
+### How can I move data from the Recovery Services vault to on-premises?
+
+Exporting data directly from the Recovery Services vault to on-premises using Data Box is not supported. Data must be restored to a storage account, and then it can be moved to on-premises via [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) or [Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 
 ## Azure Backup agent
 
@@ -169,7 +173,7 @@ Typical long-term retention point products store backup data as full points.
 - The full points are storage *inefficient* but are easier and faster to restore.
 - Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time
 
-Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This ensures that your ingress and egress bandwidth is used efficiently. The amount of data storage, and the time needed to recover the data, is kept to a minimum. Learn more about [incremental backups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
+Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This ensures that your ingress and egress bandwidth is used efficiently. The amount of data storage, and the time needed to recover the data, is kept to a minimum. Learn more about [incremental backups](backup-architecture.md#backup-types).
 
 ### Is there a limit on the number of recovery points that can be created?
 

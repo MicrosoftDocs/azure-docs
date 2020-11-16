@@ -33,13 +33,13 @@ Key building blocks of an enterprise team analytics environment include:
 
 This series provides guidance and pointers for each of the preceding topics. It doesn't cover all the considerations and requirements for deploying DSVMs in large enterprise configurations. Here are some other Azure resources that you can use while implementing DSVM instances in your enterprise:
 
-* [Network security](https://docs.microsoft.com/azure/security/fundamentals/network-security)
-* [Monitoring](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) and [management](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
-* [Logging and auditing](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
-* [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Network security](../../security/fundamentals/network-overview.md)
+* [Monitoring](../../azure-monitor/insights/monitor-vm-azure.md) and [management](../../virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)
+* [Logging and auditing](../../security/fundamentals/log-audit.md)
+* [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Policy setting and enforcement](../../governance/policy/overview.md)
-* [Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
-* [Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
-* [Data discovery and governance](https://docs.microsoft.com/azure/data-catalog/)
+* [Antimalware](../../security/fundamentals/antimalware.md)
+* [Encryption](../../virtual-machines/windows/disk-encryption-overview.md)
+* [Data discovery and governance](../../data-catalog/index.yml)
 
-Finally, the [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) provides a detailed end-to-end architecture and models for building and managing your cloud-based analytics infrastructure.
+Finally, the [Azure Architecture Center](/azure/architecture/) provides a detailed end-to-end architecture and models for building and managing your cloud-based analytics infrastructure.

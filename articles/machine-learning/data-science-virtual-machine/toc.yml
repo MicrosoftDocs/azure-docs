@@ -56,10 +56,12 @@
         href: dsvm-common-identity.md
       - name: Secure resource access credentials
         href: dsvm-secure-access-keys.md            
+  - name: Upgrade your Data Science Virtual Machine to Ubuntu 18.04 
+    href: ubuntu-upgrade.md
 - name: Resources
   items:
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-data-science-vm.html
+    href: /answers/topics/azure-data-science-vm.html
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=dsvm
   - name: R developer guide 
@@ -72,5 +74,3 @@
     href: release-notes.md
   - name: Known issues
     href: reference-known-issues.md
-  - name: Deprecation Announcements
-    href: reference-deprecation.md

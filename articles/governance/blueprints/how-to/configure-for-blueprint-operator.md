@@ -11,7 +11,7 @@ teams. It's common for an architect or governance team to be responsible for the
 management of your blueprint definitions while an operations team is responsible for managing
 assignments of those centrally controlled blueprint definitions.
 
-The **Blueprint Operator** built-in role-based access control (RBAC) is designed specifically for
+The **Blueprint Operator** built-in role is designed specifically for
 use in this type of scenario. The role allows for operations type teams to manage the assignment of
 the organizations blueprint definitions, but not the ability to modify them. Doing so requires some
 configuration in your Azure environment and this article explains the necessary steps.

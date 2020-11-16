@@ -15,6 +15,11 @@ ms.author: aahi
 
 # Tutorial: Build a Custom Search web page
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a martial arts website that provides a search experience, you can specify the domains, sub-sites, and webpages that Bing searches. Your users see search results tailored to the content they care about instead of paging through general search results that may contain irrelevant content. 
 
 This tutorial demonstrates how to configure a custom search instance and integrate it into a new web page.
@@ -114,7 +119,7 @@ Custom Search provides a hosted UI to render the JSON response of your custom se
   
 5. Select your subscription keys from the dropdown lists. Or, you can enter the subscription key manually.
   
-   ![Screenshot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Screenshot of the Hosted UI subscription key](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -140,7 +145,7 @@ The remainder of this tutorial illustrates **Option 1: JavaScript snippet**.
   
 4. In the **New ASP.NET Core Web Application** window, select **Web Application** and click **OK**.  
   
-   ![Screenshot of new project window](./media/custom-search-new-webapp.png)  
+   ![Screenshot of new webapp window](./media/custom-search-new-webapp.png)  
 
 ## Edit index.cshtml
 

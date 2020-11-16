@@ -1,6 +1,8 @@
 ---
 title: Import document format guidelines - QnA Maker
 description: Use these guidelines for importing documents to get the best results for your content.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
 ---

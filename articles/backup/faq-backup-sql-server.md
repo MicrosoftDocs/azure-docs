@@ -95,6 +95,10 @@ You can select the database, which is now renamed and configure protection on it
 A database that you [add to an autoprotected instance](backup-sql-server-database-azure-vms.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting **Rediscover DBs**, as shown in the following image:
 
   ![Manually discover a newly added database](./media/backup-azure-sql-database/view-newly-added-database.png)
+  
+## Can I protect databases that have TDE (Transparent Data Encryption) turned on and will the database stay encrypted through the entire backup process?
+
+Yes, Azure Backup supports backup of SQL Server databases or server with TDE enabled. Backup supports [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) with keys managed by Azure, or with customer-managed keys (BYOK).  Backup doesn't perform any SQL encryption as part of the backup process so the database will stay encrypted when backed up.
 
 ## Next steps
 

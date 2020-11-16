@@ -8,17 +8,23 @@ ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
 ---
-# Access Azure Storage as a network share from a container in App Service
+# Access Azure Storage (preview) as a network share from a container in App Service
 
 ::: zone pivot="container-windows"
 
 This guide shows how to attach Azure Storage Files as a network share to a windows container in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-cli.md) and [Premium Files Shares](../storage/files/storage-how-to-create-premium-fileshare.md) are supported. Benefits include secured content, content portability, access to multiple apps, and multiple transferring methods.
+
+> [!NOTE]
+>Azure Storage in App Service is **in preview** and **not supported** for **production scenarios**.
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
 This guide shows how to attach Azure Storage to a Linux container App Service. Benefits include secured content, content portability, persistent storage, access to multiple apps, and multiple transferring methods.
+
+> [!NOTE]
+>Azure Storage in App Service is **in preview** for App Service on Linux and Web App for Containers. It's **not supported** for **production scenarios**.
 
 ::: zone-end
 
@@ -48,7 +54,6 @@ This guide shows how to attach Azure Storage to a Linux container App Service. B
 
 ::: zone pivot="container-windows"
 
-- Azure Storage in App Service is **in preview** and **not supported** for **production scenarios**.
 - Azure Storage in App Service is currently **not supported** for bring your own code scenarios (non-containerized Windows apps).
 - Azure Storage in App Service **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
 - Azure Storage with App Service lets you specify **up to five** mount points per app.
@@ -58,9 +63,7 @@ This guide shows how to attach Azure Storage to a Linux container App Service. B
 
 ::: zone pivot="container-linux"
 
-- Azure Storage in App Service is **in preview** for App Service on Linux and Web App for Containers. It's **not supported** for **production scenarios**.
 - Azure Storage in App Service supports mounting **Azure Files containers** (Read / Write) and **Azure Blob containers** (Read Only)
-- Azure Storage in App Service **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
 - Azure Storage in App Service lets you specify **up to five** mount points per app.
 - Azure Storage mounted to an app is not accessible through App Service FTP/FTPs endpoints. Use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -86,7 +89,7 @@ You should do this for any other directories you want to be linked to an Azure F
 
 Once you've created your [Azure Storage account, file share and directory](#prerequisites), you can now configure your app with Azure Storage.
 
-To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type can be AzureBlob or AzureFiles. AzureFiles is used in this example. The mount path setting corresponds to the folder you would like to mount from Azure Storage. Setting it to '/' mounts the entire Azure Storage.
+To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type can be AzureBlob or AzureFiles. AzureFiles is used in this example. The mount path setting corresponds to the folder inside the container that you want to mount to Azure Storage. Setting it to '/' mounts the entire container to Azure Storage.
 
 
 > [!CAUTION]

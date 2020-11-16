@@ -65,7 +65,7 @@ If you can't access your Azure Active Directory (Azure AD) account, it could be 
 
     3. Type and confirm your new password, and then select **Finish**.
 
-- **Reset your password using a phone number.** Sends a text message to the phone number you previously set up in security info. If your administrator has turned on the security info experience, you can find more info about setting up a phone number in the [Set up security info to use a phone call (preview)](security-info-setup-phone-number.md) article. If you're not yet using security info, you can find more info about setting up a phone number in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
+- **Reset your password using a phone number.** Places an automated voice call to the phone number you previously set up in security info. If your administrator has turned on the security info experience, you can find more info about setting up a phone number in the [Set up security info to use a phone call (preview)](security-info-setup-phone-number.md) article. If you're not yet using security info, you can find more info about setting up a phone number in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
 
     1. Select **Call my mobile phone**, type your phone number, and then select **Call**.
 

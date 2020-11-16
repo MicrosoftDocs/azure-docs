@@ -10,27 +10,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 9/14/2020
+ms.date: 9/29/2020
 ms.author: duau
 # customer intent: As an IT admin, I want to learn about Front Door and what the Rules Engine feature does. 
 ---
 
 # What is Rules Engine for Azure Front Door? 
 
-Rules Engine allows you to customize how HTTP requests are handled at the edge and provides more control of the behavior of your web application. Rules Engine for Azure Front Door comprises several key features, including:
+Rules Engine allows you to customize how HTTP requests gets handled at the edge and provides a more controlled behavior to your web application. Rules Engine for Azure Front Door has several key features, including:
 
-- Enforce HTTPS, ensure all your end-users interact with your content over a secure connection.
-- Implement security headers to prevent browser-based vulnerabilities like HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, X-Frame-Options, as well as Access-Control-Allow-Origin headers for Cross-Origin Resource Sharing (CORS) scenarios. Security-based attributes can also be defined with cookies.
-- Route requests to mobile or desktop versions of your application based on the patterns in the contents of request headers, cookies, or query strings.
-- Use redirect capabilities to return 301, 302, 307, and 308 redirects to the client to redirect to new hostnames, paths, or protocols.
+* Enforces HTTPS to ensure all your end users interact with your content over a secure connection.
+* Implements security headers to prevent browser-based vulnerabilities like HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, X-Frame-Options, and Access-Control-Allow-Origin headers for Cross-Origin Resource Sharing (CORS) scenarios. Security-based attributes can also be defined with cookies.
+* Route requests to mobile or desktop versions of your application based on the patterns of request headers contents, cookies, or query strings.
+* Use redirect capabilities to return 301, 302, 307, and 308 redirects to the client to direct to new hostnames, paths, or protocols.
 - Dynamically modify the caching configuration of your route based on the incoming requests.
 - Rewrite the request URL path and forward the request to the appropriate backend in your configured backend pool.
 
 ## Architecture 
 
-Rules engine handles requests at the edge. Once configuring Rules Engine, when a request hits your Front Door endpoint, WAF will be executed first, followed by the Rules Engine configuration associated with your Frontend/ Domain. When a Rules Engine configuration is executed, it means that the parent routing rule is already a match. Whether all of the actions in each of the rules within the Rules Engine configuration are executed is subject to all of the match conditions within that rule being satisfied. If a request matches none of the conditions in your Rule Engine configuration, then the default Routing Rule is executed. 
+Rules engine handles requests at the edge. When a request hits your Front Door endpoint, WAF is executed first, followed by the Rules Engine configuration associated with your Frontend/Domain. If a Rules Engine configuration is executed, the means the parent routing rule is already a match. In order for all the actions in each rule to get executed, all the match conditions within a rule has to be satisfied. If a request doesn't match any of the conditions in your Rule Engine configuration, then the default Routing Rule is executed. 
 
-For example, in the configuration below, a Rules Engine is configured to append a response header which changes the max-age of the cache control if the match condition is met. 
+For example, in the following diagram, a Rules Engine gets configured to append a response header. The header changes the max-age of the cache control if the match condition gets met. 
 
 ![response header action](./media/front-door-rules-engine/rules-engine-architecture-3.png)
 
@@ -42,16 +42,16 @@ In both of these examples, when none of the match conditions are met, the specif
 
 ## Terminology 
 
-With AFD Rules Engine, you can create a series of Rules Engine configurations, each composed of a set of rules. The following outlines some helpful terminology you will come across when configuring your Rules Engine. 
+With AFD Rules Engine, you can create a combination of Rules Engine configurations, each composed of a set of rules. The following outlines some helpful terminology you will come across when configuring your Rules Engine. 
 
 - *Rules Engine Configuration*: A set of rules that are applied to single Route Rule. Each configuration is limited to 25 rules. You can create up to 10 configurations. 
 - *Rules Engine Rule*: A rule composed of up to 10 match conditions and 5 actions.
-- *Match Condition*: There are numerous match conditions that can be utilized to parse your incoming requests. A rule can contain up to 10 match conditions. Match conditions are evaluated with an **AND** operator. A full list of match conditions can  be found [here](front-door-rules-engine-match-conditions.md). 
-- *Action*: Actions dictate what happens to your incoming requests - request/ response header actions, forwarding, redirects, and rewrites are all available today. A rule can contain up to 5 actions; however, a rule may only contain 1 route configuration override.  A full list of actions can be found [here](front-door-rules-engine-actions.md).
+- *Match Condition*: There are many match conditions that can be utilized to parse your incoming requests. A rule can contain up to 10 match conditions. Match conditions are evaluated with an **AND** operator. A full list of match conditions can  be found [here](front-door-rules-engine-match-conditions.md). 
+- *Action*: Actions dictate what happens to your incoming requests - request/response header actions, forwarding, redirects, and rewrites are all available today. A rule can contain up to five actions; however, a rule may only contain one route configuration override.  A full list of actions can be found [here](front-door-rules-engine-actions.md).
 
 
 ## Next steps
 
-- Learn how to set up your first [Rules Engine configuration](front-door-tutorial-rules-engine.md). 
+- Learn how to configure your first [Rules Engine configuration](front-door-tutorial-rules-engine.md). 
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
 - Learn [how Front Door works](front-door-routing-architecture.md).

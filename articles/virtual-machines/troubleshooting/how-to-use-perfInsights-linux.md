@@ -215,8 +215,8 @@ Within the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.tar.gz** file, you
 
 The **Overview** tab provides basic run details and virtual machine information. The **Findings** tab displays a summary of the recommendations from all the different sections of the PerfInsights report.
 
-![Screenshot of PerfInsights Report](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
-![Screenshot of PerfInsights Report](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
+![Screenshot of the Overview tab of the PerfInsights Report.](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![Screenshot of the Linux tab of the PerfInsights Report.](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > Findings categorized as high are known issues that might cause performance issues. Findings categorized as medium represent non-optimal configurations that do not necessarily cause performance issues. Findings categorized as low are informative statements only.

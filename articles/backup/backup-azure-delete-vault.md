@@ -327,7 +327,7 @@ To delete existing Recovery Services vault, perform the following steps:
                        [--yes]
     ```
 
-    For more information, see this [article](/cli/azure/backup/vault?view=azure-cli-latest)
+    For more information, see this [article](/cli/azure/backup/vault)
 
 ## Delete the Recovery Services vault by using Azure Resource Manager
 

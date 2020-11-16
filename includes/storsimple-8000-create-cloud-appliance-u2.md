@@ -12,7 +12,7 @@ ms.author: alkohli
     ![StorSimple create cloud appliance](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. In the **Create cloud appliance** blade, specify the following details.
    
-    ![StorSimple create cloud appliance](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
+    ![StorSimple create cloud appliance 2](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Name** – A unique name for your cloud appliance.
    2. **Model** - Choose the model of the cloud appliance. An 8010 device offers 30 TB of Standard Storage whereas 8020 has 64 TB of Premium Storage. Specify 8010 to deploy item level retrieval scenarios from backups. Select 8020 to deploy high performance, low latency workloads, or use as a secondary device for disaster recovery.

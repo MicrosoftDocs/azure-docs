@@ -9,7 +9,7 @@ ms.author: glenga
 ms.custom: include file
 ---
 
-Controls the [sampling feature in Application Insights](../articles/azure-functions/functions-monitoring.md#configure-sampling).
+Controls the [sampling feature in Application Insights](../articles/azure-functions/configure-monitoring.md#configure-sampling).
 
 ```json
 {

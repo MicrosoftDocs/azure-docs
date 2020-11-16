@@ -1,14 +1,12 @@
 ---
 title: Azure Monitor Workbooks Overview
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
-author: mrbullwinkle
+description: Learn how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal.
 manager: carmonm
 services: azure-monitor
 
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: mbullwin
 ---
 
 # Azure Monitor Workbooks
@@ -95,7 +93,7 @@ If we select the edit button immediately under the grid of request data we can s
 
 ![Screenshot of underlying Kusto query](./media/workbooks-overview/kusto.png)
 
-Clicking the other **Edit** buttons on the right will reveal a number of the core components that make up workbooks like markdown-based [text boxes](workbooks-visualizations.md#text), [parameter selection](workbooks-parameters.md) UI elements, and other [chart/visualization types](workbooks-visualizations.md). 
+Clicking the other **Edit** buttons on the right will reveal a number of the core components that make up workbooks like markdown-based [text boxes](workbooks-text-visualizations.md), [parameter selection](workbooks-parameters.md) UI elements, and other [chart/visualization types](#visualizations). 
 
 Exploring the pre-built templates in edit-mode and then modifying them to fit your needs and save your own custom workbook is an excellent way to start to learn about what is possible with Azure Monitor workbooks.
 
@@ -108,7 +106,7 @@ To access pin mode, click **Edit** to enter editing mode, and select the blue pi
 ![Pin experience](./media/workbooks-overview/pin-experience.png)
 
 > [!NOTE]
-> The state of the the workbook is saved at the time of the pin, and pinned workbooks on a dashboard will not update if the underlying workbook is modified. In order to update a pinned workbook part, you will need to delete and re-pin that part.
+> The state of the workbook is saved at the time of the pin, and pinned workbooks on a dashboard will not update if the underlying workbook is modified. In order to update a pinned workbook part, you will need to delete and re-pin that part.
 
 ## Dashboard time ranges
 
@@ -127,5 +125,5 @@ Once you start creating your own workbook templates you might want to share it w
 
 ## Next step
 
-* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Get started](#visualizations) learning more about workbooks many rich visualizations options.
 * [Control](workbooks-access-control.md) and share access to your workbook resources.

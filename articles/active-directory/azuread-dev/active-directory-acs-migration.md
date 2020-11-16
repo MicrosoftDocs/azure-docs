@@ -210,7 +210,7 @@ At a high level, *Azure Active Directory is probably the best choice for your mi
 
 If you decide that Azure AD is the best migration path for your applications and services, you should be aware of two ways to integrate your app with Azure AD.
 
-To use WS-Federation or WIF to integrate with Azure AD, we recommend following the approach described in [Configure federated single sign-on for a non-gallery application](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). The article refers to configuring Azure AD for SAML-based single sign-on, but also works for configuring WS-Federation. Following this approach requires an Azure AD Premium license. This approach has two advantages:
+To use WS-Federation or WIF to integrate with Azure AD, we recommend following the approach described in [Configure federated single sign-on for a non-gallery application](../manage-apps/configure-saml-single-sign-on.md). The article refers to configuring Azure AD for SAML-based single sign-on, but also works for configuring WS-Federation. Following this approach requires an Azure AD Premium license. This approach has two advantages:
 
 - You get the full flexibility of Azure AD token customization. You can customize the claims that are issued by Azure AD to match the claims that are issued by Access Control. This especially includes the user ID or Name Identifier claim. To continue to receive consistent user IDentifiers for your users after you change technologies, ensure that the user IDs issued by Azure AD match those issued by Access Control.
 - You can configure a token-signing certificate that is specific to your application, and with a lifetime that you control.
@@ -222,7 +222,7 @@ An alternative approach is to follow [this code sample](https://github.com/Azure
 
 If you choose this approach, you need to understand [signing key rollover in Azure AD](../develop/active-directory-signing-key-rollover.md). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes. For more information, see [Important information about signing key rollover in Azure AD](/previous-versions/azure/dn641920(v=azure.100)).
 
-If you can integrate with Azure AD via the OpenID Connect or OAuth protocols, we recommend doing so. We have extensive documentation and guidance about how to integrate Azure AD into your web application available in our [Azure AD developer guide](https://aka.ms/aaddev).
+If you can integrate with Azure AD via the OpenID Connect or OAuth protocols, we recommend doing so. We have extensive documentation and guidance about how to integrate Azure AD into your web application available in our [Azure AD developer guide](../develop/index.yml).
 
 #### Migrate to Azure Active Directory B2C
 
@@ -328,7 +328,7 @@ You can also use Azure AD for server-to-server authentication by using the Azure
 
 For guidance about implementing server-to-server scenarios, see the following resources:
 
-- Service-to-Service section of the [Azure AD developer guide](https://aka.ms/aaddev)
+- Service-to-Service section of the [Azure AD developer guide](../develop/index.yml)
 - [Daemon code sample by using simple password client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Daemon code sample by using certificate client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 

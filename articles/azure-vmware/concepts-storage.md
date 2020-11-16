@@ -1,11 +1,11 @@
 ---
 title: Concepts - Storage
-description: Learn about the key storage capabilities in Azure VMware Solution Preview private clouds.
+description: Learn about the key storage capabilities in  Azure VMware Solution private clouds.
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 11/03/2020
 ---
 
-# Azure VMware Solution Preview storage concepts
+#  Azure VMware Solution storage concepts
 
 Azure VMware Solution private clouds provide native, cluster-wide storage with VMware vSAN. All local storage from each host in a cluster is used in a vSAN datastore, and data-at-rest encryption is available and enabled by default. You can use Azure Storage resources to extend storage capabilities of your private clouds.
 
@@ -23,7 +23,7 @@ Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datas
 
 ## Data-at-rest encryption
 
-vSAN datastores use data-at-rest encryption by default. The encryption solution is KMS-based and supports vCenter operations for key management. The key encryption keys are stored in an Azure Key Vault and when a host is removed from a cluster for any reason, data on SSDs is invalidated immediately.
+vSAN datastores use data-at-rest encryption by default. The encryption solution is KMS-based and supports vCenter operations for key management. Keys are stored encrypted, wrapped by an Azure Key Vault master key. When a host is removed from a cluster for any reason, data on SSDs is invalidated immediately.
 
 ## Scaling
 

@@ -31,7 +31,7 @@ By setting the attribute **preferredDataLocation**, you can define a user's geo.
 >
 >
 
-A list of all geos for Microsoft 365 can be found in [Where is your data located?](https://aka.ms/datamaps).
+A list of all geos for Microsoft 365 can be found in [Where is your data located?](/microsoft-365/enterprise/o365-data-locations).
 
 The geos in Microsoft 365 available for Multi-Geo are:
 
@@ -113,7 +113,7 @@ Not all Azure AD attributes are imported into the on-premises Active Directory c
 4. Make sure the source attribute you selected to use is checked in the attribute list. If you do not see your attribute, select the **Show All** check box.
 5. To save, select **OK**.
 
-![Screenshot of Synchronization Service Manager and Properties dialog box](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Screenshot that shows the Synchronization Service Manager and Properties dialog box with the "Attributes" list highlighted.](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
 ## Step 4: Add **preferredDataLocation** to the Azure AD Connector schema
 **This step is only needed if you run Connect version 1.3.21 or older. If you are on 1.4.18 or newer, then skip to step 5.**  
@@ -262,8 +262,8 @@ Assuming your tenant has been marked to be able to use this feature, the mailbox
 Learn more about Multi-Geo in Microsoft 365:
 
 * [Multi-Geo sessions at Ignite](https://aka.ms/MultiGeoIgnite)
-* [Multi-Geo in OneDrive](https://aka.ms/OneDriveMultiGeo)
-* [Multi-Geo in SharePoint Online](https://aka.ms/SharePointMultiGeo)
+* [Multi-Geo in OneDrive](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
+* [Multi-Geo in SharePoint Online](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
 
 Learn more about the configuration model in the sync engine:
 

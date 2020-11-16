@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 09/15/2020
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -20,13 +20,21 @@ Identity data is stored by Azure AD in a geographical location  based on the add
 
 For customers who provided an address in Europe, Azure AD keeps most of the identity data within European datacenters. This document provides information on any data that is stored outside of Europe by Azure AD services.
 
-## Microsoft Azure multi-factor authentication (MFA)
-    
-- All two-factor authentication using phone calls or SMS originate from US datacenters and are also routed by global providers.
-- Push notifications using the Microsoft Authenticator app originate from US datacenters. In addition, device vendor specific services may also come into play and these services maybe outside Europe.
-- OATH codes are always validated in the U.S. 
+## Microsoft Azure Multi-Factor Authentication
+
+For cloud-based Azure Multi-Factor Authentication, authentication is complete in the closest datacenter to the user. Datacenters for Azure Multi-Factor Authentication exist in North America, Europe, and Asia Pacific.
+
+* Multi-factor authentication using phone calls originate from US datacenters and are routed by global providers.
+* Multi-factor authentication using SMS is routed by global providers.
+* Multi-factor authentication requests using the Microsoft Authenticator app push notifications that originate from EU datacenters are processed in EU datacenters.
+    * Device vendor-specific services, such as Apple Push Notifications, may be outside Europe.
+* Multi-factor authentication requests using OATH codes that originate from EU datacenters are validated in the EU.
 
 For more information about what user information is collected by Azure Multi-Factor Authentication Server (MFA Server) and cloud-based Azure MFA, see [Azure Multi-Factor Authentication user data collection](../authentication/howto-mfa-reporting-datacollection.md).
+
+## Password-based Single Sign-On for Enterprise Applications
+ 
+If a customer creates a new enterprise application (whether through Azure AD Gallery or non-Gallery) and enables password-based SSO, the Application sign in URL, and custom capture sign in fields are stored in the United States. For more information on this feature, please refer to [Configure password-based single sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 ## Microsoft Azure Active Directory B2C (Azure AD B2C)
 

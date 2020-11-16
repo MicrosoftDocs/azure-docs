@@ -1,7 +1,7 @@
 ---
 title: Create certificates using Microsoft Azure Stack Hub Readiness Checker tool | Microsoft Docs
-description: Describes how to create certificate requests and then get and install certificates on your Azure Stack Edge GPU device using the Azure Stack Hub Readiness Checker tool.
-services: Azure Stack Edge
+description: Describes how to create certificate requests and then get and install certificates on your Azure Stack Edge Pro GPU device using the Azure Stack Hub Readiness Checker tool.
+services: Azure Stack Edge Pro
 author: alkohli
 
 ms.service: databox
@@ -11,15 +11,15 @@ ms.date: 08/28/2020
 ms.author: alkohli
 ---
 
-# Create certificates for your Azure Stack Edge using Azure Stack Hub Readiness Checker tool 
+# Create certificates for your Azure Stack Edge Pro using Azure Stack Hub Readiness Checker tool 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This article describes how to create certificates for your Azure Stack Edge using the Azure Stack Hub Readiness Checker tool. 
+This article describes how to create certificates for your Azure Stack Edge Pro using the Azure Stack Hub Readiness Checker tool. 
 
 ## Using Azure Stack Hub Readiness Checker tool
 
-Use the Azure Stack Hub Readiness Checker tool to create Certificate Signing Requests (CSRs) for an Azure Stack Edge device deployment. You can create these requests after placing an order for the Azure Stack Edge device and waiting for the device to arrive. 
+Use the Azure Stack Hub Readiness Checker tool to create Certificate Signing Requests (CSRs) for an Azure Stack Edge Pro device deployment. You can create these requests after placing an order for the Azure Stack Edge Pro device and waiting for the device to arrive. 
 
 > [!NOTE]
 > Use this tool only for test or development purposes and not for production devices. 
@@ -35,10 +35,10 @@ You can use the Azure Stack Hub Readiness Checker tool (AzsReadinessChecker) to 
 
 ## Prerequisites
 
-To create CSRs for Azure Stack Edge device deployment, make sure that: 
+To create CSRs for Azure Stack Edge Pro device deployment, make sure that: 
 
 - You've a client running Windows 10 or Windows Server 2016 or later. 
-- You've downloaded the Microsoft Azure Stack Hub Readiness Checker tool 1.2002.1133.85 [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker) on this system. You may need to search for this package. Only this version of the tool can create certificates for Azure Stack Edge devices.
+- You've downloaded the Microsoft Azure Stack Hub Readiness Checker tool 1.2002.1133.85 [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker) on this system. You may need to search for this package. Only this version of the tool can create certificates for Azure Stack Edge Pro devices.
 - You have the following information for the certificates:
   - Device name
   - Node serial number
@@ -46,7 +46,7 @@ To create CSRs for Azure Stack Edge device deployment, make sure that:
 
 ## Generate certificate signing requests
 
-Use these steps to prepare the Azure Stack Edge device certificates:
+Use these steps to prepare the Azure Stack Edge Pro device certificates:
 
 1. Run PowerShell as administrator (5.1 or later).
 2. Install the Azure Stack Hub Readiness Checker tool. At the PowerShell prompt, type: 
@@ -117,15 +117,15 @@ Use these steps to prepare the Azure Stack Edge device certificates:
     You also see an INF folder. This contains a management.<edge-devicename> information file in clear text explaining the certificate details.  
 
 
-6. Submit these files to your certificate authority (either internal or public). Be sure that your CA generates certificates using your generated request that meet the Azure Stack Edge certificate requirements for [node certificates](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [endpoint certificates](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates), and [local UI certificates](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
+6. Submit these files to your certificate authority (either internal or public). Be sure that your CA generates certificates using your generated request that meet the Azure Stack Edge Pro certificate requirements for [node certificates](azure-stack-edge-j-series-manage-certificates.md#node-certificates), [endpoint certificates](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates), and [local UI certificates](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).
 
 ## Prepare certificates for deployment
 
-The certificate files that you obtain from your certificate authority (CA) must be imported and exported with properties that match Azure Stack Edge device's certificate requirements. Complete the following steps on the same system where you generated the certificate signing requests.
+The certificate files that you obtain from your certificate authority (CA) must be imported and exported with properties that match Azure Stack Edge Pro device's certificate requirements. Complete the following steps on the same system where you generated the certificate signing requests.
 
-- To import the certificates, follow the steps in [Import certificates on the clients accessing your Azure Stack Edge device](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- To import the certificates, follow the steps in [Import certificates on the clients accessing your Azure Stack Edge Pro device](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
-- To export the certificates, follow the steps in [Export certificates from the client accessing the Azure Stack Edge device](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- To export the certificates, follow the steps in [Export certificates from the client accessing the Azure Stack Edge Pro device](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
 
 ## Validate certificates
@@ -148,4 +148,4 @@ First, you'll generate a proper folder structure and place the certificates in t
 
 ## Next steps
 
-[Deploy your Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md)
+[Deploy your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-prep.md)

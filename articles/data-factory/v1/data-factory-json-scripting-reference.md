@@ -85,7 +85,7 @@ Following table describe the properties within the activity JSON definition:
 | type |Specifies the type of the activity. See the [DATA STORES](#data-stores) and [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) sections for different types of activities. |Yes |
 | inputs |Input tables used by the activity<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |No for HDInsightStreaming and SqlServerStoredProcedure activities <br/> <br/> Yes for all others |
 | outputs |Output tables used by the activity.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Yes |
-| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight activities, Azure Machine Learning activities, and Stored Procedure Activity. <br/><br/>No for all others |
+| linkedServiceName |Name of the linked service used by the activity. <br/><br/>An activity may require that you specify the linked service that links to the required compute environment. |Yes for HDInsight activities, Azure Machine Learning Studio (classic) activities, and Stored Procedure Activity. <br/><br/>No for all others |
 | typeProperties |Properties in the typeProperties section depend on type of the activity. |No |
 | policy |Policies that affect the run-time behavior of the activity. If it is not specified, default policies are used. |No |
 | scheduler |“scheduler” property is used to define desired scheduling for the activity. Its subproperties are the same as the ones in the [availability property in a dataset](data-factory-create-datasets.md#dataset-availability). |No |
@@ -1221,10 +1221,10 @@ If you are copying data to Azure Synapse Analytics, set the **sink type** of the
 | sqlWriterCleanupScript |Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. |A query statement. |No |
 | allowPolyBase |Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism. <br/><br/> **Using PolyBase is the recommended way to load data into Synapse Analytics.** |True <br/>False (default) |No |
 | polyBaseSettings |A group of properties that can be specified when the **allowPolybase** property is set to **true**. |&nbsp; |No |
-| rejectValue |Specifies the number or percentage of rows that can be rejected before the query fails. <br/><br/>Learn more about the PolyBase’s reject options in the **Arguments** section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) topic. |0 (default), 1, 2, … |No |
+| rejectValue |Specifies the number or percentage of rows that can be rejected before the query fails. <br/><br/>Learn more about the PolyBase’s reject options in the **Arguments** section of [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql) topic. |0 (default), 1, 2, … |No |
 | rejectType |Specifies whether the rejectValue option is specified as a literal value or a percentage. |Value (default), Percentage |No |
 | rejectSampleValue |Determines the number of rows to retrieve before the PolyBase recalculates the percentage of rejected rows. |1, 2, … |Yes, if **rejectType** is **percentage** |
-| useTypeDefault |Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (default) |No |
+| useTypeDefault |Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql). |True, False (default) |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize |Integer (number of rows) |No (default: 10000) |
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
 
@@ -1531,7 +1531,7 @@ If you are copying data to Azure Table Storage, set the **sink type** of the cop
 | azureTableDefaultPartitionKeyValue |Default partition key value that can be used by the sink. |A string value. |No |
 | azureTablePartitionKeyName |Specify name of the column whose values are used as partition keys. If not specified, AzureTableDefaultPartitionKeyValue is used as the partition key. |A column name. |No |
 | azureTableRowKeyName |Specify name of the column whose column values are used as row key. If not specified, use a GUID for each row. |A column name. |No |
-| azureTableInsertType |The mode to insert data into Azure table.<br/><br/>This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>To learn about how these settings (merge and replace) work, see [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) and [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) topics. <br/><br> This setting applies at the row level, not the table level, and neither option deletes rows in the output table that do not exist in the input. |merge (default)<br/>replace |No |
+| azureTableInsertType |The mode to insert data into Azure table.<br/><br/>This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>To learn about how these settings (merge and replace) work, see [Insert or Merge Entity](/rest/api/storageservices/Insert-Or-Merge-Entity) and [Insert or Replace Entity](/rest/api/storageservices/Insert-Or-Replace-Entity) topics. <br/><br> This setting applies at the row level, not the table level, and neither option deletes rows in the output table that do not exist in the input. |merge (default)<br/>replace |No |
 | writeBatchSize |Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit. |Integer (number of rows) |No (default: 10000) |
 | writeBatchTimeout |Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit |timespan<br/><br/>Example: “00:20:00” (20 minutes) |No (Default to storage client default timeout value 90 sec) |
 
@@ -3729,7 +3729,7 @@ To define a HDFS linked service, set the **type** of the linked service to **Hdf
 | userName |Username for Windows authentication. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. |Yes (for Windows Authentication) |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the HDFS. |Yes |
-| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) output of the access credential. |No |
+| encryptedCredential |[New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) output of the access credential. |No |
 
 #### Example: Using Anonymous authentication
 
@@ -4460,7 +4460,7 @@ To define an ODBC linked service, set the **type** of the linked service to **On
 }
 ```
 #### Example - Using Basic authentication with encrypted credentials
-You can encrypt the credentials using the [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet.
+You can encrypt the credentials using the [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet.
 
 ```json
 {
@@ -4820,7 +4820,7 @@ The following table lists the compute environments supported by Data Factory and
 | --- | --- |
 | [On-demand HDInsight cluster](#on-demand-azure-hdinsight-cluster) or [your own HDInsight cluster](#existing-azure-hdinsight-cluster) |[.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity), [MapReduce activity](#hdinsight-mapreduce-activity), Hadoop streaming activity, [Spark activity](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[.NET custom activity](#net-custom-activity) |
-| [Azure Machine Learning](#azure-machine-learning) | [Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity), [Machine Learning Update Resource Activity](#machine-learning-update-resource-activity) |
+| [Azure Machine Learning Studio (classic)](#azure-machine-learning-studio-classic) | [Azure Machine Learning Studio (classic) Batch Execution Activity](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning Studio (classic) Update Resource Activity](#azure-machine-learning-studio-classic-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL Database](#azure-sql-database), [Azure Synapse Analytics](#azure-synapse-analytics), [SQL Server](#sql-server-stored-procedure) |[Stored Procedure](#stored-procedure-activity) |
 
@@ -4927,11 +4927,11 @@ The following table provides descriptions for the properties used in the Azure J
 }
 ```
 
-## Azure Machine Learning
-You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint with a data factory. Two data transformation activities that can run on this linked service: [Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity), [Machine Learning Update Resource Activity](#machine-learning-update-resource-activity).
+## Azure Machine Learning Studio (classic)
+You create an Azure Machine Learning Studio (classic) linked service to register a Studio (classic) batch scoring endpoint with a data factory. Two data transformation activities that can run on this linked service: [Azure Machine Learning Studio (classic) Batch Execution Activity](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning Studio (classic) Update Resource Activity](#azure-machine-learning-studio-classic-update-resource-activity).
 
 ### Linked service
-The following table provides descriptions for the properties used in the Azure JSON definition of an Azure Machine Learning linked service.
+The following table provides descriptions for the properties used in the Azure JSON definition of a Studio (classic) linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -5060,8 +5060,8 @@ Activity | Description
 [HDInsight MapReduce Activity](#hdinsight-mapreduce-activity) | The HDInsight MapReduce activity in a Data Factory pipeline executes MapReduce programs on your own or on-demand Windows/Linux-based HDInsight cluster.
 [HDInsight Streaming Activity](#hdinsight-streaming-activity) | The HDInsight Streaming Activity in a Data Factory pipeline executes Hadoop Streaming programs on your own or on-demand Windows/Linux-based HDInsight cluster.
 [HDInsight Spark Activity](#hdinsight-spark-activity) | The HDInsight Spark activity in a Data Factory pipeline executes Spark programs on your own HDInsight cluster.
-[Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity) | Azure Data Factory enables you to easily create pipelines that use a published Azure Machine Learning web service for predictive analytics. Using the Batch Execution Activity in an Azure Data Factory pipeline, you can invoke a Machine Learning web service to make predictions on the data in batch.
-[Machine Learning Update Resource Activity](#machine-learning-update-resource-activity) | Over time, the predictive models in the Machine Learning scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained Machine Learning model. You can use the Update Resource Activity to update the web service with the newly trained model.
+[Azure Machine Learning Studio (classic) Batch Execution Activity](#azure-machine-learning-studio-classic-batch-execution-activity) | Azure Data Factory enables you to easily create pipelines that use a published Studio (classic) web service for predictive analytics. Using the Batch Execution Activity in an Azure Data Factory pipeline, you can invoke a Studio (classic) web service to make predictions on the data in batch.
+[Azure Machine Learning Studio (classic) Update Resource Activity](#azure-machine-learning-studio-classic-update-resource-activity) | Over time, the predictive models in the Azure Machine Learning Studio (classic) scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained machine learning model. You can use the Update Resource Activity to update the web service with the newly trained model.
 [Stored Procedure Activity](#stored-procedure-activity) | You can use the Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics, SQL Server Database in your enterprise or an Azure VM.
 [Data Lake Analytics U-SQL activity](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Analytics cluster.
 [.NET custom activity](#net-custom-activity) | If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster.
@@ -5342,14 +5342,14 @@ Note the following points:
 
 For more information about the activity, see [Spark Activity](data-factory-spark.md) article.
 
-## Machine Learning Batch Execution Activity
-You can specify the following properties in an Azure Machine Learning studio Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create an Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
+## Azure Machine Learning Studio (classic) Batch Execution Activity
+You can specify the following properties in an Azure Machine Learning Studio (classic) Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Studio (classic) linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
 
 Property | Description | Required
 -------- | ----------- | --------
-webServiceInput | The dataset to be passed as an input for the Azure Machine Learning studio web service. This dataset must also be included in the inputs for the activity. |Use either webServiceInput or webServiceInputs. |
-webServiceInputs | Specify datasets to be passed as inputs for the Azure Machine Learning studio web service. If the web service takes multiple inputs, use the webServiceInputs property instead of using the webServiceInput property. Datasets that are referenced by the **webServiceInputs** must also be included in the Activity **inputs**. | Use either webServiceInput or webServiceInputs. |
-webServiceOutputs | The datasets that are assigned as outputs for the Azure Machine Learning studio web service. The web service returns output data in this dataset. | Yes |
+webServiceInput | The dataset to be passed as an input for the Studio (classic) web service. This dataset must also be included in the inputs for the activity. |Use either webServiceInput or webServiceInputs. |
+webServiceInputs | Specify datasets to be passed as inputs for the Studio (classic) web service. If the web service takes multiple inputs, use the webServiceInputs property instead of using the webServiceInput property. Datasets that are referenced by the **webServiceInputs** must also be included in the Activity **inputs**. | Use either webServiceInput or webServiceInputs. |
+webServiceOutputs | The datasets that are assigned as outputs for the Studio (classic) web service. The web service returns output data in this dataset. | Yes |
 globalParameters | Specify values for the web service parameters in this section. | No |
 
 ### JSON example
@@ -5393,13 +5393,13 @@ In this example, the activity has the dataset **MLSqlInput** as input and **MLSq
 }
 ```
 
-In the JSON example, the deployed Azure Machine Learning Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.
+In the JSON example, the deployed Studio (classic) Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.
 
 > [!NOTE]
 > Only inputs and outputs of the AzureMLBatchExecution activity can be passed as parameters to the Web service. For example, in the above JSON snippet, MLSqlInput is an input to the AzureMLBatchExecution activity, which is passed as an input to the Web service via webServiceInput parameter.
 
-## Machine Learning Update Resource Activity
-You can specify the following properties in an Azure Machine Learning studio Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create an Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
+## Azure Machine Learning Studio (classic) Update Resource Activity
+You can specify the following properties in an Azure Machine Learning Studio (classic) Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create a Studio (classic) linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
 
 Property | Description | Required
 -------- | ----------- | --------
@@ -5407,7 +5407,7 @@ trainedModelName | Name of the retrained model. | Yes |
 trainedModelDatasetName | Dataset pointing to the iLearner file returned by the retraining operation. | Yes |
 
 ### JSON example
-The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Azure Machine Learning studio Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
+The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Studio (classic) Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
 
 
 ```json

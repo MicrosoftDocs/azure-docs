@@ -1,6 +1,6 @@
 ---
-title: Access files on storage in SQL on-demand (preview)
-description: Describes querying storage files using SQL on-demand (preview) resources within Synapse SQL.
+title: Access files on storage in serverless SQL pool (preview)
+description: Describes querying storage files using serverless SQL pool (preview) in Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -8,11 +8,11 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
-# Access external storage in Synapse SQL (on-demand)
+# Access external storage using serverless SQL pool (preview) in Azure Synapse Analytics
 
-This document describes how can user read data from the files stored on Azure Storage in Synapse SQL (on-demand). Users have the following options to access storage:
+This document describes how can users can read data from the files stored on Azure Storage in serverless SQL pool. Users have the following options to access storage:
 
 - [OPENROWSET](develop-openrowset.md) function that enables ad-hoc queries over the files in Azure Storage.
 - [External table](develop-tables-external-tables.md) that is a predefined data structure built on top of set of external files.
@@ -21,7 +21,7 @@ User can use [different authentication methods](develop-storage-files-storage-ac
 
 ## Query files using OPENROWSET
 
-OPENROWSET enables users to query external files on Azure storage if they have access on storage. User who is connected to Synapse SQL on-demand endpoint should use the following query to read the content of the files on Azure storage:
+OPENROWSET enables users to query external files on Azure storage if they have access to the storage. A user who is connected to serverless SQL pool should use the following query to read the content of the files on Azure storage:
 
 ```sql
 SELECT * FROM
@@ -46,12 +46,12 @@ CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
-If there is no server-level CREDENTIAL that matches URL or SQL user don't have references permission for this credential, the error will be returned. SQL principals cannot impersonate using some Azure AD identity.
+If there's no server-level CREDENTIAL that matches the URL, or the SQL user doesn't have references permission for this credential, the error will be returned. SQL principals can't impersonate using some Azure AD identity.
 
 ### [Direct access](#tab/direct-access)
 
 No additional setup is needed to enable Azure AD users to access the files using their identities.
-Any user can access Azure storage that allow anonymous access (additional setup is not needed).
+Any user can access Azure storage that allows anonymous access (additional setup isn't needed).
 
 ---
 
@@ -69,7 +69,7 @@ SELECT * FROM
  FORMAT= 'parquet') as rows
 ```
 
-User that executes this query must be able to access the files. The users must be impersonated using [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [Managed Identity of workspace](develop-storage-files-storage-access-control.md?tabs=managed-identity) if they cannot directly access the files using their [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or [anonymous access](develop-storage-files-storage-access-control.md?tabs=public-access).
+The user that executes this query must be able to access the files. The users must be impersonated using [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [Managed Identity of workspace](develop-storage-files-storage-access-control.md?tabs=managed-identity) if they can't directly access the files using their [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or [anonymous access](develop-storage-files-storage-access-control.md?tabs=public-access).
 
 ### [Impersonation](#tab/impersonation)
 
@@ -110,7 +110,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 User with the permissions to read table can access external files using an EXTERNAL TABLE created on top of set of Azure Storage folders and files.
 
-User that has [permissions to create external table](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions) (for example CREATE TABLE and ALTER ANY CREDENTIAL or REFERENCES DATABASE SCOPED CREDENTIAL) can use the following script to create a table on top of Azure Storage data source:
+User that has [permissions to create external table](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true) (for example CREATE TABLE and ALTER ANY CREDENTIAL or REFERENCES DATABASE SCOPED CREDENTIAL) can use the following script to create a table on top of Azure Storage data source:
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]

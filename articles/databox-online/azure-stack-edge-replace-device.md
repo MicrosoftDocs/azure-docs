@@ -1,6 +1,6 @@
 ---
-title: Replace your Azure Stack Edge device | Microsoft Docs 
-description: Describes how to get a replacement Azure Stack Edge device.
+title: Replace your Azure Stack Edge Pro device | Microsoft Docs 
+description: Describes how to get a replacement Azure Stack Edge Pro device.
 services: databox
 author: alkohli
 
@@ -11,9 +11,9 @@ ms.date: 07/20/2020
 ms.author: alkohli
 ---
 
-# Replace your Azure Stack Edge device
+# Replace your Azure Stack Edge Pro device
 
-This article describes how to get a replacement Azure Stack Edge device. A replacement device is needed when the existing device has a hardware failure or needs an upgrade. 
+This article describes how to get a replacement Azure Stack Edge Pro device. A replacement device is needed when the existing device has a hardware failure or needs an upgrade. 
 
 
 In this article, you learn how to:
@@ -29,7 +29,7 @@ In this article, you learn how to:
 
 If your existing device has a hardware failure, open a Support ticket. Microsoft Support will determine that a Field Replacement Unit (FRU) is not available for this instance or the device needs a hardware upgrade. In either case, Support will order a replacement device.
 
-1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the problem type as **Azure Stack Edge Hardware**.
+1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the problem type as **Azure Stack Edge Pro Hardware**.
 
     ![Open Support ticket](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
@@ -43,7 +43,7 @@ Follow these steps to create a resource.
 
 1. Follow the steps in [Create a new resource](azure-stack-edge-deploy-prep.md#create-a-new-resource) to create a resource for the replacement device. 
 
-2. Make sure to select the check box against **I have an Azure Stack Edge device**. 
+2. Make sure to select the check box against **I have an Azure Stack Edge Pro device**. 
 
     ![Resource for replacement device](media/azure-stack-edge-replace-device/replace-resource-1.png)  
 
@@ -67,4 +67,4 @@ Follow all the steps to return the original device:
 
 ## Next steps
 
-- Learn how to [Return an Azure Stack Edge device](azure-stack-edge-return-device.md).
+- Learn how to [Return an Azure Stack Edge Pro device](azure-stack-edge-return-device.md).

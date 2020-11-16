@@ -178,7 +178,7 @@ Create a new virtual machine with one of the supported operation systems for Ora
 
 The Oracle database needs disks for /oracle, /home/oraod1, and /home/oracle
 
-![Oracle database on Linux](media/lama/sap-lama-db-ora-lnx.png)
+![Diagram that shows an Oracle database on Linux and the disks it needs.](media/lama/sap-lama-db-ora-lnx.png)
 
 #### Manual deployment for Microsoft SQL Server
 
@@ -257,14 +257,14 @@ In the examples below, we assume that you install SAP HANA with system ID HN1 an
 
 Before you start the SAP Software Provisioning Manager (SWPM), you need to mount the IP address of virtual hostname of the ASCS. The recommended way is to use sapacext. If you mount the IP address using sapacext, make sure to remount the IP address after a reboot.
 
-![Linux][Logo_Linux] Linux
+![Linux logo.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Windows logo.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -273,7 +273,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-as
 
 Run SWPM and use *ah1-ascs* for the *ASCS Instance Host Name*.
 
-![Linux][Logo_Linux] Linux  
+![Linux logo.][Logo_Linux] Linux  
 Add the following profile parameter to the SAP Host Agent profile, which is located at /usr/sap/hostctrl/exe/host_profile. For more information, see SAP Note [2628497].
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
@@ -385,14 +385,14 @@ Run the database instance installation of SWPM on the application server virtual
 
 Before you start the SAP Software Provisioning Manager (SWPM), you need to mount the IP address of virtual hostname of the application server. The recommended way is to use sapacext. If you mount the IP address using sapacext, make sure to remount the IP address after a reboot.
 
-![Linux][Logo_Linux] Linux
+![Linux logo.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Windows logo.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>

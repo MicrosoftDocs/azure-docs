@@ -80,7 +80,8 @@ Deploy an app with the language framework of your choice to App Service. To foll
 1. At the bottom of the designer, click **New step**, type **Gmail** in the actions search box and find and select **Send email (V2)**.
     
     > [!TIP]
-    > You can search for other types of integrations, such as SendGrid, MailChimp, Office 365, and SalesForce. For more information, see [Logic Apps documentation](../logic-apps/index.yml).
+    > You can search for other types of integrations, such as SendGrid, MailChimp, Microsoft 365, and SalesForce. For more information, see [Logic Apps documentation](../logic-apps/index.yml).
+
 1. In the **Gmail** dialog, select **Sign in** and sign in to the Gmail account you want to send the email from.
 
     ![Screenshot that shows the Gmail dialog box that you use to sign into the Gmail account you want to send email from.](./media/tutorial-send-email/gmail-sign-in.png)
