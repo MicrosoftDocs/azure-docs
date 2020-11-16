@@ -68,6 +68,18 @@ Explore the available gesture by right-clicking the nodes of SQL databases.
  
 ![new script database](media/author-sql-script/new-script-database.png)
 
+## Create folders and move SQL scripts into a folder
+
+From the Actions menu under Develop SQL scripts Choose "New folder" from the "Actions" menu under Develop SQL scripts. And type in the name of the new folder in the pop-up window. 
+
+> [!div class="mx-imgBorder"] 
+> ![newsqlscript](./media/author-sql-script/new-sql-script-create-folder.png)
+
+To move a SQL script into a folder, you can select the sql script and choose "Move To" from the Actions menu. Then find the destination folder in the new window and move the sql script into selected folder.You can also quickly drag the sql script and drop it into a folder.  
+
+> [!div class="mx-imgBorder"] 
+> ![newsqlscript](./media/author-sql-script/new-sql-script-move-folder.png)
+
 ## Next steps
 
 For more information about authoring a SQL script, see
