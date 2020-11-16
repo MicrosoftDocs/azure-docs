@@ -27,92 +27,43 @@ This article explains what Azure AD roles are and how should you use them.
 
 ## How Azure AD roles are different from other Microsoft 365 roles
 
-There are different services within Microsoft 365 suite, Azure AD being one of them. Some of these services have their own role-based access control system, while others don't. Azure AD, Exchange, Intune, Security Center, Compliance Center, Microsoft Cloud App Security, and Commerce each have a separate role-based access control system. Other services such as Teams, SharePoint, and Managed Desktop use Azure AD roles for their administrative access; they don’t have separate role-based access control systems. Azure has a separate role-based access control system that is also different from Azure AD roles. What does it mean when we say separate role-based access control system? It means there is a different data store where role definitions and role assignments are stored. Similarly, there is a different policy decision point where access checks happen.
+There are different services within Microsoft 365 suite, Azure AD being one of them. Some of these services have their own role-based access control system; specifically:
+
+- Azure AD
+- Exchange
+- Intune
+- Security Center
+- Compliance Center
+- Microsoft Cloud App Security
+- Commerce
+
+Other services such as Teams, SharePoint, and Managed Desktop use Azure AD roles for their administrative access; they don’t have separate role-based access control systems. Azure has a its own role-based access control system, and it's also different from Azure AD roles.
+
+When we say separate role-based access control system. it means there is a different data store where role definitions and role assignments are stored. Similarly, there is a different policy decision point where access checks happen. For more information , see [Roles for Microsoft 365 services in Azure AD](m365-workload-docs.md)
 
 ## Overlap with other RBAC systems
 
-Identity is new control plane. Our customers wanted to grant permissions through only Azure AD. These requests pushed us to add some service-specific built-in roles in Azure AD. An example of this addition is the Exchange Administrator role in Azure AD. This role is equivalent to Organization Management role group in the Exchange role-based access control system. It can manage all aspects of Exchange. Similarly, we added the Intune Administrator role, Teams Administrator, SharePoint Administrator, and so on.
+Microsoft 365 has a number of role-based access control systems, each with its own service portal. To make it convenient to manage identity across Microsoft 365 from the Azure AD portal, we have added some service-specific built-in roles, each of which grants administrative access to a Microsoft 365 service. An example of this addition is the Exchange Administrator role in Azure AD. This role is equivalent to the Organization Management role group in the Exchange role-based access control system, and can manage all aspects of Exchange. Similarly, we added the Intune Administrator role, Teams Administrator, SharePoint Administrator, and so on. Server-specific roles is one broad category of Azure AD built-in roles.
 
 ## Categories of Azure AD roles
 
-In general, there are three categories of built-in roles in Azure AD.
+Azure AD built-in roles differ in where they can be used, which fall into the following three broad categories.
 
-1. Azure AD-specific roles - These roles grant permissions to manage resources within Azure AD only. For example, User Administrator, Application Administrator, Groups Administrator all grant permissions to manage resources that live in Azure AD.
+1. **Azure AD-specific roles** - These roles grant permissions to manage resources within Azure AD only. For example, User Administrator, Application Administrator, Groups Administrator all grant permissions to manage resources that live in Azure AD.
 
-1. Service-specific roles - For major Microsoft 365 services (non-Azure AD), we have built service-specific roles that grant permissions to manage all features within the service.  For example, Exchange Admin, Intune Admin, SharePoint Admin, and Teams Admin roles can manage features with their respective services. Exchange Admin can manage mailboxes, Intune Admin can manage device policies, SharePoint Admin can manage site collections, Teams Admin can manage call qualities and so on.
+1. **Service-specific roles** - For major Microsoft 365 services (non-Azure AD), we have built service-specific roles that grant permissions to manage all features within the service.  For example, Exchange Admin, Intune Admin, SharePoint Admin, and Teams Admin roles can manage features with their respective services. Exchange Admin can manage mailboxes, Intune Admin can manage device policies, SharePoint Admin can manage site collections, Teams Admin can manage call qualities and so on.
 
-1. Cross-service roles - There are some roles that span services. We have two global roles - Global Administrator and Global Reader. All Microsoft 365 services honor these two roles. Also, there are some security-related roles like Security Admin and Security Reader that grant access across multiple security services within Microsoft 365. For example, using Security Admin roles in Azure AD, you can manage Microsoft 365 Security Center, Microsoft Defender Advanced Threat Protection, and Microsoft Cloud App Security. Similarly, using Compliance Admin, you can manage Compliance-related settings in Microsoft 365 Compliance Center, Exchange, and so on.
+1. **Cross-service roles** - There are some roles that span services. We have two global roles - Global Administrator and Global Reader. All Microsoft 365 services honor these two roles. Also, there are some security-related roles like Security Admin and Security Reader that grant access across multiple security services within Microsoft 365. For example, using Security Admin roles in Azure AD, you can manage Microsoft 365 Security Center, Microsoft Defender Advanced Threat Protection, and Microsoft Cloud App Security. Similarly, in the Compliance Administrator role you can manage Compliance-related settings in Microsoft 365 Compliance Center, Exchange, and so on.
 
-![The three categories of Azure AD built-in roles](./media/overview-understanding-roles/role-overlap-diagram.png)
+![The three categories of Azure AD built-in roles](./media/overview-understand-roles/role-overlap-diagram.png)
 
-The following table is offered as an aid to understanding these role categories. The categorization is broad and arbitrary, and isn't intended to imply any other capabilities beyond the documented role permissions.
+The following table is offered as an aid to understanding these role categories. The categories are named arbitrarily, and aren't intended to imply any other capabilities beyond the [documented role permissions](permissions-reference.md).
 
 Category | Role
 ---- | ----
-Azure AD-specific role | Application Administrator
-Azure AD-specific role | Application Developer
-Azure AD-specific role | Authentication Administrator
-Azure AD-specific role | B2C IEF Keyset Administrator
-Azure AD-specific role | B2C IEF Policy Administrator
-Azure AD-specific role | Cloud Application Administrator
-Azure AD-specific role | Cloud Device Administrator
-Azure AD-specific role | Conditional Access Administrator
-Azure AD-specific role | Device Administrators
-Azure AD-specific role | Directory Readers
-Azure AD-specific role | Directory Synchronization Accounts
-Azure AD-specific role | Directory Writers
-Azure AD-specific role | External Id User flow Administrator
-Azure AD-specific role | External Id User Flow Attribute Administrator
-Azure AD-specific role | External Identity Provider Administrator
-Azure AD-specific role | Groups Administrator
-Azure AD-specific role | Guest Inviter
-Azure AD-specific role | Helpdesk Administrator
-Azure AD-specific role | Hybrid Identity Administrator
-Azure AD-specific role | License Administrator
-Azure AD-specific role | Partner Tier1 Support
-Azure AD-specific role | Partner Tier2 Support
-Azure AD-specific role | Password Administrator
-Azure AD-specific role | Privileged Authentication Administrator
-Azure AD-specific role | Privileged Role Administrator
-Azure AD-specific role | Reports Reader
-Azure AD-specific role | User Account Administrator
-Cross-service role | Company Administrator
-Cross-service role | Compliance Administrator
-Cross-service role | Compliance Data Administrator
-Cross-service role | Global Reader
-Cross-service role | Security Administrator
-Cross-service role | Security Operator
-Cross-service role | Security Reader
-Cross-service role | Service Support Administrator
-Service-specific role | Azure DevOps Administrator
-Service-specific role | Azure Information Protection Administrator
-Service-specific role | Billing Administrator
-Service-specific role | CRM Service Administrator
-Service-specific role | Customer LockBox Access Approver
-Service-specific role | Desktop Analytics Administrator
-Service-specific role | Exchange Service Administrator
-Service-specific role | Insights Administrator
-Service-specific role | Insights Business Leader
-Service-specific role | Intune Service Administrator
-Service-specific role | Kaizala Administrator
-Service-specific role | Lync Service Administrator
-Service-specific role | Message Center Privacy Reader
-Service-specific role | Message Center Reader
-Service-specific role | Modern Commerce User
-Service-specific role | Network Administrator
-Service-specific role | Office Apps Administrator
-Service-specific role | Power BI Service Administrator
-Service-specific role | Power Platform Administrator
-Service-specific role | Printer Administrator
-Service-specific role | Printer Technician
-Service-specific role | Search Administrator
-Service-specific role | Search Editor
-Service-specific role | SharePoint Service Administrator
-Service-specific role | Teams Communications Administrator
-Service-specific role | Teams Communications Support Engineer
-Service-specific role | Teams Communications Support Specialist
-Service-specific role | Teams Devices Administrator
-Service-specific role | Teams Service Administrator
+Azure AD-specific roles | Application Administrator<br>Application Developer<br>Authentication Administrator<br>B2C IEF Keyset Administrator<br>B2C IEF Policy Administrator<br>Cloud Application Administrator<br>Cloud Device Administrator<br>Conditional Access Administrator<br>Device Administrators<br>Directory Readers<br>Directory Synchronization Accounts<br>Directory Writers<br>External Id User flow Administrator<br>External Id User Flow Attribute Administrator<br>External Identity Provider Administrator<br>Groups Administrator<br>Guest Inviter<br>Helpdesk Administrator<br>Hybrid Identity Administrator<br>License Administrator<br>Partner Tier1 Support<br>Partner Tier2 Support<br>Password Administrator<br>Privileged Authentication Administrator<br>Privileged Role Administrator<br>Reports Reader<br>User Account Administrator
+Cross-service roles | Company Administrator<br>Compliance Administrator<br>Compliance Data Administrator<br>Global Reader<br>Security Administrator<br>Security Operator<br>Security Reader<br>Service Support Administrator
+Service-specific roles | Azure DevOps Administrator<br>Azure Information Protection Administrator<br>Billing Administrator<br>CRM Service Administrator<br>Customer LockBox Access Approver<br>Desktop Analytics Administrator<br>Exchange Service Administrator<br>Insights Administrator<br>Insights Business Leader<br>Intune Service Administrator<br>Kaizala Administrator<br>Lync Service Administrator<br>Message Center Privacy Reader<br>Message Center Reader<br>Modern Commerce User<br>Network Administrator<br>Office Apps Administrator<br>Power BI Service Administrator<br>Power Platform Administrator<br>Printer Administrator<br>Printer Technician<br>Search Administrator<br>Search Editor<br>SharePoint Service Administrator<br>Teams Communications Administrator<br>Teams Communications Support Engineer<br>Teams Communications Support Specialist<br>Teams Devices Administrator<br>Teams Service Administrator
 
 ## Next steps
 
