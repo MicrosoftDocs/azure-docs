@@ -1,11 +1,11 @@
 ---
-title: Bring new data sources under management (preview)
+title: Bring new data sources under management
 description: Learn how to add, view, edit, and delete data sources from the Purview Management Center.
 author: chandrakavya
 ms.author: kchandra
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/12/2020
 ---
 # Bring new data sources under management
