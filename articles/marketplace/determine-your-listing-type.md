@@ -21,9 +21,7 @@ When you create an offer type, you choose one or more listing options. These opt
 
 This table shows which listing options are available for each offer type.
 
-| Offer type | Free Trial | Test Drive | Contact Me | Get It Now
-(Transactable)
- |
+| Offer type | Free Trial | Test Drive | Contact Me | Get It Now (Transactable) |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Azure Application (Managed app) |   | &#10004; |   | &#10004; |
 | Azure Application (Solution template) |  |  |  |  |
