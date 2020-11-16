@@ -104,7 +104,7 @@ You can now seamlessly upgrade to the dedicated SQL pool (formerly SQL DW) Compu
 
 ## Start the upgrade
 
-1. Go to your Compute Optimized Gen1 dedicated SQL pool (formerly SQL DW)in the Azure portal. If the Compute Optimized Gen1 tier dedicated SQL pool (formerly SQL DW)to be upgraded is paused, [resume dedicated SQL pool](pause-and-resume-compute-portal.md).
+1. Go to your Compute Optimized Gen1 dedicated SQL pool (formerly SQL DW) in the Azure portal. If the Compute Optimized Gen1 tier dedicated SQL pool (formerly SQL DW) to be upgraded is paused, [resume dedicated SQL pool](pause-and-resume-compute-portal.md).
 2. Select **Upgrade to Gen2** card under the Tasks tab:
    ![Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
 
@@ -112,7 +112,7 @@ You can now seamlessly upgrade to the dedicated SQL pool (formerly SQL DW) Compu
    > If you do not see the **Upgrade to Gen2** card under the Tasks tab, your subscription type is limited in the current region.
    > [Submit a support ticket](sql-data-warehouse-get-started-create-support-ticket.md) to get your subscription approved.
 
-3. Ensure your workload has completed running and quiesced before upgrading. You'll experience downtime for a few minutes before your dedicated SQL pool (formerly SQL DW)is back online as a Compute Optimized Gen2 tier dedicated SQL pool. **Select Upgrade**:
+3. Ensure your workload has completed running and quiesced before upgrading. You'll experience downtime for a few minutes before your dedicated SQL pool (formerly SQL DW) is back online as a Compute Optimized Gen2 tier dedicated SQL pool  (formerly SQL DW). **Select Upgrade**:
 
    ![Upgrade_2](./media/upgrade-to-latest-generation/upgrade-to-gen2-2.png)
 

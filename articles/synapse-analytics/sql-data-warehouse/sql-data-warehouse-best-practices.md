@@ -96,7 +96,7 @@ See also [Table overview](sql-data-warehouse-tables-overview.md), [Table distrib
 
 ## Do not over-partition
 
-While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy, which may work well on SQL Server may not work well in dedicated SQL pool.  
+While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy, which may work well on SQL Server may not work well in dedicated SQL pool (formerly SQL DW).  
 
 Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows.  Keep in mind that behind the scenes, dedicated SQL pool partitions your data for you into 60 databases, so if you create a table with 100 partitions, this actually results in 6000 partitions.  
 

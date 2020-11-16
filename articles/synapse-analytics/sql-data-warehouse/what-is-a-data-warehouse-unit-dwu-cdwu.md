@@ -1,5 +1,5 @@
 ---
-title: Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW) (formerly SQL DW)
+title: Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW)
 description: Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
 services: synapse-analytics
 author: mlee3gsd
@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW) (formerly SQL DW) in Azure Synapse Analytics
+# Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
 Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
 

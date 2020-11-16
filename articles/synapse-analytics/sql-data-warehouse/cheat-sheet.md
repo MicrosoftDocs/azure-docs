@@ -16,7 +16,7 @@ ms.reviewer: igorstan
 
 This cheat sheet provides helpful tips and best practices for building dedicated SQL pool (formerly SQL DW) solutions.
 
-The following graphic shows the process of designing a data warehouse with dedicated SQL pool:
+The following graphic shows the process of designing a data warehouse with dedicated SQL pool (formerly SQL DW):
 
 ![Sketch](./media/cheat-sheet/picture-flow.png)
 
