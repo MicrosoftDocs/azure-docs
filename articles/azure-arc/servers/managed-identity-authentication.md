@@ -70,7 +70,7 @@ $responseAccessToken
 
 The following is an example of the response:
 
-![A successful retrieval of the access token](./media/managed-identity-authentication/powershell-token-output-example.png)
+:::image type="content" source="media/managed-identity-authentication/powershell-token-output-example.png" alt-text="A successful retrieval of the access token.":::
 
 For an Arc enabled Linux server, using Bash, you invoke the web request to get the token from the local host in the specific port. Specify the following request using the IP address or the environmental variable **IDENTITY_ENDPOINT**. To complete this step, you need an SSH client.
 
