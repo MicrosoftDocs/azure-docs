@@ -149,17 +149,16 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```
 1. In the Azure portal, follow these steps:
     1. Navigate to your Service Bus namespace. 
-    1. On the **Overview** page, in the bottom-middle pane, switch to the **Topics** tab, and select the Service Bus topic. 
-    1. On the **Service Bus Topic** page for your topic in the Azure portal. You see some useful information such as active message count and current size. 
-
-    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png" alt-text="Messages received with count and size" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png":::
-
-    Notice the following values:
-    1. The **Message count** value for the **topic** is now **4**. Each time you run this sender app without retrieving messages from the subscription, this value increases by 4.
-    1. The current size of the topic increments the **Current size** value in **Essentials**  each time the app adds messages to the topic.
-    1. In the **Messages** chart in the bottom **Metrics** section, you can see that there are four incoming messages for the topic. Wait for a few minutes and refresh the page to see the updated chart. 
+    1. On the **Overview** page, in the bottom-middle pane, switch to the **Topics** tab, and select the Service Bus topic. In the following example, it's `mytopic`.
     
-        Select **Refresh** on the toolbar to if you don't see values. 
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/select-topic.png" alt-text="Select topic":::
+    1. On the **Service Bus Topic** page, In the **Messages** chart in the bottom **Metrics** section, you can see that there are four incoming messages for the topic. If you don't see the value, wait for a few minutes and refresh the page to see the updated chart. 
+
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png" alt-text="Messages received with count and size" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png":::
+    4. Select the subscription in the bottom pane. In the following example, it's **S1**. On the **Service Bus Subscription** page, you see the **Active message count** as **4**. The subscription has received the four messages that you sent to the topic, but no receiver has picked them yet. 
+    
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png" alt-text="Messages received with count and size" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page.png":::
+    
 
 ## Receive messages from a subscription
 
@@ -241,10 +240,13 @@ Received: Third message from subscription: S1
 
 Check the portal again. 
 
-- The **Message count** and **Current size** values are now **0**. It's because the messages have been received and completed (using `CompleteMessageAsync`).
-- In the **Messages** chart in the bottom **Metrics** section, you can see that there are eight incoming messages and eight outgoing messages. Wait for a few minutes and refresh the page to see the updated chart. 
+- On the **Service Bus Topic** page, in the **Messages** chart, you see eight incoming messages and eight outgoing messages. If you don't see these numbers, wait for a few minutes, and refresh the page to see the updated chart. 
 
     :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png" alt-text="Active messages and size after receive" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png":::
+- On the **Service Bus Subscription** page, you see the **Active message count** as zero. It's because a receiver has received messages from this subscription and completed the messages. 
+
+    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page-final.png" alt-text="Active messages and size after receive" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/subscription-page-final.png":::
+    
 
 
 ## Next steps
