@@ -11,12 +11,12 @@ ms.date: 10/19/2020
 
 # Troubleshoot virtual machine certification
 
-When you publish your virtual machine (VM) image to Microsoft Azure Marketplace, the Azure team validates it to ensure that it's bootable, secure, and compatible with Azure. If your VM image fails any of the high-quality tests, it won't be published. You'll receive an error message that describes the issue.
+When you publish your virtual machine (VM) image to Azure Marketplace, the Azure team validates it to ensure that it's bootable, secure, and compatible with Azure. If your VM image fails any of the high-quality tests, it won't be published. You'll receive an error message that describes the issue.
 
 This article explains common error messages during VM image publishing, along with related solutions.
 
 > [!NOTE]
-> Questions about this article, or suggestions for improvement? Contact [Partner Center support](https://aka.ms/marketplacepublishersupport).
+> If you have questions about this article or suggestions for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport).
 
 ## Approved base image
 
@@ -36,7 +36,7 @@ To fix this issue, retrieve the image from Azure Marketplace and make changes to
 
 Check to see whether your image supports VM extensions.
 
-**To enable VM extensions:**
+To enable VM extensions:
 
 1. Select your Linux VM.
 1. Go to **Diagnostics settings**.
@@ -45,13 +45,13 @@ Check to see whether your image supports VM extensions.
 
    ![Screenshot that displays how to enable guest-level monitoring.](./media/create-vm/vm-certification-issues-solutions-1.png)
 
-**To verify that the VM extensions are properly activated:**
+To verify that the VM extensions are properly activated:
 
 1. In the VM, select the **VM extensions** tab, and then verify the status of the **Linux Diagnostics Extension**.
 1. Check the provisioning status.
 
-   * If the status is *Provisioning Succeeded*, the extensions test case has passed.  
-   * If the status is *Provisioning Failed*, the extensions test case has failed, and you need to set the Hardened flag.
+   - If the status is *Provisioning Succeeded*, the extensions test case has passed.  
+   - If the status is *Provisioning Failed*, the extensions test case has failed, and you need to set the Hardened flag.
 
    ![Screenshot showing that provisioning has succeeded.](./media/create-vm/vm-certification-issues-solutions-2.png)
 
@@ -78,9 +78,10 @@ Provisioning issues can include the following failure scenarios:
 ## VHD specifications
 
 ### Conectix cookie and other VHD specifications
-The 'conectix' string is part of the VHD specification, and defined as the 8 byte 'cookie' in the VHD footer below that identifies the file creator. All vhd files created by Microsoft have this cookie. 
 
-A VHD formatted blob should have a 512 byte footer; this is the VHD footer format:
+The 'conectix' string is part of the VHD specification. It's defined as the 8-byte cookie in the VHD footer that identifies the file creator. All VHD files created by Microsoft have this cookie. 
+
+A VHD formatted blob should have a 512-byte footer in this format:
 
 |Hard disk footer fields|Size (bytes)|
 |---|---|
@@ -103,21 +104,22 @@ Reserved|427
 
 
 ### VHD specifications
-To ensure a seamless publishing experience, ensure that **VHD meets the following criteria :**
-* The cookie must contain the string “conectix”
-* The disk type must be Fixed
-* The VHD’s virtual size is at least 20MB
-* The VHD is aligned (i.e. the virtual size must be a multiple of 1 MB)
-* The VHD blob length = virtual size + VHD footer length (512)
 
-You can download the VHD specification [here.](https://www.microsoft.com/download/details.aspx?id=23850)
+To ensure a smooth publishing experience, ensure that your VHD meets the following criteria:
 
+- The cookie contains the string 'conectix'.
+- The disk type is Fixed.
+- The VHD's virtual size is at least 20 MB.
+- The VHD is aligned. The virtual size must be a multiple of 1 MB.
+- The VHD blob length is equal to the virtual size plus the VHD footer length (512).
+
+Download the [VHD specification](https://www.microsoft.com/download/details.aspx?id=23850).
 
 ## Software compliance for Windows
 
-If your Windows image request is rejected because of a software compliance issue, you might have created a Windows image with an installed SQL server instance. Instead, you need to take the relevant SQL version base image from Azure Marketplace.
+If your Windows image request is rejected because of a software compliance issue, you might have created a Windows image with an installed SQL Server instance. Instead, you need to take the relevant SQL Server version base image from Azure Marketplace.
 
-Don't create your own Windows image with SQL server installed in it. Use the approved SQL base images (Enterprise/Standard/web) from Azure Marketplace.
+Don't create your own Windows image with SQL Server installed in it. Use the approved SQL Server base images (Enterprise/Standard/web) from Azure Marketplace.
 
 If you're trying to install Visual Studio or any Office-licensed product, contact the Support team for prior approval.
 
@@ -146,14 +148,14 @@ The following table lists the Linux test cases that the toolkit will run. Test v
 |9|OS architecture|Only 64-bit operating systems are supported.|
 |10|Auto Update|Identifies whether Linux Agent Auto Update is enabled.|
 
-### Common errors found while executing previous test cases
+### Common test-case errors
 
-The following table lists common errors that are found while executing previous test cases:
+Refer to the following table for the common errors you might see when running test cases:
 
 | Scenario | Test case | Error | Solution |
 | --- | --- | --- | --- |
 | 1 | Linux Agent version test case | The minimum Linux agent version is 2.2.41 or later. This requirement has been mandatory since May 1, 2020. | Update the Linux agent version. It should be 2.241 or later. For more information, visit [Linux Agent Version update page](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
-| 2 | Bash history test case | An error occurs if the size of the bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that your bash history file doesn't contain any potentially sensitive information. | Resolve by mounting the VHD to another working VM and make changes to reduce the size to 1 KB or less. For example, delete the `.bash` history files. |
+| 2 | Bash history test case | An error occurs if the size of the Bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that your Bash history file doesn't contain any potentially sensitive information. | Resolve by mounting the VHD to another working VM and make changes to reduce the size to 1 KB or less. For example, delete the `.bash` history files. |
 | 3 | Required kernel parameter test case | You'll receive this error when the value for `console` isn't set to `ttyS0`. Check by running the following command: <br /> `cat /proc/cmdline` | Set the value for `console` to `ttyS0`, and resubmit the request. |
 | 4 | ClientAlive interval test case | If the toolkit gives you a failed result for this test case, there's an inappropriate value for `ClientAliveInterval`. | Set the value for `ClientAliveInterval` to less than or equal to 235, and then resubmit the request. |
 
@@ -199,7 +201,7 @@ Refer to the following rules for limitations on OS disk size. When you submit an
 |Linux|30 GB to 1023 GB|
 |Windows|30 GB to 250 GB|
 
-Because VMs allow access to the underlying operating system, you need to ensure that the VHD size is sufficiently large for the VHD. Disks aren't expandable without downtime so you should use a disk size from 30 GB to 50 GB.
+Because VMs allow access to the underlying operating system, ensure that the VHD size is sufficiently large for the VHD. Disks aren't expandable without downtime. Use a disk size from 30 GB to 50 GB.
 
 |VHD size|Actual occupied size|Solution|
 |---|---|---|
@@ -299,7 +301,7 @@ Check that you've enabled proper access for the account on which the self-test c
 
 To submit your request with SSH disabled image for certification process:
 
-1. Execute the [latest Azure toolkit](https://aka.ms/AzureCertificationTestTool) on your image.
+1. Run the [latest Azure toolkit](https://aka.ms/AzureCertificationTestTool) on your image.
 
 2. Raise a [support ticket](https://aka.ms/marketplacepublishersupport). Make sure to attach the toolkit report and provide offer details:
    - offer name
@@ -348,11 +350,11 @@ These steps apply to Linux only.
 
 1. Attach your VHD as data disk to your VM for creating a partition table.
 
-   1. Select **Add DataDisk** > **Existing Blob**
+   1. Select **Add DataDisk** > **Existing Blob**.
 
       ![Screenshot showing how to add a data disk to your VHD.](./media/create-vm/vm-certification-issues-solutions-18.png)
 
-   1. Find your VHD storage account
+   1. Find your VHD storage account.
    1. Select **Container** and then select your VHD.
    1. Select **OK**.
 
@@ -379,7 +381,7 @@ These steps apply to Linux only.
    1. Enter 2048 as _first sector_ value. You can leave _last sector_ as the default value.
 
       >[!IMPORTANT]
-      >Any existing data will be erased till 2048 KB. Backup of the VHD before you create a new new partition.
+      >Any existing data will be erased till 2048 KB. Backup of the VHD before you create a new partition.
 
       ![Putty client command line screenshot showing the commands and output for erased data.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
@@ -415,11 +417,11 @@ These steps apply to Linux only.
 
    1. Attach your VHD as data disk to your VM for creating a partition table.
 
-   1. Select **Add DataDisk** > **Existing Blob**
+   1. Select **Add DataDisk** > **Existing Blob**.
 
       ![Screenshot showing how to add a data disk to your VHD.](./media/create-vm/vm-certification-issues-solutions-18.png)
 
-   1. Find your VHD storage account
+   1. Find your VHD storage account.
    1. Select **Container** and then select your VHD.
    1. Select **OK**.
 
@@ -433,7 +435,7 @@ These steps apply to Linux only.
 
    ![Putty client command line screenshot showing log in and the sudo -i command.](./media/create-vm/vm-certification-issues-solutions-20.png)
 
-1. Execute the command `echo '+1M,' | sfdisk --move-data /dev/sdc -N 1`
+1. Run the command `echo '+1M,' | sfdisk --move-data /dev/sdc -N 1`
 
    ![Putty client command line screenshot showing the execution of the commands.](./media/create-vm/vm-certification-issues-solutions-25.png)
 
@@ -463,7 +465,7 @@ If all images that are taken from Azure Marketplace are to be reused, the operat
 
 * For **Linux**, the following process generalizes a Linux VM and redeploys it as a separate VM.
 
-  In the SSH window, enter the following command: `sudo waagent -deprovision+user`
+  In the SSH window, enter the following command: `sudo waagent -deprovision+user`.
 
 * For **Windows**, you generalize Windows images by using `sysreptool`.
 
@@ -486,23 +488,23 @@ Enable RDP access for Windows images before you submit them.
 
 ## Bash history failed
 
-You'll see this error if the size of the bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to restrict the file from containing potentially sensitive information.
+You'll see this error if the size of the Bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to restrict the file from containing potentially sensitive information.
 
-To delete the Bash history.
+To delete the Bash history:
 
-1. Deploy the VM and select the **Run Command** option on Azure portal.
+1. Deploy the VM and select the **Run Command** option on the Azure portal.
 
    ![Screenshot of the Azure portal with the 'Run Command' option in the left pane.](./media/create-vm/vm-certification-issues-solutions-3.png)
 
-1. Select first option **RunShellScript** and then run the command: `cat /dev/null > ~/.bash_history && history -c`
+1. Select first option **RunShellScript** and then run the command: `cat /dev/null > ~/.bash_history && history -c`.
 
    ![Screenshot of 'Run Command Script' page on the Azure portal.](./media/create-vm/vm-certification-issues-solutions-4.png)
 
-1. After the command executes successfully, restart the VM.
+1. After the command runs successfully, restart the VM.
 
 1. Generalize the VM, take the image VHD, and stop the VM.
 
-1. Re-Submit the generalized image.
+1. Resubmit the generalized image.
 
 ## Request an exception on VM images for select tests
 
@@ -514,40 +516,40 @@ This section describes general scenarios in which publishers request an exceptio
 
 Publishers generally request exceptions in the following cases:
 
-- **Exception for one or more test cases** – Contact [Partner Center support](https://aka.ms/marketplacepublishersupport) to request exceptions for test cases.
+- **Exception for one or more test cases**: Contact [Partner Center support](https://aka.ms/marketplacepublishersupport) to request exceptions for test cases.
 
-- **Locked-down VMs / No root access** – A few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) and submit the report at [Partner Center support](https://aka.ms/marketplacepublishersupport).
+- **Locked-down VMs / No root access**: A few publishers have scenarios where VMs need to be locked because they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) and submit the report at [Partner Center support](https://aka.ms/marketplacepublishersupport).
 
-- **Custom templates** – Some publishers publish VM images that require a custom Azure Resource Manager (ARM) template to deploy the VMs. In this case, submit the custom templates at [Partner Center support](https://aka.ms/marketplacepublishersupport) so it can be used by the Certification team for validation.
+- **Custom templates**: Some publishers publish VM images that require a custom Azure Resource Manager (ARM) template to deploy the VMs. In this case, submit the custom templates at [Partner Center support](https://aka.ms/marketplacepublishersupport) so it can be used by the Certification team for validation.
 
 ### Information to provide for exception scenarios
 
 Contact [Partner Center support](https://aka.ms/marketplacepublishersupport) to request an exception for one of the scenarios, and include the following information:
 
-- Publisher ID – The publisher ID on Partner Center portal
-- Offer ID/name – The Offer ID/name for which exception is requested
-- SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
-- Version – The version of the VM offer for which exception is requested
-- Exception Type – Tests, Locked Down VM, Custom Templates
-- Reason of request – Reason for this exception and information on tests to be exempted
-- Timeline - Date until which this exception has been requested
-- Attachment - Important evidence documents
+- **Publisher ID**. Type your Partner Central portal Publisher ID.
+- **Offer ID/name**. Enter the Offer ID or name.
+- **SKU/Plan ID**. Type the VM offer Plan ID or SKU.
+- **Version**. Enter the VM offer version that requires an exception.
+- **Exception Type**. Choose from tests, locked-down VM, or custom templates.
+- **Reason of request**. Include the reason for the exception request, plus any information on test exemptions.
+- **Timeline**. Enter the end date for your exception.
+- **Attachment**. Attached important evidence documents:
 
-  - For Locked Down VMs, attach the test report.
+  - For locked-down VMs, attach the test report.
   - For custom templates, provide the custom ARM template as attachment.
 
-  Failure to include these attachments will result in a denial of the request.
+  If you fail to include these attachments, your request will be denied.
 
 ## Address a vulnerability or an exploit in a VM offer
 
-This section describes how to provide a new VM image when a vulnerability or exploit is discovered with one of your VM images. It only applies to Azure Virtual Machine offers published to the Azure Marketplace.
+This section describes how to provide a new VM image when a vulnerability or exploit is discovered with one of your VM images. It only applies to Azure VM offers published to Azure Marketplace.
 
 > [!NOTE]
 > You can't remove the last VM image from a plan or stop-sell the last plan for an offer.
 
 Do one of the following actions:
 
-- If you have a new VM image to replace the vulnerable VM image, see [Provide a fixed VM image](#provide-a-fixed-vm-image) below.
+- If you have a new VM image to replace the vulnerable VM image, see [Provide a fixed VM image](#provide-a-fixed-vm-image).
 - If you don't have a new VM image to replace the only VM image in a plan, or if you're done with the plan, [stop selling the plan](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
 - If you don't plan to replace the only VM image in the offer, we recommend you [stop selling the offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
 
