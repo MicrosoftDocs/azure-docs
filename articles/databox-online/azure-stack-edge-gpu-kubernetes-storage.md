@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/04/2020
 ms.author: alkohli
 ---
 # Kubernetes storage management on your Azure Stack Edge Pro GPU device
