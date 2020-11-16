@@ -29,8 +29,6 @@ In this quickstart, you create your own resource provider and deploy custom reso
 
 ---
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## Deploy custom provider
 
 To set up the custom provider, deploy an [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/custom-providers/customprovider.json) to your Azure subscription.
