@@ -18,7 +18,7 @@ Reset the Automanage Account identity type by using the following Azure Resource
 
 1. Create a Resource Manager deployment by using the following template. Use `identityType = None`.
     * You can create the deployment in Azure CLI by using `az deployment sub create`. For more information, see [az deployment sub](https://docs.microsoft.com/cli/azure/deployment/sub).
-    * You can also create it in PowerShell by using the `New-AzDeployment` module. For more information, see [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
+    * You can create the deployment in PowerShell by using the `New-AzDeployment` module. For more information, see [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment).
 
 1. Run the same ARM template again with `identityType = SystemAssigned`.
 
