@@ -67,7 +67,7 @@ In this example, the firewall is only opened for other Azure resources. To enabl
 Create the SQL pool. This example uses DW100c as the service objective, which is a lower-cost starting point for your SQL pool.
 
 > [!NOTE]
-> You need a previously created workspace. For more information, see [Quickstart: Create an Azure synapse workspace with Azure CLI](quickstart-create-workspace-cli.md).
+> You need a previously created workspace. For more information, see [Quickstart: Create an Azure synapse workspace with Azure CLI](../quickstart-create-workspace-cli.md).
 
 Use the [az synapse sql pool create](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_create) command to create the SQL pool:
 
