@@ -24,9 +24,6 @@ You need the following to use Azure AD Connect cloud provisioning:
 - Domain Administrator or Enterprise Administrator credentials to create the Azure AD Connect Cloud Sync gMSA (group Managed Service Account) to run the agent servcie.
 - On-premises firewall configurations.
 
->[!NOTE]
->The provisioning agent can currently only be installed on English language servers. Installing an English language pack on a non-English server is not a valid workaround and will result in the agent failing to install. 
-
 The rest of the document provides step-by-step instructions for these prerequisites.
 
 ### In the Azure Active Directory admin center
