@@ -14,17 +14,21 @@ ms.reviewer: igorstan
 
 # What is dedicated SQL pool (formerly SQL DW) in Azure Synapse Analtyics?
 
-Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms.
+Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are available in Azure Synapse Analytics.
 
-> [!NOTE]
->Explore the [Azure Synapse Analytics documentation](../overview-what-is.md).
->
 
-Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are available in Azure Synapse Analytics.
+
+![Dedicated SQL pool (formerly SQL DW) in relation to Azure Synapse](./media/sql-data-warehouse-overview-what-is/dedicated-sql-pool.png)
+
+
 
 Dedicated SQL pool (formerly SQL DW) represents a collection of analytic resources that are provisioned when using Synapse SQL. The size of a dedicated SQL pool (formerly SQL DW) is determined by Data Warehousing Units (DWU).
 
-Once you dedicated SQL pool is created, you can import big data with simple [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL queries, and then use the power of the distributed query engine to run high-performance analytics. As you integrate and analyze the data, Synapse SQL will become the single version of truth your business can count on for faster and more robust insights. 
+Once you dedicated SQL pool is created, you can import big data with simple [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL queries, and then use the power of the distributed query engine to run high-performance analytics. As you integrate and analyze the data, dedicated SQL pool (formerly SQL DW) will become the single version of truth your business can count on for faster and more robust insights.
+
+> [!NOTE]
+>Explore the [Azure Synapse Analytics documentation](../overview-what-is.md).
+> 
 
 ## Key component of a big data solution
 
