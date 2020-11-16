@@ -31,7 +31,7 @@ There could be multiple reasons for a VM to be stuck waiting for Local Session M
 
 ## Solution
 
-In some cases, simply waiting for the process to finish will resolve the issue. If your VM hangs on the wait screen for over an hour, you first need to gather the memory dump file for the crash and then send the file to Microsoft support. To collect the dump file, follow the instructions in the next two sections.
+In some cases, simply waiting for the process to finish will resolve the issue. If your VM doesn't respond and remains on the wait screen for over an hour, you should collect a memory dump and then contact Microsoft support.
 
 ### Attach the OS disk to a new repair VM
 

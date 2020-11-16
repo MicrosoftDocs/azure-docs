@@ -13,27 +13,22 @@ ms.custom: mvc, devx-track-azurecli
 
 This quickstart shows how to use [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create a single Azure Database for PostgreSQL server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-> [!TIP]
-> Consider using the simpler [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command that's currently in preview. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-## Prerequisites
-This article requires you to run the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+    > [!TIP]
+    >  Consider using the simpler [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command that's currently in preview. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
-You need to log in to your account by using the [az login](/cli/azure/reference-index#az-login) command. Note the **id** property,  which refers to **Subscription ID** for your Azure account. 
+- Select the specific subscription ID under your account by using the  [az account set](/cli/azure/account) command.
 
-```azurecli-interactive
-az login
-```
+    - Make a note of the **id** value from the **az login** output to use as the value for the **subscription** argument in the command. 
 
-Select the specific subscription ID under your account by using the  [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for the **subscription** argument in the command. 
+        ```azurecli
+        az account set --subscription <subscription id>
+        ```
 
-```azurecli
-az account set --subscription <subscription id>
-```
-
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscriptions, use [az account list](/cli/azure/account#az-account-list).
+    - If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscriptions, use [az account list](/cli/azure/account#az-account-list).
 
 ## Create an Azure Database for PostgreSQL server
 

@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 11/10/2020
 ---
 
 # Introduction to provisioned throughput in Azure Cosmos DB
@@ -104,7 +104,7 @@ The response of those methods also contains the [minimum provisioned throughput]
 The actual minimum RU/s may vary depending on your account configuration. But generally it's the maximum of:
 
 * 400 RU/s 
-* Current storage in GB * 10 RU/s
+* Current storage in GB * 10 RU/s (unless your container or database contains more than 1 TB of data, see our [high storage / low throughput program](#high-storage-low-throughput-program))
 * Highest RU/s provisioned on the database or container / 100
 * Container count * 100 RU/s (shared throughput database only)
 
