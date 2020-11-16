@@ -11,7 +11,7 @@ ms.date: 11/16/2020
 
 # Categories and subcategories in the commercial marketplace
 
-Categories and subcategories are mapped to one or both of the [online stores](overview.md#commercial-marketplace-online-stores) based on the solution type. When you create a commercial marketplace offer in Partner Center, it may be listed on either or both online stores based on the offer type, categories, and other options you select. In the rare case that the offer is relevant to the users of both online stores, it can appear in both.
+Categories and subcategories are mapped to one or both of the [commercial marketplace online stores](overview.md#commercial-marketplace-online-stores) based on the solution type. When you create a commercial marketplace offer in Partner Center, it may be listed on either or both online stores based on the offer type, categories, and other options you select. In the rare case that the offer is relevant to the users of both online stores, it can appear in both.
 
 Select the categories and subcategories that best align with your solution. Assigning the categories and subcategories that are appropriate for your offer will help customers find your offer in the commercial marketplace. 
 
@@ -20,7 +20,9 @@ You can select:
 - At least one and up to two categories. You can choose a primary and a secondary category.
 - Up to two subcategories for each primary category. If you don’t select any subcategories, your offer will still be discoverable under the selected category.
 
-The following table shows the primary categories and subcategories that map to Azure Marketplace.
+## Azure Marketplace categories and subcategories
+
+This table shows the primary categories and subcategories that map to Azure Marketplace.
 
 | Primary category | Subcategory |
 | ------------ | ------------- |
@@ -46,7 +48,9 @@ The following table shows the primary categories and subcategories that map to A
 | Web | Blogs & CMS<br>E-commerce<br>Starter Web Apps<br>Web Apps<br>Web Apps Frameworks |
 |||
 
-The following table shows the primary categories and subcategories that map to Microsoft AppSource.
+## Microsoft AppSource categories and subcategories
+
+This table shows the primary categories and subcategories that map to Microsoft AppSource.
 
 | Primary category | Subcategory |
 | ------------ | ------------- |
