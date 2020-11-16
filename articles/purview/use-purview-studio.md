@@ -18,7 +18,7 @@ This article gives an overview of some of the main features of Azure Purview.
 
 * An Active Purview account is already created in Azure portal and the user has permissions to access Purview Studio.
 
-## Launch purview account
+## Launch Purview account
 
 * To launch your Purview account, go to Purview accounts in Azure portal, select the account you want to launch and launch the account.
 
@@ -60,11 +60,11 @@ The following list summarizes the main features of **Home page**. Each number in
 7. **Useful Links** contains links to region status, documentation, pricing, overview, and Purview status
 8. The top navigation bar contains information about release notes/updates, change purview account, notifications, help, and feedback sections.
 
-## Knowledge Center
+## Knowledge center
 
 Knowledge center is where you can find all the videos and tutorials related to Purview.
 
-## Guided Tours
+## Guided tours
 
 Each UX in Azure Purview Studio will have guided tours to give overview of the page. To start the guided tour, select **help** on the top bar and select **guided tours**.
 

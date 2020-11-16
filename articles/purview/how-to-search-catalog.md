@@ -104,14 +104,14 @@ To show only classifications whose names match a string, enter the string in the
 
 Select a classification to restrict the search results to assets that have been assigned that classification. You can't select more than one classification.
 
-#### Search quick Filter: filter by contacts
+#### Search quick filter: filter by contacts
 
 A *contact* is a person that's assigned to an asset as an owner or expert. When you view asset details, contacts are shown on the **Contacts** tab.
 
 There are two ways to search for assets that have a particular contact assigned to them.
 
-1. Enter all or part of the contact name in **Search catalog** and do a search. The search results will include assets that have contacts whose names match your search terms.
-1. Select the contact of interest in the **Contact** quick filter and do a search.
+- Enter all or part of the contact name in **Search catalog** and do a search. The search results will include assets that have contacts whose names match your search terms.
+- Select the contact of interest in the **Contact** quick filter and do a search.
 
 :::image type="content" source="./media/catalog-client-overview/contact-quick-filter.png" alt-text="The value of Person in the Quick Filters pane is 'darren'. There are three suggestions in the Suggestions pane." border="true":::
 

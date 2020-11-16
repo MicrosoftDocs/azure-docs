@@ -1,5 +1,5 @@
 ---
-title: Understand Business Glossary features in Azure Purview
+title: Understand business glossary features in Azure Purview
 description: This article explains what business glossary is in Azure Purview.
 author: nayenama
 ms.author: nayenama
@@ -13,7 +13,7 @@ ms.date: 11/13/2020
 
 This article provides an overview of the business glossary feature in Azure Purview. 
 
-## Business Glossary
+## Business glossary
 
 A glossary provides vocabulary for business users.  It consists of business terms that can be related to each other and allows them to be categorized so that they can be understood in different contexts. These terms can be then mapped to assets like a database, tables, columns etc. This helps in abstracting the technical jargon associated with the data repositories and allows the business user to discover and work with data in the vocabulary that is more familiar to them.
 
@@ -25,7 +25,7 @@ A business glossary is a collection of terms. Each term represents an object in 
 
 The same term can also imply multiple business objects. It is important that each term is well-defined and clearly understood within the organization.
 
-## Custom Attributes
+## Custom attributes
 
 Azure Purview supports eight out-of-the-box attributes for any business glossary term:
 - Name
@@ -62,7 +62,7 @@ Classifications are annotations that can be assigned to entities. The flexibilit
 
 Purview has more than 100 system classifiers today and you can define your own classifiers in catalog. As part of the scanning process, we automatically detect these classifications and apply them to data assets and schemas. However, you can override them at any point of time. The human overrides are never replaced by automated scans.
 
-### Sensitivity Labels
+### Sensitivity labels
 
 Sensitivity labels are a type of annotation that allows you to classify and protect your organization's data, without hindering productivity and collaboration. Sensitivity labels are used to identify the categories of classification types within your organizational data, and group the policies that you wish to apply to each category. Purview makes use of the same sensitive information types as Microsoft 365, which allows you to stretch your existing security policies and protection across your entire content and data estate. The same labels can be shared across Microsoft Office products and data assets in Purview.
 
