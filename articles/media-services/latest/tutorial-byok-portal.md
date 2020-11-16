@@ -34,7 +34,6 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 ## System-managed keys
 
-
 <!-- Create a resource group -->
 [!INCLUDE [create a resource group in the portal](./includes/task-create-resource-group-portal.md)]
 
@@ -47,7 +46,10 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 <!-- Create a key vault -->
 
-[!INCLUDE [create a media services account in the portal](./includes/task-create-key-vault-portal.md)]
+[!INCLUDE [create a key vaultl](./includes/task-create-key-vault-portal.md)]
+
+<!-- Enable CMK BYOK on the account -->
+[!INCLUDE [enable CMK](./includes/task-enable-cmk-byok-portal.md)]
 
 > [!IMPORTANT]
 > For the following storage encryption steps, you will select the **customer-managed key choice**.
@@ -57,7 +59,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 ## Change the key
 
-Media Services automatically detects when the key is changed. Create another key version for the same key to test this process. Media Services should detect the key in less than 15 minutes.
+Media Services automatically detects when the key is changed. OPTIONAL: To test this process, create another key version for the same key. Media Services should detect that the key has been changed.
 
 ## Clean up resources
 
