@@ -38,9 +38,9 @@ The following table provides a summary of known issues in the 2011 release.
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|Preview features |For this release, the following features: Local Azure Resource Manager, VMs, Cloud management of VMs, Azure Arc enabled Kubernetes, VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R, Multi-process service (MPS) for Azure Stack Edge Pro GPU  - are all available in preview.  | |
+|**1.**|Preview features |For this release, the following features: Local Azure Resource Manager, VMs, Cloud management of VMs, Azure Arc enabled Kubernetes, VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R, Multi-process service (MPS) for Azure Stack Edge Pro GPU  - are all available in preview.  |These features will be generally available in later releases. |
 |**2.**|Kubernetes Dashboard | *Https* endpoint for Kubernetes Dashboard with SSL certificate is not supported. | |
-|**3.**|Kubernetes |Edge container registry does not work when web proxy is enabled.| |
+|**3.**|Kubernetes |Edge container registry does not work when web proxy is enabled.|The functionality will be available in a future release. |
 |**4.**|Kubernetes |Edge container registry does not work with IoT Edge modules.| |
 |**5.**|Kubernetes |Kubernetes doesn't support ":" in environment variable names that are used by .NET applications. This is also required for Event grid IoT Edge module to function on Azure Stack Edge device and other applications. For more information, see [ASP.NET core documentation](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1#environment-variables).|Replace ":" by double underscore. For more information,see [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/53201)|
 |**6.** |Azure Arc + Kubernetes cluster |By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster.  |You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
