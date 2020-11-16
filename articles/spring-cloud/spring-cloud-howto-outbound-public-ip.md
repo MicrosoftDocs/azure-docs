@@ -1,5 +1,5 @@
 ---
-title: How to - View the static outbound public IP addresses 
+title: How - to identify outbound public IP addresses in Azure Spring Cloud 
 description: How to view the static outbound public IP addresses to communicate with external resources, such as Database, Storage, Key Vault, etc.
 author:  MikeDodaro
 ms.author: brendm
@@ -17,7 +17,7 @@ This page explains how to view static outbound public IP addresses of Azure Spri
 
 An Azure Spring Cloud service has one or more outbound public IP addresses. The number of outbound public IP addresses may vary according to the tiers and other factors. 
 
-The outbound public IP addresses usually constant and stay the same, but there are exceptions.
+The outbound public IP addresses are usually constant and remain the same, but there are exceptions.
 
 ## When outbound IPs change
 
