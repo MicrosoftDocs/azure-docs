@@ -27,6 +27,8 @@ ms.author: pafarley
 
 ## Setting up
 
+### Create a new C# application
+
 #### [Visual Studio IDE](#tab/visual-studio)
 
 Using Visual Studio, create a new .NET Core application. 
