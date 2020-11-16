@@ -1,25 +1,25 @@
 ---
 title: Using dynamic SQL 
-description: Tips for development solutions using dynamic SQL in Synapse SQL pool.
+description: Tips for development solutions using dynamic SQL for dedicated SQL pools in Azure Synapse Analytics.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: MSTehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Dynamic SQL in Synapse SQL pool
+# Dynamic SQL for dedicated SQL pools in Azure Synapse Analytics
 
-Included in this article are tips for development solutions using dynamic SQL in SQL pool.
+Included in this article are tips for development solutions using dynamic SQL in dedicated SQL pools.
 
-## Dynamic SQL Example
+## Dynamic SQL example
 
-When developing application code for SQL pool, you may need to use dynamic SQL to help deliver flexible, generic, and modular solutions. SQL pool doesn't support blob data types at this time.
+When developing application code for dedicated SQL pools, you may need to use dynamic SQL to help deliver flexible, generic, and modular solutions. Dedicated SQL pools don't support blob data types at this time.
 
 Not supporting blob data types might limit the size of your strings since blob data types include both varchar(max) and nvarchar(max) types.
 
