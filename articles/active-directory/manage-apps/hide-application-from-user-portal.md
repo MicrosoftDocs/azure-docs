@@ -42,7 +42,7 @@ Use the following steps to hide an application from MyApps panel and Microsoft 3
 
 ## Use Azure AD PowerShell to hide an application
 
-To hide an application from the MyApps panel, you can manually add the HideApp tag to the service principal for the application. Run the following [AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) commands to set the application's **Visible to Users?** property to **No**. 
+To hide an application from the MyApps panel, you can manually add the HideApp tag to the service principal for the application. Run the following [AzureAD PowerShell](/powershell/module/azuread/?view=azureadps-2.0#service_principals) commands to set the application's **Visible to Users?** property to **No**. 
 
 ```PowerShell
 Connect-AzureAD
@@ -69,6 +69,5 @@ Use the following steps to hide all Microsoft 365 applications from the MyApps p
 ## Next steps
 * [See all my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
-* [Remove a user or group assignment from an enterprise app](remove-user-or-group-access-portal.md)
-* [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
-
+* [Remove a user or group assignment from an enterprise app](./assign-user-or-group-access-portal.md)
+* [Change the name or logo of an enterprise app](./add-application-portal-configure.md)
