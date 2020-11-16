@@ -35,7 +35,7 @@ There are different compute sizes that you can choose from:
 - GPU sizes, so that your students can use computer-intensive types of applications. For example, this choice is often used with artificial intelligence and machine learning.
 
 For guidance on selecting the appropriate VM Size, read the following articles:
-- [VM sizing](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing)
+- [VM sizing](./administrator-guide.md#vm-sizing)
 - [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931)
 
 > [!NOTE]
@@ -55,8 +55,8 @@ Lab Services uses a pay-as-you-go pricing model, which means that you only pay f
 - **Autoshutdown**: When enabled, the autoshutdown setting causes Windows VMs to automatically shut down after a student has disconnected from a Remote Desktop Protocol (RDP) session. By default, this setting is disabled.
 
 Read the following articles for more information:
-- [Estimate costs](https://docs.microsoft.com/azure/lab-services/cost-management-guide#estimate-the-lab-costs)
-- [Manage costs](https://docs.microsoft.com/azure/lab-services/cost-management-guide#manage-costs)
+- [Estimate costs](./cost-management-guide.md#estimate-the-lab-costs)
+- [Manage costs](./cost-management-guide.md#manage-costs)
 
 ### How will students save their work?
 Students are each assigned their own VM, which is assigned to them for the lifetime of the lab. They can choose to:
@@ -70,7 +70,7 @@ It's possible to configure OneDrive automatically for students on their lab VMs.
 > To ensure that your students have continued access to their saved work outside of the lab, and after the class ends, we recommend that students save their work to an external repository.
 
 ### How will students connect to their VM?
-For RDP to Windows VMs, we recommend that students use the [Microsoft Remote Desktop client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). Remote Desktop client supports Macs, Chromebooks, and Windows.
+For RDP to Windows VMs, we recommend that students use the [Microsoft Remote Desktop client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). Remote Desktop client supports Macs, Chromebooks, and Windows.
 
 For Linux VMs, students can use either SSH or RDP. To have the students connect by using RDP, you must install and configure the necessary RDP and GUI packages.
 
@@ -78,47 +78,47 @@ For Linux VMs, students can use either SSH or RDP. To have the students connect 
 Azure Lab Services integrates with Microsoft teams so that faculty can create and manage their labs within Teams.  Similarly, students can access the lab within Teams.
 
 For more information, see the following article:
-- [Azure Lab Services within Microsoft Teams](https://docs.microsoft.com/azure/lab-services/lab-services-within-teams-overview)
+- [Azure Lab Services within Microsoft Teams](./lab-services-within-teams-overview.md)
 
 ## Set up your lab
 
 After you understand the requirements for your class's lab, you're ready to set it up. Follow the links in this section to see how to set up your lab.  Notice that different steps are provided depending on if you're using labs within Teams.
 
 1. **Create a lab.** Refer to the tutorials on creating a lab:
-    - [Create a classroom lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#create-a-classroom-lab) for instructions.
-    - [Create a lab from Teams](https://docs.microsoft.com/azure/lab-services/how-to-get-started-create-lab-within-teams)
+    - [Create a classroom lab](./tutorial-setup-classroom-lab.md#create-a-classroom-lab) for instructions.
+    - [Create a lab from Teams](./how-to-get-started-create-lab-within-teams.md)
 
     > [!NOTE]
-    > If your class requires nested virtualization, see the steps in [enabling nested virtualization](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm).
+    > If your class requires nested virtualization, see the steps in [enabling nested virtualization](./how-to-enable-nested-virtualization-template-vm.md).
 
 1. **Customize images and publish lab VMs.** Connect to a special VM called the template VM. See the steps in the following guides:
-    - [Create and manage a template VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#publish-the-template-vm)
-    - [Use a shared image gallery](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-shared-image-gallery)
+    - [Create and manage a template VM](./tutorial-setup-classroom-lab.md#publish-the-template-vm)
+    - [Use a shared image gallery](./how-to-use-shared-image-gallery.md)
 
     > [!NOTE]
-    > If you're using Windows, you should also see the instructions in [preparing a Windows template VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-prepare-windows-template). These instructions include steps for setting up OneDrive and Office for your students to use.
+    > If you're using Windows, you should also see the instructions in [preparing a Windows template VM](./how-to-prepare-windows-template.md). These instructions include steps for setting up OneDrive and Office for your students to use.
 
 1. **Manage VM pool and capacity.** You can easily scale up or down VM capacity, as needed by your class. Keep in mind that increasing the VM capacity might take several hours because new VMs are being set up. See the steps in the following articles:
-    - [Set up and manage a VM pool](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-set-virtual-machine-passwords)
-    - [Manage a VM pool in Lab Services from Teams](https://docs.microsoft.com/azure/lab-services/how-to-manage-vm-pool-within-teams)
+    - [Set up and manage a VM pool](./how-to-set-virtual-machine-passwords.md)
+    - [Manage a VM pool in Lab Services from Teams](./how-to-manage-vm-pool-within-teams.md)
 
 1. **Add and manage lab users.** To add users to your lab, refer to steps in the following tutorials:
-   - [Add users to the lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#add-users-to-the-lab)
-   - [Send invitations to users](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#send-invitation-emails-to-users)
-   - [Manage Lab Services user lists from Teams](https://docs.microsoft.com/azure/lab-services/how-to-manage-user-lists-within-teams)
+   - [Add users to the lab](./tutorial-setup-classroom-lab.md#add-users-to-the-lab)
+   - [Send invitations to users](./tutorial-setup-classroom-lab.md#send-invitation-emails-to-users)
+   - [Manage Lab Services user lists from Teams](./how-to-manage-user-lists-within-teams.md)
 
-    For information on the types of accounts that students can use, see [Student accounts](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts).
+    For information on the types of accounts that students can use, see [Student accounts](./how-to-configure-student-usage.md#student-accounts).
   
 1. **Set cost controls.** To control the costs of your lab, set schedules, quotas, and autoshutdown. See the following tutorials:
 
-   - [Set a schedule](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
+   - [Set a schedule](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
 
         > [!NOTE]
         > Depending on the type of operating system you have installed, a VM might take several minutes to start. To ensure that a lab VM is ready for use during your scheduled hours, we recommend that you start VMs 30 minutes in advance.
 
-   - [Set quotas for users](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) and [set additional quota for a specific user](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quotas-for-specific-users)
+   - [Set quotas for users](./how-to-configure-student-usage.md#set-quotas-for-users) and [set additional quota for a specific user](./how-to-configure-student-usage.md#set-additional-quotas-for-specific-users)
   
-   - [Enable automatic shutdown on disconnect](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
+   - [Enable automatic shutdown on disconnect](./how-to-enable-shutdown-disconnect.md)
 
         > [!NOTE]
         > Schedules and quotas don't apply to the template VM, but the auto shutdown settings apply. 
@@ -127,9 +127,9 @@ After you understand the requirements for your class's lab, you're ready to set 
         > 
         > Template VMs incur **cost** when running, so ensure that the template VM is shutdown when you don’t need it to be running.
 
-    - [Create and manage Lab Services schedules within Teams](https://docs.microsoft.com/azure/lab-services/how-to-create-schedules-within-teams) 
+    - [Create and manage Lab Services schedules within Teams](./how-to-create-schedules-within-teams.md) 
 
-1. **Use the dashboard.** For instructions, see [using the lab's dashboard](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
+1. **Use the dashboard.** For instructions, see [using the lab's dashboard](./use-dashboard.md).
 
     > [!NOTE]
     > The estimated cost shown in the dashboard is the maximum cost that you can expect for students usage of the lab. For example, you will *not* be charged for unused quota hours by your students. The estimated costs do *not* reflect any charges for using the template VM, the shared image gallery, or when the lab creator starts a user machine.

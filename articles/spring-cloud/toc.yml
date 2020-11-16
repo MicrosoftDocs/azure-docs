@@ -83,6 +83,8 @@
           href: spring-cloud-tutorial-scale-manual.md
         - name: Autoscale an app
           href: spring-cloud-tutorial-setup-autoscale.md
+        - name: Identify outbound public IP addresses
+          href: spring-cloud-howto-outbound-public-ip.md
     - name: Monitor
       items:
         - name: Distributed tracing and App Insights
