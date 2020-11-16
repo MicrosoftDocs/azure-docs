@@ -516,11 +516,11 @@ This section describes general scenarios in which publishers request an exceptio
 
 Publishers generally request exceptions in the following cases:
 
-- **Exception for one or more test cases**: Contact [Partner Center support](https://aka.ms/marketplacepublishersupport) to request exceptions for test cases.
+- **Exception for one or more test cases**. Contact [Partner Center support](https://aka.ms/marketplacepublishersupport) to request exceptions for test cases.
 
-- **Locked-down VMs / No root access**: A few publishers have scenarios where VMs need to be locked because they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) and submit the report at [Partner Center support](https://aka.ms/marketplacepublishersupport).
+- **Locked-down VMs / No root access**. A few publishers have scenarios where VMs need to be locked because they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) and submit the report at [Partner Center support](https://aka.ms/marketplacepublishersupport).
 
-- **Custom templates**: Some publishers publish VM images that require a custom Azure Resource Manager (ARM) template to deploy the VMs. In this case, submit the custom templates at [Partner Center support](https://aka.ms/marketplacepublishersupport) so it can be used by the Certification team for validation.
+- **Custom templates**. Some publishers publish VM images that require a custom Azure Resource Manager (ARM) template to deploy the VMs. In this case, submit the custom templates at [Partner Center support](https://aka.ms/marketplacepublishersupport) so it can be used by the Certification team for validation.
 
 ### Information to provide for exception scenarios
 
