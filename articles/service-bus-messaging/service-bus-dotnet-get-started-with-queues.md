@@ -68,7 +68,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 
                 // send the message
                 await sender.SendMessageAsync(message);
-                Console.WriteLine("Sent a single message to the queue");
+                Console.WriteLine("Sent a single message to the queue: {queueName}");
             }
         }
     ```
@@ -160,7 +160,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     1. On the **Overview** page, select the queue in the bottom-middle pane. 
     1. Notice the values in the **Essentials** section.
 
-    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Messages received with count and size":::
+    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Messages received with count and size" lightbox="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png":::
 
     Notice the following values:
     - The **Active message count** value for the queue is now **4**. Each time you run this sender app without retrieving the messages, this value increases by 4.
@@ -237,7 +237,7 @@ In this section, you'll add code to retrieve messages from the queue.
 Run the application. You should see the following output. 
 
 ```console
-Sent a single message to the queue
+Sent a single message to the queue: myqueue
 Sent a batch of messages to the queue: myqueue
 Received: Hello world!
 Received: First message in the batch
@@ -254,7 +254,7 @@ Check the portal again.
 - The **Active message count** and **CURRENT** values are now **0**.
 - In the **Messages** chart in the bottom **Metrics** section, you can see that there are eight incoming messages and eight outgoing messages for the queue. 
 
-    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Active messages and size after receive":::
+    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Active messages and size after receive" lightbox="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png":::
 
 ## Next steps
 See the following documentation and samples:

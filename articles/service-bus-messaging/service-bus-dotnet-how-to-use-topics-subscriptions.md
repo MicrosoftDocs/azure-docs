@@ -65,7 +65,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
                 // create a sender for the topic
                 ServiceBusSender sender = client.CreateSender(topicName);
                 await sender.SendMessageAsync(new ServiceBusMessage(Encoding.UTF8.GetBytes("Hello, World!")));
-                Console.WriteLine("Sent a single message to the topic");
+                Console.WriteLine("Sent a single message to the topic: {topicName}");
             }
         }
     ```
@@ -152,7 +152,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     1. On the **Overview** page, in the bottom-middle pane, switch to the **Topics** tab, and select the Service Bus topic. 
     1. On the **Service Bus Topic** page for your topic in the Azure portal. You see some useful information such as active message count and current size. 
 
-    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png" alt-text="Messages received with count and size":::
+    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png" alt-text="Messages received with count and size" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png":::
 
     Notice the following values:
     1. The **Message count** value for the **topic** is now **4**. Each time you run this sender app without retrieving messages from the subscription, this value increases by 4.
@@ -227,7 +227,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 Run the application. You should see the following output: 
 
 ```console
-Sent a single message to the topic
+Sent a single message to the topic: mytopic
 Sent a batch of 3 messages to the topic: mytopic
 Received: Hello, World! from subscription: S1
 Received: First message from subscription: S1
@@ -244,7 +244,7 @@ Check the portal again.
 - The **Message count** and **Current size** values are now **0**. It's because the messages have been received and completed (using `CompleteMessageAsync`).
 - In the **Messages** chart in the bottom **Metrics** section, you can see that there are eight incoming messages and eight outgoing messages. Wait for a few minutes and refresh the page to see the updated chart. 
 
-    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png" alt-text="Active messages and size after receive":::
+    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png" alt-text="Active messages and size after receive" lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png":::
 
 
 ## Next steps

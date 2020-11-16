@@ -56,7 +56,24 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
     ```
 
     Replace `<NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace. And, replace `<TOPIC NAME>` with the name of the topic.
-3. Add a method named `createMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
+3. Add a method named `sendMessage` in the class to send one message to the topic. 
+
+    ```java
+        static void sendMessage()
+    {
+        // create a Service Bus Sender client for the queue 
+        ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
+                .connectionString(connectionString)
+                .sender()
+                .topicName(topicName)
+                .buildClient();
+        
+        // send one message to the topic
+        senderClient.sendMessage(new ServiceBusMessage("Hello, World!"));
+        System.out.println("Sent a single message to the topic: " + topicName);        
+    }
+    ```
+1. Add a method named `createMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
 
     ```java
     static List<ServiceBusMessage> createMessages()
@@ -70,10 +87,10 @@ Add a reference to Azure Service Bus library. The Java client library for Servic
         return Arrays.asList(messages);
     }
     ```
-1. Add a method named `sendMessages` method to send messages to the topic you created. This method creates a `ServiceBusSenderClient` for the topic, invokes the `createMessages` method to get the list of messages, prepares one or more batches, and sends the batches to the topic. 
+1. Add a method named `sendMessageBatch` method to send messages to the topic you created. This method creates a `ServiceBusSenderClient` for the topic, invokes the `createMessages` method to get the list of messages, prepares one or more batches, and sends the batches to the topic. 
 
 ```java
-    static void sendMessages()
+    static void sendMessageBatch()
     {
         // create a Service Bus Sender client for the topic 
         ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
@@ -161,11 +178,12 @@ In this section, you'll add code to retrieve messages from a subscription to the
         processorClient.close();    	
     }
     ```
-2. Update the `main` method to invoke both `sendMessages` and `receiveMessages` methods and to throw `InterruptedException`.     
+2. Update the `main` method to invoke `sendMessage`, `sendMessageBatch`, and `receiveMessages` methods and to throw `InterruptedException`.     
 
     ```java
     public static void main(String[] args) throws InterruptedException {    	
-    	sendMessages();
+    	sendMessage();
+    	sendMessageBatch();
     	receiveMessages();
     }   
     ```
@@ -182,17 +200,21 @@ Received message: Third message from the subscription: mysub
 Stopping and closing the processor
 ```
 
-In the Azure portal, navigate to your Service Bus namespace, and select the topic in the bottom pane to see the **Service Bus Topic** page for your topic. On this page, you should see three incoming and three outgoing messages in the **Messages** chart. 
+On the **Overview** page for the Service Bus namespace in the Azure portal, you can see **incoming** and **outgoing** message count. You may need to wait for a minute or so and then refresh the page to see the latest values. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Incoming and outgoing messages":::
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Incoming and outgoing message count" lightbox="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png":::
 
-If you comment out the receive code and run the app again, on the **Service Bus Topic** page, you see six incoming messages (3 new) but three outgoing messages. 
+Switch to the **Topics** tab in the middle-bottom pane, and select the topic to see the **Service Bus Topic** page for your topic. On this page, you should see four incoming and four outgoing messages in the **Messages** chart. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Updated topic page":::
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Incoming and outgoing messages" lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/topic-page-portal.png":::
 
-On this page, if you select a subscription, you get to the **Service Bus Subscription** page. You can see the active message count, dead-letter message count, and more on this page. In this example, there are three active messages that haven't been received by a receiver yet. 
+If you comment out the `receiveMessages` call in the `main` method and run the app again, on the **Service Bus Topic** page, you see 8 incoming messages (4 new) but four outgoing messages. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Active message count":::
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Updated topic page" lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/updated-topic-page.png":::
+
+On this page, if you select a subscription, you get to the **Service Bus Subscription** page. You can see the active message count, dead-letter message count, and more on this page. In this example, there are four active messages that haven't been received by a receiver yet. 
+
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Active message count" lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png":::
 
 ## Next steps
 For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions].
