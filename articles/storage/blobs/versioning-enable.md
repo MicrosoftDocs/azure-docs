@@ -86,4 +86,4 @@ The following code example shows how to list blobs version with the Azure Storag
 ## Next steps
 
 - [Blob versioning](versioning-overview.md)
-- [Soft delete for Azure Storage blobs](soft-delete-overview.md)
+- [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md)
