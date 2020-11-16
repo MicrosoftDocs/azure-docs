@@ -173,7 +173,9 @@ Do the following:
 
    >[!NOTE]
    >The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
-   >When adding a new group, users in the group (up to 200 users for a new group) will be updated to use managed auth immidiatly. Editing a group (adding or removing users), it can take up to 24 hours for changes to take effect.
+   >When adding a new group, users in the group (up to 200 users for a new group) will be updated to use managed auth immidiatly. 
+   >Editing a group (adding or removing users), it can take up to 24 hours for changes to take effect.
+   >Seamless SSO will apply only if users are in the Seamless SSO group and also in either a PTA or PHS group.
 
 ## Auditing
 
@@ -235,7 +237,7 @@ A: Yes, you can use this feature in your production tenant, but we recommend tha
 
 **Q: Can this feature be used to maintain a permanent "co-existence," where some users use federated authentication and others use cloud authentication?**
 
-A: No, this feature is designed for migrating from federated to cloud authentication in stages and then to eventually cut over to cloud authentication. We do not recommend using a permanent mixed state, because this approach could lead to unexpected authentication flows.
+A: No, this feature is designed for testing cloud authentication. After successful testing a few groups of users you should cut over to cloud authentication. We do not recommend using a permanent mixed state, because this approach could lead to unexpected authentication flows.
 
 **Q: Can I use PowerShell to perform staged rollout?**
 

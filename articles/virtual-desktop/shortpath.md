@@ -148,6 +148,7 @@ Follow the [network security group documentation](../virtual-machines/windows/ns
 * **Source** - **Any** or the IP range where the clients are residing
 * **Source port ranges** - **\***
 * **Destination** - **Any**
+* **Destination port ranges** - **3390**
 * **Protocol** - **UDP**
 * **Action** - **Allow**
 * Optionally change the **Priority**. The priority affects the order in which rules are applied: the lower the numerical value, the earlier the rule is applied.
