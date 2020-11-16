@@ -96,20 +96,15 @@ If you try to use a service account when creating a connection, but you experien
   1. At your logic app's resource group level, check whether the service account has the **Contributor** role. 
   If not, assign that role to the service account.
 
-  1. If you're signed in to the Azure portal with your work or school account, sign out from the portal and sign back in 
-  with your service account. You can now create a connection to your Office 365 Outlook account by using your service account.
+  1. If you're signed in to the Azure portal with your work or school account, sign out from the portal and sign back in with your service account. You can now create a connection to your Office 365 Outlook account by using your service account.
 
-* If you don't want to sign in to Azure with your service account, and the Office 365 Outlook trigger or action supports entering the service account's email address, follow these steps:
+* Continue creating the connection by using your work or school account. In triggers or actions where you can specify the sender, you can use the service account's email address. However, for this approach to work, the service account's mailbox needs to have either **Send as** or **Send on behalf of** permissions.
 
-  1. In the trigger or action, check for a parameter where you can specify a source email address.
+   For example, the **Send an email** action has an optional parameter, **From (Send as)**, which you can add to the action and use your service account's email address as the sender. To add this parameter, follow these steps:
 
-     > [!TIP]
-     > If the trigger or action has any other optional parameters, check the **Add a parameter** list that appears on 
-     > the trigger or action. If such a parameter exists, select that parameter, which adds it to the trigger or action.
+   1. In the **Send an email** action, open the **Add a parameter** list, and select the **From (Send as)** parameter.
 
-  1. In that parameter, enter your service account's email address.
-
-     For example, the **Send an email** action has an optional parameter, **From (Send as)**, which you can add to the action and provide your service account's email address.
+   1. After the parameter appears on the action, enter the service account's email address.
 
 ## Connector reference
 
