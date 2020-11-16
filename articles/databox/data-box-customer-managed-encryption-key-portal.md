@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 11/16/2020
 ms.author: alkohli
 ms.subservice: pod
 ---
@@ -18,7 +18,9 @@ Using a customer-managed key doesn't affect how data on the device is encrypted.
 
 To keep this level of control throughout the order process, use a customer-managed key when you create your order. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 
-This article shows how to change the type of encryption key for an existing Data Box order, or to change the key vault, key, identity type, or user identity that you're using for a customer-managed key, via the [Azure portal](https://portal.azure.com/). This article applies to Azure Data Box and Azure Data Box Heavy devices.
+This article shows how to change the type of encryption key for an existing Data Box order or change the customer-managed key currently in use via the [Azure portal](https://portal.azure.com/). You can change the key vault or key, or the identity type or identity used to manage the key.
+
+This article applies to Azure Data Box and Azure Data Box Heavy devices.
 
 ## Requirements
 
@@ -28,9 +30,9 @@ The customer-managed key for a Data Box order must meet the following requiremen
 
 - The key must be an RSA key of 2048 size or larger.
 
-## Change encryption key
+## Enable key
 
-To change the encryption key used for a Data Box order in the Azure portal, follow these steps:
+To enable a different encryption key for your existing Data Box order or change the customer-managed key you're currently using, follow these steps in the Azure portal:<!--Heading may need to change. For now, I left the heading as referenced in the error messages.-->
 
 1. Go to the **Overview** screen for your completed Data Box order.
 
@@ -40,9 +42,9 @@ To change the encryption key used for a Data Box order in the Azure portal, foll
 
     ![Choose encryption option](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)
 
-    If you want to switch from a customer-managed key to a Microsoft managed key, simply select **Microsoft managed key**. No other steps are needed.
+    - If you want to switch from a customer-managed key to a Microsoft managed key, simply select **Microsoft managed key**. No other steps are needed.
 
-    If you want to switch to a customer-managed key or change the key vault, key, identity type, or identity for your existing customer-managed key, complete the following steps.
+    - If you want to switch to a customer-managed key or to change the key vault, key, or identity used to manage an existing customer-managed key, do the following steps.
 
 3. If you're changing to a customer-managed key, select **Customer managed key** as the encryption type. Then select **Select a key vault and key**. If you're changing an existing key, you'll select **Change the key vault and key**.
 
@@ -54,7 +56,7 @@ To change the encryption key used for a Data Box order in the Azure portal, foll
 
      ![Select existing Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
-    - Or select **Create new** to create a new key vault. On the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults. Select **Review + Create**.
+   - Or select **Create new** to create a new key vault. On the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults. Select **Review + Create**.
 
       ![Review and create Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
@@ -94,7 +96,7 @@ To change the encryption key used for a Data Box order in the Azure portal, foll
 
     ![Key and key vault for customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
-7. Select the type of identity to use to manage the customer-managed key for this resource. You can use the **system assigned** identity that was generated during order creation or select **user assigned** and choose an identity of your own.
+8. Select the type of identity to use to manage the customer-managed key for this resource. You can use the **system assigned** identity that was generated during order creation or select **user assigned** and choose an identity of your own.
 
     A user-assigned identity is an independent resource that you can use to manage access to resources. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -110,13 +112,13 @@ To change the encryption key used for a Data Box order in the Azure portal, foll
 
     ![A selected user identity shown in Encryption type settings](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
 
- 8. Select **Save** to save the updated **Encryption type** settings.
+ 9. Select **Save** to save the updated **Encryption type** settings.
 
      ![Save customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 
-The key URL is displayed under **Encryption type**.
+    The key URL is displayed under **Encryption type**.
 
-![Customer-managed key URL](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)<!--Probably need new screen from recent order. Can't successfully save encryption settings with my subscription.-->
+    ![Customer-managed key URL](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)<!--Probably need new screen from recent order. Can you provide one? I can't create an order using CMK with the subscription I'm using.-->
 
 
 ## Troubleshoot errors
@@ -132,10 +134,10 @@ If you receive any errors related to your customer-managed key, use the followin
 | SsemUserErrorKeyVaultDetailsNotFound| Could not fetch the passkey as the associated key vault for the customer managed key could not be found. | If you deleted the key vault, you can't recover the customer-managed key.  If you migrated the key vault to a different tenant, see [Change a key vault tenant ID after a subscription move](../key-vault/general/move-subscription.md). If you deleted the key vault:<ol><li>Yes, if it is in the purge-protection duration, using the steps at [Recover a key vault](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault).</li><li>No, if it is beyond the purge-protection duration.</li></ol><br>Else if the key vault underwent a tenant migration, yes, it can be recovered using one of the below steps: <ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity = None` and then set the value back to `Identity = SystemAssigned`. This deletes and recreates the identity once the new identity has been created. Enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's Access policy.</li></ol> |
 | SsemUserErrorSystemAssignedIdentityAbsent  | Could not fetch the passkey as the customer managed key could not be found.| Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Identity is of type System assigned.</li><li>Enable Get, Wrap and Unwrap permissions to the identity in the key vault’s Access policy.</li></ol>|
 | SsemUserErrorUserAssignedLimitReached | Adding new User Assigned Identity failed as you have reached the limit on the total number of user assigned identities that can be added. | Please retry the operation with fewer user identities or remove some user assigned identities from the resource before retrying. |
-| semUserErrorKekUserIdentityNotFound | Applied a customer managed key but the user assigned identity that has access to the key was not found in the active directory. <br> Note: This is for the case when user identity is deleted from Azure.| Please try adding a different user assigned identity selected to your key vault to enable access to the customer managed key. For more information, see how to [Change encryption key](#change-encryption-key). |
+| SsemUserErrorKekUserIdentityNotFound<!--Should this be "SsemUserErrorKeyUserIdentityNotFound"?--> | Applied a customer managed key but the user assigned identity that has access to the key was not found in the active directory. <br> Note: This is for the case when user identity is deleted from Azure.| Please try adding a different user assigned identity selected to your key vault to enable access to the customer managed key. For more information, see how to [Enable the key](#enable-key). |
 | SsemUserErrorUserAssignedIdentityAbsent | Could not fetch the passkey as the customer managed key could not be found. | Could not access the customer managed key. Either the User Assigned Identity (UAI) associated with the key is deleted or the UAI type has changed. |
-| SsemUserErrorCrossTenantIdentityAccessForbidden | Managed identity access operation failed. <br> Note: This is for the scenario when subscription is moved to different tenant. Customer has to manually move the identity to new tenant. PFA mail for more details. | Please try adding a different user assigned identity selected to your key vault to enable access to the customer managed key. For more information, see how to [Change encryption key](#change-encryption-key). |
-| SsemUserErrorKeyVaultBadRequestException | Applied a customer managed key but the key access has not been granted or has been revoked, or unable to access key vault due to firewall being enabled. | Add the identity selected to your key vault to enable access to the customer managed key. If key vault has firewall enabled, switch to a system assigned identity and then add a customer managed key. For more information, see how to [Change encryption key](#change-encryption-key). |
+| SsemUserErrorCrossTenantIdentityAccessForbidden | Managed identity access operation failed. <br> Note: This is for the scenario when subscription is moved to different tenant. Customer has to manually move the identity to new tenant. PFA mail for more details. | Please try adding a different user assigned identity selected to your key vault to enable access to the customer managed key. For more information, see how to [Enable the key](#enable-key). |
+| SsemUserErrorKeyVaultBadRequestException<!--Second instance of this error code. Should this have a different error code?--> | Applied a customer managed key but the key access has not been granted or has been revoked, or unable to access key vault due to firewall being enabled. | Add the identity selected to your key vault to enable access to the customer managed key. If key vault has firewall enabled, switch to a system assigned identity and then add a customer managed key. For more information, see how to [Enable the key](#enable-key). |
 | Generic error  | Could not fetch the passkey.| This is a generic error. Contact Microsoft Support to troubleshoot the error and determine the next steps.|
 
 ## Next steps
