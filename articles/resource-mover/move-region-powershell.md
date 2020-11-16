@@ -20,7 +20,7 @@ Learn how to move Azure resources to a different region using PowerShell in Azur
 
 ## Before you start
 
-- Your Azure subscription should have access to Resource Mover, and you should have [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) or [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) permissions for the subscription.
+- Your Azure subscription should have access to Resource Mover, and you should have [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) permissions for the subscription.
 - Resource Mover doesn't track changes and upgrades, so make any required changes on resources, before you start moving them.
 - When you move resources with PowerShell,  you can't currently edit any target region settings. Modify these settings directly in the portal.
 - When you add resources to a move collection, in preparation for moving them to another region, metadata about the move is stored in a resource group that's created for the purpose. Currently this resource group can reside in the East US 2 or North Europe regions. Azure resources can be moved between any public regions using metadata present in either of these regions.
