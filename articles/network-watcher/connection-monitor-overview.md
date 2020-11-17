@@ -1,6 +1,6 @@
 ---
-title: Connection Monitor (Preview) | Microsoft Docs
-description: Learn how to use Connection Monitor (Preview) to monitor network communication in a distributed environment.
+title: Connection Monitor | Microsoft Docs
+description: Learn how to use Connection Monitor to monitor network communication in a distributed environment.
 services: network-watcher
 documentationcenter: na
 author: vinynigam
@@ -18,11 +18,11 @@ ms.author: vinigam
 ms.custom: mvc
 #Customer intent: I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
-# Network Connectivity Monitoring with Connection Monitor (Preview)
+# Network Connectivity Monitoring with Connection Monitor
 
-Connection Monitor (Preview) provides unified end-to-end connection monitoring in Azure Network Watcher. The Connection Monitor (Preview) feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
+Connection Monitor provides unified end-to-end connection monitoring in Azure Network Watcher. The Connection Monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
-Here are some use cases for Connection Monitor (Preview):
+Here are some use cases for Connection Monitor:
 
 - Your front-end web server VM communicates with a database server VM in a multi-tier application. You want to check network connectivity between the two VMs.
 - You want VMs in the East US region to ping VMs in the Central US region, and you want to compare cross-region network latencies.
@@ -30,9 +30,9 @@ Here are some use cases for Connection Monitor (Preview):
 - Your hybrid application needs connectivity to an Azure Storage endpoint. Your on-premises site and your Azure application connect to the same Azure Storage endpoint. You want to compare the latencies of the on-premises site to the latencies of the Azure application.
 - You want to check the connectivity between your on-premises setups and the Azure VMs that host your cloud application.
 
-In its preview phase, Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitoring](https://docs.microsoft.com/azure/expressroute/how-to-npm), and [Performance Monitoring](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) feature.
+Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor (Classic)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitoring](https://docs.microsoft.com/azure/expressroute/how-to-npm), and [Performance Monitoring](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) feature.
 
-Here are some benefits of Connection Monitor (Preview):
+Here are some benefits of Connection Monitor:
 
 * Unified, intuitive experience for Azure and hybrid monitoring needs
 * Cross-region, cross-workspace connectivity monitoring
@@ -43,7 +43,7 @@ Here are some benefits of Connection Monitor (Preview):
 
 ![Diagram showing how Connection Monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations](./media/connection-monitor-2-preview/hero-graphic.png)
 
-To start using Connection Monitor (Preview) for monitoring, follow these steps: 
+To start using Connection Monitor for monitoring, follow these steps: 
 
 1. Install monitoring agents.
 1. Enable Network Watcher on your subscription.
@@ -55,7 +55,7 @@ The following sections provide details for these steps.
 
 ## Install monitoring agents
 
-Connection Monitor relies on lightweight executable files to run connectivity checks.  It supports connectivity checks from both Azure environments and on-premises environments. The executable file that you use depends on whether your VM is hosted on Azure or on-premises.
+Connection Monitor relies on lightweight executable files to run connectivity checks. It supports connectivity checks from both Azure environments and on-premises environments. The executable file that you use depends on whether your VM is hosted on Azure or on-premises.
 
 ### Agents for Azure virtual machines
 
@@ -85,19 +85,19 @@ Connection Monitor monitors communication at regular intervals. It informs you o
 
 Sources can be Azure VMs or on-premises machines that have an installed monitoring agent. Destination endpoints can be Microsoft 365 URLs, Dynamics 365 URLs, custom URLs, Azure VM resource IDs, IPv4, IPv6, FQDN, or any domain name.
 
-### Access Connection Monitor (Preview)
+### Access Connection Monitor
 
 1. On the Azure portal home page, go to **Network Watcher**.
-1. On the left, in the **Monitoring** section, select **Connection Monitor (Preview)**.
-1. You see all of the connection monitors that were created in Connection Monitor (Preview). To see the connection monitors that were created in the classic experience of Connection Monitor, go to the **Connection Monitor** tab.
+1. On the left, in the **Monitoring** section, select **Connection Monitor**.
+1. You see all of the connection monitors that were created in Connection Monitor. To see the connection monitors that were created in the classic experience of Connection Monitor, go to the **Connection Monitor** tab.
     
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot showing connection monitors that were created in Connection Monitor (Preview)" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot showing connection monitors that were created in Connection Monitor" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
 
 ### Create a connection monitor
 
-In connection monitors that you create in Connection Monitor (Preview), you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP.
+In connection monitors that you create in Connection Monitor, you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP.
 
-Connection Monitor (Preview) includes the following entities:
+Connection Monitor includes the following entities:
 
 * **Connection monitor resource** – A region-specific Azure resource. All of the following entities are properties of a connection monitor resource.
 * **Endpoint** – A source or destination that participates in connectivity checks. Examples of endpoints include Azure VMs, on-premises agents, URLs, and IPs.
@@ -107,7 +107,7 @@ Connection Monitor (Preview) includes the following entities:
 
  ![Diagram showing a connection monitor, defining the relationship between test groups and tests](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-You can create a connection monitor preview using [Azure portal](connection-monitor-preview-create-using-portal.md) or [ARMClient](connection-monitor-preview-create-using-arm-client.md)
+You can create a connection monitor using [Azure portal](connection-monitor-preview-create-using-portal.md) or [ARMClient](connection-monitor-preview-create-using-arm-client.md)
 
 All sources, destinations, and test configurations that you add to a test group get broken down to individual tests. Here's an example of how sources and destinations are broken down:
 
@@ -147,7 +147,7 @@ After you create a connection monitor, sources check connectivity to destination
 
 ### Checks in a test
 
-Based on the protocol that you chose in the test configuration, Connection Monitor (Preview) runs a series of checks for the source-destination pair. The checks run according to the test frequency that you chose.
+Based on the protocol that you chose in the test configuration, Connection Monitor runs a series of checks for the source-destination pair. The checks run according to the test frequency that you chose.
 
 If you use HTTP, the service calculates the number of HTTP responses that returned a valid response code. Valid response codes can be set using PowerShell and CLI. The result determines the percentage of failed checks. To calculate RTT, the service measures the time between an HTTP call and the response.
 
@@ -160,14 +160,14 @@ Based on the data that the checks return, tests can have the following states:
 * **Pass** – Actual values for the percentage of failed checks and RTT are within the specified thresholds.
 * **Fail** – Actual values for the percentage of failed checks or RTT exceeded the specified thresholds. If no threshold is specified, then a test reaches the Fail state when the percentage of failed checks is 100.
 * **Warning** – 
-     * If threshold is specified and Connection Monitor(Preview) observes checks failed percent more than 80% of threshold,  the test is marked as warning.
-     * In the absence of specified thresholds, Connection Monitor (Preview) automatically assigns a threshold. When that threshold is exceeded, the test status changes to Warning. For round trip time in TCP or ICMP tests, the threshold is 750msec. For checks failed percent , the threshold is 10%. 
+     * If threshold is specified and Connection Monitor observes checks failed percent more than 80% of threshold,  the test is marked as warning.
+     * In the absence of specified thresholds, Connection Monitor automatically assigns a threshold. When that threshold is exceeded, the test status changes to Warning. For round trip time in TCP or ICMP tests, the threshold is 750msec. For checks failed percent , the threshold is 10%. 
 * **Indeterminate** – No data in Log Analytics Workspace.  Check metrics. 
 * **Not Running** – Disabled by disabling test group  
 
 ### Data collection, analysis, and alerts
 
-The data that Connection Monitor (Preview) collects is stored in the Log Analytics workspace. You set up this workspace when you created the connection monitor. 
+The data that Connection Monitor collects is stored in the Log Analytics workspace. You set up this workspace when you created the connection monitor. 
 
 Monitoring data is also available in Azure Monitor Metrics. You can use Log Analytics to keep your monitoring data for as long as you want. Azure Monitor stores metrics for only 30 days by default. 
 
@@ -177,7 +177,7 @@ You can [set metric-based alerts on the data](https://azure.microsoft.com/blog/m
 
 On the monitoring dashboards, you see a list of the connection monitors that you can access for your subscriptions, regions, time stamps, sources, and destination types.
 
-When you go to Connection Monitor (Preview) from Network Watcher, you can view data by:
+When you go to Connection Monitor from Network Watcher, you can view data by:
 
 * **Connection monitor** – List of all connection monitors created for your subscriptions, regions, time stamps, sources, and destination types. This view is the default.
 * **Test groups** – List of all test groups created for your subscriptions, regions, time stamps, sources, and destination types. These test groups aren't filtered by connection monitors.
@@ -193,20 +193,20 @@ You can filter a list based on:
 * **State-based filters** – Filter by the state of the connection monitor, test group, or test. See box 2 in the following image.
 * **Alert based filter** - Filter by alerts fired on the connection monitor resource. See box 3 in the following image.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Screenshot showing how to filter views of connection monitors, test groups, and tests in Connection Monitor (Preview)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Screenshot showing how to filter views of connection monitors, test groups, and tests in Connection Monitor " lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
-For example, to look at all tests in Connection Monitor (Preview) where the source IP is 10.192.64.56:
+For example, to look at all tests in Connection Monitor where the source IP is 10.192.64.56:
 1. Change the view to **Test**.
 1. In the search field, type *10.192.64.56*
 1. In **Scope** in top level filter, select **Sources**.
 
-To show only failed tests in Connection Monitor (Preview) where the source IP is 10.192.64.56:
+To show only failed tests in Connection Monitor where the source IP is 10.192.64.56:
 1. Change the view to **Test**.
 1. For the state-based filter, select **Fail**.
 1. In the search field, type *10.192.64.56*
 1. In **Scope** in top level filter, select **Sources**.
 
-To show only failed tests in Connection Monitor (Preview) where the destination is outlook.office365.com:
+To show only failed tests in Connection Monitor where the destination is outlook.office365.com:
 1. Change view to **Test**.
 1. For the state-based filter, select **Fail**.
 1. In the search field, enter *outlook.office365.com*
@@ -261,9 +261,9 @@ Use Log Analytics to create custom views of your monitoring data. All data that 
 
 #### Metrics in Azure Monitor
 
-In connection monitors that were created before the Connection Monitor (Preview) experience, all four metrics are available: % Probes Failed, AverageRoundtripMs, ChecksFailedPercent (Preview), and RoundTripTimeMs (Preview). In connection monitors that were created in the Connection Monitor (Preview) experience, data is available only for the metrics that are tagged with *(Preview)*.
+In connection monitors that were created before the Connection Monitor experience, all four metrics are available: % Probes Failed, AverageRoundtripMs, ChecksFailedPercent (Preview), and RoundTripTimeMs (Preview). In connection monitors that were created in the Connection Monitor experience, data is available only for the metrics that are tagged with *(Preview)*.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot showing metrics in Connection Monitor (Preview)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot showing metrics in Connection Monitor" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 When you use metrics, set the resource type as Microsoft.Network/networkWatchers/connectionMonitors
 
@@ -278,10 +278,10 @@ When you use metrics, set the resource type as Microsoft.Network/networkWatchers
 
 You can create metric alerts on connection monitors using the methods below 
 
-1. From Connection Monitor(Preview), during creation of Connection Monitor [using Azure portal](connection-monitor-preview-create-using-portal.md#) 
-1. From Connection Monitor (Preview), using "Configure Alerts" in the dashboard 
+1. From Connection Monitor, during creation of Connection Monitor [using Azure portal](connection-monitor-preview-create-using-portal.md#) 
+1. From Connection Monitor, using "Configure Alerts" in the dashboard 
 1. From Azure Monitor - To create an alert in Azure Monitor: 
-    1. Choose the connection monitor resource that you created in Connection Monitor (Preview).
+    1. Choose the connection monitor resource that you created in Connection Monitor.
     1. Ensure that **Metric** shows up as signal type for the connection monitor.
     1. In **Add Condition**, for the **Signal Name**, select **ChecksFailedPercent(Preview)** or **RoundTripTimeMs(Preview)**.
     1. For **Signal Type**, choose **Metrics**. For example, select **ChecksFailedPercent(Preview)**.
@@ -289,7 +289,7 @@ You can create metric alerts on connection monitors using the methods below
     1. In **Alert Logic**, fill in the following details:
         * **Condition Type**: **Static**.
         * **Condition** and **Threshold**.
-        * **Aggregation Granularity and Frequency of Evaluation**: Connection Monitor (Preview) updates data every minute.
+        * **Aggregation Granularity and Frequency of Evaluation**: Connection Monitor updates data every minute.
     1. In **Actions**, choose your action group.
     1. Provide alert details.
     1. Create the alert rule.
@@ -298,7 +298,7 @@ You can create metric alerts on connection monitors using the methods below
 
 ## Diagnose issues in your network
 
-Connection Monitor (Preview) helps you diagnose issues in your connection monitor and your network. Issues in your hybrid network are detected by the Log Analytics agents that you installed earlier. Issues in Azure are detected by the Network Watcher extension. 
+Connection Monitor helps you diagnose issues in your connection monitor and your network. Issues in your hybrid network are detected by the Log Analytics agents that you installed earlier. Issues in Azure are detected by the Network Watcher extension. 
 
 You can view issues in the Azure network in the network topology.
 
@@ -344,5 +344,5 @@ For networks whose sources are Azure VMs, the following issues can be detected:
 
 ## Next Steps
     
-   * Learn [How to create Connection Monitor (Preview) using Azure portal](connection-monitor-preview-create-using-portal.md)  
-   * Learn [How to create Connection Monitor (Preview) using ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * Learn [How to create Connection Monitor using Azure portal](connection-monitor-preview-create-using-portal.md)  
+   * Learn [How to create Connection Monitor using ARMClient](connection-monitor-preview-create-using-arm-client.md)  

@@ -1,7 +1,7 @@
 ---
-title: Create Connection Monitor Preview - Azure portal
+title: Create Connection Monitor - Azure portal
 titleSuffix: Azure Network Watcher
-description: This article describes how to create a monitor in Connection Monitor Preview by using the Azure portal.
+description: This article describes how to create a monitor in Connection Monitor by using the Azure portal.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-#Customer intent: I need to create a connection monitor preview to monitor communication between one VM and another.
+#Customer intent: I need to create a connection monitor to monitor communication between one VM and another.
 ---
-# Create a monitor in Connection Monitor Preview by using the Azure portal
+# Create a monitor in Connection Monitor by using the Azure portal
 
-Learn how to use Connection Monitor Preview to monitor communication between your resources. This article describes how to create a monitor by using the Azure portal. Connection Monitor supports hybrid and Azure cloud deployments.
+Learn how to use Connection Monitor to monitor communication between your resources. This article describes how to create a monitor by using the Azure portal. Connection Monitor supports hybrid and Azure cloud deployments.
 
 ## Before you begin 
 
-In connection monitors that you create by using Connection Monitor Preview, you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or on any other URL or IP.
+In connection monitors that you create by using Connection Monitor, you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or on any other URL or IP.
 
 Here are some definitions to get you started:
 
@@ -42,17 +42,17 @@ Here are some definitions to get you started:
 
 ## Create a connection monitor
 
-To create a monitor in Connection Monitor Preview by using the Azure portal:
+To create a monitor in Connection Monitor by using the Azure portal:
 
 1. On the Azure portal home page, go to **Network Watcher**.
-1. In the left pane, in the **Monitoring** section, select **Connection monitor (Preview)**.
+1. In the left pane, in the **Monitoring** section, select **Connection monitor**.
 
-   You'll see all the connection monitors that were created in Connection Monitor Preview. To see the connection monitors that were created in the classic Connection Monitor, go to the **Connection monitor** tab.
+   You'll see all the connection monitors that were created in Connection Monitor. To see the connection monitors that were created in the classic Connection Monitor, go to the **Connection monitor** tab.
 
-   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot that shows connection monitors created in Connection Monitor Preview.":::
+   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot that shows connection monitors created in Connection Monitor.":::
    
 	
-1. In the **Connection Monitor (Preview)** dashboard, in the upper-left corner, select **Create**.
+1. In the **Connection Monitor** dashboard, in the upper-left corner, select **Create**.
 
    
 
@@ -81,13 +81,13 @@ To create a monitor in Connection Monitor Preview by using the Azure portal:
 1. On the **Review + create** tab, review the basic information and test groups before you create the connection monitor. If you need to edit the connection monitor, you can do so by going back to the respective tabs. 
    :::image type="content" source="./media/connection-monitor-2-preview/review-create-cm.png" alt-text="Screenshot that shows the Review + create tab in Connection Monitor.":::
    > [!NOTE] 
-   > The **Review + create** tab shows the cost per month during the Connection Monitor Preview stage. Currently, the **Current Cost/Month** column shows no charge. When Connection Monitor becomes generally available, this column will show a monthly charge. 
+   > The **Review + create** tab shows the cost per month during the Connection Monitor stage. Currently, the **Current Cost/Month** column shows no charge. When Connection Monitor becomes generally available, this column will show a monthly charge. 
    > 
-   > Even during the Connection Monitor Preview stage, Log Analytics ingestion charges apply.
+   > Even during the Connection Monitor stage, Log Analytics ingestion charges apply.
 
 1. When you're ready to create the connection monitor, at the bottom of the **Review + create** tab, select **Create**.
 
-Connection Monitor Preview creates the connection monitor resource in the background.
+Connection Monitor creates the connection monitor resource in the background.
 
 ## Create test groups in a connection monitor
 
