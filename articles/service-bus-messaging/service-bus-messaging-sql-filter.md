@@ -267,7 +267,7 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
 ## Examples
 Here's an example of creating a SQL filter programmatically in C#. 
 
-### Set rule action for a SQL filter
+**Set rule action for a SQL filter**:
 
 ```csharp
 // instantiate the ManagementClient
@@ -292,13 +292,13 @@ await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionR
 
 ```
 
-### SQL filter on the sys.To property
+**SQL filter on the `sys.To` property**:
 
 ```csharp
 new SqlFilter("sys.To = 'TestMe'"));
 ```
 
-### SQL filter on custom properties
+**SQL filter on custom properties:**
 
 ```csharp
 static IDictionary<string, string[]> SubscriptionFilters = new Dictionary<string, string[]> {
