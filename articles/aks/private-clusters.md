@@ -96,6 +96,9 @@ As mentioned, virtual network peering is one way to access your private cluster.
 
 3. In scenarios where the VNet containing your cluster has custom DNS settings (4), cluster deployment fails unless the private DNS zone is linked to the VNet that contains the custom DNS resolvers (5). This link can be created manually after the private zone is created during cluster provisioning or via automation upon detection of creation of the zone using event-based deployment mechanisms (for example, Azure Event Grid and Azure Functions).
 
+> [!NOTE]
+> If you are using BYO Route Table with kubenet and BYO DNS with Private Cluster, the cluster creation will fail. You will need to associate the [RouteTable] (https://docs.microsoft.com/en-us/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) in the node resource group to the subnet after the cluster creation failed, in order to make the creation successful.
+
 ## Dependencies  
 
 * The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
