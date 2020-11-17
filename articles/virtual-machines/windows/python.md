@@ -487,7 +487,7 @@ Many aspects of deployment should be considered when deciding on a size for your
 
 ### Add a data disk to the VM
 
-Virtual machines can have one or more [data disks](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) that are stored as VHDs.
+Virtual machines can have one or more [data disks](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) that are stored as VHDs.
 
 1. To add a data disk to the virtual machine, add this function after the variables in the .py file: 
 

@@ -156,7 +156,7 @@ The required entries in an NSG, for an ASE to function, are to allow traffic:
 * UDP to all IPs on port 53
 * UDP to all IPs on port 123
 * TCP to all IPs on ports 80, 443
-* TCP to the IP service tag AzureSQL on ports 1433
+* TCP to the IP service tag `Sql` on ports 1433
 * TCP to all IPs on port 12000
 * to the ASE subnet on all ports
 
@@ -236,7 +236,7 @@ When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Az
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop

@@ -6,7 +6,7 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 10/22/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
@@ -27,15 +27,18 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
-## Supported data stores
+## Supported linked service types
 
 You can parameterize any type of linked service.
-When authoring linked service on UI,  Data Factory provides built-in parameterization experience for the following types of connectors. In linked service creation/edit blade, you can find options to new parameters and add dynamic content.
+When authoring linked service on UI,  Data Factory provides built-in parameterization experience for the following types of linked services. In linked service creation/edit blade, you can find options to new parameters and add dynamic content.
 
 - Amazon Redshift
+- Amazon S3
 - Azure Cosmos DB (SQL API)
 - Azure Database for MySQL
+- Azure Databricks
 - Azure SQL Database
+- Azure SQL Managed Instance
 - Azure Synapse Analytics (formerly SQL DW)
 - MySQL
 - Oracle
@@ -43,7 +46,7 @@ When authoring linked service on UI,  Data Factory provides built-in parameteriz
 - Generic HTTP
 - Generic REST
 
-For other types, you can parameterize the linked service by editing the JSON on UI:
+For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:
 
 - In linked service creation/edit blade -> expand "Advanced" at the bottom -> check "Specify dynamic contents in JSON format" checkbox -> specify the linked service JSON payload. 
 - Or, after you create a linked service without parameterization, in [Management hub](author-visually.md#management-hub) -> Linked services -> find the specific linked service -> click "Code" (button "{}") to edit the JSON. 

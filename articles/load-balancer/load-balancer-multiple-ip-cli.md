@@ -5,7 +5,7 @@ description: Learn how to assign multiple IP addresses to a virtual machine usin
 services: virtual-network
 documentationcenter: na
 author: asudbring
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to

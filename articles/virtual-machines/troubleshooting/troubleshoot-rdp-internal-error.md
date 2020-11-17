@@ -94,7 +94,7 @@ To begin, connect to the [Serial Console and open a PowerShell instance](./seria
         Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
         ```
 
-    3. [Update the network security group for the new port](../../virtual-network/security-overview.md) in the Azure portal RDP port.
+    3. [Update the network security group for the new port](../../virtual-network/network-security-groups-overview.md) in the Azure portal RDP port.
 
 #### Step 2: Set correct permissions on the RDP self-signed certificate
 

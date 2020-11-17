@@ -11,7 +11,7 @@ ms.author: duau
 ms.custom: seodec18
 
 ---
-# Configure a virtual network gateway for ExpressRoute using PowerShell
+# Tutorial: Configure a virtual network gateway for ExpressRoute using PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -25,8 +25,6 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Create a gateway subnet.
 > - Create Virtual Network gateway.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
@@ -90,7 +88,7 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
    ```
-1. Create the configuration for your gateway. The gateway configuration defines the subnet and the public IP address to use. In this step, you're specifying the configuration that will be used when you create the gateway. This step doesn't actually create the gateway object. Use the following sample to create your gateway configuration.
+1. Create the configuration for your gateway. The gateway configuration defines the subnet and the public IP address to use. In this step, you're specifying the configuration that will be used when you create the gateway. Use the following sample to create your gateway configuration.
 
    ```azurepowershell-interactive
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip

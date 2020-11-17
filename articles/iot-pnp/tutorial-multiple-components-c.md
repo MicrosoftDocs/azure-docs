@@ -1,6 +1,6 @@
 ---
-title: Connect IoT Plug and Play sample C device code to IoT Hub  | Microsoft Docs
-description: Build and run IoT Plug and Play sample C device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Tutorial - Connect IoT Plug and Play sample C device code to Azure IoT Hub | Microsoft Docs
+description: Tutorial - Build and run IoT Plug and Play sample C device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/22/2020
@@ -49,7 +49,7 @@ gcc --version
 
 To complete this tutorial on Windows, install the following software on your local Windows environment:
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) Visual Studio.
+* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 

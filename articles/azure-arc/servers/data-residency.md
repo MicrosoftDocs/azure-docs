@@ -2,7 +2,7 @@
 title: Data residency
 description: Data residency and information about Azure Arc enabled servers.
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 10/08/2020
 ms.custom: references_regions
 ---
 
@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 This article explains the concept of data residency and how it applies to Azure Arc enabled servers.
 
-Azure Arc enabled servers is **[available](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** in the **United States, Europe, United Kingdom, or Asia Pacific**.
+Azure Arc enabled servers is **[available](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** in the **United States, Europe, United Kingdom, Australia, and Asia Pacific**.
 
 ## Data residency
 

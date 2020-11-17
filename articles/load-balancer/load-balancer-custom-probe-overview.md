@@ -39,7 +39,7 @@ Health probes support multiple protocols. The availability of a specific health 
 
 ## <a name="probes"></a>Probe configuration
 
-Health probe configuration consists out of the following elements:
+Health probe configuration consists of the following elements:
 
 - Duration of the interval between individual probes
 - Number of probe responses which have to be observed before the probe transitions to a different state

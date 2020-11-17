@@ -287,7 +287,7 @@ See [Configure a custom Linux container for Azure App Service](configure-custom-
 [Azure Portal]: https://portal.azure.com/
 [Configure a custom domain name in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Set up staging environments in Azure App Service]: ./deploy-staging-slots.md
-[How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
+[How to: Monitor web endpoint status]: ./web-sites-monitor.md
 [Monitoring basics in Azure App Service]: ./web-sites-monitor.md
 [pipeline mode]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Scale an app in Azure App Service]: ./manage-scale-up.md

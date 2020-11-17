@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a shared query with Azure CLI"
 description: In this quickstart, you follow the steps to enable the Resource Graph extension for Azure CLI and create a shared query.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ---
 # Quickstart: Create a Resource Graph shared query using Azure CLI
@@ -102,7 +102,7 @@ _location_.
 
 1. Run the shared query in Azure CLI with the `{{shared-query-uri}}` syntax in an
    [az graph query](/cli/azure/ext/resource-graph/graph#ext-resource-graph-az-graph-query) command.
-   First, copy the `id` field from the result of the `show` command above. Replace
+   First, copy the `id` field from the result of the previous `show` command. Replace
    `shared-query-uri` text in the example with the value from the `id` field, but leave the
    surrounding `{{` and `}}` characters.
 

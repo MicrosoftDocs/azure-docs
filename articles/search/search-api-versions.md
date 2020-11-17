@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/05/2020
 ---
 
 # API versions in Azure Cognitive Search
@@ -37,7 +37,7 @@ In addition, versions of the Azure Cognitive Search .NET SDK older than [**3.0.0
 
 After this date, applications that use any of the deprecated REST API or SDK versions will no longer work and must be upgraded. As with any change of this type, we are giving 12 months' notice, so you have adequate time to adjust.
 
-To continue using Azure Cognitive Search, please migrate existing code that targets the [REST API](search-api-migration.md) to [REST API version 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) or to a newer SDK by October 15, 2020.  If you have any questions about updating to the latest version, please send mail to azuresearch_contact@microsoft.com by May 15, 2020 to ensure you have enough time to update your code.
+To continue using Azure Cognitive Search, please migrate existing code that targets the [REST API](search-api-migration.md) to [REST API version 2020-06-30](/rest/api/searchservice/) or to a newer SDK by October 15, 2020.  If you have any questions about updating to the latest version, please send mail to azuresearch_contact@microsoft.com by May 15, 2020 to ensure you have enough time to update your code.
 
 ## REST APIs
 
@@ -70,8 +70,8 @@ Create and configure a search service, and manage API keys.
 
 | Version&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Status | Description |
 |-------------------------|--------|------------------------------|
-| [Management 2020-08-01](https://docs.microsoft.com/rest/api/searchmanagement/) | Stable | Newest stable release of the Management REST APIs. Adds generally available shared private link resource support for all outbound-accessed resources except those noted in the preview version |
-| [Management 2020-08-01-Preview](https://docs.microsoft.com/rest/api/searchmanagement/index-preview) | Preview  | Currently in preview: shared private link resource support for Azure Functions and Azure Database for MySQL. |
+| [Management 2020-08-01](/rest/api/searchmanagement/) | Stable | Newest stable release of the Management REST APIs. Adds generally available shared private link resource support for all outbound-accessed resources except those noted in the preview version |
+| [Management 2020-08-01-Preview](/rest/api/searchmanagement/index-preview) | Preview  | Currently in preview: shared private link resource support for Azure Functions and Azure Database for MySQL. |
 | Management 2020-03-13  | Stable | Adds [private endpoint](service-create-private-endpoint.md) through private link, and [network IP rules](service-configure-firewall.md) for new  services. For more information, see this [swagger specification](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2020-08-01). |
 | Management 2019-10-01-Preview | Preview  | There were no preview features introduced in this list. This preview is functionally equivalent to 2020-03-13. For more information, see this [swagger specification](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/preview/2019-10-01-preview). |
 | Management 2015-08-19  | Stable | The first generally available version of the Management REST APIs. Provides service provisioning, scale up, and api-key management. For more information, see this [swagger specification](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19). |
@@ -83,8 +83,8 @@ The following  table provides links to more recent SDK versions.
 
 | SDK version | Status | Description |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11.0](/dotnet/api/overview/azure/search.documents-readme) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2020-06-30 REST API but does not yet support, geo-filters, or [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder). |
-| [Microsoft.Azure.Search 10.0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Released May 2019. Targets the Search REST api-version=2019-05-06.|
+| [Azure.Search.Documents 11](/dotnet/api/overview/azure/search.documents-readme) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2020-06-30 REST API but does not yet support, geo-filters. |
+| [Microsoft.Azure.Search 10](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Released May 2019. Targets the Search REST api-version=2019-05-06.|
 | [Microsoft.Azure.Management.Search 4.0.0](/dotnet/api/overview/azure/search/management) | Stable | Targets the Management REST api-version=2020-08-01.  |
 | Microsoft.Azure.Management.Search 3.0.0 | Stable | Targets the Management REST api-version=2015-08-19.  |
 

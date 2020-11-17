@@ -1,21 +1,13 @@
 ---
 title: Integrate Microsoft Azure with Oracle Cloud Infrastructure | Microsoft Docs
 description: Learn about solutions that integrate Oracle apps running on Microsoft Azure with databases in Oracle Cloud Infrastructure (OCI).
-services: virtual-machines-linux
-documentationcenter: ''
 author: dbakevlar
-manager: 
-tags: 
-
-ms.assetid: 
-ms.service: virtual-machines
-
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: kegorman
-ms.custom: 
+ms.reviewer: cynthn
+ 
 ---
 # Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
 
@@ -51,6 +43,7 @@ Cross-cloud connectivity is limited to the following regions:
 * Azure Canada Central (CanadaCentral) & OCI Toronto (Canada Southeast)
 * Azure West Europe (WestEurope) & OCI Amsterdam (Netherlands Northwest)
 * Azure Japan East (JapanEast) & OCI Tokyo (Japan East)
+* Azure West US (WestUS) & OCI San Jose (US West)
 
 ## Networking
 
@@ -64,7 +57,7 @@ Using ExpressRoute and FastConnect, customers can peer a virtual network in Azur
 
 Network security is a crucial component of any enterprise application, and is central to this multi-cloud solution. Any traffic going over ExpressRoute and FastConnect passes over a private network. This configuration allows for secure communication between an Azure virtual network and an Oracle virtual cloud network. You don't need to provide a public IP address to any virtual machines in Azure. Similarly, you don't need an internet gateway in OCI. All communication happens via the private IP address of the machines.
 
-Additionally, you can set up [security lists](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) on your OCI virtual cloud network and  security rules (attached to Azure [network security groups](../../../virtual-network/security-overview.md)). Use these rules to control the traffic flowing between machines in the virtual networks. Network security rules can be added at a machine level, at a subnet level, as well as at the virtual network level.
+Additionally, you can set up [security lists](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) on your OCI virtual cloud network and  security rules (attached to Azure [network security groups](../../../virtual-network/network-security-groups-overview.md)). Use these rules to control the traffic flowing between machines in the virtual networks. Network security rules can be added at a machine level, at a subnet level, as well as at the virtual network level.
 
 The [WebLogic Server Azure Applications](oracle-weblogic.md) each create a network security group pre-configured to work with WebLogic Server's port configurations.
  

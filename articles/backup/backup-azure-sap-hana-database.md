@@ -52,7 +52,7 @@ Private endpoints allow you to connect securely from servers inside a virtual ne
 
 #### NSG tags
 
-If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/security-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
+If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 
@@ -164,7 +164,12 @@ Specify the policy settings as follows:
     ![Differential backup policy](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Incremental backups aren't currently supported.
+    > Incremental backups are now supported in public preview. You can choose either a differential or an incremental as a daily backup but not both.
+7. In **Incremental Backup policy**, select **Enable** to open the frequency and retention controls.
+    * At most, you can trigger one incremental backup per day.
+    * Incremental backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
+
+    ![Incremental backup policy](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 
 7. Select **OK** to save the policy and return to the main **Backup policy** menu.
 8. Select **Log Backup** to add a transactional log backup policy,

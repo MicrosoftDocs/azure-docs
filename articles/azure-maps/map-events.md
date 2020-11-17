@@ -13,7 +13,7 @@ ms.custom: codepen, devx-track-js
 
 # Interact with the map
 
-This article shows you how to use [map events class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events). The property highlight events on the map and on different layers of the map. You can also highlight events when you interact with an HTML marker.
+This article shows you how to use [map events class](/javascript/api/azure-maps-control/atlas.map#events). The property highlight events on the map and on different layers of the map. You can also highlight events when you interact with an HTML marker.
 
 ## Interact with the map
 
@@ -112,4 +112,4 @@ See the following articles for full code examples:
 > [Using the Azure Maps Services module](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Code samples](/samples/browse/?products=azure-maps)

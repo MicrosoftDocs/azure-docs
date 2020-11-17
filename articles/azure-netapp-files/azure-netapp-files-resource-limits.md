@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/16/2020
+ms.date: 10/14/2020
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -60,7 +60,7 @@ The service dynamically adjusts the maxfiles limit for a volume based on its pro
 |    > 3 TiB but <= 4 TiB    |    80 million     |
 |    > 4 TiB                 |    100 million    |
 
-If you have already allocated at least 4 TiB of quota for a volume, you can initiate a [support request](#limit_increase) to increase the maxfiles limit beyond 100 million.
+If you have already allocated at least 4 TiB of quota for a volume, you can initiate a [support request](#limit_increase) to increase the maxfiles limit beyond 100 million. For every 100 million files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB.  For example, if you increase the maxfiles limit from 100 million files to 200 million files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
 
 ## Request limit increase <a name="limit_increase"></a> 
 

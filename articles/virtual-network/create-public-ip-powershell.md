@@ -101,7 +101,7 @@ This selection is valid in all regions and is the default selection for Standard
 
 # [**Basic SKU**](#tab/option-create-public-ip-basic)
 
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a basic static public IP address named **myStandardPublicIP** in **myResourceGroup**.  Basic Public IPs do not have the concept of availability zones.
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a basic static public IP address named **myBasicPublicIP** in **myResourceGroup**.  Basic Public IPs do not have the concept of availability zones.
 
 ```azurepowershell-interactive
 ## Variables for the command ##

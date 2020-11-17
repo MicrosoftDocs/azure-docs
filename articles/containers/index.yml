@@ -45,10 +45,10 @@ conceptualContent:
         - url: /visualstudio/containers/overview-local-process-kubernetes
           itemType: concept
           text: How Local Process with Kubernetes works
-        - url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+        - url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
           itemType: how-to-guide
           text: Use Local Process with Kubernetes with Visual Studio Code
-        - url: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
+        - url: /visualstudio/containers/bridge-to-kubernetes
           itemType: how-to-guide
           text: Use Local Process with Kubernetes with Visual Studio
     # Card
@@ -66,10 +66,10 @@ conceptualContent:
         - url: ../app-service/quickstart-custom-container.md
           itemType: get-started
           text: Run a custom Windows container
-        - url: ../app-service/containers/quickstart-docker.md
+        - url: ../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux
           itemType: quickstart 
           text: Run a custom Linux container
-        - url: ../app-service/containers/quickstart-multi-container.md
+        - url: ../app-service/quickstart-multi-container.md
           itemType: quickstart 
           text: Create a Linux multi-container app
       # footerLink (optional)
@@ -157,7 +157,7 @@ conceptualContent:
           text: Create an Azure Red Hat OpenShift cluster
       # footerLink (optional)
       footerLink:
-        url: /azure/openshift/ 
+        url: ../openshift/index.yml
         text: See more
     # Card
     - title: Serverless application development

@@ -27,7 +27,7 @@ Microsoft Azure Media Services can be used to encode many media source file form
 In Media Services, a [streaming endpoint](streaming-endpoint-concept.md) (origin) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app. It uses one of the common streaming media protocols mentioned in the following section. *Dynamic packaging* is a feature that comes standard on all streaming endpoints.
 
 > [!NOTE]
-> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [live events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, transforms and jobs), use the [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [live events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, transforms and jobs), use the [REST API](/rest/api/media/), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## To prepare your source files for delivery
 
@@ -85,7 +85,7 @@ The following steps show a common Media Services streaming workflow where dynami
 1. [Upload an input file](job-input-from-http-how-to.md) such as a MP4, QuickTime/MOV, or other supported file format. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Standard Encoder](media-encoder-standard-formats.md).
 1. [Encode](#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set.
 
-    If you already have encoded files and just want to copy and stream the files, use: [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) and [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) APIs. A new MP4 file with a streaming manifest (.ism file) will be created as a result.
+    If you already have encoded files and just want to copy and stream the files, use: [CopyVideo](/rest/api/media/transforms/createorupdate#copyvideo) and [CopyAudio](/rest/api/media/transforms/createorupdate#copyaudio) APIs. A new MP4 file with a streaming manifest (.ism file) will be created as a result.
 1. Publish the output asset that contains the adaptive bitrate MP4 set. You publish by creating a [streaming locator](streaming-locators-concept.md).
 1. Build URLs that target different formats (HLS, MPEG-DASH, and Smooth Streaming). The *streaming endpoint* would take care of serving the correct manifest and requests for all these different formats.
     

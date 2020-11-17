@@ -5,10 +5,12 @@ ms.date: "12/10/2019"
 ms.topic: "conceptual"
 description: "Learn how to configure Azure Dev Spaces to use a custom traefik ingress controller and configure HTTPS using that ingress controller"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Use a custom traefik ingress controller and configure HTTPS
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 This article shows you how to configure Azure Dev Spaces to use a custom traefik ingress controller. This article also shows you how to configure that custom ingress controller to use HTTPS.
 
@@ -46,7 +48,7 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 Create a Kubernetes namespace for the traefik ingress controller and install it using `helm`.
 
 > [!NOTE]
-> If your AKS cluster does not have RBAC enabled, remove the *--set rbac.enabled=true* parameter.
+> If your AKS cluster does not have Kubernetes RBAC enabled, remove the *--set rbac.enabled=true* parameter.
 
 ```console
 kubectl create ns traefik
@@ -216,7 +218,7 @@ kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 Remove the previous *traefik* *ClusterRole* and *ClusterRoleBinding*, then upgrade traefik to use HTTPS using `helm`.
 
 > [!NOTE]
-> If your AKS cluster does not have RBAC enabled, remove the *--set rbac.enabled=true* parameter.
+> If your AKS cluster does not have Kubernetes RBAC enabled, remove the *--set rbac.enabled=true* parameter.
 
 ```console
 kubectl delete ClusterRole traefik

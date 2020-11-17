@@ -2,7 +2,7 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: jingwang
 ---
 
@@ -54,6 +54,7 @@ ms.author: jingwang
 | **NoSQL**             | [Cassandra](../articles/data-factory/connector-cassandra.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Couchbase (Preview)](../articles/data-factory/connector-couchbase.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [MongoDB](../articles/data-factory/connector-mongodb.md)     | ✓/−                                                          |                                                              |                                                              |                                                              |                                                              |
+| &nbsp;                | [MongoDB Atlas](../articles/data-factory/connector-mongodb-atlas.md)     | ✓/−                                                          |                                                              |                                                              |                                                              |                                                              |
 | **File**              | [Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [File System](../articles/data-factory/connector-file-system.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |
 | &nbsp;                | [FTP](../articles/data-factory/connector-ftp.md)             | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |

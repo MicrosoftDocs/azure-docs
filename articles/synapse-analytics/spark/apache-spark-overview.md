@@ -13,7 +13,7 @@ ms.reviewer: euang
 
 # Apache Spark in Azure Synapse Analytics
 
-Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure a Spark pool (preview) in Azure. Spark pools in Azure Synapse are compatible with Azure Storage and Azure Data Lake Generation 2 Storage. So you can use Azure Spark pools to process your data stored in Azure.
+Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure a serverless Apache Spark pool (preview) in Azure. Spark pools in Azure Synapse are compatible with Azure Storage and Azure Data Lake Generation 2 Storage. So you can use Spark pools to process your data stored in Azure.
 
 ![Spark: a unified framework](./media/apache-spark-overview/spark-overview.png)
 
@@ -40,7 +40,7 @@ Spark pools in Azure Synapse offer a fully managed Spark service. The benefits o
 
 Spark pools in Azure Synapse include the following components that are available on the pools by default.
 
-- [Spark Core](https://spark.apache.org/docs/latest/). Includes Spark Core, Spark SQL, GraphX, and MLlib.
+- [Spark Core](https://spark.apache.org/docs/2.4.5/). Includes Spark Core, Spark SQL, GraphX, and MLlib.
 - [Anaconda](https://docs.continuum.io/anaconda/)
 - [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
 - [Nteract notebook](https://nteract.io/)
@@ -76,7 +76,7 @@ Use the following articles to learn more about Apache Spark in Synapse Analytics
 - [Quickstart: Create a Spark pool in Azure Synapse](../quickstart-create-apache-spark-pool-portal.md)
 - [Quickstart: Create an Apache Spark notebook](../quickstart-apache-spark-notebook.md)
 - [Tutorial: Machine learning using Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
-- [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
+- [Apache Spark official documentation](https://spark.apache.org/docs/2.4.5/)
 
 > [!NOTE]
 > Some of the official Apache Spark documentation relies on using the spark console, this is not available on Azure Synapse Spark, use the notebook or IntelliJ experiences instead

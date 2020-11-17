@@ -21,8 +21,8 @@ ms.date: 01/10/2018
 > * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 > * [Spark Activity](data-factory-spark.md)
-> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (classic) Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (classic) Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
 > * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
@@ -230,14 +230,14 @@ The pipeline in this example has only one activity that is of type: HDInsightMap
 ## Run Spark programs
 You can use MapReduce activity to run Spark programs on your HDInsight Spark cluster. See [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) for details.  
 
-[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
 [cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [adfgetstartedmonitoring]:data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines 
 
-[Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[Developer Reference]: /previous-versions/azure/dn834987(v=azure.100)
 [Azure Portal]: https://portal.azure.com
 
 ## See Also
@@ -246,4 +246,3 @@ You can use MapReduce activity to run Spark programs on your HDInsight Spark clu
 * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 * [Invoke Spark programs](data-factory-spark.md)
 * [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
-

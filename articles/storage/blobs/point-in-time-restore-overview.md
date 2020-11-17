@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Point-in-time restore for block blobs

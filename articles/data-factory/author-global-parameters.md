@@ -47,7 +47,7 @@ For most use cases, it is recommended to include global parameters in the ARM te
 
 ![Include in ARM template](media/author-global-parameters/include-arm-template.png)
 
-Adding global parameters to the ARM template adds a factory-level setting that can override other factory-level settings such as a customer-managed key or git configuration in other environments. If you have these settings enabled in an elevated environment such as UAT or PROD, it's better to deploy global parameters via a PowerShell script in the steps highlighted below.
+Adding global parameters to the ARM template adds a factory-level setting that will override other factory-level settings such as a customer-managed key or git configuration in other environments. If you have these settings enabled in an elevated environment such as UAT or PROD, it's better to deploy global parameters via a PowerShell script in the steps highlighted below.
 
 ### Deploying using PowerShell
 

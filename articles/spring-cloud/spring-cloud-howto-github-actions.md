@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-cloud
 GitHub Actions support an automated software development lifecycle workflow. With GitHub Actions for Azure Spring Cloud you can create workflows in your repository to build, test, package, release, and deploy to Azure. 
 
 ## Prerequisites
-This example requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+This example requires the [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 ::: zone pivot="programming-language-csharp"
 ## Set up GitHub repository and authenticate
@@ -284,7 +284,7 @@ jobs:
 ```
 
 ## Deploy with Maven Plugin
-Another option is to use the [Maven Plugin](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart) for deploying the Jar and updating App settings. The command `mvn azure-spring-cloud:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
+Another option is to use the [Maven Plugin](./spring-cloud-quickstart.md) for deploying the Jar and updating App settings. The command `mvn azure-spring-cloud:deploy` is idempotent and will automatically create Apps if needed. You don't need to create corresponding apps in advance.
 
 ```
 name: AzureSpringCloud
@@ -335,5 +335,5 @@ If your action runs in error, for example, if you haven't set the Azure credenti
 ## Next steps
 
 * [Key Vault for Spring Cloud GitHub actions](./spring-cloud-github-actions-key-vault.md)
-* [Azure Active Directory service principals](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az-ad-sp-create-for-rbac)
+* [Azure Active Directory service principals](/cli/azure/ad/sp?preserve-view=true&view=azure-cli-latest#az-ad-sp-create-for-rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)

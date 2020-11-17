@@ -168,5 +168,5 @@ HDInsight Enterprise Security Package has the following roles:
 
 ## Next steps
 
-- For configuring a HDInsight cluster with Enterprise Security Package, see [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md).
+- For configuring a HDInsight cluster with Enterprise Security Package, see [Configure HDInsight clusters with ESP](./apache-domain-joined-configure-using-azure-adds.md).
 - For configuring Hive policies and run Hive queries, see [Configure Apache Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md).

@@ -74,7 +74,7 @@ In comparison to other tuning options such as scaling and statistics management,
 
 **Need different data distribution strategy for faster query performance**
 
-SQL pool is a distributed massively parallel processing (MPP) system.   Data in a SQL pool table is distributed across 60 nodes using one of three [distribution strategies](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin, or replicated).  
+Synapse SQL is a distributed query processing system.  Data in a SQL table is distributed across 60 nodes using one of three [distribution strategies](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin, or replicated).   
 
 The data distribution is specified at the table creation time and stays unchanged until the table is dropped. Materialized view being a virtual table on disk supports hash and round_robin data distributions.  Users can choose a data distribution that is different from the base tables but optimal for the performance of queries that use the views most.  
 

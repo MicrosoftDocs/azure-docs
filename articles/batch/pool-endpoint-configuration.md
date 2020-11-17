@@ -14,7 +14,7 @@ In your environment, you might need to restrict or disable these default externa
 ## About the pool endpoint configuration
 The endpoint configuration consists of one or more [network address translation (NAT) pools](/rest/api/batchservice/pool/add#inboundnatpool) of frontend ports. (Do not confuse a NAT pool with the Batch pool of compute nodes.) You set up each NAT pool to override the default connection settings on the pool's compute nodes. 
 
-Each NAT pool configuration includes one or more [network security group (NSG) rules](/rest/api/batchservice/pool/add#networksecuritygrouprule). Each NSG rule allows or denies certain network traffic to the endpoint. You can choose to allow or deny all traffic, traffic identified by a [service tag](../virtual-network/security-overview.md#service-tags) (such as "Internet"), or traffic from specific IP addresses or subnets.
+Each NAT pool configuration includes one or more [network security group (NSG) rules](/rest/api/batchservice/pool/add#networksecuritygrouprule). Each NSG rule allows or denies certain network traffic to the endpoint. You can choose to allow or deny all traffic, traffic identified by a [service tag](../virtual-network/network-security-groups-overview.md#service-tags) (such as "Internet"), or traffic from specific IP addresses or subnets.
 
 ### Considerations
 * The pool endpoint configuration is part of the pool's [network configuration](/rest/api/batchservice/pool/add#networkconfiguration). The network configuration can optionally include settings to join the pool to an [Azure virtual network](batch-virtual-network.md). If you set up the pool in a virtual network, you can create NSG rules that use address settings in the virtual network.
@@ -116,4 +116,4 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 ## Next steps
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
-- For more information about NSG rules in Azure, see [Filter network traffic with network security groups](../virtual-network/security-overview.md).
+- For more information about NSG rules in Azure, see [Filter network traffic with network security groups](../virtual-network/network-security-groups-overview.md).

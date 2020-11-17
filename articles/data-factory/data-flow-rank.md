@@ -16,6 +16,8 @@ ms.date: 10/05/2020
 
 Use the rank transformation to generate an ordered ranking based upon sort conditions specified by the user. 
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GGJo]
+
 ## Configuration
 
 ![Rank settings](media/data-flow/rank-configuration.png "Rank settings")

@@ -7,7 +7,7 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with an Azure Resource Manager template
