@@ -13,15 +13,15 @@ ms.date: 11/17/2020
 
 # JavaScript code samples for Azure Cognitive Search
 
-Find JavaScript code samples that demonstrate the features and functionality of Azure Cognitive Search. The primary repositories are as follows:
+Learn about the JavaScript code samples that demonstrate the features and functionality of Azure Cognitive Search. The primary repositories are as follows:
 
 | Repository | Description |
 |------------|-------------|
-| [azure-sdk-for-js/tree/master/sdk/search/search-documents](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents) | Targeted samples that ship with the Azure.Search.Documents client library in the Azure SDK for JavaScript and TypeScript. You can also review [unit tests](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) for the client library to see how various APIs are called. |
+| [azure-sdk-for-js/tree/master/sdk/search/search-documents](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents) | Samples produced by the Azure SDK team that ship with the Azure.Search.Documents client library in the SDK. You can also review [unit tests](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) for the client library to see how various APIs are called. |
 | [Azure-Samples/azure-search-javascript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples) | Code samples that accompany how-to articles, including [Quickstart: Create a search index in JavaScript](search-get-started-javascript.md).|
 
 > [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=javascript&products=azure-cognitive-search) to search for samples in Github, filtered by product, service, and language
+> Try the [Samples browser](/samples/browse/?languages=csharp&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
 
 ## JavaScript SDK samples
 
@@ -47,7 +47,7 @@ The SDK also provides TypeScript examples, listed here for your convenience.
 | [indexers](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Demonstrates how to create, update, get, list, reset and delete [indexers](search-indexer-overview.md).|
 | [skillSet](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   Demonstrates how to create, update, get, list, and delete [skillsets](cognitive-search-working-with-skillsets.md) that are attached indexers, and that perform AI-based enrichment during indexing. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Demonstrates how to create, update, get, list, and delete [synonym maps](search-synonyms.md).  |
-| [Queries](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.js) | Queries are read-only. This sample query executes against a public index hosted by Microsoft.  |
+| [Queries](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.js) | Demonstrates query execution against a read-only public index hosted by Microsoft.  |
 
 ## Documentation samples
 

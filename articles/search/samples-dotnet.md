@@ -13,15 +13,13 @@ ms.date: 11/17/2020
 
 # .NET (C#) code samples for Azure Cognitive Search
 
-Find C# code samples that demonstrate the features and functionality of Azure Cognitive Search.
-
-The primary repositories are as follows:
+Learn about the C# code samples that demonstrate the features and functionality of Azure Cognitive Search. The primary repositories are as follows:
 
 | Repository | Description |
 |------------|-------------|
-| [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Code samples that accompany how-to articles, including [How to use the .NET client library](search-howto-dotnet-sdk.md).|
-| [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) | Code samples that accompany quickstarts and tutorials.|
-| [azure-sdk-for-net/sdk/search/Azure.Search.Documents/samples/](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/samples) | Targeted samples that ship with the Azure.Search.Documents client library in the Azure .NET SDK. You can also review [unit tests](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/tests) for the client library to see how various APIs are called. |
+| [azure-sdk-for-net/sdk/search/Azure.Search.Documents/samples/](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/samples) | Samples produced by the Azure SDK team that ship with the Azure.Search.Documents client library in the SDK. You can also review [unit tests](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/tests) for the client library to see how various APIs are called. |
+| [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Samples that accompany how-to articles in the documentation, including [How to use the .NET client library](search-howto-dotnet-sdk.md).|
+| [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) | Samples that accompany quickstarts and tutorials in the documentation.|
 
 > [!Tip]
 > Try the [Samples browser](/samples/browse/?languages=csharp&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
@@ -51,7 +49,7 @@ The following samples have an associated article in [Azure Cognitive Search docu
 | [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | Synonym lists are used for query expansion, providing matchable  terms that are external to an index. This sample is included in [Example: Add synonyms in C#](search-synonyms-tutorial-sdk.md). |
 | [DotNetToIndexers](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) | Source code behind indexer-related snippets in various articles. This example shows how to configure an indexer that has a schedule, field mappings, and parameters.  |
 | [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)  | Source code for [How to configure customer-managed keys for data encryption](search-security-manage-encryption-keys.md) |
-| [Create your first app in C#](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11) | A web page that fronts the sample Hotels index, demonstrating basic search, pagination, autocomplete and suggested queries, facets, and filters. For more information, see [Tutorial: Create your first search app](tutorial-csharp-create-first-app.md). |
+| [Create your first app in C#](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11) |  Source code for [Tutorial: Create your first search app](tutorial-csharp-create-first-app.md). While most samples are console applications, this MVC sample uses a web page to front the sample Hotels index, demonstrating basic search, pagination, autocomplete and suggested queries, facets, and filters. |
 | [multiple-data-sources](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources)  | Source code for [Tutorial: Index from multiple data sources](tutorial-multiple-data-sources.md). |
 |  [optimize-data-indexing](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) | Source code for [Tutorial: Optimize indexing with the push API](tutorial-optimize-indexing-push-api.md).  |
 | [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/tutorial-ai-enrichment)  | Source code for [Tutorial: AI-generated searchable content from Azure blobs using the .NET SDK](cognitive-search-tutorial-blob-dotnet.md).  |
@@ -62,5 +60,5 @@ The following samples have an associated article in [Azure Cognitive Search docu
 |---------|-------------|
 | [azure-search-power-skills](https://github.com/Azure-Samples/azure-search-power-skills)  | Source code for consumable custom skills that you can incorporate in your won solutions.  |
 | [Knowledge Mining Solution Accelerator](https://docs.microsoft.com/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Includes templates, support files, and analytical reports to help you prototype an end-to-end knowledge mining solution.  |
-| [Covid-19 Search App repository](https://github.com/liamca/covid19search) | Source Code Repository for the Cognitive Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
+| [Covid-19 Search App repository](https://github.com/liamca/covid19search) | Source code repository for the Cognitive Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
 | [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Learn more about the [JFK solution](https://www.microsoft.com/ai/ai-lab-jfk-files). |
