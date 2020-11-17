@@ -33,7 +33,7 @@ To see how Azure Lighthouse completely maps to the Azure Security Benchmark, see
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; The Azure Lighthouse service does not have any resources which would deploy into a virtual network, and does not allows for its management endpoints to be secured via Private Link. The Azure Lighthouse service simply provides delegated resource management capabilities and a cross-tenant experience for enterprise IT organizations managing multiple tenants.
+**Guidance**: Not applicable; The Azure Lighthouse service does not have any resources which would deploy into a virtual network, and does not allows for its management endpoints to be secured via Private Link. The Azure Lighthouse service simply provides delegated resource management capabilities and a cross-tenant experience for enterprise IT organizations managing Azure resources from multiple tenants.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -141,6 +141,8 @@ Microsoft’s best practice recommendations. Use the score to gauge how closely 
 
 Note that Azure AD supports external identity that allow users without a Microsoft account to sign-in to their applications and resources with their external identity.
 
+With Azure Lighthouse, designated users in a managing tenant have an Azure built-in role which lets them access delegated subscriptions and/or resource groups in a customer's tenant. All built-in roles are currently supported except for Owner or any built-in roles with DataActions permission. The User Access Administrator role is supported only for limited use in assigning roles to managed identities. Custom roles and classic subscription administrator roles are not supported.
+
 - [Tenancy in Azure Active Directory](../../active-directory/develop/single-and-multi-tenant-apps.md) 
 
 - [How to create and configure an Azure AD instance](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
@@ -158,14 +160,25 @@ Note that Azure AD supports external identity that allow users without a Microso
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40221).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Azure managed identities can authenticate to Azure services and resources that support Azure AD authentication. Authentication is enabled through pre-defined access grant rules, avoiding hard-coded credentials in source code or configuration files. With Azure Lighthouse, users with the User Access Administrator role on a customer's subscription can create a managed identity in that customer's tenant. While this role is not generally supported with Azure Lighthouse, it can be used in this specific scenario, allowing the users with this permission to assign one or more specific built-in roles to managed identities.
 
-**Guidance**: Not applicable; Azure Lighthouse does not use any identities or manage any secrets for identities.
+For services that do not support managed identities, use Azure AD to create a service principal with restricted permissions at the resource level instead. Azure Lighthouse allows service principals to access customer resources according to the roles they are granted during the onboarding process. It is recommended to configure service principals with certificate credentials and fall back to client secrets. In both cases, Azure Key Vault can be used in conjunction with Azure managed identities, so that the runtime environment (such as an Azure function) can retrieve the credential from the key vault.
+
+- [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md)
+
+- [Services that support managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
+
+- [Azure service principal](/powershell/azure/create-azure-service-principal-azureps)
+
+- [Create a service principal with certificates](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+
+- [Use Azure Key Vault for security principal registration](../../key-vault/general/authentication.md#authorize-a-security-principal-to-access-key-vault)
+
+- [Create a user who can assign roles to a managed identity in a customer tenant](../../lighthouse/how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
@@ -188,14 +201,13 @@ Note that Azure AD supports external identity that allow users without a Microso
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40223).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Require Multi-Factor Authentication (MFA) for all users in your managing tenant, including users who will have access to delegated customer resources. We suggest that you ask your customers to implement MFA in their tenants as well.
 
-**Guidance**: Not applicable; Azure Lighthouse does not provide capability to support strong authentication.
+- [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### IM-5: Monitor and alert on account anomalies
 
@@ -216,14 +228,19 @@ Note that Azure AD supports external identity that allow users without a Microso
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40225).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Azure Lighthouse does not support capability conditional access for delegated customer resources. In the managing tenant, use Azure AD conditional access for more granular access control based on user-defined conditions, such as requiring user logins from certain IP ranges to using Multi-Factor Authentication (MFA). A granular authentication session management can also be used through Azure AD conditional access policy for different use cases. 
 
-**Guidance**: Not applicable; Azure Lighthouse does not support capability conditional access.
+You should require MFA for all users in your managing tenant, including users who will have access to delegated customer resources. We suggest that you ask your customers to implement MFA in their tenants as well.
+
+- [Azure Conditional Access overview](../../active-directory/conditional-access/overview.md)
+
+- [Common Conditional Access policies](../../active-directory/conditional-access/concept-conditional-access-policy-common.md)
+
+- [Configure authentication session management with Conditional Access](../../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### IM-7: Eliminate unintended credential exposure
 
@@ -262,14 +279,17 @@ Note that Azure AD supports external identity that allow users without a Microso
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40227).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Limit the number of highly privileged user accounts, and protect these accounts at an elevated level. A Global Administrator account is not required to enable and use Azure Lighthouse.
 
-**Guidance**: Not applicable; Azure Lighthouse does not use any administrative accounts.
+To access tenant-level Activity Log data, an account must be assigned the Monitoring Reader Azure built-in role at root scope (/). Because the Monitoring Reader role at root scope, is a broad level of access, we recommend that you assign this role to a service principal account, rather than to an individual user or to a group. This assignment must be performed by a user who has the Global Administrator role with additional elevated access. This elevated access should be added immediately before making the role assignment, then removed when the assignment is complete. 
+
+- [Administrator role permissions in Azure AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+
+- [Assigning access to monitor tenant-level Activity Log data](../../lighthouse/how-to/monitor-delegation-changes.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### PA-2: Restrict administrative access to business-critical systems
 
@@ -299,13 +319,19 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 **Guidance**: Azure Lighthouse uses Azure Active Directory (Azure AD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
 
+Customers can review the level of access granted to users in the managing tenant via Azure Lighthouse in the Azure portal. They can remove this access at any time.
+
 In addition, Azure Privileged Identity Management can also be configured to alert when an excessive number of administrator accounts are created, and to identify administrator accounts that are stale or improperly configured.
 
 Note: that some Azure services support local users and roles which not managed through Azure AD. You will need to manage these users separately.
 
-- [Create an access review of Azure resource roles in Privileged Identity Management(PIM)](../../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
+- [Create an access review of Azure resource roles in Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
 
-- [How to use Azure AD identity and access reviews](/azure/active-directory/governance/access-reviews-overvie)
+- [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
+
+- [Viewing the Service providers page in the Azure portal](../../lighthouse/how-to/view-manage-service-providers.md)
+
+- [Removing access to a delegation](../../lighthouse/how-to/remove-delegation.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -333,7 +359,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 **Guidance**: Azure Lighthouse is integrated with Azure Active Directory (Azure AD)  to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
 
-- [What are Azure AD access reviews](/azure/active-directory/governance/access-reviews-overview) 
+- [What are Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md) 
 
 - [What is Azure AD entitlement management](../../active-directory/governance/entitlement-management-overview.md)
 
@@ -360,15 +386,21 @@ You should ensure that the credentials (such as password, certificate, or smart 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40233).
 
-**Guidance**: Azure Lighthouse is integrated with Azure role-based access control (RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically.
+**Guidance**: Azure Lighthouse is integrated with Azure role-based access control (RBAC) to manage its resources. Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these built-in roles to users, groups, service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically. Use built-in roles to allocate permission and only create custom roles when required.
 
-Use built-in roles to allocate permission and only create custom role when required.
+Azure Lighthouse allows access to delegated customer resources using Azure built-in roles. In most case, you'll want to assign these roles to a group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change.
+
+To delegate customer resources to a managing tenant, a deployment must be done by a non-guest account in the customer's tenant who has the Owner built-in role for the subscription being onboarded (or which contains the resource groups that are being onboarded).
 
 - [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) 
 
 - [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md) 
 
-- [How to use Azure AD identity and access reviews](/azure/active-directory/governance/access-reviews-overview)
+- [How to use Azure AD identity and access reviews](../../active-directory/governance/access-reviews-overview.md)
+
+- [Understand tenants, users, and roles in Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md)
+
+- [How to apply the principle of least privilege to Azure Lighthouse](../../lighthouse/concepts/recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege)
 
 **Azure Security Center monitoring**: Yes
 
@@ -566,14 +598,23 @@ Note: Additional permissions might be required to get visibility into workloads 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40246).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Through Azure Lighthouse, you can monitor your customers' Azure resources for potential threats and anomalies. Focus on getting high quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
 
-**Guidance**: Not applicable, Azure Lighthouse does not provide native capabilities to monitor security threats related to its resources.
+Use the Azure Security Center built-in threat detection capability, which is based on monitoring Azure service telemetry and analyzing service logs. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the system and copies the data to your workspace for analysis. 
+
+In addition, use Azure Sentinel to build analytics rules, which hunt threats that match specific criteria across your customer's environment. The rules generate incidents when the criteria are matched, so that you can investigate each incident. Azure Sentinel can also import third party threat intelligence to enhance its threat detection capability. 
+
+- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
+
+- [Azure Security Center security alerts reference guide](../../security-center/alerts-reference.md)
+
+- [Create custom analytics rules to detect threats](../../sentinel/tutorial-detect-threats-custom.md)
+
+- [Manage Azure Sentinel workspaces at scale](../../lighthouse/how-to/manage-sentinel-workspaces.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
@@ -589,11 +630,15 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources. 
 
+Azure Lighthouse lets you 
+
 - [Audit activity reports in the Azure Active Directory](../../active-directory/reports-monitoring/concept-audit-logs.md) 
 
 - [Enable Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
+
+- [Enhanced services and scenarios with Azure Lighthouse](../../lighthouse/concepts/cross-tenant-management-experience.md#enhanced-services-and-scenarios)
 
 **Azure Security Center monitoring**: Yes
 
@@ -620,9 +665,17 @@ Azure Security Center can also alert on certain suspicious activities such as ex
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Azure Lighthouse resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
+With Azure Lighthouse, you can use Azure Monitor Logs in a scalable way across the customer tenants you're managing. Create Log Analytics workspaces directly in the customer tenants so that customer data remains in their tenants rather than being exported into yours. This also allows centralized monitoring of any resources or services supported by Log Analytics, giving you more flexibility on what types of data you monitor.
+
+Customers who have delegated subscriptions for Azure Lighthouse can view Azure Activity log data to see all actions taken. This gives customers full visibility into operations that service providers are performing, along with operations done by users within the customer's own Azure Active Directory (Azure AD) tenant.
+
 - [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
 
 - [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md)
+
+- [Monitor delegated resources at scale](../../lighthouse/how-to/monitor-at-scale.md)
+
+- [View service provider activity](../../lighthouse/how-to/view-service-provider-activity.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -639,11 +692,21 @@ Ensure you are integrating Azure Activity logs into your central logging. Ingest
 
 In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.
 
+With Azure Lighthouse, you can use Azure Monitor Logs in a scalable way across the customer tenants you're managing. Create Log Analytics workspaces directly in the customer tenants so that customer data remains in their tenants rather than being exported into yours. This also allows centralized monitoring of any resources or services supported by Log Analytics, giving you more flexibility on what types of data you monitor.
+
+Customers who have delegated subscriptions for Azure Lighthouse can view Azure Activity log data to see all actions taken. This gives customers full visibility into operations that service providers are performing, along with operations done by users within the customer's own Azure Active Directory (Azure AD) tenant.
+
 Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
 - [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
 
-- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
+- [Monitor delegated resources at scale](../../lighthouse/how-to/monitor-at-scale.md)
+
+- [View service provider activity](../../lighthouse/how-to/view-service-provider-activity.md)
+
+- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md) 
+
+- [Manage Azure Sentinel workspaces at scale](../../lighthouse/how-to/manage-sentinel-workspaces.md)
 
 **Azure Security Center monitoring**: Not applicable
 
