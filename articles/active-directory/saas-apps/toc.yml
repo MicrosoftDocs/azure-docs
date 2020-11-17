@@ -2225,6 +2225,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
+      - name: Visibly
+        href: visibly-provisioning-tutorial.md
       - name: Visitly
         href: visitly-provisioning-tutorial.md
       - name: Webroot Security Awareness Training
