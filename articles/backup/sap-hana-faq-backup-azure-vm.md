@@ -120,6 +120,43 @@ Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1
 
 Yes, you can use streaming backups triggered on a HANA database running on SLES to restore it to an RHEL HANA system and vice versa. That is, cross OS restore is possible using streaming backups. However, you'll have to ensure that the HANA system you want to restore to, and the HANA system used for restore, are both compatible for restore according to SAP. Refer to SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to see which restore types are compatible.
 
+## Policy
+
+### Different options available during creation of a new policy for SAP HANA backup
+
+Before creating a policy, one should be clear on the requirements of RPO and RTO and its relevant cost implications.
+
+RPO (Recovery-point-objective) indicates how much data loss is OK for the user/customer. This is determined by the log backup frequency. More frequent log backups indicate lower RPO and the minimum value supported by Azure Backup service is 15 minutes i.e., log backup frequency can be 15 minutes or higher.
+
+RTO (Recovery-time-objective) indicates how fast the data should be restored to the last available point-in-time after a data loss scenario. This depends on the recovery strategy employed by HANA which is usually dependent on how many files are required for restore. This has cost implications as well and the following table should help in understanding all scenarios and their implications.
+
+|Backup Policy  |RTO  |Cost  |
+|---------|---------|---------|
+|Daily Full + logs     |   Fastest since we need only one full copy + required logs for point-in-time restore      |    Costliest option since a full copy is taken daily and so more and more data is accumulated in backend until the retention time   |
+|Weekly Full + daily differential + logs     |   Slower than above option but faster than below since we require one full copy + one differential copy + logs for point-in-time restore      |    Less expensive option since the daily differential is usually smaller than full and a full copy is taken only once a week      |
+|Weekly Full + daily incremental + logs     |  Slowest since we need one full copy + 'n' incrementals + logs for point-in-time recovery       |     Least expensive option since the daily incremental will be smaller than differential and a full copy is taken only weekly    |
+
+> [!NOTE]
+> The above options are the most common but not the only options. For example, one can have a weekly full backup + differentials twice a week + logs.
+
+Therefore, one can select the policy variant based on RPO and RTO objectives and cost considerations.
+
+### Impact of modifying a policy
+
+A few principles should be kept in mind while determining the impact of switching a backup item's policy from Policy 1 (P1) to Policy 2 (P2) or of editing Policy 1 (P1).
+
+- All changes are also applied retroactively. The latest backup policy is applied on the recovery points taken earlier as well. For example, assume that the daily full retention is 30 days and 10 recovery points were taken according to the currently active policy. If the daily full's retention is changed to 10 days, then the previous point's expiry time is also recalculated as start time + 10 days and deleted if they are expired.
+- The scope of change also includes day of backup, type of backup along with retention. For example: If a policy is changed from daily full to weekly full on Sundays, all earlier fulls which are not on Sundays will be marked for deletion.
+- A parent is not deleted until the child is active/not-expired. Every backup type has an expiration time as per the currently active policy. But a full backup type is considered as parent to subsequent 'differentials', 'incrementals' and 'logs'. A 'differential' and a 'log' are not parent to anyone else. An 'incremental' can be a parent to subsequent 'incremental'. Even if a 'parent' is marked for deletion, they are not actually deleted if the child 'differentials' or 'logs' are not expired. For example, if a policy is changed from daily full to weekly full on Sundays, all earlier fulls which are not on Sundays will be marked for deletion. But they are not actually deleted until the logs that were taken daily earlier are expired. In other words, they are retained according to the latest log duration. Once the logs expire, both the logs and these fulls will be deleted.
+
+With these principles, one can read the following table to understand the implications of a policy change.
+
+|Old policy/New Policy  |Daily Fulls + logs  | Weekly Fulls + daily differentials + logs  |Weekly Fulls + daily incrementals + logs  |
+|---------|---------|---------|---------|
+|Daily Fulls + logs     |   -      |    The previous fulls which are not on the same day of the week are marked for deletion but kept until the log retention period     |    The previous fulls which are not on the same day of the week are marked for deletion but kept until the log retention period     |
+|Weekly Fulls + daily differentials + logs     |   The previous weekly fulls retention is recalculated as per latest policy. The previous differentials are immediately deleted      |    -     |    The previous differentials are immediately deleted     |
+|Weekly Fulls + daily incrementals + logs     |     The previous weekly fulls retention is recalculated as per latest policy. The previous incrementals are immediately deleted    |     The previous incrementals are immediately deleted    |    -     |
+
 ## Next steps
 
 Learn how to [back up SAP HANA databases](./backup-azure-sap-hana-database.md) running on Azure VMs.
