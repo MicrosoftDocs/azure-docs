@@ -581,6 +581,8 @@ The local Function app includes a `local.settings.json` file to store your envir
 
 The cloud-based Function app configures [App settings](functions-app-settings.md), such as service connection strings, and exposes the settings as environment variables during execution. 
 
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
 ### Access environment variables in code
 
 Access these settings using `process.env`, as shown here in the second and third calls to `context.log()` where we log the `AzureWebJobsStorage` and `WEBSITE_SITE_NAME` environment variables:
@@ -588,16 +590,10 @@ Access these settings using `process.env`, as shown here in the second and third
 ```javascript
 module.exports = async function (context, myTimer) {
 
-    var timeStamp = new Date().toISOString();
-
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
 
 ## Configure function entry point
 
