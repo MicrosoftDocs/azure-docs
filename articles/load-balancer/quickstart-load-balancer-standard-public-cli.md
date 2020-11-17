@@ -461,7 +461,7 @@ Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/p
 
 Use [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) to create a public IP prefix for the outbound connectivity.
 
-For more information on scaling outbound NAT and outbound connectivity, see [Scale outbound NAT with multiple IP addresses](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scale).
+For more information on scaling outbound NAT and outbound connectivity, see [Scale outbound NAT with multiple IP addresses](load-balancer-outbound-connections.md).
 
 #### Public IP
 
