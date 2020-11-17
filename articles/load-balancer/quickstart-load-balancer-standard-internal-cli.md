@@ -116,6 +116,14 @@ Create a network security group rule using [az network nsg rule create](https://
     --priority 200
 ```
 
+## Create backend servers
+
+In this section, you create:
+
+* Network interfaces for the backend servers.
+* A cloud configuration file named **cloud-init.txt** for the server configuration.
+* Two virtual machines to be used as backend servers for the load balancer.
+
 ### Create network interfaces for the virtual machines
 
 Create two network interfaces with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
@@ -152,13 +160,6 @@ Create two network interfaces with [az network nic create](https://docs.microsof
     --subnet myBackEndSubnet \
     --network-security-group myNSG
 ```
-
-## Create backend servers
-
-In this section, you create:
-
-* A cloud configuration file named **cloud-init.txt** for the server configuration.
-* Two virtual machines to be used as backend servers for the load balancer.
 
 ### Create cloud-init configuration file
 

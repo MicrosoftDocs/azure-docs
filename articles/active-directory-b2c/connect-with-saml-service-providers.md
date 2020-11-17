@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -127,7 +127,7 @@ You can change the value of the `IssuerUri` metadata. This is the issuer URI tha
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
         <!-- The issuer contains the policy name; it should be the same name as configured in the relying party application. B2C_1A_signup_signin_SAML is used below. -->
-        <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>-->
+        <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml</Item>-->
       </Metadata>
       <CryptographicKeys>
         <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -256,7 +256,7 @@ Your final relying party policy file should look like the following XML code:
 
 Save your changes and upload the new policy file. After you've uploaded both policies (the extension and the relying party files), open a web browser and navigate to the policy metadata.
 
-Azure AD B2C policy IDP metadata is information used in the SAML protocol to expose the configuration of a SAML identity provider. Metadata defines the location of the services, such as sign-in and sign-out, certificates, sign-in method, and more. The Azure AD B2C policy metadata is available at the following URL. Replace `tenant-name` with the name of your Azure AD B2C tenant, and `policy-name` with the name (ID) of the policy for example, .../B2C_1A_SAML2_signup_signin/Samlp/metadata:
+Azure AD B2C policy IDP metadata is information used in the SAML protocol to expose the configuration of a SAML identity provider. Metadata defines the location of the services, such as sign-in and sign-out, certificates, sign-in method, and more. The Azure AD B2C policy metadata is available at the following URL. Replace `tenant-name` with the name of your Azure AD B2C tenant, and `policy-name` with the name (ID) of the policy for example, .../B2C_1A_signup_signin_saml/samlp/metadata:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -424,7 +424,7 @@ We provide a complete sample policy that you can use for testing with the SAML T
 
 1. Download the [SAML-SP-initiated login sample policy](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated)
 1. Update `TenantId` to match your tenant name, for example *contoso.b2clogin.com*
-1. Keep the policy name of *B2C_1A_SAML2_signup_signin*
+1. Keep the policy name of *B2C_1A_signup_signin_saml*
 
 ## Supported and unsupported SAML modalities
 
