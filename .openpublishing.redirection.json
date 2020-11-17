@@ -4342,6 +4342,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/search-get-started-postman.md",
+      "redirect_url": "/azure/search/search-get-started-rest",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-create-index-portal.md",
       "redirect_url": "/azure/search/search-what-is-an-index",
       "redirect_document_id": true
@@ -59332,11 +59337,16 @@
       "source_path": "articles/azure-monitor/app/docker.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-monitor/app/kubernetes.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
-    }  
+    },
+    {
+      "source_path": "articles/azure-monitor/app/powershell-alerts.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    }
   ]
 }
