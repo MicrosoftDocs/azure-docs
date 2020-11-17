@@ -50,8 +50,8 @@ When an error or alert appears in Insights, it's categorized by three things:
 
 - The kind category shows where the error is located. 
 
-      - Errors marked as "service" or `ServiceError = TRUE` are within the control of the Windows Virtual Desktop service. . 
-      - Errors marked as "deployment" or tagged `ServiceError = FALSE` are outside the control of the WIndows Virtual Desktop service.
+      - Errors marked as "service" or "ServiceError = TRUE" are within the control of the Windows Virtual Desktop service. . 
+      - Errors marked as "deployment" or tagged "ServiceError = FALSE" are outside the control of the WIndows Virtual Desktop service.
      
       To learn more about the ServiceError tag, see [Common error scenarios](diagnostics-role-service.md#common-error-scenarios).
 
@@ -186,18 +186,17 @@ To learn more about Windows events, see [Windows event records properties](../az
 
 ## Next steps
 
-To get started monitoring Windows Virtual Desktop, see How to monitor with Azure Monitor for Windows Virtual Desktop. To troubleshoot common problems, see our troubleshooting guide.
+Get started with Windows Virtual Desktop Insights, check out these articles:
 
-Need help?
+- [How to use Windows Virtual Desktop insights]()
+- [Windows Virtual Desktop Insights troubleshooting]()
+
+<!---Add links here when available--->
+
+If you need help or have any questions, check out our community resources:
 
 - Ask questions or make suggestions to the community at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
    
-- To learn how to do this or to escalate to support, see [Troubleshooting overview, feedback, and support for Windows Virtual Desktop](troubleshoot-set-up-overview.md#report-issues).
+- To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Windows Virtual Desktop](troubleshoot-set-up-overview.md#report-issues).
 
-- You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
-
-## Feedback
-
-Submit and view feedback for:
-
-[This product](https://windowsvirtualdesktop.uservoice.com/forums/921118-general)
+- You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) or [our UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
