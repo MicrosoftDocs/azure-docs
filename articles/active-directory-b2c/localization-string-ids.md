@@ -36,7 +36,7 @@ The following IDs are used for a content definition with an ID of `api.signupors
 | **logonIdentifier_email** | Email Address | `< 2.0.0` |
 | **requiredField_email** | Please enter your email | `< 2.0.0` |
 | **invalid_email** | Please enter a valid email address | `< 2.0.0` |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&''*+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ | `< 2.0.0` |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&''\*+/=?^\_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)\*$ | `< 2.0.0` |
 | **local_intro_username** | Sign in with your user name | `< 2.0.0` |
 | **logonIdentifier_username** | Username | `< 2.0.0` |
 | **requiredField_username** | Please enter your user name | `< 2.0.0` |
@@ -52,9 +52,11 @@ The following IDs are used for a content definition with an ID of `api.signupors
 | **requiredField_generic** | Please enter your {0} | `>= 2.1.0` |
 | **invalid_generic** | Please enter a valid {0} | `>= 2.1.1` |
 | **heading** | Sign in | `>= 2.1.1` |
-## Note
-  - Placeholder such as {0} will be filled automatically with DisplayName of the ClaimType. 
-  - For how to localize ClaimType, please see [below](#Sign-up-or-sign-in-example).
+
+
+> [!NOTE]
+> * Placeholders like {0} will be filled automatically with the `DisplayName` value of `ClaimType`. 
+> * To learn how to localize `ClaimType`, see [Sign-up or sign-in example](#signupsigninexample).
 
 The following example shows the use of some of the user interface elements in the sign-up or sign-in page:
 
@@ -100,6 +102,7 @@ The following example localizes the Facebook identity provider to Arabic:
 | **UserMessageIfUserAccountLocked** | Your account is temporarily locked to prevent unauthorized use. Try again later. |
 | **AADRequestsThrottled** | There are too many requests at this moment. Please wait for some time and try again. |
 
+<a name="signupsigninexample"></a>
 ### Sign-up or sign-in example
 
 ```xml
