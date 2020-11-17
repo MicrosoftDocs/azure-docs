@@ -11,7 +11,7 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Change how a storage account is replicated
