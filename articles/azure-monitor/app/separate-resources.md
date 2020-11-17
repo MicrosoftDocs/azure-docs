@@ -22,7 +22,7 @@ Each Application Insights resource comes with metrics that are available out-of-
 
 -	For application components that are deployed together. Usually developed by a single team, managed by the same set of DevOps/ITOps users.
 -	If it makes sense to aggregate Key Performance Indicators (KPIs) such as response durations, failure rates in dashboard etc., across all of them by default (you can choose to segment by role name in the Metrics Explorer experience).
--	If there is no need to manage Role-based Access Control (RBAC) differently between the application components.
+-	If there is no need to manage Azure role-based access control (Azure RBAC) differently between the application components.
 -	If you don’t need metrics alert criteria that are different between the components.
 -	If you do not need to manage continuous exports differently between the components.
 -	If you do not need to manage billing/quotas differently between the components.
