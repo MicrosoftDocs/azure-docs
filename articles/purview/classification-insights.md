@@ -6,21 +6,22 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
 # Classification insights about your data from Azure Purview
 
-This how-to guide describes how to access, view, and filter Purview classification insight reports for your data in Azure Blob storage, Azure files, ADLS GEN 1, and ADLS GEN 2.
+This how-to guide describes how to access, view, and filter Purview Classification insight reports for your data.
+
+Supported data sources include: Azure Blob Storage, Azure Files, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure SQL, Azure SQL Managed Instance, CosmosDB
 
 In this how-to guide, you'll learn how to:
 
 > [!div class="checklist"]
 > - Launch your Purview account from Azure
 > - View classification insights on your data
-> - View and filter classifications
-> - Learn how to review and search classifications made on your data estate
+> - Drill down for more classification details on your data
 
 > [!NOTE]
 > If you're blocked at any point in this process, send an email to BabylonDiscussion@microsoft.com for support.
@@ -29,81 +30,73 @@ In this how-to guide, you'll learn how to:
 
 Before getting started with Purview insights, make sure that you've completed the following steps:
 
-- Followed explanations about setting up Azure resources and populating the relevant accounts with your test data
+- Set up your Azure resources and populated the relevant accounts with test data
 
-- Set up and completed a scan on the test data in each data source.
+- Extended Microsoft 365 sensitivity labels to assets in Azure Purview, and created or selected the labels you want to apply to your content
 
-For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md).
+- Set up and completed a scan on the test data in each data source
 
-After making sure your Azure Blob Storage is created, contains test data, and scanning test data succeeded, let's get started.
+For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md) and [Automatically label your content in Azure Purview](create-sensitivity-label.md).
 
-## Purview insights
+## Use Purview classification insights
 
-### Use Purview insights
+In Azure Purview, classifications are similar to subject tags, and are used to mark and identify content of a specific type that's found within your data estate during scanning.
 
-In Babylon, classifications are similar to subject tags, and are used to mark and identify content of a specific type that's found within your data estate during scanning.
-
-Sensitivity labels are used to identify classification type categories within your organizational data, as well as the group the policies you want to apply to each category.
+[Sensitivity labels](create-sensitivity-label.md#what-are-sensitivity-labels) are used to identify classification type categories within your organizational data, as well as the group the policies you want to apply to each category.
 
 Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire content and data estate.
 
 **To view classification insights:**
 
-1. Go to the **Babylon** [instance screen in the Azure portal](https://aka.ms/babylonportal). Select your Purview account.
+1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/babylonportal) and select your Purview account.
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
 
    :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
 
-1. With Purview open, select the **View insights** tile to access your insights area.
+1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area.
 
    :::image type="content" source="./media/insights/view-insights.png" alt-text="View your insights in the Azure portal":::
 
-1. Within insights, select the **Classification and labeling** tab.
-   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification and labeling blade":::
+1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Classification** to display the Purview **Classification insights** report.
 
-1. The main page of classification and labeling offers display tiles that show key details discovered about your scanned data over the time span.
+   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification insights report":::
 
-   - The **Classified files** tile provides the number of unique files containing classifications
-   - The center tile is dynamic and shows the percentage of files that were autoclassified with the most common label.
-   - **Data scanned** is size of the scanned data set in the time span.
-   - **Top classifications** show the number of unique files found containing the most common classifications over the time span.
+   The main **Classification insights** page displays the following areas:
 
-1. Select the **View all classifications** link at the bottom of the **Top classifications** tile. The resulting report displays all classifications found within your data over the time period selected in the **Time** filter.  
+   |Area  |Description  |
+   |---------|---------|
+   |**Overview of sources with classifications**     |Displays tiles that provide: <br>- The number of subscriptions found in your data <br>- The number of unique classifications found in your data <br>- The number of classified sources found <br>- The number of classified files found <br>- The number of classified tables found         |
+   |**Total sources with classified data**     |Shows the number of sources found, such as Azure Blob Storage or Azure Files, with classified data over the last 30 days.          |
+   |**Total sources by classification categories**     |Shows the number of sources by classification category, such as **Financial** or **Government**.      |
+   |**Top classifications for files**     |Shows the top classifications applied to files in your data, such as credit card numbers or national identification numbers.         |
+   |**Top classifications for tables**     | Shows the top classifications applied to database tables in your data, such as personal identifying information. |   
+   |  **Classification activity**  |  Displays separate graphs for files and tables, each showing the number of files or tables classified over the selected time frame. <br>Select the **Time** filter above the graphs to select a different time frame to display.    |
+   |    |    |
 
-   :::image type="content" source="media/insights/view-classifications.png" alt-text="View all classifications":::
+## Classification insights drilldown
 
-1. Use the **Classification**, **Subscription**, and **Asset Type** filters to change your views and filter out specific classifications, subscriptions, or asset types from the report.
+In any of the following **Classification insights** graphs, select the **View more** link to drill down for more details:
 
-   :::image type="content" source="./media/insights/view-filtered-classifications.png" alt-text="View filtered classification report":::
+- **Total sources by classification categories**
+- **Top classifications for files**
+- **Top classifications for tables**
+- **Classification activity > Classification data**
 
-1. Depending on how you choose to filter the classification report, the report tiles will display:
+For example:
 
-   - Top eight classifications found in the data scanned
-   - Top eight classifications found by day/week/hour
-   - Top eight classifications found by file type in the scanned data
+:::image type="content" source="media/insights/view-classifications.png" alt-text="View all classifications":::
 
-### Data source drilldown
+Use the filters above the grid to filter the data shown, including the time span, classification name, subscription name, or source type. If you're not sure of the exact classification name, you can enter part or all of the name in the **Filter by keyword** box.
 
-After selecting a classification, such as **credit card number**, drill down into the classification data sources to learn which of your data sources contain that specific classification.
+For example:
 
-If you have sensitive classifications, like credit card information, you'll want to make sure that data source is secured using an appropriate label with the right policies.
+:::image type="content" source="./media/insights/view-filtered-classifications.png" alt-text="View filtered classification report":::
 
-**Classification drilldown:**
-
-1. Select on any classification from the list (such as **credit card number**) to drill down further into the data source and classification specifics.
-
-   :::image type="content" source="./media/insights/view-drilldown.png" alt-text="Drilldown into the classification report":::
-
-1. In the **Data source drilldown** list, select the **addcontenthere** data source from the list.
-
-   :::image type="content" source="./media/insights/view-specific-source.png" alt-text="Select a specific data source in the classification report":::
-
-1. Each data source in a classification list provides details on the **Storage account**, **Data source type**, **Subscription ID**, **size of the scanned data** as well as all **Labels** currently assigned to the data.
-
+To display more or fewer columns in your grid, select **Edit Columns** :::image type="icon" source="media/insights/ico-columns.png" border="false":::, and then select the columns you want to view or change the order
 ## Next steps
 
-Learn more from Purview reports
+Learn more about Azure Purview insight reports
 > [!div class="nextstepaction"]
 > [Sensitivity labeling insights](./sensitivity-insights.md)
 
