@@ -34,6 +34,8 @@
     href: sample-get-cloud-service.md
   - name: Update a cloud service
     href: sample-update-cloud-service.md
+  - name: Reset a cloud service
+    href: sample-reset-cloud-service.md
 - name: Reference
   items:
   - name: Code samples

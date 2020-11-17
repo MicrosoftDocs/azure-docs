@@ -14,9 +14,6 @@ ms.custom:
 
 This article covers various examples on how to update an existing Azure CLoud Service (extended support) deployment.
 
-If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-
-
 ### Example 1: Add an extension to existing cloud service
 ```powershell
 # Create RDP extension object
@@ -71,3 +68,5 @@ PS C:\> $cloudService.Configuration = $configuration
 PS C:\> $cloudService | Update-AzCloudService
 ```
 Above set of commands shows how to scale-out and scale-in role instance count for cloud service named ContosoCS that belongs to the resource group named ContosOrg.
+
+For more information on Azure Cloud Services (extended support), see [Azure Cloud Services (extended support) overview](overview.md)

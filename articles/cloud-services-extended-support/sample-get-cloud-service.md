@@ -14,9 +14,6 @@ ms.custom:
 
 This article covers various examples that can be used to retrieved information about existing Azure CLoud Service (extended support) deployments.
 
-If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-
-
 ### Example 1: Get all cloud service under a resource group
 ```powershell
 PS C:\> Get-AzCloudService -ResourceGroup "ContosOrg"
@@ -99,3 +96,5 @@ This cmdlet gets the instance view of the cloud service named ContosoCS that bel
 
 
 ## Next steps
+
+For more information on Azure Cloud Services (extended support), see [Azure Cloud Services (extended support) overview](overview.md)
