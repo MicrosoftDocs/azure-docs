@@ -25,6 +25,8 @@ When you create an Azure subscription programmatically, that subscription is gov
 
 You must have a Global Admin or  Admin Agent role in your organization's cloud solution provider account to create subscription for your billing account. For more information, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).
 
+If you don't know whether you have access to a Microsoft Partner Agreement account, see [Check access to a Microsoft Partner Agreement](mpa-request-ownership.md#check-access-to-a-microsoft-partner-agreement).
+
 The following examples use REST APIs. Currently, PowerShell and Azure CLI aren't supported.
 
 ## Find the billing accounts that you have access to

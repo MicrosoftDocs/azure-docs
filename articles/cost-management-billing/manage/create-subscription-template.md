@@ -42,7 +42,7 @@ To create subscriptions, you must have one of the following roles:
 - Azure Subscription Owner on a Billing Profile or a Billing account
 - Azure Subscription Contributor Role on a Billing Profile or a Billing account
 
- For more information, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+For more information, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
 Additionally, since you're doing an ARM template deployment, you need to have write permissions on the root object. To create the ARM deployment under a management group, you need to have write permissions on the management group. The action is purely to create an ARM deployment. If a subscription is created, it's created only in the management group specified in the ARM template.
 

@@ -25,6 +25,8 @@ When you create an Azure subscription programmatically, that subscription is gov
 
 You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. For more information, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
+If you don't know whether you have access to a Microsoft Customer Agreement account, see [Check access to a Microsoft Customer Agreement](../understand/mca-overview.md#check-access-to-a-microsoft-customer-agreement).
+
 The following examples use REST APIs. Currently, PowerShell and Azure CLI aren't supported.
 
 ## Find billing accounts that you have access to
