@@ -190,6 +190,25 @@ jobs:
           HUGO_VERSION: 0.58.0
 ```
 
+## Mono repo support
+
+```yml
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - vue-app/**
+      - api/**
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+    paths:
+      - vue-app/**
+      - api/**
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
