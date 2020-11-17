@@ -290,8 +290,13 @@ This setting is configured in the **Active Directory Connections** under **NetAp
     * Select **SMB** as the protocol type for the volume. 
     * Select your **Active Directory** connection from the drop-down list.
     * Specify the name of the shared volume in  **Share name**.
+    * If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
+    This functionality enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
+    See [SMB Encryption FAQs](azure-netapp-files-faqs.md#smb-encryption-faqs) for additional information. 
+    * If you want to enable continuous availability for the SMB volume, select **Enable Continuous Availability**.    
+    You should enable continuous availability only for SQL workloads.
 
-    ![Specify SMB protocol](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
+    ![Screenshot that describes the Protocol tab of creating an SMB volume.](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
 5. Click **Review + Create** to review the volume details.  Then click **Create** to create the SMB volume.
 
