@@ -24,7 +24,7 @@ Available sessions shows the number of available sessions in the host pool. The 
 
 ## Connection success
 
-This item shows connection health. A successful connection means that a connection was able to reach a host as confirmed by the stack on that virtual machine. A failed connection means that the connection was unable to reach a host.
+This item shows connection health. A successful connection means that the connection could reach the host, as confirmed by the stack on that virtual machine. A failed connection means that the connection couldn't reach the host.
 
 ## Daily active users (DAU)
 
@@ -65,7 +65,7 @@ When an error or alert appears in Insights, it's categorized by three things:
 
       - RDStack: a software component that's installed on your VMs to allow them to communicate with the Windows Virtual Desktop service.
 
-      - Client: software running on the end-user machine that provides the interface to the Windows Virtual Desktop service. It displays the list of published resources as well as hosting the Remote Desktop connection once you've made a selection.
+      - Client: software running on the end-user machine that provides the interface to the Windows Virtual Desktop service. It displays the list of published resources and hosts the Remote Desktop connection once you've made a selection.
 
 To learn more about troubleshooting errors, see [Identify and diagnose Windows Virtual Desktop issues](diagnostics-role-service.md).
 
@@ -86,7 +86,7 @@ To learn more about how the input delay counter works, see [User Input Delay per
 
 ##  Monthly active users (MAU)
 
-The total number of users that have started a session in the last 28 days. If you store data for 30 days or less, you may see decreased MAU and Connection values during periods with fewer than 28 days of data available.
+The total number of users that have started a session in the last 28 days. If you store data for 30 days or less, you may see lower-than-expected MAU and Connection values during periods where you have fewer than 28 days of data available.
 
 ## Performance counters
 
@@ -127,13 +127,22 @@ To learn more about input delay performance counters, see [User Input Delay perf
 
 ## Potential connectivity issues
 
-This section of the diagnostics page shows the hosts, users, published resources, and clients that have shown a high failure rate in the selected time frame. Once you choose a "report by" filter, such as **by User**, you can evaluate the issue's severity by checking the values in the **Attempts** (number of connection attempts), **Resources** (number of published apps or desktops), **Hosts** (number of VMs), and **Clients** columns. Potential connection issues that span multiple hosts, users, resources, or clients are more likely to be an issue with the entire system as opposed to a smaller, individual issue.
+Potential connectivity issues shows the hosts, users, published resources, and clients with a high connection failure rate. Once you choose a "report by" filter, you can evaluate the issue's severity by checking the values in these columns:
 
-Entries in this table can be selected to load additional information, such as which hosts, resources, and client versions were involved with the issue, as well as any errors reported during the connection attempts.
+- Attempts (number of connection attempts)
+- Resources (number of published apps or desktops)
+- Hosts (number of VMs)
+- Clients
+
+For example, if you select the **By user** filter, you can check to see each user's connection attempts in the **Attempts** column.
+
+If you notice that a connection issue spans multiple hosts, users, resources, or clients, it's likely that the issue affects the whole system.
+
+You can also select entries to view additional information. You can view which hosts, resources, and client versions were involved with the issue. The display will also show any errors reported during the connection attempts.
 
 ## Round-trip time (RTT)
 
-Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the Azure region of the deployed VM. To learn more about RTT or check the best location for optimal latency, see the [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
+Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the VM's Azure region. To learn more about RTT and see which locations have the best latency, see the [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 
 ## Session history
 
@@ -149,11 +158,11 @@ Time to connect is the time between when a user starts their session and when th
 
 ## User report
 
-The user report page lets you view a specific user’s connection history and diagnostic info to help you understand their usage, view their feedback, and track any errors they've been experiencing. Most smaller issues can be resolved with user feedback, but if you need to dig deeper, you can also use this page filter information about a specific connection ID or timeframe.
+The user report page lets you view a specific user’s connection history and diagnostic information. Each user report shows usage patterns, user feedback, and any errors users have encountered during their sessions. Most smaller issues can be resolved with user feedback. If you need to dig deeper, you can also filter information about a specific connection ID or period of time.
 
 ## Users per core
 
-This is the number of users allocated to each virtual machine core. Tracking the
+This is the number of users in each virtual machine core. Tracking the
 maximum number of users per core over time can help you identify whether the
 environment consistently runs at a high, low, or fluctuating number of users per
 core. Knowing how many users are active will help you efficiently resource and scale the environment.
