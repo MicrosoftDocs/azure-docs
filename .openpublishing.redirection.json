@@ -59337,11 +59337,16 @@
       "source_path": "articles/azure-monitor/app/docker.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-monitor/app/kubernetes.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
-    }  
+    },
+    {
+      "source_path": "articles/azure-monitor/app/powershell-alerts.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    }
   ]
 }
