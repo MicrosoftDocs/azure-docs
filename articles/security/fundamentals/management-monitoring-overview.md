@@ -21,13 +21,13 @@ ms.author: terrylan
 # Azure security management and monitoring overview
 This article provides an overview of the security features and services that Azure provides to aid in the management and monitoring of Azure cloud services and virtual machines.
 
-## Role-Based Access Control
+## Azure role-based access control
 
-Role-Based Access Control (RBAC) provides detailed access management for Azure resources. By using RBAC, you can grant people only the amount of access that they need to perform their jobs. RBAC can also help you ensure that when people leave the organization, they lose access to resources in the cloud.
+Azure role-based access control (Azure RBAC) provides detailed access management for Azure resources. By using Azure RBAC, you can grant people only the amount of access that they need to perform their jobs. Azure RBAC can also help you ensure that when people leave the organization, they lose access to resources in the cloud.
 
 Learn more:
 
-* [Active Directory team blog on RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
+* [Active Directory team blog on Azure RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## Antimalware
