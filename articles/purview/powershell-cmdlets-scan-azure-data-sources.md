@@ -6,7 +6,7 @@ ms.author: kchandra
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 11/17/2020
 # Customer intent As a data steward, I want to perform scans so that I can classify my data.
 ---
 
@@ -57,15 +57,11 @@ Set-AzDataCatalogSessionSettings [-DataCatalogSession] [[-UserAuthentication]]
 
 - *TenantId*: The tenant ID for the service principal ID that's authorized to access the data source account.
 - *DataCatalogAccountName*: The data catalog name.
-- *Environment*: The environment in which the Purview account is created.
+- *Environment*: The environment in which the Purview account is created. The possible options are **Dogfood** or **Production**. If the Purview account endpoint ends with .babylon.azure-test.com, the environment is **Dogfood**. If it ends with .babylon.azure.com, the environment is **Production**.
 
-    > The possible options are **Dogfood** or **Production**. If the Purview account endpoint ends with .babylon.azure-test.com, the environment is **Dogfood**. If it ends with .babylon.azure.com, the environment is **Production**.
+After you run the cmdlet, you'll be asked to open the page `https://microsoft.com/devicelogin` in a web browser and enter the code provided to authenticate.
 
-After you run the cmdlet, you'll be asked to open the page 'https://microsoft.com/devicelogin' in a web browser and enter the code provided to authenticate.
-
-:::image type="content" source="media/scan-azure-data-sources-PowerShell/image1.png" alt-text="The message provides an authentication code." border="true":::
-
-Once the code is verified, you'll be asked to sign in using your Azure Active Directory (Azure AD) credentials.:::image type="content" source="media/scan-azure-data-sources-PowerShell/image2.png" alt-text="Enter email, phone, or Skype to identify yourself for sign in to the application on a remote device or service. There are 'Back' and 'Next' buttons." border="true":::
+Once the code is verified, you'll be asked to sign in using your Azure Active Directory (Azure AD) credentials.
 
 **Example:**
 
@@ -92,9 +88,7 @@ Set-AzDataCatalogSessionSettings [-DataCatalogSession]
 - *ServicePrincipalApplicationId*: The service principal ID that's authorized to access the data source account. Make sure this ID is in the Azure Purview Data Source Administrator Role.
 - *ServicePrincipalKey*: The service principal key for the principal ID.
 - *DataCatalogAccountName*: The data catalog name.
-- *Environment*: The environment in which the Purview account is created.
-
-    > The possible options are **Dogfood** or **Production**. If the Purview account endpoint ends with .babylon.azure-test.com, the environment is **Dogfood**. If it ends with .babylon.azure.com, the environment is **Production**.
+- *Environment*: The environment in which the Purview account is created. The possible options are **Dogfood** or **Production**. If the Purview account endpoint ends with .babylon.azure-test.com, the environment is **Dogfood**. If it ends with .babylon.azure.com, the environment is **Production**.
 
 Once the code is verified, you'll be asked to use your Active AD credentials to sign in.
 
