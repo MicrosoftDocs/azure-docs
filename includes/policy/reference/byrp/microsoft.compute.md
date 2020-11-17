@@ -4,7 +4,7 @@ ms.service: azure-policy
 ms.topic: include
 ms.date: 10/20/2020
 ms.author: dacoulte
-ms.custom: generated, devx-track-azurecli
+ms.custom: generated
 ---
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
