@@ -54,6 +54,7 @@ No. Customers can leverage Azure services to architect a resilient service witho
 | Europe |North Europe (Ireland) |West Europe (Netherlands) |
 | France |France Central|France South|
 | Germany |Germany Central |Germany Northeast |
+| Germany |Germany West Central (Public) |Germany North (Public) |
 | India |Central India |South India |
 | India |West India |South India |
 | Japan |Japan East |Japan West |
