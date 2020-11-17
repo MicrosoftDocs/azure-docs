@@ -107,7 +107,7 @@ The difference between the following control script and the one that you used to
 
 Create a new Python file in the `tutorial` directory called `04-run-pytorch.py`:
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/04-run-pytorch.py", highlight=15,,16,17,18,19:::
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/04-run-pytorch.py":::
 
 ### Understand the code changes
 
@@ -194,8 +194,7 @@ The current training script prints metrics to the terminal. Azure Machine Learni
 
 Modify your `train.py` script to include two more lines of code:
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-train-with-logging/train.py", highlight=10,11,57,58::
-
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-train-with-logging/train.py":::
 
 
 #### Understand the additional two lines of code
@@ -225,7 +224,7 @@ compare metrics.
 
 The `train.py` script just took a new dependency on `azureml.core`. Update `pytorch-env.yml` to reflect this change:
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml", highlight=11:::
+:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
 > [!div class="nextstepaction"]
 > [I modified train.py ](?id=success-modify-environment#submit-again) [I ran into an issue](https://www.research.net/r/7CTJQQ)
