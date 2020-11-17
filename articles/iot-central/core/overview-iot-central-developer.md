@@ -109,6 +109,9 @@ A device should follow the IoT Plug and Play conventions when it exchanges data 
 - Correctly respond to writable properties and commands from IoT Central.
 - Follow the naming conventions for component commands.
 
+> [!NOTE]
+> Currently, IoT Central does not fully support the DTDL **Array** data type.
+
 To learn more about the format of the JSON messages that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
 To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play conventions](../../iot-pnp/concepts-convention.md).
