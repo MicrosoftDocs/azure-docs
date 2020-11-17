@@ -33,7 +33,7 @@ The sample enrollment app is written using JavaScript and the React Native frame
 ## Set up the development environment
 
 1. To set up your development environment, follow the [React Native documentation](https://reactnative.dev/docs/environment-setup). Select **React Native CLI Quickstart** as your development OS and select **Android** as the target OS. Complete the sections **Installing dependencies** and **Android development environment**. 
-1. Don't create a new project. Instead, clone the git repository for the sample enrollment app located here [tbd] to get started.  
+1. Don't create a new project. Instead, clone the git repository for the [sample enrollment app](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample) to get started.  
 1. Open the env.json file in your preferred text editor, such as [Visual Studio Code](https://code.visualstudio.com/), and fill in the configuration values. Paste your Face API endpoint and key into the appropriate fields. This step is only for local testing purposes&mdash;don't check in your Face API key to your remote repository.
 1. Run the app using either the Android Virtual Device emulator from Android Studio, or your own Android device. To test your app on a physical device, follow the relevant [React Native documentation](https://reactnative.dev/docs/running-on-device).  
 
