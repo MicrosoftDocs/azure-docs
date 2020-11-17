@@ -63,8 +63,6 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 ```
 
 ## Create and deploy storage account key rotation function
-> [!IMPORTANT]
-> Below template requires Key Vault, Azure Storage Account and Azure Function to be in the same resource group
 
 Next, create a function app with a system-managed identity, in addition to the other required components, and deploy storage account key rotation functions
 
@@ -80,8 +78,10 @@ The function app rotation functions require these components and configuration:
 
    [![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
 
-1. In the **Resource group** list, select **akvrotation**.
+1. In the **Resource group** list, select **akvrotation**
+1. In the **Storage Account RG**, type the resource group name where your Storage Account exists. Keep default value **[resourceGroup().name]** if your Storage Account already exists is in the same resource group where you deploy the key rotation function
 1. In the **Storage Account Name**, type the storage account name with access keys to rotate
+1. In the **Key Vault RG**, type the resource group name where your Key Vault exists. Keep default value **[resourceGroup().name]** if your Key Vault already exists is in the same resource group where you deploy the key rotation function
 1. In the **Key Vault Name**,  type the key vault name
 1. In the **Function App Name**,  type the function app name
 1. In the **Secret Name**,  type secret name where access keys would be stored
