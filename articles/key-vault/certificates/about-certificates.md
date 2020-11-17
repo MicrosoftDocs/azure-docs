@@ -45,12 +45,12 @@ The type of key pair to supported for certificates
  - Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype))
    Exportable is only allowed with RSA, EC. HSM keys would be non-exportable.
 
-|Key type|Vaults|
+|Key type|About|Security|
 |--|--|--|
-**RSA**| "Software-protected" RSA key|FIPS 140-2 Level 1|
-**RSA-HSM**| "HSM-protected" RSA key (Premium SKU only)|FIPS 140-2 Level 2 HSM|
-**EC**| "Software-protected" Elliptic Curve key|FIPS 140-2 Level 1|
-**EC-HSM**| "HSM-protected" Elliptic Curve key (Premium SKU only)|FIPS 140-2 Level 2 HSM|
+|**RSA**| "Software-protected" RSA key|FIPS 140-2 Level 1|
+|**RSA-HSM**| "HSM-protected" RSA key (Premium SKU only)|FIPS 140-2 Level 2 HSM|
+|**EC**| "Software-protected" Elliptic Curve key|FIPS 140-2 Level 1|
+|**EC-HSM**| "HSM-protected" Elliptic Curve key (Premium SKU only)|FIPS 140-2 Level 2 HSM|
 |||
 
 ## Certificate Attributes and Tags
