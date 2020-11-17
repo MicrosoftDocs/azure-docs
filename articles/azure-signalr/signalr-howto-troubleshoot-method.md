@@ -1,6 +1,6 @@
 ---
 title: "Troubleshooting practice for Azure SignalR Service"
-description: Learn 
+description: Learn how to troubleshoot connectivity and message delivery issues
 author: YanJin
 ms.service: signalr
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.author: yajin1
 
 This guidance introduces several ways to help do self-diagnosis to find the root cause directly or narrow down the issue. The self-diagnosis result is also useful when reporting it to us for further investigation.
 
-First, you need to check from the Azure portal which [ServiceMode](https://docs.microsoft.com/en-us/azure/azure-signalr/concept-service-mode) is the Azure SignalR Service (also known as **ASRS**) configured to.
+First, you need to check from the Azure portal which [ServiceMode](https://docs.microsoft.com/azure/azure-signalr/concept-service-mode) is the Azure SignalR Service (also known as **ASRS**) configured to.
 
 :::image type="content" source="./media/signalr-howto-troubleshoot-method/service-mode.png" alt-text="ServiceMode":::
 
@@ -44,7 +44,7 @@ There are several ways that can help you narrow down the issue.
 
 ### How to view the traffic and narrow down the issue
 
-Capturing the on-going traffic is the most straight-forward way to narrow down the issue. You can capture the [Network traces](https://docs.microsoft.com/en-us/aspnet/core/signalr/diagnostics#network-traces) using the options described below:
+Capturing the on-going traffic is the most straight-forward way to narrow down the issue. You can capture the [Network traces](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#network-traces) using the options described below:
 
 * [Collect a network trace with Fiddler](https://docs.microsoft.com/aspnet/core/signalr/diagnostics#network-traces)
 
@@ -66,7 +66,7 @@ SignalR *Server* maintains the *Server Connection* between *Server* and *Service
 
 *Server Connection*s can drop because of network instability or regular maintenance of Azure SignalR Service, or your hosted app server updates/maintainance. As long as client-side has the disconnect/reconnect mechanism, the impact is minimal like any client-side caused disconnect-reconnect.
 
-View server-side network trace to find out the status code and error detail why *Server Connection* drops or is rejected by the *Service*, and look for the root cause inside [Troubleshooting Guide](https://docs.microsoft.com/en-us/azure/azure-signalr/signalr-howto-troubleshoot-guide).
+View server-side network trace to find out the status code and error detail why *Server Connection* drops or is rejected by the *Service*, and look for the root cause inside [Troubleshooting Guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide).
 
 
 ### How to add logs
@@ -90,7 +90,7 @@ Client side logging experience is exactly the same as when using self-hosted Sig
 
 * [.NET client](https://docs.microsoft.com/en-us/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
 
-* [Enabling tracing in Windows Phone 8 clients](https://docs.microsoft.com/en-us/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
+* [Enabling tracing in Windows Phone 8 clients](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
 
 * [Enabling tracing in the JavaScript client](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-javascript-client)
 
@@ -165,13 +165,13 @@ You can also [enable diagnostic logs](https://docs.microsoft.com/azure/azure-sig
 
 When **ASRS** is in *Serverless* mode, only **ASP.NET Core SignalR** supports `Serverless` mode, and **ASP.NET SignalR** does **NOT** support this mode.
 
-To diagnose connectivity issues in `Serverless` mode, the most straight forward way is to [view client side traffic](#view_traffic_client). Enable [client-side logs](#add_logs_client) and [service-side logs](#add_logs_service) can also be helpful.
+To diagnose connectivity issues in `Serverless` mode, the most straight forward way is to [view client side traffic](#view_traffic_client). Enable [client-side logs](#add_logs_client) and [service-side logs](#add_logs_server) can also be helpful.
 
 <a name="classic_mode_tsg"></a>
 
 ## Classic mode troubleshooting
 
-`Classic` mode is obsoleted and is not encouraged to use. When in this mode, Azure SignalR service uses the connected *Server Connections* to determine if current service is in `default` mode or `serverless` mode. This can lead to some intermediate client connectivity issues because, when there is a sudden drop of all the connected *Server Connection*, for example due to network instability, Azure SignalR believes it is now switched to `serverless` mode, and clients connected during this period will never be routed to the hosted app server. Enable [service-side logs](#add_logs_service) and check if there are any clients recorded as `ServerlessModeEntered` if you have hosted app server however some clients never reach the app server side. If there is any, [abort these client connections](#TODO_Add_REST_API) and let the clients' restart can help.
+`Classic` mode is obsoleted and is not encouraged to use. When in this mode, Azure SignalR service uses the connected *Server Connections* to determine if current service is in `default` mode or `serverless` mode. This can lead to some intermediate client connectivity issues because, when there is a sudden drop of all the connected *Server Connection*, for example due to network instability, Azure SignalR believes it is now switched to `serverless` mode, and clients connected during this period will never be routed to the hosted app server. Enable [service-side logs](#add_logs_server) and check if there are any clients recorded as `ServerlessModeEntered` if you have hosted app server however some clients never reach the app server side. If there is any, abort these client connections and let the clients restart can help.
 
 Troubleshooting `classic` mode connectivity and message delivery issues are similar to [troubleshooting default mode issues](#default_mode_tsg).
 
