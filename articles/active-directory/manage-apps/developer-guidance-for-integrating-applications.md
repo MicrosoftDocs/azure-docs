@@ -17,11 +17,11 @@ ms.collection: M365-identity-device-management
 This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Microsoft 365 global administrators.
 
 ## Overview
-Building applications integrated with Azure AD gives users in your organization single sign-on with Microsoft 365. Having the application in Azure AD gives you control over the authentication policy for the application. To learn more about Conditional Access and how to protect apps with multi-factor authentication (MFA) see [Configuring access rules](../conditional-access/app-based-mfa.md).
+Building applications integrated with Azure AD gives users in your organization single sign-on with Microsoft 365. Having the application in Azure AD gives you control over the authentication policy for the application. To learn more about Conditional Access and how to protect apps with multi-factor authentication (MFA) see [Configuring access rules](../authentication/tutorial-enable-azure-mfa.md).
 
 Register your application to use Azure Active Directory. Registering the application means that your developers can use Azure AD to authenticate users and request access to user resources such as email, calendar, and documents.
 
-Any member of your directory (not guests) can register an application, otherwise known as *creating an application object*. If you are unable to register an application then it means  the global administrator of your directory has restricted this functionality and you may need to contact them for [obtaining proper rights](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles) be able to register the application. To learn more about how to restrict user's see [Delegate app registration permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications).
+Any member of your directory (not guests) can register an application, otherwise known as *creating an application object*. If you are unable to register an application then it means  the global administrator of your directory has restricted this functionality and you may need to contact them for [obtaining proper rights](../roles/delegate-app-roles.md#assign-built-in-application-admin-roles) be able to register the application. To learn more about how to restrict user's see [Delegate app registration permissions in Azure Active Directory](../roles/delegate-app-roles.md#restrict-who-can-create-applications).
 
 Registering an application allows any user to do the following:
 
@@ -49,14 +49,14 @@ Here’s what you, the global administrator, need to do to help developers make 
 * Suppress the default user consent experience
 
 ## Configure access rules
-Configure per-application access rules to your SaaS apps. For example, you can require MFA or only allow access to users on trusted networks. The details for this are available in the document [Configuring access rules](../conditional-access/app-based-mfa.md).
+Configure per-application access rules to your SaaS apps. For example, you can require MFA or only allow access to users on trusted networks. The details for this are available in the document [Configuring access rules](../authentication/tutorial-enable-azure-mfa.md).
 
 ## Configure the app to require user assignment and assign users
 By default, users can access applications without being assigned. However, if the application exposes roles or if you want the application to appear on a user’s My Apps, you should require user assignment.
 
 If you’re an Azure AD Premium or Enterprise Mobility Suite (EMS) subscriber, we strongly recommend using groups. Assigning groups to the application allows you to delegate ongoing access management to the owner of the group. You can create the group or ask the responsible party in your organization to create the group using your group management facility.
 
-[Assigning users and groups to an application](methods-for-assigning-users-and-groups.md)  
+[Assigning users and groups to an application](./assign-user-or-group-access-portal.md)  
 
 
 ## Suppress user consent
@@ -64,9 +64,8 @@ By default, each user goes through a consent experience to sign in. The consent 
 
 For applications that you trust, you can simplify the user experience by consenting to the application on behalf of your organization.
 
-For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](../develop/quickstart-register-app.md).
 
 ## Related Articles
 * [Enable secure remote access to on-premises applications with Azure AD Application Proxy](application-proxy.md)
 * [Managing access to apps with Azure AD](what-is-access-management.md)
-

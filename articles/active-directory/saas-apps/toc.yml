@@ -1042,6 +1042,8 @@
         href: lr-tutorial.md
       - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
+      - name: Looker Analytics Platform
+        href: looker-analytics-platform-tutorial.md
       - name: Loop Flow CRM
         href: loop-flow-crm-tutorial.md
       - name: Lucid (All Products)
