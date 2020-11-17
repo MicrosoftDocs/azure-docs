@@ -244,7 +244,7 @@ To disable RDP Shortpath for a specific session host, you can use the following 
 2. Navigate to **Computer Configuration > Administration Templates > Windows Components > Remote Desktop Services > Remote Desktop Connection Host > Connections**.
 3. Set the **“Select RDP Transport Protocols”** setting to **TCP Only**
 
-## Feedback
+## Public preview feedback
 
 We'd like to hear from you about your experiences with this public preview!
 * For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/RDPShortpathFeedback).
