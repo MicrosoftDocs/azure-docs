@@ -172,6 +172,31 @@ When the gRPC request is sent, the following header will be included in the requ
 
 `x-ms-authentication: Basic (Base64 Encoded username:password)`
 
+
+## Using gRPC with multiple AI models packaged in a single server
+If you have multiple AI models packaged in a single gRPC server, you do not need to expose expose a node for every AI model. Instead, for a graph instance, you can use the `extensionConfiguration` property of the `MediaGraphGrpcExtension` node and define how to select the different models. During execution, LVA will pass this string to the inferencing server which can use it to invoke the desired AI model. This `extensionConfiguration` property is an optional property and is server specific. The property can be used like below:
+```
+{
+  "@type": "#Microsoft.Media.MediaGraphGrpcExtension",
+  "name": "{moduleIdentifier}",
+  "endpoint": {
+    "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+    "url": "${grpcExtensionAddress}",
+    "credentials": {
+      "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+      "username": "${grpcExtensionUserName}",
+      "password": "${grpcExtensionPassword}"
+    }
+  },
+    // Optional server configuration string. This is server specific 
+  "extensionConfiguration": "{Optional extension specific string}",
+  "dataTransfer": {
+    "mode": "sharedMemory",
+    "SharedMemorySizeMiB": "5"
+  }
+    //Other fields omitted
+```
+
 ## Using gRPC over TLS
 
 A gRPC connection used for inferencing may be secured over TLS. This is useful in situations where the security of the network between Live Video Analytics and the inferencing engine cannot be guaranteed. TLS will encrypt any content embedded into the gRPC messages, causing additional CPU overhead when transmitting frames at a high rate.

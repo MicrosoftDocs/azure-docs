@@ -18,9 +18,22 @@ This article provides you with information about:
 
 <hr width=100%>
 
+## December 14, 2020
+This release is the public preview refresh release of Live Video Analytics on IoT Edge. The release tag is
+
+```
+     mcr.microsoft.com/media/live-video-analytics:2.0.0
+```
+### Module updates
+* Added support for using more than one HTTP extension processor and gRPC extension processor per graph topology.
+* Added support for [File Sink Disk space management](media-graph-concept.md#file-sink).
+* `MediaGraphGrpcExtension` node now supports [extensionConfiguration property](grpc-extension-protocol.md#Using-gRPC-with-multiple-AI-models-packaged-in-a-single-server) for using multiple AI models within a single gRPC server.
+* Frame Rate Filter processor is **deprecated**.  
+    * Frame rate sampling is now possible using `samplingOptions` within the graph extension processor nodes
+
 ## September 22, 2020
 
-This release tag for the September 2020 refresh of the module is:
+This release tag is for the September 2020 refresh of the module is:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.4
@@ -43,7 +56,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ## August 19, 2020
 
-This release tag for the August 2020 refresh of the module is:
+This release tag is for the August 2020 refresh of the module is:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.3
@@ -68,7 +81,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ## July 13, 2020
 
-This release tag for the July 2020 refresh of the module is:
+This release tag is for the July 2020 refresh of the module is:
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.2

@@ -103,8 +103,9 @@ An asset sink node enables you to write media (video and/or audio) data to an Az
 
 #### File sink  
 
-The file sink node enables you to write media (video and/or audio) data to a location on the local file system of the IoT Edge device. There can only be one file sink node in a media graph, and it must be downstream of a signal gate processor node. This limits the duration of the output files to values specified in the signal gate processor node properties.
-
+The file sink node enables you to write media (video and/or audio) data to a location on the local file system of the IoT Edge device. There can only be one file sink node in a media graph, and it must be downstream of a signal gate processor node. This limits the duration of the output files to values specified in the signal gate processor node properties. Using the optional `maximumSizeMiB` field, you can set the maximum size on the edge device that the Live Video Analytics on IoT Edge module can use to store the data.  
+> [!NOTE]
+If the File Sink gets full, the Live Video Analytics on IoT Edge module will start deleting the oldest data and replace it with the new one.
 #### IoT Hub message sink  
 
 An IoT Hub message sink node enables you to publish events to IoT Edge hub. The IoT Edge hub can then route the data to other modules or apps on the edge device, or to IoT Hub in the cloud (per routes specified in the deployment manifest). The IoT Hub message sink node can accept events from upstream processors such as a motion detection processor node, or from an external inference service via a HTTP extension processor node.
