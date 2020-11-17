@@ -340,7 +340,7 @@ Azure Container Instances can be used in Azure Government supporting Impact Leve
 
 Azure Container Instances service automatically encrypts data related to your containers when it is persisted in the cloud. Data in ACI is encrypted and decrypted using 256-bit AES encryption and enabled for all ACI deployments. You can rely on Microsoft-managed keys for the encryption of your container data, or you can manage the encryption with your own keys. (https://docs.microsoft.com/azure/container-instances/container-instances-encrypt-data) 
 
-Azure Container Instances service's "dedicated" sku provides an isolated and dedicated compute environment for securely running containers. Using the dedicated sku results in each container group having a dedicated physical server in an Azure datacenter. (../container-instances/container-instances-dedicated-hosts.md)
+Azure Container Instances service's "dedicated" sku provides an isolated and dedicated compute environment for securely running containers. Using the dedicated sku results in each container group having a dedicated physical server in an Azure datacenter. (../../container-instances/container-instances-dedicated-hosts.md)
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
@@ -351,7 +351,7 @@ Azure Container Instances service's "dedicated" sku provides an isolated and ded
 Azure Kubernetes Service can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
 - Configure encryption at rest of content in Azure Kubernetes Service using customer-managed keys in Azure Key Vault (https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys)
-- For workloads requiring isolation from other customer workloads, isolated virtual machines can be used as the agent nodes in an AKS cluster. (../aks/concepts-security.md#compute-isolation)
+- For workloads requiring isolation from other customer workloads, isolated virtual machines can be used as the agent nodes in an AKS cluster. (../../aks/concepts-security.md#compute-isolation)
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- |
