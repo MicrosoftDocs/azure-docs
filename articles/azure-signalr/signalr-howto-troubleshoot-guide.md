@@ -342,3 +342,9 @@ Take ASP.NET Core one for example (ASP.NET one is similar):
 
 	* [ASP.NET JavaScript Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
 
+## Next steps
+
+In this guide, you learned about how to handle the common issues. You could also learn more generic troubleshooting methods. 
+
+> [!div class="nextstepaction"]
+> [How to troubleshoot connectivity and message delivery issues](./signalr-howto-troubleshoot-method.md)
