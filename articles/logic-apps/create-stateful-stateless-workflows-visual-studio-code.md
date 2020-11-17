@@ -1074,11 +1074,11 @@ To resolve this problem and accommodate the longer URI, edit the `UrlSegmentMaxC
 
 1. In the **User Account Control** box, select **Yes** to permit your changes.
 
-1. In the left pane, under **Computer**, expand the nodes along the path, `KEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters`, and select the **Parameters** setting.
+1. In the left pane, under **Computer**, expand the nodes along the path, `KEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters`, and select the **Parameters** registry key.
 
-1. In the right pane, find the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` property values. Respectively, their default values are 260 characters and 255 characters.
+1. In the right pane, find the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` settings. Respectively, their default values are 260 characters and 255 characters.
 
-1. Increase these property values enough to accommodate the names that you want to use.
+1. Increase these setting values large enough to accommodate the names that you want to use.
 
 1. When you're done, restart your computer so that the changes can take effect.
 
