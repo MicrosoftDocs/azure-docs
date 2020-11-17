@@ -68,7 +68,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 
                 // send the message
                 await sender.SendMessageAsync(message);
-                Console.WriteLine("Sent a single message to the queue: {queueName}");
+                Console.WriteLine($"Sent a single message to the queue: {queueName}");
             }
         }
     ```
@@ -152,7 +152,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 5. Run the application. You should see the following messages. 
 
     ```console
-    Sent a single message to the queue
+    Sent a single message to the queue: myqueue
     Sent a batch of messages to the queue: myqueue
     ```       
 1. In the Azure portal, follow these steps:
@@ -239,7 +239,7 @@ In this section, you'll add code to retrieve messages from the queue.
 Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
 
 ```console
-Sent a single message to the queue
+Sent a single message to the queue: myqueue
 Sent a batch of messages to the queue: myqueue
 Wait for a minute and then press any key to end the processing
 Received: Hello world!

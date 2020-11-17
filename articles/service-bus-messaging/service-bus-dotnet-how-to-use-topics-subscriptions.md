@@ -47,7 +47,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```csharp
         static string connectionString = "<NAMESPACE CONNECTION STRING>";
         static string topicName = "<TOPIC NAME>";
-        static string subName = "<SUBSCRIPTION NAME>";
+        static string subscriptionName = "<SUBSCRIPTION NAME>";
     ```
 
     Replace the following values:
@@ -65,7 +65,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
                 // create a sender for the topic
                 ServiceBusSender sender = client.CreateSender(topicName);
                 await sender.SendMessageAsync(new ServiceBusMessage("Hello, World!"));
-                Console.WriteLine("Sent a single message to the topic: {topicName}");
+                Console.WriteLine($"Sent a single message to the topic: {topicName}");
             }
         }
     ```
@@ -137,14 +137,17 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```csharp
         static async Task Main()
         {
-            // send messages to the topic
-            await SendMessagesToTopicAsync();
+            // send a message to the topic
+            await SendMessageToTopicAsync();
+
+            // send a batch of messages to the topic
+            await SendMessageBatchToTopicAsync();
         }
     ```
 5. Run the application. You should see the following output:
 
     ```console
-    Sent a single message to the topic
+    Sent a single message to the topic: mytopic
     Sent a batch of 3 messages to the topic: mytopic
     ```
 1. In the Azure portal, follow these steps:
@@ -168,7 +171,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         static async Task MessageHandler(ProcessMessageEventArgs args)
         {
             string body = args.Message.Body.ToString();
-            Console.WriteLine($"Received: {body} from subscription: {subName}");
+            Console.WriteLine($"Received: {body} from subscription: {subscriptionName}");
 
             // complete the message. messages is deleted from the queue. 
             await args.CompleteMessageAsync(args.Message);
@@ -188,7 +191,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             await using (ServiceBusClient client = new ServiceBusClient(connectionString))
             {
                 // create a processor that we can use to process the messages
-                ServiceBusProcessor processor = client.CreateProcessor(topicName, subName, new ServiceBusProcessorOptions());
+                ServiceBusProcessor processor = client.CreateProcessor(topicName, subscriptionName, new ServiceBusProcessorOptions());
 
                 // add handler to process messages
                 processor.ProcessMessageAsync += MessageHandler;
@@ -228,7 +231,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
 
 ```console
-Sent a single message to the topic
+Sent a single message to the topic: mytopic
 Sent a batch of 3 messages to the topic: mytopic
 Wait for a minute and then press any key to end the processing
 Received: Hello, World! from subscription: mysub
