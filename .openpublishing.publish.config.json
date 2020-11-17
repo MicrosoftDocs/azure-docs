@@ -9,7 +9,8 @@
       "monikers": [],
       "moniker_ranges": [],
       "xref_query_tags": [
-        "/dotnet"
+        "/dotnet",
+        "/python"
       ],
       "open_to_public_contributors": true,
       "type_mapping": {
