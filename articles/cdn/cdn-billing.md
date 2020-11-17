@@ -87,7 +87,6 @@ Each time a CDN POP needs to fill its cache, it makes a request to the origin fo
 If you use one of the following Azure services as your CDN origin, you will not be charged from Data transfer from the Origin to the CDN PoPs. 
 
 - Azure Storage
-- Azure Media Services
 - Azure Virtual Machines
 - Virtual Network
 - Load Balancer
