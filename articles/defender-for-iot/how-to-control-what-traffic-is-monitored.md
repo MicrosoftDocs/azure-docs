@@ -208,7 +208,7 @@ Configure a firewall rule that opens outgoing traffic from the sensor to the sca
 
 4. To define the scan range, select **Set scan ranges**.
 
-5. Det the IP address range and add your user and password.
+5. Set the IP address range and add your user and password.
 
     :::image type="content" source="media/how-to-control-what-traffic-is-monitored/image316.png" alt-text="add user and password":::
 

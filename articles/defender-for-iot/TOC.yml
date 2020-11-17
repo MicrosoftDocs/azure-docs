@@ -103,6 +103,20 @@
     href: how-to-create-azure-for-defender-users-and-roles.md
   - name: Control what traffic is monitored
     href: how-to-control-what-traffic-is-monitored.md
+  - name: Manage sensors in air gapped networks
+    items:
+    - name: Manage sensors from the on-premises management console
+      href: how-to-manage-sensors-from-the-on-premises-management-console.md
+    - name: View sensor connection status to the on-premises manager
+      href: how-to-view-sensor-connection-status-to-the-on-premises-manager.md
+    - name: Access sensors using a proxy
+      href: how-to-access-sensors-using-a-proxy.md
+  - name: Manage individual sensors
+    href: how-to-manage-individual-sensors.md
+  - name: Work with threat intelligence packages
+    href: how-to-work-with-threat-intelligence-packages.md
+  - name: Manage the on-premises management console
+    href: how-to-manage-the-on-premises-management-console.md
   - name: Work with device inventory information
     href: how-to-work-with-asset-inventory-information.md
   - name: Work with maps
