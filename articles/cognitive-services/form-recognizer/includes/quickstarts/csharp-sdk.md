@@ -140,6 +140,9 @@ Below **Main**, create a new method named `AuthenticateClient`. You'll use this 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_auth)]
 
+Repeat the steps above for a new method that authenticates a training client.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_auth_training)]
 
 ## Get assets for testing 
 
