@@ -431,11 +431,11 @@ These steps apply to Linux only.
 
    1. Restart the VM.
 
-1. Log in into the VM with Putty or another client and run `sudo  -i` command to gain root access.
+1. Log in to the VM with Putty or another client and run `sudo  -i` command to gain root access.
 
    ![Putty client command line screenshot showing log in and the sudo -i command.](./media/create-vm/vm-certification-issues-solutions-20.png)
 
-1. Run the command `echo '+1M,' | sfdisk --move-data /dev/sdc -N 1`
+1. Run the command `echo '+1M,' | sfdisk --move-data /dev/sdc -N 1`.
 
    ![Putty client command line screenshot showing the execution of the commands.](./media/create-vm/vm-certification-issues-solutions-25.png)
 
