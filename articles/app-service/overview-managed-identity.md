@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurepowershell"
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
 
 ---
 
@@ -36,7 +36,7 @@ To set up a managed identity in the portal, you will first create an application
 
 4. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
-    ![Managed identity in App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+    ![Screenshot that shows where to switch Status to On and then select Save.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
@@ -342,7 +342,7 @@ A successful 200 OK response includes a JSON body with the following properties:
 > | expires_on    | The timespan when the access token expires. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC" (corresponds to the token's `exp` claim).                                                                                |
 > | not_before    | The timespan when the access token takes effect, and can be accepted. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC" (corresponds to the token's `nbf` claim).                                                      |
 > | resource      | The resource the access token was requested for, which matches the `resource` query string parameter of the request.                                                                                                                               |
-> | token_type    | Indicates the token type value. The only type that Azure AD supports is FBearer. For more information about bearer tokens, see [The OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+> | token_type    | Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about bearer tokens, see [The OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
 This response is the same as the [response for the Azure AD service-to-service access token request](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
@@ -522,4 +522,4 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 > [!div class="nextstepaction"]
 > [Access SQL Database securely using a managed identity](app-service-web-tutorial-connect-msi.md)
 
-[Microsoft.Azure.Services.AppAuthentication reference]: https://go.microsoft.com/fwlink/p/?linkid=862452
+[Microsoft.Azure.Services.AppAuthentication reference]: ../key-vault/general/service-to-service-authentication.md

@@ -1,6 +1,5 @@
 ---
  title: include file
- description: include file
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
@@ -51,10 +50,11 @@ There are three parameters for each image definition that are used in combinatio
 
 All three of these have unique sets of values. The format is similar to how you can currently specify publisher, offer, and SKU for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) in Azure PowerShell to get the latest version of a Marketplace image. Each image definition needs to have a unique set of these values.
 
-Image definitions must define the following parameters that determine which types of image versions they can contain:
--	Operating system state - You can set the OS state to [generalized or specialized](#generalized-and-specialized-images).
-- Operating system - can be either Windows or Linux.
+The following parameters determine which types of image versions they can contain:
 
+- Operating system state - You can set the OS state to [generalized or specialized](#generalized-and-specialized-images). This field is required.
+- Operating system - can be either Windows or Linux. This field is required.
+-	Hyper-V generation - specify whether the image was created from a generation 1 or [generation 2](../articles/virtual-machines/generation-2.md) Hyper-V VHD. Default is generation 1.
 
 
 The following are other parameters that can be set on your image definition so that you can more easily track your resources:
@@ -66,7 +66,6 @@ The following are other parameters that can be set on your image definition so t
 - Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/management/tag-resources.md)
 - Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 - Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
--	Hyper-V generation - specify whether the image was created from a generation 1 or [generation 2](../articles/virtual-machines/generation-2.md) Hyper-V VHD. Default is generation 1.
 - Purchase plan information for Marketplace images - `-PurchasePlanPublisher`, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) and [Supply Azure Marketplace purchase plan information when creating images](../articles/virtual-machines/marketplace-images.md).
 
 
@@ -150,8 +149,11 @@ Images can also be shared, at scale, even across tenants using a multi-tenant ap
 
 ## Billing
 There is no extra charge for using the Shared Image Gallery service. You will be charged for the following resources:
-- Storage costs of storing the Shared Image versions. Cost depends on the number of replicas of the image version and the number of regions the version is replicated to. For example, if you have 2 images and both are replicated to 3 regions, then you will be charged for 6 managed disks based on their size. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
-- Network egress charges for replication of the first image version from the source region to the replicated regions. Subsequent replicas are handled within the region, so there are no additional charges. 
+-	Storage costs of storing each replica. The storage cost is charged as a snapshot and is based on the occupied size of the image version, the number of replicas of the image version and the number of regions the version is replicated to. 
+-	Network egress charges for replication of the first image version from the source region to the replicated regions. Subsequent replicas are handled within the region, so there are no additional charges. 
+
+For example, let's say you have an image of a 127 GB OS disk, that only occupies 10GB of storage, and one empty 32 GB data disk. The occupied size of each image would only be 10 GB. The image is replicated to 3 regions and each region has two replicas. There will be six total snapshots, each using 10GB. You will be charged the storage cost for each snapshot based on the occupied size of 10 GB. You will pay network egress charges for the first replica to be copied to the additional two regions. For more information on the pricing of snapshots in each region, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). For more information on network egress, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 
 ## Updating resources
 

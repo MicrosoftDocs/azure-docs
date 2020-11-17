@@ -10,7 +10,7 @@ manager: ravijan
 ms.date: 09/30/2020
 ---
 
-# Azure Key Vault Recovery Overview
+# How to enable soft delete and purge protection
 
 This article covers two recovery features of Azure Key Vault, soft delete and purge protection. This document provides an overview of these features, and shows you how to manage them through the Azure portal, Azure CLI, and Azure PowerShell.
 
@@ -236,14 +236,6 @@ It is important to note that **key vault names are globally unique**, so you won
 
     ```powershell
     Get-AzKeyVault -VaultName "ContosoVault"
-    ```
-
-* Enable soft-delete on key-vault
-
-    ```powershell
-    ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
-
-    Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
 * Delete key vault

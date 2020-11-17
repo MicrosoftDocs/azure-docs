@@ -406,7 +406,7 @@ FROM T
 WHERE Y = 2
 ```
 
-X can be an index column, and Y can be an included column.
+Y can be an index column, and X can be an included column.
 
 :::zone pivot = "programming-language-scala"
 

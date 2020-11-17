@@ -9,6 +9,7 @@ ms.author: maquaran
 
 ---
 # Going social with Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Living in a massively interconnected society means that, at some point in life, you become part of a **social network**. You use social networks to keep in touch with friends, colleagues, family, or sometimes to share your passion with people with common interests.
 
@@ -211,9 +212,9 @@ Because you're using Azure Cosmos DB, you can easily implement a search engine u
 
 Why is this process so easy?
 
-Azure Cognitive Search implements what they call [Indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx), background processes that hook in your data repositories and automagically add, update or remove your objects in the indexes. They support an [Azure SQL Database indexers](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md) and thankfully, [Azure Cosmos DB indexers](../search/search-howto-index-documentdb.md). The transition of information from Cosmos DB to Azure Cognitive Search is straightforward. Both technologies store information in JSON format, so you just need to [create your Index](../search/search-create-index-portal.md) and map the attributes from your Documents you want indexed. That’s it! Depending on the size of your data, all your content will be available to be searched upon within minutes by the best Search-as-a-Service solution in cloud infrastructure.
+Azure Cognitive Search implements what they call [Indexers](/rest/api/searchservice/Indexer-operations), background processes that hook in your data repositories and automagically add, update or remove your objects in the indexes. They support an [Azure SQL Database indexers](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md) and thankfully, [Azure Cosmos DB indexers](../search/search-howto-index-cosmosdb.md). The transition of information from Cosmos DB to Azure Cognitive Search is straightforward. Both technologies store information in JSON format, so you just need to [create your Index](../search/search-what-is-an-index.md) and map the attributes from your Documents you want indexed. That’s it! Depending on the size of your data, all your content will be available to be searched upon within minutes by the best Search-as-a-Service solution in cloud infrastructure.
 
-For more information about Azure Cognitive Search, you can visit the [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+For more information about Azure Cognitive Search, you can visit the [Hitchhiker’s Guide to Search](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search).
 
 ## The underlying knowledge
 

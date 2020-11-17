@@ -29,6 +29,12 @@ Security Center filters and classifies findings from the scanner. When an image 
 By only notifying when there are problems, Security Center reduces the potential for unwanted informational alerts.
 
 
+> [!TIP]
+> To learn more about Security Center's container security features, see:
+>
+> - [Azure Security Center and container security](container-security.md)
+> - [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+
 ## When are images scanned?
 
 There are three triggers for an image scan:
@@ -62,19 +68,20 @@ Security Center filters and classifies findings from the scanner. When an image 
 
 ### Can I get the scan results via REST API?
 Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
- 
+
 ### What registry types are scanned? What types are billed?
 For a list of the types of container registries supported by Azure Defender for container registries, see [Availability](defender-for-container-registries-usage.md#availability).
 
 If you connect unsupported registries to your Azure subscription, they won't be scanned and you won't be billed for them.
 
+### Can I customize the findings from the vulnerability scanner?
+Yes. If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
+
+[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-container-registries-usage.md#disable-specific-findings-preview).
+
+
 
 ## Next steps
 
-To learn more about Security Center's container security features, see:
-
-- [Azure Security Center and container security](container-security.md)
-
-- [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
-
-
+> [!div class="nextstepaction"]
+> [Scan your images for vulnerabilities](defender-for-container-registries-usage.md)

@@ -53,7 +53,7 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
     # sudo update-grub
     ```
 
-6. Add Debian's Azure repositories to /etc/apt/sources.list for either Debian 8 or 9:
+6. Add Debian's Azure repositories to /etc/apt/sources.list for either Debian 8, 9 or 10:
 
     **Debian 8.x "Jessie"**
 
@@ -80,7 +80,18 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
     deb http://debian-archive.trafficmanager.net/debian stretch-backports main
     deb-src http://debian-archive.trafficmanager.net/debian stretch-backports main
     ```
-
+    
+    **Debian 10.x "Buster"**
+    ```config-grub
+    deb http://debian-archive.trafficmanager.net/debian buster main
+    deb-src http://debian-archive.trafficmanager.net/debian buster main
+    deb http://debian-archive.trafficmanager.net/debian-security buster/updates main
+    deb-src http://debian-archive.trafficmanager.net/debian-security buster/updates main
+    deb http://debian-archive.trafficmanager.net/debian buster-updates main
+    deb-src http://debian-archive.trafficmanager.net/debian buster-updates main
+    deb http://debian-archive.trafficmanager.net/debian buster-backports main
+    deb-src http://debian-archive.trafficmanager.net/debian buster-backports main
+    ```
 
 7. Install the Azure Linux Agent:
 

@@ -44,7 +44,7 @@ Before you begin, make sure that:
 Sign in to:
 
 * The Azure portal at this URL: https://portal.azure.com to order Data Box Disk.
-* Or, the Azure Government portal at this URL: https://portal.azure.us. For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+* Or, the Azure Government portal at this URL: https://portal.azure.us. For more details, go to [Connect to Azure Government using the portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
 
 Take the following steps to order Data Box Disk.
 
@@ -78,7 +78,7 @@ Take the following steps to order Data Box Disk.
     |Destination Azure region| Select a region for your storage account.<br> Currently, storage accounts in all regions in US, West and North Europe, Canada, and Australia are supported. |
     |Estimated data size in TB| Enter an estimate in TB. <br>Based on the data size, Microsoft sends you an appropriate number of 8 TB SSDs (7 TB usable capacity). <br>The maximum usable capacity of 5 disks is up to 35 TB. |
     |Disk passkey| Supply the disk passkey if you check **Use custom key instead of Azure generated passkey**. <br> Provide a 12 to 32-character alphanumeric key that has at least one numeric and one special character. The allowed special characters are `@?_+`. <br> You can choose to skip this option and use the Azure generated passkey to unlock your disks.|
-    |Storage destination     | Choose from storage account or managed disks or both. <br> Based on the specified Azure region, select a storage account from the filtered list of an existing storage account. Data Box Disk can be linked with only 1 storage account. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. <br>Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
+    |Storage destination     | Choose from storage account or managed disks or both. <br> Based on the specified Azure region, select a storage account from the filtered list of an existing storage account. Data Box Disk can be linked with only 1 storage account. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. <br>Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../storage/common/storage-network-security.md#exceptions).|
 
     If using storage account as the storage destination, you see the following screenshot:
 

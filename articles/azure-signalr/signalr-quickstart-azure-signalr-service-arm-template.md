@@ -1,23 +1,23 @@
 ---
-title: 'Quickstart: Create an Azure SignalR service - ARM template'
-description: In this Quickstart, learn how to create an Azure SignalR service using an Azure Resource Manager template.
-author: mgblythe
+title: 'Quickstart: Create an Azure SignalR Service - ARM template'
+description: In this Quickstart, learn how to create an Azure SignalR Service using an Azure Resource Manager template (ARM template).
+author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
+ms.author: zhshang
 ms.date: 10/02/2020
 ---
 
-# Quickstart: Use an ARM template to deploy Azure SignalR service
+# Quickstart: Use an ARM template to deploy Azure SignalR Service
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure SignalR service. You can deploy the Azure SignalR service through the Azure portal, PowerShell, or CLI.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure SignalR Service. You can deploy the Azure SignalR Service through the Azure portal, PowerShell, or CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal once you sign in.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy Azure SignalR service to Azure using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy Azure SignalR Service to Azure using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
 ## Prerequisites
 
@@ -53,11 +53,11 @@ The template defines one Azure resource:
 
 # [Portal](#tab/azure-portal)
 
-Select the following link to deploy the Azure SignalR service using the ARM template in the Azure portal:
+Select the following link to deploy the Azure SignalR Service using the ARM template in the Azure portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy Azure SignalR service to Azure using the ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy Azure SignalR Service to Azure using the ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
-On the **Deploy an Azure SignalR service** page:
+On the **Deploy an Azure SignalR Service** page:
 
 1. If you want, change the **Subscription** from the default.
 
@@ -65,14 +65,14 @@ On the **Deploy an Azure SignalR service** page:
 
 3. If you created a new resource group, select a **Region** for the resource group.
 
-4. If you want, enter a new **Name** and the **Location** (such as **eastus2**) of the Azure SignalR service. If you don't specify a name, it's automatically generated. The location for the Azure SignalR service can be the same as or different from the region of the resource group. If you don't specify a location, it's set to the same region as the resource group.
+4. If you want, enter a new **Name** and the **Location** (such as **eastus2**) of the Azure SignalR Service. If you don't specify a name, it's automatically generated. The location for the Azure SignalR Service can be the same as or different from the region of the resource group. If you don't specify a location, it's set to the same region as the resource group.
 
 5. Choose the **Pricing Tier** (**Free_F1** or **Standard_S1**), enter the **Capacity** (number of SignalR units), and choose a **Service Mode** of **Default** (requires hub server), **Serverless** (doesn't allow any server connection), or **Classic** (routed to hub server only if hub has server connection). Then choose whether to **Enable Connectivity Logs** or **Enable Messaging Logs**.
 
     > [!NOTE]
     > For the **Free_F1** pricing tier, the capacity is limited to 1 unit.
 
-    :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Screenshot of the ARM template for creating an Azure SignalR service in the Azure portal.":::
+    :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Screenshot of the ARM template for creating an Azure SignalR Service in the Azure portal.":::
 
 6. Select **Review + create**.
 
@@ -83,9 +83,9 @@ On the **Deploy an Azure SignalR service** page:
 > [!NOTE]
 > If you want to run the PowerShell scripts locally, first enter `Connect-AzAccount` to set up your Azure credentials.
 
-Use the following code to deploy the Azure SignalR service using the ARM template. The code prompts you for the following items:
+Use the following code to deploy the Azure SignalR Service using the ARM template. The code prompts you for the following items:
 
-* The name and region of the new Azure SignalR service
+* The name and region of the new Azure SignalR Service
 * The name and region of a new resource group
 * The Azure pricing tier (**Free_F1** or **Standard_S1**)
 * The SignalR unit capacity (1, 2, 5, 10, 20, 50, or 100)
@@ -95,7 +95,7 @@ Use the following code to deploy the Azure SignalR service using the ARM templat
 * Whether to enable logs for connectivity or messaging (**true** or **false**)
 
 ```azurepowershell-interactive
-$serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR service"
+$serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR Service"
 $serviceLocation = Read-Host -Prompt "Enter an Azure region (for example, westus2) for the service"
 $resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group to contain the service"
 $resourceGroupRegion = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
@@ -119,7 +119,7 @@ $paramObjHashTable = @{
     enableMessagingLogs = $enableMessageLogs
 }
 
-Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure SignalR service using an ARM template" -Verbose
+Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure SignalR Service using an ARM template" -Verbose
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -TemplateParameterObject $paramObjHashTable `
     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json
@@ -128,9 +128,9 @@ Read-Host "Press [ENTER] to continue"
 
 # [CLI](#tab/CLI)
 
-Use the following code to deploy the Azure SignalR service using the ARM template. The code prompts you for the following items:
+Use the following code to deploy the Azure SignalR Service using the ARM template. The code prompts you for the following items:
 
-* The name and region of the new Azure SignalR service
+* The name and region of the new Azure SignalR Service
 * The name and region of a new resource group
 * The Azure pricing tier (**Free_F1** or **Standard_S1**)
 * The SignalR unit capacity (1, 2, 5, 10, 20, 50, or 100)
@@ -140,7 +140,7 @@ Use the following code to deploy the Azure SignalR service using the ARM templat
 * Whether to enable logs for connectivity or messaging (**true** or **false**)
 
 ```azurecli-interactive
-read -p "Enter a name for the new Azure SignalR service: " serviceName &&
+read -p "Enter a name for the new Azure SignalR Service: " serviceName &&
 read -p "Enter an Azure region (for example, westus2) for the service: " serviceLocation &&
 read -p "Enter a name for the new resource group to contain the service: " resourceGroupName &&
 read -p "Enter an Azure region (for example, centralus) for the resource group: " resourceGroupRegion &&
@@ -152,7 +152,7 @@ read -p "Specify whether to enable messaging logs (true or false): " enableMessa
 params='name='$serviceName' location='$serviceLocation' pricingTier='$priceTier' capacity='$unitCapacity' serviceMode='$servicingMode' enableConnectivityLogs='$enableConnectionLogs' enableMessagingLogs='$enableMessageLogs &&
 echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
 az group create --name $resourceGroupName --location $resourceGroupRegion &&
-echo "RUN az deployment group create, which creates an Azure SignalR service using an ARM template" &&
+echo "RUN az deployment group create, which creates an Azure SignalR Service using an ARM template" &&
 az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json &&
 read -p "Press [ENTER] to continue: "
 ```
@@ -160,24 +160,24 @@ read -p "Press [ENTER] to continue: "
 ---
 
 > [!NOTE]
-> The deployment may take a few minutes to complete. Note the names for the Azure SignalR service and the resource group, which you use to review the deployed resources later.
+> The deployment may take a few minutes to complete. Note the names for the Azure SignalR Service and the resource group, which you use to review the deployed resources later.
 
 ## Review deployed resources
 
 # [Portal](#tab/azure-portal)
 
-Follow these steps to see an overview of your new Azure SignalR service:
+Follow these steps to see an overview of your new Azure SignalR Service:
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **SignalR**.
 
-2. In the SignalR list, select your new service. The **Overview** page for the new Azure SignalR service appears.
+2. In the SignalR list, select your new service. The **Overview** page for the new Azure SignalR Service appears.
 
 # [PowerShell](#tab/PowerShell)
 
-Run the following interactive code to view details about your Azure SignalR service. You'll have to enter the name of the new service and the resource group.
+Run the following interactive code to view details about your Azure SignalR Service. You'll have to enter the name of the new service and the resource group.
 
 ```azurepowershell-interactive
-$serviceName = Read-Host -Prompt "Enter the name of your Azure SignalR service"
+$serviceName = Read-Host -Prompt "Enter the name of your Azure SignalR Service"
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 Write-Verbose "Get-AzSignalR -ResourceGroupName $resourceGroupName -Name $serviceName" -Verbose
 Get-AzSignalR -ResourceGroupName $resourceGroupName -Name $serviceName
@@ -186,10 +186,10 @@ Read-Host "Press [ENTER] to continue"
 
 # [CLI](#tab/CLI)
 
-Run the following interactive code to view details about your Azure SignalR service. You'll have to enter the name of the new service and the resource group.
+Run the following interactive code to view details about your Azure SignalR Service. You'll have to enter the name of the new service and the resource group.
 
 ```azurecli-interactive
-read -p "Enter the name of your Azure SignalR service: " serviceName &&
+read -p "Enter the name of your Azure SignalR Service: " serviceName &&
 read -p "Enter the resource group name: " resourceGroupName &&
 echo "SHOW SERVICE DETAILS:  az signalr show --resource-group $resourceGroupName --name $serviceName" &&
 az signalr show --resource-group $resourceGroupName --name $serviceName &&

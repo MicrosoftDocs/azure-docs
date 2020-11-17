@@ -40,7 +40,7 @@ Azure Virtual WAN allows a global transit network architecture by enabling ubiqu
 
 **Figure 2: Global transit network and Virtual WAN**
 
-In the Azure Virtual WAN architecture, virtual WAN hubs are provisioned in Azure regions, to which you can choose to connect your branches, VNets, and remote users. The physical branch sites are connected to the hub by Premium ExpressRoute or site-to site-VPNs, VNets are connected to the hub by VNet connections, and remote users can directly connect to the hub using User VPN (point-to-site VPNs). Virtual WAN also supports cross-region VNet connection where a VNet in one region can be connected to a virtual WAN hub in a different region.
+In the Azure Virtual WAN architecture, virtual WAN hubs are provisioned in Azure regions, to which you can choose to connect your branches, VNets, and remote users. The physical branch sites are connected to the hub by Premium or Standard ExpressRoute or site-to site-VPNs, VNets are connected to the hub by VNet connections, and remote users can directly connect to the hub using User VPN (point-to-site VPNs). Virtual WAN also supports cross-region VNet connection where a VNet in one region can be connected to a virtual WAN hub in a different region.
 
 You can establish a virtual WAN by creating a single virtual WAN hub in the region that has the largest number of spokes (branches, VNets, users), and then connecting the spokes that are in other regions to the hub. This is a good option when an enterprise footprint is mostly in one region with a few remote spokes.  
   
@@ -84,7 +84,7 @@ Branch-to-VNet is the primary path supported by Azure Virtual WAN. This path all
 
 ### ExpressRoute Global Reach and Virtual WAN
 
-ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. Virtual WAN supports Express Route circuit connections. Connecting a branch site to Virtual WAN with Express Route requires 1) Premium Circuit 2) Circuit to be in a Global Reach enabled location.
+ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. Virtual WAN supports Express Route circuit connections. Connecting a branch site to Virtual WAN with Express Route requires 1) Premium or Standard Circuit 2) Circuit to be in a Global Reach enabled location.
 
 ExpressRoute Global Reach is an add-on feature for ExpressRoute. With Global Reach, you can link ExpressRoute circuits together to make a private network between your on-premises networks. Branches that are connected to Azure Virtual WAN using ExpressRoute require the ExpressRoute Global Reach to communicate with each other.
 
@@ -125,7 +125,7 @@ This flag is visible when the user edits a virtual network connection, a VPN con
 
 The Azure Virtual WAN hubs interconnect all the networking end points across the hybrid network and potentially see all transit network traffic. Virtual WAN hubs can be converted to Secured Virtual Hubs by deploying the Azure Firewall inside VWAN hubs to enable cloud-based security, access, and policy control. Orchestration of Azure Firewalls in virtual WAN hubs can be performed by Azure Firewall Manager.
 
-[Azure Firewall Manager](https://go.microsoft.com/fwlink/?linkid=2107683) provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall.
+[Azure Firewall Manager](../firewall-manager/index.yml) provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall.
 
 ![secured virtual hub with Azure Firewall](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
@@ -176,4 +176,4 @@ Create a connection using Virtual WAN and Deploy Azure Firewall in VWAN hub(s).
 
 * [Site-to-site connections using Virtual WAN](virtual-wan-site-to-site-portal.md)
 * [ExpressRoute connections using Virtual WAN](virtual-wan-expressroute-portal.md)
-* [Azure Firewall Manager to Deploy Azure FW in VWAN](https://go.microsoft.com/fwlink/?linkid=2107683)
+* [Azure Firewall Manager to Deploy Azure FW in VWAN](../firewall-manager/index.yml)

@@ -69,7 +69,7 @@ Ensure that the following prerequisites are in place.
      If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
    - If your firewall or proxy allows DNS whitelisting, add connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
    - Your Authentication Agents need access to **login.windows.net** and **login.microsoftonline.com** for initial registration. Open your firewall for those URLs as well.
-   - For certificate validation, unblock the following URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, and **www\.microsoft.com:80**. Since these URLs are used for certificate validation with other Microsoft products you may already have these URLs unblocked.
+    - For certificate validation, unblock the following URLs: **crl3.digicert.com:80**, **crl4.digicert.com:80**, **ocsp.digicert.com:80**, **www\.d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80**, **crl.microsoft.com:80**, **oneocsp.microsoft.com:80**, and **ocsp.msocsp.com:80**. Since these URLs are used for certificate validation with other Microsoft products you may already have these URLs unblocked.
 
 ### Azure Government cloud prerequisite
 Prior to enabling Pass-through Authentication through Azure AD Connect with Step 2, download the latest release of the PTA agent from the Azure portal.  You need to ensure that your agent is versions **1.5.1742.0.** or later.  To verify your agent see [Upgrade authentication agents](how-to-connect-pta-upgrade-preview-authentication-agents.md)

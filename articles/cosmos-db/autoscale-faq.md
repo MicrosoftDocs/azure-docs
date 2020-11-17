@@ -9,6 +9,7 @@ ms.date: 05/10/2020
 ---
 
 # Frequently asked questions about autoscale provisioned throughput in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 With autoscale provisioned throughput, Azure Cosmos DB will automatically manage and scale the RU/s of your database or container based on usage. This article answers commonly asked questions about autoscale.
 
@@ -122,7 +123,7 @@ For example, suppose you have an autoscale container with 400 – 4000 RU/s:
 The billable RU/s is still 1000 RU/s. Regardless of when the TTLs occur, they will not affect the autoscale scaling logic.
 
 ### What is the mapping between the max RU/s and physical partitions?
-When you first select the max RU/s, Azure Cosmos DB will provision: Max RU/s / 10,000 RU/s = # of physical partitions. Each [physical partition](partition-data.md#physical-partitions) can support up to 10,000 RU/s and 50 GB of storage. As storage size grows, Azure Cosmos DB will automatically split the partitions to add more physical partitions to handle the storage increase, or increase the max RU/s if storage [exceeds the associated limit](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
+When you first select the max RU/s, Azure Cosmos DB will provision: Max RU/s / 10,000 RU/s = # of physical partitions. Each [physical partition](partitioning-overview.md#physical-partitions) can support up to 10,000 RU/s and 50 GB of storage. As storage size grows, Azure Cosmos DB will automatically split the partitions to add more physical partitions to handle the storage increase, or increase the max RU/s if storage [exceeds the associated limit](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
 
 The max RU/s of the database or container is divided evenly across all physical partitions. So, the total throughput any single physical partition can scale to is: Max RU/s of database or container / # physical partitions. 
 
@@ -144,5 +145,5 @@ For example, if you select the 20,000 RU/s max throughput option and have 200 GB
 
 * Learn how to [enable autoscale on an Azure Cosmos DB database or container](how-to-provision-autoscale-throughput.md).
 * Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#benefits-of-autoscale).
-* Learn more about [logical and physical partitions](partition-data.md).
+* Learn more about [logical and physical partitions](partitioning-overview.md).
                         

@@ -141,6 +141,9 @@ With this option, you don't need to write any authentication code in your app. F
 > [!CAUTION]
 > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
 
+> [!NOTE]
+> By default, any user in your Azure AD tenant can request a token for your application from Azure AD. You can [configure the application in Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
+
 ## More resources
 
 * [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](tutorial-auth-aad.md)  

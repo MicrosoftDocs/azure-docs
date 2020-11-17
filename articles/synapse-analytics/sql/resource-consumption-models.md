@@ -15,11 +15,11 @@ ms.reviewer: jrasnick
 
 This article describes resource consumption models of Synapse SQL (preview).
 
-## SQL on-demand
+## Serverless SQL pool
 
-SQL on-demand is a pay per query service that doesn't require you to pick the right size. The system automatically adjusts based on your requirements, freeing you up from managing your infrastructure and picking the right size for your solution.
+Serverless SQL pool is a pay per query service that doesn't require you to pick the right size. The system automatically adjusts based on your requirements, freeing you up from managing your infrastructure and picking the right size for your solution.
 
-## SQL pool - Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
+## Dedicated SQL pool - Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
 
 Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
 
@@ -45,12 +45,12 @@ Increasing DWUs:
 
 The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000.
 
-The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 SQL pool are measured in data warehouse units (DWU), for example DW2000c.
+The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 dedicated SQL pool are measured in data warehouse units (DWU), for example DW2000c.
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing data warehouses currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information, see [Upgrade to Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-In T-SQL, the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your SQL pool.
+In T-SQL, the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your dedicated SQL pool.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -199,7 +199,7 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-This DMV returns information about various management operations on your SQL pool such as the operation and the state of the operation, which is either IN_PROGRESS or COMPLETED.
+This DMV returns information about various management operations on your dedicated SQL pool such as the operation and the state of the operation, which is either IN_PROGRESS or COMPLETED.
 
 ### The scaling workflow
 
