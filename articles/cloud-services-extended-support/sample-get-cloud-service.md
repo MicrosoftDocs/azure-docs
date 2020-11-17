@@ -14,7 +14,7 @@ ms.custom:
 
 This article covers various examples that can be used to retrieved information about existing Azure CLoud Service (extended support) deployments.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 
 ### Example 1: Get all cloud service under a resource group
