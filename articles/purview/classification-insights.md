@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
 # Classification insights about your data from Azure Purview
 
-This how-to guide describes how to access, view, and filter Purview classification insight reports for your data in Azure Blob storage, Azure files, ADLS GEN 1, and ADLS GEN 2.
+This how-to guide describes how to access, view, and filter Purview classification insight reports for your data in Azure Blob storage, Azure files, Azure Data Lake Storage (ADLS) GEN 1, and Azure Data Lake Storage (ADLS) GEN 2.
 
 In this how-to guide, you'll learn how to:
 

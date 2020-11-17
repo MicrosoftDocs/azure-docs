@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/02/2020
+ms.date: 11/17/2020
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about the file extensions found in my data.
 ---
 
 # File extension insights about your data from Azure Purview 
 
-This how-to guide describes how to access, view, and filter insights about the file extensions, or file types, found in your data in Azure Blob Storage, Azure file, ADLS GEN 1, and ADLS GEN 2.
+This how-to guide describes how to access, view, and filter insights about the file extensions, or file types, found in your data in Azure Blob Storage, Azure file, Azure Data Lake Storage (ADLS) GEN 1, and Azure Data Lake Storage (ADLS) GEN 2.
 
 In this how-to guide, you'll learn how to:
 > [!div class="checklist"]
