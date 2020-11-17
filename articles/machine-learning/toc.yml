@@ -160,6 +160,8 @@
         - name: Enterprise security overview
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: Data encryption
+          href: concept-data-encryption.md
         - name: Security baseline
           href: security-baseline.md
     - name: Responsible ML
@@ -182,14 +184,17 @@
       items:
         - name: Identity & access management
           items:
-            - name: Set up authentication
+            - name: Workspace authentication
               displayName: authentication, auth, oauth
               href: how-to-setup-authentication.md
-            - name: Manage users and roles
+            - name: Web service authentication
+              displayName: authentication, model, web service
+              href: how-to-authenticate-web-service.md
+            - name: Manage access (authorization)
               href: how-to-assign-roles.md
-            - name: Use managed identities for access control
+            - name: Managed identities for access control
               href: how-to-use-managed-identities.md
-            - name: Use Azure AD identity in AKS deployments
+            - name: Azure AD identity in AKS deployments
               href: how-to-use-azure-ad-identity.md
         - name: Network security
           items:
@@ -399,6 +404,9 @@
         - name: Use remote compute targets
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
+        - name: Use automated ML with Databricks
+          displayName: automl
+          href: how-to-configure-databricks-automl-environment.md
         - name: Auto-train a forecast model
           displayName: time series
           href: how-to-auto-train-forecast.md

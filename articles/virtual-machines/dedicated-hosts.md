@@ -82,7 +82,6 @@ Known issues and limitations when using automatic VM placement:
 
 - You will not be able to apply Azure Hybrid Benefits on your dedicated hosts.
 - You will not be able to redeploy your VM. 
-- You will not be able to control maintenance for your dedicated hosts.
 - You will not be able to use Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts 
 
 
@@ -119,7 +118,7 @@ Not all scale-set orchestration and optimizations settings are supported by dedi
 
 The infrastructure supporting your virtual machines may occasionally be updated to improve reliability, performance, security, and to launch new features. The Azure platform tries to minimize the impact of platform maintenance whenever possible, but customers with *maintenance sensitive* workloads can't tolerate even few seconds that the VM needs to be frozen or disconnected for maintenance.
 
-**Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window.
+**Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window. Within the maintenance window, you can apply maintenance directly at the host level, in any order. Once the maintenance window is over, Microsoft will move forward and apply the pending maintenance to the hosts in an order which may not follow the user defined fault domains.
 
 For more information, see [Managing platform updates with Maintenance Control](./maintenance-control.md).
 

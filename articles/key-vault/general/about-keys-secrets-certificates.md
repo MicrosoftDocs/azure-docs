@@ -7,6 +7,7 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin

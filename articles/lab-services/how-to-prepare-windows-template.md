@@ -42,7 +42,7 @@ Write-Host "Installing OneDrive..."
 
 ### OneDrive customizations
 
-There are many [customizations that can be done to OneDrive](https://docs.microsoft.com/onedrive/use-group-policy). Let's cover some of the more common customizations.
+There are many [customizations that can be done to OneDrive](/onedrive/use-group-policy). Let's cover some of the more common customizations.
 
 #### Silently move Windows known folders to OneDrive
 
@@ -56,7 +56,7 @@ If you are on a machine that is not using Active Directory, users can manually m
 
 If your virtual machine is connected to Active Directory, you can set the template machine to automatically prompt your students to move the known folders to OneDrive.  
 
-You'll need to retrieve your organization ID first.  For further instructions, see [find your Microsoft 365 organization ID](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  You can also get the organization ID by using the following PowerShell.
+You'll need to retrieve your organization ID first.  For further instructions, see [find your Microsoft 365 organization ID](/onedrive/find-your-office-365-tenant-id).  You can also get the organization ID by using the following PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -132,7 +132,7 @@ If your template machine needs Office, we recommend installation of Office throu
 
 ### Change the Microsoft 365 update channel
 
-Using the Office Configuration Tool, you can set how often Office receives updates. However, if you need to modify how often Office receives updates after installation, you can change the update channel URL. Update channel URL addresses can be found at [Change the Microsoft 365 Apps update channel for devices in your organization](https://docs.microsoft.com/deployoffice/change-update-channels). The example below shows how to set Microsoft 365 to use the Monthly Update Channel.
+Using the Office Configuration Tool, you can set how often Office receives updates. However, if you need to modify how often Office receives updates after installation, you can change the update channel URL. Update channel URL addresses can be found at [Change the Microsoft 365 Apps update channel for devices in your organization](/deployoffice/change-update-channels). The example below shows how to set Microsoft 365 to use the Monthly Update Channel.
 
 ```powershell
 # Update to the Microsoft 365 Monthly Channel
@@ -183,7 +183,7 @@ You can also use PowerShell to update Microsoft Store applications that are alre
 
 ### Stop automatic Windows Updates
 
-After updating Windows to the latest version, you might consider stopping Windows Updates.  Automatic updates could potentially interfere with scheduled class time.  If your course is a longer running one, consider asking students to manually check for updates or setting automatic updates for a time outside of scheduled class hours.  For more information about customization options for Windows Update, see the [manage additional Windows Update settings](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings).
+After updating Windows to the latest version, you might consider stopping Windows Updates.  Automatic updates could potentially interfere with scheduled class time.  If your course is a longer running one, consider asking students to manually check for updates or setting automatic updates for a time outside of scheduled class hours.  For more information about customization options for Windows Update, see the [manage additional Windows Update settings](/windows/deployment/update/waas-wu-settings).
 
 Automatic Windows Updates may be stopped using the following PowerShell script.
 

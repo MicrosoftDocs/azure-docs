@@ -7,6 +7,8 @@
     href: overview.md
   - name: Technical and feature overview
     href: technical-overview.md
+  - name: What's new in docs?
+    href: whats-new-docs.md
 - name: Quickstarts
   expanded: true
   items:

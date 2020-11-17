@@ -44,27 +44,30 @@ Now, specify the container credentials in the IoT Edge module.
    User Name|Username
    Password|Password
   
-## Deploy the data generator module
+## Build, push, and deploy the Data Generator Module
 
-1. In the **IoT Edge** section under **Automatic Device Management**, click **Device ID**. For this tutorial, the ID is `IronOrePredictionDevice` and then click on **Set Modules**.
-
-2.  Under the **IoT Edge Modules** section on the **Set modules on device:** page, click **+ ADD** and select **IoT Edge module**.
-
-3. Provide a valid name and image URI for IoT Edge module.
-   The Image URI can be found in the container registry in the resource group created in part one of this tutorial. Select the **Repositories** section under **Services**. For this tutorial, choose the repository named `silicaprediction`. Select the appropriate tag. The Image URI will be of the format:
-
-   *login server of the containerregistry*/*repository name*:*tag name*
-
-   For example:
-
+1. Clone the [project files](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica) to your machine.
+2. Open the file **IronOre_Silica_Predict.sln** using Visual Studio 2019
+3. Update the container registry details in the **deployment.template.json** 
+   ```json
+   "registryCredentials":{
+        "RegistryName":{
+            "username":"",
+            "password":""
+            "address":""
+        }
+    }
    ```
-   ASEdemocontregistry.azurecr.io/silicaprediction:amd64
+4. Update the **modules.json** file to specify the target container registry (or repository for the module)
+   ```json
+   "image":{
+        "repository":"samplerepo.azurecr.io/ironoresilicapercent",
+        "tag":
+    }
    ```
-
-4. Leave the *Restart Policy* and the *Desired Status* fields as is.
-
-5. Click **Add**.
-
+5. Execute the project in either debug or release mode to ensure the project runs without any issues 
+6. Push the project to your container registry by right-clicking the project name and then selecting **Build and Push IoT Edge Modules**.
+7. Deploy the Data Generator module as an IoT Edge module to your Edge device. 
 
 ## Deploy the Azure SQL Edge module
 
