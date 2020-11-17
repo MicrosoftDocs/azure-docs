@@ -22,7 +22,7 @@
     href: enable-rdp.md
   - name: Swap Cloud Service Deployments
     href: cloud-services-swap.md
-  - name: Update a Cloud Service - PowerShell
+  - name: Update a Cloud Service
     href: update-powershell.md
   - name: Store and use certificates
     href: certificates-and-key-vault.md

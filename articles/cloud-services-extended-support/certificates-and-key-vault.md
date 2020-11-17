@@ -19,6 +19,8 @@ To install certificates on your cloud service roles, users need to add the certi
 1.	Login to the Azure portal and navigate to your key vault. If you do not have key vault set up, you can opt to create one in the same window.
 
 2.	Ensure your Access policies include the following properties:
+    - **Enable access to Azure Virtual Machines for deployment**
+    - **Enable access to Azure Resource Manager for template deployment** 
 
     :::image type="content" source="media/certs-and-key-vault-1.png" alt-text="Image shows access policies window in the Azure portal.":::
  
