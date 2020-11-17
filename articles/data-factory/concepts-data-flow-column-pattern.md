@@ -6,7 +6,7 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 11/17/2020
 ---
 
 # Using column patterns in mapping data flow
@@ -18,7 +18,7 @@ Several mapping data flow transformations allow you to reference template column
 * If incoming source fields change often such as the case of changing columns in text files or NoSQL databases. This scenario is known as [schema drift](concepts-data-flow-schema-drift.md).
 * If you wish to do a common operation on a large group of columns. For example, wanting to cast every column that has 'total' in its column name into a double.
 
-Column patterns are currently available in the derived column, aggregate, select, and sink transformations.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xiXz]
 
 ## Column patterns in derived column and aggregate
 
