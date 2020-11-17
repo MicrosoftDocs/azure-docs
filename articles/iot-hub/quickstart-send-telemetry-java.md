@@ -25,6 +25,12 @@ In this quickstart, you send telemetry to Azure IoT Hub and read it with a Java 
 
 * Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
 
+    You can verify the current version of Java on your development machine using the following command:
+
+    ```cmd/sh
+    java -version
+    ```
+
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
     You can verify the current version of Maven on your development machine using the following command:
@@ -34,12 +40,6 @@ In this quickstart, you send telemetry to Azure IoT Hub and read it with a Java 
     ```
 
 * [A sample Java project](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip).
-
-    You can verify the current version of Java on your development machine using the following command:
-
-    ```cmd/sh
-    java -version
-    ```
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
