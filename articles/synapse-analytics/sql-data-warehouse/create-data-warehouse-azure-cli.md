@@ -20,7 +20,7 @@ Create a Synapse SQL pool (data warehouse) in Azure Synapse Analytics using the 
 
 Use these commands to sign on to Azure and set up a resource group.
 
-1. Use the [az login](/cli/azure/reference-index#az_login) command to sign into Azure:
+1. If you are using a local install, run the [az login](/cli/azure/reference-index#az_login) command to sign into Azure:
 
    ```azurecli
    az login
