@@ -96,8 +96,8 @@ static void Main(string[] args)
     EntityLinkingExample(client);
     RecognizePIIExample(client);
     KeyPhraseExtractionExample(client);
-    KeyPhraseExtractionExample(client);
-    KeyPhraseExtractionExample(client);
+    RecognizeHealthcareEntitiesExample(client);
+    AnalyzeOperationExample(client);
 
     Console.Write("Press any key to exit.");
     Console.ReadKey();
@@ -135,8 +135,7 @@ static void Main(string[] args)
     LanguageDetectionExample(client);
     EntityRecognitionExample(client);
     EntityLinkingExample(client);
-    RecognizeHealthcareEntitiesExample(client);
-    AnalyzeOperationExample(client);
+    KeyPhraseExtractionExample(client);
 
     Console.Write("Press any key to exit.");
     Console.ReadKey();
