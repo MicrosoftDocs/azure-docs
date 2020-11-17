@@ -23,7 +23,7 @@ The following services and tools are required for this quickstart.
 
 + [Azure Cognitive Search for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Create an Azure Cognitive Search service](../search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Copy a key and URL
 
@@ -324,7 +324,7 @@ To add new documents in VS Code:
 
 At this point, you should see all four documents available in the documents section.
 
-![status after uploading all documents](media/search-get-started-rest/create-document-finish.png)
+![status after uploading all documents](../media/search-get-started-rest/create-document-finish.png)
 
 ## 3 - Search an index
 
@@ -345,7 +345,7 @@ To do this in VS Code:
 
 Try a few other query examples to get a feel for the syntax. There's four additional queries below for you to try. You can add multiple queries to the same editor. When you press **Ctrl+Alt+R** or **Cmd+Alt+R**, the line your cursor determines which query will be submitted.
 
-![search results in extension](../media/search-get-started-rest/all-searches.png)
+![queries and results side-by-side](../media/search-get-started-rest/all-searches.png)
 
 In the first query, we search `boutique` and `select` only certain fields. It's a best practice to only `select` the fields you need because pulling back unnecessary data can add latency to your queries. The query also sets `$count=true` to return the total number of results with the search results.
 

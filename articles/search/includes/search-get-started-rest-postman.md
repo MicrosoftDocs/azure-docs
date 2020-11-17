@@ -18,7 +18,7 @@ The following services and tools are required for this quickstart.
 
 + [Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Cognitive Search.
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Create an Azure Cognitive Search service](../search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Copy a key and URL
 
@@ -40,7 +40,7 @@ For either tool, you need to choose a command (GET, POST, PUT, and so forth), pr
 
 > `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name`
 
-Notice the HTTPS prefix, the name of the service, the name of an object (in this case, the indexes collection), and the [api-version](search-api-versions.md). The api-version is a required, lowercase string specified as `?api-version=2020-06-30` for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
+Notice the HTTPS prefix, the name of the service, the name of an object (in this case, the indexes collection), and the [api-version](../search-api-versions.md). The api-version is a required, lowercase string specified as `?api-version=2020-06-30` for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
 
 Request header composition includes two elements: `Content-Type` and the `api-key` used to authenticate to Azure Cognitive Search. Replace the admin API key (YOUR-AZURE-SEARCH-ADMIN-API-KEY) with a valid value. 
 

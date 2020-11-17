@@ -158,7 +158,7 @@ The schema of your index can have a significant impact on indexing speeds. Becau
 Azure Cognitive Search supports the following APIs to load single or multiple documents into an index:
 
 + [Add, Update, or Delete Documents (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [IndexDocumentsAction class](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) or [IndexDocumentsBatch class](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
++ [IndexDocumentsAction class](/dotnet/api/azure.search.documents.models.indexdocumentsaction) or [IndexDocumentsBatch class](/dotnet/api/azure.search.documents.models.indexdocumentsbatch)
 
 Indexing documents in batches will significantly improve indexing performance. These batches can be up to 1000 documents, or up to about 16 MB per batch.
 
