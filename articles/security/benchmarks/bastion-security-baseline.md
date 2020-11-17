@@ -30,7 +30,11 @@ To see how Azure Bastion completely maps to the Azure Security Benchmark, see th
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39744).
 
-**Guidance**: For the network security groups (NSGs) associated with your Azure Bastion subnets, you must allow
+**Guidance**: When you deploy Azure Bastion resources you must create or use an existing virtual network. Ensure that all Azure virtual networks follow an enterprise segmentation principle that aligns to the business risks. Any system that could incur higher risk for the organization should be isolated within its own virtual network and sufficiently secured with  a network security group (NSG).
+
+- [How to create a network security group with security rules](../../virtual-network/tutorial-filter-network-traffic.md)
+
+Azure Bastion service requires following ports need to be open for service to function properly:
 
 Ingress Traffic : 
 
@@ -44,13 +48,9 @@ a) Egress Traffic to target VMs: Azure Bastion will reach the target VMs over pr
 
 b) Egress Traffic to other public endpoints in Azure: Azure Bastion needs to be able to connect to various public endpoints within Azure (for example, for storing diagnostics logs and metering logs). For this reason, Azure Bastion needs outbound to 443 to AzureCloud service tag.
 
-Connectivity to Gateway Manager and Azure service tag is protected (locked down) by Azure certificates. External entities, including the consumers of those resources, can't communicate on these endpoints. You can learn more about Bastion NSG requirement here 
+Connectivity to Gateway Manager and Azure service tag is protected (locked down) by Azure certificates. External entities, including the consumers of those resources, can't communicate on these endpoints. 
 
-../../bastion/bastion-nsg.md
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [You can learn more about Bastion NSG requirement here](../../bastion/bastion-nsg.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -61,18 +61,13 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39745).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Azure Bastion does not expose any endpoints that can be accessed via a private network. Azure Bastion supports deployment in peered network. 
 
-**Guidance**: Azure Bastion does not expose any endpoints that can be accessed via a private network. This control is intended for describing how private networks can be connected together to provide access to the offering or its resources.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [You can learn about VNET peering and Azure Bastion here ](../../bastion/vnet-peering.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### NS-3: Establish private network access to Azure services
 
@@ -88,10 +83,6 @@ Azure Bastion does not not allow for its management endpoints to be secured to a
 
 Azure Bastion does not not provide the capability to configure Service Endpoints.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -104,10 +95,6 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 **Guidance**: Protect your Azure Bastion resources against attacks from external networks, including distributed denial of service (DDoS) attacks, application specific attacks, and unsolicited and potentially malicious internet traffic. Protect your assets against DDoS attacks by enabling DDoS standard protection on your Azure virtual networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
 
 Azure Bastion is a fully managed PaaS service that provides secure and seamless RDP and SSH access to your virtual machines and is not intended to run web applications. Azure Bastion does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Yes
 
@@ -123,10 +110,6 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: Not applicable; Azure Bastion is PaaS service and cannot be configured with an IDS or IPS solution for detecting or preventing threats on the network.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -141,10 +124,6 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: Not applicable; this recommendation is intended for offerings that can be deployed into Azure Virtual Networks, or have the capability to define groupings of allowed IP ranges for efficient management. Azure Bastion does not currently support service tags.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -155,17 +134,13 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39750).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: Not applicable; Azure Bastion does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ## Identity Management
 
@@ -176,11 +151,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39730).
 
-**Guidance**: Not applicable; Azure Bastion doesn't allow access to virtual machine over RDP/SSH using AAD credentials. User can access Azure portal using AAD authentication to launch Azure Bastion service to connect to  virtual machine over RDP/SSH. 
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion doesn't allow access to virtual machine over RDP/SSH using AAD credentials. User can access Azure portal using AAD authentication to launch Azure Bastion service to connect to  virtual machine over RDP/SSH.  AAD credential can also be used to manage bastion deployment ( Create, Update and delete)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -193,10 +164,6 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: Not applicable; Azure Bastion doesn't use any identities or manage any secrets for identities.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -206,11 +173,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39732).
 
-**Guidance**: Not applicable; Azure Bastion doesn't support SSO for authentication to its resources.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion doesn't support SSO for authentication to access virtual machine resources. User can use AAD SSO to login to Azure poral to launch bastion service.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -221,11 +184,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39733).
 
-**Guidance**: Not applicable; Azure Bastion doesn't allow access to virtual machine over RDP/SSH using AAD credentials. User can access Azure portal using AAD multi factor authentication to launch Azure Bastion service to connect to  virtual machine over RDP/SSH. 
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion doesn't allow access to virtual machine over RDP/SSH using AAD credentials. User can access Azure portal using AAD multi factor authentication to launch Azure Bastion service to connect to  virtual machine over RDP/SSH and manage Bastion resource ( Create, Update and Delete)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -253,7 +212,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 Customer can also use different RBAC policies at domain joined virtual machines level to further restrict access to the virtual machine
 
-You can read more about Azure AD conditional access here : 
+- [You can read more about Azure AD conditional access here ](../../active-directory/conditional-access/overview.md) 
 
 - [Azure conditional access overview](../../active-directory/conditional-access/overview.md) 
 
@@ -277,11 +236,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion doesn't allow customer to deploy any persisted data into the running environment.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion doesn't allow customer to deploy any persisted data into the running environment.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -295,11 +250,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion doesn't host or access any legacy applications.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion doesn't host or access any legacy applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -317,11 +268,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion doesn't use any administrative accounts.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion doesn't use any administrative accounts.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -335,11 +282,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion doesn't store or process any data that are considered as business critical by customers.
+**Guidance**: Azure Bastion doesn't store or process any data that are considered as business critical by customers.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -353,7 +298,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion doesn't use any user accounts.
+**Guidance**: Azure Bastion doesn't use any user accounts.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
@@ -371,11 +316,11 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion is  PaaS service and doesn't need emergency accounts. 
+**Guidance**: Azure Bastion is  PaaS service and doesn't need emergency accounts. 
 
 *Customer can configure emergency access account for Azure portal access because Azure bastion is access via Azure portal. 
 
-../../active-directory/roles/security-emergency-access.md
+- [Manage emergency access account in Azure AD ](../../active-directory/roles/security-emergency-access.md)
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
@@ -393,11 +338,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion doesn't support any automation on account or role management.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion doesn't support any automation on account or role management.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -408,18 +349,15 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39742).
 
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+**Guidance**: Azure Bastion can be accessed/managed via customer workstations - this would also include managing the Azure Bastion service via the portal from a workstation.
 
-**Guidance**: Not applicable; Azure Bastion doesn't support management from a customer workstation.
+- [Understand privileged access workstations](../../active-directory/devices/concept-azure-managed-workstation.md)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Deploy a privileged access workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
@@ -437,10 +375,6 @@ Reader role on the Azure Bastion resource
 
 ../../bastion/bastion-faq.md#roles
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -453,11 +387,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion doesn't store customer data, and doesn't support the Customer Lockbox solution.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion doesn't store customer data, and doesn't support the Customer Lockbox solution.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -477,10 +407,6 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: Azure Bastion does not store, process or transmit sensitive data, because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest or in transit, and enforcement of security controls with automated tools.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -493,11 +419,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion does not store, process or transmit sensitive data, because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest or in transit, and enforcement of security controls with automated tools.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion does not store, process or transmit sensitive data, because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest and enforcement of security controls with automated tools. Bastion uses TLS for data in transit between user and virtual machine.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -511,11 +433,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion does not store, process or transmit data classified as sensitive.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion does not store, process or transmit data classified as sensitive.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -529,11 +447,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion does not store, process or transmit data classified as sensitive.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion does not store, process or transmit data classified as sensitive.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -548,11 +462,6 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Bastion does not interact with sensitive data, because of this you can not leverage data protection features with the offering's resources such as access controls, encryption at rest or in transit, and enforcement of security controls with automated tools.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
-
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -602,10 +511,6 @@ Use Azure Virtual Machine Inventory to automate the collection of information ab
 
 Azure Bastion does not allow running an application or installation of software on its resources.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
@@ -621,11 +526,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 - [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/built-in-policies.md#general) 
 
-- [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md) 
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -639,11 +540,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion is a PaaS service and customer can not use the offering's capabilities to inventory and manage assets
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion is a PaaS service and customer can not use the offering's capabilities to inventory and manage assets
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -658,10 +555,6 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 - [How to configure Conditional Access to block access to Azure Resources Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
@@ -674,11 +567,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion is a Paas service does not allow customers to install applications on them.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion is a Paas service does not allow customers to install applications on them.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -697,10 +586,6 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Bastion does not currently produce customer facing resource logs that can be used for threat detection.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -731,11 +616,7 @@ Audit activity reports in the Azure Active Directory
 
 - [Enable Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Threat protection in Azure Security Center](/azure/security-center/threat-protection) 
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
 
 **Azure Security Center monitoring**: Yes
 
@@ -748,11 +629,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: Customer can enable Azure bastion resource logs. Use these diagnostics log to view which users connected to which workloads, at what time, from where, and other such relevant logging information. User can configure these logs to be sent to a storage account for long term retention and auditing.
 
-../../bastion/diagnostic-logs.md
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Enable and work with Azure Bastion logs](../../bastion/diagnostic-logs.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -771,10 +648,6 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 - [Enable Azure resource logs for Azure Bastion ](../../bastion/diagnostic-logs.md)
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -787,11 +660,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion does not produce or process any security related logs which would need to be collected centrally for management or analysis.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion does not produce or process any security related logs which would need to be collected centrally for management or analysis.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -805,8 +674,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure Bastion does not currently produce any security-related logs. Customer can enable resource logging for the service and set any log retention customer is unable to set any log retention.
-../../bastion/diagnostic-logs.md
+**Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing Azure  Bastion logs has the log retention period set according to your organization's compliance regulations.
+
+- [Enable and work with Azure Bastions logs](../../bastion/diagnostic-logs.md)
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
@@ -822,17 +692,13 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39762).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
 **Guidance**: Azure Bastion does not support configuring your own time synchronization sources. The Azure Bastion service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ## Incident Response
 
@@ -1004,10 +870,6 @@ How to configure and manage Azure Policy
 
 ../../governance/policy/tutorials/create-and-manage.md
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -1020,12 +882,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
-
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1039,11 +896,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1057,11 +910,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion is a PaaS offering and doesn't expose the underlying service compute infrastructure for customers to configure.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1075,11 +924,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Bastion.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Microsoft performs vulnerability management on the underlying systems that support Azure Bastion.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1093,11 +938,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Microsoft performs vulnerability management and software update on the underlying systems that support Azure Bastion.
+**Guidance**: Microsoft performs vulnerability management and software update on the underlying systems that support Azure Bastion.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1131,17 +974,13 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39769).
 
 >[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Not Applicable; Azure Bastion is a fully managed PaaS service which would not require Endpoint Detection and Response (EDR) protection.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion is a fully managed PaaS service and Microsoft is responsible for handling endpoint protection.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Microsoft
 
 ### ES-2: Use centrally managed modern anti-malware software
 
@@ -1151,11 +990,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion is a fully managed PaaS service and Microsoft is responsible for installing and managing Anti Malware protection.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion is a fully managed PaaS service and Microsoft is responsible for installing and managing Anti Malware protection.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1169,11 +1004,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion is a fully managed PaaS service and Microsoft is responsible for installing, managing and updating Anti Malware signature.
+**Guidance**: Azure Bastion is a fully managed PaaS service and Microsoft is responsible for installing, managing and updating Anti Malware signature.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1191,11 +1024,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion doesn't support any data backup or have no needs for data backup.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion doesn't support any data backup or have no needs for data backup.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1209,11 +1038,9 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion doesn't support any data backup encryption.
+**Guidance**: Azure Bastion doesn't support any data backup encryption.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1227,13 +1054,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion doesn't support any data backup.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
-
- 
-
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion doesn't support any data backup.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1247,11 +1068,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure Bastion doesn't manage any keys.
-
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Azure Bastion doesn't manage any keys.
 
 **Azure Security Center monitoring**: Not applicable
 
