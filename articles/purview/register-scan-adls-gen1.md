@@ -5,7 +5,7 @@ author: prmujumd
 ms.author: prmujumd
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: overview
+ms.topic: how-to
 ms.date: 09/28/2020
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
@@ -32,13 +32,13 @@ The Azure Data Lake Storage Gen1  data source supports the following functionali
 
 2. Select **Manage your data** tile on the home page.
 
-   :::image type="content" source="media/register-scan-adls-Gen1/image1.png" alt-text="Purview home page":::
+   :::image type="content" source="media/register-scan-adls-gen1/manage-data.png" alt-text="Purview home page":::
 
 3. Select **Data sources** under the Sources and scanning section.
 
    Select **New** to register a new data source. Select **Azure Data Lake Storage Gen1** and select **Continue**.
 
-   :::image type="content" source="media/register-scan-adls-Gen1/image2.png" alt-text="Set up the Azure Data Lake Storage Gen1 data source":::
+   :::image type="content" source="media/register-scan-adls-gen1/new-data-source.png" alt-text="Set up the Azure Data Lake Storage Gen1 data source":::
 
 4. Provide a friendly name (for example Same as your Azure Data Lake Storage resource name) and server endpoint and then select **Finish** to register the data source.
 
@@ -66,27 +66,27 @@ on.
 
 1. From the [Azure portal](https://portal.azure.com), find either the Subscription, Resource Group, or Resource (for example, an Azure Data Lake Storage Gen2 storage account) that you would like to allow the catalog to scan.
 
-1. Choose Access control (IAM)
+1. Choose **Access control (IAM)**
 
-   :::image type="content" source="./media/register-scan-adls-gen1/image100.png" alt-text="Choose access control":::
+   :::image type="content" source="./media/register-scan-adls-gen1/access-control.png" alt-text="Choose access control":::
 
 1. The **Add role assignment** page opens.
 
-   :::image type="content" source="./media/register-scan-adls-gen1/image101.png" alt-text="Add role assignment":::
+   :::image type="content" source="./media/register-scan-adls-gen1/add-role-assignment.png" alt-text="Add role assignment":::
 
 1. Fill in the form as follows:
 
-   1. Under **Role**, Choose 'Storage Blob Data Reader' from the list.
+   1. Under **Role**, Choose **Storage Blob Data Reader** from the list.
 
-      :::image type="content" source="./media/register-scan-adls-gen1/image102.png" alt-text="Storage Blob Data Reader":::
+      :::image type="content" source="./media/register-scan-adls-gen1/storage-blob-data-reader.png" alt-text="Storage Blob Data Reader":::
 
    1. In the **Assign access to** box, select **Azure AD user, group, or service principal**. It should be the default option.
 
-      :::image type="content" source="./media/register-scan-adls-gen1/image103.png" alt-text="Assign access ":::
+      :::image type="content" source="./media/register-scan-adls-gen1/assign-access.png" alt-text="Assign access ":::
 
    1. In the **Select** box, start typing the name of *your* catalog and you should see it in the list for you to select.
 
-      :::image type="content" source="./media/register-scan-adls-gen1/image104.png" alt-text="Select your catalog":::
+      :::image type="content" source="./media/register-scan-adls-gen1/select-catalog.png" alt-text="Select your catalog":::
 
    1. Select **Save**.
 
@@ -130,19 +130,19 @@ have to be real or work.
 
 2. Select **+ New scan**. Choose the authentication method that you want to use and provide required details.
 
-   :::image type="content" source="media/register-scan-adls-Gen1/image4.png" alt-text="Choose scan authentication method":::
+   :::image type="content" source="media/register-scan-adls-gen1/choose-authentication.png" alt-text="Choose scan authentication method":::
 
 3. If you plan to scan the entire server, we do not provide scope functionality. If you did however provide a database name, then you can scope your scan to specific tables.
 
 4. Choose your scan trigger. You can set up a schedule or ran the scan once.
 
-   :::image type="content" source="media/register-scan-adls-Gen1/image8.png" alt-text="Setup scan trigger":::
+   :::image type="content" source="media/register-scan-adls-gen1/setup-scan-trigger.png" alt-text="Setup scan trigger":::
 
 5. The select a scan rule set for you scan. You can choose between the system default, the existing custom ones or create a new one inline.
 
-   :::image type="content" source="media/register-scan-adls-Gen1/image9.png" alt-text="Select scan rule set":::
+   :::image type="content" source="media/register-scan-adls-gen1/select-scan-rule-set.png" alt-text="Select scan rule set":::
 
-6. Review your scan and select **Save** and **run**.
+6. Review your scan and select **Save** and **Run**.
 
 ## Viewing your scans and scan runs
 
@@ -158,7 +158,7 @@ have to be real or work.
 
 2. Select the scan you would like to manage. You can edit the scan by selecting **Edit**.
 
-   :::image type="content" source="media/register-scan-adls-Gen1/image10.png" alt-text="edit scan":::
+   :::image type="content" source="media/register-scan-adls-gen1/edit-scan.png" alt-text="edit scan":::
 
 3. You can delete your scan by selecting **Delete**.
 
