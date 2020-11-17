@@ -123,7 +123,7 @@ The request methods used in this tutorial are **POST**, **PUT**, and **GET**. Yo
 
 In Headers, set "Content-type" to `application/json` and set `api-key` to the admin api-key of your Azure Cognitive Search service. Once you set the headers, you can use them for every request in this exercise.
 
-  ![Postman request URL and header](media/search-get-started-postman/postman-url.png "Postman request URL and header")
+  ![Postman request URL and header](media/search-get-started-rest/postman-url.png "Postman request URL and header")
 
 ## 3 - Create the pipeline
 
