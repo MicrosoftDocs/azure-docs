@@ -15,7 +15,7 @@ ms.author: errobin
 
 # Using Insights to monitor and configure your Azure Load Balancer
 
-Through [Azure Monitor for Networks](https://docs.microsoft.com/azure/azure-monitor/insights/insights-overview#azure-monitor-for-networks-preview), you're provided functional dependency visualizations and pre-configured metrics dashboard for your Load Balancers. These visuals help empower you to make informed design decisions and rapidly localize, diagnose, and resolve any faults.
+Through Azure Monitor for networks, you're provided functional dependency visualizations and pre-configured metrics dashboard for your Load Balancers. These visuals help empower you to make informed design decisions and rapidly localize, diagnose, and resolve any faults.
 
 >[!NOTE] 
 >Please note this feature is in Preview and the functional dependency view and preconfigured dashboard may change to improve this experience

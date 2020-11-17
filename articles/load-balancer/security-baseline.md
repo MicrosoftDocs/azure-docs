@@ -30,7 +30,7 @@ security groups and only allow access to your application's trusted ports and IP
 
 Using a Standard Load Balancer is recommended for your production workloads and typically the Basic Load Balancer is only used for testing since the basic type is open to connections from the internet by default, and doesn't require network security groups for operation. 
 
-- [Outbound connections in Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#outboundrule)
+- [Outbound connections in Azure](load-balancer-outbound-connections.md)
 
 - [Upgrade Azure Public Load Balancer](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard)
 
