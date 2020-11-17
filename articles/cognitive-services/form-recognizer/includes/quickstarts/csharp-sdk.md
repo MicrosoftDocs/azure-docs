@@ -27,6 +27,8 @@ ms.author: pafarley
 
 ## Setting up
 
+### Create a new C# application
+
 #### [Visual Studio IDE](#tab/visual-studio)
 
 Using Visual Studio, create a new .NET Core application. 
@@ -58,15 +60,15 @@ Build succeeded.
  0 Error(s)
 ...
 ```
----
 
 ### Install the client library 
 
-Within the application directory, install the [Product Name] client library for .NET with the following command:
+Within the application directory, install the Form Recognizer client library for .NET with the following command:
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
+---
 
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md), which contains the code examples in this quickstart.

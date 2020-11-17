@@ -21,7 +21,7 @@ One way you can control outbound network access from an Azure subnet is with Azu
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this article, you create a simplified single VNet with three subnets for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended. The firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
+For this article, you create a simplified single VNet with three subnets for easy deployment. For production deployments, a [hub and spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended. The firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
@@ -286,4 +286,4 @@ az group delete \
 
 ## Next steps
 
-* [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
+* [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

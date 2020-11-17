@@ -63,9 +63,9 @@ As mentioned above, there may be applications that haven't been managed by your 
 ## Integrating applications with Azure AD
 The following articles discuss the different ways applications integrate with Azure AD, and provide some guidance.
 
-* [Determining which Active Directory to use](../fundamentals/active-directory-administer.md)
+* [Determining which Active Directory to use](../fundamentals/active-directory-whatis.md)
 * [Using applications in the Azure application gallery](what-is-single-sign-on.md)
-* [Integrating SaaS applications tutorials list](../active-directory-saas-tutorial-list.md)
+* [Integrating SaaS applications tutorials list](../saas-apps/tutorial-list.md)
 
 ### Authentication Types
 Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols as well as Password Single Sign On. For more information about application authentication types for use with Azure AD see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) and [Password based single sign on](what-is-single-sign-on.md).
@@ -74,7 +74,7 @@ Each of your applications may have different authentication requirements. With A
 With Microsoft Azure AD Application Proxy, you can provide access to applications located inside your private network securely, from anywhere and on any device. After you have installed an application proxy connector within your environment, it can be easily configured with Azure AD.
 
 ### Integrating custom applications
-If you are writing a new application and want to assist developers in leveraging the power of Azure AD, see [Guiding developers](../active-directory-applications-guiding-developers-for-lob-applications.md).
+If you are writing a new application and want to assist developers in leveraging the power of Azure AD, see [Guiding developers](./developer-guidance-for-integrating-applications.md).
 
 If you want to add your custom application to the Azure Application Gallery, see [“Bring your own app” with Azure AD Self-Service SAML configuration](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
@@ -83,12 +83,12 @@ The following articles describe ways you can manage access to applications once 
 
 * [Managing access to apps using Azure AD](what-is-access-management.md)
 * [Automating with Azure AD Connectors](../app-provisioning/user-provisioning.md)
-* [Assigning users to an application](../active-directory-applications-guiding-developers-assigning-users.md)
-* [Assigning groups to an application](../active-directory-applications-guiding-developers-assigning-groups.md)
-* [Sharing accounts](../active-directory-sharing-accounts.md)
+* [Assigning users to an application](./assign-user-or-group-access-portal.md)
+* [Assigning groups to an application](./assign-user-or-group-access-portal.md)
+* [Sharing accounts](../enterprise-users/users-sharing-accounts.md)
 
 ## Next steps
-For in-depth information, you can download Azure Active Directory deployment plans from [GitHub](https://aka.ms/deploymentplans). For gallery applications, you can download deployment plans for single sign-on, Conditional Access, and user provisioning through the [Azure portal](https://portal.azure.com). 
+For in-depth information, you can download Azure Active Directory deployment plans from [GitHub](../fundamentals/active-directory-deployment-plans.md). For gallery applications, you can download deployment plans for single sign-on, Conditional Access, and user provisioning through the [Azure portal](https://portal.azure.com). 
 
 To download a deployment plan from the Azure portal:
 
