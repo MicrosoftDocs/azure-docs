@@ -39,12 +39,12 @@ There are two versions of access tokens available in the Microsoft identity plat
 
 There are two parties involved in an access token request - the client, who requests the token, and the resource or API, that will accept the token on an API call. The `aud` claim in a token indicates the resource of the token.  Clients use the token, but should not understand it or attmept to parse it.  Resources accept the token.  
 
-The Microosft Identity platform supports issuing any token version from any version endpoint - they are not related. This is why a resource setting `accessTokenAcceptedVersion` to `2` means that a client calling the v1.0 endpoint to get a token for that API will receive a v2.0 access token.  Resources always own their tokens (those with their `aud` claim) and are the only applications that can change their token details. This is why changing the access token [optional claims](active-directory-optional-claims.md) for your *client* does not change the access token received when a token is requested for `user.read`, which is owned by the MS Graph resource.
+The Microsoft Identity platform supports issuing any token version from any version endpoint - they are not related. This is why a resource setting `accessTokenAcceptedVersion` to `2` means that a client calling the v1.0 endpoint to get a token for that API will receive a v2.0 access token.  Resources always own their tokens (those with their `aud` claim) and are the only applications that can change their token details. This is why changing the access token [optional claims](active-directory-optional-claims.md) for your *client* does not change the access token received when a token is requested for `user.read`, which is owned by the MS Graph resource.
 
 
 ### Sample tokens
 
-v1.0 and v2.0 tokens look similar and contain many of the same claims. An example of each is provided here (note that they will not [validate](#validating-tokens), as the keys have rotated since publication and they have been edited for personal information. 
+v1.0 and v2.0 tokens look similar and contain many of the same claims. An example of each is provided here (note that they will not [validate](#validating-tokens), as the keys have rotated since publication and they have been edited for personal information.)
 
 #### v1.0
 
@@ -177,11 +177,18 @@ Microsoft identities can authenticate in different ways, which may be relevant t
 
 ## Validating tokens
 
-Only confidential clients (web apps and web APIs) need to validate tokens. Because public clients talk directly to the IDP over secured channels, they don't need to do so. Applications must only validate tokens that have an `aud` claim that matches their application; other resources may have custom token validation rules that you can't implement. For example, tokens for Microsoft Graph won't validate according to these rules due to their proprietary format. Validating and accepting tokens meant for another resource is an example of the [confused deputy](https://cwe.mitre.org/data/definitions/441.html) problem.  
+Not all apps should validate tokens. Only in specific scenarios should apps validate a token:
 
-To validate an id_token or an access_token, your app should first validate the token's signature and issuer against the values in the OpenID discovery document. For example, the tenant-independent version of the document is located at [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
+* [Web APIs](quickstart-configure-app-expose-web-apis.md) must validate access tokens sent to them by a client.  They must only accept tokens containing their `aud` claim.
+* Confidential web apps like ASP.NET must validate ID tokens sent to them via the user's browser in the hybrid flow, before allowing access to a user's data or establishing a session.
 
-The below information is provided for those who wish to understand the underlying process. The Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](../azuread-dev/sample-v1-code.md) to find one in the language of your choice. There are also several third-party open-source libraries available for JWT validation - there is at least one option for almost every platform and language. For more information about Azure AD authentication libraries and code samples, see [v1.0 authentication libraries](../azuread-dev/active-directory-authentication-libraries.md) and [v2.0 authentication libraries](reference-v2-libraries.md).
+If none of the above scenarios apply, your application will not benefit from validating the token, and may present a security and reliability risk if decisions are made based on the validity of the token.  Public clients like native apps or SPAs don't benefit from validating tokens - the app communicates directly with the IDP, so SSL protection ensures the tokens are valid.
+
+ APIs and web apps must only validate tokens that have an `aud` claim that matches their application; other resources may have custom token validation rules. For example, tokens for Microsoft Graph won't validate according to these rules due to their proprietary format. Validating and accepting tokens meant for another resource is an example of the [confused deputy](https://cwe.mitre.org/data/definitions/441.html) problem.
+
+If your application needs to validate an id_token or an access_token according to the above, your app should first validate the token's signature and issuer against the values in the OpenID discovery document. For example, the tenant-independent version of the document is located at [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
+
+The below information is provided for those who wish to understand the underlying process. The Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](sample-v2-code.md) to find one in the language of your choice. There are also several third-party open-source libraries available for JWT validation - there is at least one option for almost every platform and language. For more information about Azure AD authentication libraries and code samples, see the [authentication libraries](reference-v2-libraries.md).
 
 ### Validating the signature
 
