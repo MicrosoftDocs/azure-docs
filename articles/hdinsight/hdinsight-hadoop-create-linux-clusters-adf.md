@@ -15,7 +15,7 @@ ms.date: 04/24/2020
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-In this tutorial, you learn how to create an [Apache Hadoop](./hadoop/apache-hadoop-introduction.md) cluster, on demand, in Azure HDInsight using Azure Data Factory. You then use data pipelines in Azure Data Factory to run Hive jobs and delete the cluster. By the end of this tutorial, you learn how to `operationalize` a big data job run where cluster creation, job run, and cluster deletion are done on a schedule.
+In this tutorial, you learn how to create an [Apache Hadoop](../hdinsight/hdinsight-overview.md#cluster-types-in-hdinsight) cluster, on demand, in Azure HDInsight using Azure Data Factory. You then use data pipelines in Azure Data Factory to run Hive jobs and delete the cluster. By the end of this tutorial, you learn how to `operationalize` a big data job run where cluster creation, job run, and cluster deletion are done on a schedule.
 
 This tutorial covers the following tasks:
 

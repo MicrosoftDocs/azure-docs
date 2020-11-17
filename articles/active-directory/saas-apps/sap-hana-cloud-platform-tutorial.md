@@ -144,7 +144,7 @@ To configure Azure AD single sign-on with SAP Cloud Platform, perform the follow
 
 3. In the Trust Management section, under **Local Service Provider**, perform the following steps:
 
-    ![Trust Management](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Trust Management")
+    ![Screenshot that shows the "Trust Management" section with the "Local Service Provider" tab selected and all text boxes highlighted.](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Trust Management")
    
     a. Click **Edit**.
 
@@ -172,7 +172,7 @@ To configure Azure AD single sign-on with SAP Cloud Platform, perform the follow
 
 5. Click the **Trusted Identity Provider** tab, and then click **Add Trusted Identity Provider**.
    
-    ![Trust Management](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Trust Management")
+    ![Screenshot that shows the "Trust Management" page with the "Trusted Identity Provider" tab selected.](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Trust Management")
    
     >[!NOTE]
     >To manage the list of trusted identity providers, you need to have chosen the Custom configuration type in the Local Service Provider section. For Default configuration type, you have a non-editable and implicit trust to the SAP ID Service. For None, you don't have any trust settings.

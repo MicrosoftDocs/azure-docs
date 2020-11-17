@@ -46,7 +46,7 @@ The best place to position connectors is as close as possible to their targets. 
 
 What shows a KCD problem? There are several common indications that KCD SSO is failing. The first signs of an issue appear in the browser.
 
-![Example: Incorrect KCD config error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Screenshot that shows an example of an incorrect K C D configuration error, with the error "Incorrect Kerberos constrained delegation..." highlighted.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
 ![Example: Authorization failed because of missing permissions](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
@@ -85,7 +85,7 @@ The corresponding entries seen in the event log show as events 13019 or 12027. F
 1. Use an **A** record in your internal DNS for the application’s address, not a **CName**.
 1. Reconfirm that the connector host has been granted the right to delegate to the designated target account’s SPN. Reconfirm that **Use any authentication protocol** is selected. For more information, see the [SSO configuration article](application-proxy-configure-single-sign-on-with-kcd.md).
 1. Verify that there's only one instance of the SPN in existence in Azure AD. Issue `setspn -x` from a command prompt on any domain member host.
-1. Check that a domain policy is enforced that limits the [maximum size of issued Kerberos tokens](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/). This policy stops the connector from getting a token if it's found to be excessive.
+1. Check that a domain policy is enforced that limits the [maximum size of issued Kerberos tokens](/archive/blogs/askds/maxtokensize-and-windows-8-and-windows-server-2012). This policy stops the connector from getting a token if it's found to be excessive.
 
 A network trace that captures the exchanges between the connector host and a domain KDC is the next best step to get more low-level detail on the issues. For more information, see the [deep dive Troubleshoot paper](https://aka.ms/proxytshootpaper).
 

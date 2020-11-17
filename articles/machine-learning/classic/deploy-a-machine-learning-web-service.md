@@ -13,7 +13,7 @@ ms.date: 01/06/2017
 ---
 # Deploy an Azure Machine Learning Studio (classic) web service
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning Studio (classic) enables you to build and test a predictive analytic solution. Then you can deploy the solution as a web service.
@@ -277,7 +277,7 @@ Because you've deployed this experiment before, you are asked if you want to ove
 > [!NOTE]
 > If you made configuration changes in the original web service, for example, entering a new display name or description, you will need to enter those values again.
 
-One option for updating your web service is to retrain the model programmatically. For more information, see [Retrain Machine Learning Studio (classic) models programmatically](/azure/machine-learning/studio/retrain-machine-learning-model).
+One option for updating your web service is to retrain the model programmatically. For more information, see [Retrain Machine Learning Studio (classic) models programmatically](./retrain-machine-learning-model.md).
 
 ## Next steps
 
@@ -300,11 +300,11 @@ One option for updating your web service is to retrain the model programmaticall
 
 [webserviceparameters]: web-service-parameters.md
 [deploy]: deploy-a-machine-learning-web-service.md
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[export-data]: /azure/machine-learning/studio-module-reference/export-data

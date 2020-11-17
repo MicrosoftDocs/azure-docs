@@ -3,7 +3,7 @@ title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
 services: container-service
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 11/17/2020
 
 ---
 
@@ -47,7 +47,7 @@ If no upgrade is available, you will get:
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-## Customize node surge upgrade (Preview)
+## Customize node surge upgrade
 
 > [!Important]
 > Node surges require subscription quota for the requested max surge count for each upgrade operation. For example, a cluster that has 5 node pools, each with a count of 4 nodes, has a total of 20 nodes. If each node pool has a max surge value of 50%, additional compute and IP quota of 10 nodes (2 nodes * 5 pools) is required to complete the upgrade.
@@ -62,21 +62,7 @@ AKS accepts both integer values and a percentage value for max surge. An integer
 
 During an upgrade, the max surge value can be a minimum of 1 and a maximum value equal to the number of nodes in your node pool. You can set larger values, but the maximum number of nodes used for max surge won't be higher than the number of nodes in the pool at the time of upgrade.
 
-### Set up the preview feature for customizing node surge upgrade
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
-```
-
-It will take several minutes for the registration. Use the below command to verify the feature is registered:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
-```
-
-During preview, you need the *aks-preview* CLI extension to use max surge. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
+Until CLI version 2.16.0+ you'll need the *aks-preview* CLI extension to use max surge. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -103,7 +89,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## Upgrade an AKS cluster
 
-With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new buffer node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade-preview)) to the cluster that runs the specified Kubernetes version. Then it will [cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications (if you're using max surge it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified). When the old node is fully drained, it will be reimaged to receive the new version and it will become the buffer node for the following node to be upgraded. This process repeats until all nodes in the cluster have been upgraded. At the end of the process, the last drained node will be deleted, maintaining the existing agent node count.
+With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new buffer node (or as many nodes as configured in [max surge](#customize-node-surge-upgrade)) to the cluster that runs the specified Kubernetes version. Then it will [cordon and drain][kubernetes-drain] one of the old nodes to minimize disruption to running applications (if you're using max surge it will [cordon and drain][kubernetes-drain] as many nodes at the same time as the number of buffer nodes specified). When the old node is fully drained, it will be reimaged to receive the new version and it will become the buffer node for the following node to be upgraded. This process repeats until all nodes in the cluster have been upgraded. At the end of the process, the last drained node will be deleted, maintaining the existing agent node count.
 
 ```azurecli-interactive
 az aks upgrade \

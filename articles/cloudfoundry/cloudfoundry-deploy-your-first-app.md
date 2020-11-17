@@ -141,7 +141,7 @@ Running the `cf app` command on the application shows that Cloud Foundry is crea
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
 [pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/pivotalcf/customizing/pcf_azure.html
 [cf-cli]: https://github.com/cloudfoundry/cli
-[cloudshell-docs]: https://docs.microsoft.com/azure/cloud-shell/overview
+[cloudshell-docs]: ../cloud-shell/overview.md
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
 [spring-boot]: https://projects.spring.io/spring-boot/
 [spring-framework]: https://spring.io

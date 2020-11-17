@@ -17,7 +17,7 @@ A PowerShell Azure function (function) is represented as a PowerShell script tha
 
 Like other kinds of functions, PowerShell script functions take in parameters that match the names of all the input bindings defined in the `function.json` file. A `TriggerMetadata` parameter is also passed that contains additional information on the trigger that started the function.
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should have also completed the [Functions quickstart for PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) to create your first PowerShell function.
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should have also completed the [Functions quickstart for PowerShell](./create-first-function-vs-code-powershell.md) to create your first PowerShell function.
 
 ## Folder structure
 

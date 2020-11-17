@@ -52,11 +52,11 @@ Record the value under **Scopes** for the `demo.read` scope to use in a later st
 
 To call a protected web API from another application, you need to grant that application permissions to the web API.
 
-In the prerequisite tutorial, you created a web application named *webapp1*. In this tutorial, you configure that application to call the web API you created in a previous section, *webapi1*.
+In the prerequisite tutorial, you created a single-page application named *spaapp1*. In this tutorial, you configure that application to call the web API you created in a previous section, *spaapp1*.
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
-Your single-page web application has now been granted permissions to the protected web API for the scopes specified. A user authenticates with Azure AD B2C to use the single-page application. The single-page app uses the authorization grant flow to access the protected web API with an access token returned by Azure AD B2C.
+Your single-page web application has now been granted permissions to the protected web API for the scopes specified. A user authenticates with Azure AD B2C to use the single-page application. The single-page app obtains an access token from Azure AD B2C to access the protected web API.
 
 ## Configure the sample
 
@@ -157,7 +157,7 @@ Although both applications are running locally when you follow this tutorial, yo
 1. Open another console window and change to the directory containing the JavaScript SPA sample. For example:
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
+    cd ms-identity-b2c-javascript-spa
     ```
 
 1. Run the following commands:

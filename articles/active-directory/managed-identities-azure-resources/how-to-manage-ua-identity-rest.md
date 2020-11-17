@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/26/2018
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---

@@ -22,7 +22,6 @@ You must have the following resource installed:
 ## Limitations
 
 * AKS clusters with managed identities can be enabled only during creation of the cluster.
-* Existing AKS clusters can't be migrated to managed identities.
 * During cluster **upgrade** operations, the managed identity is temporarily unavailable.
 * Tenants move / migrate of managed identity enabled clusters isn't supported.
 * If the cluster has `aad-pod-identity` enabled, Node Managed Identity (NMI) pods modify the nodes'
@@ -110,6 +109,23 @@ Finally, get credentials to access the cluster:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
+## Update an existing service principal based AKS cluster to managed identities
+
+You can now update an AKS cluster with managed identities by using the following CLI commands.
+
+First, update the System Assigned Identity:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity
+```
+
+Then, update the User Assigned Identity:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
+```
+> [!NOTE]
+> Once the System Assigned or User Assigned identities have been updated to managed identity, perform an `az nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
 
 ## Bring your own control plane MI (Preview)
 A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This enables scenarios such as using an custom VNET or outboundType of UDR with a managed identity.

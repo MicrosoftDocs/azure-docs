@@ -73,29 +73,30 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 If you want to create node pools with the AKS Ubuntu 16.04 image, you can do so by omitting the custom `--aks-custom-headers` tag.
 
+## Container runtime configuration
 
-## Container runtime configuration (Preview)
+A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. AKS clusters using Kubernetes version 1.19 node pools and greater use `containerd` as its container runtime. AKS clusters using Kubernetes prior to v1.19 for node pools use [Moby](https://mobyproject.org/) (upstream docker) as its container runtime.
 
-A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. Today AKS is using [Moby](https://mobyproject.org/) (upstream docker) as its container runtime. 
-    
 ![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby version that AKS uses today already leverages and is built on top of `containerd`, as shown above. 
+[`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby version that AKS uses already leverages and is built on top of `containerd`, as shown above.
 
-With a containerd-based node and node pools, instead of talking to the `dockershim`, the kubelet will talk directly to `containerd` via the CRI (container runtime interface) plugin, removing extra hops on the flow when compared to the Docker CRI implementation. As such, you'll see better pod startup latency and less resource (CPU and memory) usage.
+With a `containerd`-based node and node pools, instead of talking to the `dockershim`, the kubelet will talk directly to `containerd` via the CRI (container runtime interface) plugin, removing extra hops on the flow when compared to the Docker CRI implementation. As such, you'll see better pod startup latency and less resource (CPU and memory) usage.
 
 By using `containerd` for AKS nodes, pod startup latency improves and node resource consumption by the container runtime decreases. These improvements are enabled by this new architecture where kubelet talks directly to `containerd` through the CRI plugin while in Moby/docker architecture kubelet would talk to the `dockershim` and docker engine before reaching `containerd`, thus having extra hops on the flow.
 
 ![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd` works on every GA version of kubernetes in AKS, and in every upstream kubernetes version above v1.10, and supports all kubernetes and AKS features.
+`Containerd` works on every GA version of Kubernetes in AKS, and in every upstream kubernetes version above v1.19, and supports all Kubernetes and AKS features.
 
 > [!IMPORTANT]
-> After `containerd` becomes generally available on AKS, it'll be the default and only option available for container runtime on new clusters. You can still use Moby nodepools and clusters on older supported versions until those fall off support. 
+> Clusters with node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a supported Kubernetes version less than 1.19 receive `Moby` for its container runtime, but will be updated to `ContainerD` once the node pool Kubernetes version is updated to v1.19 or greater. You can still use `Moby` node pools and clusters on older supported versions until those fall off support.
 > 
-> We recommend you test your workloads on `containerd` node pools before upgrading or creating new clusters with this container runtime.
+> It is highly recommended to test your workloads on AKS node pools with `containerD` prior to using clusters on 1.19 or greater.
 
-### Use `containerd` as your container runtime (Preview)
+The following section will explain how you can use and test AKS with `containerD` on clusters that aren't yet using a Kubernetes version 1.19 or higher, or were created before this feature became generally available, by using the container runtime configuration preview.
+
+### Use `containerd` as your container runtime (preview)
 
 You must have the following pre-requisites:
 
@@ -132,7 +133,7 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 az provider register --namespace Microsoft.ContainerService
 ```  
 
-### Use `containerd` on new clusters (Preview)
+### Use `containerd` on new clusters (preview)
 
 Configure the cluster to use `containerd` when the cluster is created. Use the `--aks-custom-headers` flag to set `containerd` as the container runtime.
 
@@ -145,7 +146,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-
 
 If you want to create clusters with the Moby (docker) runtime, you can do so by omitting the custom `--aks-custom-headers` tag.
 
-### Use `containerd` on existing clusters (Preview)
+### Use `containerd` on existing clusters (preview)
 
 Configure a new node pool to use `containerd`. Use the `--aks-custom-headers` flag to set `containerd` as the runtime for that node pool.
 

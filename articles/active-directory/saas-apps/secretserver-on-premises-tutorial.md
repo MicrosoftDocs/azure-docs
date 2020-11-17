@@ -96,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, click the **Edit** icon to open **SAML Signing Certificate** dialog.
 
-    ![Signing options](./media/secretserver-on-premises-tutorial/edit-saml-signon.png)
+    ![Screenshot that shows the "S A M L Signing Certificate" section with the "Certificate (Base64" "Download" action selected.)](./media/secretserver-on-premises-tutorial/edit-saml-signon.png)
 
 1. Select **Signing Option** as **Sign SAML response and assertion**.
 

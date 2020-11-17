@@ -25,7 +25,7 @@ In this article, you learn how to:
 
 - Application gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
-- App service: If you don't have an existing App service, see [App service documentation](https://docs.microsoft.com/azure/app-service/).
+- App service: If you don't have an existing App service, see [App service documentation](../app-service/index.yml).
 
 ## Add App service as backend pool
 
@@ -57,7 +57,7 @@ In this article, you learn how to:
 
 When the app service sends a redirection response to the client to redirect to its relative path (For example, a redirect from `contoso.azurewebsites.net/path1` to `contoso.azurewebsites.net/path2`), it uses the same hostname in the location header of its response as the one in the request it received from the application gateway. So the client will make the request directly to `contoso.azurewebsites.net/path2` instead of going through the application gateway (`contoso.com/path2`). Bypassing the application gateway isn't desirable.
 
-If in your use case, there are scenarios where the App service will need to send a redirection response to the client, perform the [additional steps to rewrite the location header](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration).
+If in your use case, there are scenarios where the App service will need to send a redirection response to the client, perform the [additional steps to rewrite the location header](./troubleshoot-app-service-redirection-app-service-url.md#sample-configuration).
 
 ## Restrict access
 
@@ -67,4 +67,4 @@ One way you can restrict access to your web apps is to use [Azure App Service st
 
 ## Next steps
 
-To learn more about the App service and other multi-tenant support with application gateway, see [multi-tenant service support with application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+To learn more about the App service and other multi-tenant support with application gateway, see [multi-tenant service support with application gateway](./application-gateway-web-app-overview.md).

@@ -133,15 +133,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![The Subscription](./media/screencast-tutorial/tutorial_screencast_sub.png)
 
-1. Under **Access page** section, Click **Setup**.
+1. Under the **Access page** section, click **Setup**.
 
-	![The Access](./media/screencast-tutorial/tutorial_screencast_setup.png)
+	![Screenshot that shows the "Access Page" section with the "Setup" button selected.](./media/screencast-tutorial/tutorial_screencast_setup.png)
 
 1. On the **Setup Access Page**, perform the following steps.
 
-1. Under **Access URL** section, type your instancename in the specified textbox.
+1. Under the **Access URL** section, type your instancename in the specified textbox.
 
-    ![The Access](./media/screencast-tutorial/tutorial_screencast_access.png)
+    ![Screenshot that shows the "Access U R L" section with the instance name textbox highlighted.](./media/screencast-tutorial/tutorial_screencast_access.png)
 
 1. Select **Require Domain User** under **SAML User Restriction (optional)** section.
 

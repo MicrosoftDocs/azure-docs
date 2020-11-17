@@ -10,6 +10,7 @@ ms.reviewer: sngun
 ---
 
 # Total Cost of Ownership (TCO) with Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB is designed with the fine grained multi-tenancy and resource governance. This design allows Azure Cosmos DB to operate at significantly lower cost and help users save. Currently Azure Cosmos DB supports more than 280 customer workloads on a single machine with the density continuously increasing, and thousands of customer workloads within a cluster. It load balances replicas of customers' workloads across different machines in a cluster and across multiple clusters within a data center. To learn more, see [Azure Cosmos DB: Pushing the frontier of globally distributed databases](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Because of  resource-governance, multi-tenancy, and native integration with the rest of Azure infrastructure, Azure Cosmos DB is on average 4 to 6 times cheaper than MongoDB, Cassandra, or other OSS NoSQL running on IaaS and up to 10 times cheaper than the database engines running on premises. See the paper on [The total cost of (non) ownership of a NoSQL database cloud service](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
 

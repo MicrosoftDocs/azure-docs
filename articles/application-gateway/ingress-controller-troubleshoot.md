@@ -267,7 +267,7 @@ repository we are utilizing 3 of these, with similar semantics:
 The verbosity levels are adjustable via the `verbosityLevel` variable in the
 [helm-config.yaml](#sample-helm-config-file) file. Increase verbosity level to `5` to get
 the JSON config dispatched to
-[ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview):
+[ARM](../azure-resource-manager/management/overview.md):
   - add `verbosityLevel: 5` on a line by itself in [helm-config.yaml](#sample-helm-config-file) and re-install
   - get logs with `kubectl logs <pod-name>`
 
@@ -324,4 +324,3 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
-
