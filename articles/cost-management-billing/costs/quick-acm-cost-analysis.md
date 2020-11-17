@@ -150,9 +150,59 @@ To share a link to cost analysis, select **Share** at the top of the blade. A cu
 
 ## Download usage data
 
+### [Portal](#tab/azure-portal)
+
 There are times when you need to download the data for further analysis, merge it with your own data, or integrate it into your own systems. Cost Management offers a few different options. As a starting point, if you need an ad hoc high-level summary, like what you get within cost analysis, build the view you need. Then download it by selecting **Export** and selecting **Download data to CSV** or **Download data to Excel**. The Excel download provides additional context on the view you used to generate the download, like scope, query configuration, total, and date generated.
 
 If you need the full, unaggregated dataset, download it from the billing account. Then, from the list of services in the portal's left navigation pane, go to **Cost Management + Billing**. Select your billing account, if applicable. Go to **Usage + charges**, and then select the **Download** icon for the desired billing period.
+
+### [Azure CLI](#tab/azure-cli)
+
+Start by preparing your environment for the Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+1. If you're using a local install, run the [az login](/cli/azure/reference-index#az_login) command to sign into Azure:
+
+   ```azurecli
+   az login
+   ```
+
+1. Use the [az costmanagement query](/cli/azure/ext/costmanagement/costmanagement#ext_costmanagement_az_costmanagement_query) command to query month to date usage information for your subscription:
+
+   ```azurecli
+   az costmanagement query --timeframe MonthToDate --type Usage --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+   ```
+
+   You can also narrow the query by using the **--dataset-filter** parameter or other parameters:
+
+   ```azurecli
+   az costmanagement query --timeframe MonthToDate --type Usage --scope "subscriptions/00000000-0000-0000-0000-000000000000" -dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
+   ```
+
+   The **--dataset-filter** parameter takes a value of the form `json-string/@json-file`.
+
+You also have the option of using the [az costmanagement export](/cli/azure/ext/costmanagement/costmanagement/export) commands to export usage data to an Azure storage account. You can download it from there.
+
+1. Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
+
+   ```azurecli
+   az group create --name TreyNetwork --location "East US"
+   ```
+
+1. Create a storage account to receive the exports or use an existing storage account. You use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
+
+   ```azurecli
+   az storage account create --resource-group TreyNetwork --name cmdemo
+   ```
+
+1. Run the [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) command to create the export:
+
+   ```azurecli
+   az costmanagement export create --name DemoExport --type Usage --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo --storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
+   ```
+
+---
 
 ## Clean up resources
 
