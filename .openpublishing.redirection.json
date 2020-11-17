@@ -1116,6 +1116,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/disks-shared.md",
+      "redirect_url": "/azure/virtual-machines/disks-shared",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-shared.md",
+      "redirect_url": "/azure/virtual-machines/disks-shared",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/disks-ade-sse-conversion-powershell.md",
       "redirect_url": "/azure/virtual-machines/disk-encryption",
       "redirect_document_id": false
@@ -4330,6 +4340,11 @@
       "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
       "redirect_url": "/azure/cosmos-db/sql-api-get-started",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-get-started-postman.md",
+      "redirect_url": "/azure/search/search-get-started-rest",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/search/search-create-index-portal.md",
@@ -16674,26 +16689,6 @@
     },
     {
       "source_path": "articles/documentdb/documentdb-automation-region-management.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/cli-samples-cassandra.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/cli-samples-gremlin.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/cli-samples-mongodb.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/cli-samples-table.md",
       "redirect_url": "/azure/cosmos-db/cli-samples",
       "redirect_document_id": false
     },
@@ -59342,11 +59337,16 @@
       "source_path": "articles/azure-monitor/app/docker.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-monitor/app/kubernetes.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
-    }  
+    },
+    {
+      "source_path": "articles/azure-monitor/app/powershell-alerts.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    }
   ]
 }
