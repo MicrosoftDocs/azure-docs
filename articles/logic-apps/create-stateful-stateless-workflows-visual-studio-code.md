@@ -570,9 +570,9 @@ To test your logic app, follow these steps to start a debugging session and find
    ![Screenshot that shows each step in the workflow run and their status](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
 
    > [!NOTE]
-   > If a run failed and a step shows a `503 Service Unavailable` error, this problem can result from a longer trigger 
-   > name or action name that causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit. 
-   > For more information, see ["503 Service Unavailable"](#503-service-unavailable).
+   > If a run failed and a step in monitoring view shows the `503 Service Unavailable` error, this problem can result 
+   > from a longer trigger name or action name that causes the underlying Uniform Resource Identifier (URI) to exceed 
+   > the default character limit. For more information, see ["503 Service Unavailable"](#503-service-unavailable).
 
    Here are the possible statuses that each step in the workflow can have:
 
