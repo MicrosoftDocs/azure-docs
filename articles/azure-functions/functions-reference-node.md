@@ -562,7 +562,7 @@ Add your own environment variables to a function app, in both your local and clo
 
 ### In local development environment
 
-The local Function app includes a `local.settings.json` file to store your environment variables in the `Values` object. 
+When running locally, your functions project includes a [`local.settings.json` file](/functions-run-local.md?tabs=node#local-settings-file), where you store your environment variables in the `Values` object. 
 
 ```json
 {
