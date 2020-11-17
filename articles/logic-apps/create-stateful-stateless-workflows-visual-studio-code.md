@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 11/17/2020
 ---
 
 # Create stateful or stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -540,6 +540,11 @@ To test your logic app, follow these steps to start a debugging session and find
 
       ![Screenshot that shows Outlook email as described in the example](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-app-result-email.png)
 
+      > [!NOTE]
+      > If the run fails with a `503 Service Unavailable` error, this problem might result from a longer trigger name 
+      > or action name that causes the underlying Uniform Resource Identifier (URI) to exceed the 255 character limit. 
+      > For more information, see ["503 Service Unavailable"](#503-service-unavailable).
+
 1. In Visual Studio Code, return to your workflow's overview page.
 
    If you created a stateful workflow, after the request that you sent triggers the workflow, the overview page shows the workflow's run status and history.
@@ -568,6 +573,11 @@ To test your logic app, follow these steps to start a debugging session and find
    Visual Studio Code opens the monitoring view and shows the status for each step in the run.
 
    ![Screenshot that shows each step in the workflow run and their status](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
+
+   > [!NOTE]
+   > In the monitoring view, if a step shows a `503 Service Unavailable` error, this problem might result from a longer trigger 
+   > name or action name that causes the underlying Uniform Resource Identifier (URI) to exceed the 255 character limit. 
+   > For more information, see ["503 Service Unavailable"](#503-service-unavailable).
 
    Here are the possible statuses that each step in the workflow can have:
 
@@ -1043,6 +1053,34 @@ Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-li
   * The limit on code characters increases from 1,024 characters to 100,000 characters.
 
   * The limit on time to run the code increases from five seconds to 15 seconds.
+
+<a name="troubleshooting"></a>
+
+## Troubleshoot errors and problems
+
+<a name="503-service-unavailable"></a>
+
+### "503 Service Unavailable"
+
+Appearing after a run fails or in monitoring view, this error results from a long trigger name or action name, which causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit.
+
+To resolve this problem and accommodate the longer URI, edit the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry settings on your computer by following the steps below.
+
+> [!IMPORTANT]
+> Before you start, make sure that you save your work. This solution requires you 
+> to restart your computer after you're done so that the changes can take effect.
+
+1. On your computer, open the **Run** window, and run the `regedit` command, which opens the registry editor.
+
+1. In the **User Account Control** box, select **Yes** to permit your changes.
+
+1. In the left pane, under **Computer**, expand the nodes along the path, `KEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters`, and select the **Parameters** setting.
+
+1. In the right pane, find the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` property values. Respectively, their default values are 260 characters and 255 characters.
+
+1. Increase these property values enough to accommodate the names that you want to use.
+
+1. When you're done, restart your computer so that the changes can take effect.
 
 ## Next steps
 
