@@ -46,6 +46,17 @@ Before attempting to use Triton for your own model, it's important to understand
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Normal, non-triton, deployment architecture diagram":::
 
+### Setting the number of workers
+
+To set the number of workers in your deployment, set the environment variable `WORKER_COUNT`. Given you have an [Environment](https://docs.microsoft.compython/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) object called `env`, you can do the following:
+
+```{py}
+env.environment_variables["WORKER_COUNT"] = "1"
+```
+
+This will tell Azure ML to spin up the number of workers you specify.
+
+
 **Inference configuration deployment with Triton**
 
 * Multiple [Gunicorn](https://gunicorn.org/) workers are started to concurrently handle incoming requests.
