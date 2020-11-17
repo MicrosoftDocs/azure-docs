@@ -14,7 +14,7 @@ This feature supports the following methods to control access to the logs, event
 
 - AKS without Kubernetes RBAC authorization enabled
 - AKS enabled with Kubernetes RBAC authorization
-    - AKS configured with the cluster role binding **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+    - AKS configured with the cluster role binding **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)**
 - AKS enabled with Azure Active Directory (AD) SAML-based single-sign on
 
 These instructions require both administrative access to your Kubernetes cluster, and if configuring to use Azure Active Directory (AD) for user authentication, administrative access to Azure AD.
@@ -45,7 +45,7 @@ To eliminate the need to apply additional configuration changes to allow the Kub
 
 In order to utilize the Live Data (preview) feature with this new user, you need to be a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role on the AKS cluster resource. Azure Monitor for containers, when enabled, is configured to authenticate using this user by default. If the clusterMonitoringUser role binding does not exist on a cluster, **clusterUser** is used for authentication instead.
 
-AKS released this new role binding in January 2020, so clusters created before January 2020 do not have it. If you have a cluster that was created before January 2020, the new **clusterMonitoringUser** can be added to an existing cluster by performing a PUT operation on the cluster, or performing any other operation on the cluster tha performs a PUT operation on the cluster, such as updating the cluster version.
+AKS released this new role binding in January 2020, so clusters created before January 2020 do not have it. If you have a cluster that was created before January 2020, the new **clusterMonitoringUser** can be added to an existing cluster by performing a PUT operation on the cluster, or performing any other operation on the cluster that performs a PUT operation on the cluster, such as updating the cluster version.
 
 ## Kubernetes cluster without RBAC enabled
 
