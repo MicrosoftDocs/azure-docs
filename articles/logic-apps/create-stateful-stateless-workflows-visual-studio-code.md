@@ -1064,7 +1064,7 @@ Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-li
 
 Appearing after a run fails or in monitoring view, this error results from a long trigger name or action name, which causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit.
 
-To resolve this problem and accommodate the longer URI, edit the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry settings on your computer by following the steps below.
+To resolve this problem and accommodate the longer URI, edit the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry keys on your computer by following the steps below. Respectively, these key's default values are 255 characters and 260 characters, which are described in this topic, [Http.sys registry settings for Windows](/troubleshoot/iis/httpsys-registry-windows).
 
 > [!IMPORTANT]
 > Before you start, make sure that you save your work. This solution requires you 
@@ -1074,13 +1074,29 @@ To resolve this problem and accommodate the longer URI, edit the `UrlSegmentMaxC
 
 1. In the **User Account Control** box, select **Yes** to permit your changes.
 
-1. In the left pane, under **Computer**, expand the nodes along the path, `KEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters`, and select the **Parameters** registry key.
+1. In the left pane, under **Computer**, expand the nodes along the path, `KEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters`, and then select **Parameters**.
 
-1. In the right pane, find the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` settings. Respectively, their default values are 260 characters and 255 characters.
+1. In the right pane, find the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry key names.
 
-1. Increase these setting values large enough to accommodate the names that you want to use.
+1. Increase these key values enough so that the URIs can accommodate the names that you want to use.
 
-1. When you're done, restart your computer so that the changes can take effect.
+1. If these keys don't exist, add them to the **Parameters** folder.
+
+   1. From the **Parameters** shortcut menu, select **New** > **Expandable String Value**.
+
+   1. In the edit box that appears, enter `UrlSegmentMaxCount` as the new key name.
+
+   1. Open the new key's shortcut menu, and select **Modify**.
+
+   1. In the **Edit String** box that appears, enter the **Value data** key value that you want, for example, `1024`.
+
+   1. To add the `UrlSegmentMaxLength` key value, repeat these steps.
+
+   After you edit or add these key values, the registry editor looks like this example:
+
+   ![Screenshot that shows the registry editor.](media/create-stateful-stateless-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
+
+1. When you're ready, restart your computer so that the changes can take effect.
 
 ## Next steps
 
