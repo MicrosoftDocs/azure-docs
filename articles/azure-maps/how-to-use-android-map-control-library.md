@@ -1,13 +1,13 @@
 ---
-title: Getting started with Android map control | Microsoft Azure Maps
-description: Become familiar with the Azure Maps Android SDK. See how to create a project in Android Studio, install the SDK, and create an interactive map.
+title: Getting started with Android map control
+description: Become familiar with the Microsoft Azure Maps Android SDK. See how to create a project in Android Studio, install the SDK, and create an interactive map.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/26/2019
+ms.date: 11/17/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc
 ---
 
@@ -19,22 +19,21 @@ The Azure Maps Android SDK is a vector map library for Android. This article gui
 
 ### Create an Azure Maps account
 
-To complete the procedures in this article, you first need to [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account) in the S1 pricing tier and [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) for your account.
-
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
-
-### Download Android Studio
-
-Download Android Studio and create a project with an empty activity before you install the Azure Maps Android SDK. You can [download Android Studio](https://developer.android.com/studio/) for free from Google. 
+3. [Download and install Google's Android Studio](https://developer.android.com/studio/).
 
 ## Create a project in Android Studio
 
-First, create a new project with an empty activity. Complete these steps to create an Android Studio project:
+Complete these steps to create an Android Studio project:
 
-1. Under **Choose your project**, select **Phone and Tablet**. Your application will run on this form factor.
-2. On the **Phone and Tablet** tab, select **Empty  Activity**, and then select **Next**.
-3. Under **Configure your project**, select `API 21: Android 5.0.0 (Lollipop)` as the minimum SDK. This is the earliest version supported by the Azure Maps Android SDK.
-4. Accept the default `Activity Name` and `Layout Name` and select **Finish**.
+1. Launch Android Studio.
+2. Click **+ Create New Project**.
+3. On the **Phone and Tablet** tab, click **Empty  Activity**. Click **Next**.
+4. Under **Configure your project**, select `API 21: Android 5.0.0 (Lollipop)` as the minimum SDK. This is the earliest version supported by the Azure Maps Android SDK.
+5. Select `Java` as the Language.
+6. Accept the default `Name` for the project. Click **Finish**.
 
 See the [Android Studio documentation](https://developer.android.com/studio/intro/) for more help with installing Android Studio and creating a new project.
 
@@ -42,17 +41,31 @@ See the [Android Studio documentation](https://developer.android.com/studio/intr
 
 ## Set up a virtual device
 
-Android Studio lets you set up a virtual Android device on your computer. Doing so can help you test your application during development. To set up a virtual device, select the Android Virtual Device (AVD) Manager icon in the upper-right corner of your project screen, and then select **Create Virtual Device**. You can also get to the AVD Manager by selecting **Tools** > **Android** > **AVD Manager** from the toolbar. In the **Phones** category, select **Nexus 5X**, and then select **Next**.
+To test your application during development, Android Studio lets you set up a virtual Android device on your computer.
+
+Complete these steps to set up a virtual device:
+
+1. Click the Android Virtual Device (AVD) Manager icon in the upper-right corner of your project screen.
+
+2. Click **Create Virtual Device** on the bottom-left corner.  
+
+3. In the **Phones** category, select **Nexus 5X**. Click **Next**.
+
+    ![Android Emulator](./media/how-to-use-android-map-control-library/android-emulator.png)
+
+4. Click on the x86 Images tab. Download one of the recommended system images. Follow the directions of the installer. Click **Next**.
+
+5. Choose the desired settings and click **Finish**.
 
 You can learn more about setting up an AVD in the [Android Studio documentation](https://developer.android.com/studio/run/managing-avds).
 
-![Android Emulator](./media/how-to-use-android-map-control-library/android-emulator.png)
-
 ## Install the Azure Maps Android SDK
 
-The next step in building your application is to install the Azure Maps Android SDK. Complete these steps to install the SDK:
+The next step in building your application is to install the Azure Maps Android SDK.
 
-1. Open the top-level **build.gradle** file and add the following code to the **all projects**, **repositories** block section:
+Complete these steps to install the SDK:
+
+1. In the Project tab, expand **Gradle Scripts**. Open **build.gradle (Project: My_Application)**, and add the following code to the **all projects**, `repositories`  section:
 
     ```
     maven {
@@ -60,26 +73,28 @@ The next step in building your application is to install the Azure Maps Android 
     }
     ```
 
-2. Update your **app/build.gradle** and add the following code to it:
-    
-    1. Make sure that your project's **minSdkVersion** is at API 21 or higher.
+2. Open **build.gradle (Module: My_Application)**.
 
-    2. Add the following code to the Android section:
+3. Make sure that **minSdkVersion** in the `defaultConfig` section is at API 21 or higher.
 
-        ```
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
-        }
-        ```
-    3. Update your dependencies block and add a new implementation dependency line for the latest Azure Maps Android SDK:
+4. Add the following code to the Android section:
 
-        ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.6"
-        ```
-    
-    4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
-3. Add a map fragment to the main activity (res \> layout \> activity\_main.xml):
+    ```
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    ```
+
+5. Add the following code to the `dependencies` section:
+
+    ```
+    implementation "com.microsoft.azure.maps:mapcontrol:0.6"
+    ```
+
+6. Click **File** on the main toolbar, and then select **Sync Project with Gradle Files**.
+
+7. Open `activity_main.xml` (res \> layout \> activity_main.xml). Click on `Code` view in the upper right hand corner. Add the following XML inside the `<androidx.constraintlayout.widget.ConstraintLayout>` element.
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -98,7 +113,7 @@ The next step in building your application is to install the Azure Maps Android 
     </FrameLayout>
     ```
 
-4. In the **MainActivity.java** file you'll need to:
+8. In the **MainActivity.java** file you'll need to:
     
     * add imports for the Azure Maps SDK
     * set your Azure Maps authentication information
