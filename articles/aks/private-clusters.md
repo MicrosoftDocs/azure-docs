@@ -112,7 +112,7 @@ As mentioned, virtual network peering is one way to access your private cluster.
 * No support for converting existing AKS clusters into private clusters
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
 * Azure Monitor for containers Live Data isn't currently supported.
-* Uptime SLA isn't currently supported.
+* Uptime SLA is supported in US West Central, North Central US, and East US.
 
 
 <!-- LINKS - internal -->
