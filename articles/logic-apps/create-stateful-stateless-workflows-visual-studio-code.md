@@ -1081,7 +1081,7 @@ To resolve this problem and adjust for the longer URI, edit the `UrlSegmentMaxCo
 
    1. Open the new key's shortcut menu, and select **Modify**.
 
-   1. In the **Edit String** box that appears, enter the **Value data** key value that you want, for example, `1024`.
+   1. In the **Edit String** box that appears, enter the **Value data** key value that you want in hexadecimal or decimal format. For example, `400` in hexadecimal is equivalent to `1024` in decimal.
 
    1. To add the `UrlSegmentMaxLength` key value, repeat these steps.
 
