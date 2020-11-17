@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 05/19/2020 
+ms.date: 11/17/2020 
 ---
 
 # Get Started with Azure Synapse Analytics
