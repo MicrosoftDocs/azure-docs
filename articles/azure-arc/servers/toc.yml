@@ -57,6 +57,10 @@
           href: manage-vm-extensions-template.md
     - name: Manage agent
       href: manage-agent.md
+  - name: Scenarios
+    items:
+    - name: Onboard to Azure Sentinel
+      href: scenario-onboard-azure-sentinel.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues
