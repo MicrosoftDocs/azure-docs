@@ -128,8 +128,7 @@ If you run the script on a computer with restricted access, ensure there's acces
 
 > [!NOTE]
 >
-> The script file you downloaded in step 1 [above](#generate-and-download-script-to-browse-and-recover-files
-) will have the **geo-name** in the name of the file. Use that **geo-name** to fill in the URL. The downloaded script name will begin with: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
+> The script file you downloaded in step 1 [above](#generate-and-download-script-to-browse-and-recover-files) will have the **geo-name** in the name of the file. Use that **geo-name** to fill in the URL. The downloaded script name will begin with: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
 > So for example, if the script filename is *ContosoVM_wcus_12345678*, the **geo-name** is *wcus* and the URL would be:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
 >
 
@@ -365,7 +364,7 @@ To browse files and folders, the script uses the iSCSI initiator in the machine 
 
 We use a mutual CHAP authentication mechanism so that each component authenticates the other. This means it's extremely difficult for a fake initiator to connect to the iSCSI target and for a fake target to be connected to the machine where the script is run.
 
-The data flow between the recovery service and the machine is protected by building a secure TLS tunnel over TCP ([TLS 1.2 should be supported](#system-requirements) in the machine where script is run).
+The data flow between the recovery service and the machine is protected by building a secure TLS tunnel over TCP ([TLS 1.2 should be supported](#os-requirements-to-succesfully-run-the-script) in the machine where script is run).
 
 Any file Access Control List (ACL) present in the parent/backed up VM is preserved in the mounted file system as well.
 
