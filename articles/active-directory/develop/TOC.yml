@@ -150,8 +150,6 @@
       href: security-tokens.md
     - name: Application model
       href: application-model.md
-    - name: App sign-in flow
-      href: app-sign-in-flow.md
   - name: Authentication libraries
     displayName: msal, microsoft.identity.web
     items:
@@ -184,6 +182,8 @@
     items:
     - name: Sign-in audience
       href: v2-supported-account-types.md
+    - name: App sign-in flow
+      href: app-sign-in-flow.md
     - name: Single-page app
       displayName: SPA
       items:
