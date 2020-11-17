@@ -486,7 +486,11 @@ Key Phrases
     Paul Allen
     Microsoft
 ```
-
+# [Version 3.0](#tab/version-3)
+This feature is not available in version 3.0.
+# [Version 2.1](#tab/version-2)
+This feature is not available in version 2.1.
+---
 ## Sentiment analysis
 
 # [Version 3.1 preview](#tab/version-3-1)
