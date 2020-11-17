@@ -43,7 +43,7 @@ The following table describes the properties that can be configured on each moni
 The following table lists the default configuration for each monitor. This default configuration can't be directly changed, but you can define [overrides](#overrides) that will modify the monitor configuration for certain virtual machines.
 
 
-| Monitor | Enabled | Alerting | Warning | Critical | Evaluation Frequency | Lookback | Evaluation type | Min sample | Max samples |
+| Monitor | Enabled | Alerting | Warning | Critical | Evaluation frequency | Lookback | Evaluation type | Min sample | Max samples |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
 | CPU utilization  | True | False | None | \> 90%    | 60 sec | 240 sec | Min | 2 | 3 |
 | Available memory | True | False | None | \< 100 MB | 60 sec | 240 sec | Max | 2 | 3 |
@@ -158,7 +158,7 @@ The following table shows examples of different scopes.
 | All virtual machines the data collection rule is associated with | `*` |
 
 
-### monitors element
+## monitors element
 List of one or more strings that define which monitors in health hierarchy will receive this override. Each element can be a monitor name or type name that matches one or more monitors that will receive this override. 
 
 ```json

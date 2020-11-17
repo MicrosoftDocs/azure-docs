@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/26/2020
+ms.date: 11/16/2020
 
 ---
 
@@ -43,13 +43,13 @@ Azure Monitor for VMs guest health has the following limitations in public previ
 - Required Azure resource providers must be registered as described in the following section.
 
 
-## Register required ARM Resource Providers
+## Register required Azure resource providers
 The following Azure resource providers need to registered for your subscription to enable Azure Monitor for VMs guest health. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.Insights
 
-You can use any of the available methods to register a resource provider as described in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). You can also use the following sample command using armclient, postman, or another method to make authenticated call to ARM:
+You can use any of the available methods to register a resource provider as described in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). You can also use the following sample command using armclient, postman, or another method to make authenticated call to Azure Resource Manager:
 
 ```
 POST https://management.azure.com/subscriptions/[subscriptionId]/providers/Microsoft.WorkloadMonitor/register?api-version=2019-10-01
@@ -65,8 +65,8 @@ From the **Get Started** view in Azure Monitor for VMs, click the link next to t
 ![Enable health feature on virtual machine](media/vminsights-health-enable/enable-agent.png)
 
 
-## Enable a virtual machine using resource manager template
-There are three steps required to enable virtual machines using Azure resource manager.
+## Enable a virtual machine using Resource Manager template
+There are three steps required to enable virtual machines using Azure Resource Manager.
 
 - Create data collection rule.
 - Install the guest health extension on each virtual machine
@@ -77,7 +77,7 @@ There are three steps required to enable virtual machines using Azure resource m
 > [!NOTE]
 > If you enable a virtual machine using the Azure portal, then the data collection rule described here is created for you. In this case, you do not need to perform this step.
 
-Configuration for the monitors in Azure Monitor for VMs guest health is stored in [data Collection Rules (DCR)](../platform/data-collection-rule-overview.md). Install the data collection rule defined in the resource manager template below to enable all monitors for the virtual machines with the guest health extension. Each virtual machine with the guest health extension will need an association with this rule.
+Configuration for the monitors in Azure Monitor for VMs guest health is stored in [data Collection Rules (DCR)](../platform/data-collection-rule-overview.md). Install the data collection rule defined in the Resource Manager template below to enable all monitors for the virtual machines with the guest health extension. Each virtual machine with the guest health extension will need an association with this rule.
 
 > [!NOTE]
 > You can create additional data collection rules to modify the default configuration of monitors as described in [Configure monitoring in Azure Monitor for VMs guest health (preview)](vminsights-health-configure.md).
@@ -208,7 +208,7 @@ az deployment group create --name GuestHealthDataCollectionRule --resource-group
 
 
 ## Install guest health extension and associate with data collection rule
-Use the following resource manager template to enable a virtual machine for guest health. This installs the guest health extension and creates the association with the data collection rule. You can deploy this template using any [deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md).
+Use the following Resource Manager template to enable a virtual machine for guest health. This installs the guest health extension and creates the association with the data collection rule. You can deploy this template using any [deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
 
 For example, use the following commands to deploy the template and parameters file to a resource group using PowerShell or Azure CLI.

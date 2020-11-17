@@ -42,4 +42,6 @@ This error indicates that the **Microsoft.WorkloadMonitor** resource provider wa
 
 ![Bad request](media/vminsights-health-troubleshoot/bad-request.png)
 
+## Next steps
 
+- [Get an overview of the guest health feature of Azure Monitor for VMs](vminsights-health-overview.md)
