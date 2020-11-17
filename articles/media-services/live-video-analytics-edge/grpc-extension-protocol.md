@@ -137,7 +137,7 @@ Here's what this might look like in the device twin using the first option from 
 
 For more information on IPC modes, see https://docs.docker.com/engine/reference/run/#ipc-settings---ipc.
 
-## Media graph gRPC extension contract definitions
+## MediaGraph gRPC extension contract definitions
 
 This section defines the gRPC contract that defines the data flow.
 
