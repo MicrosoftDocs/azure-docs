@@ -54,10 +54,10 @@ Event Hubs emits exhaustive metrics that provide the state of your resources to 
 Azure Event Hubs stores customer data. This data is automatically stored by Event Hubs in a single region, so this service automatically satisfies the region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
 
 ### What ports do I need to open on the firewall? 
-You can use the following protocols with Azure Service Bus to send and receive messages:
+You can use the following protocols with Azure Event Hubs to send and receive events:
 
-- AMQP
-- HTTP
+- Advanced Message Queuing Protocol 1.0 (AMQP)
+- Hypertext Transfer Protocol 1.1 with TLS (HTTPS)
 - Apache Kafka
 
 See the following table for the outbound ports you need to open to use these protocols to communicate with Azure Event Hubs. 
@@ -65,8 +65,21 @@ See the following table for the outbound ports you need to open to use these pro
 | Protocol | Ports | Details | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 and 5672 | See [AMQP protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP, HTTPS | 80, 443 |  |
+| HTTPS | 443 | This port is used for the HTTP/REST API and for AMQP-over-WebSockets. |
 | Kafka | 9093 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
+
+The HTTPS port is required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 
+
+The official Azure SDKs generally use the AMQP protocol for sending and receiving events from Event Hubs. The AMQP-over-WebSockets protocol option runs over port TCP 443 just like the HTTP API, but is otherwise functionally identical with plain AMQP. This option has higher initial connection latency because of extra handshake round trips and slightly more overhead as tradeoff for sharing the HTTPS port. If this mode is selected, TCP port 443 is sufficient for communication. The following options allow selecting the plain AMQP or AMQP WebSockets mode:
+
+| Language | Option   |
+| -------- | ----- |
+| .NET     | [EventHubConnectionOptions.TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype?view=azure-dotnet) property with [EventHubsTransportType.AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet) or [EventHubsTransportType.AmqpWebSockets](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet) |
+| Java     | [com.microsoft.azure.eventhubs.EventProcessorClientBuilder.transporttype](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype?view=azure-java-stable) with [AmqpTransportType.AMQP](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable) or [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable) |
+| Node  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions?view=azure-node-latest) has a `webSocketOptions` property. |
+| Python | [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient?view=azure-python) with [TransportType.Amqp](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python) or [TransportType.AmqpOverWebSocket](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python) |
+
+
 
 ### What IP addresses do I need to allow?
 To find the right IP addresses to add to the allowed list for your connections, follow these steps:
@@ -143,7 +156,7 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
 ```
-Note: If sasl.jaas.config isn't a supported configuration in your framework, find the configurations that are used to set the SASL username and password and use those instead. Set the username to $ConnectionString and the password to your Event Hubs connection string.
+Note: If sasl.jaas.config isn't a supported configuration in your framework, find the configurations that are used to set the SASL username and password and use them instead. Set the username to $ConnectionString and the password to your Event Hubs connection string.
 
 ### What is the message/event size for Event Hubs?
 The maximum message size allowed for Event Hubs is 1 MB.
@@ -232,7 +245,7 @@ You can request for the partition count to be increased to 40 (exact) by submitt
 
 The partition count can be increased to exactly 40. In this case, number of TUs also have to be increased to 40. If you decide later to lower the TU limit back to <= 20, the maximum partition limit is also decreased to 32. 
 
-The decrease in partitions doesn't affect existing event hubs because partitions are applied at the event hub level and they are immutable after creation of the hub. 
+The decrease in partitions doesn't affect existing event hubs because partitions are applied at the event hub level and they're immutable after creation of the hub. 
 
 ## Pricing
 
@@ -252,7 +265,7 @@ The total size of all stored events, including any internal overhead for event h
 
 Each event sent to an event hub counts as a billable message. An *ingress event* is defined as a unit of data that is less than or equal to 64 KB. Any event that is less than or equal to 64 KB in size is considered to be one billable event. If the event is greater than 64 KB, the number of billable events is calculated according to the event size, in multiples of 64 KB. For example, an 8-KB event sent to the event hub is billed as one event, but a 96-KB message sent to the event hub is billed as two events.
 
-Events consumed from an event hub, as well as management operations and control calls such as checkpoints, are not counted as billable ingress events, but accrue up to the throughput unit allowance.
+Events consumed from an event hub, and management operations and control calls such as checkpoints, aren't counted as billable ingress events, but accrue up to the throughput unit allowance.
 
 ### Do brokered connection charges apply to Event Hubs?
 
@@ -294,9 +307,9 @@ To learn more about our SLA, see the [Service Level Agreements](https://azure.mi
 ## Azure Stack Hub
 
 ### How can I target a specific version of Azure Storage SDK when using Azure Blob Storage as a checkpoint store?
-If you run this code on Azure Stack Hub, you will experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Storage Blob SDK than that are typically available on Azure. If you are using Azure Blog Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code. 
+If you run this code on Azure Stack Hub, you'll experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Storage Blob SDK than that are typically available on Azure. If you're using Azure Blog Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code. 
 
-For example, If you're running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see the following samples for C#, Java, Python, and JavaScript/TypeScript.  
+For example, If you're running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you'll also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see the following samples for C#, Java, Python, and JavaScript/TypeScript.  
 
 For an example on how to target a specific Storage API version from your code, see the following samples on GitHub: 
 
