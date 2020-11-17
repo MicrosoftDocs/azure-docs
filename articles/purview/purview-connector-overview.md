@@ -12,7 +12,7 @@ Babylon supports the following data stores. Click each data store to
 learn the supported capabilities and the corresponding configurations in
 details.
 
-## Supported data stores
+# Supported data stores
 
 
 |**Category**|  **Data Store**  |**Metadata Extraction**|**Full Scan**|**Incremental Scan**|**Scoped Scan**|**Classification**|**Lineage**|
@@ -27,3 +27,7 @@ details.
 ||[Azure Synapse Analytics](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-preview-babylon/articles/purview/register-scan-azure-synapse-analytics.md)|&#9745;| &#9745;| No| &#9745;| &#9745;| &#9745;|
 |Database|[SQL Server](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-preview-babylon/articles/purview/register-scan-on-premises-sql-server.md)|&#9745;| &#9745;| No| &#9745;| &#9745;| &#9745;|
 |Power BI|[Power BI](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-preview-babylon/articles/purview/register-scan-power-bi-tenant.md)|&#9745;| &#9745;| No| No| No| &#9745;|
+
+## Next steps
+
+- [Register and scan Azure Blob storage source](register-scan-azure-blob-storage-source.md)

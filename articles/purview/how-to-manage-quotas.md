@@ -30,4 +30,6 @@ Azure Purview is a  cloud service for use by data users. You use Azure Purview t
 
 *Self-hosted integration runtime scenario is not in scope for the limits defined.
 
+## Next steps
 
+- [Azure Purview catalog client overview](catalog-client-overview.md)
