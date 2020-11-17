@@ -37,12 +37,14 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41413).
 
-**Guidance**: Azure SignalR Service does not support deploying directly into a virtual network, because of this you can not leverage certain networking features with the offering's resources such as network security groups, route tables, or other network dependent appliances such as an Azure Firewall. However, Azure SignalR Service allows you to create private endpoint for Azure SignalR Service to secure the traffic between resources in your virtual network and Azure SignalR Service.
+**Guidance**: Microsoft Azure SignalR Service does not support deploying directly into a virtual network, because of this you can not leverage certain networking features with the offering's resources such as network security groups, route tables, or other network dependent appliances such as an Azure Firewall. 
+
+Azure SignalR Service, however, allows you to create private endpoints to secure the traffic between resources in your virtual network and Azure SignalR Service.
+
+You can also use Service Tag and configure Network Security Group rules to restrict inbound/outbound traffic to Azure SignalR Service.
 
 - [Use private endpoints for Azure SignalR Service](howto-private-endpoints.md)
 - [Configure network access control](howto-network-access-control.md)
-
-You can also use Service Tag and configure Network Security Group rules to restrict inbound/outbound traffic to Azure SignalR Service.
 
 - [Use service tags for Azure SignalR Service](howto-service-tags.md)
 
@@ -55,13 +57,11 @@ You can also use Service Tag and configure Network Security Group rules to restr
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41414).
 
-**Guidance**: Use private endpoints to secure the traffic between your virtual network and Azure SignalR Service.
-
-- [Use private endpoints for Azure SignalR Service](howto-private-endpoints.md)
-
-Use Azure ExpressRoute or Azure virtual private network (VPN) to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections do not go over the public internet, and they offer more reliability, faster speeds, and lower latencies than typical internet connections. For point-to-site VPN and site-to-site VPN, you can connect on-premises devices or networks to a virtual network using any combination of these VPN options and Azure ExpressRoute.
+**Guidance**: Use private endpoints to secure the traffic between your virtual network and Azure SignalR Service. Choose Azure ExpressRoute or Azure virtual private network (VPN) to create private connections between Azure datacenters and on-premises infrastructure in a colocation environment. ExpressRoute connections do not go over the public internet, and they offer more reliability, faster speeds, and lower latencies than typical internet connections. For point-to-site VPN and site-to-site VPN, you can connect on-premises devices or networks to a virtual network using any combination of these VPN options and Azure ExpressRoute.
 
 To connect two or more virtual networks in Azure together, use virtual network peering. Network traffic between peered virtual networks is private and is kept on the Azure backbone network.
+
+- [Use private endpoints for Azure SignalR Service](howto-private-endpoints.md)
 
 - [What are the ExpressRoute connectivity models](../expressroute/expressroute-connectivity-models.md)
 
@@ -99,7 +99,7 @@ Private access is an additional defense in depth measure in addition to authenti
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Azure SignalR Service does not support deploying directly into a virtual network, because of this you can not leverage traditional networking features to prevent denial of service (DDoS) attacks with native Azure network features like DDoS Protection Standard.
+**Guidance**: Azure SignalR Service does not support deployment directly into a virtual network. Therefore, you can not leverage traditional networking features to prevent distributed denial of service (DDoS) attacks with native Azure DDoS Protection standard.
 
 Azure SignalR Service is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
@@ -115,7 +115,7 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure SignalR Service does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution for detecting or preventing threats on the network.
+**Guidance**: Not applicable; Azure SignalR Service does not support deployment into a virtual network and cannot be configured with an IDS or IPS solution for network threat detection or prevention.
 
 **Azure Security Center monitoring**: Not applicable
 
