@@ -79,5 +79,5 @@ SELECT * FROM Membership;
 
 Some examples of how column-level security is being used today:
 
-- A financial services firm allows only account managers to have access to customer social security numbers (SSN), phone numbers, and other personally identifiable information (PII).
+- A financial services firm allows only account managers to have access to customer social security numbers (SSN), phone numbers, and other personal data.
 - A health care provider allows only doctors and nurses to have access to sensitive medical records while preventing members of the billing department from viewing this data.
