@@ -336,7 +336,7 @@
     - name: Backup and disaster recovery for disks
       href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Shared disks
-      href: disks-shared.md
+      href: ../disks-shared.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Disk performance tiers
       href: ../disks-change-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Ephemeral OS disks
@@ -1152,6 +1152,8 @@
         href: upload-vhd.md
       - name: Use Azure Site Recovery
         href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
+    - name: Migrate WebLogic to Azure
+      href: /azure/developer/java/migration/migrate-weblogic-to-virtual-machines
 - name: Reference
   items:
   - name: Azure CLI

@@ -36,7 +36,7 @@ Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maint
 
 #### What is the process to add Extended Life Cycle Support (ELS) repositories to continue to receive software maintenance (bug and security fixes) and  support for Red Hat Enterprise Linux 6?
 
-The end to end process of signing up for the ELS will be available soon here (latest by 15 November, 2020).
+The end to end process of signing up for the ELS will be available soon here (latest by 30 November, 2020).
 
 ## Next steps
 
