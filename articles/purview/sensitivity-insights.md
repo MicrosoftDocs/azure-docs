@@ -90,8 +90,7 @@ Use the filters above the grid to filter the data shown, including the sensitivi
 
 For example:
 
-:::image type="content" source="media/insights/sensitivity-labels-filter.png" alt-text="IMG TBD
-":::
+:::image type="content" source="media/insights/sensitivity-labels-filter.png" alt-text="Filtered sensitivity insights report":::
 
 Above the filters: 
 

@@ -60,7 +60,7 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
 
 1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Classification** to display the Purview **Classification insights** report.
 
-   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification and labeling blade":::
+   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification insights report":::
 
    The main **Classification insights** page displays the following areas:
 

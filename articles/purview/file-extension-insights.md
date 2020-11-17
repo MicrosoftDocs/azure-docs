@@ -83,10 +83,10 @@ Use the filters above the grid to filter the data shown:
 |Option  |Description  |
 |---------|---------|
 |**Filter by keyword**     |    Enter text in the **Filter by keyword**  box to view filter your file types by name. For example, to view PDFs only, enter `PDF`.     |
-|**Time**        | Click to filter by a specific time span for when your content was created.   |
-|**File extension**     |Click to select one or more file types that you want to display in the grid.         |
-|**Sources**    |Click to select specific locations to pull the file extensions listed in the grid.         |
-|**Content scanning**     |Click to select **Supported** or **Not Supported**, to show only file types that can be further scanned for sensitive content, or files that cannot be scanned, such as **.cert** or **.jpg** files. |
+|**Time**        | Select to filter by a specific time span for when your content was created.   |
+|**File extension**     |Select to filter the grid by one or more file types.        |
+|**Sources**    |Select to filter the grid by the specific data sources. |
+|**Content scanning**     |Select to choose **Supported** or **Not Supported**, to show only file types that can be further scanned for sensitive content, or files that cannot be scanned, such as **.cert** or **.jpg** files. |
 | | |
 
 Above the filters: 

@@ -33,7 +33,7 @@ For more information, see:
 
 - [Learn about sensitivity labels](/microsoft-365/compliance/sensitivity-labels) in the Microsoft 365 documentation
 - [What are autolabeling rules?](#what-are-autolabeling-rules)
-- [Supported data types for sensitivity labels in Babylon](#supported-data-types-for-sensitivity-labels-in-babylon)
+- [Supported data types for sensitivity labels in Azure Purview](#supported-data-types-for-sensitivity-labels-in-azure-purview)
 
 #### What are autolabeling rules?
 
@@ -91,7 +91,7 @@ In Microsoft 365, navigate to the **Information Protection** page. In the **Exte
 
 For example:
 
-:::image type="content" source="media/create-sensitivity-label/extend-sensitivty-labels-to-purview-m365.png" alt-text="Click **Turn on** to extend sensitivity labels to Purview":::
+:::image type="content" source="media/create-sensitivity-label/extend-sensitivty-labels-to-purview-m365.png" alt-text="Select **Turn on** to extend sensitivity labels to Purview":::
  
 Once you extend labeling to assets in Azure Purview, you can select the labels that you want to make available in Purview. For more information, see [Creating new sensitivity labels or modifying existing labels](#creating-new-sensitivity-labels-or-modifying-existing-labels).
 ### Creating new sensitivity labels or modifying existing labels
@@ -138,7 +138,7 @@ Once you extend labeling to assets in Azure Purview, you can select the labels t
 
 Continue by [scanning your content to apply labels automatically](#scan-your-content-to-apply-labels-automatically), and then:
 
-- [Search for files based on labels](#search-for-files-based-on-labels)
+- [View labels on assets](#view-labels-on-assets)
 - [View Insight reports for the classifications and sensitivity labels](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
 
 #### Define autolabeling rules for files
@@ -169,7 +169,7 @@ Under the **Azure Purview assets (preview)** option:
 
 For example:
         
-:::image type="content" source="media/create-sensitivity-label/m365-create-auto-labeling-rules-sql.png" alt-text="Define autolabeling rules for SQL columns  in the Microsoft 365 Security and Compliance Center":::
+:::image type="content" source="media/create-sensitivity-label/m365-create-auto-labeling-rules-db-columns.png" alt-text="Define autolabeling rules for SQL columns  in the Microsoft 365 Security and Compliance Center":::
 
 ## Scan your content to apply labels automatically
 
@@ -212,9 +212,12 @@ In the Azure Purview Catalog, use the **Label** filtering options to show files 
 
 ## View Insight reports for the classifications and sensitivity labels
 
-Find insights on your classified and labeled data in Azure Purview using the **Sensitivity labeling** and **Classification** reports.
+Find insights on your classified and labeled data in Azure Purview using the **Classification** and **Sensitivity labeling** reports.
 
-For more information see:
+> [!div class="nextstepaction"]
+> [Classification insights](./classification-insights.md)
 
-- [Classification insights about your data from Azure Purview](classification-insights.md)
-- [Sensitivity label insights about your data from Azure Purview](sensitivity-insights.md)
+> [!div class="nextstepaction"]
+> [Sensitivity label insights](sensitivity-insights.md)
+
+
