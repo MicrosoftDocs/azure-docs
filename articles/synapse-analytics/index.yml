@@ -33,31 +33,51 @@ landingContent:
           - text: Release notes
             url: ../release-notes.md
 
-  # Card (optional)
-  - title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is dedicated SQL pool? (formerly SQL DW)
-            url: sql-data-warehouse-overview-what-is.md
-          - text: Tips and best practices
-            url: cheat-sheet.md
-      - linkListType: architecture
-        links:
-          - text: Azure Synapse architecture
-            url: massively-parallel-processing-mpp-architecture.md
-          - text: Reference Architecture
-            url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
-
   # Card
   - title: Getting started
     linkLists:
       - linkListType: deploy
         links:
-          - text: Create a SQL pool (data warehouse)
-            url: create-data-warehouse-portal.md
+          - text: Step-by-step to getting started
+            url: get-started.md
+          - text: STEP 1 - Create and setup a Synapse workspace
+            url: get-started-create-workspace.md
+          - text: STEP 2 - Analyze using a dedicated SQL pool
+            url: get-started-analyze-sql-pool.md
+          - text: STEP 3 - Analyze using Apache Spark
+            url: get-started-analyze-spark.md
+          - text: STEP 4 - Analyze using a serverless SQL pool
+            url: get-started-analyze-sql-on-demand.md
+          - text: STEP 5 - Analyze data in a storage account
+            url: get-started-analyze-storage.md
+          - text: STEP 6 - Orchestrate with pipelines
+            url: get-started-pipelines.md
+          - text: STEP 7 - Visualize data with Power BI
+            url: get-started-visualize-power-bi.md
+          - text: STEP 8 - Monitor activities
+            url: get-started-monitor.md
+          - text: STEP 9 - Explore the Knowledge center
+            url: gget-started-knowledge-center.md
   #         # - text: linktext2
   #         #   url: file2.md
+
+  # Card (optional)
+  - title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is dedicated SQL pool (formerly SQL DW)?
+            url: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
+          - text: Tips and best practices
+            url: ./sql-data-warehouse/cheat-sheet.md
+      - linkListType: architecture
+        links:
+          - text: Azure Synapse architecture
+            url: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
+          - text: Reference Architecture
+            url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+
+
 
   # Card (optional)
   - title: Load data
