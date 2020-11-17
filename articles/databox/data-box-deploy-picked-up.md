@@ -349,9 +349,5 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
-## Erasure of data from Data Box
- 
-Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
-
 ::: zone-end
 
