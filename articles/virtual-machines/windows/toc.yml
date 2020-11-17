@@ -330,7 +330,7 @@
     - name: Backup and disaster recovery for disks
       href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Shared disks
-      href: disks-shared.md
+      href: ../disks-shared.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Disk performance tiers
       href: ../disks-change-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Ephemeral OS disks
