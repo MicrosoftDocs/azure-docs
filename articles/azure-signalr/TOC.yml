@@ -107,6 +107,8 @@
     items:
     - name: Troubleshooting guides
       href: signalr-howto-troubleshoot-guide.md
+    - name: Troubleshooting methods
+      href: signalr-howto-troubleshoot-method.md
 
 - name: References
   items:

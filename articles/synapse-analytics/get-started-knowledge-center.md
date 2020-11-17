@@ -9,10 +9,10 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 09/15/2020 
+ms.date: 11/16/2020 
 ---
 
-# Explore the Synapse Knowledge Center
+# Explore the Synapse Knowledge center
 
 In this tutorial, you'll learn how to use the Synapse Studio Knowledge Center.
 
@@ -20,21 +20,21 @@ In this tutorial, you'll learn how to use the Synapse Studio Knowledge Center.
 
 There are two ways of finding the Knowledge Center in Synapse Studio:
 
-  1. In the Home hub, under Useful links, click on the first link called **Knowledge Center**.
+  1. In the Home hub, near the top-right of the page click on **Learn**.
   2. In the menu bar at the top, click **?** and then  **Knowledge Center**.
 
 Pick either method and open the **Knowledge Center**.
 
 ## Overview
 
-The **Knowledge Center** allows you to do three things:
+The **Knowledge center** allows you to do three things:
 * **Use samples immediately**. This option is optimized for you seeing analytics in action as fast as possible. If you want a quick example of how Synapse works, choose this option.
 * **Browser available sample**. This option lets you link sample data sets and add sample code in the form of SQL scripts, notebooks, and pipelines.
 * **Tour Synapse studio**. This option takes you on a brief tour of the basic parts of Synapse Studio. This is useful if you have never used Synapse Studio before.
 
 ## Exploring blob storage with serverless SQL pool
 
-1. Go to the **Knowledge Center**, click **Use samples immediately**
+1. Go to the **Knowledge center**, click **Use samples immediately**
 1. Select **Query data with SQL** 
 1. Click **Use samples immediately**
 1. It will create a new SQL script.
