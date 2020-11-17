@@ -6175,7 +6175,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/programmatically-create-subscription.md",
-      "redirect_url": "/azure/azure-resource-manager/management/programmatically-create-subscription",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
       "redirect_document_id": false
     },
     {
@@ -57889,7 +57889,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/management/programmatically-create-subscription.md",
-      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cost-management-billing/manage/programmatically-create-subscription.md",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
       "redirect_document_id": true
     },
     {
