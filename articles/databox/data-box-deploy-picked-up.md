@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 11/16/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -231,23 +231,29 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 1. Pack the device for return shipment in the original box.
 2. Spool and securely place the power cord that was provided with the device in the back of the device.
-3. To book a pickup with DHL:
+3. Note the tracking number (shown as reference number on the **Prepare to Ship** page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste it on the packing box.
+4. Contact Azure Data Box Operations <!--How do they do this?--> for a return code, required for delivering the package back to the datacenter.<!--The return code is needed in addition to the tracking/reference number from the Prepare to Ship page?--> Note this code on the shipping label next to the return address so it is clearly visible.
+5. Book a pickup with DHL using one of the following methods:
+ 
+   * Book a pickup online by going to [DHL Express South Africa, **Schedule a Pickup**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference).
+   * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
 
-    * Call the customer service contact centre on +27(0) 11 9213600, select option 1, and then specify the waybill number.
-    * The call must be made before 2:00 PM to schedule a pickup.
-    * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
 
-    ```output
-    To: Priority.Support@dhl.com
-    Subject: Pickup request for Microsoft Azure
-    Body: Need pick up for the below shipment
-      *  DHL tracking number (reference number/waybill number)
-      *  Requested pickup date: yyyy/mm/dd;time:HH MM
-    ```
+    * Or drop off the package at the nearest DHL service point.
 
-    * Alternatively, you can drop off the package at the nearest DHL service point.
-
-4. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
+6. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
 ::: zone target="chromeless"
 
