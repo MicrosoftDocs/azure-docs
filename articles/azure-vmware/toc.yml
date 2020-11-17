@@ -44,6 +44,8 @@
     href: concepts-identity.md
   - name: Role-based access control
     href: concepts-role-based-access-control.md
+  - name: Monitor and repair private clouds
+    href: concepts-monitor-repair-private-cloud.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
 - name: How-to guides
