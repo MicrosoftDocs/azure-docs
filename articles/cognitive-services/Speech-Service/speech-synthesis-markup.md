@@ -292,7 +292,7 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `strength` | Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
-| `time` | Specifies the absolute duration of a pause in seconds or milliseconds. Examples of valid values are `2s` and `500` | Optional |
+| `time` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000ms. Examples of valid values are `2s` and `500ms` | Optional |
 
 | Strength                      | Description |
 |-------------------------------|-------------|
@@ -311,6 +311,38 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
+```
+## Add silence
+
+Use the `mstts:silence` element to insert pauses before or after text, or between the 2 adjacent sentences. 
+
+> [!NOTE]
+>The difference between `mstts:silence` and `break` is break can be added to any place in the text, but silence works only at the beginning or in the end of the input text, or at the boundary of 2 adjacent sentences.  
+
+
+**Syntax**
+
+```xml
+<mstts:silence  type="string"  value="string"/>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| `type` | Specifies the location of silence be added: <ul><li>Leading – at the beginning of text </li><li>Tailing – in the end of text </li><li>Sentenceboundary – between adjacent sentences </li></ul> | Required |
+| `Value` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000ms. Examples of valid values are `2s` and `500ms` | Required |
+
+**Example**
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">  
+<voice name="en-US-AriaNeural"> 
+<mstts:silence  type="Sentenceboundary" value="200ms"/> 
+If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way. 
+A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time. 
+</voice> 
+</speak> 
 ```
 
 ## Specify paragraphs and sentences
