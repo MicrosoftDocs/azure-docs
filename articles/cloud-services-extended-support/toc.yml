@@ -26,6 +26,14 @@
     href: update-powershell.md
   - name: Store and use certificates
     href: certificates-and-key-vault.md
+- name: Samples
+  items: 
+  - name: Sample 1
+    href: 
+  - name: Sample 2
+    href: 
+  - name: Sample 3
+    href: 
 - name: Reference
   items:
   - name: Code samples
