@@ -14,6 +14,8 @@ ms.date: 11/12/2020
 
 Azure Purview is a  cloud service for use by data users. You use Azure Purview to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. This service enables business analysts to search for relevant data by using meaningful business terms. To raise the limits up to the maximum for your subscription, contact support.
 
+## Azure Purview limits
+
 |**Resource**|  **Default Limit**  |**Maximum Limit**|
 |---|---|---|
 |Purview accounts in a region, per subscription|5|Contact Support|
