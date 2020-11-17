@@ -48331,8 +48331,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/synapse-analytics/index.yml",
-      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
+      "source_path": "articles/synapse-analytics/sql-date-warehouse/index.yml",
+      "redirect_url": "/azure/synapse-analytics/",
       "redirect_document_id": false
     },
     {
