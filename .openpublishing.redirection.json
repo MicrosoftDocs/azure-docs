@@ -1117,12 +1117,12 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/disks-shared.md",
-      "redirect_url": "/azure/virtual-machines/disk-shared",
+      "redirect_url": "/azure/virtual-machines/disks-shared",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/disks-shared.md",
-      "redirect_url": "/azure/virtual-machines/disk-shared",
+      "redirect_url": "/azure/virtual-machines/disks-shared",
       "redirect_document_id": false
     },
     {
