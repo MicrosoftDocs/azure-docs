@@ -15,7 +15,7 @@ ms.reviewer: assafi
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[v3.1 Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-previews) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3.1 Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.1) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+[v3.1 Reference documentation](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-previews) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3.1 Package (NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.1) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 # [Version 3.0](#tab/version-3)
 
@@ -43,7 +43,7 @@ Using the Visual Studio IDE, create a new .NET Core console app. This will creat
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Check the **include prerelase** box, select version `5.1.0-beta.1`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Check the **include prerelase** box, select version `5.2.0-beta.1`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 # [Version 3.0](#tab/version-3)
 
@@ -96,6 +96,8 @@ static void Main(string[] args)
     EntityLinkingExample(client);
     RecognizePIIExample(client);
     KeyPhraseExtractionExample(client);
+    KeyPhraseExtractionExample(client);
+    KeyPhraseExtractionExample(client);
 
     Console.Write("Press any key to exit.");
     Console.ReadKey();
@@ -133,7 +135,8 @@ static void Main(string[] args)
     LanguageDetectionExample(client);
     EntityRecognitionExample(client);
     EntityLinkingExample(client);
-    KeyPhraseExtractionExample(client);
+    RecognizeHealthcareEntitiesExample(client);
+    AnalyzeOperationExample(client);
 
     Console.Write("Press any key to exit.");
     Console.ReadKey();
@@ -205,6 +208,276 @@ Create a method to instantiate the [TextAnalyticsClient](/dotnet/api/microsoft.a
 [!code-csharp[Client authentication](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=authentication)]
 
 ---
+
+## Recognize Healthcare Entities
+
+# [Version 3.1 preview](#tab/version-3-1)
+
+Create a new function called `RecognizeHealthcareEntitiesExample()` that takes the client that you created earlier, and call its `StartHealthcare()` function. The returned `HealthcareOperation` object will contain the `Operation` interface object for `RecognizeHealthcareEntitiesResultCollection`. As it is a Long Running Operation, `await` on the `healthOperation.WaitForCompletionAsync()` for the value to be updated. Once the `WaitForCompletionAsync()` is finishes, the collection should be updated in the `healthOperation.Value`. If there was an error, it will throw a `RequestFailedException`.
+
+```csharp
+static void RecognizeHealthcareEntitiesExample(TextAnalyticsClient client)
+{
+    string inputText = "Subject is taking 100mg of ibuprofen twice daily";
+		HealthcareOperation operation = await client.StartHealthcareAsync(inputText);
+
+		await operation.WaitForCompletionAsync();
+
+		RecognizeHealthcareEntitiesResultCollection results = operation.Value;
+
+		Console.WriteLine($"Results of Azure Text Analytics \"Healthcare\" Model, version: \"{results.ModelVersion}\"");
+		Console.WriteLine("");
+
+		foreach (DocumentHealthcareResult result in results)
+		{
+						Console.WriteLine($"    Recognized the following {result.Entities.Count} healthcare entities:");
+
+						foreach (HealthcareEntity entity in result.Entities)
+						{
+								Console.WriteLine($"    Entity: {entity.Text}");
+								Console.WriteLine($"    Subcategory: {entity.Subcategory}");
+								Console.WriteLine($"    Offset: {entity.Offset}");
+								Console.WriteLine($"    Length: {entity.Length}");
+								Console.WriteLine($"    IsNegated: {entity.IsNegated}");
+								Console.WriteLine($"    Links:");
+
+								foreach (HealthcareEntityLink healthcareEntityLink in entity.Links)
+								{
+										Console.WriteLine($"        ID: {healthcareEntityLink.Id}");
+										Console.WriteLine($"        DataSource: {healthcareEntityLink.DataSource}");
+								}
+						}
+						Console.WriteLine("");
+		}
+}
+```
+
+### Output
+
+```console
+Test Name:	Healthcare
+Test Outcome:	Passed
+Result StandardOutput:	
+Results of Azure Text Analytics "Healthcare" Model, version: "2020-09-03"
+
+    Recognized the following 3 healthcare entities:
+    Entity: 100mg
+    Subcategory: 
+    Offset: 18
+    Length: 5
+    IsNegated: False
+    Links:
+    Entity: ibuprofen
+    Subcategory: 
+    Offset: 27
+    Length: 9
+    IsNegated: False
+    Links:
+        ID: C0020740
+        DataSource: UMLS
+        ID: 0000019879
+        DataSource: AOD
+        ID: M01AE01
+        DataSource: ATC
+        ID: 0046165
+        DataSource: CCPSS
+        ID: 0000006519
+        DataSource: CHV
+        ID: 2270-2077
+        DataSource: CSP
+        ID: DB01050
+        DataSource: DRUGBANK
+        ID: 1611
+        DataSource: GS
+        ID: sh97005926
+        DataSource: LCH_NW
+        ID: LP16165-0
+        DataSource: LNC
+        ID: 40458
+        DataSource: MEDCIN
+        ID: d00015
+        DataSource: MMSL
+        ID: D007052
+        DataSource: MSH
+        ID: WK2XYI10QM
+        DataSource: MTHSPL
+        ID: C561
+        DataSource: NCI
+        ID: C561
+        DataSource: NCI_CTRP
+        ID: 00803
+        DataSource: NCI_DCP
+        ID: NSC0256857
+        DataSource: NCI_DTP
+        ID: WK2XYI10QM
+        DataSource: NCI_FDA
+        ID: CDR0000613511
+        DataSource: NCI_NCI-GLOSS
+        ID: 002377
+        DataSource: NDDF
+        ID: CDR0000040475
+        DataSource: PDQ
+        ID: x02MO
+        DataSource: RCD
+        ID: 5640
+        DataSource: RXNORM
+        ID: E-7772
+        DataSource: SNM
+        ID: C-603C0
+        DataSource: SNMI
+        ID: 387207008
+        DataSource: SNOMEDCT_US
+        ID: m39860
+        DataSource: USP
+        ID: MTHU000060
+        DataSource: USPMG
+        ID: 4017840
+        DataSource: VANDF
+    Entity: twice daily
+    Subcategory: 
+    Offset: 37
+    Length: 11
+    IsNegated: False
+    Links:
+
+```
+
+## Run Analyze Operation
+
+# [Version 3.1 preview](#tab/version-3-1)
+
+Create a new function called `AnalyzeOperationExample()` that takes the client that you created earlier, and call its `StartAnalyzeOperationBatch()` function. The returned `AnalyzeOperation` object will contain the `Operation` interface object for `AnalyzeOperationResult`. As it is a Long Running Operation, `await` on the `operation.WaitForCompletionAsync()` for the value to be updated. Once the `WaitForCompletionAsync()` is finishes, the collection should be updated in the `operation.Value`. If there was an error, it will throw a `RequestFailedException`.
+
+```csharp
+static void AnalyzeOperationExample(TextAnalyticsClient client)
+{
+		string inputText = "Microsoft was founded by Bill Gates and Paul Allen.";
+
+		var batchDocuments = new List<string> { inputText };
+
+		AnalyzeOperationOptions operationOptions = new AnalyzeOperationOptions()
+		{
+				KeyPhrasesTaskParameters = new KeyPhrasesTaskParameters(),
+				EntitiesTaskParameters = new EntitiesTaskParameters(),
+				PiiTaskParameters = new PiiTaskParameters(),
+				DisplayName = "Analyze Operation Quick Start Example"
+		};
+
+		AnalyzeOperation operation = client.StartAnalyzeOperationBatch(batchDocuments, operationOptions, "en");
+
+		await operation.WaitForCompletionAsync();
+
+		AnalyzeOperationResult resultCollection = operation.Value;
+
+		RecognizeEntitiesResultCollection entitiesResult = resultCollection.Tasks.EntityRecognitionTasks[0].Results;
+
+		ExtractKeyPhrasesResultCollection keyPhrasesResult = resultCollection.Tasks.KeyPhraseExtractionTasks[0].Results;
+
+		RecognizePiiEntitiesResultCollection piiResult = resultCollection.Tasks.EntityRecognitionPiiTasks[0].Results;
+
+		Console.WriteLine("Analyze Operation Request Details");
+		Console.WriteLine($"    Status: {resultCollection.Status}");
+		Console.WriteLine($"    DisplayName: {resultCollection.DisplayName}");
+		Console.WriteLine("");
+
+		Console.WriteLine("Recognized Entities");
+
+		foreach (RecognizeEntitiesResult result in entitiesResult)
+		{
+				Console.WriteLine($"    Recognized the following {result.Entities.Count} entities:");
+
+				foreach (CategorizedEntity entity in result.Entities)
+				{
+						Console.WriteLine($"    Entity: {entity.Text}");
+						Console.WriteLine($"    Category: {entity.Category}");
+						Console.WriteLine($"    Offset: {entity.Offset}");
+						Console.WriteLine($"    ConfidenceScore: {entity.ConfidenceScore}");
+						Console.WriteLine($"    SubCategory: {entity.SubCategory}");
+				}
+				Console.WriteLine("");
+		}
+
+		Console.WriteLine("Recognized PII Entities");
+
+		foreach (RecognizePiiEntitiesResult result in piiResult)
+		{
+				Console.WriteLine($"    Recognized the following {result.Entities.Count} PII entities:");
+
+				foreach (PiiEntity entity in result.Entities)
+				{
+						Console.WriteLine($"    Entity: {entity.Text}");
+						Console.WriteLine($"    Category: {entity.Category}");
+						Console.WriteLine($"    Offset: {entity.Offset}");
+						Console.WriteLine($"    ConfidenceScore: {entity.ConfidenceScore}");
+						Console.WriteLine($"    SubCategory: {entity.SubCategory}");
+				}
+				Console.WriteLine("");
+		}
+
+		Console.WriteLine("Key Phrases");
+
+		foreach (ExtractKeyPhrasesResult result in keyPhrasesResult)
+		{
+				Console.WriteLine($"    Recognized the following {result.KeyPhrases.Count} Keyphrases:");
+
+				foreach (string keyphrase in result.KeyPhrases)
+				{
+						Console.WriteLine($"    {keyphrase}");
+				}
+				Console.WriteLine("");
+		}
+}
+```
+
+### Output
+
+```console
+Analyze Operation Request Details
+    Status: succeeded
+    DisplayName: Analyze Operation Quick Start Example
+
+Recognized Entities
+    Recognized the following 3 entities:
+    Entity: Microsoft
+    Category: Organization
+    Offset: 0
+    ConfidenceScore: 0.83
+    SubCategory: 
+    Entity: Bill Gates
+    Category: Person
+    Offset: 25
+    ConfidenceScore: 0.85
+    SubCategory: 
+    Entity: Paul Allen
+    Category: Person
+    Offset: 40
+    ConfidenceScore: 0.9
+    SubCategory: 
+
+Recognized PII Entities
+    Recognized the following 3 PII entities:
+    Entity: Microsoft
+    Category: Organization
+    Offset: 0
+    ConfidenceScore: 0.83
+    SubCategory: 
+    Entity: Bill Gates
+    Category: Person
+    Offset: 25
+    ConfidenceScore: 0.85
+    SubCategory: 
+    Entity: Paul Allen
+    Category: Person
+    Offset: 40
+    ConfidenceScore: 0.9
+    SubCategory: 
+
+Key Phrases
+    Recognized the following 3 Keyphrases:
+    Bill Gates
+    Paul Allen
+    Microsoft
+```
 
 ## Sentiment analysis
 
