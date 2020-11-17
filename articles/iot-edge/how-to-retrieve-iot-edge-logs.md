@@ -139,7 +139,7 @@ Use the **UploadModuleLogs** direct method to send the requested logs to a speci
 ::: moniker range=">=iotedge-2020-11"
 
 > [!NOTE]
-> If you wish to upload logs from a device behind a gateway device, you will need to have the [blob storage module](https://docs.microsoft.com/azure/iot-edge/how-to-configure-api-proxy-module) configured on the top layer device.
+> If you wish to upload logs from a device behind a gateway device, you will need to have the [API proxy and blob storage modules](how-to-configure-api-proxy-module.md) configured on the top layer device. These modules route the logs from your lower layer device through your gateway device to your storage in the cloud.
 
 ::: moniker-end
 
@@ -267,7 +267,7 @@ Use the **UploadSupportBundle** direct method to bundle and upload a zip file of
 ::: moniker range=">=iotedge-2020-11"
 
 > [!NOTE]
-> If you wish to upload logs from a device behind a gateway device, you will need to have the [blob storage module](https://docs.microsoft.com/azure/iot-edge/how-to-configure-api-proxy-module) configured on the top layer device.
+> If you wish to upload logs from a device behind a gateway device, you will need to have the [API proxy and blob storage modules](how-to-configure-api-proxy-module.md) configured on the top layer device. These modules route the logs from your lower layer device through your gateway device to your storage in the cloud.
 
 ::: moniker-end
 
