@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 11/17/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -19,9 +19,11 @@ ms.custom: aaddev
 
 The Microsoft identity platform supports the OAuth 2.0 Implicit Grant flow as described in the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-4.2). The defining characteristic of the implicit grant is that tokens (ID tokens or access tokens) are returned directly from the /authorize endpoint instead of the /token endpoint. This is often used as part of the [authorization code flow](v2-oauth2-auth-code-flow.md), in what is called the "hybrid flow" - retrieving the ID token on the /authorize request along with an authorization code. 
 
-With the plans for [third party cookies to be removed from browsers](reference-third-party-cookies-spas.md), the **implicit grant flow is no longer a suitable authentication method**.  The [silent SSO features](#Getting-access-tokens-silently-in-the-background) of the implicit flow do not work without third party cookies, causing applications to break when they attempt to get a new token. We strongly recommend that all new applications use the [authorization code flow](v2-oauth2-auth-code-flow.md) that now supports single page apps in place of the implicit flow, and that [existing single page apps begin migrating to the authorization code flow](migrate-spa-implicit-to-auth-code.md) as well. 
+[!INCLUDE [suggest-msal-from-protocols.md](\includes)]
 
-This article describes how to program directly against the protocol in your application to request tokens from the /authorize endpoint.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows), using the authorization code flow.  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
+## Prefer the auth code flow
+
+With the plans for [third party cookies to be removed from browsers](reference-third-party-cookies-spas.md), the **implicit grant flow is no longer a suitable authentication method**.  The [silent SSO features](getting-access-tokens-silently-in-the-background) of the implicit flow do not work without third party cookies, causing applications to break when they attempt to get a new token. We strongly recommend that all new applications use the [authorization code flow](v2-oauth2-auth-code-flow.md) that now supports single page apps in place of the implicit flow, and that [existing single page apps begin migrating to the authorization code flow](migrate-spa-implicit-to-auth-code.md) as well. 
 
 ## Suitable scenarios for the OAuth2 implicit grant
 
