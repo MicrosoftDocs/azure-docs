@@ -18,7 +18,7 @@ Several mapping data flow transformations allow you to reference template column
 * If incoming source fields change often such as the case of changing columns in text files or NoSQL databases. This scenario is known as [schema drift](concepts-data-flow-schema-drift.md).
 * If you wish to do a common operation on a large group of columns. For example, wanting to cast every column that has 'total' in its column name into a double.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xiXz]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Iui1]
 
 ## Column patterns in derived column and aggregate
 
