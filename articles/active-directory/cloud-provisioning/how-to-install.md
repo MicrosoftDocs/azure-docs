@@ -47,11 +47,11 @@ To install the agent, follow these steps.
 
 1. On the **Configuration complete** screen, select **Confirm**. This operation registers and restarts the agent.
 
-   ![Configuration complete screen](media/how-to-install/install-4.png)</br>
+   ![Configuration complete screen](media/how-to-install/install-4a.png)</br>
 
 1. After this operation finishes, you should see the notice **Your agent configuration was successfully verified.** Select **Exit**.
 
-   ![Exit button](media/how-to-install/install5.png)</br>
+   ![Exit button](media/how-to-install/install-5.png)</br>
 1. If you still see the initial **Microsoft Azure AD Connect Provisioning Agent Package** screen, select **Close**.
 
 ## Verify agent installation
@@ -82,7 +82,7 @@ To verify that the agent is running, follow these steps.
 1.  Open **Services** by either navigating to it or by going to **Start** > **Run** > **Services.msc**.
 1.  Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there and their status is *Running*.
 
-    ![Services screen](media/how-to-troubleshoot/troubleshoot-1.png)
+    ![Services screen](media/how-to-install/troubleshoot-1.png)
 
 >[!IMPORTANT]
 >The agent has been installed but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud-based provisioning](how-to-configure.md).
