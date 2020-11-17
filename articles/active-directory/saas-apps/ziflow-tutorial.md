@@ -208,11 +208,11 @@ To provision a user account, perform the following steps:
 
 3. Click **Add** and then click **Add user**.
 
-	![Ziflow Configuration adding user](./media/ziflow-tutorial/tutorial_ziflow_add.png)
+	![Screenshot shows the Add user option selected.](./media/ziflow-tutorial/tutorial_ziflow_add.png)
 
 4. On the **Add a user** popup, perform the following steps:
 
-	![Ziflow Configuration adding user](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
+	![Screenshot shows the Add a user dialog box where you can enter the values described.](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
 
 	a. In **Email** text box, enter the email of user like brittasimon@contoso.com.
 

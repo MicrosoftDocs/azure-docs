@@ -35,7 +35,7 @@ You can connect to an Azure Cosmos DB container without enabling Synapse Link. I
 | **Write**   | Can the Azure Synapse runtime be used to write data to an Azure Cosmos DB container | Yes | No |
 
 * If you write data into an Azure Cosmos DB container from Spark, this process happens through the transactional store of Azure Cosmos DB. It will impact the transactional performance of Azure Cosmos DB by consuming Request Units.
-* SQL pool integration through external tables is currently not supported.
+* Dedicated SQL pool integration through external tables is currently not supported.
  
 ## Supported code-generated actions for Spark
 
@@ -59,4 +59,4 @@ You can connect to an Azure Cosmos DB container without enabling Synapse Link. I
 ## Next steps
 
 * See how to [connect to Synapse Link for Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
-* [Learn how to query the analytical store with Spark](how-to-query-analytical-store-spark.md)
+* [Learn how to query the Cosmos DB Analytical Store with Spark](how-to-query-analytical-store-spark.md)

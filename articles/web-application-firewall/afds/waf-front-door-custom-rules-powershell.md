@@ -22,9 +22,9 @@ Before you begin to set up a rate limit policy, set up your PowerShell environme
 
 ### Set up your PowerShell environment
 
-Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources. 
+Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing your Azure resources. 
 
-You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install Az PowerShell module.
+You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install Az PowerShell module.
 
 #### Sign in to Azure
 

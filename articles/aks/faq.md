@@ -91,6 +91,9 @@ AKS supports the following [admission controllers][admission-controllers]:
 - *MutatingAdmissionWebhook*
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
+- *PodNodeSelector*
+- *PodTolerationRestriction*
+- *ExtendedResourceToleration*
 
 Currently, you can't modify the list of admission controllers in AKS.
 
@@ -104,6 +107,8 @@ namespaceSelector:
     - key: control-plane
       operator: DoesNotExist
 ```
+
+AKS firewalls the API server egress so you're admission controller webhooks need to be accessible from within the cluster.
 
 ## Can admission controller webhooks impact kube-system and internal AKS namespaces?
 

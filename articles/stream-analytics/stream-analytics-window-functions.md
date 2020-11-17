@@ -12,9 +12,9 @@ ms.date: 09/16/2020
 
 In time-streaming scenarios, performing operations on the data contained in temporal windows is a common pattern. Stream Analytics has native support for windowing functions, enabling developers to author complex stream processing jobs with minimal effort.
 
-There are five kinds of temporal windows to choose from: [**Tumbling**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**Hopping**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**Sliding**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics), [**Session**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), and [**Snapshot**](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) windows.  You use the window functions in the [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) clause of the query syntax in your Stream Analytics jobs. You can also aggregate events over multiple windows using the [**Windows()** function](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
+There are five kinds of temporal windows to choose from: [**Tumbling**](/stream-analytics-query/tumbling-window-azure-stream-analytics), [**Hopping**](/stream-analytics-query/hopping-window-azure-stream-analytics), [**Sliding**](/stream-analytics-query/sliding-window-azure-stream-analytics), [**Session**](/stream-analytics-query/session-window-azure-stream-analytics), and [**Snapshot**](/stream-analytics-query/snapshot-window-azure-stream-analytics) windows.  You use the window functions in the [**GROUP BY**](/stream-analytics-query/group-by-azure-stream-analytics) clause of the query syntax in your Stream Analytics jobs. You can also aggregate events over multiple windows using the [**Windows()** function](/stream-analytics-query/windows-azure-stream-analytics).
 
-All the [windowing](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) operations output results at the **end** of the window. Note that when you start a stream analytics job, you can specify the *Job output start time* and the system will automatically fetch previous events in the incoming streams to output the first window at the specified time; for example when you start with the *Now* option, it will start to emit data immediately. 
+All the [windowing](/stream-analytics-query/windowing-azure-stream-analytics) operations output results at the **end** of the window. Note that when you start a stream analytics job, you can specify the *Job output start time* and the system will automatically fetch previous events in the incoming streams to output the first window at the specified time; for example when you start with the *Now* option, it will start to emit data immediately. 
 The output of the window will be single event based on the aggregate function used. The output event will have the time stamp of the end of the window and all window functions are defined with a fixed length. 
 
 ![Stream Analytics window functions concepts](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
@@ -48,7 +48,7 @@ When a partition key is provided, the events are grouped together by the key and
 
 ## Snapshot window
 
-Snapshot windows groups events that have the same timestamp. Unlike other windowing types, which require a specific window function (such as [SessionWindow()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), you can apply a snapshot window by adding System.Timestamp() to the GROUP BY clause.
+Snapshot windows groups events that have the same timestamp. Unlike other windowing types, which require a specific window function (such as [SessionWindow()](/stream-analytics-query/session-window-azure-stream-analytics), you can apply a snapshot window by adding System.Timestamp() to the GROUP BY clause.
 
 ![Stream Analytics snapshot window](media/stream-analytics-window-functions/snapshot.png)
 
@@ -56,6 +56,5 @@ Snapshot windows groups events that have the same timestamp. Unlike other window
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)

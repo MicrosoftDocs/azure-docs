@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/06/2020
 ms.author: aahi
 ---
 
@@ -284,7 +284,7 @@ sudo apt-get update
 Install the 1.0.9 release:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
 Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).

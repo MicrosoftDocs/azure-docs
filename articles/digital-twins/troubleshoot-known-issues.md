@@ -27,7 +27,7 @@ This can be resolved by rerunning the `az login` command in Cloud Shell and comp
 
 Alternatively, you can open the Cloud Shell pane in the Azure portal and complete your Cloud Shell work from there:
 
-:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="View of the Azure portal with the 'Cloud Shell' icon highlighted, and the Cloud Shell appearing at the bottom of the portal window":::
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="View of the Azure portal with the 'Cloud Shell' icon highlighted, and the Cloud Shell appearing at the bottom of the portal window" lightbox="media/includes/portal-cloud-shell.png":::
 
 Finally, another solution is to [install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) on your machine so you can run Azure CLI commands locally. The local CLI does not experience this issue.
 

@@ -75,7 +75,7 @@ Here are some related resources for Azure Maps:
 - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
 - [Azure Maps term of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46)
     (included in the Microsoft Online Services Terms)
-- [Choose the right pricing tier in Azure Maps](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier)
+- [Choose the right pricing tier in Azure Maps](./choose-pricing-tier.md)
 
 ## Suggested migration plan
 
@@ -83,7 +83,7 @@ The following is a high-level migration plan.
 
 1. Take inventory of the Google Maps SDKs and services that your application uses. Verify that Azure Maps provides alternative SDKs and services.
 2. If you don't already have one, create an Azure subscription at [https://azure.com](https://azure.com).
-3. Create an Azure Maps account ([documentation](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)) and authentication key or Azure Active Directory ([documentation](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)).
+3. Create an Azure Maps account ([documentation](./how-to-manage-account-keys.md)) and authentication key or Azure Active Directory ([documentation](./how-to-manage-authentication.md)).
 4. Migrate your application code.
 5. Test your migrated application.
 6. Deploy your migrated application to production.
@@ -94,17 +94,17 @@ To create an Azure Maps account and get access to the Azure Maps platform, follo
 
 1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 2. Sign in to the [Azure portal](https://portal.azure.com/).
-3. Create an [Azure Maps account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
-4. [Get your Azure Maps subscription key](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) or setup Azure Active Directory authentication for enhanced security.
+3. Create an [Azure Maps account](./how-to-manage-account-keys.md). 
+4. [Get your Azure Maps subscription key](./how-to-manage-authentication.md#view-authentication-details) or setup Azure Active Directory authentication for enhanced security.
 
 ## Azure Maps technical resources
 
 Here is a list of useful technical resources for Azure Maps.
 
 - Overview: [https://azure.com/maps](https://azure.com/maps)
-- Documentation: [https://aka.ms/AzureMapsDocs](https://aka.ms/AzureMapsDocs)
+- Documentation: [https://aka.ms/AzureMapsDocs](./index.yml)
 - Web SDK Code Samples: [https://aka.ms/AzureMapsSamples](https://aka.ms/AzureMapsSamples)
-- Developer Forums: [https://aka.ms/AzureMapsForums](https://aka.ms/AzureMapsForums)
+- Developer Forums: [https://aka.ms/AzureMapsForums](/answers/topics/azure-maps.html)
 - Videos: [https://aka.ms/AzureMapsVideos](https://aka.ms/AzureMapsVideos)
 - Blog: [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
 - Tech Blog: [https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
@@ -113,7 +113,7 @@ Here is a list of useful technical resources for Azure Maps.
 
 ## Migration support
 
-Developers can seek migration support through the [forums](https://aka.ms/AzureMapsForums) or through one of the many Azure support options: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
+Developers can seek migration support through the [forums](/answers/topics/azure-maps.html) or through one of the many Azure support options: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
 ## Next steps
 

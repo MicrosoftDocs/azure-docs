@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/26/2019
 ---
 
@@ -33,7 +33,7 @@ For more information on the Connect API, see [https://kafka.apache.org/documenta
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* An Azure IoT Hub and device. For this article, consider using [Connect Raspberry Pi online simulator to Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started).
+* An Azure IoT Hub and device. For this article, consider using [Connect Raspberry Pi online simulator to Azure IoT Hub](../../iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md).
 
 * [Scala build tool](https://www.scala-sbt.org/).
 
