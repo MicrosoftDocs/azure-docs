@@ -109,6 +109,8 @@
         href: appblade-tutorial.md
       - name: AppDynamics
         href: appdynamics-tutorial.md
+      - name: Appian
+        href: appian-tutorial.md
       - name: Appinux
         href: appinux-tutorial.md
       - name: AppNeta Performance Monitor
