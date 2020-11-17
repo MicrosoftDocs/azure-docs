@@ -249,7 +249,7 @@ VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a 
 
 #### How do I request a host quota increase for Azure VMware Solution?
 
-For CSP managed subscriptions, customer must perform the request to the partner and the partner team will engage with Microsoft to get the quota increased for the subscription. 
+For CSP managed subscriptions, customer must perform the request to the partner and the partner team will engage with Microsoft to get the quota increased for the subscription. For more information, see [How to enable Azure VMware Solution resource article](enable-azure-vmware-solution.md) for the details. 
 
 For EA subscriptions, customer must follow this procedure.
 
@@ -295,6 +295,10 @@ Before you create your Azure VMware Solution resource, you must submit a support
 #### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
 
 Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+
+#### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+
+No. Currently Azure VMware Solution does not offer multi-tenancy.
 
 
 ## Customer communication

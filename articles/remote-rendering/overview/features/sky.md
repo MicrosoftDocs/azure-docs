@@ -141,4 +141,3 @@ Azure Remote Rendering provides a few built-in environment maps that are always 
 * [Lights](../../overview/features/lights.md)
 * [Materials](../../concepts/materials.md)
 * [Textures](../../concepts/textures.md)
-* [The TexConv command-line tool](../../resources/tools/tex-conv.md)

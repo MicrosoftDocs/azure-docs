@@ -117,13 +117,13 @@ All requests require an api-key in the header of every request sent to your serv
 
 ## 2 - Set up Postman
 
-Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Cognitive Search REST APIs using Postman](search-get-started-postman.md).
+Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Cognitive Search REST APIs](search-get-started-rest.md).
 
 The request methods used in this tutorial are **POST**, **PUT**, and **GET**. You'll use the methods to make four API calls to your search service: create a data source, a skillset, an index, and an indexer.
 
 In Headers, set "Content-type" to `application/json` and set `api-key` to the admin api-key of your Azure Cognitive Search service. Once you set the headers, you can use them for every request in this exercise.
 
-  ![Postman request URL and header](media/search-get-started-postman/postman-url.png "Postman request URL and header")
+  ![Postman request URL and header](media/search-get-started-rest/postman-url.png "Postman request URL and header")
 
 ## 3 - Create the pipeline
 

@@ -79,7 +79,7 @@ OPENROWSET
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
-WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })  
+WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
  
 <bulk_options> ::=  
@@ -152,7 +152,7 @@ The WITH clause allows you to specify columns that you want to read from files.
     > Column names in Parquet files are case sensitive. If you specify column name with casing different from column name casing in Parquet file, NULL values will be returned for that column.
 
 
-column_name = Name for the output column. If provided, this name overrides the column name in the source file.
+column_name = Name for the output column. If provided, this name overrides the column name in the source file and column name provided in JSON path if there is one. If json_path is not provided, it will be automatically added as '$.column_name'. Check json_path argument for behavior.
 
 column_type = Data type for the output column. The implicit data type conversion will take place here.
 
@@ -166,6 +166,11 @@ WITH (
     --[population] bigint
 )
 ```
+
+json_path = [JSON path expression](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) to column or nested property. Default [path mode](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) is lax.
+
+> [!NOTE]
+> In strict mode query will fail with error if provided path does not exist. In lax mode query will succeed and JSON path expression will evaluate to NULL.
 
 **\<bulk_options>**
 
@@ -355,6 +360,32 @@ WITH (
 	[stateName] VARCHAR (50),
 	[population] bigint
 ) AS [r]
+```
+
+### Specify columns using JSON paths
+
+The following example shows how you can use [JSON path expressions](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) in WITH clause and demonstrates difference between strict and lax path modes: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+	--lax path mode samples
+	[stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+	[stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+	[COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+	[countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+
+	--strict path mode samples
+	[population] bigint 'strict $.population' -- this one works as column name casing is valid
+	--,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+)
+AS [r]
 ```
 
 ## Next steps
