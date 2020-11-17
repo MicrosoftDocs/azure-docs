@@ -5,11 +5,17 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
+ms.date: 11/17/2020
 
 ---
 
 # Install the Azure Monitor agent (preview)
+
+## Azure portal
+
+
+## Resource manager
+
 The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. 
 
 | Property | Windows | Linux |
@@ -19,6 +25,13 @@ The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-
 | TypeHandlerVersion  | 1.0 | 1.5 |
 
 Install the Azure Monitor agent using any of the methods to install virtual machine agents including the following using PowerShell or CLI. Alternatively, you can install the agent and configure data collection on virtual machines in your Azure subscription using the portal with the procedure described in [Configure data collection for the Azure Monitor agent (preview)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
+
+
+## PowerShell
+
+
+
+## Azure CLI
 
 ### Windows
 
