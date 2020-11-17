@@ -39,14 +39,18 @@ The PII feature is part of NER and it can identify and redact sensitive entities
 | Expanded entity recognition across several categories           | X      | X        |
 | Separate endpoints for sending entity linking and NER requests. | X      | X        |
 | Recognition of personal (`PII`) and health (`PHI`) information entities        |        | X        |
+| Redaction of `PII`        |        | X        |
 
 See [language support](../language-support.md) for information.
 
 Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3.0 can recognize entities in the [general entity category](../named-entity-types.md).
 
-Named Entity Recognition v3.1-preview.3 includes the detection capabilities of v3.0, and the ability to detect personal information (`PII`) using the `v3.1-preview.3/entities/recognition/pii` endpoint. You can also use the optional `domain=phi` parameter to detect confidential health information (`PHI`).
+Named Entity Recognition v3.1-preview.3 includes the detection capabilities of v3.0, and: 
+* The ability to detect personal information (`PII`) using the `v3.1-preview.3/entities/recognition/pii` endpoint. 
+* An optional `domain=phi` parameter to detect confidential health information (`PHI`).
+* [Asynchronous operation](text-analytics-how-to-call-api.md) using the `/analyze` endpoint.
 
-See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information.
+See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information. 
 
 ## Sending a REST API request
 
@@ -68,7 +72,7 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 #### [Version 3.1-preview.3](#tab/version-3-preview)
 
-Named Entity Recognition `v3.1-preview.3` uses separate endpoints for NER, PII and entity linking requests. Use a URL format below based on your request:
+Named Entity Recognition `v3.1-preview.3` uses separate endpoints for NER, PII and entity linking requests. Use a URL format below based on your request.
 
 **Entity linking**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
@@ -87,7 +91,7 @@ You can also use the optional `domain=phi` parameter to detect health (`PHI`) in
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
 
-Please note the addition of the `redactedText` property in the response JSON which contains the modified input text where the detected PII entities are replaced by an * for each character of the entities.
+Note that starting in `v3.1-preview.3`, The JSON response includes a `redactedText` property which contains the modified input text where the detected PII entities are replaced by an `*` for each character in the entities.
 
 [Named Entity Recognition version 3.1-preview reference for `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
 
