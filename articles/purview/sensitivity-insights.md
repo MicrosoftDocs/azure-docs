@@ -12,15 +12,16 @@ ms.date: 11/17/2020
 
 # Sensitivity label insights about your data in Azure Purview
 
-This how-to guide describes how to access, view, and filter security insights provided by sensitivity labels applied to your data, in Azure Blob Storage, Azure files, Azure Data Lake Storage (ADLS) GEN 1, and Azure Data Lake Storage (ADLS) GEN 2.
+This how-to guide describes how to access, view, and filter security insights provided by sensitivity labels applied to your data.
+
+Supported data sources include: Azure Blob Storage, Azure Files, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure SQL, Azure SQL Managed Instance, CosmosDB
 
 In this how-to guide, you'll learn how to:
 
 > [!div class="checklist"]
 > - Launch your Purview account from Azure.
-> - View insights on your data.
-> - View and filter sensitivity labels.
-> - Learn how to review and search sensitivity labeling of your data estate.
+> - View sensitivity labeling insights on your data
+> - Drill down for more sensitivity labeling details on your data
 
 > [!NOTE]
 > If you're blocked at any point in this process, send an email to BabylonDiscussion@microsoft.com for support.
@@ -29,106 +30,93 @@ In this how-to guide, you'll learn how to:
 
 Before getting started with Purview insights, make sure that you've completed the following steps:
 
-- Followed explanations about setting up Azure resources and populating the relevant accounts with your test data
+- Set up your Azure resources and populated the relevant accounts with test data
 
-- Set up and completed a scan on the test data in each data source.
- 
-For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md).
+- Extended Microsoft 365 sensitivity labels to assets in Azure Purview, and created or selected the labels you want to apply to your content
 
-After making sure your Azure Blob Storage is created, contains test data, and scanning test data succeeded, let's get started.  
+- Set up and completed a scan on the test data in each data source
 
-## Purview insights
+For more information, see [Use the portal to scan Azure data sources (preview)](portal-scan-azure-data-sources.md) and [Automatically label your content in Azure Purview](create-sensitivity-label.md).
 
-### Use Purview insights
+## Use Purview Sensitivity labeling insights
 
-In Babylon, classifications are similar to subject tags, and are used to mark and identify content of a specific type that's found within your data estate during scanning.
+In Purview, classifications are similar to subject tags, and are used to mark and identify content of a specific type that's found within your data estate during scanning.
 
 Sensitivity labels are used to identify classification type categories within your organizational data, as well as the group the policies you want to apply to each category.
 
 Purview uses the same sensitive information types as Microsoft 365, allowing you to stretch your existing security policies and protection across your entire content and data estate.
 
-**To view classification insights:**
+**To view sensitivity labeling insights:**
 
-1. Go to the **Babylon** [instance screen in the Azure portal](https://aka.ms/babylonportal). Select your Purview account.
+1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/babylonportal) and select your Purview account.
 
 1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
 
    :::image type="content" source="./media/insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
 
-1. With Purview open, select the **View insights** tile to access your insights area.
+1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area.
 
-   :::image type="content" source="./media/insights/view-insights.png" alt-text="View sensitivity labeling insights":::
+   :::image type="content" source="./media/insights/view-insights.png" alt-text="View your insights in the Azure portal":::
 
-1. Within insights, select the **Classification and labeling** tab.
+1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Sensitivity labels** to display the Purview **Sensitivity labeling insights** report.
 
-   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification and labeling blade":::
+   :::image type="content" source="media/insights/sensitivity-labeling-insights.png" alt-text="Sensitivity labeling insights":::
 
-### Sensitivity labels
+   The main **Sensitivity labeling insights** page displays the following areas:
 
-Once you've learned about the classifications that Purview has identified in your scanned data, review the sensitivity labels applied to your data estate.
+   |Area  |Description  |
+   |---------|---------|
+   |**Overview of sources with sensitivity labels**     |Displays tiles that provide: <br>- The number of subscriptions found in your data <br>- The number of unique sensitivity labels found in your data <br>- The number of labeled sources found <br>- The number of labeled files found <br>- The number of labeled tables found         |
+   |**Total sources with labeled data**     |Shows the number of sources found, such as Azure Blob Storage or Azure Files, with sensitivity labels over the last 30 days.          |
+   |**Top labels applied across resources**     |Shows the top labels applied across all of your Purview data resources. |
+   |**Top labels applied on files**     |Shows the top sensitivity labels applied to files in your data.          |
+   |**Top classifications for tables**     | Shows the top sensitivity labels applied to database tables in your data. |   
+   |  **Labeling activity**  |  Displays separate graphs for files and tables, each showing the number of files or tables labeled over the selected time frame. <br>Select the **Time** filter above the graphs to select a different time frame to display.    |
+   |    |    |
+## Sensitivity labeling insights drilldown
 
-**To view sensitivity labels**:
+In any of the following **Sensitivity labeling insights** graphs, select the **View more** link to drill down for more details:
 
-1. From the main classification and labeling menu, select the **View all labels** link at the bottom of the **Top labels** tile.
+- **Top labels applied across resources**
+- **Top labels applied on files**
+- **Top labels applied on tables**
+- **Labeling activity > Labeled data**
 
-   :::image type="content" source="./media/insights/view-labels.png" alt-text="View all discovered labels":::
+For example:
 
-1. The visual sensitivity label report tiles show **top labels** found during the chosen time span, **labels found over time**, and **labels detected by file type**.
+:::image type="content" source="media/insights/sensitivity-label-drilldown.png" alt-text="Sensitivity label drilldown":::
 
-   :::image type="content" source="./media/insights/label-report.png" alt-text="Sensitivity label report":::
+Use the filters above the grid to filter the data shown, including the sensitivity label name, subscription name, or source type. If you're not sure of the exact sensitivity label name, you can enter part or all of the name in the **Filter by keyword** box.
 
-1. From the label list at the bottom of the report, select a label type, such a **Secret**, to review all data scanned with that label in the time period selected.
+For example:
 
-1. In the data source drilldown page, select to filter a label or multiple labels to change your results.
+:::image type="content" source="media/insights/sensitivity-labels-filter.png" alt-text="IMG TBD
+":::
 
-   :::image type="content" source="./media/insights/label-results-filtering.png" alt-text="Sensitivity label results filtering":::
+Above the filters: 
 
-**To view source data file from a label search:**
+- **To display more or fewer columns in your grid,** select **Edit Columns** :::image type="icon" source="media/insights/ico-columns.png" border="false":::, and then select the columns you want to view or change the order
 
-After filtering labels to find the data of interest, you can filter the data further by using the **Quick filter** option to get to the source data file.
+- **To browse through the assets found with a specific label,** select a label and then select **Browse in Catalog** :::image type="icon" source="media/insights/ico-browse-in-catalog.png" border="false"::: 
 
-1. In the search menu of the data source drilldown page,  enter the name of a data source to perform a **Quick filter** for relevant labels. In the following example, we used the quick filter to look at a data source with the **Secret** label.
+   The search results display all of the labeled assets found with the selected sensitivity label. For example:
 
-   :::image type="content" source="./media/insights/use-quick-filter.png" alt-text="Use a Quick filter":::
-
-1. In the search results page, you see the filters you chose applied in the **Quick filter** option, and the data file results of your search in the main window.
-
-   :::image type="content" source="./media/insights/quick-filter-results.png" alt-text="Search results":::
-
-1. Selecting one of the search results shows the labels and all classifications related to that data source. A hierarchy of the file in your data storage structure is also provided to assist with data estate management and ownership determination.
-
-   :::image type="content" source="./media/insights/quick-filter-search-results-details.png" alt-text="Search result details":::
-
+   :::image type="content" source="media/insights/sensitivity-label-search-results.png" alt-text="Sensitivity label search results":::
+ 
+   For more information, see [Search the Azure Purview Data Catalog](how-to-search-catalog.md).
 ## Sensitivity label integration with Microsoft 365 compliance
 
-Close integration with information protection offered in Microsoft 365 means Purview offers easy and direct ways to scan your entire data estate, receive classification and labeling of your content as well as integrated content protection based on those labels and classifications.
+Close integration with information protection offered in Microsoft 365 means that Purview offers easy and direct ways to scan your entire data estate, receive classification and labeling of your content as well as integrated content protection based on those labels and classifications.
 
-> [!NOTE]
-> For sensitivity labels to be active in Babylon, you'll need published global labels, and **auto-classification** in Microsoft 365 must be enabled.
+For your Microsoft 365 sensitivity labels to be extended to your assets in Azure Purview, you must actively turn on Information Protection for Azure Purview.
 
-**Review sensitivity labels**:
+If the insights provided by Azure Purview indicate that you want to make changes in your sensitivity labeling settings, make the changes as needed in Microsoft 365 and run your scan again. 
 
-Sensitivity labels are used to classify emails, documents, site and more. When sensitivity labels are applied to content (whether manually or automatically, such as the labels applied with Purview scanning) the content is then protected based on the settings you have chosen for each sensitivity label.
-
-Sensitivity labels can be used to encrypt files, add content marking, control, and prevent user access and much more.
-
-To review your sensitivity labels and their policies:
-
-1. Open the [Microsoft 365 compliance site](https://compliance.microsoft.com) and select the **Information protection** tab.
-
-1. In the list of labels, select the label to review. For the purpose of this how-to article, select the **Secret** label.
-
-   :::image type="content" source="./media/insights/review-specific-label.png" alt-text="Review a specific label":::
-
-1. The sensitivity label editing wizard takes you through the label basics of label **Name**, **description**, **Encryption level**, and **Content marking** you wish to apply, as well as the option to **Auto-label for Office apps**.
-
-   In the example shown, **auto-labeling** is enabled as required, and content that matches the credit card information description selected will be automatically labeled as specified.
-
-   :::image type="content" source="./media/insights/enable-auto-labeling.png" alt-text="Enable auto-labeling":::
+For more information, see [Automatically label your content in Azure Purview](create-sensitivity-label.md).
 
 ## Next steps
 
-Learn more from Purview reports
+Learn more about Azure Purview insight reports
 > [!div class="nextstepaction"]
 > [Classification insights](./classification-insights.md)
 
