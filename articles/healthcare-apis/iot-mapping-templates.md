@@ -55,7 +55,7 @@ The content payload itself is an Azure Event Hub message, which is composed of t
 ```
 
 ### Mapping with JSON path
-The two device content template types supported today rely on JSON Path to both match the required template and extracted values. More information on JSON Path can be found [here](https://goessner.net/articles/JsonPath/). Both template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSON Path expressions.
+The three device content template types supported today rely on JSON Path to both match the required template and extracted values. More information on JSON Path can be found [here](https://goessner.net/articles/JsonPath/). All three template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSON Path expressions.
 
 #### JsonPathContentTemplate
 The JsonPathContentTemplate allows matching on and extracting values from an Event Hub message using JSON Path.
@@ -246,10 +246,12 @@ The JsonPathContentTemplate allows matching on and extracting values from an Eve
     }
 }
 ```
+
 #### IotJsonPathContentTemplate
+
 The IotJsonPathContentTemplate is similar to the JsonPathContentTemplate except the DeviceIdExpression and TimestampExpression aren't required.
 
-The assumption when using this template is the messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks). When using these SDKs, the device identity (assuming the device identifier from Azure Iot Hub/Central is registered as an identifer for a device resource on the destination FHIR server) and the timestamp of the message are known. If you're using Azure IoT Hub Device SDKs but are using custom properties in the message body for the device identity or measurement timestamp, you can still use the JsonPathContentTemplate.
+The assumption when using this template is the messages being evaluated were sent using the [Azure IoT Hub Device SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) or  [Export Data (legacy)](../iot-central/core/howto-export-data-legacy.md) feature of [Azure IoT Central](../iot-central/core/overview-iot-central.md). When using these SDKs, the device identity (assuming the device identifier from Azure Iot Hub/Central is registered as an identifer for a device resource on the destination FHIR server) and the timestamp of the message are known. If you're using Azure IoT Hub Device SDKs but are using custom properties in the message body for the device identity or measurement timestamp, you can still use the JsonPathContentTemplate.
 
 *Note: When using the IotJsonPathContentTemplate, the TypeMatchExpression should resolve to the entire message as a JToken. See the examples below.* 
 ##### Examples
@@ -324,6 +326,101 @@ The assumption when using this template is the messages being evaluated were sen
             "valueName": "diastolic"
         }
     ]
+}
+```
+
+#### IotCentralJsonPathContentTemplate
+
+The IotCentralJsonPathContentTemplate also doesn't require DeviceIdExpression and TimestampExpression, and used when messages being evaluated are sent through the [Export Data](../iot-central/core/howto-export-data.md) feature of [Azure IoT Central](../iot-central/core/overview-iot-central.md). When using this feature, the device identity (assuming the device identifier from Azure Iot Central is registered as an identifer for a device resource on the destination FHIR server) and the timestamp of the message are known. If you're using Azure IoT Central's Data Export feature but are using custom properties in the message body for the device identity or measurement timestamp, you can still use the JsonPathContentTemplate.
+
+*Note: When using the IotCentralJsonPathContentTemplate, the TypeMatchExpression should resolve to the entire message as a JToken. See the examples below.* 
+##### Examples
+---
+**Heart rate**
+
+*Message*
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "HeartRate": "88",
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*Template*
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@telemetry.HeartRate)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.HeartRate",
+                "valueName": "hr"
+            }
+        ]
+    }
+}
+```
+---
+**Blood pressure**
+
+*Message*
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2020-08-05T22:26:55.455Z",
+    "telemetry": {
+        "BloodPressure": {
+            "Diastolic": "87",
+            "Systolic": "123"
+        }
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*Template*
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "bloodPressure",
+        "typeMatchExpression": "$..[?(@telemetry.BloodPressure.Diastolic && @telemetry.BloodPressure.Systolic)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Diastolic",
+                "valueName": "bp_diastolic"
+            },
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Systolic",
+                "valueName": "bp_systolic"
+            }
+        ]
+    }
 }
 ```
 
