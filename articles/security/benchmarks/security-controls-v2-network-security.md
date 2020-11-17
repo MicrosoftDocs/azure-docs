@@ -112,7 +112,7 @@ Protect Azure resources against attacks from external networks, including distri
 -	Protect your assets against DDoS attacks by enabling DDoS standard protection on your Azure virtual networks. 
 -	Use Azure Security Center to detect misconfiguration risks related to the above. 
 
-- [Azure Firewall Documentation](/azure/firewall/)
+- [Azure Firewall Documentation](../../firewall/index.yml)
 
 - [How to deploy Azure WAF](../../web-application-firewall/overview.md)
 
@@ -164,7 +164,7 @@ You can also use application security groups to help simplify complex security c
 
 - [Understand and use service tags](../../virtual-network/service-tags-overview.md)
 
-- [Understand and use application security groups](/azure/virtual-network/security-overview#application-security-groups)
+- [Understand and use application security groups](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 **Responsibility**: Customer
 
@@ -200,5 +200,4 @@ When Azure DNS is used as your authoritative DNS service, ensure DNS zones and r
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
-- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
-
+- [Application Security and DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)

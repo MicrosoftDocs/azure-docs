@@ -1,7 +1,7 @@
 ---
 title: Example pipelines & datasets for the designer
 titleSuffix: Azure Machine Learning
-description: Use samples in Azure Machine Learning designer to jumps-start your machine learning pipelines.
+description: Learn how to use samples in Azure Machine Learning designer to jumps-start your machine learning pipelines.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

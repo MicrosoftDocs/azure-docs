@@ -1,4 +1,4 @@
-- name: Azure DB for MySQL Documentation
+- name: Azure Database for MySQL Documentation
   href: index.yml
 - name: Overview
   items:
@@ -29,6 +29,9 @@
   - name: Mitigate database corruption
     href: how-to-fix-corrupt-database.md
     displayName: corrupt data
+  - name: Versioning policy
+    href: concepts-version-policy.md
+    displayName: version policy 
 - name: Single Server
   expanded: true
   items:
@@ -286,6 +289,10 @@
       items:
       - name: Stop Start MySQL server
         href: how-to-stop-start-server.md
+    - name: Major version upgrade
+      items:
+      - name: Major version upgrade
+        href: how-to-major-version-upgrade.md
     - name: Auto grow storage
       items:
       - name: Azure portal
@@ -470,6 +477,8 @@
         href: flexible-server/concepts-high-availability.md
     - name: Monitoring & Logs
       items:
+      - name: Server parameters
+        href: flexible-server/concepts-server-parameters.md
       - name: Slow query logs
         href: flexible-server/concepts-slow-query-logs.md
       - name: Audit logs
