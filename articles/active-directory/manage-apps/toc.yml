@@ -201,7 +201,7 @@
         - name: Integrate with Application Proxy using PingAccess
           href: application-proxy-ping-access-publishing-guide.md
         - name: Integrate with Azure AD Domain Services
-          href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
+          href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
         - name: Integrate with Power BI
           href: application-proxy-integrate-with-power-bi.md
         - name: Integrate with Cloud App Security
@@ -263,7 +263,7 @@
         - name: Configure Kerberos Constrained Delegation
           href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
         - name: Configure with PingAccess
-          href: application-proxy-back-end-ping-access-how-to.md
+          href: /azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide
         - name: Can't Access this Corporate Application error
           href: application-proxy-sign-in-bad-gateway-timeout-error.md
         - name: Problem installing the Application Proxy Agent Connector
@@ -281,11 +281,11 @@
   - name: Resources
     items:
         - name: Support and help options for developers
-          href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
+          href: ../develop/developer-support-help-options.md?context=azure%252factive-directory%252fmanage-apps%252fcontext%252fmanage-apps-context
         - name: Azure feedback forum
           href: https://feedback.azure.com/forums/169401-azure-active-directory
         - name: Microsoft Q&A question page
-          href: https://docs.microsoft.com/answers/topics/azure-active-directory.html
+          href: /answers/topics/azure-active-directory.html
         - name: Pricing
           href: https://azure.microsoft.com/pricing/details/active-directory
         - name: Service updates
