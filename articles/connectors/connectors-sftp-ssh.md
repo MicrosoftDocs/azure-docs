@@ -6,21 +6,13 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 11/17/2020
 tags: connectors
 ---
 
 # Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps
 
 To automate tasks that monitor, create, send, and receive files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server by using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol, you can build and automate integration workflows by using Azure Logic Apps and the SFTP-SSH connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream.
-
-> [!NOTE]
-> The SFTP-SSH connector currently doesn't support these SFTP servers:
-> 
-> * IBM DataPower
-> * MessageWay
-> * OpenText Secure MFT
-> * OpenText GXS
 
 Here are some example tasks you can automate:
 
@@ -35,6 +27,13 @@ You can use triggers that monitor events on your SFTP server and make output ava
 For differences between the SFTP-SSH connector and the SFTP connector, review the [Compare SFTP-SSH versus SFTP](#comparison) section later in this topic.
 
 ## Limits
+
+* The SFTP-SSH connector currently doesn't support these SFTP servers:
+
+  * IBM DataPower
+  * MessageWay
+  * OpenText Secure MFT
+  * OpenText GXS
 
 * The SFTP-SSH connector supports either private key authentication or password authentication, not both.
 
@@ -113,7 +112,19 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
 
 ## How SFTP-SSH triggers work
 
-SFTP-SSH triggers work by polling the SFTP file system and looking for any file that was changed since the last poll. Some tools let you preserve the timestamp when the files change. In these cases, you have to disable this feature so your trigger can work. Here are some common settings:
+### Recurrence behavior
+
+SFTP-SSH triggers differ from built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), that run natively in Azure Logic Apps. Built-in recurrence-based triggers always honor the schedule that you set, including any time zones. However, in recurrence-based SFTP-SSH triggers, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors, which might result in unexpected behavior such as not adjusting for events such as daylight savings time or reverting to standard time:
+
+* Any failures or retries that an SFTP-SSH trigger incurs.
+
+* Whether the SFTP server has more data, which an SFTP-SSH trigger immediately tries to fetch.
+
+* Other factors that can affect when the next run time happens.
+
+### Polling behavior
+
+SFTP-SSH triggers poll the SFTP file system and look for any file that was changed since the last poll. Some tools let you preserve the timestamp when the files change. In these cases, you have to disable this feature so your trigger can work. Here are some common settings:
 
 | SFTP client | Action |
 |-------------|--------|
