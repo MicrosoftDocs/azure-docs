@@ -15,7 +15,7 @@ Azure Backup provides the capability to restore [Azure virtual machines (VMs) an
 > File recovery from an encrypted VM backup isn't supported.
 >
 
-![File folder recovery workflow](./media/backup-azure-restore-files-from-vm/file-recovery.png)
+![File folder recovery workflow](./media/backup-azure-restore-files-from-vm/file-recovery1.png)
 
 ## Step 1: Generate and download script to browse and recover files
 
@@ -151,7 +151,7 @@ When you run the executable, the operating system mounts the new volumes and ass
 
    ![Recovery volumes attached](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-**For backed-up VMs with large disk (Windows)**
+**For backed-up VMs with large disks (Windows)**
 
 If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
   
@@ -177,7 +177,7 @@ In Linux, the volumes of the recovery point are mounted to the folder where the 
   ![Linux File recovery menu](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
 
-**For backed-up VMs with large disk (Linux)**
+**For backed-up VMs with large disks (Linux)**
 
 If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
 
@@ -187,7 +187,7 @@ If the file recovery process hangs after you run the file-restore script (for ex
 - After file recovery, make sure you go back to the portal and select **Unmount disks** for recovery points where you weren't able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
 
 
-#### LVM/RAID arrays (For Linux VM)
+#### LVM/RAID arrays (For Linux VMs)
 
 In Linux, Logical Volume Manager (LVM) and/or software RAID Arrays are used to manage logical volumes over multiple disks. If the protected Linux VM uses LVM and/or RAID Arrays, you can't run the script on the same VM.<br>
 Instead run the script on any other machine with a compatible OS and which supports the file system of the protected VM.<br>
