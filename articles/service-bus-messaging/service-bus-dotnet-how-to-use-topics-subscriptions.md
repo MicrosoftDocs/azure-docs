@@ -241,7 +241,7 @@ Received: Second message from subscription: mysub
 Received: Third message from subscription: mysub
 
 Stopping the receiver...
-Stopped the receiver
+Stopped receiving messages
 ```
 
 Check the portal again. 
