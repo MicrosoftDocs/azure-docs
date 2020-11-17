@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
+ms.custom: references_regions
 ---
 
 # Language and voice support for the Speech service
@@ -200,7 +201,7 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Turkish (Turkey) | `tr-TR` | Female | `tr-TR-EmelNeural` | General |
 | Vietnamese (Vietnam) | `vi-VN` <sup>New</sup> | Female | `vi-VN-HoaiMyNeural` | General|
 
-#### Neural Voices in Preview
+#### Neural voices in preview
 
 Below neural voices are in public preview. 
 
