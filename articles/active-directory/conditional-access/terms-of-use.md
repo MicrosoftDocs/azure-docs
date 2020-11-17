@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 11/17/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -216,15 +216,55 @@ You can edit some details of terms of use, but you can't modify an existing docu
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 1. Select the terms of use you want to edit.
 1. Click **Edit terms**.
-1. In the Edit terms of use pane, change the name, display name, or require users to expand values.
+1. In the Edit terms of use pane, you can change the following:
+     - **Name** – this is the internal name of the ToU that is not shared with end users
+     - **Display name** – this is the name that end users can see when viewing the ToU
+     - **Require users to expand the terms of use** – Setting this to **On** will force the end use to expand the terms of use document before accepting it.
+     - (Preview) You can **update an existing terms of use** document
+     - You can add a language to an existing ToU
 
    If there are other settings you would like to change, such as PDF document, require users to consent on every device, expire consents, duration before reacceptance, or Conditional Access policy, you must create a new terms of use.
 
-   ![Edit terms of use pane showing name and expand options](./media/terms-of-use/edit-tou.png)
+    ![Edit showing different language options ](./media/terms-of-use/edit-terms-use.png)
 
-1. Click **Save** to save your changes.
+1. Once you are done, click **Save** to save your changes.
 
-   Once you save your changes, users will not have to reaccept these edits.
+## Update the version or pdf of an existing terms of use
+
+1.	Sign in to Azure and navigate to [Terms of use](https://aka.ms/catou)
+2.	Select the terms of use you want to edit.
+3.	Click **Edit terms**.
+4.	For the language that you would like to update a new version, click **Update** under the action column
+ 
+     ![Edit terms of use pane showing name and expand options](./media/terms-of-use/edit-terms-use.png)
+
+5.	In the pane on the right, upload the pdf for the new version
+6.	There is also a toggle option here **Require re-accept** if you want to require your users to accept this new version the next time they sign in. If you require your users to re-accept, next time they try to access the resource defined in your conditional access policy they will be prompted to accept this new version. If you don’t require your users to re-accept, their previous consent will stay current and only new users who have not consented before or whose consent expires will see the new version.
+
+    ![Edit terms of use pane showing name and expand options](./media/terms-of-use/re-accept.png)
+
+7.	Once you have uploaded your new pdf and decided on re-accept, click Add at the bottom of the pane.
+8.	You will now see the most recent version under the Document column.
+
+## View previous versions of a terms of use
+
+1.	Sign in to Azure and navigate to **Terms of use** at https://aka.ms/catou.
+2.	Select the terms of use for which you want to view a version history.
+3.	Click on **Languages and version history**
+4.	Click on **See previous versions.**
+
+    ![document details including language versions](./media/terms-of-use/document-details.png)
+
+5.	You can click on the name of the document to download that version
+
+## See who has accepted each version
+
+1.	Sign in to Azure and navigate to **Terms of use** at https://aka.ms/catou.
+2.	To see who has currently accepted the ToU click on the number under the **Accepted** column for the ToU you want.
+3.	By default, the next page will show you the current state of each users acceptance to the ToU
+4.	If you would like to see the previous consent events, you can select **All** from the **Current State** drop down. Now you can see each users events in details about each version and what happened.
+5.	Alternatively, you can select a specific version from the **Version**  drop down to see who has accepted that specific version.
+
 
 ## Add a terms of use language
 
@@ -232,14 +272,14 @@ The following procedure describes how to add a terms of use language.
 
 1. Sign in to Azure and navigate to **Terms of use** at [https://aka.ms/catou](https://aka.ms/catou).
 1. Select the terms of use you want to edit.
-1. In the details pane, click the **Languages** tab.
-
-   ![Terms of use selected and showing the Languages tab in the details pane](./media/terms-of-use/languages-tou.png)
-
-1. Click **Add language**.
+1. Click **Edit Terms**
+1. Click **Add language** at the bottom of the page.
 1. In the Add terms of use language pane, upload your localized PDF and select the language.
 
-   ![Add terms of use language pane with options to upload localized PDFs](./media/terms-of-use/language-add-tou.png)
+   ![Terms of use selected and showing the Languages tab in the details pane](./media/terms-of-use/select-language.png)
+
+1. Click **Add language**.
+1. Click **Save**
 
 1. Click **Add** to add the language.
 
@@ -315,7 +355,7 @@ Conditional Access policies take effect immediately. When this happens, the admi
 > - a Conditional Access policy is enabled on a terms of use
 > - or a second terms of use is created
 
-## B2B guests (Preview)
+## B2B guests
 
 Most organizations have a process in place for their employees to consent to their organization's terms of use and privacy statements. But how can you enforce the same consents for Azure AD business-to-business (B2B) guests when they're added via SharePoint or Teams? Using Conditional Access and terms of use, you can enforce a policy directly towards B2B guest users. During the invitation redemption flow, the user is presented with the terms of use. This support is currently in preview.
 
@@ -323,7 +363,7 @@ Terms of use will only be displayed when the user has a guest account in Azure A
 
 ![Users and groups pane - Include tab with All guest users option checked](./media/terms-of-use/b2b-guests.png)
 
-## Support for cloud apps (Preview)
+## Support for cloud apps
 
 Terms of use can be used for different cloud apps, such as Azure Information Protection and Microsoft Intune. This support is currently in preview.
 
