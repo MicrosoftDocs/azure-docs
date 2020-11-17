@@ -38,7 +38,6 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```csharp
     using System;
     using System.Collections.Generic;
-    using System.Text;
     using System.Threading.Tasks;
     using Azure.Messaging.ServiceBus;
     ```
