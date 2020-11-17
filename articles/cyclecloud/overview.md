@@ -14,9 +14,7 @@ Azure CycleCloud is targeted at HPC administrators and users who want to deploy 
 
 See [High Performance Computing (HPC) on Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) for information about how CycleCloud compares against other Azure HPC solutions.
 
-![Overview Intro](~/images/overview-gui.png)
-
-[//]: # (Rob will provide a video that should work?)
+> [!VIDEO https://www.youtube.com/embed/qkiGJWGM6Ew]
 
 ## Why Should I Use Azure CycleCloud?
 
@@ -28,9 +26,9 @@ With a rich, declarative, templating format, CycleCloud provides powerful toolin
 
 CycleCloud integrates with Azure services such as [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) and [Azure Cost Management tools](https://docs.microsoft.com/azure/cost-management/overview-cost-mgt).
 
-### CycleCloud Capabilities
+![Overview Intro](~/images/overview-gui.png)
 
-[//]: # (might want to convert this to a table with mini screenshots similar to App Insights overview)
+### CycleCloud Capabilities
 
 ::: moniker range="=cyclecloud-7"
 |  |  |
