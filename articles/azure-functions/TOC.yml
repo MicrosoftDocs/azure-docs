@@ -137,10 +137,16 @@
     - name: Compare runtime versions
       href: functions-versions.md
       displayName: migrate, migration, v3
-    - name: Hosting plans
+    - name: Hosting and scale
       items:
+        - name: Consumption plan
+          href: consumption-plan.md
         - name: Premium plan
           href: functions-premium-plan.md
+        - name: Dedicated plan
+          href: dedicated-plan.md
+        - name: Event-driven scaling
+          href: event-driven-scaling.md  
     - name: Deployments
       href: functions-deployment-technologies.md
     - name: Events and messaging

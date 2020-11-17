@@ -28,24 +28,24 @@ Premium plan hosting provides the following benefits to your functions:
 
 ## Create a Premium plan
 
-Use the following links to learn how to create a function app with a Premium plan, either programmatically or in the Azure portal:
+The following articles show you how to create a function app with a Premium plan, either programmatically or in the Azure portal:
 
 + [Azure portal](create-premium-plan-function-app-portal.md)
 + [Azure CLI](scripts/functions-cli-create-premium-plan.md)
 
 ## Billing
 
-Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory allocated across instances.  There is no execution charge with the Premium plan. At least one instance must be allocated at all times per plan. This results in a minimum monthly cost per active plan, regardless if the function is active or idle. Keep in mind that all function apps in a Premium plan share allocated instances.
+Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory allocated across instances. There is no execution charge with the Premium plan. At least one instance must be allocated at all times per plan. This results in a minimum monthly cost per active plan, regardless if the function is active or idle. Keep in mind that all function apps in a Premium plan share allocated instances.
 
 ## Eliminate cold starts
 
-If events or executions don't occur in the Consumption plan, your app may scale to zero instances. When new events come in, a new instance with your app running on it must be specialized. Specializing new instances may take some time depending on the app. This additional latency on the first call is often called app cold start.
+When events or executions don't occur in the Consumption plan, your app may scale to zero instances. When new events come in, a new instance with your app running on it must be specialized. Specializing new instances may take some time depending on the app. This additional latency on the first call is often called app _cold start_.
 
-Premium plan provides two features that effectively eliminate cold starts for your function apps: always ready instances and pre-warmed instances. 
+Premium plan provides two features that work together to effectively eliminate cold starts in your functions: _always ready instances_ and _pre-warmed instances_. 
 
 ### Always ready instances
 
-In the Premium plan, you can have your app always ready on a specified number of instances. The maximum number of always ready instances is 20. When events begin to trigger the app, they are routed to the always ready instances first.  As the function becomes active, additional instances will be warmed as a buffer. This buffer prevents cold start for new instances required during scale. These buffered instances are called [pre-warmed instances](#pre-warmed-instances).  With the combination of the always ready instances and a pre-warmed buffer, your app can effectively eliminate cold start.
+In the Premium plan, you can have your app always ready on a specified number of instances. The maximum number of always ready instances is 20. When events begin to trigger the app, they are first routed to the always ready instances. As the function becomes active, additional instances will be warmed as a buffer. This buffer prevents cold start for new instances required during scale. These buffered instances are called [pre-warmed instances](#pre-warmed-instances). With the combination of the always ready instances and a pre-warmed buffer, your app can effectively eliminate cold start.
 
 > [!NOTE]
 > Every premium plan has at least one active (billed) instance at all times.
@@ -67,11 +67,11 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### Pre-warmed instances
 
-Pre-warmed instances are the number of instances warmed as a buffer during scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1, and for most scenarios should remain as 1. If an app has a long warm up (like a custom container image), you may wish to increase this buffer. A pre-warmed instance will become active only after all active instances have been sufficiently utilized.
+Pre-warmed instances are instances warmed as a buffer during scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1, and for most scenarios should remain as 1. When an app has a long warm up (like a custom container image), you may need to increase this buffer. A pre-warmed instance becomes active only after all active instances have been sufficiently used.
 
 Consider this example of how always ready instances and pre-warmed instances work together. A premium function app has five always ready instances configured, and the default of one pre-warmed instance. When the app is idle and no events are triggering, the app will be provisioned and running on five instances. At this time, you will not be billed for a pre-warmed instance as the always ready instances aren't used, and no pre-warmed instance is even allocated.
 
-As soon as the first trigger comes in, the five always ready instances become active, and a pre-warmed instance is allocated.  The app is now running with six provisioned instances: the five now-active always ready instances, and the sixth pre-warmed and inactive buffer.  If the rate of executions continues to increase, the five active instances will eventually be utilized.  When the platform decides to scale beyond five instances, it will scale into the pre-warmed instance.  When that happens, there will now be six active instances, and a seventh instance will instantly be provisioned and fill the pre-warmed buffer.  This sequence of scaling and pre-warming will continue until the maximum instance count for the app is reached.  No instances will be pre-warmed or activated beyond the maximum.
+As soon as the first trigger comes in, the five always ready instances become active, and a pre-warmed instance is allocated. The app is now running with six provisioned instances: the five now-active always ready instances, and the sixth pre-warmed and inactive buffer. If the rate of executions continues to increase, the five active instances will eventually be utilized. When the platform decides to scale beyond five instances, it will scale into the pre-warmed instance. When that happens, there will now be six active instances, and a seventh instance will instantly be provisioned and fill the pre-warmed buffer. This sequence of scaling and pre-warming will continue until the maximum instance count for the app is reached. No instances will be pre-warmed or activated beyond the maximum.
 
 You can modify the number of pre-warmed instances for an app using the Azure CLI.
 
@@ -81,11 +81,11 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### Maximum instances for an app
 
-In addition to the [plan maximum instance count](#plan-and-sku-settings), you can configure a per-app maximum.  The app maximum can be configured using the [app scale limit](./functions-scale.md#limit-scale-out).
+In addition to the [plan maximum instance count](#plan-and-sku-settings), you can configure a per-app maximum. The app maximum can be configured using the [app scale limit](./functions-scale.md#limit-scale-out).
 
 ## Private network connectivity
 
-Azure Functions deployed to a Premium plan takes advantage of [new VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md).  When configured, your app can communicate with resources within your VNet or secured via service endpoints.  IP restrictions are also available on the app to restrict incoming traffic.
+Azure Functions deployed to a Premium plan takes advantage of [new VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md). When configured, your app can communicate with resources within your VNet or secured via service endpoints. IP restrictions are also available on the app to restrict incoming traffic.
 
 When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
 
@@ -99,13 +99,13 @@ To learn more about how scaling works, see [Event-driven scaling in Azure Functi
 
 ## Longer run duration
 
-Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make the duration unbounded for Premium plan apps. When set to an unbounded duration, your function app is guaranteed to run for at least 60 minutes.
+Azure Functions in a Consumption plan are limited to 10 minutes for a single execution. In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make the duration unbounded for Premium plan apps. When set to an unbounded duration, your function app is guaranteed to run for at least 60 minutes.
 
 ## Plan and SKU settings
 
 When you create the plan, there are two plan size settings: the minimum number of instances (or plan size) and the maximum burst limit.
 
-If your app requires instances beyond the always ready instances, it can continue to scale out until the number of instances hits the maximum burst limit.  You are billed for instances beyond your plan size only while they are running and allocated to you, on a per-second basis.  We will make a best effort at scaling your app out to its defined maximum limit.
+If your app requires instances beyond the always ready instances, it can continue to scale out until the number of instances hits the maximum burst limit. You are billed for instances beyond your plan size only while they are running and allocated to you, on a per-second basis. We will make a best effort at scaling your app out to its defined maximum limit.
 
 You can configure the plan size and maximums in the Azure portal by selecting the **Scale Out** options in the plan or a function app deployed to that plan (under **Platform Features**).
 
@@ -115,12 +115,12 @@ You can also increase the maximum burst limit from the Azure CLI:
 az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
-The minimum for every plan will be at least one instance.  The actual minimum number of instances will be autoconfigured for you based on the always ready instances requested by apps in the plan.  For example, if app A requests five always ready instances, and app B requests two always ready instances in the same plan, the minimum plan size will be calculated as five.  App A will be running on all 5, and app B will only be running on 2.
+The minimum for every plan will be at least one instance. The actual minimum number of instances will be autoconfigured for you based on the always ready instances requested by apps in the plan. For example, if app A requests five always ready instances, and app B requests two always ready instances in the same plan, the minimum plan size will be calculated as five. App A will be running on all 5, and app B will only be running on 2.
 
 > [!IMPORTANT]
 > You are charged for each instance allocated in the minimum instance count regardless if functions are executing or not.
 
-In most circumstances this autocalculated minimum should be sufficient.  However, scaling beyond the minimum occurs at a best effort.  It is possible, though unlikely, that at a specific time scale-out could be delayed if additional instances are unavailable.  By setting a minimum higher than the autocalculated minimum, you reserve instances in advance of scale-out.
+In most circumstances this autocalculated minimum should be sufficient. However, scaling beyond the minimum occurs at a best effort. It is possible, though unlikely, that at a specific time scale-out could be delayed if additional instances are unavailable. By setting a minimum higher than the autocalculated minimum, you reserve instances in advance of scale-out.
 
 Increasing the calculated minimum for a plan can be done using the Azure CLI.
 
@@ -130,7 +130,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 ### Available instance SKUs
 
-When creating or scaling your plan, you can choose between three instance sizes.  You will be billed for the total number of cores and memory provisioned, per second that each instance is allocated to you.  Your app can automatically scale out to multiple instances as needed.
+When creating or scaling your plan, you can choose between three instance sizes. You will be billed for the total number of cores and memory provisioned, per second that each instance is allocated to you. Your app can automatically scale out to multiple instances as needed.
 
 |SKU|Cores|Memory|Storage|
 |--|--|--|--|
