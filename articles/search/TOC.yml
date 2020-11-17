@@ -81,13 +81,13 @@
 - name: Samples
   items:
   - name: C# samples
-    href: /samples/browse/?languages=csharp&products=azure-cognitive-search
+    href: samples-dotnet.md
   - name: Java samples
-    href: /samples/browse/?languages=java&products=azure-cognitive-search
+    href: samples-java.md
   - name: JavaScript samples
-    href: /samples/browse/?languages=javascript&products=azure-cognitive-search
+    href: samples-javascript.md
   - name: Python samples
-    href: /samples/browse/?languages=python&products=azure-cognitive-search
+    href: samples-python.md
   - name: REST samples
     href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
 - name: Concepts
