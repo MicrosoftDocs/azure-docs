@@ -122,7 +122,7 @@ To enable a customer-managed key for your existing Data Box order in the Azure p
 
 ## Change the key
 
-To change the customer-managed key you're using for your order, follow these steps:
+To change the customer-managed key you're currently using for your order, follow these steps:
 
 1. Go to the **Overview** screen for your completed Data Box order.
 
