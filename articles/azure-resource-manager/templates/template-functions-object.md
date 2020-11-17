@@ -17,6 +17,8 @@ Resource Manager provides several functions for working with objects in your Azu
 * [null](#null)
 * [union](#union)
 
+[!INCLUDE [Bicep preview](../../includes/resource-manager-bicep-preview.md)]
+
 ## contains
 
 `contains(container, itemToFind)`

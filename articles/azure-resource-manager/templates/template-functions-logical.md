@@ -16,6 +16,8 @@ Resource Manager provides several functions for making comparisons in your Azure
 * [or](#or)
 * [true](#true)
 
+[!INCLUDE [Bicep preview](../../includes/resource-manager-bicep-preview.md)]
+
 ## and
 
 `and(arg1, arg2, ...)`

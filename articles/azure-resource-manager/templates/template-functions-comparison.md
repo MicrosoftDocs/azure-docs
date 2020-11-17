@@ -15,6 +15,8 @@ Resource Manager provides several functions for making comparisons in your Azure
 * [less](#less)
 * [lessOrEquals](#lessorequals)
 
+[!INCLUDE [Bicep preview](../../includes/resource-manager-bicep-preview.md)]
+
 ## coalesce
 
 `coalesce(arg1, arg2, arg3, ...)`

@@ -19,6 +19,8 @@ Resource Manager provides the following functions for working with integers in y
 * [mul](#mul)
 * [sub](#sub)
 
+[!INCLUDE [Bicep preview](../../includes/resource-manager-bicep-preview.md)]
+
 ## add
 
 `add(operand1, operand2)`
