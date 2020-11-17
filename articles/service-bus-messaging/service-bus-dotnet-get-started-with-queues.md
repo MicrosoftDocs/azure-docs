@@ -38,7 +38,6 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```csharp
     using System;
     using System.Collections.Generic;
-    using System.Text;
     using System.Threading.Tasks;
     
     using Azure.Messaging.ServiceBus;
@@ -64,11 +63,11 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
                 ServiceBusSender sender = client.CreateSender(queueName);
 
                 // create a message that we can send
-                ServiceBusMessage message = new ServiceBusMessage(Encoding.UTF8.GetBytes("Hello world!"));
+                ServiceBusMessage message = new ServiceBusMessage("Hello world!");
 
                 // send the message
                 await sender.SendMessageAsync(message);
-                Console.WriteLine("Sent a single message to the queue: {queueName}");
+                Console.WriteLine($"Sent a single message to the queue: {queueName}");
             }
         }
     ```
@@ -79,9 +78,9 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         {
             // create a list of messages and return it to the caller
             List<ServiceBusMessage> listOfMessages = new List<ServiceBusMessage>();
-            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("First message")));
-            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("Second message")));
-            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("Third message")));
+            listOfMessages.Add(new ServiceBusMessage("First message"));
+            listOfMessages.Add(new ServiceBusMessage("Second message"));
+            listOfMessages.Add(new ServiceBusMessage("Third message"));
             return listOfMessages;
         }
     ```
@@ -152,7 +151,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
 5. Run the application. You should see the following messages. 
 
     ```console
-    Sent a single message to the queue
+    Sent a single message to the queue: myqueue
     Sent a batch of messages to the queue: myqueue
     ```       
 1. In the Azure portal, follow these steps:
@@ -209,11 +208,13 @@ In this section, you'll add code to retrieve messages from the queue.
                 // start processing 
                 await processor.StartProcessingAsync();
 
-                // wait (5 seconds) for the message handler to be invoked a few times
-                await Task.Delay(5000);
+                Console.WriteLine("Wait for a minute and then press any key to end the processing");
+                Console.ReadKey();
 
                 // stop processing 
+                Console.WriteLine("\nStopping the receiver...");
                 await processor.StopProcessingAsync();
+                Console.WriteLine("Stopped receiving messages");
             }
         }
     ```
@@ -234,11 +235,12 @@ In this section, you'll add code to retrieve messages from the queue.
     ```
 
 ## Run the app
-Run the application. You should see the following output. 
+Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
 
 ```console
 Sent a single message to the queue: myqueue
 Sent a batch of messages to the queue: myqueue
+Wait for a minute and then press any key to end the processing
 Received: Hello world!
 Received: First message in the batch
 Received: Second message in the batch
@@ -247,6 +249,9 @@ Received: Hello world!
 Received: First message in the batch
 Received: Second message in the batch
 Received: Third message in the batch
+
+Stopping the receiver...
+Stopped receiving messages
 ```
 
 Check the portal again. 

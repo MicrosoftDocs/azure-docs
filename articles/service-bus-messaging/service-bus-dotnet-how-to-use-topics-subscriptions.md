@@ -38,7 +38,6 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```csharp
     using System;
     using System.Collections.Generic;
-    using System.Text;
     using System.Threading.Tasks;
     using Azure.Messaging.ServiceBus;
     ```
@@ -47,7 +46,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```csharp
         static string connectionString = "<NAMESPACE CONNECTION STRING>";
         static string topicName = "<TOPIC NAME>";
-        static string subName = "<SUBSCRIPTION NAME>";
+        static string subscriptionName = "<SUBSCRIPTION NAME>";
     ```
 
     Replace the following values:
@@ -64,8 +63,8 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             {
                 // create a sender for the topic
                 ServiceBusSender sender = client.CreateSender(topicName);
-                await sender.SendMessageAsync(new ServiceBusMessage(Encoding.UTF8.GetBytes("Hello, World!")));
-                Console.WriteLine("Sent a single message to the topic: {topicName}");
+                await sender.SendMessageAsync(new ServiceBusMessage("Hello, World!"));
+                Console.WriteLine($"Sent a single message to the topic: {topicName}");
             }
         }
     ```
@@ -76,13 +75,13 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         {
             // create a list of messages and return it to the caller
             List<ServiceBusMessage> listOfMessages = new List<ServiceBusMessage>();
-            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("First message")));
-            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("Second message")));
-            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("Third message")));
+            listOfMessages.Add(new ServiceBusMessage("First message"));
+            listOfMessages.Add(new ServiceBusMessage("Second message"));
+            listOfMessages.Add(new ServiceBusMessage("Third message"));
             return listOfMessages;
         }
     ```
-1. 1. Add a method named `SendMessageBatchToTopicAsync` to the `Program` class, and add the following code. This method takes a list of messages, and prepares one or more batches to send to the Service Bus topic. 
+1. Add a method named `SendMessageBatchToTopicAsync` to the `Program` class, and add the following code. This method takes a list of messages, and prepares one or more batches to send to the Service Bus topic. 
 
     ```csharp
         static async Task SendMessageBatchToTopicAsync()
@@ -137,14 +136,17 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```csharp
         static async Task Main()
         {
-            // send messages to the topic
-            await SendMessagesToTopicAsync();
+            // send a message to the topic
+            await SendMessageToTopicAsync();
+
+            // send a batch of messages to the topic
+            await SendMessageBatchToTopicAsync();
         }
     ```
 5. Run the application. You should see the following output:
 
     ```console
-    Sent a single message to the topic
+    Sent a single message to the topic: mytopic
     Sent a batch of 3 messages to the topic: mytopic
     ```
 1. In the Azure portal, follow these steps:
@@ -168,7 +170,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         static async Task MessageHandler(ProcessMessageEventArgs args)
         {
             string body = args.Message.Body.ToString();
-            Console.WriteLine($"Received: {body} from subscription: {subName}");
+            Console.WriteLine($"Received: {body} from subscription: {subscriptionName}");
 
             // complete the message. messages is deleted from the queue. 
             await args.CompleteMessageAsync(args.Message);
@@ -188,7 +190,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             await using (ServiceBusClient client = new ServiceBusClient(connectionString))
             {
                 // create a processor that we can use to process the messages
-                ServiceBusProcessor processor = client.CreateProcessor(topicName, subName, new ServiceBusProcessorOptions());
+                ServiceBusProcessor processor = client.CreateProcessor(topicName, subscriptionName, new ServiceBusProcessorOptions());
 
                 // add handler to process messages
                 processor.ProcessMessageAsync += MessageHandler;
@@ -199,11 +201,13 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
                 // start processing 
                 await processor.StartProcessingAsync();
 
-                // wait (5 seconds) for the message handler to be invokved a few times
-                await Task.Delay(5000);
+                Console.WriteLine("Wait for a minute and then press any key to end the processing");
+                Console.ReadKey();
 
                 // stop processing 
+                Console.WriteLine("\nStopping the receiver...");
                 await processor.StopProcessingAsync();
+                Console.WriteLine("Stopped receiving messages");
             }
         }
     ```
@@ -223,19 +227,23 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         }
     ```
 ## Run the app
-Run the application. You should see the following output: 
+Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
 
 ```console
 Sent a single message to the topic: mytopic
 Sent a batch of 3 messages to the topic: mytopic
-Received: Hello, World! from subscription: S1
-Received: First message from subscription: S1
-Received: Second message from subscription: S1
-Received: Third message from subscription: S1
-Received: Hello, World! from subscription: S1
-Received: First message from subscription: S1
-Received: Second message from subscription: S1
-Received: Third message from subscription: S1
+Wait for a minute and then press any key to end the processing
+Received: Hello, World! from subscription: mysub
+Received: First message from subscription: mysub
+Received: Second message from subscription: mysub
+Received: Third message from subscription: mysub
+Received: Hello, World! from subscription: mysub
+Received: First message from subscription: mysub
+Received: Second message from subscription: mysub
+Received: Third message from subscription: mysub
+
+Stopping the receiver...
+Stopped receiving messages
 ```
 
 Check the portal again. 

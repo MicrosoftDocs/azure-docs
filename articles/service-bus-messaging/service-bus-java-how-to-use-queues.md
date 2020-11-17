@@ -211,6 +211,12 @@ Select the queue on this **Overview** page to navigate to the **Service Bus Queu
 
 
 ## Next Steps
+See the following documentation and samples:
+
+- [Azure Service Bus client library for Java - Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
+- [Samples on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus/src/samples)
+- [Java API reference](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-preview&preserve-view=true)
+
 See [more samples on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus). 
 
 [Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started

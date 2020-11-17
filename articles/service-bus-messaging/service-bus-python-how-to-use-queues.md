@@ -199,16 +199,13 @@ Select the queue on this **Overview** page to navigate to the **Service Bus Queu
 
 :::image type="content" source="./media/service-bus-python-how-to-use-queues/queue-details.png" alt-text="Queue details":::
 
-## Samples
-Check out our [GitHub repository with samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 
-
-The **sync_samples** folder has samples that show you how to interact with Service Bus in a synchronous manner. In this quick start, you used this method. 
-
-The **async_samples** folder has samples that show you how to interact with Service Bus in an asynchronous manner. 
 
 ## Next steps
-See the following documentation: 
+See the following documentation and samples: 
 
 - [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
+- [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 
+    - The **sync_samples** folder has samples that show you how to interact with Service Bus in a synchronous manner. In this quick start, you used this method. 
+    - The **async_samples** folder has samples that show you how to interact with Service Bus in an asynchronous manner. 
 - [azure-servicebus reference documentation](https://docs.microsoft.com/python/api/azure-servicebus/azure.servicebus?view=azure-python-preview&preserve-view=true)
 

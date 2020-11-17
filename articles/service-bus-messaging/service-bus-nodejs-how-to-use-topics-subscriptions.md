@@ -199,4 +199,8 @@ On this page, if you select a subscription, you get to the **Service Bus Subscri
 :::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Active message count":::
 
 ## Next steps
-Check out our [GitHub repository with samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). 
+See the following documentation and samples: 
+
+- [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
+- [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). The **javascript** folder has JavaScript samples and the **typescript** has TypeScript samples. 
+- [azure-servicebus reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/service-bus)
