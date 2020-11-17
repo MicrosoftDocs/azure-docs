@@ -35,14 +35,17 @@ The motivation behind backing up App Configuration stores is to use multiple con
 
 In this tutorial, you'll create a secondary store in the `centralus` region and all other resources in the `westus` region.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- Azure subscription. [Create one for free](https://azure.microsoft.com/free/). 
+## Prerequisites 
+
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the Azure development workload.
-- [.NET Core SDK](https://dotnet.microsoft.com/download).
-- Latest version of the Azure CLI (2.3.1 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you're using the Azure CLI, you must first sign in by using `az login`. You can optionally use Azure Cloud Shell.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- [.NET Core SDK](https://dotnet.microsoft.com/download).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- This tutorial requires version 2.3.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 

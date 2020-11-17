@@ -18,13 +18,13 @@ SNAT enables **IP masquerading** of the backend instance. This masquerading prev
 
 >[!Note]
 > For applications with that require large numbers of outbound connections or enterprise customers who require a single set of IPs to be used from a given virtual network, 
-> [Virtual Network NAT](https://docs.microsoft.com/azure/virtual-network/nat-overview) is the recommended solution. It's dynamic allocation allows for simple configuration and  > the most efficient use of SNAT ports from each IP address. It also allows all resources in the virtual network to share a set of IP addresses without a need for them to share > a load balancer.
+> [Virtual Network NAT](../virtual-network/nat-overview.md) is the recommended solution. It's dynamic allocation allows for simple configuration and  > the most efficient use of SNAT ports from each IP address. It also allows all resources in the virtual network to share a set of IP addresses without a need for them to share > a load balancer.
 
 >[!Important]
 > Even without outbound SNAT configured, Azure storage accounts within the same region will still be accessible and backend resources will still have access to Microsoft services such as Windows Updates.
 
 >[!NOTE] 
->This article covers Azure Resource Manager deployments only. Review [Outbound connections (Classic)](load-balancer-outbound-connections-classic.md) for all Classic deployment scenarios in Azure.
+>This article covers Azure Resource Manager deployments only. Review [Outbound connections (Classic)](/previous-versions/azure/load-balancer/load-balancer-outbound-connections-classic) for all Classic deployment scenarios in Azure.
 
 ## <a name ="snat"></a> Sharing frontend IP address across backend resources
 
@@ -44,7 +44,7 @@ By definition, every IP address has 65,535 ports. Each port can either be used f
 >[!NOTE]
 > Each port used for a load-balancing or inbound NAT rule will consume a range of eight ports from these 64,000 ports, reducing the number of ports eligible for SNAT. If a load-> balancing or nat rule is in the same range of eight as another it will consume no additional ports. 
 
-Through [outbound rules](https://docs.microsoft.com/azure/load-balancer/outbound-rules) and load-balancing rules, these SNAT ports can be distributed to backend instances to enable them to share the public IPs of the load balancer for outbound connections.
+Through [outbound rules](./outbound-rules.md) and load-balancing rules, these SNAT ports can be distributed to backend instances to enable them to share the public IPs of the load balancer for outbound connections.
 
 When [scenario 2](#scenario2) below is configured, the host for each backend instance will perform SNAT on packets that are part of an outbound connection. When performing SNAT on an outbound connection from a backend instance, the host rewrites the source IP to one of the frontend IPs. To maintain unique flows, the host rewrites the source port of each outbound packet to one of the SNAT ports allocated for the backend instance.
 
@@ -97,7 +97,7 @@ When [scenario 2](#scenario2) below is configured, the host for each backend ins
  Ephemeral ports of the load balancer frontend public IP address are used to distinguish individual flows originated by the VM. SNAT dynamically uses [preallocated ephemeral ports](#preallocatedports) when outbound flows are created. 
 
 
- In this context, the ephemeral ports used for SNAT are called SNAT ports. It is highly recommended that an [outbound rule](https://docs.microsoft.com/azure/load-balancer/outbound-rules) is explicitly configured. If using default SNAT through a load-balancing rule, SNAT ports are pre-allocated as described in the [Default SNAT ports allocation table](#snatporttable).
+ In this context, the ephemeral ports used for SNAT are called SNAT ports. It is highly recommended that an [outbound rule](./outbound-rules.md) is explicitly configured. If using default SNAT through a load-balancing rule, SNAT ports are pre-allocated as described in the [Default SNAT ports allocation table](#snatporttable).
 
 
  ### <a name="scenario3"></a>Scenario 3: Virtual machine without public IP and behind Basic Load Balancer
@@ -138,7 +138,7 @@ Without different destination ports for the return traffic (the SNAT port used t
 
 Outbound connections can burst. A backend instance can be allocated insufficient ports. Without **connection reuse** enabled, the risk of SNAT **port exhaustion** is increased.
 
-New outbound connections to a destination IP will fail when port exhaustion occurs. Connections will succeed when a port becomes available. This exhaustion occurs when the 64,000 ports from an IP address are spread thin across many backend instances. For guidance on mitigation of SNAT port exhaustion, see the [troubleshooting guide](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection).  
+New outbound connections to a destination IP will fail when port exhaustion occurs. Connections will succeed when a port becomes available. This exhaustion occurs when the 64,000 ports from an IP address are spread thin across many backend instances. For guidance on mitigation of SNAT port exhaustion, see the [troubleshooting guide](./troubleshoot-outbound-connection.md).  
 
 For TCP connections, the load balancer will use a single SNAT port for every destination IP and port. This multiuse enables multiple connections to the same destination IP with the same SNAT port. This multiuse is limited if the connection isn't to different destination ports.
 
@@ -190,6 +190,5 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
 
 ## Next steps
 
-*	[Troubleshoot outbound connection failures because of SNAT exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection)
-*	[Review SNAT metrics](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) and familiarize yourself with the correct way to filter, split, and view them.
-
+*	[Troubleshoot outbound connection failures because of SNAT exhaustion](./troubleshoot-outbound-connection.md)
+*	[Review SNAT metrics](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) and familiarize yourself with the correct way to filter, split, and view them.

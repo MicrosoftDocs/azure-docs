@@ -62,7 +62,7 @@ The URLs for the application aren't important, since we're only using them for K
 
 ## Grant rights to Key Vault
 
-The service principal created in the previous step needs permission to retrieve the secrets from Key Vault. Permission can be granted either through the [Azure portal](/key-vault/general/assign-access-policy-portal.md) or with the PowerShell command below.
+The service principal created in the previous step needs permission to retrieve the secrets from Key Vault. Permission can be granted either through the [Azure portal](/azure/key-vault/general/assign-access-policy-portal) or with the PowerShell command below.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'

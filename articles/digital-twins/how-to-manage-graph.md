@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/21/2020
+ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -26,7 +26,13 @@ This article focuses on managing relationships and the graph as a whole; to work
 ## Prerequisites
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
-    
+
+## Ways to manage graph
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
+You can also make changes to your graph using the Azure Digital Twins (ADT) Explorer sample, which allows you to visualize your twins and graph, and makes use of the SDK behind the scenes. The next section describes this sample in detail.
+
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## Create relationships
@@ -220,7 +226,8 @@ You can now call this method to delete a relationship like this:
 ```csharp
 await DeleteRelationship(client, srcId, relId);
 ```
-## Create a twin graph 
+
+## Runnable twin graph sample
 
 The following runnable code snippet uses the relationship operations from this article to create a twin graph out of digital twins and relationships.
 
@@ -444,58 +451,57 @@ Here is the console output of the above program:
 > [!TIP]
 > The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [*Visualization*](how-to-manage-graph.md#visualization) section of this article. 
 
-### Create a twin graph from a spreadsheet
+### Create a twin graph from a CSV file
 
-In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a csv file. This section illustrates how to read data from a csv file and create a twin graph from it.
+In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
 
-Consider the following data table, describing a set of digital twins and relationships to create a csv file in your local machine.
+Consider the following data table, describing a set of digital twins and relationships.
 
-| Model ID| Twin ID (must be unique) | Relationship name | Target twin ID | Twin init data |
+|  Model ID    | Twin ID (must be unique) | Relationship name  | Target twin ID  | Twin init data |
 | --- | --- | --- | --- | --- |
-| dtmi:example:Floor;1 | Floor1 |  contains | Room1 |{"Temperature": 80}
-| dtmi:example:Floor;1 | Floor0 |  has      | Room0 |{"Temperature": 70}
-| dtmi:example:Room;1  | Room1 | 
-| dtmi:example:Room;1  | Room0 |
+| dtmi:example:Floor;1    | Floor1 | contains | Room1 | |
+| dtmi:example:Floor;1    | Floor0 | contains | Room0 | |
+| dtmi:example:Room;1    | Room1 | | | {"Temperature": 80} |
+| dtmi:example:Room;1    | Room0 | | | {"Temperature": 70} |
 
-The following code sample reads data from the csv file and creates a twin graph. Save your csv file as data.csv and upload it to your project directory. You can also save your csv file elsewhere and give the path to the file in the code `string path = @"<path-to-the-csv-file>";`
-Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
+One way to get this data into Azure Digital Twins is to convert the table to a CSV file and write code to interpret the file into commands to create twins and relationships. The following code sample illustrates reading the data from the CSV file and creating a twin graph in Azure Digital Twins.
 
-You can now run the sample and see the twin graph.
+In the code below, the CSV file is called *data.csv*, and there is a placeholder representing the **hostname** of your Azure Digital Twins instance. The sample also makes use of several packages that you can add to your project to help with this process.
 
 ```csharp
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Azure;
 using Azure.DigitalTwins.Core;
 using Azure.Identity;
-using Nancy.Json;
 
-namespace creating_twin_graph_one_property_for_twin
+namespace creating_twin_graph_from_csv
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
             List<BasicDigitalTwin> TwinList = new List<BasicDigitalTwin>();
             List<List<string>> data = ReadData();
             DigitalTwinsClient client = createDTClient();
-            
-            // Reading the csv file by each row
+
+            // Interpret the CSV file data, by each row
             foreach (List<string> row in data)
             {
                 string modelID = row.Count > 0 ? row[0].Trim() : null;
                 string srcID = row.Count > 1 ? row[1].Trim() : null;
                 string relName = row.Count > 2 ? row[2].Trim() : null;
                 string targetID = row.Count > 3 ? row[3].Trim() : null;
-                string initproperty = row.Count > 4 ? row[4].Trim() : null;
+                string initProperties = row.Count > 4 ? row[4].Trim() : null;
+                Console.WriteLine($"ModelID: {modelID}, TwinID: {srcID}, RelName: {relName}, TargetID: {targetID}, InitData: {initProperties}");
+                Dictionary<string, object> props = new Dictionary<string, object>();
+                // Parse properties into dictionary (left out for compactness)
+                // ...
 
-                Console.WriteLine($"ModelID: {modelID}, TwinID: {srcID}, RelName: {relName}, TargetID: {targetID}, InitData: {initproperty}");
-                var jss = new JavaScriptSerializer();
-                var dict = jss.Deserialize<Dictionary<string, dynamic>>(initproperty);
-                               
-                // Null check for source and target ID's
+                // Null check for source and target ID's
                 if (srcID != null && srcID.Length > 0 && targetID != null && targetID.Length > 0)
                 {
                     BasicRelationship br = new BasicRelationship()
@@ -506,47 +512,47 @@ namespace creating_twin_graph_one_property_for_twin
                     };
                     RelationshipRecordList.Add(br);
                 }
-
                 BasicDigitalTwin srcTwin = new BasicDigitalTwin();
                 srcTwin.Id = srcID;
                 srcTwin.Metadata = new DigitalTwinMetadata();
                 srcTwin.Metadata.ModelId = modelID;
-                srcTwin.Contents = dict;
-                TwinList.Add(srcTwin);                                              
+                srcTwin.Contents = props;
+                TwinList.Add(srcTwin);
             }
 
-            // create digital twins 
+            // Create digital twins 
             foreach (BasicDigitalTwin twin in TwinList)
             {
                 try
                 {
-                    client.CreateOrReplaceDigitalTwinAsync(twin.Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+                    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twin.Id, twin);
+                    Console.WriteLine("Twin is created");
                 }
                 catch (RequestFailedException e)
                 {
-                    Console.WriteLine($"Error {e.Status}: {e.Message}");
+                    Console.WriteLine($"Error {e.Status}: {e.Message}");
                 }
             }
-
-            // Create relationship between the twins
-            foreach (BasicRelationship rec in RelationshipRecordList)
+            // Create relationships between the twins
+            foreach (BasicRelationship rec in RelationshipRecordList)
             {
                 try
                 {
-                    client.CreateOrReplaceRelationshipAsync(rec.SourceId, Guid.NewGuid().ToString(), rec.TargetId);
+                    string relId = $"{rec.SourceId}-{rec.Name}->{rec.TargetId}";
+                    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>(rec.SourceId, relId, rec);
+                    Console.WriteLine("Relationship is created");
                 }
                 catch (RequestFailedException e)
                 {
-                    Console.WriteLine($"Error {e.Status}: {e.Message}");
+                    Console.WriteLine($"Error {e.Status}: {e.Message}");
                 }
             }
-
         }
 
-        // Read data from the csv file
-        public static List<List<string>> ReadData()
+        // Method to ingest data from the CSV file
+        public static List<List<string>> ReadData()
         {
-            string path = "data.csv";
+            string path = "<path-to>/data.csv";
             string[] lines = System.IO.File.ReadAllLines(path);
             List<List<string>> data = new List<List<string>>();
             int count = 0;
@@ -564,12 +570,11 @@ namespace creating_twin_graph_one_property_for_twin
             }
             return data;
         }
-
-        // Create digital twins client
-        private static DigitalTwinsClient createDTClient()
+        // Method to create the digital twins client
+        private static DigitalTwinsClient createDTClient()
         {
-            
-            string adtInstanceUrl = "https://<your-digital-twins-instance-hostname>";
+
+            string adtInstanceUrl = "https://<your-instance-hostname>";
             var credentials = new DefaultAzureCredential();
             DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
             return client;
@@ -580,9 +585,6 @@ namespace creating_twin_graph_one_property_for_twin
 }
 
 ```
-## Manage relationships with CLI
-
-Twins and their relationships can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
 ## Next steps
 

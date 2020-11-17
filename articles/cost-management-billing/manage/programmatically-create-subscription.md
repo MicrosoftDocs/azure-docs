@@ -793,7 +793,15 @@ You can create subscriptions on your Azure Resource Manager template (ARM templa
 
 ### Prerequisites
 
-You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. For more information, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+To create subscriptions you must have one of the below roles: 
+
+- Azure Subscription Owner on an Inovice Section
+- Azure Subscription Contributor on an Inovice Section
+- Azure Subscription Creator role on an Inovice Section
+- Azure Subcription Owner on a Billing Profile or a Billing account
+- Azure Subscription Contributor Role on a Billing Profile or a Billing account
+
+ For more information, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
 Additionally, since you are doing an ARM template deployment, you need to have write permissions on the root object. So if you're creating the ARM deployment under a management group, you need to have write permissions on the management group. Note that the action is purely to create an ARM deployment, if a subscription is created, it is created only in the management group specified in the ARM template.
 
