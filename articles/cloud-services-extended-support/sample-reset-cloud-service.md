@@ -12,24 +12,24 @@ ms.custom:
 # Reset an Azure Cloud Service (extended support) 
 These samples cover various ways to reset an existing Azure Cloud Service (extended support) deployment.
 
-### Example 1: Reimage role instances of cloud service
+## Example 1: Reimage role instances of cloud service
 ```powershell
 PS C:\> $roleInstances = @("ContosoFrontEnd_IN_0", "ContosoBackEnd_IN_1")
 PS C:\> Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance $roleInstances -Reimage
 ```
 This command reimages 2 role instances ContosoFrontEnd\_IN\_0 and  ContosoBackEnd\_IN\_1 of cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
-### Example 2: Reimage all roles of cloud service
+## Example 2: Reimage all roles of cloud service
 ```powershell
 PS C:\> Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*" -Reimage
 ```
 
-### Example 3: Reimage a single role instance of a cloud service
+## Example 3: Reimage a single role instance of a cloud service
 ```powershell
 PS C:\> Reset-AzCloudServiceRoleInstance -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstanceName "ContosoFrontEnd_IN_0" -Reimage
 ```
 
-### Example 4: Restart a single role instance of a cloud service
+## Example 4: Restart a single role instance of a cloud service
 ```powershell
 PS C:\> Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -RoleInstance "*" -Restart
 ```

@@ -14,7 +14,7 @@ ms.custom:
 
 These samples cover various was to retrieve information about existing Azure Cloud Service (extended support) deployments.
 
-### Example 1: Get all cloud service under a resource group
+## Example 1: Get all cloud service under a resource group
 ```powershell
 PS C:\> Get-AzCloudService -ResourceGroup "ContosOrg"
 
@@ -25,7 +25,7 @@ ContosOrg         ContosoCSTest     eastus2euap Failed
 ```
 This command gets all cloud services in resource group named ContosOrg
 
-### Example 2: Get cloud service
+## Example 2: Get cloud service
 ```powershell
 PS C:\> Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
 
@@ -60,7 +60,7 @@ UniqueId                                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 UpgradeMode                             : Auto
 ```
 
-### Example 3: Get cloud service instance view
+## Example 3: Get cloud service instance view
 ```powershell
 PS C:\> Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS" -InstanceView | Format-List
 
