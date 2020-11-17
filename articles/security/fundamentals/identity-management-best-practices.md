@@ -192,13 +192,13 @@ Organizations that don’t add extra layers of identity protection, such as two-
 
 ## Use role-based access control
 
-Access management for cloud resources is critical for any organization that uses the cloud. [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
+Access management for cloud resources is critical for any organization that uses the cloud. [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
 Designating groups or individual roles responsible for specific functions in Azure helps avoid confusion that can lead to human and automation errors that create security risks. Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access.
 
 Your security team needs visibility into your Azure resources in order to assess and remediate risk. If the security team has operational responsibilities, they need additional permissions to do their jobs.
 
-You can use [RBAC](../../role-based-access-control/overview.md) to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
+You can use [Azure RBAC](../../role-based-access-control/overview.md) to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
 **Best practice**: Segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, allow only certain actions at a particular scope.
 **Detail**: Use [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in Azure to assign privileges to users.
@@ -207,18 +207,18 @@ You can use [RBAC](../../role-based-access-control/overview.md) to assign permis
 > Specific permissions create unneeded complexity and confusion, accumulating into a “legacy” configuration that’s difficult to fix without fear of breaking something. Avoid resource-specific permissions. Instead, use management groups for enterprise-wide permissions and resource groups for permissions within subscriptions. Avoid user-specific permissions. Instead, assign access to groups in Azure AD.
 
 **Best practice**: Grant security teams with Azure responsibilities access to see Azure resources so they can assess and remediate risk.
-**Detail**: Grant security teams the RBAC [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) role. You can use the root management group or the segment management group, depending on the scope of responsibilities:
+**Detail**: Grant security teams the Azure RBAC [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader) role. You can use the root management group or the segment management group, depending on the scope of responsibilities:
 
 * **Root management group** for teams  responsible for all enterprise resources
 * **Segment management group** for teams with limited scope (commonly because of regulatory or other organizational boundaries)
 
 **Best practice**: Grant the appropriate permissions to security teams that have direct operational responsibilities.
-**Detail**: Review the RBAC built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [Azure custom roles](../../role-based-access-control/custom-roles.md). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
+**Detail**: Review the Azure built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [Azure custom roles](../../role-based-access-control/custom-roles.md). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
 
 **Best practices**: Grant Azure Security Center access to security roles that need it. Security Center allows security teams to quickly identify and remediate risks.
-**Detail**: Add security teams with these needs to the RBAC [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin) role so they can view security policies, view security states, edit security policies, view alerts and recommendations, and dismiss alerts and recommendations. You can do this by using the root management group or the segment management group, depending on the scope of responsibilities.
+**Detail**: Add security teams with these needs to the Azure RBAC [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin) role so they can view security policies, view security states, edit security policies, view alerts and recommendations, and dismiss alerts and recommendations. You can do this by using the root management group or the segment management group, depending on the scope of responsibilities.
 
-Organizations that don’t enforce data access control by using capabilities like RBAC might be giving more privileges than necessary to their users. This can lead to data compromise by allowing users to access types of data (for example, high business impact) that they shouldn’t have.
+Organizations that don’t enforce data access control by using capabilities like Azure RBAC might be giving more privileges than necessary to their users. This can lead to data compromise by allowing users to access types of data (for example, high business impact) that they shouldn’t have.
 
 ## Lower exposure of privileged accounts
 
@@ -311,7 +311,7 @@ Enabling cloud operators to perform tasks while preventing them from breaking co
 You can use [Azure Resource Manager](../../azure-resource-manager/management/overview.md) to create security policies whose definitions describe the actions or resources that are specifically denied. You assign those policy definitions at the desired scope, such as the subscription, the resource group, or an individual resource.
 
 > [!NOTE]
-> Security policies are not the same as RBAC. They actually use RBAC to authorize users to create those resources.
+> Security policies are not the same as Azure RBAC. They actually use Azure RBAC to authorize users to create those resources.
 >
 >
 

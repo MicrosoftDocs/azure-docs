@@ -427,7 +427,6 @@ To automate the creation of any other resource of any kind, create an example ma
    
     Each web test has an associated alert rule, so you have to copy both of them.
    
-    You can also include alerts on metrics. [Metric names](powershell-alerts.md#metric-names).
 5. Insert this line in each resource:
    
     `"apiVersion": "2015-05-01",`
@@ -466,7 +465,6 @@ Azure should set up the resources in strict order. To make sure one setup comple
 Other automation articles:
 
 * [Create an Application Insights resource](./create-new-resource.md#creating-a-resource-automatically) - quick method without using a template.
-* [Set up Alerts](powershell-alerts.md)
 * [Create web tests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Send Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
 * [Create release annotations](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
