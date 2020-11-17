@@ -27,21 +27,21 @@ In this quickstart, you use a direct method to control a simulated device connec
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
+    You can verify the current version of Maven on your development machine using the following command:
+
+    ```cmd/sh
+    mvn --version
+    ```
+
 * [A sample Java project](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip).
 
-* Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-* You can verify the current version of Java on your development machine using the following command:
+    You can verify the current version of Java on your development machine using the following command:
 
     ```cmd/sh
     java -version
     ```
 
-* You can verify the current version of Maven on your development machine using the following command:
-
-    ```cmd/sh
-    mvn --version
-    ```
+* Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
