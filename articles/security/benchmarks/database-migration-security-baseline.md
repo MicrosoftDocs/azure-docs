@@ -512,12 +512,11 @@ What is Azure role-based access control (Azure RBAC) ../../role-based-access-con
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39964).
 
 **Guidance**: Encryption is critical for traffic on external and public networks.
-Use access controls,
 
+Use access controls,
 data in transit should be protected against ‘out of band’ attacks (e.g. traffic capture) using encryption to ensure that attackers cannot easily read or modify the data.
 
 Ensure for HTTP traffic, that any clients connecting to your Azure resources can negotiate TLS v1.2 or greater.
-
 For remote management, use SSH (for Linux) or RDP/TLS (for Windows) instead of unencrypted protocol. Obsoleted SSL/TLS/SSH versions, protocols, and weak ciphers should be disabled.
 
 At the underlying infrastructure, Azure provides data in transit encryption by default for data traffic between Azure data centers.
@@ -578,12 +577,13 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 **Guidance**: Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
+Azure Database Migration Service does not allow running an application or installation of software on its resources. 
+
 - [How to create queries with Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md) 
 
 - [Azure Security Center asset inventory management](../../security-center/asset-inventory.md) 
 
-- [For more information about tagging assets, see the resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json) 
-Azure Database Migration Service does not allow running an application or installation of software on its resources.
+- [Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -611,7 +611,9 @@ Azure Database Migration Service does not allow running an application or instal
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39986).
 
-**Guidance**: Not applicable. The Azure Database Migration Service can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
+**Guidance**: Not applicable. The Azure Database Migration Service can not be used for ensuring security of assets in a lifecycle management process. It is the customer's responsibility to maintain attributes and network configurations of assets which are considered high-impact. 
+
+It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -623,6 +625,7 @@ Azure Database Migration Service does not allow running an application or instal
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39987).
 
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
+
 - [How to configure Conditional Access to block access to Azure Resources Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Currently not available
