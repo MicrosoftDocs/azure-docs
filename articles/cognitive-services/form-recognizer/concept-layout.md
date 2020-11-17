@@ -21,7 +21,7 @@ Azure Form Recognizer can extract text, tables, selection marks and strucutre in
 
 The Layout API extracts text, tables, selection marks and strucutre information from documents with exceptional accuracy and returns them in an organized structured JSON response. Documents can be from a variety of formats and quality, including  phone-captured images, scanned documents, and digital PDFs. The Layout API will extract the structured output from all of these documents. 
 
-<<<<add image of a document with tables, handwritten and printed, seleciton marks into JSON outpt>>>>
+![Layout example](./media/layout-example.JPG)
 
 ## Try it out
 
@@ -58,6 +58,24 @@ You call this operation iteratively until it returns with the **succeeded** valu
 
 When the **status** field has the **succeeded** value, the JSON response will include the layout extraction results, text, tables and selection marks extracted. The extracted data contains the extracted text lines and words, bounding box, text apearance handwritten indication, tables and selection marks with an indication selected \ unselected. 
 
+### Sample JSON output
+
+The response to the Get Analyze LAyout Result operation will be the structured representation of the document with all the information extracted. 
+See here for a [sample document file](./media/sample-layout.pdf) and it's structured output [sample layout output](./media/sample-layout-output.json).
+
+The JSON output has 3 parts: 
+1. `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
+2. `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence and a reference to the lines and words in "readResults".
+
+## Next steps
+
+Try your own layout and samples in the [Form Recognizer Sample Tool](https://fott-preview.azurewebsites.net/).
+Follow the [Extract Layout data](./QuickStarts/python-layout.md) quickstart to implement invoice data extraction using Python and the REST API.
+
+## See also
+
+* [What is Form Recognizer?](./overview.md)
+* [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
 
 
 
