@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 11/06/2018
  ms.author: tomfitz
- ms.custom: include file, devx-track-azurecli
+ ms.custom: include file
 ---
 
 This feature is in preview. To use it, you must install a preview extension or module.
