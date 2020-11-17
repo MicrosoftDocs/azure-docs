@@ -93,8 +93,6 @@ Here's the *function.json* file:
 
 The [configuration](#trigger---configuration) section explains these properties.
 
-Here's C# script code that binds to `HttpRequest`:
-
 ```cs
 public static void Run(WarmupContext warmupContext, ILogger log)
 {
