@@ -28,7 +28,7 @@
     href: network-watcher-nsg-flow-logging-portal.md
 - name: Concepts
   items:
-  - name: Connection Monitor (Preview)
+  - name: Connection Monitor
     href: connection-monitor-overview.md
   - name: Diagnose VM network traffic filter problems
     href: network-watcher-ip-flow-verify-overview.md
@@ -58,7 +58,7 @@
   items:
   - name: Configure Network Watcher
     href: network-watcher-create.md
-  - name: Create Connection Monitor (Preview)
+  - name: Create Connection Monitor
     items:
     - name: Using Azure portal
       href: connection-monitor-create-using-portal.md
@@ -66,11 +66,11 @@
       href: connection-monitor-create-using-template.md
     - name: Using PowerShell
       href: connection-monitor-create-using-powershell.md 
-  - name: Migrate to Connection Monitor (Preview)
+  - name: Migrate to Connection Monitor
     items:
     - name: From Network Performance Monitor
       href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
-    - name: From Connection Monitor
+    - name: From Connection Monitor (Classic)
       href: migrate-to-connection-monitor-preview-from-connection-monitor.md
   - name: Diagnose VM network problems
     items:
