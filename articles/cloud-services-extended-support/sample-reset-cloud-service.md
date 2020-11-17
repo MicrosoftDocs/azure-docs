@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell Samples - Reset Azure Cloud Services (extended support)
-description: Sample scrips for resetting an Azure Cloud Service (extended support) information
+description: Sample scripts for resetting an Azure Cloud Service (extended support) information
 ms.topic: sample
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -10,7 +10,7 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 # Reset an Azure Cloud Service (extended support) 
-This article covers various examples that can be used to reset an existing Azure CLoud Service (extended support) deployments.
+This article covers various examples that can be used to reset an existing Azure Cloud Service (extended support) deployments.
 
 ### Example 1: Reimage role instances of cloud service
 ```powershell

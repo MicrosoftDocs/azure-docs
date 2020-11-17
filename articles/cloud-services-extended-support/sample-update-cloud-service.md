@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell Samples - Update an Azure Cloud Service (extended support)
-description: Sample scrips for updating Azure Cloud Service (extended support) deployments
+description: Sample scripts for updating Azure Cloud Service (extended support) deployments
 ms.topic: sample
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -12,7 +12,7 @@ ms.custom:
 
 # Update an Azure Cloud Service (extended support)
 
-This article covers various examples on how to update an existing Azure CLoud Service (extended support) deployment.
+This article covers various examples on how to update an existing Azure Cloud Service (extended support) deployment.
 
 ### Example 1: Add an extension to existing cloud service
 ```powershell
