@@ -4,8 +4,8 @@ description: Get answers to common questions about Azure Marketplace and Microso
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/11/2020
 ---
 
@@ -41,7 +41,7 @@ To learn more, see the [Microsoft commercial marketplace hub](https://aka.ms/com
 
 ### Is there a listing fee for the Microsoft commercial marketplace?
 
-No, there's no cost to publish offers in our commercial marketplace. We keep a small percentage of the sale, as a transaction fee, and invest it in the Marketplace Rewards program, platform innovation, and commercial marketplace operations. This transaction fee is reduced for [Azure IP Co-sell](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) incentivized offers and for paid SaaS offers on AppSource that are associated with one Microsoft Teams app or at least two Microsoft 365 add-ins (Excel, PowerPoint, Word, Outlook, and SharePoint).
+No, there's no cost to publish offers in our commercial marketplace. We keep a small percentage of the sale, as a transaction fee, and invest it in the Marketplace Rewards program, platform innovation, and commercial marketplace operations. This transaction fee is reduced for [Azure IP Co-sell](./marketplace-co-sell.md) incentivized offers and for paid SaaS offers on AppSource that are associated with one Microsoft Teams app or at least two Microsoft 365 add-ins (Excel, PowerPoint, Word, Outlook, and SharePoint).
 
 ### How do I sign up to be a publisher in the Microsoft commercial marketplace?
 
@@ -82,7 +82,7 @@ The commercial marketplace works using an agency model. The customer signs a pur
 
 As a publisher, you set the terms of use for your software solution, which customers must accept as part of the purchase flow. To simplify and speed things up, we provide a Standard Contract that you can choose to include in your terms and conditions. This lets customers review the Standard Contract one time, get approval from legal and buying teams, and then focus on the amendments for each offer.
 
-You can create changes that apply to all customers, or you can make the changes specific to certain customers. You can also fully customize your terms and conditions, which can be entered into a text box or hosted on a website that will be shown as a web address.
+You can create changes that apply to all customers, or you can make the changes specific to certain customers. You can also fully customize your terms and conditions, which can be entered into a text box in Partner Center.
 
 To learn more, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md).
 
@@ -101,7 +101,7 @@ There are four relevant roles that govern Partner Center access.
 
 Azure Active Directory (Azure AD) *Global Admin* permissions are necessary to create new user accounts or invite guest accounts in the underlying directory. Partner Center applies Azure AD to the identity model, and an organization's Azure AD instance is often managed and controlled by its IT or security teams.
 
-To learn more, see [Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview).
+To learn more, see [Assign users roles and permissions](/partner-center/permissions-overview).
 
 ### Do customers need a subscription for Microsoft Azure Cloud Services?
 

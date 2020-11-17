@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2020
+ms.date: 11/16/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -200,16 +200,9 @@ Although SMB encryption has impact to both the client (CPU overhead for encrypti
 |     Read and write workloads    	|     10% to 15%     	|
 |     Metadata intensive    	|     5%  	|
 
+### I’m having issues connecting to my SMB share. What should I do?
 
-## Dual-protocol FAQs
-
-### I tried to use the ‘root’ and local users to access a dual-protocol volume with the NTFS security style on a UNIX system. Why did I encounter a “Permission denied” error?   
-
-See [Troubleshoot dual-protocol volumes](troubleshoot-dual-protocol-volumes.md) for resolutions.
-
-### When I try to create a dual-protocol volume, why does the creation process fail with the error “Failed to validate LDAP configuration, try again after correcting LDAP configuration”?  
-
-See [Troubleshoot dual-protocol volumes](troubleshoot-dual-protocol-volumes.md) for resolutions.
+As a best practice, set the maximum tolerance for computer clock synchronization to five minutes. For more information, see [Maximum tolerance for computer clock synchronization](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
 
 ## Capacity management FAQs
 

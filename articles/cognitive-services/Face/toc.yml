@@ -69,6 +69,8 @@
       href: face-resource-container-config.md
     - name: Use container instances
       href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+    - name: Cognitive Services containers documentation
+      href: ../containers/index.yml
 - name: Reference
   items:
   - name: Face API
@@ -85,8 +87,6 @@
       href: /javascript/api/@azure/cognitiveservices-face
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
-    - name: iOS
-      href: https://github.com/Microsoft/Cognitive-Face-iOS
 - name: Resources
   items:
   - name: Support & help options

@@ -7,6 +7,8 @@
     href: overview.md
   - name: Technical and feature overview
     href: technical-overview.md
+  - name: What's new in docs?
+    href: whats-new-docs.md
 - name: Quickstarts
   expanded: true
   items:
@@ -416,10 +418,14 @@
       href: partner-jumio.md
     - name: LexisNexis
       href: partner-lexisnexis.md
+    - name: N8 Identity
+      href: partner-n8identity.md
     - name: Onfido
       href: partner-onfido.md
     - name: Saviynt
       href: partner-saviynt.md
+    - name: Strata
+      href: partner-strata.md
     - name: Trusona
       href: partner-trusona.md
     - name: Twilio

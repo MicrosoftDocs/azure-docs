@@ -17,7 +17,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## To remove your VMs
 
-1. In the Azure portal, launch **Cloud Shell** from the top navigation of the Azure portal. If you are unfamiliar with Azure Cloud Shell, see [Overview of Azure Cloud Shell](/azure/cloud-shell/overview).
+1. In the Azure portal, launch **Cloud Shell** from the top navigation of the Azure portal. If you are unfamiliar with Azure Cloud Shell, see [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
 2. Use the following command to identify the UUID of a machine that you want to remove from management.
 

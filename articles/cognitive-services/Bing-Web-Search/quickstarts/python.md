@@ -58,7 +58,7 @@ This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). T
 
 This code uses the `requests` library to call the Bing Web Search API and return the results as a JSON object. The API key is passed in the `headers` dictionary, and the search term and query parameters are passed in the `params` dictionary. 
 
-For a complete list of options and parameters, see [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
+For a complete list of options and parameters, see [Bing Web Search API v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
 
 ```python
 import requests

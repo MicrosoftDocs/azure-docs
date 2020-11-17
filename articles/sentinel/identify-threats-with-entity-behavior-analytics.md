@@ -19,6 +19,15 @@ ms.author: yelevin
 ---
 # Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Azure Sentinel
 
+> [!IMPORTANT]
+>
+> - The UEBA and Entity Pages features are now in **General Availability** in the following Azure Sentinel geographies and regions:
+>    - United States geography
+>    - Europe West region
+>    - Australia geography
+>
+> - In all other geographies and regions, these features remain for the time being in **PREVIEW**. See the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## What is User and Entity Behavior Analytics (UEBA)?
 
 ### The concept
@@ -168,7 +177,7 @@ Entity pages are designed to be part of multiple usage scenarios, and can be acc
 
 ### Querying behavior analytics data
 
-Using [KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.
+Using [KQL](/azure/data-explorer/kusto/query/), we can query the Behavioral Analytics Table.
 
 For example – if we want to find all the cases of a user that failed to sign in to an Azure resource, where it was the user's first attempt to connect from a given country, and connections from that country are uncommon even for the user's peers, we can use the following query:
 

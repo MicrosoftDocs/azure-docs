@@ -229,11 +229,17 @@ The extending interface cannot change any of the definitions of the parent inter
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## Converting industry-standard models
+## Integrating with industry-standard models
 
-If you have existing models outside of Azure Digital Twins that are based on an industry standard, such as RDF or OWL, you'll need to **convert them to DTDL** to use them with Azure Digital Twins. The DTDL version will then become the source of truth for the model within Azure Digital Twins.
+Using models that are based on industry standards or use standard ontology representation, such as RDF or OWL, provides a rich starting point when designing your Azure Digital Twins models. Using industry models also helps with standardization and information sharing.
 
-For more on this process, see [*How-to: Convert industry-standard models*](how-to-convert-models.md).
+To be used with Azure Digital Twins, a model must be represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). Therefore, this article describes how to represent your industry-standard models in DTDL, integrating the existing industry concepts with DTDL semantics so that Azure Digital Twins can use them. The DTDL model then serves as the source of truth for the model within Azure Digital Twins.
+
+There are two main paths to integrating industry-standard models with DTDL, depending on your situation:
+* If you have yet to create your models, you can design them around **existing starter DTDL ontologies** that contain language specific to your industry.
+* If you already have existing models that are based on an industry standard, you'll need to **convert them to DTDL** in order to bring them into Azure Digital Twins.
+
+For more on both of these processes, see [*How-to: Integrate industry-standard models*](how-to-integrate-models.md).
 
 ## Next steps
 

@@ -56,5 +56,5 @@ Desktop applications call APIs for the signed-in user. They need to request dele
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Desktop app: App configuration](scenario-desktop-app-configuration.md)
+Move on to the next article in this scenario, 
+[App Code configuration](scenario-desktop-app-configuration.md).

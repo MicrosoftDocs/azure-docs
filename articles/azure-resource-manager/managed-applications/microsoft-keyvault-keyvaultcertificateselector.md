@@ -33,7 +33,7 @@ The control is updated to display the selected key vault and certificate name.
   "type": "Microsoft.KeyVault.KeyVaultCertificateSelector",
   "visible": true,
   "toolTip": "Select certificate",
-  "label": "Key Vault certificates selection"
+  "label": "KeyVault certificates selection"
 }
 ```
 
