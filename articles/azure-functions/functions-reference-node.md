@@ -585,7 +585,7 @@ The cloud-based Function app configures [App settings](functions-app-settings.md
 
 ### Access environment variables in code
 
-Access these settings using `process.env`, as shown here in the second and third calls to `context.log()` where we log the `AzureWebJobsStorage` and `WEBSITE_SITE_NAME` environment variables:
+Access application settings as environment variables  using `process.env`, as shown here in the second and third calls to `context.log()` where we log the `AzureWebJobsStorage` and `WEBSITE_SITE_NAME` environment variables:
 
 ```javascript
 module.exports = async function (context, myTimer) {
