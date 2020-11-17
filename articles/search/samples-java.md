@@ -39,9 +39,9 @@ The Azure SDK for Java includes numerous samples and a [getting started page](ht
 
 ## Documentation samples
 
+The following samples have an associated article in [Azure Cognitive Search documentation](https://docs.microsoft.com/azure/search/).
+
 | Samples | Description | 
-|---------|-------------|
-| Samples | Description |
 |---------|-------------|
 | [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart) | Source code for [Quickstart: Create a search index](search-get-started-javascript.md). This sample calls the REST APIs. |
 | [search-java-indexer-demo](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/search-java-indexer-demo) | Demonstrates an Azure Cosmos DB indexer in Java. This sample calls the REST APIs. |

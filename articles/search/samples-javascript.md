@@ -36,7 +36,7 @@ The Azure SDK for Java includes numerous samples and a [getting started page](ht
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Demonstrates how to create, update, get, list, and delete [synonym maps](search-synonyms.md).  |
 | [Queries](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Queries are read-only. This sample query executes against a public index hosted by Microsoft.  |
 
-## TypeScript samples in the Java SDK
+## TypeScript samples
 
 The SDK also provides TypeScript examples, listed here for your convenience.
 

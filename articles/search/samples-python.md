@@ -25,7 +25,7 @@ Find Python code samples that demonstrate the features and functionality of Azur
 
 ## Python SDK samples
 
-The Azure SDK for Python includes numerous samples and a [getting started page](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples) that includes prerequisites and package installation. The page also lists the following sample categories, added here for your convenience.
+The Azure SDK for Python includes numerous samples and a [getting started page](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples) that includes prerequisites and package installation. The page also contains links to the following samples, listed here for your convenience.
 
 | Samples | Description |
 |---------|-------------|
@@ -40,6 +40,8 @@ The Azure SDK for Python includes numerous samples and a [getting started page](
 | [Facet query](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_facet_query.py) | Demonstrates working with [facets](search-filters-facets.md). |
 
 ## Documentation samples
+
+The following samples have an associated article in [Azure Cognitive Search documentation](https://docs.microsoft.com/azure/search/).
 
 | Samples | Description | 
 |---------|-------------|
