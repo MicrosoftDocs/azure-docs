@@ -10,9 +10,9 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
-# Get information about your Azure Cloud Service (extended support) deployments
+# Retrieve information about your Azure Cloud Service (extended support) deployments
 
-This article covers various examples that can be used to retrieved information about existing Azure Cloud Service (extended support) deployments.
+These samples cover various was to retrieve information about existing Azure Cloud Service (extended support) deployments.
 
 ### Example 1: Get all cloud service under a resource group
 ```powershell
@@ -59,7 +59,6 @@ Type                                    : Microsoft.Compute/cloudServices
 UniqueId                                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 UpgradeMode                             : Auto
 ```
-This command gets cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
 ### Example 3: Get cloud service instance view
 ```powershell
@@ -92,7 +91,6 @@ Statuses                    : {{
                                 "level": "Info"
                               }}
 ```
-This cmdlet gets the instance view of the cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
 
 ## Next steps

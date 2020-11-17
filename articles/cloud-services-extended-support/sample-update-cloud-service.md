@@ -12,7 +12,7 @@ ms.custom:
 
 # Update an Azure Cloud Service (extended support)
 
-This article covers various examples on how to update an existing Azure Cloud Service (extended support) deployment.
+These samples cover various ways to update an existing Azure Cloud Service (extended support) deployment.
 
 ### Example 1: Add an extension to existing cloud service
 ```powershell
@@ -25,7 +25,6 @@ PS C:\> $cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfile
 # Update cloud service
 PS C:\> $cloudService | Update-AzCloudService
 ```
-Above set of commands adds a RDP extension to already existing cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
 ### Example 2: Remove all extensions from cloud service
 ```powershell
@@ -36,7 +35,6 @@ PS C:\> $cloudService.ExtensionProfileExtension = @()
 # Update cloud service
 PS C:\> $cloudService | Update-AzCloudService
 ```
-Above set of commands removes all extensions from existing cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
 ### Example 3: Remove RDP extension from cloud service
 ```powershell
@@ -47,7 +45,6 @@ PS C:\> $cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfile
 # Update cloud service
 PS C:\> $cloudService | Update-AzCloudService
 ```
-Above set of commands removes RDP extension from existing cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
 ### Example 4: Scale-Out / Scale-In role instances
 ```powershell
@@ -67,6 +64,6 @@ PS C:\> $cloudService.Configuration = $configuration
 # Update cloud service
 PS C:\> $cloudService | Update-AzCloudService
 ```
-Above set of commands shows how to scale-out and scale-in role instance count for cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 
+## Next steps
 For more information on Azure Cloud Services (extended support), see [Azure Cloud Services (extended support) overview](overview.md)

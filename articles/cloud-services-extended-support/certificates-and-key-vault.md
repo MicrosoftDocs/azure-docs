@@ -40,6 +40,6 @@ To install certificates on your cloud service roles, users need to add the certi
     :::image type="content" source="media/certs-and-key-vault-3.png" alt-text="Image shows adding properties to an ARM template.":::
  
 
-## What's next
+## Next Steps
 
 [Enable Remote Desktop](enable-rdp.md) for your Cloud Service (extended support) roles.

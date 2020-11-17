@@ -11,7 +11,7 @@ ms.custom:
 ---
 
 # Create a new Azure Cloud Service (extended Support)
-This article covers various examples that can be used to create a new Azure Cloud Service (extended support).
+These samples covers various ways to to create a new Azure Cloud Service (extended support).
 
 ### Example 1: Create new cloud service with single role
 
@@ -40,7 +40,6 @@ $cloudService = New-AzCloudService                                              
                   -NetworkProfileLoadBalancerConfiguration $loadBalancerConfig
 ```
 
-Above set of commands creates a cloud service with single role
 
 ### Example 2: Create new cloud service with single role and RDP extension
 
@@ -75,8 +74,6 @@ $cloudService = New-AzCloudService                                              
                   -ExtensionProfileExtension $extension
 ```
 
-Above set of commands creates a cloud service with single role and RDP extension
-
 ### Example 3: Create new cloud service with single role and certificate from key vault
 
 ```powershell
@@ -109,8 +106,6 @@ $cloudService = New-AzCloudService                                              
                   -NetworkProfileLoadBalancerConfiguration $loadBalancerConfig  `
                   -OSProfileSecret $secretGroup
 ```
-
-Above set of commands creates a cloud service with single role and certificate from key vault.
 
 ### Example 4: Create new cloud service with multiple roles and extensions
 
@@ -155,15 +150,6 @@ $cloudService = New-AzCloudService                                              
                   -Tag $tag
 ```
 
-Above set of commands creates a cloud service with single role and certificate from key vault.
-
-
-## Clean up deployment
-Run the following command to remove the resource group, scale set, and all related resources.
-
-```powershell
-Remove-AzResourceGroup -Name myResourceGroup
-```
 
 ## Next steps
 

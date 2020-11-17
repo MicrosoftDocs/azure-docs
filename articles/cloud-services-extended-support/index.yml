@@ -31,6 +31,10 @@ landingContent:
         links:
           - text: Deploy using PowerShell
             url: deploy-powershell.md
+          - text: Deploy using the Azure portal
+            url: deploy-portal.md
+          - text: Deploy using Visual Studio
+            url: deploy-visual-studio.md
 
   # Card
   - title: Concepts
@@ -39,6 +43,8 @@ landingContent:
         links:
           - text: Available sizes
             url: available-sizes.md
+          - text: Frequently asked questions
+            url: faq.md
 
   # Card
   - title: How-to Guides
@@ -47,3 +53,23 @@ landingContent:
         links:
           - text: Enable Remote Desktop
             url: enable-rdp.md
+          - text: Swap Cloud Service deployments
+            url: cloud-services-swap.md
+          - text: Update a Cloud Service
+            url: update-powershell.md
+          - text: Store and use certificates
+            url: certificates-and-key-vault.md
+
+  # Card
+  - title: Samples
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Create a Cloud Service deployment
+            url: sample-create-cloud-service.md
+          - text: Retrieve information about a Cloud Service deployment
+            url: sample-get-cloud-service.md
+          - text: Update a Cloud Service deployment
+            url: sample-update-cloud-service.md
+          - text: Reset a Cloud Service deployment
+            url: sample-reset-cloud-service.md
