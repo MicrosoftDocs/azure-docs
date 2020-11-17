@@ -217,7 +217,12 @@ On this page, if you select a subscription, you get to the **Service Bus Subscri
 :::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Active message count" lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png":::
 
 ## Next steps
-For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions].
+See the following documentation and samples:
+
+- [Azure Service Bus client library for Java - Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
+- [Samples on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus/src/samples)
+- [Java API reference](https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-preview&preserve-view=true)
+
 
 [Azure SDK for Java]: /java/api/overview/azure/
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation

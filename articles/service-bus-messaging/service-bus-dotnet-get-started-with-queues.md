@@ -64,7 +64,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
                 ServiceBusSender sender = client.CreateSender(queueName);
 
                 // create a message that we can send
-                ServiceBusMessage message = new ServiceBusMessage(Encoding.UTF8.GetBytes("Hello world!"));
+                ServiceBusMessage message = new ServiceBusMessage("Hello world!");
 
                 // send the message
                 await sender.SendMessageAsync(message);
@@ -79,9 +79,9 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         {
             // create a list of messages and return it to the caller
             List<ServiceBusMessage> listOfMessages = new List<ServiceBusMessage>();
-            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("First message")));
-            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("Second message")));
-            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("Third message")));
+            listOfMessages.Add(new ServiceBusMessage("First message"));
+            listOfMessages.Add(new ServiceBusMessage("Second message"));
+            listOfMessages.Add(new ServiceBusMessage("Third message"));
             return listOfMessages;
         }
     ```

@@ -64,7 +64,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             {
                 // create a sender for the topic
                 ServiceBusSender sender = client.CreateSender(topicName);
-                await sender.SendMessageAsync(new ServiceBusMessage(Encoding.UTF8.GetBytes("Hello, World!")));
+                await sender.SendMessageAsync(new ServiceBusMessage("Hello, World!"));
                 Console.WriteLine("Sent a single message to the topic: {topicName}");
             }
         }
@@ -76,13 +76,13 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         {
             // create a list of messages and return it to the caller
             List<ServiceBusMessage> listOfMessages = new List<ServiceBusMessage>();
-            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("First message")));
-            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("Second message")));
-            listOfMessages.Add(new ServiceBusMessage(Encoding.UTF8.GetBytes("Third message")));
+            listOfMessages.Add(new ServiceBusMessage("First message"));
+            listOfMessages.Add(new ServiceBusMessage("Second message"));
+            listOfMessages.Add(new ServiceBusMessage("Third message"));
             return listOfMessages;
         }
     ```
-1. 1. Add a method named `SendMessageBatchToTopicAsync` to the `Program` class, and add the following code. This method takes a list of messages, and prepares one or more batches to send to the Service Bus topic. 
+1. Add a method named `SendMessageBatchToTopicAsync` to the `Program` class, and add the following code. This method takes a list of messages, and prepares one or more batches to send to the Service Bus topic. 
 
     ```csharp
         static async Task SendMessageBatchToTopicAsync()
