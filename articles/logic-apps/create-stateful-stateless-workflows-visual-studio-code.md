@@ -1067,7 +1067,7 @@ To resolve this problem and adjust for the longer URI, edit the `UrlSegmentMaxCo
 
 1. On your computer, open the **Run** window, and run the `regedit` command, which opens the registry editor.
 
-1. In the **User Account Control** box, select **Yes** to permit your changes.
+1. In the **User Account Control** box, select **Yes** to permit your changes to your computer.
 
 1. In the left pane, under **Computer**, expand the nodes along the path, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters**, and then select **Parameters**.
 
@@ -1075,7 +1075,7 @@ To resolve this problem and adjust for the longer URI, edit the `UrlSegmentMaxCo
 
 1. Increase these key values enough so that the URIs can accommodate the names that you want to use. If these keys don't exist, add them to the **Parameters** folder by following these steps:
 
-   1. From the **Parameters** shortcut menu, select **New** > **Expandable String Value**.
+   1. From the **Parameters** shortcut menu, select **New** > **DWORD (32-bit) Value**.
 
    1. In the edit box that appears, enter `UrlSegmentMaxCount` as the new key name.
 
