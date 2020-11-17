@@ -233,7 +233,7 @@ To add new documents in VS Code:
 
 2. This will open up a JSON editor that has inferred the schema of your index.
 
-    ![Create a document json](../media/search-get-started-rest/create-document2.png)
+    ![Create a document json](../media/search-get-started-rest/create-document-2.png)
 
 3. Paste in the JSON below and then save the file. A prompt will open up asking you to confirm your changes. Select **Upload** to save the changes.
 
