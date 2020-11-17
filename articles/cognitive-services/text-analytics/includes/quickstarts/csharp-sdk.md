@@ -218,36 +218,36 @@ Create a new function called `RecognizeHealthcareEntitiesExample()` that takes t
 static void RecognizeHealthcareEntitiesExample(TextAnalyticsClient client)
 {
     string inputText = "Subject is taking 100mg of ibuprofen twice daily";
-		HealthcareOperation operation = await client.StartHealthcareAsync(inputText);
+    HealthcareOperation operation = await client.StartHealthcareAsync(inputText);
 
-		await operation.WaitForCompletionAsync();
+    await operation.WaitForCompletionAsync();
 
-		RecognizeHealthcareEntitiesResultCollection results = operation.Value;
+    RecognizeHealthcareEntitiesResultCollection results = operation.Value;
 
-		Console.WriteLine($"Results of Azure Text Analytics \"Healthcare\" Model, version: \"{results.ModelVersion}\"");
-		Console.WriteLine("");
+    Console.WriteLine($"Results of Azure Text Analytics \"Healthcare\" Model, version: \"{results.ModelVersion}\"");
+    Console.WriteLine("");
 
-		foreach (DocumentHealthcareResult result in results)
-		{
-						Console.WriteLine($"    Recognized the following {result.Entities.Count} healthcare entities:");
+    foreach (DocumentHealthcareResult result in results)
+    {
+        Console.WriteLine($"    Recognized the following {result.Entities.Count} healthcare entities:");
 
-						foreach (HealthcareEntity entity in result.Entities)
-						{
-								Console.WriteLine($"    Entity: {entity.Text}");
-								Console.WriteLine($"    Subcategory: {entity.Subcategory}");
-								Console.WriteLine($"    Offset: {entity.Offset}");
-								Console.WriteLine($"    Length: {entity.Length}");
-								Console.WriteLine($"    IsNegated: {entity.IsNegated}");
-								Console.WriteLine($"    Links:");
+        foreach (HealthcareEntity entity in result.Entities)
+        {
+            Console.WriteLine($"    Entity: {entity.Text}");
+            Console.WriteLine($"    Subcategory: {entity.Subcategory}");
+            Console.WriteLine($"    Offset: {entity.Offset}");
+            Console.WriteLine($"    Length: {entity.Length}");
+            Console.WriteLine($"    IsNegated: {entity.IsNegated}");
+            Console.WriteLine($"    Links:");
 
-								foreach (HealthcareEntityLink healthcareEntityLink in entity.Links)
-								{
-										Console.WriteLine($"        ID: {healthcareEntityLink.Id}");
-										Console.WriteLine($"        DataSource: {healthcareEntityLink.DataSource}");
-								}
-						}
-						Console.WriteLine("");
-		}
+            foreach (HealthcareEntityLink healthcareEntityLink in entity.Links)
+            {
+                Console.WriteLine($"        ID: {healthcareEntityLink.Id}");
+                Console.WriteLine($"        DataSource: {healthcareEntityLink.DataSource}");
+            }
+        }
+        Console.WriteLine("");
+    }
 }
 ```
 
@@ -350,81 +350,81 @@ Create a new function called `AnalyzeOperationExample()` that takes the client t
 ```csharp
 static void AnalyzeOperationExample(TextAnalyticsClient client)
 {
-		string inputText = "Microsoft was founded by Bill Gates and Paul Allen.";
+    string inputText = "Microsoft was founded by Bill Gates and Paul Allen.";
 
-		var batchDocuments = new List<string> { inputText };
+    var batchDocuments = new List<string> { inputText };
 
-		AnalyzeOperationOptions operationOptions = new AnalyzeOperationOptions()
-		{
-				KeyPhrasesTaskParameters = new KeyPhrasesTaskParameters(),
-				EntitiesTaskParameters = new EntitiesTaskParameters(),
-				PiiTaskParameters = new PiiTaskParameters(),
-				DisplayName = "Analyze Operation Quick Start Example"
-		};
+    AnalyzeOperationOptions operationOptions = new AnalyzeOperationOptions()
+    {
+        KeyPhrasesTaskParameters = new KeyPhrasesTaskParameters(),
+        EntitiesTaskParameters = new EntitiesTaskParameters(),
+        PiiTaskParameters = new PiiTaskParameters(),
+        DisplayName = "Analyze Operation Quick Start Example"
+    };
 
-		AnalyzeOperation operation = client.StartAnalyzeOperationBatch(batchDocuments, operationOptions, "en");
+    AnalyzeOperation operation = client.StartAnalyzeOperationBatch(batchDocuments, operationOptions, "en");
 
-		await operation.WaitForCompletionAsync();
+    await operation.WaitForCompletionAsync();
 
-		AnalyzeOperationResult resultCollection = operation.Value;
+    AnalyzeOperationResult resultCollection = operation.Value;
 
-		RecognizeEntitiesResultCollection entitiesResult = resultCollection.Tasks.EntityRecognitionTasks[0].Results;
+    RecognizeEntitiesResultCollection entitiesResult = resultCollection.Tasks.EntityRecognitionTasks[0].Results;
 
-		ExtractKeyPhrasesResultCollection keyPhrasesResult = resultCollection.Tasks.KeyPhraseExtractionTasks[0].Results;
+    ExtractKeyPhrasesResultCollection keyPhrasesResult = resultCollection.Tasks.KeyPhraseExtractionTasks[0].Results;
 
-		RecognizePiiEntitiesResultCollection piiResult = resultCollection.Tasks.EntityRecognitionPiiTasks[0].Results;
+    RecognizePiiEntitiesResultCollection piiResult = resultCollection.Tasks.EntityRecognitionPiiTasks[0].Results;
 
-		Console.WriteLine("Analyze Operation Request Details");
-		Console.WriteLine($"    Status: {resultCollection.Status}");
-		Console.WriteLine($"    DisplayName: {resultCollection.DisplayName}");
-		Console.WriteLine("");
+    Console.WriteLine("Analyze Operation Request Details");
+    Console.WriteLine($"    Status: {resultCollection.Status}");
+    Console.WriteLine($"    DisplayName: {resultCollection.DisplayName}");
+    Console.WriteLine("");
 
-		Console.WriteLine("Recognized Entities");
+    Console.WriteLine("Recognized Entities");
 
-		foreach (RecognizeEntitiesResult result in entitiesResult)
-		{
-				Console.WriteLine($"    Recognized the following {result.Entities.Count} entities:");
+    foreach (RecognizeEntitiesResult result in entitiesResult)
+    {
+        Console.WriteLine($"    Recognized the following {result.Entities.Count} entities:");
 
-				foreach (CategorizedEntity entity in result.Entities)
-				{
-						Console.WriteLine($"    Entity: {entity.Text}");
-						Console.WriteLine($"    Category: {entity.Category}");
-						Console.WriteLine($"    Offset: {entity.Offset}");
-						Console.WriteLine($"    ConfidenceScore: {entity.ConfidenceScore}");
-						Console.WriteLine($"    SubCategory: {entity.SubCategory}");
-				}
-				Console.WriteLine("");
-		}
+        foreach (CategorizedEntity entity in result.Entities)
+        {
+            Console.WriteLine($"    Entity: {entity.Text}");
+            Console.WriteLine($"    Category: {entity.Category}");
+            Console.WriteLine($"    Offset: {entity.Offset}");
+            Console.WriteLine($"    ConfidenceScore: {entity.ConfidenceScore}");
+            Console.WriteLine($"    SubCategory: {entity.SubCategory}");
+        }
+        Console.WriteLine("");
+    }
 
-		Console.WriteLine("Recognized PII Entities");
+    Console.WriteLine("Recognized PII Entities");
 
-		foreach (RecognizePiiEntitiesResult result in piiResult)
-		{
-				Console.WriteLine($"    Recognized the following {result.Entities.Count} PII entities:");
+    foreach (RecognizePiiEntitiesResult result in piiResult)
+    {
+        Console.WriteLine($"    Recognized the following {result.Entities.Count} PII entities:");
 
-				foreach (PiiEntity entity in result.Entities)
-				{
-						Console.WriteLine($"    Entity: {entity.Text}");
-						Console.WriteLine($"    Category: {entity.Category}");
-						Console.WriteLine($"    Offset: {entity.Offset}");
-						Console.WriteLine($"    ConfidenceScore: {entity.ConfidenceScore}");
-						Console.WriteLine($"    SubCategory: {entity.SubCategory}");
-				}
-				Console.WriteLine("");
-		}
+        foreach (PiiEntity entity in result.Entities)
+        {
+            Console.WriteLine($"    Entity: {entity.Text}");
+            Console.WriteLine($"    Category: {entity.Category}");
+            Console.WriteLine($"    Offset: {entity.Offset}");
+            Console.WriteLine($"    ConfidenceScore: {entity.ConfidenceScore}");
+            Console.WriteLine($"    SubCategory: {entity.SubCategory}");
+        }
+        Console.WriteLine("");
+    }
 
-		Console.WriteLine("Key Phrases");
+    Console.WriteLine("Key Phrases");
 
-		foreach (ExtractKeyPhrasesResult result in keyPhrasesResult)
-		{
-				Console.WriteLine($"    Recognized the following {result.KeyPhrases.Count} Keyphrases:");
+    foreach (ExtractKeyPhrasesResult result in keyPhrasesResult)
+    {
+        Console.WriteLine($"    Recognized the following {result.KeyPhrases.Count} Keyphrases:");
 
-				foreach (string keyphrase in result.KeyPhrases)
-				{
-						Console.WriteLine($"    {keyphrase}");
-				}
-				Console.WriteLine("");
-		}
+        foreach (string keyphrase in result.KeyPhrases)
+        {
+            Console.WriteLine($"    {keyphrase}");
+        }
+        Console.WriteLine("");
+    }
 }
 ```
 
