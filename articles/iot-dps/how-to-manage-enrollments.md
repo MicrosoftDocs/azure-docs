@@ -19,11 +19,7 @@ A *device enrollment* creates a record of a single device or a group of devices 
 
 There are two ways you can enroll your devices with the provisioning service:
 
-<<<<<<< HEAD
 * An **Enrollment group** is an entry for a group of devices that share a common attestation mechanism. We recommend using an enrollment group for a large number of devices which share a desired initial configuration, or for devices all going to the same tenant. Devices using [symmetric key](concepts-symmetric-key-attestation.md) or [X.509 certificates](concepts-x509-attestation.md) are supported. 
-=======
-* An **Enrollment group** is an entry for a group of devices that share a common attestation mechanism of X.509 certificates, signed by the same signing certificate, which can be the [root certificate](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) or the [intermediate certificate](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), used to produce device certificate on physical device. We recommend using an enrollment group for a large number of devices which share a desired initial configuration, or for devices all going to the same tenant. 
->>>>>>> e9bdd32c9e27fc4510224a4537ee5242b0b49613
 
     For step-by-step instructions on creating and using enrollment groups with symmetric keys, see the [Provision devices with symmetric keys](how-to-legacy-device-symm-key.md) tutorial.
 
