@@ -776,6 +776,8 @@
         href: hosted-heritage-online-sso-tutorial.md
       - name: Hosted MyCirqa
         href: hosted-mycirqa-sso-tutorial.md
+      - name: HowNow WebApp SSO
+        href: hownow-webapp-sso-tutorial.md
       - name: Hoxhunt
         href: hoxhunt-tutorial.md
       - name: HPE SaaS
@@ -1424,6 +1426,8 @@
         href: replicon-tutorial.md
       - name: Reprints Desk - Article Galaxy
         href: reprints-desk-article-galaxy-tutorial.md
+      - name: Resource Central
+        href: resource-central-tutorial.md
       - name: Retail Zipline
         href: retail-zipline-tutorial.md
       - name: Reviewsnap
@@ -1758,6 +1762,8 @@
         href: timeoffmanager-tutorial.md
       - name: Timetabling Solutions
         href: timetabling-solutions-tutorial.md
+      - name: TIMU
+        href: timu-tutorial.md
       - name: TINFOIL SECURITY
         href: tinfoil-security-tutorial.md
       - name: Titanfile
