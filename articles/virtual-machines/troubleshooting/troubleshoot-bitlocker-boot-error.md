@@ -246,7 +246,7 @@ For a Key Encryption Key scenario, follow these steps:
 
     #Delete the key from the memory
     [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)
-    clear-variable -name $wrappedBekSecretBase64
+    clear-variable -name wrappedBekSecretBase64
     ```
 3. Set the parameters. The script will process the KEK secret to create the BEK key, and then save it to a local folder on the recovery VM. If you receive errors when you run the script, see the [script troubleshooting](#script-troubleshooting) section.
 
