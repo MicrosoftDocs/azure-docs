@@ -41,7 +41,7 @@ The following three (3) cases cause an insufficient subnet size error:
    1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** than the `number of buffer nodes needed to upgrade`.
    1. If using Azure CNI, this occurs when the `number of free IPs in the subnet` is **less than** the `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value`.
    
-   By default AKS clusters set a max surge (upgrade buffer) value of one (1), but this upgrade behavior can be customized by setting the [max surge value of a node pool](upgrade-cluster.md#customize-node-surge-upgrade-preview) which will increase the number of available IPs needed to complete an upgrade.
+   By default AKS clusters set a max surge (upgrade buffer) value of one (1), but this upgrade behavior can be customized by setting the [max surge value of a node pool](upgrade-cluster.md#customize-node-surge-upgrade) which will increase the number of available IPs needed to complete an upgrade.
 
 1. AKS create or AKS Nodepool add
    1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** than the `number of nodes requested for the node pool`.
