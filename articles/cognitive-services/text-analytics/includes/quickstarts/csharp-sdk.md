@@ -96,8 +96,10 @@ static void Main(string[] args)
     EntityLinkingExample(client);
     RecognizePIIExample(client);
     KeyPhraseExtractionExample(client);
-    RecognizeHealthcareEntitiesExample(client);
-    AnalyzeOperationExample(client);
+    // Using AnalyzeOperationExample() and RecognizeHealthcareEntitiesExample() requires a Text Analytics resource with the standard (S) pricing tier.
+    // Using RecognizeHealthcareEntitiesExample() also requires submitting a request to the gated preview for this feature.
+    //AnalyzeOperationExample(client);
+    //RecognizeHealthcareEntitiesExample(client);
 
     Console.Write("Press any key to exit.");
     Console.ReadKey();
