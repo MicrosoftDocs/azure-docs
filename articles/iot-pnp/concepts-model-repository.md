@@ -3,7 +3,7 @@ title: Understand concepts of the device model repository | Microsoft Docs
 description: As a solution developer or an IT professional, learn about the basic concepts of the device model repository.
 author: rido-min
 ms.author: rmpablos
-ms.date: 09/30/2020
+ms.date: 11/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -82,8 +82,8 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 
 1. Fork the public GitHub repo: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models).
 1. Clone the forked repo. Optionally create a new branch to keep your changes isolated from the `main` branch.
-1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. See the [add-model](#add-model) tool.
-1. Validate the device models locally using the [scripts to validate changes](#validate-files) section.
+1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. See the [import-a-model-to-the-dtmi-folder](#import-a-model-to-the-dtmi-folder) section.
+1. Validate the models locally using the `dmr-client` tool. See the [validate](#validate-models) section.
 1. Commit the changes locally and push to your fork.
 1. From your fork, create a pull request that targets the `main` branch. See [Creating an issue or pull request](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) docs.
 1. Review the [pull request requirements](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
@@ -92,35 +92,71 @@ The pull request triggers a series of GitHub actions that will validate the new 
 
 Microsoft will respond to a pull request with all checks in three business days.
 
-### add-model
+### `dmr-client` Tool
 
-The following steps show you how the add-model.js script helps you add a new interface. This script requires Node.js to run:
+The tools used to validate the models during the PR checks can also be used to add and validate the DTDL interfaces locally.
 
-1. From a command prompt, navigate to the local git repo
-1. Run `npm install`
-1. Run `npm run add-model <path-to-file-to-add>`
+> Note: This tool requires the [.NET SDK](https://dotnet.microsoft.com/download) (3.1 or greater)
+
+#### Install `dmr-client`
+
+##### Linux/Bash
+
+```bash
+curl -L https://aka.ms/install-dmr-client-linux | bash
+```
+
+##### Windows/Powershell
+
+```powershell
+iwr https://aka.ms/install-dmr-client-windows -UseBasicParsing | iex
+```
+
+#### Import a Model to the `dtmi/` folder
+
+If you have your model already stored in json files, you can use the `dmr-client import` command to add those to the `dtmi/` folder with the right file name.
+
+```bash
+# from the local repo root folder
+dmr-client import --model-file "MyThermostat.json"
+```
+
+>Note: You can use the `--local-repo` argument to specify the local repo root folder
+
+#### Validate Models
+
+You can validate your models with the `dmr-client validate` command.
+
+```bash
+dmr-client validate --model-file ./my/model/file.json
+```
+
+>Note: The validation uses the latest DTDL parser version to ensure all the interfaces are compatible with the DTDL language spec.
+
+To validate external dependencies those must exist in the local repo. To validate models you can use the `--repo` option to specify a `local` or `remote` folder to resolve dependencies.
+
+```bash
+# from the repo root folder
+dmr-client validate --model-file ./my/model/file.json --repo .
+```
+
+##### Strict validation
+
+The Device Model Repo includes additional [requirements](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md), these can be validated with the `strict` flag.
+
+```bash
+dmr-client validate --model-file ./my/model/file.json --repo . --strict true
+```
 
 Watch the console output for any error messages.
 
-### Local validation
+#### Export models
 
-You can run the same validation checks locally before submitting the pull request to help diagnose issues in advance.
+Models can be exported from a given repo (local or remote) to a single file using a JSON Array. 
 
-#### validate-files
-
-`npm run validate-files <file1.json> <file2.json>` checks the file path matches the expected folder and file names.
-
-#### validate-ids
-
-`npm run validate-ids <file1.json> <file2.json>` checks that all IDs defined in the document use the same root as the main ID.
-
-#### validate-deps
-
-`npm run validate-deps <file1.json> <file2.json>` checks all the dependencies are available in the `dtmi` folder.
-
-#### validate-models
-
-You can run the [DTDL Validation Sample](https://github.com/Azure-Samples/DTDL-Validator) to validate your device models locally.
+```bash
+dmr-client export --dtmi "dtmi:com:example:TemperatureController;1" -o TemperatureController.expanded.json
+```
 
 ## Next steps
 
