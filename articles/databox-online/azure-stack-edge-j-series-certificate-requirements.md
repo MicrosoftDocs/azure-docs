@@ -26,7 +26,6 @@ Certificate issuing requirements are as follows:
 * The certificate's *Issued to:* field must not be the same as its *Issued by:* field except for Root CA certificates.
 
 
-
 ## Certificate algorithms
 
 Certificate algorithms must have the following requirements:
@@ -80,7 +79,7 @@ The PFX certificates installed on your Azure Stack Edge Pro device should meet t
 
 * The password to the certificate PFX must be a complex password. Make a note of this password because it is used as a deployment parameter.
 
-* Use only RSA certificates with the Microsoft RSA/Schannel Cryptographic provider. Other certificates are not supported, and the private key will not be accessible.
+* Use only RSA certificates with the Microsoft RSA/Schannel Cryptographic provider.
 
 For more information, see [Export PFX certificates with private key](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 

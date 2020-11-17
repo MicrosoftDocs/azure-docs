@@ -42,7 +42,7 @@ The following table shows common certificate errors and detailed information abo
 | CertificateManagement_MissingServerOid | Certificate with subject name {0} does not have server authentication OID. Check your certificate properties and if needed, bring in a new certificate.|
 | CertificateManagement_NameMismatch | Certificate type mismatch. Expected scope: {0}, found {1}. Upload appropriate certificate.|
 | CertificateManagement_NoPrivateKeyPresent | Certificate with subject name {0} has no private key present. Upload a .pfx certificate with private key.|
-| CertificateManagement_NoRSACryptoPrivateKey | The private key for certificate with subject name {​​​​​​​0}​​​​​​​ is not accessible. Use only RSA certificates with the Microsoft RSA/Schannel Cryptographic provider. |
+| CertificateManagement_NoRSACryptoPrivateKey | The private key for certificate with subject name {​​​​​​​0}​​​​​​​ is not accessible. Use only RSA certificates with the Microsoft RSA/Schannel Cryptographic provider. Other certificates are not supported, and the private key will not be accessible. |
 | CertificateManagement_NotSelfSignedCertificate | Certificate with subject name {0} is not self signed. Root certificates should be self signed |
 | CertificateManagement_NotSupportedOnVirtualAppliance | This operation is not supported on the virtual device. This error indicates that signing will only occur with Data Box Gateway running in Tactical Cloud Appliance. This error occurs while managing the device through Windows PowerShell.|
 | CertificateManagement_SelfSignedCertificate | Certificate with subject name {0} is self signed. Upload a certificate which is properly signed.|
