@@ -15,11 +15,11 @@ Azure Backup provides the capability to restore [Azure virtual machines (VMs) an
 > File recovery from an encrypted VM backup isn't supported.
 >
 
-![File folder recovery workflow](./media/backup-azure-restore-files-from-vm/filerecovery.png)
+![File folder recovery workflow](./media/backup-azure-restore-files-from-vm/file-recovery.png)
 
 ## Step 1: Generate and download script to browse and recover files
 
-To restore files or folders from the recovery point, go to the virtual machine and follow the below steps:
+To restore files or folders from the recovery point, go to the virtual machine and perform the following steps:
 
 1. Sign in to the [Azure portal](https://portal.Azure.com) and in the left pane, select **Virtual machines**. From the list of virtual machines, select the virtual machine to open that virtual machine's dashboard.
 
@@ -54,11 +54,11 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 ## Step 2: Ensure the machine meets the requirements before executing the script
 
-After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the below unsupported configurations. If it does, then choose an alternate machine preferably from the same region that meets the requirements.  
+After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. If it does, then choose an alternate machine preferably from the same region that meets the requirements.  
 
 ### Dynamic disks
 
-You cannot run the executable script on the VM with one or both of the following characteristics:
+You can't run the executable script on the VM with any of the following characteristics:
 
 - Volumes that span multiple disks (spanned and striped volumes).
 - Fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks.
@@ -69,11 +69,11 @@ You cannot run the downloaded executable on the VM that is configured for Window
 
 ### Virtual machine backups having large disks
 
-If the backedup machine has large number of disks (>16) or large disks (> 4 TB each) it is recommended not to execute the script on the same machine for restore, since it will have a significant impact on the VM. It is recommended to have a seperate VM only for file recovery (Azure VM D2v3 VMs) and then shut it down when not required. 
+If the backed-up machine has large number of disks (>16) or large disks (> 4 TB each) it's not recommended to execute the script on the same machine for restore, since it will have a significant impact on the VM. Instead it's recommended to have a seperate VM only for file recovery (Azure VM D2v3 VMs) and then shut it down when not required. 
 
 ## Step 3: OS requirements to succesfully run the script
 
-The VM on which you want to run the downloaded script must meet below requirements.
+The VM on which you want to run the downloaded script must meet the following requirements.
 
 ### For Windows OS
 
@@ -138,7 +138,7 @@ For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to 
 The access to `download.microsoft.com` is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.
 
 
-## Step 5: Running the script and Identifying volumes
+## Step 5: Running the script and identifying volumes
 
 ### For Windows
 
@@ -151,9 +151,9 @@ When you run the executable, the operating system mounts the new volumes and ass
 
    ![Recovery volumes attached](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-**For backedup VMs with large disk (Windows)**
+**For backed-up VMs with large disk (Windows)**
 
-After you run the script to restore your files. If the file recovery process hangs (i.e the disks are never mounted or they're mounted but volumes don't appear), perform the following steps.
+If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
   
 - Ensure that the OS is WS 2012 or higher.
 - Ensure the registry keys are set as suggested below in the restore server and make sure to reboot the server. The number beside the GUID can range from 0001-0005. In the following example, it's 0004. Navigate through the registry key path until the parameters section.
@@ -169,7 +169,7 @@ After you run the script to restore your files. If the file recovery process han
 
 ### For Linux
 
-For Linux machines, a python script is generated. One needs to download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
+For Linux machines, a python script is generated. Download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
 
 
 In Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes, and the corresponding mount paths are shown accordingly. These mount paths are visible to users having root level access. Browse through the volumes mentioned in the script output.
@@ -177,19 +177,19 @@ In Linux, the volumes of the recovery point are mounted to the folder where the 
   ![Linux File recovery menu](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
 
-**For backedup VMs with large disk (Linux)**
+**For backed-up VMs with large disk (Linux)**
 
-After you run the script to restore your files. If the file recovery process hangs (i.e the disks are never mounted or they're mounted but volumes don't appear), perform the following steps.
+If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
 
 - In the file /etc/iscsi/iscsid.conf, change the setting from:
     - `node.conn[0].timeo.noop_out_timeout = 5`  to `node.conn[0].timeo.noop_out_timeout = 30`
-- After making above changes, re-run the script. Incase of transient failures, ensure there is a gap of 20 to 30 minitues between each retries to avoid successive bursts of requests impacting the target preparation. This interval between re-runs will ensure the target is ready for connection from script.
+- After making the above changes, rerun the script. If there are transient failures, ensure there is a gap of 20 to 30 minitues between reruns to avoid successive bursts of requests impacting the target preparation. This interval between re-runs will ensure the target is ready for connection from the script.
 - After file recovery, make sure you go back to the portal and select **Unmount disks** for recovery points where you weren't able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
 
 
 #### LVM/RAID arrays (For Linux VM)
 
-In Linux, Logical volume manager (LVM) and/or software RAID Arrays are used to manage logical volumes over multiple disks. If the protected Linux VM uses LVM and/or RAID Arrays, you can't run the script on the same VM.<br>
+In Linux, Logical Volume Manager (LVM) and/or software RAID Arrays are used to manage logical volumes over multiple disks. If the protected Linux VM uses LVM and/or RAID Arrays, you can't run the script on the same VM.<br>
 Instead run the script on any other machine with a compatible OS and which supports the file system of the protected VM.<br>
 The following script output displays the LVM and/or RAID Arrays disks and the volumes with the partition type.
 
@@ -326,7 +326,7 @@ After identifying the files and copying them to a local storage location, remove
 
 ![Unmount disks](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
-Once the disks have been unmounted, you receive a message. It may take a few minutes for the connection to refresh so that you can remove the disks.
+Once the disks have been unmounted, you'll receive a message. It may take a few minutes for the connection to refresh so that you can remove the disks.
 
 In Linux, after the connection to the recovery point is severed, the OS doesn't remove the corresponding mount paths automatically. The mount paths exist as "orphan" volumes and are visible, but throw an error when you access/write the files. They can be manually removed. The script, when run, identifies any such volumes existing from any previous recovery points and cleans them up upon consent.
 
@@ -374,7 +374,6 @@ The script gives read-only access to a recovery point and is valid for only 12 h
 
 ## Next steps
 
-- For any problems while restoring files, refer to the [Troubleshooting](#troubleshooting) section
 - Learn how to [restore files via PowerShell](./backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
 - Learn how to [restore files via Azure CLI](./tutorial-restore-files.md)
 - After VM is restored, learn how to [manage backups](./backup-azure-manage-vms.md)
