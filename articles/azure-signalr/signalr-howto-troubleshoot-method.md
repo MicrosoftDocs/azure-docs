@@ -88,7 +88,7 @@ Client side logging experience is exactly the same as when using self-hosted Sig
 
 ##### Enable client-side logging for `ASP.NET SignalR`
 
-* [.NET client](https://docs.microsoft.com/en-us/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
+* [.NET client](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-the-net-client-windows-desktop-apps)
 
 * [Enabling tracing in Windows Phone 8 clients](https://docs.microsoft.com/aspnet/signalr/overview/testing-and-debugging/enabling-signalr-tracing#enabling-tracing-in-windows-phone-8-clients)
 
@@ -171,7 +171,7 @@ To diagnose connectivity issues in `Serverless` mode, the most straight forward 
 
 ## Classic mode troubleshooting
 
-`Classic` mode is obsoleted and is not encouraged to use. When in this mode, Azure SignalR service uses the connected *Server Connections* to determine if current service is in `default` mode or `serverless` mode. This can lead to some intermediate client connectivity issues because, when there is a sudden drop of all the connected *Server Connection*, for example due to network instability, Azure SignalR believes it is now switched to `serverless` mode, and clients connected during this period will never be routed to the hosted app server. Enable [service-side logs](#add_logs_server) and check if there are any clients recorded as `ServerlessModeEntered` if you have hosted app server however some clients never reach the app server side. If there is any, abort these client connections and let the clients restart can help.
+`Classic` mode is obsoleted and is not encouraged to use. When in this mode, Azure SignalR service uses the connected *Server Connections* to determine if current service is in `default` mode or `serverless` mode. This can lead to some intermediate client connectivity issues because, when there is a sudden drop of all the connected *Server Connection*, for example due to network instability, Azure SignalR believes it is now switched to `serverless` mode, and clients connected during this period will never be routed to the hosted app server. Enable [service-side logs](#add_logs_server) and check if there are any clients recorded as `ServerlessModeEntered` if you have hosted app server however some clients never reach the app server side. If there is any, [abort these client connections](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md#API) and let the clients restart can help.
 
 Troubleshooting `classic` mode connectivity and message delivery issues are similar to [troubleshooting default mode issues](#default_mode_tsg).
 
