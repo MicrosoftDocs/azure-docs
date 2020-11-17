@@ -71,20 +71,20 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
             }
         }
     ```
-1. Add a method named `CreateMessages` to create a list of messages to the `Program` class. Typically, you get these messages from different parts of your application. Here, we create a list of sample messages.
+1. Add a method named `CreateMessages` to create a queue (.NET queue) of messages to the `Program` class. Typically, you get these messages from different parts of your application. Here, we create a queue of sample messages.
 
     ```csharp
-        static IList<ServiceBusMessage> CreateMessages()
+        static Queue<ServiceBusMessage> CreateMessages()
         {
             // create a list of messages and return it to the caller
-            List<ServiceBusMessage> listOfMessages = new List<ServiceBusMessage>();
-            listOfMessages.Add(new ServiceBusMessage("First message"));
-            listOfMessages.Add(new ServiceBusMessage("Second message"));
-            listOfMessages.Add(new ServiceBusMessage("Third message"));
-            return listOfMessages;
+            Queue<ServiceBusMessage> messages = new Queue<ServiceBusMessage>();
+            messages.Enqueue(new ServiceBusMessage("First message"));
+            messages.Enqueue(new ServiceBusMessage("Second message"));
+            messages.Enqueue(new ServiceBusMessage("Third message"));
+            return messages;
         }
     ```
-1. Add a method named `SendMessageBatchAsync` to the `Program` class, and add the following code. This method takes a list of messages, and prepares one or more batches to send to the Service Bus queue. 
+1. Add a method named `SendMessageBatchAsync` to the `Program` class, and add the following code. This method takes a queue of messages, and prepares one or more batches to send to the Service Bus queue. 
 
     ```csharp
         static async Task SendMessageBatchAsync()
@@ -95,44 +95,44 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
                 // create a sender for the queue 
                 ServiceBusSender sender = client.CreateSender(queueName);
 
-                // prepare messages
-                IList<ServiceBusMessage> listOfMessages = CreateMessages();
+                // get the messages to be sent to the Service Bus queue
+                Queue<ServiceBusMessage> messages = CreateMessages();
 
-                // create a batch object
-                ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+                // total number of messages to be sent to the Service Bus queue
+                int messageCount = messages.Count;
 
-                for (var i = 0; i < listOfMessages.Count; i++)
+                // while all messages are not sent to the Service Bus queue
+                while (messages.Count > 0)
                 {
-                    // try adding a message to the batch
-                    if (!messageBatch.TryAddMessage(listOfMessages[i]))
+                    // start a new batch 
+                    using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+
+                    // add the first message to the batch
+                    if (messageBatch.TryAddMessage(messages.Peek()))
                     {
-                        // if it fails to add the message
-
-                        // send the current batch as it's full
-                        await sender.SendMessagesAsync(messageBatch);
-                        Console.WriteLine($"Sent a batch of messages to the queue: {queueName}");
-
-                        // dispose the batch object. create a new batch in the next step.
-                        messageBatch.Dispose();
-
-                        // create a new batch for the remaining messages
-                        messageBatch = await sender.CreateMessageBatchAsync();
-
-                        // add the message failed to be added to the new batch
-                        if (!messageBatch.TryAddMessage(listOfMessages[i]))
-                        {
-                            // if it still fails, the message is probably too big for the batch
-                            Console.WriteLine($"Message {i} is too big to fit in a batch. Skipping");
-                            break;
-                        }
+                        // deque the message from the .NET queue once the message is added to the batch
+                        messages.Dequeue();
                     }
+                    else
+                    {
+                        // if the first message can't fit, then it is too large for the batch
+                        throw new Exception($"Message {messageCount - messages.Count} is too large and cannot be sent.");
+                    }
+
+                    // add as many messages as possible to the current batch
+                    while (messages.Count > 0 && messageBatch.TryAddMessage(messages.Peek()))
+                    {
+                        // deque the message from the .NET queue as it has been added to the batch
+                        messages.Dequeue();
+                    }
+        
+                    // now, send the batch
+                    await sender.SendMessagesAsync(messageBatch);
+        
+                    // if there are any remaining messages in the .NET queue, the while loop repeats 
                 }
 
-                // send the final batch
-                await sender.SendMessagesAsync(messageBatch);
-                messageBatch.Dispose();
-
-                Console.WriteLine($"Sent a batch of messages to the queue: {queueName}");
+                Console.WriteLine($"Sent a batch of {messageCount} messages to the topic: {queueName}");
             }
         }
     ```
