@@ -541,8 +541,8 @@ To test your logic app, follow these steps to start a debugging session and find
       ![Screenshot that shows Outlook email as described in the example](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-app-result-email.png)
 
       > [!NOTE]
-      > If the run fails with a `503 Service Unavailable` error, this problem might result from a longer trigger name 
-      > or action name that causes the underlying Uniform Resource Identifier (URI) to exceed the 255 character limit. 
+      > If the run fails with a `503 Service Unavailable` error, this problem can result from a longer trigger name 
+      > or action name that causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit. 
       > For more information, see ["503 Service Unavailable"](#503-service-unavailable).
 
 1. In Visual Studio Code, return to your workflow's overview page.
@@ -575,8 +575,8 @@ To test your logic app, follow these steps to start a debugging session and find
    ![Screenshot that shows each step in the workflow run and their status](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
 
    > [!NOTE]
-   > In the monitoring view, if a step shows a `503 Service Unavailable` error, this problem might result from a longer trigger 
-   > name or action name that causes the underlying Uniform Resource Identifier (URI) to exceed the 255 character limit. 
+   > In the monitoring view, if a step shows a `503 Service Unavailable` error, this problem can result from a longer trigger 
+   > name or action name that causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit. 
    > For more information, see ["503 Service Unavailable"](#503-service-unavailable).
 
    Here are the possible statuses that each step in the workflow can have:
@@ -1062,9 +1062,9 @@ Although many [existing limits for Azure Logic Apps](../logic-apps/logic-apps-li
 
 ### "503 Service Unavailable"
 
-Appearing after a run fails or in monitoring view, this error results from a long trigger name or action name, which causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit.
+Appearing after a run fails or in monitoring view, this error results from a longer trigger name or action name that causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit.
 
-To resolve this problem and accommodate the longer URI, edit the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry keys on your computer by following the steps below. Respectively, these key's default values are 255 characters and 260 characters, which are described in this topic, [Http.sys registry settings for Windows](/troubleshoot/iis/httpsys-registry-windows).
+To resolve this problem and accommodate the longer URI, edit the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry keys on your computer by following the steps below. These key's default values are described in this topic, [Http.sys registry settings for Windows](/troubleshoot/iis/httpsys-registry-windows).
 
 > [!IMPORTANT]
 > Before you start, make sure that you save your work. This solution requires you 
@@ -1074,13 +1074,11 @@ To resolve this problem and accommodate the longer URI, edit the `UrlSegmentMaxC
 
 1. In the **User Account Control** box, select **Yes** to permit your changes.
 
-1. In the left pane, under **Computer**, expand the nodes along the path, `KEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters`, and then select **Parameters**.
+1. In the left pane, under **Computer**, expand the nodes along the path, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters**, and then select **Parameters**.
 
-1. In the right pane, find the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry key names.
+1. In the right pane, find the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry keys.
 
-1. Increase these key values enough so that the URIs can accommodate the names that you want to use.
-
-1. If these keys don't exist, add them to the **Parameters** folder.
+1. Increase these key values enough so that the URIs can accommodate the names that you want to use. If these keys don't exist, add them to the **Parameters** folder by following these steps:
 
    1. From the **Parameters** shortcut menu, select **New** > **Expandable String Value**.
 
@@ -1092,7 +1090,7 @@ To resolve this problem and accommodate the longer URI, edit the `UrlSegmentMaxC
 
    1. To add the `UrlSegmentMaxLength` key value, repeat these steps.
 
-   After you edit or add these key values, the registry editor looks like this example:
+   After you increase or add these key values, the registry editor looks like this example:
 
    ![Screenshot that shows the registry editor.](media/create-stateful-stateless-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
 
