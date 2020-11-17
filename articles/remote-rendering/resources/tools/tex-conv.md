@@ -9,4 +9,4 @@ ms.topic: article
 
 # TexConv - Texture conversion tool
 
-See [github repository for TexConv tool](https://github.com/microsoft/DirectXTex/wiki/Texconv)
+See [GitHub repository for TexConv tool](https://github.com/microsoft/DirectXTex/wiki/Texconv).
