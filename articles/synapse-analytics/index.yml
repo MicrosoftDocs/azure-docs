@@ -22,7 +22,7 @@ landingContent:
   # Card (optional)
   - title: About Azure Synapse Analytics
     linkLists:
-      - linkListType: OVERVIEW
+      - linkListType: overview
         links:
           - text: What is Azure Synapse
             url: overview-what-is.md
@@ -30,7 +30,7 @@ landingContent:
             url: overview-cheat-sheet.md
           - text: FAQ
             url: overview-faq.md
-      - linkListType: GET STARTED
+      - linkListType: get-started
         links:
           - text: Step-by-step to getting started
             url: get-started.md
