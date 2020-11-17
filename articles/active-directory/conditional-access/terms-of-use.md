@@ -101,14 +101,14 @@ Once you have finalized your terms of use document, use the following procedure 
    | Alice | Jan 1 | Feb 1 | Mar 1 | Apr 1 |
    | Bob | Jan 15 | Feb 1 | Mar 1 | Apr 1 |
 
-1. Use the **Duration before re-acceptance requires (days)** setting to specify the number of days before the user must reaccept the terms of use. This allows users to follow their own schedule. For example, if you set the duration to **30** days, here is how expirations might occur for two users:
+1. Use the **Duration before reacceptance requires (days)** setting to specify the number of days before the user must reaccept the terms of use. This allows users to follow their own schedule. For example, if you set the duration to **30** days, here is how expirations might occur for two users:
 
    | User | First accept date | First expire date | Second expire date | Third expire date |
    | --- | --- | --- | --- | --- |
    | Alice | Jan 1 | Jan 31 | Mar 2 | Apr 1 |
    | Bob | Jan 15 | Feb 14 | Mar 16 | Apr 15 |
 
-   It is possible to use the **Expire consents** and **Duration before re-acceptance requires (days)** settings together, but typically you use one or the other.
+   It is possible to use the **Expire consents** and **Duration before reacceptance requires (days)** settings together, but typically you use one or the other.
 
 1. Under **Conditional Access**, use the **Enforce with Conditional Access policy template** list to select the template to enforce the terms of use.
 
@@ -116,8 +116,8 @@ Once you have finalized your terms of use document, use the following procedure 
 
    | Template | Description |
    | --- | --- |
-   | **Access to cloud apps for all guests** | A Conditional Access policy will be created for all guests and all cloud apps. This policy impacts the Azure portal. Once this is created, you might be required to sign-out and sign-in. |
-   | **Access to cloud apps for all users** | A Conditional Access policy will be created for all users and all cloud apps. This policy impacts the Azure portal. Once this is created, you will be required to sign-out and sign-in. |
+   | **Access to cloud apps for all guests** | A Conditional Access policy will be created for all guests and all cloud apps. This policy impacts the Azure portal. Once this is created, you might be required to sign out and sign in. |
+   | **Access to cloud apps for all users** | A Conditional Access policy will be created for all users and all cloud apps. This policy impacts the Azure portal. Once this is created, you will be required to sign out and sign in. |
    | **Custom policy** | Select the users, groups, and apps that this terms of use will be applied to. |
    | **Create Conditional Access policy later** | This terms of use will appear in the grant control list when creating a Conditional Access policy. |
 
@@ -239,11 +239,11 @@ You can edit some details of terms of use, but you can't modify an existing docu
      ![Edit terms of use pane showing name and expand options](./media/terms-of-use/edit-terms-use.png)
 
 5.	In the pane on the right, upload the pdf for the new version
-6.	There is also a toggle option here **Require re-accept** if you want to require your users to accept this new version the next time they sign in. If you require your users to re-accept, next time they try to access the resource defined in your conditional access policy they will be prompted to accept this new version. If you don’t require your users to re-accept, their previous consent will stay current and only new users who have not consented before or whose consent expires will see the new version.
+6.	There is also a toggle option here **Require reaccept** if you want to require your users to accept this new version the next time they sign in. If you require your users to reaccept, next time they try to access the resource defined in your conditional access policy they will be prompted to accept this new version. If you don’t require your users to reaccept, their previous consent will stay current and only new users who have not consented before or whose consent expires will see the new version.
 
     ![Edit terms of use pane showing name and expand options](./media/terms-of-use/re-accept.png)
 
-7.	Once you have uploaded your new pdf and decided on re-accept, click Add at the bottom of the pane.
+7.	Once you have uploaded your new pdf and decided on reaccept, click Add at the bottom of the pane.
 8.	You will now see the most recent version under the Document column.
 
 ## View previous versions of a terms of use
@@ -262,7 +262,7 @@ You can edit some details of terms of use, but you can't modify an existing docu
 1.	Sign in to Azure and navigate to **Terms of use** at https://aka.ms/catou.
 2.	To see who has currently accepted the ToU click on the number under the **Accepted** column for the ToU you want.
 3.	By default, the next page will show you the current state of each users acceptance to the ToU
-4.	If you would like to see the previous consent events, you can select **All** from the **Current State** drop down. Now you can see each users events in details about each version and what happened.
+4.	If you would like to see the previous consent events, you can select **All** from the **Current State** drop-down. Now you can see each users events in details about each version and what happened.
 5.	Alternatively, you can select a specific version from the **Version**  drop down to see who has accepted that specific version.
 
 
@@ -424,7 +424,7 @@ A: You can [review previously accepted terms of use](#how-users-can-review-their
 A: If you have configured both Azure AD terms of use and [Intune terms and conditions](/intune/terms-and-conditions-create), the user will be required to accept both. For more information, see the [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **Q: What endpoints does the terms of use service use for authentication?**<br />
-A: Terms of use utilizes the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com and https://account.activedirectory.windowsazure.com. If your organization has an allow list of URLs for enrollment, you will need to add these endpoints to your allow list, along with the Azure AD endpoints for sign in.
+A: Terms of use utilizes the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com and https://account.activedirectory.windowsazure.com. If your organization has an allow list of URLs for enrollment, you will need to add these endpoints to your allow list, along with the Azure AD endpoints for sign-in.
 
 ## Next steps
 
