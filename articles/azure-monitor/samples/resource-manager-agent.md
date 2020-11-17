@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2020
+ms.date: 11/17/2020
 
 ---
 
@@ -16,8 +16,9 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 
 ## Azure Monitor agent (preview)
+The samples in this section in the Azure Monitor agent (preview) on Windows and Linux agents. This includes installing the agent on virtual machines in Azure and also Azure Arc enabled servers. 
 
-### Windows Azure VM
+### Windows Azure virtual machine
 The following sample installs the Azure Monitor agent on a Windows Azure virtual machine.
 
 #### Template file
@@ -68,7 +69,7 @@ The following sample installs the Azure Monitor agent on a Windows Azure virtual
 }
 ```
 
-### Linux Azure VM (preview)
+### Linux Azure virtual machine
 The following sample installs the Azure Monitor agent on a Linux Azure virtual machine.
 
 #### Template file
@@ -119,7 +120,7 @@ The following sample installs the Azure Monitor agent on a Linux Azure virtual m
 }
 ```
 
-### Windows Azure Arc enabled server (preview)
+### Windows Azure Arc enabled server
 The following sample installs the Azure Monitor agent on a Windows Azure Arc enabled server.
 
 #### Template file
@@ -169,7 +170,7 @@ The following sample installs the Azure Monitor agent on a Windows Azure Arc ena
 }
 ```
 
-## Linux Azure Arc enabled server (preview)
+### Linux Azure Arc enabled server
 The following sample installs the Azure Monitor agent on a Linux Azure Arc enabled server.
 
 #### Template file
@@ -220,6 +221,7 @@ The following sample installs the Azure Monitor agent on a Linux Azure Arc enabl
 ```
 
 ## Log Analytics agent
+The samples in this section install the Log Analytics agent on Windows and Linux virtual machines in Azure and connect it to a Log Analytics workspace.
 
 ###  Windows
 The following sample installs the Log Analytics agent on a Windows Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-windows.md).
@@ -412,6 +414,7 @@ The following sample installs the Log Analytics agent on a Linux Azure virtual m
 
 
 ## Diagnostic extension
+The samples in this section install the diagnostic extension on Windows and Linux virtual machines in Azure and configure it for data collection.
 
 ### Windows
 The following sample enables and configures the diagnostic extension on a Windows Azure virtual machine. For details on the configuration, see [Windows diagnostics extension schema](../platform/diagnostics-extension-schema-windows.md).
