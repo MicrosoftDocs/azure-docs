@@ -128,15 +128,26 @@ The FHIR Server uses [Azure Active Directory](https://azure.microsoft.com/servic
 
 Currently, the allowed actions for a given role are applied *globally* on the API.
 
-## Service Limits
+## Service limits
 
 * [**Request Units (RUs)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
 
-* **Concurrent Requests** and **Instances** - By dafault, you have five concurrent requests on two instances in the cluster (for a total of 10 concurrent connections). If you believe you need more concurrent connections, open a support ticket with details on your needs.
+* **Concurrent requests** and **Instances** - By dafault, you have five concurrent requests on two instances in the cluster (for a total of 10 concurrent connections). If you believe you need more concurrent connections, open a support ticket with details on your needs.
 
-* **Bundle Size** - Each bundle is limited to 500 items.
+* **Bundle size** - Each bundle is limited to 500 items.
 
-* **Data Size** - Data/Documents must each be slightly less than 2 MB. This accounts for the 2 MB limit in Cosmos DB and the metadata that slightly increases the size of your document. 
+* **Data size** - Data/Documents must each be slightly less than 2 MB.
+
+## Performance expectations
+
+The performance of the system is dependent on the number of RUs, concurrent connections, and the type of operations you are performing (Put, Post, etc.). Below are some general ranges of what you can expect based on configured RUs. In general, performance scales linearly with an increase in RUs:
+
+| # of RUs | Resources/sec |
+|----------|---------------|
+| 400      | 5-10          |
+| 1,000    | 100-150       |
+| 10,000   | 225-400       |
+| 100,000  | 2,500-4,000   |
 
 ## Next steps
 
