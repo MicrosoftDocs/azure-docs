@@ -80,7 +80,7 @@
       href: stream-files-nodejs-quickstart.md
   - name: Azure portal
     items:
-    - name: Customer-managed keys or BYOK
+    - name: Customer managed keys or BYOK tutorial
       href: tutorial-byok-portal.md
     - name: Store AMS events in Azure Log Analytics
       href: tutorial-events-log-analytics.md
