@@ -32,9 +32,9 @@ The sample enrollment app is written using JavaScript and the React Native frame
 
 ## Set up the development environment
 
-1. To set up your development environment, follow the [React Native documentation](https://reactnative.dev/docs/environment-setup). Select **React Native CLI Quickstart** as your development OS and select **Android** as the target OS. Complete the sections **Installing dependencies** and **Android development environment**. 
-1. Don't create a new project. Instead, clone the git repository for the [sample enrollment app](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample) to get started.  
-1. Open the env.json file in your preferred text editor, such as [Visual Studio Code](https://code.visualstudio.com/), and fill in the configuration values. Paste your Face API endpoint and key into the appropriate fields. This step is only for local testing purposes&mdash;don't check in your Face API key to your remote repository.
+1. Clone the git repository for the [sample enrollment app](https://github.com/azure-samples/cognitive-services-FaceAPIEnrollmentSample).
+1. To set up your development environment, follow the [React Native documentation](https://reactnative.dev/docs/environment-setup). Select **React Native CLI Quickstart** as your development OS and select **Android** as the target OS. Complete the sections **Installing dependencies** and **Android development environment**.
+1. Open the env.json file in your preferred text editor, such as [Visual Studio Code](https://code.visualstudio.com/), and add your endpoint and key. You can get your endpoint and key in the Azure portal under the **Overview** tab of your resource. This step is only for local testing purposes&mdash;don't check in your Face API key to your remote repository.
 1. Run the app using either the Android Virtual Device emulator from Android Studio, or your own Android device. To test your app on a physical device, follow the relevant [React Native documentation](https://reactnative.dev/docs/running-on-device).  
 
 
@@ -66,9 +66,6 @@ When you're ready to release your app for production, you'll generate a release-
 Follow the [Prepare for release](https://developer.android.com/studio/publish/preparing#publishing-build) documentation to learn how to generate a private key, sign your application, and generate a release APK.  
 
 Once you've created a signed APK, see the [Publish your app](https://developer.android.com/studio/publish) documentation to learn more about how to release your app.
-
-React Native also offers documentation on this process [here](https://reactnative.dev/docs/signed-apk-android).
-
 
 ## Next Steps  
 
