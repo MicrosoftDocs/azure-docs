@@ -99,7 +99,7 @@ Document size must be under 5,120 characters per document. For the maximum numbe
 
 ### Structure the API request for the hosted asynchronous web API
 
-For both the container and hosted web API, you must create a POST request. You can [use Postman](text-analytics-how-to-call-api.md#set-up-a-request-in-postman), a cURL command or the **API testing console** in the [Text Analytics for health hosted API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) to quickly construct and send a POST request to the hosted web API in your desired region. 
+For both the container and hosted web API, you must create a POST request. You can [use Postman](text-analytics-how-to-call-api.md), a cURL command or the **API testing console** in the [Text Analytics for health hosted API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) to quickly construct and send a POST request to the hosted web API in your desired region. 
 
 Below is an example of a JSON file attached to the Text Analytics for health API request's POST body:
 
@@ -315,7 +315,7 @@ The following is an example of the response of a GET request.  Please note that 
 
 ### Structure the API request for the container
 
-You can [use Postman](text-analytics-how-to-call-api.md#set-up-a-request-in-postman) or the example cURL request below to submit a query to the container you deployed, replacing the `serverURL` variable with the appropriate value.  Note the version of the API in the URL for the container is different than the hosted API.
+You can [use Postman](text-analytics-how-to-call-api.md) or the example cURL request below to submit a query to the container you deployed, replacing the `serverURL` variable with the appropriate value.  Note the version of the API in the URL for the container is different than the hosted API.
 
 ```bash
 curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
