@@ -39,6 +39,10 @@ To meet the certification requirements, your device must:
 - Publish the model, and all required interfaces, in the [Azure IoT Public Model Repository](https://devicemodels.azureiotsolutions.com/)
 - Send the model ID during [DPS registration](concepts-developer-guide-device-csharp.md#dps-payload) in the DPS provisioning payload.
 - Announce the model ID during the [MQTT connection](concepts-developer-guide-device-csharp.md#model-id-announcement).
+- All device models are required to be compatible with [Azure IoT Central](https://aka.ms/IoTCPnPCert)
+
+> [!NOTE]
+> If device model is using data types such as Arrays and Geospatial from DTDL, Azure IoT Central currently does not fully support these types
 
 ## Test with the Azure IoT Extension CLI
 
