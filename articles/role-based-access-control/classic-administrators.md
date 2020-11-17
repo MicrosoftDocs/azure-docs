@@ -54,7 +54,7 @@ To add a guest user as a Co-Administrator, follow the same steps as in the previ
 
 - The guest user must have a presence in your directory. This means that the user was invited to your directory and accepted the invite.
 
-For more information, about how to add a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/b2b/add-users-administrator.md).
+For more information, about how to add a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
 
 ### Differences for guest users
 

@@ -4,8 +4,8 @@ description: This article describes eligibility criteria and requirements for pu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
 ---
 

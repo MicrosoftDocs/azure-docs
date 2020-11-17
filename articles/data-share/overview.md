@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 07/30/2020
+ms.date: 10/30/2020
 ---
 # What is Azure Data Share?
 
@@ -39,7 +39,7 @@ Data providers can offer their data consumers incremental updates to the data sh
 
 ![data share flow](media/data-share-flow.png)
 
-When a data consumer accepts a data share, they are able to receive the data in a data store of their choice. For example, if the data provider shares data using Azure Blob Storage, the data consumer can receive this data in Azure Data Lake Store. Similarly, if the data provider shares data from an Azure Synapse Analytics (formerly SQL Data Warehouse), the data consumer can choose whether they want to receive the data into an Azure Data Lake Store, an Azure SQL Database or an Azure Synapse Analytics. In the case of sharing from SQL-based sources, the data consumer can also choose whether they receive data in parquet or csv. 
+When a data consumer accepts a data share, they are able to receive the data in a data store of their choice. For example, if the data provider shares data using Azure Blob Storage, the data consumer can receive this data in Azure Data Lake Store. Similarly, if the data provider shares data from an Azure Synapse Analytics, the data consumer can choose whether they want to receive the data into an Azure Data Lake Store, an Azure SQL Database or an Azure Synapse Analytics. In the case of sharing from SQL-based sources, the data consumer can also choose whether they receive data in parquet or csv. 
 
 With in-place sharing, data providers can share data where it resides without copying the data. After sharing relationship is established through the invitation flow, a symbolic link is created between the data provider's source data store and the data consumer's target data store. Data consumer can read and query the data in real time using its own data store. Changes to the source data store is available to the data consumer immediately. In-place sharing is currently in preview for Azure Data Explorer.
 
@@ -67,9 +67,7 @@ Azure Data Share enables data consumers to:
 
 * Accept data shared with you into a [supported data store](supported-data-stores.md).
 
-* Trigger a full or incremental snapshot of a Data Share that an organization has shared with you
-
-* Subscribe to a data share to receive the latest copy of the data through incremental snapshot
+* Access data in place or trigger a full or incremental snapshot of shared data
 
 All key capabilities listed above are supported through the Azure portal or via REST APIs. For more details on using Azure Data Share through REST APIs, check out our reference documentation. 
 

@@ -140,7 +140,7 @@ After you've obtained the code sample, configure it for your environment and the
 1. Run the application with the `dotnet` command:
 
     ```console
-    dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
+    dotnet bin/Debug/netcoreapp3.1/b2c-ms-graph.dll
     ```
 
 The application displays a list of commands you can execute. For example, get all users, get a single user, delete a user, update a user's password, and bulk import.
