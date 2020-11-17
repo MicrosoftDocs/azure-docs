@@ -21,14 +21,11 @@ ms.custom: mvc, devx-track-js, devx-track-azurecli
 
 Get started with Azure Load Balancer by using Azure CLI to create a public load balancer and three virtual machines.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure CLI installed locally or Azure Cloud Shell
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
-
-If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+- This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -464,7 +461,7 @@ Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/p
 
 Use [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) to create a public IP prefix for the outbound connectivity.
 
-For more information on scaling outbound NAT and outbound connectivity, see [Scale outbound NAT with multiple IP addresses](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scale).
+For more information on scaling outbound NAT and outbound connectivity, see [Scale outbound NAT with multiple IP addresses](load-balancer-outbound-connections.md).
 
 #### Public IP
 

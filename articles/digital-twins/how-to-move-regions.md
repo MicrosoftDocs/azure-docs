@@ -121,7 +121,7 @@ Next, you'll complete the "move" of your instance by creating a new instance in 
 
 ### Create a new instance
 
-First, create a new instance of Azure Digital Twins in your target region. Follow the steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). Keep these pointers in mind:
+First, create a new instance of Azure Digital Twins in your target region. Follow the steps in [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md). Keep these pointers in mind:
 
 * You can keep the same name for the new instance *if* it's in a different resource group. If you need to use the same resource group that contains your original instance, your new instance will need its own distinct name.
 * Enter the new target region when prompted for a location.

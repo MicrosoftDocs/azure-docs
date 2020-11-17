@@ -83,4 +83,4 @@ As an author, you might want to control which of your **example sentences** are 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Enable a CI/CD process for your Custom Commands application](./how-to-custom-commands-deploy-cicd.md)
+> [Update a command from the client](./how-to-custom-commands-update-command-from-client.md)

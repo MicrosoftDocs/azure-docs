@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: jlian
-ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support']
+ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support', fasttrack-edit, iot]
 
 # As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away
 ---
@@ -151,6 +151,11 @@ AzureDiagnostics
 As an IoT solutions developer or operator, you need to be aware of this behavior in order to interpret connect/disconnect events and related errors in logs. If you want to change the token lifespan or renewal behavior for devices, check to see whether the device implements a device twin setting or a device method that makes this possible.
 
 If you're monitoring device connections with Event Hub, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal; for example, by not triggering actions based on disconnects as long as the disconnect event is followed by a connect event within a certain time span.
+
+> [!NOTE]
+> IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection.
+>
+> 400027 ConnectionForcefullyClosedOnNewConnection will be logged into IoT Hub Logs
 
 ## I tried the steps, but they didn't work
 

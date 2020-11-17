@@ -91,14 +91,14 @@ Overall limits on the content in the knowledge base:
 
 ## Create Knowledge base call limits:
 These represent the limits for each create knowledge base action; that is, clicking *Create KB* or calling the CreateKnowledgeBase API.
-* Maximum number of alternate questions per answer: 300
+* Recommended maximum number of alternate questions per answer: 300
 * Maximum number of URLs: 10
 * Maximum number of files: 10
 
 ## Update Knowledge base call limits
 These represent the limits for each update action; that is, clicking *Save and train* or calling the UpdateKnowledgeBase API.
 * Length of each source name: 300
-* Maximum number of alternate questions added or deleted: 300
+* Recommended maximum number of alternate questions added or deleted: 300
 * Maximum number of metadata fields added or deleted: 10
 * Maximum number of URLs that can be refreshed: 5
 
