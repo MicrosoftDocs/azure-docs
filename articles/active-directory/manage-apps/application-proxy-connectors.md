@@ -99,7 +99,7 @@ In general, the more users you have, the larger a machine you'll need. Below is 
 > [!NOTE]
 > There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.
 >
-> This table also focuses on the expected performance of a connector based on the type of machine it is installed on. This is separate from the Application Proxy service's throttling limits, see [Service limits and restrictions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+> This table also focuses on the expected performance of a connector based on the type of machine it is installed on. This is separate from the Application Proxy service's throttling limits, see [Service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## Security and networking
 
@@ -150,7 +150,7 @@ The certificates used are specific to the Application Proxy service. They get cr
 
 After the first successful certificate renewal the Azure AD Application Proxy Connector service (Network Service) has no permission to remove the old certificate from the local machine store. If the certificate has expired or it won't be used by the service anymore, you can delete it safely.
 
-To avoid problems with the certificate renewal, ensure that the network communication from the connector towards the [documented destinations](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) is enabled.
+To avoid problems with the certificate renewal, ensure that the network communication from the connector towards the [documented destinations](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) is enabled.
 
 If a connector is not connected to the service for several months, its certificates may be outdated. In this case, uninstall and reinstall the connector to trigger registration. You can run the following PowerShell commands:
 

@@ -161,4 +161,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 - [Manage access rights to storage data with Azure RBAC](./storage-auth-aad-rbac-portal.md).
 - [Use Azure AD with storage applications](storage-auth-aad-app.md).
-- [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-active-directory-powershell.md)
+- [Run PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-data-operations-powershell.md)
