@@ -171,13 +171,14 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
 The [configuration](#configuration) section explains these properties.
 
 > [!NOTE]
-The `dataType` property determines which binding is used. The following values are available to support different binding strategies.
-
-| Binding Value | Default | Description | Example |
-| --- | --- | --- | --- |
-| `undefined` | Y | Uses rich binding | `def main(input: func.InputStream)` |
-| `string` | N | Uses generic binding and casts the input type as a `string` | `def main(input: str)` |
-| `binary` | N | Uses generic binding and casts the input blob as `bytes` Python object | `def main(input: bytes)` |
+> The `dataType` property determines which binding is used. The following values are available to support different binding strategies:
+> 
+> | Binding value | Default | Description | Example |
+> | --- | --- | --- | --- |
+> | `undefined` | Y | Uses rich binding | `def main(input: func.InputStream)` |
+> | `string` | N | Uses generic binding and casts the input type as a `string` | `def main(input: str)` |
+> | `binary` | N | Uses generic binding and casts the input blob as `bytes` Python object | `def main(input: bytes)` |
+>
 
 Here's the Python code:
 
