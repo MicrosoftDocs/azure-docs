@@ -69,7 +69,7 @@ The following steps illustrate how to view the contents of a file share within S
 
 1. The main pane will display the file share's contents.
     
-    ![The share's contents](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![Screenshot of the main pane for a file share in Storage Explorer showing the contents of the share.](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## Delete a file share
 
@@ -187,7 +187,7 @@ The following steps illustrate how to manage the files (and folders) within a fi
 
 1.  The main pane will display the file share's contents.
 
-    ![The share's contents](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![Screenshot of the main pane for the file share myazurefileshare in Storage Explorer, showing the contents of the share with the first folder selected.](media/vs-azure-tools-storage-explorer-files/image17.png)
 
 1.  The main pane will display the file share's contents.
 

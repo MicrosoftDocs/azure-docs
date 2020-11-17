@@ -1,7 +1,7 @@
 ---
 title:  "Add Rows: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Add Rows module in Azure Machine Learning to concatenate two datasets.
+description: Learn how to use the Add Rows module in Azure Machine Learning designer to concatenate two datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-seventeen
+zone_pivot_groups: programming-languages-set-twenty-five
 keywords: speaker recognition, voice biometry
 ---
 

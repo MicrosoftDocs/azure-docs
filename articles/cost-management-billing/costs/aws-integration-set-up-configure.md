@@ -3,7 +3,7 @@ title: Set up AWS integration with Azure Cost Management
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 10/23/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -34,14 +34,12 @@ Use the **Cost & Usage Reports** page of the Billing and Cost Management console
 6. For **Data refresh settings**, select whether you want the AWS Cost and Usage report to refresh if AWS applies refunds, credits, or support fees to your account after finalizing your bill. When a report refreshes, a new report is uploaded to Amazon S3. We recommend that you leave the setting selected.
 7. Select **Next**.
 8. For **S3 bucket**, choose **Configure**.
-9. In the Configure S3 Bucket dialog box, do one of the following tasks:
-    1. Select an existing bucket from the drop-down list and choose **Next**.
-    2. Enter a bucket name and the Region where you want to create a new bucket and choose **Next**.
-10.    Select **I have confirmed that this policy is correct**, then click **Save**.
-11.    (Optional) For Report path prefix, enter the report path prefix that you want prepended to the name of your report.
+9. In the Configure S3 Bucket dialog box, enter a bucket name and the Region where you want to create a new bucket and choose **Next**.
+10. Select **I have confirmed that this policy is correct**, then click **Save**.
+11. (Optional) For Report path prefix, enter the report path prefix that you want prepended to the name of your report.
 If you don't specify a prefix, the default prefix is the name that you specified for the report. The date range has the `/report-name/date-range/` format.
 12. For **Time unit**, choose  **Hourly**.
-13.    For **Report versioning**, choose whether you want each version of the report to overwrite the previous version, or if you want additional new reports.
+13. For **Report versioning**, choose whether you want each version of the report to overwrite the previous version, or if you want additional new reports.
 14. For **Enable data integration for**, no selection is required.
 15. For **Compression**, select **GZIP**.
 16. Select **Next**.

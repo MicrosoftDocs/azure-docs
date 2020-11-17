@@ -1,6 +1,6 @@
 ---
-title: Connect IoT Plug and Play sample Java component device code to IoT Hub | Microsoft Docs
-description: Build and run IoT Plug and Play sample Java device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Tutorial - Connect IoT Plug and Play sample Java component device code to Azure IoT Hub | Microsoft Docs
+description: Tutorial - Build and run IoT Plug and Play sample Java device code that uses multiple components and connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
@@ -25,7 +25,7 @@ This tutorial shows you how to build a sample IoT Plug and Play device applicati
 
 To complete this tutorial on Windows, install the following software on your local Windows environment:
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), under **Long-term support**, select **Java 8**.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), under **Long-term support**, select **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## Download the code

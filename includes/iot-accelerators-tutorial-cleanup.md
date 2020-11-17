@@ -22,4 +22,4 @@ If you no longer need the solution accelerator, delete it from the [Provisioned 
 
 ![Delete solution](media/iot-accelerators-tutorial-cleanup/deletesolution.png)
 
-![Delete solution](media/iot-accelerators-tutorial-cleanup/deletesolution-provision.png)
+![Delete solution 2](media/iot-accelerators-tutorial-cleanup/deletesolution-provision.png)

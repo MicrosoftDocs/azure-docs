@@ -53,9 +53,10 @@ Load balancer doesn't directly interact with TCP or UDP or the application layer
 
 ## Next steps
 
+- Learn about the [components](components.md) that make up Azure Load Balancer.
 - See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer: create one, create VMs with a custom IIS extension installed, and load balance the web app between the VMs.
 - Learn about [Azure Load Balancer outbound connections](load-balancer-outbound-connections.md).
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).
 - Learn about [Health Probes](load-balancer-custom-probe-overview.md).
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Learn more about [Network Security Groups](../virtual-network/security-overview.md).
+- Learn more about [Network Security Groups](../virtual-network/network-security-groups-overview.md).

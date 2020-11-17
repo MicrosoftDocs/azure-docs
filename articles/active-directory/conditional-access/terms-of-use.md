@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -41,7 +41,7 @@ Azure AD terms of use has the following capabilities:
 - Require employees or guests to accept your terms of use prior to registering security information in Azure Multi-Factor Authentication (MFA).
 - Require employees to accept your terms of use prior to registering security information in Azure AD self-service password reset (SSPR).
 - Present general terms of use for all users in your organization.
-- Present specific terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](../users-groups-roles/groups-dynamic-membership.md)).
+- Present specific terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](../enterprise-users/groups-dynamic-membership.md)).
 - Present specific terms of use when accessing high business impact applications, like Salesforce.
 - Present terms of use in different languages.
 - List who has or hasn't accepted to your terms of use.
@@ -389,4 +389,3 @@ A: Terms of use utilizes the following endpoints for authentication: https://tok
 ## Next steps
 
 - [Quickstart: Require terms of use to be accepted before accessing cloud apps](require-tou.md)
-- [Best practices for Conditional Access in Azure Active Directory](best-practices.md)

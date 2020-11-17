@@ -7,7 +7,7 @@ author: trinadhkotturu
 manager: gwallace
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 10/15/2020
 ms.author: trinadhk
 
 ---

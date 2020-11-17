@@ -3,13 +3,13 @@ title: How to add data feeds from different sources to Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: add different data feeds to Metrics Advisor
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # Add data feeds from different data sources to Metrics Advisor
@@ -21,7 +21,7 @@ Use this article to find the settings and requirements for connecting different 
 | Authentication types | Description |
 | ---------------------|-------------|
 |**Basic** | You will need to be able to provide basic parameters for accessing data sources. For example a connection string or key. Data feed admins are able to view these credentials. |
-| **AzureManagedIdentity** | [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for Azure resources is a feature of Azure Active Directory. It provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication.|
+| **AzureManagedIdentity** | [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for Azure resources is a feature of Azure Active Directory. It provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication.|
 | **AzureSQLConnectionString**| Store your AzureSQL connection string as a **credential entity** in Metrics Advisor, and use it directly each time when onboarding metrics data. Only admins of the Credential entity are able to view these credentials, but enables authorized viewers to create data feeds without needing to know details for the credentials. |
 | **DataLakeGen2SharedKey**| Store your data lake account key as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of the Credential entity are able to view these credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
 | **Service principal**| Store your service principal as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Credential entity are able to view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
@@ -56,7 +56,7 @@ Create an **Credential entity** and use it for authenticating to your data sourc
 
     2. Copy the Application ID generated into **Application ID** field in Metrics Advisor. 
     
-    See the [Azure Bot Service documentation](https://docs.microsoft.com/azure/bot-service/bot-service-resources-app-insights-keys#application-id) for more information.
+    See the [Azure Bot Service documentation](/azure/bot-service/bot-service-resources-app-insights-keys#application-id) for more information.
 
 * **API Key**: API keys are used by applications outside the browser to access this resource. To get the API key, do the following:
 
@@ -68,12 +68,12 @@ Create an **Credential entity** and use it for authenticating to your data sourc
 
     4. Copy the API key to the **API key** field in Metrics Advisor.
 
-* **Query**: Azure Application Insights logs are built on Azure Data Explorer, and Azure Monitor log queries use a version of the same Kusto query language. The [Kusto query language documentation](https://docs.microsoft.com/azure/data-explorer/kusto/query/) has all of the details for the language and should be your primary resource for writing a query against Application Insights. 
+* **Query**: Azure Application Insights logs are built on Azure Data Explorer, and Azure Monitor log queries use a version of the same Kusto query language. The [Kusto query language documentation](/azure/data-explorer/kusto/query/) has all of the details for the language and should be your primary resource for writing a query against Application Insights. 
 
 
 ## <span id="blob">Azure Blob Storage (JSON)</span>
 
-* **Connection String**: See the Azure Blob Storage [connection string](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string#view-and-copy-a-connection-string) article for information on retrieving this string.
+* **Connection String**: See the Azure Blob Storage [connection string](../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account) article for information on retrieving this string.
 
 * **Container**: Metrics Advisor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
 
@@ -128,9 +128,9 @@ Only one timestamp is allowed per JSON file.
 
 ## <span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Connection String**: Metrics Advisor supports accessing Azure Data Explorer(Kusto) by using Azure AD application authentication. You will need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database. To get your connection string, see the [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
+* **Connection String**: Metrics Advisor supports accessing Azure Data Explorer(Kusto) by using Azure AD application authentication. You will need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database. To get your connection string, see the [Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app) documentation.
 
-* **Query**: See [Kusto Query Language](https://docs.microsoft.com/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@StartTime` and `@EndTime` variables in your query. They should be formatted: `yyyy-MM-dd HH:mm:ss`.
+* **Query**: See [Kusto Query Language](/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@StartTime` and `@EndTime` variables in your query. They should be formatted: `yyyy-MM-dd HH:mm:ss`.
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
@@ -169,7 +169,7 @@ Currently Metrics Advisor supports the data schema in the JSON files as follow. 
 
 * **Connection String**: This can be found in 'Shared access policies' in your Event Hubs instance. Also for the 'EntityPath', it could be found by clicking into your Event Hubs instance and clicking at 'Event Hubs' in 'Entities' blade. Items that listed can be input as EntityPath. 
 
-* **Consumer Group**: A [consumer group](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#consumer-groups) is a view (state, position, or offset) of an entire event hub.
+* **Consumer Group**: A [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) is a view (state, position, or offset) of an entire event hub.
 Event Hubs use the latest offset of a consumer group to consume (subscribe from) the data from data source. Therefore a dedicated consumer group should be created for one data feed in your Metrics Advisor instance.
 
 * **Timestamp**: Metrics Advisor uses the Event Hubs timestamp as the event timestamp if the user data source does not contain a timestamp field.
@@ -183,7 +183,7 @@ The timestamp field must match one of these two formats:
 -->
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
-* **Connection String**: Metrics Advisor accepts an [ADO.NET Style Connection String](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source.
+* **Connection String**: Metrics Advisor accepts an [ADO.NET Style Connection String](/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source.
 
     Sample connection string:
 
@@ -209,7 +209,7 @@ The timestamp field must match one of these two formats:
 
 ## <span id="table">Azure Table Storage</span>
 
-* **Connection String**: Please refer to [View and copy a connection string](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=azure-portal#view-account-access-keys) for information on how to retrieve the connection string from Azure Table Storage.
+* **Connection String**: Please refer to [View and copy a connection string](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%252fazure%252fstorage%252ftables%252ftoc.json#view-account-access-keys) for information on how to retrieve the connection string from Azure Table Storage.
 
 * **Table Name**: Specify a table to query against. This can be found in your Azure Storage Account instance. Click **Tables** in the **Table Service** section.
 

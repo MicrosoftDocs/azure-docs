@@ -15,18 +15,18 @@ ms.author: mbaldwin
 ---
 # Azure Key Vault logging
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. You can do this by enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple key vaults.
+After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. You can do this by enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide. For step by step guidance on setting this up, see [How to enable Key Vault logging](howto-logging.md).
 
 You can access your logging information 10 minutes (at most) after the key vault operation. In most cases, it will be quicker than this.  It's up to you to manage your logs in your storage account:
 
 * Use standard Azure access control methods to secure your logs by restricting who can access them.
 * Delete logs that you no longer want to keep in your storage account.
 
-For overview information about Key Vault, see [What is Azure Key Vault?](overview.md)). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For information about using [Azure Monitor for Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
+For overview information about Key Vault, see [What is Azure Key Vault?](overview.md). For information about where Key Vault is available, see the [pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For information about using [Azure Monitor for Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## Interpret your Key Vault logs
+
+When you enable logging, a new container called **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple key vaults.
 
 Individual blobs are stored as text, formatted as a JSON blob. Let's look at an example log entry. 
 
@@ -84,32 +84,76 @@ The following table lists the **operationName** values and corresponding REST AP
 | operationName | REST API command |
 | --- | --- |
 | **Authentication** |Authenticate via Azure Active Directory endpoint |
-| **VaultGet** |[Get information about a key vault](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
-| **VaultPut** |[Create or update a key vault](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultDelete** |[Delete a key vault](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
-| **VaultPatch** |[Update a key vault](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultList** |[List all key vaults in a resource group](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
-| **KeyCreate** |[Create a key](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
-| **KeyGet** |[Get information about a key](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| **KeyImport** |[Import a key into a vault](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
-| **KeyBackup** |[Back up a key](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **KeyDelete** |[Delete a key](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| **KeyRestore** |[Restore a key](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **KeySign** |[Sign with a key](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| **KeyVerify** |[Verify with a key](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
-| **KeyWrap** |[Wrap a key](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
-| **KeyUnwrap** |[Unwrap a key](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
-| **KeyEncrypt** |[Encrypt with a key](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| **KeyDecrypt** |[Decrypt with a key](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| **KeyUpdate** |[Update a key](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| **KeyList** |[List the keys in a vault](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| **KeyListVersions** |[List the versions of a key](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| **SecretSet** |[Create a secret](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[Get a secret](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **SecretUpdate** |[Update a secret](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **SecretDelete** |[Delete a secret](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **SecretList** |[List secrets in a vault](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| **SecretListVersions** |[List versions of a secret](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultGet** |[Get information about a key vault](/rest/api/keyvault/vaults) |
+| **VaultPut** |[Create or update a key vault](/rest/api/keyvault/vaults) |
+| **VaultDelete** |[Delete a key vault](/rest/api/keyvault/vaults) |
+| **VaultPatch** |[Update a key vault](/rest/api/keyvault/vaults) |
+| **VaultList** |[List all key vaults in a resource group](/rest/api/keyvault/vaults) |
+| **VaultPurge** |[Purge deleted vault](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |Recover deleted vault|
+| **VaultGetDeleted** |[Get deleted vault](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[List deleted vaults](/rest/api/keyvault/vaults/listdeleted) |
+| **KeyCreate** |[Create a key](/rest/api/keyvault/createkey) |
+| **KeyGet** |[Get information about a key](/rest/api/keyvault/getkey) |
+| **KeyImport** |[Import a key into a vault](/rest/api/keyvault/vaults) |
+| **KeyDelete** |[Delete a key](/rest/api/keyvault/deletekey) |
+| **KeySign** |[Sign with a key](/rest/api/keyvault/sign) |
+| **KeyVerify** |[Verify with a key](/rest/api/keyvault/vaults) |
+| **KeyWrap** |[Wrap a key](/rest/api/keyvault/wrapkey) |
+| **KeyUnwrap** |[Unwrap a key](/rest/api/keyvault/unwrapkey) |
+| **KeyEncrypt** |[Encrypt with a key](/rest/api/keyvault/encrypt) |
+| **KeyDecrypt** |[Decrypt with a key](/rest/api/keyvault/decrypt) |
+| **KeyUpdate** |[Update a key](/rest/api/keyvault/updatekey) |
+| **KeyList** |[List the keys in a vault](/rest/api/keyvault/getkeys) |
+| **KeyListVersions** |[List the versions of a key](/rest/api/keyvault/getkeyversions) |
+| **KeyPurge** |[Purge a key](/rest/api/keyvault/purgedeletedkey) |
+| **KeyBackup** |[Backup a key](/rest/api/keyvault/backupkey) |
+| **KeyRestore** |[Restore a key](/rest/api/keyvault/restorekey) |
+| **KeyRecover** |[Recover a key](/rest/api/keyvault/recoverdeletedkey) |
+| **KeyGetDeleted** |[Get deleted key](/rest/api/keyvault/getdeletedkey) |
+| **KeyListDeleted** |[List the deleted keys in a vault](/rest/api/keyvault/getdeletedkeys) |
+| **CertificateGet** |[Get information about a certificate](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[Create a certificate](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[Import a certificate into a vault](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[Update a certificate](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[List the certificates in a vault](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[List the versions of a certificate](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[Delete a certificate](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[Purge a certificate](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[Backup a certificate](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[Restore a certificate](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[Recover a certificate](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[Get deleted certificate](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[List the deleted certificates in a vault](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[Get certificate policy](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[Update certificate policy](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[Create certificate policy](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[Get certificate contacts](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[Set certificate contacts](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[Delete certificate contacts](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[Get certificate issuer](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[Set certificate issuer](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[Update certificate issuer](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[Delete certificate issuer](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[List the certificate issuers](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |Enroll a certificate |
+| **CertificateRenew** |Renew a certificate |
+| **CertificatePendingGet** |Retrieve pending certificate |
+| **CertificatePendingMerge** |Pending a certificate merge |
+| **CertificatePendingUpdate** |Pending a certificate update |
+| **CertificatePendingDelete** |Delete pending certificate |
+| **SecretSet** |[Create a secret](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[Get a secret](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[Update a secret](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[Delete a secret](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[List secrets in a vault](/rest/api/keyvault/getsecrets) |
+| **SecretListVersions** |[List versions of a secret](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[Purge a secret](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[Backup a secret](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[Restore a secret](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[Recover a secret](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[Get deleted secret](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[List the deleted secrets in a vault](/rest/api/keyvault/getdeletedsecrets) |
 | **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published |
 | **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
 | **SecretExpiredEventGridNotification** |Secret expired event published |
@@ -118,16 +162,15 @@ The following table lists the **operationName** values and corresponding REST AP
 | **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published |
 | **CertificateExpiredEventGridNotification** |Certificate expired event published |
 
-## <a id="loganalytics"></a>Use Azure Monitor logs
+## Use Azure Monitor logs
 
 You can use the Key Vault solution in Azure Monitor logs to review Key Vault `AuditEvent` logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. 
 
 For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
-## <a id="next"></a>Next steps
+## Next steps
 
-For a tutorial that uses Azure Key Vault in a .NET web application, see [Use Azure Key Vault from a web application](tutorial-net-create-vault-azure-web-app.md).
-
-For programming references, see [the Azure Key Vault developer's guide](developers-guide.md).
-
-For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault cmdlets](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
+- [How to enable Key Vault logging](howto-logging.md)
+- For a tutorial that uses Azure Key Vault in a .NET web application, see [Use Azure Key Vault from a web application](tutorial-net-create-vault-azure-web-app.md).
+- For programming references, see [the Azure Key Vault developer's guide](developers-guide.md).
+- For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault cmdlets](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).

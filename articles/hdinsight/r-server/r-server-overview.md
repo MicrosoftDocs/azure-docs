@@ -19,7 +19,7 @@ ML Services on HDInsight provides the latest capabilities for R-based analytics 
 
 The edge node provides a convenient place to connect to the cluster and run your R scripts. The edge node allows running the ScaleR parallelized distributed functions across the cores of the server. You can also run them across the nodes of the cluster by using ScaleR's Hadoop Map Reduce. You can also use Apache Spark compute contexts.
 
-The models or predictions that result from analysis can be downloaded for on-premises use. They can also be `operationalized` elsewhere in Azure. In particular, through [Azure Machine Learning Studio (classic)](https://studio.azureml.net), and [web service](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
+The models or predictions that result from analysis can be downloaded for on-premises use. They can also be `operationalized` elsewhere in Azure. In particular, through [Azure Machine Learning Studio (classic)](https://studio.azureml.net), and [web service](../../machine-learning/classic/deploy-a-machine-learning-web-service.md).
 
 ## Get started with ML Services on HDInsight
 
@@ -31,7 +31,7 @@ ML Services in HDInsight provides the following benefits:
 
 ### AI innovation from Microsoft and open-source
 
-  ML Services includes highly adaptable, distributed set of algorithms such as [RevoscaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package), and [microsoftML](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/microsoftml-package). These algorithms can work on data sizes larger than the size of physical memory. They also run on a wide variety of platforms in a distributed manner. Learn more about the collection of Microsoft's custom [R packages](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) and [Python packages](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) included with the product.
+  ML Services includes highly adaptable, distributed set of algorithms such as [RevoscaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](/machine-learning-server/python-reference/revoscalepy/revoscalepy-package), and [microsoftML](/machine-learning-server/python-reference/microsoftml/microsoftml-package). These algorithms can work on data sizes larger than the size of physical memory. They also run on a wide variety of platforms in a distributed manner. Learn more about the collection of Microsoft's custom [R packages](/machine-learning-server/r-reference/introducing-r-server-r-package-reference) and [Python packages](/machine-learning-server/python-reference/introducing-python-package-reference) included with the product.
   
   ML Services bridges these Microsoft innovations and contributions coming from the open-source community (R, Python, and AI toolkits). All on top of a single enterprise-grade platform. Any R or Python open-source machine learning package can work side by side with any proprietary innovation from Microsoft.
 
@@ -39,7 +39,7 @@ ML Services in HDInsight provides the following benefits:
 
   Enterprises relying on traditional paradigms and environments invest much time and effort towards operationalization. This action results in inflated costs and delays including the translation time for: models, iterations to keep them valid and current, regulatory approval, and managing permissions.
 
-  ML Services offers enterprise grade [operationalization](https://docs.microsoft.com/machine-learning-server/what-is-operationalization). After a machine learning model completes, it takes just a few clicks to generate web services APIs. These [web services](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services) are hosted on a server grid in the cloud and can be integrated with line-of-business applications. The ability to deploy to an elastic grid lets you scale seamlessly with the needs of your business, both for batch and real-time scoring. For instructions, see [Operationalize ML Services on HDInsight](r-server-operationalize.md).
+  ML Services offers enterprise grade [operationalization](/machine-learning-server/what-is-operationalization). After a machine learning model completes, it takes just a few clicks to generate web services APIs. These [web services](/machine-learning-server/operationalize/concept-what-are-web-services) are hosted on a server grid in the cloud and can be integrated with line-of-business applications. The ability to deploy to an elastic grid lets you scale seamlessly with the needs of your business, both for batch and real-time scoring. For instructions, see [Operationalize ML Services on HDInsight](r-server-operationalize.md).
 
 <!---
 * **Deep ecosystem engagements to deliver customer success with optimal total cost of ownership**
@@ -56,9 +56,9 @@ The following features are included in ML Services on HDInsight.
 
 | Feature category | Description |
 |------------------|-------------|
-| R-enabled | [R packages](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) for solutions written in R, with an open-source distribution of R, and run-time infrastructure for script execution. |
-| Python-enabled | [Python modules](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) for solutions written in Python, with an open-source distribution of Python, and run-time infrastructure for script execution.
-| [Pre-trained models](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | For visual analysis and text sentiment analysis, ready to score data you provide. |
+| R-enabled | [R packages](/machine-learning-server/r-reference/introducing-r-server-r-package-reference) for solutions written in R, with an open-source distribution of R, and run-time infrastructure for script execution. |
+| Python-enabled | [Python modules](/machine-learning-server/python-reference/introducing-python-package-reference) for solutions written in Python, with an open-source distribution of Python, and run-time infrastructure for script execution.
+| [Pre-trained models](/machine-learning-server/install/microsoftml-install-pretrained-models) | For visual analysis and text sentiment analysis, ready to score data you provide. |
 | [Deploy and consume](r-server-operationalize.md) | `Operationalize` your server and deploy solutions as a web service. |
 | [Remote execution](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Start remote sessions on ML Services cluster on your network from your client workstation. |
 
@@ -92,7 +92,7 @@ To score using Azure Machine Learning, use the open-source Azure Machine Learnin
 
 ### Score on-premises
 
-To score on-premises after creating your model: serialize the model in R, download it, de-serialize it, then use it for scoring new data. You can score new data by using the approach described earlier in Score in HDInsight or by using [web services](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+To score on-premises after creating your model: serialize the model in R, download it, de-serialize it, then use it for scoring new data. You can score new data by using the approach described earlier in Score in HDInsight or by using [web services](/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## Maintain the cluster
 

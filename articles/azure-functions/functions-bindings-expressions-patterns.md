@@ -37,7 +37,7 @@ When a function is running locally, app setting values come from the *local.sett
 > [!NOTE]
 > The `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
 
-The following example is an Azure Queue Storage trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
+The following example is an Azure Queue Storage trigger that uses an app setting `%input_queue_name%` to define the queue to trigger on.
 
 ```json
 {
@@ -46,7 +46,7 @@ The following example is an Azure Queue Storage trigger that uses an app setting
       "name": "order",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "%input-queue-name%",
+      "queueName": "%input_queue_name%",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     }
   ]
@@ -58,7 +58,7 @@ You can use the same approach in class libraries:
 ```csharp
 [FunctionName("QueueTrigger")]
 public static void Run(
-    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    [QueueTrigger("%input_queue_name%")]string myQueueItem, 
     ILogger log)
 {
     log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");

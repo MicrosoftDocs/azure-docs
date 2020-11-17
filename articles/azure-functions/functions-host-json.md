@@ -112,6 +112,11 @@ The following sample *host.json* file for version 2.x+ has all possible options 
     "managedDependency": {
         "enabled": true
     },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -133,7 +138,7 @@ The following sections of this article explain each top-level property. All are 
 
 This setting is a child of [logging](#logging).
 
-Controls options for Application Insights, including [sampling options](./functions-monitoring.md#configure-sampling).
+Controls options for Application Insights, including [sampling options](./configure-monitoring.md#configure-sampling).
 
 For the complete JSON structure, see the earlier [example host.json file](#sample-hostjson-file).
 
@@ -305,7 +310,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 |Property  |Default | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Defines what level of file logging is enabled.  Options are `never`, `always`, `debugOnly`. |
-|logLevel|n/a|Object that defines the log category filtering for functions in the app. Versions 2.x and later follow the ASP.NET Core layout for log category filtering. This setting lets you filter logging for specific functions. For more information, see [Log filtering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in the ASP.NET Core documentation. |
+|logLevel|n/a|Object that defines the log category filtering for functions in the app. Versions 2.x and later follow the ASP.NET Core layout for log category filtering. This setting lets you filter logging for specific functions. For more information, see [Log filtering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) in the ASP.NET Core documentation. |
 |console|n/a| The [console](#console) logging setting. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |
 
@@ -344,6 +349,28 @@ Managed dependency is a feature that is currently only supported with PowerShell
 ## queues
 
 Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue-output.md#host-json).  
+
+## retry
+
+Controls the [retry policy](./functions-bindings-error-pages.md#retry-policies-preview) options for all executions in the app.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|strategy|null|Required. The retry strategy to use. Valid values are `fixedDelay` or `exponentialBackoff`.|
+|maxRetryCount|null|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
+|delayInterval|null|The delay that's used between retries with a `fixedDelay` strategy.|
+|minimumInterval|null|The minimum retry delay when using `exponentialBackoff` strategy.|
+|maximumInterval|null|The maximum retry delay when using `exponentialBackoff` strategy.| 
 
 ## sendGrid
 

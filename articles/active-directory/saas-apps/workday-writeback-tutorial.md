@@ -6,9 +6,9 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 10/14/2020
 ms.author: chmutali
 ---
 # Tutorial: Configure attribute writeback from Azure AD to Workday
@@ -142,16 +142,31 @@ Once the Workday provisioning app configurations have been completed, you can tu
 
 1. In the **Provisioning** tab, set the **Provisioning Status** to **On**.
 
+1. In the **Scope** dropdown, select **Sync all users and groups**. With this option, the Writeback app will write back mapped attributes of all users from Azure AD to Workday, subject to the scoping rules defined under **Mappings** -> **Source Object Scope**. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Select Writeback scope](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
+
+   > [!NOTE]
+   > The Workday Writeback provisioning app does not support the option **Sync only assigned users and groups**.
+ 
+
 2. Click **Save**.
 
 3. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the source directory. You can check the progress bar to the track the progress of the sync cycle. 
 
-4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are imported from the source and exported to the target application.  
+4. At any time, check the **Provisioning logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are imported from the source and exported to the target application.  
 
 5. Once the initial sync is completed, it will write a summary report in the **Provisioning** tab, as shown below.
 
      > [!div class="mx-imgBorder"]
      > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+
+## Known issues and limitations
+
+* The Writeback app uses a pre-defined value for parameters **Communication_Usage_Type_ID** and **Phone_Device_Type_ID**. If your Workday tenant is using a different value for these attributes, then the Writeback operation will not succeed. A suggested workaround is to update the Type_IDs in Workday. 
+* When the Writeback app is configured to update secondary phone numbers, it does not replace the existing secondary phone number in Workday. It adds one more secondary phone number to the worker record. There is no workaround to this behavior. 
+
 
 ## Next steps
 

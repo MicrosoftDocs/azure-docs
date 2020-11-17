@@ -10,75 +10,37 @@
  ms.custom: include file
 ---
 
-### Add relationships
-
-In the **LVA Edge Gateway** device template, under **Modules/LVA Edge Gateway Module**, select **Relationships**. Select **+ Add relationship** and add the following two relationships:
-
-|Display Name               |Name          |Target |
-|-------------------------- |------------- |------ |
-|LVA Edge Motion Detector   |Use default   |LVA Edge Motion Detector Device |
-|LVA Edge Object Detector   |Use default   |LVA Edge Object Detector Device |
-
-Then select **Save**.
-
-:::image type="content" source="media/iot-central-video-analytics-part4/relationships.png" alt-text="Add relationships":::
-
-### Add views
-
-The **LVA Edge Gateway** device template doesn't include any view definitions.
-
-To add a view to the device template:
-
-1. In the **LVA Edge Gateway** device template, navigate to **Views** and select the **Visualizing the device** tile.
-
-1. Enter *LVA Edge Gateway device* as the view name.
-
-1. Add the following tiles to the view:
-
-    * A tile with the **Device Info** properties: **Device model**, **Manufacturer**, **Operating system**, **Processor architecture**, **Software version**, **Total memory**, and **Total storage**.
-    * A line chart tile with the **Free Memory** and the **System Heartbeat** telemetry values.
-    * An event history tile with the following events: **Create Camera**, **Delete Camera**, **Module Restart**, **Module Started**, **Module Stopped**.
-    * A 2x1 last known value tile showing the **IoT Central Client State** telemetry.
-    * A 2x1 last known value tile showing the **Module State** telemetry.
-    * A 1x1 last known value tile showing the **System Heartbeat** telemetry.
-    * A 1x1 last known value tile showing the **Connected Cameras** telemetry.
-
-    :::image type="content" source="media/iot-central-video-analytics-part4/gateway-dashboard.png" alt-text="Dashboard":::
-
-1. Select **Save**.
-
 ### Publish the device template
 
 Before you can add a device to the application, you must publish the device template:
 
-1. In the **LVA Edge Gateway** device template, select **Publish**.
+1. In the **LVA Edge Gateway v2** device template, select **Publish**.
 
 1. On the **Publish this device template to the application** page, select **Publish**.
 
-**LVA Edge Gateway** is now available as device type to use on the **Devices** page in the application.
+**LVA Edge Gateway v2** is now available as device type to use on the **Devices** page in the application.
 
-## Add a gateway device
+## Migrate the gateway device
 
-To add an **LVA Edge Gateway** device to the application:
+The existing **gateway-001** device uses the **LVA Edge Gateway** device template. To use your new deployment manifest, migrate the device to the new device template:
 
-1. Navigate to the **Devices** page and select the **LVA Edge Gateway** device template.
+To migrate the **gateway-001** device:
 
-1. Select **+ New**.
+1. Navigate to the **Devices** page and select the **gateway-001** device to highlight it in the list.
 
-1. In the **Create a new device** dialog, change the device name to *LVA Gateway 001*, and change the device ID to *lva-gateway-001*.
+1. Select **Migrate**. If the **Migrate** icon isn't visible, select **...** to see more options.
 
-    > [!NOTE]
-    > The device ID must be unique in the application.
+    :::image type="content" source="media/iot-central-video-analytics-part4/migrate-device.png" alt-text="Migrate the gateway device to a new version":::
 
-1. Select **Create**.
+1. In the list on the **Migrate** dialog, select **LVA Edge Gateway v2**, and then select **Migrate**.
 
-The device status is **Registered**.
+After a few seconds, the migration completes. Your device is now using the **LVA Edge Gateway v2** device template with your customized deployment manifest.
 
 ### Get the device credentials
 
 You need the credentials that allow the device to connect to your IoT Central application. The get the device credentials:
 
-1. On the **Devices** page, select the **lva-gateway-001** device you created.
+1. On the **Devices** page, select the **gateway-001** device.
 
 1. Select **Connect**.
 

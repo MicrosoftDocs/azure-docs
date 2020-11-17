@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
-ms.date: 10/13/2020
+ms.date: 10/14/2020
 
 ---
 
@@ -32,7 +32,8 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 ## Current limitations
 
 - Configuration can currently only be performed using CLI or REST requests. You cannot use the Azure portal or PowerShell.
-- Supported tables are currently limited those specific in the (#supported-tabes) section below. If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table. If the data export rule includes a table that doesn't exist, it will fail with the error *Table <tableName> does not exist in the workspace.*
+- The ```--export-all-tables``` option in CLI and REST isn't supported and will be removed. You should provide the list of tables in export rules explicitly.
+- Supported tables are currently limited those specific in the [supported tables](#supported-tables) section below. If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table. If the data export rule includes a table that doesn't exist, it will fail with the error ```Table <tableName> does not exist in the workspace.```
 - Your Log Analytics workspace can be in any region except for the following:
   - Switzerland North
   - Switzerland West
@@ -70,10 +71,11 @@ The storage account data format is [JSON lines](diagnostic-logs-append-blobs.md)
 Log Analytics data export can write append blobs to immutable storage accounts when time-based retention policies have the *allowProtectedAppendWrites* setting enabled. This allows writing new blocks to an append blob, while maintaining immutability protection and compliance. See [Allow protected append blobs writes](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 ### Event hub
-Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all tables to it.
+Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
 
-The volume of exported data often increase over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units and meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
-
+Considerations:
+1. 'Basic' event hub sku supports lower event size [limit](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) and some logs in your workspace can exceed it and be dropped. We recommend to use 'Standard' or 'Dedicated' event hub as export destination.
+2. The volume of exported data often increase over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units and meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
 
 ## Prerequisites
 Following are prerequisites that must be completed before configuring Log Analytics data export.
@@ -109,7 +111,12 @@ If you have configured your Storage Account to allow access from selected networ
 
 
 ### Create or update data export rule
-A data export rule defines data to be exported from all tables or a certain set of tables to a single destination. Create multiple rules if you need to send to multiple destinations.
+A data export rule defines data to be exported for a set of tables to a single destination. You can create a rule for each destination.
+
+Use the following CLI command to view tables in your workspace. It can help copy the tables you want and include in data export rule.
+```azurecli
+az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+```
 
 Use the following command to create a data export rule to a storage account using CLI.
 
@@ -138,8 +145,8 @@ The body of the request specifies the tables destination. Following is a sample 
             "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name"
         },
         "tablenames": [
-"table1",
-	"table2" 
+            "table1",
+	        "table2" 
         ],
         "enable": true
     }
@@ -161,9 +168,27 @@ Following is a sample body for the REST request for an event hub.
         "enable": true
     }
 }
-
 ```
 
+Following is a sample body for the REST request for an event hub where event hub name is provided. In this case, all exported data is sent to the this event hub.
+
+```json
+{
+    "properties": {
+        "destination": {
+            "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.EventHub/namespaces/eventhub-namespaces-name",
+            "metaData": {
+                "EventHubName": "eventhub-name"
+        },
+        "tablenames": [
+            "table1",
+            "table2"
+        ],
+        "enable": true
+    }
+  }
+}
+```
 
 ## View data export configuration
 Use the following command to view the configuration of a data export rule using CLI.
@@ -235,7 +260,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## Unsupported tables
 If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.
 
-If the data export rule includes a table that doesn't exist, it will fail with the error *Table <tableName> does not exist in the workspace*.
+If the data export rule includes a table that doesn't exist, it will fail with the error ```Table <tableName> does not exist in the workspace.```
 
 
 ## Supported tables
@@ -243,13 +268,17 @@ Supported tables are currently limited to those specified below. All data from t
 
 
 | Table | Limitations |
-|:---|:---|:---|
+|:---|:---|
 | AADDomainServicesAccountLogon | |
 | AADDomainServicesAccountManagement | |
 | AADDomainServicesDirectoryServiceAccess | |
 | AADDomainServicesLogonLogoff | |
 | AADDomainServicesPolicyChange | |
 | AADDomainServicesPrivilegeUse | |
+| AADManagedIdentitySignInLogs | |
+| AADNonInteractiveUserSignInLogs | |
+| AADProvisioningLogs | |
+| AADServicePrincipalSignInLogs | |
 | ADAssessmentRecommendation | |
 | ADFActivityRun | |
 | ADFPipelineRun | |
@@ -264,7 +293,8 @@ Supported tables are currently limited to those specified below. All data from t
 | ADXQuery | |
 | AegDeliveryFailureLogs | |
 | AegPublishFailureLogs | |
-| Alert | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| Alert |Partial support. Some of the data to this table is ingested through storage account. This data is currently not exported. |
+| Anomalies | |
 | ApiManagementGatewayLogs | |
 | AppCenterError | |
 | AppPlatformSystemLogs | |
@@ -273,6 +303,7 @@ Supported tables are currently limited to those specified below. All data from t
 | AppServiceConsoleLogs | |
 | AppServiceFileAuditLogs | |
 | AppServiceHTTPLogs | |
+| AppServiceIPSecAuditLogs | |
 | AppServicePlatformLogs | |
 | AuditLogs | |
 | AutoscaleEvaluationsLog | |
@@ -287,10 +318,9 @@ Supported tables are currently limited to those specified below. All data from t
 | CommonSecurityLog | |
 | CommonSecurityLog | |
 | ComputerGroup | |
-| ConfigurationData | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| ConfigurationData | Partial support. Some of the data is ingested through internal services that aren't supported for export. This data is currently not exported. |
 | ContainerImageInventory | |
 | ContainerInventory | |
-| ContainerLog | |
 | ContainerLog | |
 | ContainerNodeInventory | |
 | ContainerServiceLog | |
@@ -308,15 +338,42 @@ Supported tables are currently limited to those specified below. All data from t
 | DnsEvents | |
 | DnsInventory | |
 | Dynamics365Activity | |
-| Event | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
-| ExchangeAssessmentRecommendation | |
+| Event | Partial support. Some of the data to this table is ingested through storage account. This data is currently not exported. |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |
-| Heartbeat | Supported | |
+| HDInsightAmbariClusterAlerts | |
+| HDInsightAmbariSystemMetrics | |
+| HDInsightGatewayAuditLogs | |
+| HDInsightHadoopAndYarnLogs | |
+| HDInsightHadoopAndYarnMetrics | |
+| HDInsightHBaseLogs | |
+| HDInsightHBaseMetrics | |
+| HDInsightHiveAndLLAPLogsSample | |
+| HDInsightKafkaLogs | |
+| HDInsightKafkaMetrics | |
+| HDInsightOozieLogs | |
+| HDInsightSecurityLogs | |
+| HDInsightSparkApplicationEvents | |
+| HDInsightSparkBlockManagerEvents | |
+| HDInsightSparkEnvironmentEvents | |
+| HDInsightSparkEventsLog | |
+| HDInsightSparkExecutorEvents | |
+| HDInsightSparkExtraEvents | |
+| HDInsightSparkJobEvents | |
+| HDInsightSparkLogs | |
+| HDInsightSparkSQLExecutionEvents | |
+| HDInsightSparkStageEvents | |
+| HDInsightSparkStageTaskAccumulables | |
+| HDInsightSparkTaskEvents | |
+| HDInsightStormLogs | |
+| HDInsightStormMetrics | |
+| HDInsightStormTopologyMetrics | |
+| Heartbeat | |
 | HuntingBookmark | |
-| InsightsMetrics | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| InsightsMetrics | Partial support. Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
 | IntuneAuditLogs | |
+| IntuneDeviceComplianceOrg | |
 | IntuneOperationalLogs | |
 | KubeEvents | |
 | KubeHealth | |
@@ -325,24 +382,30 @@ Supported tables are currently limited to those specified below. All data from t
 | KubePodInventory | |
 | KubeServices | |
 | KubeServices | |
+| LAQueryLogs | |
 | McasShadowItReporting | |
 | MicrosoftAzureBastionAuditLogs | |
 | MicrosoftDataShareReceivedSnapshotLog | |
 | MicrosoftDataShareSentSnapshotLog | |
 | MicrosoftDataShareShareLog | |
 | MicrosoftHealthcareApisAuditLogs | |
+| NWConnectionMonitorDestinationListenerResult | |
+| NWConnectionMonitorDNSResult | |
+| NWConnectionMonitorPathResult | |
 | NWConnectionMonitorPathResult | |
 | NWConnectionMonitorTestResult | |
-| OfficeActivity | Some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
-| Operation | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
-| Perf | Supported | |
-| SCCMAssessmentRecommendation | | 
+| NWConnectionMonitorTestResult | |
+| OfficeActivity | Partial support. Some of the data to ingested via webhooks from Office 365 into Log Analytics. This data is currently not exported. |
+| Operation | Partial support. Some of the data is ingested through internal services that aren't supported for export. This data is currently not exported. |
+| Perf | Partial support. Only windows performance data is currently supported. The linux performance data is currently not exported. |
+| ProtectionStatus | |
+| SCCMAssessmentRecommendation | |
 | SCOMAssessmentRecommendation | |
 | SecurityAlert | |
 | SecurityBaseline | |
 | SecurityBaselineSummary | |
 | SecurityDetection | |
-| SecurityEvent | Supported | |
+| SecurityEvent | |
 | SecurityIncident | |
 | SecurityIoTRawEvent | |
 | SecurityNestedRecommendation | |
@@ -355,24 +418,28 @@ Supported tables are currently limited to those specified below. All data from t
 | SPAssessmentRecommendation | |
 | SQLAssessmentRecommendation | |
 | SucceededIngestion | |
-| Syslog |Partial | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| SynapseGatewayEvents | |
+| SynapseRBACEvents | |
+| Syslog | Partial support. Some of the data to this table is ingested through storage account. This data is currently not exported. |
 | ThreatIntelligenceIndicator | |
-| Update |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| Update | Partial support. Some of the data is ingested through internal services that isn't supported for export. This data is currently not exported. |
 | UpdateRunProgress | |
 | UpdateSummary | |
 | Usage | |
 | UserAccessAnalytics | |
 | UserPeerAnalytics | |
+| Watchlist | |
 | WindowsEvent | |
 | WindowsFirewall | |
-| WireData |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| WireData | Partial support. Some of the data is ingested through internal services that isn't supported for export. This data is currently not exported. |
 | WorkloadMonitoringPerf | |
-| WorkloadMonitoringPerf | |
+| WVDAgentHealthStatus | |
 | WVDCheckpoints | |
 | WVDConnections | |
 | WVDErrors | |
 | WVDFeeds | |
 | WVDManagement | |
+
 
 ## Next steps
 

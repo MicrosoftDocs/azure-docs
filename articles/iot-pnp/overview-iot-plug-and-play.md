@@ -4,7 +4,7 @@ description: Learn about IoT Plug and Play. IoT Plug and Play is based on an ope
 author: rido-min
 ms.author: rmpablos
 ms.date: 07/06/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
@@ -23,7 +23,7 @@ IoT Plug and Play enables solution builders to integrate smart devices with thei
 
 You can group these elements in interfaces to reuse across models to make collaboration easier and to speed up development.
 
-To make IoT Plug and Play work with [Azure Digital Twins](../digital-twins/about-digital-twins.md), you define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enables easier adoption across services and tooling.
+To make IoT Plug and Play work with [Azure Digital Twins](../digital-twins/overview.md), you define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enables easier adoption across services and tooling.
 
 There's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md) and other Azure services remain the same.
 
@@ -71,4 +71,3 @@ Now that you have an overview of IoT Plug and Play, the suggested next step is t
 
 - [Connect a device to IoT Hub (C)](./quickstart-connect-device-c.md)
 - [Interact with a device from your solution (Node.js)](./quickstart-service-node.md)
-
