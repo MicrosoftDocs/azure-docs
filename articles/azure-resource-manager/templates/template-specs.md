@@ -2,7 +2,7 @@
 title: Template specs overview
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 10/17/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
