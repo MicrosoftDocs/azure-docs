@@ -838,7 +838,7 @@ Video Indexer makes inference of main topics from transcripts. When possible, th
 |Name|Description|
 |---|---|
 |id|The speaker ID.|
-|name|The speaker name. Or, if unrecognized a number is added to the name. For example: "Speaker #1".|
+|name|The speaker name in the form of "Speaker #*<number>*" For example: "Speaker #1".|
 |instances |A list of time ranges where this speaker appeared.|
 
 ```json
