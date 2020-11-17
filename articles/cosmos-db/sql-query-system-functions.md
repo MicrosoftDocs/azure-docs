@@ -3,12 +3,14 @@ title: System functions in Azure Cosmos DB query language
 description: Learn about built-in and user defined SQL system functions in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # System functions (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Cosmos DB provides many built-in SQL functions. The categories of built-in functions are listed below.  
   

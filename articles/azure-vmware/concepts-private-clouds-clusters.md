@@ -47,9 +47,9 @@ The current software versions of the VMware software used in Azure VMware Soluti
 
 | Software              |    Version   |
 | :---                  |     :---:    |
-| VCSA / vSphere / ESXi |    6.7 U2    | 
-| ESXi                  |    6.7 U2    | 
-| vSAN                  |    6.7 U2    |
+| VCSA / vSphere / ESXi |    6.7 U3    | 
+| ESXi                  |    6.7 U3    | 
+| vSAN                  |    6.7 U3    |
 | NSX-T                 |      2.5     |
 
 For any new cluster in a private cloud, the software version matches what's currently running. For any new private cloud in a subscription, the software stack's latest version gets installed.
@@ -67,7 +67,7 @@ Microsoft is responsible for the lifecycle management of NSX-T appliances, such 
 
 ## Backup and restoration
 
-Private cloud vCenter and NSX-T configurations are on an hourly backup schedule.  Backups are kept for three days. If you need to restore from a backup, use a Service Request in the Azure portal to request restoration.
+Private cloud vCenter and NSX-T configurations are on an hourly backup schedule.  Backups are kept for three days. If you need to restore from a backup, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
 
 ## Next steps
 

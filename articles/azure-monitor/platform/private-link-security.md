@@ -107,6 +107,9 @@ You can connect your AMPLS first to private endpoints and then to Azure Monitor 
 
     ![Screenshot of select a scope UX](./media/private-link-security/ampls-select-2.png)
 
+> [!NOTE]
+> Deleting Azure Monitor resources requires that you first disconnect them from any AMPLS objects they are connected to. It's not possible to delete resources connected to an AMPLS.
+
 ### Connect to a private endpoint
 
 Now that you have resources connected to your AMPLS, create a private endpoint to connect our network. You can do this task in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints), or inside your Azure Monitor Private Link Scope, as done in this example.
@@ -135,6 +138,8 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
    a.    Choose the **virtual network** and **subnet** that you want to connect to your Azure Monitor resources. 
  
    b.    Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below. 
+   > [!NOTE]
+   > If you choose **No** and prefer to manage DNS records manually, first complete setting up your Private Link - including this Private Endpoint and the AMPLS configuration. Then, configure your DNS according to the instructions in [Azure Private Endpoint DNS configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Azure Monitor.
  
    c.    Click **Review + create**.
  

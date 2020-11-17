@@ -115,8 +115,6 @@
       href: develop-rest-api-powershell.md
     - name: SDKs, CLI tools, and ARM templates
       href: azure-netapp-files-sdk-cli.md
-    - name: Troubleshoot Azure NetApp Files Resource Provider errors
-      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot capacity pools 
@@ -127,6 +125,8 @@
       href: troubleshoot-dual-protocol-volumes.md
     - name: Troubleshoot snapshot policies
       href: troubleshoot-snapshot-policies.md
+    - name: Troubleshoot Resource Provider errors
+      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Reference
   items:
   - name: REST

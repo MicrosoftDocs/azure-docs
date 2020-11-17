@@ -14,6 +14,11 @@ ms.author: scottwhi
 ---
 # Language and region support for the Bing Visual Search API
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 Bing Visual Search API supports more than three dozen countries/regions, many with more than one language. Each request should include the user's country/region and language of choice. Knowing the user's market helps Bing return appropriate results. If you don't specify a country/region and language, Bing makes a best effort to determine the user's country/region and language. Because the results may contain links to Bing, knowing the country/region and language may provide a preferred localized Bing user experience if the user clicks the Bing links.
 
 To specify the country/region and language, set the `mkt` (market) query parameter to a code from the **Markets** table below. The market specifies both a country/region and language. If the user prefers to see display text in a different language, set `setLang` query parameter to the appropriate language code.
