@@ -94,7 +94,7 @@ You can also use PowerShell to configure Group policy
 # Replace $domainName value with the name of your Active Directory domain
 # Replace $policyName value with the name of existing Group Policy Object
 $domainName = "contoso.com"
-$policyName = "Default Domain Policy"
+$policyName = "RDP Shortpath Policy"
 Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations' -ValueName 'fUseUdpPortRedirector' -Value 1 -Type:DWord  -Action:Create -Context:Computer -Name $policyName -Domain $domainName
 Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations' -ValueName 'UdpPortNumber' -Value 3390 -Type:DWord  -Action:Create -Context:Computer -Name $policyName -Domain $domainName
 ```
@@ -135,7 +135,7 @@ You can also use PowerShell to configure Group policy
 # Replace $domainName value with the name of your Active Directory domain
 # Replace $policyName value with the name of existing Group Policy Object
 $domainName = "contoso.com"
-$policyName = "Default Domain Policy"
+$policyName = "RDP Shortpath Policy"
 $gpoSession = Open-NetGPO -PolicyStore "$domainName\$policyName"
 New-NetFirewallRule -DisplayName 'Remote Desktop - Shortpath (UDP-In)'  -Action Allow -Description 'Inbound rule for the Remote Desktop service to allow RDP traffic. [UDP 3390]' -Group '@FirewallAPI.dll,-28752' -Name 'RemoteDesktop-UserMode-In-Shortpath-UDP'  -PolicyStore PersistentStore -Profile Domain, Private -Service TermService -Protocol udp -LocalPort 3390 -Program '%SystemRoot%\system32\svchost.exe' -Enabled:True
 ```
@@ -244,7 +244,7 @@ To disable RDP Shortpath for a specific session host, you can use the following 
 2. Navigate to **Computer Configuration > Administration Templates > Windows Components > Remote Desktop Services > Remote Desktop Connection Host > Connections**.
 3. Set the **“Select RDP Transport Protocols”** setting to **TCP Only**
 
-## Feedback
+## Public preview feedback
 
 We'd like to hear from you about your experiences with this public preview!
 * For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/RDPShortpathFeedback).
