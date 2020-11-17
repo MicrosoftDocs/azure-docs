@@ -51,29 +51,29 @@ To create a scan you must first register a data source in your catalog. A data s
 
 Select **Management Center** in the left navigation pane.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image89.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/management-center.png" alt-text="management center" border="true":::
 
 Then select **Data sources**.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image90.png" alt-text="image alt-text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/select-data-sources.png" alt-text="select data sources" border="true":::
 
 The **Data sources** page appears.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image91.png" alt-text="image alt-text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/data-sources-page.png" alt-text="data sources page" border="true":::
 
 ### Add a new data source
 
 Select **+ New** to add a new data source.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image92.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/add-new-data-source.png" alt-text="add new data source" border="true":::
 
 **New data source** appears with a selection of data source types. Select a type, and then select **Continue**:
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image93.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/select-data-source-type.png" alt-text="select data source type" border="true":::
 
 Enter a name for your data source, and specify which one to add, in this case which Azure blob. You can then use the drop-down lists to choose an instance to add, or you can specify the URI of your data instance, if it's in a different subscription.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image94.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/enter-data-source-details.png" alt-text="enter data source details" border="true":::
 
 Your selection appears in the list of data sources.
 
@@ -81,17 +81,17 @@ Your selection appears in the list of data sources.
 
 Select the check box for the data source you want to edit. Don't select multiple data sources—you only edit one at a time.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image95.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/edit-data-source.png" alt-text="edit data source" border="true":::
 
 Select **Edit** to edit the data source.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image96.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/select-edit.png" alt-text="select edit" border="true":::
 
 ### Delete data sources
 
 To delete one or more data sources, select their check boxes.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image97.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/delete-data-sources.png" alt-text="delete data sources" border="true":::
 
 Then select **Delete**.
 
@@ -107,11 +107,11 @@ The **scans** page appears for the data source. It shows the scans for the data 
 
 Select **+ New scan** on the **scans** page.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image98.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/new-scan.png" alt-text="new scan" border="true":::
 
 The **Connect to your data source** pane appears and asks for **Scan name** and **Authentication method** to access the data store. Each data source has a distinct set of authentication methods, and the default method varies by data source. For example, for **Azure Blob Store**, the default is managed identity (MSI).
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image99.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/connect-to-your-data-source.png" alt-text="connect to your data source" border="true":::
 
 ### Authentication: use the catalog managed identity (MSI)
 
@@ -129,25 +129,25 @@ You can add the catalog MSI at the appropriate level—subscription, resource gr
 1. From the Azure portal <https://portal.azure.com/>, find the subscription, resource group, or resource that you want the catalog to scan. For example, you could select an ADLS Gen2 storage account.
 1. Select **Access control (IAM)**.
 
-    :::image type="content" source="./media/scan-azure-data-sources-portal/image100.png" alt-text="image alt-text" border="true":::
+    :::image type="content" source="./media/scan-azure-data-sources-portal/select-access-control.png" alt-text="select access control" border="true":::
 
 1. **Add role assignment** appears.
 
-    :::image type="content" source="./media/scan-azure-data-sources-portal/image101.png" alt-text="image alt-text" border="true":::
+    :::image type="content" source="./media/scan-azure-data-sources-portal/add-role-assignment.png" alt-text="add role assignment" border="true":::
 
 1. Fill in the dialog box as follows.
 
     1. For **Role** select **Storage Blob Data Reader** from the list.
 
-        :::image type="content" source="./media/scan-azure-data-sources-portal/image102.png" alt-text="image alt-text" border="true":::
+        :::image type="content" source="./media/scan-azure-data-sources-portal/select-role.png" alt-text="select role" border="true":::
 
     1. For **Assign access to**, select **Azure AD user, group, or service principal** from the list. It should be the default option.
 
-        :::image type="content" source="./media/scan-azure-data-sources-portal/image103.png" alt-text="image alt-text" border="true":::
+        :::image type="content" source="./media/scan-azure-data-sources-portal/assign-access-to.png" alt-text="assign access to" border="true":::
 
     1. In **Select**, start to type the name of catalog, and the name should appear in the list for you to select.
 
-        :::image type="content" source="./media/scan-azure-data-sources-portal/image104.png" alt-text="image alt-text" border="true":::
+        :::image type="content" source="./media/scan-azure-data-sources-portal/select-catalog.png" alt-text="select catalog" border="true":::
 
     1. Select **Save**.
 
@@ -178,7 +178,7 @@ For more information about adding MSI to SQL servers, see these articles:
 
 You can now set up a scan, choosing authentication type **Managed Identity** (MSI) for the data stores that support it (currently Azure Blob Storage, ADLS Gen2, and Azure SQL DB).
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image106.png" alt-text="image alt-text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/connect-managed-identity.png" alt-text="connect managed identity" border="true":::
 
 ### Authentication: use the account key to set up a scan
 
@@ -209,7 +209,7 @@ To set up a scan on an Azure SQL DB or Azure SQL DB using SQL Authentication, se
 
 The form will then expose fields where for you to provide the database name, user name, and password.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image108.png" alt-text="image alt-text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/connect-sql-auth.png" alt-text="connect SQL authentication" border="true":::
 
 ## Set a scan trigger and work with scans
 
@@ -217,11 +217,11 @@ The form will then expose fields where for you to provide the database name, use
 
 After you've set up authentication, select **Continue**. **Set the scan trigger** appears. At the top, you choose whether the scan occurs once, or is recurring:
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image118.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/set-scan-trigger.png" alt-text="set scan trigger" border="true":::
 
 If you select **Recurring**, you can choose either weekly or monthly runs. If you select **Month days**, the dialog box for monthly runs appears.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image119.jpg" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/recurring-runs.jpg" alt-text="recurring runs" border="true":::
 
 - **Every** lets you enter a number: **1** means every month, **2** means every two months, and so on.
 - **Select day of the month to scan** lets you set the day of the month, either a number or **Last**.
@@ -234,7 +234,7 @@ If you select **Recurring**, you can choose either weekly or monthly runs. If yo
 
 If you select **Week days**, the dialog box for weekly runs appears.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image120.jpg" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/weekly-runs-dialog.jpg" alt-text="weekly runs dialog" border="true":::
 
 - **Every** lets you enter a number: **1** means every week, **2** means every two weeks, and so on.
 - **Recur every** lets you set the day of the week.
@@ -246,25 +246,25 @@ If you select **Week days**, the dialog box for weekly runs appears.
 
 On **Select the scan rule set**, select a scan rule set from the list.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image117.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/select-scan-rule-set.png" alt-text="select scan rule set" border="true":::
 
 ### Review your scan
 
 Select **Continue** and view your settings on the scan summary page.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image110.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/review-scan.png" alt-text="review scan" border="true":::
 
 ### Edit a scan
 
 To edit a scan, select it with its check box, and select **Edit**. Don't select multiple scans—you only edit one at a time.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image111.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/edit-scan.png" alt-text="edit scan" border="true":::
 
 ### Remove a scan
 
 To remove one or more scans, select their check boxes, then select **Remove**.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image112.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/remove-scan.png" alt-text="remove scan" border="true":::
 
 ### View scan history
 
@@ -275,21 +275,21 @@ Select any scan in the list to get to the scan history page. This page shows you
 - How many total assets were discovered.
 - The start and end time of the scan, and the duration.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image113.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/view-scan-history.png" alt-text="view scan history" border="true":::
 
 From the scan history page, you can choose **Run Scan now** to launch a new scan immediately. This action will run a full scan, not an incremental scan.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image114.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/run-scan-now.png" alt-text="run scan now" border="true":::
 
 ### Cancel scans in progress
 
 To select one or more scans that are in progress, select their check boxes.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image115.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/cancel-scans-in-progress.png" alt-text="cancel scans in progress" border="true":::
 
 Then select **Cancel Scan** to stop all the selected scans from running.
 
-:::image type="content" source="./media/scan-azure-data-sources-portal/image116.png" alt-text="img text" border="true":::
+:::image type="content" source="./media/scan-azure-data-sources-portal/cancel-scan.png" alt-text="cancel scan" border="true":::
 
 ## Next steps
 
