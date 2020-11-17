@@ -114,12 +114,13 @@ If you are executing the data flow in a debug test execution from a debug pipeli
 
 ### Error code: Validation Error at Source with multiline CSV files 
 
-- **Message**: Messages can be follwoing
-   - The last column coming out to be null or missing.
+- **Message**: You might see one of the following error messages:
+   - The last column is null or missing.
    - Schema validation at source fails.
-   - Schema import fails to show correctly in the UX as well as the last column has a new line character in the name.
+   - Schema import fails to show correctly in the UX and the last column has a new line character in the name.
 - **Causes**: In the Mapping data flow, currently, the multiline CSV source does not work with the \r\n as row delimiter. Sometimes extra lines at carriage returns break source values. 
 - **Recommendation**: Either generate the file at the source with \n as row delimiter rather than \r\n. Or, use Copy Activity to convert CSV file with \r\n to \n as a row delimiter.
+
 ## General troubleshooting guidance
 
 1. Check the status of your dataset connections. In each Source and Sink transformation, visit the Linked Service for each dataset that you are using and test connections.
