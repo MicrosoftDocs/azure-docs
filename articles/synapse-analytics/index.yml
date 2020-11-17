@@ -22,21 +22,15 @@ landingContent:
   # Card (optional)
   - title: About Azure Synapse Analytics
     linkLists:
-      - linkListType: overview
+      - linkListType: OVERVIEW
         links:
           - text: What is Azure Synapse
-            url: ../overview-what-is.md
+            url: overview-what-is.md
           - text: Tips and best practices
-            url: ../overview-cheat-sheet.md
+            url: overview-cheat-sheet.md
           - text: FAQ
-            url: ../overview-faq.md
-          - text: Release notes
-            url: ../release-notes.md
-
-  # Card
-  - title: Getting started
-    linkLists:
-      - linkListType: deploy
+            url: overview-faq.md
+      - linkListType: GET STARTED
         links:
           - text: Step-by-step to getting started
             url: get-started.md
@@ -58,8 +52,7 @@ landingContent:
             url: get-started-monitor.md
           - text: STEP 9 - Explore the Knowledge center
             url: get-started-knowledge-center.md
-  #         # - text: linktext2
-  #         #   url: file2.md
+
 
   # Card (optional)
   - title: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
@@ -72,7 +65,7 @@ landingContent:
             url: ./sql-data-warehouse/cheat-sheet.md
       - linkListType: architecture
         links:
-          - text: Azure Synapse architecture
+          - text: Dedicated SQL pool (formerly SQL DW) architecture
             url: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
           - text: Reference Architecture
             url: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/enterprise-bi-synapse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
@@ -154,11 +147,21 @@ landingContent:
       #       url: file2.md
 
   # Card
-  - title: Resources
+  # - title: Resources
+  #   linkLists:
+  #     - linkListType: video
+  #       links:
+  #         - text: Watch the latest Synapse SQL videos
+  #           url: sql-data-warehouse-videos.md
+  #         - text: linktext2
+  #           url: file2.md
+
+   # Card
+  - title: References
     linkLists:
       - linkListType: video
         links:
           - text: Watch the latest Synapse SQL videos
             url: sql-data-warehouse-videos.md
-  #         # - text: linktext2
-  #         #   url: file2.md
+          - text: linktext2
+            url: file2.md
