@@ -2,7 +2,7 @@
 title: Encrypt registry with a customer-managed key
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 11/17/2020
 ms.custom:
 ---
 
@@ -10,7 +10,11 @@ ms.custom:
 
 When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-models.md). You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault (a customer-managed key). This article walks you through the steps using the Azure CLI and the Azure portal.
 
-Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or use Azure Key Vault's APIs to generate keys. With Azure Key Vault, you can also audit key usage.
+Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/general/overview.md): 
+
+* You can create your own encryption keys and store them in a key vault, or use Azure Key Vault's APIs to generate keys. 
+* With Azure Key Vault, you can also audit key usage.
+* Azure Container Registry supports automatic rotation of registry encryption keys when a new key version is available in Azure Key Vault. You can also manually rotate registry encryption keys.
 
 This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
@@ -33,7 +37,7 @@ An important consideration for the security of a registry encrypted with a custo
 
 When you configure registry encryption with a customer-managed key, you have two options for updating the key version used for encryption:
 
-* **Automatically update the key version** - To automatically update a customer-managed key when a new version is available in Azure Key Vault, omit the key version when you enable registry encryption with a customer-managed key. When a registry is encrypted with a non-versioned key, Azure Container Registry regularly checks the key vault for a new key version and updates the customer-managed key within a short time. Azure Container Registry automatically uses the latest version of the key.
+* **Automatically update the key version** - To automatically update a customer-managed key when a new version is available in Azure Key Vault, omit the key version when you enable registry encryption with a customer-managed key. When a registry is encrypted with a non-versioned key, Azure Container Registry regularly checks the key vault for a new key version and updates the customer-managed key within 1 hour. Azure Container Registry automatically uses the latest version of the key.
 
 * **Manually update the key version** - To use a specific version of a key for registry encryption, specify that key version when you enable registry encryption with a customer-managed key. When a registry is encrypted with a specific key version, Azure Container Registry uses that version for encryption until you manually rotate the customer-managed key.
 
@@ -460,7 +464,7 @@ az keyvault key create \
 
 The next step depends on how the registry encryption is configured:
 
-* If the registry is configured to detect key version updates, the customer-managed key is updated automatically after a short period.
+* If the registry is configured to detect key version updates, the customer-managed key is updated automatically within 1 hour.
 
 * If the registry is configured to require manual updating for a new key version, run the [az acr encryption rotate-key][az-acr-encryption-rotate-key] command, passing the new key ID and the identity you want to configure:
 
