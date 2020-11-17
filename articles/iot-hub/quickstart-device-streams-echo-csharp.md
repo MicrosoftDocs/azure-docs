@@ -30,12 +30,14 @@ Azure IoT Hub currently supports device streams as a [preview feature](https://a
   * Southeast Asia
 
 * The two sample applications that you run in this quickstart are written in C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
-  * Download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
-  * Verify the current version of C# on your development machine by using the following command:
 
-   ```
-   dotnet --version
-   ```
+    Download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
+
+    Verify the current version of C# on your development machine by using the following command:
+
+    ```
+    dotnet --version
+    ```
 
 * [Download the Azure IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive. You need it on both the device side and the service side.
 

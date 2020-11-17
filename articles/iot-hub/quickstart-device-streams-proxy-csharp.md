@@ -51,9 +51,9 @@ The following figure illustrates how the device-local and service-local proxy ap
 
 * The two sample applications that you run in this quickstart are written in C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
 
-  You can download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
+    You can download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
 
-* Verify the current version of C# on your development machine by using the following command:
+    Verify the current version of C# on your development machine by using the following command:
 
     ```
     dotnet --version

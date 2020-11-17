@@ -25,13 +25,13 @@ In this quickstart, you run a service-side application and set up communication 
 
 * [Node.js 10+](https://nodejs.org).
 
-* [A sample Node.js project](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
-
-* You can verify the current version of Node.js on your development machine using the following command:
+    You can verify the current version of Node.js on your development machine using the following command:
 
     ```cmd/sh
     node --version
     ```
+
+* [A sample Node.js project](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
