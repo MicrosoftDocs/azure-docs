@@ -12,16 +12,16 @@ ms.date: 10/20/2020
 
 This article describes how Role-Based Access Control (RBAC) is implemented in Azure Purview.
 
+> [!IMPORTANT]
+> In order to do anything in Azure Purview someone has to be in at least one of the pre-defined Data Plane roles. You can be in more than one Data Plane role at the same time. This is a common scenario with the Data Source Administrator role.
+
 ## Azure Purview's pre-defined Data Plane roles
 
-Azure Purview defines a set of pre-defined Data Plane roles that can be used to control who can access what, in
-Azure Purview. These roles are:
+Azure Purview defines a set of pre-defined Data Plane roles that can be used to control who can access what, in Azure Purview. These roles are:
 
 * **Azure Purview Data Reader Role** - Can read all content in Azure Purview except for scan bindings
 * **Azure Purview Data Curator Role** - Can read all content in Azure Purview except for scan bindings, can edit information about assets, can edit classification definitions and glossary terms, and can apply classifications and glossary terms to assets.
 * **Azure Purview Data Source Administrator Role** - Can manage all aspects of scanning data into Azure Purview but does not have read or write access to the data.
-
-In order to do anything in Azure Purview someone has to be in at least one of these roles. It's possible to be in multiple of these roles, this will be especially common with Data Source Administrator.
 
 When an Azure Purview Account is created, the creator will be treated as if they are in both the Azure Purview Data Curator and Data Source Administrator Roles. But the account creator is not assigned to these roles in the role store. Azure Purview recognizes that the principal is the creator of the account and extends these capabilities to them based on their identity.
 
@@ -64,4 +64,4 @@ Advance to the next article to learn how to add a security principal to a role.
 
 ## Next steps
 
-* [Add a security principal](add-security-principal.md)
+* [Quickstart: Create an Azure Purview account](create-catalog-portal.md)
