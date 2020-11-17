@@ -49,7 +49,7 @@ Select *Authentication* from the registration's menu, and hit *+ Add a platform*
 In the *Configure platforms* page that follows, select *Web*.
 Fill the configuration details as follows:
 * **Redirect URIs**: Add a redirect URI of *https://www.getpostman.com/oauth2/callback*.
-* **Implicit grant**: Check the box for *Access tokens*. This will allow the OAuth 2.0 implicit grant flow to be used
+* **Implicit grant**: Check the box for *Access tokens*. This will allow the OAuth 2.0 implicit grant flow to be used.
 
 Hit *Configure* to finish.
 
@@ -78,7 +78,7 @@ To create a collection, hit the *+ New Collection* button.
 
 :::image type="content" source="media/how-to-use-postman/postman-new-collection.png" alt-text="View of a newly-opened Postman window. The 'New Collection' button is highlighted":::
 
-In the *CREATE A NEW COLLECTION* window that follows, provide a name and optional description for your collection.
+In the *CREATE A NEW COLLECTION* window that follows, provide a **Name** and optional **Description** for your collection.
 
 Then, continue on to the next section to set up authorization details for the collection.
 
@@ -96,7 +96,7 @@ In the *GET NEW ACCESS TOKEN* window that appears, fill in the following fields.
 * **Token Name**: Name the token whatever you want.
 * **Grant Type**: Select *Implicit*.
 * **Callback URL**: Enter *https://www.getpostman.com/oauth2/callback*.
-* **Auth URL**: Enter *https://login.microsoftonline.com/common/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0*.
+* **Auth URL**: Enter *https://login.microsoftonline.com/common/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0*. This is the URL for authorizing with the Azure Digital Twins APIs.
 * **Client ID**: Enter your app registration's **Application (client) ID** from the [*Prerequisites*](#prerequisites) section.
 * **Scope**: Leave blank.
 * **State**: Leave blank.
@@ -147,24 +147,24 @@ To proceed with an example query, this article will use the Query API (and its [
 1. Get the request URL and type from the reference documentation. For the Query API, this is *POST https://digitaltwins-name.digitaltwins.azure.net/query?api-version=2020-10-31*.
 1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. This is where you will use your instance's **host name** from the [*Prerequisites*](#prerequisites) section.
     
-   :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="In the details of the new request, the query URL from the reference documentation has been filled into the request URL box.":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="In the details of the new request, the query URL from the reference documentation has been filled into the request URL box." lightbox="media/how-to-use-postman/postman-request-url.png":::
     
 1. Check that the parameters shown for the request in the *Params* tab match those described in the reference documentation. For this request in Postman, the `api-version` parameter was auto-filled when the request URL was entered in the previous step. For the Query API, this is the only required parameter, so this step is done.
 1. In the *Authorization* tab, set the *Type* to *Inherit auth from parent*. This indicates that this request will use the authentication you set up earlier for the entire collection.
 1. Check that the headers shown for the request in the *Headers* tab match those described in the reference documentation. For this request, several headers have been auto-filled. For the Query API, none of the header options are required, so this step is done.
 1. Check that the body shown for the request in the *Body* tab match the needs described in the reference documentation. For the Query API, a JSON body is required to provide the query text. Here is an example body for this request that queries for all the digital twins in the instance:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="In the details of the new request, the Body tab is shown. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'.":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="In the details of the new request, the Body tab is shown. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'."lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    For more information about crafting Azure Digital Twins queries, see [*How-to: Query the twin graph*](how-to-query-graph.md).
 
 1. Check the reference documentation for any other fields that may be required for your type of request. For the Query API, all requirements have now been met in the Postman request, so this step is done.
 1. Use the *Send* button to send your completed request.
-   :::image type="content" source="media/how-to-use-postman/postman-request-send.png" alt-text="Near the details of the new request, the Send button is highlighted.":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-send.png" alt-text="Near the details of the new request, the Send button is highlighted." lightbox="media/how-to-use-postman/postman-request-send.png":::
 
 After sending the request, the response details will appear in the Postman window below the request. You can view the response's status code and any body text.
 
-:::image type="content" source="media/how-to-use-postman/postman-request-response.png" alt-text="Below the details of the sent request, the details of the response are highlighted. There is a Status of 200 OK and body text describing digital twins that were returned by the query.":::
+:::image type="content" source="media/how-to-use-postman/postman-request-response.png" alt-text="Below the details of the sent request, the details of the response are highlighted. There is a Status of 200 OK and body text describing digital twins that were returned by the query." lightbox="media/how-to-use-postman/postman-request-response.png":::
 
 You can also compare the response to the expected response data given in the reference documentation, to verify the result or learn more about any errors that arise.
 
