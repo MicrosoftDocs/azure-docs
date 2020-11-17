@@ -34,7 +34,7 @@ The Azure SDK for Java includes numerous samples and a [getting started page](ht
 | [indexers](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Demonstrates how to create, update, get, list, reset and delete [indexers](search-indexer-overview.md).|
 | [skillSet](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   Demonstrates how to create, update, get, list, and delete [skillsets](cognitive-search-working-with-skillsets.md) that are attached indexers, and that perform AI-based enrichment during indexing. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Demonstrates how to create, update, get, list, and delete [synonym maps](search-synonyms.md).  |
-| [Queries](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Queries are read-only. This sample query executes against a public index hosted by Microsoft.  |
+| [Queries](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Demonstrates query execution against a read-only public index hosted by Microsoft.  |
 
 ## TypeScript samples
 
@@ -47,7 +47,7 @@ The SDK also provides TypeScript examples, listed here for your convenience.
 | [indexers](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Demonstrates how to create, update, get, list, reset and delete [indexers](search-indexer-overview.md).|
 | [skillSet](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   Demonstrates how to create, update, get, list, and delete [skillsets](cognitive-search-working-with-skillsets.md) that are attached indexers, and that perform AI-based enrichment during indexing. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Demonstrates how to create, update, get, list, and delete [synonym maps](search-synonyms.md).  |
-| [Queries](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.js) | Demonstrates query execution against a read-only public index hosted by Microsoft.  |
+| [Queries](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Demonstrates query execution against a read-only public index hosted by Microsoft.  |
 
 ## Documentation samples
 
@@ -55,7 +55,7 @@ The following samples have an associated article in [Azure Cognitive Search docu
 
 | Samples | Description | 
 |---------|-------------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/Quickstart) | Source code for [Quickstart: Create a search index in JavaScript](search-get-started-javascript.md).  |
+| [quickstart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Source code for [Quickstart: Create a search index in JavaScript](search-get-started-javascript.md).  |
 
 ## Standalone samples
 
