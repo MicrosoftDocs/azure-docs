@@ -15,10 +15,12 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
-## Azure Monitor agent - Windows Azure VM (preview)
+## Azure Monitor agent (preview)
+
+### Windows Azure VM
 The following sample installs the Azure Monitor agent on a Windows Azure virtual machine.
 
-### Template file
+#### Template file
 
 ```json
 {
@@ -49,7 +51,7 @@ The following sample installs the Azure Monitor agent on a Windows Azure virtual
 }
 ```
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
@@ -66,10 +68,10 @@ The following sample installs the Azure Monitor agent on a Windows Azure virtual
 }
 ```
 
-## Azure Monitor agent - Linux Azure VM (preview)
+### Linux Azure VM (preview)
 The following sample installs the Azure Monitor agent on a Linux Azure virtual machine.
 
-### Template file
+#### Template file
 
 ```json
 {
@@ -100,7 +102,7 @@ The following sample installs the Azure Monitor agent on a Linux Azure virtual m
 }
 ```
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
@@ -117,10 +119,10 @@ The following sample installs the Azure Monitor agent on a Linux Azure virtual m
 }
 ```
 
-## Azure Monitor agent - Windows Azure Arc enabled server (preview)
+### Windows Azure Arc enabled server (preview)
 The following sample installs the Azure Monitor agent on a Windows Azure Arc enabled server.
 
-### Template file
+#### Template file
 
 ```json
 {
@@ -150,7 +152,7 @@ The following sample installs the Azure Monitor agent on a Windows Azure Arc ena
 }
 ```
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
@@ -167,10 +169,10 @@ The following sample installs the Azure Monitor agent on a Windows Azure Arc ena
 }
 ```
 
-## Azure Monitor agent - Linux Azure Arc enabled server (preview)
+## Linux Azure Arc enabled server (preview)
 The following sample installs the Azure Monitor agent on a Linux Azure Arc enabled server.
 
-### Template file
+#### Template file
 
 ```json
 {
@@ -200,7 +202,7 @@ The following sample installs the Azure Monitor agent on a Linux Azure Arc enabl
 }
 ```
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
@@ -217,10 +219,12 @@ The following sample installs the Azure Monitor agent on a Linux Azure Arc enabl
 }
 ```
 
-## Windows Log Analytics agent
+## Log Analytics agent
+
+###  Windows
 The following sample installs the Log Analytics agent on a Windows Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-windows.md).
 
-### Template file
+#### Template file
 
 ```json
 {
@@ -288,7 +292,7 @@ The following sample installs the Log Analytics agent on a Windows Azure virtual
 
 ```
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
@@ -312,10 +316,10 @@ The following sample installs the Log Analytics agent on a Windows Azure virtual
 ```
 
 
-## Linux Log Analytics agent
+### Linux
 The following sample installs the Log Analytics agent on a Linux Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-linux.md).
 
-### Template file
+#### Template file
 
 ```json
 {
@@ -382,7 +386,7 @@ The following sample installs the Log Analytics agent on a Linux Azure virtual m
 }
 ```
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
@@ -407,10 +411,12 @@ The following sample installs the Log Analytics agent on a Linux Azure virtual m
 
 
 
-## Windows diagnostic extension
+## Diagnostic extension
+
+### Windows
 The following sample enables and configures the diagnostic extension on a Windows Azure virtual machine. For details on the configuration, see [Windows diagnostics extension schema](../platform/diagnostics-extension-schema-windows.md).
 
-### Template file
+#### Template file
 
 ```json
 {
@@ -543,7 +549,7 @@ The following sample enables and configures the diagnostic extension on a Window
 }
 ```
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
@@ -572,10 +578,10 @@ The following sample enables and configures the diagnostic extension on a Window
 }
 ```
 
-## Linux diagnostic setting
+### Linux
 The following sample enables and configures the diagnostic extension on a Linux Azure virtual machine. For details on the configuration, see [Windows diagnostics extension schema](../../virtual-machines/extensions/diagnostics-linux.md).
 
-### Template file
+#### Template file
 
 ```json
 {
@@ -763,7 +769,7 @@ The following sample enables and configures the diagnostic extension on a Linux 
 }
 ```
 
-### Parameter file
+#### Parameter file
 
 ```json
 {
