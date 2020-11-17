@@ -209,11 +209,13 @@ In this section, you'll add code to retrieve messages from the queue.
                 // start processing 
                 await processor.StartProcessingAsync();
 
-                // wait (5 seconds) for the message handler to be invoked a few times
-                await Task.Delay(5000);
+                Console.WriteLine("Wait for a minute and then press any key to end the processing");
+                Console.ReadKey();
 
                 // stop processing 
+                Console.WriteLine("\nStopping the receiver...");
                 await processor.StopProcessingAsync();
+                Console.WriteLine("Stopped receiving messages");
             }
         }
     ```
@@ -234,11 +236,12 @@ In this section, you'll add code to retrieve messages from the queue.
     ```
 
 ## Run the app
-Run the application. You should see the following output. 
+Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
 
 ```console
-Sent a single message to the queue: myqueue
+Sent a single message to the queue
 Sent a batch of messages to the queue: myqueue
+Wait for a minute and then press any key to end the processing
 Received: Hello world!
 Received: First message in the batch
 Received: Second message in the batch
@@ -247,6 +250,9 @@ Received: Hello world!
 Received: First message in the batch
 Received: Second message in the batch
 Received: Third message in the batch
+
+Stopping the receiver...
+Stopped receiving messages
 ```
 
 Check the portal again. 

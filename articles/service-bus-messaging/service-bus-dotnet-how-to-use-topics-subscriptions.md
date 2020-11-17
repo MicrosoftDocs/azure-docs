@@ -199,11 +199,13 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
                 // start processing 
                 await processor.StartProcessingAsync();
 
-                // wait (5 seconds) for the message handler to be invokved a few times
-                await Task.Delay(5000);
+                Console.WriteLine("Wait for a minute and then press any key to end the processing");
+                Console.ReadKey();
 
                 // stop processing 
+                Console.WriteLine("\nStopping the receiver...");
                 await processor.StopProcessingAsync();
+                Console.WriteLine("Stopped receiving messages");
             }
         }
     ```
@@ -223,19 +225,23 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
         }
     ```
 ## Run the app
-Run the application. You should see the following output: 
+Run the application. Wait for a minute and then press any key to stop receiving messages. You should see the following output (spacebar for the key). 
 
 ```console
-Sent a single message to the topic: mytopic
+Sent a single message to the topic
 Sent a batch of 3 messages to the topic: mytopic
-Received: Hello, World! from subscription: S1
-Received: First message from subscription: S1
-Received: Second message from subscription: S1
-Received: Third message from subscription: S1
-Received: Hello, World! from subscription: S1
-Received: First message from subscription: S1
-Received: Second message from subscription: S1
-Received: Third message from subscription: S1
+Wait for a minute and then press any key to end the processing
+Received: Hello, World! from subscription: mysub
+Received: First message from subscription: mysub
+Received: Second message from subscription: mysub
+Received: Third message from subscription: mysub
+Received: Hello, World! from subscription: mysub
+Received: First message from subscription: mysub
+Received: Second message from subscription: mysub
+Received: Third message from subscription: mysub
+
+Stopping the receiver...
+Stopped the receiver
 ```
 
 Check the portal again. 
