@@ -134,5 +134,6 @@ We recommend considering SQL Database and Azure Analysis Services in a hub-and-s
 
 Learn more about [typical architectures that take advantage of dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
-Deploy in one click your spokes in SQL databases from dedicated SQL pool (formerly SQL DW)
+Deploy in one click your spokes in SQL databases from dedicated SQL pool (formerly SQL DW):
+
 [![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json)
