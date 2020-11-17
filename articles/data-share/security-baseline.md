@@ -16,7 +16,7 @@ ms.custom: subject-security-benchmark
 
 This security
 baseline applies guidance from the [Azure Security Benchmark version
-1.0](../security/benchmarks/overview-v1.md) to Azure Data Share. The Azure Security Benchmark
+1.0](../security/benchmarks/overview-v1.md) to Microsoft Azure Data Share. The Azure Security Benchmark
 provides recommendations on how you can secure your cloud solutions on Azure.
 The content is grouped by the **security controls** defined by the Azure
 Security Benchmark and the related guidance applicable to Azure Data Share. **Controls** not applicable to Azure Data Share have been excluded.
@@ -71,7 +71,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33155.).
 
-**Guidance**: Azure Data Share does not support deploying directly into a virtual network, because of this you can not leverage traditional networking features with it such as network security groups, route tables, DDoS Protection Standard, or other network dependent appliances such as an Azure Firewall.
+**Guidance**: Azure Data Share does not support deploying directly into a virtual network, because of this you cannot leverage traditional networking features with it such as network security groups, route tables, DDoS Protection Standard, or other network-dependent appliances such as an Azure Firewall.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -93,7 +93,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33157.).
 
-**Guidance**: Not applicable; this recommendation is intended for offerings that deploy into Azure virtual networks. Azure Data Share cannot and is not designed to deploy into Azure virtual networks.
+**Guidance**: Not applicable; this recommendation is intended for offerings that deploy into Azure virtual networks. Azure Data Share cannot is not designed to deploy into Azure virtual networks.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -137,7 +137,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33161.).
 
-**Guidance**: Azure Data Share does not support deploying directly into a virtual network, because of this you can not leverage traditional networking features with it such as network security groups, route tables, or other network dependent appliances such as an Azure Firewall.
+**Guidance**: Azure Data Share does not support deploying directly into a virtual network, because of this you cannot leverage traditional networking features with it such as network security groups, route tables, or other network-dependent appliances such as an Azure Firewall.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -202,7 +202,7 @@ Enable diagnostic logs for Azure Data Share, specifically the diagnostic logs fo
 
 - [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/platform/diagnostic-settings.md-legacy) 
+- [How to configure Diagnostic Settings for the Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -241,7 +241,7 @@ Enable diagnostic logs for Azure Data Share, specifically the diagnostic logs fo
 
 **Guidance**: Analyze and monitor logs related to Azure Data Share resources for anomalous behavior and regularly review the results. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data.
 
-Alternatively, you can enable and on-board data to Azure Sentinel or a third party SIEM.
+Alternatively, you can enable and on-board data to Azure Sentinel or a third-party SIEM.
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
@@ -276,7 +276,7 @@ Use Azure Security Center with Log Analytics workspace for monitoring and alerti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33170.).
 
-**Guidance**: Not applicable; Azure Data Share does not produce or expose any anti-malware logging to customers. For all Microsoft managed resources, Microsoft handles the anti-malware logging.
+**Guidance**: Not applicable; Azure Data Share does not produce or expose any anti-malware logging to customers. For all Microsoft-managed resources, Microsoft handles the anti-malware logging.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -549,7 +549,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33191.).
 
-**Guidance**: Use Azure role-based access control (Azure RBAC) to manage access to data and resources related to Azure Data Share resources, otherwise use service specific access control methods.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to manage access to data and resources related to Azure Data Share resources, otherwise use service-specific access control methods.
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
 
@@ -743,7 +743,7 @@ Use Azure Resource Graph to query and discover resources within their subscripti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33206.).
 
-**Guidance**: Remove Azure resources when they are no longer needed, this can be done through the Azure Portal, PowerShell or CLI.
+**Guidance**: Remove Azure resources when they are no longer needed, this can be done through the Azure portal, PowerShell or CLI.
 
 - [Azure resource group and resource deletion](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
 
@@ -819,7 +819,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33212.).
 
-**Guidance**: Azure Data Share does not support deploying directly into a virtual network, because of this you can not leverage traditional networking features with it such as network security groups, route tables, or other network dependent appliances such as an Azure Firewall to separate high risk applications.
+**Guidance**: Azure Data Share does not support deploying directly into a virtual network, because of this you cannot leverage traditional networking features with it such as network security groups, route tables, or other network-dependent appliances such as an Azure Firewall to separate high risk applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -880,7 +880,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions, Azure Resource Manager templates and desired state configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops) 
+- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions) 
 
@@ -1013,7 +1013,7 @@ Azure Data Share does not expose the OS or allow you to install 3rd party softwa
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33228.).
 
-**Guidance**: Not applicable; Azure Data Share does not allow for anti-malware solutions to be installed on it's resources. For the underlying platform Microsoft handles updating any anti-malware software and signatures.
+**Guidance**: Not applicable; Azure Data Share does not allow for anti-malware solutions to be installed on its resources. For the underlying platform Microsoft handles updating any anti-malware software and signatures.
 
 **Azure Security Center monitoring**: Not applicable
 
