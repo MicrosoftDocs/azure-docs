@@ -116,17 +116,30 @@ For example, think about the scenario where you want to send the ID and name of 
 To test this scenario, let's create a new command in our current application.
 1. Create a new command called GetDeviceInfo.
 1. Add an example sentence with "get device info".
-1. In the completion rule "Done", add a Send Speech Response Action.
+1. In the completion rule "Done", add a Send Speech Response Action that contains the attributes of the clientContext.
     > ![Send speech response with context](media/custom-commands/send-speech-response-context.png)
-1. Save and Train your application.
-1. Test your application.
+1. Save, Train and Test your application.
+1. Once in the testing window, send an activity to update the client context.
+    > ```json
+    >{
+    >   "type": "event",
+    >   "name": "RemoteUpdate",
+    >   "value": {
+    >     "clientContext": {
+    >       "deviceId": "12345",
+    >       "deviceName": "My device"
+    >     },
+    >     "processTurn": false
+    >   }
+    >}
+    > ```
+1. Send the text "get device info".
     > ![Send client context activity](media/custom-commands/send-client-context-activity.png)
 
 Note a few things.
 1. You only need to send this activity once (ideally right after you started a connection).
-1. You can use complex objects for ClientContext.
-1. You can use ClientContext in speech responses, for sending activities and when calling web endpoints.
-
+1. You can use complex objects for clientContext.
+1. You can use clientContext in speech responses, for sending activities and when calling web endpoints.
 
 ## Next steps
 
