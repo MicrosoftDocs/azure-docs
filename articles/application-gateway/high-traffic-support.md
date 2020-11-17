@@ -25,7 +25,7 @@ Please check the [metrics documentation](./application-gateway-metrics.md) for t
 ### Set your instance count based on your peak CPU usage
 If you are using a v1 SKU gateway, you’ll have the ability to set your Application Gateway up to 32 instances for scaling. Check your Application Gateway’s CPU utilization in the past one month for any spikes above 80%, it is available as a metric for you to monitor. It is recommended that you set your instance count according to your peak usage and with a 10% to 20% additional buffer to account for any traffic spikes.
 
-:::image type="content" source="./media/application-gateway-covid-guidelines/v1-cpu-utilization.png" alt-text="V1 CPU utilization metrics":::
+:::image type="content" source="./media/application-gateway-covid-guidelines/v1-cpu-utilization-inline.png" alt-text="V1 CPU utilization metrics" lightbox="v1-cpu-utilization-exp.png":::
 
 ### Use the v2 SKU over v1 for its autoscaling capabilities and performance benefits
 The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. It also offers other significant performance benefits, such as 5x better TLS offload performance, quicker deployment and update times, zone redundancy, and more when compared to v1. For more information, see our [v2 documentation](./application-gateway-autoscaling-zone-redundant.md) and see our v1 to v2 [migration documentation](./migrate-v1-v2.md) to learn how to migrate your existing v1 SKU gateways to v2 SKU. 
@@ -38,7 +38,7 @@ For Application Gateway v2 SKU, setting the maximum instance count to the maximu
 
 Make sure to check your subnet size and available IP address count in your subnet and set your maximum instance count based on that. If your subnet doesn’t have enough space to accommodate, you will have to re-create your gateway in the same or different subnet which has enough capacity. 
 
-:::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances.png" alt-text="V2 autoscaling configuration":::
+:::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-inline.png" alt-text="V2 autoscaling configuration" lightbox="v2-autoscaling-max-instances-exp.png":::
 
 ### Set your minimum instance count based on your average Compute Unit usage
 
@@ -48,7 +48,7 @@ It is recommended that you set your minimum instance count to an optimal level. 
 
 Check your Compute Unit metric for the past one month. Compute unit metric is a representation of your gateway's CPU utilization and based on your peak usage divided by 10, you can set the minimum number of instances required. Note that 1 application gateway instance can handle a minimum of 10 compute units
 
-:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-metrics.png" alt-text="V2 compute unit metrics":::
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-metrics-inline.png" alt-text="V2 compute unit metrics" lightbox="compute-unit-metrics-exp.png":::
 
 ## Manual scaling for Application Gateway v2 SKU (Standard_v2/WAF_v2)
 
@@ -89,7 +89,7 @@ This example shows you how to use the Azure portal to set up an alert when the f
 4. Click on **New alert rule** and define your condition and actions
 5. Click on **Create alert rule** to create and enable the alert
 
-:::image type="content" source="./media/application-gateway-covid-guidelines/create-alerts.png" alt-text="V2 create alerts":::
+:::image type="content" source="./media/application-gateway-covid-guidelines/create-alerts-inline.png" alt-text="V2 create alerts" lightbox="create-alerts-exp.png":::
 
 ## Alerts for Application Gateway v2 SKU (Standard_v2/WAF_v2)
 
@@ -105,7 +105,7 @@ This example shows you how to use the Azure portal to set up an alert when 75% o
 3. Add a metric for **Average Current Compute Units**. 
 4. If you've set your minimum instance count to be your average CU usage, go ahead and set an alert when 75% of your minimum instances are in use. For example, if your average usage is 10 CUs, set an alert on 7.5 CUs. This alerts you if usage is increasing and gives you time to respond. You can raise the minimum if you think this traffic will be sustained to alert you that traffic may be increasing. 
 
-:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-alert.png" alt-text="V2 compute unit alerts":::
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-alert-inline.png" alt-text="V2 compute unit alerts" lightbox="compute-unit-alert-exp.png":::
 
 > [!NOTE]
 > You can set the alert to occur at a lower or higher CU utilization percentage depending on how sensitive you want to be to potential traffic spikes.
