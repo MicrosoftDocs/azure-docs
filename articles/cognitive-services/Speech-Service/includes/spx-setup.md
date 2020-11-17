@@ -20,10 +20,7 @@ Follow these steps to install the Speech CLI on Windows:
 
 ### Run the Speech CLI
 
-1. Open the command prompt or PowerShell, then navigate to the directory where you extracted the Speech CLI. For example: 
-   ```terminal
-   cd PATH\TO\SPEECHCLI 
-   ```
+1. Open the command prompt or PowerShell, then navigate to the directory where you extracted the Speech CLI.  
 2. Type `spx` to see help commands for the Speech CLI.
 
 > [!NOTE]
