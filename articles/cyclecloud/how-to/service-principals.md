@@ -44,3 +44,9 @@ The simplest option (with sufficient access rights) is to assign the Contributor
 However, the Contributor Role has a higher privilege level than CycleCloud requires.  A [custom Role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) may be created and assigned to the VM.
 
 The [Managed Identity Guide](managed-identities.md) has details on creating an appropriate lower-privilege AD Role for the Service Principal.
+
+To use a Service Principle to give permissions to CycleCloud, ensure that the "Manage Identity" checkbox is unchecked.
+
+::: moniker range=">=cyclecloud-8"
+:::image type="content" source="../images/version-8/add-subscription-service-principle.png" alt-text="Add Subscription Managed Identities":::
+::: moniker-end
