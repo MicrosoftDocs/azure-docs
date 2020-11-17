@@ -66,6 +66,8 @@
     href: ../../application-gateway/security-baseline.md
   - name: Automation security baseline
     href: ../../automation/security-baseline.md
+  - name: Azure Advisor security baseline
+    href: ../../advisor/security-baseline.md
   - name: Azure Backup security baseline
     href: ../../backup/security-baseline.md
   - name: Azure Cache for Redis security baseline
