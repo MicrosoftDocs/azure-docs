@@ -22,7 +22,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 **2.1.1**
 
-- Added a UXString `heading` in addtion to `intro` to show on page as a title, it will be hidden by default.  
+- Added a UXString `heading` in addtion to `intro` to show on page as a title. This will be hidden by default.
 - Allow saving password to iOS keychain.
 - Allow picking DOM layout via policy or querystring parameter `pageFlavor`: classic, oceanBlue, slateGray.
 - Added disclaimers on self-asserted page.
@@ -42,7 +42,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 - The username/email and password fields now use the `form` HTML element to allow Edge and Internet Explorer (IE) to properly save this information.
 - Added a configurable user input validation delay for improved user experience.
-- Fixed an accessibility issue that error message won't be read by narrator. 
+- Fixed an accessibility issue where error message won't be read by narrator.
 - Put focus on password field when email is verified. 
 - Removed `autofocus` from checkbox control. 
 - Support display widget for phone number verification. 
@@ -66,13 +66,13 @@ Page layout packages are periodically updated to include fixes and improvements 
 ## Unified sign-in sign-up page with password reset link (unifiedssp)
 
 **2.1.1**
+- Added a UXString `heading` in addtion to `intro` to show on page as a title. This will be hidden by default.
 - Allow picking DOM layout via policy or querystring parameter `pageFlavor`: classic, oceanBlue, slateGray.
 - Allow using password from iOS Keychain.
-- Added a UXString `heading` in addtion to `intro` to show on page as a title, it will be hidden by default.  
 - Focus will be placed on the first error field when multiple fields are errored.
 - Focus will be placed on the first editable field on page load.
 - Added new location for claims provider selection link `bottomUnderFormClaimsProviderSelections`.
-- Deprecated UXStrings clean up.
+- Removed UXStrings that are no longer used.
 
 **2.1.0**
 
