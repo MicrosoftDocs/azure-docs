@@ -135,7 +135,7 @@ should be a unique name for both the service and identity providers.
 
 1.  Choose the appropriate **Signature Hashing Algorithm** that matches the IdP.
 
-1.  Click **Test This Configuration** in the top right side of the dialog to verify that the
+1.  Click **Test This Configuration** in the top-right side of the dialog to verify that the
 configuration is valid or not.
 
 1. Click **Done** after successfully signing in to close the configuration dialog.
@@ -167,7 +167,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Appian for which you set up the SSO 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Appian tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Appian for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft Access Panel to test the application in any mode. When you click the Appian tile in the Access Panel, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Appian for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## Next steps
