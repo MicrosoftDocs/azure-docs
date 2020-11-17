@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 ACL inheritance is already available for new child items that are created under a parent directory. You can also now add, update, and remove ACLs recursively for existing child items of a parent directory without having to make these changes individually for each child item.
 
-[Libraries](#libraries) | [Samples](#code-samples) | [Best practices](#best-practice-guidelines) | [Give feedback](#provide-feedback)
+[Libraries](#libraries) | [Samples](#code-samples) | [Best practices](#best-practice-guidelines)
 
 ## Prerequisites
 
@@ -1147,12 +1147,6 @@ To reduce latency, we recommend that you run the recursive ACL process in an Azu
 #### ACL limits
 
 The maximum number of ACLs that you can apply to a directory or file is 32 access ACLs and 32 default ACLs. For more information, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
-
-<a id="provide-feedback"></a>
-
-### Provide feedback or report issues
-
-You can provide your feedback or report an issue at  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com).
 
 ## See also
 
