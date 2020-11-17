@@ -28,12 +28,12 @@
     href: certificates-and-key-vault.md
 - name: Samples
   items: 
-  - name: Sample 1
-    href: 
-  - name: Sample 2
-    href: 
-  - name: Sample 3
-    href: 
+  - name: Create a new cloud service
+    href: sample-create-cloud-service.md
+  - name: Get cloud service information
+    href: sample-get-cloud-service.md
+  - name: Update a cloud service
+    href: sample-update-cloud-service.md
 - name: Reference
   items:
   - name: Code samples
