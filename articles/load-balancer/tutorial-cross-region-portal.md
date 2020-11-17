@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 11/16/2020
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -29,7 +29,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 - An Azure subscription.
 - Two **standard** sku Azure Load Balancers with backend pools deployed in two different Azure regions.
     - For information on creating a regional standard load balancer and virtual machines for backend pools, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
-        - Append the name of the load balancers and virtual machines in each region with a **-R1** and **-R2**. 
+        - Append the name of the load balancers, virtual machines, and other resources in each region with a **-R1** and **-R2**. 
 
 ## Sign in to Azure portal
 
@@ -46,7 +46,7 @@ In this section, you'll create a cross-region load balancer and public IP addres
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **Create new** and enter **myResourceGroupLB-CR** in the text box.|
+    | Resource group         | Select **Create new** and enter **CreateCRLBTutorial-rg** in the text box.|
     | Name                   | Enter **myLoadBalancer-CR**                                   |
     | Region         | Select **West US**.                                        |
     | Type          | Select **Public**.                                        |
@@ -77,7 +77,21 @@ Create the backend address pool **myBackendPool-CR** to include the regional sta
 
 3. On the **Add a backend pool** page, for name, type **myBackendPool-CR**.
 
-**FINISH INSTRUCTIONS HERE WHEN PORTAL DONE**
+4. Select **Add**.
+
+4. Select **myBackendPool-CR**.
+
+5. Under **Load balancers**, select the pull down box under **Load balancer**.
+
+5. Select **myLoadBalancer-R1**, or the name of your load balancer in region 1.
+
+6. Select the pull down box under **Frontend IP configuration**. Choose **LoadBalancerFrontEnd**.
+
+7. Repeat steps 4-6 to add **myLoadBalancer-R2**.
+
+8. Select **Save**.
+
+    :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="Add regional load balancers to backendpool" border="true":::
 
 ## Create a load balancer rule
 
@@ -124,7 +138,7 @@ In this section, you'll test the cross-region load balancer. You'll connect to t
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load Balancer, and all related resources. To do so, select the resource group **myResourceGroupLB-CR** that contains the resources and then select **Delete**.
+When no longer needed, delete the resource group, load Balancer, and all related resources. To do so, select the resource group **CreateCRLBTutorial-rg** that contains the resources and then select **Delete**.
 
 ## Next steps
 
