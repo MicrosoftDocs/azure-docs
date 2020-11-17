@@ -15,6 +15,8 @@ Babylon supports the following data stores. Click each data store to
 learn the supported capabilities and the corresponding configurations in
 details.
 
+## Purview data sources
+
 |**Category**|  **Data Store**  |**Metadata Extraction**|**Full Scan**|**Incremental Scan**|**Scoped Scan**|**Classification**|**Lineage**|
 |---|---|---|---|---|---|---|---|
 | Azure | [Azure Blob Storage](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-preview-babylon/articles/purview/register-scan-azure-blob-storage-source.md)| &#9745;| &#9745;| &#9745;| &#9745;| &#9745;| &#9745;|
