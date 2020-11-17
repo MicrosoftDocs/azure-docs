@@ -370,6 +370,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
         * For ASP.NET Core apps only: in case your application refers to any Application Insights packages, for example if you have previously instrumented (or attempted to instrument) your app with the [ASP.NET Core SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), enabling the App Service integration may not take effect and the data may not appear in Application Insights. To fix the issue, in portal turn on "Interop with Application Insights SDK" and you will start seeing the data in Application Insights 
         > [!IMPORTANT]
         > This functionality is in preview 
+
         ![Enable the setting the existing app](./media/azure-web-apps/netcore-sdk-interop.png)
 
         The data is now going to be sent using codeless approach even if Application Insights SDK was originally used or attempted to be used.
