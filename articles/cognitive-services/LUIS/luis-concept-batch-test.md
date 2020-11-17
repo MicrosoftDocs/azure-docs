@@ -37,6 +37,9 @@ App version ID
 
 These endpoints will return an operation ID that you will use to check the status, and get results.
 
+Add your LUIS key to `Apim-Subscription-Id` in the header. Set `Content-Type` to `application/json`.
+
+
 ### Get the status of an ongoing batch test
 
 Use the operation ID from the batch test you started to get its status from the following endpoint formats: 
@@ -52,7 +55,7 @@ App version ID
 Use the operation ID from the batch test you started to get its results from the following endpoint formats: 
 
 Publishing slot
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result?verbose=true`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 App version ID
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
@@ -60,14 +63,7 @@ App version ID
 
 ## A data set of utterances
 
-Submit a batch file of utterances, known as a *data set*, for batch testing. The data set is a JSON-formatted file containing a maximum of 1,000 labeled **non-duplicate** utterances. You can test up to 10 data sets in an app. If you need to test more, delete a data set and then add a new one.
-
-|**Rules**|
-|--|
-|*No duplicate utterances|
-|1000 utterances or less|
-
-*Duplicates are considered exact string matches, not matches that are tokenized first.
+Submit a batch file of utterances, known as a *data set*, for batch testing. The data set is a JSON-formatted file containing a maximum of 1,000 labeled utterances. You can test up to 10 data sets in an app. If you need to test more, delete a data set and then add a new one.
 
 ## Entities allowed in batch tests
 
@@ -85,44 +81,37 @@ The batch file consists of utterances. Each utterance must have an expected inte
 Use the following template to start your batch file:
 
 ```JSON
-[
-  {
-    "text": "example utterance goes here",
-    "intent": "intent name goes here",
-    "entities":
-    [
+{
+    "LabeledTestSetUtterances": [
         {
-            "entity": "entity name 1 goes here",
-            "startPos": 14,
-            "endPos": 23
-        },
-        {
-            "entity": "entity name 2 goes here",
-            "startPos": 14,
-            "endPos": 23
+            "text": "play a song",
+            "intent": "play_music",
+            "entities": [
+                {
+                    "entity": "song_parent",
+                    "startPos": 0,
+                    "endPos": 15,
+                    "children": [
+                        {
+                            "entity": "pre_song",
+                            "startPos": 0,
+                            "endPos": 3
+                        },
+                        {
+                            "entity": "song_info",
+                            "startPos": 5,
+                            "endPos": 15
+                        }
+                    ]
+                }
+            ]
         }
     ]
-  }
-]
+}
+
 ```
 
 The batch file uses the **startPos** and **endPos** properties to note the beginning and end of an entity. The values are zero-based and should not begin or end on a space. This is different from the query logs, which use startIndex and endIndex properties.
-
-[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
-
-## Batch syntax template for intents without entities
-
-Use the following template to start your batch file without entities:
-
-```JSON
-[
-  {
-    "text": "example utterance goes here",
-    "intent": "intent name goes here",
-    "entities": []
-  }
-]
-```
 
 If you do not want to test entities, include the `entities` property and set the value as an empty array, `[]`.
 
@@ -142,17 +131,15 @@ LUIS tracks the state of each data set's last test. This includes the size (numb
 
 <a name="sections-of-the-results-chart"></a>
 
-## Batch test results
+## REST API batch test results
 
-The batch test result is a scatter graph, known as an error matrix. This graph is a 4-way comparison of the utterances in the batch file and the current model's predicted intent and entities.
+There are several objects returned by the API:
 
-Data points on the **False Positive** and **False Negative** sections indicate errors, which should be investigated. If all data points are on the **True Positive** and **True Negative** sections, then your app's accuracy is perfect on this data set.
-
-![Four sections of chart](./media/luis-concept-batch-test/chart-sections.png)
-
-This chart helps you find utterances that LUIS predicts incorrectly based on its current training. The results are displayed per region of the chart. Select individual points on the graph to review the utterance information or select region name to review utterance results in that region.
-
-![Batch testing](./media/luis-concept-batch-test/batch-testing.png)
+* Information about the intents and entities models, such as precision, recall and F-score.
+* Information about the entities models, such as precision, recall and F-score) for each entity 
+  * Using the verbose flag, you can get more information about the entity, such as `entityTextFScore` and `entityTypeFScore`.
+* Provided utterances with the predicted and labeled intent names
+* A list of false positive entities, and a list of false negative entities.
 
 ## Errors in the results
 
