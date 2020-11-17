@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -83,7 +83,7 @@ This option allows higher or lower pricing than the publicly available offering.
 
 ### Commercial marketplace service fees
 
-We charge a 20% standard store service fee for transactable offers that are published to the commercial marketplace. For details of this fee, see section 5c of the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560).
+We charge a 20% standard store service fee when customers purchase your transact offer from the commercial marketplace. For details of this fee, see section 5c of the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560).
 
 For certain transactable offers that you publish to the commercial marketplace, you may qualify for a reduced store service fee of 10%. For an offer to qualify, it must have been designated by Microsoft as Azure IP Co-sell incentivized. Eligibility must be met at least five business days before the end of each calendar month to receive the Reduced Marketplace Service Fee for the month.
 
