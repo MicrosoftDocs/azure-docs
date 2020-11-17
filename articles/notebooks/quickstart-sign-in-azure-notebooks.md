@@ -54,4 +54,4 @@ To sign out, select your username on the upper right of the page, then select **
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create and share a notebook](quickstart-create-share-jupyter-notebook.md)
+> [Quickstart: Export a Jupyter Notebook project](quickstart-export-jupyter-notebook-project.md)
