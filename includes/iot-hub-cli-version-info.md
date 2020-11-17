@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 03/05/2020
  ms.author: robinsh
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 > [!NOTE]
 > This article uses the newest version of the Azure IoT extension, called `azure-iot`. The legacy version is called `azure-cli-iot-ext`.You should only have one version installed at a time. You can use the command `az extension list` to validate the currently installed extensions.

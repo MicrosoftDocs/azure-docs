@@ -3,7 +3,7 @@ title: 'Tutorial: Send Event Hubs data to data warehouse - Event Grid'
 description: 'Tutorial: Describes how to use Azure Event Grid and Event Hubs to migrate data to a Azure Synapse Analytics. It uses an Azure Function to retrieve a Capture file.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Tutorial: Stream big data into a data warehouse
