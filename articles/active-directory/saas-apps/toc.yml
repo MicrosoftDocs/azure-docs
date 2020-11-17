@@ -221,7 +221,7 @@
         href: blue-access-for-members-tutorial.md
       - name: BlueJeans
         href: bluejeans-tutorial.md
-      - name: Bomgar Remote Support
+      - name: BeyondTrust Remote Support
         href: bomgarremotesupport-tutorial.md
       - name: Bonusly
         href: bonus-tutorial.md
@@ -1836,6 +1836,8 @@
         href: vibehcm-tutorial.md
       - name: Vidyard
         href: vidyard-tutorial.md
+      - name: Virtual Risk Manager
+        href: virtual-risk-manager-tutorial.md
       - name: Visit.org
         href: visitorg-tutorial.md
       - name: Visibly
