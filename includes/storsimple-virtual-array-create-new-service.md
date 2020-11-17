@@ -30,7 +30,7 @@ ms.custom: "include file"
 
         -   If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, we recommend that you use that datacenter.
 
-        -   Your StorSimple Device Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Device Manager and Azure storage account separately. To create an Azure storage account, navigate to Azure Storage in the Azure portal and follow the steps described in [Create a storage account](../articles/storage/common/storage-account-create.md). After you create this account, add it to the StorSimple Device Manager service by following the steps in [Configure a new storage account for the service](../articles/storsimple/index.yml#configure-a-new-storage-account-for-the-service).
+        -   Your StorSimple Device Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Device Manager and Azure storage account separately. To create an Azure storage account, navigate to Azure Storage in the Azure portal and follow the steps described in [Create a storage account](../articles/storage/common/storage-account-create.md). After you create this account, add it to the StorSimple Device Manager service by following the steps in [Configure a new storage account for the service](../articles/storsimple/storsimple-virtual-array-manage-storage-accounts.md#add-a-storage-account-credential).
 
         -   If deploying the virtual device in the Government Portal, the StorSimple Device Manager service is available in US Iowa and US Virginia locations.
 
