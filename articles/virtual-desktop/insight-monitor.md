@@ -1,22 +1,22 @@
 ---
-title: Use Insight in Windows Virtual Desktop Monitor preview - Azure
-description: How to use Windows Virtual Desktop Insight in Windows Virtual Desktop Monitor.
+title: Use Monitor Windows Virtual Desktop Monitor preview - Azure
+description: How to use Azure Monitor for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
 ---
-# Use Windows Virtual Desktop Insight to monitor your deployment (preview)
+# Use Azure Monitor for Windows Virtual Desktop to monitor your deployment (preview)
 
 >[!IMPORTANT]
-Windows Virtual Desktop Insight is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure Monitor for Windows Virtual Desktop is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Windows Virtual Desktop Insights (preview) is a dashboard for Azure Monitor Workbooks that helps IT professionals understand their Windows Virtual Desktop environments. This topic will walk you through how to set up Windows Virtual Desktop Insights to monitor your Windows Virtual Desktop environments.
+Azure Monitor for Windows Virtual Desktop (preview) is a dashboard built on Azure Monitor Workbooks that helps IT professionals understand their Windows Virtual Desktop environments. This topic will walk you through how to set up Azure Monitor for Windows Virtual Desktop to monitor your Windows Virtual Desktop environments.
 
 ## Requirements
 
-Before you start using Windows Virtual Desktop Insights, you'll need to set up the following things:
+Before you start using Azure Monitor for Windows Virtual Desktop, you'll need to set up the following things:
 
 - All Windows Virtual Desktop environments you monitor must be based on the latest release of Windows Virtual Desktop that’s compatible with Azure Resource Manager.
 
@@ -27,7 +27,7 @@ Before you start using Windows Virtual Desktop Insights, you'll need to set up t
     - Data from the Diagnostics tool for all objects in the environment you'll be monitoring.
     - Virtual machines (VMs) in the environment you'll monitor.
 
-Anyone monitoring the Windows Virtual Desktop Insights for your environment will also
+Anyone monitoring the Azure Monitor for Windows Virtual Desktop for your environment will also
 need the following read-access permissions:
 
 - Read access to the resource group where the environment's resources are located.
@@ -37,17 +37,17 @@ need the following read-access permissions:
 >[!NOTE]
 > Read access only lets admins view data. They'll need different permissions to manage resources in the Windows Virtual Desktop portal.
 
-## Open Windows Virtual Desktop Insights
+## Open Azure Monitor for Windows Virtual Desktop
 
-You can open Windows Virtual Desktop Insights with one of the following methods:
+You can open Azure Monitor for Windows Virtual Desktop with one of the following methods:
 
-- Go to [aka.ms/azmonwvdi](https://portal.azure.com/?feature.wvdinsights=true#blade/AppInsightsExtension/WorkbookViewerBlade/Type/wvd-insights/ComponentId/Azure%20Monitor/GalleryResourceType/Azure%20Monitor/ConfigurationId/community-Workbooks%2FWindows%20Virtual%20Desktop%2FWVD%20Insights).
+- Go to [aka.ms/azmonwvdi](https://portal.azure.com/?feature.wvdinsights=true#blade/AppInsightsExtension/WorkbookViewerBlade/Type/wvd-insights/ComponentId/Azure%20Monitor/GalleryResourceType/Azure%20Monitor/ConfigurationId/community-Workbooks%2FWindows%20Virtual%20Desktop%2FWVD%20Insights)).
 
 - Search for and select **Windows Virtual Desktop** from the Azure Portal, then select **Insights**.
 
-- Search for and select **Azure Monitor** from the Azure Portal. Select **Insights Hub** under **Insights**, and under **Other** select **Windows Virtual Desktop** to open the dashboard in the Insights page.
+- Search for and select **Azure Monitor** from the Azure Portal. Select **Insights Hub** under **Insights**, and under **Other** select **Windows Virtual Desktop** to open the dashboard in the Azure Monitor page.
 
-Once you have Windows Virtual Desktop Insights open, select one or more of the checkboxers labeled **Subscription**, **Resource group**, **Host pool**, and **Time range** based on which environment you want to monitor.
+Once you have Azure Monitor for Windows Virtual Desktop open, select one or more of the check boxes labeled **Subscription**, **Resource group**, **Host pool**, and **Time range** based on which environment you want to monitor.
 
 >[!NOTE]
 >Windows Virtual Desktop currently only supports monitoring one subscription, resource group, and host pool at a time. If you can't find the environment you want to monitor, see our troubleshooting documentation for known feature requests and issues.
@@ -56,29 +56,29 @@ Once you have Windows Virtual Desktop Insights open, select one or more of the c
 
 ## Use the configuration workbook
 
-If this is your first time opening Windows Virtual Desktop Insights, you'll need to configure Azure Monitor for your Windows Virtual Desktop resources. To configure your resources:
+If this is your first time opening Azure Monitor for Windows Virtual Desktop, you'll need to configure Azure Monitor for your Windows Virtual Desktop resources. To configure your resources:
 
 1. Open your workbook in the Azure portal.
 2. Select **Open the configuration workbook**.
 
-You'll only need to use the configuration workbook when you first set up Azure Monitor for your environment. This workbook will let you check the configuration if items in the dashboard aren't displaying correctly, or when the product group publishes updates to the Insights page that require additional data points.
+The configuration workbook sets up your monitoring environment and lets you check the configuration after you've finished the setup process. It's important to check your configuration if items in the dashboard aren't displaying correctly, or when the product group publishes updates that require additional data points.
 
 ## Set up Log Analytics
 
-To start using Insights, you'll also need at least one Log Analytics workspace to collect data from the environment you plan to monitor and supply it to the workbook. If you already have one set up, skip ahead to [Set up performance counters](#set-up-performance-counters). To set up a new Log Analytics workspace for the Azure subscription containing your Windows Virtual Desktop environment, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md).
+To start using Azure Monitor for Windows Virtual Desktop, you'll also need at least one Log Analytics workspace to collect data from the environment you plan to monitor and supply it to the workbook. If you already have one set up, skip ahead to [Set up performance counters](#set-up-performance-counters). To set up a new Log Analytics workspace for the Azure subscription containing your Windows Virtual Desktop environment, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md).
 
 >[!NOTE]
 >Standard data storage charges for Log Analytics will apply. To start, we recommend you choose the pay-as-you-go model and adjust as you scale your deployment and take in more data. To learn more, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### Set up performance counters
 
-You need to enable specific performance counters for collection at the corresponding sample interval in the Log Analytics workspace. The specified performance counters are the only counters needed for Windows Virtual Desktop Insights. You can disabled all others to save costs.
+You need to enable specific performance counters for collection at the corresponding sample interval in the Log Analytics workspace. These performance counters are the only counters you'll need to monitor Windows Virtual Desktop. You can disable all others to save costs.
 
 If you already have performance counters enabled want to remove them, follow the instructions in [Configuring performance counters](../azure-monitor/platform/data-sources-performance-counters.md) to reconfigure your performance counters.
 
 <!---This article doesn't mention how to remove counters. Should we link something else?--->
 
-If you haven't already set up performance counters, here's how to configure them for Windows Virtual Desktop Insights:
+If you haven't already set up performance counters, here's how to configure them for Azure Monitor for Windows Virtual Desktop:
 
 1. Go to [aka.ms/azmonwvdi](https://portal.azure.com/?feature.wvdinsights=true#blade/AppInsightsExtension/WorkbookViewerBlade/Type/wvd-insights/ComponentId/Azure%20Monitor/GalleryResourceType/Azure%20Monitor/ConfigurationId/community-Workbooks%2FWindows%20Virtual%20Desktop%2FWVD%20Insights)), then select the **Configuration Workbook** bottom of the window.
 
@@ -101,13 +101,13 @@ To learn more about how to manually add performance counters that aren’t alrea
 
 ## Set up Windows Events
 
-Next, you'll need to enable specific Windows Events for collection in the Log Analytics workspace. The events described in this section are the only ones Windows Virtual Desktop Insights needs. You can disable all others to save costs.
+Next, you'll need to enable specific Windows Events for collection in the Log Analytics workspace. The events described in this section are the only ones Azure Monitor for Windows Virtual Desktop needs. You can disable all others to save costs.
 
 To set up Windows Events:
 
 1. If you have Windows Events enabled already and want to remove them, remove the events you don't want before using the configuration workbook to enable the set required for monitoring.
 
-2. Go to Windows Virtual Desktop Insights at ([aka.ms/azmonwvdi](https://portal.azure.com/?feature.wvdinsights=true#blade/AppInsightsExtension/WorkbookViewerBlade/Type/wvd-insights/ComponentId/Azure%20Monitor/GalleryResourceType/Azure%20Monitor/ConfigurationId/community-Workbooks%2FWindows%20Virtual%20Desktop%2FWVD%20Insights)), then select **Configuration workbook** at the bottom of the window.
+2. Go to Azure Monitor for Windows Virtual Desktop at ([aka.ms/azmonwvdi](https://portal.azure.com/?feature.wvdinsights=true#blade/AppInsightsExtension/WorkbookViewerBlade/Type/wvd-insights/ComponentId/Azure%20Monitor/GalleryResourceType/Azure%20Monitor/ConfigurationId/community-Workbooks%2FWindows%20Virtual%20Desktop%2FWVD%20Insights)), then select **Configuration workbook** at the bottom of the window.
 
 3. In **Windows Events configuration**, there's a list of Windows Events required for monitoring. On the right side of that list is the **Missing events** list, where you'll find the required event names and event types that aren't currently enabled for your workspace. Record each of these names for later.
 
@@ -136,7 +136,7 @@ To configure VMs:
 
 Finally, you'll need to enable Azure Monitor diagnostic settings on all objects within the Windows Virtual Desktop environment that support this feature.
 
-1. Open Windows Virtual Desktop Insights at ([aka.ms/azmonwvdi](https://portal.azure.com/?feature.wvdinsights=true#blade/AppInsightsExtension/WorkbookViewerBlade/Type/wvd-insights/ComponentId/Azure%20Monitor/GalleryResourceType/Azure%20Monitor/ConfigurationId/community-Workbooks%2FWindows%20Virtual%20Desktop%2FWVD%20Insights)), then select **Configuration Workbook**.
+1. Open Azure Monitor for Windows Virtual Desktop at ([aka.ms/azmonwvdi](https://portal.azure.com/?feature.wvdinsights=true#blade/AppInsightsExtension/WorkbookViewerBlade/Type/wvd-insights/ComponentId/Azure%20Monitor/GalleryResourceType/Azure%20Monitor/ConfigurationId/community-Workbooks%2FWindows%20Virtual%20Desktop%2FWVD%20Insights)), then select **Configuration Workbook**.
 
 2. Under **Host Pool Diagnostic Settings**, check to see whether Windows Virtual Desktop diagnostics are enabled for the host pool. If they aren't, an error will appear that says "No existing Diagnostic configuration was found for the selected host pool." When that happens, go to step 3. If you don't see the error, you don't need to do anything else.
 
@@ -168,10 +168,24 @@ You can learn more about how to enable diagnostics on all objects in the Windows
 
 ## Optional: configure alerts
 
-You can configure Windows Virtual Desktop Insights to notify you if any severe Azure Monitor alerts happen within your selected subscription. To do this, follow the instructions in [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
+You can configure Azure Monitor for Windows Virtual Desktop to notify you if any severe Azure Monitor alerts happen within your selected subscription. To do this, follow the instructions in [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
+
+## Diagnostic and usage data
+
+Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to improve the quality, security, and integrity of the service.
+
+To provide accurate and efficient troubleshooting capabilities, the collected data includes the portal session ID, Azure Active Directory user ID, and the name of the portal tab where the event occurred. Microsoft doesn't collect names, addresses, or other contact information.
+
+For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://privacy.microsoft.com/privacystatement).
+
+>[!NOTE]
+>To learn about viewing or deleting your personal data collected by the service, see [Azure Data Subject Requests for the GDPR](/microsoft-365/compliance/gdpr-dsr-azure). For more information about GDPR, see [the GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## Next steps
 
-Now that you’ve configured your Windows Virtual Desktop Azure portal, you're ready to get started!
+Now that you’ve configured your Windows Virtual Desktop Azure portal, here are some resources that might help you:
+
+- Check out our [glossary]() to learn more about terms and concepts related to Azure Monitor for Windows Virtual Desktop.
+- If you encounter a problem, check out our [troubleshooting guide]() for help.
 
 <!---Links to new articles will go here--->
