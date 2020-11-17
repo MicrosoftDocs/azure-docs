@@ -95,8 +95,8 @@ All search parameter types are supported.
 |-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated` is supported       |
 | `_count`                | Yes       | Yes       | Yes       | `_count` is limited to 100 characters. If set to higher than 100, only 100 will be returned and a warning will be returned in the bundle. |
-| `_include`              | No        | Yes       | No        |         |
-| `_revinclude`           | No        | Yes       | No        | Included items are limited to 100. |
+| `_include`              | Yes       | Yes       | Yes       |Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
+| `_revinclude`           | Yes       | Yes       | Yes       | Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
 | `_total`                | Partial   | Partial   | Partial   | _total=non and _total=accurate      |
 | `_elements`             | Yes       | Yes       | Yes       |         |
@@ -127,6 +127,16 @@ Cosmos DB is a globally distributed multi-model (SQL API, MongoDB API, etc.) dat
 The FHIR Server uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for access control. Specifically, Role-Based Access Control (RBAC) is enforced, if the `FhirServer:Security:Enabled` configuration parameter is set to `true`, and all requests (except `/metadata`) to the FHIR Server must have `Authorization` request header set to `Bearer <TOKEN>`. The token must contain one or more roles as defined in the `roles` claim. A request will be allowed if the token contains a role that allows the specified action on the specified resource.
 
 Currently, the allowed actions for a given role are applied *globally* on the API.
+
+## Service Limits
+
+* [**Request Units (RUs)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
+
+* **Concurrent Requests** and **Instances** - By dafault, you have five concurrent requests on two instances in the cluster (for a total of 10 concurrent connections). If you believe you need more concurrent connections, open a support ticket with details on your needs.
+
+* **Bundle Size** - Each bundle is limited to 500 items.
+
+* **Data Size** - Data/Documents must each be slightly less than 2 MB. This accounts for the 2 MB limit in Cosmos DB and the metadata that slightly increases the size of your document. 
 
 ## Next steps
 
