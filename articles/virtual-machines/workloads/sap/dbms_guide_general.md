@@ -1,22 +1,12 @@
 ---
 title: Considerations for Azure Virtual Machines DBMS deployment for SAP workload | Microsoft Docs
 description: Considerations for Azure Virtual Machines DBMS deployment for SAP workload
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
-manager: bburns
-editor: ''
-tags: azure-resource-manager
-keywords: 'SAP, DBMS, storage, Ultra disk, Premium storage'
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.reviewer: cynthn
 
 ---
 
@@ -271,7 +261,7 @@ There are other redundancy methods. For more information, see [Azure Storage rep
 
 
 ## VM node resiliency
-Azure offers several different SLAs for VMs. For more information, see the most recent release of [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Because the DBMS layer is critical to availability in an SAP system, you need to understand availability sets, Availability Zones, and maintenance events. For more information on these concepts, see [Manage the availability of Windows virtual machines in Azure](../../windows/manage-availability.md) and [Manage the availability of Linux virtual machines in Azure](../../linux/manage-availability.md).
+Azure offers several different SLAs for VMs. For more information, see the most recent release of [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Because the DBMS layer is critical to availability in an SAP system, you need to understand availability sets, Availability Zones, and maintenance events. For more information on these concepts, see [Manage the availability of Windows virtual machines in Azure](../../manage-availability.md) and [Manage the availability of Linux virtual machines in Azure](../../manage-availability.md).
 
 The minimum recommendation for production DBMS scenarios with an SAP workload is to:
 
@@ -293,7 +283,7 @@ These best practices are the result of hundreds of customer deployments:
 - The virtual networks the SAP application is deployed into don't have access to the internet.
 - The database VMs run in the same virtual network as the application layer, separated in a different subnet from the SAP application layer.
 - The VMs within the virtual network have a static allocation of the private IP address. For more information, see [IP address types and allocation methods in Azure](../../../virtual-network/public-ip-addresses.md).
-- Routing restrictions to and from the DBMS VMs are *not* set with firewalls installed on the local DBMS VMs. Instead, traffic routing is defined with [network security groups (NSGs)](../../../virtual-network/security-overview.md).
+- Routing restrictions to and from the DBMS VMs are *not* set with firewalls installed on the local DBMS VMs. Instead, traffic routing is defined with [network security groups (NSGs)](../../../virtual-network/network-security-groups-overview.md).
 - To separate and isolate traffic to the DBMS VM, assign different NICs to the VM. Every NIC gets a different IP address, and every NIC is assigned to a different virtual network subnet. Every subnet has different NSG rules. The isolation or separation of network traffic is a measure for routing. It's not used to set quotas for network throughput.
 
 > [!NOTE]
@@ -302,7 +292,7 @@ These best practices are the result of hundreds of customer deployments:
 
 
 > [!WARNING]
-> Configuring [network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of a SAP NetWeaver-, Hybris-, or S/4HANA-based SAP system isn't supported. This restriction is for functionality and performance reasons. The communication path between the SAP application layer and the DBMS layer must be a direct one. The restriction doesn't include [application security group (ASG) and NSG rules](../../../virtual-network/security-overview.md) if those ASG and NSG rules allow a direct communication path. 
+> Configuring [network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of a SAP NetWeaver-, Hybris-, or S/4HANA-based SAP system isn't supported. This restriction is for functionality and performance reasons. The communication path between the SAP application layer and the DBMS layer must be a direct one. The restriction doesn't include [application security group (ASG) and NSG rules](../../../virtual-network/network-security-groups-overview.md) if those ASG and NSG rules allow a direct communication path. 
 >
 > Other scenarios where network virtual appliances aren't supported are in:
 >
@@ -331,7 +321,7 @@ If there's a failover of the database node, there's no need for the SAP applicat
 
 Azure offers two different [load balancer SKUs](../../../load-balancer/load-balancer-overview.md): a basic SKU and a standard SKU. Based on the advantages in setup and functionality, you should use the Standard SKU of the Azure load balancer. One of the large advantages of the Standard version of the load balancer is that the data traffic is not routed through the load balancer itself.
 
-An example how you can configure an internal load balancer can be found in the article [Tutorial: Configure a SQL Server availability group on Azure Virtual Machines manually](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial#create-an-azure-load-balancer)
+An example how you can configure an internal load balancer can be found in the article [Tutorial: Configure a SQL Server availability group on Azure Virtual Machines manually](../../../azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial.md#create-an-azure-load-balancer)
 
 > [!NOTE]
 > There are differences in behavior of the basic and standard SKU related to the access of public IP addresses. The way how to work around the restrictions of the Standard SKU to access public IP addresses is described in the document [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md)

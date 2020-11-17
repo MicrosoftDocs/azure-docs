@@ -195,6 +195,41 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | ajaxPerfLookupDelay | 25 | Defaults to 25 ms. The amount of time to wait before re-attempting to find the windows.performance timings for an `ajax` request, time is in milliseconds and is passed directly to setTimeout().
 | enableUnhandledPromiseRejectionTracking | false | If true, unhandled promise rejections will be autocollected and reported as a JavaScript error. When disableExceptionTracking is true (don't track exceptions), the config value will be ignored and unhandled promise rejections will not be reported.
 
+## Enable time-on-page tracking
+
+By setting `autoTrackPageVisitTime: true`, the time a user spends on each page is tracked. On each new PageView, the duration the user spent on the *previous* page is sent as a [custom metric](../platform/metrics-custom-overview.md) named `PageVisitTime`. This custom metric is viewable in the [Metrics Explorer](../platform/metrics-getting-started.md) as a "log-based metric".
+
+## Enable Correlation
+
+Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+
+The following example shows all possible configurations required to enable correlation, with scenario-specific notes below:
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    disableFetchTracking: false,
+    enableCorsCorrelation: true,
+    enableRequestHeaderTracking: true,
+    enableResponseHeaderTracking: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
+
+If any of your third-party servers that the client communicates with cannot accept the `Request-Id` and `Request-Context` headers, and you cannot update their configuration, then you'll need to put them into an exclude list via the `correlationHeaderExcludeDomains` configuration property. This property supports wildcards.
+
+The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it is often necessary to extend the server-side list by manually adding `Request-Id` and `Request-Context`.
+
+Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
+
+> [!NOTE]
+> If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
+
 ## Single Page Applications
 
 By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
@@ -203,49 +238,13 @@ Currently, we offer a separate [React plugin](javascript-react-plugin.md), which
 > [!NOTE]
 > Use `enableAutoRouteTracking: true` only if you are **not** using the React plugin. Both are capable of sending new PageViews when the route changes. If both are enabled, duplicate PageViews may be sent.
 
-## Configuration: autoTrackPageVisitTime
-
-By setting `autoTrackPageVisitTime: true`, the time a user spends on each page is tracked. On each new PageView, the duration the user spent on the *previous* page is sent as a [custom metric](../platform/metrics-custom-overview.md) named `PageVisitTime`. This custom metric is viewable in the [Metrics Explorer](../platform/metrics-getting-started.md) as a "log-based metric".
-
 ## Extensions
 
 | Extensions |
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
-| [Angular](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js) |
-
-## Correlation
-
-Client to server-side correlation is supported for:
-
-- XHR/AJAX requests 
-- Fetch requests 
-
-Client to server-side correlation is **not supported** for `GET` and `POST` requests.
-
-### Enable cross-component correlation between client AJAX and server requests
-
-To enable `CORS` correlation, the client needs to send two additional request headers `Request-Id` and `Request-Context`, and the server-side needs to be able to accept connections with those headers present. Sending these headers is enabled by setting `enableCorsCorrelation: true` within the JavaScript SDK configuration. 
-
-Depending on the `Access-Control-Allow-Headers` configuration on the server-side it is often necessary to extend the server-side list by manually adding `Request-Id` and `Request-Context`.
-
-Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
-
-If any of your third-party servers that the client communicates with cannot accept the `Request-Id` and `Request-Context` headers, and you cannot update their configuration, then you'll need to put them into an exclude list via the `correlationHeaderExcludeDomains` configuration property. This property supports wildcards.
-
-```javascript
-// excerpt of the config section of the JavaScript SDK snippet with correlation
-// between client-side AJAX and server requests enabled.
-cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
-    enableCorsCorrelation: true,
-    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
-    /* ...Other Configuration Options... */
-}});
-</script>
-
-``` 
+| [Angular](javascript-angular-plugin.md) |
 
 ## Explore browser/client-side data
 

@@ -23,7 +23,7 @@ Occasionally, customers ask about moving a search service to another region. Cur
 
 + Ensure that the services and features that your account uses are supported in the target region.
 
-+ For preview features, ensure that your subscription is whitelisted for the target region.
++ For preview features, ensure that your subscription is approved for the target region.
 
 ## Prepare and move
 

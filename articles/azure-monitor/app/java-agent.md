@@ -8,8 +8,10 @@ ms.custom: devx-track-java
 
 # Monitor dependencies, caught exceptions, and method execution times in Java web apps
 
+> [!IMPORTANT]
+> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
 
-If you have [instrumented your Java web app with Application Insights][java], you can use the Java Agent to get deeper insights, without any code changes:
+If you have [instrumented your Java web app with Application Insights SDK][java], you can use the Java Agent to get deeper insights, without any code changes:
 
 * **Dependencies:** Data about calls that your application makes to other components, including:
   * **Outgoing HTTP calls** made via Apache HttpClient, OkHttp, and `java.net.HttpURLConnection` are captured.

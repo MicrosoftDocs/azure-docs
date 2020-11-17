@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
@@ -65,7 +65,7 @@ Related topics provide two code samples:
 
 ## New catalog views
 
-The extended events feature is supported by several [catalog views](https://msdn.microsoft.com/library/ms174365.aspx). Catalog views tell you about *metadata or definitions* of user-created event sessions in the current database. The views do not return information about instances of active event sessions.
+The extended events feature is supported by several [catalog views](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql). Catalog views tell you about *metadata or definitions* of user-created event sessions in the current database. The views do not return information about instances of active event sessions.
 
 | Name of<br/>catalog view | Description |
 |:--- |:--- |
@@ -77,9 +77,9 @@ The extended events feature is supported by several [catalog views](https://msdn
 
 In Microsoft SQL Server, similar catalog views have names that include *.server\_* instead of *.database\_*. The name pattern is like **sys.server_event_%**.
 
-## New dynamic management views [(DMVs)](https://msdn.microsoft.com/library/ms188754.aspx)
+## New dynamic management views [(DMVs)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
-Azure SQL Database has [dynamic management views (DMVs)](https://msdn.microsoft.com/library/bb677293.aspx) that support extended events. DMVs tell you about *active* event sessions.
+Azure SQL Database has [dynamic management views (DMVs)](/sql/relational-databases/system-dynamic-management-views/extended-events-dynamic-management-views) that support extended events. DMVs tell you about *active* event sessions.
 
 | Name of DMV | Description |
 |:--- |:--- |
@@ -134,11 +134,11 @@ SELECT
 
 Here are targets that can capture results from your event sessions on Azure SQL Database:
 
-- [Ring Buffer target](https://msdn.microsoft.com/library/ff878182.aspx) - Briefly holds event data in memory.
-- [Event Counter target](https://msdn.microsoft.com/library/ff878025.aspx) - Counts all events that occur during an extended events session.
-- [Event File target](https://msdn.microsoft.com/library/ff878115.aspx) - Writes complete buffers to an Azure Storage container.
+- [Ring Buffer target](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)) - Briefly holds event data in memory.
+- [Event Counter target](/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) - Counts all events that occur during an extended events session.
+- [Event File target](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) - Writes complete buffers to an Azure Storage container.
 
-The [Event Tracing for Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) API is not available for extended events on Azure SQL Database.
+The [Event Tracing for Windows (ETW)](/dotnet/framework/wcf/samples/etw-tracing) API is not available for extended events on Azure SQL Database.
 
 ## Restrictions
 
@@ -177,11 +177,11 @@ The **Event File** target might experience network latency or failures while per
 ## Related links
 
 - [Using Azure PowerShell with Azure Storage](/powershell/module/az.storage/).
-- [Azure Storage Cmdlets](https://docs.microsoft.com/powershell/module/Azure.Storage)
+- [Azure Storage Cmdlets](/powershell/module/Azure.Storage)
 - [Using Azure PowerShell with Azure Storage](/powershell/module/az.storage/)
 - [How to use Blob storage from .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-credential-transact-sql)
+- [CREATE EVENT SESSION (Transact-SQL)](/sql/t-sql/statements/create-event-session-transact-sql)
 - [Jonathan Kehayias' blog posts about extended events in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 - The Azure *Service Updates* webpage, narrowed by parameter to Azure SQL Database:
   - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
@@ -189,6 +189,6 @@ The **Event File** target might experience network latency or failures while per
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

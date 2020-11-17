@@ -16,7 +16,7 @@ When you create an Automation account in the Azure portal, the **Run As** accoun
 
 * Creates a service principal in Azure Active Directory (Azure AD).
 * Creates a certificate.
-* Assigns the Contributor Role-Based Access Control (RBAC), which manages Azure Resource Manager resources by using runbooks.
+* Assigns the Contributor role, which manages Azure Resource Manager resources by using runbooks.
 
 With this account created for you, you can quickly start building and deploying runbooks to support your automation needs.
 

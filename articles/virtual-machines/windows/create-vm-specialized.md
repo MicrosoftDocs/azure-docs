@@ -22,7 +22,7 @@ You have several options:
 
 You can also use the Azure portal to [create a new VM from a specialized VHD](create-vm-specialized-portal.md).
 
-This article shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](sa-create-vm-specialized.md).
+This article shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized).
 
 We recommend that you limit the number of concurrent deployments to 20 VMs from a single VHD or snapshot. 
 

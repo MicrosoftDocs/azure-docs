@@ -25,6 +25,7 @@ In addition of the extensions in [`contrib`](https://www.postgresql.org/docs/12/
 - `pg_cron`, v: 1.2
 - `plpgsql`, v: 1.0
 - `postgis`, v: 3.0.2
+- `plv8`, v: 2.3.14
 
 This list evolves overtime and updates will be posted in this document. It is not yet possible for you to add extensions beyond those listed above.
 
@@ -51,7 +52,7 @@ azdata arc postgres server edit -n <name of your postgresql server group> --exte
 #### Get the list of extensions enabled:
 Run either of the following command.
 
-##### With azdata
+##### With [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 ```console
 azdata arc postgres server show -n <server group name>
 ```
@@ -235,3 +236,7 @@ See the [pg_cron README](https://github.com/citusdata/pg_cron) for full details 
 >[!NOTE]
 >It is not supported to drop the `citus` extension. The `citus` extension is required to provide the Hyperscale experience.
 
+## Next steps:
+- Read documentation on [plv8](https://plv8.github.io/)
+- Read documentation on [PostGIS](https://postgis.net/)
+- Read documentation on [`pg_cron`](https://github.com/citusdata/pg_cron)

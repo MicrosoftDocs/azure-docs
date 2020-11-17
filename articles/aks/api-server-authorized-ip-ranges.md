@@ -29,9 +29,9 @@ The API server Authorized IP ranges feature has the following limitations:
 
 ## Overview of API server authorized IP ranges
 
-The Kubernetes API server is how the underlying Kubernetes APIs are exposed. This component provides the interaction for management tools, such as `kubectl` or the Kubernetes dashboard. AKS provides a single-tenant cluster control plane, with a dedicated API server. By default, the API server is assigned a public IP address, and you should control access using role-based access control (RBAC).
+The Kubernetes API server is how the underlying Kubernetes APIs are exposed. This component provides the interaction for management tools, such as `kubectl` or the Kubernetes dashboard. AKS provides a single-tenant cluster control plane, with a dedicated API server. By default, the API server is assigned a public IP address, and you should control access using Kubernetes role-based access control (Kubernetes RBAC) or Azure RBAC.
 
-To secure access to the otherwise publicly accessible AKS control plane / API server, you can enable and use authorized IP ranges. These authorized IP ranges only allow defined IP address ranges to communicate with the API server. A request made to the API server from an IP address that isn't part of these authorized IP ranges is blocked. Continue to use RBAC to authorize users and the actions they request.
+To secure access to the otherwise publicly accessible AKS control plane / API server, you can enable and use authorized IP ranges. These authorized IP ranges only allow defined IP address ranges to communicate with the API server. A request made to the API server from an IP address that isn't part of these authorized IP ranges is blocked. Continue to use Kubernetes RBAC or Azure RBAC to authorize users and the actions they request.
 
 For more information about the API server and other cluster components, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
@@ -127,6 +127,32 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges ""
 ```
+
+## How to find my IP to include in `--api-server-authorized-ip-ranges`?
+
+You must add your development machines, tooling or automation IP addresses to the AKS cluster list of approved IP ranges in order to access the API server from there. 
+
+Another option is to configure a jumpbox with the needed tooling inside a separate subnet in the Firewall's virtual network. This assumes your environment has a Firewall with the respective network, and you have added the Firewall IPs to authorized ranges. Similarly, if you have forced tunnelling from the AKS subnet to the Firewall subnet, than having the jumpbox in the cluster subnet is fine too.
+
+Add another IP address to the approved ranges with the following command.
+
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+```
+
+>> [!NOTE]
+> The above example appends the API server authorized IP ranges on the cluster. To disable authorized IP ranges, use az aks update and specify an empty range "". 
+
+Another option is to use the below command on Windows systems to get the public IPv4 address, or you can use the steps in [Find your IP address](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address).
+
+```azurepowershell-interactive
+Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
+```
+
+You can also find this address by searching "what is my IP address" in an internet browser.
 
 ## Next steps
 

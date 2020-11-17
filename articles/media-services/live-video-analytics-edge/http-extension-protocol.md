@@ -96,4 +96,4 @@ If your module returns a response with content type as “application/json” bu
 
 ## Next steps
 
-[gRPC data contract](grpc-data-contract.md)
+[gRPC data contract](./grpc-extension-protocol.md)

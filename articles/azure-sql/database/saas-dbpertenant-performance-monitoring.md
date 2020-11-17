@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer:
@@ -31,8 +31,8 @@ In this tutorial you learn how to:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The Wingtip Tickets SaaS Database Per Tenant app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Database Per Tenant application](../../sql-database/saas-dbpertenant-get-started-deploy.md)
-* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* The Wingtip Tickets SaaS Database Per Tenant app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Database Per Tenant application](./saas-dbpertenant-get-started-deploy.md)
+* Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps)
 
 ## Introduction to SaaS performance management patterns
 
@@ -51,7 +51,7 @@ Pools, and the databases in pools, should be monitored to ensure they stay withi
 
 The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. Monitoring and alerting is available on databases and pools. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not very convenient when working with many resources.
 
-For high-volume scenarios, where you're working with many resources, [Azure Monitor logs](../../sql-database/saas-dbpertenant-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted logs gathered in a Log Analytics workspace. Azure Monitor logs can collect telemetry from many services and be used to query and set alerts.
+For high-volume scenarios, where you're working with many resources, [Azure Monitor logs](./saas-dbpertenant-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted logs gathered in a Log Analytics workspace. Azure Monitor logs can collect telemetry from many services and be used to query and set alerts.
 
 ## Get the Wingtip Tickets SaaS Database Per Tenant application scripts
 
@@ -243,4 +243,4 @@ In this tutorial you learn how to:
 * Additional [tutorials that build upon the Wingtip Tickets SaaS Database Per Tenant application deployment](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [SQL Elastic pools](elastic-pool-overview.md)
 * [Azure automation](../../automation/automation-intro.md)
-* [Azure Monitor logs](../../sql-database/saas-dbpertenant-log-analytics.md) - Setting up and using Azure Monitor logs tutorial
+* [Azure Monitor logs](./saas-dbpertenant-log-analytics.md) - Setting up and using Azure Monitor logs tutorial

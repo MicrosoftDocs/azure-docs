@@ -1,20 +1,13 @@
 ---
 title: Red Hat Enterprise Linux bring-your-own-subscription Azure images | Microsoft Docs
 description: Learn about bring-your-own-subscription images for Red Hat Enterprise Linux on Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-editor: ''
-
-ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
+ms.reviewer: cynthn
+
 
 ---
 
@@ -32,7 +25,7 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 - Standard support policies apply to VMs created from these images.
 - The VMs provisioned from Red Hat Gold Images don't carry RHEL fees associated with RHEL pay-as-you-go images.
 - The images are unentitled. You must use Red Hat Subscription-Manager to register and subscribe the VMs to get updates from Red Hat directly.
-- It's currently not possible to dynamically switch between BYOS and pay-as-you-go billing models for Linux images. To switch the billing model, you must redeploy the VM from the respective image.
+- It's possible to switch from pay-as-you-go images to BYOS using the [Azure Hybrid Benefit](../../linux/azure-hybrid-benefit-linux.md). However it's not possible to  switch from an initially deployed BYOS to pay-as-you-go billing models for Linux images. To switch the billing model from BYOS to pay-as-you-go, you must redeploy the VM from the respective image.
 
 >[!NOTE]
 > Generation 2 RHEL BYOS images aren't currently available through the marketplace offer. If you require a

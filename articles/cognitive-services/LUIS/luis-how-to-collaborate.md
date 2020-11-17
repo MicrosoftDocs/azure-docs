@@ -3,14 +3,14 @@ title: Collaborate with others - LUIS
 titleSuffix: Azure Cognitive Services
 description: An app owner can add contributors to the authoring resource. These contributors can modify the model, train, and publish the app.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.author: diberry
+
 ---
 
 # Add contributors to your app

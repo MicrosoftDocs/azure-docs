@@ -11,6 +11,8 @@ manager: gwallace
 ---
 # Business continuity and disaster recovery in Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
+
 ## Review disaster recovery guidance for Azure Kubernetes Service (AKS)
 
 Azure Dev Spaces is a feature of Azure Kubernetes Service (AKS). You should be aware of guidelines for disaster recovery in AKS and consider whether they apply to the AKS clusters that you use for Dev Spaces. For more information, please reference [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](../../aks/operator-best-practices-multi-region.md)

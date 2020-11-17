@@ -42,7 +42,7 @@ Azure offers two main image types, generalized and specialized. The terms genera
 
 ### Generalized images
 
-A generalized image is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user and other VM-specific configurations. This is useful when you want the image to be reused multiple times, and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent will process the parameters, and signal back to the platform that the initial configuration has completed. This process is called [provisioning](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning). 
+A generalized image is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user and other VM-specific configurations. This is useful when you want the image to be reused multiple times, and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent will process the parameters, and signal back to the platform that the initial configuration has completed. This process is called [provisioning](./provisioning.md). 
 
 Provisioning requires that a provisioner is included in the image. There are two provisioners:
 - [Azure Linux Agent](../extensions/agent-linux.md)
@@ -90,7 +90,7 @@ At a high level, you create a SIG, and it is made up of:
 
 ## Hyper-V generation
 
-Azure supports Hyper-V Generation 1 (Gen1) and Generation 2 (Gen2), Gen2 is the latest generation, and offers additional functionality over Gen1. For example: increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs running on-premises, have some features that aren't supported in Azure yet. For more information, see the Features and capabilities section. For more information see this [article](../windows/generation-2.md). Create Gen2 images if you require the additional functionality.
+Azure supports Hyper-V Generation 1 (Gen1) and Generation 2 (Gen2), Gen2 is the latest generation, and offers additional functionality over Gen1. For example: increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs running on-premises, have some features that aren't supported in Azure yet. For more information, see the Features and capabilities section. For more information see this [article](../generation-2.md). Create Gen2 images if you require the additional functionality.
 
 If you still need to create your own image, ensure it meets the [image prerequisites](./create-upload-generic.md), and upload to Azure. Distribution specific requirements:
 

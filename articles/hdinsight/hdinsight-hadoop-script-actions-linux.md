@@ -234,7 +234,7 @@ The following helpers available for use in your script:
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Downloads a file from the source URI to the specified file path. By default, it doesn't overwrite an existing file. |
 | `untar_file TARFILE DESTDIR` |Extracts a tar file (using `-xf`) to the destination directory. |
-| `test_is_headnode` |If ran on a cluster head node, return 1; otherwise, 0. |
+| `test_is_headnode` |If the script ran on a cluster head node, return 1; otherwise, 0. |
 | `test_is_datanode` |If the current node is a data (worker) node, return a 1; otherwise, 0. |
 | `test_is_first_datanode` |If the current node is the first data (worker) node (named workernode0) return a 1; otherwise, 0. |
 | `get_headnodes` |Return the fully qualified domain name of the headnodes in the cluster. Names are comma delimited. An empty string is returned on error. |
@@ -263,7 +263,7 @@ Setting an environment variable is performed by the following statement:
 VARIABLENAME=value
 ```
 
-Where VARIABLENAME is the name of the variable. To access the variable, use `$VARIABLENAME`. For example, to assign a value provided by a positional parameter as an environment variable named PASSWORD, you would use the following statement:
+In the preceding example, `VARIABLENAME` is the name of the variable. To access the variable, use `$VARIABLENAME`. For example, to assign a value provided by a positional parameter as an environment variable named PASSWORD, you would use the following statement:
 
 ```bash
 PASSWORD=$1
@@ -287,7 +287,7 @@ Scripts used to customize a cluster needs to be stored in one of the following l
 
 * A __publicly readable URI__. For example, a URL to data stored on OneDrive, Dropbox, or other file hosting service.
 
-* An __Azure Data Lake Storage account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Storage with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* An __Azure Data Lake Storage account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Storage with HDInsight, see [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
     > [!NOTE]  
     > The service principal HDInsight uses to access Data Lake Storage must have read access to the script.
@@ -360,5 +360,5 @@ Replace `INFILE` with the file containing the BOM. `OUTFILE` should be a new fil
 ## <a name="seeAlso"></a>Next steps
 
 * Learn how to [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)
-* Use the [HDInsight .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) to learn more about creating .NET applications that manage HDInsight
-* Use the [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) to learn how to use REST to perform management actions on HDInsight clusters.
+* Use the [HDInsight .NET SDK reference](/dotnet/api/overview/azure/hdinsight) to learn more about creating .NET applications that manage HDInsight
+* Use the [HDInsight REST API](/rest/api/hdinsight/) to learn how to use REST to perform management actions on HDInsight clusters.

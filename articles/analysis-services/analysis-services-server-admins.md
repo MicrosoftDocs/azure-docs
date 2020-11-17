@@ -35,13 +35,13 @@ When adding a **security group**, use `obj:groupid@tenantid`. Service principals
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Use [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet to specify the Administrator parameter when creating a new server. <br>
-Use [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet to modify the Administrator parameter for an existing server.
+Use [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet to specify the Administrator parameter when creating a new server. <br>
+Use [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet to modify the Administrator parameter for an existing server.
 
 ## REST API
 
-Use [Create](https://docs.microsoft.com/rest/api/analysisservices/servers/create) to specify the asAdministrator property when creating a new server. <br>
-Use [Update](https://docs.microsoft.com/rest/api/analysisservices/servers/update) to specify the asAdministrator property when modifying an existing server. <br>
+Use [Create](/rest/api/analysisservices/servers/create) to specify the asAdministrator property when creating a new server. <br>
+Use [Update](/rest/api/analysisservices/servers/update) to specify the asAdministrator property when modifying an existing server. <br>
 
 
 
@@ -49,4 +49,4 @@ Use [Update](https://docs.microsoft.com/rest/api/analysisservices/servers/update
 
 [Authentication and user permissions](analysis-services-manage-users.md)  
 [Manage database roles and users](analysis-services-database-users.md)  
-[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)  
+[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)

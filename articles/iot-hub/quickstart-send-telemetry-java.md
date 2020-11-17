@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: [mvc, seo-java-august2019, seo-java-september2019, mqtt, devx-track-java]
+ms.custom: [mvc, seo-java-august2019, seo-java-september2019, mqtt, devx-track-java, devx-track-azurecli]
 ms.date: 05/26/2020
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
@@ -23,7 +23,7 @@ In this quickstart, you send telemetry to Azure IoT Hub and read it with a Java 
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 

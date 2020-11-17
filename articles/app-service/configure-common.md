@@ -79,6 +79,32 @@ App settings have the following JSON formatting:
 ]
 ```
 
+### Automate app settings with the Azure CLI
+
+You can use the Azure CLI to create and manage settings from the command line.
+
+- Assign a value to a setting with [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set):
+
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
+    ```
+        
+    Replace `<setting-name>` with the name of the setting, and `<value>` with the value to assign to it. This command creates the setting if it doesn't already exist.
+    
+- Show all settings and their values with [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list):
+    
+    ```azurecli-interactive
+    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
+    ```
+    
+- Remove one or more settings with [az webapp config app settings delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete):
+
+    ```azurecli-interactive
+    az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
+    ```
+    
+    Replace `<names>` with a space-separated list of setting names.
+
 ## Configure connection strings
 
 In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Application settings**.
@@ -159,7 +185,12 @@ In the [Azure portal], search for and select **App Services**, and then select y
 
 Here, you can configure some common settings for the app. Some settings require you to [scale up to higher pricing tiers](manage-scale-up.md).
 
-- **Stack settings**: The software stack to run the app, including the language and SDK versions. For Linux apps and custom container apps, you can also set an optional start-up command or file.
+- **Stack settings**: The software stack to run the app, including the language and SDK versions.
+
+    For Linux apps and custom container apps, you can select the language runtime version and set an optional **Startup command** or a startup command file.
+
+    ![General settings for Linux containers](./media/configure-common/open-general-linux.png)
+
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
     - **Bitness**: 32-bit or 64-bit.
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
@@ -256,7 +287,7 @@ See [Configure a custom Linux container for Azure App Service](configure-custom-
 [Azure Portal]: https://portal.azure.com/
 [Configure a custom domain name in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Set up staging environments in Azure App Service]: ./deploy-staging-slots.md
-[How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
+[How to: Monitor web endpoint status]: ./web-sites-monitor.md
 [Monitoring basics in Azure App Service]: ./web-sites-monitor.md
 [pipeline mode]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Scale an app in Azure App Service]: ./manage-scale-up.md

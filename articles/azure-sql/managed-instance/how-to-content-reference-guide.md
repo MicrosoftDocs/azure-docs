@@ -7,7 +7,7 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
@@ -66,7 +66,7 @@ In this article you can find a content reference to various guides, scripts, and
 
 - [Manual tuning](../database/performance-guidance.md)
 - [Use DMVs to monitor performance](../database/monitoring-with-dmvs.md)
-- [Use Query Store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [Use Query Store to monitor performance](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Troubleshoot performance with Intelligent Insights](../database/intelligent-insights-troubleshoot-performance.md)
 - [Use the Intelligent Insights diagnostics log](../database/intelligent-insights-use-diagnostics-log.md)
 - [Monitor In-Memory OLTP space](../in-memory-oltp-monitor-space.md)

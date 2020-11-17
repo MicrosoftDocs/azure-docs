@@ -14,7 +14,7 @@ ms.date: 8/20/2020
 - Single Server 
 - Flexible Server (Preview)
 
-In this article, we will provide an overview and introduction to core concepts of single server deployment model. To learn about flexible server deployment mode, refer [flexible server overview](flexible-server/index.yml)
+In this article, we will provide an overview and introduction to core concepts of single server deployment model. To learn about flexible server deployment mode, refer [flexible server overview](flexible-server/index.yml). For information on how to decide what deployment option is appropriate for your workload, see [choosing the right MySQL server option in Azure](select-right-deployment-type.md).
 
 ## Overview
 
@@ -49,7 +49,7 @@ The single server service automatically creates server backups and stores them i
 
 ## Adjust performance and scale within seconds
 
-The single server service is available in three SKU tiers: Basic, General Purpose, and Memory Optimized. The Basic tier is best suited for low-cost development and low concurrency workloads. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. See [Pricing tiers](concepts-service-tiers.md) for details.
+The single server service is available in three SKU tiers: Basic, General Purpose, and Memory Optimized. The Basic tier is best suited for low-cost development and low concurrency workloads. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. See [Pricing tiers](./concepts-pricing-tiers.md) for details.
 
 ## Enterprise grade Security, Compliance, and Governance
 
@@ -57,7 +57,7 @@ The single server service uses the FIPS 140-2 validated cryptographic module for
 
 The service allows private access to the servers using [private link](concepts-data-access-security-private-link.md) and provides [Advanced threat protection](concepts-data-access-and-security-threat-protection.md) feature. Advanced threat protection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-In addition to native authentication, the single server service supports  [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) authentication. Azure AD authentication is a mechanism of connecting to the MySQL servers using identities defined and managed in Azure AD. With Azure AD authentication, you can manage database user identities and other Azure services in a central location, which simplifies and centralizes access control.
+In addition to native authentication, the single server service supports  [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) authentication. Azure AD authentication is a mechanism of connecting to the MySQL servers using identities defined and managed in Azure AD. With Azure AD authentication, you can manage database user identities and other Azure services in a central location, which simplifies and centralizes access control.
 
 [Audit logging](concepts-audit-logs.md) is available to track all database level activity. 
 
@@ -74,7 +74,7 @@ The single server service is equipped with built-in performance monitoring and a
 The service runs community version of MySQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing application developed on MySQL engine to single server service. The migration to the single server can be performed using one of the following options:
 
 - **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See [Migrate using dump and restore](concepts-migrate-dump-restore.md) for details. 
-- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) can be leveraged. 
+- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, [Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-online.md) can be leveraged. 
 - **Data-in replication** – For minimal downtime migrations, data-in replication, which relies on binlog based replication can also be leveraged. Data-in replication is preferred for minimal downtime migrations by hands-on experts looking for more control over migration. See [data-in replication](concepts-data-in-replication.md) for details.
 
 ## Contacts
@@ -102,4 +102,3 @@ Now that you've read an introduction to Azure Database for MySQL single server d
   - [PHP](./connect-php.md)
   - [.NET (C#)](./connect-csharp.md)
   - [Go](./connect-go.md)
-  

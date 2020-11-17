@@ -23,6 +23,8 @@ A Log Analytics workspace provides:
 * Data isolation by granting different users access rights following one of our recommended design strategies.
 * Scope for configuration of settings like [pricing tier](./manage-cost-storage.md#changing-pricing-tier), [retention](./manage-cost-storage.md#change-the-data-retention-period), and [data capping](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
+Workspaces are hosted on a physical clusters. By default, the system is creating and managing these clusters. Customers that ingest more than 4TB/day are expected to create their own dedicated clusters for their workspaces - it enables them better control and higher ingestion rate.
+
 This article provides a detailed overview of the design and migration considerations, access control overview, and an understanding of the design implementations we recommend for your IT organization.
 
 
@@ -85,7 +87,7 @@ Users have two options for accessing the data:
     > - Service Fabric
     > - Application Insights
     >
-    > You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](log-standard-properties.md#_resourceid) property, then data is available to resource-centric queries.
+    > You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](./log-standard-columns.md#_resourceid) property, then data is available to resource-centric queries.
 
 Azure Monitor automatically determines the right mode depending on the context you perform the log search from. The scope is always presented in the top-left section of Log Analytics.
 
@@ -121,37 +123,16 @@ The *Access control mode* is a setting on each workspace that defines how permis
 
 To learn how to change the access control mode in the portal, with PowerShell, or using a Resource Manager template, see [Configure access control mode](manage-access.md#configure-access-control-mode).
 
-## Ingestion volume rate limit
+## Scale and ingestion volume rate limit
 
-Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The volume rate limit intends to isolate Azure Monitor customers from sudden ingestion spikes in multitenancy environment. A default ingestion volume rate threshold of 500 MB (compressed) is defined in workspaces, this is translated to approximately **6 GB/min** uncompressed -- the actual size can vary between data types depending on the log length and its compression ratio. The volume rate limit applies to all ingested data whether sent from Azure resources using [Diagnostic settings](diagnostic-settings.md), [Data Collector API](data-collector-api.md) or agents.
+Azure Monitor is a high scale data service that serves thousands of customers sending petabytes of data each month at a growing pace. Workspaces are not limited in their storage space and can grow to petabytes of data. There is no need to split workspaces due to scale.
 
-When you send data to a workspace at a volume rate higher than 80% of the threshold configured in your workspace, an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. When ingested volume rate is higher than threshold, some data is dropped and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume rate continues to exceed the threshold or you are expecting to reach it sometime soon, you can request to increase it in by opening a support request. 
+To protect and isolate Azure Monitor customers and its backend infrastructure, there is a default ingestion rate limit that is designed to protect from spikes and floods situations. The rate limit default is about **6 GB/minute** and is designed to enable normal ingestion. For more details on ingestion volume limit measurement, see [Azure Monitor service limits](../service-limits.md#data-ingestion-volume-rate).
 
-To be notified on approaching or reaching ingestion volume rate limit in your workspace, create a [log alert rule](alerts-log.md) using the following query with alert logic base on number of results greater than zero, evaluation period of 5 minutes and frequency of 5 minutes.
+Customers that ingest less than 4TB/day will usually not meet these limits. Customers that ingest higher volumes or that have spikes as part of their normal operations shall consider moving to [dedicated clusters](../log-query/logs-dedicated-clusters.md) where the ingestion rate limit could be raised.
 
-Ingestion volume rate crossed the threshold
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Error"
-```
+When the ingestion rate limit is activated or get to 80% of the threshold, an event is added to the *Operation* table in your workspace. It is recommended to monitor it and create an alert. See more details in [data ingestion volume rate](../service-limits.md#data-ingestion-volume-rate).
 
-Ingestion volume rate crossed 80% of the threshold
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Warning"
-```
-
-Ingestion volume rate crossed 70% of the threshold
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Info"
-```
 
 ## Recommendations
 
@@ -179,4 +160,3 @@ While planning your migration to this model, consider the following:
 ## Next steps
 
 To implement the security permissions and controls recommended in this guide, review [manage access to logs](manage-access.md).
-

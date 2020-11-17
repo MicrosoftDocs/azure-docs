@@ -2,7 +2,7 @@
 title: Increase endpoint quota - LUIS
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) offers the ability to increase the endpoint request quota beyond a single key's quota. This is done by creating more keys for LUIS and adding them to the LUIS application on the **Publish** page in the **Resources and Keys** section.
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18, devx-track-js, devx-track-azurepowershell
 services: cognitive-services
@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.author: diberry
+
 #Customer intent: As an advanced user, I want to understand how to use multiple LUIS endpoint keys to increase the number of endpoint requests my application receives.
 ---
 

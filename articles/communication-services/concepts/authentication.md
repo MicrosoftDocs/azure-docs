@@ -28,7 +28,7 @@ The following table describes which authentication options are supported by the 
 
 Each authorization option is briefly described below:
 
-- **Access Key** authentication for SMS and Administration operations. Access Key authentication is suitable for applications running in a trusted service environment. To authenticate with an access key, a client generates a [hash-based method authentication code (HMAC)](https://en.wikipedia.org/wiki/HMAC) and includes it within the `Authorization` header of each HTTP request. For more information, see [Authenticate with an Access Key](#authenticate-with-an-access-key).
+- **Access Key** authentication for SMS and Administration operations. Access Key authentication is suitable for applications running in a trusted service environment. To authenticate with an access key, a client generates a [hash-based message authentication code (HMAC)](https://en.wikipedia.org/wiki/HMAC) and includes it within the `Authorization` header of each HTTP request. For more information, see [Authenticate with an Access Key](#authenticate-with-an-access-key).
 - **User Access Token** authentication for Chat and Calling. User access tokens let your client applications authenticate directly against Azure Communication Services. These tokens are generated on a server-side token provisioning service that you create. They're then provided to client devices that use the token to initialize the Chat and Calling client libraries. For more information, see [Authenticate with a User Access Token](#authenticate-with-a-user-access-token).
 
 ## Authenticate with an access key

@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ---
@@ -63,8 +63,22 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 
 Pricing for Spot VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
+You can also query pricing information using the [Azure retail prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) to query for information about Spot pricing. The `meterName` and `skuName` will both contain `Spot`.
 
 With variable pricing, you have option to set a max price, in US dollars (USD), using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for spot or the price for a standard VM, which ever is less, as long as there is capacity and quota available.
+
+## Pricing and eviction history
+
+You can see historical pricing and eviction rates per size in a region in the portal. Select **View pricing history and compare prices in nearby regions** to see a table or graph of pricing for a specific size.  The pricing and eviction rates in the following images are only examples. 
+
+**Chart**:
+
+:::image type="content" source="./media/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
+
+**Table**:
+
+:::image type="content" source="./media/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
+
 
 
 ##  Frequently asked questions
@@ -81,20 +95,20 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 
 **Q:** How is quota managed for Spot VMs?
 
-**A:** Spot VMs will have a separate quota pool. Spot quota will be shared between VMs and scale-set instances. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**A:** Spot VMs will have a separate quota pool. Spot quota will be shared between VMs and scale-set instances. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **Q:** Can I request for additional quota for Spot?
 
-**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **Q:** Where can I post questions?
 
-**A:** You can post and tag your question with `azure-spot` at [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** You can post and tag your question with `azure-spot` at [Q&A](/answers/topics/azure-spot.html). 
 
 ## Next steps
-Use the [CLI](./linux/spot-cli.md), [portal](./windows/spot-portal.md), [ARM template](./linux/spot-template.md), or [PowerShell](./windows/spot-powershell.md) to deploy Spot VMs.
+Use the [CLI](./linux/spot-cli.md), [portal](spot-portal.md), [ARM template](./linux/spot-template.md), or [PowerShell](./windows/spot-powershell.md) to deploy Spot VMs.
 
 You can also deploy a [scale set with Spot VM instances](../virtual-machine-scale-sets/use-spot.md).
 

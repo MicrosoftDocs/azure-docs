@@ -84,7 +84,7 @@ landingContent:
           - text: Export data to cloud destinations
             url: howto-export-data.md
           - text: Explore the IoT Central APIs
-            url: https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/                    
+            url: /learn/modules/manage-iot-central-apps-with-rest-api/
       - linkListType: how-to-guide
         links:
           - text: Create custom rules

@@ -76,7 +76,7 @@ Diagnostic settings define where resource logs and metrics for a particular reso
 - [Event hubs](../platform/resource-logs.md#send-to-azure-event-hubs) to stream data to external systems such as third-party SIEMs and other log analytics solutions. 
 - [Azure storage account](../platform/resource-logs.md#send-to-azure-storage) which is useful for audit, static analysis, or backup.
 
-Follow the procedure in [Create diagnostic setting to collect platform logs and metrics in Azure](../platform/diagnostic-settings.md) to create and manage diagnostic settings through the Azure portal. See [Create diagnostic setting in Azure using a Resource Manager template](../platform/diagnostic-settings-template.md) to define them in a template and enable complete monitoring for a resource when it's created.
+Follow the procedure in [Create diagnostic setting to collect platform logs and metrics in Azure](../platform/diagnostic-settings.md) to create and manage diagnostic settings through the Azure portal. See [Create diagnostic setting in Azure using a Resource Manager template](../samples/resource-manager-diagnostic-settings.md) to define them in a template and enable complete monitoring for a resource when it's created.
 
 
 ## Monitoring in the Azure portal
@@ -156,5 +156,4 @@ Use **Alerts** from a resource's menu to view alerts and manage alert rules for 
 
 ## Next steps
 
-* See [Supported services, schemas, and categories for Azure Resource Logs](../platform/resource-logs-schema.md) for details of resource logs for different Azure services.  
-
+* See [Supported services, schemas, and categories for Azure Resource Logs](../platform/resource-logs-schema.md) for details of resource logs for different Azure services.

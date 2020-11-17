@@ -11,6 +11,7 @@ ms.author: anfeldma
 ms.custom: devx-track-python
 ---
 # Azure Cosmos DB Python SDK for SQL API: Release notes and resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -27,14 +28,14 @@ ms.custom: devx-track-python
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Bulk executor - .NET  v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**Download SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**API documentation**|[Python API reference documentation](/python/api/azure-cosmos/?preserve-view=true&view=azure-python)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Get started**|[Get started with the Python SDK](create-sql-api-python.md)|
 |**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5.3+](https://www.python.org/downloads/)|
@@ -120,7 +121,7 @@ ms.custom: devx-track-python
 
 * The constructor of `CosmosClient` has been updated:
 
-  * The `auth` parameter has been renamed to `credential` and will now take an authentication type directly. This means the master key value, a dictionary of resource tokens, or a list of permissions can be passed in. However the old dictionary format is still supported.
+  * The `auth` parameter has been renamed to `credential` and will now take an authentication type directly. This means the primary key value, a dictionary of resource tokens, or a list of permissions can be passed in. However the old dictionary format is still supported.
 
   * The `connection_policy` parameter has been made a keyword only parameter, and while it is still supported, each of the individual attributes of the policy can now be passed in as explicit keyword arguments:
 
@@ -356,4 +357,4 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 ## Next steps
 
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

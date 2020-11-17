@@ -7,7 +7,7 @@ manager: mikben
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---

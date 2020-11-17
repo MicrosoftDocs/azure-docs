@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 09/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -77,7 +77,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Il…
 }
 ```
 
-The claims listed here, including `sub`, are the same claims that the app would see in the [ID token](id-tokens.md) issued to the app.  
+The claims listed here are all of the claims that the UserInfo endpoint can return.  These are the same values that the app would see in the [ID token](id-tokens.md) issued to the app.  
 
 ## Notes and caveats on the UserInfo endpoint
 

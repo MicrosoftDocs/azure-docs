@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
 ---
-# Use the Azure portal to manage shares on your Azure Stack Edge Pro
+# Use the Azure portal to manage shares on Azure Stack Edge Pro
 
 This article describes how to manage shares on your Azure Stack Edge Pro. You can manage the Azure Stack Edge Pro via the Azure portal or via the local web UI. Use the Azure portal to add, delete, refresh shares, or sync storage key for storage account associated with the shares.
 
@@ -69,7 +69,7 @@ Do the following steps in the Azure portal to create a share.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
 
-   ![Select add share](media/azure-stack-edge-manage-shares/add-local-share-1.png)
+   ![Select add share 2](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
 2. In **Add Share**, specify the share settings. Provide a unique name for your share.
     
@@ -101,7 +101,7 @@ If you created a share before you configured compute on your Azure Stack Edge Pr
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**. From the list of the shares, select the share you want to mount. The **Used for compute** column will show the status as **Disabled** for the selected share.
 
-   ![Select share](media/azure-stack-edge-manage-shares/select-share-mount.png)
+   ![Select share 3](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
 2. Select **Mount**.
 
@@ -125,7 +125,7 @@ Do the following steps in the Azure portal to unmount a share.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**.
 
-   ![Select share](media/azure-stack-edge-manage-shares/select-share-unmount.png)
+   ![Select share 4](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
 2. From the list of the shares, select the share that you want to unmount. You want to make sure that the share you unmount is not used by any modules. If the share is used by a module, then you will see issues with the corresponding module. Select **Unmount**.
 
@@ -145,7 +145,7 @@ Do the following steps in the Azure portal to delete a share.
 
 1. From the list of shares, select and click the share that you want to delete.
 
-   ![Select share](media/azure-stack-edge-manage-shares/delete-share-1.png)
+   ![Select share 5](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
 2. Click **Delete**.
 
@@ -170,7 +170,7 @@ Do the following steps in the Azure portal to refresh a share.
 
 1. In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
 
-   ![Select share](media/azure-stack-edge-manage-shares/refresh-share-1.png)
+   ![Select share 6](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
 2. Click **Refresh**.
 

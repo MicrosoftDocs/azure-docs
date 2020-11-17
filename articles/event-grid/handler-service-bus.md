@@ -152,8 +152,5 @@ The internal system ID for the message will be maintained across redelivery of t
 }
 ```
 
-> [!NOTE]
-> Delivering events to an Azure Servive Bus queue or topic in **another tenant** isn't supported. 
-
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

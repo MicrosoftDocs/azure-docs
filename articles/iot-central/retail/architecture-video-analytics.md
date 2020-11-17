@@ -36,4 +36,4 @@ Media graph lets you define where to capture the media from, how to process it, 
 
 ## Next steps
 
-The suggested next step is to learn how to [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-create-app.md).
+The suggested next step is to learn how to [How to deploy an IoT Central application using the video analytics - object and motion detection application template](tutorial-video-analytics-deploy.md).

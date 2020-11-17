@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 
 # Customer intent: As an Azure AD Administrator, I want to learn how to use Azure Identity Protection to protect users by automatically detecting risk sign-in behavior and prompting for additional forms of authentication or request a password change.

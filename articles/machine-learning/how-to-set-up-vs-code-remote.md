@@ -1,7 +1,7 @@
 ---
 title: 'Connect to compute instance in Visual Studio Code (preview)'
 titleSuffix: Azure Machine Learning
-description: Learn how to connect to an Azure Machine Learning compute instance in Visual Studio Code
+description: Learn how to connect to an Azure Machine Learning compute instance in Visual Studio Code to run interactive Jupyter Notebook and remote development workloads.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 09/03/2020
+ms.date: 11/16/2020
 # As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.
 ---
 
@@ -64,7 +64,7 @@ At this point, you can continue to run cells in your Jupyter notebook.
 For a full-featured remote development experience, you'll need a few prerequisites:
 
 * [Visual Studio Code Remote SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-* SSH-enabled compute instance. For more information, [see the Create a compute instance guide](concept-compute-instance.md#create).
+* SSH-enabled compute instance. For more information, [see the Create a compute instance guide](how-to-create-manage-compute-instance.md).
 
 > [!NOTE]
 > On Windows platforms, you must [install an OpenSSH compatible SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) if one is not already present. PuTTY is not supported on Windows since the ssh command must be in the path.

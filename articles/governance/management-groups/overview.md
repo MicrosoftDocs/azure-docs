@@ -1,7 +1,7 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them. 
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ms.topic: overview
 ms.custom: contperfq1
 ---
@@ -41,7 +41,7 @@ Another scenario where you would use management groups is to provide user access
 subscriptions. By moving multiple subscriptions under that management group, you can create one
 [Azure role assignment](../../role-based-access-control/overview.md) on the
 management group, which will inherit that access to all the subscriptions. One assignment on the
-management group can enable users to have access to everything they need instead of scripting RBAC
+management group can enable users to have access to everything they need instead of scripting Azure RBAC
 over different subscriptions.
 
 ### Important facts about management groups
@@ -246,13 +246,20 @@ There are limitations that exist when using custom roles on management groups.
    is in place to reduce the number of situations where role definitions and role assignments are
    disconnected. This situation happens when a subscription or management group with a role
    assignment moves to a different parent that doesn't have the role definition.  
- - RBAC Data Plane actions can't be defined in management group custom roles. This restriction is in
-   place as there's a latency issue with RBAC actions updating the data plane resource providers.
+ - Resource provider data plane actions can't be defined in management group custom roles. This restriction is in
+   place as there's a latency issue with updating the data plane resource providers.
    This latency issue is being worked on and these actions will be disabled from the role definition
    to reduce any risks.
  - The Azure Resource Manager doesn't validate the management group's existence in the role
    definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
-   role definition will still be created.  
+   role definition will still be created.
+
+> [!IMPORTANT]
+> Adding a management group to `AssignableScopes` is currently in preview. This preview version is
+> provided without a service level agreement, and it's not recommended for production workloads.
+> Certain features might not be supported or might have constrained capabilities. For more
+> information, see
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Moving management groups and subscriptions 
 
@@ -298,6 +305,6 @@ management groups looks like **"/providers/Microsoft.Management/managementGroups
 
 To learn more about management groups, see:
 
-- [Create management groups to organize Azure resources](./create.md)
+- [Create management groups to organize Azure resources](./create-management-group-portal.md)
 - [How to change, delete, or manage your management groups](./manage.md)
 - See options for [How to protect your resource hierarchy](./how-to/protect-resource-hierarchy.md)

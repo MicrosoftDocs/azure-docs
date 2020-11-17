@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/08/2020
 ms.author: Zhchia
 
@@ -23,7 +23,7 @@ ms.author: Zhchia
 
 
 
-This tutorial describes the steps you need to perform in both Apple Business Manager and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users to [Apple Business Manager](https://business.apple.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Apple Business Manager and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users to [Apple Business Manager](https://business.apple.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## Capabilities Supported
 > [!div class="checklist"]
@@ -35,17 +35,17 @@ This tutorial describes the steps you need to perform in both Apple Business Man
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
+* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * An Apple Business Manager account with the role of Administrator or People Manager.
 
 > [!NOTE]
 > Token transfer to Azure AD and  establishing a successful connection has to be completed in 4 calendar days or the process has to be started again.
 
 ## Step 1. Plan your provisioning deployment
-1. Learn about [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determine who will be in [scope for provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine what data to [map between Azure AD and Apple Business Manager](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
+2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine what data to [map between Azure AD and Apple Business Manager](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2. Configure Apple Business Manager to support provisioning with Azure AD
 
@@ -53,7 +53,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 2. Click Settings at the bottom of the sidebar click Data Source below Organization Settings, then click Connect to Data Source.
 3. Click Connect next to SCIM, carefully read the warning, click Copy, then click Close.
 [The Connect to SCIM window, which provides a token and a Copy button under it.]
-Leave this window open to copy the Tenant URL from Apple Business Manager to Azure AD, which is: https://federation.apple.com/feeds/business/scim
+Leave this window open to copy the Tenant URL from Apple Business Manager to Azure AD, which is: 'https://federation.apple.com/feeds/business/scim'
 
 	![Apple Business Manager](media/applebusinessmanager-provisioning-tutorial/scim-token.png)
 
@@ -62,15 +62,15 @@ Leave this window open to copy the Tenant URL from Apple Business Manager to Azu
 
 ## Step 3. Add Apple Business Manager from the Azure AD application gallery
 
-Add Apple Business Manager from the Azure AD application gallery to start managing provisioning to Apple Business Manager. If you have previously setup Apple Business Manager for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Add Apple Business Manager from the Azure AD application gallery to start managing provisioning to Apple Business Manager. If you have previously setup Apple Business Manager for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
 
 ## Step 4. Define who will be in scope for provisioning 
 
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users to Apple Business Manager, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to add additional roles. 
+* When assigning users to Apple Business Manager, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 ## Step 5. Configure automatic user provisioning to Apple Business Manager
 
@@ -141,26 +141,24 @@ This operation starts the initial synchronization of all users and/or groups def
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
-1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
+2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Review SCIM requirements for Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdd88331cd6)
-* [How a Person ID is used in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd69e1e48e9)
-* [Use SCIM to import users into Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd3ec7b95ad)
-* [Resolve SCIM user account conflicts in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd313013d12)
-* [Delete Azure AD accounts that appear in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdaa5798fbe)
-* [View SCIM activity in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd1bfd8dfde)
-* [Manage existing SCIM token and connections in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdc9a823611)
-* [Disconnect the SCIM connection in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd609be3a61)
-* [Manage existing SCIM token and connections in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
-* [Troubleshooting the SCIM connection in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd403a0f3bd)
+* [Review SCIM requirements for Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdd88331cd6)
+* [How a Person ID is used in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd69e1e48e9)
+* [Use SCIM to import users into Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd3ec7b95ad)
+* [Resolve SCIM user account conflicts in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd313013d12)
+* [Delete Azure AD accounts that appear in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdaa5798fbe)
+* [View SCIM activity in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd1bfd8dfde)
+* [Manage existing SCIM token and connections in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdc9a823611)
+* [Disconnect the SCIM connection in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd609be3a61)
+* [Troubleshooting the SCIM connection in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd403a0f3bd/web)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
-
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

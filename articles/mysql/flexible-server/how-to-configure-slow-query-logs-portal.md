@@ -1,8 +1,8 @@
 ---
 title: Configure slow query logs - Azure portal - Azure Database for MySQL - Flexible Server
 description: This article describes how to configure and access the slow query logs in Azure Database for MySQL Flexible Server from the Azure portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
@@ -26,15 +26,16 @@ Configure access to the MySQL slow query log.
 1. Select your flexible server.
 
 1. Under the **Settings** section in the sidebar, select **Server parameters**.
-   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::-->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/server-parameters.png" alt-text="Server parameters page.":::
 
 1. Update the **slow_query_log** parameter to **ON**.
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="Turn on slow query logs.":::
 
 1. Change any other parameters needed (ex. `long_query_time`, `log_slow_admin_statements`). Refer to the [slow query logs](./concepts-slow-query-logs.md#configure-slow-query-logging) docs for more parameters.  
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Update slow query log related parameters.":::
 
 1. Select **Save**. 
-
-   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of slow query log parameters and save."::: -->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Save slow query log parameters.":::
 
 From the **Server Parameters** page, you can return to the list of logs by closing the page.
 
@@ -44,17 +45,17 @@ Slow query logs are integrated with Azure Monitor diagnostic settings to allow y
 
 1. Under the **Monitoring** section in the sidebar, select **Diagnostic settings** > **Add diagnostic settings**.
 
-   <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings options":::-->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings options":::
 
 1. Provide a diagnostic setting name.
 
 1. Specify which destinations to send the slow query logs (storage account, event hub, or Log Analytics workspace).
 
 1. Select **MySqlSlowLogs** as the log type.
-    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options":::-->
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options":::
 
 1. After you've configured the data sinks to pipe the slow query logs to, select **Save**.
-    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::-->
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::
 
 1. Access the slow query logs by exploring them in the data sinks you configured. It can take up to 10 minutes for the logs to appear.
 

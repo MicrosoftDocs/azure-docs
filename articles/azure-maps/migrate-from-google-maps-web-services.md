@@ -1,33 +1,49 @@
 ---
-title: 'Migrate web services from Google Maps | Microsoft Azure Maps'
-description: How to migrate web services from Google Maps to Microsoft Azure Maps
+title: 'Tutorial - Migrate web services from Google Maps | Microsoft Azure Maps'
+description: Tutorial on how to migrate web services from Google Maps to Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/19/2020
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: 
 ---
 
-# Migrate web service from Google Maps
+# Tutorial - Migrate web service from Google Maps
 
 Both Azure and Google Maps provide access to spatial APIs through REST web services. The API interfaces of these platforms perform similar functionalities. But, they each use different naming conventions and response objects.
+
+In this tutorial, you will learn how to:
+
+> * Forward and reverse geocoding
+> * Search for points of interest
+> * Calculate routes and directions
+> * Retrieve a map image
+> * Calculate a distance matrix
+> * Get time zone details
+
+You will also learn: 
+
+> [!div class="checklist"]
+> * Which Azure Maps REST service when migrating from a Google Maps Web Service
+> * Tips on how to get the most out of the Azure Maps services
+> * Insights into other related Azure Maps services
 
 The table shows the Azure Maps service APIs, which have a similar functionality to the listed Google Maps service APIs.
 
 | Google Maps service API | Azure Maps service API                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Directions              | [Route](https://docs.microsoft.com/rest/api/maps/route)                                     |
-| Distance Matrix         | [Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)       |
-| Geocoding               | [Search](https://docs.microsoft.com/rest/api/maps/search)                                   |
-| Places Search           | [Search](https://docs.microsoft.com/rest/api/maps/search)                                   |
-| Place Autocomplete      | [Search](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Directions              | [Route](/rest/api/maps/route)                                     |
+| Distance Matrix         | [Route Matrix](/rest/api/maps/route/postroutematrixpreview)       |
+| Geocoding               | [Search](/rest/api/maps/search)                                   |
+| Places Search           | [Search](/rest/api/maps/search)                                   |
+| Place Autocomplete      | [Search](/rest/api/maps/search)                                   |
 | Snap to Road            | See [Calculate routes and directions](#calculate-routes-and-directions) section.            |
 | Speed Limits            | See [Reverse geocode a coordinate](#reverse-geocode-a-coordinate) section.                  |
-| Static Map              | [Render](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                       |
-| Time Zone               | [Time Zone](https://docs.microsoft.com/rest/api/maps/timezone)                              |
+| Static Map              | [Render](/rest/api/maps/render/getmapimage)                       |
+| Time Zone               | [Time Zone](/rest/api/maps/timezone)                              |
 
 The following service APIs aren't currently available in Azure Maps:
 
@@ -41,8 +57,14 @@ The following service APIs aren't currently available in Azure Maps:
 
 Azure Maps has several additional REST web services that may be of interest:
 
-- [Spatial operations](https://docs.microsoft.com/rest/api/maps/spatial): Offload complex spatial calculations and operations, such as geofencing, to a service.
-- [Traffic](https://docs.microsoft.com/rest/api/maps/traffic): Access real-time traffic flow and incident data.
+- [Spatial operations](/rest/api/maps/spatial): Offload complex spatial calculations and operations, such as geofencing, to a service.
+- [Traffic](/rest/api/maps/traffic): Access real-time traffic flow and incident data.
+
+## Prerequisites 
+
+1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Geocoding addresses
 
@@ -50,11 +72,11 @@ Geocoding is the process of converting an address into a coordinate. For example
 
 Azure Maps provides several methods for geocoding addresses:
 
-- [**Free-form address geocoding**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Specify a single address string and process the request immediately. "1 Microsoft way, Redmond, WA" is an example of a single address string. This API is recommended if you need to geocode individual addresses quickly.
-- [**Structured address geocoding**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Specify the parts of a single address, such as the street name, city, country/region, and postal code and process the request immediately. This API is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
-- [**Batch address geocoding**](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): Create a request containing up to 10,000 addresses and have them processed over a period of time. All the addresses will be geocoded in parallel on the server and when completed the full result set can be downloaded. This is recommended for geocoding large data sets.
-- [**Fuzzy search**](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): This API combines address geocoding with point of interest search. This API takes in a free-form string. This string can be an address, place, landmark, point of interest, or point of interest category. This API process the request near real time. This API is recommended for applications where users search for addresses or points of interest in the same textbox.
-- [**Fuzzy batch search**](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): Create a request containing up to 10,000 addresses, places, landmarks, or point of interests and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
+- [**Free-form address geocoding**](/rest/api/maps/search/getsearchaddress): Specify a single address string and process the request immediately. "1 Microsoft way, Redmond, WA" is an example of a single address string. This API is recommended if you need to geocode individual addresses quickly.
+- [**Structured address geocoding**](/rest/api/maps/search/getsearchaddressstructured): Specify the parts of a single address, such as the street name, city, country/region, and postal code and process the request immediately. This API is recommended if you need to geocode individual addresses quickly and the data is already parsed into its individual address parts.
+- [**Batch address geocoding**](/rest/api/maps/search/postsearchaddressbatchpreview): Create a request containing up to 10,000 addresses and have them processed over a period of time. All the addresses will be geocoded in parallel on the server and when completed the full result set can be downloaded. This is recommended for geocoding large data sets.
+- [**Fuzzy search**](/rest/api/maps/search/getsearchfuzzy): This API combines address geocoding with point of interest search. This API takes in a free-form string. This string can be an address, place, landmark, point of interest, or point of interest category. This API process the request near real time. This API is recommended for applications where users search for addresses or points of interest in the same textbox.
+- [**Fuzzy batch search**](/rest/api/maps/search/postsearchfuzzybatchpreview): Create a request containing up to 10,000 addresses, places, landmarks, or point of interests and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
 
 The following table cross-references the Google Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -78,9 +100,9 @@ Reverse geocoding is the process of converting geographic coordinates into an ap
 
 Azure Maps provides several reverse geocoding methods:
 
-- [**Address reverse geocoder**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse): Specify a single geographic coordinate to get the approximate address corresponding to this coordinate. Processes the request near real time.
-- [**Cross street reverse geocoder**](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet): Specify a single geographic coordinate to get nearby cross street information and process the request immediately. For example, you may receive the following cross streets 1st Ave and Main St.
-- [**Batch address reverse geocoder**](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatchpreview): Create a request containing up to 10,000 coordinates and have them processed over a period of time. All data will be processed in parallel on the server. When the request completes, you can download the full set of results.
+- [**Address reverse geocoder**](/rest/api/maps/search/getsearchaddressreverse): Specify a single geographic coordinate to get the approximate address corresponding to this coordinate. Processes the request near real time.
+- [**Cross street reverse geocoder**](/rest/api/maps/search/getsearchaddressreversecrossstreet): Specify a single geographic coordinate to get nearby cross street information and process the request immediately. For example, you may receive the following cross streets 1st Ave and Main St.
+- [**Batch address reverse geocoder**](/rest/api/maps/search/postsearchaddressreversebatchpreview): Create a request containing up to 10,000 coordinates and have them processed over a period of time. All data will be processed in parallel on the server. When the request completes, you can download the full set of results.
 
 This table cross-references the Google Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -110,13 +132,13 @@ Point of interest data can be searched in Google Maps using the Places Search AP
 
 Azure Maps provides several search APIs for points of interest:
 
-- [**POI search**](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi): Search for points of interests by name. For example, "Starbucks".
-- [**POI category search**](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory): Search for points of interests by category. For example, "restaurant".
-- [**Nearby search**](https://docs.microsoft.com/rest/api/maps/search/getsearchnearby): Searches for points of interests that are within a certain distance of a location.
-- [**Fuzzy search**](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category. It processes the request near real time. This API is recommended for applications where users search for addresses or points of interest in the same textbox.
-- [**Search within geometry**](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry): Search for points of interests that are within a specified geometry. For example, search a point of interest within a polygon.
-- [**Search along route**](https://docs.microsoft.com/rest/api/maps/search/postsearchalongroute): Search for points of interests that are along a specified route path.
-- [**Fuzzy batch search**](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): Create a request containing up to 10,000 addresses, places, landmarks, or point of interests. Processed the request over a period of time. All data will be processed in parallel on the server. When the request completes processing, you can download the full set of result.
+- [**POI search**](/rest/api/maps/search/getsearchpoi): Search for points of interests by name. For example, "Starbucks".
+- [**POI category search**](/rest/api/maps/search/getsearchpoicategory): Search for points of interests by category. For example, "restaurant".
+- [**Nearby search**](/rest/api/maps/search/getsearchnearby): Searches for points of interests that are within a certain distance of a location.
+- [**Fuzzy search**](/rest/api/maps/search/getsearchfuzzy): This API combines address geocoding with point of interest search. This API takes in a free-form string that can be an address, place, landmark, point of interest, or point of interest category. It processes the request near real time. This API is recommended for applications where users search for addresses or points of interest in the same textbox.
+- [**Search within geometry**](/rest/api/maps/search/postsearchinsidegeometry): Search for points of interests that are within a specified geometry. For example, search a point of interest within a polygon.
+- [**Search along route**](/rest/api/maps/search/postsearchalongroute): Search for points of interests that are along a specified route path.
+- [**Fuzzy batch search**](/rest/api/maps/search/postsearchfuzzybatchpreview): Create a request containing up to 10,000 addresses, places, landmarks, or point of interests. Processed the request over a period of time. All data will be processed in parallel on the server. When the request completes processing, you can download the full set of result.
 
 Currently Azure Maps doesn't have a comparable API to the Text Search API in Google Maps.
 
@@ -127,7 +149,7 @@ Review the [best practices for search](how-to-use-best-practices-for-search.md) 
 
 ### Find place from text
 
-Use the Azure Maps [POI search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi) and [Fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) to search for points of interests by name or address.
+Use the Azure Maps [POI search](/rest/api/maps/search/getsearchpoi) and [Fuzzy search](/rest/api/maps/search/getsearchfuzzy) to search for points of interests by name or address.
 
 The table cross-references the Google Maps API parameters with the comparable Azure Maps API parameters.
 
@@ -142,7 +164,7 @@ The table cross-references the Google Maps API parameters with the comparable Az
 
 ### Nearby search
 
-Use the [Nearby search](https://docs.microsoft.com/rest/api/maps/search/getsearchnearby) API to retrieve nearby points of interests, in Azure Maps.
+Use the [Nearby search](/rest/api/maps/search/getsearchnearby) API to retrieve nearby points of interests, in Azure Maps.
 
 The table shows the Google Maps API parameters with the comparable Azure Maps API parameters.
 
@@ -174,9 +196,9 @@ Calculate routes and directions using Azure Maps. Azure Maps has many of the sam
 
 The Azure Maps routing service provides the following APIs for calculating routes:
 
-- [**Calculate route**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): Calculate a route and have the request processed immediately. This API supports both GET and POST requests. POST requests are recommended when specifying a large number of waypoints or when using lots of the route options to ensure that the URL request doesn't become too long and cause issues. The POST Route Direction in Azure Maps has an option can that take in thousands of [supporting points](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints) and will use them to recreate a logical route path between them (snap to road). 
-- [**Batch route**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): Create a request containing up to 1,000 route request and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
-- [**Mobility services**](https://docs.microsoft.com/rest/api/maps/mobility): Calculate routes and directions using public transit.
+- [**Calculate route**](/rest/api/maps/route/getroutedirections): Calculate a route and have the request processed immediately. This API supports both GET and POST requests. POST requests are recommended when specifying a large number of waypoints or when using lots of the route options to ensure that the URL request doesn't become too long and cause issues. The POST Route Direction in Azure Maps has an option can that take in thousands of [supporting points](/rest/api/maps/route/postroutedirections#supportingpoints) and will use them to recreate a logical route path between them (snap to road). 
+- [**Batch route**](/rest/api/maps/route/postroutedirectionsbatchpreview): Create a request containing up to 1,000 route request and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
+- [**Mobility services**](/rest/api/maps/mobility): Calculate routes and directions using public transit.
 
 The table cross-references the Google Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -194,8 +216,8 @@ The table cross-references the Google Maps API parameters with the comparable AP
 | `origin`                       | `query`                            |
 | `region`                       | *N/A* – This feature is geocoding related. Use the *countrySet* parameter when using the Azure Maps geocoding API.  |
 | `traffic_model`               | *N/A* – Can only specify if traffic data should be used with the *traffic* parameter. |
-| `transit_mode`                | See [mobility services documentation](https://docs.microsoft.com/rest/api/maps/mobility) |
-| `transit_routing_preference` | See [mobility services documentation](https://docs.microsoft.com/rest/api/maps/mobility) |
+| `transit_mode`                | See [mobility services documentation](/rest/api/maps/mobility) |
+| `transit_routing_preference` | See [mobility services documentation](/rest/api/maps/mobility) |
 | `units`                        | *N/A* – Azure Maps only uses the metric system.  |
 | `waypoints`                    | `query`                            |
 
@@ -215,13 +237,13 @@ Azure Maps routing API has additional features, that aren't available in Google 
 - Support commercial vehicle route parameters. Such as, vehicle dimensions, weight, number of axels, and cargo type.
 - Specify maximum vehicle speed.
 
-In addition to this, the route service in Azure Maps supports [calculating routable ranges](https://docs.microsoft.com/rest/api/maps/route/getrouterange). Calculating routable ranges is also known as isochrones. It entails generating a polygon covering an area that can be traveled to in any direction from an origin point. All under a specified amount of time or amount of fuel or charge.
+In addition to this, the route service in Azure Maps supports [calculating routable ranges](/rest/api/maps/route/getrouterange). Calculating routable ranges is also known as isochrones. It entails generating a polygon covering an area that can be traveled to in any direction from an origin point. All under a specified amount of time or amount of fuel or charge.
 
 Review the [best practices for routing](how-to-use-best-practices-for-routing.md) documentation.
 
 ## Retrieve a map image
 
-Azure Maps provides an API for rendering the static map images with data overlaid. The [Map image render](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile) API in Azure Maps is comparable to the static map API in Google Maps.
+Azure Maps provides an API for rendering the static map images with data overlaid. The [Map image render](/rest/api/maps/render/getmapimagerytile) API in Azure Maps is comparable to the static map API in Google Maps.
 
 > [!NOTE]
 > Azure Maps requires the center, all the marker, and the path locations to be coordinates in "longitude,latitude" format. Whereas, Google Maps uses the "latitude,longitude" format. Addresses will need to be geocoded first.
@@ -251,8 +273,8 @@ For more information, see the [How-to guide on the map image render API](how-to-
 
 In addition to being able to generate a static map image, the Azure Maps render service provides the ability to directly access map tiles in raster (PNG) and vector format:
 
-- [**Map tile**](https://docs.microsoft.com/rest/api/maps/render/getmaptile): Retrieve raster (PNG) and vector tiles for the base maps (roads, boundaries, background).
-- [**Map imagery tile**](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile): Retrieve aerial and satellite imagery tiles.
+- [**Map tile**](/rest/api/maps/render/getmaptile): Retrieve raster (PNG) and vector tiles for the base maps (roads, boundaries, background).
+- [**Map imagery tile**](/rest/api/maps/render/getmapimagerytile): Retrieve aerial and satellite imagery tiles.
 
 > [!TIP]
 > Many Google Maps applications where switched from interactive map experiences to static map images a few years ago. This was done as a cost saving method. In Azure Maps, it is usually more cost effective to use the interactive map control in the Web SDK. The interactive map control charges based the number of tile loads. Map tiles in Azure Maps are large. Often, it takes only a few tiles to recreate the same map view as a static map. Map tiles are cached automatically by the browser. As such, the interactive map control often generates a fraction of a transaction when reproducing a static map view. Panning and zooming will load more tiles; however, there are options in the map control to disable this behavior. The interactive map control also provides a lot more visualization options than the static map services.
@@ -331,7 +353,6 @@ Let's add a red (`FF0000`) default icon, with the label "Space Needle", position
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-
 ![Azure Maps marker](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 Add three pins with the label values '1', '2', and '3':
@@ -339,8 +360,6 @@ Add three pins with the label values '1', '2', and '3':
 ```
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
-
-
 
 ![Azure Maps multiple markers](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
@@ -404,7 +423,7 @@ Add a red line opacity and pixel thickness between the coordinates, in the URL p
 
 Azure Maps provides the distance matrix API. Use this API to calculate the travel times and the distances between a set of locations, with a distance matrix. It's comparable to the distance matrix API in Google Maps.
 
-- [**Route matrix**](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview): Asynchronously calculates travel times and distances for a set of origins and destinations. Supports up to 700 cells per request. That's the number of origins multiplied by the number of destinations. With that constraint in mind, examples of possible matrix dimensions are: 700x1, 50x10, 10x10, 28x25, 10x70.
+- [**Route matrix**](/rest/api/maps/route/postroutematrixpreview): Asynchronously calculates travel times and distances for a set of origins and destinations. Supports up to 700 cells per request. That's the number of origins multiplied by the number of destinations. With that constraint in mind, examples of possible matrix dimensions are: 700x1, 50x10, 10x10, 28x25, 10x70.
 
 > [!NOTE]
 > A request to the distance matrix API can only be made using a POST request with the origin and destination information in the body of the request. Additionally, Azure Maps requires all origins and destinations to be coordinates. Addresses will need to be geocoded first.
@@ -436,7 +455,7 @@ Review the [best practices for routing](how-to-use-best-practices-for-routing.md
 
 Azure Maps provides an API for retrieving the time zone of a coordinate. The Azure Maps time zone API is comparable to the time zone API in Google Maps:
 
-- [**Time zone by coordinate**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonebycoordinates): Specify a coordinate and receive the time zone details of the coordinate.
+- [**Time zone by coordinate**](/rest/api/maps/timezone/gettimezonebycoordinates): Specify a coordinate and receive the time zone details of the coordinate.
 
 This table cross-references the Google Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -449,11 +468,11 @@ This table cross-references the Google Maps API parameters with the comparable A
 
 In addition to this API, Azure Maps provides a number of time zone APIs. These APIs convert the time based on the names or the IDs of the time zone:
 
-- [**Time zone by ID**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonebyid): Returns current, historical, and future time zone information for the specified IANA time zone ID.
-- [**Time zone Enum IANA**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumiana): Returns a full list of IANA time zone IDs. Updates to the IANA service are reflected in the system within one day.
-- [**Time zone Enum Windows**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows): Returns a full list of Windows Time Zone IDs.
-- [**Time zone IANA version**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneianaversion): Returns the current IANA version number used by Azure Maps.
-- [**Time zone Windows to IANA**](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonewindowstoiana): Returns a corresponding IANA ID, given a valid Windows Time Zone ID. Multiple IANA IDs may be returned for a single Windows ID.
+- [**Time zone by ID**](/rest/api/maps/timezone/gettimezonebyid): Returns current, historical, and future time zone information for the specified IANA time zone ID.
+- [**Time zone Enum IANA**](/rest/api/maps/timezone/gettimezoneenumiana): Returns a full list of IANA time zone IDs. Updates to the IANA service are reflected in the system within one day.
+- [**Time zone Enum Windows**](/rest/api/maps/timezone/gettimezoneenumwindows): Returns a full list of Windows Time Zone IDs.
+- [**Time zone IANA version**](/rest/api/maps/timezone/gettimezoneianaversion): Returns the current IANA version number used by Azure Maps.
+- [**Time zone Windows to IANA**](/rest/api/maps/timezone/gettimezonewindowstoiana): Returns a corresponding IANA ID, given a valid Windows Time Zone ID. Multiple IANA IDs may be returned for a single Windows ID.
 
 ## Client libraries
 
@@ -465,13 +484,24 @@ These Open-source client libraries are for other programming languages:
 
 - .NET Standard 2.0 – [GitHub project](https://github.com/perfahlen/AzureMapsRestServices) \| [NuGet package](https://www.nuget.org/packages/AzureMapsRestToolkit/)
 
-## Additional resources
+## Next steps
 
-The following are additional documentation and resources for the Azure Maps REST services.
+Learn more about Azure Maps REST services:
 
-- [Best practices for search](how-to-use-best-practices-for-search.md)
-- [Search for an address](how-to-search-for-address.md)
-- [Best practices for routing](how-to-use-best-practices-for-routing.md)
-- [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
-- [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-- [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)
+> [!div class="nextstepaction"]
+> [Best practices for search](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [Search for an address](how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [Best practices for routing](how-to-use-best-practices-for-routing.md)
+
+> [!div class="nextstepaction"]
+> [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
+
+> [!div class="nextstepaction"]
+> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+> [!div class="nextstepaction"]
+> [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)

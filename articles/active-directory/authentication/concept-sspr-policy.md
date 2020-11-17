@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 
@@ -38,11 +38,13 @@ The following table outlines the username policies that apply to both on-premise
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Azure AD password policies
 
-A password policy is applied to all user accounts that are created and managed directly in Azure AD. This password policy can't be modified, though you can [configure custom banned passwords for Azure AD password protection](tutorial-configure-custom-password-protection.md).
+A password policy is applied to all user accounts that are created and managed directly in Azure AD. Some of these password policy settings can't be modified, though you can [configure custom banned passwords for Azure AD password protection](tutorial-configure-custom-password-protection.md) or account lockout parameters.
 
-The password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Azure AD Connect, unless you enable EnforceCloudPasswordPolicyForPasswordSyncedUsers.
+By default, an account is locked out after 10 unsuccessful sign-in attempts with the wrong password. The user is locked out for one minute. Further incorrect sign-in attempts lock out the user for increasing durations of time. [Smart lockout](howto-password-smart-lockout.md) tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior will not cause the account to lock out. You can define the smart lockout threshold and duration.
 
-The following password policy options are defined:
+The Azure AD password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Azure AD Connect, unless you enable *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
+
+The following Azure AD password policy options are defined. Unless noted, you can't change these settings:
 
 | Property | Requirements |
 | --- | --- |
@@ -54,11 +56,10 @@ The following password policy options are defined:
 | Password expiry (Let passwords never expire) |<ul><li>Default value: **false** (indicates that password's have an expiration date).</li><li>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet.</li></ul> |
 | Password change history | The last password *can't* be used again when the user changes a password. |
 | Password reset history | The last password *can* be used again when the user resets a forgotten password. |
-| Account lockout | After 10 unsuccessful sign-in attempts with the wrong password, the user is locked out for one minute. Further incorrect sign-in attempts lock out the user for increasing durations of time. [Smart lockout](howto-password-smart-lockout.md) tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior will not cause the account to lock out. |
 
 ## Administrator reset policy differences
 
-Microsoft enforces a strong default *two-gate* password reset policy for any Azure administrator role. This policy may be different from the one you have defined for your users, and this policy can't be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
+By default, administrator accounts are enabled for self-service password reset, and a strong default *two-gate* password reset policy is enforced. This policy may be different from the one you have defined for your users, and this policy can't be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
 
 With a two-gate policy, administrators don't have the ability to use security questions.
 
@@ -90,6 +91,8 @@ The two-gate policy requires two pieces of authentication data, such as an email
 * If 30 days have elapsed in a trial subscription; or
 * A custom domain has been configured for your Azure AD tenant, such as *contoso.com*; or
 * Azure AD Connect is synchronizing identities from your on-premises directory
+
+You can disable the use of SSPR for administrator accounts using the [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) PowerShell cmdlet. The `-SelfServePasswordResetEnabled $False` parameter disables SSPR for administrators.
 
 ### Exceptions
 

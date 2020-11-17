@@ -51,7 +51,7 @@ Azure Arc control plane functionality is offered at no additional cost
 
 * Searching and indexing through Azure Resource Graph.
 
-* Access and security through RBAC and subscriptions.
+* Access and security through Azure RBAC and subscriptions.
 
 * Environments and automation through templates and extensions.
 

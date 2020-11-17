@@ -29,7 +29,7 @@ You perform the following steps in this tutorial:
 > * Complete, run and monitor the full incremental copy pipeline
 
 ## Overview
-The Change Data Capture technology supported by data stores such as Azure SQL Managed Instances (MI) and SQL Server can be used to identify changed data.  This tutorial describes how to use Azure Data Factory with SQL Change Data Capture technology to incrementally load delta data from Azure SQL Managed Instance into Azure Blob Storage.  For more concrete information about SQL Change Data Capture technology, see [Change data capture in SQL Server](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server).
+The Change Data Capture technology supported by data stores such as Azure SQL Managed Instances (MI) and SQL Server can be used to identify changed data.  This tutorial describes how to use Azure Data Factory with SQL Change Data Capture technology to incrementally load delta data from Azure SQL Managed Instance into Azure Blob Storage.  For more concrete information about SQL Change Data Capture technology, see [Change data capture in SQL Server](/sql/relational-databases/track-changes/about-change-data-capture-sql-server).
 
 ## End-to-end workflow
 Here are the typical end-to-end workflow steps to incrementally load data using the Change Data Capture technology.
@@ -47,7 +47,7 @@ In this tutorial, you create a pipeline that performs the following operations:
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **Azure SQL Database Managed Instance**. You use the database as the **source** data store. If you don't have an Azure SQL Database Managed Instance, see the [Create an Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) article for steps to create one.
+* **Azure SQL Database Managed Instance**. You use the database as the **source** data store. If you don't have an Azure SQL Database Managed Instance, see the [Create an Azure SQL Database Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **raw**. 
 
 ### Create a data source table in Azure SQL Database
@@ -70,7 +70,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
     > [!NOTE]
     > - Replace &lt;your source schema name&gt; with the schema of your Azure SQL MI that has the customers table.
-    > - Change data capture doesn't do anything as part of the transactions that change the table being tracked. Instead, the insert, update, and delete operations are written to the transaction log. Data that is deposited in change tables will grow unmanageably if you do not periodically and systematically prune the data. For more information, see [Enable Change Data Capture for a database](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?enable-change-data-capture-for-a-database=&view=sql-server-ver15)
+    > - Change data capture doesn't do anything as part of the transactions that change the table being tracked. Instead, the insert, update, and delete operations are written to the transaction log. Data that is deposited in change tables will grow unmanageably if you do not periodically and systematically prune the data. For more information, see [Enable Change Data Capture for a database](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?enable-change-data-capture-for-a-database=&view=sql-server-ver15)
 
     ```sql
     EXEC sys.sp_cdc_enable_db 
@@ -122,10 +122,10 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 7. Click **Create**.
 8. Once the deployment is complete, click on **Go to resource**
 
-   ![Data factory home page](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
+   ![Screenshot shows a message that your deployment is complete and an option to go to resource.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
 
-   ![Data factory home page](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
+   ![Screenshot shows the data factory that you deployed.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
 10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 11. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image:
 
@@ -156,7 +156,7 @@ In this step, you link your Azure Storage Account to the data factory.
 In this step, you link your Azure SQL MI database to the data factory.
 
 > [!NOTE]
-> For those using SQL MI see [here](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database-managed-instance#prerequisites) for information regarding access via public vs private endpoint. If using private endpoint one would need to run this pipeline using a self-hosted integration runtime. The same would apply to those running SQL Server on-prem, in a VM or VNet scenarios.
+> For those using SQL MI see [here](./connector-azure-sql-managed-instance.md#prerequisites) for information regarding access via public vs private endpoint. If using private endpoint one would need to run this pipeline using a self-hosted integration runtime. The same would apply to those running SQL Server on-prem, in a VM or VNet scenarios.
 
 1. Click **Connections**, and click **+ New**.
 2. In the **New Linked Service** window, select **Azure SQL Database Managed Instance**, and click **Continue**.
@@ -188,7 +188,7 @@ In this step, you create a dataset to represent the source data.
 3. In the **Set properties** tab, set the dataset name and connection information:
  
    1. Select **AzureSqlMI1** for **Linked service**.
-   2. Select **[dbo].[dbo_customers_CT]** for **Table name**.  Note: this table was automatically created when CDC was enabled on the customers table. Changed data is never queried from this table directly but is instead extracted through the [CDC functions](https://docs.microsoft.com/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql?view=sql-server-ver15).
+   2. Select **[dbo].[dbo_customers_CT]** for **Table name**.  Note: this table was automatically created when CDC was enabled on the customers table. Changed data is never queried from this table directly but is instead extracted through the [CDC functions](/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql?view=sql-server-ver15).
 
    ![Source connection](./media/tutorial-incremental-copy-change-data-capture-feature-portal/source-dataset-configuration.png)
 
@@ -284,10 +284,10 @@ In this step, you create a pipeline, which first checks the number of changed re
 
 11. Click preview to verify that the query returns the changed rows correctly.
 
-    ![Copy Activity - sink settings](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
+    ![Screenshot shows preview to verify query.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
 12. Switch to the **Sink** tab, and specify the Azure Storage dataset for the **Sink Dataset** field.
 
-    ![Copy Activity - sink settings](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
+    ![Screenshot shows the Sink tab.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
 13. Click back to the main pipeline canvas and connect the **Lookup** activity to the **If Condition** activity one by one. Drag the **green** button attached to the **Lookup** activity to the **If Condition** activity.
 
     ![Connect Lookup and Copy activities](./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png)
@@ -313,7 +313,7 @@ In this step, you create a tumbling window trigger to run the job on a frequent 
     SET @begin_time = ''',pipeline().parameters.triggerStartTime,''';
     SET @end_time = ''',pipeline().parameters.triggerEndTime,''';
     SET @from_lsn = sys.fn_cdc_map_time_to_lsn(''smallest greater than or equal'', @begin_time);
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than or equal'', @end_time);
+    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than'', @end_time);
     SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 
@@ -323,12 +323,12 @@ In this step, you create a tumbling window trigger to run the job on a frequent 
     SET @begin_time = ''',pipeline().parameters.triggerStartTime,''';
     SET @end_time = ''',pipeline().parameters.triggerEndTime,''';
     SET @from_lsn = sys.fn_cdc_map_time_to_lsn(''smallest greater than or equal'', @begin_time);
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than or equal'', @end_time);
+    SET @to_lsn = sys.fn_cdc_map_time_to_lsn(''largest less than'', @end_time);
     SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 4. Click on the **Sink** tab of the **Copy** activity and click **Open** to edit the dataset properties. Click on the **Parameters** tab and add a new parameter called **triggerStart**    
 
-    ![Sink Dataset Configuration-3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
+    ![Screenshot shows adding a new parameter to the Parameters tab.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
 5. Next, configure the dataset properties to store the data in a **customers/incremental** subdirectory with date-based partitions.
    1. Click on the **Connection** tab of the dataset properties and add dynamic content for both the **Directory** and the **File** sections. 
    2. Enter the following expression in the **Directory** section by clicking on the dynamic content link under the textbox:
@@ -375,7 +375,7 @@ In this step, you create a tumbling window trigger to run the job on a frequent 
    ![Tumbling Window Trigger-2](./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger-2.png)
 
 > [!NOTE]
-> Note the trigger will only run once it has been published. Additionally the expected behavior of tumbling window is to run all historical intervals from the start date until now. More information regarding tumbling window triggers can be found [here](https://docs.microsoft.com/azure/data-factory/how-to-create-tumbling-window-trigger). 
+> Note the trigger will only run once it has been published. Additionally the expected behavior of tumbling window is to run all historical intervals from the start date until now. More information regarding tumbling window triggers can be found [here](./how-to-create-tumbling-window-trigger.md). 
   
 10. Using **SQL Server Management Studio** make some additional changes to the customer table by running the following SQL:
     ```sql

@@ -97,7 +97,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 ### [REST API](#tab/rest)
 
-You can use the [Azure Billing](https://docs.microsoft.com/rest/api/billing/) and the [Consumption](https://docs.microsoft.com/rest/api/consumption/) APIs to programmatically get the credit balance for your billing account.
+You can use the [Azure Billing](/rest/api/billing/) and the [Consumption](/rest/api/consumption/) APIs to programmatically get the credit balance for your billing account.
 
 The examples shown below use REST APIs. Currently, PowerShell and Azure CLI are not supported.
 

@@ -46,7 +46,7 @@ Note- If any of the performance counters are missing, Azure Migrate: Server Asse
 
 ## Why is the confidence rating of my assessment low?
 
-The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
+The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](./concepts-assessment-calculation.md#ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
 
 - You did not profile your environment for the duration for which you are creating the assessment. For example, if you are creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you cannot wait for the duration, please change the performance duration to a smaller period and 'Recalculate' the assessment.
  
@@ -54,7 +54,7 @@ The confidence rating is calculated for "Performance-based" assessments based on
 
 - Few VMs were created after discovery in Server Assessment had started. For example, if you are creating an assessment for the performance history of last one month, but few VMs were created in the environment only a week ago. In this case, the performance data for the new VMs will not be available for the entire duration and the confidence rating would be low.
 
-[Learn more](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) about confidence rating.
+[Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence rating.
 
 ## I can't see some groups when I am creating an Azure VMware Solution (AVS) assessment
 
@@ -120,7 +120,7 @@ Import-based Azure VM assessments are assessments created with machines that are
 
 ## Why is the suggested migration tool in import-based AVS assessment marked as unknown?
 
-For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/hybrid-cloud-extension-installation.md).
+For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 
 
 ## What is dependency visualization?

@@ -47,7 +47,7 @@ Select **Create** to generate the offer and continue.
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Per the [Managed Services certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), a **Lead Destination** is required. This will create a record in your CRM system each time a customer deploys your offer.
+Per the [Managed Services certification policies](/legal/marketplace/certification-policies#700-managed-services), a **Lead Destination** is required. This will create a record in your CRM system each time a customer deploys your offer.
 
 For more information, see [Lead management overview](./commercial-marketplace-get-customer-leads.md).
 
@@ -125,7 +125,7 @@ If you have support websites for **Azure Global Customers** and/or **Azure Gover
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
@@ -142,7 +142,7 @@ These logos are used in different places in the listing:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 

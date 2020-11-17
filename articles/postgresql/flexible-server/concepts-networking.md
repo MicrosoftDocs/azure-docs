@@ -1,8 +1,8 @@
 ---
 title: Networking overview - Azure Database for PostgreSQL - Flexible Server
 description: Learn about connectivity and networking options in the Flexible Server deployment option for Azure Database for PostgreSQL
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
@@ -70,6 +70,9 @@ Here are some concepts to be familiar with when using virtual networks with Post
 * Peering VNets across regions is not supported
 
 Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
+
+> [!NOTE]
+> If you are using the custom DNS server then you must use a DNS forwarder to resolve the FQDN of Azure Database for MySQL - Flexible Server. Refer to [name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) to learn more.
 
 ## Public access (allowed IP addresses)
 Characteristics of the public access method include:

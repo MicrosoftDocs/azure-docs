@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/10/2018
+ms.date: 10/30/2020
 
 ms.author: mimart
 author: msmimart
@@ -27,7 +27,7 @@ If your on-premises app uses SAML-based authentication, you can easily make thes
 You must do both of the following:
 
 - Integrate the app using SAML as described in [Configure SAML-based single sign-on](../manage-apps/configure-saml-single-sign-on.md). Make sure to note what you use for the **Sign-on URL** value.
--  Use Azure AD Application Proxy to publish the on-premises app, with **Azure Active Directory** configured as the authentication source. For instructions, see [Publish applications using Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md). 
+-  Use Azure AD Application Proxy to publish the on-premises app, with **Azure Active Directory** configured as the authentication source. For instructions, see [Publish applications using Azure AD Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md). 
 
    When you configure the **Internal Url** setting, use the sign-on URL that you specified in the non-gallery application template. In this way, users can access the app from outside the organization boundary. Application Proxy performs the SAML single sign-on for the on-premises app.
  
@@ -37,11 +37,11 @@ You must do both of the following:
 
 To provide B2B users access to on-premises applications that are secured with Integrated Windows Authentication and Kerberos constrained delegation, you need the following components:
 
-- **Authentication through Azure AD Application Proxy**. B2B users must be able to authenticate to the on-premises application. To do this, you must publish the on-premises app through the Azure AD Application Proxy. For more information, see [Get started with Application Proxy and install the connector](../manage-apps/application-proxy-enable.md) and [Publish applications using Azure AD Application Proxy](../manage-apps/application-proxy-publish-azure-portal.md).
+- **Authentication through Azure AD Application Proxy**. B2B users must be able to authenticate to the on-premises application. To do this, you must publish the on-premises app through the Azure AD Application Proxy. For more information, see [Tutorial: Add an on-premises application for remote access through Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md).
 - **Authorization via a B2B user object in the on-premises directory**. The application must be able to perform user access checks, and grant access to the correct resources. IWA and KCD require a user object in the on-premises Windows Server Active Directory to complete this authorization. As described in [How single sign-on with KCD works](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy needs this user object to impersonate the user and get a Kerberos token to the app. 
 
    > [!NOTE]
-   > When you configure the Azure AD Application Proxy, ensure that **Delegated Logon Identity** is set to **User principal name** (default) for IWA single sign-on.
+   > When you configure the Azure AD Application Proxy, ensure that **Delegated Logon Identity** is set to **User principal name** (default) in the single sign-on configuration for Integrated Windows Authentication (IWA).
 
    For the B2B user scenario, there are two methods available that you can use to create the guest user objects that are required for authorization in the on-premises directory:
 
@@ -69,13 +69,13 @@ You can manage the on-premises B2B user objects through lifecycle management pol
 
 ### Create B2B guest user objects through MIM
 
-For information about how to use MIM 2016 Service Pack 1 and the MIM management agent for Microsoft Graph to create the guest user objects in the on-premises directory, see [Azure AD business-to-business (B2B) collaboration with Microsoft Identity Manager (MIM) 2016 SP1 with Azure Application Proxy](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
+For information about how to use MIM 2016 Service Pack 1 and the MIM management agent for Microsoft Graph to create the guest user objects in the on-premises directory, see [Azure AD business-to-business (B2B) collaboration with Microsoft Identity Manager (MIM) 2016 SP1 with Azure Application Proxy](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
 
 ### Create B2B guest user objects through a script (Preview)
 
 There’s a PowerShell sample script available that you can use as a starting point to create the guest user objects in your on-premises Active Directory.
 
-You can download the script and the Readme file from the [Download Center](https://www.microsoft.com/download/details.aspx?id=51495). Choose the **Script and Readme to pull Azure AD B2B users on-prem.zip** file.
+You can download the script and the Readme file from [Connectors for Microsoft Identity Manager 2016 and Forefront Identity Manager 2010 R2](https://www.microsoft.com/download/details.aspx?id=51495). In the download package, choose the **Script and Readme to pull Azure AD B2B users on-prem.zip** file.
 
 Before you use the script, make sure that you review the prerequisites and important considerations in the associated Readme file. Also, understand that the script is made available only as a sample. Your development team or a partner must customize and review the script before you run it.
 
@@ -88,4 +88,3 @@ Make sure that you have the correct Client Access Licenses (CALs) for external g
 - [Azure Active Directory B2B collaboration for hybrid organizations](hybrid-organizations.md)
 
 - For an overview of Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
-

@@ -9,11 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual 
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
 ---
 
 # Create a new Azure Time Series Insights Gen1 environment in the Azure portal
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This article describes how to create a new Azure Time Series Insights environment using the Azure portal.
 

@@ -80,7 +80,7 @@ Azure Sentinel supports a [multiple workspace incident view](./multiple-workspac
 Azure Sentinel supports querying [multiple workspaces in a single query](../azure-monitor/log-query/cross-workspace-query.md), allowing you to search and correlate data from multiple workspaces in a single query. 
 
 - Use the [workspace() expression](../azure-monitor/log-query/workspace-expression.md) to refer to a table in a different workspace. 
-- Use the [union operator](https://docs.microsoft.com/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) alongside the workspace() expression to apply a query across tables in multiple workspaces.
+- Use the [union operator](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) alongside the workspace() expression to apply a query across tables in multiple workspaces.
 
 You can use saved [functions](../azure-monitor/log-query/functions.md) to simplify cross-workspace queries. For example, if a reference to a workspace is long, you may want to save the expression `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` as a function called `SecurityEventCustomerA`. You can then write queries as `SecurityEventCustomerA | where ...` .
 
@@ -127,7 +127,7 @@ See also [Deploying and Managing Azure Sentinel as Code](https://techcommunity.m
 
 ## Managing workspaces across tenants using Azure Lighthouse
 
-As mentioned above, in many scenarios, the different Azure Sentinel workspaces can be located in different Azure AD tenants. You can use [Azure Lighthouse](../lighthouse/overview.md) to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on Azure Sentinel workspaces across all tenants. Once Azure Lighthouse is [onboarded](../lighthouse/how-to/onboard-customer.md), use the [directory + subscription selector](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-from-other-tenants) on the Azure portal to select all the subscriptions containing workspaces you want to manage, in order to ensure that they will all be available in the different workspace selectors in the portal.
+As mentioned above, in many scenarios, the different Azure Sentinel workspaces can be located in different Azure AD tenants. You can use [Azure Lighthouse](../lighthouse/overview.md) to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on Azure Sentinel workspaces across all tenants. Once Azure Lighthouse is [onboarded](../lighthouse/how-to/onboard-customer.md), use the [directory + subscription selector](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-in-managed-tenants) on the Azure portal to select all the subscriptions containing workspaces you want to manage, in order to ensure that they will all be available in the different workspace selectors in the portal.
 
 When using Azure Lighthouse, it is recommended to create a group for each Azure Sentinel role and delegate permissions from each tenant to those groups.
 

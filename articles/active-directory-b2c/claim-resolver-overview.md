@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -123,6 +123,7 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {SAML:ForceAuthn} | The `ForceAuthN` attribute value, from the `AuthnRequest` element of the SAML request. | True |
 | {SAML:ProviderName} | The `ProviderName` attribute value, from the `AuthnRequest` element of the SAML request.| Contoso.com |
 | {SAML:RelayState} | The `RelayState` query string parameter.| 
+| {SAML:Subject} | The `Subject` from the NameId element of the SAML AuthN request.| 
 
 ## Using claim resolvers
 

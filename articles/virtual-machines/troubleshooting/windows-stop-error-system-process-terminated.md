@@ -23,7 +23,7 @@ This article provides steps to resolve issues where the operating system (OS) en
 
 ## Symptom
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, the screenshot displays the message that the OS encountered an error during boot, with the following message:
+When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, the screenshot displays the message that the OS encountered an error during boot, with the following message:
 
 **Your PC ran into a problem and needs to restart. We're just collecting some error info, and then you can restart. (##% complete) If you'd like to know more, you can search online later for this error: 0xC000021a**.
 
@@ -49,17 +49,17 @@ To collect the dump file, follow these steps:
 
 ### Attach the OS disk to a new Repair VM
 
-1.	Use steps 1-3 of the [VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
+1.	Use steps 1-3 of the [VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) to prepare a Repair VM.
 2.	Using **Remote Desktop Connection**, connect to the Repair VM.
 
 ### Locate the dump file and submit a support ticket
 
 1.	On the repair VM, go to windows folder in the attached OS disk. If the driver letter that is assigned to the attached OS disk is F, go to F:\Windows.
 2.	Locate the memory.dmp file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the memory dump file.
-3.	If you are having trouble locating the memory.dmp file, you may wish to use [non-maskable interrupt (NMI) calls in serial console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) instead. You can follow the guide to [generate a crash dump file using NMI calls here](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+3.	If you are having trouble locating the memory.dmp file, you may wish to use [non-maskable interrupt (NMI) calls in serial console](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) instead. You can follow the guide to [generate a crash dump file using NMI calls here](/windows/client-management/generate-kernel-or-complete-crash-dump).
 
 ## Next Steps
 
-- For further troubleshooting information, see [troubleshooting common boot errors](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-error-troubleshoot) or [how to troubleshoot a Windows VM by attaching the OS disk to a recovery VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-windows). You should also familiarize yourself with [how to use boot diagnostics to troubleshoot a virtual machine](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics).
-- For more information about using Resource Manager, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
-- If you cannot connect to your VM, see [Troubleshoot RDP connections to an Azure VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection).
+- For further troubleshooting information, see [troubleshooting common boot errors](./boot-error-troubleshoot.md) or [how to troubleshoot a Windows VM by attaching the OS disk to a recovery VM](./troubleshoot-recovery-disks-windows.md). You should also familiarize yourself with [how to use boot diagnostics to troubleshoot a virtual machine](./boot-diagnostics.md).
+- For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
+- If you cannot connect to your VM, see [Troubleshoot RDP connections to an Azure VM](./troubleshoot-rdp-connection.md).

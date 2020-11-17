@@ -1,6 +1,7 @@
 ---
-title: Microsoft identity platform Java web app quickstart | Azure
-description: Learn how to implement Microsoft Sign-In on a Java web app using OpenID Connect
+title: "Quickstart: Add sign-in with Microsoft to a Java web app | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, learn how to implement Microsoft sign-in in a Java web application using OpenID Connect.
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -16,9 +17,9 @@ ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 
 # Quickstart: Add sign-in with Microsoft to a Java web app
 
-In this quickstart, you'll learn how to integrate a Java web application with the Microsoft identity platform. Your app will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API.
+In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
 
-When you've completed this quickstart, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory. (See [How the sample works](#how-the-sample-works) for an illustration.)
+ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Prerequisites
 
@@ -94,7 +95,7 @@ To run this sample you will need:
 >   ```
 >   Put the generated keystore file in the "resources" folder.
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -248,9 +249,9 @@ import com.microsoft.aad.msal4j.*;
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## Next Steps
+## Next steps
 
 For a more in-depth discussion of building web apps that sign in users on the Microsoft identity platform, move on to our multi-part scenario series:
 
 > [!div class="nextstepaction"]
-[Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md?tabs=java)
+> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md?tabs=java)

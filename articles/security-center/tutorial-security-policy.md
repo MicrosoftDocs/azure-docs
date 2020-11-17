@@ -29,7 +29,7 @@ Security Center policies are based on policy initiatives created in Azure Policy
 
 Security Center offers the following options for working with security policies:
 
-* **View and edit the built-in default policy** - When you enable Security Center, a built-in initiative named 'ASC default' is automatically assigned to all Security Center registered subscriptions. To customize this initiative, you can enable or disable individual policies within it. See the list of [built-in security policies](security-center-policy-definitions.md) to understand the options available out-of-the-box.
+* **View and edit the built-in default policy** - When you enable Security Center, a built-in initiative named 'ASC default' is automatically assigned to all Security Center registered subscriptions. To customize this initiative, you can enable or disable individual policies within it. See the list of [built-in security policies](./policy-reference.md) to understand the options available out-of-the-box.
 
 * **Add your own custom policies** - If you want to customize the security initiatives applied to your subscription, you can do so within Security Center. You'll then receive recommendations if your machines don't follow the policies you create. For instructions on building and assigning custom policies, see [Using custom security policies](custom-security-policies.md).
 
@@ -42,7 +42,7 @@ To view your security policies in Security Center:
 
 1. In the **Security Center** dashboard, select **Security policy**.
 
-	![The Policy Management pane](./media/security-center-policies/security-center-policy-mgt.png)
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="The policy management page":::
 
    In the **Policy management** screen, you can see the number of management groups, subscriptions, and workspaces as well as your management group structure.
 
@@ -64,8 +64,8 @@ To view your security policies in Security Center:
 
     1. To view and edit the default policy, select **View effective policy** and proceed as described below. 
 
-       ![policy screen](./media/security-center-policies/policy-screen.png)
-       
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Effective policy screen":::
+
        This **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
        
        * Use the links at the top to open a policy **assignment** that applies on the subscription or management group. These links let you access the assignment and edit or disable the policy. For example, if you see that a particular policy assignment is effectively denying endpoint protection, use the link to edit or disable the policy.
@@ -127,8 +127,7 @@ For more information about recommendations, see [Managing security recommendatio
 ## Next steps
 This article explained security policies. For related information, see the following articles:
 
-* For instructions on how to set policies using PowerShell, see [Quickstart: Create a policy assignment to identify non-compliant resources using the Azure PowerShell module](../governance/policy/assign-policy-powershell.md)
-
-* For instructions on how to edit a security policy in Azure Policy, see [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
-
-* For instructions on how to set a policy across subscriptions or on Management groups using Azure Policy, see [What is Azure Policy?](../governance/policy/overview.md)
+- [Learn how to set policies using PowerShell](../governance/policy/assign-policy-powershell.md) - 
+- [Learn how to edit a security policy in Azure Policy](../governance/policy/tutorials/create-and-manage.md) - 
+- [Learn how to set a policy across subscriptions or on Management groups using Azure Policy](../governance/policy/overview.md).
+- [Learn how to enable Security Center on all subscriptions in a management group](onboard-management-group.md)

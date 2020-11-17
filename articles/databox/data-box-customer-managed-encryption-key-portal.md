@@ -50,40 +50,40 @@ Configuring customer-managed key for your Azure Data Box is optional. By default
 
     ![Select customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
-5. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated. For **Key vault**, you can select an existing key vault from the dropdown list.
+4. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated. For **Key vault**, you can select an existing key vault from the dropdown list.
 
-    ![Create new Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-31.png)
+    ![Select existing Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
     You can also select **Create new** to create a new key vault. In the **Create key vault blade**, enter the resource group and the key vault name. Ensure that the **Soft delete** and **Purge protection** are enabled. Accept all other defaults. Select **Review + Create**.
 
-    ![Create new Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+    ![Review and create Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-7. Review the information associated with your key vault and select **Create**. Wait for a couple minutes for the key vault creation to complete.
+5. Review the information associated with your key vault and select **Create**. Wait for a couple minutes for the key vault creation to complete.
 
-    ![Create Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
+    ![Create Azure Key Vault with your settings](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
-8. In the **Select key from Azure Key Vault**, you can select a key in the existing key vault.
+6. In the **Select key from Azure Key Vault**, you can select a key in the existing key vault.
 
-    ![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+    ![Select key from Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-9. If you want to create a new key, select **Create new** to create a key. RSA key size can be 2048 or greater.
+7. If you want to create a new key, select **Create new** to create a key. RSA key size can be 2048 or greater.
 
-    ![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    ![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-10. Provide the name for your key, accept the other defaults, and select **Create**. 
+8. Provide the name for your key, accept the other defaults, and select **Create**.
 
-    ![Create new key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
+    ![Name new key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
 
-11. You are notified that a key is created in your key vault. Select the **Version** and then choose **Select**.
+9. You are notified that a key is created in your key vault. Select the **Version** and then choose **Select**.
 
-    ![New key created in key vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
+    ![Select version for new key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
-12. In the **Encryption type** pane, you can see the key vault and the key selected for your customer-managed key.
+10. In the **Encryption type** pane, you can see the key vault and the key selected for your customer-managed key.
 
     ![Key and key vault for customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
-13. Save the key. 
+11. Save the key. 
 
     ![Save customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 

@@ -18,7 +18,7 @@ ms.author: apimpm
 
 # Send request context information to the backend service
 
-This article shows an Azure API management policy sample that demonstrates how to send request context information to the backend service. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](../policy-samples.md).
+This article shows an Azure API management policy sample that demonstrates how to send request context information to the backend service. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](../policy-reference.md).
 
 ## Policy
 
@@ -31,5 +31,4 @@ Paste the code into the **inbound** block.
 Learn more about APIM policies:
 
 + [Transformation policies](../api-management-transformation-policies.md)
-+ [Policy samples](../policy-samples.md)
-
++ [Policy samples](../policy-reference.md)

@@ -33,28 +33,27 @@ To create a cache, follow these steps:
 
     :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Select Azure Cache for Redis.":::
    
-1. On the **New Redis Cache** page, configure the settings for your new cache.
+1. On the **Basics** page, configure the settings for your new cache.
    
     | Setting      | Suggested value  | Description |
     | ------------ |  ------- | -------------------------------------------------- |
+    | **Subscription** | Select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. | 
+    | **Resource group** | Select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. | 
     | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contains only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. | 
-    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. | 
-    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. | 
-    | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
-    | **Pricing tier** | Drop down and select a [Premium tier](https://azure.microsoft.com/pricing/details/cache/) cache. |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
-    | **Replica count** | Slide to choose the number of replicas. | Default is 1. |
+    | **Location** | Select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
+    | **Cache type** | Select a [Premium tier](https://azure.microsoft.com/pricing/details/cache/) cache. |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
    
-1. After you select a Premium tier cache, you'll be asked whether to enable Redis clustering or not. Leave **Clustering** as *Disabled*. 
+1. On the **Advanced** page, choose **Replica count**.
    
-    :::image type="content" source="media/cache-how-to-premium-clustering/redis-clustering-disabled.png" alt-text="Configure Redis cluster.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count.":::
+
+1. Leave other options in their default settings. 
 
     > [!NOTE]
     > Multi-replica support only works with non-clustered caches currently.
     >
 
-1. Click **Create**. 
-   
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Create Azure Cache for Redis.":::
+1. Click **Create**.
    
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 

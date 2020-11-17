@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: b-juche
   ms.author: b-juche
-  ms.date: 03/11/2020 
+  ms.date: 08/25/2020 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -22,6 +22,8 @@ landingContent:
         links:
           - text: What is Azure NetApp Files?
             url: azure-netapp-files-introduction.md
+          - text: What's new?
+            url: whats-new.md
           - text: Understand the storage hierarchy
             url: azure-netapp-files-understand-storage-hierarchy.md
       - linkListType: concept

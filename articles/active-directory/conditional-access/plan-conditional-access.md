@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/16/2020
 
 ms.author: baselden
 author: BarbaraSelden
@@ -86,7 +86,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](https://aka.ms/deploymentplans) and that project roles are clear.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that project roles are clear.
 
 ### Plan communications
 
@@ -217,7 +217,7 @@ Creating a policy for each app isn't efficient and leads to difficult administra
 
 ### Set up emergency access accounts
 
-If you misconfigure a policy, it can lock the organizations out of the Azure portal. Mitigate the impact of accidental administrator lock out by creating two or more [emergency access accounts](../users-groups-roles/directory-emergency-access.md) in your organization.
+If you misconfigure a policy, it can lock the organizations out of the Azure portal. Mitigate the impact of accidental administrator lock out by creating two or more [emergency access accounts](../roles/security-emergency-access.md) in your organization.
 
 * Create a user account dedicated to policy administration and excluded from all your policies.
 
@@ -288,11 +288,7 @@ Azure active directory allows you to create [named locations](location-condition
 
 ### Plan your policy deployment
 
-When new policies are ready for your environment, make sure that you review each policy before releasing it to avoid undesirable results. See the following documentation to understand important information on how policies are applied and how to avoid issues
-
-* [What you should know](best-practices.md)
-
-* [What you should avoid doing](best-practices.md)
+When new policies are ready for your environment, make sure that you review each policy before releasing it to avoid undesirable results.
 
 ## Common policies
 
@@ -459,10 +455,6 @@ The location condition of a CA policy enables you to tie access controls setting
 ### Terms of use
 
 Before accessing certain cloud apps in your environment, you can get consent from the users by them accepting your Terms of use (ToU). Follow this [Quickstart to create Terms of Use](require-tou.md).
-
-### Classic policies
-
-In the [Azure portal](https://portal.azure.com/), you can find your CA policies under Azure Active Directory > Security > Conditional Access. Your organization might also have older CA policies not created using this page. These policies are known as classic policies. We recommend that you [consider migrating these classic policies in the Azure portal](best-practices.md).
 
 ## Troubleshoot Conditional Access
 

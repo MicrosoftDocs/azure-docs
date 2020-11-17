@@ -13,24 +13,24 @@ ms.custom: "include file"
 # [Bash](#tab/bash)
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-py -3 -m venv env
-env\scripts\activate
+py -3 -m venv .venv
+.venv\scripts\activate
 pip install -r requirements.txt
 ```
 
 # [Cmd](#tab/cmd)
 
 ```cmd
-py -3 -m venv env
-env\scripts\activate
+py -3 -m venv .venv
+.venv\scripts\activate
 pip install -r requirements.txt
 ```
 

@@ -20,7 +20,7 @@ ms.custom: contperfq1
 To add or remove role assignments, you must have:
 
 - `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
-- [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure)
+- [Bash in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure)
 
 ## Steps to add a role assignment
 
@@ -89,7 +89,7 @@ For more information, see [List Azure role definitions](role-definitions-list.md
  
 ### Step 3: Identify the needed scope
 
-Azure provides four levels of scope: resource, [resource group](../azure-resource-manager/management/overview.md#resource-groups), subscription, and [management group](../governance/management-groups/overview.md). It's a best practice to grant access with the least privilege that is needed, so avoid assigning a role at a broader scope.
+Azure provides four levels of scope: resource, [resource group](../azure-resource-manager/management/overview.md#resource-groups), subscription, and [management group](../governance/management-groups/overview.md). It's a best practice to grant access with the least privilege that is needed, so avoid assigning a role at a broader scope. For more information about scope, see [Understand scope](scope-overview.md).
 
 **Resource scope**
 
@@ -356,4 +356,4 @@ az role assignment delete --assignee "alain@example.com" \
 ## Next steps
 
 - [List Azure role assignments using Azure CLI](role-assignments-list-cli.md)
-- [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/cli-azure-resource-manager.md)
+- [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/management/manage-resources-cli.md)

@@ -97,6 +97,34 @@ Ensure that you have the latest helm version installed before proceeding to avoi
 This operation might take a while...
 ```
 
+### Helm issue
+
+Helm `v3.3.0-rc.1` version has an [issue](https://github.com/helm/helm/pull/8527) where helm install/upgrade (used under the hood by connectedk8s CLI extension) results in running of all hooks leading to the following error:
+
+```console
+$ az connectedk8s connect -n shasbakstest -g shasbakstest
+Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
+Ensure that you have the latest helm version installed before proceeding.
+This operation might take a while...
+
+Please check if the azure-arc namespace was deployed and run 'kubectl get pods -n azure-arc' to check if all the pods are in running state. A possible cause for pods stuck in pending state could be insufficientresources on the kubernetes cluster to onboard to arc.
+ValidationError: Unable to install helm release: Error: customresourcedefinitions.apiextensions.k8s.io "connectedclusters.arc.azure.com" not found
+```
+
+To recover from this issue, follow these steps:
+
+1. Delete the Azure Arc enabled Kubernetes resource of concern in the Azure portal.
+2. Run the following commands on your machine:
+    
+    ```console
+    kubectl delete ns azure-arc
+    kubectl delete clusterrolebinding azure-arc-operator
+    kubectl delete secret sh.helm.release.v1.azure-arc.v1
+    ```
+
+3. [Install a stable version](https://helm.sh/docs/intro/install/) of Helm 3 on your machine instead of the release candidate version.
+4. Run the `az connectedk8s connect` command with the appropriate values to connect the cluster to Azure Arc.
+
 ## Configuration management
 
 ### General

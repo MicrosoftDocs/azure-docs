@@ -53,7 +53,7 @@ If your applications, tools, or products are using the [Translator Speech API](h
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [REST API: Speech-to-text](rest-speech-to-text.md)
 * [REST API: Text-to-speech](rest-text-to-speech.md)
-* [REST API: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index)
+* [REST API: Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## Next steps
 

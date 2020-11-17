@@ -58,7 +58,7 @@ Also you can find how to generate an access token to authenticate with Azure Sig
 
 ### Build the executable file
 
-We use macOS osx.10.13-x64 as example. You can find [reference](https://docs.microsoft.com/dotnet/core/rid-catalog) on how to build on other platforms.
+We use macOS osx.10.13-x64 as example. You can find [reference](/dotnet/core/rid-catalog) on how to build on other platforms.
 
 ```bash
 cd AzureSignalR-samples/samples/Serverless/
