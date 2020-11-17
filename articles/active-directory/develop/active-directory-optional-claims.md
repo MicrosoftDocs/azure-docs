@@ -111,7 +111,7 @@ Some optional claims can be configured to change the way the claim is returned. 
 }
 ```
 
-This OptionalClaims object causes the ID token returned to the client to include a UPN claim with the additional home tenant and resource tenant information. The `UPN` claim is only changed in the token if the user is a guest in the tenant (that uses a different IDP for authentication).
+This OptionalClaims object causes the ID token returned to the client to include a `upn` claim with the additional home tenant and resource tenant information. The `upn` claim is only changed in the token if the user is a guest in the tenant (that uses a different IDP for authentication).
 
 ## Configuring optional claims
 
@@ -174,7 +174,7 @@ You can configure optional claims for your application through the UI or applica
 
 ### OptionalClaims type
 
-Declares the optional claims requested by an application. An application can configure optional claims to be returned in each of three types of tokens (ID token, access token, SAML 2 token) and it can receive from the security token service. The application can configure a different set of optional claims to be returned in each token type. The OptionalClaims property of the Application entity is an OptionalClaims object.
+Declares the optional claims requested by an application. An application can configure optional claims to be returned in each of three types of tokens (ID token, access token, SAML 2 token) that it can receive from the security token service. The application can configure a different set of optional claims to be returned in each token type. The OptionalClaims property of the Application entity is an OptionalClaims object.
 
 **Table 5: OptionalClaims type properties**
 
@@ -296,7 +296,7 @@ This section covers the configuration options under optional claims for changing
    Some applications require group information about the user in the role claim.  To change the claim type from a group claim to a role claim, add "emit_as_roles" to additional properties.  The group values will be emitted in the role claim.
 
    > [!NOTE]
-   > If "emit_as_roles" is used any application roles configured that the user is assigned will not appear in the role claim.
+   > If "emit_as_roles" is used, any application roles configured that the user is assigned will not appear in the role claim.
 
 **Examples:**
 
