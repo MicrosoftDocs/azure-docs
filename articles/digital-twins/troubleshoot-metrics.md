@@ -50,14 +50,16 @@ Azure Digital Twins provides several metrics to give you an overview of the heal
 
 The following tables describe the metrics tracked by each Azure Digital Twins instance, and how each metric relates to the overall status of your instance.
 
-#### Count metrics
+#### Metrics for tracking service limits
 
-Metrics having to do with counting items in your instance:
+You can configure these metrics to track when you're approaching a [published service limit](reference-service-limits.md#functional-limits) for some aspect of your solution. 
 
-| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions | Recommendations |
-| --- | --- | --- | --- | --- | --- | --- |
-| TwinCount | Twin Count (preview) | Count | Total | Total number of twins in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of twins allowed per instance. |  None | Use this metric to generate an [alert](troubleshoot-alerts.md)  when TwinCount approaches a certain percentage of the published limit. |
-| ModelCount | Model Count (preview) | Count | Total | Total number of models in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of models allowed per instance. (This applies to [DTDL version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) only, as version 1 is not supported in the current release.) | None | Use this metric to generate an [alert](troubleshoot-alerts.md) when ModelCount approaches a certain percentage of the published limit. |
+To set this up, use the [alerts](troubleshoot-alerts.md) feature in Azure Monitor. You can define thresholds for these metrics so that you receive an alert when a metric reaches a certain percentage of its published limit.
+
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| TwinCount | Twin Count (preview) | Count | Total | Total number of twins in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of twins allowed per instance. |  None |
+| ModelCount | Model Count (preview) | Count | Total | Total number of models in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of models allowed per instance. (This applies to [DTDL version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) only, as version 1 is not supported in the current release.) | None |
 
 #### API request metrics
 
