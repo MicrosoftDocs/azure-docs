@@ -137,7 +137,7 @@ You can create custom analytics rules to help you search for the types of threat
 
 
 > [!NOTE]
-> Alerts generated in Azure Sentinel are available through [Microsoft Graph Security](https://aka.ms/securitygraphdocs). For more information, see the [Microsoft Graph Security alerts documentation](https://aka.ms/graphsecurityreferencebetadocs).
+> Alerts generated in Azure Sentinel are available through [Microsoft Graph Security](/graph/security-concept-overview). For more information, see the [Microsoft Graph Security alerts documentation](/graph/api/resources/security-api-overview).
 
 ## Troubleshooting
 
@@ -181,4 +181,3 @@ SOC managers should be sure to check the rule list regularly for the presence of
 In this tutorial, you learned how to get started detecting threats using Azure Sentinel.
 
 To learn how to automate your responses to threats, [Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).
-

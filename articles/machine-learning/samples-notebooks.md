@@ -1,7 +1,7 @@
 ---
 title: Example Jupyter notebooks
 titleSuffix: Azure Machine Learning
-description: Find and use example Jupyter notebooks to explore the Azure Machine Learning Python for SDK.
+description: Learn how to find and use the Juypter Notebooks designed to help you explore the SDK and serve as models for your own machine learning projects.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

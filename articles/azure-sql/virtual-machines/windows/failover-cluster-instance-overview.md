@@ -42,7 +42,7 @@ In traditional on-premises clustered environments, a Windows failover cluster us
 
 SQL Server on Azure VMs offers various options as a shared storage solution for a deployment of SQL Server failover cluster instances: 
 
-||[Azure shared disks](../../../virtual-machines/windows/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Azure shared disks](../../../virtual-machines/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Minimum OS version**| All |Windows Server 2012|Windows Server 2016|
 |**Minimum SQL Server version**|All|SQL Server 2012|SQL Server 2016|
@@ -54,7 +54,7 @@ The rest of this section lists the benefits and limitations of each storage opti
 
 ### Azure shared disks
 
-[Azure shared disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
+[Azure shared disks](../../../virtual-machines/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
 
 **Supported OS**: All   
 **Supported SQL version**: All     
@@ -145,10 +145,11 @@ For more details about cluster connectivity options, see [Route HADR connections
 
 Consider the following limitations for failover cluster instances with SQL Server on Azure Virtual Machines. 
 
-### Lightweight resource provider   
-At this time, SQL Server failover cluster instances on Azure virtual machines are supported only with the [lightweight management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To change from full extension mode to lightweight, delete the **SQL virtual machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When you're deleting the **SQL virtual machine** resource by using the Azure portal, clear the check box next to the correct virtual machine. 
+### Lightweight extension support   
 
-The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL Server VMs after the agent is reinstalled in lightweight management mode.
+At this time, SQL Server failover cluster instances on Azure virtual machines are supported only with the [lightweight management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes) of the SQL Server IaaS Agent Extension. To change from full extension mode to lightweight, delete the **SQL virtual machine** resource for the corresponding VMs and then register them with the SQL IaaS Agent extension in lightweight mode. When you're deleting the **SQL virtual machine** resource by using the Azure portal, clear the check box next to the correct virtual machine to avoid deleting the virtual machine. 
+
+The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL Server VMs registered in lightweight management mode.
 
 ### MSDTC 
 

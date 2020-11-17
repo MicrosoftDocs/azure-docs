@@ -1,7 +1,7 @@
 ---
 title: Configure a training run
 titleSuffix: Azure Machine Learning
-description: Train your machine learning model on various training environments (compute targets). You can easily switch between training environments. Start training locally. If you need to scale out, switch to a cloud-based compute target.
+description: Train your machine learning model on various training environments (compute targets). You can easily switch between training environments. 
 services: machine-learning
 author: sdgilley
 ms.author: sgilley

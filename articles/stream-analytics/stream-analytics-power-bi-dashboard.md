@@ -6,12 +6,12 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 8/6/2020
+ms.date: 11/16/2020
 ---
 
 # Stream Analytics and Power BI: A real-time analytics dashboard for streaming data
 
-Azure Stream Analytics enables you to take advantage of one of the leading business intelligence tools, [Microsoft Power BI](https://powerbi.com/). In this article, you learn how create business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. You also learn how to create and use a real-time dashboard.
+Azure Stream Analytics enables you to take advantage of one of the leading business intelligence tools, [Microsoft Power BI](https://powerbi.com/). In this article, you learn how create business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. You also learn how to create and use a real-time dashboard that is continuously updated by the Stream Analytics job.
 
 This article continues from the Stream Analytics [real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial. It builds on the workflow created in that tutorial and adds a Power BI output so that you can visualize fraudulent phone calls that are detected by a Streaming Analytics job. 
 
@@ -59,7 +59,7 @@ In the real-time fraud detection tutorial, the output is sent to Azure Blob stor
 The dataset is created with the following settings:
 
 * **defaultRetentionPolicy: BasicFIFO** - Data is FIFO, with a maximum of 200,000 rows.
-* **defaultMode: pushStreaming** - The dataset supports both streaming tiles and traditional report-based visuals (also known as push).
+* **defaultMode: hybrid** - The dataset supports both streaming tiles (also known as push) and traditional report-based visuals. For the push content, the data is continuously updated from the stream analytics job in this case, with no need to schedule refresh from the Power BI side.
 
 Currently, you can't create datasets with other flags.
 

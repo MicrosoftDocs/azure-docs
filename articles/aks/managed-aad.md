@@ -13,21 +13,14 @@ AKS-managed Azure AD integration is designed to simplify the Azure AD integratio
 
 ## Azure AD authentication overview
 
-Cluster administrators can configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership. Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect].
+Cluster administrators can configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership. Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect].
 
 Learn more about the Azure AD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-active-directory-integration).
-
-## Region availability
-
-AKS-managed Azure Active Directory integration is available in public regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-
-* Azure Government isn't currently supported.
-* Azure China 21Vianet isn't currently supported.
 
 ## Limitations 
 
 * AKS-managed Azure AD integration can't be disabled
-* non-RBAC enabled clusters aren't supported for AKS-managed Azure AD integration
+* non-Kubernetes RBAC enabled clusters aren't supported for AKS-managed Azure AD integration
 * Changing the Azure AD tenant associated with AKS-managed Azure AD integration isn't supported
 
 ## Prerequisites
@@ -138,7 +131,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster 
 
 ## Enable AKS-managed Azure AD Integration on your existing cluster
 
-You can enable AKS-managed Azure AD Integration on your existing RBAC enabled cluster. Ensure to set your admin group to keep access on your cluster.
+You can enable AKS-managed Azure AD Integration on your existing Kubernetes RBAC enabled cluster. Ensure to set your admin group to keep access on your cluster.
 
 ```azurecli-interactive
 az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad --aad-admin-group-object-ids <id-1> [--aad-tenant-id <id>]

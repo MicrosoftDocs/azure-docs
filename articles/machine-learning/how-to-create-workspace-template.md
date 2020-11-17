@@ -32,7 +32,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * Some scenarios require you to open a support ticket. These scenarios are:
 
-    * __Private Link enabled workspace with a customer-managed key (CMK)__
+    * __Private Link enabled workspace with a customer-managed key__
     * __Azure Container Registry for the workspace behind your virtual network__
 
     For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
@@ -168,7 +168,7 @@ The following example template demonstrates how to create a workspace with three
 > [!IMPORTANT]
 > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
-For more information, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
+For more information, see [Encryption at rest](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]
 > There are some specific requirements your subscription must meet before using this template:
@@ -250,7 +250,7 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-When using a customer-managed key, Azure Machine Learning creates a secondary resource group which contains the Cosmos DB instance. For more information, see [encryption at rest - Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
+When using a customer-managed key, Azure Machine Learning creates a secondary resource group which contains the Cosmos DB instance. For more information, see [encryption at rest - Cosmos DB](concept-data-encryption.md#encryption-at-rest).
 
 An additional configuration you can provide for your data is to set the **confidential_data** parameter to **true**. Doing so, does the following:
 
@@ -262,7 +262,7 @@ An additional configuration you can provide for your data is to set the **confid
     > [!IMPORTANT]
     > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
-  For more information, see [encryption at rest](concept-enterprise-security.md#encryption-at-rest).
+  For more information, see [encryption at rest](concept-data-encryption.md#encryption-at-rest).
 
 ## Deploy workspace behind a virtual network
 

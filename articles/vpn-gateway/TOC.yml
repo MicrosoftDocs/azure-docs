@@ -176,7 +176,7 @@
     - name: P2S session management
       href: p2s-session-management.md      
     - name: Transition to a public CA gateway certificate for P2S
-      href: vpn-gateway-point-to-site-gateway-public-ca.md
+      href: ./point-to-site-about.md
     - name: Configure an Always On VPN device tunnel
       href: vpn-gateway-howto-always-on-device-tunnel.md
     - name: Configure an Always On VPN user tunnel
@@ -281,7 +281,7 @@
     - name: Configure multiple S2S connections
       href: vpn-gateway-multi-site.md
     - name: Configure a VPN gateway
-      href: vpn-gateway-configure-vpn-gateway-mp.md
+      href: ./vpn-gateway-howto-site-to-site-classic-portal.md
     - name: Classic to Resource Manager migration
       href: vpn-gateway-classic-resource-manager-migration.md
 - name: Reference
@@ -293,7 +293,7 @@
   - name: REST
     href: /rest/api/network/virtualnetworkgateways
   - name: REST (classic)
-    href: https://msdn.microsoft.com/library/jj154113
+    href: /previous-versions/azure/reference/jj154113(v=azure.100)
   - name: Azure CLI
     href: /cli/azure/network/vnet-gateway
 - name: Resources
@@ -305,7 +305,7 @@
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
+    href: /answers/topics/azure-virtual-network.html
   - name: Subscription and service limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
   - name: Pricing
@@ -316,4 +316,3 @@
     href: https://azure.microsoft.com/support/legal/sla
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway
- 
