@@ -219,6 +219,9 @@ The supported API versions are:
 - 2020-09-01
 - 2020-10-01
 
+> [!NOTE]
+> Version 2020-10-01 is currently being rolled out and may not yet be available in every region
+
 Note when new version is released, it will take a while to roll out to all regions.
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
