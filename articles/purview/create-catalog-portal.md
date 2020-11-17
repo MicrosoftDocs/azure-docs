@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create an Azure Purview account"
-description: This quickstart describes how to create an Azure Purview account. 
+title: 'Quickstart: Create an Azure Purview account'
+description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
 author: hophan
 ms.author: hophan
 ms.service: data-catalog
@@ -56,6 +56,32 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 1. Select **Launch purview account**.
 
    :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Screenshot of the selection to launch the Azure Purview account catalog.":::
+
+## Add a security principal to a data plane role
+
+Before you or your team can begin to use Azure Purview, one or more security principals must be added to one of the pre-defined Data Plane roles: **Data Reader**, **Data Curator** or **Data Source Administrator**. For more information on Azure Purview Data Catalog permissions, see [Catalog permissions](catalog-permissions.md).
+
+To add a security principal to the **Data Curator** data plane role in an Azure Purview account:
+
+1. Go to the [**Purview accounts**](https://aka.ms/babylonportal) page in the Azure portal.
+
+1. Select the Azure Purview account you want to modify.
+
+1. On the **Purview account** page, select the tab **Access control (IAM)**
+
+1. Click **+ Add**
+
+If upon clicking Add you see two choices showing both marked (disabled) then this means you do not have the right permissions to add anyone to a data plane role on the Azure Purview account. You must find an Owner, User Access Administrator or someone else with role assignment authority on your Azure Purview account. You can look for the right people by selecting **Role assignments** tab and then scrolling down to look for Owner or User Access Administrator and contacting those people.
+
+1. Select **Add role assignment**.
+
+1. For the Role type in **Azure Purview Data Curator Role** or **Azure Purview Data Source Administrator Role** depending on what the Service Principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) for details).
+ 
+1. For **Assign access to** leave the default, **User, group, or service principal**.
+
+1. For **Select** enter the name of the user, Azure Active Directory group or service principal you wish to assign and then click on their name in the results pane.
+
+1. Click on **Save**.
 
 ## Clean up resources
 

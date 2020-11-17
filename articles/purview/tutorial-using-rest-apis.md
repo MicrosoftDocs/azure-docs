@@ -86,16 +86,14 @@ To configure Azure Purview to trust your new service principal:
 1. Select "Add role assignment"
 
 1. For the Role type in "Azure Purview Data Curator Role"
- 
+
 1. For "Assign access to" leave the default, "User, group, or service principal"
 
 1. For "Select" enter the name of the user, Azure Active Directory group or service principal you wish to assign and then click on their name in the results pane.
 
 1. Click on "Save"
 
-Please see [Azure Purview add a security principal to a role](./add-security-principal.md) for more details.
-
-   You've now configured the service principal as an application administrator, which enables it to send content to the catalog.
+You've now configured the service principal as an application administrator, which enables it to send content to the catalog.
 
 ## View the REST APIs documentation
 
