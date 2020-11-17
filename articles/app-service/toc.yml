@@ -279,6 +279,12 @@
       href: manage-move-across-regions.md
     - name: Move subscriptions
       href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources
+  - name: Migrate app
+    items:
+    - name: Spring Boot
+      href: /azure/developer/java/migration/migrate-spring-boot-to-app-service
+    - name: Tomcat
+      href: /azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service
   - name: Run background tasks
     items:
     - name: Create WebJobs
