@@ -38,7 +38,7 @@ For Application Gateway v2 SKU, setting the maximum instance count to the maximu
 
 Make sure to check your subnet size and available IP address count in your subnet and set your maximum instance count based on that. If your subnet doesn’t have enough space to accommodate, you will have to re-create your gateway in the same or different subnet which has enough capacity. 
 
-:::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances.PNG" alt-text="V2 autoscaling configuration":::
+:::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances.png" alt-text="V2 autoscaling configuration":::
 
 ### Set your minimum instance count based on your average Compute Unit usage
 
@@ -48,7 +48,7 @@ It is recommended that you set your minimum instance count to an optimal level. 
 
 Check your Compute Unit metric for the past one month. Compute unit metric is a representation of your gateway's CPU utilization and based on your peak usage divided by 10, you can set the minimum number of instances required. Note that 1 application gateway instance can handle a minimum of 10 compute units
 
-:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-metrics.PNG" alt-text="V2 compute unit metrics":::
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-metrics.png" alt-text="V2 compute unit metrics":::
 
 ## Manual scaling for Application Gateway v2 SKU (Standard_v2/WAF_v2)
 
@@ -89,7 +89,7 @@ This example shows you how to use the Azure portal to set up an alert when the f
 4. Click on **New alert rule** and define your condition and actions
 5. Click on **Create alert rule** to create and enable the alert
 
-:::image type="content" source="./media/application-gateway-covid-guidelines/create-alerts.PNG" alt-text="V2 create alerts":::
+:::image type="content" source="./media/application-gateway-covid-guidelines/create-alerts.png" alt-text="V2 create alerts":::
 
 ## Alerts for Application Gateway v2 SKU (Standard_v2/WAF_v2)
 
@@ -105,7 +105,7 @@ This example shows you how to use the Azure portal to set up an alert when 75% o
 3. Add a metric for **Average Current Compute Units**. 
 4. If you've set your minimum instance count to be your average CU usage, go ahead and set an alert when 75% of your minimum instances are in use. For example, if your average usage is 10 CUs, set an alert on 7.5 CUs. This alerts you if usage is increasing and gives you time to respond. You can raise the minimum if you think this traffic will be sustained to alert you that traffic may be increasing. 
 
-:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-alert.PNG" alt-text="V2 compute unit alerts":::
+:::image type="content" source="./media/application-gateway-covid-guidelines/compute-unit-alert.png" alt-text="V2 compute unit alerts":::
 
 > [!NOTE]
 > You can set the alert to occur at a lower or higher CU utilization percentage depending on how sensitive you want to be to potential traffic spikes.
@@ -134,8 +134,8 @@ This metric indicates the time interval between start of establishing a connecti
 
 This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. Should create an alert if the backend response latency is more that certain threshold from usual. For example, they can set this to be alerted when total time latency increases by more than 30% from the usual value.
 
-## Set up WAF with geofiltering and bot protection to stop attacks
-If you want an extra layer of security in front of your application, use the Application Gateway WAF_v2 SKU for WAF capabilities. You can configure the v2 SKU to only allow access to your applications from a given country/region or countries/regions. You set up a WAF custom rule to explicitly allow or block traffic based on the geolocation. For more information, see [geofiltering custom rules](../web-application-firewall/ag/geomatch-custom-rules.md) and [how to configure custom rules on Application Gateway WAF_v2 SKU through PowerShell](../web-application-firewall/ag/configure-waf-custom-rules.md).
+## Set up WAF with geo filtering and bot protection to stop attacks
+If you want an extra layer of security in front of your application, use the Application Gateway WAF_v2 SKU for WAF capabilities. You can configure the v2 SKU to only allow access to your applications from a given country/region or countries/regions. You set up a WAF custom rule to explicitly allow or block traffic based on the geo location. For more information, see [geo filtering custom rules](../web-application-firewall/ag/geomatch-custom-rules.md) and [how to configure custom rules on Application Gateway WAF_v2 SKU through PowerShell](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
 Enable bot protection to block known bad bots. This should reduce the amount of traffic getting to your application. For more information, see [bot protection with set up instructions](../web-application-firewall/ag/configure-waf-custom-rules.md).
 
