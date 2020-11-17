@@ -15,7 +15,7 @@ ms.author: juliako
 
 # Examine the Video Indexer output
 
-When a video is indexed, Video Indexer poduces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Video Indexer produces the JSON content that contains details of the specified video insights. The insights include: transcripts, OCRs, faces, topics, blocks, etc. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
 You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Indexer](https://www.videoindexer.ai/) website. 
 
@@ -220,7 +220,7 @@ instances|A list of time ranges of this block.|
 |id|The line ID.|
 |text|The transcript itself.|
 |confidence|The transcript accuracy confidence.|
-|speakerId|The Id of the speaker.|
+|speakerId|The ID of the speaker.|
 |language|The transcript language. Intended to support transcript where each line can have a different language.|
 |instances|A list of time ranges where this line appeared. If the instance is transcript, it will have only 1 instance.|
 
