@@ -55,6 +55,7 @@ To start encrypting, encoding, analyzing, managing, and streaming media content 
 
 [!INCLUDE [Create a Media Services account with CLI](./includes/task-create-media-services-account-cli.md)]
 
+---
 
 ## Next steps
 
