@@ -581,7 +581,7 @@ Release notes for `v1.3.0`:
 | `1.3.0-amd64-<locale-and-voice>`    | Replace `<locale>` with one of the available locales, listed below. For example `1.3.0-amd64-en-us-arianeural`. |
 
 
-| v1.2.0 Locales and voices           | Notes                                                                      |
+| v1.3.0 Locales and voices           | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `de-de-katjaneural`                 | Container image with the `de-DE` locale and `de-DE-KatjaNeural` voice.     |
 | `en-au-natashaneural`               | Container image with the `en-AU` locale and `en-AU-NatashaNeural` voice.   |
