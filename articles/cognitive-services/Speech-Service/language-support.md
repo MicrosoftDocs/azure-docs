@@ -10,7 +10,6 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
-ms.custom: seodec18
 ms.custom: references_regions
 ---
 
