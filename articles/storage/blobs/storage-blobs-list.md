@@ -63,7 +63,7 @@ You can return blob metadata with the results.
 
 ### List blob versions or snapshots
 
-To list blob versions or snapshots with the .NET v12 client library, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** or **Snapshot** field. Versions and snapshots are listed from oldest to newest. For more information about listing versions, see .
+To list blob versions or snapshots with the .NET v12 client library, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** or **Snapshot** field. Versions and snapshots are listed from oldest to newest. For more information about listing versions, see [List blob versions](versioning-enable.md#list-blob-versions).
 
 ### Flat listing versus hierarchical listing
 

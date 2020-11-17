@@ -79,6 +79,8 @@ The example creates a block blob, and then updates the blob's metadata. Updating
 
 To list blob versions or snapshots with the .NET v12 client library, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** field.
 
+The following code example shows how to list blobs version with the Azure Storage client library for .NET, version [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) or later. Before running this example, make sure you have enabled versioning for your storage account.
+
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobVersions":::
 
 ## Next steps
