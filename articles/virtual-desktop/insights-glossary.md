@@ -71,7 +71,7 @@ To learn more about troubleshooting errors, see [Identify and diagnose Windows V
 
 ## Input delay
 
-"Input delay" in Windows Virtual Desktop Insights means the input delay per process performance counter for each session. In the host performance page at <aka.ms/azmonwvdi>, this performance counter is configured to send a report to the service once every 30 seconds. These 30 second intervals are called "samples," and the report the worst case in that window. The median and p95 values reflect the median and 95th percentile across all samples.
+"Input delay" in Windows Virtual Desktop Insights means the input delay per process performance counter for each session. In the host performance page at <aka.ms/azmonwvdi>, this performance counter is configured to send a report to the service once every 30 seconds. These 30-second intervals are called "samples," and the report the worst case in that window. The median and p95 values reflect the median and 95th percentile across all samples.
 
 Under **Input delay by host**, you can select a session host row to filter all other visuals in the page to that host. You can also select a process name to filter the median input delay over time chart.
 
@@ -149,7 +149,7 @@ Time to connect is the time between when a user starts their session and when th
 
 ## User report
 
-The uer report page lets you view a specific user’s connection history and diagnostic info to help you understand their usage, view their feedback, and track any errors they've been experiencing. Most smaller issues can be resolved with user feedback, but if you need to dig deeper, you can also use this page filter information about a specific connection ID or timeframe.
+The user report page lets you view a specific user’s connection history and diagnostic info to help you understand their usage, view their feedback, and track any errors they've been experiencing. Most smaller issues can be resolved with user feedback, but if you need to dig deeper, you can also use this page filter information about a specific connection ID or timeframe.
 
 ## Users per core
 
