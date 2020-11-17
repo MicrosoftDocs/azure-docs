@@ -558,7 +558,7 @@ There are two ways to install packages on your Function App:
 
 ## Environment variables
 
-Add your own environment variables to a Function app, either to your local or cloud environment, such as operational secrets (connection strings, keys, and endpoints) or environmental settings (such as profiling variables). Access these settings using `process.env` in your function app.
+Add your own environment variables to a function app, in both your local and cloud environments, such as operational secrets (connection strings, keys, and endpoints) or environmental settings (such as profiling variables). Access these settings using `process.env` in your function code.
 
 ### In local development environment
 
