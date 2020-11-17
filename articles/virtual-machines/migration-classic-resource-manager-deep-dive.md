@@ -27,7 +27,7 @@ First, it's important to understand the difference between data-plane and manage
 
 The data plane is the same between the classic deployment model and Resource Manager stacks. The difference is that during the migration process, Microsoft translates the representation of the resources from the classic deployment model to that in the Resource Manager stack. As a result, you need to use new tools, APIs, and SDKs to manage your resources in the Resource Manager stack.
 
-![Diagram that shows the difference between management/control plane and data plane](./media/classic-resource-manager/data-control-plane.png)
+![Diagram that shows the difference between management/control plane and data plane](./media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
