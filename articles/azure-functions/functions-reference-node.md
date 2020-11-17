@@ -579,7 +579,7 @@ When running locally, your functions project includes a [`local.settings.json` f
 
 ### In Azure cloud environment
 
-The cloud-based Function app configures [App settings](functions-app-settings.md), such as service connection strings, and exposes the settings as environment variables during execution. 
+When running in Azure, the function app lets you set uses [Application settings](functions-app-settings.md), such as service connection strings, and exposes these settings as environment variables during execution. 
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
