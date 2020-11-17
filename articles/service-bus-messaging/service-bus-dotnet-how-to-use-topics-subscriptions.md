@@ -73,7 +73,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project for C#
     ```csharp
         static Queue<ServiceBusMessage> CreateMessages()
         {
-            // create a list of messages and return it to the caller
+            // create a queue containing the messages and return it to the caller
             Queue<ServiceBusMessage> messages = new Queue<ServiceBusMessage>();
             messages.Enqueue(new ServiceBusMessage("First message"));
             messages.Enqueue(new ServiceBusMessage("Second message"));
@@ -266,5 +266,4 @@ See the following documentation and samples:
 - [Azure Service Bus client library for .NET - Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
 - [.NET API reference](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus?view=azure-dotnet-preview&preserve-view=true)
-
 
