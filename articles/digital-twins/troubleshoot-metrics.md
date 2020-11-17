@@ -6,7 +6,7 @@ description: See how to view Azure Digital Twins metrics in Azure Monitor.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 8/4/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -65,7 +65,7 @@ Metrics having to do with API requests:
 Metrics having to do with billing:
 
 >[!NOTE]
-> During preview, **billing is zero cost**. While these metrics still show up in the selectable list, they do not apply during preview and will remain at zero until the service moves beyond preview.
+>While these metrics still show up in the selectable list, they will remain at zero until the new pricing on the service becomes available. To learn more, see [*Azure Digital Twins pricing*](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |

@@ -167,7 +167,7 @@ No, it is only supported for ultra disks and premium SSD managed disks.
 
 **What regions support shared disks?**
 
-For regional information, see our [conceptual article](./linux/disks-shared.md).
+For regional information, see our [conceptual article](disks-shared.md).
 
 **Can shared disks be used as an OS disk?**
 
@@ -175,7 +175,7 @@ No, shared disks are only supported for data disks.
 
 **What disk sizes support shared disks?**
 
-For supported sizes, see our [conceptual article](./linux/disks-shared.md).
+For supported sizes, see our [conceptual article](disks-shared.md).
 
 **If I have an existing disk, can I enable shared disks on it?**
 

@@ -1,7 +1,7 @@
 ---
 title:  "Multiclass Logistic Regression: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Multiclass Logistic Regression module in Azure Machine Learning to create a logistic regression model that can be used to predict multiple values.
+description: Learn how to use the Multiclass Logistic Regression module in Azure Machine Learning designer to predict multiple values.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

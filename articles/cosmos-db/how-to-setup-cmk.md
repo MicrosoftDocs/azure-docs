@@ -9,6 +9,7 @@ ms.author: thweiss
 ---
 
 # Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Data stored in your Azure Cosmos account is automatically and seamlessly encrypted with keys managed by Microsoft (**service-managed keys**). Optionally, you can choose to add a second layer of encryption with keys you manage (**customer-managed keys**).
 

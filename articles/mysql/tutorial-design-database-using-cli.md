@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Design a server - Azure CLI - Azure Database for MySQL'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI from the command line.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -22,6 +22,8 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 > * Query data
 > * Update data
 > * Restore data
+
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
@@ -191,12 +193,25 @@ Restoring a server to a point-in-time creates a new server, copied as the origin
 
 The command is synchronous, and will return after the server is restored. Once the restore finishes, locate the new server that was created. Verify the data was restored as expected.
 
+## Clean up resources
+If you don't need these resources for another quickstart/tutorial, you can delete them by doing the following command: 
+
+```azurecli-interactive
+az group delete --name myresourcegroup
+```
+
+If you would just like to delete the one newly created server, you can run [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete) command.
+
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
 ## Next steps
 In this tutorial you learned to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL server
 > * Configure the server firewall
-> * Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use the mysql command-line tool to create a database
 > * Load sample data
 > * Query data
 > * Update data

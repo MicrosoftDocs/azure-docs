@@ -141,17 +141,17 @@ landingContent:
           - text: Form Recognizer API v2.0
             url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
           - text: .NET SDK
-            url: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme
+            url: /dotnet/api/overview/azure/ai.formrecognizer-readme
           - text: Python SDK
-            url: https://docs.microsoft.com/python/api/azure-ai-formrecognizer/?view=azure-python
+            url: /python/api/azure-ai-formrecognizer/?view=azure-python
           - text: Java SDK
-            url: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme
+            url: /java/api/overview/azure/ai-formrecognizer-readme
           - text: JavaScript SDK
-            url: https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme
+            url: /javascript/api/overview/azure/ai-form-recognizer-readme
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list
+            url: /cli/azure/cognitiveservices#az-cognitiveservices-list
 
   - title: Help and feedback
     linkLists:

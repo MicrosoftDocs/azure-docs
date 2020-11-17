@@ -1,7 +1,7 @@
 ---
 title: Example Jupyter notebooks
 titleSuffix: Azure Machine Learning
-description: Find and use example Jupyter notebooks to explore the Azure Machine Learning Python for SDK.
+description: Learn how to find and use the Juypter Notebooks designed to help you explore the SDK and serve as models for your own machine learning projects.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -44,7 +44,7 @@ If you'd like to bring your own notebook server for local development, follow th
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 
-These instructions install the base SDK packages necessary for the quickstart and tutorial notebooks. Other sample notebooks may require you to install extra components. For more information, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+These instructions install the base SDK packages necessary for the quickstart and tutorial notebooks. Other sample notebooks may require you to install extra components. For more information, see [Install the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install).
 
 <a name="dsvm"></a>
 ## Get samples on DSVM

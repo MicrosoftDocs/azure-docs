@@ -37,11 +37,13 @@
       href: onboard-service-principal.md
     - name: Connect machines to Azure Arc with PowerShell DSC
       href: onboard-dsc.md
+    - name: Connect machines from Windows Admin Center
+      href: onboard-windows-admin-center.md
     - name: Connect machines to Azure Arc with PowerShell
       href: onboard-powershell.md
   - name: Manage
     items:
-    - name: Azure VM extensions
+    - name: VM extensions
       items:
         - name: Overview
           href: manage-vm-extensions.md
@@ -55,6 +57,10 @@
           href: manage-vm-extensions-template.md
     - name: Manage agent
       href: manage-agent.md
+  - name: Scenarios
+    items:
+    - name: Onboard to Azure Sentinel
+      href: scenario-onboard-azure-sentinel.md
   - name: Troubleshooting
     items:
     - name: Agent connection issues

@@ -134,19 +134,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Settings Icon** and scroll down to **AUTHENTICATION** and click on **Connections**.
 
-    ![Segment Configuration](./media/segment-tutorial/segment1.PNG)
+    ![Screenshot that shows the "Settings" icon selected, and "Connections" selected from the "Authentication" menu.](./media/segment-tutorial/segment1.PNG)
 
 1. Click on **Add new Connection**.
 
-    ![Segment Configuration](./media/segment-tutorial/segment2.PNG)
+    ![Screenshot that shows the "Connections" section with the "Add new Connection" button selected.](./media/segment-tutorial/segment2.PNG)
 
 1. Select **SAML 2.0** as a connection to configure and click on **Select Connection** button.
 
-    ![Segment Configuration](./media/segment-tutorial/segment3.PNG)
+    ![Screenshot that shows the "Choose a Connection" section with "S A M L 2.0" and the "Select Connection" button selected.](./media/segment-tutorial/segment3.PNG)
 
 1. On the following page, perform the following steps:
 
-    ![Segment Configuration](./media/segment-tutorial/segment4.PNG)
+    ![Screenshot that shows the "Configure Identity Provider" page with the "Single Sign-On U R L" and "Audience U R L" text boxes highlighted, and the "Next" button selected.](./media/segment-tutorial/segment4.PNG)
 
     a. Copy the **Single Sign-On URL** value and paste it into the **Reply URL** box in the **Basic SAML Configuration** dialog box in the Azure portal.
 

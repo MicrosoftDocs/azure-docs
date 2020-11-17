@@ -53,7 +53,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Select **OK**.
     
-    ![Get share credentials 2](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
+    ![Get share credentials, access share and copy data](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
 
 3. To access the shares associated with your storage account (*exportbvtdataset2* in the following example) from your host computer, open a command window. At the command prompt, type:
 
@@ -72,13 +72,13 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     The command completed successfully.
     ```
 
-4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Select **OK** to open File Explorer.
+5. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Select **OK** to open File Explorer.
     
-    ![Connect to share via File Explorer](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Connect to share via File Explorer, enter device IP](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     You should now see the shares as folders.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
+    ![Connect to share via File Explorer, view shares](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
 If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 

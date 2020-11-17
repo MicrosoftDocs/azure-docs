@@ -14,10 +14,10 @@ ms.author: pafarley
 
 # Tutorial: Create a form-processing app with AI Builder
 
-[AI Builder](https://docs.microsoft.com/ai-builder/overview) is a Power Platform capability that allows you to automate processes and predict outcomes to improve business performance. You can use AI Builder form processing to create AI models that identify and extract key-value pairs and table data from form documents.
+[AI Builder](/ai-builder/overview) is a Power Platform capability that allows you to automate processes and predict outcomes to improve business performance. You can use AI Builder form processing to create AI models that identify and extract key-value pairs and table data from form documents.
 
 > [!NOTE]
-> This project is also available as a [Microsoft Learn module](https://docs.microsoft.com/learn/modules/get-started-with-form-processing/).
+> This project is also available as a [Microsoft Learn module](/learn/modules/get-started-with-form-processing/).
 
 In this tutorial, you learn how to:
 
@@ -125,11 +125,11 @@ If you're happy with your model, select **Publish**  to publish it. When publish
 > [!div class="mx-imgBorder"]
 > ![publish model page](./media/tutorial-ai-builder/model-page.png)
 
-After you've published your form processing model, you can use it in a [Power Apps canvas app](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) or in [Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
+After you've published your form processing model, you can use it in a [Power Apps canvas app](/ai-builder/form-processor-component-in-powerapps) or in [Power Automate](/ai-builder/form-processing-model-in-flow).
 
 ## Next steps
 
 Follow the AI Builder documentation for using a form-processing model.
 
-* [Use the form-processor component in Power Apps](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps)
-* [Use a form-processing model in Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow)
+* [Use the form-processor component in Power Apps](/ai-builder/form-processor-component-in-powerapps)
+* [Use a form-processing model in Power Automate](/ai-builder/form-processing-model-in-flow)

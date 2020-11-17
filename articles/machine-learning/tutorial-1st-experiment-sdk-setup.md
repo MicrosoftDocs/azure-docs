@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Get started in Jupyter Notebooks (Python)"
 titleSuffix: Azure Machine Learning
-description: Setup for Jupyter Notebook tutorials. Create an Azure Machine Learning workspace, clone Jupyter Notebooks into the workspace, and create a compute instance where you run the notebooks.
+description: Setup for Jupyter Notebook tutorials. Create  a workspace, clone  notebooks into the workspace, and create a compute instance where you run the notebooks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -31,7 +31,7 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 Skip to [Clone a notebook folder](#clone) if you already have an Azure Machine Learning workspace.  
 
-You create a workspace via the Azure portal, a web-based console for managing your Azure resources.
+There are many [ways to create a workspace](how-to-manage-workspace.md).  In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 

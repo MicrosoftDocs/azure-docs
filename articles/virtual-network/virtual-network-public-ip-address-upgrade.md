@@ -150,11 +150,18 @@ North Central US<br>
 West US<br>
 West US 2<br>
 Norway East<br>
+South Africa North<br>
 East US<br>
+North Europe<br>
+Korea Central<br>
+Indian Central<br>
 East US 2<br>
 Switzerland North<br>
 India West<br>
-Germany North
+Germany North<br>
+Canada Central<br>
+France South<br>
+India West
 
 * In order to upgrade a Basic Public IP, it cannot be associated with any Azure resource.  Please review [this page](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) for more information on how to disassociate public IPs.  Similarly, in order to migrate a Reserved IP, it cannot be associated with any Cloud Service.  Please review [this page](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) for more information on how to disassociate reserved IPs.  
 * Public IPs upgraded from Basic to Standard SKU will continue to have no [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) and therefore cannot be associated with an Azure resource that is either zone-redundant or zonal.  Note this only applies to regions that offer availability zones.
