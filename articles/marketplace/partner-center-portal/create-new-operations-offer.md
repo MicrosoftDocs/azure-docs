@@ -11,12 +11,12 @@ ms.date: 06/17/2020
 
 # Create a Dynamics 365 for Operations offer
 
-This topic explains how to create a new Dynamics 365 for Operations offer. [Microsoft Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/finance-and-operations) is an enterprise resource planning (ERP) service that supports advanced finance, operations, manufacturing, and supply chain management. All offers for Dynamics 365 for Operations must go through our certification process.
+This article describes how to create a new Dynamics 365 for Operations offer. [Microsoft Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/finance-and-operations) is an enterprise resource planning (ERP) service that supports advanced finance, operations, manufacturing, and supply chain management. All offers for Dynamics 365 for Operations must go through our certification process.
 
 Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 >[!NOTE]
-> Once an offer is published, edits to the offer will only be updated in Partner Center and the online store after you re-submit the offer for publication.
+> Once an offer is published, edits to the offer will only be updated in Partner Center and the online store after you resubmit the offer for publication.
 
 ## Create a new offer
 
@@ -41,6 +41,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 - This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
+- The Offer alias can't be changed after you select **Create**.
 
 Select **Create** to generate the offer and continue.
 
@@ -83,7 +84,7 @@ Select **Save draft** before continuing.
 
 This page lets you define the categories and industries used to group your offer on the marketplace, your app version, and the legal contracts supporting your offer.
 
-### Category
+### Categories
 
 Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
 
@@ -92,7 +93,7 @@ Select categories and subcategories to place your offer in the appropriate marke
 
 See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
-### Industry
+### Industries
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
@@ -110,12 +111,12 @@ Select **Save draft** before continuing.
 
 This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
 
-You will need to define marketplace details (offer name, description, images, etc.) for each language/market. Select the language/market name to provide this info.
+Here you will define marketplace details such as offer name, description, and images for each language/market. Select the language/market name to provide this info.
 
 > [!NOTE]
-> Offer listing content (such as the description, documents, screenshots, terms of use, etc.) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
+> Offer listing content (such as the description, documents, screenshots, terms of use, and so on) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
-Here's an example of how offer information appears in Microsoft AppSource:
+Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-azure-marketplace-d365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
@@ -129,14 +130,14 @@ Here's an example of how offer information appears in Microsoft AppSource:
 6. Terms of use
 7. Privacy policy
 8. Offer name
-9. Screenshots/videos
-10. Description
+9. Description
+10. Screenshots/videos
 
 ### Name
 
 The name you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
 
-### Short description
+### Search results summary
 
 Provide a short description of your offer, up to 100 characters. This description may be used in marketplace search results.
 
@@ -156,31 +157,29 @@ You can optionally enter up to three search keywords to help customers find your
 
 If you want to let customers know that your app works with specific products, enter up to three product names here.
 
-### Support URLs
+#### Help/Privacy URLs
 
-This section lets you provide links to help customers understand more about your offer.
+##### Help link for your app
 
-#### Help link
+Enter the address (URL) where customers can learn more about your offer. Your Help URL cannot be the same as your Support URL.
 
-Enter the URL where customers can learn more about your offer.
+##### Privacy policy link
 
-#### Privacy policy URL
+Enter the address (URL) to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
-Enter the URL to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy.
+### Contact information
 
-### Contacts
+Provide the name, email, and phone number for a **Support contact** and an **Engineering contact**. This information is not shown to customers, but will be available to Microsoft, and may be provided to CSP partners.
 
-In this section, provide the name, email, and phone number for a **Support contact** and an **Engineering contact**. This information isn't shown to customers, but will be available to Microsoft, and may be provided to CSP partners.
-
-In the **Support contact** section, provide the **Support URL** where CSP partners can find support for your offer.
+In the **Support contact** section, provide the **Support URL** where CSP partners can find support for your offer. Your Support URL cannot be the same as your Help URL.
 
 ### Supporting documents
 
-Provide at least one (and up to three) related marketing documents here, such as white papers, brochures, checklists, or presentations. These documents must be in PDF format.
+Provide at least one (and up to three) related marketing documents here, such as white papers, brochures, checklists, or presentations, in PDF format.
 
 ### Marketplace images
 
-In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
+Provide logos and images that will be used when showing your offer to customer. All images must be in PNG format.
 
 [!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
@@ -202,7 +201,7 @@ These logos are used in different places in the listing:
 
 #### Screenshots
 
-Add screenshots that show how your offer works. At least one screenshot is required, and you can add up to five. All screenshots must be 1280 x 720 pixels.
+Add screenshots that show how your offer works. At least one screenshot is required, and you can add up to five. All screenshots must be 1280 x 720 pixels and in PNG format.
 
 #### Videos
 
@@ -216,20 +215,20 @@ Select **Save draft** before continuing.
 
 ## Availability
 
-This page gives you options about where and how to make your offer available.
+This page gives you options for where and how to make your offer available.
 
 ### Markets
 
-This section lets you specify the markets in which your offer should be available. To do so, select **Edit markets,** which will display the **Market selection** popup window.
+To specify the markets where your offer will be available, select **Edit markets**, which will display the **Market selection** popup window.
 
-By default, no markets are selected. Select at least one market to publish your offer. Click  **Select all** to make your offer available in every possible market, or select the specific markets that you want to add. Once you've finished, select **Save**.
+Select at least one market. Choose **Select all** to make your offer available in every possible market, or select only the specific markets you want. When you're finished, select **Save**.
 
 Your selections here apply only to new acquisitions; if someone already has your app in a certain market, and you later remove that market, the people who already have the offer in that market can continue to use it, but no new customers in that market will be able to get your offer.
 
 > [!IMPORTANT]
 > It is your responsibility to meet any local legal requirements, even if those requirements aren't listed here or in Partner Center.
 
-Keep in mind that even if you select all markets, local laws and restrictions or other factors may prevent certain offers from being listed in some countries and regions.
+Keep in mind that even if you select all markets, local laws, restrictions, or other factors may prevent certain offers from being listed in some countries and regions.
 
 ### Preview audience
 
@@ -280,7 +279,7 @@ This file must be in .xls or .xlsx format. If you have more than one report, you
 
 Select **Yes** if the solution enables use of local standards and policies (for example, if it accommodates the different payroll rules required by different countries/regions). Otherwise, select **No**.
 
-### Does solution enable translations?
+### Does solution enable translation(s)?
 
 Answer **Yes** if the text in your solution can be translated into other languages. Otherwise, select **No**.
 
@@ -290,17 +289,17 @@ Select **Save draft** before continuing.
 
 ### Submit offer to preview
 
-Once you have completed all the required sections of the offer, select **Review and publish** at the upper-right corner of the portal.
+Once you have completed all the required sections of the offer, select **Review and publish** at the upper-right corner of the portal. You will be redirected to the **Review and publish** page.
 
 If it's your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
-    - **Not started** – The section has not been touched and should be completed.
-    - **Incomplete** – The section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
-    - **Complete** – The section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+    - **Not started** – Section has not been touched and needs to be completed.
+    - **Incomplete** – Section has errors that need to be fixed or requires more information. Go back to the section(s) and update it.
+    - **Complete** – Section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app. For more information about testing instructions and completing a first publish, see [AppSource Dynamics 365 Finance and Operations functional validation](../dynamics-365-finance-operations-functional-validation.md).
-- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public.
+- Submit the offer for publishing by selecting **Submit**. We will email you when a preview version of the offer is available to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public.
 
-## Next step
+## Next steps
 
 - [Update an existing offer in the Commercial Marketplace](./update-existing-offer.md)
