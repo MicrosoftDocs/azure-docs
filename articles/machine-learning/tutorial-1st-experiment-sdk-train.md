@@ -99,7 +99,7 @@ python src/train.py                             # train model
 After you run this script, you'll see the data downloaded into a directory called `tutorial/data`.
 
 > [!div class="nextstepaction"]
-> [I created the environment file](?id=success-test-local#create-control) [I ran into an issue](https://www.research.net/r/7CTJQQN)
+> [I created the environment file](?id=success-test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN)
 
 ## <a name="create-local"></a> Create the control script
 
@@ -132,7 +132,7 @@ Create a new Python file in the `tutorial` directory called `04-run-pytorch.py`:
 > [I created the control script](?id=success-test-local#submit) [I ran into an issue](https://www.research.net/r/7CTJQQ)
 
 
-## <a name="control"></a> Submit the run to Azure Machine Learning
+## <a name="submit"></a> Submit the run to Azure Machine Learning
 
 If you switched local environments, be sure to switch back to an environment that has the Azure Machine Learning SDK for Python installed. 
 
