@@ -17,10 +17,10 @@ ms.custom: contperfq2
 # Problems signing in to SAML-based single sign-on configured apps
 To troubleshoot the sign-in issues below, we recommend the following to better diagnosis and automate the resolution steps:
 
-- Install the [My Apps Secure Browser Extension](access-panel-extension-problem-installing.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
-- Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- Install the [My Apps Secure Browser Extension](./access-panel-deployment-plan.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
+- Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](./debug-saml-sso-issues.md)
 
-If you use the [testing experience](../azuread-dev/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow the steps below to open the SAML-based single sign-on configuration page.
+If you use the [testing experience](./debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow the steps below to open the SAML-based single sign-on configuration page.
 
 To open the SAML-based single sign-on configuration page:
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Coadmin**.
@@ -83,7 +83,7 @@ Azure AD doesn’t support the SAML request sent by the application for single s
 
 **Resolution**
 
-1. Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
+1. Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md) to learn how to capture the SAML request.
 1. Contact the application vendor and share the following info:
     - SAML request
     - [Azure AD Single Sign-on SAML protocol requirements](../develop/single-sign-on-saml-protocol.md)
@@ -169,5 +169,5 @@ Compare the resource you’re requesting access to in code with the configured p
 
 ## Next steps
 - [Quickstart Series on Application Management](add-application-portal-assign-users.md)
-- [How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
-- [Azure AD Single Sign-on SAML protocol requirements](../develop/active-directory-single-sign-on-protocol-reference.md)
+- [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md)
+- [Azure AD Single Sign-on SAML protocol requirements](../develop/single-sign-on-saml-protocol.md)

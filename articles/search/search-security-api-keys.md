@@ -15,7 +15,7 @@ ms.date: 10/22/2020
 
 All requests to a search service need a read-only `api-key` that was generated specifically for your service. The `api-key` is the sole mechanism for authenticating access to your search service endpoint and must be included on every request. 
 
-+ In [REST solutions](search-get-started-postman.md), the api-key is typically specified in a request header
++ In [REST solutions](search-get-started-rest.md), the api-key is typically specified in a request header
 
 + In [.NET solutions](search-howto-dotnet-sdk.md), a key is often specified as a configuration setting and then passed as an [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
