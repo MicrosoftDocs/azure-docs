@@ -50,22 +50,22 @@ When an error or alert appears in Insights, it's categorized by three things:
 
 - The kind category shows where the error is located. 
 
-      - Errors marked as "service" or "ServiceError = TRUE" are within the control of the Windows Virtual Desktop service. . 
-      - Errors marked as "deployment" or tagged "ServiceError = FALSE" are outside the control of the WIndows Virtual Desktop service.
+     - Errors marked as "service" or "ServiceError = TRUE" are within the control of the Windows Virtual Desktop service. 
+     - Errors marked as "deployment" or tagged "ServiceError = FALSE" are outside the control of the Windows Virtual Desktop service.
      
       To learn more about the ServiceError tag, see [Common error scenarios](diagnostics-role-service.md#common-error-scenarios).
 
 - The source category gives a more specific description of where the error happened:
 
-      - Diagnostics: the service role responsible for monitoring and reporting service activity to let users observe and diagnose deployment issues.
+     - Diagnostics: the service role responsible for monitoring and reporting service activity to let users observe and diagnose deployment issues.
 
-      - RDBroker: the service role responsible for orchestrating deployment activities, maintaining the state of objects, validating authentication, and more.
+     - RDBroker: the service role responsible for orchestrating deployment activities, maintaining the state of objects, validating authentication, and more.
 
-      - RDGateway: the service role responsible for handling network connectivity between end-users and virtual machines.
+     - RDGateway: the service role responsible for handling network connectivity between end-users and virtual machines.
 
-      - RDStack: a software component that's installed on your VMs to allow them to communicate with the Windows Virtual Desktop service.
+     - RDStack: a software component that's installed on your VMs to allow them to communicate with the Windows Virtual Desktop service.
 
-      - Client: software running on the end-user machine that provides the interface to the Windows Virtual Desktop service. It displays the list of published resources and hosts the Remote Desktop connection once you've made a selection.
+     - Client: software running on the end-user machine that provides the interface to the Windows Virtual Desktop service. It displays the list of published resources and hosts the Remote Desktop connection once you've made a selection.
 
 To learn more about troubleshooting errors, see [Identify and diagnose Windows Virtual Desktop issues](diagnostics-role-service.md).
 
