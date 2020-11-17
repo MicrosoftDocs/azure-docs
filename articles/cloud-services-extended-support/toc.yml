@@ -22,7 +22,7 @@
   items:
   - name: Enable Remote Desktop
     href: enable-rdp.md
-  - name: Swap Cloud Service Deployments
+  - name: Swap Cloud Service deployments
     href: cloud-services-swap.md
   - name: Update a Cloud Service
     href: update-powershell.md
@@ -32,7 +32,7 @@
   items: 
   - name: Create a new Cloud Service
     href: sample-create-cloud-service.md
-  - name: Get Cloud Service information
+  - name: Get Cloud Service details
     href: sample-get-cloud-service.md
   - name: Update a Cloud Service
     href: sample-update-cloud-service.md
