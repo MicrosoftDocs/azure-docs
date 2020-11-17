@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.author: abnarain
 ms.reviewer: craigg
 ---
@@ -1005,7 +1005,16 @@ For more information, see [Getting started with Fiddler](https://docs.telerik.co
 ## General
 
 ### Activity stuck issue
+
 When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it’s a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it’s a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
+
+### Payload is too large
+
+**Error message:** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
+
+**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s) and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896KB as mentioned in [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) section.
+
+**Recommendation:** You hit this limit likely because you pass in one or more large parameter values from either upstream activity output or external, especially if you pass actual data across activities in control flow. Please check if you can reduce the size of large parameter values, or tune your pipeline logic to avoid passing such values across activities and handle it inside the activity instead.
 
 ## Next steps
 

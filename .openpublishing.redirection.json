@@ -1116,6 +1116,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/disks-shared.md",
+      "redirect_url": "/azure/virtual-machines/disks-shared",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-shared.md",
+      "redirect_url": "/azure/virtual-machines/disks-shared",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/disks-ade-sse-conversion-powershell.md",
       "redirect_url": "/azure/virtual-machines/disk-encryption",
       "redirect_document_id": false
@@ -16679,26 +16689,6 @@
     },
     {
       "source_path": "articles/documentdb/documentdb-automation-region-management.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "/azure/cosmos-db/cli-samples-cassandra.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "/azure/cosmos-db/cli-samples-gremlin.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "/azure/cosmos-db/cli-samples-mongodb.md",
-      "redirect_url": "/azure/cosmos-db/cli-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "/azure/cosmos-db/cli-samples-table.md",
       "redirect_url": "/azure/cosmos-db/cli-samples",
       "redirect_document_id": false
     },
@@ -37319,7 +37309,12 @@
     },
     {
       "source_path": "articles/active-directory/application-proxy-ping-access.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access",
+      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers",
       "redirect_document_id": false
     },
     {
@@ -38958,8 +38953,13 @@
     },
     {
       "source_path": "articles/active-directory/application-proxy-back-end-ping-access-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-back-end-ping-access-how-to",
+      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-proxy-back-end-ping-access-how-to.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-ping-access-publishing-guide",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-proxy-config-how-to.md",
