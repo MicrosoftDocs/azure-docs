@@ -8,12 +8,12 @@ ms.subservice: data-catalog-gen2
 ms.topic: overview
 ms.date: 11/13/2020
 ---
-Babylon supports the following data stores. Click each data store to
-learn the supported capabilities and the corresponding configurations in
-details.
 
 # Supported data stores
 
+Babylon supports the following data stores. Click each data store to
+learn the supported capabilities and the corresponding configurations in
+details.
 
 |**Category**|  **Data Store**  |**Metadata Extraction**|**Full Scan**|**Incremental Scan**|**Scoped Scan**|**Classification**|**Lineage**|
 |---|---|---|---|---|---|---|---|
