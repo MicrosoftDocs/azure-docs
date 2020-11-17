@@ -686,7 +686,7 @@ The Container Monitoring solution doesn't support RBAC, but it is supported with
 
 ### How do I enable log collection for containers in the kube-system namespace through Helm?
 
-The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the omsagent. For more information, see the [Azure Monitor for containers](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) GitHub page. 
+The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the omsagent. For more information, see the [Azure Monitor for containers](https://aka.ms/azuremonitor-containers-helm-chart) GitHub page. 
 
 ### How do I update the omsagent to the latest released version?
 
