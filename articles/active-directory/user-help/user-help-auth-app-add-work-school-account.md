@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 11/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -34,13 +34,13 @@ To add an account by signing into your work or school account using your credent
 
 1. Open the Microsoft Authenticator app and select to the **+** button and tap **Add work or school account**. Select **Sign in (Preview)**.
 
-Enter your work or school account credentials. If you have a Temporary Access Pass (TAP) you can use that to sign-in. At this point, you might be blocked from proceeding by one of three conditions:
+1. Enter your work or school account credentials. If you have a Temporary Access Pass (TAP) you can use that to sign in. At this point, you could potentially be blocked from proceeding by one of several conditions:
 
-1. If you don’t have enough authentication methods on your account to get a strong authentication token, you will not be able to proceed to add an account.
+   - If you don’t have enough authentication methods on your account to get a strong authentication token, you will not be able to proceed to add an account.
 
-1. If you receive the message `You might be signing in from a location that is restricted by your admin`, you are blocked and need an administrator to unblock you in [Security info](https://mysignins.microsoft.com/security-info).
+   - If you receive the message `You might be signing in from a location that is restricted by your admin`, you are blocked and need an administrator to unblock you in [Security info](https://mysignins.microsoft.com/security-info).
 
-   If you're not blocked by your admin, you’ll be able to asked to go through device registration to be set up for passwordless phone sign-in and Azure Multi-Factor Authentication (MFA).
+   - If you're not blocked by your admin, you’ll be able to asked to go through device registration to be set up for passwordless phone sign-in and Azure Multi-Factor Authentication (MFA).
 
 1. If your organization uses on-premises MFA Server, at this point you might be required to scan a QR Code provided by your organization to set up an on-premises MFA account in the app. You can skip this screen if your organization doesn't use MFA Server.
 
