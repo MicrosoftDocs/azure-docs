@@ -7,6 +7,8 @@ items:
     href: overview.md
   - name: Deployment best practices
     href: deployment-best-practices.md
+  - name: Azure Purview limits
+    href: how-to-manage-quotas.md 
 - name: Quickstarts
   expanded: true
   items:
@@ -67,6 +69,8 @@ items:
     items:
     - name: Bring new data sources under management
       href: bring-new-data-sources-under-management.md
+    - name: Purview connectors overview
+      href: purview-connector-overview.md
     - name: Azure Files
       href: register-scan-azure-files-storage-source.md
       displayName: Register and scan Azure files

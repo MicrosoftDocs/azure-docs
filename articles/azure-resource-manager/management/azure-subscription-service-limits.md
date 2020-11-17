@@ -307,6 +307,10 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
+## Purview limits
+
+The latest values for Azure Purview quotas can be found in the [Azure Purview quota page](../../purview/how-to-manage-quotas.md)
+
 ### Traffic Manager limits
 
 [!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
