@@ -1,5 +1,5 @@
 ---
-title: Categories and subcategories in the commercial marketplace
+title: Categories and subcategories in the commercial marketplace | Azure Marketplace and Microsoft AppSource
 description: This article lists the categories and subcategories that are available for offers published to the Microsoft AppSource and Azure Marketplace online stores.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
