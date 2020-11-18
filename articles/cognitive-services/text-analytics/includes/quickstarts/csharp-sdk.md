@@ -887,7 +887,7 @@ Key phrases:
 
 ---
 
-## Recognize healthcare entities
+## Recognize healthcare entities with Text Analytics for health 
 
 # [Version 3.1 preview](#tab/version-3-1)
 
@@ -936,7 +936,7 @@ static void RecognizeHealthcareEntitiesExample(TextAnalyticsClient client)
 ### Output
 
 > [!NOTE]
-> To keep the output short, the Links are omitted and are showing max 2 Links objects.
+> To keep the output short, only the first two links in the response are shown below. The rest are omitted.
 
 ```console
 Test Name:	Healthcare
@@ -979,7 +979,7 @@ This feature is not available in version 2.1.
 
 ---
 
-## Run Analyze Operation
+## Use the API asynchronously with the analyze operation
 
 # [Version 3.1 preview](#tab/version-3-1)
 
