@@ -65,6 +65,8 @@
     href: use-editor-create-project.md
   - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md
+  - name: Considerations when using Video Indexer at scale
+    href: considerations-when-use-at-scale.md
   - name: Disaster recovery
     href: video-indexer-disaster-recovery.md        
   - name: Customize content models
