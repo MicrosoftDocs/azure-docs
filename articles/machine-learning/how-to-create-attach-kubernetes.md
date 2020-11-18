@@ -301,5 +301,6 @@ In Azure Machine Learning studio, select __Compute__, __Inference clusters__, an
 
 ## Next steps
 
+* [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 * [How and where to deploy a model](how-to-deploy-and-where.md)
 * [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md)
