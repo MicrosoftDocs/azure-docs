@@ -47,6 +47,9 @@ For both new and existing private offers, publishers can target customers using 
 
 Once an offer has been certified and published, customers can be updated or removed from the plan within minutes by using the Sync Private Subscriptions feature. This capability enables publishers to quickly and easily update the list of customers to which the private plan is presented without certifying or publishing the offer again.
 
+>[!NOTE]
+>Azure gov applicability: Private offers (or more accurately: private plans) are available for gov cloud like any other offer. A plan can also shift status from private to public and vice versa. The control on which cloud the offer will be available is in the partner’s hands and can be configured via Partner Center. 
+
 ## Deploying private offers
 
 Private offers are only discoverable via the [Azure portal](https://azure.microsoft.com/features/azure-portal/) and are not shown in [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com). To learn more about publishing to the different commercial marketplace online stores, see [Determine your publishing option](./determine-your-listing-type.md).
