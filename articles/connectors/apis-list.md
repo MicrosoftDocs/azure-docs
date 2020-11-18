@@ -394,7 +394,21 @@ Connections can access the target service or system for as long as that service 
 
 ## Recurrence behavior
 
-Connection-based triggers, such as the SQL Server or SFTP-SSH trigger, differ from built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), that run natively in Azure Logic Apps. Recurrence-based built-in triggers always honor the schedule that you set, including any time zones. However, in recurrence-based connection triggers, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors, which might result in unexpected behavior such as not adjusting for events such as daylight savings time or reverting to standard time:
+The behavior for recurrence-based built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), differs from the behavior for recurrence-based connection triggers where you need to create a connection first, such as the SQL Server trigger.
+
+<a name="recurrence-built-in"></a>
+
+### Recurrence for built-in triggers
+
+Recurrence-based built-in triggers always honor the schedule that you set, including any time zones that you select. However, if you don't select a time zone, the recurrence schedule shifts by one hour during the transition between daylight savings time (DST) and standard time.
+
+To prevent this shift, select a time zone so that your logic app runs at the exact local time that you expect. For more information and examples, see [Transition between daylight savings time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-savings-standard-time).
+
+<a name="recurrence-connection-based"></a>
+
+### Recurrence for connection-based triggers
+
+In recurrence-based connection triggers, such as SQL Server or SFTP-SSH, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors, which might result in unexpected behavior such as not adjusting for events such as daylight savings time or reverting to standard time:
 
 * Any failures or retries that a connection-based trigger incurs.
 

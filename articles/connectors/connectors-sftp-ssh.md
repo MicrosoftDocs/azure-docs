@@ -112,18 +112,6 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
 
 ## How SFTP-SSH triggers work
 
-<a name="recurrence-behavior"></a>
-
-### Recurrence behavior
-
-Connection-based triggers, such as the SFTP-SSH trigger, differ from built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), that run natively in Azure Logic Apps. Recurrence-based built-in triggers always honor the schedule that you set, including any time zones. However, in recurrence-based connection triggers, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors, which might result in unexpected behavior such as not adjusting for events such as daylight savings time or reverting to standard time:
-
-* Any failures or retries that a connection-based trigger incurs.
-
-* Whether the SFTP server has more data, which an SFTP-SSH trigger immediately tries to fetch.
-
-* Other factors that can affect when the next run time happens.
-
 <a name="polling-behavior"></a>
 
 ### Polling behavior
@@ -137,6 +125,12 @@ SFTP-SSH triggers poll the SFTP file system and look for any file that was chang
 |||
 
 When a trigger finds a new file, the trigger checks that the new file is complete, and not partially written. For example, a file might have changes in progress when the trigger checks the file server. To avoid returning a partially written file, the trigger notes the timestamp for the file that has recent changes, but doesn't immediately return that file. The trigger returns the file only when polling the server again. Sometimes, this behavior might cause a delay that is up to twice the trigger's polling interval.
+
+<a name="daylight-savings-standard-time"></a>
+
+## Transition between daylight savings time and standard time
+
+Connection-based triggers where you need to create a connection first, such as the SFTP-SSH trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). Recurrence-based connection triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors, which might result in unexpected behavior such as not adjusting for events such as daylight savings time or reverting to standard time. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="convert-to-openssh"></a>
 

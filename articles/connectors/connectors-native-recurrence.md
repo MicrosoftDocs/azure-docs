@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/17/2020
 ---
 
 # Create, schedule, and run recurring tasks and workflows with the Recurrence trigger in Azure Logic Apps
@@ -127,55 +127,11 @@ This example shows how a Recurrence trigger definition might look in an underlyi
 
 <a name="daylight-savings-standard-time"></a>
 
-## Daylight savings time and standard time
+## Transition between daylight savings time and standard time
 
-Built-in recurrence-based triggers always honor the schedule that you set, including any time zone that you select. If you don't select a time zone, the recurrence schedule shifts by one hour during the transition between daylight savings time (DST) and standard time. To prevent this shift, select a time zone so that your logic app runs at the exact local time that you expect.
+Recurrence-based built-in triggers always honor the schedule that you set, including any time zones that you select. However, if you don't select a time zone, the recurrence schedule shifts by one hour during the transition between daylight savings time (DST) and standard time.
 
-For example, suppose that you have a logic app that runs daily and has a start time at 1:30 AM local time in the Central US & Canada time zone. What happens when the time rolls back one hour or rolls forward one hour?
-
-To prevent the shift, you can time zone, which respects the one-day interval correctly by adjusting to 23, 24, or 25 hours as appropriate so that your logic app runs at the exact local time.
-
-What happens when the time adjusts to daylight savings time at 2:30? 
-
-* Standard time
-  * Recurrence: Daily
-  * Time zone: **(UTC-06:00) Central (US & Canada)**
-  * Start time: 1:30 AM local
-
-* Daylight savings time
-  * Recurrence: Daily
-  * Time zone: **(UTC-06:00) Central (US & Canada)**
-  * Start time: 2:30 AM local
-
-However, the start time between 2:00 AM - 3:00 AM local might cause a problem because a time during this interval might become invalid or ambiguous. Your logic app still runs every day, but maybe not in the way that you expect. If you have multiple logic apps within same ambiguous interval, they might overlap. So, you might want to try avoid using a local between 2:00 AM - 3:00 AM.
-
-Here's a simulation to show what happens for 2019, which runs as you'd expect: 1 hour apart without skipped or double executions. The tricky part is that the time shifts to 3:30 AM. Not sure why UX displays zone info with explicit UTC sift as the API takes “Central Standard Time” instead of ‘(UTC-06:00) Central Time (US & Canada)’. @Tony Tang to follow up.
-
-This simulation shows what happened in 2019, which runs the way that you'd expect: one hour apart without skipped or duplicate runs. However, when the time shifts to 3:30 AM. 
-
-| Date | Time (UTC) | Time (local) |
-|------|------------|--------------|
-| 3/9/2019 | 7:30:00 AM | 1:30:00 AM | 
-| 3/9/2019 | 8:30:00 AM | 2:30:00 AM |
-| 3/10/2019 | 7:30:00 AM | 1:30:00 AM |
-| 3/10/2019 | 8:30:00 AM | 3:30:00 AM |
-| 3/11/2019 | 6:30:00 AM | 1:30:00 AM |
-| 3/11/2019 | 7:30:00 AM | 2:30:00 AM |
-| 3/12/2019 | 6:30:00 AM | 1:30:00 AM |
-| 3/12/2019 | 7:30:00 AM | 2:30:00 AM |
-||||
-
-| Date | Time (UTC) | Time (local) |
-|------|------------|--------------|
-| 11/1/2019 | 6:30:00 AM | 1:30:00 AM |
-| 11/1/2019 | 7:30:00 AM | 2:30:00 AM |
-| 11/2/2019 | 6:30:00 AM | 1:30:00 AM |
-| 11/2/2019 | 7:30:00 AM | 2:30:00 AM |
-| 11/3/2019 | 7:30:00 AM | 1:30:00 AM |
-| 11/3/2019 | 8:30:00 AM | 2:30:00 AM |
-| 11/4/2019 | 7:30:00 AM | 1:30:00 AM |
-| 11/4/2019 | 8:30:00 AM | 2:30:00 AM |
-||||
+To prevent this shift, select a time zone so that your logic app runs at the exact local time that you expect. For more information and examples, see [Transition between daylight savings time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-savings-standard-time).
 
 ## Next steps
 
