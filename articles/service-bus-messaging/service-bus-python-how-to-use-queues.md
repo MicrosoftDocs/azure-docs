@@ -32,7 +32,9 @@ This article shows you how to use Python to send messages to, and receive messag
     QUEUE_NAME = "<QUEUE NAME>"
     ```
 
-    Replace `<NAMESPACE CONNECTION STRING>` with the connection string for your Service Bus namespace and `<QUEUE NAME>` with the name of the queue. 
+    > [!IMPORTANT]
+    > - Replace `<NAMESPACE CONNECTION STRING>` with the connection string for your Service Bus namespace.
+    > - Replace `<QUEUE NAME>` with the name of the queue. 
 3. Add a method to send a single message.
 
     ```python
@@ -101,16 +103,16 @@ with servicebus_client:
     # get the Queue Receiver object for the queue
     receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME)
     with receiver:
-        # receive 16 messages you sent, waiting for max 5 seconds
+        # receive up to 16 messages, waiting for max 5 seconds
         received_msgs = receiver.receive_messages(max_message_count=16, max_wait_time=5)
         for msg in received_msgs:
             print("Received: " + str(msg))
             receiver.complete_message(msg)
 ```
 
-The `max_wait_time` parameter for `receive_messages` is the timeout in seconds between received messages after which the receiver will automatically shut down. The default value is 0, meaning no timeout.
-
-The `max_message_count` is the maximum number of messages to try and peek. The default value is 1.
+> [!NOTE]
+> - The `max_wait_time` parameter for `receive_messages` is the timeout in seconds between received messages after which the receiver will automatically shut down. The default value is 0, meaning no timeout.
+> - The `max_message_count` is the maximum number of messages to try and peek. The default value is 1.
 
 ## Full code
 
