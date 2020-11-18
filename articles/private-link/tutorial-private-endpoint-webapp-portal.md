@@ -52,7 +52,7 @@ The bastion host will be used to connect securely to the virtual machine for tes
     | Resource Group   | Select **myResourceGroup** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **East US** |
+    | Region           | Select **West Europe** |
 
 3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -104,7 +104,7 @@ In this section, you'll create a virtual machine that will be used to test the p
     | Resource Group | Select **myResourceGroup** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM** |
-    | Region | Select **East US** |
+    | Region | Select **West Europe** |
     | Availability Options | Select **No infrastructure redundancy required** |
     | Image | Select **Windows Server 2019 Datacenter - Gen1** |
     | Azure Spot instance | Select **No** |
@@ -149,9 +149,9 @@ In this section, you'll create a web app.
     | Publish | Select **Code**. |
     | Runtime stack | Select **.NET Core 3.1 (LTS)**. |
     | Operating System | Select **Windows**. |
-    | Region | Select **East US** |
+    | Region | Select **West Europe** |
     | **App Service Plan** |  |
-    | Windows Plan (East US) | Select **Create new**. </br> Enter **myServicePlan** in **Name**. |
+    | Windows Plan (West Europe) | Select **Create new**. </br> Enter **myServicePlan** in **Name**. |
     | Sku and size | Select **Change size**. </br> Select **P2V2** in the **Spec Picker** screen. </br> Select **Apply**. |
    
 3. Select **Review + create**.
@@ -201,7 +201,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 7. Open Windows PowerShell on the server after you connect.
 
-8. Enter `nslookup <webapp-name>.azurewebsites.net`. Replace **\<webapp-name>** with the name of the storage account you created in the previous steps.  You'll receive a message similar to what is displayed below:
+8. Enter `nslookup <webapp-name>.azurewebsites.net`. Replace **\<webapp-name>** with the name of the web app you created in the previous steps.  You'll receive a message similar to what is displayed below:
 
     ```powershell
     Server:  UnKnown

@@ -112,7 +112,7 @@ EventStore is a feature offered by the platform that provides Service Fabric pla
 ## Image Store Viewer
 Image store viewer is a feature offered if using Native Image Store that allows for viewing the current contents of the Image store and get file and folder information, along with removing files/folders.
 
-![Service Fabric Explorer cluster map][sfx-imagestore]
+![Screenshot that shows the Image Store Viewer.][sfx-imagestore]
 
 ## Backup and Restore
 Service Fabric Explorer offers the ability to interface with [Backup and Restore](./service-fabric-reliable-services-backup-restore.md). In order to see Backup and Restore features in SFX, advanced mode must be enabled.

@@ -38,7 +38,7 @@ The following prerequisites must be installed on all environments.
 
 The following prerequisites must be installed for Java development:
 
-* [Java SDK](https://aka.ms/azure-jdks) (version 1.8)
+* [Java SDK](/azure/developer/java/fundamentals/java-jdk-long-term-support) (version 1.8)
 * [Gradle](https://gradle.org/install/)
 * [Debugger for Java VS Code extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Needed to debug Java services. Debugging Java services is supported on Linux only. You can install either by clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
 

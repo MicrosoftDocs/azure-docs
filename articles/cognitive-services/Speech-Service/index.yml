@@ -42,9 +42,9 @@ conceptualContent:
         - itemType: quickstart
           text: Get started with speech-to-text
           url: get-started-speech-to-text.md
-        - itemType: how-to-guide
-          text: Improve accuracy with Custom Speech
-          url: how-to-custom-speech.md       
+        - itemType: overview
+          text: About Custom Speech
+          url: custom-speech-overview.md       
       footerLink:
         text: More
         url: index-speech-to-text.yml
@@ -223,10 +223,6 @@ additionalContent:
       - title: Support
         links:
         - text: Support and help
-          url: support.md
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
         - text: GitHub issues
           url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
-        - text: Stack Overflow
-          url: https://aka.ms/SOspeechquestions
-        - text: UserVoice
-          url: https://cognitive.uservoice.com/forums/912208-speech-service

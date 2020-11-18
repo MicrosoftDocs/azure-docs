@@ -141,23 +141,21 @@ landingContent:
           - text: Form Recognizer API v2.0
             url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
           - text: .NET SDK
-            url: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme
+            url: /dotnet/api/overview/azure/ai.formrecognizer-readme
           - text: Python SDK
-            url: https://docs.microsoft.com/en-us/python/api/azure-ai-formrecognizer/?view=azure-python
+            url: /python/api/azure-ai-formrecognizer/?view=azure-python
           - text: Java SDK
-            url: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme
+            url: /java/api/overview/azure/ai-formrecognizer-readme
           - text: JavaScript SDK
-            url: https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme
+            url: /javascript/api/overview/azure/ai-form-recognizer-readme
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list
+            url: /cli/azure/cognitiveservices#az-cognitiveservices-list
 
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: UserVoice
-            url: https://go.microsoft.com/fwlink/?linkid=2090535
-          - text: Stack Overflow
-            url: https://go.microsoft.com/fwlink/?linkid=2087186
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context

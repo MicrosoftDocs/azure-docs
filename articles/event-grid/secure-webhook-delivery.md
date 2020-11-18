@@ -21,7 +21,7 @@ Begin by creating an Azure AD Application for your protected endpoint. See https
 This section shows you how to enable Event Grid to use your Azure AD application. 
 
 > [!NOTE]
-> You must be a member of the [Azure AD Application Administrator role](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) to execute this script.
+> You must be a member of the [Azure AD Application Administrator role](../active-directory/roles/permissions-reference.md#available-roles) to execute this script.
 
 ### Connect to your Azure tenant
 First, connect to your Azure tenant using the `Connect-AzureAD` command. 

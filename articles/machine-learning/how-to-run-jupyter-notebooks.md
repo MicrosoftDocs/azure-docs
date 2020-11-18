@@ -105,6 +105,16 @@ When a compute instance is running, you can also use code completion, powered by
 
 You can also launch Jupyter or JupyterLab from the Notebook toolbar.  Azure Machine Learning does not provide updates and fix bugs from Jupyter or JupyterLab as they are Open Source products outside of the boundary of Microsoft Support.
 
+### Focus mode
+
+Use focus mode to expand your current view so you can focus on your active tabs. Focus mode hides the Notebooks file explorer.
+
+1. In the terminal window toolbar, select **Focus mode** to turn on focus mode. Depending on your window width, this may be located under the **...** menu item in your toolbar.
+1. While in focus mode, return to the standard view by selecting **Standard view**.
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Toggle focus mode / standard view":::
+
+
 ### Use IntelliSense
 
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) is a code-completion aid that includes a number of features: List Members, Parameter Info, Quick Info, and Complete Word. These features help you to learn more about the code you're using, keep track of the parameters you're typing, and add calls to properties and methods with only a few keystrokes.  
@@ -175,7 +185,7 @@ Only you can see and use the compute instances you create.  Your **User files** 
 
 ### View logs and output
 
-Use [Notebook widgets](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
+Use [Notebook widgets](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
 
 ## Change the notebook environment
 
@@ -205,7 +215,7 @@ The Notebook will automatically find all Jupyter kernels installed on the connec
 1. Select [**Open terminal**](#terminal) in the Notebook toolbar.
 1. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
     ```shell
-    conda create --name newenv
+    conda create -y --name newenv
     ```
 1. Activate the environment.  For example, after creating `newenv`:
 
@@ -215,13 +225,13 @@ The Notebook will automatically find all Jupyter kernels installed on the connec
 1. Install pip and ipykernel package to the new environment and create a kernel for that conda env
 
     ```shell
-    conda install pip
-    conda install ipykernel
+    conda install -y pip
+    conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 
 > [!NOTE]
-> For package management within a notebook, use **%pip** or **%conda** magic functions automatically install packages into the **currently-running kernel** rather than **!pip** or **!conda** which refers to all packages (including packages outside the currently-running kernel)
+> For package management within a notebook, use **%pip** or **%conda** magic functions to automatically install packages into the **currently-running kernel**, rather than **!pip** or **!conda** which refers to all packages (including packages outside the currently-running kernel)
 
 Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
 

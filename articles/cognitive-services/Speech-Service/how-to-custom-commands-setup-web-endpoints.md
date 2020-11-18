@@ -122,14 +122,14 @@ However, in most of the cases you only want to send activity to the client appli
     1. Copy the JSON below to the **Activity Content**
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
-    > [!div class="mx-imgBorder"]
-    > ![Send activity on success](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-activity.png)
    
 Now you only send activity to client when the request to web endpoint is successful.
 
@@ -203,4 +203,5 @@ If you tested out the app with `turn on tv` in previous section, you would see t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Enable a CI/CD process for your Custom Commands application](./how-to-custom-commands-deploy-cicd.md)
+> [Export Custom Commands application as a remote skill](./how-to-custom-commands-integrate-remote-skills.md)
+

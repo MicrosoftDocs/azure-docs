@@ -14,7 +14,7 @@ ms.custom: cog-serv-seo-aug-2020
 keywords: speaker recognition, voice biometry
 ---
 
-# What is Speaker Recognition?
+# What is Speaker Recognition (Preview)?
 
 The Speaker Recognition service provides algorithms that verify and identify speakers by their unique voice characteristics using voice biometry. Speaker Recognition is used to answer the question “who is speaking?”. You provide audio training data for a single speaker, which creates an enrollment profile based on the unique characteristics of the speaker's voice. You can then cross-check audio voice samples against this profile to verify that the speaker is the same person (speaker verification), or cross-check audio voice samples against a *group* of enrolled speaker profiles, to see if it matches any profile in the group (speaker identification). In contrast, [Speaker Diarization](batch-transcription.md#speaker-separation-diarization) groups segments of audio by speaker in a batch operation.
 

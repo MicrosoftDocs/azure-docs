@@ -140,10 +140,10 @@ You can remove a license from a user's Azure AD user page, from the group overvi
 
 After you've assigned your licenses, you can perform the following processes:
 
-- [Identify and resolve license assignment problems](../users-groups-roles/licensing-groups-resolve-problems.md)
+- [Identify and resolve license assignment problems](../enterprise-users/licensing-groups-resolve-problems.md)
 
-- [Add licensed users to a group for licensing](../users-groups-roles/licensing-groups-migrate-users.md)
+- [Add licensed users to a group for licensing](../enterprise-users/licensing-groups-migrate-users.md)
 
-- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
 
 - [Add or change profile information](active-directory-users-profile-azure-portal.md)

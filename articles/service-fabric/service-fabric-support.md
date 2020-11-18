@@ -67,6 +67,6 @@ A preview version always begins with a major and minor version number of 255. Fo
 [Microsoft Q&A question page]: /answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
-[acom-docs]: https://aka.ms/servicefabricdocs
-[sample-repos]: https://aka.ms/servicefabricsamples
+[acom-docs]: ./index.yml
+[sample-repos]: /samples/browse/?products=azure
 [msdn-forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?category=windowsazureplatform

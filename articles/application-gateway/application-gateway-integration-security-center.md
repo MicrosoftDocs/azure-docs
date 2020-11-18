@@ -13,7 +13,7 @@ ms.date: 06/07/2017
 
 # Overview of integration between Application Gateway and Azure Security Center
 
-Learn how Application Gateway and Security Center help protect your web application resources. Application gateway web application firewall (WAF) integrates with [Security Center](../security-center/security-center-intro.md) to provide a seamless view to prevent, detect, and respond to threats to unprotected web applications in your environment.
+Learn how Application Gateway and Security Center help protect your web application resources. Application gateway web application firewall (WAF) integrates with [Security Center](../security-center/security-center-introduction.md) to provide a seamless view to prevent, detect, and respond to threats to unprotected web applications in your environment.
 
 ## Overview
 
@@ -71,7 +71,7 @@ Selecting a rule will provide a list of alerts for that specific WAF rule. Each 
 
 ## Next steps
 
-To learn how to enable web application firewall on an existing application gateway, visit [Create or update an Azure Application Gateway with web application firewall](application-gateway-web-application-firewall-portal.md).
+To learn how to enable web application firewall on an existing application gateway, visit [Create or update an Azure Application Gateway with web application firewall](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

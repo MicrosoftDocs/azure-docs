@@ -1,6 +1,6 @@
 ---
-title: Dedupe rows and find nulls using data flow snippets
-description: Learn how to easily dedupe rows and find nulls using code snippets in data flows
+title: Dedupe rows and find nulls by using data flow snippets
+description: Learn how to easily dedupe rows and find nulls by using code snippets in data flows
 services: data-factory
 author: kromerm
 
@@ -12,53 +12,55 @@ ms.date: 09/30/2020
 ms.author: makromer
 ---
 
-# Dedupe rows and find nulls using data flow snippets
+# Dedupe rows and find nulls by using data flow snippets
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE [appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-By using code snippets in mapping data flows, you can very easily perform common tasks like data deduplication and null filtering. This how-to guide will explain how to add those functions to your pipelines very easily using data flow script snippets.
-
+By using code snippets in mapping data flows, you can easily perform common tasks such as data deduplication and null filtering. This article explains how to easily add those functions to your pipelines by using data flow script snippets.
+<br>
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GnhH]
 
 ## Create a pipeline
 
-1. Select **+New Pipeline** to create a new pipeline.
+1. Select **New Pipeline**.
 
-2. Add a data flow activity.
+1. Add a data flow activity.
 
-3. Add a Source transformation and connect it to one of your datasets
+1. Select the **Source settings** tab, add a source transformation, and then connect it to one of your datasets.
 
-    ![Source Snippet 2](media/data-flow/snippet-adf-2.png)
+    ![Screenshot of the "Source settings" pane for adding a source type.](media/data-flow/snippet-adf-2.png)
 
-4. The dedupe and NULL check snippets use generic patterns that leverage data flow schema drift so they will work with any schema from your dataset, or with datasets that do not have any pre-defined schema.
+    The dedupe and null check snippets use generic patterns that take advantage of data flow schema drift. The snippets work with any schema from your dataset, or with datasets that have no pre-defined schema.
 
-5. [Go to the Data Flow Script documentation page and copy the code snippet for Distinct Rows.](https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns)
+1. In the "Distinct row using all columns" section of [Data flow script (DFS)](./data-flow-script.md#distinct-row-using-all-columns), copy the code snippet for DistinctRows.
 
-6. In your data flow designer UI, click the Script button on the top right to open the script editor behind the data flow graph.
+1. [Go to the Data Flow Script documentation page and copy the code snippet for Distinct Rows.](./data-flow-script.md#distinct-row-using-all-columns)
 
-    ![Source Snippet 3](media/data-flow/snippet-adf-3.png)
+    ![Screenshot of a source snippet.](media/data-flow/snippet-adf-3.png)
 
-7. After the definition for ```source1``` in your script, hit Enter and then paste in the code snippet.
+1. In your script, after the definition for `source1`, hit Enter, and then paste the code snippet.
 
-8. You will connect this pasted code snippet to the previous Source transformation that you created in the graph by typing "source1" in front of the pasted code.
+1. Do either of the following:
 
-9. Alternatively, you can connect the new transformation in the designer by selecting the incoming stream from the new transformation node in the graph.
+   * Connect this pasted code snippet to the source transformation that you created earlier in the graph by typing **source1** in front of the pasted code.
 
-    ![Source Snippet 4](media/data-flow/snippet-adf-4.png)
+   * Alternatively, you can connect the new transformation in the designer by selecting the incoming stream from the new transformation node in the graph.
 
-10. Now your data flow will remove duplicate rows from your source using the Aggregate transformation that groups by all rows using a general hash across all column values.
+     ![Screenshot of the "Conditional split settings" pane.](media/data-flow/snippet-adf-4.png)
+
+   Now your data flow will remove duplicate rows from your source by using the aggregate transformation, which groups by all rows by using a general hash across all column values.
     
-11. Next, we'll add a code snippet for splitting your data into a stream that contains rows with NULLs and a stream that does not have any NULLs.
+1. Add a code snippet for splitting your data into one stream that contains rows with nulls and another stream without nulls. To do so:
 
-12. [Go back to the Snippet library and this time copy the code for the NULL checks.](https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns)
+1. [Go back to the Snippet library and this time copy the code for the NULL checks.](./data-flow-script.md#check-for-nulls-in-all-columns)
 
-13. In your data flow designer, again click Script and paste this new transformation code at the bottom, connecting it to your previous transformation by typing the name of that transformation in front of the pasted snippet.
+   b. In your data flow designer, select **Script** again, and then paste this new transformation code at the bottom. This action connects the script to your previous transformation by placing the name of that transformation in front of the pasted snippet.
 
-14. Your data flow graph should now look similar to this:
+   Your data flow graph should now look similar to this:
 
-    ![Source Snippet 1](media/data-flow/snippet-adf-1.png)
+    ![Screenshot of the data flow graph.](media/data-flow/snippet-adf-1.png)
 
-  You now have a working data flow with generic deduping and NULL checks by taking existing code snippets from the Data Flow Script library and adding them into your existing design.
+  You have now created a working data flow with generic deduping and null checks by taking existing code snippets from the Data Flow Script library and adding them into your existing design.
 
 ## Next steps
 

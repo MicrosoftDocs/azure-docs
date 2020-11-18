@@ -7,13 +7,13 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
 
-# Use file metadata in queries
+# Use file metadata in serverless SQL pool queries
 
-The SQL on-demand can address multiple files and folders as described in the [Query folders and multiple files](query-folders-multiple-csv-files.md) article. In this article, you learn how to use metadata information about file and folder names in the queries.
+Serverless SQL pool can address multiple files and folders as described in the [Query folders and multiple files](query-folders-multiple-csv-files.md) article. In this article, you learn how to use metadata information about file and folder names in the queries.
 
 Sometimes, you may need to know which file or folder source correlates to a specific row in the result set.
 

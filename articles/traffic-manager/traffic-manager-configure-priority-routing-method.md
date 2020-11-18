@@ -93,7 +93,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Once your Traffic Manager profile is working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name.
 
-## Clean up resource
+## Clean up resources
 
 If you not longer need the Traffic Manager profile, locate the profile and select **Delete profile**.
 

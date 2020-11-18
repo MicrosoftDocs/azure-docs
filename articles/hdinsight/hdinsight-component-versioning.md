@@ -92,7 +92,7 @@ This table lists the versions of HDInsight that are available in the Azure porta
 | HDInsight 3.6  ML Services      | 9.3               | Dec 31, 2020                      | Dec 31, 2020                |
 
 > [!NOTE]
-> After support for a cluster version expires, it might not be available through the Azure portal. In some cases, cluster versions continue to be available by using the **Version** parameter in the Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) command and the .NET SDK until the version retirement date.
+> After support for a cluster version expires, it might not be available through the Azure portal. In some cases, cluster versions continue to be available by using the **Version** parameter in the Windows PowerShell [New-AzHDInsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) command and the .NET SDK until the version retirement date.
 
 ### Retired versions
 
@@ -129,6 +129,6 @@ For more information on which virtual machine SKUs to select for your cluster, s
 ## Next steps
 
 - [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-- [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
-- [Hortonworks release notes associated with Azure HDInsight versions](./hortonworks-release-notes.md)
 - [Enterprise Security Package](./enterprise-security-package.md)
+- [Hortonworks release notes associated with Azure HDInsight versions](./hortonworks-release-notes.md)
+- [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
