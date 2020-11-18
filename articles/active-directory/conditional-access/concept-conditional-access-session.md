@@ -25,6 +25,10 @@ Within a Conditional Access policy, an administrator can make use of session con
 
 Organizations can use this control to require Azure AD to pass device information to the selected cloud apps. The device information enables the cloud apps to know whether a connection is initiated from a compliant or domain-joined device. This control only supports SharePoint Online and Exchange Online as selected cloud apps. When selected, the cloud app uses the device information to provide users, depending on the device state, with a limited or full experience.
 
+*Note: SharePoint will automatically create the needed Conditional Access policies and turn them on when "Allow limited, web-access only" is selected in the SharePoint portal.
+
+*Note: When making the changes in Exchange, nothing will be affected until a Conditional Access policy is manually created.
+
 For more information on the use and configuration of app enforced restrictions, see the following articles:
 
 - [Enabling limited access with SharePoint Online](/sharepoint/control-access-from-unmanaged-devices)
