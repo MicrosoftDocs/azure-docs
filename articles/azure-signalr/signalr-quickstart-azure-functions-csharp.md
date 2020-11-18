@@ -22,21 +22,21 @@ You may also run this tutorial on the command line (macOS, Windows, or Linux) us
 
 If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/dotnet) before you begin.
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qscsharp).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp).
 
 ## Log in to Azure
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qscsharp).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qscsharp).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qscsharp).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp).
 
 ## Configure and run the Azure Function app
 
@@ -70,15 +70,15 @@ Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/
         ```bash
         func start
         ```
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qscsharp).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qscsharp).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qscsharp).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp).
 
 ## Next steps
 
