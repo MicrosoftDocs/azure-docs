@@ -20,7 +20,7 @@ In order to use the Cognitive Services Face API for face verification or identif
 
 One of the key purposes of an enrollment application for facial recognition is to give users the opportunity to consent to the use of images of their face for specific purposes, such as access to a worksite. Because facial recognition technologies may be perceived as collecting sensitive personal data, it's especially important to ask for consent in a way that is both transparent and respectful. Consent is meaningful to users when it empowers them to make the decision that they feel is best for them.   
 
-Based on Microsoft user research, Microsoft's Responsible AI principles, and [external research tbd](ftp://ftp.cs.washington.edu/tr/2000/12/UW-CSE-00-12-02.pdf), we have found that consent is meaningful when it offers the following to users enrolling in the technology:
+Based on Microsoft user research, Microsoft's Responsible AI principles, and [external research](ftp://ftp.cs.washington.edu/tr/2000/12/UW-CSE-00-12-02.pdf), we have found that consent is meaningful when it offers the following to users enrolling in the technology:
 
 1. Awareness: Users should have no doubt when they are being asked to provide their face template or enrollment photos. 
 1. Understanding: Users should be able to accurately describe in their own words what they were being asked for, by whom, to what end, and with what assurances. 
