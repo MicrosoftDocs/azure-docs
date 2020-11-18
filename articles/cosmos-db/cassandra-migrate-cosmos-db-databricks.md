@@ -21,7 +21,7 @@ Cassandra API in Azure Cosmos DB has become a great choice for enterprise worklo
 
 * **Ability to use existing code and tools:** Azure Cosmos DB provides wire protocol level compatibility with existing Cassandra SDKs and tools. This compatibility ensures you can use your existing codebase with Azure Cosmos DB Cassandra API with trivial changes.
 
-There are various ways to migrate database workloads from one platform to another. [Azure Databricks](https://azure.microsoft.com/services/databricks/#overview) is a platform as a service offering for [Apache Spark](https://spark.apache.org/) that offers a way to perform offline migrations at large scale. This article describes the steps required to migrate data from native Apache Cassandra keyspaces/tables to Azure Cosmos DB Cassandra API using Azure Databricks.
+There are various ways to migrate database workloads from one platform to another. [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a platform as a service offering for [Apache Spark](https://spark.apache.org/) that offers a way to perform offline migrations at large scale. This article describes the steps required to migrate data from native Apache Cassandra keyspaces/tables to Azure Cosmos DB Cassandra API using Azure Databricks.
 
 ## Prerequisites
 
