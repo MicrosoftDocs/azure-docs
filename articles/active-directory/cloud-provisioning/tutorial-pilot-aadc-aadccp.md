@@ -122,7 +122,7 @@ Same steps need to be followed for all object types (user, group and contact).
 
 4. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.
 5. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory administrator account.  This operation will add your on-premises directory.  Click **Next**.</br>
-![Screenshot that shows the "Connect Active Directory" screen with a directory value entered.](media/how-to-install/install-3.png)</br>
+![Screenshot that shows the "Connect Active Directory" screen with a directory value entered.](media/how-to-install/install-3a.png)</br>
 
 6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
 ![Screenshot that shows the "Configuration complete" screen with the "Confirm" button selected.](media/how-to-install/install-4a.png)</br>
