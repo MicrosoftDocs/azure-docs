@@ -83,10 +83,10 @@ The ASE uses private endpoints for inbound traffic. It is not automatically conf
 
 To configure DNS in Azure DNS Private zones:
 
-create an Azure DNS private zone named <ASE name>.appserviceenvironment.net
-create an A record in that zone that points * to the ILB IP address
-create an A record in that zone that points @ to the ILB IP address
-create an A record in that zone that points *.scm to the ILB IP address
+1. create an Azure DNS private zone named <ASE name>.appserviceenvironment.net
+1. create an A record in that zone that points * to the ILB IP address
+1. create an A record in that zone that points @ to the ILB IP address
+1. create an A record in that zone that points *.scm to the ILB IP address
 
 The DNS settings for your ASE default domain suffix don't restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the inbound IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
 
