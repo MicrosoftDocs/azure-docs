@@ -30,7 +30,7 @@ Here are some use cases for Connection Monitor:
 - Your hybrid application needs connectivity to an Azure Storage endpoint. Your on-premises site and your Azure application connect to the same Azure Storage endpoint. You want to compare the latencies of the on-premises site to the latencies of the Azure application.
 - You want to check the connectivity between your on-premises setups and the Azure VMs that host your cloud application.
 
-Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor (Classic)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitoring](https://docs.microsoft.com/azure/expressroute/how-to-npm), and [Performance Monitoring](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) feature.
+Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor (Classic)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](../azure-monitor/insights/network-performance-monitor-service-connectivity.md), [ExpressRoute Monitoring](../expressroute/how-to-npm.md), and [Performance Monitoring](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) feature.
 
 Here are some benefits of Connection Monitor:
 
@@ -107,7 +107,7 @@ Connection Monitor includes the following entities:
 
  ![Diagram showing a connection monitor, defining the relationship between test groups and tests](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-You can create a connection monitor using [Azure portal](connection-monitor-preview-create-using-portal.md) or [ARMClient](connection-monitor-preview-create-using-arm-client.md)
+You can create a connection monitor using [Azure portal](./connection-monitor-create-using-portal.md) or [ARMClient](./connection-monitor-create-using-template.md)
 
 All sources, destinations, and test configurations that you add to a test group get broken down to individual tests. Here's an example of how sources and destinations are broken down:
 
@@ -344,5 +344,5 @@ For networks whose sources are Azure VMs, the following issues can be detected:
 
 ## Next Steps
     
-   * Learn [How to create Connection Monitor using Azure portal](connection-monitor-preview-create-using-portal.md)  
-   * Learn [How to create Connection Monitor using ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * Learn [How to create Connection Monitor using Azure portal](./connection-monitor-create-using-portal.md)  
+   * Learn [How to create Connection Monitor using ARMClient](./connection-monitor-create-using-template.md)
