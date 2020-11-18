@@ -15,7 +15,7 @@ ms.reviewer: cynthn
 This article provides instructions about how to do an in-place upgrade from Red Hat Enterprise Linux (RHEL) 7 to Red Hat Enterprise Linux 8. The instructions use the `Leapp` tool in Azure. During the in-place upgrade, the existing RHEL 7 operating system is replaced by the RHEL 8 version.
 
 >[!Note] 
-> SQL Server on Red Hat Enterprise Linux offers don't support in-place upgrades on Azure.
+> Offerings of SQL Server on Red Hat Enterprise Linux don't support in-place upgrades on Azure.
 
 ## What to expect during the upgrade
 During the upgrade, the system restarts a few times. The final restart upgrades the VM to the RHEL 8 latest minor release. 
@@ -30,12 +30,12 @@ Before you start the upgrade, keep in mind the following considerations.
 >[!Important] 
 > Take a snapshot of the image before you start the upgrade.
 
->[!NOTE]
-> Use the root account to run the commands in this article. 
-
 * Make sure you're using the latest RHEL 7 version. Currently, the latest version is RHEL 7.9. If you use a locked version and can't upgrade to RHEL 7.9, then follow [these steps to switch to a non-EUS (extended update support) repository](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock).
 
 * Run the following command to check on your upgrade and see whether it will finish successfully. The command should generate */var/log/leapp/leapp-report.txt* file. This file explains the process, what's happening, and whether the upgrade is possible.
+
+    >[!NOTE]
+    > Use the root account to run the commands in this article. 
 
     ```bash
     leapp preupgrade --no-rhsm
@@ -61,7 +61,7 @@ Follow these steps carefully. We recommend trying the upgrade on a test machine 
     yum install leapp-rhui-azure
     ```
     
-1. Use the *leapp-data.tar.gz* file with *repomap.csv* and *pes-events.json* present in the [Red Hat portal](https://access.redhat.com/articles/3664871). Extract the files. 
+1. In the [Red Hat portal](https://access.redhat.com/articles/3664871), get the *leapp-data.tar.gz* file, along with *repomap.csv* and *pes-events.json*. Extract the files.
     1. Download the *leapp-data.tar.gz* file.
     1. Extract the contents and remove the file. Use the following command:
     ```bash
@@ -73,7 +73,7 @@ Follow these steps carefully. We recommend trying the upgrade on a test machine 
     leapp answer --section remove_pam_pkcs11_module_check.confirm=True --add
     ``` 
 
-1. Do the `Leapp` upgrade.
+1. Start the upgrade.
     ```bash
     leapp upgrade --no-rhsm
     ```
@@ -84,7 +84,7 @@ Follow these steps carefully. We recommend trying the upgrade on a test machine 
     uname -a && cat /etc/redhat-release
     ```
 
-1. Remove root SSH access:
+1. When the upgrade finishes, remove root SSH access:
     1. Open the file */etc/ssh/sshd_config*.
     1. Search for `#PermitRootLogin yes`.
     1. Add a number sign (`#`) to comment the string.
@@ -93,11 +93,9 @@ Follow these steps carefully. We recommend trying the upgrade on a test machine 
     ```bash
     systemctl restart sshd
     ```
-
-<<<<<<< HEAD
 ## Common problems
 
-The following errors result when either the `leapp preupgrade` process or the `leapp upgrade` process fails:
+The following errors commonly happen when either the `leapp preupgrade` process or the `leapp upgrade` process fails:
 
 * **Error**: No matches found for the following disabled plugin patterns.
 
@@ -111,7 +109,7 @@ The following errors result when either the `leapp preupgrade` process or the `l
 
     This error happens when the subscription-manager `yum` plug-in that's enabled isn't used for `PAYG` VMs.
 
-* **Error**: Possible problems with remote login using root account.
+* **Error**: Possible problems with remote login using root.
 
     You might see this error when the `leapp preupgrade` fails:
 
@@ -128,52 +126,14 @@ The following errors result when either the `leapp preupgrade` process or the `l
                          UPGRADE INHIBITED
     ============================================================
     ```
-    **Solution**: Enable root access in */etc/sshd_conf*.
+    **Solution**: Enable root access in */etc/sshd_config*.
 
-    This error happens when root SSH access isn't enabled in */etc/sshd_conf*. For more information, see the [Preparations](#preparations) section in this article. 
-=======
-## Common Issues
-These are some of the common instances that either the `leapp preupgrade` or `leapp upgrade` process could fail.
+    This error happens when root SSH access isn't enabled in */etc/sshd_config*. For more information, see the [Preparations](#preparations) section in this article. 
 
-**Error: No matches found for the following disabled plugin patterns**
-```plaintext
-STDERR:
-No matches found for the following disabled plugin patterns: subscription-manager
-Warning: Packages marked by Leapp for upgrade not found in repositories metadata: gpg-pubkey
-```
-**Solution**\
-Disable subscription-manager plugin by editing the file `/etc/yum/pluginconf.d/subscription-manager.conf` and changing enabled to `enabled=0`.
-
-This is caused by the subscription-manager yum plugin being enabled, which is not used for PAYG VMs.
-
-**Error: Possible problems with remote login using root**
-The `leapp preupgrade` could fail with the following error:
-```structured-text
-============================================================
-                     UPGRADE INHIBITED
-============================================================
-
-Upgrade has been inhibited due to the following problems:
-    1. Inhibitor: Possible problems with remote login using root account
-Consult the pre-upgrade report for details and possible remediation.
-
-============================================================
-                     UPGRADE INHIBITED
-============================================================
-```
-**Solution**\
-Enable root access in `/etc/sshd_config`.
-This is caused by not enabling root ssh access in `/etc/sshd_config` as per the “[Preparations for the upgrade](#preparations-for-the-upgrade)” section. 
->>>>>>> 14c0131b5888f0f0c90c8705a609d4b8bff805c5
 
 ## Next steps
 * Learn more about [Red Hat images in Azure](./redhat-images.md).
 * Learn more about [Red Hat update infrastructure](./redhat-rhui.md).
 * Learn more about the [RHEL BYOS offer](./byos.md).
-<<<<<<< HEAD
 * To learn more about the Red Hat in-place upgrade processes, see [Upgrading from RHEL 7 TO RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index) in the Red Hat documentation.
 * To learn more about Red Hat support policies for all versions of RHEL, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata) in the Red Hat documentation.
-=======
-* Information on the Red Hat in-place upgrade processes can be found on the Red Hat documentation, [Upgrading from RHEL 7 TO RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index)
-* Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
->>>>>>> 14c0131b5888f0f0c90c8705a609d4b8bff805c5
