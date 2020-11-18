@@ -22,7 +22,7 @@ An ongoing replication between the source and the destination volumes (see [Crea
 
 When such an event occurs, you can failover to the destination volume by [breaking replication peering](#break-replication-peering), enabling the client to read and write to the destination volume. 
 
-After disaster recovery, you can fail back to the source volume with a [resync operation](#resync-replication-to-reactivate-the-source-volume) that overwrites the source volume data with the destination volume data.  You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
+After disaster recovery, you can fail back to the source volume with a [resync operation](#resync-replication) that overwrites the source volume data with the destination volume data.  You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
 
 The details are described below. 
 
