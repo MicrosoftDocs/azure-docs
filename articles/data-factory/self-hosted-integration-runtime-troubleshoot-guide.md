@@ -47,15 +47,15 @@ For failed activities running on Self-hosted IR / Shared IR, Azure Data Factory 
 
 #### Symptoms
 
-The "OutOfMemoryException" issue occurs when trying to run lookup activity with linked IR or self-hosted IR.
+The "OutOfMemoryException" issue occurs when trying to run lookup activity with linked IR or Self-hosted IR.
 
 #### Cause
 
-New activity can meet with OOM issue if the IR machine has a high memory usage at the moment. The issue could be caused by a large scale of concurrent activity execution, and the error is by design.
+New activity can meet with OOM (OutOfMemory) issue if the IR machine has a high memory usage at the moment. The issue could be caused by a large scale of concurrent activity execution, and the error is by design.
 
 #### Resolution
 
-Please check the resource usage and concurrent activity execution on the IR node. Adjust the internal and trigger time to avoid too much process running at the same time.
+Please check the resource usage and concurrent activity execution on the IR node. Adjust the internal and trigger time of activity runs to avoid too much execution on the same IR node at the same time.
 
 
 ### TLS/SSL certificate issue
@@ -417,13 +417,15 @@ The installation depends on the Windows Installer Service. There are variant rea
 - Some system files or registries were touched unintentionally
 
 
-### Failed to grant Integration Runtime service account the access of to the certificate
+### IR service account failed to fetch certificate access
 
 #### Symptoms
 
-When installing SHIR via the Microsoft Integration Runtime Configuration manager, a certificate with a trusted CA is generated. The certificate was unable to be applied to encrypt communication between two nodes. 
+When installing Self-hosted IR via the Microsoft Integration Runtime Configuration manager, a certificate with a trusted CA is generated. The certificate was unable to be applied to encrypt communication between two nodes. 
 
-Error information: Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate "Thumbprint". Error code 103
+The error information shows as below: 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
 
 ![Failed to grant IR service account certificate access](media/self-hosted-integration-runtime-troubleshoot-guide/failed-to-grant-IR-service-account-certificate-access.png)
 
