@@ -39,7 +39,7 @@ In this scenario, add fully branded access app to your back-end application for 
 
 The below diagram shows the implementation.
 
-![High-level password sign-in flow with Azure AD B2C and Nevis Authentication Cloud](/media/partner-nevis/nevis-architecture-diagram.png)
+![High-level password sign-in flow with Azure AD B2C and Nevis Authentication Cloud](./media/partner-nevis/nevis-architecture-diagram.png)
 
 |Step | Description |
 |:-----| :-----------|
