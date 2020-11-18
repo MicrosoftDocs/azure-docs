@@ -44,7 +44,7 @@ Open a command-line tool and use the following commands to install the modules.
 
 ```
 pip3 install azure-mgmt-resource
-pip3 install azure-mgmt-media==1.1.1
+pip3 install azure-mgmt-media==3.0.0
 ```
 
 ## Connect to the Python client

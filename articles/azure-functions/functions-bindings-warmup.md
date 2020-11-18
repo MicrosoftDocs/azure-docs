@@ -94,7 +94,7 @@ Here's the *function.json* file:
 The [configuration](#trigger---configuration) section explains these properties.
 
 ```cs
-public static void Run(ILogger log)
+public static void Run(WarmupContext warmupContext, ILogger log)
 {
     log.LogInformation("Function App instance is warm 🌞🌞🌞");  
 }
