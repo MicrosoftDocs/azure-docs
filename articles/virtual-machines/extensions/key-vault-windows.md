@@ -23,7 +23,7 @@ The Key Vault VM extension supports below versions of Windows:
 - Windows Server 2016
 - Windows Server 2012
 
-The Key Vault VM extensio is also supported on custom local VM that is uploaded and converted into a specialized image for use in Azure using Windows Server 2019 core install.
+The Key Vault VM extension is also supported on custom local VM that is uploaded and converted into a specialized image for use in Azure using Windows Server 2019 core install.
 
 ### Supported certificate content types
 

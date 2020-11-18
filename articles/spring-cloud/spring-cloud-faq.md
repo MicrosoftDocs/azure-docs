@@ -89,6 +89,21 @@ Three services are currently supported:
 
 Yes.
 
+### How many outbound public IP addresses does an Azure Spring Cloud instance have?
+
+The number of outbound public IP addresses may vary according to the tiers and other factors. 
+
+| Azure Spring Cloud instance type | Default number of outbound public IP addresses |
+| -------------------------------- | ---------------------------------------------- |
+| Basic Tier instances             | 1                                              |
+| Standard Tier instances          | 2                                              |
+| VNet injection instances         | 1                                              |
+
+
+### Can I increase the number of outbound public IP addresses?
+
+Yes, you can open a [support ticket](https://azure.microsoft.com/support/faq/)  to request for more outbound public IP addresses.
+
 ### When I delete/move an Azure Spring Cloud service instance, will its extension resources be deleted/moved as well?
 
 It depends on the logic of resource providers that own the extension resources. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behavior varies by resource provider. For example, the delete/move operation will not cascade to the **diagnostics settings** resources. If a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
