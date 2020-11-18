@@ -144,18 +144,28 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 
 #### [Text Analytics for health](#tab/health)
 
-For the health API, ....
+The format for API requests to the Text Analytics for health hosted API is the same as for its container. Documents are submitted in a JSON object as raw unstructured text. XML is not supported. The JSON schema consists of the elements described below.  Please fill out and submit the [Cognitive Services request form](https://aka.ms/csgate) to request access to the Text Analytics for health public preview. You will not be billed for Text Analytics for health usage. 
 
 | Element | Valid values | Required? | Usage |
 |---------|--------------|-----------|-------|
+|`id` |The data type is string, but in practice document IDs tend to be integers. | Required | The system uses the IDs you provide to structure the output. |
+|`text` | Unstructured raw text, up to 5,120 characters. | Required | Note that only English text is currently supported. |
+|`language` | 2-character [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code for a [supported language](../language-support.md) | Required | Only `en` is currently supported. |
 
-The following is an example of an API request for the Text Analytics for health synchronous endpoints. 
+The following is an example of an API request for the Text Analytics for health endpoints. 
 
 ```json
-{
-  "to be added"
-}
+example.json
 
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Subject was administered 100mg remdesivir intravenously over a period of 120 min"
+    }
+  ]
+}
 ```
 
 ---
@@ -310,10 +320,10 @@ If successful, the `/analyze` endpoint will return an object containing the assi
 
 # [Text Analytics for health](#tab/health)
 
-```json
-{
-}
-```
+See the following article for more information.
+
++ [Text Analytics for health](text-analytics-for-health.md)
+
 
 --- 
 
