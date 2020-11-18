@@ -25,21 +25,21 @@ Azure Functions requires [Python 3.6 or 3.7](https://www.python.org/downloads/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qspython).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qspython).
 
 ## Log in to Azure
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qspython).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qspython).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qspython).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qspython).
 
 ## Configure and run the Azure Function app
 
@@ -94,15 +94,15 @@ Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/
 
     ![Run function app](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
     
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qspython).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qspython).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qspython).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qspython).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qspython).
 
 ## Next steps
 
