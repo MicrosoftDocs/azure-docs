@@ -20,7 +20,7 @@ With the release of public preview refresh 2, Microsoft has introduced the AADCl
 ## Pre-requisites
 The following pre-requisites are required:
 - This module uses MSAL authentication, so it requires MSAL.PS module installed. It no longer depends on Azure AD or Azure AD Preview.   To verify this, in an Admin PowerShell window execute `Get-module MSAL.PS`. If the module is installed correctly you will get a response.  You can use `Install-AADCloudSyncToolsPrerequisites` to install the latest version of MSAL.PS
-- The AzureAD PowerShell module.  Some of the cmdlts rely on pieces of the AzureAD PowerShell module to accomplish their tasks.  To verify this is installed you can in an Admin PowerShell window execute `Get-module AzureAD`. If the module is installed correctly you will get a response.  You can use `Install-AADCloudSyncToolsPrerequisites` to install the latest version of the AzureAD PowerShell module.
+- The AzureAD PowerShell module.  Some of the cmdlets rely on pieces of the AzureAD PowerShell module to accomplish their tasks.  To verify this is installed you can in an Admin PowerShell window execute `Get-module AzureAD`. If the module is installed correctly you will get a response.  You can use `Install-AADCloudSyncToolsPrerequisites` to install the latest version of the AzureAD PowerShell module.
 - Installing modules from PowerShell may enforce using TLS 1.2.  To ensure you can install modules, set the following: \
 `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 `
 
@@ -44,29 +44,29 @@ Shows Azure AD Tenant details and internal variables state
 
 ### [Get-AADCloudSyncToolsJob](Get-AADCloudSyncToolsJob.md)
 Uses Graph to get AD2AAD Service Principals and returns the Synchronization Job information.
-Can be also called using the specific Sync Job Id as a parameter.
+Can be also called using the specific Sync Job ID as a parameter.
 
 ### [Get-AADCloudSyncToolsJobSchedule](Get-AADCloudSyncToolsJobSchedule.md)
 Uses Graph to get AD2AAD Service Principals and returns the Synchronization Job's Schedule.
-Can be also called using the specific Sync Job Id as a parameter.
+Can be also called using the specific Sync Job ID as a parameter.
 
 ### [Get-AADCloudSyncToolsJobSchema](Get-AADCloudSyncToolsJobSchema.md)
 Uses Graph to get AD2AAD Service Principals and returns the Synchronization Job's Schema.
 
 ### [Get-AADCloudSyncToolsJobScope](Get-AADCloudSyncToolsJobScope.md)
-Uses Graph to get the Synchronization Job's Schema for the provided Sync Job Id and outputs all filter group's scopes.
+Uses Graph to get the Synchronization Job's Schema for the provided Sync Job ID and outputs all filter group's scopes.
 
 ### [Get-AADCloudSyncToolsJobSettings](Get-AADCloudSyncToolsJobSettings.md)
 Uses Graph to get AD2AAD Service Principals and returns the Synchronization Job's Settings.
-Can be also called using the specific Sync Job Id as a parameter.
+Can be also called using the specific Sync Job ID as a parameter.
 
 ### [Get-AADCloudSyncToolsJobStatus](Get-AADCloudSyncToolsJobStatus.md)
 Uses Graph to get AD2AAD Service Principals and returns the Synchronization Job's Status.
-Can be also called using the specific Sync Job Id as a parameter.
+Can be also called using the specific Sync Job ID as a parameter.
 
 ### [Get-AADCloudSyncToolsServicePrincipal](Get-AADCloudSyncToolsServicePrincipal.md)
 Uses Graph to get the Service Principal(s) for AD2AAD and/or SyncFabric.
-Without paramaters, will only return AD2AAD Service Principal(s).
+Without parameters, will only return AD2AAD Service Principal(s).
 
 ### [Install-AADCloudSyncToolsPrerequisites](Install-AADCloudSyncToolsPrerequisites.md)
 Checks for the presence of PowerShellGet v2.2.4.1 or later and Azure AD and MSAL.PS modules and installs these if missing.
