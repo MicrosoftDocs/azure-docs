@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Programmatically create Azure subscriptions with preview APIs
