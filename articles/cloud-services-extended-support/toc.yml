@@ -4,11 +4,11 @@
   href: overview.md
 - name: Quickstart
   items: 
-  - name: Deploy a cloud service - Portal
+  - name: Deploy a Cloud Service - Portal
     href: deploy-portal.md
-  - name: Deploy a cloud service - PowerShell
+  - name: Deploy a Cloud Service - PowerShell
     href: deploy-powershell.md
-  - name: Deploy a cloud service - Visual Studio
+  - name: Deploy a Cloud Service - Visual Studio
     href: deploy-visual-studio.md
 - name: Concepts
   items: 
@@ -16,16 +16,28 @@
     href: available-sizes.md
   - name: Frequently Asked Questions
     href: faq.md
+  - name: Manage Cloud Service deployments
+    href: manage-powershell.md
 - name: How To
   items:
   - name: Enable Remote Desktop
     href: enable-rdp.md
-  - name: Swap Cloud Service Deployments
+  - name: Swap Cloud Service deployments
     href: cloud-services-swap.md
   - name: Update a Cloud Service
     href: update-powershell.md
   - name: Store and use certificates
     href: certificates-and-key-vault.md
+- name: Samples
+  items: 
+  - name: Create a new Cloud Service
+    href: sample-create-cloud-service.md
+  - name: Get Cloud Service details
+    href: sample-get-cloud-service.md
+  - name: Update a Cloud Service
+    href: sample-update-cloud-service.md
+  - name: Reset a Cloud Service
+    href: sample-reset-cloud-service.md
 - name: Reference
   items:
   - name: Code samples
