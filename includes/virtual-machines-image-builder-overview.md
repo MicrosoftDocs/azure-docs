@@ -1,6 +1,6 @@
 ---
-author: cynthn
-ms.author: cynthn
+author: 
+ms.author: danielsollondon
 ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
@@ -55,12 +55,8 @@ RHEL ISOs support is no longer supported.
 
 ## How it works
 
-
-![Conceptual drawing of Azure Image Builder](./media/virtual-machines-image-builder-overview/image-builder.png)
-
 The Azure Image Builder is a fully managed Azure service that is accessible by an Azure resource provider. The Azure Image Builder process has three main parts: source, customize and distribute, these are represented in a template. The diagram below shows the components, with some of their properties. 
  
-
 
 **Image Builder process** 
 
