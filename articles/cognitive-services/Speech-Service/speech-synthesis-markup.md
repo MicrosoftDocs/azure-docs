@@ -334,7 +334,7 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 | `Value` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000ms. Examples of valid values are `2s` and `500ms` | Required |
 
 **Example**
-
+In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">  
 <voice name="en-US-AriaNeural"> 
