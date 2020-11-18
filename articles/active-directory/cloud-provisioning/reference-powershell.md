@@ -39,7 +39,16 @@ To install and use the AADCloudSyncTools module use the following steps:
 	Get-module AADCloudSyncTools
 	```
 5.  You should now see information about the module.
-
+6.  Next run
+	``` powershell
+	Install-AADCloudSyncToolsPrerequisites
+	```
+7.  This will install the PowerShell Get modules.  Close the PowerShell Window.
+8.  Open Windows PowerShell with administrative priviledges
+9.  Import the module again using step 3.
+10. Run `Install-AADCloudSyncToolsPrerequisites` to install the MSAL and AzureAD modules
+11. All pre-reqs should be successfully installed
+ ![Install module](media/reference-powershell/install-1.png)
 
 ## AADCloudSyncTools  Cmdlets
 ### Connect-AADCloudSyncTools
@@ -48,7 +57,7 @@ Uses AzureAD module to connect to Azure AD and the MSAL.PS module to request a t
 
 ### Export-AADCloudSyncToolsLogs
 Exports and packages all the troubleshooting data in a compressed file, as follows:
- 1. Starts a verbose tracing with Start-AADCloudSyncToolsVerboseLogs
+ 1. Starts a verbose tracing with Start-AADCloudSyncToolsVerboseLogs.  You can find these trace logs in the folder C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace.
  2. Collects a trace log for 3 minutes.
    You can specify a different time with -TracingDurationMins or skip verbose tracing with -SkipVerboseTrace
  3. Stops verbose tracing with Stop-AADCloudSyncToolsVerboseLogs
@@ -102,7 +111,7 @@ Continues synchronization from the previous watermark.
 
 ### Start-AADCloudSyncToolsVerboseLogs
 Modifies the 'AADConnectProvisioningAgent.exe.config' to enable verbose tracing and restarts the AADConnectProvisioningAgent service
-You can use -SkipServiceRestart to prevent service restart but any config changes will not take effect.
+You can use -SkipServiceRestart to prevent service restart but any config changes will not take effect.  You can find these trace logs in the folder C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace.
 
 ### Stop-AADCloudSyncToolsVerboseLogs
 Modifies the 'AADConnectProvisioningAgent.exe.config' to disable verbose tracing and restarts the AADConnectProvisioningAgent service. 
