@@ -981,7 +981,7 @@ Use Azure Key Vault to pass secrets to remote runs securely instead of cleartext
 
 - [How to use managed identities for Azure resources](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [How to create a Key Vault](../key-vault/general/quick-create-portal.md)
 
 - [How to authenticate to Key Vault](../key-vault/general/authentication.md)
 

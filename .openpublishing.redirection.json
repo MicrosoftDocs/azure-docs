@@ -4337,6 +4337,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/search-get-started-postman.md",
+      "redirect_url": "/azure/search/search-get-started-rest",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-create-index-portal.md",
       "redirect_url": "/azure/search/search-what-is-an-index",
       "redirect_document_id": true
@@ -6165,7 +6170,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/programmatically-create-subscription.md",
-      "redirect_url": "/azure/azure-resource-manager/management/programmatically-create-subscription",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
       "redirect_document_id": false
     },
     {
@@ -33269,7 +33274,12 @@
     },
     {
       "source_path": "articles/app-service/app-service-security-attributes.md",
-      "redirect_url": "/azure/app-service/app-service-security-controls",
+      "redirect_url": "/azure/app-service/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-security-controls.md",
+      "redirect_url": "/azure/app-service/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -57878,8 +57888,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-resource-manager/management/programmatically-create-subscription.md",
-      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription",
+      "source_path": "articles/cost-management-billing/manage/programmatically-create-subscription.md",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
       "redirect_document_id": true
     },
     {
@@ -59327,11 +59337,16 @@
       "source_path": "articles/azure-monitor/app/docker.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-monitor/app/kubernetes.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
-    }  
+    },
+    {
+      "source_path": "articles/azure-monitor/app/powershell-alerts.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    }
   ]
 }
