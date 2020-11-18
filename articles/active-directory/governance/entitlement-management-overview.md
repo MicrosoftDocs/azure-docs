@@ -142,9 +142,16 @@ Specialized clouds, such as Azure Germany, and Azure China 21Vianet, are not cur
 Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have:
 
 - Member users who **can** request an access package.
-- Member and guest users who request an access package.
-- Member and guest users who approve requests for an access package.
-- Member and guest users who have a direct assignment to an access package.
+- Member and guest users who <u>request</u> an access package.
+- Member and guest users who <u>approve</u> requests for an access package.
+- Member users who <u>review assignments</u> for an access package. 
+- Member and guest users who have a <u>direct assignment</u> to an access package.
+
+For guest users, licensing needs will depend on the [licensing model](../external-identities/external-identities-pricing.md) you’re using. However, the below guest users’ activities are considered Azure AD Premium P2 usage:
+- Guest users who <u>request</u> an access package. 
+- Guest users who <u>approve requests</u> for an access package.
+- Guest users who <u>review assignments</u> for an access package.
+- Guest users who have a <u>direct assignment</u> to an access package. 
 
 Azure AD Premium P2 licenses are **not** required for the following tasks:
 
