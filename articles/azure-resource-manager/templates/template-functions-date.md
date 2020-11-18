@@ -2,7 +2,7 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template to work with dates.
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 11/18/2020
 ---
 # Date functions for ARM templates
 

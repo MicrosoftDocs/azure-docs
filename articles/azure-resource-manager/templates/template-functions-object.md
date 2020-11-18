@@ -2,7 +2,7 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template for working with objects.
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 11/18/2020
 ---
 # Object functions for ARM templates
 

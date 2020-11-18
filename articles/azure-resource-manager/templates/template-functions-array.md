@@ -2,7 +2,7 @@
 title: Template functions - arrays
 description: Describes the functions to use in an Azure Resource Manager template for working with arrays.
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 11/18/2020
 ---
 # Array functions for ARM templates
 
@@ -227,7 +227,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = concat(prefix, uniqueString(resourceGroup().id))
+output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
 ```
 
 ---
@@ -419,7 +419,8 @@ The following example shows how to use createArray with different types:
 
 # [Bicep](#tab/bicep)
 
-createArray() is not supported by Bicep.  Construct an array literal by using [].
+> [!NOTE]
+> createArray() is not supported by Bicep.  Construct an array literal by using [].
 
 ---
 
@@ -866,12 +867,21 @@ The output from the preceding example with the default values is:
 
 You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
 
+# [JSON](#tab/json)
+
 ```json
 "copy": {
   "name": "websitescopy",
   "count": "[length(parameters('siteNames'))]"
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+> [!NOTE]
+> Loops are not implemented yet.  See [Loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
+
+---
 
 For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 
@@ -1240,7 +1250,7 @@ param testArray array = [
 ]
 param elementsToTake int = 2
 param testString string = 'one two three'
-param charactersToTake int = 4
+param charactersToTake int = 2
 
 output arrayOutput array = take(testArray, elementsToTake)
 output stringOutput string = take(testString, charactersToTake)
@@ -1334,9 +1344,9 @@ param firstObject object = {
 }
 
 param secondObject object = {
-  'one': 'c2'
-  'two': 'd'
-  'three': 'e'
+  'three': 'c2'
+  'four': 'd'
+  'five': 'e'
 }
 
 param firstArray array = [

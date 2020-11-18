@@ -2,7 +2,7 @@
 title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template to retrieve deployment information.
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 11/18/2020
 ---
 # Deployment functions for ARM templates
 

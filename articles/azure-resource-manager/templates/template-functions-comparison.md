@@ -2,7 +2,7 @@
 title: Template functions - comparison
 description: Describes the functions to use in an Azure Resource Manager template to compare values.
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 11/18/2020
 ---
 # Comparison functions for ARM templates
 
@@ -123,7 +123,7 @@ The output from the preceding example with the default values is:
 
 `equals(arg1, arg2)`
 
-Checks whether two values equal each other. The equals function is not supported in Bicep. Use the == operator instead.
+Checks whether two values equal each other. The `equals` function is not supported in Bicep. Use the `==` operator instead.
 
 ### Parameters
 
@@ -160,7 +160,7 @@ The equals function is often used with the `condition` element to test whether a
 # [Bicep](#tab/bicep)
 
 > [!NOTE]
-> Conditions are not yet implemented in Bicep. See [Conditions](https://github.com/Azure/bicep/issues/186).
+> `Conditions` are not yet implemented in Bicep. See [Conditions](https://github.com/Azure/bicep/issues/186).
 
 ---
 
@@ -307,7 +307,7 @@ The output from the preceding example is:
 
 `greater(arg1, arg2)`
 
-Checks whether the first value is greater than the second value. The greater function is not supported in Bicep. Use the > operator instead.
+Checks whether the first value is greater than the second value. The `greater` function is not supported in Bicep. Use the `>` operator instead.
 
 ### Parameters
 
@@ -388,7 +388,7 @@ The output from the preceding example with the default values is:
 
 `greaterOrEquals(arg1, arg2)`
 
-Checks whether the first value is greater than or equal to the second value. The greaterOrEquals function is not supported in Bicep. Use the >= operator instead.
+Checks whether the first value is greater than or equal to the second value. The `greaterOrEquals` function is not supported in Bicep. Use the `>=` operator instead.
 
 ### Parameters
 
@@ -469,7 +469,7 @@ The output from the preceding example with the default values is:
 
 `less(arg1, arg2)`
 
-Checks whether the first value is less than the second value. The less function is not supported in Bicep. Use the < operator instead.
+Checks whether the first value is less than the second value. The `less` function is not supported in Bicep. Use the `<` operator instead.
 
 ### Parameters
 
@@ -550,7 +550,7 @@ The output from the preceding example with the default values is:
 
 `lessOrEquals(arg1, arg2)`
 
-Checks whether the first value is less than or equal to the second value. The lessOrEquals function is not supported in Bicep. Use the <= operator instead.
+Checks whether the first value is less than or equal to the second value. The `lessOrEquals` function is not supported in Bicep. Use the `<=` operator instead.
 
 ### Parameters
 

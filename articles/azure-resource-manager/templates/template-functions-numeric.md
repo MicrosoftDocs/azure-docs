@@ -2,7 +2,7 @@
 title: Template functions - numeric
 description: Describes the functions to use in an Azure Resource Manager template to work with numbers.
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 11/18/2020
 ---
 # Numeric functions for ARM templates
 
@@ -157,12 +157,8 @@ The following example shows a copy loop and the index value included in the name
 
 # [Bicep](#tab/bicep)
 
-```bicep
-
 > [!NOTE]
 > Loops are not implemented yet.  See [Loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
-
-```
 
 ---
 
@@ -279,11 +275,8 @@ The following example shows how to use float to pass parameters to a Logic App:
 
 # [Bicep](#tab/bicep)
 
-```bicep
-
 > [!NOTE]
 > JGAO: float() is not supported in Bicep.
-```
 
 ---
 

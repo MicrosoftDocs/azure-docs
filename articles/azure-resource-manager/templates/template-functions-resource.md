@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 11/18/2020
 ---
 # Resource functions for ARM templates
 
