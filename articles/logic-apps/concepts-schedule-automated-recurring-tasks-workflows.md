@@ -154,7 +154,7 @@ Here are various example recurrences that you can set up for the triggers that s
 
 ## Transition between daylight savings time and standard time
 
-Built-in recurrence-based triggers always honor the schedule that you set, including any time zone that you select. If you don't select a time zone, the recurrence schedule shifts by one hour during the transition between daylight savings time (DST) and standard time. To prevent this shift, select a time zone so that your logic app runs at the exact local time that you expect.
+Built-in recurrence-based triggers always honor the schedule that you set, including any time zone that you select. If you don't select a time zone, the recurrence schedule rolls one hour forward for daylight savings time and one hour back for standard time. To prevent this shift, select a time zone so that your logic app runs at the exact local time that you expect.
 
 For example, suppose that you have two logic apps that both run daily in the Central US & Canada (UTC-06:00) time, but one has a 1:30 AM local start time and the other has a 2:30 AM local start times. What happens when the time rolls back one hour or rolls forward one hour?
 

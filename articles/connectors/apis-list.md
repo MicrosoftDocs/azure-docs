@@ -400,15 +400,13 @@ The behavior for recurrence-based built-in triggers that run natively in Azure L
 
 ### Recurrence for built-in triggers
 
-Recurrence-based built-in triggers always honor the schedule that you set, including any time zones that you select. However, if you don't select a time zone, the recurrence schedule shifts by one hour during the transition between daylight savings time (DST) and standard time.
-
-To prevent this shift, select a time zone so that your logic app runs at the exact local time that you expect. For more information and examples, see [Transition between daylight savings time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-savings-standard-time).
+Recurrence-based built-in triggers always honor the schedule that you set, including any time zones that you select. If you don't select a time zone, the recurrence schedule rolls one hour forward for daylight savings time and one hour back for standard time. To prevent this shift, select a time zone so that your logic app runs at the exact local time that you expect. For more information and examples, see [Transition between daylight savings time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-savings-standard-time).
 
 <a name="recurrence-connection-based"></a>
 
 ### Recurrence for connection-based triggers
 
-In recurrence-based connection triggers, such as SQL Server or SFTP-SSH, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors, which might result in unexpected behavior such as not adjusting for events such as daylight savings time or reverting to standard time:
+In recurrence-based connection triggers, such as SQL Server or SFTP-SSH, the schedule isn't the only driver that controls execution. These triggers use the time zone only to determine the initial start time. Subsequent runs depend on the recurrence schedule *plus* these other factors that might produce unexpected behavior, for example, not adjusting for events such as rolling one hour forward for daylight savings time and rolling one hour back for standard time:
 
 * Any failures or retries that a connection-based trigger incurs.
 
