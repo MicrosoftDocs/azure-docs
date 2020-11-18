@@ -58,7 +58,7 @@ On the **Create Event Subscription** page, Enter a **name** for the event subscr
 
 You can subscribe to specific events to tell Event Grid which of the SMS events you want to track, and where to send the events. Select the events you'd like to subscribe to from the dropdown menu. For SMS you'll have the option to choose `SMS Received` and `SMS Delivery Report Received`. 
 
-If you're prompted to provide a **System Topic Name**, feel free to provide a unique identifier that you can optionally use to filter events after they've been emitted.
+If you're prompted to provide a **System Topic Name**, feel free to provide a unique string. This field has no impact on your experience and is used for internal telemetry purposes.
 
 Check out the full list of [events supported by Azure Communication Services](../../concepts/event-handling.md).
 
