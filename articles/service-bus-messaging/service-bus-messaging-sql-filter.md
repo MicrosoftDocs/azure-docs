@@ -101,7 +101,7 @@ A `<regular_identifier>` can't be a reserved keyword.
   
 ### Remarks
   
-`<pattern>` must be an expression that is evaluated as a string. it's used as a pattern for the LIKE operator.      It can contain the following wildcard characters:  
+`<pattern>` must be an expression that is evaluated as a string. It's used as a pattern for the LIKE operator.      It can contain the following wildcard characters:  
   
 -   `%`:  Any string of zero or more characters.  
   
@@ -116,7 +116,7 @@ A `<regular_identifier>` can't be a reserved keyword.
   
 ### Remarks  
 
-`<escape_char>` must be an expression that is evaluated as a string of length 1. it's used as an escape character for the LIKE operator.  
+`<escape_char>` must be an expression that is evaluated as a string of length 1. It's used as an escape character for the LIKE operator.  
   
  For example, `property LIKE 'ABC\%' ESCAPE '\'` matches `ABC%` rather than a string that starts with `ABC`.  
   
