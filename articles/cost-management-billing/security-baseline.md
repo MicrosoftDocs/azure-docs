@@ -4,7 +4,7 @@ description: The Cost Management security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 01/01/2000
+ms.date: 11/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -18,138 +18,11 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 To see how Cost Management completely maps to the Azure Security Benchmark, see the [full Cost Management security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
->[!WARNING]
->This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
-
-## Network Security
-
-*For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
-
-### NS-1: Implement security for internal traffic
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40654.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Azure Cost Management is a core Azure service. All of the
-underlying infrastructure for the Azure Cost Management service is fully
-managed by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-2: Connect private networks together
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40655.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Azure Cost Management
-is not designed to deploy into or be secured to a private network, this control
-is intended to describe network connectivity and does not apply.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-3: Establish private network access to Azure services
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40656.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Azure Cost Management is
-not designed to deploy into or be secured to a virtual network for access.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-4: Protect applications and services from external network attacks
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40657.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Azure Cost Management does
-not expose any endpoints to external networks which need to be secured by
-conventional network protections.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40658.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Azure Cost Management
-does not support deploying into a virtual network and cannot be configured with
-an IDS or IPS solution for detecting or preventing threats on the network.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-6: Simplify network security rules
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40659.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Azure Cost Management
-does not currently support service tags or representing its public IP range as
-a grouping of service IPs for reference in network security rules.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### NS-7: Secure Domain Name Service (DNS)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40660.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; This control is intended for offerings that expose DNS
-configurations.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Identity Management
 
 *For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
 
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40640.).
 
 **Guidance**: Azure Cost Management is integrated with Azure Active Directory (Azure AD) that is Azure's default identity and access management service. You should standardize on Azure AD to govern your organization’s identity and access management in:
 
@@ -175,24 +48,7 @@ Note: Azure AD supports external identity providers, which allow users without a
 
 **Responsibility**: Customer
 
-### IM-2: Manage application identities securely and automatically
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40641.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Cost Management doesn't use any identities or manage any secrets for identities.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40642.).
 
 **Guidance**: Azure Cost Management uses Azure Active Directory to provide identity and access management to
 Azure resources, cloud applications, and on-premises applications. This
@@ -210,9 +66,6 @@ and control.
 **Responsibility**: Customer
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40643.).
 
 **Guidance**: Azure Cost Management is integrated with Azure AD that supports strong authentication controls through multi-factor authentication (MFA), and strong passwordless methods.
 
@@ -235,9 +88,6 @@ For administrator and privileged users, ensure the highest level of the strong a
 **Responsibility**: Customer
 
 ### IM-5: Monitor and alert on account anomalies
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40644.).
 
 **Guidance**: Azure Cost Management is integrated with Azure Active Directory in which provides the following data sources:
 
@@ -271,56 +121,11 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 **Responsibility**: Customer
 
-### IM-6: Restrict Azure resource access based on conditions
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40645.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Cost Management doesn't support capability of conditional access.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### IM-7: Eliminate unintended credential exposure
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40646.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Cost Management doesn't allow customer to deploy any persisted data into the running environment.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### IM-8: Secure user access to legacy applications
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40682.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Cost Management doesn't access any legacy applications.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Privileged Access
 
 *For more information, see the [Azure Security Benchmark: Privileged Access](/azure/security/benchmarks/security-controls-v2-privileged-access).*
 
 ### PA-1: Protect and limit highly privileged users
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40647.).
 
 **Guidance**: Cost Management for Enterprise Agreements (EA) has below highly privileged account.
 
@@ -344,24 +149,7 @@ You can enable just-in-time (JIT) privileged access to Azure resources and Azure
 
 **Responsibility**: Customer
 
-### PA-2: Restrict administrative access to business-critical systems
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40648.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Azure Cost Management doesn't store or process any data that are considered as business critical by customers.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### PA-3: Review and reconcile user access regularly
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40649.).
 
 **Guidance**: Azure Cost Management relies on the appropriate access to view and manage organizational cost data. Access is controlled with Azure role-based access control (Azure RBAC) at the subscription level and through administrative roles with Enterprise Agreements (EA) or Microsoft Customer Agreement (MCA) for billing scopes. Audit and review the access granted on a regular basis to make sure that the users or groups have the requisite access required.
 
@@ -377,52 +165,7 @@ You can enable just-in-time (JIT) privileged access to Azure resources and Azure
 
 **Responsibility**: Customer
 
-### PA-4: Set up emergency access in Azure AD
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40650.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management doesn't support Azure AD emergency accounts or doesn't need Azure AD emergency accounts.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### PA-5: Automate entitlement management 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40651.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management doesn't support any automation on account or role management.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### PA-6: Use privileged access workstations
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40652.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management doesn't support management from a customer workstation.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### PA-7: Follow just enough administration (least privilege principle) 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40653.).
 
 **Guidance**: Azure Cost Management integrates with Azure role-based access control (RBAC) to manage resources (e.g. budgets, saved reports, etc.). Azure RBAC allows you to manage Azure resource access through role assignments. You can assign these roles to users, groups  and service principals. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. The privileges you assign to resources through the Azure RBAC should be always limited to what is required by the roles. This complements the just in time (JIT) approach of Azure AD Privileged Identity Management (PIM) and should be reviewed periodically.
 
@@ -444,28 +187,11 @@ What is Azure role-based access control (Azure RBAC) ../role-based-access-contro
 
 **Responsibility**: Customer
 
-### PA-8: Choose approval process for Microsoft support  
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40709.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management doesn't support customer lockbox.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Data Protection
 
 *For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
 
 ### DP-1: Discovery, classify and label sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40661.).
 
 **Guidance**: It is recommended to discover, classify, and label your sensitive data so that you can design the appropriate controls to ensure sensitive information is stored, processed, and transmitted securely by the organization's technology systems.
 
@@ -482,9 +208,6 @@ You can use Azure SQL Information Protection to assist in the classification and
 **Responsibility**: Customer
 
 ### DP-2: Protect sensitive data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40662.).
 
 **Guidance**: It is recommended to protect sensitive data by restricting access using Azure Role Based Access Control (Azure RBAC), network-based access controls, and specific controls in Azure services (such as encryption in SQL and other databases).
 
@@ -504,9 +227,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 ### DP-3: Monitor for unauthorized transfer of sensitive data
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40663.).
-
 **Guidance**: Monitor for unauthorized transfer of data to locations outside of enterprise visibility and control. This typically involves monitoring for anomalous activities (large or unusual transfers) that could indicate unauthorized data exfiltration.
 
 Azure Storage Advanced Threat Protection (ATP) and Azure SQL ATP can alert on anomalous transfer of information that might indicate unauthorized transfers of sensitive information.
@@ -523,47 +243,7 @@ If required for compliance of data loss prevention (DLP), you can use a host-bas
 
 **Responsibility**: Customer
 
-### DP-4: Encrypt sensitive information in transit
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40664.).
-
->[!NOTE]
->Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
-
-**Guidance**: To complement
-access controls, data in transit should be protected against ‘out of band’
-attacks (e.g. traffic capture) using encryption to ensure that attackers cannot
-easily read or modify the data.
-
-Azure
-Cost Management supports
-data encryption in transit with TLS v1.2 or greater.
-
-While this is optional for traffic on private networks,
-this is critical for traffic on external and public networks. For HTTP traffic,
-ensure that any clients connecting to your Azure resources can negotiate TLS
-v1.2 or greater. For remote management, use SSH (for Linux) or RDP/TLS (for
-Windows) instead of an unencrypted protocol. Obsoleted SSL, TLS, and SSH
-versions and protocols, and weak ciphers should be disabled.
-
-By default, Azure provides encryption for data in
-transit between Azure data centers.
-
-- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
-
-- [Information on TLS Security](/security/engineering/solving-tls1-problem) 
-
-- [Double encryption for Azure data in transit](../security/fundamentals/double-encryption.md#data-in-transit)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Microsoft
-
 ### DP-5: Encrypt sensitive data at rest
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40665.).
 
 **Guidance**: To complement access controls, Azure Cost Management’s Exports feature supports Azure Storage encryption of the data at rest to protect against ‘out of band’ attacks (such as accessing underlying storage) using Microsoft-managed keys encryption. This default settings helps ensure that attackers cannot easily read or modify the data.
 
@@ -583,9 +263,6 @@ For more information see:
 
 ### AM-1: Ensure security team has visibility into risks for assets
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40683.).
-
 **Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
 
 Depending on how security team responsibilities are structured, monitoring for security risks could  be the responsibility of a central security team or a local team. That said, security insights and risks must always be aggregated centrally within an organization. 
@@ -602,40 +279,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 **Responsibility**: Customer
 
-### AM-2: Ensure security team has access to asset inventory and metadata
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40684.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management does not allow for automated asset discovery for access by security teams. Thus it cannot be used with any asset inventory and metadata processes.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### AM-3: Use only approved Azure services
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40685.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Cost Management does
-not restrict or limit the deployment to only approved Azure services.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### AM-4: Ensure security of asset lifecycle management
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40686.).
 
 **Guidance**: Establish or update security policies that address asset lifecycle management processes for potentially high impact modifications. These modifications include changes to: identity providers and access, data sensitivity, network configuration, and administrative privilege assignment.
 
@@ -647,56 +291,11 @@ Remove Azure resources when they are no longer needed.
 
 **Responsibility**: Customer
 
-### AM-5: Limit users' ability to interact with Azure Resource Manager
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40687.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management does not provide capabilities to customers to limit their users' ability to access Azure Resource Manager. The customer should restrict this access with other means or methods.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### AM-6: Use only approved applications in compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40688.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management does not deploy any customer facing compute resources or does not allow customers to install applications on the service.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Logging and Threat Detection
 
 *For more information, see the [Azure Security Benchmark: Logging and Threat Detection](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
 
-### LT-1: Enable threat detection for Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40666.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management does not currently produce customer facing resource logs that can be used for threat detection.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### LT-2: Enable threat detection for Azure identity and access management
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40667.).
 
 **Guidance**: Azure AD provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
 
@@ -724,84 +323,11 @@ It is also recommended to routinely review the users assigned to roles within yo
 
 **Responsibility**: Customer
 
-### LT-3: Enable logging for Azure network activities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40668.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management either does not: support integrating with networks, or does not expose its network-related activities.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### LT-4: Enable logging for Azure resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40669.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management does not produce or expose any logs related to its resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### LT-5: Centralize security log management and analysis
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40670.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management does not produce or process any security related logs which would need to be collected centrally for management or analysis.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### LT-6: Configure log storage retention
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40671.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Cost Management does not currently produce any security-related logs, and the customer is unable to set any log retention.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### LT-7: Use approved time synchronization sources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40672.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Cost Management does not support configuring your own time synchronization sources. Cost Management service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Incident Response
 
 *For more information, see the [Azure Security Benchmark: Incident Response](/azure/security/benchmarks/security-controls-v2-incident-response).*
 
 ### IR-1: Preparation – update incident response process for Azure
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40673.).
 
 **Guidance**: Ensure your organization has processes to respond to security incidents, has updated these processes for Azure, and is regularly exercising them to ensure readiness.
 
@@ -815,9 +341,6 @@ It is also recommended to routinely review the users assigned to roles within yo
 
 ### IR-2: Preparation – setup incident notification
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40674.).
-
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
 - [How to set the Azure Security Center security contact](../security-center/security-center-provide-security-contact-details.md)
@@ -827,9 +350,6 @@ It is also recommended to routinely review the users assigned to roles within yo
 **Responsibility**: Customer
 
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40675.).
 
 **Guidance**: Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
 
@@ -848,9 +368,6 @@ Export your Azure Security Center alerts and recommendations using the export fe
 **Responsibility**: Customer
 
 ### IR-4: Detection and analysis – investigate an incident
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40676.).
 
 **Guidance**: Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
 
@@ -882,9 +399,6 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 ### IR-5: Detection and analysis – prioritize incidents
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40677.).
-
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
 Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
@@ -900,9 +414,6 @@ Additionally, mark resources using tags and create a naming system to identify a
 **Responsibility**: Customer
 
 ### IR-6: Containment, eradication and recovery – automate the incident handling
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40678.).
 
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
 Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
@@ -921,102 +432,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 *For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
 
-### PV-1: Establish secure configurations for Azure services 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40693.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Cost Management
-doesn't have any security configurations.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### PV-2: Sustain secure configurations for Azure services
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40694.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Cost Management
-doesn't have any security configurations.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### PV-3: Establish secure configurations for compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40695.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Cost Management
-doesn't have any secure configurations for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### PV-4: Sustain secure configurations for compute resources
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40696.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### PV-5: Securely store custom operating system and container images
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40697.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### PV-6: Perform software vulnerability assessments
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40698.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not
-applicable; Cost Management
-doesn't support any vulnerability assessments
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40699.).
 
 **Guidance**: Rapidly deploy software updates to remediate software vulnerabilities in operating systems and applications.
 
@@ -1027,9 +443,6 @@ Prioritize use a common risk scoring program (for example, Common Vulnerability 
 **Responsibility**: Customer
 
 ### PV-8: Conduct regular attack simulation
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40700.).
 
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
@@ -1044,120 +457,11 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 **Responsibility**: Shared
 
-## Endpoint Security
-
-*For more information, see the [Azure Security Benchmark: Endpoint Security](/azure/security/benchmarks/security-controls-v2-endpoint-security).*
-
-### ES-1: Use Endpoint Detection and Response (EDR)
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40679.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### ES-2: Use centrally managed modern anti-malware software
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40680.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management does not interact with compute hosts, containers and/or storage which require anti-malware protection.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### ES-3: Ensure anti-malware software and signatures are updated
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40681.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management does not interact with compute hosts, containers and/or storage which require anti-malware protection.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-## Backup and Recovery
-
-*For more information, see the [Azure Security Benchmark: Backup and Recovery](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
-
-### BR-1: Ensure regular automated backups
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40689.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management doesn't support any data backup or have no needs for data backup.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### BR-2: Encrypt backup data
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40690.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management doesn't support any data backup encryption.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### BR-3: Validate all backups including customer-managed keys
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40691.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management doesn't support any data backup.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### BR-4: Mitigate risk of lost keys
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40692.).
-
->[!NOTE]
->Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
-
-**Guidance**: Not applicable; Cost Management doesn't manage any keys.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Governance and Strategy
 
 *For more information, see the [Azure Security Benchmark: Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
 
 ### GS-1: Define asset management and data protection strategy 
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40701.).
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
 
@@ -1196,9 +500,6 @@ For more information, see the following references:
 
 ### GS-2: Define enterprise segmentation strategy 
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40708.).
-
 **Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
 
 Carefully balance the need for security separation with the need to enable daily operation of the systems that need to communicate with each other and access data.
@@ -1217,9 +518,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ### GS-3: Define security posture management strategy
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40702.).
-
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
 - [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
@@ -1229,9 +527,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 **Responsibility**: Customer
 
 ### GS-4: Align organization roles, responsibilities, and accountabilities
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40703.).
 
 **Guidance**: Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
@@ -1246,9 +541,6 @@ Ensure that the segmentation strategy is implemented consistently across control
 **Responsibility**: Customer
 
 ### GS-5: Define network security strategy
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40704.).
 
 **Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
 
@@ -1281,9 +573,6 @@ For more information, see the following references:
 
 ### GS-6: Define identity and privileged access strategy
 
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40705.).
-
 **Guidance**: Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
@@ -1313,9 +602,6 @@ For more information, see the following references:
 **Responsibility**: Customer
 
 ### GS-7: Define logging and threat response strategy
-
->[!TIP]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40706.).
 
 **Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 

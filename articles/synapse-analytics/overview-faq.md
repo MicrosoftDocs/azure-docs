@@ -2,12 +2,12 @@
 title: FAQ - Azure Synapse Analytics (workspaces preview)
 description: FAQ for Azure Synapse Analytics  (workspaces preview)
 services: synapse-analytics
-author: ArnoMicrosoft
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
 ---
 
@@ -96,8 +96,6 @@ A: Yes, you can use your third-party business applications, like Tableau and Pow
 
 ## Next steps
 
-- [Create a workspace](quickstart-create-workspace.md)
-- [Use Synapse Studio](quickstart-synapse-studio.md)
-- [Create a dedicated SQL pool](quickstart-create-sql-pool-portal.md)
-- [Use serverless SQL pool](quickstart-sql-on-demand.md)
-- [Create a serverless Apache Spark pool](quickstart-create-apache-spark-pool-portal.md) 
+* [Get started with Azure Synapse Analytics](get-started.md)
+* [Create a workspace](quickstart-create-workspace.md)
+* [Use serverless SQL pool](quickstart-sql-on-demand.md)

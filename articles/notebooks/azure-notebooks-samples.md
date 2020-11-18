@@ -31,4 +31,4 @@ Once you've identified a notebook you'd like to explore, here are a few details 
 - [How to: Configure and manage projects](configure-manage-azure-notebooks-projects.md)
 - [How to: Work with data files](work-with-project-data-files.md)
 - [How to: Access data resources](access-data-resources-jupyter-notebooks.md)
-- [How to: Use Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [How to: Use Azure Machine Learning](../machine-learning/samples-notebooks.md)

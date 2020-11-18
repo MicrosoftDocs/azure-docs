@@ -224,7 +224,7 @@ This section provides some example alerts for Azure File Sync.
 7. Navigate to **Alert Logic** and complete the following: 
 	 - Threshold set to **Static** 
 	 - Operator: **Greater than** 
-	 - Aggregation type: **Total**  
+	 - Aggregation type: **Average**  
 	 - Threshold value: **100** 
 	 - Evaluated based on: Aggregation granularity = **5 minutes** | Frequency of evaluation = **Every 5 minutes** 
 	 - Click **Done.** 

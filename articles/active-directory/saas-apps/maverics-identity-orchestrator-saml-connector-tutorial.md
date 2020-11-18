@@ -154,7 +154,7 @@ You can set up an Azure key vault by using either the Azure portal or the Azure 
 
 **Use the Azure portal**
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. [Create a new key vault](../../key-vault/secrets/quick-create-portal.md#create-a-vault).
+1. [Create a new key vault](../../key-vault/general/quick-create-portal.md).
 1. [Add the secrets to the key vault](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 1. [Register an application with Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 1. [Authorize an application to use a secret](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).

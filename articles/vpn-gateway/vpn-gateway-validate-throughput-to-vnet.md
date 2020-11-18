@@ -116,7 +116,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 1. After completing the previous steps, execute the same steps with the roles reversed, so that the server node will now be the client node, and vice-versa.
 
 > [!Note]
-> Iperf is not the only tool. [NTTTCP is an alternative solution for testing](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
+> Iperf is not the only tool. [NTTTCP is an alternative solution for testing](../virtual-network/virtual-network-bandwidth-testing.md).
 
 ## Test VMs running Windows
 
@@ -222,7 +222,7 @@ In particular, analysis of packet capture traces (Wireshark/Network Monitor) col
 
 Even if the overall throughput assessed with the previous steps (iPERF/NTTTCP/etc..) was good, you may experience slow file coping when either using Windows Explorer, or dragging and dropping through an RDP session. This problem is normally due to one or both of the following factors:
 
-* File copy applications, such as Windows Explorer and RDP, do not use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.
+* File copy applications, such as Windows Explorer and RDP, do not use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as [Richcopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.
 
    ![Slow file copy issues](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -230,7 +230,7 @@ Even if the overall throughput assessed with the previous steps (iPERF/NTTTCP/et
    > Not all application work same, and not all application/process utilizes all the threads. If you run the test, you could see some threads being empty and won't provide accurate throughput results.
    > To check your application file transfer performance, use multi-thread by increasing the # of thread in succession or decrease in order to find the optimal throughput of the application or file transfer.
 
-* Insufficient VM disk read/write speed. For more information, see [Azure Storage Troubleshooting](../storage/common/storage-e2e-troubleshooting.md).
+* Insufficient VM disk read/write speed. For more information, see [Azure Storage Troubleshooting](/previous-versions/azure/storage/common/storage-e2e-troubleshooting).
 
 ## On-premises device external facing interface
 
