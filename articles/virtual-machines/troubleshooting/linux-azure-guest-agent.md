@@ -14,7 +14,7 @@ ms.author: axelg
 ---
 # Troubleshooting Azure Linux Guest Agent
 
-[Azure Linux Guest Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) is a virtual machine (VM) agent. It enables the VM to communicate with the Fabric Controller (the underlying physical server on which VM is hosted) on IP address 168.63.129.16. This is a virtual public IP address that facilitates the communication. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+[Azure Linux Guest Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) is a virtual machine (VM) agent. It enables the VM to communicate with the Fabric Controller (the underlying physical server on which VM is hosted) on IP address 168.63.129.16. This IP address is a virtual public IP address that facilitates the communication. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Checking agent status and version
 
@@ -24,7 +24,7 @@ See https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-me
 
 ### Step 1 Check whether the Azure Linux Guest Agent service is running
 
-Depending on distro the service name can be walinuxagent or waagent:
+Depending on distro, the service name can be walinuxagent or waagent:
 
 ```
 root@nam-u18:/home/nam# service walinuxagent status
@@ -51,7 +51,7 @@ root@nam-u18:/home/nam#
 ```
 
 
-If you can see the services and they are running, restart the service that see if the problem is resolved. If the services are stopped, start them and wait few minutes. Then check whether the **Agent status** is reporting as **Ready**. To further troubleshooting of these issues, contact [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+If you can see the services and they are running, restart the service to see if the problem is resolved. If the services are stopped, start them and wait few minutes. Then check whether the **Agent status** is reporting as **Ready**. To further troubleshooting of these issues, contact [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Step 2 Check whether auto-update is enabled
 
@@ -70,7 +70,7 @@ Use a tool such as curl to test whether the VM can connect to 168.63.129.16 on p
 
 ## Advanced troubleshooting
 
-Events for troubleshooting Azure Linux Guest Agent is recorded in the following log files:
+Events for troubleshooting Azure Linux Guest Agent are recorded in the following log files:
 
 - /var/log/waagent.log
 
@@ -86,11 +86,11 @@ You notice the following error entries in /var/log/waagent.log:
 
 **Analysis**
 
-The VM cannot reach the wireserver host server.
+The VM cannot reach the WireServer IP on the host server.
 
 **Solution**
 
-1. Because wireserver is not reachable, connect to the VM by using SSH, and then try to access the following URL from curl: http://168.63.129.16/?comp=versions 
+1. Because the WireServer IP is not reachable, connect to the VM by using SSH, and then try to access the following URL from curl: http://168.63.129.16/?comp=versions 
 1. Check for any issues that might be caused by a firewall, a proxy, or other source that could be blocking access to the IP address 168.63.129.16.
 1. Check whether Linux IPTables or a third-party firewall is blocking access to ports 80, 443, and 32526. For more information about why this address should not be blocked,  see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
