@@ -27,13 +27,13 @@ The code for this tutorial is available for download in the [AzureSignalR-sample
 * Install the [.NET Core SDK](https://www.microsoft.com/net/download/windows).
 * Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository. 
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnetcore).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
 
 ## Create an Azure SignalR resource
 
 [!INCLUDE [azure-signalr-create](../../includes/signalr-create.md)]
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnetcore).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
 
 ## Create an ASP.NET Core web app
 
@@ -47,7 +47,7 @@ In this section, you use the [.NET Core command-line interface (CLI)](/dotnet/co
     dotnet new mvc
     ```
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnetcore).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
 
 ## Add Secret Manager to the project
 
@@ -71,7 +71,7 @@ In this section, you'll add the [Secret Manager tool](/aspnet/core/security/app-
     </Project>
     ```
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnetcore).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
 
 ## Add Azure SignalR to the web app
 
@@ -342,7 +342,7 @@ In this section, you'll add a development runtime environment for ASP.NET Core. 
     }
     ```
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnetcore).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
 
 ## Build and run the app locally
 
@@ -377,7 +377,7 @@ Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/
 
     ![Example of an Azure SignalR group chat](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnetcore).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
 
 ## Clean up resources
 
@@ -398,7 +398,7 @@ You're asked to confirm the deletion of the resource group. Enter the name of yo
 
 After a few moments, the resource group and all of its resources are deleted.
 
-Having issues? Try the [troubleshooting guide](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-troubleshoot-guide) or [let us know](https://aka.ms/asrs/qsnetcore).
+Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
 
 ## Next steps
 
