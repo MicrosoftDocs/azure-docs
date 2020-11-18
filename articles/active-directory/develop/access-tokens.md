@@ -18,9 +18,9 @@ ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 
 # Microsoft identity platform access tokens
 
-Access tokens enable clients to securely call protected web APIs, and are used by web APIs to perform authentication and authorization. Per the OAuth specification, access tokens are opaque strings without a set format - some identity providers (IDPs) use GUIDs, others use encrypted blobs. The Microsoft identity platform uses a variety of access token formats depending on the configuration of the API that accepts the token. [Custom APIs registered by developers](quickstart-configure-app-expose-web-apis.md) on the Microsoft identity platform can choose from two different formats of JSON Web Tokens (JWTs), called "v1" and "v2", and Microsoft-developed APIs like MS Graph or APIs in Azure have additional proprietary token formats. These proprietary formats might be encrypted tokens, JWTs, or special JWT-like tokens that will not validate. 
+Access tokens enable clients to securely call protected web APIs, and are used by web APIs to perform authentication and authorization. Per the OAuth specification, access tokens are opaque strings without a set format - some identity providers (IDPs) use GUIDs, others use encrypted blobs. The Microsoft identity platform uses a variety of access token formats depending on the configuration of the API that accepts the token. [Custom APIs registered by developers](quickstart-configure-app-expose-web-apis.md) on the Microsoft identity platform can choose from two different formats of JSON Web Tokens (JWTs), called "v1" and "v2", and Microsoft-developed APIs like Microsoft Graph or APIs in Azure have additional proprietary token formats. These proprietary formats might be encrypted tokens, JWTs, or special JWT-like tokens that will not validate.
 
-Clients must treat access tokens as opaque strings because the contents of the token are intended for the resource (the API) only. For validation and debugging purposes *only*, developers can decode JWTs using a site like [jwt.ms](https://jwt.ms). Be aware, however, that the tokens you receive for a Microsoft API might not always be a JWT, and that you can't always decode them. 
+Clients must treat access tokens as opaque strings because the contents of the token are intended for the resource (the API) only. For validation and debugging purposes *only*, developers can decode JWTs using a site like [jwt.ms](https://jwt.ms). Be aware, however, that the tokens you receive for a Microsoft API might not always be a JWT, and that you can't always decode them.
 
 For details on what's inside the access token, clients should use the token response data that's returned with the access token to your client. When your client requests an access token, the Microsoft identity platform also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it's valid. This data allows your app to do intelligent caching of access tokens without having to parse the access token itself.
 
@@ -33,18 +33,17 @@ See the following sections to learn how your API can validate and use the claims
 
 ### v1.0 and v2.0 
 
-There are two versions of access tokens available in the Microsoft identity platform: v1.0 and v2.0.  These versions govern what claims are in the token, ensuring that a web API can control what their tokens look like. Web APIs have one of these selected as a default during registration - v1.0 for Azure AD-only apps, and v2.0 for apps that support consumer accounts.  This is controllable by applications using the `accessTokenAcceptedVersion` setting in the [app manifest](reference-app-manifest.md#manifest-reference), where `null` and `1` result in v1.0 tokens, and `2` results in v2.0 tokens. 
+There are two versions of access tokens available in the Microsoft identity platform: v1.0 and v2.0.  These versions govern what claims are in the token, ensuring that a web API can control what their tokens look like. Web APIs have one of these selected as a default during registration - v1.0 for Azure AD-only apps, and v2.0 for apps that support consumer accounts.  This is controllable by applications using the `accessTokenAcceptedVersion` setting in the [app manifest](reference-app-manifest.md#manifest-reference), where `null` and `1` result in v1.0 tokens, and `2` results in v2.0 tokens.
 
-### What app is a token "for"? 
+### What app is a token "for"?
 
-There are two parties involved in an access token request - the client, who requests the token, and the resource or API, that will accept the token on an API call. The `aud` claim in a token indicates the resource of the token.  Clients use the token, but should not understand it or attmept to parse it.  Resources accept the token.  
+There are two parties involved in an access token request: the client, who requests the token, and the resource (the API) that accepts the token when the API is called. The `aud` claim in a token indicates the resource the token is intended for (its *audience*). Clients use the token but should not understand or attempt to parse it. Resources accept the token.  
 
-The Microsoft Identity platform supports issuing any token version from any version endpoint - they are not related. This is why a resource setting `accessTokenAcceptedVersion` to `2` means that a client calling the v1.0 endpoint to get a token for that API will receive a v2.0 access token.  Resources always own their tokens (those with their `aud` claim) and are the only applications that can change their token details. This is why changing the access token [optional claims](active-directory-optional-claims.md) for your *client* does not change the access token received when a token is requested for `user.read`, which is owned by the MS Graph resource.
-
+The Microsoft identity platform supports issuing any token version from any version endpoint - they are not related. This is why a resource setting `accessTokenAcceptedVersion` to `2` means that a client calling the v1.0 endpoint to get a token for that API will receive a v2.0 access token.  Resources always own their tokens (those with their `aud` claim) and are the only applications that can change their token details. This is why changing the access token [optional claims](active-directory-optional-claims.md) for your *client* does not change the access token received when a token is requested for `user.read`, which is owned by the Microsoft Graph resource.
 
 ### Sample tokens
 
-v1.0 and v2.0 tokens look similar and contain many of the same claims. An example of each is provided here (note that they will not [validate](#validating-tokens), as the keys have rotated since publication and they have been edited for personal information.)
+v1.0 and v2.0 tokens look similar and contain many of the same claims. An example of each is provided here. These example tokens will not [validate](#validating-tokens), however, as the keys have rotated prior to publication and personal information has been removed from them.
 
 #### v1.0
 
@@ -72,10 +71,9 @@ JWTs (JSON Web Tokens) are split into three pieces:
 
 Each piece is separated by a period (`.`) and separately Base64 encoded.
 
-Claims are present only if a value exists to fill it. So, your app shouldn't take a dependency on a claim being present. Examples include `pwd_exp` (not every tenant requires passwords to expire) or `family_name` ([client credential] (v2-oauth2-client-creds-grant-flow.md) flows are on behalf of applications, which don't have names). Claims used for access token validation will always be present.
+Claims are present only if a value exists to fill it. Your app shouldn't take a dependency on a claim being present. Examples include `pwd_exp` (not every tenant requires passwords to expire) and `family_name` ([client credential] (v2-oauth2-client-creds-grant-flow.md) flows are on behalf of applications which don't have names). Claims used for access token validation will always be present.
 
-> [!NOTE]
-> Some claims are used to help Azure AD secure tokens in case of reuse. These are marked as not being for public consumption in the description as "Opaque". These claims may or may not appear in a token, and new ones may be added without notice.
+Some claims are used to help Azure AD secure tokens in case of reuse. These are marked as not being for public consumption in the description as "Opaque". These claims may or may not appear in a token, and new ones may be added without notice.
 
 ### Header claims
 
@@ -91,8 +89,8 @@ Claims are present only if a value exists to fill it. So, your app shouldn't tak
 
 | Claim | Format | Description |
 |-----|--------|-------------|
-| `aud` | String, an App ID URI or GUID | Identifies the intended recipient of the token. In ID tokens, the audience is your app's Application ID, assigned to your app in the Azure portal. Your app should validate this value and reject the token if the value does not match. In v2.0 tokens this is always the client ID of the audience, while in v1.0 apps it can be the client ID or the resource URI used in the request, depending on how the client requested the token.|
-| `iss` | String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token issued is a v2.0 token (see the `ver` claim), the URI will end in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
+| `aud` | String, an App ID URI or GUID | Identifies the intended recipient of the token - its audience.  Your API should validate this value and reject the token if the value doesn't match. In v2.0 tokens, this is always the client ID of the API, while in v1.0 tokens it can be the client ID or the resource URI used in the request, depending on how the client requested the token.|
+| `iss` | String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token issued is a v2.0 token (see the `ver` claim), the URI will end in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app can use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
 |`idp`| String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account not in the same tenant as the issuer - guests, for instance. If the claim isn't present, it means that the value of `iss` can be used instead.  For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | `iat` | int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred. |
 | `nbf` | int, a UNIX timestamp | The "nbf" (not before) claim identifies the time before which the JWT must not be accepted for processing. |
@@ -122,7 +120,7 @@ Claims are present only if a value exists to fill it. So, your app shouldn't tak
 
 **Groups overage claim**
 
-To ensure that the token size doesn't exceed HTTP header size limits, Azure AD limits the number of object IDs that it includes in the groups claim. If a user is member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens), then Azure AD does not emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Microsoft Graph API to retrieve the user's group membership.
+To ensure that the token size doesn't exceed HTTP header size limits, Azure AD limits the number of object IDs that it includes in the groups claim. If a user is member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens, and only 6 if issued via the implicit flow), then Azure AD does not emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Microsoft Graph API to retrieve the user's group membership.
 
 ```JSON
 {
@@ -226,7 +224,7 @@ This metadata document:
 > [!NOTE]
 > We recommend using the `kid` claim to validate your token. Though v1.0 tokens contain both the `x5t` and `kid` claims, v2.0 tokens contain only the `kid` claim.
 
-Doing signature validation is outside the scope of this document - there are many open-source libraries available for helping you do so if necessary.  However, the Microsoft Identity platform has one token signing extension to the standards - custom signing keys.
+Doing signature validation is outside the scope of this document - there are many open-source libraries available for helping you do so if necessary.  However, the Microsoft identity platform has one token signing extension to the standards - custom signing keys.
 
 If your app has custom signing keys as a result of using the [claims-mapping](active-directory-claims-mapping.md) feature, you must append an `appid` query parameter containing the app ID to get a `jwks_uri` pointing to your app's signing key information, which should be used for validation. For example: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contains a `jwks_uri` of `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
