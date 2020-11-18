@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-## Create the virtual network
+## Create a virtual network
 
 In this section, you'll create a virtual network and subnet.
 
