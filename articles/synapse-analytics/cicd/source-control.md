@@ -132,67 +132,35 @@ If you're connecting to GitHub from Synapse studio for the first time, follow th
 
 Once you follow these steps, your workspace will be able to connect to both public and private repositories within your organization. If you are unable to connect, try clearing the browser cache and retrying.
 
-#### Already connected to GitHub using a personal account
-
-If you have already connected to GitHub and only granted permission to access a personal account, follow the below steps to grant permissions to an organization. 
-
-1. Go to GitHub and open **Settings**.
-
-    ![Open GitHub settings](media/author-visually/github-settings.png)
-
-1. Select **Applications**. In the **Authorized OAuth apps** tab, you should see *Azure Synapse*.
-
-    ![Select OAuth apps](media/author-visually/github-organization-select-application.png)
-
-1. Select the application and grant the application access to your organization.
-
-    ![Grant access](media/author-visually/github-organization-grant.png)
-
-Once you follow these steps, your factory will be able to connect to both public and private repositories within your organization. 
-
-### Known GitHub limitations
-
-- You can store script and data files in a GitHub repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in a GitHub repository to Azure Storage.
-
-- GitHub Enterprise with a version older than 2.14.0 doesn't work in the Microsoft Edge browser.
-
-- GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
-
-
-- A maximum of 1,000 entities per resource type (such as pipelines and datasets) can be fetched from a single GitHub branch. If this limit is reached, is suggested to split your resources into separate factories. Azure DevOps Git does not have this limitation.
-
 ## Version control
 
 Version control systems (also known as _source control_) allows developers to collaborate on code and track changes.Source control is an essential tool for multi-developer projects.
 
 ### Creating feature branches
 
-Each Git repository that's associated with a Synapse Studio has a collaboration branch. (`main` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. Once the new branch pane appears, enter the name of your feature branch.
+Each Git repository that's associated with a Synapse Studio has a collaboration branch. (`main`or`master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. Once the new branch pane appears, enter the name of your feature branch.
 
 ![Create a new branch](media/create-new-branch.png)
 
-When you are ready to merge the changes from your feature branch to your collaboration branch, click on the branch dropdown and select **Create pull request**. This action takes you to Git provider where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. (`master` is the default). You are only allowed to publish to the Synapse service from your collaboration branch. 
+When you are ready to merge the changes from your feature branch to your collaboration branch, click on the branch dropdown and select **Create pull request**. This action takes you to Git provider where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. You are only allowed to publish to the Synapse service from your collaboration branch. 
 
 ![Create a new pull request](media/create-pull-request.png)
 
 ### Configure publishing settings
 
-By default, data factory generates the Resource Manager templates of the published factory and saves them into a branch called `adf_publish`. To configure a custom publish branch, add a `publish_config.json` file to the root folder in the collaboration branch. When publishing, ADF reads this file, looks for the field `publishBranch`, and saves all Resource Manager templates to the specified location. If the branch doesn't exist, data factory will automatically create it. And example of what this file looks like is below:
+By default, synapse generates the Resource Manager templates of the published factory and saves them into a branch called `workspace_publish`. To configure a custom publish branch, add a `publish_config.json` file to the root folder in the collaboration branch. When publishing, synapse studio reads this file, looks for the field `publishBranch`, and saves all Resource Manager templates to the specified location. If the branch doesn't exist, data factory will automatically create it. And example of what this file looks like is below:
 
 ```json
 {
-    "publishBranch": "factory/adf_publish"
+    "publishBranch": "workspace_publish"
 }
 ```
 
-Azure Data Factory can only have one publish branch at a time. When you specify a new publish branch, Data Factory doesn't delete the previous publish branch. If you want to remove the previous publish branch, delete it manually.
-
-> [!NOTE]
-> Data Factory only reads the `publish_config.json` file when it loads the factory. If you already have the factory loaded in the portal, refresh the browser to make your changes take effect.
+Azure synapse studio can only have one publish branch at a time. When you specify a new publish branch, the previous publish branch would not been deleted. If you want to remove the previous publish branch, delete it manually.
 
 ### Publish code changes
 
-After merging changes to the collaboration branch (`master` is the default), click **Publish** to manually publish your code changes in the collaboration branch to the synapse service.
+After merging changes to the collaboration branch , click **Publish** to manually publish your code changes in the collaboration branch to the synapse service.
 
 ![Publish changes to the Data Factory service](media/publish-changes.png)
 
