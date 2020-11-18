@@ -5,7 +5,7 @@ author: spelluru
 documentationcenter: python
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/12/2020
+ms.date: 11/18/2020
 ms.author: spelluru
 ms.custom: seo-python-october2019, devx-track-python
 ---
@@ -105,6 +105,7 @@ with servicebus_client:
     with receiver:
         for msg in receiver:
             print("Received: " + str(msg))
+            # complete the message so that the message is removed from the queue
             receiver.complete_message(msg)
 ```
 
