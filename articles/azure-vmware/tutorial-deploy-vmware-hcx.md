@@ -43,6 +43,8 @@ As you prepare your deployment, we recommend that you review the following VMwar
 
 * If you plan to use VMware HCX Enterprise, make sure you've requested activation through the Azure VMware Solution support channels.
 
+* Whether you're using VMware HCX Advanced or VMware HCX EE, you must install the patch from VMware's [KB article 81558](https://kb.vmware.com/s/article/81558).
+
 ### On-premises vSphere environment
 
 Make sure that your on-premises vSphere environment (source environment) meets the [minimum requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html). 
