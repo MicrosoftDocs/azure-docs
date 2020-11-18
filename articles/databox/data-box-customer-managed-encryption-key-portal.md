@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: alkohli
 ms.subservice: pod
 ---
@@ -118,7 +118,7 @@ To change the customer-managed key you're currently using for your order, follow
 
 1. Go to the **Overview** screen for your completed Data Box order.
 
-    ![Overview screen of a Data Box order - 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
+    ![Overview screen of a Data Box order with customer-managed key - 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
 
 2. Go to **Settings > Encryption**. Under **Encryption type**, DO THIS.
 
