@@ -30,13 +30,10 @@ A workspace allows you to perform analytics with SQL and Apache spark. Resources
 * **SQL Request** - Operation such as a query run through dedicated SQL pool or serverless SQL pool.
 * **SQL script** - Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.
 
-## Apache Spark for Synapse
+## Apache Spark for Synapse Terminology
 
 To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace.
 
-
-
-## Spark Terminology
 
 * **Apache Spark for Synapse** - Spark run-time used in a serverless Spark pool. The current version supported is Spark 2.4 with Python 3.6.1, Scala 2.11.12, .NET support for Apache Spark 0.5 and Delta Lake 0.3.  
 * **Apache Spark pool** - 0-to-N Spark provisioned resources with their corresponding databases can be deployed in a workspace. A Spark pool can be auto-paused, resumed, and scaled.  
