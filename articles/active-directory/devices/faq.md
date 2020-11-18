@@ -197,7 +197,7 @@ Evaluate the Conditional Access policy rules. Make sure the device meets the cri
 
 ---
 
-### Q: Why don't some of my users get Azure Multi-Factor Authentication prompts on Azure AD joined devices?
+### Q: Why don't some of my users get Azure AD Multi-Factor Authentication prompts on Azure AD joined devices?
 
 **A:** A user might join or register a device with Azure AD by using Multi-Factor Authentication. Then the device itself becomes a trusted second factor for that user. Whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor. It enables that user to seamlessly access applications without additional Multi-Factor Authentication prompts. 
 

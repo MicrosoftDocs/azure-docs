@@ -73,7 +73,7 @@ CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enabl
 
 1. Review and finish the general set up of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](https://docs.microsoft.com/partner-center/azure-plan-manage).
 
-After configuring the Azure plan and the needed RBAC permissions are in place as a CSP, you'll engage Microsoft to enable the quota for an Azure plan subscription. Access Azure portal from Partner Center using **Admin On Behalf Of** (AOBO) procedure.
+After configuring the Azure plan and the needed vSphere RBAC permissions are in place as a CSP, you'll engage Microsoft to enable the quota for an Azure plan subscription. Access Azure portal from Partner Center using **Admin On Behalf Of** (AOBO) procedure.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com).
 

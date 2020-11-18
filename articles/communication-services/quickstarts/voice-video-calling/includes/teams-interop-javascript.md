@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 ## Prerequisites
 
 - A working [Communication Services calling app](../getting-started-with-calling.md).
-- A [Teams deployment](https://docs.microsoft.com/deployoffice/teams-install).
+- A [Teams deployment](/deployoffice/teams-install).
 
 ## Enable Teams Interoperability
 
@@ -93,7 +93,7 @@ meetingButton.addEventListener("click", () => {
 
 ## Get the meeting context
 
-The Teams context can be retrieved using Graph APIs. This is detailed in [Graph documentation](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-beta&tabs=http).
+The Teams context can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
 
 You can also get the required meeting information from the **Join Meeting** URL in the meeting invite itself.
 
@@ -110,4 +110,3 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 :::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
 Insert the Teams context into the text box and press *Join Teams Meeting* to join the Teams meeting from within your Communication Services application.
-
