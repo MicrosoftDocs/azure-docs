@@ -102,9 +102,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure Synapse Link for Azure Cosmos DB
-            url: ..//cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            url: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - linkListType: quickstart
         links:
+          - text: Connect to Azure Synapse Link for Azure Cosmos DB
+            url: quickstart-connect-synapse-link-cosmos-db.md
 
   # Card
   - title: Pipeline and data flow
@@ -119,9 +121,6 @@ landingContent:
             url: quickstart-data-flow.md
           - text: Load data to SQL pool 
             url: quickstart-copy-activity-load-sql-pool.md
-
-      - linkListType: quickstart
-        links:
 
   # Card
   - title: Machine Learning
