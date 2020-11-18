@@ -302,13 +302,13 @@ The following table summarizes the available settings for `short_series_handling
  
 |Setting|Description
 |---|---
-|`auto`| The following is the default behavior for short series handling <li> *If all series are short*, pad the data. <br> <li> **If not all series are short**, drop the short series. 
+|`auto`| The following is the default behavior for short series handling <li> *If all series are short*, pad the data. <br> <li> *If not all series are short*, drop the short series. 
 |`pad`| If `short_series_handling_config = pad`, then automated ML adds dummy values to each short series found. The following lists the column types and what they are padded with: <li>Object columns with NaNs <li> Numeric columns  with 0 <li> Boolean/logic columns with False <li> The target column is padded with random values with mean of zero and standard deviation of 1. 
 |`drop`| If `short_series_handling_config = drop`, then automated ML drops the short series, and it will not be used for training or prediction. Predictions for these series will return NaN's.
 |`None`| No series is padded or dropped
 
 >[!WARNING]
->Padding may impact the accuracy of the resulting model, since we are introducing artificial, dummy data just to get past training without failures. <br> <br> If many of the series are short, then you may also see some impact in explainability results
+>Padding may impact the accuracy of the resulting model, since we are introducing artificial data just to get past training without failures. <br> <br> If many of the series are short, then you may also see some impact in explainability results
 
 ## Run the experiment 
 
