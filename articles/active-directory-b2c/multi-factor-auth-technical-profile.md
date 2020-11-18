@@ -76,7 +76,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 #### UI elements
 
-The following metadata can be used to configure the error messages displayed upon sending SMS failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md#azure-mfa-error-messages).
+The following metadata can be used to configure the error messages displayed upon sending SMS failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md#azure-ad-mfa-error-messages).
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -136,7 +136,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 #### UI elements
 
-The following metadata can be used to configure the error messages displayed upon code verification failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md#azure-mfa-error-messages).
+The following metadata can be used to configure the error messages displayed upon code verification failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md#azure-ad-mfa-error-messages).
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |

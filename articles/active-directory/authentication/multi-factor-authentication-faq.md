@@ -80,10 +80,10 @@ Most billing questions can be answered by referring to either the [Multi-Factor 
 * [Is my organization charged for sending the phone calls and text messages that are used for authentication?](#is-my-organization-charged-for-sending-the-phone-calls-and-text-messages-that-are-used-for-authentication)
 * [Does the per-user billing model charge me for all enabled users, or just the ones that performed two-step verification?](#does-the-per-user-billing-model-charge-me-for-all-enabled-users-or-just-the-ones-that-performed-two-step-verification)
 * [How does Multi-Factor Authentication billing work?](#how-does-multi-factor-authentication-billing-work)
-* [Is there a free version of Azure AD Multi-Factor Authentication?](#is-there-a-free-version-of-azure-multi-factor-authentication)
+* [Is there a free version of Azure AD Multi-Factor Authentication?](#is-there-a-free-version-of-azure-ad-multi-factor-authentication)
 * [Can my organization switch between per-user and per-authentication consumption billing models at any time?](#can-my-organization-switch-between-per-user-and-per-authentication-consumption-billing-models-at-any-time)
 * [Can my organization switch between consumption-based billing and subscriptions (a license-based model) at any time?](#can-my-organization-switch-between-consumption-based-billing-and-subscriptions-a-license-based-model-at-any-time)
-* [Does my organization have to use and synchronize identities to use Azure AD Multi-Factor Authentication?](#does-my-organization-have-to-use-and-synchronize-identities-to-use-azure-multi-factor-authentication)
+* [Does my organization have to use and synchronize identities to use Azure AD Multi-Factor Authentication?](#does-my-organization-have-to-use-and-synchronize-identities-to-use-azure-ad-multi-factor-authentication)
 
 ### Is my organization charged for sending the phone calls and text messages that are used for authentication?
 
