@@ -36,10 +36,10 @@ Azure IoT Central is an IoT App platform, which gets you started up and running 
 After you connect your smart water devices to IoT Central, you get device command and control, monitoring and alerting, user interface with built-in RBAC, configurable insights dashboards, and extensibility options. 
 
 
-## Extensibility and integrations 
+## Extensibility and integrations
 You can extend your IoT application in IoT Central and optionally:
 * transform and integrate your IoT data for advanced analytics, for example training machine learning models, through continuous data export from IoT Central application
-* automate workflows in other systems by triggering actions using Microsoft Flow or webhooks from IoT Central application
+* automate workflows in other systems by triggering actions using Power Automate or webhooks from IoT Central application
 * programatically access your IoT application in IoT Central through IoT Central APIs
 
 ## Business Applications 
