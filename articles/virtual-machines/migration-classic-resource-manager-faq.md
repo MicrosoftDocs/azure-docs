@@ -70,9 +70,9 @@ You cannot abort migration if the commit operation fails. All migration operatio
 
 No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-move.md). You don’t have to buy a new ExpressRoute circuit if you already have one.
 
-## What if I had configured Role-Based Access Control policies for my classic IaaS resources? 
+## What if I had configured Azure role-based access control policies for my classic IaaS resources? 
 
-During migration, the resources transform from classic to Resource Manager. So we recommend that you plan the RBAC policy updates that need to happen after migration.
+During migration, the resources transform from classic to Resource Manager. So we recommend that you plan the Azure RBAC policy updates that need to happen after migration.
 
 ## I backed up my classic VMs in a vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault?
 

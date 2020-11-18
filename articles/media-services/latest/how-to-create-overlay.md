@@ -12,7 +12,8 @@ ms.date: 08/31/2020
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-The Media Encoder Standard allows you to overlay an image onto an existing video. Currently, the following formats are supported: png, jpg, gif, and bmp.
+The Media Encoder Standard allows you to overlay an image, audio file, or another video onto another video. The input must specify exactly one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+
 
 ## Prerequisites
 
