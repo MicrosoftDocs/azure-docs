@@ -9,7 +9,7 @@ ms.custom: REST
 
 <!--Create a copyAllNonInterleave transform with REST-->
 
-The following Azure REST command creates a transform using `copyAllBitrateNonInterleaved` from the `#Microsoft.Media.EncoderNamedPreset` preset. Replace the values `subscriptionID`, `resourceGroup`, and `accountName` with values you are currently working with. Give your transform a name by setting `transformName`. 
+The following Azure REST command creates a transform using `copyAllBitrateNonInterleaved` from the `#Microsoft.Media.BuiltInStandardEncoderPreset` preset. Replace the values `subscriptionID`, `resourceGroup`, and `accountName` with values you are currently working with. Give your transform a name by setting `transformName`. 
 
 To view all of the REST API transforms that are available, see [Transforms - Create Or Update](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#definitions).
 
