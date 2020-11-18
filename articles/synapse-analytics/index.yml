@@ -51,7 +51,7 @@ landingContent:
         links:
           - text: Step-by-step to getting started
             url: get-started.md
-          - text: STEP 1 - Create and setup a Synapse workspace
+          - text: STEP 1 - Create and set up a Synapse workspace
             url: get-started-create-workspace.md
           - text: STEP 2 - Analyze using a dedicated SQL pool
             url: get-started-analyze-sql-pool.md
@@ -103,7 +103,7 @@ landingContent:
             url: ./machine-learning/what-is-machine-learning.md
       - linkListType: tutorial
         links:
-          - text: Model scoring wizard fro SQL pools
+          - text: Model scoring wizard for SQL pools
             url: ./machine-learning/tutorial-sql-pool-model-scoring-wizard.md
 
   # Card
