@@ -436,9 +436,9 @@ The following are the IDs for [Restful service technical profile](restful-techni
 </LocalizedResources>
 ```
 
-## Azure MFA error messages
+## Azure AD MFA error messages
 
-The following are the IDs for an [Azure MFA technical profile](multi-factor-auth-technical-profile.md) error messages:
+The following are the IDs for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error messages:
 
 | ID | Default value |
 | -- | ------------- |
@@ -449,7 +449,7 @@ The following are the IDs for an [Azure MFA technical profile](multi-factor-auth
 |UserMessageIfThrottled | Your request has been throttled, please try again later.|
 |UserMessageIfWrongCodeEntered|Wrong code entered, please try again.|
 
-### Azure MFA example
+### Azure AD MFA example
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
