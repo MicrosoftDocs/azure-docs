@@ -25,7 +25,7 @@ Consider these limits as you deploy and operate your Azure Stack Edge Mini R sol
 
 The following table describes the limits for the Azure Stack Edge Mini R device.
 
-| Description | K-series |
+| Description | Limit|
 |---|---:|
 |No. of files per device | 100 million <!--check with devs-->|
 |No. of shares per container | 1|
