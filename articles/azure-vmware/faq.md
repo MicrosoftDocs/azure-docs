@@ -214,7 +214,7 @@ You'll have CloudAdmin group privileges. For more information, see [Access and I
 
 #### What privileges and permissions will I have on the NSX-T manager?
 
-You'll have full administrator privileges on NSX-T and can manage role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts](concepts-identity.md).
+You'll have full administrator privileges on NSX-T and can manage vSphere role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts](concepts-identity.md).
 
 > [!NOTE]
 > A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
