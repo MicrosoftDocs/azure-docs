@@ -90,9 +90,9 @@ Navigate to your resource group in the [Azure portal](https://portal.azure.com) 
 ![Portal overview page](./media/tutorial-configure-tsi/view-environment.png)
 
 In the explorer, you should see three instances: 
-* &lt;your pnp device ID&lt;, thermostat1
-* &lt;your pnp device ID&lt;, thermostat2
-* &lt;your pnp device ID&lt;, `null`
+* &lt;your pnp device ID&gt;, thermostat1
+* &lt;your pnp device ID&gt;, thermostat2
+* &lt;your pnp device ID&gt;, `null`
 
 > [!NOTE]
 > The third tag above represents telemetry from the TemperatureController itself, such as the working set of device memory. Because this is a top level property, the value for the component name is null. In a later step, you'll update this to a more user-friendly name.
