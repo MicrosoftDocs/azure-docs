@@ -96,6 +96,8 @@
     items:
         - name: Set up MSIX app attach with the Azure portal
           href: app-attach-azure-portal.md
+        - name: Set up MSIX app attach with PowerShell
+          href: app-attach-powershell.md
         - name: Configure PowerShell scripts
           href: app-attach.md
         - name: Set up a file share
