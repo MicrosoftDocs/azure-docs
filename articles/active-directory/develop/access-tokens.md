@@ -178,7 +178,7 @@ Microsoft identities can authenticate in different ways, which may be relevant t
 Not all apps should validate tokens. Only in specific scenarios should apps validate a token:
 
 * [Web APIs](quickstart-configure-app-expose-web-apis.md) must validate access tokens sent to them by a client.  They must only accept tokens containing their `aud` claim.
-* Confidential web apps like ASP.NET must validate ID tokens sent to them via the user's browser in the hybrid flow, before allowing access to a user's data or establishing a session.
+* Confidential web apps like ASP.NET Core must validate ID tokens sent to them via the user's browser in the hybrid flow, before allowing access to a user's data or establishing a session.
 
 If none of the above scenarios apply, your application will not benefit from validating the token, and may present a security and reliability risk if decisions are made based on the validity of the token.  Public clients like native apps or SPAs don't benefit from validating tokens - the app communicates directly with the IDP, so SSL protection ensures the tokens are valid.
 
