@@ -17,7 +17,7 @@ In this tutorial, you will learn how to perform exploratory data analysis by usi
 In particular, we will analyze the [New York City (NYC) Taxi](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) dataset. The data is available through Azure Open Datasets. This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start and end time and locations, the cost, and other interesting attributes.
   
 ## Before you begin
-- Create an Apache Spark Pool by following the [Create an Apache Spark pool tutorial](./spark/quickstart-create-apache-spark-pool-studio.md). 
+- Create an Apache Spark Pool by following the [Create an Apache Spark pool tutorial](../articles/../quickstart-create-apache-spark-pool-studio.md) 
 
 ## Download and prepare the data
 1. Create a notebook using the PySpark kernel. For instructions, see [Create a Notebook](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook). 
@@ -46,8 +46,8 @@ end_date = parser.parse('2018-06-06')
 start_date = parser.parse('2018-05-01')
 nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
 df = nyc_tlc.to_spark_dataframe()
-
 ```
+
 4. Once the data is read, we will want to do some initial filtering to clean the dataset. To do this, we may remove unneeded columns and add additional columns that extract important information. In addition, we will also filter out anomalies within the dataset.
 
 ```python
@@ -133,7 +133,7 @@ ax.set_ylabel('Tip Amount ($)')
 plt.show()
 
 ```
-![Daily Trends](./media/apache-spark-data-viz/data-analyst-tutorial-per-day.PNG)
+![Daily Trends](../media/apache-spark-data-viz/data-analyst-tutorial-per-day.PNG)
 
 4. Now, another hypothesis that we have may be that there is a positive relationship between the number of passengers and the total taxi tip amount. To verify this relationship, we will run the following code to generate a box plot illustrating the distribution of tips for each passenger count. 
    

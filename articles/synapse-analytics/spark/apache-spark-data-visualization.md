@@ -51,7 +51,7 @@ Azure Synapse Analytics notebooks support HTML graphics using the ```displayHTML
 
 The following image is an example of creating visualizations using [D3.js](https://d3js.org/).
 
-   ![d3-js-example](./media/apache-spark-data-viz/d3_boxplot.png#lightbox)
+   ![d3-js-example](../media/apache-spark-data-viz/d3_boxplot.png#lightbox)
 
 Run the following code to create the visualization above.
 
@@ -184,7 +184,7 @@ displayHTML(html)
 You can render standard plotting libraries, like Matplotlib, using the built-in rendering functions for each library.
 
 The following image is an example of creating a bar chart using **Matplotlib**.
-   ![matplotlib-example](./media/apache-spark-data-viz/matplotlib_example.png#lightbox)
+   ![matplotlib-example](../media/apache-spark-data-viz/matplotlib_example.png#lightbox)
 
 Run the following sample code to draw the image above.
 
@@ -221,7 +221,7 @@ You can visit the Azure Synapse Analytics Runtime [documentation](./spark/../apa
 ## Connect to PowerBI using Apache Spark & SQL On-Demand
 Azure Synapse Analytics integrates deeply with Power BI allowing data engineers to build analytics solutions.
 
-Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools (preview) and SQL on-demand engine (preview). Using the [shared metadata model](https://docs.microsoft.com/en-us/azure/synapse-analytics/metadata/overview),you can query your Apache Spark tables using SQL on-demand. Once done, you can connect your SQL on-demand endpoint to PowerBI to easily query your synced Spark tables.
+Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools (preview) and SQL on-demand engine (preview). Using the [shared metadata model](https://docs.microsoft.com/azure/synapse-analytics/metadata/overview),you can query your Apache Spark tables using SQL on-demand. Once done, you can connect your SQL on-demand endpoint to PowerBI to easily query your synced Spark tables.
 
 
 ## Next steps

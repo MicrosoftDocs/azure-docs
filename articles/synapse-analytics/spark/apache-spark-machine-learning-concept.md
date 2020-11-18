@@ -11,6 +11,7 @@ ms.author: midesa
 ms.reviewer: jrasnick
 ---
 
+# Machine learning overview
 Apache Spark in Azure Synapse Analytics enables machine learning with big data, providing the ability to obtain valuable insight from large amounts of structured, unstructured, and fast-moving data. 
 
 This section includes an overview and tutorials for machine learning workflows, including exploratory data analysis, feature engineering, model training, model scoring, and deployment.  
@@ -57,7 +58,7 @@ Model scoring, or inferencing, is the phase where a model is used to make predic
 ## Register and serve models
 Registering a model allows you to store, version, and track metadata about models in your workspace. After you have finished training your model, you can register your model to the [Azure Machine Learning model registry](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment#register-package-and-deploy-models-from-anywhere). Once registered, ONNX models can also be used to [enrich the data](../machine-learning/tutorial-sql-pool-model-scoring-wizard.md) stored in dedicated SQL pools.
 
-## Next Steps
+## Next steps
 To get started with machine learning in Azure Synapse Analytics, be sure to check out the following tutorials:
 - [Analyze data with Azure Synapse Notebooks](../spark/apache-spark-data-visualization-tutorial.md)
 

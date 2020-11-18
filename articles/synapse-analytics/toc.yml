@@ -477,11 +477,11 @@
       href: ./spark/apache-spark-concepts.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
-    - name: Apache Spark Auto Scale behavior
+    - name: Apache Spark autoscale behavior
       href: ./spark/apache-spark-autoscale.md
     - name: Synapse runtimes
       href: ./spark/apache-spark-version-support.md
-    - name: Machine Learning
+    - name: Machine learning
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
       href: ./spark/apache-spark-notebook-concept.md
@@ -493,7 +493,7 @@
       href: ./spark/apache-spark-delta-lake-overview.md
     - name: Manage libraries
       href: ./spark/apache-spark-azure-portal-add-libraries.md
-    - name: Use Notebooks
+    - name: Use notebooks
       items:
       - name: Manage notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
@@ -511,7 +511,7 @@
       items: 
       - name: Securing credentials using TokenLibrary
         href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
-    - name: Optimize Performance
+    - name: Optimize performance
       items:
         - name: Apache Spark performance
           href: ./spark/apache-spark-performance.md
@@ -1012,13 +1012,16 @@
       href: machine-learning/quickstart-integrate-azure-machine-learning.md
   - name: Tutorials
     items:
+    - name: Visualize data with Apache Spark
+      href: ./spark/apache-spark-data-visualization-tutorial.md
+      displayname: machine learning
     - name: Model scoring wizard for SQL pools
       href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
       displayname: machine learning
     - name: Run a regression experiment using Azure AutoML
       href: ./spark/apache-spark-azure-machine-learning-tutorial.md
       displayname: machine learning
-    - name: Create an Apache Spark machine learning app
+    - name: Create a machine learning model with Apache Spark MLlib
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
       displayname: machine learning
 - name: Reference
