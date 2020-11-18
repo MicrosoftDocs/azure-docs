@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 10/07/2019
+ms.date: 11/17/2019
 
 ---
 
@@ -114,7 +114,7 @@ Autoscale allows you to have the right amount of resources running to handle the
 [Workbooks](platform/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports in the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences. Use workbooks provided with Insights or create your own from predefined templates.
 
 
-![Workbooks](media/overview/workbooks.png)
+![Workbooks example](media/overview/workbooks.png)
 
 ### Power BI
 [Power BI](https://powerbi.microsoft.com) is a business analytics service that provides interactive visualizations across a variety of data sources. It's an effective means of making data available to others within and outside your organization. You can configure Power BI to [automatically import log data from Azure Monitor](./platform/powerbi.md) to take advantage of these additional visualizations.
