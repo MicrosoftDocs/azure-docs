@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 11/18/2020
 ms.author: mblythe
 ms.custom: accessibility
 ---
@@ -28,7 +28,7 @@ If you need to manage Azure resources from a mobile device, try the  [Azure mobi
 We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
 
 * Microsoft Edge (latest version)
-* Internet Explorer 11
+* Internet Explorer 11 (supported until March 31, 2021)
 * Safari (latest version, Mac only)
 * Chrome (latest version)
 * Firefox (latest version)
