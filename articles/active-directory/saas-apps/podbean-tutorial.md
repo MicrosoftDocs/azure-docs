@@ -124,7 +124,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Upload the **Federation Metadata XML** file in the **SSO IDP Metadata File**.
 
-1. Set your **email domain**, **SSO Organization Name** and click on **Submit**.
+1. Set your **Email domain**, **SSO Organization Name** and click on **Submit**.
 
 	![screenshot to upload the Metadata File](./media/podbean-tutorial/metadata-file.png)
 
