@@ -24,18 +24,18 @@ The Azure Data Lake Storage Gen2 data source supports the following functionalit
 
 ## Prerequisites
 
-- Create a new Purview account.
+- An Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
 
 ## Register Azure Data Lake Storage Gen2 data source
 
-1. Navigate to your Purview catalog.
+1. Navigate to your Purview Data Catalog.
 
 1. Select **Manage your data** tile on the home page.
 
    :::image type="content" source="media/register-scan-adls-gen2/manage-data.png" alt-text="Purview home page":::
 
 1. Select **Data sources** under the **Sources and scanning** section. Select **New** to register a new data source. 
-1. Select **Azure Data Lake Storage Gen2** and select **Continue**.
+1. Select **Azure Data Lake Storage Gen2** > **Continue**.
 
    :::image type="content" source="media/register-scan-adls-gen2/new-data-source.png" alt-text="Set up the Azure Data Lake Storage gen2 data source":::
 
