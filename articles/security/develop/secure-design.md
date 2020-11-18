@@ -425,8 +425,8 @@ do their jobs and nothing more.
 Would a software developer need domain admin rights? Would an
 administrative assistant need access to administrative controls on their
 personal computer? Evaluating access to software is no different. If you
-use [role-based access control
-(RBAC)](../../role-based-access-control/overview.md)
+use [Azure role-based access control
+(Azure RBAC)](../../role-based-access-control/overview.md)
 to give users different abilities and authority in your application, you
 wouldn’t give everyone access to everything. By limiting access to what
 is required for each role, you limit the risk of a security issue

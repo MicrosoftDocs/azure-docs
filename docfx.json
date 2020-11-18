@@ -887,7 +887,8 @@
       "sensitive-language": {
         "exclude": [
           "articles/governance/blueprints/**/*.md",
-          "articles/governance/policy/**/*.md"
+          "articles/governance/policy/**/*.md",
+          "articles/role-based-access-control/resource-provider-operations.md"
         ]
       }
     }
