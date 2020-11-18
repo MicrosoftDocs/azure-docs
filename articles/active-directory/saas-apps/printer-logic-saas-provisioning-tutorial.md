@@ -56,7 +56,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 5. Click **Generate SCIM Token**.
 
-      ![Token](media/printer-logic-saas-provisioning-tutorial/token.png)
+      ![Scim Token](media/printer-logic-saas-provisioning-tutorial/token.png)
 
 6. Copy and save the **Bearer token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your PrinterLogic SaaS application in the Azure portal.
 
@@ -99,7 +99,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input your PrinterLogic SaaS Tenant URL and Secret Token retrieved from Step 2. Click **Test Connection** to ensure Azure AD can connect to PrinterLogic SaaS. If the connection fails, ensure your PrinterLogic SaaS account has Admin permissions and try again.
 
- 	![Token](common/provisioning-testconnection-tenanturltoken.png)
+ 	![Azure AD Token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
