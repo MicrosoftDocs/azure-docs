@@ -99,7 +99,7 @@ static void Main(string[] args)
     RecognizePIIExample(client);
     KeyPhraseExtractionExample(client);
     // Using AnalyzeOperationExample() and RecognizeHealthcareEntitiesExample() requires a Text Analytics resource with the standard (S) pricing tier.
-    // Using RecognizeHealthcareEntitiesExample() also requires submitting a request to the gated preview for this feature.
+    // Using RecognizeHealthcareEntitiesExample() also requires submitting a request to access the gated preview for this feature.
     //AnalyzeOperationExample(client);
     //RecognizeHealthcareEntitiesExample(client);
 
