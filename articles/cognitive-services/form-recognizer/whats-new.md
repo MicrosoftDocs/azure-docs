@@ -29,7 +29,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 - **Enhanced table extraction** - Form Recognizer now provides enhanced table extraction, which combines our powerful Optical Character Recognition (OCR) capabilities with a deep learning table extraction model. Form Recognizer can extract data from tables, including complex tables with merged columns, rows, no borders and more. 
  
-  <<< add tables examples image>>>
+  ![Tables example](./media/tables-example.jpg)
  
   > [Learn more about Layout extraction](concept-layout.md)
 
