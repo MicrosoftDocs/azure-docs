@@ -23,7 +23,7 @@ SELECT rebalance_table_shards('distributed_table_name');
 ```
 
 The
-[rebalance_table_shards](reference-hyperscale-functions#rebalance_table_shards)
+[rebalance_table_shards](reference-hyperscale-functions.md#rebalance_table_shards)
 function rebalances all tables in the
 [colocation](concepts-hyperscale-colocation.md) group of the table named in its
 argument. Thus you do not have to call the function for every distributed
@@ -35,5 +35,5 @@ table, just call it on a representative table from each colocation group.
   options](concepts-hyperscale-configuration-options.md).
 - [Scale a server group](howto-hyperscale-scaling-grow.md) up or out
 - See the
-  [rebalance_table_shards](reference-hyperscale-functions#rebalance_table_shards)
+  [rebalance_table_shards](reference-hyperscale-functions.md#rebalance_table_shards)
   reference material
