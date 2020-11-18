@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate LinkedIn Talent Solutions with A
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* LinkedIn Talent Solutions single sign-on (SSO) enabled subscription.
+* LinkedIn speak as “Access to Account Center in your LinkedIn Talent Solutions dashboard” as the process outlined in the document is to enable SSO
 
 ## Scenario description
 
@@ -137,11 +137,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![ configuration with input data](./media/linkedin-talent-solutions-tutorial/configuration.png)
 
-    a. In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    a. Copy **Entity ID** value, paste this value into the **Azure AD Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
 
-    b. In the **ACS URL** textbox, paste the **Reply URL** value which you have copied from the Azure portal.
+    b. Copy **ACS URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
-    c. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **SP X.509 Certificate(signing)** textbox.
+    c. Copy the content of the **SP X.509 Certificate(signing)** textbox into the notepad and save it in your computer.
 
 1. Click on **Upload XML file** to upload the metadata file.
 
@@ -165,7 +165,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the LinkedIn Talent Solutions for which you set up the SSO 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the LinkedIn Talent Solutions tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the LinkedIn Talent Solutions for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the LinkedIn Talent Solutions tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the LinkedIn Talent Solutions for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next steps
 
