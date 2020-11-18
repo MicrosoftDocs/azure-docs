@@ -271,7 +271,7 @@ This section covers the configuration options under optional claims for changing
    - Saml2Token for SAML tokens.
 
    > [!NOTE]
-   > The SAML2 token type applies to both SAML1.1 and SAML2.0 format tokens.
+   > The Saml2Token type applies to both SAML1.1 and SAML2.0 format tokens.
 
    For each relevant token type, modify the groups claim to use the OptionalClaims section in the manifest. The OptionalClaims schema is as follows:
 
