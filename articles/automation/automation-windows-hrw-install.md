@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Deploy a Windows Hybrid Runbook Worker
 
-You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the Azure or non-Azure machine, including servers registered with [Azure Arc enabled servers](../../azure-arc/servers/overview.md). From the local machine or server that's hosting the role, you can run runbooks directly on the machine and against resources in the environment to manage those local resources.
+You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the Azure or non-Azure machine, including servers registered with [Azure Arc enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly it and against resources in the environment to manage those local resources.
 
 Azure Automation stores and manages runbooks and then delivers them to one or more designated machines. This article describes how to deploy a user Hybrid Runbook Worker on a Windows machine, how to remove the worker, and how to remove a Hybrid Runbook Worker group.
 
@@ -61,14 +61,14 @@ You can add the worker machine to a Hybrid Runbook Worker group in your Automati
 >[!NOTE]
 >Azure Automation [Update Management](update-management/update-mgmt-overview.md) automatically installs the system Hybrid Runbook Worker on an Azure or non-Azure machine that's enabled for Update Management. However, this worker is not registered with any Hybrid Runbook Worker groups already defined in your Automation account. To run your runbooks on those machines, you need to add them to a Hybrid Runbook Worker group.
 
-## Enabling machines for management with Azure Automation State Configuration
+## Enable for management with Azure Automation State Configuration
 
 For information about enabling machines for management with Azure Automation State Configuration, see [Enable machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 
 > [!NOTE]
 > To manage the configuration of machines that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you must add the machines as DSC nodes.
 
-## Windows Hybrid Runbook Worker installation options
+## Installation options
 
 To install and configure a Windows user Hybrid Runbook Worker, you can use one of the following methods.
 
@@ -91,50 +91,40 @@ On the target machine, perform the following steps to automate the installation 
 * Download and install the Log Analytics agent for Windows
 * Register the machine as Hybrid Runbook Worker
 
-### Step 1 - Download the PowerShell script
+1. Download the **New-OnPremiseHybridWorker.ps1** script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). After you have downloaded the script, copy or run it on the target machine. The **New-OnPremiseHybridWorker.ps1** script uses the following parameters during execution.
 
-Download the **New-OnPremiseHybridWorker.ps1** script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). After you have downloaded the script, copy or run it on the target machine. The **New-OnPremiseHybridWorker.ps1** script uses the parameters described below during execution.
+    | Parameter | Status | Description |
+    | --------- | ------ | ----------- |
+    | `AAResourceGroupName` | Mandatory | The name of the resource group that's associated with your Automation account. |
+    | `AutomationAccountName` | Mandatory | The name of your Automation account.
+    | `Credential` | Optional | The credentials to use when logging in to the Azure environment. |
+    | `HybridGroupName` | Mandatory | The name of a Hybrid Runbook Worker group that you specify as a target for the runbooks that support this scenario. |
+    | `OMSResourceGroupName` | Optional | The name of the resource group for the Log Analytics workspace. If this resource group is not specified, the value of `AAResourceGroupName` is used. |
+    | `SubscriptionID` | Mandatory | The identifier of the Azure subscription associated with your Automation account. |
+    | `TenantID` | Optional | The identifier of the tenant organization associated with your Automation account. |
+    | `WorkspaceName` | Optional | The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one. |
 
-| Parameter | Status | Description |
-| --------- | ------ | ----------- |
-| `AAResourceGroupName` | Mandatory | The name of the resource group that's associated with your Automation account. |
-| `AutomationAccountName` | Mandatory | The name of your Automation account.
-| `Credential` | Optional | The credentials to use when logging in to the Azure environment. |
-| `HybridGroupName` | Mandatory | The name of a Hybrid Runbook Worker group that you specify as a target for the runbooks that support this scenario. |
-| `OMSResourceGroupName` | Optional | The name of the resource group for the Log Analytics workspace. If this resource group is not specified, the value of `AAResourceGroupName` is used. |
-| `SubscriptionID` | Mandatory | The identifier of the Azure subscription associated with your Automation account. |
-| `TenantID` | Optional | The identifier of the tenant organization associated with your Automation account. |
-| `WorkspaceName` | Optional | The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one. |
+2. Open an elevated 64-bit PowerShell command prompt. 
 
-### Step 2 - Open Windows PowerShell command line shell
+3. From the PowerShell command prompt, browse to the folder that contains the script that you downloaded. Change the values for the parameters `AutomationAccountName`, `AAResourceGroupName`, `OMSResourceGroupName`, `HybridGroupName`, `SubscriptionID`, and `WorkspaceName`. Then run the script.
 
-From the **Start Menu** click **Start**, type **PowerShell**, right-click **Windows PowerShell**, and then click **Run as administrator**.
+    You're prompted to authenticate with Azure after you run the script. You must sign in with an account that's a member of the **Subscription Admins** role and co-administrator of the subscription.
 
-### Step 3 - Run the PowerShell script
+    ```powershell-interactive
+    $NewOnPremiseHybridWorkerParameters = @{
+      AutomationAccountName = <nameOfAutomationAccount>
+      AAResourceGroupName   = <nameOfResourceGroup>
+      OMSResourceGroupName  = <nameOfResourceGroup>
+      HybridGroupName       = <nameOfHRWGroup>
+      SubscriptionID        = <subscriptionId>
+      WorkspaceName         = <nameOfLogAnalyticsWorkspace>
+    }
+    .\New-OnPremiseHybridWorker.ps1 @NewOnPremiseHybridWorkerParameters
+    ```
 
-In the PowerShell command line shell, browse to the folder that contains the script that you have downloaded. Change the values for the parameters `AutomationAccountName`, `AAResourceGroupName`, `OMSResourceGroupName`, `HybridGroupName`, `SubscriptionID`, and `WorkspaceName`. Then run the script.
+4. You're prompted to agree to install NuGet, and to authenticate with your Azure credentials. If you don't have the latest NuGet version, you can download it from [Available NuGet Distribution Versions](https://www.nuget.org/downloads).
 
-You're prompted to authenticate with Azure after you run the script. You must sign in with an account that's a member of the Subscription Admins role and co-administrator of the subscription.
-
-```powershell-interactive
-$NewOnPremiseHybridWorkerParameters = @{
-  AutomationAccountName = <nameOfAutomationAccount>
-  AAResourceGroupName   = <nameOfResourceGroup>
-  OMSResourceGroupName  = <nameOfResourceGroup>
-  HybridGroupName       = <nameOfHRWGroup>
-  SubscriptionID        = <subscriptionId>
-  WorkspaceName         = <nameOfLogAnalyticsWorkspace>
-}
-.\New-OnPremiseHybridWorker.ps1 @NewOnPremiseHybridWorkerParameters
-```
-
-### Step 4 - Install NuGet
-
-You're prompted to agree to install NuGet, and to authenticate with your Azure credentials. If you don't have the latest NuGet version, you can download it from [Available NuGet Distribution Versions](https://www.nuget.org/downloads).
-
-### Step 5 - Verify the deployment
-
-After the script is finished, the Hybrid Worker Groups page in your Automation account shows the new group and the number of members. If it's an existing group, the number of members is incremented. You can select the group from the list on the Hybrid Worker Groups page and choose the **Hybrid Workers** tile. On the Hybrid Workers page, you can see each member of the group listed.
+5. Verify the deployment after the script is finished. From the **Hybrid Runbook Worker Groups** page in your Automation account, under the **User hybrid runbook workers group** tab, it shows the new group and the number of members. If it's an existing group, the number of members is incremented. You can select the group from the list on the page, from the left-hand menu choose **Hybrid Workers** . On the **Hybrid Workers** page, you can see each member of the group listed.
 
 ## Manual deployment
 
