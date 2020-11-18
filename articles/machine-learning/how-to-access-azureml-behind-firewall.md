@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/17/2020
+ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
 ---
 
@@ -23,9 +23,33 @@ When using Azure Firewall, use __destination network address translation (DNAT)_
 
 ### Inbound configuration
 
-If you use an Azure Machine Learning __compute instance__ or __compute cluster__, you must create a user-defined route (UDR) for the subnet that contains the Azure Machine Learning resources. This route forces traffic __from__ the IP addresses of the 
+If you use an Azure Machine Learning __compute instance__ or __compute cluster__, add a [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md) for the subnet that contains the Azure Machine Learning resources. This route forces traffic __from__ the IP addresses of the `BatchNodeManagement` and `AzureMachineLearning` resources to the public IP of your compute instance and compute cluster.
 
-Use the guidance in the [forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) section for securing the training environment.
+These UDRs enable the Batch service to communicate with compute nodes for task scheduling. Also add the IP address for the Azure Machine Learning service where the resources exist, as this is required for access to Compute Instances. To get a list of IP addresses of the Batch service and Azure Machine Learning service, use one of the following methods:
+
+* Download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `BatchNodeManagement.<region>` and `AzureMachineLearning.<region>`, where `<region>` is your Azure region.
+
+* Use the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to download the information. The following example downloads the IP address information and filters out the information for the East US 2 region:
+
+    ```azurecli-interactive
+    az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+    az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
+    ```
+
+    > [!TIP]
+    > If you are using the US-Virginia, US-Arizona regions, or China-East-2 regions, these commands return no IP addresses. Instead, use one of the following links to download a list of IP addresses:
+    >
+    > * [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
+    > * [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
+
+When you add the UDRs, define the route for each related Batch IP address prefix and set __Next hop type__ to __Internet__. The following image shows an example of this UDR in the Azure portal:
+
+![Example of a UDR for an address prefix](./media/how-to-enable-virtual-network/user-defined-route.png)
+
+> [!IMPORTANT]
+> The IP addresses may change over time.
+
+For more information, see [Create an Azure Batch pool in a virtual network](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
 
 ### Outbound configuration
 
