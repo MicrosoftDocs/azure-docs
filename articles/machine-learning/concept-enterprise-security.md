@@ -39,27 +39,7 @@ Here's the authentication process for Azure Machine Learning using multi-factor 
 
 [![Authentication in Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
 
-There are some exceptions to the use of Azure AD and Azure RBAC within Azure Machine Learning:
-* You can optionally enable __SSH__ access to compute resources such as Azure Machine Learning compute instance and compute cluster. SSH access is based on public/private key pairs, not Azure AD. SSH access is not governed by Azure RBAC.
-* You can authenticate to models deployed as web services (inference endpoints) using __key__ or __token__-based authentication. Keys are static strings, while tokens are retrieved using an Azure AD security object. For more information, see [Configure authentication for models deployed as a web service](how-to-authenticate-web-service.md).
-
-> [!IMPORTANT]
-> Some Azure resources that Azure Machine Learning depends on, such as Azure Blob Storage, may use different methods of authentication and authorization. Or they may have their own Azure RBAC configuration. When working with these resources through the Azure Machine Learning SDK, studio, or Azure CLI, the complexities of accessing these resources are often hidden from the user. For example, Azure Machine Learning my retrieve an value from Azure Key Vault for use authenticating to the resource. Or the workspace might authenticate to the dependent resource on by using a managed identity.
->
-> When implementing access restrictions for Azure Machine Learning, be aware of the configuration for the dependent services. In some cases, such as creating Azure RBAC custom roles, you may need to combine configurations from both Azure Machine Learning and dependency services to achieve the desired result.
-
-
-For more information, see the following articles:
-* [Authentication for Azure Machine Learning workspace](how-to-setup-authentication.md)
-* [Manage access to Azure Machine Learning](how-to-assign-roles.md)
-* [Connect to storage services](how-to-access-data.md)
-* [Use Azure Key Vault for secrets when training](how-to-use-secrets-in-runs.md)
-* [Use Azure AD managed identity with Azure Machine Learning](how-to-use-managed-identities.md)
-* [Use Azure AD managed identity with your web service](how-to-use-azure-ad-identity.md)
-
-### Managed identities
-
-Each workspace has an associated system-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) that has the same name as the workspace. The managed identity is used to securely access resources used by the workspace. It has the following Azure RBAC permissions on attached resources:
+Each workspace has an associated system-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) that has the same name as the workspace. This managed identity is used to securely access resources used by the workspace. It has the following Azure RBAC permissions on attached resources:
 
 | Resource | Permissions |
 | ----- | ----- |
@@ -72,9 +52,22 @@ Each workspace has an associated system-assigned [managed identity](../active-di
 
 We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the [resync keys operation](how-to-change-storage-access-key.md).
 
-Azure Machine Learning creates an additional application (the name starts with `aml-` or `Microsoft-AzureML-Support-App-`) with contributor-level access in your subscription for every workspace region. For example, if you have one workspace in East US and one in North Europe in the same subscription, you'll see two of these applications. These applications enable Azure Machine Learning to help you manage compute resources.
+Azure Machine Learning also creates an additional application (the name starts with `aml-` or `Microsoft-AzureML-Support-App-`) with contributor-level access in your subscription for every workspace region. For example, if you have one workspace in East US and one in North Europe in the same subscription, you'll see two of these applications. These applications enable Azure Machine Learning to help you manage compute resources.
 
-Optionally, you can configure your own managed identities for use with Azure Virtual Machines and Azure Machine Learning compute cluster. With a VM, the managed identity can be used to access your workspace from the SDK, instead of the individual user's Azure AD account. With a compute cluster, the managed identity is used to access resources such as secured datastores that the user running the training job may not have access to. For more information, see [Authentication for Azure Machine Learning workspace](how-to-setup-authentication.md).
+You can also configure your own managed identities for use with Azure Virtual Machines and Azure Machine Learning compute cluster. With a VM, the managed identity can be used to access your workspace from the SDK, instead of the individual user's Azure AD account. With a compute cluster, the managed identity is used to access resources such as secured datastores that the user running the training job may not have access to. For more information, see [Authentication for Azure Machine Learning workspace](how-to-setup-authentication.md).
+
+> [!TIP]
+> There are some exceptions to the use of Azure AD and Azure RBAC within Azure Machine Learning:
+> * You can optionally enable __SSH__ access to compute resources such as Azure Machine Learning compute instance and compute cluster. SSH access is based on public/private key pairs, not Azure AD. SSH access is not governed by Azure RBAC.
+> * You can authenticate to models deployed as web services (inference endpoints) using __key__ or __token__-based authentication. Keys are static strings, while tokens are retrieved using an Azure AD security object. For more information, see [Configure authentication for models deployed as a web service](how-to-authenticate-web-service.md).
+
+For more information, see the following articles:
+* [Authentication for Azure Machine Learning workspace](how-to-setup-authentication.md)
+* [Manage access to Azure Machine Learning](how-to-assign-roles.md)
+* [Connect to storage services](how-to-access-data.md)
+* [Use Azure Key Vault for secrets when training](how-to-use-secrets-in-runs.md)
+* [Use Azure AD managed identity with Azure Machine Learning](how-to-use-managed-identities.md)
+* [Use Azure AD managed identity with your web service](how-to-use-azure-ad-identity.md)
 
 ## Network security and isolation
 
