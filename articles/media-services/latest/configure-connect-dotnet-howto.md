@@ -38,7 +38,7 @@ This article shows you how to connect to the Azure Media Services v3 .NET SDK us
 
 The sample app in this topic, targets `netcoreapp2.0`. The code uses 'async main', which is available starting with C# 7.1. See this [blog](/archive/blogs/benwilli/async-main-is-available-but-hidden) for more details.
 
-## Add required NuGet packages
+## Add required NuGet packages/assemblies
 
 1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **NuGet Manager Console**.
 2. In the **Package Manager Console** window, use `Install-Package` command to add the following NuGet packages. For example, `Install-Package Microsoft.Azure.Management.Media`.
@@ -46,10 +46,14 @@ The sample app in this topic, targets `netcoreapp2.0`. The code uses 'async main
 |Package|Description|
 |---|---|
 |`Microsoft.Azure.Management.Media`|Azure Media Services SDK. <br/>To make sure you are using the latest Azure Media Services package, check [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
-|`Microsoft.Rest.ClientRuntime.Azure.Authentication`|ADAL authentication library for Azure SDK for NET|
-|`Microsoft.Extensions.Configuration.EnvironmentVariables`|Read configuration values from environment variables and local JSON files|
-|`Microsoft.Extensions.Configuration.Json`|Read configuration values from environment variables and local JSON files
-|`WindowsAzure.Storage`|Storage SDK|
+
+### Other required assemblies
+
+- Azure.Storage.Blobs
+- Microsoft.Extensions.Configuration
+- Microsoft.Extensions.Configuration.EnvironmentVariables
+- Microsoft.Extensions.Configuration.Json
+- Microsoft.Rest.ClientRuntime.Azure.Authentication
 
 ## Create and configure the app settings file
 
