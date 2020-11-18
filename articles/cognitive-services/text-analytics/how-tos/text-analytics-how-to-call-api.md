@@ -320,9 +320,9 @@ If successful, the `/analyze` endpoint will return an object containing the assi
 
 # [Text Analytics for health](#tab/health)
 
-See the following article for more information.
+See the following article for more information for the asynchronous API response:
 
-+ [Text Analytics for health](text-analytics-for-health.md)
++ [Text Analytics for health](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
 
 
 --- 
