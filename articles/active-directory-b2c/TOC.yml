@@ -356,7 +356,7 @@
             href: application-insights-technical-profile.md
           - name: Azure Active Directory
             href: active-directory-technical-profile.md
-          - name: Azure Multi-Factor Authentication
+          - name: Azure AD Multi-Factor Authentication
             href: multi-factor-auth-technical-profile.md
             displayName: mfa
           - name: Azure AD SSPR
