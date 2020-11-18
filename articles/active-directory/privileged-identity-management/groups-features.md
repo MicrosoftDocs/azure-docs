@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 11/18/2020
 ms.author: curtand
 ms.custom: pim 
 ms.collection: M365-identity-device-management
