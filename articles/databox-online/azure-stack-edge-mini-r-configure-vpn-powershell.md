@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/23/2020
+ms.date: 11/17/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to configure VPN on my Azure Stack Edge Mini R device so that I can have a second layer of encryption for my data-in-flight.
 ---
@@ -18,9 +18,9 @@ ms.author: alkohli
 
 The VPN option provides a second layer of encryption for the data-in-motion over *TLS* from your Azure Stack Edge Mini R or Azure Stack Edge Pro R device to Azure. You can configure VPN on your Azure Stack Edge Mini R device via the Azure portal or via the Azure PowerShell. 
 
-This article describes the steps required to configure a Point-to-Site (P2S) VPN on your Azure Stack Edge Mini R device using an Azure PowerShell script to create the configuration in the cloud. The configuration on the Azure Stack Edge device is done via the Azure portal.
+This article describes the steps required to configure a Point-to-Site (P2S) VPN on your Azure Stack Edge Mini R device using an Azure PowerShell script to create the configuration in the cloud. The configuration on the Azure Stack Edge device is done via the local UI.
 
-## About VPN on Azure Stack Edge Mini R device
+## About VPN setup
 
 A P2S VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer or your Azure Stack Edge Mini R device. You start the P2S connection from the client computer or the device. The P2S connection in this case uses IKEv2 VPN, a standards-based IPsec VPN solution.
 
@@ -72,8 +72,10 @@ The detailed steps are provided in the following sections.
         
         - Create an Azure Virtual network and the following subnets: *GatewaySubnet*, and *AzureFirewallSubnet*.
         - Create and configure an Azure VPN gateway.
+        - Create and configure an Azure local network gateway.
+        - Create and configure an Azure VPN connection between the Azure VPN gateway and the local network gateway.
         - Create an Azure Firewall and add network rules, app rules.
-        - Create Azure Routing tables and add routes to it.
+        - Create an Azure Routing table and add routes to it.
 
     4. Create the resource group in the Azure portal under which you want the Azure resources to be created. Go to the list of services in Azure portal, select **Resource group** and then select **+ Add**. Provide the subscription information and the name for your resource group and then select **Create**. If you go to this resource group, it should not have any resources under it at this time.
 
@@ -143,7 +145,7 @@ Follow these steps to use the modified `parameters-p2s.json` and run the script 
     |Parameter  |Description  |
     |---------|---------|
     |Location     |This is the region in which the Azure resources must be created.         |
-    |AzureAppRuleFilePath     |        |
+    |AzureAppRuleFilePath     | This is the file path for `appRule.json`.       |
     |AzureIPRangesFilePath     |This is the Service Tag json file that you downloaded in the earlier step.         |
     |ResourceGroupName     | This is the name of the resource group under which all the Azure resources are created.        |
     |AzureDeploymentName    |This is the name for your Azure deployment.         |

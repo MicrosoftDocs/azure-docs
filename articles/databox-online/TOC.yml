@@ -94,7 +94,7 @@
     - name: Configure VPN (Preview)
       items:
       - name: Configure via Azure PowerShell
-        href: azure-stack-edge-pro-r-configure-vpn-powershell.md 
+        href: azure-stack-edge-mini-r-configure-vpn-powershell.md 
       - name: Configure for BCDR
         href: azure-stack-edge-pro-r-configure-vpn-bcdr.md 
 
