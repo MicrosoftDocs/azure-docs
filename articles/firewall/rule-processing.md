@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: victorh
 ---
 
@@ -22,6 +22,12 @@ It's best to initially space your rule collection priority numbers in 100 increm
 ### Network rules and applications rules
 
 If you configure network rules and application rules, then network rules are applied in priority order before application rules. The rules are terminating. So if a match is found in a network rule, no other rules are processed.  If there is no network rule match, and if the protocol is HTTP, HTTPS, or MSSQL, then the packet is then evaluated by the application rules in priority order. If still no match is found, then the packet is evaluated against the [infrastructure rule collection](infrastructure-fqdns.md). If there is still no match, then the packet is denied by default.
+
+#### Network rule protocol
+
+Network rules can be configured for **TCP**, **UDP**, **ICMP**, or **Any** IP protocol. Any IP protocol includes all the IP protocols as defined in the [Internet Assigned Numbers Authority (IANA) Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) document. If a destination port is explicitly configured, then the rule is translated to a TCP+UDP rule.
+
+Before 11/9/2020, **Any** meant **TCP**, or **UDP**, or **ICMP**. So, you might have configured a rule before that date with Protocol = Any, and destination ports = '*'. If you don't actually intend to allow any IP protocol as currently defined, then modify the rule to explicitly configure your desired protocol (TCP, UDP, or ICMP).
 
 ## Inbound connectivity
 
