@@ -161,14 +161,14 @@ Azure SignalR Service is not intended to run web applications, and does not requ
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41392).
 
-**Guidance**: Azure SignalR Service uses Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in
+**Guidance**: Azure SignalR Service uses Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in:
 
 - Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
 - Your organization's resources, such as applications on Azure or your corporate network resources.
 
-Here is the list of built-in roles in Azure SignalR Service:
+These are the built-in roles in Azure SignalR Service:
 
-- [- SignalR Contricutor](../role-based-access-control/built-in-roles.md#signalr-contributor)
+- [- SignalR Contributor](../role-based-access-control/built-in-roles.md#signalr-contributor)
 - [- SignalR AccessKey Reader](../role-based-access-control/built-in-roles.md#signalr-accesskey-reader)
 - [- SignalR App Server (Preview)](../role-based-access-control/built-in-roles.md#signalr-app-server-preview)
 - [- SignalR Serverless Contributor (Preview)](../role-based-access-control/built-in-roles.md#signalr-serverless-contributor-preview)
@@ -177,7 +177,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 
 Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture.
 
-Azure AD supports external identity that allow users without a Microsoft account to sign-in to their applications and resources with their external identity.
+Azure AD supports external identities that allows users without a Microsoft account to sign-in to their applications and resources with their external identity.
 
 - [Tenancy in Azure Active Directory](../active-directory/develop/single-and-multi-tenant-apps.md)
 
@@ -196,7 +196,7 @@ Azure AD supports external identity that allow users without a Microsoft account
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41393).
 
-**Guidance**: Azure SignalR Service uses Azure managed identities for non-human accounts such as calling upstreams in serverless scenario, it is recommended to use Azure managed identity feature to access other Azure resources. Azure SignalR Service can natively authenticate to the Azure services/resources that supports Azure AD authentication through pre-defined access grant rule without using credential hard coded in source code or configuration files.
+**Guidance**: Azure SignalR Service uses Azure managed identities for non-human accounts such as the one calling upstream in a serverless scenario. It is recommended to use Azure managed identity feature to access other Azure resources. Azure SignalR Service can natively authenticate to the Azure services or resources that supports Azure Active Directory (Azure AD) authentication through pre-defined access grant rule without using credential hard coded in source code or configuration files.
 
 - [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -253,11 +253,11 @@ For administrator and privileged users, ensure the highest level of the strong a
 
 **Guidance**: Azure SignalR Service is integrated with Azure Active Directory in which provides the following data sources:
 
-Sign-ins - The sign-ins report provides information about the usage of managed applications and user sign-in activities.
+Sign in - The sign in report provides information about the usage of managed applications and user sign in activities.
 
 Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
 
-Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+Risky sign in - A risky sign in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
 
 Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
@@ -308,7 +308,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure SignalR Service doesn't allow customer to deploy any persisted data into the running environment.
+**Guidance**: Not applicable; Azure SignalR Service does not allow customers to deploy persistent data into the running environment.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -322,7 +322,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure SignalR Service doesn't access any legacy applications.
+**Guidance**: Not applicable; Azure SignalR Service does not access or provide access to any legacy applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -339,11 +339,11 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use Activ
 
 **Guidance**: The most critical built-in roles are Azure AD are Global Administrator and the Privileged Role Administrator as users assigned to these two roles can delegate administrator roles:
 
-Global Administrator / Company Administrator: Users with this role have access to all administrative features in Azure AD, as well as services that use Azure AD identities.
+- Global Administrator / Company Administrator: Users with this role have access to all administrative features in Azure Active Directory (Azure AD), as well as services that use Azure AD identities.
 
-Privileged Role Administrator: Users with this role can manage role assignments in Azure AD, as well as within Azure AD Privileged Identity Management (PIM). In addition, this role allows management of all aspects of PIM and administrative units.
+- Privileged Role Administrator: Users with this role can manage role assignments in Azure Active Directory (Azure AD), as well as within Azure AD Privileged Identity Management (PIM). In addition, this role allows management of all aspects of PIM and administrative units.
 
-Azure SignalR Service has built-in highly privileged roles. Limit the number of highly privileged accounts or roles and protect these accounts at an elevated level because users with this privilege can directly or indirectly read and modify every resource in your Azure environment.
+Azure SignalR Service has built-in highly privileged roles. Limit the number of highly privileged accounts or roles and protectAzure Active Directory (Azure AD) these accounts at an elevated level because users with this privilege can directly or indirectly read and modify every resource in your Azure environment.
 
 You can enable just-in-time (JIT) privileged access to Azure resources and Azure AD using Azure AD Privileged Identity Management (PIM). JIT grants temporary permissions to perform privileged tasks only when users need it. PIM can also generate security alerts when there is suspicious or unsafe activity in your Azure AD organization.
 
@@ -387,7 +387,7 @@ Azure subscription administrators ../cost-management-billing/manage/add-change-s
 
 **Guidance**: Review user accounts and access assignment regularly to ensure the accounts and their level of access are valid.
 
-Azure SignalR Service uses Azure Active Directory (AAD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
+Azure SignalR Service uses Azure Active Directory (Azure AD) accounts to manage its resources, review user accounts and access assignment regularly to ensure the accounts and their access are valid. You can use Azure AD access reviews to review group memberships, access to enterprise applications, and role assignments. Azure AD reporting can provide logs to help discover stale accounts. You can also use Azure AD Privileged Identity Management to create access review report workflow to facilitate the review process.
 
 In addition, Azure Privileged Identity Management can also be configured to alert when an excessive number of administrator accounts are created, and to identify administrator accounts that are stale or improperly configured.
 
@@ -396,7 +396,7 @@ In addition, Azure Privileged Identity Management can also be configured to aler
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
 Here is the list of built-in roles in Azure SignalR Service:
-- [- SignalR Contricutor](../role-based-access-control/built-in-roles.md#signalr-contributor)
+- [- SignalR Contributor](../role-based-access-control/built-in-roles.md#signalr-contributor)
 
 - [- SignalR AccessKey Reader](../role-based-access-control/built-in-roles.md#signalr-accesskey-reader)
 
@@ -417,7 +417,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41423).
 
-**Guidance**: Azure SignalR Service uses Azure Active Directory to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
+**Guidance**: Azure SignalR Service uses Azure Active Directory (Azure AD) to manage its resources. To prevent being accidentally locked out of your Azure AD organization, set up an emergency access account for access when normal administrative accounts cannot be used. Emergency access accounts are usually highly privileged, and they should not be assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used.
 
 You should ensure that the credentials (such as password, certificate, or smart card) for emergency access accounts are kept secure and known only to individuals who are authorized to use them only in an emergency.
 
@@ -432,7 +432,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41424).
 
-**Guidance**: Azure SignalR Service is integrated with Azure Active Directory to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
+**Guidance**: Azure SignalR Service is integrated with Azure Active Directory (Azure AD) to manage its resources. Use Azure AD entitlement management features to automate access request workflows, including access assignments, reviews, and expiration. Dual or multi-stage approval is also supported.
 
 - [What are Azure AD access reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -473,7 +473,7 @@ What is Azure role-based access control (Azure RBAC) ../role-based-access-contro
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md) 
 
 Here is the list of built-in roles in Azure SignalR Service:
-- [SignalR Contricutor](../role-based-access-control/built-in-roles.md#signalr-contributor)
+- [SignalR Contributor](../role-based-access-control/built-in-roles.md#signalr-contributor)
 
 - [SignalR AccessKey Reader](../role-based-access-control/built-in-roles.md#signalr-accesskey-reader)
 
@@ -497,7 +497,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure SignalR Service doesn't store customer data.
+**Guidance**: Not applicable; Azure SignalR Service does not store customer data.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -515,7 +515,7 @@ Here is the list of built-in roles in Azure SignalR Service:
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure SignalR Service may be used to transmit sensitive data but it doesn't have capability to discovery, classify, and labeling sensitive data currently.
+**Guidance**: Not applicable. Azure SignalR Service does not have the capability to discover, classify, and label sensitive data currently.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -548,7 +548,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure SignalR Service may be used to transmit sensitive data but does not support monitoring for unauthorized transfer of sensitive data currently.
+**Guidance**: Not applicable; Azure SignalR Service does not support monitoring for unauthorized transfer of sensitive data.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -683,7 +683,7 @@ Remove Azure resources when they are no longer needed.
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azire SignalR Service is not comprised of any virtual machines or containers which would either expose compute resources or allow customers to install applications on them.
+**Guidance**: Not applicable. Azure SignalR Service is not comprised of any virtual machines or containers which would either expose compute resources or allow customers to install applications on them.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -712,21 +712,18 @@ Remove Azure resources when they are no longer needed.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41407).
 
-**Guidance**: Azure AD provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
+**Guidance**: Azure Active Directory (Azure AD) provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:
 
-Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.
+- Sign in – The sign- n report provides information about the usage of managed applications and user sign-in activities.
 
-Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
+- Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
 
-Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
-
-Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+- Risky sign ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+- Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
 Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, Azure Security Center’s Threat Protection module can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you have visibility on account anomalies inside the individual resources.
 
-Audit activity reports in the Azure Active Directory
-
-../active-directory/reports-monitoring/concept-audit-logs.md
+- [Audit activity reports in the Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md)
 
 - [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -955,13 +952,13 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 **Guidance**: Azure SignalR Service supports below service-specific policies that are available in Azure Security Center to audit and enforce configurations of your Azure resources. This can be configured in Azure Security Center or Azure Policy initiatives.
 
-- [- Azure SignalR Service should use private links](signalr-howto-azure-policy.md)
-
 You can use Azure Blueprints to automate deployment and configuration of services and application environments including Azure Resources Manager templates, Azure role-based access controls (Azure RBAC) controls, and policies, in a single blueprint definition.
 
 - [Working with security policies in Azure Security Center](../security-center/tutorial-security-policy.md)
 
 - [Illustration of Guardrails implementation in Enterprise Scale Landing Zone](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
+
+- [Audit compliance of Azure SignalR Service resources using Azure Policy](signalr-howto-azure-policy.md)
 
 - [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
@@ -978,9 +975,9 @@ You can use Azure Blueprints to automate deployment and configuration of service
 
 **Guidance**: Use Azure Security Center to monitor your configuration baseline and enforce using Azure Policy [deny] and [deploy if not exist] to enforce secure configuration for Azure SignalR Service. Azure SignalR Service policy includes:
 
-- [- Azure SignalR Service should use private links](signalr-howto-azure-policy.md)
-
 Additional information is available at the referenced links.
+
+- [Audit compliance of Azure SignalR Service resources using Azure Policy](signalr-howto-azure-policy.md)
 
 - [Understand Azure Policy effects](../governance/policy/concepts/effects.md)
 
@@ -1055,7 +1052,7 @@ Additional information is available at the referenced links.
 >[!NOTE]
 >Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-**Guidance**: Not applicable; Azure SignalR Service doesn't provide capability to support software remediation automatically.
+**Guidance**: Not applicable; Azure SignalR Service does not offer the capability to support software remediation automatically.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1213,7 +1210,8 @@ This strategy should include documented guidance, policy, and standards for the 
 
 -	Appropriate cryptographic standards
 
-For more information, see the following references:
+More information is available at the referenced links.
+
 - [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
