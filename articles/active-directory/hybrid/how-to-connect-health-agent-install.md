@@ -314,15 +314,11 @@ To configure the Azure AD Connect Health agent to use an HTTP proxy, you can:
 
 #### Import existing proxy settings
 
-##### Import from Internet Explorer
-
 You can import Internet Explorer HTTP proxy settings so that the Azure AD Connect Health agents can use the settings. On each of the servers that run the health agent, run the following PowerShell command:
 
 ```powershell
 Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
 ```
-
-##### Import from WinHTTP
 
 You can import WinHTTP proxy settings so that the Azure AD Connect Health agents can use them. On each of the servers that run the health agent, run the following PowerShell command:
 
