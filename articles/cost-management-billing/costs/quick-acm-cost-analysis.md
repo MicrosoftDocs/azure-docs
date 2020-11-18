@@ -160,7 +160,7 @@ If you need the full, unaggregated dataset, download it from the billing account
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 1. If you're using a local install, run the [az login](/cli/azure/reference-index#az_login) command to sign into Azure:
 
