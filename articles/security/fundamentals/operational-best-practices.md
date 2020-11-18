@@ -72,9 +72,9 @@ Here are some best practices for using management groups:
 Good candidates include:
 
 - Regulatory requirements that have a clear business impact (for example, restrictions related to data sovereignty)
-- Requirements with near-zero potential negative affect on operations, like policy with audit effect or RBAC permission assignments that have been carefully reviewed
+- Requirements with near-zero potential negative affect on operations, like policy with audit effect or Azure RBAC permission assignments that have been carefully reviewed
 
-**Best practice**: Carefully plan and test all enterprise-wide changes on the root management group before applying them (policy, RBAC model, and so on).   
+**Best practice**: Carefully plan and test all enterprise-wide changes on the root management group before applying them (policy, Azure RBAC model, and so on).   
 **Detail**: Changes in the root management group can affect every resource on Azure. While they provide a powerful way to ensure consistency across the enterprise, errors or incorrect usage can negatively affect production operations. Test all changes to the root management group in a test lab or production pilot.
 
 ## Streamline environment creation with blueprints

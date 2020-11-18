@@ -33,6 +33,9 @@ Use this table to determine availability of standard and neural voices by region
 | West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
 
+> [!TIP]
+> [Voices in preview](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) are only available in these 3 regions: East US, West Europe and Southeast Asia.
+
 ### Custom voices
 
 If you've created a custom voice font, use the endpoint that you've created. You can also use the endpoints listed below, replacing the `{deploymentId}` with the deployment ID for your voice model.

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 
