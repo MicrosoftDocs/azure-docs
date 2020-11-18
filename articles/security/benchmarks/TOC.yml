@@ -62,6 +62,8 @@
     href: security-baselines-overview.md
   - name: API Management security baseline
     href: ../../api-management/security-baseline.md
+  - name: App Service security baseline
+    href: ../../app-service/security-baseline.md
   - name: Application Gateway security baseline
     href: ../../application-gateway/security-baseline.md
   - name: Automation security baseline
