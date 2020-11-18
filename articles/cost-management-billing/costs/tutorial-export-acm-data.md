@@ -80,13 +80,7 @@ Start by preparing your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-1. If you're using a local install, run the [az login](/cli/azure/reference-index#az_login) command to sign into Azure:
-
-   ```azurecli
-   az login
-   ```
-
-1. To see your current exports, use the [az costmanagement export list](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_list) command:
+1. After you sign in, to see your current exports, use the [az costmanagement export list](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_list) command:
 
    ```azurecli
    az costmanagement export list --scope "subscriptions/00000000-0000-0000-0000-000000000000"
@@ -112,7 +106,11 @@ Start by preparing your environment for the Azure CLI:
 1. Run the [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) command to create the export:
 
    ```azurecli
-   az costmanagement export create --name DemoExport --type ActualCost --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo --storage-container democontainer --timeframe MonthToDate --recurrence Daily --recurrence-period from="2020-06-01T00:00:00Z" to="2020-10-31T00:00:00Z" --schedule-status Active --storage-directory demodirectory
+   az costmanagement export create --name DemoExport --type ActualCost \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
+   --storage-container democontainer --timeframe MonthToDate --recurrence Daily \
+   --recurrence-period from="2020-06-01T00:00:00Z" to="2020-10-31T00:00:00Z" \
+   --schedule-status Active --storage-directory demodirectory
    ```
 
    For type, you can choose `ActualCost`, `AmortizedCost`, or `Usage`.
@@ -122,13 +120,15 @@ Start by preparing your environment for the Azure CLI:
 1. To see the details of your export operation, use the [az costmanagement export show](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_show) command:
 
    ```azurecli
-   az costmanagement export show --name DemoExport --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+   az costmanagement export show --name DemoExport \
+      --scope "subscriptions/00000000-0000-0000-0000-000000000000"
    ```
 
 1. Update an export by using the [az costmanagement export update](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_update) command:
 
    ```azurecli
-   az costmanagement export update --name DemoExport --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-directory demodirectory02
+   az costmanagement export update --name DemoExport 
+      --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-directory demodirectory02
    ```
 
    This example changes the output directory.
