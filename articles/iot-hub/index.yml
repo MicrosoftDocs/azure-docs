@@ -78,9 +78,9 @@ landingContent:
      linkLists:
      -  linkListType: overview
         links:
-        - text: Overview for Operators
+        - text: Overview for operators
           url: /azure-stack/operator/iot-hub-rp-overview
-        - text: Overview for Users
+        - text: Overview for users
           url: /azure-stack/user/iot-hub-overview
      -  linkListType: how-to-guide
         links:
