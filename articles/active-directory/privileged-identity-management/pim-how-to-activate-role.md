@@ -64,7 +64,7 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
 1. After multi-factor authentication, select **Activete before proceeding**.
 
-    ![Verify my identity with MFA before role activates](./media/pim-resource-roles-activate-your-roles/activate-role-mfa-banner.png)
+    ![Verify my identity with MFA before role activates](./media/pim-how-to-activate-role/activate-role-mfa-banner.png)
 
 1. If you want to specify a reduced scope, select **Scope** to open the filter pane. On the filter pane, you can specify the Azure AD resources that you need access to. It's a best practice to request access to the fewest resources that you need.
 
