@@ -27,9 +27,9 @@ Use this article to find the limits for the size, and rates that you can send da
 
 | Limit | Value |
 |------------------------|---------------|
-| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Also applies to the Text Analytics for health container. |
+| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Also applies to Text Analytics for health. |
 | Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Does not apply to Text Analytics for health. |
-| Maximum size of entire request | 1 MB. Also applies to the Text Analytics for health container. |
+| Maximum size of entire request | 1 MB. Also applies to Text Analytics for health. |
 
 The maximum number of documents you can send in a single request will depend on the API version and feature you're using. The `/analyze` endpoint will reject the entire request if any document exceeds the max size (125K characters)
 
@@ -74,7 +74,7 @@ Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/p
 | S3            | 500                 | 500                 |
 | S4            | 1000                | 1000                |
 
-Requests are measured for each Text Analytics feature separately. For example, you can send the maximum number of requests for your pricing tier to each feature, at the same time. As an example, if you're in the `S` tier and send 1000 requests at once, you wouldn't be able to send another request for 59 seconds.
+Requests rates are measured for each Text Analytics feature separately. You can send the maximum number of requests for your pricing tier to each feature, at the same time. For example, if you're in the `S` tier and send 1000 requests at once, you wouldn't be able to send another request for 59 seconds.
 
 
 ## See also
