@@ -33279,7 +33279,12 @@
     },
     {
       "source_path": "articles/app-service/app-service-security-attributes.md",
-      "redirect_url": "/azure/app-service/app-service-security-controls",
+      "redirect_url": "/azure/app-service/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-security-controls.md",
+      "redirect_url": "/azure/app-service/security-baseline",
       "redirect_document_id": false
     },
     {
