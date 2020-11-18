@@ -60,7 +60,7 @@ The following IDs are used for a content definition with an ID of `api.signupors
 
 The following example shows the use of some of the user interface elements in the sign-up or sign-in page:
 
-![Sign-up or sign-in page UX elements](./media/localization-string-ids/localization-susi-2.png)
+:::image type="content" source="./media/localization-string-ids/localization-susi-2.png" alt-text="Screenshot that shows sign-up or sign-in page U X elements.":::
 
 ### Sign-up or sign-in identity providers
 
@@ -436,9 +436,9 @@ The following are the IDs for [Restful service technical profile](restful-techni
 </LocalizedResources>
 ```
 
-## Azure MFA error messages
+## Azure AD MFA error messages
 
-The following are the IDs for an [Azure MFA technical profile](multi-factor-auth-technical-profile.md) error messages:
+The following are the IDs for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error messages:
 
 | ID | Default value |
 | -- | ------------- |
@@ -449,7 +449,7 @@ The following are the IDs for an [Azure MFA technical profile](multi-factor-auth
 |UserMessageIfThrottled | Your request has been throttled, please try again later.|
 |UserMessageIfWrongCodeEntered|Wrong code entered, please try again.|
 
-### Azure MFA example
+### Azure AD MFA example
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">

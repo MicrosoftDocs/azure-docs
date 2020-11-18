@@ -83,9 +83,7 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
 
 1. Select **Administration** > **System Updates** and then select **Request Download Link**.
 
-1. Select the option you want to download the VMware HCX Connector OVA file.
-
-   :::image type="content" source="media/tutorial-vmware-hcx/vmware-hcx-download-link.png" alt-text="request download link" lightbox="media/tutorial-vmware-hcx/vmware-hcx-download-link.png":::
+1. Select the option of your choice to download the VMware HCX Connector OVA file.
 
 ## Deploy the VMware HCX Connector OVA on-premises
 
@@ -157,7 +155,7 @@ After you deploy the VMware HCX Connector OVA on-premises and start the applianc
    > [!NOTE]
    > You'll experience a delay after restarting before being prompted for the next step.
 
-After the services restart, you must see vCenter showing as green on the screen that appears. Both vCenter and SSO must have the appropriate configuration parameters, which should be the same as the previous screen.
+After the services restart, you'll see vCenter showing as green on the screen that appears. Both vCenter and SSO must have the appropriate configuration parameters, which should be the same as the previous screen.
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot of the dashboard with green vCenter status." lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
@@ -174,11 +172,7 @@ You can connect (pair) the VMware HCX Cloud Manager in Azure VMware Solution wit
 
 1. Sign in to your on-premises vCenter, and under **Home**, select **HCX**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png" alt-text="Screenshot of vCenter Client with HCX selected among shortcuts." lightbox="media/tutorial-vmware-hcx/vcenter-vmware-hcx.png":::
-
 1. Under **Infrastructure**, select **Site Pairing**, and then select the **Connect To Remote Site** option (in the middle of the screen). 
-
-   :::image type="content" source="media/tutorial-vmware-hcx/connect-remote-site.png" alt-text="Screenshot of selections for creating a remote site." lightbox="media/tutorial-vmware-hcx/connect-remote-site.png":::
 
 1. Enter the Azure VMware Solution HCX URL or IP address that you noted earlier, the Azure VMware Solution cloudadmin\@vsphere.local username, and the password. Then select **Connect**.
 
@@ -219,7 +213,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 
 ### Create a compute profile
 
-1. Select **Compute Profiles** > **Create Compute Profile**.
+1. Under **Infrastructure**, select **Interconnect** > **Compute Profiles** > **Create Compute Profile**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-create.png" alt-text="Screenshot that shows the selections for starting to create a compute profile." lightbox="media/tutorial-vmware-hcx/compute-profile-create.png":::
 
@@ -342,7 +336,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: S
 
 If you want to extend any networks from your on-premises environment to Azure VMware Solution, follow these steps:
 
-1. Under **Services**, select **Network Extension**, and then select **Create a Network Extension**.
+1. Under **Services**, select **Network Extension** > **Create a Network Extension**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-network-extension.png" alt-text="Screenshot that shows selections for starting to create a network extension." lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
 
