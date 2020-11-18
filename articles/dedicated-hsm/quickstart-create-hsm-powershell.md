@@ -23,15 +23,15 @@ before you begin.
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
-  > [!IMPORTANT]
-  > While the **Az.DedicatedHsm** PowerShell module is in preview, you must install it separately
-  > using the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it
-  > will be part of future Az PowerShell module releases and available by default from within Azure
-  > Cloud Shell.
+     > [!IMPORTANT]
+     > While the **Az.DedicatedHsm** PowerShell module is in preview, you must install it separately
+     > using the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it
+     > will be part of future Az PowerShell module releases and available by default from within Azure
+     > Cloud Shell.
 
-  ```azurepowershell-interactive
-  Install-Module -Name Az.DedicatedHsm
-  ```
+     ```azurepowershell-interactive
+     Install-Module -Name Az.DedicatedHsm
+     ```
 
 * If you have multiple Azure subscriptions, choose the appropriate subscription in which the
   resources should be billed. Select a specific subscription using the
