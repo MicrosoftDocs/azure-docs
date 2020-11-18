@@ -11,7 +11,7 @@ Resource Manager provides the following functions for working with dates in your
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
 
-[!INCLUDE [Bicep preview](../../includes/resource-manager-bicep-preview.md)]
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## dateTimeAdd
 

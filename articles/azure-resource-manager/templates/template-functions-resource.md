@@ -21,7 +21,7 @@ Resource Manager provides the following functions for getting resource values in
 
 To get values from parameters, variables, or the current deployment, see [Deployment value functions](template-functions-deployment.md).
 
-[!INCLUDE [Bicep preview](../../includes/resource-manager-bicep-preview.md)]
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## extensionResourceId
 
