@@ -54,8 +54,7 @@ To use Spark analytics, create and use **serverless Apache Spark pools** in your
 
 ## Next steps
 
-- [Create a workspace](quickstart-create-workspace.md)
-- [Create a dedicated SQL pool](quickstart-create-sql-pool-portal.md)
-- [Create a serverless Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
-- [Use serverless SQL pool](quickstart-sql-on-demand.md)
+* [Get started with Azure Synapse Analytics](get-started.md)
+* [Create a workspace](quickstart-create-workspace.md)
+* [Use serverless SQL pool](quickstart-sql-on-demand.md)
 
