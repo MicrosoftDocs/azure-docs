@@ -50,4 +50,8 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 ## Next steps
 
+<<<<<<< HEAD
 [az ams transform (CLI)](/cli/azure/ams/transform?view=azure-cli-latest)
+=======
+[az ams transform (CLI)](/cli/azure/ams/transform?view=azure-cli-latest&preserve-view=true)
+>>>>>>> 21711d901ba8e5b94f1b0ac808bee2a8791320a0
