@@ -4,7 +4,7 @@ ms.service: media-services
 ms.topic: include
 ms.date: 08/18/2020
 ms.author: inhenkel
-ms.custom: REST
+ms.custom: JSON
 ---
 
 <!--Create a basic transform REST-->
@@ -14,10 +14,13 @@ The following Azure REST command creates a basic audio asset. Replace the values
 Change the `@odata.type` to one of the [available presets](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#definitions), such as `#Microsoft.Media.AudioAnalyzerPreset`.
 
 ```
+
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaServices/{{accountName}}/transforms/{{transformName}}?api-version=2020-05-01
+
 ```
 
 ## Body
+
 ```json
 {
     "properties": {
