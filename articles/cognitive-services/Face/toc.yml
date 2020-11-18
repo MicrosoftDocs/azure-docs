@@ -76,7 +76,7 @@
   - name: Face enrollment
     items:
     - name: Overview
-      href: tbd
+      href: enrollment-overview.md
     - name: How-to guides
       items:
       - name: Build an enrollment app with React
