@@ -41,7 +41,8 @@ As you prepare your deployment, we recommend that you review the following VMwar
 
 ## Prerequisites
 
-* If you plan to use VMware HCX Enterprise, make sure you've requested activation through the Azure VMware Solution support channels.
+If you plan to use VMware HCX Enterprise, make sure you've requested activation through the Azure VMware Solution support channels.
+
 
 ### On-premises vSphere environment
 
