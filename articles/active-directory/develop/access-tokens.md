@@ -186,7 +186,7 @@ If none of the above scenarios apply, your application will not benefit from val
 
 If your application needs to validate an id_token or an access_token according to the above, your app should first validate the token's signature and issuer against the values in the OpenID discovery document. For example, the tenant-independent version of the document is located at [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-The below information is provided for those who wish to understand the underlying process. The Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](sample-v2-code.md) to find one in the language of your choice. There are also several third-party open-source libraries available for JWT validation - there is at least one option for almost every platform and language. For more information about Azure AD authentication libraries and code samples, see the [authentication libraries](reference-v2-libraries.md).
+The following information is provided for those who wish to understand the underlying process. The Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](sample-v2-code.md) to find one in the language of your choice. There are also several third-party open-source libraries available for JWT validation - there is at least one option for almost every platform and language. For more information about Azure AD authentication libraries and code samples, see the [authentication libraries](reference-v2-libraries.md).
 
 ### Validating the signature
 
