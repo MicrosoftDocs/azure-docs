@@ -23,16 +23,17 @@ A **Synapse workspace** is a securable collaboration boundary for doing cloud-ba
 
 A workspace allows you to perform analytics with SQL and Apache spark. Resources available for SQL and Spark analytics are organized into SQL and Spark **pools**. 
 
-## Synapse SQL
+## Synapse SQL Terminology
 
 **Synapse SQL** is the ability to do T-SQL based analytics in Synapse workspace. Synapse SQL has two consumption models: dedicated and serverless.  For the dedicated model, use **dedicated SQL pools**. A workspace can have any number of these pools. To use the serverless model, use the **serverless SQL pools**. Every workspace has one of these pools.
+
+* **SQL Request** - Operation such as a query run through dedicated SQL pool or serverless SQL pool.
+* **SQL script** - Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.
 
 ## Apache Spark for Synapse
 
 To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace.
 
-* **SQL Request** - Operation such as a query run through dedicated SQL pool or serverless SQL pool.
-* **SQL script** - Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.
 
 
 ## Spark Terminology
