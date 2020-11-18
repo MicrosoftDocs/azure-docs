@@ -1,6 +1,6 @@
 ---
-title: Best practices for dedicated SQL pool in Azure Synapse Analytics
-description: Recommendations and best practices for developing solutions for dedicated SQL pool in Azure Synapse Analytics. 
+title: Best practices for dedicated SQL pool (formerly SQL DW)
+description: Recommendations and best practices for developing solutions for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. 
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -12,9 +12,9 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# Best practices for dedicated SQL pool in Azure Synapse Analytics
+# Best practices for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
-This article is a collection of best practices to help you to achieve optimal performance from your [dedicated SQL pool](sql-data-warehouse-overview-what-is.md) deployment.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  
+This article is a collection of best practices to help you to achieve optimal performance from your [dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-overview-what-is.md) deployment.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  
 
 ## Reduce cost with pause and scale
 
@@ -22,7 +22,7 @@ For more information about reducing costs through pausing and scaling, see the [
 
 ## Maintain statistics
 
-Dedicated SQL pool can be configured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  
+Dedicated SQL pool (formerly SQL DW) can be configured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  
 
 We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep the statistics updated daily or after each load to ensure that statistics on columns used in your queries are always up to date.
 
@@ -35,7 +35,7 @@ See also [Manage table statistics](sql-data-warehouse-tables-statistics.md), [CR
 
 ## Use DMVs to monitor and optimize your queries
 
-Dedicated SQL pool has several DMVs that can be used to monitor query execution.  The [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md) article details step-by-step instructions on how to look at the details of an executing query.  
+Dedicated SQL pool (formerly SQL DW) has several DMVs that can be used to monitor query execution.  The [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md) article details step-by-step instructions on how to look at the details of an executing query.  
 
 To quickly find queries in these DMVs, using the LABEL option with your queries can help.
 
@@ -57,7 +57,7 @@ See also [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-a
 
 ## Use PolyBase to load and export data quickly
 
-Dedicated SQL pool supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  However, when you are loading or exporting large volumes of data or fast performance is needed, PolyBase is the best choice.  
+Dedicated SQL pool (formerly SQL DW) supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  However, when you are loading or exporting large volumes of data or fast performance is needed, PolyBase is the best choice.  
 
 PolyBase is designed to leverage distributed nature of the system and will load and export data magnitudes faster than any other tool.  PolyBase loads can be run using CTAS or INSERT INTO.   
 
@@ -96,9 +96,9 @@ See also [Table overview](sql-data-warehouse-tables-overview.md), [Table distrib
 
 ## Do not over-partition
 
-While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy, which may work well on SQL Server may not work well in dedicated SQL pool.  
+While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy, which may work well on SQL Server may not work well in dedicated SQL pool (formerly SQL DW).  
 
-Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows.  Keep in mind that behind the scenes, SQL pool partitions your data for you into 60 databases, so if you create a table with 100 partitions, this actually results in 6000 partitions.  
+Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows.  Keep in mind that behind the scenes, dedicated SQL pool partitions your data for you into 60 databases, so if you create a table with 100 partitions, this actually results in 6000 partitions.  
 
 Each workload is different so the best advice is to experiment with partitioning to see what works best for your workload.  Consider lower granularity than what may have worked for you in SQL Server.  For example, consider using weekly or monthly partitions rather than daily partitions.
 
