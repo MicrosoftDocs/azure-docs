@@ -15,78 +15,46 @@ ms.reviewer: pimorano
 
 By default, Azure Synapse Studio authors directly against the synapse service. This experience has the following limitations:
 
-- Synapse Studio doesn't include a temporary storage  for storing your changes. The only way to save and share changes is via the **Publish** and all changes are published directly to the Synapse service.
+- For now, Synapse Studio doesn't include a temporary storage for storing your changes. The only way to save and share changes is via the **Publish** and all changes are published directly to the Synapse service.
 - The Synapse Studio isn't optimized for collaboration and version control.
 
-To provide a good way to manage and version changes, Synapse Studio allows you to connect your workspace to a Git repository with either Azure DevOps or GitHub. This article will outline how to connect and work in a git repository along with highlighting best practices and a troubleshooting guide.
+To provide a good way to manage and version changes, Synapse Studio allows you to integrate your workspace with a Git repository, Azure DevOps or GitHub. This article will outline how to configure and work in a workspace with git repository enabled with highlighting best practices and a troubleshooting guide.
 
 > [!NOTE]
-> Azure data factory git integration is not available in the Azure Government Cloud.
+> Azure Synapse Studio git integration is not available in the Azure Government Cloud.
 
-To learn more about how Azure Data Factory integrates with Git, view the 15-minute tutorial video below:
+## Configure Git repository in workspace 
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4GNKv]
+After launching your Synapse Studio, you can configure git repository in workspace. A Synapse Studio workspace can only be associated with only one git repository at a time. 
 
-## Advantages of Git integration
+### Configuration method 1: Authoring canvas
 
-Below is a list of some of the advantages git integration provides to the authoring experience:
+In the Synapse Studio authoring canvas, select the **Synapse Live** drop-down menu, and then select **Set up code repository**.
 
--   **Source control:** As your data factory workloads become crucial, you would want to integrate your factory with Git to leverage several source control benefits like the following:
-    -   Ability to track/audit changes.
-    -   Ability to revert changes that introduced bugs.
--   **Partial saves:** When authoring against the data factory service, you can't save changes as a draft and all publishes must pass data factory validation. Whether your pipelines are not finished or you simply don't want to lose changes if your computer crashes, git integration allows for incremental changes of data factory resources regardless of what state they are in. Configuring a git repository allows you to save changes, letting you only publish when you have tested your changes to your satisfaction.
--   **Collaboration and control:** If you have multiple team members contributing to the same factory, you may want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor has equal permissions. Some team members may only be allowed to make changes via Git and only certain people in the team are allowed to publish the changes to the factory.
--   **Better CI/CD:**  If you are deploying to multiple environments with a [continuous delivery process](continuous-integration-deployment.md), git integration makes certain actions easier. Some of these actions include:
-    -   Configure your release pipeline to trigger automatically as soon as there are any changes made to your 'dev' factory.
-    -   Customize the properties in your factory that are available as parameters in the Resource Manager template. It can be useful to keep only the required set of properties as parameters, and have everything else hard coded.
--   **Better Performance:** An average factory with git integration loads 10 times faster than one authoring against the data factory service. This performance improvement is because resources are downloaded via Git.
+![Configure the code repository settings from authoring](media/configure-repo-1.png)
+
+### Configuration method 2: Management hub
+
+Go to the management hub of Synapse Studio. Select **Git configuration** in the **Source control** section. If you have no repository connected, click **Configure**.
+
+![Configure the code repository settings from management hub](media/configure-repo-2.png)
 
 > [!NOTE]
-> Authoring directly with the Data Factory service is disabled in the Azure Data Factory UX when a Git repository is configured. Changes made via PowerShell or an SDK are published directly to the Data Factory service, and are not entered into Git.
+> Users granted as workspace contributor, owner, or higher level roles can configure, edit Setting and disconnect git repository in Azure Synapse studio 
 
-## Connect to a Git repository
+You can connect either Azure DevOps or GitHub git repository in your workspace.
 
-There are four different ways to connect a Git repository to your data factory for both Azure Repos and GitHub. After you connect to a Git repository, you can view and manage your configuration in the [management hub](author-management-hub.md) under **Git configuration** in the **Source control** section
+## Connect with Azure DevOps Git 
 
-### Configuration method 1: Home page
+You can associate a Synapse Studio workspace with an Azure DevOps Repository for source control, collaboration, versioning, and so on. If you don't have an Azure DevOps repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your repository resources first.
 
-In the Azure Data Factory home page, select **Set up Code Repository**.
+### Azure DevOps Git repository settings
 
-![Configure a code repository from home page](media/author-visually/configure-repo.png)
+When connecting to your git repository, first select your repository type as Azure DevOps git, and then select one Azure AD tenant from dropdown list, and click **Continue**.
 
-### Configuration method 2: Authoring canvas
+![Configure the code repository settings](media/connect-with-azuredevops-repo-selected.png)
 
-In the Azure Data Factory UX authoring canvas, select the **Data Factory** drop-down menu, and then select **Set up Code Repository**.
-
-![Configure the code repository settings from authoring](media/author-visually/configure-repo-2.png)
-
-### Configuration method 3: Management hub
-
-Go to the management hub in the ADF UX. Select **Git configuration** in the **Source control** section. If you have no repository connected, click **Set up code repository**.
-
-![Configure the code repository settings from management hub](media/author-visually/configure-repo-3.png)
-
-### Configuration method 4: During factory creation
-
-When creating a new data factory in the Azure portal, you can configure Git repository information in the **Git configuration** tab.
-
-> [!NOTE]
-> When configuring git in the Azure Portal, settings like project name and repo name have to be manually entered instead being part of a dropdown.
-
-![Configure the code repository settings from Azure Portal](media/author-visually/configure-repo-4.png)
-
-## Author with Azure Repos Git integration
-
-Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your resources.
-
-> [!NOTE]
-> You can store script and data files in an Azure Repos Git repository. However, you have to upload the files manually to Azure Storage. A data factory pipeline doesn't automatically upload script or data files stored in an Azure Repos Git repository to Azure Storage.
-
-### Azure Repos settings
-
-![Configure the code repository settings](media/author-visually/repo-settings.png)
-
-The configuration pane shows the following Azure Repos code repository settings:
+The configuration pane shows the following Azure DevOps git settings:
 
 | Setting | Description | Value |
 |:--- |:--- |:--- |
@@ -95,13 +63,12 @@ The configuration pane shows the following Azure Repos code repository settings:
 | **Azure Repos Organization** | Your Azure Repos organization name. You can locate your Azure Repos organization name at `https://{organization name}.visualstudio.com`. You can [sign in to your Azure Repos organization](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | `<your organization name>` |
 | **ProjectName** | Your Azure Repos project name. You can locate your Azure Repos project name at `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | Your Azure Repos code repository name. Azure Repos projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | `<your Azure Repos code repository name>` |
-| **Collaboration branch** | Your Azure Repos collaboration branch that is used for publishing. By default, its `master`. Change this setting in case you want to publish resources from another branch. | `<your collaboration branch name>` |
+| **Collaboration branch** | Your Azure Repos collaboration branch that is used for publishing. By default, its `master`. Change this setting in case you want to publish resources from another branch. You can select existing branches or create new | `<your collaboration branch name>` |
 | **Root folder** | Your root folder in your Azure Repos collaboration branch. | `<your root folder name>` |
-| **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX **Authoring canvas** into an Azure Repos Git repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
-| **Branch to import resource into** | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported. You can import resources into one of the following branches: a. Collaboration b. Create new c. Use Existing |  |
+| **Import existing resources to repository** | Specifies whether to import existing resources from the Synapse Studio into an Azure Repos Git repository. Check the box to import your workspace resources (except pools) into the associated Git repository in JSON format. This action exports each resource individually. When this box isn't checked, the existing resources aren't imported. | Checked (default) |
+| **Import resource into this branch** | Select which branch the resources (sql script, notebook, spark job definition, dataset, dataflow etc.) are imported to. 
 
-> [!NOTE]
-> If you are using Microsoft Edge and do not see any values in your Azure DevOps Account dropdown, add https://*.visualstudio.com to the trusted sites list.
+Your can also use repository link to quickly point to the repository  you want to connect with. 
 
 ### Use a different Azure Active Directory tenant
 
@@ -124,17 +91,18 @@ After these configuration steps, your personal repo is available when you set up
 
 For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your Azure DevOps organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
-## Author with GitHub integration
+## Connect with GitHub 
 
-Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
+ You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
 
-The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)) and GitHub Enterprise. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub.
+The GitHub integration with Synapse Studio supports both public GitHub (that is, [https://github.com](https://github.com)) and GitHub Enterprise. You can use both public and private GitHub repositories as long you have read and write permission to the repository in GitHub.
 
-To configure a GitHub repo, you must have administrator permissions for the Azure subscription that you're using.
 
 ### GitHub settings
 
-![GitHub repository settings](media/author-visually/github-integration-image2.png)
+When connecting to your git repository, first select your repository type as GitHub, and then provide your GitHub account or GitHub Enterprise Server URL if you use GitHub Enterprise Server, and click **Continue**.
+
+![GitHub repository settings](media/connect-with-github-repo-1.png)
 
 The configuration pane shows the following GitHub repository settings:
 
@@ -147,14 +115,14 @@ The configuration pane shows the following GitHub repository settings:
 | **Repository Name**  | Your GitHub code repository name. GitHub accounts contain Git repositories to manage your source code. You can create a new repository or use an existing repository that's already in your account. | `<your repository name>` |
 | **Collaboration branch** | Your GitHub collaboration branch that is used for publishing. By default, its master. Change this setting in case you want to publish resources from another branch. | `<your collaboration branch>` |
 | **Root folder** | Your root folder in your GitHub collaboration branch. |`<your root folder name>` |
-| **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX authoring canvas into a GitHub repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
-| **Branch to import resource into** | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported. You can import resources into one of the following branches: a. Collaboration b. Create new c. Use Existing |  |
+| **Import existing resources to repository** | Specifies whether to import existing resources from the Synapse Studio into an Azure Repos Git repository. Check the box to import your workspace resources (except pools) into the associated Git repository in JSON format. This action exports each resource individually. When this box isn't checked, the existing resources aren't imported. | Selected (default) |
+| **Import resource into this branch** | Select which branch the resources (sql script, notebook, spark job definition, dataset, dataflow etc.) is imported. 
 
 ### GitHub organizations
 
 Connecting to a GitHub organization requires the organization to grant permission to Azure Data Factory. A user with ADMIN permissions on the organization must perform the below steps to allow data factory to connect.
 
-#### Connecting to GitHub for the first time in Azure Data Factory
+#### Connecting to GitHub for the first time
 
 If you're connecting to GitHub from Azure Data Factory for the first time, follow these steps to connect to a GitHub organization.
 
@@ -195,17 +163,17 @@ Once you follow these steps, your factory will be able to connect to both public
 
 ## Version control
 
-Version control systems (also known as _source control_) let developers collaborate on code and track changes that are made to the code base. Source control is an essential tool for multi-developer projects.
+Version control systems (also known as _source control_) allows developers to collaborate on code and track changes.Source control is an essential tool for multi-developer projects.
 
 ### Creating feature branches
 
-Each Azure Repos Git repository that's associated with a data factory has a collaboration branch. (`main` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. Once the new branch pane appears, enter the name of your feature branch.
+Each Git repository that's associated with a Synapse Studio has a collaboration branch. (`main` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** in the branch dropdown. Once the new branch pane appears, enter the name of your feature branch.
 
-![Create a new branch](media/author-visually/new-branch.png)
+![Create a new branch](media/create-new-branch.png)
 
-When you are ready to merge the changes from your feature branch to your collaboration branch, click on the branch dropdown and select **Create pull request**. This action takes you to Azure Repos Git where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. (`master` is the default). You are only allowed to publish to the Data Factory service from your collaboration branch. 
+When you are ready to merge the changes from your feature branch to your collaboration branch, click on the branch dropdown and select **Create pull request**. This action takes you to Git provider where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. (`master` is the default). You are only allowed to publish to the Synapse service from your collaboration branch. 
 
-![Create a new pull request](media/author-visually/create-pull-request.png)
+![Create a new pull request](media/create-pull-request.png)
 
 ### Configure publishing settings
 
@@ -224,16 +192,16 @@ Azure Data Factory can only have one publish branch at a time. When you specify 
 
 ### Publish code changes
 
-After you have merged changes to the collaboration branch (`master` is the default), click **Publish** to manually publish your code changes in the master branch to the Data Factory service.
+After merging changes to the collaboration branch (`master` is the default), click **Publish** to manually publish your code changes in the collaboration branch to the synapse service.
 
-![Publish changes to the Data Factory service](media/author-visually/publish-changes.png)
+![Publish changes to the Data Factory service](media/publish-changes.png)
 
 A side pane will open where you confirm that the publish branch and pending changes are correct. Once you verify your changes, click **OK** to confirm the publish.
 
 ![Confirm the correct publish branch](media/author-visually/configure-publish-branch.png)
 
 > [!IMPORTANT]
-> The master branch is not representative of what's deployed in the Data Factory service. The master branch *must* be published manually to the Data Factory service.
+> The collaboration branch is not representative of what's deployed in the service. The changes in collaboration branch *must* be published manually service.
 
 ## Best practices for Git integration
 
