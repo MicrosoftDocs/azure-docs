@@ -1508,7 +1508,7 @@ Can manage all aspects of the Power BI product.
 
 ### Power Platform Administrator permissions
 
-Can create and manage all aspects of Microsoft Dynamics 365, PowerApps and Microsoft Flow. 
+Can create and manage all aspects of Microsoft Dynamics 365, PowerApps and Power Automate.
 
 > [!NOTE]
 > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
@@ -1519,7 +1519,7 @@ Can create and manage all aspects of Microsoft Dynamics 365, PowerApps and Micro
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets for directory-level services. |
 | microsoft.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
-| microsoft.flow/allEntities/allTasks | Manage all aspects of Microsoft Flow. |
+| microsoft.flow/allEntities/allTasks | Manage all aspects of Power Automate. |
 | microsoft.powerApps/allEntities/allTasks | Manage all aspects of PowerApps. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
