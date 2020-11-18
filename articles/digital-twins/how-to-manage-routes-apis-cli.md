@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up and manage endpoints and event routes for Azure Digital Twins data.
 author: alexkarcher-msft
 ms.author: alkarche # Microsoft employees only
-ms.date: 10/12/2020
+ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -160,8 +160,8 @@ The samples in this section use the [.NET (C#) SDK](/dotnet/api/overview/azure/d
 
 **Prerequisite**: You need to create endpoints as described earlier in this article before you can move on to creating a route. You can proceed to creating an event route once your endpoints are finished setting up.
 
->[!NOTE]
->If you have recently deployed your endpoints, validate that they're finished deploying **before** attempting to use them for a new event route. If route deployment fails because the endpoints aren't ready, wait a few minutes and try again.
+> [!NOTE]
+> If you have recently deployed your endpoints, validate that they're finished deploying **before** attempting to use them for a new event route. If route deployment fails because the endpoints aren't ready, wait a few minutes and try again.
 >
 > If you are scripting this flow, you may want to account for this by building in 2-3 minutes of wait time for the endpoint service to finish deploying before moving on to route setup.
 
@@ -244,18 +244,6 @@ To add a filter, you can use a PUT request to *https://{Your-azure-digital-twins
 Here are the supported route filters. Use the detail in the *Filter text schema* column to replace the `<filter-text>` placeholder in the request body above.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]
-
-Note that you can add multiple filters to a request like this: 
-
-```json  
-{
-    "endpointName": "dt-endpoint", 
-    "filter": "true", 
-    "filter": "source = 'resource20200923.api.wus2.digitaltwins.azure.net/myFloorID'", 
-    "filter": "type = 'Microsoft.DigitalTwins.Twin.Delete'", 
-    "filter": "specversion = '1.0'"
-}
-```
 
 ## Manage endpoints and routes with CLI
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to query the Azure Digital Twins twin graph for information.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/26/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -338,7 +338,7 @@ The following code snippet illustrates this call from the client app:
     string query = "SELECT * FROM DIGITALTWINS";
     AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
 ```
-This call returns query results in the form of a [BasicDigitalTwin](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet) object.
+This call returns query results in the form of a [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet) object.
 
 Query calls support paging. Here is a complete example using `BasicDigitalTwin` as query result type with error handling and paging:
 
@@ -348,7 +348,7 @@ try
     await foreach(BasicDigitalTwin twin in result)
         {
             // You can include your own logic to print the result
-            // The below logic prints twin ID's and its contents
+            // The logic below prints twin ID's and its contents
             Console.WriteLine($"Twin ID: {twin.Id} \nTwin data");
             IDictionary<string, object> contents = twin.Contents;
             foreach (KeyValuePair<string, object> kvp in contents)
@@ -369,7 +369,7 @@ There may be a delay of up to 10 seconds before changes in your instance are ref
 
 There are additional limitations on using `JOIN`.
 
-* No sub queries are supported within the `FROM` statement.
+* No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
 * Graph traversal depth is restricted to five `JOIN` levels per query.
 * The source for `JOIN` operations is restricted: query must declare the twins where the query begins.
