@@ -1,22 +1,22 @@
 ---
-title: 'Register and scan Azure Data Lake Storage (Azure Data Lake Storage) Gen1'
-description: This tutorial describes how to scan Azure Data Lake Storage Gen1. 
+title: 'Register and scan Azure Data Lake Storage (ADLS) Gen1'
+description: This tutorial describes how to scan data from Azure Data Lake Storage Gen1 into Azure Purview. 
 author: prmujumd
 ms.author: prmujumd
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 09/28/2020
-# Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
+ms.date: 11/17/2020
+# Customer intent: As a data steward or catalog administrator, I need to understand how to scan data from Azure Data Lake Storage Gen1 into the catalog.
 ---
 
 # Register and scan Azure Data Lake Storage Gen1
 
-This article outlines how to register Azure Data Lake Storage Gen1 as data source in Purview and set up a scan on it.
+This article outlines how to register Azure Data Lake Storage Gen1 as data source in Azure Purview and set up a scan on it.
 
 ## Supported capabilities
 
-The Azure Data Lake Storage Gen1  data source supports the following functionality:
+The Azure Data Lake Storage Gen1 data source supports the following functionality:
 
 - **Full and incremental scans** to capture metadata and classification in Azure Data Lake Storage Gen1
 
@@ -28,37 +28,34 @@ The Azure Data Lake Storage Gen1  data source supports the following functionali
 
 ## Register Azure Data Lake Storage Gen1 data source
 
-1. Navigate to your Purview catalog.
-
-2. Select **Manage your data** tile on the home page.
+1. Navigate to your Purview Data Catalog.
+1. Select **Manage your data** tile on the home page.
 
    :::image type="content" source="media/register-scan-adls-gen1/manage-data.png" alt-text="Purview home page":::
 
-3. Select **Data sources** under the Sources and scanning section.
-
-   Select **New** to register a new data source. Select **Azure Data Lake Storage Gen1** and select **Continue**.
+1. Select **Data sources** under the **Sources and scanning** section. Select **New** to register a new data source. 
+1. Select **Azure Data Lake Storage Gen1** and select **Continue**.
 
    :::image type="content" source="media/register-scan-adls-gen1/new-data-source.png" alt-text="Set up the Azure Data Lake Storage Gen1 data source":::
 
-4. Provide a friendly name (for example Same as your Azure Data Lake Storage resource name) and server endpoint and then select **Finish** to register the data source.
+1. Provide a friendly name and server endpoint and then select **Finish** to register the data source.
 
 ## Setting up authentication for a scan
 
 The following authentication methods are supported for Azure Data Lake Storage Gen1:
 
-- Managed Identity
+- Managed Service Identity (MSI)
 - Service principal
 
-### Authentication - setting up scan using the catalogs MSI (Managed Service Identity)
+### Authentication - setting up scan using the Data Catalog's Managed Service Identity (MSI)
 
 For ease and security, you may want to use the Catalog's Managed Service Identity (MSI) to authenticate with your data store.
 
-To set up a scan using the Catalog's Managed Identity, you must *first* give it permissions (meaning add the identity to the correct role) to whatever resources you are trying to scan. This step must be done *before* you set up your scan or your scan will fail.
+To set up a scan using the Data Catalog's Managed Identity, you must *first* give it permissions (meaning add the identity to the correct role) to whatever resources you are trying to scan. This step must be done *before* you set up your scan or your scan will fail.
 
-### Adding the catalog Managed Service Identity(MSI) to an Azure DataLake Storage Gen1
+### Adding the catalog Managed Service Identity (MSI) to an Azure Data Lake Storage Gen1
 
-You can add the Catalog's MSI at the Subscription, Resource Group, or
-Resource level, depending on what you want it to have scan permissions
+You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions
 on.
 
 > [!Note]
@@ -115,8 +112,7 @@ To use a service principal, you must first create one following these steps:
 
 1. Select **Accounts in this organizational directory only**.
 
-1. For Redirect URI select **Web** and enter any URL you want; it doesn't
-have to be real or work.
+1. For **Redirect URI** select **Web** and enter any URL you want; it doesn't have to be real or work.
 
 1. Then select **Register**.
 
@@ -126,7 +122,7 @@ have to be real or work.
 
 ## Creating and running a scan
 
-1. Navigate to the management center. Select *Data sources* under the Sources and scanning section. Then select the Azure Data Lake Storage Gen1 data source.
+1. Navigate to the management center. Select **Data sources** under **Sources and scanning** section. Then select the **Azure Data Lake Storage Gen1** data source.
 
 2. Select **+ New scan**. Choose the authentication method that you want to use and provide required details.
 
@@ -146,7 +142,7 @@ have to be real or work.
 
 ## Viewing your scans and scan runs
 
-1. Navigate to the management center. Select **Data sources** under the Sources and scanning section. Then, select the Azure Data Lake Storage Gen1 data source.
+1. Navigate to the management center. Select **Data sources** under the **Sources and scanning** section. Then, select the **Azure Data Lake Storage Gen1** data source.
 
 2. Select the scan results that you are interested to view.
 
@@ -154,7 +150,7 @@ have to be real or work.
 
 ## Manage your scans
 
-1. Navigate to the management center. Select **Data sources** under the Sources and scanning section. Then, select the Azure Data Lake Storage Gen1 data source.
+1. Navigate to the management center. Select **Data sources** under the Sources and scanning section. Then, select the **Azure Data Lake Storage Gen1** data source.
 
 2. Select the scan you would like to manage. You can edit the scan by selecting **Edit**.
 
@@ -164,4 +160,4 @@ have to be real or work.
 
 ## Next steps
 
-At this point, the Azure Data Lake Storage Gen1 account is registered and scan is configured.
+- [Register and scan Azure Blob Storage](register-scan-azure-blob-storage-source.md)
