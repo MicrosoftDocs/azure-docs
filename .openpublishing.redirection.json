@@ -1392,11 +1392,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/saas-apps/rstudio-server-pro-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/rstudio-connect-tutorial",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/automation/change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking/overview",
       "redirect_document": false
@@ -6175,7 +6170,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/programmatically-create-subscription.md",
-      "redirect_url": "/azure/azure-resource-manager/management/programmatically-create-subscription",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
       "redirect_document_id": false
     },
     {
@@ -33279,7 +33274,12 @@
     },
     {
       "source_path": "articles/app-service/app-service-security-attributes.md",
-      "redirect_url": "/azure/app-service/app-service-security-controls",
+      "redirect_url": "/azure/app-service/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-security-controls.md",
+      "redirect_url": "/azure/app-service/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -57888,8 +57888,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-resource-manager/management/programmatically-create-subscription.md",
-      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription",
+      "source_path": "articles/cost-management-billing/manage/programmatically-create-subscription.md",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
       "redirect_document_id": true
     },
     {

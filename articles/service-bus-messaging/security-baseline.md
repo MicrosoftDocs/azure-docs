@@ -653,7 +653,7 @@ Use Azure Policy aliases in the "Microsoft.ServiceBus" namespace to create custo
 
 - [Configure customer-managed keys for Service Bus](configure-customer-managed-key.md)
 
-- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [How to create a Key Vault](../key-vault/general/quick-create-portal.md)
 
 **Azure Security Center monitoring**: Yes
 
