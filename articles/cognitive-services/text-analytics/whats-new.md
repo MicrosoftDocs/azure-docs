@@ -20,7 +20,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ### General API updates
 
-* A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) with Text Analytics API v3.1-preview.3 for the new asynchronous Analyze API, which supports batch processing for: NER, PII, and key phrase extraction operations.
+* A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) with Text Analytics API v3.1-preview.3 for the new asynchronous [Analyze API](how-tos/text-analytics-how-to-call-api.md&tabs=analyze#api-request-format), which supports batch processing for NER, PII, and key phrase extraction operations.
 * A [new endpoint](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) with Text Analytics API v3.1-preview.3 for the new asynchronous [Text Analytics for health](how-tos/text-analytics-for-health.md) hosted API with support for batch processing.
 * Both new features listed above are available in:  West US2, East US2, Central US, North Europe and West Europe regions.
 * pt-BR (Portuguese) support for [Sentiment Analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x, starting with model version `2020-04-01`. It adds to the existing pt-PT support for Portuguese.
