@@ -29,6 +29,11 @@ Before you get started, here's what you need to configure MSIX app attach:
 - The file share where you uploaded the MSIX image must also be accessible to all virtual machines (VMs) in the host pool. Users will need read-only permissions to access the image.
 - Download and install PowerShell Core.
 - Download the public preview Azure PowerShell module and expand it to a local folder.
+- Install the Azure module by running the following cmdlet:
+
+    ```powershell
+    Install-Module -Name Az -Force
+    ```
 
 ## Sign in to Azure and import the module
 
@@ -76,7 +81,7 @@ With that cleanup out of the way, it's time to import the module.
 2. Once you've run the import cmdlet, check to see if it has the cmdlets for MSIX by running the following cmdlet:
 
    ```powershell
-   Get-Command -Module Az.DesktopVirtualization | Where-Object { $_.Name -like "MSIX" }
+   Get-Command -Module Az.DesktopVirtualization | Where-Object { $_.Name -match "MSIX" }
    ```
 
    If the cmdlets are there, the output should look like this:
@@ -127,6 +132,12 @@ To set the workspace name:
 $ws = "<WorksSpaceName>"
 ```
 
+To set the host pool name:
+
+```powershell
+$hp = "<HostPoolName>"
+```
+
 To set up the resource group where the session host VMs are configured:
 
 ```powershell
@@ -152,7 +163,7 @@ $obj = Expand-AzWvdMsixImage -HostPoolName $hp -ResourceGroupName $rg -Subscript
 Run this cmdlet to add the MSIX package to your desired host pool:
 
 ```powershell
-New-AzWvdMsixPackage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $subId -PackageAlias $obj.PackageAlias -DisplayName <DisplayName> -ImagePath <UNCPath>
+New-AzWvdMsixPackage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $subId -PackageAlias $obj.PackageAlias -DisplayName <DisplayName> -ImagePath <UNCPath> -IsActive:$true
 ```
 
 Once you're done, confirm the package was created with this cmdlet:
@@ -180,7 +191,7 @@ Get-AzWvdMsixPackage -HostPoolName $hp -ResourceGroupName $rg -SubscriptionId $s
 To remove the package, run this cmdlet:
 
 ```powershell
-Remove-AzWvdMsixPackage -FullName $obj.PackageFullName -HostPoolName $hp -ResourceGroupName $rg -FullName <FullName>
+Remove-AzWvdMsixPackage -FullName $obj.PackageFullName -HostPoolName $hp -ResourceGroupName $rg
 ```
 
 ## Publish MSIX apps to an app group
@@ -200,7 +211,7 @@ Get-AzWvdApplicationGroup -ResourceGroupName $rg -SubscriptionId $subId
 When you've found the name of the app group you want to publish apps to, use its name in this cmdlet:
 
 ```powershell
-$grName = (Get-AzWvdApplicationGroup -ResourceGroupName $rg -SubscriptionId $subId -Name <AppGroupName>.Name
+$grName = "<AppGroupName>"
 ```
 
 Finally, you'll need to publish the app.
