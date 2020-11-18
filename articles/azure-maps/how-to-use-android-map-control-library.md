@@ -80,7 +80,7 @@ Complete these steps to install the SDK:
 
 6. Click **File** on the main toolbar, and then select **Sync Project with Gradle Files**.
 
-7. Open `activity_main.xml` (res \> layout \> activity_main.xml). Click on `Code` view in the upper right-hand corner. Add the following XML inside the `<androidx.constraintlayout.widget.ConstraintLayout>` element.
+7. Open `res > layout > activity_main.xml`. Click on `Code` view in the upper right-hand corner. Add the following XML inside the `<androidx.constraintlayout.widget.ConstraintLayout>` element.
     
     ```XML
     <FrameLayout
@@ -98,11 +98,11 @@ Complete these steps to install the SDK:
     </FrameLayout>
     ```
 
-8. In the **MainActivity.java** file ((java \> com.example.myapplication \> MainActivity.java) you'll need to:
+8. In the `java > com.example.myapplication > MainActivity.java` file, you'll need to:
 
-    * Add imports for the Azure Maps SDK.
-    * Set your Azure Maps authentication information.
-    * Get the map control instance in the **onCreate** method.
+    * add imports for the Azure Maps SDK.
+    * set your Azure Maps authentication information.
+    * get the map control instance in the **onCreate** method.
 
     To avoid having to add authentication information for every application view, we'll set authentication information globally by calling `AzureMaps.setSubscriptionKey`. You can also call `AzureMaps.setAadProperties`, if you wish to authenticate using Azure Active Directory.
 
@@ -117,7 +117,7 @@ Complete these steps to install the SDK:
     * onSaveInstanceState(Bundle)
     * onLowMemory()
 
-    Edit the **MainActivity.java** file as follows:
+    Edit the `MainActivity.java` file as follows:
 
     ```java
     package com.example.myapplication;
@@ -236,7 +236,7 @@ The Azure Maps Android SDK provides three different ways of setting the language
 
 3. Set language and regional settings by calling methods on the map control. This option allows you to change the settings during runtime.
 
-    ```JavaScript
+    ```Java
     mapControl.onReady(map -> {
         map.setStyle(StyleOptions.language("fr-FR"));
         map.setStyle(StyleOptions.view("Auto"));
