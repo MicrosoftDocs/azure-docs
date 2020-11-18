@@ -28,8 +28,8 @@ This article assumes that:
 - You have already created a Storage Sync Service and registered your Windows file server with it. To learn how to deploy Azure File Sync, see [Deploying Azure File Sync](storage-sync-files-deployment-guide.md).
 
 Additionally:
-- If you intend to use Azure PowerShell, [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- If you intend to use the Azure CLI, [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-az-ps).
+- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Create the private endpoints
 When you creating a private endpoint for an Azure resource, the following resources are deployed:

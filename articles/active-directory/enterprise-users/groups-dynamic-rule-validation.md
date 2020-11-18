@@ -7,9 +7,9 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: yukarppa
 ms.custom: it-pro

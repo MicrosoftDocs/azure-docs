@@ -3,13 +3,13 @@ title: Close a work or school account in an unmanaged Azure AD organization
 description: How to close your work or school account in an unmanaged Azure Active Directory.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/20/2019
+ms.date: 11/20/2020
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
