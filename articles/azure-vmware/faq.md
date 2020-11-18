@@ -251,10 +251,10 @@ VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a 
 
 For CSP-managed subscriptions, the customer must submit the request to the partner. The partner team then engages with Microsoft to get the quota increased for the subscription. See [How to enable Azure VMware Solution resource article](enable-azure-vmware-solution.md) for the details. 
 
-For EA subscriptions, customer must follow this procedure:
+For EA subscriptions, use the following procedure. First, you'll need:
 
-* You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
-* You'll need an Azure account in an Azure subscription.
+* An [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
+* An Azure account in an Azure subscription.
 
 Before you create your Azure VMware Solution resource, you must submit a support ticket to allocate your nodes. It takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process.
 
