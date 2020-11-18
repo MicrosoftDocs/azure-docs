@@ -3,7 +3,7 @@ title: Getting started with Android map control
 description: Become familiar with the Microsoft Azure Maps Android SDK. See how to create a project in Android Studio, install the SDK, and create an interactive map.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -31,7 +31,7 @@ Complete these steps to create an Android Studio project:
 1. Launch Android Studio.
 2. Click **+ Create New Project**.
 3. On the **Phone and Tablet** tab, click **Empty  Activity**. Click **Next**.
-4. Under **Configure your project**, select `API 21: Android 5.0.0 (Lollipop)` as the minimum SDK. This is the earliest version supported by the Azure Maps Android SDK.
+4. Under **Configure your project**, select `API 21: Android 5.0.0 (Lollipop)` as the minimum SDK.
 5. Select `Java` as the Language.
 6. Accept the default `Name` for the project. Click **Finish**.
 
@@ -80,7 +80,7 @@ Complete these steps to install the SDK:
 
 6. Click **File** on the main toolbar, and then select **Sync Project with Gradle Files**.
 
-7. Open `activity_main.xml` (res \> layout \> activity_main.xml). Click on `Code` view in the upper right hand corner. Add the following XML inside the `<androidx.constraintlayout.widget.ConstraintLayout>` element.
+7. Open `activity_main.xml` (res \> layout \> activity_main.xml). Click on `Code` view in the upper right-hand corner. Add the following XML inside the `<androidx.constraintlayout.widget.ConstraintLayout>` element.
     
     ```XML
     <FrameLayout
@@ -106,7 +106,7 @@ Complete these steps to install the SDK:
 
     To avoid having to add authentication information for every application view, we'll set authentication information globally by calling `AzureMaps.setSubscriptionKey`. You can also call `AzureMaps.setAadProperties`, if you wish to authenticate using Azure Active Directory.
 
-    The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. For the app to correctly call the map control's lifecycle methods, we'll override the following lifecycle methods in the Activity that contains the map control.
+    The map control overrides the following lifecycle methods of the MainActivity class. These methods are responsible for managing Android's OpenGL lifecycle.
 
     * onCreate(Bundle)
     * onStart()
@@ -222,7 +222,7 @@ The Azure Maps Android SDK provides three different ways of setting the language
     }
     ```
 
-2. Define the language and regional settings settings in the map control XML.
+2. Define the language and regional settings in the map control XML.
 
     ```XML
     <com.microsoft.azure.maps.mapcontrol.MapControl
@@ -258,7 +258,7 @@ There are several different ways in which the map can be zoomed, panned, rotated
 
 - Touch the map with two fingers and pinch together to zoom out or spread the fingers apart to zoom in.
 - Double tap the map to zoom in one level.
-- Double tap with two fingers to zoom the map out one level.
+- Double tap with two fingers to zoom out the map one level.
 - Tap twice; on second tap, hold your finger on the map and drag up to zoom in, or down to zoom out.
 
 **Pan the map**
