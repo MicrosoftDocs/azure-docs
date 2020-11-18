@@ -85,13 +85,12 @@ Layout extracts also selection makrs from documents. Selection marks extracted i
 
 ## Next steps
 
-Try your own layout and samples in the [Form Recognizer Sample Tool](https://fott-preview.azurewebsites.net/).
-Follow the [Extract Layout data](./QuickStarts/python-layout.md) quickstart to implement invoice data extraction using Python and the REST API.
+Try your own layout and samples in the [Form Recognizer Sample Tool](https://fott-preview.azurewebsites.net/) or follow the [Extract Layout data](./QuickStarts/python-layout.md) quickstart to implement layout data extraction using Python and the REST API.
 
 ## See also
 
 * [What is Form Recognizer?](./overview.md)
-* [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeInvoiceAsync)
+* [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync)
 
 
 
