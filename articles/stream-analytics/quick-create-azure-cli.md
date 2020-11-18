@@ -150,7 +150,7 @@ On your local machine, create a file named `serialization.json` and add the foll
 Next, run the `az stream-analytics input create` cmdlet. Be sure to replace the value of `datasource` variable with the path where you've stored the job input definition JSON file, and the value of `serialization` variable with the path where you've stored the serialization JSON file.
 
 ```azurecli
-az stream-analytics input create 
+az stream-analytics input create \
     --resource-group streamanalyticsrg 
     --job-name streamanalyticsjob \
     --name asaiotinput \
@@ -186,7 +186,7 @@ On your local machine, create a file named `datasink.json`, and add the followin
 Next, run the `az stream-analytics output` cmdlet. Be sure to replace the value of `datasource` variable with the path where you've stored the job output definition JSON file, and the value of `serialization` variable with the path where you've stored the serialization JSON file.
 
 ```azurecli
-az stream-analytics output create 
+az stream-analytics output create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name asabloboutput \
@@ -201,7 +201,7 @@ Add a transformation your job by using the [az stream-analytics transformation c
 Run the `az stream-analytics transformation create` cmdlet.
 
 ```azurecli
-az stream-analytics transformation create 
+az stream-analytics transformation create \
     --resource-group streamanalyticsrg \
     --job-name streamanalyticsjob \
     --name Transformation \
@@ -225,7 +225,7 @@ Start the job by using the [az stream-analytics job start](/cli/azure/ext/stream
 After you run the following cmdlet, it returns `True` as output if the job starts. In the storage container, an output folder is created with the transformed data.
 
 ```azurecli
-az stream-analytics job start 
+az stream-analytics job start \
     --resource-group streamanalyticsrg \
     --name streamanalyticsjob \
     --output-start-mode JobStartTime
