@@ -111,7 +111,7 @@ example.json
     {
       "language": "en",
       "id": "1",
-      "text": "Subject is taking 100mg of ibuprofen twice daily."
+      "text": "Subject was administered 100mg remdesivir intravenously over a period of 120 min"
     }
   ]
 }
@@ -131,10 +131,10 @@ The following is an example of the response of a GET request.  Please note that 
 
 ```json
 {
-    "jobId": "c1e6a49f-fa6c-48fa-a1c4-97ed92d809bb",
-    "lastUpdateDateTime": "2020-11-13T09:57:05Z",
-    "createdDateTime": "2020-11-13T09:57:04Z",
-    "expirationDateTime": "2020-11-14T09:57:04Z",
+    "jobId": "b672c6f5-7c0d-4783-ba8c-4d0c47213454",
+    "lastUpdateDateTime": "2020-11-18T01:45:00Z",
+    "createdDateTime": "2020-11-18T01:44:55Z",
+    "expirationDateTime": "2020-11-19T01:44:55Z",
     "status": "succeeded",
     "errors": [],
     "results": {
@@ -143,7 +143,7 @@ The following is an example of the response of a GET request.  Please note that 
                 "id": "1",
                 "entities": [
                     {
-                        "offset": 18,
+                        "offset": 25,
                         "length": 5,
                         "text": "100mg",
                         "category": "Dosage",
@@ -151,141 +151,53 @@ The following is an example of the response of a GET request.  Please note that 
                         "isNegated": false
                     },
                     {
-                        "offset": 27,
-                        "length": 9,
-                        "text": "ibuprofen",
+                        "offset": 31,
+                        "length": 10,
+                        "text": "remdesivir",
                         "category": "MedicationName",
                         "confidenceScore": 1.0,
                         "isNegated": false,
                         "links": [
                             {
                                 "dataSource": "UMLS",
-                                "id": "C0020740"
-                            },
-                            {
-                                "dataSource": "AOD",
-                                "id": "0000019879"
-                            },
-                            {
-                                "dataSource": "ATC",
-                                "id": "M01AE01"
-                            },
-                            {
-                                "dataSource": "CCPSS",
-                                "id": "0046165"
-                            },
-                            {
-                                "dataSource": "CHV",
-                                "id": "0000006519"
-                            },
-                            {
-                                "dataSource": "CSP",
-                                "id": "2270-2077"
-                            },
-                            {
-                                "dataSource": "DRUGBANK",
-                                "id": "DB01050"
-                            },
-                            {
-                                "dataSource": "GS",
-                                "id": "1611"
-                            },
-                            {
-                                "dataSource": "LCH_NW",
-                                "id": "sh97005926"
-                            },
-                            {
-                                "dataSource": "LNC",
-                                "id": "LP16165-0"
-                            },
-                            {
-                                "dataSource": "MEDCIN",
-                                "id": "40458"
-                            },
-                            {
-                                "dataSource": "MMSL",
-                                "id": "d00015"
+                                "id": "C4726677"
                             },
                             {
                                 "dataSource": "MSH",
-                                "id": "D007052"
-                            },
-                            {
-                                "dataSource": "MTHSPL",
-                                "id": "WK2XYI10QM"
+                                "id": "C000606551"
                             },
                             {
                                 "dataSource": "NCI",
-                                "id": "C561"
-                            },
-                            {
-                                "dataSource": "NCI_CTRP",
-                                "id": "C561"
-                            },
-                            {
-                                "dataSource": "NCI_DCP",
-                                "id": "00803"
-                            },
-                            {
-                                "dataSource": "NCI_DTP",
-                                "id": "NSC0256857"
+                                "id": "C152185"
                             },
                             {
                                 "dataSource": "NCI_FDA",
-                                "id": "WK2XYI10QM"
-                            },
-                            {
-                                "dataSource": "NCI_NCI-GLOSS",
-                                "id": "CDR0000613511"
-                            },
-                            {
-                                "dataSource": "NDDF",
-                                "id": "002377"
-                            },
-                            {
-                                "dataSource": "PDQ",
-                                "id": "CDR0000040475"
-                            },
-                            {
-                                "dataSource": "RCD",
-                                "id": "x02MO"
-                            },
-                            {
-                                "dataSource": "RXNORM",
-                                "id": "5640"
-                            },
-                            {
-                                "dataSource": "SNM",
-                                "id": "E-7772"
-                            },
-                            {
-                                "dataSource": "SNMI",
-                                "id": "C-603C0"
-                            },
-                            {
-                                "dataSource": "SNOMEDCT_US",
-                                "id": "387207008"
-                            },
-                            {
-                                "dataSource": "USP",
-                                "id": "m39860"
-                            },
-                            {
-                                "dataSource": "USPMG",
-                                "id": "MTHU000060"
-                            },
-                            {
-                                "dataSource": "VANDF",
-                                "id": "4017840"
+                                "id": "3QKI37EEHE"
                             }
                         ]
                     },
                     {
-                        "offset": 37,
-                        "length": 11,
-                        "text": "twice daily",
-                        "category": "Frequency",
+                        "offset": 42,
+                        "length": 13,
+                        "text": "intravenously",
+                        "category": "MedicationRoute",
                         "confidenceScore": 1.0,
+                        "isNegated": false
+                    },
+                    {
+                        "offset": 56,
+                        "length": 4,
+                        "text": "over",
+                        "category": "Time",
+                        "confidenceScore": 0.87,
+                        "isNegated": false
+                    },
+                    {
+                        "offset": 73,
+                        "length": 7,
+                        "text": "120 min",
+                        "category": "Time",
+                        "confidenceScore": 0.99,
                         "isNegated": false
                     }
                 ],
@@ -297,9 +209,21 @@ The following is an example of the response of a GET request.  Please note that 
                         "target": "#/results/documents/0/entities/1"
                     },
                     {
-                        "relationType": "FrequencyOfMedication",
+                        "relationType": "RouteOfMedication",
                         "bidirectional": false,
                         "source": "#/results/documents/0/entities/2",
+                        "target": "#/results/documents/0/entities/1"
+                    },
+                    {
+                        "relationType": "TimeOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/3",
+                        "target": "#/results/documents/0/entities/1"
+                    },
+                    {
+                        "relationType": "TimeOfMedication",
+                        "bidirectional": false,
+                        "source": "#/results/documents/0/entities/4",
                         "target": "#/results/documents/0/entities/1"
                     }
                 ],
@@ -355,81 +279,65 @@ The following JSON is an example of the Text Analytics for health API response b
             "entities": [
                 {
                     "id": "0",
-                    "offset": 17,
-                    "length": 11,
-                    "text": "itchy sores",
-                    "category": "SymptomOrSign",
-                    "confidenceScore": 1.0,
-                    "isNegated": false
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "entities": [
-                {
-                    "id": "0",
-                    "offset": 11,
-                    "length": 4,
-                    "text": "50mg",
+                    "offset": 25,
+                    "length": 5,
+                    "text": "100mg",
                     "category": "Dosage",
                     "confidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
                     "id": "1",
-                    "offset": 16,
-                    "length": 8,
-                    "text": "benadryl",
+                    "offset": 31,
+                    "length": 10,
+                    "text": "remdesivir",
                     "category": "MedicationName",
                     "confidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
                             "dataSource": "UMLS",
-                            "id": "C0700899"
-                        },
-                        {
-                            "dataSource": "CHV",
-                            "id": "0000044903"
-                        },
-                        {
-                            "dataSource": "MMSL",
-                            "id": "899"
+                            "id": "C4726677"
                         },
                         {
                             "dataSource": "MSH",
-                            "id": "D004155"
+                            "id": "C000606551"
                         },
                         {
                             "dataSource": "NCI",
-                            "id": "C300"
+                            "id": "C152185"
                         },
                         {
-                            "dataSource": "NCI_DTP",
-                            "id": "NSC0033299"
-                        },
-                        {
-                            "dataSource": "PDQ",
-                            "id": "CDR0000039163"
-                        },
-                        {
-                            "dataSource": "PSY",
-                            "id": "05760"
-                        },
-                        {
-                            "dataSource": "RXNORM",
-                            "id": "203457"
+                            "dataSource": "NCI_FDA",
+                            "id": "3QKI37EEHE"
                         }
                     ]
                 },
                 {
                     "id": "2",
-                    "offset": 32,
-                    "length": 11,
-                    "text": "twice daily",
-                    "category": "Frequency",
+                    "offset": 42,
+                    "length": 13,
+                    "text": "intravenously",
+                    "category": "MedicationRoute",
                     "confidenceScore": 1.0,
+                    "isNegated": false
+                },
+                {
+                    "id": "3",
+                    "offset": 56,
+                    "length": 4,
+                    "text": "over",
+                    "category": "Time",
+                    "confidenceScore": 0.87,
+                    "isNegated": false
+                },
+                {
+                    "id": "4",
+                    "offset": 73,
+                    "length": 7,
+                    "text": "120 min",
+                    "category": "Time",
+                    "confidenceScore": 0.99,
                     "isNegated": false
                 }
             ],
@@ -437,26 +345,38 @@ The following JSON is an example of the Text Analytics for health API response b
                 {
                     "relationType": "DosageOfMedication",
                     "bidirectional": false,
-                    "source": "#/documents/1/entities/0",
-                    "target": "#/documents/1/entities/1"
+                    "source": "#/documents/0/entities/0",
+                    "target": "#/documents/0/entities/1"
                 },
                 {
-                    "relationType": "FrequencyOfMedication",
+                    "relationType": "RouteOfMedication",
                     "bidirectional": false,
-                    "source": "#/documents/1/entities/2",
-                    "target": "#/documents/1/entities/1"
+                    "source": "#/documents/0/entities/2",
+                    "target": "#/documents/0/entities/1"
+                },
+                {
+                    "relationType": "TimeOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/0/entities/3",
+                    "target": "#/documents/0/entities/1"
+                },
+                {
+                    "relationType": "TimeOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/0/entities/4",
+                    "target": "#/documents/0/entities/1"
                 }
             ]
         }
     ],
     "errors": [],
-    "modelVersion": "2020-07-24"
+    "modelVersion": "2020-09-03"
 }
 ```
 
 ### Negation detection output
 
-When using negation detection, in some cases a single negation term may address several terms at once. The negation of a recognized entity is represented in the JSON output by the boolean value of the `isNegated` flag:
+When using negation detection, in some cases a single negation term may address several terms at once. The negation of a recognized entity is represented in the JSON output by the boolean value of the `isNegated` flag, for example:
 
 ```json
 {

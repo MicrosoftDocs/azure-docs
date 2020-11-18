@@ -144,24 +144,25 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 
 #### [Text Analytics for health](#tab/health)
 
-
-The format for Text Analytics for health requests is the same as the synchronous operations. Documents are submitted in a JSON object as raw unstructured text. XML is not supported. The JSON schema consists of the elements described below.
+The format for API requests to the Text Analytics for health hosted API is the same as for its container. Documents are submitted in a JSON object as raw unstructured text. XML is not supported. The JSON schema consists of the elements described below.  Please fill out and submit the [Cognitive Services request form](https://aka.ms/csgate) to request access to the Text Analytics for health public preview. You will not be billed for Text Analytics for health usage. 
 
 | Element | Valid values | Required? | Usage |
 |---------|--------------|-----------|-------|
-|`id` |The data type is string, but in practice document IDs tend to be integers. | Required | The system uses the IDs you provide to structure the output. Language codes, key phrases, and sentiment scores are generated for each ID in the request.|
-|`text` | Unstructured raw text, up to 5,120 characters. | Required | For language detection, text can be expressed in any language. For sentiment analysis, key phrase extraction and entity identification, the text must be in a [supported language](../language-support.md). |
-|`language` | 2-character [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code for a [supported language](../language-support.md) | Varies | Required for sentiment analysis, key phrase extraction, and entity linking; optional for language detection. There is no error if you exclude it, but the analysis is weakened without it. The language code should correspond to the `text` you provide. |
+|`id` |The data type is string, but in practice document IDs tend to be integers. | Required | The system uses the IDs you provide to structure the output. |
+|`text` | Unstructured raw text, up to 5,120 characters. | Required | Note that only English text is currently supported. |
+|`language` | 2-character [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code for a [supported language](../language-support.md) | Required | Only `en` is currently supported. |
 
-The following is an example of an API request for the synchronous Text Analytics endpoints. 
+The following is an example of an API request for the Text Analytics for health endpoints. 
 
 ```json
+example.json
+
 {
   "documents": [
     {
       "language": "en",
       "id": "1",
-      "text": "Subject is taking 100mg of ibuprofen twice daily."
+      "text": "Subject was administered 100mg remdesivir intravenously over a period of 120 min"
     }
   ]
 }
@@ -319,12 +320,10 @@ If successful, the GET request to the `/analyze` endpoint will return an object 
 
 # [Text Analytics for health](#tab/health)
 
-If successful, the GET request to the `/health` endpoint will return an object containing the results. For example `keyPhraseExtractionTasks`. These tasks contain the response object from the appropriate Text Analytics feature. See the following articles for more information.
+See the following article for more information for the Text Analytics for health asynchronous API response:
 
-```json
-{
-}
-```
++ [Text Analytics for health](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
+
 
 --- 
 
