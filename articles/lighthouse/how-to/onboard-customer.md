@@ -282,7 +282,7 @@ In the customer's tenant:
 
 Get-AzContext
 
-# Confirm successful Onboarding for Azure LightHouse
+# Confirm successful onboarding for Azure Lighthouse
 
 Get-AzManagedServicesDefinition
 Get-AzManagedServicesAssignment
