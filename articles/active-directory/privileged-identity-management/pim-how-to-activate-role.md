@@ -39,9 +39,6 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 
 When you need to assume an Azure AD role, you can request activation by opening **My roles** in Privileged Identity Management.
 
->[!Important]
-> To assign a privileged access group to a role for administrative access to Exchange, Security and Compliance center, or SharePoint, make the user or group eligible for activation into the group in the Azure AD portal **Roles and Administrators** experience and not in Privileged Identity Management.
-
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Open **Azure AD Privileged Identity Management**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).

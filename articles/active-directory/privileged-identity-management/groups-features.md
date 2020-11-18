@@ -26,6 +26,9 @@ ms.collection: M365-identity-device-management
 
 In Privileged Identity Management (PIM), you can now assign eligibility for membership or ownership of privileged access groups. Starting with this preview, you can assign Azure Active Directory (Azure AD) built-in roles to cloud groups and use PIM to manage group member and owner eligibility and activation. For more information about role-assignable groups in Azure AD, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](../roles/groups-concept.md).
 
+>[!Important]
+> To assign a privileged access group to a role for administrative access to Exchange, Security and Compliance center, or SharePoint, make the user or group eligible for activation into the group in the Azure AD portal **Roles and Administrators** experience and not in Privileged Identity Management.
+
 ## Require different policies for each role assignable group
 
 Some organizations use tools like Azure AD business-to-business (B2B) collaboration to invite their partners as guests to their Azure AD organization. Instead of a single just-in-time policy for all assignments to a privileged role, you can create two different privileged access groups with their own policies. You can enforce less strict requirements for your trusted employees, and stricter requirements like approval workflow for your partners when they request activation into their assigned group.
